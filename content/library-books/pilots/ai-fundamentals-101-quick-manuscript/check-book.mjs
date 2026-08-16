@@ -92,8 +92,15 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(review, /<details class="answer-reveal">/g) !== sourceAnswerSections) errors.push("review does not render every answer section as a closed disclosure");
   if (/<details class="answer-reveal"\s+open/i.test(review)) errors.push("an answer disclosure is open by default");
   if (count(review, /<details class="answer-reveal"><summary>Show answers<\/summary>/g) !== sourceAnswerSections) errors.push("answer disclosures are missing the exact Show answers control");
-  if (count(review, /class="concept-diagram"/g) !== 20) errors.push("review does not contain one instructional concept diagram per chapter");
-  if (count(review, /<strong>What this diagram shows:<\/strong>/g) !== 20) errors.push("instructional diagrams do not each explain their teaching job");
+  const conceptDiagramCount = Number(manifest.counts?.conceptDiagrams || 0);
+  const renderedConceptSections = [...review.matchAll(/class="concept-diagram" data-section="(\d+\.\d+)"/g)].map(match => match[1]);
+  const conceptChapters = renderedConceptSections.map(section => section.split(".")[0]);
+  if (renderedConceptSections.length === 20 && new Set(conceptChapters).size === 20) errors.push("visual plan has collapsed to a one-per-chapter quota instead of section-bound concept decisions");
+  if (renderedConceptSections.length !== conceptDiagramCount) errors.push("review does not render every registered section-bound instructional diagram");
+  if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
+  if (count(review, /<strong>What this diagram shows:<\/strong>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
+  if (count(review, /<details class="chapter-ahead">/g) !== 20) errors.push("review does not keep all chapter goals and opening terms in compact disclosures");
+  if (/<details class="chapter-ahead"\s+open/i.test(review)) errors.push("chapter goals and terms are open before the lesson text");
   if (count(review, /class="system-map(?: |")/g) !== 20) errors.push("review does not contain 20 cumulative AI system maps");
   if (count(review, /class="system-map system-map-complete"/g) !== 1) errors.push("review does not contain exactly one completed final AI ecosystem map");
   if (!review.includes("How to draw it from memory")) errors.push("final system map is missing its reconstruction guide");
@@ -107,17 +114,24 @@ export function inspectBook(pilotDir = ownDir) {
     if (headingIndex < 0 || navigationIndex < headingIndex || navigationIndex > nextHeadingIndex) {
       errors.push(`chapter-${chapterNumber} navigation is outside its chapter`);
     }
-    const conceptIndex = review.indexOf(`class="concept-diagram" data-chapter="${chapterNumber}"`);
-    if (conceptIndex < headingIndex || conceptIndex > nextHeadingIndex) errors.push(`chapter-${chapterNumber} concept diagram is missing or outside its chapter`);
+  }
+  for (const section of renderedConceptSections) {
+    const sectionHeadingTextIndex = review.indexOf(`>${section} `);
+    const sectionHeadingStart = sectionHeadingTextIndex < 0 ? -1 : review.lastIndexOf("<h3", sectionHeadingTextIndex);
+    const nextHeadingIndex = sectionHeadingStart < 0 ? -1 : review.indexOf("<h3", sectionHeadingTextIndex);
+    const diagramIndex = review.indexOf(`class="concept-diagram" data-section="${section}"`);
+    if (sectionHeadingStart < 0 || nextHeadingIndex < 0 || diagramIndex < sectionHeadingStart || diagramIndex > nextHeadingIndex) {
+      errors.push(`concept diagram for section ${section} is not attached after that section`);
+    }
   }
   if (count(review, /class="toc-part"/g) !== 9) errors.push("review does not contain 9 table-of-contents parts");
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
-  if (manifest.counts?.conceptDiagrams !== 20) errors.push("manifest concept-diagram count is not 20");
+  if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
   if (manifest.counts?.cumulativeSystemMaps !== 20) errors.push("manifest cumulative-system-map count is not 20");
-  if (!String(manifest.gates?.visualTeachingLayer || "").startsWith("BUILT_LOCALLY_20_CHAPTER")) errors.push("manifest visual-teaching status is not bounded to built-local review-pending truth");
+  if (!String(manifest.gates?.visualTeachingLayer || "").startsWith("BUILT_LOCALLY_SECTION_BOUND")) errors.push("manifest visual-teaching status is not bounded to built-local section-bound review-pending truth");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

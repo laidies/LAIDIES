@@ -83,8 +83,14 @@ try {
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="concept-diagram"', 'class="concept-diagram-removed"'));
   const missingConceptDiagram = inspectBook(temporary);
-  if (missingConceptDiagram.pass || !missingConceptDiagram.errors.some(error => error.includes("one instructional concept diagram"))) {
+  if (missingConceptDiagram.pass || !missingConceptDiagram.errors.some(error => error.includes("every registered section-bound instructional diagram"))) {
     throw new Error("calibration failed: checker accepted a missing concept diagram");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<details class="chapter-ahead">', '<details class="chapter-ahead" open>'));
+  const exposedChapterFrontMatter = inspectBook(temporary);
+  if (exposedChapterFrontMatter.pass || !exposedChapterFrontMatter.errors.some(error => error.includes("open before the lesson text"))) {
+    throw new Error("calibration failed: checker accepted expanded chapter front matter before the lesson");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="system-map system-map-complete"', 'class="system-map"'));
@@ -92,7 +98,7 @@ try {
   if (missingCompleteMap.pass || !missingCompleteMap.errors.some(error => error.includes("completed final AI ecosystem map"))) {
     throw new Error("calibration failed: checker accepted a missing completed AI map");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL missing_complete_map=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL exposed_chapter_front_matter=FAIL missing_complete_map=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
