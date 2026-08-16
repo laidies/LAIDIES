@@ -106,6 +106,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (!review.includes('class="ai-system-blueprint"')) errors.push("final system map is not rendered as one connected blueprint");
   if (!review.includes("Draw it from memory")) errors.push("final system map is missing its reconstruction guide");
   if (review.includes('class="map-band')) errors.push("final map has regressed to expandable layer cards");
+  if (!review.includes('.map-node small{font-size:.67rem}') || !review.includes('.map-node strong{font-size:.86rem}') || !review.includes('.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem')) {
+    errors.push("mobile final-map labels have regressed to hidden or poster-scale text");
+  }
   if (review.includes("part-1-ai-boundary-v1.png")) errors.push("review still contains the rejected decorative sorting-machine image");
   for (let chapterNumber = 1; chapterNumber <= 20; chapterNumber += 1) {
     const headingIndex = review.indexOf(`<h2 id="chapter-${chapterNumber}"`);

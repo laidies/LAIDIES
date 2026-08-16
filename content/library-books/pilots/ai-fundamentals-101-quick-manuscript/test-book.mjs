@@ -98,7 +98,13 @@ try {
   if (missingCompleteMap.pass || !missingCompleteMap.errors.some(error => error.includes("completed final AI ecosystem map"))) {
     throw new Error("calibration failed: checker accepted a missing completed AI map");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL");
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.map-node small{font-size:.67rem}', '.map-node small{font-size:.42rem}'));
+  const tinyMobileMap = inspectBook(temporary);
+  if (tinyMobileMap.pass || !tinyMobileMap.errors.some(error => error.includes("poster-scale text"))) {
+    throw new Error("calibration failed: checker accepted poster-scale mobile map labels");
+  }
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
