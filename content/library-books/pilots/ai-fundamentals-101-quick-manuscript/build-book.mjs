@@ -258,6 +258,11 @@ function applyRewindAmendments(markdown, amendments, sourceSha) {
       enriched = enriched.replace(reference.anchor, `${reference.anchor}\n\n${reference.copy}`);
       continue;
     }
+    if (reference.mode === "before") {
+      if (!reference.copy) throw new Error(`${reference.id} insertion is empty`);
+      enriched = enriched.replace(reference.anchor, `${reference.copy}\n\n${reference.anchor}`);
+      continue;
+    }
     throw new Error(`${reference.id} has unsupported mode ${reference.mode}`);
   }
   return enriched;
@@ -345,7 +350,11 @@ const manuscript = manuscriptBytes.toString("utf8").replaceAll("\r\n", "\n");
 const playbook = playbookBytes.toString("utf8").replaceAll("\r\n", "\n");
 const rewindAmendments = JSON.parse(rewindBytes.toString("utf8"));
 const manuscriptSha = sha256(manuscriptBytes);
-const enrichedManuscript = applyRewindAmendments(manuscript, rewindAmendments, manuscriptSha);
+const rewindManuscript = applyRewindAmendments(manuscript, rewindAmendments, manuscriptSha);
+const enrichedManuscript = applyRewindAmendments(rewindManuscript, {
+  ...rewindAmendments,
+  references: rewindAmendments.clarifications || [],
+}, manuscriptSha);
 const intro = parseFrontMatter(front);
 const chapters = parseChapters(enrichedManuscript).map((chapter, index) => ({
   ...chapter,
@@ -397,6 +406,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     rewindReferences: rewindAmendments.references.length,
+    technicalClarifications: rewindAmendments.clarifications?.length || 0,
   },
   artifacts: artifactPaths.map(filePath => ({ path: rel(filePath), sha256: sha256(fs.readFileSync(filePath)) })),
   gates: {

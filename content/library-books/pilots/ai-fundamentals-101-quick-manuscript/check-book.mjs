@@ -37,7 +37,11 @@ export function inspectBook(pilotDir = ownDir) {
     if (!reference.id || ids.has(reference.id)) errors.push(`missing or duplicate Rewind id ${reference.id || "(missing)"}`);
     ids.add(reference.id);
     if (!reference.anchor || !reference.teachingJob || !reference.limitation) errors.push(`${reference.id} is missing its anchor, teaching job or limitation`);
-    if (!["retain", "replace", "after"].includes(reference.mode)) errors.push(`${reference.id} has unsupported mode`);
+    if (!["retain", "replace", "after", "before"].includes(reference.mode)) errors.push(`${reference.id} has unsupported mode`);
+  }
+  if (rewind.clarifications?.length !== 1) errors.push(`expected 1 separated technical clarification; found ${rewind.clarifications?.length ?? 0}`);
+  for (const clarification of rewind.clarifications || []) {
+    if (!clarification.id || !clarification.anchor || !clarification.copy || clarification.mode !== "before") errors.push("synthetic-data clarification is incomplete");
   }
   if (source.chapters?.length !== 20) errors.push(`expected 20 source chapters; found ${source.chapters?.length ?? 0}`);
   if (!source.sourceReferences?.some(value => value.endsWith("rewind-amendments.json"))) errors.push("book source does not bind the Rewind overlay");
@@ -47,6 +51,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(review, /class="toc-part"/g) !== 9) errors.push("review does not contain 9 table-of-contents parts");
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");
+  if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {
