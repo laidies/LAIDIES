@@ -382,9 +382,424 @@ const additionalConcepts = [
 const conceptDiagrams = teachingVisuals;
 const visualTeachingLayerActive = false;
 const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED";
+const representativeTeachingVisualActive = true;
+const representativeTeachingVisualStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterOneDecisionSeamActive = true;
+const chapterOneDecisionSeamStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterFourTokenProofActive = true;
+const chapterFourTokenProofStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterTwoJobFamilyActive = true;
+const chapterTwoJobFamilyStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterThreeDataLifecycleActive = true;
+const chapterThreeDataLifecycleStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterFiveTrainingLoopActive = true;
+const chapterFiveTrainingLoopStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterSevenRequestJourneyActive = true;
+const chapterSevenRequestJourneyStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterEightContextRetrievalActive = true;
+const chapterEightContextRetrievalStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_VISUAL_REVIEW_PASS_ALI_REVIEW_PENDING_NOT_PUBLISHED";
+const chapterNineCustomisationDecisionActive = true;
+const chapterNineCustomisationDecisionStatus = "BUILT_LOCALLY_MAKER_AND_INDEPENDENT_DESKTOP_MOBILE_VISUAL_REVIEW_PASS_NOT_PUBLISHED";
 
 function renderConceptDiagram(concept) {
   return renderTeachingVisual(concept);
+}
+
+function renderChapterOneDecisionSeam() {
+  const labelledExamples = [
+    ["SPAM", "W0N a prize!"],
+    ["KEEP", "Dinner at 7?"],
+    ["SPAM", "Act NOW!!!"],
+    ["KEEP", "Your receipt"],
+  ].map(([label, subject]) => `<i class="ch1-example ${label === "SPAM" ? "is-spam" : "is-keep"}"><b>${label}</b><span>${subject}</span></i>`).join("");
+  return `<figure class="ch1-decision-seam" data-representative-teaching-visual="ch01-rule-or-learned-pattern" aria-labelledby="ch01-decision-seam-title" aria-describedby="ch01-decision-seam-caption">
+  <header class="ch1-decision-head">
+    <p>1.1 · THE SAME EMAIL, TWO DIFFERENT REASONS</p>
+    <h4 id="ch01-decision-seam-title">Who supplied the deciding rule?</h4>
+    <span>Both filters involve people. The human job—and the source of the decision—changes.</span>
+  </header>
+  <section class="ch1-shared-email" aria-label="One new email enters both filters">
+    <div class="ch1-envelope" aria-hidden="true"><i></i></div>
+    <div><b>ONE NEW EMAIL</b><p>“Congrats!! You’ve W0N a FR33 iPad!!! Click here NOW!!!”</p></div>
+    <span aria-hidden="true">↓</span>
+  </section>
+  <div class="ch1-causal-paths">
+    <section class="ch1-path ch1-rule-path" aria-label="Automation path: a human writes an exact rule and the filter checks it">
+      <div class="ch1-path-label"><b>AUTOMATION</b><span>THE PERSON SUPPLIES THE RULE</span></div>
+      <p class="ch1-before-input">BEFORE THIS EMAIL ARRIVES</p>
+      <div class="ch1-human-rule"><div class="ch1-person" aria-hidden="true"><i></i></div><p><strong>Human-written rule</strong><em>IF the email contains “click here” → spam</em></p></div>
+      <p class="ch1-same-input">NOW THE SAME NEW EMAIL ENTERS ↓</p>
+      <div class="ch1-rule-check"><span class="ch1-magnifier" aria-hidden="true"></span><p><strong>Rule-based filter checks the exact wording</strong><em>It finds “click here”.</em></p></div>
+      <span class="ch1-path-arrow" aria-hidden="true">↓</span>
+      <div class="ch1-verdict"><b>SPAM</b><span>Flagged by this exact rule</span></div>
+    </section>
+    <section class="ch1-path ch1-learned-path" aria-label="AI path: people label examples and a learned filter compares combined signals">
+      <div class="ch1-path-label"><b>AI</b><span>PEOPLE SUPPLY EXAMPLES</span></div>
+      <p class="ch1-before-input">BEFORE THIS EMAIL ARRIVES</p>
+      <div class="ch1-example-pile" aria-label="People label many past emails as spam or keep">${labelledExamples}</div>
+      <p class="ch1-same-input">NOW THE SAME NEW EMAIL ENTERS ↓</p>
+      <div class="ch1-pattern-machine"><div aria-hidden="true"><i></i><i></i><i></i><i></i></div><p><strong>Learned filter compares combined signals</strong><em>against a pattern learned from labelled examples</em></p></div>
+      <span class="ch1-path-arrow" aria-hidden="true">↓</span>
+      <div class="ch1-verdict"><b>LIKELY SPAM</b><span>Flagged by the combined pattern</span></div>
+    </section>
+  </div>
+  <aside class="ch1-one-product"><strong>ONE INBOX CAN USE BOTH</strong><span>Your own exact routing rules can sit beside a learned spam filter. “AI” does not describe every part of the product.</span></aside>
+  <figcaption id="ch01-decision-seam-caption"><strong>The test:</strong> did a person write the rule that fired, or did the system learn a pattern from labelled examples? The same result can come from two different mechanisms.</figcaption>
+</figure>`;
+}
+
+function renderChapterTwoJobFamily() {
+  const recordRows = Array.from({ length: 4 }, (_, index) => `<i style="--row:${index}" aria-hidden="true"></i>`).join("");
+  const pixels = Array.from({ length: 42 }, (_, index) => `<i class="ch2-pixel-${index + 1}" aria-hidden="true"></i>`).join("");
+  return `<figure class="ch2-job-family" data-representative-teaching-visual="ch02-four-jobs-one-family" aria-labelledby="ch02-job-family-title" aria-describedby="ch02-job-family-caption">
+  <header class="ch2-job-family-head">
+    <p>2.4 · FOUR LAYERS, FOUR DIFFERENT JOBS</p>
+    <h4 id="ch02-job-family-title">Do not ask only “Is this AI?” Ask what job it is doing.</h4>
+    <span>Each higher layer uses the capabilities beneath it. Follow the work—not the product label.</span>
+  </header>
+  <div class="ch2-family-stack">
+    <section class="ch2-layer ch2-layer-agent" aria-label="Agentic AI works through a loop of steps toward a goal">
+      <div class="ch2-layer-name"><b>4</b><span>AGENTIC AI</span><strong>ACT</strong></div>
+      <div class="ch2-agent-loop"><div class="ch2-agent-row"><i>GOAL<br><small>Italian table for 4</small></i><b>→</b><i>SEARCH</i></div><b class="ch2-agent-down">↓ TOOL RETURNS RESULTS</b><div class="ch2-agent-row"><i class="ch2-observe">OBSERVE RESULTS</i><b>→</b><i>COMPARE</i></div><b class="ch2-agent-down">↓ TWO OPTIONS</b><div class="ch2-agent-row"><i class="ch2-human-check">ASK YOU</i><b>→</b><i>BOOK</i></div><span>IF THE RESULTS DO NOT FIT THE GOAL, CHOOSE ANOTHER STEP AND RETURN TO SEARCH ↺</span></div>
+      <p>It repeats model, tool and decision steps until it stops, succeeds or needs you.</p>
+    </section>
+    <span class="ch2-built-on">USES ↓</span>
+    <section class="ch2-layer ch2-layer-gen" aria-label="Generative AI creates new content from a prompt">
+      <div class="ch2-layer-name"><b>3</b><span>GENERATIVE AI</span><strong>CREATE</strong></div>
+      <div class="ch2-gen-flow"><p>“Move Friday’s meeting to Monday.”</p><b>→</b><div><span>NEW EMAIL</span><i></i><i></i><i></i></div></div>
+      <p>It uses learned patterns to produce a new continuation: text, image, audio or code.</p>
+    </section>
+    <span class="ch2-built-on">USES ↓</span>
+    <section class="ch2-layer ch2-layer-deep" aria-label="Deep learning interprets complex raw input">
+      <div class="ch2-layer-name"><b>2</b><span>DEEP LEARNING</span><strong>INTERPRET</strong></div>
+      <div class="ch2-deep-flow"><div class="ch2-pixel-grid" role="img" aria-label="A raw image represented as many coloured pixels">${pixels}</div><b>→</b><div class="ch2-feature-stack"><i>edges</i><i>shapes</i><i>parts</i></div><b>→</b><strong>CAT</strong></div>
+      <p>It finds useful features inside raw, complex input such as pixels, audio or language.</p>
+    </section>
+    <span class="ch2-built-on">USES ↓</span>
+    <section class="ch2-layer ch2-layer-ml" aria-label="Machine learning finds a pattern in historical structured examples and makes a prediction">
+      <div class="ch2-layer-name"><b>1</b><span>MACHINE LEARNING</span><strong>PREDICT</strong></div>
+      <div class="ch2-ml-flow"><div class="ch2-records" aria-label="Historical customer records">${recordRows}</div><b>→</b><div class="ch2-pattern"><i></i><span>LEARNED PATTERN</span></div><b>→</b><strong>LIKELY TO CANCEL</strong></div>
+      <p>It learns a pattern from past examples and applies that pattern to a new case.</p>
+    </section>
+  </div>
+  <aside class="ch2-job-test"><strong>Use the job test:</strong> A bank flags an application for manual review from past customer records. It predicts; it does not create or act. That makes this machine learning even if the product’s marketing simply says “AI.”</aside>
+  <figcaption id="ch02-job-family-caption"><strong>Trace the family:</strong> machine learning supplies learned patterns → deep learning uses them with complex raw inputs → generative AI uses deep learning to create → agentic AI can place generation inside a repeated plan/action/observation loop. A real product can combine several layers.</figcaption>
+</figure>`;
+}
+
+function renderChapterThreeDataLifecycle() {
+  const emailPile = ["SPAM", "KEEP", "KEEP", "SPAM", "?", "KEEP"].map((label, index) => `<i class="ch3-mail ch3-mail-${index + 1}"><span>${label}</span></i>`).join("");
+  return `<figure class="ch3-data-life" data-representative-teaching-visual="ch03-data-choices-lifecycle" aria-labelledby="ch03-data-life-title" aria-describedby="ch03-data-life-caption">
+  <header class="ch3-data-head">
+    <p>3.3 · DATA DOES NOT PREPARE ITSELF</p>
+    <h4 id="ch03-data-life-title">A spam filter begins with a chain of human choices</h4>
+    <span>Follow ordinary past emails into training—and keep the test material out of the lesson.</span>
+  </header>
+  <div class="ch3-life-body">
+    <section class="ch3-job" aria-label="People define what spam means for this job">
+      <div class="ch3-stage"><b>1</b><span>DEFINE THE JOB</span></div>
+      <div class="ch3-target" aria-hidden="true"><i></i><i></i><i></i></div>
+      <strong>Decide what “spam” means</strong>
+      <p>The label is a rule people define for this product—not a fact the data names for itself.</p>
+    </section>
+    <span class="ch3-flow ch3-flow-a" aria-hidden="true">→</span>
+    <section class="ch3-prepare" aria-label="People choose, clean and label past emails">
+      <div class="ch3-stage"><b>2</b><span>BUILD THE DATASET</span></div>
+      <div class="ch3-mail-pile" aria-label="Past emails selected for the candidate dataset">${emailPile}</div>
+      <ol><li>Choose what to include</li><li>Clean + remove duplicates</li><li>People label: spam / not spam</li><li>Check what is missing or skewed</li></ol>
+    </section>
+    <span class="ch3-flow ch3-flow-b" aria-hidden="true">→</span>
+    <section class="ch3-split" aria-label="The prepared dataset is separated before learning">
+      <div class="ch3-stage"><b>3</b><span>SPLIT BEFORE LEARNING</span></div>
+      <div class="ch3-data-stacks"><div class="ch3-dataset ch3-train"><div><i></i><i></i><i></i></div><p><strong>TRAINING SET</strong><span>learn from these</span></p></div><div class="ch3-dataset ch3-valid"><div><i></i><i></i></div><p><strong>VALIDATION SET</strong><span>adjust with these</span></p></div><div class="ch3-dataset ch3-test"><div><i></i></div><p><strong>HELD-OUT TEST</strong><span>keep unseen until the final check</span></p><b aria-label="locked test set"></b></div></div>
+    </section>
+    <span class="ch3-turn" aria-hidden="true">↓</span>
+    <section class="ch3-learn-check" aria-label="Training examples create a learned pattern, validation supports adjustment, and the held-out test checks the result">
+      <div class="ch3-stage"><b>4</b><span>LEARN + CHECK</span></div>
+      <div class="ch3-learn-flow"><div class="ch3-input-stack"><span>TRAINING</span><i></i><i></i><i></i></div><b>→</b><div class="ch3-model"><i></i><i></i><i></i><strong>LEARN PATTERNS</strong></div><b>←</b><div class="ch3-check-stack"><span>VALIDATION</span><em>adjust deliberately</em></div></div>
+      <div class="ch3-final-test"><span>HELD-OUT TEST</span><b>→</b><strong>CHECK ON EMAILS IT DID NOT LEARN FROM</strong></div>
+    </section>
+    <span class="ch3-flow ch3-flow-c" aria-hidden="true">→</span>
+    <section class="ch3-use" aria-label="A genuinely new email receives a prediction, and real errors trigger investigation rather than automatic retraining">
+      <div class="ch3-stage"><b>5</b><span>USE + RECHECK</span></div>
+      <div class="ch3-new-mail"><i aria-hidden="true"></i><span>NEW UNSEEN EMAIL</span></div>
+      <b class="ch3-down">↓</b>
+      <div class="ch3-prediction">LIKELY SPAM</div>
+      <div class="ch3-monitor"><strong>MONITOR, INVESTIGATE, RECHECK ↺</strong><span>A wrong result is evidence to inspect the job, sources, labels, split or changed real world. It is not automatic training data.</span></div>
+    </section>
+  </div>
+  <aside class="ch3-missing"><strong>WHAT IS MISSING STAYS MISSING</strong><span>If some languages, senders or kinds of spam were excluded or labelled inconsistently, the learned pattern may fail there. More rows do not repair a bad definition or a skewed pile.</span></aside>
+  <figcaption id="ch03-data-life-caption"><strong>Trace it:</strong> people define the job → select, clean and label past emails → split them before learning → train and check on separate examples → use the model on a genuinely new email → investigate failures and deliberately rebuild when needed.</figcaption>
+</figure>`;
+}
+
+function renderChapterFiveTrainingLoop() {
+  const tokenChips = ["The", "cat", "sat", "on", "the"].map(token => `<i>${token}</i>`).join("");
+  const networkNodes = Array.from({ length: 12 }, (_, index) => `<i class="ch5-node-${index + 1}"></i>`).join("");
+  const contributionNodes = ["− small", "+ medium", "− tiny", "+ small"].map(value => `<i><span>${value}</span></i>`).join("");
+  const sliders = [[32,38],[67,61],[45,48],[78,72]].map(([before,after], index) => `<div><span>setting ${index + 1}</span><i style="--before:${before}%;--after:${after}%"></i></div>`).join("");
+  return `<figure class="ch5-training-loop" data-representative-teaching-visual="ch05-guess-check-adjust-loop" aria-labelledby="ch05-training-loop-title" aria-describedby="ch05-training-loop-caption">
+  <header class="ch5-training-head">
+    <p>5.5 · HOW A WRONG GUESS CHANGES THE MODEL</p>
+    <h4 id="ch05-training-loop-title">Training turns one error into millions of tiny targeted adjustments</h4>
+    <span>The input moves forward. The error calculation moves backward. The words themselves do not travel backward.</span>
+  </header>
+  <section class="ch5-example" aria-label="One labelled language-model training example">
+    <div><b>ONE TRAINING EXAMPLE</b><span class="ch5-token-row">${tokenChips}</span></div>
+    <span aria-hidden="true">+</span>
+    <div class="ch5-known"><b>KNOWN NEXT TOKEN</b><strong>mat</strong></div>
+  </section>
+  <div class="ch5-loop-body">
+    <section class="ch5-forward" aria-label="Forward calculation uses current number settings to produce token likelihoods">
+      <div class="ch5-step"><b>1</b><span>FORWARD CALCULATION</span></div>
+      <div class="ch5-forward-flow"><div class="ch5-mini-tokens"><i>The</i><i>cat</i><i>…</i></div><b>→</b><div class="ch5-network" aria-label="Several layers of adjustable mathematical connections">${networkNodes}</div><b>→</b><div class="ch5-likelihoods"><div><span>chair</span><i style="--score:56%"></i><b>56%</b></div><div><span>mat</span><i style="--score:12%"></i><b>12%</b></div><div><span>floor</span><i style="--score:9%"></i><b>9%</b></div></div></div>
+      <p>Current number settings transform the input into token likelihoods. This round favours <strong>chair</strong>.</p>
+    </section>
+    <span class="ch5-loop-arrow ch5-arrow-a" aria-hidden="true">→</span>
+    <section class="ch5-loss" aria-label="The loss calculation compares the guess with the known answer">
+      <div class="ch5-step"><b>2</b><span>COMPARE WITH THE KNOWN ANSWER</span></div>
+      <div class="ch5-compare"><div><span>GUESS</span><strong>chair</strong></div><b>≠</b><div><span>KNOWN ANSWER</span><strong>mat</strong></div></div>
+      <div class="ch5-loss-meter"><span>LOSS · HOW WRONG?</span><i><b></b></i><strong>HIGH</strong></div>
+      <p>The loss is one numerical score. Lower means the model's likelihoods fit the known answer better.</p>
+    </section>
+    <span class="ch5-loop-arrow ch5-arrow-b" aria-hidden="true">↓</span>
+    <section class="ch5-backward" aria-label="A backward calculation estimates how each adjustable setting contributed to the error">
+      <div class="ch5-step"><b>3</b><span>BACKWARD CALCULATION</span></div>
+      <div class="ch5-error-trace"><div class="ch5-error-source">ERROR SCORE</div><b>←</b><div class="ch5-contributions" aria-label="Different adjustable settings receive different contribution calculations">${contributionNodes}</div></div>
+      <p>Backpropagation calculates how each adjustable number contributed to this error. No one setting contains “the answer,” and they do not all change equally.</p>
+    </section>
+    <span class="ch5-loop-arrow ch5-arrow-c" aria-hidden="true">←</span>
+    <section class="ch5-adjust" aria-label="Gradient descent makes small targeted updates to the model's number settings">
+      <div class="ch5-step"><b>4</b><span>SMALL TARGETED UPDATES</span></div>
+      <div class="ch5-sliders" aria-label="Four illustrative settings move by different small amounts">${sliders}</div>
+      <p>Each number is nudged in a direction expected to lower future loss: make <strong>mat</strong> a little more likely and <strong>chair</strong> a little less likely for patterns like this.</p>
+    </section>
+    <div class="ch5-repeat" aria-label="The updated settings are used on the next training example"><b>UPDATED SETTINGS</b><span>NEXT EXAMPLE → GUESS → CHECK → ADJUST → REPEAT ↺</span></div>
+  </div>
+  <aside class="ch5-accumulation"><div class="ch5-drop-series" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p><strong>One example changes the model only a little.</strong> Across millions or billions of examples, small corrections accumulate into useful patterns. A low training loss alone still does not prove the model will work well on new real-world cases.</p></aside>
+  <figcaption id="ch05-training-loop-caption"><strong>Trace it:</strong> labelled example → forward prediction → compare with known answer → numerical loss → backward contribution calculation → small targeted updates → next example. “Weights” are simply these adjustable numbers inside the model.</figcaption>
+</figure>`;
+}
+
+function renderChapterFourTokenProof() {
+  const letters = [..."strawberry"].map(letter => `<i>${letter}</i>`).join("");
+  const chunk = (text, id) => `<i class="ch4-token-chunk"><b>${escapeHtml(text)}</b><span>ID ${id}</span></i>`;
+  return `<figure class="ch4-token-proof" data-representative-teaching-visual="ch04-text-to-tokens" aria-labelledby="ch04-token-proof-title" aria-describedby="ch04-token-proof-caption">
+  <header class="ch4-token-proof-head">
+    <p>4.3 · FROM YOUR WORDS TO MODEL INPUT</p>
+    <h4 id="ch04-token-proof-title">The model never receives the sentence the way you see it</h4>
+    <span>Follow ordinary text through the vocabulary that was built before you ever typed.</span>
+  </header>
+  <div class="ch4-token-proof-body">
+    <section class="ch4-vocabulary" aria-label="Before use, common character pairs are merged into reusable token chunks">
+      <div class="ch4-phase"><b>A</b><span>BEFORE YOU TYPE</span></div>
+      <p class="ch4-phase-title">Repeated text builds a fixed vocabulary of common chunks</p>
+      <div class="ch4-merge-line" aria-label="t plus h becomes th, then th plus e becomes the">
+        <span class="ch4-letter">t</span><em>+</em><span class="ch4-letter">h</span><strong>→</strong><span class="ch4-merged">th</span><em>+</em><span class="ch4-letter">e</span><strong>→</strong><span class="ch4-merged ch4-merged-final">the</span>
+      </div>
+      <p class="ch4-vocabulary-note">The software repeats this merging process across a huge collection of text. Common sequences earn their own reusable entry. The vocabulary is already fixed when your message arrives.</p>
+    </section>
+    <span class="ch4-down-arrow" aria-hidden="true">↓</span>
+    <section class="ch4-tokenise" aria-label="When you type, the tokenizer matches your sentence to the prebuilt vocabulary">
+      <div class="ch4-phase"><b>B</b><span>WHEN YOU TYPE</span></div>
+      <p class="ch4-phase-title">Your sentence is matched against that vocabulary</p>
+      <p class="ch4-user-text">I love playing basketball</p>
+      <span class="ch4-cut-label">TOKENISER FINDS KNOWN CHUNKS</span>
+      <div class="ch4-chunk-row" aria-label="I, love, play, ing, basket, ball">${chunk("I", "01")}${chunk("love", "02")}${chunk("play", "03")}${chunk("ing", "04")}${chunk("basket", "05")}${chunk("ball", "06")}</div>
+    </section>
+    <span class="ch4-down-arrow" aria-hidden="true">↓</span>
+    <section class="ch4-model-input" aria-label="The model receives the token identifiers rather than the original words or letters">
+      <div class="ch4-phase"><b>C</b><span>WHAT THE MODEL RECEIVES</span></div>
+      <div class="ch4-id-stream" aria-label="An illustrative sequence of six token identifiers"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span></div>
+      <p><strong>Six token entries—not four words.</strong> Real token IDs and splits vary by model, but the mechanism is the same: text becomes a numbered sequence before the model processes it.</p>
+    </section>
+  </div>
+  <aside class="ch4-letter-proof" aria-label="Why token chunks make letter counting difficult">
+    <div>
+      <span>YOU CAN LOOK INSIDE THE WORD</span>
+      <p class="ch4-letter-row" aria-label="s t r a w b e r r y">${letters}</p>
+      <strong>10 visible letters · 3 r’s</strong>
+    </div>
+    <b aria-hidden="true">≠</b>
+    <div>
+      <span>THE MODEL MAY RECEIVE CHUNKS</span>
+      <p class="ch4-strawberry-chunks"><i>str</i><i>aw</i><i>berry</i></p>
+      <strong>3 tokens · the letters are inside them</strong>
+    </div>
+    <p class="ch4-letter-landing"><strong>This is the practical consequence:</strong> fluent language is a token-level strength; exact character counting or reversing can be harder because the model did not receive a neat row of individual letters.</p>
+  </aside>
+  <figcaption id="ch04-token-proof-caption"><strong>Trace it:</strong> repeated text builds a token vocabulary before use → your sentence is matched to that vocabulary → the chosen chunks become token IDs → the model processes those IDs. The shown splits and IDs are teaching examples, not a universal tokenizer output.</figcaption>
+</figure>`;
+}
+
+function renderChapterSixPatchProof() {
+  const patchCells = Array.from({ length: 24 }, (_, index) => `<i class="ch6-patch-cell ch6-patch-${index + 1}" aria-hidden="true"></i>`).join("");
+  const imageTokens = [1, 2, 3].map(number => `<i class="ch6-image-token"><b>${number}</b><span>image token</span></i>`).join("");
+  const compactImageTokens = [1, 2, 3].map(number => `<i class="ch6-image-token ch6-image-token-compact"><span>T${number}</span></i>`).join("");
+  return `<figure class="ch6-patch-proof" data-representative-teaching-visual="ch06-photo-to-patches" aria-labelledby="ch06-patch-proof-title" aria-describedby="ch06-patch-proof-caption">
+  <header class="ch6-patch-proof-head">
+    <p>6.2 · FROM PHOTO TO ANSWER</p>
+    <h4 id="ch06-patch-proof-title">A photo becomes pieces the model can calculate with</h4>
+    <span>The model does not experience one whole picture. Follow the same photo as it becomes a joined stream of image information and words.</span>
+  </header>
+  <div class="ch6-patch-proof-body">
+    <section class="ch6-upload" aria-label="Step 1: upload a photo and ask a question">
+      <div class="ch6-step-label"><b>1</b><span>YOU SEND</span></div>
+      <div class="ch6-photo-frame"><img src="assets/ch06-bicycle-tree-learning-image.png" alt="A purple bicycle beside a leafy tree"></div>
+      <p class="ch6-question">“What is in this photo?”</p>
+    </section>
+    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
+    <section class="ch6-divide" aria-label="Step 2: software divides the image into small patches">
+      <div class="ch6-step-label"><b>2</b><span>DIVIDE</span></div>
+      <div class="ch6-grid-photo" role="img" aria-label="The same bicycle photograph divided into a teaching grid of 24 small patches">
+        <img src="assets/ch06-bicycle-tree-learning-image.png" alt="">
+        <span class="ch6-patch-overlay" aria-hidden="true">${patchCells}</span>
+      </div>
+      <p>Small patches preserve pieces of colour, edge and position—not whole named objects.</p>
+    </section>
+    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
+    <section class="ch6-translate" aria-label="Step 3: a vision encoder translates patches into numerical representations">
+      <div class="ch6-step-label"><b>3</b><span>TRANSLATE</span></div>
+      <div class="ch6-sample-patches" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="ch6-encoder"><span>VISION ENCODER</span><strong>visual pieces → numbers</strong></div>
+      <div class="ch6-number-stream" aria-label="Three illustrative image-token bundles">${imageTokens}</div>
+      <p class="ch6-token-example"><strong>Inside token 1:</strong> 0.14 · −0.82 · 0.37 · … <small>illustrative values</small></p>
+      <p>The encoder converts all the patches into numerical image tokens the language model can use.</p>
+    </section>
+    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
+    <section class="ch6-combine" aria-label="Step 4: image tokens and text tokens enter one combined sequence">
+      <div class="ch6-step-label"><b>4</b><span>READ TOGETHER</span></div>
+      <div class="ch6-context-ribbon">
+        <div class="ch6-image-token-row"><strong>IMAGE TOKENS<br><small>each holds numbers</small></strong>${compactImageTokens}<span>…</span></div>
+        <div class="ch6-text-token-row"><strong>WORDS</strong><i>What</i><i>is</i><i>in</i><i>this</i><i>photo?</i></div>
+        <p>ONE COMBINED SEQUENCE</p>
+      </div>
+      <div class="ch6-answer"><small>MODEL RELATES BOTH</small><strong>A purple bicycle beside a tree.</strong></div>
+    </section>
+  </div>
+  <aside class="ch6-misconception"><strong>What this blocks:</strong> a patch is not “the bicycle patch.” One object can cross many patches, so the model must relate patterns across the image. That is why recognising a bicycle can be easier than counting every small object perfectly.</aside>
+  <figcaption id="ch06-patch-proof-caption"><strong>Trace it:</strong> upload photo + question → divide the photo → translate patches into numbers → place image and word tokens in one sequence → generate an answer from both. Patch counts and internal values vary by system; the 24-square grid and numbers here are teaching examples.</figcaption>
+</figure>`;
+}
+
+function renderChapterSevenRequestJourney() {
+  const suppliedContext = ["Your new message", "Useful chat history", "Instructions + supplied files"].map((item, index) => `<i><b>${index + 1}</b><span>${item}</span></i>`).join("");
+  const inputTokens = ["coffee", "stain", "white", "shirt", "?"].map(token => `<i>${token}</i>`).join("");
+  const outputTokens = ["Rinse", "with", "cold", "water", "…"].map((token, index) => `<i style="--delay:${index}">${token}</i>`).join("");
+  return `<figure id="ch07-request-journey" class="ch7-request-journey" data-representative-teaching-visual="ch07-prefill-decode-stream" aria-labelledby="ch07-request-journey-title" aria-describedby="ch07-request-journey-caption">
+  <header class="ch7-request-head">
+    <p>7.2 · WHAT HAPPENS AFTER YOU PRESS SEND</p>
+    <h4 id="ch07-request-journey-title">The model reads the supplied context, then writes one piece at a time</h4>
+    <span>Inference uses a trained model. This request does not teach it or change its learned weights.</span>
+  </header>
+  <div class="ch7-request-body">
+    <section class="ch7-you-send" aria-label="Step 1: the application assembles the complete input">
+      <div class="ch7-phase"><b>1</b><span>THE APP ASSEMBLES WHAT THIS REQUEST CAN SEE</span></div>
+      <div class="ch7-chat-question"><span>YOU</span><p>“What is the best way to get coffee stains out of a white shirt?”</p><b aria-hidden="true">SEND</b></div>
+      <div class="ch7-context-stack" aria-label="The complete input can contain more than the new message">${suppliedContext}</div>
+      <p class="ch7-boundary"><strong>COMPLETE INPUT</strong><span>Only material supplied to this request is available here. The exact ingredients vary by product.</span></p>
+    </section>
+    <span class="ch7-major-arrow" aria-hidden="true">→</span>
+    <section class="ch7-prefill" aria-label="Step 2: prefill reads all supplied input together">
+      <div class="ch7-phase"><b>2</b><span>PREFILL · READ</span></div>
+      <p class="ch7-plain-label">Process the supplied context together</p>
+      <div class="ch7-input-token-row" aria-label="Illustrative input tokens processed in parallel">${inputTokens}</div>
+      <div class="ch7-parallel-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ch7-frozen-model"><span>TRAINED MODEL</span><strong>frozen learned patterns</strong></div>
+      <p class="ch7-phase-note"><strong>ONE INPUT PHASE</strong> The supplied pieces can be processed together.</p>
+    </section>
+    <span class="ch7-major-arrow" aria-hidden="true">→</span>
+    <section class="ch7-decode" aria-label="Step 3: decode chooses and adds one next token, then repeats">
+      <div class="ch7-phase"><b>3</b><span>DECODE · WRITE</span></div>
+      <p class="ch7-plain-label">Build the answer in order</p>
+      <ol class="ch7-decode-loop"><li><b>A</b><span>Choose one likely next token</span></li><li><b>B</b><span>Add it to what has already been written</span></li><li><b>C</b><span>Use the longer sequence to choose again</span></li></ol>
+      <span class="ch7-loop-arrow" aria-label="repeat until the answer stops">↺ REPEAT UNTIL STOP</span>
+      <div class="ch7-output-token-row" aria-label="Illustrative output tokens generated one after another">${outputTokens}</div>
+      <p class="ch7-phase-note"><strong>ONE PIECE AT A TIME</strong> Each new piece depends on the sequence before it.</p>
+    </section>
+    <span class="ch7-stream-arrow" aria-hidden="true">↓</span>
+    <section class="ch7-screen" aria-label="Step 4: each generated piece streams to the chat screen">
+      <div class="ch7-phase"><b>4</b><span>STREAM TO YOUR SCREEN</span></div>
+      <div class="ch7-chat-answer"><span>AI</span><p>Rinse with cold water…</p><i aria-hidden="true"></i></div>
+      <p>The application shows new pieces as they arrive. It is not revealing a finished answer that was written in secret.</p>
+    </section>
+  </div>
+  <aside class="ch7-not-training"><strong>WHAT DID NOT HAPPEN:</strong><span>The model did not permanently save this stain question, rewrite its learned weights or “learn a lesson” from answering it. That would require a separate training or product-memory process.</span></aside>
+  <figcaption id="ch07-request-journey-caption"><strong>Trace it:</strong> assemble the material available to this request → prefill reads that supplied context together → decode chooses one next token, adds it and repeats → each new piece streams to your screen → stop. This is why a response appears gradually.</figcaption>
+</figure>`;
+}
+
+function renderChapterEightContextRetrieval() {
+  const documentCards = ["Parental leave policy", "Benefits guide", "Office dress code", "Travel policy"].map((label, index) => `<i class="ch8-doc ch8-doc-${index + 1}"><span>${label}</span></i>`).join("");
+  const selectedChunks = ["20 weeks paid …", "6 weeks paid …"].map(chunk => `<i>${chunk}</i>`).join("");
+  return `<figure id="ch08-context-retrieval" class="ch8-context-retrieval" data-representative-teaching-visual="ch08-weights-context-memory-rag" aria-labelledby="ch08-context-title" aria-describedby="ch08-context-caption">
+  <header class="ch8-context-head">
+    <p>8.6 · WHAT CAN REACH THIS ANSWER?</p>
+    <h4 id="ch08-context-title">The model has learned patterns—but the product decides what it can see now</h4>
+    <span>“Memory” and RAG live outside the model. They help only when the product retrieves something and places it into this turn’s context.</span>
+  </header>
+  <div class="ch8-context-body">
+    <section class="ch8-before" aria-label="Before a question: documents are split and indexed outside the model">
+      <div class="ch8-time-label"><b>BEFORE ANY QUESTION</b><span>prepare material for later retrieval</span></div>
+      <div class="ch8-document-shelf" aria-label="A collection of company documents">${documentCards}</div>
+      <span class="ch8-down" aria-hidden="true">↓</span>
+      <div class="ch8-index"><strong>SPLIT + INDEX</strong><span>store small chunks by numerical meaning-patterns</span><div class="ch8-meaning-map" role="img" aria-label="A meaning map with policy chunks clustered near similar topics"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <p class="ch8-outside">This searchable index is outside the trained model.</p>
+    </section>
+    <section class="ch8-now" aria-label="At question time: the product assembles one context window from several distinct sources">
+      <div class="ch8-time-label"><b>WHEN YOU ASK</b><span>assemble context for this turn</span></div>
+      <div class="ch8-question"><span>YOU</span><strong>“What is our parental leave policy?”</strong></div>
+      <div class="ch8-live-sources">
+        <div class="ch8-current"><b>CURRENT CONVERSATION</b><span>your message + useful chat history + instructions</span></div>
+        <div class="ch8-memory"><b>SAVED PRODUCT MEMORY</b><span>an external store may return one relevant preference or fact</span><em>SELECTED FACT →</em></div>
+        <div class="ch8-retrieve"><b>RAG RETRIEVAL</b><span>search the index by similar meaning</span><em>ONLY MATCHING CHUNKS →</em><div>${selectedChunks}</div></div>
+      </div>
+      <span class="ch8-converge" aria-hidden="true">↓ ↓ ↓</span>
+      <div class="ch8-context-window"><span>CONTEXT FOR THIS TURN</span><div><i>question</i><i>relevant history</i><i>selected memory</i><i>retrieved policy chunks</i></div><strong>Only supplied material is visible here.</strong></div>
+    </section>
+    <span class="ch8-join-arrow" aria-hidden="true">→</span>
+    <section class="ch8-model" aria-label="The frozen model combines its trained patterns with the context supplied for this turn">
+      <div class="ch8-model-boundary">
+        <span>TRAINED MODEL</span>
+        <div class="ch8-weights"><b>FROZEN WEIGHTS</b><small>broad learned patterns<br>can be stale</small></div>
+        <b class="ch8-plus" aria-hidden="true">+</b>
+        <div class="ch8-context-in"><b>LIVE CONTEXT</b><small>assembled for this request</small></div>
+        <span class="ch8-generate" aria-hidden="true">↓ GENERATE</span>
+        <div class="ch8-answer"><small>ANSWER</small><strong>Based on the retrieved policy…</strong></div>
+      </div>
+      <p>The model uses both sources together. It does not automatically label which detail came from training and which came from supplied context.</p>
+    </section>
+  </div>
+  <aside class="ch8-boundary"><strong>WHEN THE TURN ENDS:</strong><span>the trained weights are unchanged. Stored information that was not selected into this context was not available to the answer. Retrieval can miss, and supplied material can still be incomplete or wrong.</span></aside>
+  <figcaption id="ch08-context-caption"><strong>Trace it:</strong> prepare documents outside the model → ask a question → the product may retrieve selected memory and matching document chunks → combine them with the current conversation in one context window → run the frozen model with weights + live context → answer. RAG supplies information; it does not retrain the model.</figcaption>
+</figure>`;
+}
+
+function renderChapterNineCustomisationDecision() {
+  return `<figure id="ch09-customisation-decision" class="ch9-customisation-decision" data-representative-teaching-visual="ch09-context-or-weights-decision" aria-labelledby="ch09-customisation-title" aria-describedby="ch09-customisation-caption">
+  <header class="ch9-customisation-head"><p>9.8 · CHOOSE BY WHAT MUST CHANGE</p><h4 id="ch09-customisation-title">A wrong answer does not automatically mean “train the model”</h4><span>Start with the failure. Change the request’s context when you can; change learned weights only when the behaviour must persist.</span></header>
+  <div class="ch9-case"><span>THE FAILURE</span><strong>Support bot says returns are allowed for 60 days. The current policy says 30.</strong><p>What is actually missing or unreliable?</p></div>
+  <div class="ch9-tree">
+    <div class="ch9-root"><strong>WHAT NEEDS TO CHANGE?</strong><span>Follow the reason the output is wrong.</span></div>
+    <div class="ch9-root-split"><strong>CHOOSE THE CAUSE — THIS IS NOT A LADDER</strong><span aria-hidden="true">↙ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↘</span></div>
+    <section class="ch9-lane ch9-context-lane" aria-label="Methods that change the context for one request without changing learned weights">
+      <div class="ch9-lane-head"><b>CHANGE WHAT THIS REQUEST CAN SEE</b><span>weights stay unchanged · supplied again when needed</span></div>
+      <div class="ch9-choice"><p><strong>Are the instructions, examples or format unclear?</strong><span>“Use this exact refund template.”</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>PROMPT + SYSTEM INSTRUCTIONS + EXAMPLES</strong></div></div>
+      <div class="ch9-choice"><p><strong>Is current or private information missing?</strong><span>The bot needs the actual 30-day policy.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>RAG · RETRIEVE THE POLICY INTO CONTEXT</strong></div></div>
+      <p class="ch9-expiry"><strong>AFTER THE REQUEST:</strong> this supplied context expires unless the product supplies it again.</p>
+    </section>
+    <section class="ch9-lane ch9-weights-lane" aria-label="Methods that change learned weights before later requests">
+      <div class="ch9-lane-head"><b>CHANGE LEARNED BEHAVIOUR BEFORE USE</b><span>weights change · effect can persist across requests</span></div>
+      <div class="ch9-choice"><p><strong>Must a specialised behaviour or format become reliable?</strong><span>Prompting was tested first but is not enough.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>FINE-TUNING ON CURATED EXAMPLES</strong></div></div>
+      <div class="ch9-choice"><p><strong>Must broad helpfulness or safety preferences be shaped?</strong><span>People compare or judge model outputs.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>RLHF OR DPO</strong></div></div>
+      <div class="ch9-choice ch9-foundation"><p><strong>Do you truly need a new general foundation model?</strong><span>This is not ordinary product customisation.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>FULL PRE-TRAINING</strong></div></div>
+      <p class="ch9-persist"><strong>AFTER TRAINING:</strong> changed weights are deployed, then each live request can still add prompts and RAG.</p>
+    </section>
+  </div>
+  <aside class="ch9-combine"><strong>REAL SYSTEMS COMBINE METHODS</strong><span>A fine-tuned model can still receive clear instructions and retrieved policy text. The choice is not one permanent rung; it is a diagnosis of what needs to change.</span></aside>
+  <div class="ch9-rule"><b>PROMPT FOR INSTRUCTIONS</b><span>+</span><b>RETRIEVE FOR KNOWLEDGE</b><span>+</span><b>FINE-TUNE FOR PERSISTENT BEHAVIOUR</b></div>
+  <figcaption id="ch09-customisation-caption"><strong>Use the diagnostic:</strong> missing directions or examples → prompt/context; missing current or private facts → RAG; persistent specialised behaviour → fine-tuning; broad preference shaping → RLHF/DPO; a whole new foundation model → pre-training. Prompting and RAG do not retrain the model.</figcaption>
+</figure>`;
 }
 
 function renderChapterOneVisual(asset) {
@@ -599,6 +1014,60 @@ function buildReviewPage(source, fragment, manuscript) {
       mainFragment = `${mainFragment.slice(0, diagramInsertion)}\n${renderConceptDiagram(concept)}\n${mainFragment.slice(diagramInsertion)}`;
     }
   }
+  if (representativeTeachingVisualActive) {
+    if (chapterOneDecisionSeamActive) {
+      const decisionSeamAnchor = '<aside class="callout callout-key"><p>📌 <strong>The Core Distinction</strong>';
+      const decisionSeamInsertion = mainFragment.indexOf(decisionSeamAnchor);
+      if (decisionSeamInsertion < 0) throw new Error("missing Chapter 1.1 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, decisionSeamInsertion)}\n${renderChapterOneDecisionSeam()}\n${mainFragment.slice(decisionSeamInsertion)}`;
+    }
+    if (chapterTwoJobFamilyActive) {
+      const jobFamilyAnchor = '<aside class="callout callout-key"><p>📌 <strong>The Four Layers — Complete Picture</strong>';
+      const jobFamilyInsertion = mainFragment.indexOf(jobFamilyAnchor);
+      if (jobFamilyInsertion < 0) throw new Error("missing Chapter 2.4 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, jobFamilyInsertion)}\n${renderChapterTwoJobFamily()}\n${mainFragment.slice(jobFamilyInsertion)}`;
+    }
+    if (chapterThreeDataLifecycleActive) {
+      const dataLifeAnchor = '<h3 id="ch-3-3-4-supervised-unsupervised-and-the-spectrum-between">';
+      const dataLifeInsertion = mainFragment.indexOf(dataLifeAnchor);
+      if (dataLifeInsertion < 0) throw new Error("missing Chapter 3.3 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, dataLifeInsertion)}\n${renderChapterThreeDataLifecycle()}\n${mainFragment.slice(dataLifeInsertion)}`;
+    }
+    if (chapterFiveTrainingLoopActive) {
+      const trainingLoopAnchor = '<h3 id="ch-5-5-6-the-transformer-the-architecture-that-made-this-generation-possible">';
+      const trainingLoopInsertion = mainFragment.indexOf(trainingLoopAnchor);
+      if (trainingLoopInsertion < 0) throw new Error("missing Chapter 5.5 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, trainingLoopInsertion)}\n${renderChapterFiveTrainingLoop()}\n${mainFragment.slice(trainingLoopInsertion)}`;
+    }
+    if (chapterFourTokenProofActive) {
+      const tokenProofAnchor = '<aside class="callout callout-question"><p>⏸️ <strong>Why does this matter to you?</strong>';
+      const tokenProofInsertion = mainFragment.indexOf(tokenProofAnchor);
+      if (tokenProofInsertion < 0) throw new Error("missing Chapter 4.3 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, tokenProofInsertion)}\n${renderChapterFourTokenProof()}\n${mainFragment.slice(tokenProofInsertion)}`;
+    }
+    const patchProofAnchor = '<h4 id="ch-6-what-the-model-actually-sees">What the model actually "sees"</h4>';
+    const patchProofInsertion = mainFragment.indexOf(patchProofAnchor);
+    if (patchProofInsertion < 0) throw new Error("missing Chapter 6.2 representative visual placement anchor");
+    mainFragment = `${mainFragment.slice(0, patchProofInsertion)}\n${renderChapterSixPatchProof()}\n${mainFragment.slice(patchProofInsertion)}`;
+    if (chapterSevenRequestJourneyActive) {
+      const requestJourneyAnchor = '<h3 id="ch-7-7-3-why-the-same-prompt-gives-different-answers">';
+      const requestJourneyInsertion = mainFragment.indexOf(requestJourneyAnchor);
+      if (requestJourneyInsertion < 0) throw new Error("missing Chapter 7.2 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, requestJourneyInsertion)}\n${renderChapterSevenRequestJourney()}\n${mainFragment.slice(requestJourneyInsertion)}`;
+    }
+    if (chapterEightContextRetrievalActive) {
+      const contextRetrievalAnchor = '<aside class="callout callout-insight"><p>💡 <strong>Training vs RAG — two ways to give a model information</strong>';
+      const contextRetrievalInsertion = mainFragment.indexOf(contextRetrievalAnchor);
+      if (contextRetrievalInsertion < 0) throw new Error("missing Chapter 8.6 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, contextRetrievalInsertion)}\n${renderChapterEightContextRetrieval()}\n${mainFragment.slice(contextRetrievalInsertion)}`;
+    }
+    if (chapterNineCustomisationDecisionActive) {
+      const customisationDecisionAnchor = '<h3 id="ch-9-9-9-the-system-picture-so-far">';
+      const customisationDecisionInsertion = mainFragment.indexOf(customisationDecisionAnchor);
+      if (customisationDecisionInsertion < 0) throw new Error("missing Chapter 9.8 representative visual placement anchor");
+      mainFragment = `${mainFragment.slice(0, customisationDecisionInsertion)}\n${renderChapterNineCustomisationDecision()}\n${mainFragment.slice(customisationDecisionInsertion)}`;
+    }
+  }
   source.chapters.slice(0, -1).forEach((chapter, index) => {
     const boundary = `<h2 id="${source.chapters[index + 1].id}"`;
     if (!mainFragment.includes(boundary)) throw new Error(`missing chapter boundary after ${chapter.id}`);
@@ -748,10 +1217,84 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 @media(max-width:850px){.ch1-core .ch1-visual-head{padding:.65rem}.ch1-core .ch1-visual-head h4{font-size:22px}.ch1-core .ch1-visual-head span{font-size:14px}.ch1-core .ch1-art{max-height:82px}.ch1-core .ch1-lane{padding:.45rem}.ch1-core>figcaption{padding:.55rem .7rem;font-size:13px;line-height:1.3}.ch1-inbox-routes p{font-size:13px}}
 .ch1-art-rule-woman{background-position:0 14%}.ch1-art-rule-woman::after{content:"";position:absolute;z-index:2;top:0;right:0;width:18%;height:11%;background:#f4eafb}
 ${teachingVisualCss}
+.build-banner{position:relative;top:auto}.reader-toc{top:0;height:100vh}
+.ch9-customisation-decision{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #72dff2;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}.ch9-customisation-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#41209c 72%);color:#fff}.ch9-customisation-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch9-customisation-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch9-customisation-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}.ch9-case{padding:.8rem 1rem;background:#fff1e8;border-bottom:3px solid #e65e2e}.ch9-case span{display:block;color:#a83c13;font-size:10px;font-weight:900;letter-spacing:.09em}.ch9-case strong{display:block;margin:.2rem 0;font-size:17px;line-height:1.35}.ch9-case p{margin:0!important;color:#3e496a;font-size:14px!important;font-weight:800!important}.ch9-tree{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;padding:1rem;background:linear-gradient(180deg,#eef8ff,#fff7fc)}.ch9-root{grid-column:1/-1;width:min(440px,100%);margin:auto;padding:.65rem;background:#101842;border:4px double #76eaff;color:#fff;text-align:center}.ch9-root strong,.ch9-root span{display:block}.ch9-root strong{color:#76eaff;font-size:13px;letter-spacing:.09em}.ch9-root span{font-size:12px}.ch9-root-split{grid-column:1/-1;color:#ed238c;font-size:28px;font-weight:900;line-height:.7;text-align:center}.ch9-lane{min-width:0;border:3px solid #00aeca;background:#e8faff}.ch9-weights-lane{border-color:#ed238c;background:#fff0f7}.ch9-lane-head{padding:.65rem;background:#007f96;color:#fff}.ch9-weights-lane .ch9-lane-head{background:#ad1764}.ch9-lane-head b,.ch9-lane-head span{display:block}.ch9-lane-head b{font-size:12px;letter-spacing:.07em}.ch9-lane-head span{font-size:11px}.ch9-choice{display:grid;grid-template-columns:1fr 22px 1fr;align-items:center;gap:.25rem;margin:.65rem;padding:.55rem;background:#fff;border:2px solid #a8b6d6}.ch9-choice p{margin:0!important;color:#30395e;font-size:11px!important;line-height:1.35!important}.ch9-choice p strong,.ch9-choice p span{display:block}.ch9-choice p span{margin-top:.2rem}.ch9-choice>b{color:#6b2cff;font-size:18px;text-align:center}.ch9-choice>div{padding:.5rem;background:#101842;color:#fff}.ch9-choice>div small,.ch9-choice>div strong{display:block}.ch9-choice>div small{color:#76eaff;font-size:9px;font-weight:900;letter-spacing:.09em}.ch9-choice>div strong{font-size:11px;line-height:1.3}.ch9-foundation{border-style:dashed}.ch9-expiry,.ch9-persist{margin:.65rem!important;padding:.55rem!important;background:#fff;border-left:7px solid #00aeca;color:#30395e;font-size:11px!important;line-height:1.4!important}.ch9-persist{border-left-color:#ed238c}.ch9-expiry strong,.ch9-persist strong{color:#4e18ca}.ch9-combine{display:flex;gap:.7rem;padding:.8rem 1rem;background:#e8fff5;border-top:3px solid #18a76d}.ch9-combine strong{flex:0 0 auto;color:#13734d;font-size:12px;letter-spacing:.07em}.ch9-combine span{font-size:14px;line-height:1.4}.ch9-rule{display:flex;align-items:center;justify-content:center;gap:.55rem;padding:.75rem;background:#101842;color:#fff;text-align:center}.ch9-rule b{font-size:11px;letter-spacing:.05em}.ch9-rule span{color:#76eaff;font-size:20px;font-weight:900}.ch9-customisation-decision figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch9-customisation-decision{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #72dff2}.ch9-customisation-head{padding:.85rem}.ch9-customisation-head h4{font-size:24px}.ch9-customisation-head span{font-size:15px}.ch9-case strong{font-size:16px}.ch9-tree{grid-template-columns:1fr;padding:.75rem}.ch9-root,.ch9-root-split,.ch9-lane{grid-column:1}.ch9-root-split{transform:none}.ch9-root-split strong,.ch9-root-split span{display:block}.ch9-root-split strong{font-size:12px;letter-spacing:.07em;line-height:1.3}.ch9-root-split span{font-size:0;line-height:1}.ch9-root-split span::after{content:"↓  OR  ↓";font-size:24px}.ch9-lane-head b{font-size:13px}.ch9-lane-head span{font-size:13px}.ch9-choice{grid-template-columns:1fr;gap:.35rem}.ch9-choice p{font-size:14px!important}.ch9-choice>b{transform:none}.ch9-choice>div strong{font-size:14px}.ch9-choice>div small{font-size:11px}.ch9-expiry,.ch9-persist{font-size:13px!important}.ch9-combine{display:block}.ch9-combine strong{display:block;margin-bottom:.25rem}.ch9-combine span{font-size:15px}.ch9-rule{display:grid;grid-template-columns:1fr}.ch9-rule span{line-height:.6}.ch9-customisation-decision figcaption{font-size:15px}}
+.ch9-root-split strong,.ch9-root-split span{display:block}.ch9-root-split strong{font-size:11px;letter-spacing:.08em;line-height:1.3}.ch9-root-split span{font-size:28px;line-height:.7}
+@media(max-width:850px){.ch9-root-split span{font-size:0;line-height:1}.ch9-root-split span::after{content:"↓  OR  ↓";font-size:24px}.ch9-root-split strong{font-size:12px}}
+.ch8-context-retrieval{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #f0a6d0;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}.ch8-context-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#41209c 72%);color:#fff}.ch8-context-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch8-context-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch8-context-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch8-context-body{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.08fr) 32px minmax(0,.78fr);align-items:stretch;gap:.65rem;padding:1rem;background:linear-gradient(180deg,#eef8ff,#fff7fc)}.ch8-context-body>section{min-width:0;padding:.8rem;background:#fff;border:3px solid #a7b7d8}.ch8-time-label{margin:-.8rem -.8rem .7rem;padding:.55rem .7rem;background:#101842;color:#fff}.ch8-time-label b,.ch8-time-label span{display:block}.ch8-time-label b{color:#76eaff;font-size:11px;letter-spacing:.09em}.ch8-time-label span{font-size:11px}.ch8-document-shelf{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}.ch8-doc{display:grid;place-items:center;min-height:62px;padding:.35rem;background:#f4efff;border:2px solid #6b2cff;border-left:8px solid #6b2cff;font-size:10px;font-style:normal;font-weight:900;line-height:1.2;text-align:center}.ch8-down{display:block;color:#ed238c;font-size:25px;font-weight:900;line-height:1;text-align:center}.ch8-index{padding:.6rem;background:#e8faff;border:3px solid #00aeca}.ch8-index strong,.ch8-index>span{display:block}.ch8-index strong{color:#007f96;font-size:12px;letter-spacing:.08em}.ch8-index>span{font-size:11px;line-height:1.3}.ch8-meaning-map{position:relative;height:100px;margin-top:.5rem;background:linear-gradient(90deg,rgba(107,44,255,.08) 1px,transparent 1px),linear-gradient(rgba(107,44,255,.08) 1px,transparent 1px),#fff;background-size:22px 22px;border:2px solid #8799c5}.ch8-meaning-map i{position:absolute;width:16px;height:16px;border:3px solid #fff;border-radius:50%;background:#ed238c;box-shadow:0 0 0 2px #ad1764}.ch8-meaning-map i:nth-child(1){left:18%;top:22%}.ch8-meaning-map i:nth-child(2){left:29%;top:35%}.ch8-meaning-map i:nth-child(3){left:22%;top:55%}.ch8-meaning-map i:nth-child(4){right:18%;bottom:20%;background:#00aeca;box-shadow:0 0 0 2px #007f96}.ch8-meaning-map i:nth-child(5){right:31%;bottom:38%;background:#00aeca;box-shadow:0 0 0 2px #007f96}.ch8-meaning-map i:nth-child(6){right:12%;top:14%;background:#6b2cff;box-shadow:0 0 0 2px #4e18ca}.ch8-outside{margin:.55rem 0 0!important;padding:.45rem!important;background:#fff1e8;border-left:6px solid #e65e2e;color:#4a4d60;font-size:11px!important;font-weight:800!important;line-height:1.35!important}
+.ch8-now{background:#f9f6ff!important;border-color:#6b2cff!important}.ch8-question{padding:.6rem;background:#fff;border:2px solid #ed238c}.ch8-question span{display:block;color:#ad1764;font-size:9px;font-weight:900;letter-spacing:.08em}.ch8-question strong{display:block;font-size:14px;line-height:1.3}.ch8-live-sources{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.55rem}.ch8-live-sources>div{min-width:0;padding:.5rem;background:#fff;border:2px solid #a9b8d8;border-left:7px solid #00aeca}.ch8-live-sources>div:nth-child(2){border-left-color:#ed238c}.ch8-live-sources>div:nth-child(3){grid-column:1/-1;border-left-color:#6b2cff}.ch8-live-sources b,.ch8-live-sources span,.ch8-live-sources em{display:block}.ch8-live-sources b{color:#4e18ca;font-size:10px;letter-spacing:.06em}.ch8-live-sources span{margin-top:.2rem;color:#3e496a;font-size:11px;line-height:1.3}.ch8-live-sources em{margin-top:.35rem;color:#ad1764;font-size:9px;font-style:normal;font-weight:900;letter-spacing:.06em}.ch8-retrieve>div{display:flex;gap:.3rem;margin-top:.35rem}.ch8-retrieve i{flex:1;padding:.3rem;background:#e8faff;border:2px solid #00aeca;font-size:9px;font-style:normal;font-weight:800}.ch8-converge{display:block;margin:.35rem;color:#ed238c;font-size:18px;font-weight:900;text-align:center;letter-spacing:.6em}.ch8-context-window{padding:.6rem;background:#101842;border:4px double #76eaff;color:#fff}.ch8-context-window>span{display:block;color:#76eaff;font-size:10px;font-weight:900;letter-spacing:.09em}.ch8-context-window>div{display:flex;gap:.25rem;flex-wrap:wrap;margin:.45rem 0}.ch8-context-window i{padding:.3rem;background:#fff;color:#101842;font-size:9px;font-style:normal;font-weight:800}.ch8-context-window>strong{display:block;font-size:11px;line-height:1.3}.ch8-join-arrow{align-self:center;color:#ed238c;font-size:28px;font-weight:900;text-align:center}
+.ch8-model{display:grid;align-content:center;background:#e8fff5!important;border:5px solid #18a76d!important}.ch8-model-boundary{padding:.65rem;background:#fff;border:3px solid #101842}.ch8-model-boundary>span:first-child{display:block;margin:-.65rem -.65rem .65rem;padding:.45rem;background:#101842;color:#76eaff;font-size:11px;font-weight:900;letter-spacing:.09em;text-align:center}.ch8-weights,.ch8-context-in{padding:.65rem;border:3px solid #6b2cff;background:#f4efff;text-align:center}.ch8-context-in{border-color:#00aeca;background:#e8faff}.ch8-weights b,.ch8-weights small,.ch8-context-in b,.ch8-context-in small{display:block}.ch8-weights b,.ch8-context-in b{font-size:12px}.ch8-weights small,.ch8-context-in small{margin-top:.2rem;color:#3e496a;font-size:10px;line-height:1.3}.ch8-plus{display:block;margin:.2rem;color:#ed238c;font-size:22px;text-align:center}.ch8-generate{display:block;margin:.45rem;color:#13734d;font-size:10px;font-weight:900;text-align:center;letter-spacing:.07em}.ch8-answer{padding:.65rem;background:#101842;color:#fff}.ch8-answer small,.ch8-answer strong{display:block}.ch8-answer small{color:#76eaff;font-size:9px;font-weight:900;letter-spacing:.08em}.ch8-answer strong{font-size:13px;line-height:1.3}.ch8-model>p{margin:.65rem 0 0!important;color:#30395e;font-size:11px!important;line-height:1.4!important}.ch8-boundary{display:flex;gap:.7rem;margin:0;padding:.8rem 1.15rem;background:#fff1e8;border-top:3px solid #e65e2e;color:#3c4059;font-size:15px;line-height:1.45}.ch8-boundary strong{flex:0 0 auto;color:#a83c13}.ch8-context-retrieval figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch8-context-retrieval{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #f0a6d0}.ch8-context-head{padding:.85rem}.ch8-context-head h4{font-size:24px}.ch8-context-head span{font-size:15px}.ch8-context-body{grid-template-columns:1fr;gap:.45rem;padding:.75rem}.ch8-context-body>section{padding:.75rem}.ch8-time-label{margin:-.75rem -.75rem .7rem}.ch8-doc,.ch8-index>span,.ch8-outside,.ch8-live-sources span,.ch8-retrieve i,.ch8-context-window>strong,.ch8-model>p{font-size:13px!important}.ch8-question strong{font-size:16px}.ch8-live-sources b,.ch8-context-window>span,.ch8-model-boundary>span:first-child{font-size:11px}.ch8-join-arrow{transform:rotate(90deg);font-size:24px}.ch8-weights b,.ch8-context-in b{font-size:14px}.ch8-weights small,.ch8-context-in small{font-size:12px}.ch8-answer strong{font-size:16px}.ch8-boundary{display:block;font-size:15px}.ch8-boundary strong{display:block}.ch8-context-retrieval figcaption{font-size:15px}}
+.ch8-live-sources em,.ch8-retrieve i,.ch8-context-window i{font-size:10px}
+@media(max-width:850px){.ch8-live-sources em,.ch8-context-window i,.ch8-generate,.ch8-answer small{font-size:12px}}
+.ch7-request-journey{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#f7fbff;border:3px solid var(--navy);box-shadow:10px 10px 0 #72dff2;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}
+.ch7-request-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#41209c 72%);color:#fff}.ch7-request-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch7-request-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch7-request-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch7-request-body{display:grid;grid-template-columns:minmax(0,.9fr) 30px minmax(0,.8fr) 30px minmax(0,1.08fr);align-items:stretch;gap:.45rem;padding:1rem;background:linear-gradient(180deg,#eef8ff,#fff7fc)}.ch7-request-body>section{min-width:0;padding:.8rem;background:#fff;border:3px solid #a7b7d8}.ch7-phase{display:flex;align-items:center;gap:.42rem;color:#4e18ca;font-size:11px;font-weight:900;letter-spacing:.08em;line-height:1.2}.ch7-phase b{display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;border-radius:50%;background:#4e18ca;color:#fff;font-size:13px}.ch7-major-arrow{align-self:center;color:#ed238c;font-size:28px;font-weight:900;text-align:center}
+.ch7-chat-question,.ch7-chat-answer{position:relative;margin:.65rem 0;padding:.7rem .75rem .65rem;background:#eaf8ff;border:2px solid #00aeca;border-radius:14px 14px 4px 14px}.ch7-chat-question>span,.ch7-chat-answer>span{display:block;color:#007f96;font-size:10px;font-weight:900;letter-spacing:.1em}.ch7-chat-question p,.ch7-chat-answer p{margin:.2rem 0!important;color:#101842;font-size:14px!important;font-weight:800!important;line-height:1.35!important}.ch7-chat-question>b{display:block;width:max-content;margin:.45rem 0 0 auto;padding:.25rem .55rem;background:#101842;color:#fff;border-radius:999px;font-size:9px;letter-spacing:.08em}.ch7-context-stack{display:grid;gap:.34rem}.ch7-context-stack i{display:grid;grid-template-columns:22px 1fr;align-items:center;gap:.35rem;padding:.4rem;background:#f4efff;border-left:5px solid #6b2cff;font-size:11px;font-style:normal;font-weight:800}.ch7-context-stack b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#6b2cff;color:#fff;font-size:9px}.ch7-boundary{margin:.55rem 0 0!important;padding:.48rem!important;background:#fff0f7;border:2px solid #ed238c;color:#3e496a;font-size:11px!important;line-height:1.35!important}.ch7-boundary strong,.ch7-boundary span{display:block}.ch7-boundary strong{color:#ad1764;font-size:9px;letter-spacing:.09em}
+.ch7-prefill{background:#e8faff!important;border-color:#00aeca!important}.ch7-plain-label{margin:.55rem 0!important;color:#101842;font-size:15px!important;font-weight:900!important;line-height:1.25!important}.ch7-input-token-row,.ch7-output-token-row{display:flex;justify-content:center;gap:.18rem;flex-wrap:wrap}.ch7-input-token-row i,.ch7-output-token-row i{padding:.35rem .38rem;background:#fff;border:2px solid #00aeca;color:#101842;font-size:10px;font-style:normal;font-weight:900}.ch7-parallel-lines{display:grid;grid-template-columns:repeat(5,1fr);gap:.18rem;width:88%;height:44px;margin:0 auto}.ch7-parallel-lines i{border-left:3px solid #00aeca;border-bottom:3px solid #00aeca}.ch7-frozen-model{padding:.6rem;background:#101842;border:4px double #76eaff;color:#fff;text-align:center}.ch7-frozen-model span,.ch7-frozen-model strong{display:block}.ch7-frozen-model span{color:#76eaff;font-size:10px;font-weight:900;letter-spacing:.09em}.ch7-frozen-model strong{font-size:14px}.ch7-phase-note{margin:.55rem 0 0!important;padding:.42rem!important;background:#fff;color:#3e496a;font-size:11px!important;line-height:1.35!important}.ch7-phase-note strong{display:block;color:#4e18ca;font-size:9px;letter-spacing:.08em}
+.ch7-decode{background:#fff0f7!important;border-color:#ed238c!important}.ch7-decode-loop{display:grid;gap:.35rem;margin:.5rem 0;padding:0;list-style:none;counter-reset:none}.ch7-decode-loop li{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:.4rem;margin:0;padding:.4rem;background:#fff;border:2px solid #e2a2c6;font-size:11px;line-height:1.3}.ch7-decode-loop b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#ed238c;color:#fff}.ch7-loop-arrow{display:block;margin:.35rem 0;color:#ad1764;text-align:center;font-size:10px;font-weight:900;letter-spacing:.08em}.ch7-output-token-row i{border-color:#ed238c;background:#fff}.ch7-output-token-row i:not(:last-child)::after{content:'→';margin-left:.35rem;color:#6b2cff}.ch7-stream-arrow{grid-column:1/-1;color:#ed238c;font-size:30px;font-weight:900;line-height:.7;text-align:center}.ch7-screen{grid-column:1/-1;display:grid;grid-template-columns:220px minmax(0,1fr);align-items:center;gap:.8rem;background:#e8fff5!important;border-color:#18a76d!important}.ch7-screen .ch7-phase{grid-column:1/-1;color:#13734d}.ch7-screen .ch7-phase b{background:#18a76d}.ch7-chat-answer{margin:0;background:#fff;border-color:#18a76d}.ch7-chat-answer>span{color:#13734d}.ch7-chat-answer i{display:inline-block;width:8px;height:18px;margin-left:.1rem;background:#4e18ca;vertical-align:middle}.ch7-screen>p{margin:0!important;color:#30395e;font-size:14px!important;line-height:1.45!important}.ch7-not-training{display:flex;gap:.65rem;margin:0;padding:.8rem 1.15rem;background:#fff1e8;border-top:3px solid #e65e2e;color:#3c4059;font-size:15px;line-height:1.45}.ch7-not-training strong{flex:0 0 auto;color:#a83c13}.ch7-request-journey figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch7-request-journey{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #72dff2}.ch7-request-head{padding:.85rem}.ch7-request-head h4{font-size:24px}.ch7-request-head span{font-size:15px}.ch7-request-body{grid-template-columns:1fr;gap:.4rem;padding:.75rem}.ch7-request-body>.ch7-major-arrow{transform:rotate(90deg);font-size:24px;line-height:.7}.ch7-stream-arrow,.ch7-screen{grid-column:1}.ch7-request-body>section{padding:.75rem}.ch7-phase{font-size:12px}.ch7-chat-question p,.ch7-chat-answer p{font-size:15px!important}.ch7-context-stack i,.ch7-boundary,.ch7-phase-note,.ch7-decode-loop li{font-size:13px!important}.ch7-input-token-row i,.ch7-output-token-row i{font-size:12px}.ch7-parallel-lines{height:36px}.ch7-plain-label{font-size:17px!important}.ch7-frozen-model strong{font-size:16px}.ch7-screen{grid-template-columns:1fr}.ch7-screen .ch7-phase{grid-column:1}.ch7-screen>p{font-size:15px!important}.ch7-not-training{display:block;font-size:15px}.ch7-not-training strong{display:block}.ch7-request-journey figcaption{font-size:15px}}
+.ch6-patch-proof{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#f7fbff;border:3px solid var(--navy);box-shadow:10px 10px 0 #eea0cf;overflow:hidden;font-family:var(--reading-font)}
+.ch6-patch-proof-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#41209c 72%);color:#fff}.ch6-patch-proof-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch6-patch-proof-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch6-patch-proof-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch6-patch-proof-body{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:start;gap:.7rem;padding:1.15rem;background:linear-gradient(180deg,#edf7ff,#fff7fc)}.ch6-patch-proof-body>section{min-width:0}.ch6-step-label{display:flex;align-items:center;gap:.45rem;margin-bottom:.55rem;color:#4e18ca;font-size:13px;font-weight:900;letter-spacing:.09em}.ch6-step-label b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#4e18ca;color:white;font-size:14px}.ch6-flow-arrow{align-self:center;color:#ed238c;font-size:30px;font-weight:900;text-align:center}.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(2){grid-column:1/-1;transform:rotate(90deg)}.ch6-translate{grid-column:1}.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(3){grid-column:2}.ch6-combine{grid-column:3}
+.ch6-photo-frame,.ch6-grid-photo{position:relative;aspect-ratio:4/3;border:3px solid var(--navy);background:#dff7ff;overflow:hidden}.ch6-photo-frame img,.ch6-grid-photo>img{display:block;width:100%;height:100%;object-fit:cover}.ch6-question{position:relative;margin:-.7rem .5rem 0!important;padding:.45rem .55rem!important;background:#fff;border:2px solid #ed238c;box-shadow:3px 3px 0 #ffc7e3;color:#101842;font-size:13px!important;font-weight:900!important;line-height:1.25!important;text-align:center}
+.ch6-patch-overlay{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr)}.ch6-patch-cell{border:.8px solid rgba(255,255,255,.95);box-shadow:inset 0 0 0 .5px rgba(16,24,66,.55)}.ch6-patch-10,.ch6-patch-15,.ch6-patch-23{background:rgba(237,35,140,.18);box-shadow:inset 0 0 0 3px #ed238c}.ch6-divide>p,.ch6-translate>p{margin:.55rem 0 0!important;color:#394463;font-size:13px!important;line-height:1.35!important}
+.ch6-sample-patches{display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem}.ch6-sample-patches i{aspect-ratio:1;background-image:url('assets/ch06-bicycle-tree-learning-image.png');background-repeat:no-repeat;background-size:600% 400%;border:3px solid #ed238c}.ch6-sample-patches i:nth-child(1){background-position:60% 33%}.ch6-sample-patches i:nth-child(2){background-position:40% 67%}.ch6-sample-patches i:nth-child(3){background-position:100% 100%}.ch6-encoder{position:relative;margin:.75rem 0;padding:.58rem .5rem;background:#101842;color:#fff;text-align:center;clip-path:polygon(6% 0,94% 0,82% 100%,18% 100%)}.ch6-encoder::before{content:"↓";position:absolute;left:50%;top:-.75rem;transform:translateX(-50%);color:#6b2cff;font-size:18px}.ch6-encoder span,.ch6-encoder strong{display:block}.ch6-encoder span{color:#8ceeff;font-size:11px;font-weight:900;letter-spacing:.08em}.ch6-encoder strong{font-size:14px}.ch6-number-stream{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem}.ch6-number-stream i,.ch6-image-token{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.28rem;padding:.35rem;background:#fff;border:2px solid #00aeca;color:#35128b;font-size:10px;font-style:normal;font-weight:900;text-align:center}.ch6-number-stream b,.ch6-image-token b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#4e18ca;color:#fff;font-size:10px}.ch6-number-stream span,.ch6-image-token span{min-width:0;white-space:nowrap}.ch6-token-example{margin:.35rem 0 0!important;padding:.4rem!important;background:#edf9ff;border-left:5px solid #00aeca;color:#35128b!important;font-size:11px!important;line-height:1.25!important}.ch6-token-example small{display:block;color:#58617d;font-size:9px}
+.ch6-context-ribbon{padding:.7rem;background:#fff;border:3px solid #101842}.ch6-image-token-row,.ch6-text-token-row{display:flex;align-items:center;gap:.3rem;min-width:0}.ch6-image-token-row strong,.ch6-text-token-row strong{width:72px;flex:0 0 auto;color:#4e18ca;font-size:10px;letter-spacing:.08em;line-height:1.15}.ch6-image-token-row strong small{display:block;margin-top:.15rem;color:#58617d;font-size:8px;letter-spacing:0}.ch6-image-token{flex:1;grid-template-columns:auto minmax(0,1fr);padding:.28rem;gap:.18rem;background:#e8fbff;font-size:9px}.ch6-image-token b{width:17px;height:17px;margin:auto;font-size:8px}.ch6-image-token-compact{display:grid;grid-template-columns:1fr;place-items:center;min-width:38px;padding:.5rem .25rem;background:#e8fbff;font-size:11px}.ch6-image-token-compact span{white-space:normal}.ch6-image-token-row>span{font-weight:900}.ch6-text-token-row{margin-top:.55rem;flex-wrap:wrap}.ch6-text-token-row i{padding:.28rem .35rem;background:#fff0f7;border:2px solid #ed238c;color:#101842;font-size:12px;font-style:normal;font-weight:800}.ch6-context-ribbon>p{margin:.6rem 0 0!important;padding-top:.45rem!important;border-top:2px solid #6b2cff;color:#4e18ca;font-size:11px!important;font-weight:900!important;letter-spacing:.08em!important;text-align:center}.ch6-answer{margin-top:.7rem;padding:.7rem;background:#e8fff5;border:3px solid #18a76d}.ch6-answer small,.ch6-answer strong{display:block}.ch6-answer small{color:#13734d;font-size:10px;font-weight:900;letter-spacing:.08em}.ch6-answer strong{margin-top:.2rem;color:#101842;font-size:17px;line-height:1.25}
+.ch6-misconception{margin:0;padding:.8rem 1.15rem;background:#fff1e8;border-top:3px solid #e65e2e;color:#3c4059;font-size:15px;line-height:1.45}.ch6-misconception strong{color:#a83c13}.ch6-patch-proof figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.build-banner{position:relative;top:auto}.ch6-patch-proof{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #eea0cf}.ch6-patch-proof-head{padding:.85rem}.ch6-patch-proof-head h4{font-size:24px}.ch6-patch-proof-head span{font-size:15px}.ch6-patch-proof-body{grid-template-columns:1fr;gap:.45rem;padding:.8rem}.ch6-patch-proof-body>.ch6-flow-arrow,.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(2),.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(3){grid-column:1;transform:rotate(90deg);font-size:24px;line-height:.7}.ch6-translate,.ch6-combine{grid-column:1;margin-top:0}.ch6-photo-frame,.ch6-grid-photo{max-height:260px}.ch6-question{font-size:15px!important}.ch6-divide>p,.ch6-translate>p{font-size:15px!important}.ch6-sample-patches{width:min(300px,82%);margin:auto}.ch6-number-stream{width:min(360px,100%);margin:auto}.ch6-image-token-row strong,.ch6-text-token-row strong{width:72px}.ch6-image-token{font-size:9px}.ch6-text-token-row i{font-size:12px}.ch6-answer strong{font-size:17px}.ch6-misconception,.ch6-patch-proof figcaption{font-size:15px}}
+.ch4-token-proof{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #72dff2;overflow:hidden;font-family:var(--reading-font)}
+.ch4-token-proof-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#5b1fc4 72%);color:#fff}.ch4-token-proof-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch4-token-proof-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch4-token-proof-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch4-token-proof-body{padding:1.15rem;background:linear-gradient(180deg,#eef9ff,#fff7fc)}.ch4-token-proof-body section{padding:1rem;background:#fff;border:3px solid #a9b8dc}.ch4-phase{display:flex;align-items:center;gap:.5rem;color:#4e18ca;font-size:12px;font-weight:900;letter-spacing:.1em}.ch4-phase b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#4e18ca;color:#fff}.ch4-phase-title{margin:.55rem 0 .85rem!important;color:#101842;font-size:19px!important;font-weight:900!important;line-height:1.25!important}.ch4-down-arrow{display:block;margin:.25rem 0;color:#ed238c;font-size:28px;font-weight:900;line-height:1;text-align:center}
+.ch4-merge-line{display:flex;align-items:center;justify-content:center;gap:.55rem;padding:.7rem;background:#f4efff;border-block:2px solid #c8b8ec}.ch4-merge-line span{display:grid;place-items:center;min-width:44px;height:44px;border:3px solid #4e18ca;background:#fff;color:#101842;font-size:21px;font-weight:900}.ch4-merge-line .ch4-merged{min-width:64px;background:#e5f8ff;border-color:#00aeca}.ch4-merge-line .ch4-merged-final{min-width:76px;background:#e7fff3;border-color:#18a76d}.ch4-merge-line em{color:#58617d;font-size:19px;font-style:normal;font-weight:900}.ch4-merge-line strong{color:#ed238c;font-size:26px}.ch4-vocabulary-note{margin:.75rem 0 0!important;color:#3e496a;font-size:15px!important;line-height:1.45!important}
+.ch4-user-text{margin:.35rem auto .55rem!important;padding:.65rem 1rem!important;max-width:max-content!important;background:#101842;color:#fff;font-size:24px!important;font-weight:800!important;line-height:1.2!important;letter-spacing:.01em}.ch4-cut-label{display:block;color:#ad1764;font-size:11px;font-weight:900;letter-spacing:.09em;text-align:center}.ch4-cut-label::after{content:"↓";display:block;margin:.15rem;color:#ed238c;font-size:22px;line-height:1}.ch4-chunk-row{display:flex;justify-content:center;gap:.35rem;flex-wrap:wrap}.ch4-token-chunk{display:grid;grid-template-rows:auto auto;min-width:70px;background:#fff;border:3px solid #00aeca;color:#101842;font-style:normal;text-align:center}.ch4-token-chunk b{padding:.45rem .55rem;font-size:18px}.ch4-token-chunk span{padding:.2rem;background:#e5f8ff;border-top:2px solid #00aeca;color:#4e18ca;font-size:10px;font-weight:900;letter-spacing:.07em}
+.ch4-model-input{display:grid;grid-template-columns:minmax(250px,.9fr) minmax(0,1.1fr);gap:.85rem;align-items:center}.ch4-model-input .ch4-phase{grid-column:1/-1}.ch4-id-stream{display:flex;align-items:center;justify-content:center;gap:.25rem;padding:.8rem;background:#101842}.ch4-id-stream span{display:grid;place-items:center;width:42px;height:42px;border:2px solid #76eaff;background:#281171;color:#fff;font-size:14px;font-weight:900}.ch4-model-input>p{margin:0!important;color:#30395e;font-size:15px!important;line-height:1.45!important}
+.ch4-letter-proof{display:grid;grid-template-columns:1fr 38px 1fr;align-items:center;gap:.65rem;padding:1rem 1.15rem;background:#fff0f7;border-top:3px solid #ed238c}.ch4-letter-proof>div{min-width:0;text-align:center}.ch4-letter-proof>div>span{color:#ad1764;font-size:11px;font-weight:900;letter-spacing:.08em}.ch4-letter-proof>b{color:#4e18ca;font-size:28px;text-align:center}.ch4-letter-proof>div>strong{display:block;margin-top:.45rem;color:#30395e;font-size:14px}.ch4-letter-row,.ch4-strawberry-chunks{display:flex;justify-content:center;margin:.5rem 0 0!important}.ch4-letter-row i{display:grid;place-items:center;width:31px;height:38px;border:1px solid #b7c2df;background:#fff;color:#101842;font-size:17px;font-style:normal;font-weight:800}.ch4-strawberry-chunks{gap:.35rem}.ch4-strawberry-chunks i{padding:.45rem .7rem;border:3px solid #00aeca;background:#e5f8ff;color:#101842;font-size:18px;font-style:normal;font-weight:900}.ch4-letter-landing{grid-column:1/-1;margin:.7rem 0 0!important;padding-top:.7rem!important;border-top:2px solid #e2b2cf;color:#30395e;font-size:15px!important;line-height:1.45!important}.ch4-token-proof figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch4-token-proof{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #72dff2}.ch4-token-proof-head{padding:.85rem}.ch4-token-proof-head h4{font-size:24px}.ch4-token-proof-head span{font-size:15px}.ch4-token-proof-body{padding:.75rem}.ch4-token-proof-body section{padding:.8rem}.ch4-phase-title{font-size:17px!important}.ch4-merge-line{gap:.2rem;padding:.6rem .15rem}.ch4-merge-line span{min-width:32px;height:38px;font-size:18px}.ch4-merge-line .ch4-merged{min-width:46px}.ch4-merge-line .ch4-merged-final{min-width:52px}.ch4-merge-line em{font-size:16px}.ch4-merge-line strong{font-size:22px}.ch4-user-text{font-size:19px!important}.ch4-token-chunk{min-width:54px}.ch4-token-chunk b{padding:.38rem;font-size:15px}.ch4-model-input{grid-template-columns:1fr}.ch4-id-stream{gap:.18rem}.ch4-id-stream span{width:36px;height:36px;font-size:12px}.ch4-letter-proof{grid-template-columns:1fr}.ch4-letter-proof>b{transform:rotate(90deg);line-height:.8}.ch4-letter-row i{width:28px;height:34px;font-size:15px}.ch4-vocabulary-note,.ch4-model-input>p,.ch4-letter-landing,.ch4-token-proof figcaption{font-size:15px!important}}
+.ch1-decision-seam{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #75dfe8;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}
+.ch1-decision-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#40209b 72%);color:#fff}.ch1-decision-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch1-decision-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch1-decision-head span{display:block;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch1-shared-email{display:grid;grid-template-columns:100px 1fr 52px;align-items:center;gap:1rem;padding:1rem 1.35rem;background:#edf8ff;border-bottom:3px solid #aab8dc}.ch1-shared-email b{display:block;color:#4e18ca;font-size:12px;letter-spacing:.12em}.ch1-shared-email p{margin:.25rem 0 0;font-size:18px;font-weight:800;line-height:1.35}.ch1-shared-email>span{color:#4e18ca;font-size:38px;font-weight:900;text-align:center}.ch1-envelope{position:relative;width:90px;height:58px;background:#fff;border:3px solid #132152;border-radius:5px;overflow:hidden}.ch1-envelope:before,.ch1-envelope:after{content:"";position:absolute;top:-30px;width:66px;height:66px;border-bottom:3px solid #132152;background:#f8d7ed;transform:rotate(45deg)}.ch1-envelope:before{left:-16px}.ch1-envelope:after{right:-16px;transform:rotate(-45deg)}.ch1-envelope i{position:absolute;right:8px;top:7px;width:16px;height:12px;background:#ff258d;z-index:2}
+.ch1-causal-paths{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem;background:#f5f5ff}.ch1-path{display:flex;flex-direction:column;align-items:stretch;min-width:0;padding:1rem;border:3px solid;border-radius:12px}.ch1-rule-path{border-color:#11afc4;background:#e8faff}.ch1-learned-path{border-color:#ec238e;background:#fff0f7}.ch1-path-label{display:flex;justify-content:space-between;gap:.7rem;align-items:baseline;border-bottom:2px solid currentColor;padding-bottom:.55rem}.ch1-path-label b{font-size:24px}.ch1-path-label span{font-size:11px;font-weight:900;letter-spacing:.08em;text-align:right}.ch1-path-arrow{height:26px;color:#4e18ca;font-size:28px;font-weight:900;line-height:26px;text-align:center}
+.ch1-before-input,.ch1-same-input{margin:.45rem 0;color:#4e18ca;font-size:10px;font-weight:900;letter-spacing:.08em;text-align:center}.ch1-before-input{color:#596184}
+.ch1-human-rule,.ch1-rule-check,.ch1-pattern-machine{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:.8rem;min-height:100px;padding:.7rem;background:#fff;border:2px solid #aab8dc}.ch1-human-rule p,.ch1-rule-check p,.ch1-pattern-machine p{margin:0}.ch1-human-rule strong,.ch1-rule-check strong,.ch1-pattern-machine strong{display:block;font-size:16px}.ch1-human-rule em,.ch1-rule-check em,.ch1-pattern-machine em{display:block;margin-top:.3rem;color:#394369;font-size:14px;font-style:normal;line-height:1.35}.ch1-person{position:relative;width:52px;height:66px;margin:auto}.ch1-person:before{content:"";position:absolute;left:14px;top:0;width:25px;height:25px;border:3px solid #132152;border-radius:50%;background:#ffd2e7}.ch1-person:after{content:"";position:absolute;left:4px;bottom:0;width:45px;height:34px;border:3px solid #132152;border-radius:22px 22px 4px 4px;background:#67dfea}.ch1-person i{position:absolute;right:-8px;bottom:4px;width:22px;height:27px;border:2px solid #132152;background:#fff;z-index:2}.ch1-person i:before,.ch1-person i:after{content:"";position:absolute;left:4px;right:4px;height:2px;background:#ec238e}.ch1-person i:before{top:7px}.ch1-person i:after{top:14px}
+.ch1-magnifier{position:relative;width:46px;height:46px;margin:auto;border:5px solid #11afc4;border-radius:50%}.ch1-magnifier:after{content:"";position:absolute;width:28px;height:6px;right:-22px;bottom:-11px;background:#11afc4;transform:rotate(45deg);transform-origin:left center}.ch1-example-pile{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;min-height:100px;padding:.55rem;background:#fff;border:2px solid #aab8dc}.ch1-example{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:.35rem;padding:.35rem;border:1px solid #c3cbe2;background:#fff;font-style:normal}.ch1-example b{font-size:9px;letter-spacing:.04em}.ch1-example span{font-size:11px;line-height:1.15}.ch1-example.is-spam{border-left:6px solid #ec238e}.ch1-example.is-keep{border-left:6px solid #12ae75}.ch1-pattern-machine>div{display:grid;grid-template-columns:repeat(4,1fr);align-items:end;gap:3px;width:62px;height:54px;padding:7px;border:3px solid #132152;background:#dffaff}.ch1-pattern-machine>div i{display:block;background:#4e18ca}.ch1-pattern-machine>div i:nth-child(1){height:35%}.ch1-pattern-machine>div i:nth-child(2){height:75%}.ch1-pattern-machine>div i:nth-child(3){height:52%}.ch1-pattern-machine>div i:nth-child(4){height:90%}
+.ch1-verdict{display:flex;justify-content:center;align-items:center;gap:.8rem;padding:.75rem;background:#132152;color:#fff}.ch1-verdict b{font-size:17px}.ch1-verdict span{font-size:13px;color:#ccefff}.ch1-one-product{display:grid;grid-template-columns:210px 1fr;align-items:center;gap:1rem;padding:.85rem 1.2rem;background:#fff4d9;border-top:3px solid #df9b13}.ch1-one-product strong{color:#8a5a00;font-size:15px;letter-spacing:.06em}.ch1-one-product span{font-size:15px;line-height:1.45}.ch1-decision-seam figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch1-decision-seam{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #75dfe8}.ch1-decision-head{padding:.85rem}.ch1-decision-head h4{font-size:24px}.ch1-decision-head span{font-size:15px}.ch1-shared-email{grid-template-columns:66px 1fr;padding:.75rem;gap:.65rem}.ch1-shared-email>span{display:none}.ch1-envelope{width:62px;height:43px}.ch1-envelope:before,.ch1-envelope:after{top:-34px}.ch1-shared-email p{font-size:15px}.ch1-causal-paths{grid-template-columns:1fr;padding:.65rem;gap:.75rem}.ch1-path{padding:.65rem}.ch1-path-label b{font-size:20px}.ch1-human-rule,.ch1-rule-check,.ch1-pattern-machine{grid-template-columns:62px 1fr;min-height:88px;padding:.55rem}.ch1-human-rule strong,.ch1-rule-check strong,.ch1-pattern-machine strong{font-size:15px}.ch1-human-rule em,.ch1-rule-check em,.ch1-pattern-machine em{font-size:13px}.ch1-example span{font-size:10px}.ch1-one-product{grid-template-columns:1fr;padding:.75rem}.ch1-decision-seam figcaption{font-size:14px}}
+.ch3-data-life{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #82e1be;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}
+.ch3-data-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#0d7f8f 72%);color:#fff}.ch3-data-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch3-data-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch3-data-head span{display:block;color:#d6fff2;font-size:17px;font-weight:700;line-height:1.4}
+.ch3-life-body{display:grid;grid-template-columns:1fr 34px 1.25fr 34px 1.15fr;grid-template-areas:"job flowa prepare flowb split" ". . turn . ." "learn learn learn flowc use";gap:.65rem;padding:1rem;background:#f4f6ff}.ch3-life-body>section{min-width:0;padding:.75rem;border:2px solid #aab8dc;background:#fff}.ch3-job{grid-area:job}.ch3-prepare{grid-area:prepare}.ch3-split{grid-area:split}.ch3-learn-check{grid-area:learn}.ch3-use{grid-area:use}.ch3-flow-a{grid-area:flowa}.ch3-flow-b{grid-area:flowb}.ch3-flow-c{grid-area:flowc}.ch3-turn{grid-area:turn}.ch3-flow,.ch3-turn{display:flex;align-items:center;justify-content:center;color:#4e18ca;font-size:34px;font-weight:900}.ch3-stage{display:flex;align-items:center;gap:.45rem;margin-bottom:.65rem}.ch3-stage b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#4e18ca;color:#fff;font-size:14px}.ch3-stage span{font-size:10px;font-weight:900;letter-spacing:.08em}.ch3-life-body section>strong{display:block;margin:.45rem 0 .2rem;font-size:15px}.ch3-life-body section>p{margin:.2rem 0;color:#414a6a;font-size:12px;line-height:1.4}
+.ch3-target{position:relative;width:78px;height:78px;margin:.2rem auto;border:7px solid #14afc4;border-radius:50%}.ch3-target:before{content:"";position:absolute;inset:13px;border:5px solid #ef218d;border-radius:50%}.ch3-target:after{content:"";position:absolute;inset:29px;border-radius:50%;background:#4e18ca}.ch3-target i{position:absolute;background:#132152}.ch3-target i:first-child{left:34px;top:-10px;width:3px;height:92px}.ch3-target i:nth-child(2){top:34px;left:-10px;width:92px;height:3px}.ch3-target i:nth-child(3){display:none}
+.ch3-mail-pile{display:grid;grid-template-columns:repeat(3,1fr);gap:.28rem;margin:.3rem 0}.ch3-mail{position:relative;height:38px;border:2px solid #253469;background:#edf8ff;font-style:normal}.ch3-mail:before,.ch3-mail:after{content:"";position:absolute;top:2px;width:25px;height:25px;border-bottom:1px solid #253469;transform:rotate(45deg)}.ch3-mail:before{left:2px}.ch3-mail:after{right:2px;transform:rotate(-45deg)}.ch3-mail span{position:absolute;right:2px;bottom:2px;z-index:2;padding:1px 3px;background:#fff;font-size:7px;font-weight:900}.ch3-mail-5{opacity:.45}.ch3-prepare ol{margin:.45rem 0 0;padding-left:1.15rem}.ch3-prepare li{margin:.2rem 0;font-size:11px;font-weight:700;line-height:1.3}.ch3-prepare li::marker{color:#ef218d;font-weight:900}
+.ch3-data-stacks{display:grid;gap:.45rem}.ch3-dataset{position:relative;display:grid;grid-template-columns:68px 1fr;align-items:center;gap:.55rem;min-height:58px;padding:.45rem;border:2px solid #aab8dc;background:#f8fbff}.ch3-dataset>div{display:flex;flex-direction:column-reverse;align-items:center}.ch3-dataset i{display:block;width:56px;height:17px;margin-top:-8px;border:2px solid #253469;background:#dff8ff}.ch3-dataset p{margin:0!important}.ch3-dataset strong{display:block;font-size:10px}.ch3-dataset span{display:block;margin-top:.15rem;color:#4d5674;font-size:10px;line-height:1.2}.ch3-data-stacks .ch3-train i{background:#c8f1df}.ch3-data-stacks .ch3-valid i{background:#efe2ff}.ch3-data-stacks .ch3-test i{background:#ffe0ef}.ch3-test b{position:absolute;left:51px;top:22px;width:20px;height:16px;border-radius:2px;background:#132152}.ch3-test b:before{content:"";position:absolute;left:5px;top:-9px;width:10px;height:11px;border:3px solid #132152;border-bottom:0;border-radius:8px 8px 0 0;box-sizing:border-box}
+.ch3-learn-flow{display:grid;grid-template-columns:1fr 24px 1.2fr 24px 1fr;align-items:center;gap:.25rem}.ch3-learn-flow>b{color:#4e18ca;font-size:24px;text-align:center}.ch3-input-stack,.ch3-check-stack{padding:.55rem;border:2px solid #aab8dc;background:#f5fbff;text-align:center}.ch3-input-stack span,.ch3-check-stack span{display:block;font-size:9px;font-weight:900}.ch3-input-stack i{display:block;width:80%;height:10px;margin:-2px auto 0;border:1px solid #253469;background:#c8f1df}.ch3-check-stack em{display:block;margin-top:.25rem;font-size:10px;font-style:normal}.ch3-model{position:relative;display:grid;grid-template-columns:repeat(3,1fr);align-items:end;gap:4px;min-height:74px;padding:.65rem;border:3px solid #132152;background:#dffaff}.ch3-model i{display:block;background:#4e18ca}.ch3-model i:first-child{height:25px}.ch3-model i:nth-child(2){height:42px}.ch3-model i:nth-child(3){height:32px}.ch3-model strong{grid-column:1/-1;font-size:9px;text-align:center}.ch3-final-test{display:grid;grid-template-columns:auto 24px 1fr;align-items:center;gap:.35rem;margin-top:.65rem;padding:.55rem;background:#fff0f7;border:2px solid #ef218d}.ch3-final-test span{font-size:9px;font-weight:900}.ch3-final-test b{color:#4e18ca;text-align:center}.ch3-final-test strong{font-size:10px;line-height:1.25}
+.ch3-new-mail{display:flex;flex-direction:column;align-items:center;gap:.35rem}.ch3-new-mail i{position:relative;width:78px;height:50px;border:3px solid #132152;background:#fff0f7}.ch3-new-mail i:after{content:"";position:absolute;left:13px;top:-14px;width:45px;height:45px;border-bottom:3px solid #132152;transform:rotate(45deg)}.ch3-new-mail span{font-size:10px;font-weight:900}.ch3-down{display:block;color:#4e18ca;font-size:25px;text-align:center}.ch3-prediction{padding:.65rem;background:#132152;color:#fff;font-size:15px;font-weight:900;text-align:center}.ch3-monitor{margin-top:.65rem;padding:.55rem;border:2px dashed #df9b13;background:#fff6df}.ch3-monitor strong{display:block;color:#8a5a00;font-size:9px}.ch3-monitor span{display:block;margin-top:.25rem;font-size:10px;line-height:1.35}
+.ch3-missing{display:grid;grid-template-columns:230px 1fr;align-items:center;gap:1rem;padding:.85rem 1.2rem;background:#fff0d8;border-top:3px solid #df9b13}.ch3-missing strong{color:#8a5a00;font-size:14px;letter-spacing:.06em}.ch3-missing span{font-size:14px;line-height:1.45}.ch3-data-life figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch3-data-life{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #82e1be}.ch3-data-head{padding:.85rem}.ch3-data-head h4{font-size:24px}.ch3-data-head span{font-size:15px}.ch3-life-body{grid-template-columns:1fr;grid-template-areas:"job" "flowa" "prepare" "flowb" "split" "turn" "learn" "flowc" "use";padding:.65rem}.ch3-flow,.ch3-turn{height:25px;font-size:28px;transform:rotate(90deg)}.ch3-turn{transform:none}.ch3-life-body>section{padding:.75rem}.ch3-life-body section>strong{font-size:16px}.ch3-life-body section>p{font-size:14px}.ch3-stage span{font-size:11px}.ch3-prepare li{font-size:13px}.ch3-mail{height:46px}.ch3-mail span{font-size:9px}.ch3-dataset{grid-template-columns:82px 1fr}.ch3-dataset i{width:68px;height:20px}.ch3-dataset strong{font-size:12px}.ch3-dataset span{font-size:12px}.ch3-test b{left:65px;top:24px}.ch3-learn-flow{grid-template-columns:1fr 25px 1.2fr 25px 1fr}.ch3-input-stack span,.ch3-check-stack span,.ch3-final-test span,.ch3-model strong{font-size:10px}.ch3-check-stack em,.ch3-final-test strong{font-size:11px}.ch3-new-mail span{font-size:11px}.ch3-monitor strong{font-size:10px}.ch3-monitor span{font-size:12px}.ch3-missing{grid-template-columns:1fr;padding:.75rem}.ch3-data-life figcaption{font-size:14px}}
+.ch5-training-loop{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #f0a6d0;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}
+.ch5-training-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#6328ba 72%);color:#fff}.ch5-training-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch5-training-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch5-training-head span{display:block;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch5-example{display:grid;grid-template-columns:1fr 36px 180px;align-items:center;gap:.7rem;padding:.9rem 1.2rem;background:#edf8ff;border-bottom:3px solid #aab8dc}.ch5-example>span{color:#4e18ca;font-size:28px;font-weight:900;text-align:center}.ch5-example b{display:block;color:#4e18ca;font-size:10px;letter-spacing:.1em}.ch5-token-row{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem}.ch5-token-row i{padding:.28rem .45rem;border:2px solid #24346b;background:#fff;color:#132152;font-size:14px;font-style:normal;font-weight:800}.ch5-known{padding:.55rem;border:2px solid #ef218d;background:#fff0f7}.ch5-known strong{display:block;margin-top:.2rem;font-size:21px}
+.ch5-loop-body{display:grid;grid-template-columns:1fr 38px 1fr;grid-template-areas:"forward arrowa loss" ". . arrowb" "adjust arrowc backward" "repeat repeat repeat";gap:.7rem;padding:1rem;background:#f5f5ff}.ch5-loop-body>section{min-width:0;padding:.8rem;border:2px solid #aab8dc;background:#fff}.ch5-forward{grid-area:forward}.ch5-loss{grid-area:loss}.ch5-backward{grid-area:backward}.ch5-adjust{grid-area:adjust}.ch5-arrow-a{grid-area:arrowa}.ch5-arrow-b{grid-area:arrowb}.ch5-arrow-c{grid-area:arrowc}.ch5-repeat{grid-area:repeat;align-self:center}.ch5-loop-arrow{display:flex;align-items:center;justify-content:center;color:#4e18ca;font-size:34px;font-weight:900}.ch5-arrow-b{height:26px}.ch5-step{display:flex;align-items:center;gap:.45rem;margin-bottom:.65rem}.ch5-step b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#4e18ca;color:#fff;font-size:14px}.ch5-step span{font-size:10px;font-weight:900;letter-spacing:.08em}.ch5-loop-body section>p{margin:.65rem 0 0;color:#40496b;font-size:12px;line-height:1.4}
+.ch5-forward-flow{display:grid;grid-template-columns:58px 20px 92px 20px 1fr;align-items:center;gap:.25rem}.ch5-forward-flow>b{color:#4e18ca;font-size:20px}.ch5-mini-tokens{display:flex;flex-direction:column;gap:.18rem}.ch5-mini-tokens i{padding:.2rem;border:1px solid #24346b;background:#e7faff;font-size:9px;font-style:normal;text-align:center}.ch5-network{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);gap:5px;min-height:95px;padding:.4rem;border:3px solid #132152;background:linear-gradient(90deg,#e6faff,#f5e9ff)}.ch5-network i{width:12px;height:12px;align-self:center;justify-self:center;border:2px solid #4e18ca;border-radius:50%;background:#fff}.ch5-likelihoods{display:grid;gap:.35rem}.ch5-likelihoods>div{display:grid;grid-template-columns:34px 1fr 29px;align-items:center;gap:.2rem}.ch5-likelihoods span,.ch5-likelihoods b{font-size:8px}.ch5-likelihoods i{height:9px;border:1px solid #253469;background:linear-gradient(90deg,#ef218d 0 var(--score),#edf0fa var(--score));font-style:normal}
+.ch5-compare{display:grid;grid-template-columns:1fr 30px 1fr;align-items:center;gap:.3rem}.ch5-compare>div{padding:.45rem;border:2px solid #aab8dc;background:#f8fbff;text-align:center}.ch5-compare span{display:block;font-size:8px;font-weight:900}.ch5-compare strong{font-size:18px}.ch5-compare>b{color:#ef218d;font-size:24px;text-align:center}.ch5-loss-meter{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.4rem;margin-top:.7rem;padding:.55rem;background:#fff1f6;border:2px solid #ef218d}.ch5-loss-meter span,.ch5-loss-meter strong{font-size:9px}.ch5-loss-meter i{height:14px;border:1px solid #253469;background:#fff;font-style:normal}.ch5-loss-meter i b{display:block;width:82%;height:100%;background:#ef218d}
+.ch5-error-trace{display:grid;grid-template-columns:82px 24px 1fr;align-items:center;gap:.35rem}.ch5-error-source{padding:.55rem;background:#ef218d;color:#fff;font-size:10px;font-weight:900;text-align:center}.ch5-error-trace>b{color:#4e18ca;font-size:24px}.ch5-contributions{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}.ch5-contributions i{position:relative;height:38px;border:2px solid #253469;background:#eef9ff;font-style:normal}.ch5-contributions i:before{content:"";position:absolute;left:50%;top:4px;width:8px;height:8px;border:2px solid #4e18ca;border-radius:50%;transform:translateX(-50%)}.ch5-contributions span{position:absolute;left:0;right:0;bottom:3px;font-size:8px;font-weight:800;text-align:center}
+.ch5-sliders{display:grid;gap:.45rem}.ch5-sliders>div{display:grid;grid-template-columns:58px 1fr;align-items:center;gap:.4rem}.ch5-sliders span{font-size:9px;font-weight:800}.ch5-sliders i{position:relative;height:8px;background:#d5dcef;font-style:normal}.ch5-sliders i:before,.ch5-sliders i:after{content:"";position:absolute;top:-5px;width:5px;height:18px}.ch5-sliders i:before{left:var(--before);background:#a5adc7}.ch5-sliders i:after{left:var(--after);background:#ef218d}.ch5-repeat{display:flex;flex-direction:column;gap:.3rem;justify-content:center;padding:.7rem;border:2px dashed #df9b13;background:#fff5de;text-align:center}.ch5-repeat b{color:#8a5a00;font-size:9px}.ch5-repeat span{font-size:9px;font-weight:900;line-height:1.35}
+.ch5-accumulation{display:grid;grid-template-columns:170px 1fr;align-items:center;gap:1rem;padding:.85rem 1.2rem;background:#fff0db;border-top:3px solid #df9b13}.ch5-accumulation p{margin:0;font-size:14px;line-height:1.45}.ch5-drop-series{display:flex;align-items:flex-end;gap:5px;height:54px;padding:6px;border-left:3px solid #132152;border-bottom:3px solid #132152}.ch5-drop-series i{width:22px;background:#4e18ca}.ch5-drop-series i:nth-child(1){height:45px}.ch5-drop-series i:nth-child(2){height:36px}.ch5-drop-series i:nth-child(3){height:26px}.ch5-drop-series i:nth-child(4){height:18px}.ch5-drop-series i:nth-child(5){height:13px}.ch5-training-loop figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch5-training-loop{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #f0a6d0}.ch5-training-head{padding:.85rem}.ch5-training-head h4{font-size:24px}.ch5-training-head span{font-size:15px}.ch5-example{grid-template-columns:1fr;padding:.75rem}.ch5-example>span{font-size:22px}.ch5-known{width:auto}.ch5-loop-body{grid-template-columns:1fr;grid-template-areas:"forward" "arrowa" "loss" "arrowb" "backward" "arrowc" "adjust" "repeat";padding:.65rem}.ch5-loop-arrow{height:24px;font-size:0;transform:none}.ch5-loop-arrow:after{content:"↓";font-size:28px}.ch5-loop-body>section{padding:.75rem}.ch5-loop-body section>p{font-size:14px}.ch5-step span{font-size:11px}.ch5-forward-flow{grid-template-columns:62px 22px 104px 22px 1fr}.ch5-network{min-height:105px}.ch5-likelihoods span,.ch5-likelihoods b{font-size:9px}.ch5-likelihoods>div{grid-template-columns:38px 1fr 32px}.ch5-compare span{font-size:9px}.ch5-error-trace{grid-template-columns:85px 24px 1fr}.ch5-contributions span{font-size:9px}.ch5-sliders span{font-size:11px}.ch5-repeat b,.ch5-repeat span{font-size:10px}.ch5-accumulation{grid-template-columns:1fr;padding:.75rem}.ch5-drop-series{width:170px;margin:auto}.ch5-training-loop figcaption{font-size:14px}}
+.ch2-job-family{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #eea0cf;overflow:hidden;font-family:var(--reading-font)}
+.ch2-job-family-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#41209c 72%);color:#fff}.ch2-job-family-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch2-job-family-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch2-job-family-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}
+.ch2-family-stack{padding:1rem 1.15rem;background:linear-gradient(180deg,#f3f8ff,#fff7fc)}.ch2-layer{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);gap:.85rem;align-items:center;padding:.8rem 1rem;background:#fff;border:3px solid #9dadd4}.ch2-layer-agent{margin-left:12%;border-color:#ed238c;background:#fff0f7}.ch2-layer-gen{margin-left:8%;border-color:#6b2cff;background:#f4efff}.ch2-layer-deep{margin-left:4%;border-color:#00aeca;background:#e8fbff}.ch2-layer-ml{border-color:#18a76d;background:#e8fff4}.ch2-layer-name{align-self:stretch;display:grid;grid-template-columns:32px 1fr;align-content:center;gap:.25rem .45rem;padding-right:.8rem;border-right:2px solid currentColor;color:#4e18ca}.ch2-layer-name b{grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#4e18ca;color:#fff;font-size:13px}.ch2-layer-name span{font-size:11px;font-weight:900;letter-spacing:.08em}.ch2-layer-name strong{color:#101842;font-size:20px;line-height:1}.ch2-layer>p{grid-column:2;margin:.5rem 0 0!important;color:#394463;font-size:14px!important;line-height:1.35!important}.ch2-built-on{display:block;margin:.18rem 0 .18rem 4%;color:#4e18ca;font-size:10px;font-weight:900;letter-spacing:.08em}
+.ch2-ml-flow,.ch2-deep-flow,.ch2-gen-flow{display:flex;align-items:center;justify-content:center;gap:.6rem;min-width:0}.ch2-ml-flow>b,.ch2-deep-flow>b,.ch2-gen-flow>b{color:#ed238c;font-size:24px}.ch2-ml-flow>strong,.ch2-deep-flow>strong{padding:.5rem .65rem;background:#101842;color:#fff;font-size:12px;line-height:1.2;text-align:center}.ch2-records{display:grid;gap:.18rem;width:100px}.ch2-records i{display:block;height:8px;background:linear-gradient(90deg,#18a76d 0 16%,#afeed0 16% 35%,#18a76d 35% 46%,#afeed0 46% 72%,#18a76d 72% 80%,#afeed0 80%)}.ch2-pattern{position:relative;width:110px;height:48px;background:#fff;border:2px solid #18a76d;overflow:hidden}.ch2-pattern i{position:absolute;inset:9px 8px 18px;background:linear-gradient(160deg,transparent 0 14%,#18a76d 15% 19%,transparent 20% 34%,#ed238c 35% 39%,transparent 40% 54%,#6b2cff 55% 59%,transparent 60%)}.ch2-pattern span{position:absolute;inset:auto 0 2px;color:#13734d;font-size:8px;font-weight:900;text-align:center}
+.ch2-pixel-grid{display:grid;grid-template-columns:repeat(7,10px);grid-auto-rows:10px;gap:1px;padding:4px;background:#fff;border:2px solid #00aeca}.ch2-pixel-grid i{background:#c7eff7}.ch2-pixel-grid i:nth-child(7n+2),.ch2-pixel-grid i:nth-child(7n+6),.ch2-pixel-grid i:nth-child(12),.ch2-pixel-grid i:nth-child(16),.ch2-pixel-grid i:nth-child(17),.ch2-pixel-grid i:nth-child(18),.ch2-pixel-grid i:nth-child(23),.ch2-pixel-grid i:nth-child(24),.ch2-pixel-grid i:nth-child(25),.ch2-pixel-grid i:nth-child(31),.ch2-pixel-grid i:nth-child(33){background:#5b1fc4}.ch2-feature-stack{display:grid;gap:.18rem}.ch2-feature-stack i{padding:.15rem .35rem;background:#fff;border-left:4px solid #00aeca;color:#1a6170;font-size:9px;font-style:normal;font-weight:900}.ch2-deep-flow>strong{background:#007f96}
+.ch2-gen-flow>p{margin:0!important;padding:.5rem .65rem!important;background:#fff;border:2px solid #6b2cff;color:#101842;font-size:12px!important;font-weight:800!important;line-height:1.25!important}.ch2-gen-flow>div{width:116px;padding:.4rem;background:#fff;border:2px solid #6b2cff}.ch2-gen-flow>div span{display:block;color:#4e18ca;font-size:9px;font-weight:900;letter-spacing:.08em}.ch2-gen-flow>div i{display:block;height:3px;margin:.3rem 0;background:#c9bbed}.ch2-gen-flow>div i:last-child{width:64%}
+.ch2-agent-loop{display:grid;grid-template-columns:1fr;justify-items:center;gap:.18rem}.ch2-agent-row{display:flex;align-items:center;justify-content:center;gap:.35rem}.ch2-agent-loop i{min-width:86px;padding:.4rem .45rem;background:#fff;border:2px solid #ed238c;color:#101842;font-size:10px;font-style:normal;font-weight:900;line-height:1.15;text-align:center}.ch2-agent-loop i small{font-size:8px;font-weight:700}.ch2-agent-loop b{color:#ad1764}.ch2-agent-loop .ch2-agent-down{font-size:9px;letter-spacing:.06em}.ch2-agent-loop .ch2-observe{background:#fff5df;border-color:#df9b13}.ch2-agent-loop .ch2-human-check{background:#101842;color:#fff}.ch2-agent-loop span{width:100%;padding:.38rem .45rem;background:#fff;color:#ad1764;font-size:10px;font-weight:900;line-height:1.3;letter-spacing:.04em;text-align:center}
+.ch2-job-test{margin:0;padding:.8rem 1.15rem;background:#fff5df;border-top:3px solid #df9b13;color:#3c4059;font-size:15px;line-height:1.45}.ch2-job-test strong{color:#8a5a00}.ch2-job-family figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
+@media(max-width:850px){.ch2-job-family{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #eea0cf}.ch2-job-family-head{padding:.85rem}.ch2-job-family-head h4{font-size:24px}.ch2-job-family-head span{font-size:15px}.ch2-family-stack{padding:.7rem}.ch2-layer,.ch2-layer-agent,.ch2-layer-gen,.ch2-layer-deep,.ch2-layer-ml{grid-template-columns:1fr;margin-left:0;padding:.7rem}.ch2-layer-name{grid-template-columns:32px 1fr;padding:0 0 .55rem;border-right:0;border-bottom:2px solid currentColor}.ch2-layer>p{grid-column:1;font-size:14px!important}.ch2-built-on{margin:.2rem 0;text-align:center}.ch2-ml-flow,.ch2-deep-flow,.ch2-gen-flow{gap:.3rem}.ch2-records{width:75px}.ch2-pattern{width:88px}.ch2-pixel-grid{grid-template-columns:repeat(7,8px);grid-auto-rows:8px}.ch2-agent-loop{gap:.14rem}.ch2-agent-loop i{min-width:92px;padding:.38rem .35rem;font-size:10px}.ch2-agent-loop b{font-size:11px}.ch2-agent-loop .ch2-agent-down{font-size:9px}.ch2-agent-loop span{font-size:10px}.ch2-job-test,.ch2-job-family figcaption{font-size:15px}}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and has been quarantined: none of those figures, diagrams or maps is rendered in this review. A new visual method must pass one representative concept before any full-book propagation. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Nine replacement teaching methods in Chapters 1.1, 2.4, 3.3, 4.3, 5.5, 6.2, 7.2, 8.6 and 9.8 have passed maker and independent desktop/mobile review. None has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -814,7 +1357,8 @@ const artifactPaths = [
   paths.fragment,
   paths.inventory,
   paths.review,
-  ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook, paths.chapterSixBicycleTree] : []),
+  ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook] : []),
+  ...(representativeTeachingVisualActive ? [paths.chapterSixBicycleTree] : []),
 ];
 const manifest = {
   schemaVersion: "laidies-library-source-import-manifest.v1",
@@ -834,6 +1378,7 @@ const manifest = {
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
     teachingImages: visualTeachingLayerActive ? chapterOneTeachingAssets.filter(asset => asset.countAsTeachingVisual !== false).length : 0,
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
+    representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,
     technicalClarifications: rewindAmendments.clarifications?.length || 0,
     humourSprinkles: rewindAmendments.sprinkles?.length || 0,
@@ -847,6 +1392,15 @@ const manifest = {
     freshnessRegistration: "PASS_20_CHAPTER_SCOPES_WEEKLY_AUTOMATION_MONTHLY_OR_QUARTERLY_REVIEW",
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
     visualTeachingLayer: visualTeachingLayerStatus,
+    representativeTeachingVisual: representativeTeachingVisualStatus,
+    chapterOneDecisionSeam: chapterOneDecisionSeamStatus,
+    chapterFourTokenProof: chapterFourTokenProofStatus,
+    chapterTwoJobFamily: chapterTwoJobFamilyStatus,
+    chapterThreeDataLifecycle: chapterThreeDataLifecycleStatus,
+    chapterFiveTrainingLoop: chapterFiveTrainingLoopStatus,
+    chapterSevenRequestJourney: chapterSevenRequestJourneyStatus,
+    chapterEightContextRetrieval: chapterEightContextRetrievalStatus,
+    chapterNineCustomisationDecision: chapterNineCustomisationDecisionStatus,
     unfamiliarReaderAdmission: "HOLD",
     publicRelease: "HOLD",
   },

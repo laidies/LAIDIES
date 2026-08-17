@@ -110,7 +110,7 @@ try {
   returnedAssetManifest.artifacts.push({ path: "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-rejected.png", sha256: "rejected" });
   fs.writeFileSync(manifestPath, `${JSON.stringify(returnedAssetManifest, null, 2)}\n`);
   const returnedVisualAsset = inspectBook(temporary);
-  if (returnedVisualAsset.pass || !returnedVisualAsset.errors.some(error => error.includes("rejected visual assets as active artifacts"))) {
+  if (returnedVisualAsset.pass || !returnedVisualAsset.errors.some(error => error.includes("rejected Chapter 1 visual assets as active artifacts"))) {
     throw new Error("calibration failed: checker accepted a rejected visual asset in the active manifest");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
@@ -125,7 +125,61 @@ try {
   if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("rejected cumulative map pieces have returned"))) {
     throw new Error("calibration failed: checker accepted Chapter 1 as a system-map component");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL");
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch01-rule-or-learned-pattern"', 'data-representative-teaching-visual="ch01-decision-seam-missing"'));
+  const missingChapterOneVisual = inspectBook(temporary);
+  if (missingChapterOneVisual.pass || !missingChapterOneVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 1.1 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch03-data-choices-lifecycle"', 'data-representative-teaching-visual="ch03-data-lifecycle-missing"'));
+  const missingChapterThreeVisual = inspectBook(temporary);
+  if (missingChapterThreeVisual.pass || !missingChapterThreeVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 3.3 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch05-guess-check-adjust-loop"', 'data-representative-teaching-visual="ch05-training-loop-missing"'));
+  const missingChapterFiveVisual = inspectBook(temporary);
+  if (missingChapterFiveVisual.pass || !missingChapterFiveVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 5.5 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch06-photo-to-patches"', 'data-representative-teaching-visual="ch06-photo-proof-missing"'));
+  const missingRepresentativeVisual = inspectBook(temporary);
+  if (missingRepresentativeVisual.pass || !missingRepresentativeVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 6.2 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch07-prefill-decode-stream"', 'data-representative-teaching-visual="ch07-request-lifecycle-missing"'));
+  const missingChapterSevenVisual = inspectBook(temporary);
+  if (missingChapterSevenVisual.pass || !missingChapterSevenVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 7.2 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch08-weights-context-memory-rag"', 'data-representative-teaching-visual="ch08-context-retrieval-missing"'));
+  const missingChapterEightVisual = inspectBook(temporary);
+  if (missingChapterEightVisual.pass || !missingChapterEightVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 8.6 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch09-context-or-weights-decision"', 'data-representative-teaching-visual="ch09-decision-map-missing"'));
+  const missingChapterNineVisual = inspectBook(temporary);
+  if (missingChapterNineVisual.pass || !missingChapterNineVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 9.8 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch04-text-to-tokens"', 'data-representative-teaching-visual="ch04-token-proof-missing"'));
+  const missingChapterFourVisual = inspectBook(temporary);
+  if (missingChapterFourVisual.pass || !missingChapterFourVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 4.3 representative visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-representative-teaching-visual="ch02-four-jobs-one-family"', 'data-representative-teaching-visual="ch02-job-family-missing"'));
+  const missingChapterTwoVisual = inspectBook(temporary);
+  if (missingChapterTwoVisual.pass || !missingChapterTwoVisual.errors.some(error => error.includes("a bounded representative visual is missing or duplicated"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 2.4 representative visual");
+  }
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL missing_chapter_one_representative=FAIL missing_chapter_three_representative=FAIL missing_chapter_five_representative=FAIL missing_chapter_six_representative=FAIL missing_chapter_seven_representative=FAIL missing_chapter_eight_representative=FAIL missing_chapter_nine_representative=FAIL missing_chapter_four_representative=FAIL missing_chapter_two_representative=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
