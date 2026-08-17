@@ -1,9 +1,13 @@
 {
-  "schemaVersion": 1,
-  "recordedAt": "2026-08-17T11:52:00-07:00",
-  "status": "BUILT_LOCALLY_SOURCE_LOCKED_MOTION_HELD",
+  "schemaVersion": 2,
+  "recordedAt": "2026-08-17T12:18:00-07:00",
+  "status": "SOURCE_CORRECTED_EXISTING_EPISODE_ART_ONLY",
   "releaseAuthority": false,
-  "ownerCorrection": "Episode 04 already uses the adult graphic-novel system. Pixel, halftone, painterly and cinematic-looking replacements are regressions and must not be introduced as a new direction.",
+  "ownerCorrections": [
+    "Episode 04 already has its adult graphic-novel Ada and Hedy art; do not generate substitute character frames.",
+    "The generated Ada substitute is not the Ada image used in the episode.",
+    "The generated Hedy substitute contains a disconnected phantom arm and fails anatomy."
+  ],
   "styleAuthority": {
     "path": "operations/episode-visual-system-lock.md",
     "renderingRule": "comic-v1-locked: mature adult graphic-novel illustration, clean bold ink, hard angular dimensional shadow planes and controlled saturated colour; no pixel art, halftone, painterly or generic cinematic rendering"
@@ -20,78 +24,71 @@
       "sha256": "38b0264a97f7cd97773ed1365b5f73968b4da266aed2de6b9f586241b67318c9"
     }
   ],
-  "sourceStills": [
-    {
-      "id": "ada-portrait-mechanism",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-ada-analytical-engine-adult-graphic-novel-v1.png",
-      "sha256": "e45267faba7a3716c58d542ff0068f0b731d5b4197786bdf12acf4ae50d56672",
-      "status": "BUILT_LOCALLY_PRODUCER_SOURCE",
-      "allowedUse": "Stable portrait/period context; do not animate or morph Ada's face."
-    },
-    {
-      "id": "hedy-portrait-mechanism",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-adult-graphic-novel-v1.png",
-      "sha256": "fcede1926379b3463d4353c595dc49a083167ab5edac2f4455f42b4b8138f5b3",
-      "status": "BUILT_LOCALLY_PRODUCER_SOURCE",
-      "allowedUse": "Stable portrait/period context; do not animate or morph Hedy's face."
-    },
-    {
-      "id": "ada-mechanism-insert",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-ada-engine-mechanism-adult-graphic-novel-v1.png",
-      "sha256": "fc3cd08361a169078bbfa2c5e238a9f59d633532879a9a85a1a091021e268295",
-      "status": "BUILT_LOCALLY_PRODUCER_SOURCE",
-      "restriction": "Concept illustration only; it must not imply that the Analytical Engine was completed or operating in Ada's lifetime."
-    },
-    {
-      "id": "hedy-mechanism-insert",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-mechanism-adult-graphic-novel-v1.png",
-      "sha256": "6dafee510f414056a63411d158847aca133540de040a5398c38c476d05c6469e",
-      "status": "REJECTED_STYLE_DRIFT",
-      "reason": "The mechanism plate reads more photographic/cinematic than the locked adult graphic-novel source stills."
-    }
-  ],
-  "motionTrials": [
-    {
-      "id": "ada-mechanism-canva-v1",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-ada-engine-mechanism-canva-motion-v1.mp4",
-      "sha256": "5a5899ed8536a23a7e824dd388a9d24fcc9b8b742ad6472eca26c83ab2f39f87",
-      "canvaDesignId": "DAHSkZTYfmw",
-      "status": "HOLD_INDEPENDENT_VISUAL_AND_HISTORY_REVIEW",
-      "reason": "Decoded frames preserve the drawing and show machine motion, but historical implication and narration fit are not yet independently admitted."
-    },
-    {
-      "id": "hedy-mechanism-canva-v1",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-canva-motion-v1.mp4",
-      "sha256": "871ee2c024014f950e06370970a39376807d6c99336c73915dd2eb4573f1dff3",
-      "canvaDesignId": "DAHSkj1LhFA",
-      "status": "REJECTED",
-      "reason": "Dial needles diverge and lights flare."
-    },
-    {
-      "id": "hedy-mechanism-canva-v2",
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-canva-motion-v2.mp4",
-      "sha256": "9945dbfae82414368ad5572e99cb50277172ba0f7568d54dee8f679ed4d3fe2e",
-      "canvaDesignId": "DAHSkj1LhFA",
-      "status": "REJECTED_SECOND_CYCLE_STOP",
-      "reason": "The stricter successor still produces unsynchronised dial positions and brightness flares. Image-to-video generation is stopped for this shot."
-    }
-  ],
-  "retiredRecoveryEvidence": [
-    {
-      "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-narration-sync-v4-story.mp4",
-      "sha256": "fbeea76fe689fe48ef3cf935cfea3dd98ce944cc671f9776cb261b197280881c",
-      "disposition": "REFERENCE_ONLY_NOT_REUSABLE",
-      "reason": "Dark painterly/cinematic register and operating-machine implication conflict with the current style and history gate."
-    },
-    {
-      "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-narration-sync-v3-story.mp4",
-      "sha256": "30eea19ba4ad7adf251b6df22c035232b9e56eb1199c6ef6592e1ac9dd5b942a",
-      "disposition": "REFERENCE_ONLY_NOT_REUSABLE",
-      "reason": "Pixel/halftone drift and predominantly pan/zoom/hard-cut motion conflict with the current style and meaningful-animation gate."
-    }
-  ],
-  "nextAction": "Build one deterministic Canva overlay-motion proof on the unchanged Hedy adult graphic-novel still: only a clean signal marker travels across the existing frequency-hop diagram. No image-to-video, face motion, camera motion, particles, light flares or style regeneration. The same proof must be independently reviewed before any Episode 04 assembly.",
+  "exactEpisodeSources": {
+    "ada": [
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-a-start-comic-v1-locked-1920.png",
+        "sha256": "82cfb0f11a144bd6ba3d7c0933e742599535dc130548805a20b32f3c8647bd93"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-b-mid-comic-v1-locked-1920.png",
+        "sha256": "a2d597163fbd3f4cdf755436a769f2d443add0b0a91d9f89f87e66c09025b51e"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-c-end-comic-v1-locked-1920.png",
+        "sha256": "21528978911d355fbcd8dae50e643439e493ab66565de81f6c5e6063b9d14298"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-b-mid-comic-v1-locked-1920-loop-v1.mp4",
+        "sha256": "33e1b38a64e6ed03dd5a41436a6e1a9737b7978d2133fd933382802669d64441"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-punched-card-toward-camera-comic-event-v1.mp4",
+        "sha256": "460a37664d8fe6523d21a3b5103616e1f450374b2be17f28fc15da538c6976f7"
+      }
+    ],
+    "hedy": [
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-comic-v1-fresh-1920.png",
+        "sha256": "25e1f450631a81886bc0d2f31d88efa47d626ef0622c4f149cafa828a8012b83"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-b-mid-comic-v1-locked-1920.png",
+        "sha256": "71ee185384cd793a1227d3a5ae5a0cbb0120faec9096515a345d5ff01f6b8949"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-c-end-comic-v1-locked-1920.png",
+        "sha256": "71ee185384cd793a1227d3a5ae5a0cbb0120faec9096515a345d5ff01f6b8949"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-cue22-local-motion-v1.mp4",
+        "sha256": "fd4ba13b594cc53403bba7c374279f472ec4bcf40ecdcfa18e7def1bddd05528"
+      },
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-b-mid-comic-v1-locked-1920-signal-v1.mp4",
+        "sha256": "661229bd65ec9e7db3b983d3d2ee0f402a7f6b14989048d8f4a8bc407c00831b"
+      }
+    ]
+  },
+  "rejectedGeneratedSubstitutes": {
+    "directory": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/_rejected",
+    "disposition": "RETAINED_ONLY_AS_KNOWN_BAD_EVIDENCE_NEVER_ASSEMBLE",
+    "defects": [
+      "wrong Ada image and character continuity",
+      "Hedy phantom/disconnected arm",
+      "Hedy mechanism style drift",
+      "unsynchronised dials and brightness flares in both Hedy motion trials",
+      "unapproved substitute art instead of exact episode sources"
+    ]
+  },
+  "canvaRoughDesign": {
+    "designId": "DAHSkq6LJX0",
+    "status": "ABANDONED_INVALID_SOURCE_DO_NOT_EXPORT",
+    "reason": "It uses the rejected phantom-arm Hedy substitute."
+  },
+  "nextAction": "Review the exact episode-used Ada and Hedy sources occurrence by occurrence, then make one smallest Canva motion proof by animating only a narration-relevant prop on an unchanged admitted source. Do not generate or replace either woman.",
   "notDone": [
+    "No corrected Ada or Hedy motion has been admitted",
     "No full Episode 04 assembly",
     "No captions burned into video",
     "No public player or site integration",

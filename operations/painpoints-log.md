@@ -15655,21 +15655,25 @@ while remaining falsely unfinished in the launch record.
 
 ### 2026-08-17 follow-up — episode repair must begin from the locked visual generation
 
-- **Failure / surprise:** Episode 04 already had a locked adult graphic-novel
-  system, but later recovery work treated older painterly, pixel/halftone and
-  cinematic-looking Ada/Hedy sequences as reusable merely because they had more
-  movement. The resulting review regressed the visible style Ali had already
-  approved. Two Hedy image-to-video retries also changed dial relationships and
-  light levels despite explicit locks.
+- **Failure / surprise:** Episode 04 already had exact locked adult
+  graphic-novel Ada and Hedy art, but later recovery work treated older
+  painterly, pixel/halftone and cinematic-looking sequences as reusable merely
+  because they had more movement, then generated substitute character frames
+  instead of recovering the episode-used sources. Ali identified that the Ada
+  substitute was not the episode's Ada and that the Hedy substitute contained a
+  disconnected phantom arm. Two Hedy image-to-video retries also changed dial
+  relationships and light levels despite explicit locks.
 - **Prevention rule:** Before any episode motion repair, bind the exact current
-  `comic-v1-locked` still and reject every source outside that visual generation.
+  episode-used `comic-v1-locked` still and reject every source outside that
+  visual generation. A prompt, likeness reference or broadly similar style does
+  not authorize replacing an established character occurrence.
   More motion never outweighs a style, likeness or history failure. Historical
   portraits remain pixel-stable; motion is isolated to narration-relevant props
   or deterministic Canva overlays. After two image-to-video failures, stop that
   method and use a materially different motion construction.
-- **Known-bad evidence:** Episode 04 v13 Ada/Hedy recovery sources and
-  `ep04-hedy-frequency-hopping-canva-motion-v1.mp4` / `v2.mp4` are retained only
-  as rejected evidence; they are not assembly sources.
+- **Known-bad evidence:** Episode 04 v13 Ada/Hedy recovery sources and every file
+  under `delivery-v14-source-pilot-20260817/_rejected/` are retained only as
+  rejected evidence; they are not assembly sources.
 - **Possible Behind the Build angle:** Why recovering an older animation can
   quietly undo a visual system—and why motion quality starts with source
   admission rather than movement count.
