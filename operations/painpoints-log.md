@@ -15632,3 +15632,23 @@ while remaining falsely unfinished in the launch record.
   still be misspelled on screen—and why video handles need visual QA.
 - **Publication status:** LOCAL CANVA SOURCE CANDIDATE / INDEPENDENT REVIEW;
   NOT ASSEMBLED, DEPLOYED, PUBLISHED OR PUBLICLY VERIFIED.
+
+### 2026-08-17 follow-up — prove the export path before rendering a full episode
+
+- **Failure / surprise:** CapCut 9.2.8 beta added a visible `CapCut` watermark to
+  the first 20-minute Episode 04 v11 export. The timeline and approved Canva
+  source were correct, but the export path was not release-safe; discovering
+  this after the full render created a rejected 1.7 GB file and wasted the
+  longest step.
+- **Prevention rule:** Before any full CapCut episode export, render a two-second
+  representative excerpt and inspect decoded corner frames for editor branding,
+  altered pixels and audio drift. A visible watermark fails before full export.
+  Never subscribe or spend to remove it without Ali's authority. Code may render
+  an already-authored, approved media timeline when it adds no visible creative
+  pixels; the exact result still requires independent audiovisual review.
+- **Possible Behind the Build angle:** Why a two-second export test can save a
+  20-minute render—and why the editing timeline and the exported artifact are
+  separate things to verify.
+- **Publication status:** FIRST EXPORT REJECTED INTERNALLY; WATERMARK-FREE V11
+  BUILT LOCALLY / TECHNICALLY VERIFIED / INDEPENDENT REVIEW PENDING; NO SITE,
+  DEPLOYMENT OR PUBLIC MEDIA CHANGED.

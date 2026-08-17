@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "EP04-FULL-V11-WARDROBE-TRANSITION-REVIEW",
+  "status": "BUILT_LOCALLY_TECHNICAL_VALIDATION_PASS_INDEPENDENT_REVIEW_PENDING",
+  "qualityAuthority": false,
+  "candidate": {
+    "path": "assets/video/episode-04-full-v11-wardrobe-transition-review.mp4",
+    "sha256": "1b38963e482f735b9501f24b99f672c895baf7069ac0fbbdb9df3580891a40aa",
+    "durationSeconds": 1222.34,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "videoCodec": "H.264 High",
+    "audioCodec": "AAC LC 48000 Hz mono"
+  },
+  "parent": {
+    "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/video/episode-04-full-v10-repaired-review.mp4",
+    "sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb",
+    "audioPayloadSha256": "1d3e61c6ab7ed37e3564f3114a8b13666edf8b5f49880aef8b8a2e70d6c6cf2e"
+  },
+  "replacement": {
+    "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/ep04-transformation-season-wardrobe-v11-canva-designed-title-dotted-i-source-with-handle.mp4",
+    "sha256": "e8e2323bf1f0286f2f23ddd375b9463567a0dfb21b37e725f3535a631f829094",
+    "sourceFrames": "[0,246)",
+    "programFrames": "[5861,6107)",
+    "programWindowSeconds": "[195.366667,203.566667)",
+    "retimed": false
+  },
+  "technicalChecks": {
+    "fullDecode": "PASS",
+    "durationPreserved": "PASS",
+    "geometryAndFrameRate": "PASS",
+    "sourceAudioCopied": "PASS",
+    "candidateAudioPayloadSha256": "1d3e61c6ab7ed37e3564f3114a8b13666edf8b5f49880aef8b8a2e70d6c6cf2e",
+    "preOccurrenceUnchangedSubject": "PASS_AT_195.20",
+    "replacementVisible": "PASS_AT_195.50_200.50_203.40",
+    "postOccurrenceRestored": "PASS_AT_203.70",
+    "watermarkAbsent": "PASS_IN_DECODED_CANDIDATE_SAMPLES"
+  },
+  "representativeFrames": [
+    {"timeSeconds": 195.20, "path": "operations/video-qa/episode-04-v11-wardrobe-transition-review/frames-clean/t195.20.png", "sha256": "ac26b9c127eac8c08bfe0e0fbe9c498e02a4034388a4ea22a207c0b7d7cb94d3"},
+    {"timeSeconds": 195.50, "path": "operations/video-qa/episode-04-v11-wardrobe-transition-review/frames-clean/t195.50.png", "sha256": "15b72b06a35bc501952bc70ebac07ffd9c6011f55869ef2021b36b9a5386afe9"},
+    {"timeSeconds": 200.50, "path": "operations/video-qa/episode-04-v11-wardrobe-transition-review/frames-clean/t200.50.png", "sha256": "c5a6f8363b3fa8f823e9dd8a122b3000053e56a03387874dbff6efb7f51a4a89"},
+    {"timeSeconds": 203.40, "path": "operations/video-qa/episode-04-v11-wardrobe-transition-review/frames-clean/t203.40.png", "sha256": "cac8fddf7e7874627cd5b0eb771c6c934ee055e58bb7d7ff47a5ecf8ef0e2d21"},
+    {"timeSeconds": 203.70, "path": "operations/video-qa/episode-04-v11-wardrobe-transition-review/frames-clean/t203.70.png", "sha256": "2214432e51913264b3c8464b375ca0a78e5e27231b52227a2c57446f223a3f7b"}
+  ],
+  "failedAttempt": {
+    "path": "assets/video/_rejected/episode-04-full-v11-wardrobe-transition-review-capcut-watermarked.mp4",
+    "sha256": "330a52c27b0d1a4ca3656b8942f41c2d47a389c01677bf9c70524c869454b0de",
+    "verdict": "REJECTED_INTERNAL",
+    "reason": "The updated CapCut beta added a visible CapCut watermark to the export. The exact CapCut timeline placement was retained, but the successor was rendered from the approved media with FFmpeg and the original AAC payload copied unchanged. No image or animation was authored in code."
+  },
+  "remainingGate": "A role-distinct reviewer must inspect the exact candidate artifact, including the complete title at normal speed with sound, before any release or public integration claim."
+}
