@@ -14601,10 +14601,22 @@ while remaining falsely unfinished in the launch record.
   unless they perform an indispensable teaching job. Desktop concept pass does
   not admit a shrunk mobile raster; mobile must recompose the logic with
   editable labels.
+- **Ali rejection and method stop:** Ali then rejected the nominally passing
+  thermostat concept because the human actions were still unclear, several
+  labels looked off-centre or misplaced and `One Thermostat` was a needless
+  caption. The internal pass is invalid. Roughly an hour produced only one
+  rejected image. The root cause is procedural: image generation was used for
+  precise diagram structure, then Figma became a manual repair shop for logic,
+  labels, alignment and responsiveness. That workflow creates a bespoke design
+  job for every aid and cannot scale across the textbook. Stop producing
+  one-off diagram images. Group visual jobs into the smallest reusable native
+  component families, make labels and relationships structured data, prove one
+  family representative on desktop/mobile, and reserve generated or sourced
+  imagery for supporting objects or scenes that genuinely add teaching value.
 - **Possible Behind the Build angle:** Why an attractive “educational image”
   can still teach nothing—and why review must test reader inference rather than
   file existence or maker intent.
 - **Publication status:** OLD CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
-  TABLE RECLASSIFIED / THERMOSTAT DESKTOP CONCEPT PASS / ALI REVIEW AND MOBILE
-  ADMISSION OPEN / NO
+  TABLE RECLASSIFIED / THERMOSTAT REJECTED / VISUAL PRODUCTION METHOD REPAIR /
+  NO
   PRODUCTION INTEGRATION OR PUBLICATION.

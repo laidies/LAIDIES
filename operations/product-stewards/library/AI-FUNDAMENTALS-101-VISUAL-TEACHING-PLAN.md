@@ -154,8 +154,8 @@ cannot carry. No other visual opportunity is admitted by this candidate.
 
 ### Chapter 1 annotated thermostat illustration
 
-The next candidate is **DESKTOP CONCEPT PASS / ALI REVIEW OPEN / MOBILE AND
-INTEGRATION HOLD**. It answers a different, diagram-worthy question from
+The next candidate is **ALI REJECTED / WITHDRAWN AS A PRODUCTION DIRECTION /
+NOT INTEGRATED**. It attempted to answer a different, diagram-worthy question from
 section 1.4: how can one familiar product contain both exact-rule automation
 and learned behaviour at the same time?
 
@@ -172,12 +172,24 @@ The exact desktop review image is
 `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/previews/ch01-smart-thermostat-rule-vs-learning-concept-v1.png`
 (SHA-256 `f2a7852d1ff68c4a49ee8ca048bda3209557cb5b2581b655912c8cc3a5632290`,
 1672 × 941). Its editable label source is Figma file
-`oXmRrddxtDRdbDID2wTJ62`, node `6:2`. The role-distinct final artifact review
+`oXmRrddxtDRdbDID2wTJ62`, node `6:2`. A role-distinct artifact review had
 passed the desktop concept after rejecting an unrecognisable cutaway, a
 single-day routine that looked programmed, ambiguous output arrows and clipped
-labels. This pass admits only the desktop teaching direction for Ali review.
-Book integration must use editable text and a separately composed stacked
-mobile version; the full raster may not simply shrink.
+labels. Ali's direct review invalidated that pass: it was still unclear which
+actions belonged to the human, text was not composed cleanly into the image,
+and the floating `One Thermostat` label was unnecessary and foolish. More
+importantly, producing one rejected candidate consumed roughly an hour of
+bespoke image-generation and Figma repair, proving the method cannot scale to
+the book's visual inventory. This artifact remains rejection evidence only.
+
+The successor method must not use image generation as a diagram or layout
+engine. Diagram structure, labels, alignment, responsive order and accessibility
+belong in a small native reusable component family; generated or sourced imagery
+may supply only a supporting object or scene when it performs an indispensable
+teaching job. The visual-job registry must first be grouped into the smallest
+set of reusable forms—such as comparison flow, process/loop, layered system,
+annotated object, timeline and before/after—then one representative component
+must pass desktop and mobile before the family propagates.
 
 The cumulative map begins only when the manuscript reaches actual system
 components in Chapter 3. Chapters 1 and 2 establish the distinction and model
