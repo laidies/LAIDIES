@@ -42,8 +42,10 @@ The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
 Status is **BUILT LOCALLY / CHAPTER 1 THREE-FIGURE VISUAL SET + ONE SUMMARY
-CHECK INDEPENDENT DESKTOP/MOBILE PASS / ALI REVIEW CANDIDATE / NOT INTEGRATED /
-NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The accepted candidate now shows:
+CHECK INDEPENDENT DESKTOP/MOBILE PASS / CHAPTERS 2–20 FULL VISUAL LAYER MAKER
+AND INDEPENDENT DESKTOP/MOBILE PASS / ALI REVIEW PENDING / NOT
+INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The accepted Chapter 1
+candidate shows:
 written rules versus labelled examples; examples to learned likeness to a new
 photo match; and two distinct decision routes inside one inbox. The three
 teaching figures fit within one 390×844 viewport at 701px, 778px and 740px with
@@ -78,9 +80,18 @@ nothing. An internal desktop pass is invalid. Roughly an hour spent generating
 and repairing this single rejected image demonstrates that bespoke ImageGen →
 Figma correction will not scale to the textbook. That rejection set the
 successful repair method: native responsive composition carries labels and
-relationships; generated/sourced imagery is only a supporting layer. The next
-action is Ali's Chapter 1 review, then—only if accepted—reuse these proven
-component families for the remaining visual-job registry.
+relationships; generated/sourced imagery is only a supporting layer. The
+remaining visual plan is now implemented as one internal full-book candidate:
+45 section-bound teaching visuals across Chapters 2–20 plus the connected final
+map. Maker inspection covered every figure at 390 × 844 and representative
+desktop figures at 1440 × 1000; the current candidate has no measured horizontal
+escape, image failure, crop or over-height section figure. The final cumulative
+map is intentionally longer than one phone viewport so its labels remain
+readable. The independent artifact-first review held the first full-book
+candidate for four visible defect families, then passed the repaired `v48`
+candidate after the denoising progression, desktop word breaks, phone attention
+legend and two phone-height escapes were corrected. Ali review, Library
+integration and public release remain open.
 Chapter 20 supplies one connected hardware/software blueprint from supply chain,
 chips and data centres through training, product use, inference, optional tools,
 output and accountable human consequence. The opening objective card now uses
@@ -89,10 +100,11 @@ height equal to scroll height. The body uses the system reading-sans stack at
 19px desktop / 18px mobile. The surviving layout was visually inspected at
 1280 and 390 widths;
 the earlier base system was also checked at 320, all with zero horizontal
-overflow. Each callout type now has its own persistent colour. The remaining
-57 visual-teaching records are still questions to solve, not accepted diagrams
-or an illustration quota. The source-build visual is an internal reader, not
-the final admitted Library presentation. No public site bytes changed.
+overflow. Each callout type now has its own persistent colour. The earlier
+57-record opportunity list is retired as an illustration quota. The current 45
+jobs were selected only where spatial structure, sequence, comparison or
+containment adds teaching value. The source-build visual is an internal reader,
+not the final admitted Library presentation. No public site bytes changed.
 
 ## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
 

@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** INTERNAL REPRESENTATIVE REPAIR — no visual admitted or published
+**Status:** FULL-BOOK INTERNAL CANDIDATE — independent desktop/mobile visual PASS; Ali review pending; no visual integrated or published
 **Owner:** Library
 **Applies to:** the complete AI Fundamentals 101 successor, not the prose-only representative pilot
 
@@ -17,18 +17,44 @@ it cannot invent the technical relationship or contain generated lettering.
 Every visual has an equivalent text explanation and remains understandable
 without colour.
 
-## Planned teaching visuals
+## Current full-book candidate — 2026-08-17
 
-| Location | Form | Named teaching job | Required visible relationship | Text equivalent |
-| --- | --- | --- | --- | --- |
-| Introduction / Chapter 1 | Layered system map | Stop the word “AI” from collapsing the whole arrangement into one object | person and goal → product → supplied information/instructions → model → optional retrieval/tools → output/action → evidence and human decision; loop-back only where the system actually runs another step | One short paragraph names every layer and says exact implementations vary. |
-| Chapter 2 | Two-panel process diagram | Separate training from the work happening during the reader's current task | training shapes a model before use; inference processes current input later; current task material is not automatically training data | Caption states the distinction and avoids universal product-retention claims. |
-| Chapter 2 | Model-family comparison | Show that AI is broader than LLMs without producing a provider parade | representative jobs—generate, classify, predict, rank, detect or act on different media—mapped to appropriate model families and multimodal combinations | A compact comparison table carries the same distinctions. |
-| Chapter 3 | Working-information diagram | Distinguish context, context window, session, memory and retrieval | what is visible in the interface; what is supplied to the model for one step; what can persist; what can be fetched; what never entered the working context | Prose explicitly warns that visible, stored, retrievable and model-supplied are not synonyms. |
-| Chapter 4 | System-interaction flow chart | Show what wrappers, harnesses, routing, APIs, tools and MCP add around a model | request enters surrounding software; router selects a path/model/tool; permission boundary; tool/API/MCP exchange; result returns to context; product presents output | Ordered steps name which component performs each action. |
-| Chapter 5 | Agent/workflow loop | Make multi-step execution and human control points visible | goal → plan/route → action/tool → observation → update → stop/continue, with explicit permission, approval and stopping points; agents, sub-agents and skills labelled by job, not personality | Prose explains that a loop does not guarantee autonomy, correctness or responsibility. |
-| Chapter 6 | Failure-path diagnostic | Help readers locate why an AI-assisted result or public claim failed | missing/poor input, stale or absent retrieval, model error, tool/permission failure, interface omission, unsupported claim and unreviewed human decision lead to different repairs | A decision list maps each failure family to the first evidence/check that could distinguish it. |
-| Concept Index | Mini relationship map | Let a lookup reader see where one term belongs before jumping to a chapter | grouped concept families connect to the six chapter mechanisms; no 56-box glossary wall | Each index entry retains a one-line meaning, chapter link and system connection. |
+The rejected 58-item opportunity list has been reduced to **45 section-bound
+teaching jobs across Chapters 2–20**. Chapter 1 retains its separately reviewed
+three-figure set and compact summary check. The successor does not apply one
+image per chapter: major mechanisms receive more than one aid, while sections
+that are already clearer as prose or a table receive none.
+
+The implemented families are causal timelines, ordered pipelines, side-by-side
+process comparisons, loops, finite-container and boundary schematics, layered
+systems, similarity maps, stepwise physical processes and one cumulative
+hardware-to-output blueprint. Section 6.2 includes one generated, text-free
+bicycle-and-tree scene because the object must be recognisable before the
+patching mechanism makes sense; all labels, arrows, grids and explanations
+remain deterministic editable page layers.
+
+Maker inspection read all 45 rendered figures at 390×844 and checked their
+desktop bounds at 1440×1000. No individual section figure exceeds the phone
+viewport, no page has horizontal overflow, no image is missing and no desktop
+descendant escapes its figure. The cumulative Chapter 20 map is deliberately
+scrollable on mobile: it preserves readable labels for the complete physical,
+training, runtime, tool and governance system instead of shrinking into a tiny
+poster. The role-distinct artifact-first review of `review.html?v=48` returned
+PASS after it first held the candidate for a false denoising progression,
+desktop word breaks, an unreadable phone legend and two phone-height escapes.
+The repaired seven views and the previously inspected remainder now pass.
+This does not integrate the book into LIBRAiRY or publish it.
+
+## Current visual registry
+
+The exact current 45-record implementation authority is
+`content/library-books/pilots/ai-fundamentals-101-quick-manuscript/teaching-visuals.mjs`.
+Every record binds a section, reader question, visual family, visible mechanism
+and plain-language takeaway. The earlier chapter-level opportunity table is
+retired because it described a six-chapter prototype rather than this
+20-chapter manuscript and incorrectly proposed a Chapter 1 system-map piece.
+The generated `artifact-manifest.json` records the rendered count; neither that
+count nor the registry itself constitutes visual acceptance.
 
 ## Visual acceptance
 

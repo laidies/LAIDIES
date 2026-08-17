@@ -93,12 +93,15 @@ export function inspectBook(pilotDir = ownDir) {
   if (/<details class="answer-reveal"\s+open/i.test(review)) errors.push("an answer disclosure is open by default");
   if (count(review, /<details class="answer-reveal"><summary>Show answers<\/summary>/g) !== sourceAnswerSections) errors.push("answer disclosures are missing the exact Show answers control");
   const conceptDiagramCount = Number(manifest.counts?.conceptDiagrams || 0);
-  const renderedConceptSections = [...review.matchAll(/class="concept-diagram" data-section="(\d+\.\d+)"/g)].map(match => match[1]);
+  const renderedConceptSections = [...review.matchAll(/class="teaching-visual [^"]+" data-teaching-section="(\d+\.\d+)"/g)].map(match => match[1]);
   const conceptChapters = renderedConceptSections.map(section => section.split(".")[0]);
   if (renderedConceptSections.length === 20 && new Set(conceptChapters).size === 20) errors.push("visual plan has collapsed to a one-per-chapter quota instead of section-bound concept decisions");
   if (renderedConceptSections.length !== conceptDiagramCount) errors.push("review does not render every registered section-bound instructional diagram");
   if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
-  if (count(review, /<figure class="concept-diagram"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
+  if (count(review, /<figure class="teaching-visual [^"]+"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
+  if (/<figure class="teaching-visual tv-/.test(review)) errors.push("an instructional figure reuses an inner layout class and can collapse at mobile width");
+  const requiredTeachingCss = [".teaching-visual{margin:2.2rem", ".tv-network .nodes circle{", ".tv-euv{display:grid", ".tv-memory section{min-height:160px"];
+  if (!requiredTeachingCss.every(marker => review.includes(marker))) errors.push("instructional diagrams are missing required base or mobile layout CSS");
   if (renderedConceptSections.some(section => section.startsWith("1."))) errors.push("rejected Chapter 1 visual set has returned to the reader");
   const teachingVisualIds = [...review.matchAll(/data-teaching-visual="([^"]+)"/g)].map(match => match[1]);
   const requiredTeachingVisualIds = ["ch01-core-distinction", "ch01-generalisation", "ch01-one-product-both"];
@@ -150,7 +153,7 @@ export function inspectBook(pilotDir = ownDir) {
     const sectionHeadingTextIndex = review.indexOf(`>${section} `);
     const sectionHeadingStart = sectionHeadingTextIndex < 0 ? -1 : review.lastIndexOf("<h3", sectionHeadingTextIndex);
     const nextHeadingIndex = sectionHeadingStart < 0 ? -1 : review.indexOf("<h3", sectionHeadingTextIndex);
-    const diagramIndex = review.indexOf(`class="concept-diagram" data-section="${section}"`);
+    const diagramIndex = review.indexOf(`data-teaching-section="${section}"`);
     if (sectionHeadingStart < 0 || nextHeadingIndex < 0 || diagramIndex < sectionHeadingStart || diagramIndex > nextHeadingIndex) {
       errors.push(`concept diagram for section ${section} is not attached after that section`);
     }
@@ -163,7 +166,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
   if (manifest.counts?.teachingImages !== 3) errors.push("manifest does not count the exact three Chapter 1 teaching visuals");
   if (manifest.counts?.cumulativeSystemMaps !== 18) errors.push("manifest cumulative-system-map count is not the 17 component pieces plus one completed map");
-  if (manifest.gates?.visualTeachingLayer !== "CHAPTER_1_THREE_TEACHING_VISUALS_PLUS_SUMMARY_CHECK_INDEPENDENT_VISUAL_PASS_ALI_REVIEW_PENDING_COMPLETE_MAP_AND_REMAINING_VISUALS_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve the independently reviewed Chapter 1 candidate and remaining hold");
+  if (manifest.gates?.visualTeachingLayer !== "CHAPTER_1_AND_CHAPTERS_2_20_VISUAL_TEACHING_LAYER_INDEPENDENT_DESKTOP_MOBILE_PASS_ALI_REVIEW_PENDING_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest visual-teaching status does not preserve the independently reviewed full-book candidate and remaining Ali/integration/publication hold");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

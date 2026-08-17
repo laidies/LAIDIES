@@ -81,10 +81,22 @@ try {
     throw new Error("calibration failed: checker accepted answers exposed by default");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="concept-diagram"', 'class="concept-diagram-removed"'));
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="teaching-visual', 'class="teaching-visual-removed'));
   const missingConceptDiagram = inspectBook(temporary);
   if (missingConceptDiagram.pass || !missingConceptDiagram.errors.some(error => error.includes("every registered section-bound instructional diagram"))) {
     throw new Error("calibration failed: checker accepted a missing concept diagram");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="teaching-visual teaching-kind-', 'class="teaching-visual tv-'));
+  const collidingFigureClass = inspectBook(temporary);
+  if (collidingFigureClass.pass || !collidingFigureClass.errors.some(error => error.includes("reuses an inner layout class"))) {
+    throw new Error("calibration failed: checker accepted an outer/inner diagram class collision");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.tv-network .nodes circle{', '.tv-network .nodes circle-removed{'));
+  const missingTeachingCss = inspectBook(temporary);
+  if (missingTeachingCss.pass || !missingTeachingCss.errors.some(error => error.includes("required base or mobile layout CSS"))) {
+    throw new Error("calibration failed: checker accepted missing teaching-diagram CSS");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<section class="chapter-ahead"', '<details class="chapter-ahead"'));
@@ -105,7 +117,7 @@ try {
     throw new Error("calibration failed: checker accepted poster-scale mobile map labels");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"', '<figure class="concept-diagram" data-section="1.1"><figcaption>Rejected visual returned</figcaption></figure><h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"'));
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"', '<figure class="teaching-visual tv-rejected" data-teaching-section="1.1"><figcaption>Rejected visual returned</figcaption></figure><h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"'));
   const returnedChapterOneVisual = inspectBook(temporary);
   if (returnedChapterOneVisual.pass || !returnedChapterOneVisual.errors.some(error => error.includes("rejected Chapter 1 visual set has returned"))) {
     throw new Error("calibration failed: checker accepted a returned rejected Chapter 1 visual");
@@ -128,7 +140,7 @@ try {
   if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("incorrectly presented as an AI-system component"))) {
     throw new Error("calibration failed: checker accepted Chapter 1 as a system-map component");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL rejected_chapter_one_visual_returned=FAIL missing_chapter_one_teaching_job=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL colliding_figure_class=FAIL missing_teaching_css=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL rejected_chapter_one_visual_returned=FAIL missing_chapter_one_teaching_job=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

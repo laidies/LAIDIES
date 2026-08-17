@@ -14641,3 +14641,42 @@ while remaining falsely unfinished in the launch record.
   relationship in one mobile viewport and reject every stray generated mark.
 - **Publication status:** CHAPTER 1 VISUAL SET INDEPENDENT DESKTOP/MOBILE PASS /
   ALI REVIEW CANDIDATE / REMAINING CHAPTER VISUAL PLAN AND PUBLICATION HOLD.
+
+## BTB-461 — A structurally present diagram can still render the wrong relationship
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 visual-teaching propagation.
+- **Failure risk:** A generated book can contain the correct number of diagrams,
+  captions and section anchors while mobile CSS changes their reading order,
+  turns connector text vertical, removes the visual loop or lets an inner layout
+  escape its frame. The checker then reports success while the learner sees the
+  wrong mechanism.
+- **Root cause:** The first Chapters 2–20 propagation reused one class name for
+  both the outer figure and an inner layout, temporarily lost the base component
+  CSS, and recomposed multi-step pipelines as a two-column grid whose downward
+  arrows skipped to the wrong step. A placeholder rectangle labelled as a
+  bicycle also proved that semantic alt text cannot rescue unrecognisable pixels.
+- **Prevention rule:** Bind each diagram to one exact section and teaching job;
+  keep outer identity separate from inner layout; preserve sequence order when
+  recomposing; require base-style markers and horizontal-bound checks; measure
+  every phone figure; and visually read every real rendered artifact. Use a real
+  image asset only where the object itself matters, while keeping labels and
+  relationships deterministic and editable.
+- **Durable correction:** The visual registry now contains 45 section-bound jobs
+  across Chapters 2–20. Mobile pipelines are single ordered columns, cycle arrows
+  expose the loop, RAG and memory connectors remain horizontal text, supply-chain
+  and role handoffs are numbered, and the Chapter 6 object-to-patches lesson uses
+  a bound text-free bicycle-and-tree asset. The calibrated checker now rejects
+  the class-collision and missing-style regressions. Browser inspection at
+  1440×1000 and 390×844 found all 45 figures loaded, no horizontal page overflow,
+  no descendant escaping its desktop figure and no individual teaching figure
+  taller than the phone viewport. The cumulative Chapter 20 map remains a
+  deliberately scrollable reference on mobile because it connects the complete
+  physical, training, runtime, tool and governance system rather than shrinking
+  twenty chapters into unreadable poster text.
+- **Possible Behind the Build angle:** How a six-step diagram passed every count
+  while its arrows quietly taught step 1 → step 3—and why responsive order is
+  part of factual accuracy.
+- **Publication status:** FULL-BOOK VISUAL LAYER INDEPENDENT DESKTOP/MOBILE PASS
+  AT `review.html?v=48` / ALI REVIEW PENDING / NOT INTEGRATED / NOT DEPLOYED /
+  NOT PUBLICLY VERIFIED.

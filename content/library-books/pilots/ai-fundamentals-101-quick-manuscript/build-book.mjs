@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderLibraryBookSource } from "../../../../scripts/render-library-book.mjs";
+import { teachingVisuals, renderTeachingVisual, teachingVisualCss } from "./teaching-visuals.mjs";
 
 const pilotDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(pilotDir, "../../../..");
@@ -26,6 +27,7 @@ const paths = {
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
+  chapterSixBicycleTree: path.join(pilotDir, "assets/ch06-bicycle-tree-learning-image.png"),
 };
 
 const chapterOneTeachingAssets = [
@@ -377,22 +379,10 @@ const additionalConcepts = [
   ], takeaway: "The camps disagree about definitions, evidence, architecture and limits—not only about a date." },
 ];
 
-const conceptDiagrams = chapterConcepts
-  .map((concept, index) => ({ ...concept, after: primaryConceptSections[index] }))
-  .concat(additionalConcepts)
-  .filter(concept => !concept.after.startsWith("1."));
+const conceptDiagrams = teachingVisuals;
 
 function renderConceptDiagram(concept) {
-  if (!concept?.after) throw new Error("concept diagram is missing its exact section anchor");
-  const steps = items => items.map((step, index) => `<li data-step="${index + 1}"><span>STEP ${index + 1}</span><strong>${escapeHtml(step)}</strong></li>`).join("");
-  const body = concept.kind === "compare"
-    ? `<div class="concept-lanes">${concept.lanes.map(lane => `<section><h4>${escapeHtml(lane.label)}</h4><ol class="concept-flow">${steps(lane.steps)}</ol></section>`).join("")}</div>`
-    : concept.kind === "branches"
-      ? `<div class="concept-branches"><strong class="concept-hub">${escapeHtml(concept.hub)}</strong><span class="branch-connector" aria-hidden="true">branches into</span><ul>${concept.steps.map(step => `<li>${escapeHtml(step)}</li>`).join("")}</ul></div>`
-      : `<ol class="concept-flow${concept.loop ? " concept-loop" : ""}">${steps(concept.steps)}</ol>`;
-  const id = concept.after.replace(".", "-");
-  const variant = concept.after === "1.1" ? "decision-blueprint" : concept.variant;
-  return `<figure class="concept-diagram" data-section="${concept.after}"${variant ? ` data-variant="${variant}"` : ""} aria-labelledby="concept-title-${id}"><div class="concept-heading"><p>SECTION ${concept.after} · SEE THE MECHANISM</p><h3 id="concept-title-${id}">${escapeHtml(concept.title)}</h3><span>${escapeHtml(concept.question)}</span></div>${body}<figcaption><strong>The point:</strong> ${escapeHtml(concept.takeaway)}</figcaption></figure>`;
+  return renderTeachingVisual(concept);
 }
 
 function renderChapterOneVisual(asset) {
@@ -453,18 +443,18 @@ function renderSystemMap(throughChapter) {
   const arrow = '<span class="map-arrow" aria-hidden="true">→</span>';
   return `<figure class="system-map system-map-complete" aria-labelledby="system-map-title-20"><div class="system-map-heading"><p>THE COMPLETE AI SYSTEM MAP</p><h3 id="system-map-title-20">How materials, data and a request become an AI result</h3><span>Hardware, software and human responsibility in one connected system.</span></div>
     <div class="ai-system-blueprint" role="group" aria-describedby="system-map-caption">
-      <div class="map-governance"><strong>PEOPLE + GOVERNANCE SURROUND THE WHOLE SYSTEM</strong><span>People choose the goal, data, limits, deployment and response when something goes wrong.</span></div>
+      <div class="map-governance"><strong>PEOPLE + GOVERNANCE SURROUND THE WHOLE SYSTEM</strong><span>People choose the goal, data, design, routes, permissions, tests, deployment and response when something goes wrong.</span></div>
       <section class="map-track map-track-physical"><h4>1 · BUILD THE PHYSICAL FOUNDATION</h4><div class="map-track-flow">${node(18,"Supply chain","Materials, fabrication equipment and manufacturing")}${arrow}${node(16,"Chips + memory","Processors and memory perform and hold the calculations")}${arrow}${node(17,"Servers + data centres","Servers, networking, power and cooling keep compute available")}</div></section>
       <div class="hardware-to-work"><span>COMPUTE POWERS TRAINING ↓</span><span>COMPUTE POWERS EACH RESPONSE ↓</span></div>
-      <section class="map-track map-track-build"><h4>BUILD THE MODEL</h4><div class="map-track-flow">${node(3,"Data","Selected examples + human labels")}${arrow}${node(4,"Tokens","Turn material into processable pieces")}${arrow}${node(5,"Training","Adjust weights through repeated comparison")}${arrow}${node(5,"Learned model","Frozen numerical patterns","map-node-emphasis")}${arrow}${node(9,"Optional customisation","Change context, behaviour or efficiency")}</div></section>
+      <section class="map-track map-track-build"><h4>2 · BUILD THE MODEL</h4><div class="map-track-flow">${node(3,"Data","Selected examples + human labels")}${arrow}${node(4,"Tokens","Turn material into processable pieces")}${arrow}${node(5,"Training","Adjust weights through repeated comparison")}${arrow}${node(5,"Learned model","Frozen numerical patterns","map-node-emphasis")}${arrow}${node(9,"Optional model tuning","Fine-tuning or distillation changes the model before use")}</div></section>
       <div class="model-to-use"><span aria-hidden="true">↓</span><strong>The learned model powers each new request</strong></div>
-      <section class="map-track map-track-use"><h4>USE THE MODEL</h4><div class="map-track-flow">${node(null,"Person + request","The job, instruction and information supplied now")}${arrow}${node(10,"Product stack","Interface, routing and product rules")}${arrow}${node(8,"Context + retrieval","Instructions, conversation and selected sources")}${arrow}${node(7,"Inference","Run the learned model on this request","map-node-emphasis")}${arrow}${node(14,"Optional tools + actions","Use only allowed tools or take an approved action")}${arrow}${node(6,"Output","Text, image, audio, video, result or action")}</div></section>
-      <section class="map-crosscuts"><h4>CONTROLS MUST CROSS BUILDING AND USE</h4><div>${node(11,"Safety","Shape and filter behaviour")}${node(12,"Evaluation","Test the real task and failures")}${node(13,"Sandboxing","Contain actions and require approval")}</div></section>
-      <section class="map-track map-track-multistep"><h4>WHEN ONE RESPONSE IS NOT ENOUGH</h4><div class="map-track-flow">${node(14,"Agent loop","Choose a step → use a tool → observe → continue or stop")}${arrow}${node(15,"System craft","Design the routes, permissions, tests and stopping rules")}</div></section>
+      <section class="map-track map-track-use"><h4>3 · USE THE MODEL FOR A NEW REQUEST</h4><div class="map-track-flow">${node(null,"Person + request","The job, instruction and information supplied now")}${arrow}${node(10,"Product stack","Interface, routing and product rules")}${arrow}${node(8,"Current context","Prompt, selected history and retrieved sources")}${arrow}${node(7,"Inference","Run the learned model on this request","map-node-emphasis")}${arrow}${node(6,"Output","Text, image, audio, video or another result")}</div></section>
+      <section class="map-crosscuts"><h4>SAFETY + EVALUATION CROSS BOTH BUILDING AND USE</h4><div>${node(11,"Safety","Shape behaviour and check inputs or outputs")}${node(12,"Evaluation","Test the real task, edge cases and failures")}</div></section>
+      <section class="map-track map-track-multistep"><h4>4 · OPTIONAL TOOL LOOP FOR MULTI-STEP WORK</h4><div class="map-track-flow">${node(14,"Model proposes a tool","Name a tool and supply proposed arguments")}${arrow}${node(13,"Permission + sandbox","The application validates, limits and authorises")}${arrow}${node(14,"Tool runs","Only the approved action can reach the allowed resource")}${arrow}${node(14,"Result returns","Add the observation to the current context")}${arrow}${node(7,"Inference continues","Revise, use another tool, answer or stop","map-node-emphasis")}</div><p class="map-loop-return">THE TOOL RESULT RETURNS TO CONTEXT + INFERENCE BEFORE A FINAL OUTPUT</p></section>
       <div class="map-frontier"><strong>HUMAN REVIEW + CONSEQUENCE</strong><span>A person or organisation decides whether to use, revise, approve, publish or act on the result—and remains responsible for the consequence.</span></div>
     </div>
-    <div class="map-draw-guide"><h4>Draw it from memory</h4><ol><li>Draw the physical foundation.</li><li>Add the path that builds a model.</li><li>Draw the path that uses it for a new request.</li><li>Place safety, evaluation and sandboxing across both paths.</li><li>Add the agent loop around multi-step work.</li><li>Put people and governance around the entire system.</li></ol></div>
-    <figcaption id="system-map-caption"><strong>How to read it:</strong> the physical system supplies compute; data and training create a learned model; the software system combines a person’s request with product rules, context and optional tools; inference produces a result; people and controls govern what happens before, during and after that result.</figcaption></figure>`;
+    <div class="map-draw-guide"><h4>Draw it from memory</h4><ol><li>Draw the physical foundation.</li><li>Add the path that builds a model.</li><li>Draw the path that uses it for a new request.</li><li>Place safety and evaluation across building and use.</li><li>Draw sandboxing around the optional tool loop.</li><li>Put people, product design and governance around the whole system.</li></ol></div>
+    <figcaption id="system-map-caption"><strong>How to read it:</strong> the physical system supplies compute; data and training create a learned model; the software system combines a person’s request with product rules and current context; inference produces a result. Optional tools sit inside a permissioned loop and return their results to inference before the final output. People, product design, safety and evaluation govern the system rather than appearing as one last runtime step.</figcaption></figure>`;
 }
 
 function stripText(markdown) {
@@ -716,8 +706,9 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 .model-to-use{text-align:center;color:#4e18ca;font-size:.7rem}.model-to-use span,.model-to-use strong{display:block}.model-to-use span{font-size:1.4rem;line-height:1}
 .map-track-use{background:#fff0f7;border-left-color:var(--electric-pink)}
 .map-crosscuts{margin:.55rem 0;padding:.55rem;background:#fff8d9;border:3px dashed #7e6412}
-.map-crosscuts>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.map-crosscuts>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
 .map-track-multistep{background:#efffec;border-left-color:#25a65b}.map-track-physical{background:#f0ecff;border-left-color:var(--electric-purple)}
+.map-loop-return{margin:.55rem 0 0;padding:.42rem;background:#123f32;color:#fff;text-align:center;font-size:.62rem;font-weight:900;letter-spacing:.06em}
 .map-frontier{padding:.55rem .75rem;background:var(--navy);color:#fff}.map-frontier strong,.map-frontier span{display:block}.map-frontier span{margin-top:.15rem;color:#dbe7ff;font-size:.64rem}
 .system-map-complete .map-draw-guide{margin-top:1rem;padding:1rem;background:#eafff6;border-left:9px solid #18b989}.system-map-complete .map-draw-guide ol{columns:2;margin:.4rem 0 0;padding-left:1.25rem;font-size:.78rem}.system-map-complete figcaption{font-size:.85rem}
 @media(max-width:850px){.gr-page{border-left:0;border-top:8px solid var(--electric-purple);padding:1.1rem}.gr-page>h2{margin-left:-1.1rem;margin-right:-1.1rem;padding:1rem 1.1rem;box-shadow:none}.gr-page>h2::after{display:none}.gr-page>h3{margin-left:-.25rem;padding:.65rem .75rem}.chapter-ahead-body{padding:.75rem}.chapter-ahead .callout-objective ul{grid-template-columns:1fr}.chapter-ahead tbody{grid-template-columns:repeat(2,minmax(0,1fr))}.concept-diagram,.system-map{padding:.75rem;box-shadow:5px 5px 0 rgba(48,31,139,.18)}.concept-diagram[data-variant="decision-blueprint"],.system-map-complete{width:100%;margin-left:0}.concept-heading,.system-map-heading{margin:-.75rem -.75rem .75rem}.concept-lanes{grid-template-columns:1fr}.concept-flow{display:grid;gap:1.25rem}.concept-flow li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.2rem;transform:translateX(-50%)}.concept-branches{grid-template-columns:1fr}.branch-connector::before,.branch-connector::after{width:3px;height:18px;margin:.2rem auto}.decision-blueprint{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.blueprint-phase{display:none}.blueprint-lane{min-width:0;padding:.4rem}.blueprint-lane h4{font-size:.75rem}.blueprint-track{grid-template-columns:1fr}.blueprint-arrow{transform:rotate(90deg);font-size:.9rem}.blueprint-bridge{height:18px;overflow:hidden}.blueprint-node,.blueprint-result{padding:.4rem}.blueprint-node strong,.blueprint-result strong{font-size:.66rem}.blueprint-node p{font-size:.59rem}.blueprint-click{grid-column:1/-1}.claim-tree-branches{grid-template-columns:1fr}.pattern-blueprint{grid-template-columns:1fr}.pattern-arrow{transform:rotate(90deg);line-height:.8}.mixed-products-head{display:none}.mixed-products section{grid-template-columns:1fr}.mixed-products section>div{padding:.65rem}.hardware-to-work{grid-template-columns:1fr;gap:.25rem}.map-track-flow{display:grid;grid-template-columns:1fr;gap:.25rem}.map-track{padding:.65rem;border-left-width:6px}.map-track h4,.map-crosscuts h4{font-size:.72rem}.map-node{padding:.58rem .65rem}.map-node small{font-size:.67rem}.map-node strong{font-size:.86rem}.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem;line-height:1.3}.map-arrow{transform:rotate(90deg);justify-self:center;font-size:1rem;line-height:.8}.map-crosscuts>div{grid-template-columns:1fr;gap:.45rem}.map-governance span,.map-frontier span{font-size:.72rem;line-height:1.35}.system-map-complete .map-draw-guide ol{columns:1}}
@@ -752,10 +743,11 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 @media(max-width:850px){.ch1-core .ch1-later-flow{display:none}.ch1-core .ch1-later-mobile{display:block;margin:.5rem 0 0;padding:.45rem;background:#fff;border:2px solid #8499c9;border-radius:7px;color:#101842;font-size:11px;font-weight:800;line-height:1.3}.ch1-core .ch1-later-mobile span{display:block;color:#d31679;font-size:9px;letter-spacing:.1em}.ch1-three-step{padding:.7rem}.ch1-three-step section,.ch1-three-step .ch1-likeness-map{grid-template-columns:110px 1fr}.ch1-three-step .ch1-job strong{font-size:17px}.ch1-three-step .ch1-job small{font-size:13px;line-height:1.3}.ch1-inbox-map{grid-template-columns:1fr;padding:.7rem}.ch1-inbox-visual{width:min(250px,100%);margin:auto}.ch1-inbox-routes{grid-template-columns:1fr 1fr;gap:.5rem}.ch1-inbox-routes section{padding:.55rem}.ch1-inbox-routes span{font-size:9px}.ch1-inbox-routes strong{font-size:14px}.ch1-inbox-routes p{font-size:12px;line-height:1.3}.ch1-product-landing{padding:.55rem;font-size:14px}.ch1-product-landing b{font-size:18px}}
 @media(max-width:850px){.ch1-core .ch1-visual-head{padding:.65rem}.ch1-core .ch1-visual-head h4{font-size:22px}.ch1-core .ch1-visual-head span{font-size:14px}.ch1-core .ch1-art{max-height:82px}.ch1-core .ch1-lane{padding:.45rem}.ch1-core>figcaption{padding:.55rem .7rem;font-size:13px;line-height:1.3}.ch1-inbox-routes p{font-size:13px}}
 .ch1-art-rule-woman{background-position:0 14%}.ch1-art-rule-woman::after{content:"";position:absolute;z-index:2;top:0;right:0;width:18%;height:11%;background:#f4eafb}
+${teachingVisualCss}
 </style></head><body>
-<div class="build-banner">INTERNAL TEXTBOOK BUILD · CHAPTER 1 VISUAL SET · ALI REVIEW CANDIDATE · NOT PUBLISHED</div>
+<div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript is now a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters are registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. A separately reviewable Rewind overlay adds 13 earned references without changing the source. Three Chapter 1 teaching visuals and one compact summary check passed independent desktop/mobile visual review and are ready for Ali's review; the remaining visual plan, unfamiliar-reader admission and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript is now a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters are registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. A separately reviewable Rewind overlay adds 13 earned references without changing the source. The three Chapter 1 teaching figures, compact summary check, 45 section-bound Chapters 2–20 visuals and connected final AI-system map passed independent desktop/mobile visual review and are ready for Ali's review. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -809,7 +801,7 @@ fs.writeFileSync(paths.inventory, `${JSON.stringify(inventory, null, 2)}\n`);
 const review = buildReviewPage(source, fragment, finalManuscript);
 fs.writeFileSync(paths.review, review);
 
-const artifactPaths = [paths.front, paths.manuscript, paths.playbook, paths.rewind, paths.source, paths.fragment, paths.inventory, paths.review, paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook];
+const artifactPaths = [paths.front, paths.manuscript, paths.playbook, paths.rewind, paths.source, paths.fragment, paths.inventory, paths.review, paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook, paths.chapterSixBicycleTree];
 const manifest = {
   schemaVersion: "laidies-library-source-import-manifest.v1",
   candidateId: "LIB-AI-FUNDAMENTALS-101-QUICK-MANUSCRIPT-20260816",
@@ -840,7 +832,7 @@ const manifest = {
     sourceBinding: "PASS_ALI_VETTED_EXACT_SOURCE_BYTES",
     freshnessRegistration: "PASS_20_CHAPTER_SCOPES_WEEKLY_AUTOMATION_MONTHLY_OR_QUARTERLY_REVIEW",
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
-    visualTeachingLayer: "CHAPTER_1_THREE_TEACHING_VISUALS_PLUS_SUMMARY_CHECK_INDEPENDENT_VISUAL_PASS_ALI_REVIEW_PENDING_COMPLETE_MAP_AND_REMAINING_VISUALS_NOT_ADMITTED",
+    visualTeachingLayer: "CHAPTER_1_AND_CHAPTERS_2_20_VISUAL_TEACHING_LAYER_INDEPENDENT_DESKTOP_MOBILE_PASS_ALI_REVIEW_PENDING_NOT_INTEGRATED_NOT_PUBLISHED",
     unfamiliarReaderAdmission: "HOLD",
     publicRelease: "HOLD",
   },
