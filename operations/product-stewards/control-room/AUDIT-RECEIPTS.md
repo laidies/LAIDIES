@@ -282,6 +282,39 @@ executive brief has no material delta.
   check was skipped rather than implied.
 - Next scheduled audit: `2026-08-17T10:00:00-07:00`.
 
+## 2026-08-17 10:06 PDT — Twice-daily delta reconciliation
+
+- Evidence cutoff: `2026-08-17T10:06:38-07:00`; preceding successful Control
+  Room receipt: `2026-08-16T22:06:32-07:00`.
+- Overlap result: no competing live Control Room run and no fresh unfinished
+  lock or receipt. `run-queue.json` remains `active: []`; ODC-101's August 3
+  heartbeat is stale evidence, not liveness.
+- Delta: dirty local owner evidence added `IIR-20260817-019` for language/token-
+  cost equity and rebuilt the AI Fundamentals visual plan from the exact
+  20-chapter manuscript. Three representative visuals have local independent
+  review; neither owner tuple is committed, admitted, released or public.
+- Runtime verdict: `ATTENTION_REQUIRED / CONTROL_ROOM_RUNTIME_FAIL`.
+  `check-product-stewards` still fails on three expired public derivatives and
+  six overdue learning relationships. `check-work-resolution-loop` still
+  fails on one invalid `RUNNING` record and 15 overdue non-resolved records.
+  `check-operational-integrity` also retains the superseded migration-checker
+  mismatch and calibrated Library 120px mobile-shelf failure.
+- Outcome truth: production deployment
+  `9f161385-7486-4207-9afe-8512ea453973`, source
+  `28f483e25c021e37e0acd2687abcae26a6d66927` and artifact
+  `87f7781feac664e3d63b2277f153e080e617e5905f5d6c99494fe4f309fcc435`
+  remain the newest verified public identity. Audience remains 35 built
+  locally / 0 ready / 0 published; aggregate metrics remain unknown/null.
+- Dispatch: 0. The new equity handoff requires a versioned claim map and the
+  visual plan remains held for Ali review/full-book admission. No deployment,
+  publication, spend, account connection, credential use or public mutation
+  occurred.
+- Genuine Ali decision: Episode 05 Gate 1 architecture remains ready for
+  `APPROVE` or one named `REVISE`; approval permits canon reconciliation only.
+- Freshness: no `scripts/control-room-freshness.mjs` exists, so that named
+  check was skipped rather than implied.
+- Next scheduled audit: `2026-08-17T22:00:00-07:00`.
+
 ## 2026-08-16 10:04 PDT — Twice-daily delta reconciliation
 
 - Evidence cutoff: `2026-08-16T10:04:33-07:00`; preceding successful Control
