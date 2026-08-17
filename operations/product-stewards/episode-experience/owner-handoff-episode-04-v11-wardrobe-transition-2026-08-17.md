@@ -2,7 +2,7 @@
 
 **Evidence time:** 2026-08-17 07:40 PDT
 
-**Status:** BUILT LOCALLY / TECHNICAL VALIDATION PASS / INDEPENDENT REVIEW PENDING
+**Status:** BUILT LOCALLY / TECHNICAL AND LOCAL PLAYER VALIDATION PASS / QUALIFIED HUMAN REVIEW PENDING
 
 **Release truth:** NOT INTEGRATED, DEPLOYED, PUBLISHED OR PUBLICLY VERIFIED
 
@@ -12,6 +12,12 @@
 - Candidate SHA-256: `1b38963e482f735b9501f24b99f672c895baf7069ac0fbbdb9df3580891a40aa`
 - Runtime: 1222.34 seconds; 1920x1080; 30 fps; H.264 video; AAC LC 48 kHz mono audio
 - Mechanical validation: `operations/video-qa/episode-04-v11-wardrobe-transition-review/validation.json`
+- Local checksum-bound review player:
+  `operations/video-qa/episode-04-v11-launch-review/index.html`
+- Player evidence:
+  `operations/video-qa/episode-04-v11-launch-review/browser-results.json`
+- Human review contract:
+  `operations/video-qa/episode-04-v11-launch-review/review-contract.json`
 
 The candidate replaces only program frames `[5861,6107)`, or
 `195.366667-203.566667`, with the admitted Canva-authored wardrobe-transition
@@ -34,6 +40,14 @@ title and first post-occurrence frame were decoded and inspected. The parent
 narration audio payload is byte-identical. This is integrity and maker
 inspection, not a quality verdict.
 
+The local player additionally loaded the complete 20:22 master through a
+byte-range server, exposed the full seekable clock, rendered the external WebVTT
+captions over the changed window, toggled captions off and on, reached the
+changed window, and passed 390-pixel mobile layout and 44-pixel custom-control
+checks. Valid byte ranges return 206 with an exact content range; an impossible
+range returns 416. These are player-mechanics checks, not an audible or creative
+verdict.
+
 ## Rejected attempt and prevention
 
 The first CapCut export was rejected internally because CapCut 9.2.8 beta added
@@ -49,13 +63,13 @@ Two role-distinct judge dispatches failed at the reviewer service boundary with
 `Bad Request`; neither produced a verdict. Per the two-cycle stop rule, this
 approach is stopped rather than retried or self-approved.
 
-The candidate remains HOLD until Episode Media Quality independently watches the
-exact hash start-to-finish at normal speed with sound and external captions,
-judging the wardrobe transition, narration-picture meaning, visual continuity,
-timing, opening/closing credits and full-title defects. The next trigger is a
-working independent-review channel. An ACCEPT would admit only this local review
-candidate to the next release-control step; it would not authorize site changes,
-deployment or publication.
+The candidate remains HOLD until an identified qualified human independently
+watches the exact hash start-to-finish at normal speed with sound and external
+captions, judging the wardrobe transition, narration-picture meaning, visual
+continuity, timing, opening/closing credits and full-title defects. The next
+trigger is a working human-review channel. An ACCEPT would admit only this local
+review candidate to the next release-control step; it would not authorize site
+changes, deployment or publication.
 
 No canon, narration, captions, site, live player, release state, account,
 credential or public asset was changed. No spend or Ali release authority was

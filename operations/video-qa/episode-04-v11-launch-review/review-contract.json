@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewId": "EP04-V11-LAUNCH-REVIEW-2026-08-17",
+  "status": "READY_FOR_QUALIFIED_HUMAN_REVIEW",
+  "qualityAuthority": false,
+  "candidate": {
+    "path": "assets/video/episode-04-full-v11-wardrobe-transition-review.mp4",
+    "sha256": "1b38963e482f735b9501f24b99f672c895baf7069ac0fbbdb9df3580891a40aa",
+    "durationSeconds": 1222.34
+  },
+  "captions": {
+    "path": "assets/captions/episode-04.vtt",
+    "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+    "cueCount": 236,
+    "lastCueEndSeconds": 1221.24
+  },
+  "retainedEvidence": {
+    "parentFullTitleReview": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json",
+    "parentVerdict": "HOLD_ONLY_FOR_COMPLETE_1X_AUDIBLE_AND_CONTINUOUS_SEMANTIC_WATCH",
+    "candidateTechnicalValidation": "operations/video-qa/episode-04-v11-wardrobe-transition-review/validation.json",
+    "changedWindowSeconds": "[195.366667,203.566667)"
+  },
+  "requiredMethod": {
+    "reviewer": "identified qualified human independent of the v11 maker",
+    "playbackRate": 1,
+    "sound": "audible for the complete programme",
+    "captions": "enabled and judged for selection, readability, sync and tail behavior",
+    "scope": [
+      "complete continuous title",
+      "narration naturalness, pronunciation and mix",
+      "narration-picture semantic alignment",
+      "identity, wardrobe, location and visual-style continuity",
+      "meaningful motion, transitions, pacing and occlusion",
+      "changed transformation window at 03:15.366-03:23.566",
+      "opening, closing credits and Episode 05 teaser",
+      "player failure and recovery behavior"
+    ]
+  },
+  "validVerdicts": ["PASS", "HOLD"],
+  "holdRequirement": "Every genuine defect must include exact start/end timecodes, observed behavior and the smallest repair.",
+  "passMeaning": "The exact local master is eligible for checksum-bound release packaging and owner release approval; it is not deployed or public."
+}

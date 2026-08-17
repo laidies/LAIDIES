@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Episode 04 v11 — launch review</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #090d25; color: #fff; }
+    main { width: min(1120px, calc(100% - 32px)); margin: 24px auto 64px; }
+    h1 { margin-bottom: 8px; }
+    .status { color: #ffd54a; font-weight: 700; }
+    video { display: block; width: 100%; margin: 20px 0; background: #000; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+    button { min-height: 44px; padding: 10px 14px; font: inherit; font-weight: 700; }
+    output, code { overflow-wrap: anywhere; }
+    .facts { display: grid; gap: 8px; }
+    .warning { border-left: 4px solid #ffd54a; padding: 8px 12px; background: #181d3e; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Episode 04 v11 launch review</h1>
+    <p class="status">LOCAL REVIEW CANDIDATE — NOT RELEASED</p>
+    <p class="warning">This page never submits a verdict. A qualified reviewer must watch the exact programme from start to finish at 1× with sound and captions, then create the checksum-bound receipt.</p>
+
+    <video id="episode" controls preload="metadata" playsinline crossorigin="anonymous">
+      <source src="../../../assets/video/episode-04-full-v11-wardrobe-transition-review.mp4" type="video/mp4">
+      <track id="captions" kind="captions" srclang="en" label="English" src="../../../assets/captions/episode-04.vtt" default>
+      Your browser cannot play this review candidate.
+    </video>
+
+    <div class="controls" aria-label="Review shortcuts">
+      <button type="button" id="start">Start from beginning</button>
+      <button type="button" id="transformation">Inspect changed transition at 03:15</button>
+      <button type="button" id="resume">Resume saved position</button>
+      <button type="button" id="captions-toggle">Toggle captions</button>
+    </div>
+
+    <div class="facts">
+      <div><strong>Candidate SHA-256:</strong> <code>1b38963e482f735b9501f24b99f672c895baf7069ac0fbbdb9df3580891a40aa</code></div>
+      <div><strong>Caption SHA-256:</strong> <code>1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4</code></div>
+      <div><strong>Changed window:</strong> 03:15.366–03:23.566</div>
+      <div><strong>Playback state:</strong> <output id="state" aria-live="polite">Loading metadata…</output></div>
+      <div><strong>Saved position:</strong> <output id="saved">None</output></div>
+    </div>
+  </main>
+
+  <script>
+    const video = document.querySelector('#episode');
+    const state = document.querySelector('#state');
+    const saved = document.querySelector('#saved');
+    const storageKey = 'laidies-episode-04-v11-review-position';
+
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds)) return 'unknown';
+      const whole = Math.max(0, Math.floor(seconds));
+      const hours = Math.floor(whole / 3600);
+      const minutes = Math.floor((whole % 3600) / 60);
+      const secs = whole % 60;
+      return [hours, minutes, secs].map(value => String(value).padStart(2, '0')).join(':');
+    }
+
+    function showCaptionTrack() {
+      const track = video.textTracks && video.textTracks[0];
+      if (track) track.mode = 'showing';
+    }
+
+    function updateSavedPosition() {
+      const value = Number(localStorage.getItem(storageKey));
+      saved.value = Number.isFinite(value) && value > 0 ? formatTime(value) : 'None';
+    }
+
+    video.addEventListener('loadedmetadata', () => {
+      showCaptionTrack();
+      state.value = `Ready — ${formatTime(video.duration)} total`;
+      updateSavedPosition();
+    });
+    video.addEventListener('play', () => { state.value = `Playing at ${formatTime(video.currentTime)}`; });
+    video.addEventListener('pause', () => { state.value = `Paused at ${formatTime(video.currentTime)}`; });
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime > 0) localStorage.setItem(storageKey, String(video.currentTime));
+    });
+    video.addEventListener('error', () => {
+      const code = video.error ? video.error.code : 'unknown';
+      state.value = `Playback failed — media error ${code}`;
+    });
+
+    document.querySelector('#start').addEventListener('click', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+    document.querySelector('#transformation').addEventListener('click', () => {
+      video.currentTime = 193.5;
+      video.play();
+    });
+    document.querySelector('#resume').addEventListener('click', () => {
+      const value = Number(localStorage.getItem(storageKey));
+      video.currentTime = Number.isFinite(value) ? value : 0;
+      video.play();
+    });
+    document.querySelector('#captions-toggle').addEventListener('click', () => {
+      const track = video.textTracks && video.textTracks[0];
+      if (!track) return;
+      track.mode = track.mode === 'showing' ? 'disabled' : 'showing';
+      state.value = `Captions ${track.mode === 'showing' ? 'on' : 'off'}`;
+    });
+  </script>
+</body>
+</html>
