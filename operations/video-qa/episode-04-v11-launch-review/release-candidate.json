@@ -132,9 +132,21 @@
     "proposedImmutableKey": "episodes/episode-04-full-v11-wardrobe-transition-1b38963e482f.mp4",
     "proposedPublicUrl": "https://films.laidies.ai/episodes/episode-04-full-v11-wardrobe-transition-1b38963e482f.mp4",
     "uploadStatus": "NOT_UPLOADED",
+    "preflight": {
+      "checkedAt": "2026-08-17T09:03:39-07:00",
+      "httpStatus": 404,
+      "meaning": "The hash-derived key was unoccupied before any authorized upload."
+    },
     "publicUrl": null,
     "verificationReceiptPath": null,
     "verificationReceiptSha256": null
+  },
+  "publicFilmUploadHarness": {
+    "path": "operations/video-qa/episode-04-v11-launch-review/upload-and-verify-public-film.mjs",
+    "wranglerVersionVerified": "4.105.0",
+    "bucketReadVerified": "laidies-films",
+    "mode": "NO_WRITE_WITHOUT_EXACT_AUTHORIZATION_AND_HUMAN_55_OCCURRENCE_PASS",
+    "documentationAuthority": "Cloudflare Wrangler R2 object put documentation checked 2026-08-17"
   },
   "rollback": {
     "mode": "restore-prior",
