@@ -100,7 +100,13 @@ export function inspectBook(pilotDir = ownDir) {
   if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
   if (count(review, /<figure class="concept-diagram"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
   if (renderedConceptSections.some(section => section.startsWith("1."))) errors.push("rejected Chapter 1 visual set has returned to the reader");
-  if (count(review, /class="teaching-visual"/g) !== 0) errors.push("rejected generated Chapter 1 teaching images remain rendered");
+  const teachingVisualIds = [...review.matchAll(/data-teaching-visual="([^"]+)"/g)].map(match => match[1]);
+  const requiredTeachingVisualIds = ["ch01-core-distinction", "ch01-generalisation", "ch01-one-product-both"];
+  if (teachingVisualIds.length !== 3 || requiredTeachingVisualIds.some(id => !teachingVisualIds.includes(id))) errors.push("review does not contain the exact three Chapter 1 teaching visuals");
+  if (!review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("review does not contain the bounded Chapter 1 claim-check summary");
+  const requiredTeachingLabels = ["Write the rule", "Provide labelled examples", "Find repeated patterns", "Keep what stays recognisable", "Recognise a new photo", "Sender → Promotions", "New message → Spam", "What exact feature learned from examples?", "What feature follows written rules?", "Is the AI the whole product—or one feature?"];
+  if (requiredTeachingLabels.some(label => !review.includes(label))) errors.push("Chapter 1 teaching visuals have lost their deterministic teaching labels");
+  if (!review.includes("examples teach") || !review.includes("content:\"↓\"") || !review.includes("ONE PRODUCT <b>→</b> TWO DIFFERENT DECISION ROUTES") || !review.includes("RULE <b>→</b> PROMOTIONS") || !review.includes("PATTERN <b>→</b> SPAM")) errors.push("Chapter 1 teaching relationships have lost their responsive relationship-specific grammar");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
@@ -155,9 +161,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== 0) errors.push("manifest still counts the rejected Chapter 1 teaching images");
+  if (manifest.counts?.teachingImages !== 3) errors.push("manifest does not count the exact three Chapter 1 teaching visuals");
   if (manifest.counts?.cumulativeSystemMaps !== 18) errors.push("manifest cumulative-system-map count is not the 17 component pieces plus one completed map");
-  if (manifest.gates?.visualTeachingLayer !== "REJECTED_CHAPTER_1_VISUAL_SET_WITHDRAWN_COMPLETE_MAP_AND_REMAINING_VISUALS_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve the Chapter 1 rejection and withdrawal");
+  if (manifest.gates?.visualTeachingLayer !== "CHAPTER_1_THREE_TEACHING_VISUALS_PLUS_SUMMARY_CHECK_INDEPENDENT_VISUAL_PASS_ALI_REVIEW_PENDING_COMPLETE_MAP_AND_REMAINING_VISUALS_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve the independently reviewed Chapter 1 candidate and remaining hold");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

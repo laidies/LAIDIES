@@ -111,6 +111,12 @@ try {
     throw new Error("calibration failed: checker accepted a returned rejected Chapter 1 visual");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-teaching-visual="ch01-generalisation"', 'data-teaching-visual="ch01-generalisation-missing"'));
+  const missingChapterOneTeachingJob = inspectBook(temporary);
+  if (missingChapterOneTeachingJob.pass || !missingChapterOneTeachingJob.errors.some(error => error.includes("exact three Chapter 1 teaching visuals"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 1 teaching job");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.callout-practice{background:#fff0e8;border-left-color:#e65e2e}', '.callout-practice{background:#ffe1f1;border-left-color:var(--electric-pink)}'));
   const duplicatedCalloutColour = inspectBook(temporary);
   if (duplicatedCalloutColour.pass || !duplicatedCalloutColour.errors.some(error => error.includes("unique consistent colour mapping"))) {
@@ -122,7 +128,7 @@ try {
   if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("incorrectly presented as an AI-system component"))) {
     throw new Error("calibration failed: checker accepted Chapter 1 as a system-map component");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL rejected_chapter_one_visual_returned=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL rejected_chapter_one_visual_returned=FAIL missing_chapter_one_teaching_job=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

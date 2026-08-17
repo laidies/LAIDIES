@@ -14626,7 +14626,18 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why an attractive “educational image”
   can still teach nothing—and why review must test reader inference rather than
   file existence or maker intent.
-- **Publication status:** OLD CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
-  TABLE RECLASSIFIED / THERMOSTAT REJECTED / VISUAL PRODUCTION METHOD REPAIR /
-  NO
-  PRODUCTION INTEGRATION OR PUBLICATION.
+- **Hybrid successor learning:** Direct Nano Banana source art became useful
+  only after deterministic labels, arrows, crops and responsive composition
+  carried the exact teaching relationships. Independent review rejected the
+  first four-figure set because two images were decorative restatements and
+  one unexplained dot diagram could teach the wrong mechanism. The admitted
+  successor has three distinct jobs—rules versus examples, examples to learned
+  likeness to new-photo match, and two decision routes inside one inbox—plus a
+  compact non-diagram summary check. Each teaching figure fits within a
+  390×844 viewport without overflow. Generated lettering outside the intended
+  rule card remained a release blocker until the crop and mask removed it.
+  Future textbook visual production must therefore classify diagram versus
+  summary, make the causal relationship visible in the pixels, fit the full
+  relationship in one mobile viewport and reject every stray generated mark.
+- **Publication status:** CHAPTER 1 VISUAL SET INDEPENDENT DESKTOP/MOBILE PASS /
+  ALI REVIEW CANDIDATE / REMAINING CHAPTER VISUAL PLAN AND PUBLICATION HOLD.

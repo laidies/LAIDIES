@@ -41,21 +41,27 @@ brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
 The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
-Status is **BUILT LOCALLY / CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
-TABLE CANDIDATE RECLASSIFIED / THERMOSTAT CANDIDATE REJECTED AND WITHDRAWN /
-VISUAL PRODUCTION METHOD REPAIR REQUIRED / NOT
-INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. Ali's direct reader review invalidated the earlier visual
+Status is **BUILT LOCALLY / CHAPTER 1 THREE-FIGURE VISUAL SET + ONE SUMMARY
+CHECK INDEPENDENT DESKTOP/MOBILE PASS / ALI REVIEW CANDIDATE / NOT INTEGRATED /
+NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The accepted candidate now shows:
+written rules versus labelled examples; examples to learned likeness to a new
+photo match; and two distinct decision routes inside one inbox. The three
+teaching figures fit within one 390×844 viewport at 701px, 778px and 740px with
+zero horizontal overflow. The earlier magnifying-glass image was correctly
+removed and reclassified as a compact summary check. Independent review held
+the successor until the final stray generated lettering was removed from the
+rule-writing crop, then returned PASS. Ali's direct reader review invalidated the earlier visual
 inspection: the pictures did not independently communicate their teaching jobs,
 the first three repeated one mechanism and the large purple figure wrapper
 combined too many functions. The deterministic checker now fails if a rejected
 Chapter 1 figure returns. Its other negative calibrations continue to reject a
 missing chapter control, missing rendered humour line, hidden chapter
 orientation, expandable fake-map cards, a missing connected final map and two
-callout types sharing one colour. Chapter 1 currently renders no teaching
-figure. Its prose retains the plain-language bridge from learned rules to
-Chapter 5. The next representative must be one diagram-native solution to one
-exact learning problem, with meaning visible from the artifact rather than
-maker intent. It has no false cumulative “AI boundary” component.
+callout types sharing one colour. At that rejection point Chapter 1 rendered no
+teaching figure. Its prose retained the plain-language bridge from learned
+rules to Chapter 5, and the successor had to solve one exact learning problem
+with meaning visible from the artifact rather than maker intent. It has no
+false cumulative “AI boundary” component.
 The next candidate was a 1400 × 444 compact comparison: an exact
 `FREE` automation rule misses `FR33`, while a learned filter can connect three
 visible clues in the same message and may flag it. Ali correctly rejected its
@@ -70,10 +76,11 @@ across three days, but Ali still could not immediately tell which actions were
 human, the text remained visibly misaligned and the `One Thermostat` label added
 nothing. An internal desktop pass is invalid. Roughly an hour spent generating
 and repairing this single rejected image demonstrates that bespoke ImageGen →
-Figma correction will not scale to the textbook. The next action is method
-repair: classify the existing visual-job registry into a small set of native,
-responsive diagram families, build one reusable representative component and
-use generated/sourced imagery only as a supporting layer when required.
+Figma correction will not scale to the textbook. That rejection set the
+successful repair method: native responsive composition carries labels and
+relationships; generated/sourced imagery is only a supporting layer. The next
+action is Ali's Chapter 1 review, then—only if accepted—reuse these proven
+component families for the remaining visual-job registry.
 Chapter 20 supplies one connected hardware/software blueprint from supply chain,
 chips and data centres through training, product use, inference, optional tools,
 output and accountable human consequence. The opening objective card now uses
