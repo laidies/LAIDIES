@@ -191,6 +191,25 @@ set of reusable forms—such as comparison flow, process/loop, layered system,
 annotated object, timeline and before/after—then one representative component
 must pass desktop and mobile before the family propagates.
 
+### Napkin AI tool pilot — rejected as the default producer
+
+A bounded free-plan pilot tested whether a purpose-built text-to-visual tool
+could remove the bespoke ImageGen/Figma repair loop. The final run pasted only
+the exact `The Core Distinction` passage from section 1.1. Napkin quickly
+generated editable comparison, relationship and sequence alternatives, but the
+strongest variants changed the reader question to `Which technology should be
+used for the project?`, used puzzled-person or opposing-arrow comparisons and
+omitted the causal difference the passage teaches: a person supplies rules in
+one path and examples in the other. Layout swaps changed presentation without
+restoring those inputs and transformations.
+
+The result is **REJECTED AS THE DEFAULT TEXTBOOK-VISUAL METHOD**. Making it
+instructionally correct would require rebuilding the headline, relationships,
+labels and arrows manually, recreating the bespoke-repair problem the tool was
+meant to solve. Napkin remains eligible only as a downstream editable-layout or
+icon aid after a correct teaching structure already exists. Exact evidence:
+`operations/product-stewards/library/AI-FUNDAMENTALS-101-NAPKIN-CH01-PILOT-BRIEF.md`.
+
 The cumulative map begins only when the manuscript reaches actual system
 components in Chapter 3. Chapters 1 and 2 establish the distinction and model
 family; neither is a component box. The completed diagram connects the physical

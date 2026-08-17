@@ -14613,6 +14613,16 @@ while remaining falsely unfinished in the launch record.
   component families, make labels and relationships structured data, prove one
   family representative on desktop/mobile, and reserve generated or sourced
   imagery for supporting objects or scenes that genuinely add teaching value.
+- **Purpose-built tool calibration:** A bounded Napkin AI free-plan test then
+  used only the exact 259-character `The Core Distinction` source passage. The
+  tool produced editable alternatives quickly, but replaced the lesson with
+  `Which technology should be used for the project?` and rendered generic
+  comparison arrows or a puzzled person branching toward Automation and AI.
+  It omitted the source's causal difference—person supplies rules versus
+  people supply examples. The prevention rule is therefore tool-independent:
+  fast generation and editability do not establish instructional usefulness.
+  Reject any generated foundation that changes the reader question or requires
+  manual reconstruction of its inputs, transformations and causal arrows.
 - **Possible Behind the Build angle:** Why an attractive “educational image”
   can still teach nothing—and why review must test reader inference rather than
   file existence or maker intent.
