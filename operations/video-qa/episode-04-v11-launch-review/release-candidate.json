@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "EP04-SITE-FILM-2026-08-17-V11",
+  "recordedAt": "2026-08-17T08:40:00-07:00",
+  "status": "BUILT_LOCALLY_HOLD",
+  "releaseReady": false,
+  "authority": {
+    "deploy": false,
+    "publish": false,
+    "publicObjectWrite": false,
+    "screeningRoomAdmission": false
+  },
+  "programme": {
+    "id": "04",
+    "episodeNumber": 4,
+    "title": "The Founding Mothers",
+    "canonicalUrl": "https://laidies.ai/issues/issue-04"
+  },
+  "film": {
+    "path": "assets/video/episode-04-full-v11-wardrobe-transition-review.mp4",
+    "sha256": "1b38963e482f735b9501f24b99f672c895baf7069ac0fbbdb9df3580891a40aa",
+    "bytes": 241706667,
+    "durationSeconds": 1222.34,
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 30,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "embeddedAudioPayloadSha256": "1d3e61c6ab7ed37e3564f3114a8b13666edf8b5f49880aef8b8a2e70d6c6cf2e",
+    "changedWindowSeconds": {
+      "start": 195.366667,
+      "end": 203.566667
+    }
+  },
+  "captions": {
+    "path": "assets/captions/episode-04.vtt",
+    "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+    "bytes": 26336,
+    "cueCount": 236,
+    "lastCueEndSeconds": 1221.24,
+    "coverage": "complete"
+  },
+  "poster": {
+    "path": "assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png",
+    "sha256": "63fdfefdd8db6ab9f42b04b60b2178ca2f38f2a67fad43a170f98ff176180f45",
+    "bytes": 3421504,
+    "width": 1920,
+    "height": 1080,
+    "authority": "operations/DECISIONS.md D-2026-08-03 reuse lock: Episode 04 uses this exact title card; do not reinvent its cover.",
+    "publicUrl": "https://laidies.ai/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png",
+    "publicVerification": {
+      "checkedAt": "2026-08-17T08:39:24-07:00",
+      "httpStatus": 200,
+      "contentLength": 3421504,
+      "bodySha256": "63fdfefdd8db6ab9f42b04b60b2178ca2f38f2a67fad43a170f98ff176180f45",
+      "result": "PASS"
+    }
+  },
+  "objectiveEvidence": [
+    {
+      "path": "operations/video-qa/episode-04-v11-wardrobe-transition-review/validation.json",
+      "sha256": "454584c84ffb6c25b35443bb94639aa7aee18e75ab1dc8546fb97bd88cd11448",
+      "job": "exact master identity, clock, decode, audio preservation and changed-window source binding"
+    },
+    {
+      "path": "operations/video-qa/episode-04-v11-launch-review/review-contract.json",
+      "sha256": "ebad63143236d050d3621f470bd1e878696d88336e27d52c1505966de1c934a9",
+      "job": "full-title human review contract"
+    },
+    {
+      "path": "operations/video-qa/episode-04-v11-launch-review/browser-results.json",
+      "sha256": "306b25e8ed171e68171b0cfeffa4c143f391219295b3edbf82b5bf6d4a658706",
+      "job": "local representative-player mechanics, responsive layout, captions and range behavior"
+    }
+  ],
+  "authoritativeSharedInputs": {
+    "observedRoot": "Website-homepage",
+    "observedAt": "2026-08-17T08:30:00-07:00",
+    "cueSheet": {
+      "path": "content/episodes/episode-04-cues.json",
+      "sha256": "8cd20dc34aeada067262fdde797308e370749194a560cc9d8878d092cc60baf6"
+    },
+    "narration": {
+      "path": "content/music/public/episode-04-narration.m4a",
+      "sha256": "bae15bb83b7c3cdfe05c60f5c0021a882b6e3ddcd791e8bf8f36363dcd5c9828",
+      "durationSeconds": 1222.4
+    },
+    "screeningRoomAdmission": {
+      "path": "content/episodes/screening-room-admission.json",
+      "publicUrl": "https://laidies.ai/content/episodes/screening-room-admission.json",
+      "publicObservedAt": "2026-08-17T08:39:24-07:00",
+      "currentEpisode04Status": "hold",
+      "currentHumanReviewStatus": "pending",
+      "currentExpectedOccurrenceCount": 55,
+      "currentOccurrenceCount": 0
+    }
+  },
+  "gates": {
+    "masterIntegrity": "PASS",
+    "captionCoverage": "PASS",
+    "posterExactPublicIdentity": "PASS",
+    "localRepresentativePlayer": "PASS",
+    "fullTitleHumanSoundOnReview": "PENDING",
+    "occurrenceAdmission": "PENDING",
+    "publicFilmObject": "NOT_UPLOADED",
+    "publicFilmByteVerification": "PENDING",
+    "screeningRoomIntegration": "PENDING",
+    "authorizedDeployment": "PENDING",
+    "exactPublicJourneyVerification": "PENDING"
+  },
+  "humanReview": {
+    "requiredFilmSha256": "1b38963e482f735b9501f24b99f672c895baf7069ac0fbbdb9df3580891a40aa",
+    "requiredScope": "Unmuted continuous 1x watch from 00:00.000 through 20:22.340 with captions enabled; record only genuine defects with exact timecodes.",
+    "status": "PENDING",
+    "receiptPath": null,
+    "receiptSha256": null
+  },
+  "occurrenceAdmission": {
+    "expectedCount": 55,
+    "status": "PENDING_HUMAN_FULL_TITLE_REVIEW",
+    "receiptPath": null,
+    "receiptSha256": null,
+    "rule": "The same human full-title review may admit all 55 occurrences only if no defect is found; any defect keeps the title and affected occurrence on HOLD. No owner approval is inferred from objective checks."
+  },
+  "publicFilm": {
+    "proposedImmutableKey": "episodes/episode-04-full-v11-wardrobe-transition-1b38963e482f.mp4",
+    "proposedPublicUrl": "https://films.laidies.ai/episodes/episode-04-full-v11-wardrobe-transition-1b38963e482f.mp4",
+    "uploadStatus": "NOT_UPLOADED",
+    "publicUrl": null,
+    "verificationReceiptPath": null,
+    "verificationReceiptSha256": null
+  },
+  "rollback": {
+    "mode": "restore-prior",
+    "priorPublicUrl": "https://films.laidies.ai/episodes/episode-04-full-v8-welcome-founding-mothers-ident-v3-9e8eea3b019e.mp4",
+    "priorSha256": "9e8eea3b019eea64cbd8eed9ac30ce1c9441428b0acd000c06ca11ea658b3d70",
+    "priorBytes": 284902235,
+    "priorRangeObservedAt": "2026-08-17T08:38:52-07:00",
+    "priorRangeResult": "HTTP 206 bytes 0-1023/284902235",
+    "truth": "Historical v8 remains reachable but is not editorial authority for v11 and must not be described as the accepted current film."
+  },
+  "nextAction": "A qualified human completes the exact v11 sound-on review. A PASS produces one checksum-bound human/55-occurrence admission receipt; only then may the unchanged v11 file be uploaded under the proposed immutable key and enter guarded integration."
+}
