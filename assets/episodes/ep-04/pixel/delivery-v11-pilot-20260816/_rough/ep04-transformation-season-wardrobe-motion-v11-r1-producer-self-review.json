@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordType": "PRODUCER_SELF_REVIEW",
+  "candidateId": "EP04-TRANSFORMATION-SEASON-WARDROBE-MOTION-V11-R1",
+  "reviewer": {
+    "principalId": "weekly-episodes-canva-motion-maker-v11",
+    "role": "MAKER"
+  },
+  "candidate": {
+    "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/ep04-transformation-season-wardrobe-v11-canva-designed-title-dotted-i-source-with-handle.mp4",
+    "sha256": "e8e2323bf1f0286f2f23ddd375b9463567a0dfb21b37e725f3535a631f829094",
+    "sourceDurationSeconds": 9.2,
+    "assemblyTrim": "[0.000,8.200)",
+    "width": 1920,
+    "height": 1080,
+    "codec": "H.264"
+  },
+  "precedingComparable": {
+    "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/ep04-transformation-season-wardrobe-v11-canva-designed-title-source-with-handle.mp4",
+    "sha256": "a01d0234237cc64427813740d2f77e4f79dbc01a390b1834ed340a19e3898e7d",
+    "verdict": "INDEPENDENT_HOLD",
+    "reason": "Anton rendered the locked lowercase dotted i as an uppercase-looking I, so the visible word read SUNNYVAILE."
+  },
+  "artifactFirstInspection": {
+    "method": "Chrome decoded the exact local MP4 at native 1920 by 1080. The maker inspected the opening, pre-title hold, wipe start, wipe midpoint, readable title, 8.2-second assembly out-point and 9.2-second source-handle end.",
+    "result": "PASS",
+    "findings": [
+      "The admitted wardrobe image is present from the first frame; there is no opening white flash.",
+      "The corporate before-state, Episodes 01 through 03 outfits and Episode 04 worn outfit remain stable and recognizable.",
+      "NOW ENTERING SUNNYVAiLE is exact, readable and styled as condensed magenta-and-teal Oswald graphic-novel lettering; the lowercase i is visibly dotted.",
+      "The wipe is a single directional title reveal; the Heroine, clothing and background do not move or regenerate.",
+      "The wardrobe remains behind the title at the 8.2-second assembly out-point and through the one-second editing handle; there is no white tail."
+    ]
+  },
+  "makerFoundAndRepairedBeforeReview": [
+    {
+      "defect": "An accidental brown rounded square obscured the wardrobe.",
+      "repair": "The Canva element was deleted and absence was verified in the final composition and decoded export."
+    },
+    {
+      "defect": "The first redesigned export ended with a one-second white tail because the wardrobe image ended before Canva's source handle.",
+      "repair": "The admitted still was extended through the full source handle; the rejected export was not submitted for independent review."
+    },
+    {
+      "defect": "The first independent reviewer found that Anton made the lowercase i in SUNNYVAiLE look like uppercase I.",
+      "repair": "The exact text remained unchanged but the Canva display font was replaced with Oswald; full-size decoded frames confirm a visible lowercase dot."
+    }
+  ],
+  "knownDefectsRemaining": 0,
+  "objectiveDefectsRemaining": 0,
+  "qualityRatchet": {
+    "precedingUserRejectionCount": 1,
+    "currentUserRejectionCountAfterRepair": 0,
+    "objectiveIssuesSentToIndependentReview": 0,
+    "direction": "DECREASED"
+  },
+  "verdict": "PASS_TO_INDEPENDENT_REVIEW"
+}

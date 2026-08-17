@@ -15613,3 +15613,22 @@ while remaining falsely unfinished in the launch record.
   production method matters when it determines visible quality.
 - **Publication status:** INTERNAL REJECTED EVIDENCE ONLY; NO EPISODE MASTER,
   SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.
+
+### 2026-08-16 follow-up — editable text still needs pixel-level title integrity
+
+- **Failure / surprise:** A plain white Canva title was correctly rejected as
+  slapped-on utility text. The designed magenta/teal successor then passed the
+  maker's spelling check because the editable string was `SUNNYVAiLE`, but its
+  Anton pixels visually collapsed the lowercase `i` into an uppercase-looking
+  `I`. A separate export also exposed Canva's one-second source handle as a
+  white tail when the admitted wardrobe ended before the title layer.
+- **Prevention rule:** Visible title integrity is judged from full-size decoded
+  pixels, not the editor string. Required mixed-case brand words must retain
+  their distinctive glyphs in the chosen font. Episode transition sources must
+  inspect the first frame, wipe, programme out-point and any editing handle;
+  both the admitted image and title remain intact through the handle, while
+  CapCut binds the exact programme trim.
+- **Possible Behind the Build angle:** Why a correctly typed brand name can
+  still be misspelled on screen—and why video handles need visual QA.
+- **Publication status:** LOCAL CANVA SOURCE CANDIDATE / INDEPENDENT REVIEW;
+  NOT ASSEMBLED, DEPLOYED, PUBLISHED OR PUBLICLY VERIFIED.

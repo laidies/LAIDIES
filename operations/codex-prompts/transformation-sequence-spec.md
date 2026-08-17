@@ -11,9 +11,27 @@ into SUNNYVAiLE causes the Rewind Era look. It requires an exact, readable,
 deterministic `NOW ENTERING SUNNYVAiLE` beat and a clear front-facing Heroine
 identity reveal before any rear-view travel shot.
 
+The wardrobe is also the season archive. For the Episode 04 transition it must
+show the recognizable complete outfits from Episodes 01–03 on separate real
+hangers: pale-pink top with white tulle skirt; periwinkle sweater with brown
+plaid mini and black combat boots; and pink cardigan with white graphic tee and
+black skirt. The Heroine wears Episode 04's yellow plaid suit. Her navy corporate
+suit remains separately hung as the abandoned before-state. Do not substitute
+generic filler clothing, mannequins, duplicate Heroine figures or generated
+outfit labels.
+
+The threshold title is a designed adult graphic-novel lockup, not utility text.
+Use condensed display lettering with a vivid magenta face and teal splice/edge
+inside the dark wardrobe bay; `NOW ENTERING` is the smaller lead-in and
+`SUNNYVAiLE` is the dominant line. Reveal the editable Canva lettering with a
+single directional wipe while the admitted wardrobe pixels remain stable. A
+plain white font, narrow generic text column, detached banner, full-white frame
+or white tail is an objective failure.
+
 ## Rejected system — do not reuse
 
 - the teal/cyan spotlight with magenta/plum abstract stage;
+- plain white utility lettering or a white export tail;
 - the standardized `p0–p4` five-still poof/cloud sequence as motion authority;
 - pastel clouds, white flashes, difference mattes and interpolated people;
 - generic stages, fake doors, programmatic closets or code-drawn wardrobe rails;

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "EP04-TRANSFORMATION-SEASON-WARDROBE-MOTION-V11",
+  "stage": "INDEPENDENT_COLD_VISUAL_MOTION_REVIEW",
+  "verdict": "HOLD",
+  "reviewer": {
+    "principalId": "ep04-transition-independent-cold-judge-v2",
+    "reviewedAt": "2026-08-17T04:29:39Z",
+    "artifactFirst": true,
+    "viewedAtFullSize": true,
+    "independentFromMaker": true
+  },
+  "artifact": {
+    "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/ep04-transformation-season-wardrobe-v11-canva-designed-title-source-with-handle.mp4",
+    "sha256": "a01d0234237cc64427813740d2f77e4f79dbc01a390b1834ed340a19e3898e7d",
+    "width": 1920,
+    "height": 1080,
+    "sourceDurationSeconds": 9.2,
+    "intendedAssemblyTrim": {
+      "inSeconds": 0.0,
+      "outSecondsExclusive": 8.2,
+      "finding": "The title is intact at 08.00 and stays intact through the 09.20 handle; no white tail is visible in the supplied 09.20 evidence. The [0, 8.2) trim itself has no visible terminal sliver or white frame."
+    }
+  },
+  "evidence": {
+    "manifest": {
+      "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/manifest.json",
+      "candidateSha256": "a01d0234237cc64427813740d2f77e4f79dbc01a390b1834ed340a19e3898e7d"
+    },
+    "frames": [
+      { "timeSeconds": 0.0, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t00-start.png", "sha256": "219534ef82b98eb0254318120ba4448c98d27d66d911df717c18300e5a01a254" },
+      { "timeSeconds": 4.0, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t04-pre-title.png", "sha256": "4bd90f04ebc2da88926b7801c691fd06c02033599e23bb8d8447f2b756a76f61" },
+      { "timeSeconds": 5.0, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t05-wipe-start.png", "sha256": "8fcb6fca3f8505875f68e5ba5ddb8b97d44a0c42ffda0abe5a2f3108ea82074e" },
+      { "timeSeconds": 5.5, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t05-wipe-mid.png", "sha256": "7b7bd3a957821a97efce25808cca8759b4afc3ff4fd4732121cc3fd1a0f23941" },
+      { "timeSeconds": 6.0, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t06-title-readable.png", "sha256": "fecc182a67006e2475c0e8621f10f70a748820804bea8cde3496525f8c25ab63" },
+      { "timeSeconds": 8.0, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t08-assembly-out.png", "sha256": "3786020611bac60c45706f31f42d60143db2472cd5587f79cba4a46282bf0e29" },
+      { "timeSeconds": 9.2, "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/canva-designed-title-evidence/t09-handle-end.png", "sha256": "9094f2275e8bcfd2983ab9f12285b007f01d1a3f151e806613ea5a0a21760cf8" }
+    ],
+    "admittedStill": {
+      "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_admitted/ep04-transformation-season-wardrobe-v11.png",
+      "sha256": "1cc473f30753e2dd8dedd487bd325f34894ce272517a07f6cdfc1a167240bdb3"
+    }
+  },
+  "calibration": {
+    "plainWhiteCandidate": {
+      "sha256": "fa1b9775ff0aacdd0d6ad9f3ae263f0821bf7e1be1ce7b07029546cfa4aacca5",
+      "result": "REJECTED",
+      "observation": "The prior candidate used a plain white utility title. This candidate visibly differs: its reveal uses a magenta face with teal splice/edge and the required two-level hierarchy."
+    },
+    "whiteTailFailureMode": {
+      "result": "REJECTED",
+      "observation": "A full-white terminal frame or tail is a specified objective failure. Neither the 08.00 assembly-out frame nor the 09.20 handle-end frame shows one."
+    }
+  },
+  "timecodedFindings": [
+    {
+      "timecode": "00:00-04:00",
+      "result": "PASS",
+      "observation": "Stable adult graphic-novel wardrobe pixels: one front-facing Heroine in yellow plaid; separate navy corporate suit; distinct E01 pink/tulle, E02 periwinkle/plaid/boots, and E03 pink-cardigan/black-skirt looks on real hangers. No brown overlay, flash, generic stage, door wipe, morph, identity drift, or background replacement is visible."
+    },
+    {
+      "timecode": "05:00-06:00",
+      "result": "PASS",
+      "observation": "A single right-to-left directional wipe introduces a magenta-and-teal designed lockup while the admitted pixels remain stable. It is not the rejected plain-white utility treatment and does not create a full-screen flash."
+    },
+    {
+      "timecode": "06:00-08:20",
+      "result": "HOLD",
+      "observation": "Hierarchy and legibility are strong, but the dominant line visibly reads SUNNYVAILE in all caps. The locked exact string is SUNNYVAiLE: its distinctive lower-case dotted i is absent. Exact title rendering is an objective requirement, so this cannot be admitted as-is.",
+      "artifactLocator": "right wardrobe bay, approximately x=870-1125, y=300-390 in t06-title-readable.png and t08-assembly-out.png"
+    },
+    {
+      "timecode": "08:20-09:20",
+      "result": "PASS",
+      "observation": "Safe source handle only: title and wardrobe remain intact through the end; no white tail occurs."
+    }
+  ],
+  "whatPassed": [
+    "Adult graphic-novel style and stable admitted wardrobe image.",
+    "Front-facing Heroine identity and all required corporate/E01-E04 wardrobe continuity.",
+    "Corporate-before causality and a clear wardrobe threshold without a five-state morph.",
+    "Designed magenta-and-teal treatment, hierarchy, and directional wipe rather than the rejected plain-white utility title.",
+    "No visible brown overlay, white flash, white tail, stage, closet-door wipe, sliver, or unstable replacement pixels.",
+    "The intended [0, 8.2) trim is visually safe; 8.2-9.2 is a safe handle, not required programme runtime."
+  ],
+  "smallestRepair": "In the Canva title layer only, retain the lockup, hierarchy, colours, placement, and wipe but render SUNNYVAiLE with the literal lower-case dotted i. Re-export, bind the new checksum, and recheck the 06.00 and 08.00 frames.",
+  "unproven": [
+    "A fresh normal-speed playback of this exact source could not be completed because the Mac was locked after frame inspection; the frame review does not substitute for that occurrence test.",
+    "The supplied pixels and evidence do not independently prove the authoring toolchain; no producer claim was treated as visual-quality proof.",
+    "No CapCut assembly, adjacent-shot integration, narration sync, release, or public state was reviewed."
+  ],
+  "learningDisposition": {
+    "kind": "PENDING_CANDIDATE_ONLY_REPAIR",
+    "reusableDefectCandidate": "Exact SUNNYVAiLE casing must remain visibly preserved in display lettering; all-caps styling may not erase the brand's lower-case dotted i."
+  }
+}
