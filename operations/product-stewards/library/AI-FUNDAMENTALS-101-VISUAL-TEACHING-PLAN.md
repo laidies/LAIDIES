@@ -19,16 +19,19 @@ relationships, or a diagram only when the concept is genuinely diagrammatic.
 Flowcharts used where an illustration should teach are a failure, even when
 their arrows are mechanically correct.
 
-Technical labels, arrows, legends and captions are deterministic editable
-layers. Illustrative art may carry the Library's approved visual language, but
-it cannot invent the technical relationship or contain generated lettering.
-Every visual has an equivalent text explanation and remains understandable
-without colour.
+Lettering, arrows, legends, illustration and the technical relationship are
+designed together as one coherent textbook composition. Do not generate source
+art and then apply CSS, Figma, Slides or other editor lettering afterward.
+Generated lettering may remain when every visible character is correct; one
+wrong, pseudo or stray character rejects the asset rather than triggering an
+overlay repair. Every visual has an equivalent text explanation and remains
+understandable without colour.
 
 CSS may position and caption an admitted visual asset, but it may not draw the
-teaching diagram. Python-generated diagrams are also prohibited. Each visual is
-produced in an appropriate illustration or diagram tool as a real purpose-built
-asset, normally with an editable source plus a reviewed PNG or WebP derivative.
+teaching visual or add its internal lettering. Python-generated visuals are also
+prohibited. Each visual is produced in an appropriate illustration or diagram
+tool as a real purpose-built asset, normally with a reviewed PNG or WebP
+derivative.
 
 ## Reference-led production method
 
@@ -92,6 +95,10 @@ is produced only when it beats prose for that exact job.
   authoritative educational examples first; then produce one original asset,
   inspect its exact pixels in the real desktop/mobile reader and obtain a
   role-distinct artifact-first visual judgment.
+- A 16:9 Chapter 1 Nano Banana composition tested at 358px wide did not retain
+  readable rule-card and relationship labels. Chapter 1.1 therefore requires a
+  separately composed mobile asset with the same teaching meaning; shrinking
+  the desktop composition is not an acceptable mobile treatment.
 - Do not scale, restore another figure, merge or publish until Ali accepts that
   one admitted Chapter 1 proof.
 
@@ -121,8 +128,9 @@ current primary technical sources govern the LAiDIES explanation.
 3. A newcomer can explain the relationship from the visual without reading a
    hidden maker note and without inferring meaning from colour alone.
 4. Labels and arrows remain legible in the actual desktop and mobile reader at
-   native size and 200 percent zoom; horizontal diagrams recompose rather than
-   shrink into unreadable posters.
+   native size and 200 percent zoom. Reuse one asset only when it passes both;
+   otherwise create a separate mobile composition with the same meaning rather
+   than shrinking a horizontal image into an unreadable poster.
 5. Caption and equivalent prose preserve the lesson when the image is absent.
 6. The exact rendered pixels receive maker inspection and role-distinct visual
    judgment under the shared visual-media gate before full-book admission.
@@ -133,6 +141,7 @@ current primary technical sources govern the LAiDIES explanation.
   “woman using AI” scenes.
 - No visual quota and no repeated card template.
 - No provider logos where a system role is the actual lesson.
-- No generated technical lettering.
+- No incorrect, pseudo or stray generated lettering, and no lettering applied
+  afterward as a repair layer.
 - No animation unless motion is the only clear way to teach change over time;
   the book must still provide the static and text equivalent.

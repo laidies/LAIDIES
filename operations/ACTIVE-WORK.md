@@ -1,5 +1,21 @@
 # Active work
 
+> **2026-08-17 AI Fundamentals visual restart — integrated composition rule:**
+> the rejected nine-figure CSS layer remains disabled and zero of its figures
+> render. Ali rejected the repeated source-art-plus-later-lettering method:
+> textbook illustration, exact lettering, arrows and teaching relationship must
+> be produced together as one coherent asset. Generated lettering is eligible
+> only when every visible character is correct; failed lettering or arrow logic
+> triggers rejection, not a CSS/Figma/Slides repair. Nano Banana produced a
+> stronger Chapter 1 16:9 candidate, but successive internal versions still had
+> an omitted/backward causal arrow, duplicate KEEP/SPAM trays or imperfect small
+> lettering, so no candidate was integrated or sent to independent review. At
+> 358px reader width the desktop composition's rule card and relationship labels
+> were unreadable; Chapter 1 therefore requires a separately composed mobile
+> asset with the same meaning. Status is **BUILDING / REPRESENTATIVE VISUAL HOLD
+> / MANUSCRIPT AND READER UX PRESERVED / NOT MERGED / NOT DEPLOYED / NOT
+> PUBLISHED**.
+
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a
 > direction to reskin. Study Pack visual production remains subject to the
