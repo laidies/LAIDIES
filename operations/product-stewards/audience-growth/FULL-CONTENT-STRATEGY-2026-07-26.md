@@ -50,6 +50,51 @@ Use a deliberate mix instead of one repetitive house style:
 8. **Episode/class/library derivative** — each major source yields multiple
    formats with distinct jobs rather than a generic announcement.
 
+## Plain-English visual explainer system — Ali direction 2026-08-16
+
+LAiDIES should repeatedly turn one admitted AI concept into a connected
+editorial package: a short visual explanation that earns attention, a
+saveable carousel that makes the mechanism easy to revisit, and a deeper
+article that supplies the evidence, limitations and useful next step. External
+examples may inspire the communication mechanics; they are not factual,
+editorial, visual or publication authority.
+
+Every package must answer the same adult beginner's path:
+
+1. **The real question:** lead with the recognisable work or daily-life reason
+   the concept matters, not the technical term by itself.
+2. **The plain definition:** explain the idea without requiring prior AI
+   vocabulary.
+3. **The visible mechanism:** show three to five connected cause-and-effect
+   moves with a diagram, chart, object, comparison or worked example. The
+   visual must carry part of the explanation, not merely decorate it.
+4. **The concrete case:** demonstrate the concept in one credible adult,
+   workplace or everyday situation.
+5. **The boundary:** state what the concept is often confused with, what the
+   explanation does not prove, and any material uncertainty or limitation.
+6. **The useful landing:** leave the reader with one action, decision, check or
+   better next question.
+
+Channel derivatives have different jobs:
+
+- **Reel/Short:** one question, one mechanism and one earned conclusion;
+  readable captions, source labels for material numbers, and presenter footage
+  only where human delivery improves understanding.
+- **Carousel/document:** one concept per package; each page advances the
+  explanation through definition, example, distinction and remember/check.
+- **Article:** not a transcript or padded glossary. It supplies the full causal
+  chain, dated sources, evidence-versus-inference boundaries, consequences,
+  transfer example and useful action.
+- **Newsletter/social text:** frame the reader's question and point to the
+  exact admitted explanation; do not pretend the excerpt is the whole lesson.
+
+The tone is plain English for capable adult beginners. Do not frame the reader
+as a child, use “explain it to a five-year-old” positioning, interrupt an
+unfinished lesson with a lead magnet, hide weak reasoning behind a familiar
+analogy, or copy another creator's voice, artwork, claims or conversion tactic.
+LAiDIES completes the useful explanation before inviting a save, reply, visit
+or optional next step.
+
 ## Reach and “viral” standard
 
 Virality is never promised. A reach candidate must have at least two of:
@@ -160,4 +205,3 @@ page require different fixes.
 
 No vendor named in the old Social Engine document is installed or authorized
 by implication. Tool choice follows proof, privacy, cost and publisher access.
-
