@@ -122,6 +122,12 @@
     "receiptSha256": null,
     "rule": "The same human full-title review may admit all 55 occurrences only if no defect is found; any defect keeps the title and affected occurrence on HOLD. No owner approval is inferred from objective checks."
   },
+  "admissionReceiptGenerator": {
+    "path": "operations/video-qa/episode-04-v11-launch-review/create-human-admission-receipt.mjs",
+    "mode": "PASS_ONLY_AFTER_EXPLICIT_FULL_TITLE_ATTESTATION",
+    "outputPath": "operations/video-qa/episode-04-v11-launch-review/human-and-occurrence-admission-receipt.json",
+    "preparedOccurrenceCount": 55
+  },
   "publicFilm": {
     "proposedImmutableKey": "episodes/episode-04-full-v11-wardrobe-transition-1b38963e482f.mp4",
     "proposedPublicUrl": "https://films.laidies.ai/episodes/episode-04-full-v11-wardrobe-transition-1b38963e482f.mp4",
