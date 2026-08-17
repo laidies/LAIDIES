@@ -380,6 +380,8 @@ const additionalConcepts = [
 ];
 
 const conceptDiagrams = teachingVisuals;
+const visualTeachingLayerActive = false;
+const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED";
 
 function renderConceptDiagram(concept) {
   return renderTeachingVisual(concept);
@@ -554,7 +556,7 @@ function buildReviewPage(source, fragment, manuscript) {
   const chapterLinks = source.chapters.map((chapter, index) => {
     const previous = source.chapters[index - 1];
     const next = source.chapters[index + 1];
-    return `${renderSystemMap(index + 1)}<nav class="chapter-turn" data-for="${chapter.id}" aria-label="Chapter ${index + 1} navigation">${previous ? `<a href="#${previous.id}">← Chapter ${index}</a>` : `<a href="#how-this-book-works">← Start here</a>`}<span>${escapeHtml(chapterPart(index + 1))}</span>${next ? `<a href="#${next.id}">Chapter ${index + 2} →</a>` : `<a href="#how-this-book-works">Back to start ↑</a>`}</nav>`;
+    return `${visualTeachingLayerActive ? renderSystemMap(index + 1) : ""}<nav class="chapter-turn" data-for="${chapter.id}" aria-label="Chapter ${index + 1} navigation">${previous ? `<a href="#${previous.id}">← Chapter ${index}</a>` : `<a href="#how-this-book-works">← Start here</a>`}<span>${escapeHtml(chapterPart(index + 1))}</span>${next ? `<a href="#${next.id}">Chapter ${index + 2} →</a>` : `<a href="#how-this-book-works">Back to start ↑</a>`}</nav>`;
   });
   let mainFragment = fragment.replace(/<nav class="book-contents"[\s\S]*?<\/nav>/, "");
   for (const [start, end, label] of partMap) {
@@ -579,21 +581,23 @@ function buildReviewPage(source, fragment, manuscript) {
     const chapterFrontMatter = mainFragment.slice(headingEnd, firstSectionStart);
     mainFragment = `${mainFragment.slice(0, headingEnd)}\n<section class="chapter-ahead" aria-labelledby="chapter-${chapterNumber}-ahead-title"><p class="chapter-ahead-title" id="chapter-${chapterNumber}-ahead-title">What you will learn + the words you will need</p><div class="chapter-ahead-body">${chapterFrontMatter}</div></section>\n${mainFragment.slice(firstSectionStart)}`;
   });
-  for (const asset of chapterOneTeachingAssets) {
-    const anchorIndex = mainFragment.indexOf(asset.anchor);
-    if (anchorIndex < 0) throw new Error(`missing placement anchor for teaching visual ${asset.id}`);
-    const tagIndex = mainFragment.indexOf(asset.afterTag, anchorIndex);
-    if (tagIndex < 0) throw new Error(`missing placement boundary for teaching visual ${asset.id}`);
-    const insertion = tagIndex + asset.afterTag.length;
-    mainFragment = `${mainFragment.slice(0, insertion)}\n${renderChapterOneVisual(asset)}\n${mainFragment.slice(insertion)}`;
-  }
-  for (const concept of [...conceptDiagrams].sort((a, b) => Number(b.after.split(".")[0]) * 100 + Number(b.after.split(".")[1]) - (Number(a.after.split(".")[0]) * 100 + Number(a.after.split(".")[1])))) {
-    const sectionTextIndex = mainFragment.indexOf(`>${concept.after} `);
-    const sectionHeadingStart = sectionTextIndex < 0 ? -1 : mainFragment.lastIndexOf("<h3", sectionTextIndex);
-    const sectionHeadingEnd = sectionHeadingStart < 0 ? -1 : mainFragment.indexOf("</h3>", sectionHeadingStart);
-    const diagramInsertion = sectionHeadingEnd < 0 ? -1 : mainFragment.indexOf("<h3", sectionHeadingEnd + 5);
-    if (sectionHeadingStart < 0 || diagramInsertion < 0) throw new Error(`missing placement boundary for concept diagram after ${concept.after}`);
-    mainFragment = `${mainFragment.slice(0, diagramInsertion)}\n${renderConceptDiagram(concept)}\n${mainFragment.slice(diagramInsertion)}`;
+  if (visualTeachingLayerActive) {
+    for (const asset of chapterOneTeachingAssets) {
+      const anchorIndex = mainFragment.indexOf(asset.anchor);
+      if (anchorIndex < 0) throw new Error(`missing placement anchor for teaching visual ${asset.id}`);
+      const tagIndex = mainFragment.indexOf(asset.afterTag, anchorIndex);
+      if (tagIndex < 0) throw new Error(`missing placement boundary for teaching visual ${asset.id}`);
+      const insertion = tagIndex + asset.afterTag.length;
+      mainFragment = `${mainFragment.slice(0, insertion)}\n${renderChapterOneVisual(asset)}\n${mainFragment.slice(insertion)}`;
+    }
+    for (const concept of [...conceptDiagrams].sort((a, b) => Number(b.after.split(".")[0]) * 100 + Number(b.after.split(".")[1]) - (Number(a.after.split(".")[0]) * 100 + Number(a.after.split(".")[1])))) {
+      const sectionTextIndex = mainFragment.indexOf(`>${concept.after} `);
+      const sectionHeadingStart = sectionTextIndex < 0 ? -1 : mainFragment.lastIndexOf("<h3", sectionTextIndex);
+      const sectionHeadingEnd = sectionHeadingStart < 0 ? -1 : mainFragment.indexOf("</h3>", sectionHeadingStart);
+      const diagramInsertion = sectionHeadingEnd < 0 ? -1 : mainFragment.indexOf("<h3", sectionHeadingEnd + 5);
+      if (sectionHeadingStart < 0 || diagramInsertion < 0) throw new Error(`missing placement boundary for concept diagram after ${concept.after}`);
+      mainFragment = `${mainFragment.slice(0, diagramInsertion)}\n${renderConceptDiagram(concept)}\n${mainFragment.slice(diagramInsertion)}`;
+    }
   }
   source.chapters.slice(0, -1).forEach((chapter, index) => {
     const boundary = `<h2 id="${source.chapters[index + 1].id}"`;
@@ -747,7 +751,7 @@ ${teachingVisualCss}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript is now a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters are registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. A separately reviewable Rewind overlay adds 13 earned references without changing the source. The three Chapter 1 teaching figures, compact summary check, 45 section-bound Chapters 2–20 visuals and connected final AI-system map passed independent desktop/mobile visual review and are ready for Ali's review. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and has been quarantined: none of those figures, diagrams or maps is rendered in this review. A new visual method must pass one representative concept before any full-book propagation. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -801,7 +805,17 @@ fs.writeFileSync(paths.inventory, `${JSON.stringify(inventory, null, 2)}\n`);
 const review = buildReviewPage(source, fragment, finalManuscript);
 fs.writeFileSync(paths.review, review);
 
-const artifactPaths = [paths.front, paths.manuscript, paths.playbook, paths.rewind, paths.source, paths.fragment, paths.inventory, paths.review, paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook, paths.chapterSixBicycleTree];
+const artifactPaths = [
+  paths.front,
+  paths.manuscript,
+  paths.playbook,
+  paths.rewind,
+  paths.source,
+  paths.fragment,
+  paths.inventory,
+  paths.review,
+  ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook, paths.chapterSixBicycleTree] : []),
+];
 const manifest = {
   schemaVersion: "laidies-library-source-import-manifest.v1",
   candidateId: "LIB-AI-FUNDAMENTALS-101-QUICK-MANUSCRIPT-20260816",
@@ -817,9 +831,9 @@ const manifest = {
     chapters: chapters.length,
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
-    conceptDiagrams: conceptDiagrams.length,
-    teachingImages: chapterOneTeachingAssets.filter(asset => asset.countAsTeachingVisual !== false).length,
-    cumulativeSystemMaps: 18,
+    conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
+    teachingImages: visualTeachingLayerActive ? chapterOneTeachingAssets.filter(asset => asset.countAsTeachingVisual !== false).length : 0,
+    cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     rewindReferences: rewindAmendments.references.length,
     technicalClarifications: rewindAmendments.clarifications?.length || 0,
     humourSprinkles: rewindAmendments.sprinkles?.length || 0,
@@ -832,7 +846,7 @@ const manifest = {
     sourceBinding: "PASS_ALI_VETTED_EXACT_SOURCE_BYTES",
     freshnessRegistration: "PASS_20_CHAPTER_SCOPES_WEEKLY_AUTOMATION_MONTHLY_OR_QUARTERLY_REVIEW",
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
-    visualTeachingLayer: "CHAPTER_1_AND_CHAPTERS_2_20_VISUAL_TEACHING_LAYER_INDEPENDENT_DESKTOP_MOBILE_PASS_ALI_REVIEW_PENDING_NOT_INTEGRATED_NOT_PUBLISHED",
+    visualTeachingLayer: visualTeachingLayerStatus,
     unfamiliarReaderAdmission: "HOLD",
     publicRelease: "HOLD",
   },

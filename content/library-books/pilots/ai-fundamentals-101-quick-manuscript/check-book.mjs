@@ -100,16 +100,11 @@ export function inspectBook(pilotDir = ownDir) {
   if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
   if (count(review, /<figure class="teaching-visual [^"]+"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
   if (/<figure class="teaching-visual tv-/.test(review)) errors.push("an instructional figure reuses an inner layout class and can collapse at mobile width");
-  const requiredTeachingCss = [".teaching-visual{margin:2.2rem", ".tv-network .nodes circle{", ".tv-euv{display:grid", ".tv-memory section{min-height:160px"];
-  if (!requiredTeachingCss.every(marker => review.includes(marker))) errors.push("instructional diagrams are missing required base or mobile layout CSS");
-  if (renderedConceptSections.some(section => section.startsWith("1."))) errors.push("rejected Chapter 1 visual set has returned to the reader");
+  if (conceptDiagramCount !== 0) errors.push("rejected visual layer is still counted as active");
+  if (renderedConceptSections.length !== 0) errors.push("rejected section-bound instructional diagrams have returned to the reader");
   const teachingVisualIds = [...review.matchAll(/data-teaching-visual="([^"]+)"/g)].map(match => match[1]);
-  const requiredTeachingVisualIds = ["ch01-core-distinction", "ch01-generalisation", "ch01-one-product-both"];
-  if (teachingVisualIds.length !== 3 || requiredTeachingVisualIds.some(id => !teachingVisualIds.includes(id))) errors.push("review does not contain the exact three Chapter 1 teaching visuals");
-  if (!review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("review does not contain the bounded Chapter 1 claim-check summary");
-  const requiredTeachingLabels = ["Write the rule", "Provide labelled examples", "Find repeated patterns", "Keep what stays recognisable", "Recognise a new photo", "Sender → Promotions", "New message → Spam", "What exact feature learned from examples?", "What feature follows written rules?", "Is the AI the whole product—or one feature?"];
-  if (requiredTeachingLabels.some(label => !review.includes(label))) errors.push("Chapter 1 teaching visuals have lost their deterministic teaching labels");
-  if (!review.includes("examples teach") || !review.includes("content:\"↓\"") || !review.includes("ONE PRODUCT <b>→</b> TWO DIFFERENT DECISION ROUTES") || !review.includes("RULE <b>→</b> PROMOTIONS") || !review.includes("PATTERN <b>→</b> SPAM")) errors.push("Chapter 1 teaching relationships have lost their responsive relationship-specific grammar");
+  if (teachingVisualIds.length !== 0) errors.push("rejected Chapter 1 teaching visuals have returned to the reader");
+  if (review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("rejected Chapter 1 visual summary has returned to the reader");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
@@ -128,16 +123,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (!calloutColourRules.every(rule => review.includes(rule))) errors.push("callout types have lost their unique consistent colour mapping");
   if (count(review, /<section class="chapter-ahead"/g) !== 20) errors.push("review does not keep all chapter goals and opening terms visibly available");
   if (/<details class="chapter-ahead"/i.test(review)) errors.push("chapter goals and terms are hidden behind a disclosure");
-  if (count(review, /class="map-piece"/g) !== 17) errors.push("review does not contain the 17 component-bearing cumulative map pieces from Chapters 3–19");
-  if (/class="map-piece" data-chapter="(?:1|2)"/.test(review)) errors.push("Chapter 1 or 2 is incorrectly presented as an AI-system component");
-  if (count(review, /class="system-map system-map-complete"/g) !== 1) errors.push("review does not contain exactly one completed final AI ecosystem map");
-  if (!review.includes('class="ai-system-blueprint"')) errors.push("final system map is not rendered as one connected blueprint");
-  if (!review.includes('class="hardware-to-work"') || !review.includes("COMPUTE POWERS TRAINING") || !review.includes("COMPUTE POWERS EACH RESPONSE")) errors.push("final system map does not connect physical compute to training and inference");
-  if (!review.includes("Draw it from memory")) errors.push("final system map is missing its reconstruction guide");
-  if (review.includes('class="map-band')) errors.push("final map has regressed to expandable layer cards");
-  if (!review.includes('.map-node small{font-size:.67rem}') || !review.includes('.map-node strong{font-size:.86rem}') || !review.includes('.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem')) {
-    errors.push("mobile final-map labels have regressed to hidden or poster-scale text");
-  }
+  if (count(review, /class="map-piece"/g) !== 0) errors.push("rejected cumulative map pieces have returned to the reader");
+  if (count(review, /class="system-map(?: system-map-complete)?"/g) !== 0) errors.push("rejected AI-system maps have returned to the reader");
+  if (review.includes('class="ai-system-blueprint"')) errors.push("rejected final AI-system blueprint has returned to the reader");
   if (review.includes("part-1-ai-boundary-v1.png")) errors.push("review still contains the rejected decorative sorting-machine image");
   for (let chapterNumber = 1; chapterNumber <= 20; chapterNumber += 1) {
     const headingIndex = review.indexOf(`<h2 id="chapter-${chapterNumber}"`);
@@ -164,9 +152,10 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== 3) errors.push("manifest does not count the exact three Chapter 1 teaching visuals");
-  if (manifest.counts?.cumulativeSystemMaps !== 18) errors.push("manifest cumulative-system-map count is not the 17 component pieces plus one completed map");
-  if (manifest.gates?.visualTeachingLayer !== "CHAPTER_1_AND_CHAPTERS_2_20_VISUAL_TEACHING_LAYER_INDEPENDENT_DESKTOP_MOBILE_PASS_ALI_REVIEW_PENDING_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest visual-teaching status does not preserve the independently reviewed full-book candidate and remaining Ali/integration/publication hold");
+  if (manifest.counts?.teachingImages !== 0) errors.push("manifest still counts rejected Chapter 1 teaching visuals as active");
+  if (manifest.counts?.cumulativeSystemMaps !== 0) errors.push("manifest still counts rejected cumulative maps as active");
+  if (manifest.gates?.visualTeachingLayer !== "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest does not preserve Ali's rejection and quarantine of the visual teaching layer");
+  if ((manifest.artifacts || []).some(artifact => /(?:ch01-|ch06-bicycle-tree-learning-image)/.test(artifact.path))) errors.push("manifest still binds rejected visual assets as active artifacts");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

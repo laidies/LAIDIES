@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** FULL-BOOK INTERNAL CANDIDATE — independent desktop/mobile visual PASS; Ali review pending; no visual integrated or published
+**Status:** FULL VISUAL LAYER REJECTED BY ALI / QUARANTINED / ZERO VISUALS RENDERED / ONE REPRESENTATIVE REBUILD REQUIRED
 **Owner:** Library
 **Applies to:** the complete AI Fundamentals 101 successor, not the prose-only representative pilot
 
@@ -17,7 +17,45 @@ it cannot invent the technical relationship or contain generated lettering.
 Every visual has an equivalent text explanation and remains understandable
 without colour.
 
-## Current full-book candidate — 2026-08-17
+## Current ruling — 2026-08-17
+
+Ali rejected the full-book visual method after inspecting the first five
+figures. This invalidates the maker and independent desktop/mobile PASS. The
+defects are systemic, not five isolated CSS bugs:
+
+- Chapter 1 source art was forced into frames and looked visibly squashed;
+- `LEARNED LIKENESS` covered teaching copy and the picture implied the very
+  stored-portrait misconception the prose tried to prevent;
+- the inbox image did not show either decision route operating;
+- the “Why AI felt sudden” chronology asserted convergence without showing the
+  causal relationship; and
+- the chatbot/agent comparison was a set of labelled boxes with a missing
+  return loop, not a visual explanation.
+
+A propagation audit found 39 of the 45 Chapters 2–20 figures were principally
+text-card structures presented as diagrams. The other six are not preserved as
+approved visuals: several carry factual or semantic risks, including a false
+blur-based diffusion progression and next-token percentages that do not form a
+valid distribution. All 48 figures and all cumulative/final maps are therefore
+quarantined. The current review renders zero visual-teaching artifacts.
+
+The next proof is one representative mechanism only. With its caption hidden,
+an unfamiliar reader must be able to state the exact causal relationship,
+explain what every image/box/arrow contributes and transfer the mechanism to a
+new example. If removing the image leaves the same explanation, it is not an
+instructional image. No second concept or reusable family propagates until that
+proof passes desktop and mobile.
+
+The evaluator was forward-tested twice on Ali's exact five screenshots. Its
+first pass still incorrectly accepted §1.1, §1.4 and §2.4 because it could
+repeat their lesson from the deterministic labels. After the rubric added the
+art-removal veto, distortion/overlap veto and requirement to draw the claimed
+loop or cause, the same evaluator held all five: §1.1 and §1.4 lost nothing when
+their artwork was covered; §1.3 retained an overlapping label; §2.3 still had no
+causal links; and §2.4 still had no feedback arrow. This stricter test governs
+the successor.
+
+## Rejected full-book candidate — historical evidence only
 
 The rejected 58-item opportunity list has been reduced to **45 section-bound
 teaching jobs across Chapters 2–20**. Chapter 1 retains its separately reviewed

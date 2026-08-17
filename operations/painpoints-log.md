@@ -14639,10 +14639,42 @@ while remaining falsely unfinished in the launch record.
   Future textbook visual production must therefore classify diagram versus
   summary, make the causal relationship visible in the pixels, fit the full
   relationship in one mobile viewport and reject every stray generated mark.
-- **Publication status:** CHAPTER 1 VISUAL SET INDEPENDENT DESKTOP/MOBILE PASS /
-  ALI REVIEW CANDIDATE / REMAINING CHAPTER VISUAL PLAN AND PUBLICATION HOLD.
+- **Publication status:** SUPERSEDED BY BTB-462 — THE CHAPTER 1 AND FULL-BOOK
+  VISUAL PASS WAS INVALIDATED BY ALI / QUARANTINED / NOT PUBLISHED.
 
-## BTB-461 — A structurally present diagram can still render the wrong relationship
+## BTB-462 — A responsive figure can still be a failed teaching artifact
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 full-book visual teaching.
+- **Failure risk:** A full textbook can pass image counts, responsive containment
+  and independent review while its pictures are distorted, its labels cover
+  content and most of its “diagrams” are merely prose arranged inside boxes.
+- **Root cause:** The producer optimised for rapid full-book coverage through a
+  small CSS-card renderer and reused raster crops. The reviewer then rewarded
+  readable labels, bounded geometry and connector presence instead of asking
+  whether the pixels carried a truthful mechanism that a newcomer could explain
+  and transfer. The checker enforced the presence of the failed artifacts, so
+  it turned an unproved method into a propagation requirement.
+- **Prevention rule:** Before scaling any visual family, hide its caption and ask
+  an unfamiliar reader to explain the causal relationship, name the job of each
+  visual element and apply it to one unseen case. Reject any figure whose art is
+  removable without loss of meaning, any table presented as a diagram, any
+  overlay over content, any forced raster distortion and any diagram whose
+  arrows omit the claimed loop or cause.
+- **Durable correction:** Ali's rejection invalidated the complete prior visual
+  PASS. The renderer and manifest now expose zero active teaching figures or
+  maps. The calibrated checker accepts the quarantined text-only review and
+  fails when a rejected section visual, Chapter 1 figure, map piece or completed
+  system map is reintroduced. A blind evaluator initially still passed three of
+  Ali's five rejected figures because it inferred the lesson from their labels.
+  After adding the art-removal, distortion/overlap and missing-loop/cause vetoes,
+  it held all five on the same exact pixels. Full-book propagation is blocked
+  until one new representative passes that artifact-first reader test.
+- **Possible Behind the Build angle:** Why “responsive, labelled and complete”
+  still did not mean a textbook diagram taught anything.
+- **Publication status:** VISUAL LAYER REJECTED / QUARANTINED / NOT PUBLISHED.
+
+## BTB-461 — A structurally present diagram can still render the wrong relationship (superseded by BTB-462)
 
 - **Date:** 2026-08-17
 - **Area:** AI Fundamentals 101 visual-teaching propagation.
@@ -14677,6 +14709,5 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How a six-step diagram passed every count
   while its arrows quietly taught step 1 → step 3—and why responsive order is
   part of factual accuracy.
-- **Publication status:** FULL-BOOK VISUAL LAYER INDEPENDENT DESKTOP/MOBILE PASS
-  AT `review.html?v=48` / ALI REVIEW PENDING / NOT INTEGRATED / NOT DEPLOYED /
-  NOT PUBLICLY VERIFIED.
+- **Publication status:** HISTORICAL FALSE PASS AT `review.html?v=48` /
+  INVALIDATED BY ALI / SUPERSEDED BY BTB-462 / QUARANTINED / NOT PUBLISHED.

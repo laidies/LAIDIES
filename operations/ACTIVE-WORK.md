@@ -41,11 +41,27 @@ brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
 The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
-Status is **BUILT LOCALLY / CHAPTER 1 THREE-FIGURE VISUAL SET + ONE SUMMARY
-CHECK INDEPENDENT DESKTOP/MOBILE PASS / CHAPTERS 2–20 FULL VISUAL LAYER MAKER
-AND INDEPENDENT DESKTOP/MOBILE PASS / ALI REVIEW PENDING / NOT
-INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The accepted Chapter 1
-candidate shows:
+Current status is **TEXTBOOK PROSE BUILT LOCALLY / ENTIRE VISUAL TEACHING LAYER
+REJECTED BY ALI AND QUARANTINED / ZERO FIGURES OR MAPS RENDERED / NOT
+INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. Ali stopped after the
+first five figures because all five failed: source art was visibly squashed,
+one overlay covered teaching text, pictures did not carry the mechanism, and
+the Chapters 2–20 system largely presented coloured text boxes as diagrams.
+The prior maker and independent visual PASS is invalid. A propagation audit
+found the same family across the 48 rendered teaching figures and recommended
+quarantining the full layer rather than patching the first five. The current
+review therefore renders the Ali-vetted text with no active teaching figures,
+section diagrams, cumulative map pieces or final map. Its calibrated checker
+fails if any member of the rejected layer returns.
+
+The next visual work is capped at one representative mechanism. It must use a
+diagram-native spatial relationship that adds understanding beyond prose or a
+table, keep all technical text deterministic, survive desktop/mobile, and pass
+an artifact-first unfamiliar-reader explain-back plus unseen transfer before
+anything propagates. The original figures remain preserved in history as
+rejection evidence only.
+
+Historical candidate description, now invalidated: the Chapter 1 candidate showed
 written rules versus labelled examples; examples to learned likeness to a new
 photo match; and two distinct decision routes inside one inbox. The three
 teaching figures fit within one 390×844 viewport at 701px, 778px and 740px with

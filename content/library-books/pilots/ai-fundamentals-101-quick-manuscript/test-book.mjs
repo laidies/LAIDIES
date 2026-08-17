@@ -81,22 +81,10 @@ try {
     throw new Error("calibration failed: checker accepted answers exposed by default");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="teaching-visual', 'class="teaching-visual-removed'));
-  const missingConceptDiagram = inspectBook(temporary);
-  if (missingConceptDiagram.pass || !missingConceptDiagram.errors.some(error => error.includes("every registered section-bound instructional diagram"))) {
-    throw new Error("calibration failed: checker accepted a missing concept diagram");
-  }
-  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="teaching-visual teaching-kind-', 'class="teaching-visual tv-'));
-  const collidingFigureClass = inspectBook(temporary);
-  if (collidingFigureClass.pass || !collidingFigureClass.errors.some(error => error.includes("reuses an inner layout class"))) {
-    throw new Error("calibration failed: checker accepted an outer/inner diagram class collision");
-  }
-  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.tv-network .nodes circle{', '.tv-network .nodes circle-removed{'));
-  const missingTeachingCss = inspectBook(temporary);
-  if (missingTeachingCss.pass || !missingTeachingCss.errors.some(error => error.includes("required base or mobile layout CSS"))) {
-    throw new Error("calibration failed: checker accepted missing teaching-diagram CSS");
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"', '<figure class="teaching-visual teaching-kind-pipeline" data-teaching-section="1.1"><figcaption>Rejected visual returned</figcaption></figure><h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"'));
+  const returnedSectionVisual = inspectBook(temporary);
+  if (returnedSectionVisual.pass || !returnedSectionVisual.errors.some(error => error.includes("rejected section-bound instructional diagrams have returned"))) {
+    throw new Error("calibration failed: checker accepted a returned rejected section visual");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<section class="chapter-ahead"', '<details class="chapter-ahead"'));
@@ -105,28 +93,25 @@ try {
     throw new Error("calibration failed: checker accepted hidden chapter goals and terms");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('class="system-map system-map-complete"', 'class="system-map"'));
-  const missingCompleteMap = inspectBook(temporary);
-  if (missingCompleteMap.pass || !missingCompleteMap.errors.some(error => error.includes("completed final AI ecosystem map"))) {
-    throw new Error("calibration failed: checker accepted a missing completed AI map");
-  }
-  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.map-node small{font-size:.67rem}', '.map-node small{font-size:.42rem}'));
-  const tinyMobileMap = inspectBook(temporary);
-  if (tinyMobileMap.pass || !tinyMobileMap.errors.some(error => error.includes("poster-scale text"))) {
-    throw new Error("calibration failed: checker accepted poster-scale mobile map labels");
-  }
-  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"', '<figure class="teaching-visual tv-rejected" data-teaching-section="1.1"><figcaption>Rejected visual returned</figcaption></figure><h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"'));
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"', '<figure class="ch1-visual" data-teaching-visual="ch01-generalisation"><figcaption>Rejected visual returned</figcaption></figure><h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"'));
   const returnedChapterOneVisual = inspectBook(temporary);
-  if (returnedChapterOneVisual.pass || !returnedChapterOneVisual.errors.some(error => error.includes("rejected Chapter 1 visual set has returned"))) {
+  if (returnedChapterOneVisual.pass || !returnedChapterOneVisual.errors.some(error => error.includes("rejected Chapter 1 teaching visuals have returned"))) {
     throw new Error("calibration failed: checker accepted a returned rejected Chapter 1 visual");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-teaching-visual="ch01-generalisation"', 'data-teaching-visual="ch01-generalisation-missing"'));
-  const missingChapterOneTeachingJob = inspectBook(temporary);
-  if (missingChapterOneTeachingJob.pass || !missingChapterOneTeachingJob.errors.some(error => error.includes("exact three Chapter 1 teaching visuals"))) {
-    throw new Error("calibration failed: checker accepted a missing Chapter 1 teaching job");
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-20-20-1-what-is-agi-and-why-no-one-agrees"', '<figure class="system-map system-map-complete"><div class="ai-system-blueprint">Rejected map returned</div></figure><h3 id="ch-20-20-1-what-is-agi-and-why-no-one-agrees"'));
+  const returnedSystemMap = inspectBook(temporary);
+  if (returnedSystemMap.pass || !returnedSystemMap.errors.some(error => error.includes("rejected AI-system maps have returned"))) {
+    throw new Error("calibration failed: checker accepted a returned rejected AI-system map");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  const manifestPath = path.join(temporary, "artifact-manifest.json");
+  const returnedAssetManifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  returnedAssetManifest.artifacts.push({ path: "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-rejected.png", sha256: "rejected" });
+  fs.writeFileSync(manifestPath, `${JSON.stringify(returnedAssetManifest, null, 2)}\n`);
+  const returnedVisualAsset = inspectBook(temporary);
+  if (returnedVisualAsset.pass || !returnedVisualAsset.errors.some(error => error.includes("rejected visual assets as active artifacts"))) {
+    throw new Error("calibration failed: checker accepted a rejected visual asset in the active manifest");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.callout-practice{background:#fff0e8;border-left-color:#e65e2e}', '.callout-practice{background:#ffe1f1;border-left-color:var(--electric-pink)}'));
@@ -137,10 +122,10 @@ try {
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('</nav>\n<h2 id="chapter-2"', '</nav><aside class="map-piece" data-chapter="1">False component</aside>\n<h2 id="chapter-2"'));
   const falseChapterOneMapPiece = inspectBook(temporary);
-  if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("incorrectly presented as an AI-system component"))) {
+  if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("rejected cumulative map pieces have returned"))) {
     throw new Error("calibration failed: checker accepted Chapter 1 as a system-map component");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL colliding_figure_class=FAIL missing_teaching_css=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL rejected_chapter_one_visual_returned=FAIL missing_chapter_one_teaching_job=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
