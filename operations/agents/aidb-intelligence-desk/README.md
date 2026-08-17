@@ -84,7 +84,9 @@ processed signals and three useful receiving-owner rulings. On 2026-08-08 the
 Control Room admitted recurrence inside this existing twice-daily desk. Only
 `PROMOTED` and `PILOT` roster sources run on their recorded cadence;
 `CANDIDATE` sources are opened only for an active question or a due roster
-review. Candidate inclusion still does not equal recurring promotion. The
+review. Ali's 2026-08-16 direction added CatGPT / Cat Labs as the fourteenth
+roster source and fifth bounded `PILOT`; it runs weekly through public official
+pages and the newsletter archive. Candidate inclusion still does not equal recurring promotion. The
 extension cannot alter the AIDB or Mollick cursors, create a new agent/pipeline,
 follow or subscribe to accounts, scrape against terms, spend, publish or edit
 another owner's state.

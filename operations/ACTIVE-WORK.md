@@ -1057,6 +1057,15 @@ objective; every open lane keeps its own checkpoint.
 - **Next trigger:** an admitted content job needs one exact source item; the receiving owner then verifies title/author/date, claims, accessibility, level, access/cost and currentness before use.
 - **Authority:** no content, concept map, surface artifact, route, deployment, publication, subscription, account, spend or public-release state changed.
 
+### 2026-08-16 Allie K. Miller and CatGPT / Cat Labs source checkpoint
+
+- **Current state:** `ACCEPTED FOR GOVERNED WATCH — NO CONTENT COMMISSION`.
+- **Literal completed work:** verified Allie K. Miller's official site, Resources, public newsletter archive and LinkedIn identity; confirmed she was already an admitted monthly practitioner pilot. Verified that Catherine Goetze's CatGPT (`@askcatgpt`) and Cat Labs are one connected creator ecosystem, then added one weekly public-channel pilot to the existing AIDB practitioner recurrence.
+- **Learning jobs:** Allie supplies practical AI-at-work, business-adoption and workflow leads. CatGPT supplies accessible nontechnical framing, everyday use and digital-wellbeing questions. Cat Labs supplies transparent tool/workflow/build experiments. Exact material may be source-mined only after disclosure, primary verification, current-version testing and deduplication.
+- **Truth boundary:** creator authority, popularity, polish or sponsorship does not establish a factual claim or teaching outcome. CatGPT and Cat Labs cannot corroborate one another. No creator voice, wording, artwork or curriculum becomes LAiDIES canon.
+- **Next trigger:** the next due monthly Allie check or weekly CatGPT/Cat Labs check, or an admitted content/operating question needing one exact item.
+- **Authority:** no account follow, login, subscription, paid access, content artifact, concept change, route, deployment, publication, spend or public-release state changed.
+
 ### 2026-08-08 Wharton AI source-family expansion checkpoint
 
 - **Current state:** `VERIFIED SOURCE ROUTING / NO CONTENT COMMISSION`.

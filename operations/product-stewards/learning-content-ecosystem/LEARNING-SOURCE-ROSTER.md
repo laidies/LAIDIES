@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE INTERNAL SOURCE ROUTER — NOT CONTENT AUTHORITY
 **Owner:** Learning System & Concepts Director
-**Updated:** 2026-08-08
+**Updated:** 2026-08-16
 
 ## Operating rule
 
@@ -35,6 +35,8 @@ every item current, accurate, audience-appropriate or reusable.
 | `LSR-WHARTON-GAIL-PROMPTS-001` | [Wharton Generative AI Labs Prompt Library](https://gail.wharton.upenn.edu/prompt-library/). Official Wharton page; prompts credited to Ethan Mollick and Lilach Mollick and offered under CC BY 4.0. | Strong benchmark for prompt purpose, context, examples, reuse testing, iteration and adaptation. Relevant to Briefing 101 and controlled High practice where the existing owner has a distinct gap. | It warns that outputs may be wrong and models vary. Retest an exact prompt with current models, learner perspectives and edge cases; attribution is required for adapted prompt material. It is not evidence for general factual AI claims. | `ACCEPT AS PRACTICE-DESIGN AND ATTRIBUTED PROMPT SOURCE`; no automatic prompt import or new class. |
 | `LSR-MIT-OPEN-LEARNING-001` | [13 foundational AI courses, resources from MIT](https://openlearning.mit.edu/news/13-foundational-ai-courses-resources-mit), MIT Open Learning, 2025-05-21. | Curriculum comparison, prerequisite mapping and optional deeper-learning routes across beginner foundations, algorithms, machine learning, vision, ethics and foundation models. | This is a dated directory, not one maintained curriculum. Verify each linked course's current content, level, accessibility, access/account and price before recommending it. The page says most, not all, are free. | `ACCEPT AS COURSE-DISCOVERY MAP`; do not copy its catalogue or call every route free/current. |
 | `LSR-MOLLICK-SOCIAL-001` | Ethan Mollick on [X](https://x.com/emollick) and [LinkedIn](https://www.linkedin.com/in/emollick/). His current Wharton role and the official profile links to those networks are corroborated by [Wharton's faculty profile](https://mgmt.wharton.upenn.edu/profile/emollick/). | High-velocity discovery of practical AI-at-work, education and research questions; possible inputs to AIDB, NewsStand and learning-freshness review. | Platform access did not expose a reliable complete post history during the 2026-08-08 check. No post is canonical evidence: capture its exact date and claim, follow its cited original, independently verify it and date-bound any resulting LAiDIES use. | `ACCEPT AS EXPERT LEAD SOURCE ONLY`; never auto-ingest, rewrite or publish from a social post. |
+| `LSR-ALLIE-K-MILLER-001` | Allie K. Miller's [official site](https://www.alliekmiller.com/), [public Resources](https://www.alliekmiller.com/resources), [AI with ALLIE archive](https://www.aiwithallie.com/) and [LinkedIn profile](https://www.linkedin.com/in/alliekmiller). Detailed ruling: [PRACTITIONER-SOURCE-INTAKE-allie-k-miller-catgpt-cat-labs-2026-08-16.md](PRACTITIONER-SOURCE-INTAKE-allie-k-miller-catgpt-cat-labs-2026-08-16.md). | Practical AI-at-work and business-use discovery; agent/workflow examples; beginner-facing format comparisons; questions worth testing for Classes, Library, work-life tips and LAiDIES operations. | Commercial education and promotion can coexist with useful material. Capture disclosure/sponsorship, verify changing product claims with the provider, and reproduce consequential workflows on the named current version. | `ACCEPT AS MONTHLY PRACTITIONER-SCOUT PILOT`; already admitted before this intake, now bound to stronger official channels. |
+| `LSR-CATGPT-CATLABS-001` | Catherine Goetze's [CatGPT](https://www.askcatgpt.com/) (`@askcatgpt`) and its connected [Cat Labs](https://catlabs.studio/) creator-first product studio and [public newsletter](https://catgptnewsletter.beehiiv.com/). Detailed ruling: [PRACTITIONER-SOURCE-INTAKE-allie-k-miller-catgpt-cat-labs-2026-08-16.md](PRACTITIONER-SOURCE-INTAKE-allie-k-miller-catgpt-cat-labs-2026-08-16.md). | Accessible nontechnical framing, everyday AI uses, short-form teaching patterns, digital-wellbeing questions, practical workflow/tool leads and transparent build experiments. | One connected creator family, not two independent corroborating sources. Treat sponsored or product-promotional material as disclosed leads; verify facts with primary sources and reproduce workflows before use. | `ACCEPT AS WEEKLY PRACTITIONER-SCOUT PILOT`; no account follow, login, subscription, auto-ingest or content commission. |
 
 ## Surface routing
 
@@ -50,9 +52,10 @@ every item current, accurate, audience-appropriate or reusable.
   dated reports may supply exact current applications after paper/report
   review. They belong in NewsStand or a work-life application before they
   become durable AI Fundamentals evidence.
-- **NewsStand / AIDB / freshness:** Mollick social items are leads. The
-  operative evidence is the original paper, product page, dataset, filing or
-  official institutional record after current verification.
+- **NewsStand / AIDB / freshness:** Mollick, Allie K. Miller and CatGPT/Cat
+  Labs items are leads. The operative evidence is the original paper, product
+  page, dataset, filing or official institutional record after current
+  verification. Creator sponsorship and product promotion remain visible.
 - **External links:** MIT and selected Stanford items may become optional
   deeper-learning routes only after exact-item accessibility, cost, level and
   freshness review. LAiDIES must explain why the link is useful and what prior

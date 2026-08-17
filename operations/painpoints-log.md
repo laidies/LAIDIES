@@ -14407,3 +14407,26 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-456 — One creator ecosystem can look like two corroborating sources
+
+- **Date:** 2026-08-16
+- **Area:** Practitioner-source intake and learning freshness.
+- **Failure risk:** CatGPT and Cat Labs could be entered as separate sources,
+  causing the same creator's explanation or product claim to appear
+  independently corroborated. A requested new source may also already be in
+  the monitored roster, creating duplicate recurrence and review work.
+- **Root cause:** Handles, newsletters, studios and creator brands obscure
+  their shared ownership unless identity and official cross-links are resolved
+  before routing.
+- **Prevention rule:** Before adding a source, search the complete governed
+  roster, resolve identity through official cross-links, group connected
+  channels into one source family and assign distinct channel jobs. Popularity,
+  polish and multiple brand names never count as independent evidence.
+- **Durable correction:** Allie K. Miller remains the existing monthly pilot;
+  CatGPT and Cat Labs enter as one weekly pilot with a single disclosure,
+  primary-verification, current-version test and deduplication boundary.
+- **Possible Behind the Build angle:** Why two excellent-looking sources may
+  really be one person wearing two very useful hats.
+- **Publication status:** INTERNAL SOURCE-GOVERNANCE LEARNING / NO CONTENT,
+  PUBLICATION, ACCOUNT ACTION OR DEPLOYMENT.

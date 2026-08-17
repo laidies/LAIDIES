@@ -2,7 +2,7 @@
 
 **Status:** RECONCILED CURRENT RUNTIME — NO SOURCE PROMOTION
 
-**Checked:** 2026-08-08
+**Checked:** 2026-08-16
 
 **Owner interface:** AIDB discovers and traces; Learning routes teaching use;
 surface owners decide production.
@@ -13,7 +13,7 @@ Accept AIDB's source ecosystem as a governed discovery and verification
 network. Do not describe it as a library of pre-approved tools or lessons.
 
 The current runtime is narrower than the roster: it has two direct cursors
-(AIDB daily and Ethan Mollick's *One Useful Thing* weekly), four bounded pilot
+(AIDB daily and Ethan Mollick's *One Useful Thing* weekly), five bounded pilot
 recurrences, and seven on-trigger candidates. A cadence written in a candidate
 record does not mean that source is being monitored.
 
@@ -21,7 +21,7 @@ record does not mean that source is being monitored.
 
 | Layer | Current sources | Legitimate Learning use | Fail-closed limit |
 | --- | --- | --- | --- |
-| Secondary scout | AI Daily Brief (`AIDB`); Allie K. Miller | Discover named tools, teaching ideas, work patterns and original references. | Never factual authority. Trace edition → named reference → exact original → current primary/provider evidence → bounded LAiDIES test. Allie Miller items merge into existing work-life/career banks unless a distinct gap is proven. |
+| Secondary scout | AI Daily Brief (`AIDB`); Allie K. Miller; CatGPT / Cat Labs | Discover named tools, teaching ideas, work patterns, accessible explanations, build experiments and original references. | Never factual authority. Trace item → named reference → exact original → current primary/provider evidence → bounded LAiDIES test. Creator items merge into existing work-life/career/learning routes unless a distinct gap is proven; sponsorship and promotion remain visible. |
 | Original practitioner evidence | Ethan Mollick / *One Useful Thing*; Simon Willison; Chip Huyen | Reproducible experiments, practical workflows, limits, implementation detail and better research questions. | Author expertise does not universalize a result. Capture exact post/date/setup and reproduce consequential claims. Only Mollick currently has a direct recurring cursor; Simon Willison and Chip Huyen remain on-trigger candidates. |
 | Official provider authority | OpenAI Developers; OpenAI Cookbook; Anthropic Engineering; Anthropic Docs; Google AI for Developers | Verify current product capability, API behaviour, release facts and official examples; identify tools worth bounded testing. | Provider docs establish provider claims, not independent learning effectiveness, safety or general usefulness. OpenAI Developers and Anthropic Engineering are pilots; Cookbook, Anthropic Docs and Google remain on-trigger candidates. |
 | Institutional authority | Stanford HAI AI Index; Stanford AI Lab blog | Dated macro evidence, research discovery and exact-paper routing. | Hubs and summaries are not authority for every claim. HAI Index is a pilot; SAIL is on-trigger. Existing AI Fundamentals/Tribune routing owns the Stanford HAI use—do not make a duplicate artifact. |
@@ -37,13 +37,14 @@ record does not mean that source is being monitored.
 | 4 | [Anthropic Engineering](https://www.anthropic.com/engineering) | `PILOT` / twice weekly | Accept transferable mechanisms only after bounded testing. |
 | 5 | [Stanford HAI AI Index](https://hai.stanford.edu/ai-index) | `PILOT` / monthly plus annual | Accept as institutional evidence map; inspect exact chapter, method, statistic and source. |
 | 6 | [Allie K. Miller resources](https://www.alliekmiller.com/resources) | `PILOT` / monthly | Park/source-mine; merge useful real-life jobs into existing work-life/career routes. |
-| 7 | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | `CANDIDATE` / on-trigger | Watch for executable implementation examples; verify licence and current APIs. |
-| 8 | [Anthropic developer docs](https://docs.anthropic.com/) | `CANDIDATE` / on-trigger | Watch as Claude-specific verification source, not a lesson feed. |
-| 9 | [Google AI for Developers](https://ai.google.dev/) | `CANDIDATE` / on-trigger | Watch for Gemini-specific claims; never infer provider parity. |
-| 10 | [Stanford AI Lab blog](https://ai.stanford.edu/blog/) | `CANDIDATE` / on-trigger | Watch exact research items and papers; avoid duplicating HAI synthesis. |
-| 11 | [Simon Willison](https://simonwillison.net/atom/everything-but-beats/) | `CANDIDATE` / on-trigger | Watch reproducible cross-model experiments; reproduce consequential claims. |
-| 12 | [Chip Huyen](https://huyenchip.com/blog/) | `CANDIDATE` / on-trigger | Watch systems mechanisms; never treat it as current provider authority. |
-| 13 | [DeepLearning.AI short courses](https://www.deeplearning.ai/short-courses/) | `CANDIDATE` / on-trigger | Watch exact instructors/courses; inspect access, price, prerequisites, claims and licence. |
+| 7 | [CatGPT / Cat Labs](https://www.askcatgpt.com/) | `PILOT` / weekly | Source-mine accessible teaching, practical workflows and transparent builds; verify sponsorship, primary facts and reproducibility. |
+| 8 | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | `CANDIDATE` / on-trigger | Watch for executable implementation examples; verify licence and current APIs. |
+| 9 | [Anthropic developer docs](https://docs.anthropic.com/) | `CANDIDATE` / on-trigger | Watch as Claude-specific verification source, not a lesson feed. |
+| 10 | [Google AI for Developers](https://ai.google.dev/) | `CANDIDATE` / on-trigger | Watch for Gemini-specific claims; never infer provider parity. |
+| 11 | [Stanford AI Lab blog](https://ai.stanford.edu/blog/) | `CANDIDATE` / on-trigger | Watch exact research items and papers; avoid duplicating HAI synthesis. |
+| 12 | [Simon Willison](https://simonwillison.net/atom/everything-but-beats/) | `CANDIDATE` / on-trigger | Watch reproducible cross-model experiments; reproduce consequential claims. |
+| 13 | [Chip Huyen](https://huyenchip.com/blog/) | `CANDIDATE` / on-trigger | Watch systems mechanisms; never treat it as current provider authority. |
+| 14 | [DeepLearning.AI short courses](https://www.deeplearning.ai/short-courses/) | `CANDIDATE` / on-trigger | Watch exact instructors/courses; inspect access, price, prerequisites, claims and licence. |
 
 ## Runtime truth
 
@@ -51,7 +52,7 @@ record does not mean that source is being monitored.
   editions through 2026-08-07.
 - *One Useful Thing* is the second direct cursor and is checked weekly.
 - Current pilot recurrences are OpenAI Developers, Anthropic Engineering,
-  Stanford HAI AI Index and Allie K. Miller.
+  Stanford HAI AI Index, Allie K. Miller and CatGPT / Cat Labs.
 - OpenAI Cookbook, Anthropic Docs, Google AI for Developers, Stanford AI Lab,
   Simon Willison, Chip Huyen and DeepLearning.AI are candidate/on-trigger
   sources. Their declared cadence is not a running monitor.
