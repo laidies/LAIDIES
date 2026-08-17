@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** REBUILDING — rejected visual layer quarantined; nine representative teaching methods built locally and independently reviewed; Ali review and full-book admission pending
+**Status:** REBUILDING — all nine CSS teaching figures and their prior PASS claims invalidated; section inventory and one Chapter 1 purpose-built proof required; not published
 **Owner:** Library
 **Applies to:** the complete AI Fundamentals 101 successor, not the prose-only representative pilot
 
@@ -11,11 +11,24 @@ work by making a relationship, sequence, comparison or failure path visible.
 No visual is admitted because a page looks empty or because every chapter is
 expected to have one.
 
+The unit is a **textbook visual learning aid**, not a diagram by default. Choose
+the form that teaches the section: a worked illustration for a familiar
+situation, an annotated scene or cutaway for hidden structure, a sequence for
+change over time, a comparison graphic for contrasts, a map for spatial
+relationships, or a diagram only when the concept is genuinely diagrammatic.
+Flowcharts used where an illustration should teach are a failure, even when
+their arrows are mechanically correct.
+
 Technical labels, arrows, legends and captions are deterministic editable
 layers. Illustrative art may carry the Library's approved visual language, but
 it cannot invent the technical relationship or contain generated lettering.
 Every visual has an equivalent text explanation and remains understandable
 without colour.
+
+CSS may position and caption an admitted visual asset, but it may not draw the
+teaching diagram. Python-generated diagrams are also prohibited. Each visual is
+produced in an appropriate illustration or diagram tool as a real purpose-built
+asset, normally with an editable source plus a reviewed PNG or WebP derivative.
 
 ## Reference-led production method
 
@@ -62,46 +75,25 @@ is produced only when it beats prose for that exact job.
 | 20 — AGI, ASI and the Frontier | Separate current narrow systems from debated future categories | current demonstrated capabilities → unresolved generality tests → hypothetical AGI/ASI; uncertainty increases rather than a guaranteed progress arrow | Frontier/uncertainty halo, not a current component |
 | Final synthesis | Let the reader reconstruct the complete system from physical substrate to consequence | supply chain + energy/data centre + chips → data/training/model → product/context/retrieval/tools → inference/output/action → evaluation/human/public feedback, with training and use-time paths visibly distinct | Completed AI system map |
 
-## Current bounded proof set
+## Current bounded proof
 
-- **Chapter 1.1:** one email through a human-written-rule filter and a
-  learned-pattern filter, rejoined in one inbox — built locally; maker and
-  independent desktop/mobile visual review PASS; Ali review and publication
-  pending.
-- **Chapter 2:** four jobs/one family with an explicit agent act–observe–adjust
-  loop — built locally; maker and independent desktop/mobile visual review PASS;
-  Ali review and publication pending.
-- **Chapter 3.3:** define → select/clean/label → split → learn/check → use/recheck,
-  with a locked held-out test and a deliberate-not-automatic correction loop —
-  built locally; maker and independent desktop/mobile visual review PASS; Ali
-  review and publication pending.
-- **Chapter 5.5:** labelled example → forward likelihoods → known-answer loss →
-  backward contribution calculation → unequal small number-setting updates →
-  repeat — built locally; maker and independent desktop/mobile visual review
-  PASS; Ali review and publication pending.
-- **Chapter 4.3:** text → tokenizer chunks → token IDs — built locally; maker and
-  independent desktop/mobile visual review PASS; Ali review and publication pending.
-- **Chapter 6.2:** photograph → spatial patches → model input — built locally;
-  maker and independent desktop/mobile visual review PASS; Ali review and
-  publication pending.
-- **Chapter 7.2:** application assembles the material available to the request →
-  prefill processes the supplied context together → decode adds one next token
-  and repeats → each piece streams to the screen → stop, with an explicit
-  request-time-not-training boundary — built locally; maker and independent
-  desktop/mobile visual review PASS; Ali review and publication pending.
-- **Chapter 8.6:** documents are prepared/indexed outside the model → current
-  conversation, optional selected product memory and only matching RAG chunks
-  converge into one context window → unchanged frozen weights + live context →
-  answer, with retrieval-miss and unsupplied-information limits — built locally;
-  maker and independent desktop/mobile visual review PASS; Ali review and
-  publication pending.
-- **Chapter 9.8:** one wrong refund-policy answer branches by cause into changes
-  to request context versus changes to learned weights; every branch names the
-  matching method, the mobile view explicitly says this is not a ladder, and the
-  methods visibly recombine in a real product — built locally; maker and
-  independent desktop/mobile visual review PASS; Ali review and publication
-  pending.
-- All prior generic card/table visual candidates remain rejected and quarantined.
+- The nine CSS teaching figures previously rendered in Chapters 1–9 are rejected.
+  Their maker and independent-review PASS claims are invalid and provide no
+  production or derivative authority.
+- The reader build must render zero of those figures while preserving the vetted
+  manuscript, reader hierarchy, navigation, responsive behaviour and nonvisual
+  teaching structure.
+- The section-level inventory decides `VISUAL` or `NONE` for every numbered
+  section. It is not a visual quota.
+- The only permitted production proof is **Chapter 1.1**: one professionally
+  illustrated and annotated email-filter scene, built as a textbook learning
+  aid rather than a flowchart, that distinguishes a human-written rule from a
+  learned-pattern path. Research two to four
+  authoritative educational examples first; then produce one original asset,
+  inspect its exact pixels in the real desktop/mobile reader and obtain a
+  role-distinct artifact-first visual judgment.
+- Do not scale, restore another figure, merge or publish until Ali accepts that
+  one admitted Chapter 1 proof.
 
 ## Communication references used in the bounded proof
 
