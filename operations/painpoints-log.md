@@ -15567,3 +15567,28 @@ while remaining falsely unfinished in the launch record.
   one boring JSON file was the product-saving change.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO VISUAL ASSET,
   EPISODE MASTER, LIBRARY FILE, DEPLOYMENT OR PUBLICATION.
+
+## 2026-08-16 — Outfit transformations need occlusion, not interpolation
+
+- **Failure / surprise:** The durable Episode 04 transformation direction was
+  initially displaced by a generated SUNNYVAiLE-background concept, then two
+  transition attempts tried to blend or derive motion between five approved
+  endpoint frames. The first doubled the character; the second produced pixel
+  destruction, exposed shoes and a rectangular composite boundary. A third
+  internal attempt hid the shoes with newly drawn flat cloud puffs that visibly
+  departed from the approved art.
+- **Evidence observed:** The accepted visual pilot keeps the approved abstract
+  geometric stage and exact corporate/cloud/reveal plates. A hard organic cloud
+  wipe fully covers the character, a single five-frame full-screen flash hides
+  the endpoint swap, and the cloud clears from the shoes upward. Independent
+  full-size, normal-speed review found no doubled identity, exposed intermediate
+  outfit, pasted patch, rectangular seam or background drift.
+- **Prevention rule:** Treat recurring outfit changes as a layer-separated
+  one-shot animation system: stable approved start plate, approved opaque cover,
+  a completely concealed hard swap, and a stable approved reveal plate. Never
+  cross-dissolve people, derive a noisy difference matte or invent a patch after
+  the fact. Read the durable sequence authority before generating any setting.
+- **Possible Behind the Build angle:** Why a convincing AI transformation can
+  be a carefully hidden cut rather than an expensive generated video.
+- **Publication status:** ACCEPTED LOCAL VISUAL PILOT ONLY / SILENT / NOT
+  INTEGRATED, DEPLOYED OR PUBLIC.

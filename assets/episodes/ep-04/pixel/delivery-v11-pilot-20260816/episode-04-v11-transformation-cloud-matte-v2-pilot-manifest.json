@@ -1,0 +1,107 @@
+{
+  "status": "BUILT_LOCALLY_REVIEW_PILOT_NOT_RELEASE_AUTHORITY",
+  "job": "Episode 04 corporate-to-SUNNYVAiLE abstract-stage transition",
+  "predecessor": {
+    "sha256": "83e98a82fa7a131660f839761b0ffa16def17a8d0c01d710a463c70f4c7ce734",
+    "verdict": "HOLD",
+    "defects": [
+      "corporate ghosting at 02.10-02.30",
+      "doubled final figure at 03.30-03.90"
+    ]
+  },
+  "motionDesign": {
+    "method": "Animate extracted cloud mattes over one stable corporate endpoint and one stable reveal endpoint; switch endpoints only during 0.4 seconds of full p2 occlusion.",
+    "clock": {
+      "fps": 30,
+      "frames": 156,
+      "seconds": 5.2
+    },
+    "beats": [
+      {
+        "frames": "0-23",
+        "job": "stable corporate"
+      },
+      {
+        "frames": "24-53",
+        "job": "cloud builds over stable corporate figure"
+      },
+      {
+        "frames": "54-83",
+        "job": "hard-pixel magical dissolve into full opaque cloud"
+      },
+      {
+        "frames": "84-95",
+        "job": "full occlusion and hidden endpoint switch"
+      },
+      {
+        "frames": "96-137",
+        "job": "cloud matte clears over stable final figure"
+      },
+      {
+        "frames": "138-155",
+        "job": "stable clean reveal"
+      }
+    ],
+    "prohibitions": [
+      "no town",
+      "no LUMINAiRY",
+      "no storefront",
+      "no wand",
+      "no FAiRY Godmother",
+      "no alpha-blended heroine transition",
+      "no generated replacement art"
+    ]
+  },
+  "sources": [
+    {
+      "label": "p0-corporate",
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-open-15p0-transformation-stage-corporate-no-wand-v1-1920.png",
+      "sha256": "fd75dfdd13e3fb82cf5d7851e60a8bc788f9e177e59d673eac6f5c0c90fe990e"
+    },
+    {
+      "label": "p1-poof-build",
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-open-15p1-transformation-poof-build-no-wand-v1-1920.png",
+      "sha256": "007647cb8a1da240e6caf59c36b010dd12474b01638aaa6a871f1eccab860ed3"
+    },
+    {
+      "label": "p2-poof-cover",
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-open-15p2-transformation-poof-cover-no-wand-v1-1920.png",
+      "sha256": "9269f94f1ecfb0a0a4fbe2ed1d604c2046d8357a57cb25c3bf73b934fcd67f0a"
+    },
+    {
+      "label": "p3-poof-clear",
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-open-15p3-transformation-poof-clearing-no-wand-v1-1920.png",
+      "sha256": "ef0eda3cfffa7e01c3f97bc8651f2366e51a947f10cf27857755d91cd3bc37b6"
+    },
+    {
+      "label": "p4-reveal",
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-open-15p4-transformation-reveal-clueless-stage-no-wand-v1-1920.png",
+      "sha256": "b6a92dfa1ac46db9e14ff31d1218fe8fc93488df16caf37c835b63dc25174d7d"
+    }
+  ],
+  "derivedMattes": [
+    {
+      "path": "/Users/alisoneakin/Projects/laidies-episode-04-v11-pilot-20260816/assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/episode-04-v11-transformation-cloud-build-matte-v2.png",
+      "sha256": "0a958f6c072531ff98ec3252e40d45698eb60a2b20aa681f92561404da1cec5f"
+    },
+    {
+      "path": "/Users/alisoneakin/Projects/laidies-episode-04-v11-pilot-20260816/assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/episode-04-v11-transformation-cloud-clear-matte-v2.png",
+      "sha256": "6ace341be293389763c4b8e6bdc7843c2a066dc1cc42f677488de95e4d74f106"
+    }
+  ],
+  "output": {
+    "path": "/Users/alisoneakin/Projects/laidies-episode-04-v11-pilot-20260816/assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/episode-04-v11-transformation-cloud-matte-v2-pilot.mp4",
+    "sha256": "8133d1fda3541807128c1fc7fba28261625196d28fe7ac63756e9e2561c70547",
+    "decodedFrames": 156,
+    "decodedSeconds": 5.2
+  },
+  "contactSheet": {
+    "path": "/Users/alisoneakin/Projects/laidies-episode-04-v11-pilot-20260816/assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/episode-04-v11-transformation-cloud-matte-v2-pilot-contact-sheet.jpg",
+    "sha256": "83c541f223eb83585ef0b1c2b6354efdb9be03bf4b6518431ea4e466141e5a5e"
+  },
+  "limitations": [
+    "Silent visual pilot only.",
+    "Not integrated into the Episode 04 master.",
+    "Requires role-distinct visual judgment."
+  ]
+}
