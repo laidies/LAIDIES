@@ -1,0 +1,71 @@
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+  built with Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+  configuration: --prefix=/Volumes/tempdisk/sw --extra-cflags=-fno-stack-check --arch=arm64 --cc=/usr/bin/clang --enable-gpl --enable-libvmaf --enable-libbluray --enable-libopenjpeg --enable-libopus --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libvpx --enable-libwebp --enable-libass --enable-libfreetype --enable-fontconfig --enable-libtheora --enable-libvorbis --enable-libsnappy --enable-libaom --enable-libvidstab --enable-libzimg --enable-libsvtav1 --enable-libkvazaar --enable-version3 --pkg-config-flags=--static --enable-ffplay --enable-postproc --enable-nonfree --enable-neon --enable-runtime-cpudetect --disable-indev=qtkit --disable-indev=x11grab_xcb
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'assets/episodes/ep-04/graphic-novel/delivery-v14-launch-repair-20260817/ep04-v14-exact-source-motion-proof.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf60.3.100
+  Duration: 00:00:47.23, start: 0.000000, bitrate: 4198 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, unknown/bt709/iec61966-2-1, progressive), 1920x1080, 4195 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.3.100 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf60.3.100
+  Stream #0:0(und): Video: wrapped_avframe, yuv420p(tv, unknown/bt709/iec61966-2-1, progressive), 1920x1080, q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.3.100 wrapped_avframe
+frame=    0 fps=0.0 q=-0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 0
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 3.53333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 3.53333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 3.96667
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 3.06667
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 7.03333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 7.5
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 3.03333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 10.5333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 11
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 3.03333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 14.0333
+frame=  467 fps=0.0 q=-0.0 size=N/A time=00:00:15.56 bitrate=N/A speed=28.5x
+frame=  717 fps=685 q=-0.0 size=N/A time=00:00:23.90 bitrate=N/A speed=22.8x
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 24
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 4.03333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 28.0333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 28.5
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 2.03333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 30.5333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 30.5333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 2
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 32.5333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 33
+frame= 1046 fps=676 q=-0.0 size=N/A time=00:00:34.86 bitrate=N/A speed=22.5x
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 5.03333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 38.0333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 38.5
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_duration: 4.73333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_end: 43.2333
+[freezedetect @ 0x143104df0] lavfi.freezedetect.freeze_start: 43.9
+frame= 1417 fps=739 q=-0.0 Lsize=N/A time=00:00:47.20 bitrate=N/A speed=24.6x
+video:664kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown

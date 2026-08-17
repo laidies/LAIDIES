@@ -1,0 +1,144 @@
+{
+  "candidateId": "EP04-V14-EXACT-SOURCE-MOTION-PROOF-2026-08-17",
+  "status": "INTERNAL_PRODUCER_PROOF_NOT_RELEASE_CANDIDATE",
+  "purpose": "Prove the repaired adult-graphic-novel source and motion language before rebuilding the full Episode 04 master.",
+  "rules": {
+    "visibleStyle": "adult graphic novel",
+    "generatedSubstitutePeopleForbidden": true,
+    "pixelOrHalftoneRenderingForbidden": true,
+    "syntheticRainOrSparkleOverlayForbidden": true,
+    "embeddedCaptionsForbidden": true,
+    "captionDelivery": "external below-picture player track in the eventual episode experience",
+    "audioInProof": false
+  },
+  "inputs": [
+    {
+      "job": "opening clean desk",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-04-desk-comic-v1-face-lock-1920.png",
+      "sha256": "3ac51c96ddf06d1c08e456e09041a01b8213251dcd2e74dc154517fbccaf1ff2"
+    },
+    {
+      "job": "opening chat state",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-04b-desk-chatbox-comic-v1-1920.png",
+      "sha256": "1c2d966b55bbb6b5880dbfc37b6df88de191184cc669ae61f350aef8901ec290"
+    },
+    {
+      "job": "opening unease state",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-05-unease-comic-v1-face-lock-1920.png",
+      "sha256": "b406456b9ed01ac19c523971a5f4c40bc227dbbc459509390070e00959dcac8a"
+    },
+    {
+      "job": "opening thinking close-up",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-06-thinking-closeup-comic-v1-face-lock-1920.png",
+      "sha256": "bf25e73de8379a71c1f1bfc2bf5ee4bc2af5eab9c9db0e3fb7cef87d872de218"
+    },
+    {
+      "job": "Ada punched-card motion",
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-punched-card-toward-camera-comic-event-v1.mp4",
+      "sha256": "460a37664d8fe6523d21a3b5103616e1f450374b2be17f28fc15da538c6976f7"
+    },
+    {
+      "job": "Ada machine local-motion loop",
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-b-mid-comic-v1-locked-1920-loop-v1.mp4",
+      "sha256": "33e1b38a64e6ed03dd5a41436a6e1a9737b7978d2133fd933382802669d64441"
+    },
+    {
+      "job": "Hedy local motion",
+      "path": "assets/episodes/ep-04/pixel/ep04-cue22-local-motion-v1.mp4",
+      "sha256": "fd4ba13b594cc53403bba7c374279f472ec4bcf40ecdcfa18e7def1bddd05528"
+    },
+    {
+      "job": "Hedy signal-path motion",
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-b-mid-comic-v1-locked-1920-signal-v1.mp4",
+      "sha256": "661229bd65ec9e7db3b983d3d2ee0f402a7f6b14989048d8f4a8bc407c00831b"
+    },
+    {
+      "job": "Ali-aligned corporate-to-SUNNYVAiLE wardrobe transition",
+      "path": "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816/_rough/ep04-transformation-season-wardrobe-v11-canva-designed-title-dotted-i-source-with-handle.mp4",
+      "sha256": "e8e2323bf1f0286f2f23ddd375b9463567a0dfb21b37e725f3535a631f829094"
+    }
+  ],
+  "output": {
+    "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-launch-repair-20260817/ep04-v14-exact-source-motion-proof.mp4",
+    "sha256": "e9f0090103e08b52d3ee0051194467656e90487d51ed28b71bec6038dfedea64",
+    "durationSeconds": 47.23,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "audioStreams": 0,
+    "subtitleStreams": 0
+  },
+  "producerInspection": {
+    "contactSheet": "assets/episodes/ep-04/graphic-novel/delivery-v14-launch-repair-20260817/ep04-v14-exact-source-motion-proof-contact-sheet.png",
+    "contactSheetSha256": "6189939510788934229b3ca88dd57d9d215fdcd6f0a2eb9acd94ad3330619fca",
+    "decodeLog": "assets/episodes/ep-04/graphic-novel/delivery-v14-launch-repair-20260817/ep04-v14-proof-decode-qc.log",
+    "observed": [
+      "No pixel or halftone substitute frames are present in the proof.",
+      "No synthetic rain or sparkle overlay is present.",
+      "Ada is the episode-used punched-card source; the rejected generated Ada portrait is absent.",
+      "Hedy is the episode-used source; the rejected phantom-arm image is absent.",
+      "The Canva wardrobe transition remains intact and carries the NOW ENTERING SUNNYVAiLE explanation.",
+      "No captions are burned over the pictures."
+    ],
+    "mechanicalResult": "DECODE_PASS_ZERO_BLACK_EVENTS",
+    "qualityAuthority": "PRODUCER_ONLY_NOT_INDEPENDENT_ADMISSION"
+  },
+  "fullCandidate": {
+    "path": "assets/video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
+    "durationSeconds": 1222.37,
+    "decodedFrames": 36669,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "audio": {
+      "codec": "AAC LC",
+      "sampleRate": 48000,
+      "channels": 1,
+      "copiedFrom": "assets/video/episode-04-full-v11-wardrobe-transition-review.mp4",
+      "decodedPayloadSha256": "28b7d174fd61d1d41bc97e7ff1711daf381941605531ae9084886fc0869bd9f3",
+      "payloadIdenticalToParent": true
+    },
+    "embeddedSubtitleStreams": 0,
+    "externalVtt": {
+      "path": "assets/captions/episode-04.vtt",
+      "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4"
+    },
+    "replacedWindows": [
+      {
+        "startSeconds": 41.0,
+        "endSeconds": 102.0,
+        "job": "clean opening with consistent non-animated rain and narration-bound dissolves",
+        "segmentSha256": "aaf4aedc30f1fa0fba2a3f5115ca3f8096620066a383b0c30ff56e3fbe61c3d5"
+      },
+      {
+        "startFrame": 7509,
+        "endFrameExclusive": 10247,
+        "job": "episode-used Ada punched-card motion followed by the approved machine loop",
+        "segmentSha256": "ff91efe11badf2ce92222d46c1243466b43b97ffdc99859ee5e15c94e1994f4a"
+      },
+      {
+        "startFrame": 10397,
+        "endFrameExclusive": 13119,
+        "job": "episode-used Hedy local motion followed by the approved signal-path motion",
+        "segmentSha256": "a1f584d6f48d598dae4d522244e20054e6e88e8c563353cfed5452e075ec6c57"
+      }
+    ],
+    "retained": [
+      "The admitted Canva corporate-to-SUNNYVAiLE wardrobe transition remains byte-derived from the v11 parent.",
+      "All unaffected parent picture occurrences remain in their original clock positions."
+    ],
+    "mechanicalResult": "FULL_DECODE_PASS_ZERO_BLACK_EVENTS",
+    "qualityStatus": "AWAITING_ROLE_DISTINCT_FULL_TITLE_SOUND_ON_REVIEW"
+  },
+  "reviewExperience": {
+    "path": "operations/video-qa/episode-04-v14-launch-review/index.html",
+    "captionPresentation": "external below-picture live caption panel",
+    "tested": [
+      "media loads",
+      "range seeking works",
+      "opening, wardrobe, Ada and Hedy shortcuts seek to the intended clock",
+      "captions render below the picture with VTT voice tags removed",
+      "caption toggle exposes an aria-pressed state"
+    ]
+  },
+  "nextAction": "Route this immutable v14 tuple to an independent full-title sound-on reviewer. Release integration remains prohibited until that reviewer returns PASS and Ali authorizes release."
+}
