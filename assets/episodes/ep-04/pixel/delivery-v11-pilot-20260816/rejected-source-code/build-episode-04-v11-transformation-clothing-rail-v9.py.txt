@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+"""Build the Episode 04 clothing-rail transition with an isolated identity reveal."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import subprocess
+import tempfile
+from pathlib import Path
+
+import imageio_ffmpeg
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
+
+
+ROOT = Path("/Users/alisoneakin/Projects/laidies-episode-04-v11-pilot-20260816")
+ICLOUD = Path("/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage")
+DELIVERY = ROOT / "assets/episodes/ep-04/pixel/delivery-v11-pilot-20260816"
+BEFORE = ICLOUD / "assets/episodes/ep-04/pixel/ep04-open-14-question-hangs-comic-v1-face-lock-1920.png"
+AFTER = ICLOUD / "assets/episodes/ep-04/pixel/ep04-open-16-luminairy-approach-comic-v6-correct-sign-1920.png"
+PLAID_CUTOUT = DELIVERY / "ep04-transformation-plaid-heroine-v8-source-cutout.png"
+FONT = ICLOUD / "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/public/fonts/Jost-ExtraBold.ttf"
+OUTPUT = DELIVERY / "episode-04-v11-transformation-clothing-rail-v9-pilot.mp4"
+MANIFEST = DELIVERY / "episode-04-v11-transformation-clothing-rail-v9-pilot-manifest.json"
+CONTACT = DELIVERY / "episode-04-v11-transformation-clothing-rail-v9-pilot-contact-sheet.jpg"
+SWITCH = DELIVERY / "episode-04-v11-transformation-clothing-rail-v9-switch-contact-sheet.jpg"
+FFMPEG = Path(imageio_ffmpeg.get_ffmpeg_exe())
+FPS = 30
+FRAMES = 240
+SOURCE_HASHES = {
+    BEFORE: "f2e18894abccedf82642ee36850f1451610a0a2e029f094d1d4604a9f2749eb9",
+    AFTER: "9ae5f55fb882dd054452dfad00b51c2246974c44f1f4f7a98c8c25306a601cae",
+}
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def ease(value: float) -> float:
+    value = min(1.0, max(0.0, value))
+    return value * value * (3.0 - 2.0 * value)
+
+
+def clean_cutout(path: Path) -> Image.Image:
+    cutout = Image.open(path).convert("RGBA")
+    alpha = cutout.getchannel("A")
+    # Apple Vision retains a coloured source-stage rim. A modest erosion removes
+    # the rim while preserving the already-approved face, clothes and silhouette.
+    alpha = alpha.filter(ImageFilter.MinFilter(9)).filter(ImageFilter.GaussianBlur(0.55))
+    cutout.putalpha(alpha)
+    return cutout
+
+
+def garment(draw: ImageDraw.ImageDraw, x: int, y: int, colour: tuple[int, int, int], kind: str, plaid: bool = False) -> None:
+    ink = (13, 17, 30, 255)
+    shadow = tuple(max(0, channel - 58) for channel in colour) + (255,)
+    # Real hanger + hook makes this read as clothing on a rail, not a wall panel.
+    draw.arc((x + 56, y - 45, x + 106, y + 8), 190, 350, fill=(220, 173, 79, 255), width=8)
+    draw.line((x + 81, y - 8, x + 15, y + 45, x + 147, y + 45, x + 81, y - 8), fill=(220, 173, 79, 255), width=8, joint="curve")
+    if kind == "jacket":
+        points = [(x + 18, y + 46), (x - 2, y + 96), (x + 24, y + 120), (x + 37, y + 300),
+                  (x + 126, y + 300), (x + 139, y + 120), (x + 165, y + 96), (x + 145, y + 46),
+                  (x + 101, y + 28), (x + 81, y + 62), (x + 61, y + 28)]
+        draw.polygon(points, fill=colour + (255,), outline=ink)
+        draw.line(points + [points[0]], fill=ink, width=9, joint="curve")
+        draw.polygon([(x + 81, y + 62), (x + 58, y + 135), (x + 81, y + 116)], fill=shadow, outline=ink)
+        draw.polygon([(x + 81, y + 62), (x + 104, y + 135), (x + 81, y + 116)], fill=shadow, outline=ink)
+        draw.line((x + 81, y + 116, x + 81, y + 300), fill=ink, width=7)
+        if plaid:
+            for offset in (42, 78, 114):
+                draw.line((x + offset, y + 48, x + offset - 8, y + 296), fill=(80, 48, 18, 215), width=5)
+            for offset in (105, 155, 210, 260):
+                draw.line((x + 25, y + offset, x + 137, y + offset), fill=(80, 48, 18, 215), width=5)
+    elif kind == "skirt":
+        points = [(x + 44, y + 48), (x + 118, y + 48), (x + 145, y + 250), (x + 17, y + 250)]
+        draw.polygon(points, fill=colour + (255,), outline=ink)
+        draw.line(points + [points[0]], fill=ink, width=9, joint="curve")
+        if plaid:
+            for offset in (42, 72, 102, 132):
+                draw.line((x + offset, y + 52, x + offset + (offset - 82) // 4, y + 245), fill=(80, 48, 18, 215), width=5)
+            for offset in (90, 135, 185, 225):
+                draw.line((x + 26, y + offset, x + 136, y + offset), fill=(80, 48, 18, 215), width=5)
+    else:
+        points = [(x + 24, y + 45), (x + 138, y + 45), (x + 124, y + 270), (x + 38, y + 270)]
+        draw.polygon(points, fill=colour + (255,), outline=ink)
+        draw.line(points + [points[0]], fill=ink, width=9, joint="curve")
+        draw.line((x + 81, y + 48, x + 81, y + 270), fill=shadow, width=5)
+
+
+def rail_plate(mode: str) -> Image.Image:
+    image = Image.new("RGBA", (1920, 1080), (15, 18, 31, 255))
+    draw = ImageDraw.Draw(image)
+    # Warm wardrobe interior: deliberately derived from corporate amber and the
+    # LUMINAiRY gold/plum palette, not the rejected cyan/magenta stage.
+    for y in range(1080):
+        t = y / 1079
+        colour = (round(27 + 35 * t), round(25 + 15 * t), round(36 + 12 * t), 255)
+        draw.line((0, y, 1920, y), fill=colour)
+    draw.rectangle((0, 0, 1920, 90), fill=(20, 16, 25, 255))
+    draw.rectangle((0, 92, 1920, 104), fill=(226, 178, 77, 255))
+    draw.line((0, 104, 1920, 104), fill=(8, 10, 18, 255), width=9)
+    draw.line((100, 190, 1820, 190), fill=(10, 12, 20, 255), width=28)
+    draw.line((100, 181, 1820, 181), fill=(224, 175, 74, 255), width=10)
+    draw.rectangle((85, 170, 110, 1010), fill=(15, 14, 20, 255), outline=(224, 175, 74, 255), width=6)
+    draw.rectangle((1810, 170, 1835, 1010), fill=(15, 14, 20, 255), outline=(224, 175, 74, 255), width=6)
+    if mode == "corporate":
+        specs = [
+            (145, (18, 38, 69), "jacket", False), (345, (236, 228, 209), "shirt", False),
+            (530, (31, 43, 62), "jacket", False), (730, (122, 105, 91), "shirt", False),
+            (925, (11, 35, 65), "jacket", False), (1130, (224, 219, 204), "shirt", False),
+            (1315, (39, 48, 59), "jacket", False), (1515, (28, 48, 76), "jacket", False),
+        ]
+    else:
+        specs = [
+            (145, (226, 178, 40), "jacket", True), (345, (243, 234, 206), "shirt", False),
+            (530, (112, 52, 72), "jacket", False), (730, (234, 188, 47), "skirt", True),
+            (925, (92, 72, 132), "shirt", False), (1130, (224, 168, 40), "jacket", True),
+            (1315, (86, 39, 76), "skirt", False), (1515, (197, 88, 63), "jacket", False),
+        ]
+    for x, colour, kind, plaid in specs:
+        garment(draw, x, 190, colour, kind, plaid)
+    # Lower shoe shelf and 90s accessories keep the wardrobe literal.
+    draw.rectangle((70, 850, 1850, 1000), fill=(22, 18, 26, 255), outline=(224, 175, 74, 255), width=7)
+    for x, colour in ((190, (20, 22, 28)), (420, (35, 30, 42)), (1200, (63, 35, 55)), (1450, (212, 167, 39))):
+        draw.rounded_rectangle((x, 900, x + 160, 957), radius=26, fill=colour + (255,), outline=(8, 9, 15, 255), width=8)
+        draw.line((x + 20, 944, x + 150, 944), fill=(230, 225, 207, 255), width=7)
+    return image
+
+
+def title_tag(frame: Image.Image, opacity: float) -> Image.Image:
+    layer = Image.new("RGBA", frame.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(layer)
+    alpha = round(255 * min(1.0, max(0.0, opacity)))
+    draw.polygon([(410, 365), (1510, 365), (1450, 720), (470, 720)], fill=(241, 223, 166, alpha), outline=(13, 17, 30, alpha), width=14)
+    draw.ellipse((450, 400, 500, 450), fill=(15, 18, 31, alpha))
+    draw.line((475, 425, 300, 220), fill=(226, 178, 77, alpha), width=16)
+    kicker = ImageFont.truetype(str(FONT), 72)
+    main = ImageFont.truetype(str(FONT), 155)
+    draw.text((980, 463), "NOW ENTERING", font=kicker, anchor="mm", fill=(70, 46, 60, alpha))
+    draw.text((982, 605), "SUNNYVAiLE", font=main, anchor="mm", fill=(217, 167, 35, alpha), stroke_width=10, stroke_fill=(13, 17, 30, alpha))
+    return Image.alpha_composite(frame.convert("RGBA"), layer)
+
+
+def slide(base: Image.Image, overlay: Image.Image, progress: float, entering: bool) -> Image.Image:
+    progress = ease(progress)
+    x = round(1920 * (1.0 - progress)) if entering else round(-1920 * progress)
+    frame = base.convert("RGBA")
+    frame.alpha_composite(overlay, (x, 0))
+    return frame
+
+
+def page_wipe(old: Image.Image, new: Image.Image, progress: float) -> Image.Image:
+    """Replace old with new under a diagonal black-and-gold comic gutter."""
+    progress = ease(progress)
+    edge = round(-340 + (1920 + 680) * progress)
+    mask = Image.new("L", (1920, 1080), 0)
+    draw = ImageDraw.Draw(mask)
+    draw.polygon([(edge - 340, 0), (1920, 0), (1920, 1080), (edge + 340, 1080)], fill=255)
+    frame = Image.composite(new.convert("RGBA"), old.convert("RGBA"), mask)
+    gutter = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    gutter_draw = ImageDraw.Draw(gutter)
+    gutter_draw.line((edge - 340, 0, edge + 340, 1080), fill=(10, 12, 20, 255), width=46)
+    gutter_draw.line((edge - 323, 0, edge + 357, 1080), fill=(224, 175, 74, 255), width=10)
+    return Image.alpha_composite(frame, gutter)
+
+
+def main() -> None:
+    for path, expected in SOURCE_HASHES.items():
+        observed = sha256(path)
+        if observed != expected:
+            raise SystemExit(f"SOURCE DRIFT {path}: {observed} != {expected}")
+    if not PLAID_CUTOUT.exists():
+        raise SystemExit(f"MISSING APPROVED-PIXEL CUTOUT {PLAID_CUTOUT}")
+    before = Image.open(BEFORE).convert("RGBA")
+    after = Image.open(AFTER).convert("RGBA")
+    heroine = clean_cutout(PLAID_CUTOUT)
+    corporate = rail_plate("corporate")
+    sunny = rail_plate("sunny")
+    # Keep the front-facing identity proof in the wardrobe environment. The
+    # separate exact travel shot follows under a page wipe, so two Heroine poses
+    # can never appear in the same frame.
+    reveal = sunny.copy()
+    reveal.alpha_composite(heroine, (0, 0))
+
+    with tempfile.TemporaryDirectory(prefix="ep04-clothing-rail-v8-") as temp_name:
+        temp = Path(temp_name)
+        for index in range(FRAMES):
+            if index < 24:
+                frame = before
+            elif index < 60:
+                frame = slide(before, corporate, (index - 24) / 35, True)
+            elif index < 78:
+                frame = corporate
+            elif index < 96:
+                frame = title_tag(corporate, (index - 78) / 17)
+            elif index < 126:
+                blend = ease((index - 96) / 29)
+                frame = Image.blend(title_tag(corporate, 1.0).convert("RGB"), title_tag(sunny, 1.0).convert("RGB"), blend).convert("RGBA")
+            elif index < 144:
+                frame = title_tag(sunny, (143 - index) / 17)
+            elif index < 180:
+                frame = slide(reveal, sunny, (index - 144) / 35, False)
+            elif index < 210:
+                frame = reveal
+            elif index < 228:
+                frame = page_wipe(reveal, after, (index - 210) / 17)
+            else:
+                frame = after
+            frame.convert("RGB").save(temp / f"frame-{index:04d}.png")
+        subprocess.run([
+            str(FFMPEG), "-hide_banner", "-loglevel", "error", "-y", "-framerate", str(FPS),
+            "-i", str(temp / "frame-%04d.png"), "-frames:v", str(FRAMES), "-an", "-c:v", "libx264",
+            "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(OUTPUT),
+        ], check=True)
+    decoded, seconds = imageio_ffmpeg.count_frames_and_secs(str(OUTPUT))
+    if decoded != FRAMES or abs(seconds - FRAMES / FPS) > 1 / FPS:
+        raise SystemExit(f"CLOCK FAIL {decoded=} {seconds=}")
+    subprocess.run([str(FFMPEG), "-hide_banner", "-loglevel", "error", "-y", "-i", str(OUTPUT), "-vf", "fps=5,scale=480:270,tile=8x5", "-frames:v", "1", str(CONTACT)], check=True)
+    subprocess.run([str(FFMPEG), "-hide_banner", "-loglevel", "error", "-y", "-i", str(OUTPUT), "-vf", "select='between(n,18,225)',scale=320:180,tile=12x18", "-vsync", "0", "-frames:v", "1", str(SWITCH)], check=True)
+    record = {
+        "status": "BUILT_LOCALLY_INTERNAL_IDENTITY_AND_MECHANISM_PILOT_NOT_RELEASE_AUTHORITY",
+        "job": "Make the corporate-to-SUNNYVAiLE outfit change and Heroine identity unmistakable without regenerating her.",
+        "mechanism": "Exact corporate close-up; literal clothing rail changes from corporate navy to yellow-plaid Rewind Era wardrobe under a deterministic NOW ENTERING SUNNYVAiLE garment tag; front-facing approved Heroine reveal inside that wardrobe; inked page wipe into the exact rear-view LUMINAiRY travel shot.",
+        "sources": [
+            {"path": str(path), "sha256": expected} for path, expected in SOURCE_HASHES.items()
+        ] + [{"path": str(PLAID_CUTOUT), "sha256": sha256(PLAID_CUTOUT), "use": "approved p4 pixels isolated with Apple Vision; no character generation"}],
+        "font": {"path": str(FONT), "sha256": sha256(FONT)},
+        "output": {"path": str(OUTPUT), "sha256": sha256(OUTPUT), "frames": decoded, "seconds": seconds},
+        "contactSheet": {"path": str(CONTACT), "sha256": sha256(CONTACT)},
+        "switchContactSheet": {"path": str(SWITCH), "sha256": sha256(SWITCH)},
+        "constraints": [
+            "no new character generation", "no substitute figure", "front-facing identity proof before rear-view travel shot",
+            "no fake closet doors", "no stage background", "no cloud", "no flash", "no generated text", "silent pilot only"
+        ],
+    }
+    MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(record, indent=2))
+
+
+if __name__ == "__main__":
+    main()

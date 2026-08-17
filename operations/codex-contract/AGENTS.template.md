@@ -35,6 +35,11 @@ new output type.
   own animation was rejected; do not generate motion there.
 - **CapCut assembles.** Import the Canva clips, cut, sequence, and export the final
   video.
+- **Code never authors visible episode art or motion.** Python, CSS, HTML, SVG,
+  Canvas and JavaScript may validate, inspect, catalogue or assemble already-approved
+  visual media, but may not draw, simulate, generate or animate the imagery itself.
+  A programmatic frame, wardrobe, room, transition, character, prop, effect or motion
+  graphic is rejected before review, even when technically exported as PNG or MP4.
 - Animate **one** approved still per shot. Generating many variants produces drift.
 - A loop must have zero net travel, or it plays once and jumps.
 

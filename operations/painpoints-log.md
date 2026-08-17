@@ -15594,3 +15594,22 @@ while remaining falsely unfinished in the launch record.
   be a carefully hidden cut rather than an expensive generated video.
 - **Publication status:** V4 USER-REJECTED; GRAPHIC-NOVEL SUCCESSOR IN LOCAL
   REVIEW / SILENT / NOT INTEGRATED, DEPLOYED OR PUBLIC.
+
+### 2026-08-16 follow-up — code-authored visuals violated the production medium
+
+- **Failure:** After Ali rejected fake wardrobe doors and a back-facing identity
+  reveal, the producer used Python/Pillow to draw a clothing rail, garments,
+  closet-like frame and transition. Although exported as video, it visibly read
+  as cheap CSS art and violated the already-locked Canva-animation / approved-art
+  pipeline. It should have failed before rendering and never reached Ali.
+- **Prevention rule:** No Python, CSS, HTML, SVG, Canvas or JavaScript may author
+  visible episode/trailer pixels or motion. Code is limited to validation,
+  inspection, cataloguing and assembly of already-approved media. Canva creates
+  animation from approved stills; CapCut assembles. File format does not launder
+  programmatic graphics into artwork.
+- **Known-bad evidence:** Episode 04 v8/v9 clothing-rail pilots. Both are rejected,
+  non-integrable and retained only to prevent recurrence.
+- **Possible Behind the Build angle:** A rendered MP4 can still be CSS art—the
+  production method matters when it determines visible quality.
+- **Publication status:** INTERNAL REJECTED EVIDENCE ONLY; NO EPISODE MASTER,
+  SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.

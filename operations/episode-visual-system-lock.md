@@ -44,6 +44,20 @@ one before presenting anything.
 Do not claim a clip passes on the strength of the two automated checks. They
 cover the two most mechanical failures, not the two most important ones.
 
+### Production-medium prohibition — reaffirmed by Ali 2026-08-16
+
+**Python, CSS, HTML, SVG, Canvas and JavaScript never author visible episode or
+trailer imagery or animation.** They may validate, inspect, catalogue, checksum,
+decode or assemble approved media without altering its visible design. They may
+not draw a room, wardrobe, character, prop, transition, motion graphic, effect or
+replacement frame. Exporting code-authored pixels as PNG, WebP or MP4 does not
+turn them into artwork.
+
+Canva creates motion from one approved still per shot. CapCut assembles approved
+clips. New artwork comes through the governed image-production path and its exact
+visual gate. Any programmatic visual fails before maker review and must never be
+shown to Ali as a candidate.
+
 ## 1. Master people-rendering style
 
 The exact master is:
