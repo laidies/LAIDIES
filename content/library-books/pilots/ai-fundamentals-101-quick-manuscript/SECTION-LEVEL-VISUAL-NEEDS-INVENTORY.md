@@ -306,9 +306,9 @@ Any future proposed visual must be a purpose-built asset with controlled, charac
 
 ## Recommended first representative proof
 
-**Chapter 1.1 — “The Spam Filter That Gave Away the Secret”: one professionally illustrated email-filter scene with controlled annotations. It is explicitly not a flowchart.**
+**Chapter 1.1 — “The Spam Filter That Gave Away the Secret”: one professionally illustrated email-filter visual learning aid whose lettering, arrows and scenes form one coherent composition. It is explicitly not a flowchart.**
 
-It is the cheapest useful falsification because it tests the contested visual requirements in the smallest bounded subject area: professional textbook craft, controlled typography, causal arrow logic, familiar reader scenario, and the book’s foundational automation-versus-learned-pattern distinction. It needs neither dependent system-map language nor Chapter 2 agent routing. If it cannot be visibly better than prose on that simple mechanism, no visual method should scale across the rest of the book.
+It is the cheapest useful falsification because it tests the contested visual requirements in the smallest bounded subject area: professional textbook craft, correct integrated lettering, causal arrow logic, familiar reader scenario, and the book’s foundational automation-versus-learned-pattern distinction. It needs neither dependent system-map language nor Chapter 2 agent routing. If it cannot be visibly better than prose on that simple mechanism, no visual method should scale across the rest of the book. The desktop and mobile compositions may differ when a 390px reader cannot preserve the same legibility, but they must teach the same relationship.
 
 ## Counts
 

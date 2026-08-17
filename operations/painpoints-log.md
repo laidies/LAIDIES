@@ -14711,3 +14711,29 @@ while remaining falsely unfinished in the launch record.
   part of factual accuracy.
 - **Publication status:** HISTORICAL FALSE PASS AT `review.html?v=48` /
   INVALIDATED BY ALI / SUPERSEDED BY BTB-462 / QUARANTINED / NOT PUBLISHED.
+
+## BTB-463 — Textbook lettering cannot be repaired after the picture
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals visual learning aids and responsive composition.
+- **Failure:** The restart initially returned to source illustration followed
+  by a proposed CSS/editor lettering layer. Ali identified this as a repeated
+  rejected method. A subsequent integrated Nano Banana candidate was more like
+  a textbook illustration, but bounded revisions still omitted or reversed a
+  causal arrow, duplicated KEEP/SPAM trays or produced imperfect small
+  lettering.
+- **Root cause:** Production treated illustration and explanation as separable
+  and assumed generated lettering was forbidden even when correct. It also
+  treated mobile as a scaled desktop check instead of a composition decision.
+- **Prevention rule:** Generate illustration, exact lettering, arrows and the
+  teaching relationship as one coherent asset. Keep generated lettering only
+  when every visible character is correct; reject rather than overlay-repair a
+  failed composition. Test at the actual reader width and create a separately
+  composed mobile asset when the desktop relationship shrinks below legibility.
+- **Durable correction:** The decision register, handoff and visual plan now
+  bind the integrated-composition rule. The 16:9 Chapter 1 candidate failed at
+  358px reader width, so a distinct mobile composition is required.
+- **Possible Behind the Build angle:** Why labels have to be designed with the
+  picture—and why responsive textbook art may need two compositions.
+- **Publication status:** INTERNAL VISUAL-METHOD CORRECTION / NOT INTEGRATED /
+  NOT PUBLISHED.

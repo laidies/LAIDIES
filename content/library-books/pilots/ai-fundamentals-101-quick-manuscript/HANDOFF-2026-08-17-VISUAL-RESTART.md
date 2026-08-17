@@ -113,11 +113,13 @@ and `operations/painpoints-log.md` BTB-460.
 - Napkin AI changed the reader question and omitted the causal distinction.
 - FigureLabs had already been tried and did not solve the textbook-learning job;
   do not reopen it as the next route.
-- Google Nano Banana produced the strongest source illustration of the tested
-  generators. It was useful only as supporting art: deterministic labels,
-  arrows, crops and responsive composition still had to carry the teaching
-  relationship. The resulting Chapter 1/full-book visual set was later rejected
-  and remains quarantine evidence, not reusable approval.
+- Google Nano Banana produced the strongest illustration of the tested
+  generators. A later source-art-plus-overlay interpretation repeated the same
+  failed separation of illustration from teaching. Ali corrected the method on
+  2026-08-17: produce the lettering, arrows, illustration and relationship as
+  one coherent textbook composition. Generated lettering may remain when every
+  visible character is correct; do not repair a failed asset with CSS, Figma,
+  Slides or another editor overlay.
 
 ## Preserve, but do not overclaim
 
@@ -144,12 +146,15 @@ and `operations/painpoints-log.md` BTB-460.
 4. For the first Chapter 1 concept only, inspect two to four strong existing
    authoritative/textbook visuals. Produce one original professional textbook
    visual learning aid. Do not repeat Figma, Napkin AI, FigureLabs or the bespoke
-   ImageGen → Figma repair loop. If Google Nano Banana is used, treat its output
-   only as supporting illustration and keep the exact teaching relationship in
-   deterministic editable labels/arrows/composition; no tool or output has final
-   approval merely because it exists.
+   ImageGen → Figma repair loop. If Google Nano Banana is used, generate the
+   exact lettering, arrows, illustration and teaching relationship together as
+   one coherent composition. Reject incorrect or pseudo lettering rather than
+   patching it afterward; no tool or output has final approval merely because it
+   exists.
 5. Inspect the exact asset at its real desktop and mobile textbook size for
-   clarity, typography, arrow logic, visual craft and teaching value. A
+   clarity, typography, arrow logic, visual craft and teaching value. Reuse one
+   asset only when it passes both sizes; otherwise create a separately composed
+   mobile asset with the same teaching meaning. A
    role-distinct reviewer must see the actual pixels and relevant professional
    references, not only the semantic checklist.
 6. Present only that one admitted Chapter 1 proof to Ali. Scale to the remaining

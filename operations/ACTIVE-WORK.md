@@ -94,10 +94,21 @@ across three days, but Ali still could not immediately tell which actions were
 human, the text remained visibly misaligned and the `One Thermostat` label added
 nothing. An internal desktop pass is invalid. Roughly an hour spent generating
 and repairing this single rejected image demonstrates that bespoke ImageGen →
-Figma correction will not scale to the textbook. That rejection set the
-successful repair method: native responsive composition carries labels and
-relationships; generated/sourced imagery is only a supporting layer. The
-remaining visual plan is now implemented as one internal full-book candidate:
+Figma correction will not scale to the textbook. That rejection did not set a
+successful repair method. Ali directly corrected the later source-art-plus-
+overlay proposal on 2026-08-17: illustration, exact lettering, arrows and the
+teaching relationship must be created together as one coherent textbook asset,
+with generated lettering retained when every visible character is correct.
+CSS, Figma, Slides or another editor may not add the teaching lettering later.
+Nano Banana produced a stronger integrated Chapter 1 direction, but the bounded
+internal revisions still contained an omitted/backward causal arrow, duplicate
+example trays or imperfect small lettering and remain rejected internal
+evidence. A 358px probe also made the 16:9 composition's rule-card and
+relationship labels unreadable, so a separately composed mobile asset is
+required. No new asset is rendered in the reader and no independent review was
+commissioned.
+
+The remaining visual plan was previously implemented as one internal full-book candidate:
 45 section-bound teaching visuals across Chapters 2–20 plus the connected final
 map. Maker inspection covered every figure at 390 × 844 and representative
 desktop figures at 1440 × 1000; the current candidate has no measured horizontal
