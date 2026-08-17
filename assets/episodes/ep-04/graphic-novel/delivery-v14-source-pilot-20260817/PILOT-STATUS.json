@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-17T11:52:00-07:00",
+  "status": "BUILT_LOCALLY_SOURCE_LOCKED_MOTION_HELD",
+  "releaseAuthority": false,
+  "ownerCorrection": "Episode 04 already uses the adult graphic-novel system. Pixel, halftone, painterly and cinematic-looking replacements are regressions and must not be introduced as a new direction.",
+  "styleAuthority": {
+    "path": "operations/episode-visual-system-lock.md",
+    "renderingRule": "comic-v1-locked: mature adult graphic-novel illustration, clean bold ink, hard angular dimensional shadow planes and controlled saturated colour; no pixel art, halftone, painterly or generic cinematic rendering"
+  },
+  "identityReferences": [
+    {
+      "person": "Ada Lovelace",
+      "path": "operations/reference/real-people/ada-lovelace/ada-lovelace-portrait-public-domain.jpg",
+      "sha256": "29fc073ce78ba2e0697d18c65a33117ec682ce62d2ce3cf75385e9768dbcf2e6"
+    },
+    {
+      "person": "Hedy Lamarr",
+      "path": "operations/reference/real-people/hedy-lamarr/hedy-lamarr-1943-public-domain.png",
+      "sha256": "38b0264a97f7cd97773ed1365b5f73968b4da266aed2de6b9f586241b67318c9"
+    }
+  ],
+  "sourceStills": [
+    {
+      "id": "ada-portrait-mechanism",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-ada-analytical-engine-adult-graphic-novel-v1.png",
+      "sha256": "e45267faba7a3716c58d542ff0068f0b731d5b4197786bdf12acf4ae50d56672",
+      "status": "BUILT_LOCALLY_PRODUCER_SOURCE",
+      "allowedUse": "Stable portrait/period context; do not animate or morph Ada's face."
+    },
+    {
+      "id": "hedy-portrait-mechanism",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-adult-graphic-novel-v1.png",
+      "sha256": "fcede1926379b3463d4353c595dc49a083167ab5edac2f4455f42b4b8138f5b3",
+      "status": "BUILT_LOCALLY_PRODUCER_SOURCE",
+      "allowedUse": "Stable portrait/period context; do not animate or morph Hedy's face."
+    },
+    {
+      "id": "ada-mechanism-insert",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-ada-engine-mechanism-adult-graphic-novel-v1.png",
+      "sha256": "fc3cd08361a169078bbfa2c5e238a9f59d633532879a9a85a1a091021e268295",
+      "status": "BUILT_LOCALLY_PRODUCER_SOURCE",
+      "restriction": "Concept illustration only; it must not imply that the Analytical Engine was completed or operating in Ada's lifetime."
+    },
+    {
+      "id": "hedy-mechanism-insert",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-mechanism-adult-graphic-novel-v1.png",
+      "sha256": "6dafee510f414056a63411d158847aca133540de040a5398c38c476d05c6469e",
+      "status": "REJECTED_STYLE_DRIFT",
+      "reason": "The mechanism plate reads more photographic/cinematic than the locked adult graphic-novel source stills."
+    }
+  ],
+  "motionTrials": [
+    {
+      "id": "ada-mechanism-canva-v1",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-ada-engine-mechanism-canva-motion-v1.mp4",
+      "sha256": "5a5899ed8536a23a7e824dd388a9d24fcc9b8b742ad6472eca26c83ab2f39f87",
+      "canvaDesignId": "DAHSkZTYfmw",
+      "status": "HOLD_INDEPENDENT_VISUAL_AND_HISTORY_REVIEW",
+      "reason": "Decoded frames preserve the drawing and show machine motion, but historical implication and narration fit are not yet independently admitted."
+    },
+    {
+      "id": "hedy-mechanism-canva-v1",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-canva-motion-v1.mp4",
+      "sha256": "871ee2c024014f950e06370970a39376807d6c99336c73915dd2eb4573f1dff3",
+      "canvaDesignId": "DAHSkj1LhFA",
+      "status": "REJECTED",
+      "reason": "Dial needles diverge and lights flare."
+    },
+    {
+      "id": "hedy-mechanism-canva-v2",
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v14-source-pilot-20260817/ep04-hedy-frequency-hopping-canva-motion-v2.mp4",
+      "sha256": "9945dbfae82414368ad5572e99cb50277172ba0f7568d54dee8f679ed4d3fe2e",
+      "canvaDesignId": "DAHSkj1LhFA",
+      "status": "REJECTED_SECOND_CYCLE_STOP",
+      "reason": "The stricter successor still produces unsynchronised dial positions and brightness flares. Image-to-video generation is stopped for this shot."
+    }
+  ],
+  "retiredRecoveryEvidence": [
+    {
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-03-ada-narration-sync-v4-story.mp4",
+      "sha256": "fbeea76fe689fe48ef3cf935cfea3dd98ce944cc671f9776cb261b197280881c",
+      "disposition": "REFERENCE_ONLY_NOT_REUSABLE",
+      "reason": "Dark painterly/cinematic register and operating-machine implication conflict with the current style and history gate."
+    },
+    {
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-04-hedy-narration-sync-v3-story.mp4",
+      "sha256": "30eea19ba4ad7adf251b6df22c035232b9e56eb1199c6ef6592e1ac9dd5b942a",
+      "disposition": "REFERENCE_ONLY_NOT_REUSABLE",
+      "reason": "Pixel/halftone drift and predominantly pan/zoom/hard-cut motion conflict with the current style and meaningful-animation gate."
+    }
+  ],
+  "nextAction": "Build one deterministic Canva overlay-motion proof on the unchanged Hedy adult graphic-novel still: only a clean signal marker travels across the existing frequency-hop diagram. No image-to-video, face motion, camera motion, particles, light flares or style regeneration. The same proof must be independently reviewed before any Episode 04 assembly.",
+  "notDone": [
+    "No full Episode 04 assembly",
+    "No captions burned into video",
+    "No public player or site integration",
+    "No deployment or publication",
+    "No release or quality-acceptance claim"
+  ]
+}

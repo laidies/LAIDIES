@@ -15652,3 +15652,26 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** FIRST EXPORT REJECTED INTERNALLY; WATERMARK-FREE V11
   BUILT LOCALLY / TECHNICALLY VERIFIED / INDEPENDENT REVIEW PENDING; NO SITE,
   DEPLOYMENT OR PUBLIC MEDIA CHANGED.
+
+### 2026-08-17 follow-up — episode repair must begin from the locked visual generation
+
+- **Failure / surprise:** Episode 04 already had a locked adult graphic-novel
+  system, but later recovery work treated older painterly, pixel/halftone and
+  cinematic-looking Ada/Hedy sequences as reusable merely because they had more
+  movement. The resulting review regressed the visible style Ali had already
+  approved. Two Hedy image-to-video retries also changed dial relationships and
+  light levels despite explicit locks.
+- **Prevention rule:** Before any episode motion repair, bind the exact current
+  `comic-v1-locked` still and reject every source outside that visual generation.
+  More motion never outweighs a style, likeness or history failure. Historical
+  portraits remain pixel-stable; motion is isolated to narration-relevant props
+  or deterministic Canva overlays. After two image-to-video failures, stop that
+  method and use a materially different motion construction.
+- **Known-bad evidence:** Episode 04 v13 Ada/Hedy recovery sources and
+  `ep04-hedy-frequency-hopping-canva-motion-v1.mp4` / `v2.mp4` are retained only
+  as rejected evidence; they are not assembly sources.
+- **Possible Behind the Build angle:** Why recovering an older animation can
+  quietly undo a visual system—and why motion quality starts with source
+  admission rather than movement count.
+- **Publication status:** SOURCE CORRECTION BUILT LOCALLY; MOTION HELD; NO
+  EPISODE ASSEMBLY, SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.
