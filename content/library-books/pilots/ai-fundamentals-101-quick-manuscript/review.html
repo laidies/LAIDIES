@@ -349,41 +349,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>That's <strong>AI</strong> — a system that learned its own rules from examples.</p>
 <p>Now watch what didn't change. A human is still in this story. Someone still did the labour — a lot of someones in fact, all those little <em>yes-junk / no-keep</em> verdicts. The difference between the old filter and the new one was never <em>person versus machine.</em> It was <em>which job the person did.</em> In the old one, a human wrote the rules and the machine obeyed them. In the new one, humans supplied the examples, and the machine wrote its own rules.</p>
 <p>That swap is the exact seam between the software you've used your whole life and the stuff now getting called AI.</p>
-
-<figure class="ch1-decision-seam" data-representative-teaching-visual="ch01-rule-or-learned-pattern" aria-labelledby="ch01-decision-seam-title" aria-describedby="ch01-decision-seam-caption">
-  <header class="ch1-decision-head">
-    <p>1.1 · THE SAME EMAIL, TWO DIFFERENT REASONS</p>
-    <h4 id="ch01-decision-seam-title">Who supplied the deciding rule?</h4>
-    <span>Both filters involve people. The human job—and the source of the decision—changes.</span>
-  </header>
-  <section class="ch1-shared-email" aria-label="One new email enters both filters">
-    <div class="ch1-envelope" aria-hidden="true"><i></i></div>
-    <div><b>ONE NEW EMAIL</b><p>“Congrats!! You’ve W0N a FR33 iPad!!! Click here NOW!!!”</p></div>
-    <span aria-hidden="true">↓</span>
-  </section>
-  <div class="ch1-causal-paths">
-    <section class="ch1-path ch1-rule-path" aria-label="Automation path: a human writes an exact rule and the filter checks it">
-      <div class="ch1-path-label"><b>AUTOMATION</b><span>THE PERSON SUPPLIES THE RULE</span></div>
-      <p class="ch1-before-input">BEFORE THIS EMAIL ARRIVES</p>
-      <div class="ch1-human-rule"><div class="ch1-person" aria-hidden="true"><i></i></div><p><strong>Human-written rule</strong><em>IF the email contains “click here” → spam</em></p></div>
-      <p class="ch1-same-input">NOW THE SAME NEW EMAIL ENTERS ↓</p>
-      <div class="ch1-rule-check"><span class="ch1-magnifier" aria-hidden="true"></span><p><strong>Rule-based filter checks the exact wording</strong><em>It finds “click here”.</em></p></div>
-      <span class="ch1-path-arrow" aria-hidden="true">↓</span>
-      <div class="ch1-verdict"><b>SPAM</b><span>Flagged by this exact rule</span></div>
-    </section>
-    <section class="ch1-path ch1-learned-path" aria-label="AI path: people label examples and a learned filter compares combined signals">
-      <div class="ch1-path-label"><b>AI</b><span>PEOPLE SUPPLY EXAMPLES</span></div>
-      <p class="ch1-before-input">BEFORE THIS EMAIL ARRIVES</p>
-      <div class="ch1-example-pile" aria-label="People label many past emails as spam or keep"><i class="ch1-example is-spam"><b>SPAM</b><span>W0N a prize!</span></i><i class="ch1-example is-keep"><b>KEEP</b><span>Dinner at 7?</span></i><i class="ch1-example is-spam"><b>SPAM</b><span>Act NOW!!!</span></i><i class="ch1-example is-keep"><b>KEEP</b><span>Your receipt</span></i></div>
-      <p class="ch1-same-input">NOW THE SAME NEW EMAIL ENTERS ↓</p>
-      <div class="ch1-pattern-machine"><div aria-hidden="true"><i></i><i></i><i></i><i></i></div><p><strong>Learned filter compares combined signals</strong><em>against a pattern learned from labelled examples</em></p></div>
-      <span class="ch1-path-arrow" aria-hidden="true">↓</span>
-      <div class="ch1-verdict"><b>LIKELY SPAM</b><span>Flagged by the combined pattern</span></div>
-    </section>
-  </div>
-  <aside class="ch1-one-product"><strong>ONE INBOX CAN USE BOTH</strong><span>Your own exact routing rules can sit beside a learned spam filter. “AI” does not describe every part of the product.</span></aside>
-  <figcaption id="ch01-decision-seam-caption"><strong>The test:</strong> did a person write the rule that fired, or did the system learn a pattern from labelled examples? The same result can come from two different mechanisms.</figcaption>
-</figure>
 <aside class="callout callout-key"><p>📌 <strong>The Core Distinction</strong> <strong>Automation:</strong> A person writes the rules → the machine follows them exactly. <strong>AI:</strong> A person supplies examples → the machine figures out its own rules. A person is involved in both. The difference is <em>which job</em> the person did.</p>
 <p>⏸️ <strong>Let's make this concrete — same email, two different filters:</strong></p>
 <p>An email arrives: "Congrats!! You've W0N a FR33 iPad!!! Click here NOW!!!"</p>
@@ -518,41 +483,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>That cycle — plan, act, observe, reason, act again — is what makes it an agent instead of a chatbot. A chatbot would have just said "Here are some Italian restaurants near you" and stopped. The agent kept working.</p>
 <p>And this isn't a future prediction — it's happening right now, in 2026, in the same chat windows you already use. The technology powering what's behind that chat window has evolved from "respond to text" to "take action in the real world." How that works — what's actually different in the system behind the scenes that lets it do this — is something we'll build up to across the next several chapters.</p>
 <p>This is the newest and fastest-moving layer of AI. We'll spend a full chapter on it later (Chapter 14) — including how agents work, what "tools" actually means in practice, and why giving AI the ability to act (not just talk) raises important questions about safety and trust.</p>
-
-<figure class="ch2-job-family" data-representative-teaching-visual="ch02-four-jobs-one-family" aria-labelledby="ch02-job-family-title" aria-describedby="ch02-job-family-caption">
-  <header class="ch2-job-family-head">
-    <p>2.4 · FOUR LAYERS, FOUR DIFFERENT JOBS</p>
-    <h4 id="ch02-job-family-title">Do not ask only “Is this AI?” Ask what job it is doing.</h4>
-    <span>Each higher layer uses the capabilities beneath it. Follow the work—not the product label.</span>
-  </header>
-  <div class="ch2-family-stack">
-    <section class="ch2-layer ch2-layer-agent" aria-label="Agentic AI works through a loop of steps toward a goal">
-      <div class="ch2-layer-name"><b>4</b><span>AGENTIC AI</span><strong>ACT</strong></div>
-      <div class="ch2-agent-loop"><div class="ch2-agent-row"><i>GOAL<br><small>Italian table for 4</small></i><b>→</b><i>SEARCH</i></div><b class="ch2-agent-down">↓ TOOL RETURNS RESULTS</b><div class="ch2-agent-row"><i class="ch2-observe">OBSERVE RESULTS</i><b>→</b><i>COMPARE</i></div><b class="ch2-agent-down">↓ TWO OPTIONS</b><div class="ch2-agent-row"><i class="ch2-human-check">ASK YOU</i><b>→</b><i>BOOK</i></div><span>IF THE RESULTS DO NOT FIT THE GOAL, CHOOSE ANOTHER STEP AND RETURN TO SEARCH ↺</span></div>
-      <p>It repeats model, tool and decision steps until it stops, succeeds or needs you.</p>
-    </section>
-    <span class="ch2-built-on">USES ↓</span>
-    <section class="ch2-layer ch2-layer-gen" aria-label="Generative AI creates new content from a prompt">
-      <div class="ch2-layer-name"><b>3</b><span>GENERATIVE AI</span><strong>CREATE</strong></div>
-      <div class="ch2-gen-flow"><p>“Move Friday’s meeting to Monday.”</p><b>→</b><div><span>NEW EMAIL</span><i></i><i></i><i></i></div></div>
-      <p>It uses learned patterns to produce a new continuation: text, image, audio or code.</p>
-    </section>
-    <span class="ch2-built-on">USES ↓</span>
-    <section class="ch2-layer ch2-layer-deep" aria-label="Deep learning interprets complex raw input">
-      <div class="ch2-layer-name"><b>2</b><span>DEEP LEARNING</span><strong>INTERPRET</strong></div>
-      <div class="ch2-deep-flow"><div class="ch2-pixel-grid" role="img" aria-label="A raw image represented as many coloured pixels"><i class="ch2-pixel-1" aria-hidden="true"></i><i class="ch2-pixel-2" aria-hidden="true"></i><i class="ch2-pixel-3" aria-hidden="true"></i><i class="ch2-pixel-4" aria-hidden="true"></i><i class="ch2-pixel-5" aria-hidden="true"></i><i class="ch2-pixel-6" aria-hidden="true"></i><i class="ch2-pixel-7" aria-hidden="true"></i><i class="ch2-pixel-8" aria-hidden="true"></i><i class="ch2-pixel-9" aria-hidden="true"></i><i class="ch2-pixel-10" aria-hidden="true"></i><i class="ch2-pixel-11" aria-hidden="true"></i><i class="ch2-pixel-12" aria-hidden="true"></i><i class="ch2-pixel-13" aria-hidden="true"></i><i class="ch2-pixel-14" aria-hidden="true"></i><i class="ch2-pixel-15" aria-hidden="true"></i><i class="ch2-pixel-16" aria-hidden="true"></i><i class="ch2-pixel-17" aria-hidden="true"></i><i class="ch2-pixel-18" aria-hidden="true"></i><i class="ch2-pixel-19" aria-hidden="true"></i><i class="ch2-pixel-20" aria-hidden="true"></i><i class="ch2-pixel-21" aria-hidden="true"></i><i class="ch2-pixel-22" aria-hidden="true"></i><i class="ch2-pixel-23" aria-hidden="true"></i><i class="ch2-pixel-24" aria-hidden="true"></i><i class="ch2-pixel-25" aria-hidden="true"></i><i class="ch2-pixel-26" aria-hidden="true"></i><i class="ch2-pixel-27" aria-hidden="true"></i><i class="ch2-pixel-28" aria-hidden="true"></i><i class="ch2-pixel-29" aria-hidden="true"></i><i class="ch2-pixel-30" aria-hidden="true"></i><i class="ch2-pixel-31" aria-hidden="true"></i><i class="ch2-pixel-32" aria-hidden="true"></i><i class="ch2-pixel-33" aria-hidden="true"></i><i class="ch2-pixel-34" aria-hidden="true"></i><i class="ch2-pixel-35" aria-hidden="true"></i><i class="ch2-pixel-36" aria-hidden="true"></i><i class="ch2-pixel-37" aria-hidden="true"></i><i class="ch2-pixel-38" aria-hidden="true"></i><i class="ch2-pixel-39" aria-hidden="true"></i><i class="ch2-pixel-40" aria-hidden="true"></i><i class="ch2-pixel-41" aria-hidden="true"></i><i class="ch2-pixel-42" aria-hidden="true"></i></div><b>→</b><div class="ch2-feature-stack"><i>edges</i><i>shapes</i><i>parts</i></div><b>→</b><strong>CAT</strong></div>
-      <p>It finds useful features inside raw, complex input such as pixels, audio or language.</p>
-    </section>
-    <span class="ch2-built-on">USES ↓</span>
-    <section class="ch2-layer ch2-layer-ml" aria-label="Machine learning finds a pattern in historical structured examples and makes a prediction">
-      <div class="ch2-layer-name"><b>1</b><span>MACHINE LEARNING</span><strong>PREDICT</strong></div>
-      <div class="ch2-ml-flow"><div class="ch2-records" aria-label="Historical customer records"><i style="--row:0" aria-hidden="true"></i><i style="--row:1" aria-hidden="true"></i><i style="--row:2" aria-hidden="true"></i><i style="--row:3" aria-hidden="true"></i></div><b>→</b><div class="ch2-pattern"><i></i><span>LEARNED PATTERN</span></div><b>→</b><strong>LIKELY TO CANCEL</strong></div>
-      <p>It learns a pattern from past examples and applies that pattern to a new case.</p>
-    </section>
-  </div>
-  <aside class="ch2-job-test"><strong>Use the job test:</strong> A bank flags an application for manual review from past customer records. It predicts; it does not create or act. That makes this machine learning even if the product’s marketing simply says “AI.”</aside>
-  <figcaption id="ch02-job-family-caption"><strong>Trace the family:</strong> machine learning supplies learned patterns → deep learning uses them with complex raw inputs → generative AI uses deep learning to create → agentic AI can place generation inside a repeated plan/action/observation loop. A real product can combine several layers.</figcaption>
-</figure>
 <aside class="callout callout-key"><p>📌 <strong>The Four Layers — Complete Picture</strong></p>
 <div class="table-scroll"><table><thead><tr><th scope="col">Layer</th><th scope="col">What it does</th><th scope="col">Example</th></tr></thead><tbody><tr><td><strong>Machine learning</strong></td><td>Learns patterns from structured data</td><td>Spam filter, Discover Weekly, "people who bought X also bought Y"</td></tr><tr><td><strong>Deep learning</strong></td><td>Handles complex inputs — images, audio, language</td><td>Face grouping, voice dictation, translation</td></tr><tr><td><strong>Generative AI</strong></td><td>Creates new content</td><td>ChatGPT writing an email, image generators, AI coding tools</td></tr><tr><td><strong>Agentic AI</strong></td><td>Takes actions toward a goal</td><td>An AI assistant that researches, books, and sends on your behalf</td></tr><tr><td>Each layer builds on the one before it. An agent uses generative AI, which uses deep learning, which uses machine learning. They're nested.</td><td></td><td></td></tr></tbody></table></div></aside>
 <h3 id="ch-2-2-5-variations-within-the-family-size-openness-and-thinking">2.5 — Variations Within the Family: Size, Openness, and Thinking</h3>
@@ -640,49 +570,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>This work is often invisible. When people say "AI learned to do X," the hidden story is almost always: "thousands of people spent months marking examples so the system could learn." The human labour is baked into every AI system you use.</p>
 <aside class="callout callout-big-picture"><p>📰 *<strong>The Big Picture</strong>** investigates: "The Invisible Workforce — Who Labels the Internet?" The people behind the data, the gig economy of AI annotation, and what happens when the humans training AI are underpaid, unseen, and shaping how machines understand the world.* → [link to Big Picture]</p></aside>
 <aside class="callout callout-question"><p>⏸️ <strong>Wait — so AI doesn't "learn on its own"?</strong> Not in the way it sounds. The system does learn patterns autonomously — nobody writes the rules it discovers. But someone has to prepare the textbook. Someone has to mark the examples. Someone has to judge what "good" looks like. That human work is what the system learns <em>from.</em> When you hear "AI is replacing human workers" — remember that AI was <em>built by</em> human workers. Thousands of them, doing labelling work that most people will never see.</p></aside>
-
-<figure class="ch3-data-life" data-representative-teaching-visual="ch03-data-choices-lifecycle" aria-labelledby="ch03-data-life-title" aria-describedby="ch03-data-life-caption">
-  <header class="ch3-data-head">
-    <p>3.3 · DATA DOES NOT PREPARE ITSELF</p>
-    <h4 id="ch03-data-life-title">A spam filter begins with a chain of human choices</h4>
-    <span>Follow ordinary past emails into training—and keep the test material out of the lesson.</span>
-  </header>
-  <div class="ch3-life-body">
-    <section class="ch3-job" aria-label="People define what spam means for this job">
-      <div class="ch3-stage"><b>1</b><span>DEFINE THE JOB</span></div>
-      <div class="ch3-target" aria-hidden="true"><i></i><i></i><i></i></div>
-      <strong>Decide what “spam” means</strong>
-      <p>The label is a rule people define for this product—not a fact the data names for itself.</p>
-    </section>
-    <span class="ch3-flow ch3-flow-a" aria-hidden="true">→</span>
-    <section class="ch3-prepare" aria-label="People choose, clean and label past emails">
-      <div class="ch3-stage"><b>2</b><span>BUILD THE DATASET</span></div>
-      <div class="ch3-mail-pile" aria-label="Past emails selected for the candidate dataset"><i class="ch3-mail ch3-mail-1"><span>SPAM</span></i><i class="ch3-mail ch3-mail-2"><span>KEEP</span></i><i class="ch3-mail ch3-mail-3"><span>KEEP</span></i><i class="ch3-mail ch3-mail-4"><span>SPAM</span></i><i class="ch3-mail ch3-mail-5"><span>?</span></i><i class="ch3-mail ch3-mail-6"><span>KEEP</span></i></div>
-      <ol><li>Choose what to include</li><li>Clean + remove duplicates</li><li>People label: spam / not spam</li><li>Check what is missing or skewed</li></ol>
-    </section>
-    <span class="ch3-flow ch3-flow-b" aria-hidden="true">→</span>
-    <section class="ch3-split" aria-label="The prepared dataset is separated before learning">
-      <div class="ch3-stage"><b>3</b><span>SPLIT BEFORE LEARNING</span></div>
-      <div class="ch3-data-stacks"><div class="ch3-dataset ch3-train"><div><i></i><i></i><i></i></div><p><strong>TRAINING SET</strong><span>learn from these</span></p></div><div class="ch3-dataset ch3-valid"><div><i></i><i></i></div><p><strong>VALIDATION SET</strong><span>adjust with these</span></p></div><div class="ch3-dataset ch3-test"><div><i></i></div><p><strong>HELD-OUT TEST</strong><span>keep unseen until the final check</span></p><b aria-label="locked test set"></b></div></div>
-    </section>
-    <span class="ch3-turn" aria-hidden="true">↓</span>
-    <section class="ch3-learn-check" aria-label="Training examples create a learned pattern, validation supports adjustment, and the held-out test checks the result">
-      <div class="ch3-stage"><b>4</b><span>LEARN + CHECK</span></div>
-      <div class="ch3-learn-flow"><div class="ch3-input-stack"><span>TRAINING</span><i></i><i></i><i></i></div><b>→</b><div class="ch3-model"><i></i><i></i><i></i><strong>LEARN PATTERNS</strong></div><b>←</b><div class="ch3-check-stack"><span>VALIDATION</span><em>adjust deliberately</em></div></div>
-      <div class="ch3-final-test"><span>HELD-OUT TEST</span><b>→</b><strong>CHECK ON EMAILS IT DID NOT LEARN FROM</strong></div>
-    </section>
-    <span class="ch3-flow ch3-flow-c" aria-hidden="true">→</span>
-    <section class="ch3-use" aria-label="A genuinely new email receives a prediction, and real errors trigger investigation rather than automatic retraining">
-      <div class="ch3-stage"><b>5</b><span>USE + RECHECK</span></div>
-      <div class="ch3-new-mail"><i aria-hidden="true"></i><span>NEW UNSEEN EMAIL</span></div>
-      <b class="ch3-down">↓</b>
-      <div class="ch3-prediction">LIKELY SPAM</div>
-      <div class="ch3-monitor"><strong>MONITOR, INVESTIGATE, RECHECK ↺</strong><span>A wrong result is evidence to inspect the job, sources, labels, split or changed real world. It is not automatic training data.</span></div>
-    </section>
-  </div>
-  <aside class="ch3-missing"><strong>WHAT IS MISSING STAYS MISSING</strong><span>If some languages, senders or kinds of spam were excluded or labelled inconsistently, the learned pattern may fail there. More rows do not repair a bad definition or a skewed pile.</span></aside>
-  <figcaption id="ch03-data-life-caption"><strong>Trace it:</strong> people define the job → select, clean and label past emails → split them before learning → train and check on separate examples → use the model on a genuinely new email → investigate failures and deliberately rebuild when needed.</figcaption>
-</figure>
 <h3 id="ch-3-3-4-supervised-unsupervised-and-the-spectrum-between">3.4 — Supervised, Unsupervised, and the Spectrum Between</h3>
 <p>The training we've described so far — showing the system labelled examples and letting it learn the pattern — is called <strong>supervised learning.</strong> Supervised because a human provided the "right answers" (the labels).</p>
 <ul><li>Spam filter: supervised. Humans labelled emails as spam/not spam.</li><li>Face grouping: supervised. Humans labelled photos as same face/different face.</li><li>Customer churn prediction: supervised. The historical data showed which customers did and didn't cancel — those are the labels.</li></ul>
@@ -782,53 +669,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p><strong>Step 4:</strong> Keep going — thousands of merges. Common words become single tokens. Common word-parts (like <code>ing</code>, <code>tion</code>, <code>un</code>, <code>re</code>) become tokens. Eventually you reach your target vocabulary size (say, 100,000 tokens) and stop.</p>
 <p>This process is called <strong>Byte Pair Encoding (BPE)</strong>, and it's what most major language models use — GPT, Claude, and others all build their vocabularies this way.</p>
 <p>The result: common English words are typically one token each. Less common words split into 2-3 pieces. Very rare words might split into many small pieces. And the system can handle anything — even nonsense text or a language it barely knows — by falling back to smaller and smaller chunks.</p>
-
-<figure class="ch4-token-proof" data-representative-teaching-visual="ch04-text-to-tokens" aria-labelledby="ch04-token-proof-title" aria-describedby="ch04-token-proof-caption">
-  <header class="ch4-token-proof-head">
-    <p>4.3 · FROM YOUR WORDS TO MODEL INPUT</p>
-    <h4 id="ch04-token-proof-title">The model never receives the sentence the way you see it</h4>
-    <span>Follow ordinary text through the vocabulary that was built before you ever typed.</span>
-  </header>
-  <div class="ch4-token-proof-body">
-    <section class="ch4-vocabulary" aria-label="Before use, common character pairs are merged into reusable token chunks">
-      <div class="ch4-phase"><b>A</b><span>BEFORE YOU TYPE</span></div>
-      <p class="ch4-phase-title">Repeated text builds a fixed vocabulary of common chunks</p>
-      <div class="ch4-merge-line" aria-label="t plus h becomes th, then th plus e becomes the">
-        <span class="ch4-letter">t</span><em>+</em><span class="ch4-letter">h</span><strong>→</strong><span class="ch4-merged">th</span><em>+</em><span class="ch4-letter">e</span><strong>→</strong><span class="ch4-merged ch4-merged-final">the</span>
-      </div>
-      <p class="ch4-vocabulary-note">The software repeats this merging process across a huge collection of text. Common sequences earn their own reusable entry. The vocabulary is already fixed when your message arrives.</p>
-    </section>
-    <span class="ch4-down-arrow" aria-hidden="true">↓</span>
-    <section class="ch4-tokenise" aria-label="When you type, the tokenizer matches your sentence to the prebuilt vocabulary">
-      <div class="ch4-phase"><b>B</b><span>WHEN YOU TYPE</span></div>
-      <p class="ch4-phase-title">Your sentence is matched against that vocabulary</p>
-      <p class="ch4-user-text">I love playing basketball</p>
-      <span class="ch4-cut-label">TOKENISER FINDS KNOWN CHUNKS</span>
-      <div class="ch4-chunk-row" aria-label="I, love, play, ing, basket, ball"><i class="ch4-token-chunk"><b>I</b><span>ID 01</span></i><i class="ch4-token-chunk"><b>love</b><span>ID 02</span></i><i class="ch4-token-chunk"><b>play</b><span>ID 03</span></i><i class="ch4-token-chunk"><b>ing</b><span>ID 04</span></i><i class="ch4-token-chunk"><b>basket</b><span>ID 05</span></i><i class="ch4-token-chunk"><b>ball</b><span>ID 06</span></i></div>
-    </section>
-    <span class="ch4-down-arrow" aria-hidden="true">↓</span>
-    <section class="ch4-model-input" aria-label="The model receives the token identifiers rather than the original words or letters">
-      <div class="ch4-phase"><b>C</b><span>WHAT THE MODEL RECEIVES</span></div>
-      <div class="ch4-id-stream" aria-label="An illustrative sequence of six token identifiers"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span></div>
-      <p><strong>Six token entries—not four words.</strong> Real token IDs and splits vary by model, but the mechanism is the same: text becomes a numbered sequence before the model processes it.</p>
-    </section>
-  </div>
-  <aside class="ch4-letter-proof" aria-label="Why token chunks make letter counting difficult">
-    <div>
-      <span>YOU CAN LOOK INSIDE THE WORD</span>
-      <p class="ch4-letter-row" aria-label="s t r a w b e r r y"><i>s</i><i>t</i><i>r</i><i>a</i><i>w</i><i>b</i><i>e</i><i>r</i><i>r</i><i>y</i></p>
-      <strong>10 visible letters · 3 r’s</strong>
-    </div>
-    <b aria-hidden="true">≠</b>
-    <div>
-      <span>THE MODEL MAY RECEIVE CHUNKS</span>
-      <p class="ch4-strawberry-chunks"><i>str</i><i>aw</i><i>berry</i></p>
-      <strong>3 tokens · the letters are inside them</strong>
-    </div>
-    <p class="ch4-letter-landing"><strong>This is the practical consequence:</strong> fluent language is a token-level strength; exact character counting or reversing can be harder because the model did not receive a neat row of individual letters.</p>
-  </aside>
-  <figcaption id="ch04-token-proof-caption"><strong>Trace it:</strong> repeated text builds a token vocabulary before use → your sentence is matched to that vocabulary → the chosen chunks become token IDs → the model processes those IDs. The shown splits and IDs are teaching examples, not a universal tokenizer output.</figcaption>
-</figure>
 <aside class="callout callout-question"><p>⏸️ <strong>Why does this matter to you?</strong> Because the system "thinks" in tokens, not words. When it generates a response, it's producing one token at a time — not one word at a time. When it hits a limit, it's a <em>token</em> limit, not a word limit. When you're charged for using an AI, you're charged per <em>token</em>, not per word. The system's entire economy runs on these chunks.</p>
 <p>🔍 <strong>Concept in Practice: Why AI can't count the r's in "strawberry"</strong> You may have seen this: ask an AI "how many r's are in strawberry?" and it confidently answers "2." The answer is 3. Why does it get this wrong? Because the model never sees individual letters. It sees <em>tokens</em> — and "strawberry" likely gets split into chunks like <code>str</code> + <code>aw</code> + <code>berry</code>. The system processes those chunks as units. It has no way to examine individual characters inside a token, the same way you can't easily count the number of times a specific thread appears in a woven fabric just by looking at the overall pattern. That's tokenisation in action: the model is extraordinarily good at language — grammar, meaning, reasoning, style — because it operates at the chunk level. But tasks that require character-level inspection (counting specific letters, reversing words letter by letter, checking spelling character by character) are structurally hard for it. Not a bug in the intelligence — a direct consequence of how the input gets chopped up before the model ever sees it.</p></aside>
 <h3 id="ch-4-4-4-context-windows-the-systems-working-memory">4.4 — Context Windows: The System's Working Memory</h3>
@@ -971,48 +811,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <h4 id="ch-5-step-5-repeat">Step 5: Repeat</h4>
 <p>One training example adjusts the weights by a tiny amount. Then the next example. Then the next. Across billions of examples, those tiny adjustments accumulate into a system that has absorbed the patterns of language (or images, or audio — whatever it was trained on).</p>
 <aside class="callout callout-insight"><p>💡 <strong>Why "millions of times"?</strong> Because each individual adjustment is <em>tiny.</em> If you adjusted too much based on one example, the system would overfit to that one example and forget everything else. The power comes from doing it billions of times — each example pulling the weights in slightly different directions, until they settle into a position that works well across all the examples. It's not one insight that makes the system smart. It's the accumulation of billions of micro-corrections.</p></aside>
-
-<figure class="ch5-training-loop" data-representative-teaching-visual="ch05-guess-check-adjust-loop" aria-labelledby="ch05-training-loop-title" aria-describedby="ch05-training-loop-caption">
-  <header class="ch5-training-head">
-    <p>5.5 · HOW A WRONG GUESS CHANGES THE MODEL</p>
-    <h4 id="ch05-training-loop-title">Training turns one error into millions of tiny targeted adjustments</h4>
-    <span>The input moves forward. The error calculation moves backward. The words themselves do not travel backward.</span>
-  </header>
-  <section class="ch5-example" aria-label="One labelled language-model training example">
-    <div><b>ONE TRAINING EXAMPLE</b><span class="ch5-token-row"><i>The</i><i>cat</i><i>sat</i><i>on</i><i>the</i></span></div>
-    <span aria-hidden="true">+</span>
-    <div class="ch5-known"><b>KNOWN NEXT TOKEN</b><strong>mat</strong></div>
-  </section>
-  <div class="ch5-loop-body">
-    <section class="ch5-forward" aria-label="Forward calculation uses current number settings to produce token likelihoods">
-      <div class="ch5-step"><b>1</b><span>FORWARD CALCULATION</span></div>
-      <div class="ch5-forward-flow"><div class="ch5-mini-tokens"><i>The</i><i>cat</i><i>…</i></div><b>→</b><div class="ch5-network" aria-label="Several layers of adjustable mathematical connections"><i class="ch5-node-1"></i><i class="ch5-node-2"></i><i class="ch5-node-3"></i><i class="ch5-node-4"></i><i class="ch5-node-5"></i><i class="ch5-node-6"></i><i class="ch5-node-7"></i><i class="ch5-node-8"></i><i class="ch5-node-9"></i><i class="ch5-node-10"></i><i class="ch5-node-11"></i><i class="ch5-node-12"></i></div><b>→</b><div class="ch5-likelihoods"><div><span>chair</span><i style="--score:56%"></i><b>56%</b></div><div><span>mat</span><i style="--score:12%"></i><b>12%</b></div><div><span>floor</span><i style="--score:9%"></i><b>9%</b></div></div></div>
-      <p>Current number settings transform the input into token likelihoods. This round favours <strong>chair</strong>.</p>
-    </section>
-    <span class="ch5-loop-arrow ch5-arrow-a" aria-hidden="true">→</span>
-    <section class="ch5-loss" aria-label="The loss calculation compares the guess with the known answer">
-      <div class="ch5-step"><b>2</b><span>COMPARE WITH THE KNOWN ANSWER</span></div>
-      <div class="ch5-compare"><div><span>GUESS</span><strong>chair</strong></div><b>≠</b><div><span>KNOWN ANSWER</span><strong>mat</strong></div></div>
-      <div class="ch5-loss-meter"><span>LOSS · HOW WRONG?</span><i><b></b></i><strong>HIGH</strong></div>
-      <p>The loss is one numerical score. Lower means the model's likelihoods fit the known answer better.</p>
-    </section>
-    <span class="ch5-loop-arrow ch5-arrow-b" aria-hidden="true">↓</span>
-    <section class="ch5-backward" aria-label="A backward calculation estimates how each adjustable setting contributed to the error">
-      <div class="ch5-step"><b>3</b><span>BACKWARD CALCULATION</span></div>
-      <div class="ch5-error-trace"><div class="ch5-error-source">ERROR SCORE</div><b>←</b><div class="ch5-contributions" aria-label="Different adjustable settings receive different contribution calculations"><i><span>− small</span></i><i><span>+ medium</span></i><i><span>− tiny</span></i><i><span>+ small</span></i></div></div>
-      <p>Backpropagation calculates how each adjustable number contributed to this error. No one setting contains “the answer,” and they do not all change equally.</p>
-    </section>
-    <span class="ch5-loop-arrow ch5-arrow-c" aria-hidden="true">←</span>
-    <section class="ch5-adjust" aria-label="Gradient descent makes small targeted updates to the model's number settings">
-      <div class="ch5-step"><b>4</b><span>SMALL TARGETED UPDATES</span></div>
-      <div class="ch5-sliders" aria-label="Four illustrative settings move by different small amounts"><div><span>setting 1</span><i style="--before:32%;--after:38%"></i></div><div><span>setting 2</span><i style="--before:67%;--after:61%"></i></div><div><span>setting 3</span><i style="--before:45%;--after:48%"></i></div><div><span>setting 4</span><i style="--before:78%;--after:72%"></i></div></div>
-      <p>Each number is nudged in a direction expected to lower future loss: make <strong>mat</strong> a little more likely and <strong>chair</strong> a little less likely for patterns like this.</p>
-    </section>
-    <div class="ch5-repeat" aria-label="The updated settings are used on the next training example"><b>UPDATED SETTINGS</b><span>NEXT EXAMPLE → GUESS → CHECK → ADJUST → REPEAT ↺</span></div>
-  </div>
-  <aside class="ch5-accumulation"><div class="ch5-drop-series" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p><strong>One example changes the model only a little.</strong> Across millions or billions of examples, small corrections accumulate into useful patterns. A low training loss alone still does not prove the model will work well on new real-world cases.</p></aside>
-  <figcaption id="ch05-training-loop-caption"><strong>Trace it:</strong> labelled example → forward prediction → compare with known answer → numerical loss → backward contribution calculation → small targeted updates → next example. “Weights” are simply these adjustable numbers inside the model.</figcaption>
-</figure>
 <h3 id="ch-5-5-6-the-transformer-the-architecture-that-made-this-generation-possible">5.6 — The Transformer: The Architecture That Made This Generation Possible</h3>
 <p>Everything described so far — the training loop, the layers, the weights — existed for decades before 2017. Neural networks have been around since the 1950s. So why did AI suddenly get so good?</p>
 <p>The answer is a specific <em>design</em> for a neural network, published in June 2017 in a paper called "Attention Is All You Need" by eight researchers at Google. They called it the <strong>Transformer.</strong></p>
@@ -1105,51 +903,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>The output of the vision encoder — hundreds of image tokens — gets placed into the context window alongside your text tokens. They all sit in one sequence:</p>
 <pre><code>[image token 1] [image token 2] ... [image token 576] [What] [is] [in] [this] [picture] [?]</code></pre>
 <p>The language model processes this entire sequence together. It learned during training how image tokens and text tokens relate to each other (because it saw millions of images paired with descriptions). When it generates a response, it's attending to both the image tokens and your text question simultaneously.</p>
-
-<figure class="ch6-patch-proof" data-representative-teaching-visual="ch06-photo-to-patches" aria-labelledby="ch06-patch-proof-title" aria-describedby="ch06-patch-proof-caption">
-  <header class="ch6-patch-proof-head">
-    <p>6.2 · FROM PHOTO TO ANSWER</p>
-    <h4 id="ch06-patch-proof-title">A photo becomes pieces the model can calculate with</h4>
-    <span>The model does not experience one whole picture. Follow the same photo as it becomes a joined stream of image information and words.</span>
-  </header>
-  <div class="ch6-patch-proof-body">
-    <section class="ch6-upload" aria-label="Step 1: upload a photo and ask a question">
-      <div class="ch6-step-label"><b>1</b><span>YOU SEND</span></div>
-      <div class="ch6-photo-frame"><img src="assets/ch06-bicycle-tree-learning-image.png" alt="A purple bicycle beside a leafy tree"></div>
-      <p class="ch6-question">“What is in this photo?”</p>
-    </section>
-    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
-    <section class="ch6-divide" aria-label="Step 2: software divides the image into small patches">
-      <div class="ch6-step-label"><b>2</b><span>DIVIDE</span></div>
-      <div class="ch6-grid-photo" role="img" aria-label="The same bicycle photograph divided into a teaching grid of 24 small patches">
-        <img src="assets/ch06-bicycle-tree-learning-image.png" alt="">
-        <span class="ch6-patch-overlay" aria-hidden="true"><i class="ch6-patch-cell ch6-patch-1" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-2" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-3" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-4" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-5" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-6" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-7" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-8" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-9" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-10" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-11" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-12" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-13" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-14" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-15" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-16" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-17" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-18" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-19" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-20" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-21" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-22" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-23" aria-hidden="true"></i><i class="ch6-patch-cell ch6-patch-24" aria-hidden="true"></i></span>
-      </div>
-      <p>Small patches preserve pieces of colour, edge and position—not whole named objects.</p>
-    </section>
-    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
-    <section class="ch6-translate" aria-label="Step 3: a vision encoder translates patches into numerical representations">
-      <div class="ch6-step-label"><b>3</b><span>TRANSLATE</span></div>
-      <div class="ch6-sample-patches" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="ch6-encoder"><span>VISION ENCODER</span><strong>visual pieces → numbers</strong></div>
-      <div class="ch6-number-stream" aria-label="Three illustrative image-token bundles"><i class="ch6-image-token"><b>1</b><span>image token</span></i><i class="ch6-image-token"><b>2</b><span>image token</span></i><i class="ch6-image-token"><b>3</b><span>image token</span></i></div>
-      <p class="ch6-token-example"><strong>Inside token 1:</strong> 0.14 · −0.82 · 0.37 · … <small>illustrative values</small></p>
-      <p>The encoder converts all the patches into numerical image tokens the language model can use.</p>
-    </section>
-    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
-    <section class="ch6-combine" aria-label="Step 4: image tokens and text tokens enter one combined sequence">
-      <div class="ch6-step-label"><b>4</b><span>READ TOGETHER</span></div>
-      <div class="ch6-context-ribbon">
-        <div class="ch6-image-token-row"><strong>IMAGE TOKENS<br><small>each holds numbers</small></strong><i class="ch6-image-token ch6-image-token-compact"><span>T1</span></i><i class="ch6-image-token ch6-image-token-compact"><span>T2</span></i><i class="ch6-image-token ch6-image-token-compact"><span>T3</span></i><span>…</span></div>
-        <div class="ch6-text-token-row"><strong>WORDS</strong><i>What</i><i>is</i><i>in</i><i>this</i><i>photo?</i></div>
-        <p>ONE COMBINED SEQUENCE</p>
-      </div>
-      <div class="ch6-answer"><small>MODEL RELATES BOTH</small><strong>A purple bicycle beside a tree.</strong></div>
-    </section>
-  </div>
-  <aside class="ch6-misconception"><strong>What this blocks:</strong> a patch is not “the bicycle patch.” One object can cross many patches, so the model must relate patterns across the image. That is why recognising a bicycle can be easier than counting every small object perfectly.</aside>
-  <figcaption id="ch06-patch-proof-caption"><strong>Trace it:</strong> upload photo + question → divide the photo → translate patches into numbers → place image and word tokens in one sequence → generate an answer from both. Patch counts and internal values vary by system; the 24-square grid and numbers here are teaching examples.</figcaption>
-</figure>
 <h4 id="ch-6-what-the-model-actually-sees">What the model actually "sees"</h4>
 <p>What might be hard to accept: the model doesn't see your photo the way you do. It doesn't experience a picture. It reads a long sequence of numbers that statistically represent visual features — edges, textures, colours, shapes, spatial relationships. It's pattern-matching across those numbers, the same way it pattern-matches across text tokens.</p>
 <p>But the results can be surprisingly good because the training data was enormous. It saw so many images described in so many ways that it learned rich associations between visual patterns and language.</p>
@@ -1299,48 +1052,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>This continues until the model produces a stop signal (a special token that means "I'm done") or hits a length limit.</p>
 <p><strong>This is why you see responses appear word by word in a chat interface</strong> — each word appears as it's generated. The model isn't writing the whole response and then showing it to you. It's producing it live, token by token.</p>
 <aside class="callout callout-practice"><p>🔍 <strong>Concept in Practice: Why responses stream in word by word</strong> When you watch an AI response appear gradually — word by word, sometimes pausing mid-sentence — you're watching the decode phase in real time. Each word you see appear is a newly generated token. The pauses happen when the model is computing the probability distribution for the next token. It's not "thinking" in a human sense — it's running the maths for the next prediction.</p></aside>
-
-<figure id="ch07-request-journey" class="ch7-request-journey" data-representative-teaching-visual="ch07-prefill-decode-stream" aria-labelledby="ch07-request-journey-title" aria-describedby="ch07-request-journey-caption">
-  <header class="ch7-request-head">
-    <p>7.2 · WHAT HAPPENS AFTER YOU PRESS SEND</p>
-    <h4 id="ch07-request-journey-title">The model reads the supplied context, then writes one piece at a time</h4>
-    <span>Inference uses a trained model. This request does not teach it or change its learned weights.</span>
-  </header>
-  <div class="ch7-request-body">
-    <section class="ch7-you-send" aria-label="Step 1: the application assembles the complete input">
-      <div class="ch7-phase"><b>1</b><span>THE APP ASSEMBLES WHAT THIS REQUEST CAN SEE</span></div>
-      <div class="ch7-chat-question"><span>YOU</span><p>“What is the best way to get coffee stains out of a white shirt?”</p><b aria-hidden="true">SEND</b></div>
-      <div class="ch7-context-stack" aria-label="The complete input can contain more than the new message"><i><b>1</b><span>Your new message</span></i><i><b>2</b><span>Useful chat history</span></i><i><b>3</b><span>Instructions + supplied files</span></i></div>
-      <p class="ch7-boundary"><strong>COMPLETE INPUT</strong><span>Only material supplied to this request is available here. The exact ingredients vary by product.</span></p>
-    </section>
-    <span class="ch7-major-arrow" aria-hidden="true">→</span>
-    <section class="ch7-prefill" aria-label="Step 2: prefill reads all supplied input together">
-      <div class="ch7-phase"><b>2</b><span>PREFILL · READ</span></div>
-      <p class="ch7-plain-label">Process the supplied context together</p>
-      <div class="ch7-input-token-row" aria-label="Illustrative input tokens processed in parallel"><i>coffee</i><i>stain</i><i>white</i><i>shirt</i><i>?</i></div>
-      <div class="ch7-parallel-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="ch7-frozen-model"><span>TRAINED MODEL</span><strong>frozen learned patterns</strong></div>
-      <p class="ch7-phase-note"><strong>ONE INPUT PHASE</strong> The supplied pieces can be processed together.</p>
-    </section>
-    <span class="ch7-major-arrow" aria-hidden="true">→</span>
-    <section class="ch7-decode" aria-label="Step 3: decode chooses and adds one next token, then repeats">
-      <div class="ch7-phase"><b>3</b><span>DECODE · WRITE</span></div>
-      <p class="ch7-plain-label">Build the answer in order</p>
-      <ol class="ch7-decode-loop"><li><b>A</b><span>Choose one likely next token</span></li><li><b>B</b><span>Add it to what has already been written</span></li><li><b>C</b><span>Use the longer sequence to choose again</span></li></ol>
-      <span class="ch7-loop-arrow" aria-label="repeat until the answer stops">↺ REPEAT UNTIL STOP</span>
-      <div class="ch7-output-token-row" aria-label="Illustrative output tokens generated one after another"><i style="--delay:0">Rinse</i><i style="--delay:1">with</i><i style="--delay:2">cold</i><i style="--delay:3">water</i><i style="--delay:4">…</i></div>
-      <p class="ch7-phase-note"><strong>ONE PIECE AT A TIME</strong> Each new piece depends on the sequence before it.</p>
-    </section>
-    <span class="ch7-stream-arrow" aria-hidden="true">↓</span>
-    <section class="ch7-screen" aria-label="Step 4: each generated piece streams to the chat screen">
-      <div class="ch7-phase"><b>4</b><span>STREAM TO YOUR SCREEN</span></div>
-      <div class="ch7-chat-answer"><span>AI</span><p>Rinse with cold water…</p><i aria-hidden="true"></i></div>
-      <p>The application shows new pieces as they arrive. It is not revealing a finished answer that was written in secret.</p>
-    </section>
-  </div>
-  <aside class="ch7-not-training"><strong>WHAT DID NOT HAPPEN:</strong><span>The model did not permanently save this stain question, rewrite its learned weights or “learn a lesson” from answering it. That would require a separate training or product-memory process.</span></aside>
-  <figcaption id="ch07-request-journey-caption"><strong>Trace it:</strong> assemble the material available to this request → prefill reads that supplied context together → decode chooses one next token, adds it and repeats → each new piece streams to your screen → stop. This is why a response appears gradually.</figcaption>
-</figure>
 <h3 id="ch-7-7-3-why-the-same-prompt-gives-different-answers">7.3 — Why the Same Prompt Gives Different Answers</h3>
 <aside class="callout callout-note"><p>📼 <strong>Rewind it:</strong> Turning temperature down is a Miranda Priestly edit pass: fewer next-word options are allowed onto the runway, so the result is usually more consistent. That does not make it more intelligent, more factual, or automatically correct.</p></aside>
 <p>Ask the same question twice and you'll often get different responses. Not just different words — sometimes genuinely different content, structure, or reasoning paths. Why?</p>
@@ -1483,48 +1194,6 @@ User gets an answer grounded in actual documents
 <p><strong>Total time:</strong> ~1.5 seconds. <strong>What made it possible:</strong> embedding + similarity search + context injection. The model didn't "know" your policy. It <em>read</em> it, right then, because the RAG pipeline put it in front of the model at the right moment.</p>
 <p><strong>Why this matters:</strong> RAG is how AI products answer questions about <em>your</em> data — your company's knowledge base, your notes, your files. The model wasn't trained on your documents. But it doesn't need to be — the documents get retrieved and placed into context in real time. The model reads them on the fly and generates an answer.</p>
 <p>This is also how AI systems stay current despite their knowledge cutoff. A RAG system can retrieve today's news article and inject it into context — the model reads it and can answer questions about it, even though it was published after training ended.</p>
-
-<figure id="ch08-context-retrieval" class="ch8-context-retrieval" data-representative-teaching-visual="ch08-weights-context-memory-rag" aria-labelledby="ch08-context-title" aria-describedby="ch08-context-caption">
-  <header class="ch8-context-head">
-    <p>8.6 · WHAT CAN REACH THIS ANSWER?</p>
-    <h4 id="ch08-context-title">The model has learned patterns—but the product decides what it can see now</h4>
-    <span>“Memory” and RAG live outside the model. They help only when the product retrieves something and places it into this turn’s context.</span>
-  </header>
-  <div class="ch8-context-body">
-    <section class="ch8-before" aria-label="Before a question: documents are split and indexed outside the model">
-      <div class="ch8-time-label"><b>BEFORE ANY QUESTION</b><span>prepare material for later retrieval</span></div>
-      <div class="ch8-document-shelf" aria-label="A collection of company documents"><i class="ch8-doc ch8-doc-1"><span>Parental leave policy</span></i><i class="ch8-doc ch8-doc-2"><span>Benefits guide</span></i><i class="ch8-doc ch8-doc-3"><span>Office dress code</span></i><i class="ch8-doc ch8-doc-4"><span>Travel policy</span></i></div>
-      <span class="ch8-down" aria-hidden="true">↓</span>
-      <div class="ch8-index"><strong>SPLIT + INDEX</strong><span>store small chunks by numerical meaning-patterns</span><div class="ch8-meaning-map" role="img" aria-label="A meaning map with policy chunks clustered near similar topics"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-      <p class="ch8-outside">This searchable index is outside the trained model.</p>
-    </section>
-    <section class="ch8-now" aria-label="At question time: the product assembles one context window from several distinct sources">
-      <div class="ch8-time-label"><b>WHEN YOU ASK</b><span>assemble context for this turn</span></div>
-      <div class="ch8-question"><span>YOU</span><strong>“What is our parental leave policy?”</strong></div>
-      <div class="ch8-live-sources">
-        <div class="ch8-current"><b>CURRENT CONVERSATION</b><span>your message + useful chat history + instructions</span></div>
-        <div class="ch8-memory"><b>SAVED PRODUCT MEMORY</b><span>an external store may return one relevant preference or fact</span><em>SELECTED FACT →</em></div>
-        <div class="ch8-retrieve"><b>RAG RETRIEVAL</b><span>search the index by similar meaning</span><em>ONLY MATCHING CHUNKS →</em><div><i>20 weeks paid …</i><i>6 weeks paid …</i></div></div>
-      </div>
-      <span class="ch8-converge" aria-hidden="true">↓ ↓ ↓</span>
-      <div class="ch8-context-window"><span>CONTEXT FOR THIS TURN</span><div><i>question</i><i>relevant history</i><i>selected memory</i><i>retrieved policy chunks</i></div><strong>Only supplied material is visible here.</strong></div>
-    </section>
-    <span class="ch8-join-arrow" aria-hidden="true">→</span>
-    <section class="ch8-model" aria-label="The frozen model combines its trained patterns with the context supplied for this turn">
-      <div class="ch8-model-boundary">
-        <span>TRAINED MODEL</span>
-        <div class="ch8-weights"><b>FROZEN WEIGHTS</b><small>broad learned patterns<br>can be stale</small></div>
-        <b class="ch8-plus" aria-hidden="true">+</b>
-        <div class="ch8-context-in"><b>LIVE CONTEXT</b><small>assembled for this request</small></div>
-        <span class="ch8-generate" aria-hidden="true">↓ GENERATE</span>
-        <div class="ch8-answer"><small>ANSWER</small><strong>Based on the retrieved policy…</strong></div>
-      </div>
-      <p>The model uses both sources together. It does not automatically label which detail came from training and which came from supplied context.</p>
-    </section>
-  </div>
-  <aside class="ch8-boundary"><strong>WHEN THE TURN ENDS:</strong><span>the trained weights are unchanged. Stored information that was not selected into this context was not available to the answer. Retrieval can miss, and supplied material can still be incomplete or wrong.</span></aside>
-  <figcaption id="ch08-context-caption"><strong>Trace it:</strong> prepare documents outside the model → ask a question → the product may retrieve selected memory and matching document chunks → combine them with the current conversation in one context window → run the frozen model with weights + live context → answer. RAG supplies information; it does not retrain the model.</figcaption>
-</figure>
 <aside class="callout callout-insight"><p>💡 <strong>Training vs RAG — two ways to give a model information</strong> <strong>Training:</strong> Bake information permanently into the weights. Expensive, slow, frozen once done. Good for general knowledge and capabilities. <strong>RAG:</strong> Retrieve information on-the-fly and inject into context. Cheap, fast, always current. Good for specific, private, or frequently-changing information. Most production AI systems use both: a pre-trained model (general knowledge in weights) + RAG (specific current knowledge retrieved into context). Neither alone is sufficient.</p></aside>
 <h3 id="ch-8-8-7-why-the-model-knows-things-is-misleading">8.7 — Why "The Model Knows Things" Is Misleading</h3>
 <p>You now have the full picture to understand why this phrase is misleading:</p>
@@ -1651,31 +1320,6 @@ User gets an answer grounded in actual documents
 <div class="table-scroll"><table><thead><tr><th scope="col">What you want to change</th><th scope="col">Best approach</th><th scope="col">Why</th></tr></thead><tbody><tr><td>What the model knows about (your data, recent info)</td><td><strong>RAG</strong></td><td>Retrieves knowledge into context without retraining</td></tr><tr><td>How it follows specific instructions for this request</td><td><strong>Better prompting</strong></td><td>Instructions in context, no permanent change needed</td></tr><tr><td>Its consistent behaviour pattern (format, style, tone)</td><td><strong>Fine-tuning</strong></td><td>Bakes behaviour into the weights permanently</td></tr><tr><td>Its safety and helpfulness characteristics</td><td><strong>RLHF / DPO</strong></td><td>Shapes deep behavioural tendencies through preference data</td></tr><tr><td>Making it run on cheaper/smaller hardware</td><td><strong>Distillation + quantisation</strong></td><td>Compress without (much) quality loss</td></tr><tr><td>Making it bigger without proportionally more cost</td><td><strong>Mixture of experts</strong></td><td>More total parameters, fewer active per token</td></tr></tbody></table></div>
 <p><strong>The order most teams follow (2026):</strong></p>
 <ol><li>Try prompting first (free, instant)</li><li>Add RAG if it needs knowledge (days to build, low cost)</li><li>Fine-tune only if behaviour needs permanent change (weeks, $$)</li><li>Everything else is for specialised teams at model companies</li></ol>
-
-<figure id="ch09-customisation-decision" class="ch9-customisation-decision" data-representative-teaching-visual="ch09-context-or-weights-decision" aria-labelledby="ch09-customisation-title" aria-describedby="ch09-customisation-caption">
-  <header class="ch9-customisation-head"><p>9.8 · CHOOSE BY WHAT MUST CHANGE</p><h4 id="ch09-customisation-title">A wrong answer does not automatically mean “train the model”</h4><span>Start with the failure. Change the request’s context when you can; change learned weights only when the behaviour must persist.</span></header>
-  <div class="ch9-case"><span>THE FAILURE</span><strong>Support bot says returns are allowed for 60 days. The current policy says 30.</strong><p>What is actually missing or unreliable?</p></div>
-  <div class="ch9-tree">
-    <div class="ch9-root"><strong>WHAT NEEDS TO CHANGE?</strong><span>Follow the reason the output is wrong.</span></div>
-    <div class="ch9-root-split"><strong>CHOOSE THE CAUSE — THIS IS NOT A LADDER</strong><span aria-hidden="true">↙ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↘</span></div>
-    <section class="ch9-lane ch9-context-lane" aria-label="Methods that change the context for one request without changing learned weights">
-      <div class="ch9-lane-head"><b>CHANGE WHAT THIS REQUEST CAN SEE</b><span>weights stay unchanged · supplied again when needed</span></div>
-      <div class="ch9-choice"><p><strong>Are the instructions, examples or format unclear?</strong><span>“Use this exact refund template.”</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>PROMPT + SYSTEM INSTRUCTIONS + EXAMPLES</strong></div></div>
-      <div class="ch9-choice"><p><strong>Is current or private information missing?</strong><span>The bot needs the actual 30-day policy.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>RAG · RETRIEVE THE POLICY INTO CONTEXT</strong></div></div>
-      <p class="ch9-expiry"><strong>AFTER THE REQUEST:</strong> this supplied context expires unless the product supplies it again.</p>
-    </section>
-    <section class="ch9-lane ch9-weights-lane" aria-label="Methods that change learned weights before later requests">
-      <div class="ch9-lane-head"><b>CHANGE LEARNED BEHAVIOUR BEFORE USE</b><span>weights change · effect can persist across requests</span></div>
-      <div class="ch9-choice"><p><strong>Must a specialised behaviour or format become reliable?</strong><span>Prompting was tested first but is not enough.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>FINE-TUNING ON CURATED EXAMPLES</strong></div></div>
-      <div class="ch9-choice"><p><strong>Must broad helpfulness or safety preferences be shaped?</strong><span>People compare or judge model outputs.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>RLHF OR DPO</strong></div></div>
-      <div class="ch9-choice ch9-foundation"><p><strong>Do you truly need a new general foundation model?</strong><span>This is not ordinary product customisation.</span></p><b aria-hidden="true">↓</b><div><small>USE</small><strong>FULL PRE-TRAINING</strong></div></div>
-      <p class="ch9-persist"><strong>AFTER TRAINING:</strong> changed weights are deployed, then each live request can still add prompts and RAG.</p>
-    </section>
-  </div>
-  <aside class="ch9-combine"><strong>REAL SYSTEMS COMBINE METHODS</strong><span>A fine-tuned model can still receive clear instructions and retrieved policy text. The choice is not one permanent rung; it is a diagnosis of what needs to change.</span></aside>
-  <div class="ch9-rule"><b>PROMPT FOR INSTRUCTIONS</b><span>+</span><b>RETRIEVE FOR KNOWLEDGE</b><span>+</span><b>FINE-TUNE FOR PERSISTENT BEHAVIOUR</b></div>
-  <figcaption id="ch09-customisation-caption"><strong>Use the diagnostic:</strong> missing directions or examples → prompt/context; missing current or private facts → RAG; persistent specialised behaviour → fine-tuning; broad preference shaping → RLHF/DPO; a whole new foundation model → pre-training. Prompting and RAG do not retrain the model.</figcaption>
-</figure>
 <h3 id="ch-9-9-9-the-system-picture-so-far">9.9 — The System Picture So Far</h3>
 <details class="map-text-equivalent"><summary>Open the text version of this diagram</summary><pre><code>[Data] → [Tokenisation] → [PRE-TRAINING] → [Base Model]
                                                   ↓

@@ -100,6 +100,25 @@ The internal reviews that called these diagrams PASS inspected legibility and
 semantic traceability but failed to judge professional textbook visual quality.
 Those verdicts cannot be reused.
 
+## Prior tool trials — do not repeat
+
+This history was missing from the first handover and caused a successor to
+repeat already-settled work. The detailed evidence is in `operations/ACTIVE-WORK.md`
+and `operations/painpoints-log.md` BTB-460.
+
+- Figma produced a colour-coded comparison table, not a visual learning aid;
+  Ali rejected it and Figma added no teaching value.
+- A bespoke ImageGen → Figma thermostat repair took roughly an hour, left human
+  actions unclear and labels misaligned, and was rejected as unscalable.
+- Napkin AI changed the reader question and omitted the causal distinction.
+- FigureLabs had already been tried and did not solve the textbook-learning job;
+  do not reopen it as the next route.
+- Google Nano Banana produced the strongest source illustration of the tested
+  generators. It was useful only as supporting art: deterministic labels,
+  arrows, crops and responsive composition still had to carry the teaching
+  relationship. The resulting Chapter 1/full-book visual set was later rejected
+  and remains quarantine evidence, not reusable approval.
+
 ## Preserve, but do not overclaim
 
 - Ali confirmed the supplied manuscript text was fully vetted for accuracy.
@@ -123,10 +142,12 @@ Those verdicts cannot be reused.
    manuscript. For each proposed asset state the reader question, teaching job,
    form, placement, source range and why prose is insufficient.
 4. For the first Chapter 1 concept only, inspect two to four strong existing
-   authoritative/textbook visuals. Produce one original professional asset with
-   a real illustration/diagram tool. FigureLabs was more promising than the
-   earlier attempts, but no tool or output has final approval. Napkin and
-   generated/CSS examples are not accepted merely because they exist.
+   authoritative/textbook visuals. Produce one original professional textbook
+   visual learning aid. Do not repeat Figma, Napkin AI, FigureLabs or the bespoke
+   ImageGen → Figma repair loop. If Google Nano Banana is used, treat its output
+   only as supporting illustration and keep the exact teaching relationship in
+   deterministic editable labels/arrows/composition; no tool or output has final
+   approval merely because it exists.
 5. Inspect the exact asset at its real desktop and mobile textbook size for
    clarity, typography, arrow logic, visual craft and teaching value. A
    role-distinct reviewer must see the actual pixels and relevant professional
@@ -150,4 +171,3 @@ Those verdicts cannot be reused.
 > anything until that representative asset is genuinely good and Ali accepts
 > the visual method. Preserve all unrelated dirty work and report exactly what
 > remains unbuilt.
-
