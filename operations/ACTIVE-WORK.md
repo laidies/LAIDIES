@@ -30,47 +30,46 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 10 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 11 purpose-built proof
 
-- **Outcome:** Chapter 10 now contains one purpose-built teaching visual after
-  section 10.7. A reader's return-policy question travels through the product
-  around a model: wrapper, optional input check, harness/context assembly,
-  optional router, model, optional output check and wrapper delivery. Four
-  concrete context items are visibly inserted into the harness before the
-  current model input is assembled.
-- **Rejected predecessor:** independent review held the first desktop asset
-  because one context source was disconnected and another had two feeder
-  arrows, falsely implying two destinations. Repeating the same arrow-heavy
-  composition was stopped. The accepted successor uses four physical harness
-  slots instead of ambiguous feeder topology. Mobile uses a separately composed
-  vertical route rather than a squeezed desktop plate.
-- **Accuracy correction:** seventeen nearby Chapter 10 statements are replaced
-  through the source-bound amendment layer. The corrections remove universal
-  claims about guardrails, layers, orchestration, routing and timing; distinguish
-  a model's proposed tool call from the product's authorization; bound API cost
-  and routing claims; and stop inferring hidden routing from an interface. The
-  book now contains 48 technical clarifications in total.
-- **Viewport proof:** at 1280×720 the desktop figure renders at 901.61×641.05px
-  and its image at 895.61×504.05px. At 390×844 the distinct mobile figure
-  renders at 361.21px wide and its image at 355.21×748.66px. Both have zero
-  horizontal document overflow. The real reader pixels were inspected at both
-  viewports.
-- **Independent review:** artifact-first forward-testing passed both exact
-  assets. It confirmed one-to-one context insertion, truthful solid and dashed
-  route origins/destinations, equivalent desktop/mobile meaning, and a usable
-  beginner transfer: two products can use the same model yet answer differently
-  because the surrounding wrapper, context, routing and checks differ.
+- **Outcome:** Chapter 11 now contains one responsive teaching illustration
+  after the defence-in-depth explanation in section 11.2. Two requests move
+  through the same product: the first is delivered; the second produces a draft
+  containing a private number, which the example's output check sends to
+  hold/redact. The product can also refuse, and only some flagged cases are
+  associated with human review.
+- **Rejected predecessors:** the first phone asset gave human review two dotted
+  origins. The first independently reviewed pair then made `PRIVATE NUMBER` too
+  small on both viewports and the phone qualifier `SOME FLAGGED CASES` too small
+  to block a universal-review inference. Those exact hashes remain rejected.
+  The accepted successors enlarge both causal claims and retain one selective
+  review association.
+- **Accuracy correction:** eight nearby Chapter 11 statements are replaced
+  through the source-bound amendment layer. The corrections remove claims that
+  every input/output is filtered, that most guardrails are classifiers, that
+  one universal five-step safety path or fixed latency exists, and that
+  red-teaming is a live request layer. They distinguish behaviour shaping,
+  runtime controls and evaluation. The book now contains 56 technical
+  clarifications in total.
+- **Viewport proof:** at 1280×720 the desktop image renders at
+  767.61×432.01px. At 390×844 the separate mobile image renders at
+  355.21×631.15px. Both have zero horizontal document overflow. The real
+  reader pixels were inspected at both viewports after the repair.
+- **Independent review:** the first review returned HOLD for the two critical
+  label-size defects. Artifact-first re-review passed the exact successors,
+  confirming readable reasons, selective human review, truthful green/pink
+  routes, equivalent meaning, correct spelling and no clipping or guarantee.
 - **Exact assets:** desktop
-  `7cc30d544a8af64667de0cd558a1dfe9428cd3d295ae24f57a45f493c586f290`;
+  `8abdc8ff1bc3b7166042bcceb776d3e5e4189037ace2625449896de1590e0276`;
   mobile
-  `54c12b66b0c4793bba5185876355c3aa57a6827471a5a4d592274f65c1a4090b`.
+  `6c3f60f5f6ed0ff9d6946b3228ac261a08c31e843ed8f0f7207f049697533710`.
 - **Verification:** build PASS; calibrated book checker PASS, including
-  deliberate missing-Chapter-10-mobile and returned-safety-guarantee failures;
-  `git diff --check` PASS.
+  deliberate missing-Chapter-11-mobile and returned-universal-guardrail
+  failures; `git diff --check` PASS.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** bind the exact Chapter 10 commit, then build Chapter 11's smallest
-  truthful safety-and-trust visual proof.
+- **Next:** bind the exact Chapter 11 commit, then produce Chapter 12's
+  evidence-to-release illustration without publishing dynamic leaderboards.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

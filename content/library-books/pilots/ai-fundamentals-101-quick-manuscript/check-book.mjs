@@ -50,7 +50,7 @@ export function inspectBook(pilotDir = ownDir) {
     if (!reference.anchor || !reference.teachingJob || !reference.limitation) errors.push(`${reference.id} is missing its anchor, teaching job or limitation`);
     if (!["retain", "replace", "after", "before", "append"].includes(reference.mode)) errors.push(`${reference.id} has unsupported mode`);
   }
-  if (rewind.clarifications?.length !== 48) errors.push(`expected 48 separated technical clarifications or corrections; found ${rewind.clarifications?.length ?? 0}`);
+  if (rewind.clarifications?.length !== 56) errors.push(`expected 56 separated technical clarifications or corrections; found ${rewind.clarifications?.length ?? 0}`);
   for (const clarification of rewind.clarifications || []) {
     if (!clarification.id || !clarification.anchor || !clarification.copy || !["before", "replace"].includes(clarification.mode)) errors.push("a technical clarification or correction is incomplete");
   }
@@ -109,7 +109,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (teachingVisualIds.length !== 0) errors.push("rejected Chapter 1 teaching visuals have returned to the reader");
   if (review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("rejected Chapter 1 visual summary has returned to the reader");
   const purposeBuiltVisuals = [...review.matchAll(/data-purpose-built-teaching-visual="([^"]+)"/g)].map(match => match[1]);
-  const expectedPurposeBuiltVisuals = ["ch01-rule-versus-learned-pattern", "ch02-model-family-and-agent-system", "ch03-data-choices-become-model-behaviour", "ch04-fixed-vocabulary-splits-message", "ch05-training-improves-one-prediction", "ch06-photo-becomes-image-token-context", "ch07-send-prefill-decode-stream", "ch08-rag-selected-documents-context", "ch09-context-or-weight-change", "ch10-product-around-model"];
+  const expectedPurposeBuiltVisuals = ["ch01-rule-versus-learned-pattern", "ch02-model-family-and-agent-system", "ch03-data-choices-become-model-behaviour", "ch04-fixed-vocabulary-splits-message", "ch05-training-improves-one-prediction", "ch06-photo-becomes-image-token-context", "ch07-send-prefill-decode-stream", "ch08-rag-selected-documents-context", "ch09-context-or-weight-change", "ch10-product-around-model", "ch11-layered-safety-journey"];
   if (purposeBuiltVisuals.length !== expectedPurposeBuiltVisuals.length || expectedPurposeBuiltVisuals.some(id => !purposeBuiltVisuals.includes(id))) errors.push("reader does not contain the exact active purpose-built visuals");
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">')) errors.push("Chapter 1 purpose-built visual is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png"')) errors.push("Chapter 1 purpose-built visual is missing its desktop asset");
@@ -141,6 +141,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch10-product-around-model-mobile-v1.png">')) errors.push("Chapter 10 purpose-built visual is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch10-product-around-model-desktop-v1.png"')) errors.push("Chapter 10 purpose-built visual is missing its desktop asset");
   if (!review.includes("The model is one part of the product")) errors.push("Chapter 10 purpose-built visual is missing its equivalent text explanation");
+  if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch11-safety-layers-mobile-v1.png">')) errors.push("Chapter 11 purpose-built visual is missing its separately composed mobile asset");
+  if (!review.includes('<img src="assets/ch11-safety-layers-desktop-v1.png"')) errors.push("Chapter 11 purpose-built visual is missing its desktop asset");
+  if (!review.includes("Safety is layered because different checks see different parts of the journey")) errors.push("Chapter 11 purpose-built visual is missing its equivalent text explanation");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
@@ -185,7 +188,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(review, /class="toc-part"/g) !== 9) errors.push("review does not contain 9 table-of-contents parts");
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");
-  if (manifest.counts?.technicalClarifications !== 48) errors.push("manifest technical clarification count is not 48");
+  if (manifest.counts?.technicalClarifications !== 56) errors.push("manifest technical clarification count is not 56");
   if (/model never sees individual letters|no way to examine individual characters inside a token|Every letter, number, and punctuation mark is a token/i.test(visibleText(review))) {
     errors.push("Chapter 4 has returned a rejected absolute tokenisation claim");
   }
@@ -201,9 +204,12 @@ export function inspectBook(pilotDir = ownDir) {
   if (/ensures it'?s safe|Every AI product you use has all of these layers|The model itself makes the decision|Modern AI products are orchestrated systems, not single model calls|saves 70[–-]90% on inference costs|All of that happens in 1[–-]5 seconds|Billed per token\.|Products that don'?t show you this choice are still routing|Most real AI products are orchestrated multi-step systems|Applied on both sides of the model/i.test(visibleText(review))) {
     errors.push("Chapter 10 has returned a rejected guarantee, universal-stack, tool-agency, routing or pricing claim");
   }
+  if (/runtime filters that check every input and output|Most guardrails are themselves AI models|defence in depth, 2026 standard|Total added latency from safety layers: ~20ms|guardrails are invisible safety nets|Safety isn'?t built into the architecture/i.test(visibleText(review))) {
+    errors.push("Chapter 11 has returned a rejected universal guardrail, mechanism, latency or safety claim");
+  }
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== 10) errors.push("manifest does not count exactly ten active purpose-built teaching visuals");
+  if (manifest.counts?.teachingImages !== 11) errors.push("manifest does not count exactly eleven active purpose-built teaching visuals");
   if (manifest.counts?.cumulativeSystemMaps !== 0) errors.push("manifest still counts rejected cumulative maps as active");
   if (manifest.gates?.visualTeachingLayer !== "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest does not preserve Ali's rejection and quarantine of the visual teaching layer");
   if (manifest.gates?.chapterOnePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 purpose-built visual status");
@@ -216,6 +222,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.gates?.chapterEightPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 8 purpose-built visual status");
   if (manifest.gates?.chapterNinePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 9 purpose-built visual status");
   if (manifest.gates?.chapterTenPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 10 purpose-built visual status");
+  if (manifest.gates?.chapterElevenPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 11 purpose-built visual status");
   const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
   for (const gate of ["representativeTeachingVisual", "chapterOneDecisionSeam", "chapterFourTokenProof", "chapterTwoJobFamily", "chapterThreeDataLifecycle", "chapterFiveTrainingLoop", "chapterSevenRequestJourney", "chapterEightContextRetrieval", "chapterNineCustomisationDecision"]) {
     if (manifest.gates?.[gate] !== rejectedRepresentativeStatus) errors.push(`manifest does not preserve rejection of ${gate}`);
@@ -282,6 +289,12 @@ export function inspectBook(pilotDir = ownDir) {
     "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch10-product-around-model-mobile-v1.png",
   ]);
   if (chapterTenVisualArtifacts.length !== 2 || chapterTenVisualArtifacts.some(artifact => !allowedChapterTenVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 10 visual assets");
+  const chapterElevenVisualArtifacts = (manifest.artifacts || []).filter(artifact => /\/ch11-safety-layers-/.test(artifact.path));
+  const allowedChapterElevenVisuals = new Set([
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch11-safety-layers-desktop-v1.png",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch11-safety-layers-mobile-v1.png",
+  ]);
+  if (chapterElevenVisualArtifacts.length !== 2 || chapterElevenVisualArtifacts.some(artifact => !allowedChapterElevenVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 11 visual assets");
   if (count(JSON.stringify(manifest.artifacts || []), /ch06-bicycle-tree-learning-image\.png/g) !== 0) errors.push("manifest still binds a rejected Chapter 6 visual asset as active");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
@@ -298,5 +311,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.error(`AI FUNDAMENTALS BOOK CHECK FAIL\n- ${result.errors.join("\n- ")}`);
     process.exit(1);
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 technical_clarifications=48 teaching_images=10 chapter_turns=20 parts=9");
+  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 technical_clarifications=56 teaching_images=11 chapter_turns=20 parts=9");
 }

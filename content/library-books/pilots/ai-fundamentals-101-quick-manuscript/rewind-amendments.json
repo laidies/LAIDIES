@@ -456,6 +456,62 @@
       "mode": "replace",
       "anchor": "**Guardrails** — Filters checking input and output for safety, policy compliance, and quality. Applied on both sides of the model.",
       "copy": "**Guardrails** — Product checks or rules that may inspect an input, a proposed action or an output for a defined risk or policy. Their placement and coverage vary, and they do not guarantee a safe or correct result."
+    },
+    {
+      "id": "CORRECT-AIF-CH11-GUARDRAIL-TERM-NOT-UNIVERSAL",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "| **Guardrails** | Runtime safety systems that check inputs and outputs against policies — blocking harmful, off-topic, or non-compliant content before it reaches you |",
+      "copy": "| **Guardrails** | Product checks or rules that may inspect an input, a proposed action or an output and then allow, refuse, limit, redact or escalate it. Their coverage varies, and they can miss or over-block. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH11-SAFETY-NOT-ONLY-AROUND-MODEL",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "Safety isn't built into the architecture — it has to be built around it.",
+      "copy": "Safety is not one switch inside or outside the model. Training can shape behaviour; the product can supply rules, restrict tools and data, check inputs or outputs, monitor use and involve people. Each control addresses particular risks, and each has limits."
+    },
+    {
+      "id": "CORRECT-AIF-CH11-THREE-ACTIVITIES-NOT-LAYERS",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "This chapter covers three distinct layers of keeping AI systems safe:\n\n1. **Alignment** — shaping the model's behaviour through training (RLHF, Chapter 9)\n2. **Guardrails** — runtime filters that check every input and output\n3. **Red-teaming** — adversarial testing to find what gets through",
+      "copy": "This chapter covers three different safety activities:\n\n1. **Behaviour shaping** — training intended to make some responses and refusals more likely\n2. **Runtime controls** — product rules, permissions and checks that may inspect or restrict inputs, outputs, data or actions\n3. **Red-teaming and evaluation** — testing the system to discover failures; this does not sit in every live request path"
+    },
+    {
+      "id": "CORRECT-AIF-CH11-GUARDRAIL-RUNTIME-DEFINITION",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "Guardrails are systems that sit between the user and the model — checking what goes in and what comes out. They don't change the model. They control traffic.",
+      "copy": "In this chapter, **guardrail** means a runtime product control rather than a change to the model's trained weights. A product may inspect a request, supplied data, a proposed tool action or a generated draft, then allow, refuse, limit, redact or escalate it. Not every product uses every check, and a check can miss a problem or block a legitimate request."
+    },
+    {
+      "id": "CORRECT-AIF-CH11-OUTPUT-CHECK-NOT-VERIFY",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "- Verify compliance with topic boundaries (\"only answer questions about our products\")\n- Flag potential hallucinations (optional — harder to detect reliably)",
+      "copy": "- Check for topic-boundary violations (for example, a support tool answering outside its allowed subject)\n- In some systems, compare claims with supplied sources or other evidence; there is no simple filter that reliably detects every false statement"
+    },
+    {
+      "id": "CORRECT-AIF-CH11-GUARDRAIL-MECHANISMS-VARY",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "**How they work technically:** Most guardrails are themselves AI models — classifiers trained to detect specific categories of content. The input goes through a fast classifier that flags or blocks before the main model ever runs. The output goes through another classifier after generation.",
+      "copy": "**How they can work technically:** A product can combine rules, exact-match checks, allowlists, data-loss-prevention scanners, specialised classifiers, permission gates and human workflows. Some checks run before a model call, some after a draft, and some only around tools or sensitive data. The result may be allow, refuse, redact, restrict, ask for more context or send a flagged case for review."
+    },
+    {
+      "id": "CORRECT-AIF-CH11-DEFENCE-IN-DEPTH-NOT-ONE-SEQUENCE",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "**The layered approach (defence in depth, 2026 standard):**\n\n1. Input guards (block bad requests)\n2. System prompt constraints (tell the model what to refuse)\n3. RLHF alignment (the model trained to refuse intrinsically)\n4. Output guards (catch anything that slipped through)\n5. Human review queues (for edge cases and monitoring)\n\nNo single layer is sufficient. They work together.",
+      "copy": "**Defence in depth:** A product can combine behaviour-shaping training, supplied rules, data and tool permissions, input or output checks, monitoring, incident response and selective human review. These are not one universal five-step conveyor: some influence generation, some restrict what the wider system can do, and some test or investigate what happened. No single control is sufficient, and adding layers does not guarantee safety."
+    },
+    {
+      "id": "CORRECT-AIF-CH11-WORKED-SAFETY-JOURNEY",
+      "chapter": 11,
+      "mode": "replace",
+      "anchor": "> ⏸️ **\"But what does this look like in action? What actually happens to my message?\"**\n>\n> You type: \"How do I make a birthday cake for my daughter?\" Here's the full journey — every layer, in order:\n>\n> 1. **Input guard fires.** A fast classifier scans your message in ~5ms. Checks against categories: violence? No. Self-harm? No. Illegal activity? No. PII exposure? No. **Result: PASS.** Message proceeds.\n>\n> 2. **System prompt loaded.** The model receives hidden instructions: \"You are a helpful assistant. Refuse to help with illegal activities, violence, or content involving minors in sexual contexts. Today's date is August 15, 2026.\"\n>\n> 3. **Model generates response.** The language model (with RLHF alignment baked into its weights) produces a birthday cake recipe. Its training makes it naturally helpful for benign requests.\n>\n> 4. **Output guard fires.** A second classifier scans the generated response. Contains recipe instructions? Fine. Contains personal information about a real person? No. Contains harmful content? No. **Result: PASS.**\n>\n> 5. **Response delivered to you.** Total added latency from safety layers: ~20ms. You never noticed.\n>\n> Now imagine a different message: \"How do I pick the lock on my neighbor's door?\"\n>\n> 1. **Input guard:** Borderline. Lock-picking isn't inherently illegal (locksmiths exist). The classifier flags it as *elevated risk* but doesn't block. **Result: FLAG + PASS.**\n>\n> 2. **System prompt:** Contains \"refuse illegal activities\" — but the model has to decide whether this is illegal intent or legitimate curiosity.\n>\n> 3. **Model generates.** RLHF kicks in. The model was trained on preference pairs where \"refuses to help with breaking into homes\" was rated higher than \"provides lock-picking instructions.\" It generates a refusal: \"I can't help with accessing someone else's property without permission. If you're locked out of your own home, here's how to contact a locksmith...\"\n>\n> 4. **Output guard:** Scans the refusal. Contains no harmful instructions. **PASS.**\n>\n> 5. **Delivered.** The model's alignment training handled this one — the guardrails didn't need to block because the model itself refused.\n>\n> **The key insight:** Most safe interactions never trigger a hard block. The guardrails are invisible safety nets. You only see them when they catch something — and by design, you rarely do.",
+      "copy": "> ⏸️ **\"What can different layers catch?\"**\n>\n> Imagine one product receiving two ordinary-looking requests. \"Make this email clearer\" may pass an input check, reach a model influenced by supplied rules and training, pass an output check and be delivered.\n>\n> \"Summarise these notes\" may also pass the input check. Suppose the generated draft repeats a private phone number from the notes. In this worked example, an output check detects that detail and the product holds or redacts the draft. Some flagged cases may then reach a person; others may be handled automatically. A different request might be refused earlier.\n>\n> The point is not that this exact route runs everywhere or always works. It shows why controls inspect different parts of the journey. An input check cannot inspect a draft that does not exist yet. An output check can still miss private or harmful material, and it can wrongly block harmless material. Layers reduce particular risks; they do not prove the final result is safe or correct."
     }
   ],
   "sprinkles": [

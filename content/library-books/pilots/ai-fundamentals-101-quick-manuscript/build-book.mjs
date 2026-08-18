@@ -46,6 +46,8 @@ const paths = {
   chapterNineTrainingMobile: path.join(pilotDir, "assets/ch09-train-model-version-mobile-v2.png"),
   chapterTenPurposeBuiltDesktop: path.join(pilotDir, "assets/ch10-product-around-model-desktop-v1.png"),
   chapterTenPurposeBuiltMobile: path.join(pilotDir, "assets/ch10-product-around-model-mobile-v1.png"),
+  chapterElevenPurposeBuiltDesktop: path.join(pilotDir, "assets/ch11-safety-layers-desktop-v1.png"),
+  chapterElevenPurposeBuiltMobile: path.join(pilotDir, "assets/ch11-safety-layers-mobile-v1.png"),
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
@@ -424,6 +426,8 @@ const chapterNinePurposeBuiltVisualActive = true;
 const chapterNinePurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const chapterTenPurposeBuiltVisualActive = true;
 const chapterTenPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
+const chapterElevenPurposeBuiltVisualActive = true;
+const chapterElevenPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const representativeTeachingVisualActive = false;
 const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
 const representativeTeachingVisualStatus = rejectedRepresentativeStatus;
@@ -549,6 +553,16 @@ function renderChapterTenPurposeBuiltVisual() {
     <img src="assets/ch10-product-around-model-desktop-v1.png" alt="A woman asks an AI product whether she can return shoes. The product wrapper receives her message and an input checkpoint checks it. Four external context cards—system instructions, relevant chat, a 30-day return policy and the current date—sit in four separate harness slots and become one current model input. A dashed optional router sends a model selection back to the harness; the solid route carries the assembled input from the harness to that model. The model generates an answer, an output checkpoint checks it and the wrapper shows it to the reader." loading="lazy" decoding="async">
   </picture>
   <figcaption id="ch10-purpose-built-caption"><strong>The model is one part of the product:</strong> the wrapper receives and displays; the harness assembles whatever instructions and relevant context the product supplies; an optional router may select a model; the model generates; and separate product checks may inspect the input and output. The exact layers vary by product, and a check does not guarantee a correct or safe answer.</figcaption>
+</figure>`;
+}
+
+function renderChapterElevenPurposeBuiltVisual() {
+  return `<figure id="ch11-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch11-layered-safety-journey" aria-describedby="ch11-purpose-built-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch11-safety-layers-mobile-v1.png">
+    <img src="assets/ch11-safety-layers-desktop-v1.png" alt="Two requests travel through several safety layers around one model. A request to make an email clearer passes an input check, reaches a model influenced by system rules and trained behaviour, passes an output check and is delivered. A request to summarise notes also passes the input check, but its generated draft contains a private number. In this worked example, the output check catches that problem and routes the draft to hold or redact. Some flagged cases may then receive human review. Other requests may be refused. No single layer catches everything." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch11-purpose-built-caption"><strong>Safety is layered because different checks see different parts of the journey:</strong> an input check can inspect a request; supplied rules and training can influence what the model generates; an output check can inspect the draft; and the product can deliver, refuse, redact or hold it. Some flagged cases may reach a person. Each layer can miss, misclassify or over-block, so none proves the final result is safe or correct.</figcaption>
 </figure>`;
 }
 
@@ -1203,6 +1217,12 @@ function buildReviewPage(source, fragment, manuscript) {
     if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 10.7 purpose-built visual placement anchor");
     mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterTenPurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
   }
+  if (chapterElevenPurposeBuiltVisualActive) {
+    const purposeBuiltAnchor = '<aside class="callout callout-question"><p>⏸️ <strong>"What can different layers catch?"</strong>';
+    const purposeBuiltInsertion = mainFragment.indexOf(purposeBuiltAnchor);
+    if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 11.2 purpose-built visual placement anchor");
+    mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterElevenPurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
+  }
   if (visualTeachingLayerActive) {
     for (const asset of chapterOneTeachingAssets) {
       const anchorIndex = mainFragment.indexOf(asset.anchor);
@@ -1401,7 +1421,7 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 #ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual,#ch06-purpose-built-visual,#ch07-purpose-built-visual,#ch08-purpose-built-visual,#ch09-purpose-built-visual,#ch10-purpose-built-visual{width:calc(100% + 12rem);margin-left:-6rem}
 .chapter-ahead{background:#fff;box-shadow:6px 6px 0 #aeeaf4}
 .chapter-ahead-body{padding:1.15rem;background:#fff}
-@media(max-width:850px){.purpose-built-teaching-visual,#ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual,#ch06-purpose-built-visual,#ch07-purpose-built-visual,#ch08-purpose-built-visual,#ch09-purpose-built-visual,#ch10-purpose-built-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
+@media(max-width:850px){.purpose-built-teaching-visual,#ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual,#ch06-purpose-built-visual,#ch07-purpose-built-visual,#ch08-purpose-built-visual,#ch09-purpose-built-visual,#ch10-purpose-built-visual,#ch11-purpose-built-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
 .chapter-ahead .callout-objective{margin:0 0 1.25rem;padding:1.2rem 1.35rem;background:#e5f8ff;box-shadow:none}
 .chapter-ahead .callout-objective p{font-size:21px;line-height:1.35}
 .chapter-ahead .callout-objective ul{gap:.75rem 1.6rem}
@@ -1504,7 +1524,7 @@ ${teachingVisualCss}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Ten replacement teaching visuals in Chapters 1–10 have passed maker and independent desktop/mobile inspection. None has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Eleven replacement teaching visuals in Chapters 1–11 have passed maker and independent desktop/mobile inspection. None has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -1577,6 +1597,7 @@ const artifactPaths = [
   ...(chapterEightPurposeBuiltVisualActive ? [paths.chapterEightPurposeBuiltDesktop, paths.chapterEightPurposeBuiltMobile] : []),
   ...(chapterNinePurposeBuiltVisualActive ? [paths.chapterNineRequestDesktop, paths.chapterNineRequestMobile, paths.chapterNineTrainingDesktop, paths.chapterNineTrainingMobile] : []),
   ...(chapterTenPurposeBuiltVisualActive ? [paths.chapterTenPurposeBuiltDesktop, paths.chapterTenPurposeBuiltMobile] : []),
+  ...(chapterElevenPurposeBuiltVisualActive ? [paths.chapterElevenPurposeBuiltDesktop, paths.chapterElevenPurposeBuiltMobile] : []),
   ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook] : []),
   ...(representativeTeachingVisualActive ? [paths.chapterSixBicycleTree] : []),
 ];
@@ -1596,7 +1617,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
-    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive) + Number(chapterSevenPurposeBuiltVisualActive) + Number(chapterEightPurposeBuiltVisualActive) + Number(chapterNinePurposeBuiltVisualActive) + Number(chapterTenPurposeBuiltVisualActive),
+    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive) + Number(chapterSevenPurposeBuiltVisualActive) + Number(chapterEightPurposeBuiltVisualActive) + Number(chapterNinePurposeBuiltVisualActive) + Number(chapterTenPurposeBuiltVisualActive) + Number(chapterElevenPurposeBuiltVisualActive),
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,
@@ -1622,6 +1643,7 @@ const manifest = {
     chapterEightPurposeBuiltVisual: chapterEightPurposeBuiltVisualStatus,
     chapterNinePurposeBuiltVisual: chapterNinePurposeBuiltVisualStatus,
     chapterTenPurposeBuiltVisual: chapterTenPurposeBuiltVisualStatus,
+    chapterElevenPurposeBuiltVisual: chapterElevenPurposeBuiltVisualStatus,
     representativeTeachingVisual: representativeTeachingVisualStatus,
     chapterOneDecisionSeam: chapterOneDecisionSeamStatus,
     chapterFourTokenProof: chapterFourTokenProofStatus,

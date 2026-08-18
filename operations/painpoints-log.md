@@ -14910,3 +14910,30 @@ while remaining falsely unfinished in the launch record.
   arrow can teach a false system—and why changing the diagram grammar worked
   better than asking for another edit.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-471 — If the qualifier is tiny, the diagram can teach the opposite rule
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 11 layered-safety illustration.
+- **Failure:** The first independently reviewed pair showed the right route but
+  made `PRIVATE NUMBER` too small to explain why the second draft was held. On
+  mobile, `SOME FLAGGED CASES` was also too small, inviting the false inference
+  that every flagged response reaches human reviewers. One image edit also
+  changed `these` to `thess` while repairing an unrelated label.
+- **Root cause:** The maker initially judged the overall composition rather
+  than measuring whether the two words that carry the exception and causal
+  reason survived at actual reader size. Generative editing also treated
+  supposedly preserved lettering as mutable.
+- **Prevention rule:** Before independent review, identify the smallest words
+  that carry a reason, exception, uncertainty or limitation and inspect those
+  exact pixels at intended size. After every image edit, reread every visible
+  word—not only the requested edit—because preservation instructions do not
+  make generated lettering deterministic.
+- **Durable correction:** Both successor assets use a large `PRIVATE NUMBER IN
+  DRAFT` callout; the mobile review station uses a large `SOME FLAGGED CASES /
+  HUMAN REVIEW` sign. The introduced spelling regression was corrected before
+  integration. Independent artifact-first re-review passed both exact hashes.
+- **Possible Behind the Build angle:** The tiny word that turned a careful
+  safety lesson into a misleading promise—and why every image edit gets a full
+  reread.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
