@@ -30,46 +30,40 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 11 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 12 purpose-built proof
 
-- **Outcome:** Chapter 11 now contains one responsive teaching illustration
-  after the defence-in-depth explanation in section 11.2. Two requests move
-  through the same product: the first is delivered; the second produces a draft
-  containing a private number, which the example's output check sends to
-  hold/redact. The product can also refuse, and only some flagged cases are
-  associated with human review.
-- **Rejected predecessors:** the first phone asset gave human review two dotted
-  origins. The first independently reviewed pair then made `PRIVATE NUMBER` too
-  small on both viewports and the phone qualifier `SOME FLAGGED CASES` too small
-  to block a universal-review inference. Those exact hashes remain rejected.
-  The accepted successors enlarge both causal claims and retain one selective
-  review association.
-- **Accuracy correction:** eight nearby Chapter 11 statements are replaced
-  through the source-bound amendment layer. The corrections remove claims that
-  every input/output is filtered, that most guardrails are classifiers, that
-  one universal five-step safety path or fixed latency exists, and that
-  red-teaming is a live request layer. They distinguish behaviour shaping,
-  runtime controls and evaluation. The book now contains 56 technical
-  clarifications in total.
-- **Viewport proof:** at 1280×720 the desktop image renders at
-  767.61×432.01px. At 390×844 the separate mobile image renders at
+- **Outcome:** Chapter 12 now contains one responsive evidence-to-release
+  illustration after section 12.5. The same model update goes to three separate
+  evaluations: a public benchmark, a blind human comparison and a product-use
+  eval. The first two improve, but one customer-support task regresses, so all
+  three results feed `HOLD / FIX + RETEST` rather than a release decision based
+  on one headline score.
+- **Accuracy correction:** twenty-five Chapter 12 statements are corrected
+  through the source-bound amendment layer. The fabricated Claude Fable 5
+  leaderboard and stale dynamic scores are removed. Benchmarks, human
+  preference, contamination, LLM judges and use-case evals now keep their
+  evidence limits. The book contains 81 technical clarifications in total.
+- **Viewport proof:** at 1280×720 the enlarged desktop image renders at
+  895.61×504.05px. At 390×844 the separate mobile image renders at
   355.21×631.15px. Both have zero horizontal document overflow. The real
-  reader pixels were inspected at both viewports after the repair.
-- **Independent review:** the first review returned HOLD for the two critical
-  label-size defects. Artifact-first re-review passed the exact successors,
-  confirming readable reasons, selective human review, truthful green/pink
-  routes, equivalent meaning, correct spelling and no clipping or guarantee.
+  reader pixels were inspected at both viewports.
+- **Independent review:** PASS. Artifact-first inspection confirmed one update
+  branches to three parallel tests, all results reach one release decision,
+  the regression defeats the higher general score, no station-to-station
+  sequence is implied, and critical labels remain readable without clipping.
 - **Exact assets:** desktop
-  `8abdc8ff1bc3b7166042bcceb776d3e5e4189037ace2625449896de1590e0276`;
+  `9eaff9bb511416df6c3521f28628608653e94ec10601e0eccc416db1fbbad17d`;
   mobile
-  `6c3f60f5f6ed0ff9d6946b3228ac261a08c31e843ed8f0f7207f049697533710`.
-- **Verification:** build PASS; calibrated book checker PASS, including
-  deliberate missing-Chapter-11-mobile and returned-universal-guardrail
-  failures; `git diff --check` PASS.
-- **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
-  NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** bind the exact Chapter 11 commit, then produce Chapter 12's
-  evidence-to-release illustration without publishing dynamic leaderboards.
+  `1b895afe4f6af61b3c1f277eb2754a77a40eebffaf949b499d565546f51132a7`.
+- **Verification:** build PASS; calibrated checker PASS, including deliberate
+  missing-Chapter-12-mobile and returned-fabricated-leaderboard failures;
+  `git diff --check` PASS.
+- **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / INDEPENDENT REVIEW
+  PASS / PENDING ALI REVIEW / NOT PUBLISHED. The rejected CSS and Python visual
+  layer remains quarantined.
+- **Next:** bind the exact Chapter 12 commit, then produce Chapter 13's
+  autonomy-by-consequence illustration without publishing or scaling an
+  unreviewed visual pattern.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

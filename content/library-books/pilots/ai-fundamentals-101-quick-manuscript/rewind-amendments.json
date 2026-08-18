@@ -512,6 +512,181 @@
       "mode": "replace",
       "anchor": "> ⏸️ **\"But what does this look like in action? What actually happens to my message?\"**\n>\n> You type: \"How do I make a birthday cake for my daughter?\" Here's the full journey — every layer, in order:\n>\n> 1. **Input guard fires.** A fast classifier scans your message in ~5ms. Checks against categories: violence? No. Self-harm? No. Illegal activity? No. PII exposure? No. **Result: PASS.** Message proceeds.\n>\n> 2. **System prompt loaded.** The model receives hidden instructions: \"You are a helpful assistant. Refuse to help with illegal activities, violence, or content involving minors in sexual contexts. Today's date is August 15, 2026.\"\n>\n> 3. **Model generates response.** The language model (with RLHF alignment baked into its weights) produces a birthday cake recipe. Its training makes it naturally helpful for benign requests.\n>\n> 4. **Output guard fires.** A second classifier scans the generated response. Contains recipe instructions? Fine. Contains personal information about a real person? No. Contains harmful content? No. **Result: PASS.**\n>\n> 5. **Response delivered to you.** Total added latency from safety layers: ~20ms. You never noticed.\n>\n> Now imagine a different message: \"How do I pick the lock on my neighbor's door?\"\n>\n> 1. **Input guard:** Borderline. Lock-picking isn't inherently illegal (locksmiths exist). The classifier flags it as *elevated risk* but doesn't block. **Result: FLAG + PASS.**\n>\n> 2. **System prompt:** Contains \"refuse illegal activities\" — but the model has to decide whether this is illegal intent or legitimate curiosity.\n>\n> 3. **Model generates.** RLHF kicks in. The model was trained on preference pairs where \"refuses to help with breaking into homes\" was rated higher than \"provides lock-picking instructions.\" It generates a refusal: \"I can't help with accessing someone else's property without permission. If you're locked out of your own home, here's how to contact a locksmith...\"\n>\n> 4. **Output guard:** Scans the refusal. Contains no harmful instructions. **PASS.**\n>\n> 5. **Delivered.** The model's alignment training handled this one — the guardrails didn't need to block because the model itself refused.\n>\n> **The key insight:** Most safe interactions never trigger a hard block. The guardrails are invisible safety nets. You only see them when they catch something — and by design, you rarely do.",
       "copy": "> ⏸️ **\"What can different layers catch?\"**\n>\n> Imagine one product receiving two ordinary-looking requests. \"Make this email clearer\" may pass an input check, reach a model influenced by supplied rules and training, pass an output check and be delivered.\n>\n> \"Summarise these notes\" may also pass the input check. Suppose the generated draft repeats a private phone number from the notes. In this worked example, an output check detects that detail and the product holds or redacts the draft. Some flagged cases may then reach a person; others may be handled automatically. A different request might be refused earlier.\n>\n> The point is not that this exact route runs everywhere or always works. It shows why controls inspect different parts of the journey. An input check cannot inspect a draft that does not exist yet. An output check can still miss private or harmful material, and it can wrongly block harmless material. Layers reduce particular risks; they do not prove the final result is safe or correct."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-BENCHMARK-TERM",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "| **Benchmark** | A standardised test given to every model in the same way — a fixed set of questions with known correct answers, used to compare models |",
+      "copy": "| **Benchmark** | A shared evaluation task or suite used to compare systems. Some have fixed questions and automatic answers; others test generated code, images or human preferences. A fair comparison must use the same benchmark version and compatible settings. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-CONTAMINATION-TERM",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "| **Contamination** | When a model's training data accidentally includes the benchmark questions — making scores meaningless |",
+      "copy": "| **Contamination** | When evaluation questions or close copies appear in training or development material. That can inflate or distort a score, so the result needs investigation rather than automatic trust. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-OPENING-HYPOTHETICAL",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "In February 2024, a model update rolled out to a popular AI coding assistant. Benchmark scores went up. The company announced improvements. And within days, developers started flooding forums with complaints: \"It's gotten *worse.* It used to handle my React codebase perfectly — now it introduces bugs.\"\n\nThe model scored higher on every standardised test. And it was worse at the thing people actually used it for.",
+      "copy": "Imagine an AI product update that scores higher on a general test but now mishandles one task its users rely on—perhaps a support bot that still finds the refund policy but has started responding badly to angry customers. Both results can be true. The general score measures one slice; the failed customer task measures another.\n\nThat is the practical problem this chapter solves: **what evidence would justify releasing an update for the job people actually need it to do?**"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-THREE-EVIDENCE-TYPES",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "The field has developed three approaches, each with strengths and weaknesses — and none sufficient alone:\n\n1. **Benchmarks** — standardised tests, automatically scored\n2. **Human evaluation** — people rating outputs, expensive but captures quality\n3. **Custom evals** — company-specific tests for specific behaviours",
+      "copy": "Teams usually combine several kinds of evidence, because each answers a different question:\n\n1. **Public benchmarks** — how did the system perform on a shared test of a particular capability?\n2. **Human comparison** — which response did people prefer under a stated rubric and sample?\n3. **Use-case evals** — can this exact product still do the tasks and avoid the failures that matter here?\n\nThese categories can overlap. A use-case eval may be scored by rules, people, another model or a combination."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-BENCHMARK-DEFINITION",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "A benchmark is a fixed set of questions or tasks, given to every model under identical conditions, scored automatically. Think of it as a standardised exam for AI.",
+      "copy": "A benchmark is a shared test used to compare systems on a defined capability. MMLU uses multiple-choice questions across 57 subjects. SWE-bench gives a system a real software issue and checks whether its proposed patch passes repository tests. Other benchmarks use different tasks or human judgments. The score is comparable only when the benchmark version, instructions, tools, settings and scoring method are compatible."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-REMOVE-FABRICATED-LEADERBOARD",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**How models compare (July 2026):** Claude Fable 5 currently leads the most benchmarks (MMLU-Pro 91.5%, SWE-bench Verified 95.0%, Chatbot Arena 1509 Elo). But no single model wins everything — different models have different strengths.",
+      "copy": "**Do not turn a leaderboard into a universal ranking.** Scores change as models, benchmark versions and evaluation settings change. A model can lead one test and lose another because the tests ask different questions. For a current comparison, use the benchmark's official results and read the exact evaluation setup—not a recycled headline or an old number in a textbook."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-MMLU-WORKED-EXAMPLE",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "> ⏸️ **\"But what does a benchmark test actually look like? What's it doing?\"** Here's a real example from MMLU (Massive Multitask Language Understanding). The model gets a multiple-choice question:\n> ```\n> Question: What is the embryological origin of the hy__(anatomy)__?\n> A) First pharyngeal arch\n> B) Second pharyngeal arch\n> C) Third pharyngeal arch\n> D) Fourth pharyngeal arch\n> \n> ```\n> (You're not supposed to know the answer — the point is that the model is being tested on expert-level questions across dozens of fields.) The model picks an answer. A script checks whether it picked the correct one (B). That's it — one question scored. Now repeat this 14,000 times across 57 different subjects (anatomy, philosophy, law, history, maths, computer science...) and calculate the percentage it got right. The benchmark score — \"91.5% on MMLU-Pro\" — means the model answered 91.5% of ~12,000 expert-level multiple-choice questions correctly across all subjects. That's the whole thing: standardised exam, automated grading, percentage score. SWE-bench works differently: instead of multiple choice, it gives the model a real bug from a real open-source project on GitHub and says \"fix it.\" Then it runs the project's actual test suite to check if the fix works. \"95%\" means the model successfully fixed 95% of the bugs. Different benchmarks test different things in different formats — but they all follow the same principle: give the model a fixed set of tasks, score the outputs automatically, compare across models.",
+      "copy": "> ⏸️ **\"What does a benchmark actually do?\"**\n>\n> In MMLU, the system answers multiple-choice questions drawn from 57 academic and professional subjects. The evaluator compares each selected option with the answer key and calculates accuracy. That result describes performance on those questions under that setup; it does not prove the system can perform every real task in those fields.\n>\n> SWE-bench tests something different. It supplies a code repository and a real reported software issue, asks the system to propose a patch and runs tests to see whether the patch resolves the issue without breaking required behaviour. The exact dataset and evaluation harness matter.\n>\n> These are both benchmarks, but they do not measure the same skill. The useful question is not just \"What was the score?\" It is \"What task produced that score, under which rules, and does that task resemble mine?\""
+    },
+    {
+      "id": "CORRECT-AIF-CH12-BENCHMARKS-NOT-OBJECTIVE-TRUTH",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "Benchmarks are useful for the same reason standardised tests are useful in education: everyone takes the same test, it's objective, it's reproducible, and you can compare results cleanly. \"Model A scored 85%, Model B scored 91%\" — that's unambiguous.",
+      "copy": "Benchmarks are useful because they turn a broad claim into a repeatable task and a visible result. If two systems use the same version and compatible settings, the comparison can be informative. But the score is not objective truth about which model is \"best\": people chose the questions, scoring rules and conditions, and those choices determine what the test can see."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-CONTAMINATION-EFFECT",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**1. Teaching to the test (Contamination).** If the benchmark questions appeared in the model's training data — which is increasingly likely as training datasets grow to include most of the internet — you're not testing ability. You're testing memory. The model saw the answers during training and is recalling them, not reasoning. It's like a student who memorised past exam papers: they'll ace the test without understanding the material. And because training datasets are so massive and opaque, it's often impossible to prove whether contamination happened.",
+      "copy": "**1. Exposure to the test (Contamination).** If evaluation questions—or very close versions—appeared in training or development material, the score may partly reflect familiarity rather than transfer to a new problem. That can inflate or otherwise distort the result. It does not let us see inside the model and label every correct answer \"memory\" or \"reasoning\"; it tells us the evaluation no longer cleanly answers the question we thought it did."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-HUMAN-EVAL-HEADING",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "## 12.4 — Human Evaluation: The Gold Standard (And Its Cost)",
+      "copy": "## 12.4 — Human Evaluation: Useful Judgment, Not a Universal Answer"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-HUMAN-EVAL-MECHANISM",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "The most reliable way to measure quality is to have humans evaluate the output. This is what **Chatbot Arena** does: users chat with two anonymous models side-by-side and vote for whichever response they prefer. Over millions of votes, this produces an Elo rating (like chess rankings) that captures overall quality as perceived by real users.\n\n**How Elo scoring works (the mechanism):** You've seen Elo in chess — if a grandmaster beats a beginner, their rating barely moves (expected). If the beginner wins, both ratings move a lot (surprise). Chatbot Arena uses the same system: when an unknown model beats one rated 1500, and users consistently prefer it, its score climbs. Over millions of matchups, every model settles at a rating that reflects its strength relative to the field. It's self-correcting — a single fluke doesn't move the score much, but consistent quality does.",
+      "copy": "Human evaluation is useful when a task involves judgment that an answer key cannot capture. In a blind pairwise comparison, a person sees two responses without being told which model produced them and chooses one under a stated question or rubric. Repeating that process across many prompts and people can reveal preference patterns.\n\nA preference result is still evidence about the sampled prompts, raters and rubric—not proof that the winning response is true, safe or best for every reader. Position, style, length, subject knowledge and the people who chose to vote can all affect the result. Platforms also change their ranking methods, so use their current methodology rather than assuming one permanent chess-style formula."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-HUMAN-EVAL-BENEFITS",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**Why human evaluation is better:**\n\n- Captures nuance that automated scoring can't (tone, helpfulness, creativity)\n- Reflects what users actually care about\n- Not gameable in the same way (you can't optimise for every possible human preference)",
+      "copy": "**What human evaluation can add:**\n\n- Judgments about tone, usefulness, clarity or creativity that a simple answer key may miss\n- Direct evidence from the people and situations included in the sample\n- Explanations of *why* a response worked or failed when the review asks for reasons\n\nIt can still be biased, manipulated or optimised for, so the rubric, sample and reviewer expertise matter."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-HYBRID-AND-JUDGE",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**The hybrid approach (2026 standard):** Use automated benchmarks for fast/broad comparison, then human evaluation for the nuanced quality assessment that actually matters. Many companies also use a third approach: using a *separate AI model* as the judge (\"Is response A or response B better?\") — called **LLM-as-judge**. It's faster and cheaper than human evaluation but introduces its own biases.",
+      "copy": "**Combine evidence according to the risk.** A team might use automatic checks for format and known-answer tasks, human review for nuanced or high-consequence samples, and use-case tests for the actual product journey. Some teams use a separate model to score outputs—often called **LLM-as-judge**—but that judge can have systematic preferences and can be fooled. Its rubric and results need validation against appropriate human judgments before it is trusted for a decision."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-EVAL-SCORING-NOT-INFALLIBLE",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "You run all 50 through the system. A script (or a judge model) checks each response against its pass/fail criteria. The result: \"47/50 passed. Failed: #14 (gave a public office address — technically not home, but borderline), #37 (gave general info before the disclaimer), #42 (wrong product category).\"",
+      "copy": "You run all 50 through the system. Exact rules can check some behaviours, such as whether required structured fields exist. People may need to judge qualities such as empathy or whether a refusal was appropriate. A judge model can help with volume, but its decisions are estimates that must be checked against a trusted human-labelled sample. The result might be: \"47/50 met the current criteria; review the three failures and the scoring method before release.\""
+    },
+    {
+      "id": "CORRECT-AIF-CH12-TRY-THIS",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "- Is there a Chatbot Arena score? (Harder to game.)",
+      "copy": "- Is there a human-preference result? If so, who judged which prompts under what rubric—and does preference answer the claim being made?"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-QUICK-REFERENCE",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "> 📖 **Key Terms — Quick Reference** **Benchmark** — A standardised test for AI. Fixed questions, automatic scoring, comparable across models. Useful but limited: contamination, saturation, gaming, narrow scope. **MMLU** — Multi-subject knowledge test (57 topics). Becoming saturated — frontier models all score 85%+. **SWE-bench** — Coding benchmark using real GitHub issues. Tests whether generated code actually passes the repository's own test suite. **Chatbot Arena** — Human preference evaluation. Users vote between two anonymous model responses. Produces Elo rankings. Harder to game than automated benchmarks. **Evals** — Custom tests for specific use cases and behaviours. Built by the team deploying the AI. The most relevant evaluation for real products. **Regression testing** — Did the update break something? Run the same tests before and after any change. **LLM-as-judge** — Using a separate AI model to evaluate outputs. Faster and cheaper than human evaluation but introduces its own biases. **Contamination** — Benchmark questions appearing in training data. Makes scores unreliable. An increasing problem as datasets grow.",
+      "copy": "> 📖 **Key Terms — Quick Reference** **Benchmark** — A shared evaluation task or suite. Compare scores only when the version and settings are compatible, and ask whether the tested task resembles yours. **MMLU** — A multiple-choice benchmark covering 57 academic and professional subjects. **SWE-bench** — A software-engineering benchmark that asks systems to resolve real repository issues and checks proposed patches with tests. **Human comparison** — People compare outputs under a stated question or rubric; preference is not proof of truth. **Evals** — Tests for specific use cases and behaviours, scored by rules, people, models or combinations. **Regression testing** — Re-run relevant tests after a change to find something that previously worked and now fails. **LLM-as-judge** — Using a model to score outputs; faster at scale, but fallible and in need of validation. **Contamination** — Evaluation material appearing in training or development data, which can distort the result."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-OPEN-ENDED-SOFTWARE-BOUNDARY",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "This is the fundamental problem of AI evaluation: **how do you measure \"good\"?** With traditional software, testing is straightforward — does the button work? Does the calculation produce the right number? There's a correct answer. With generative AI, a question like \"Explain quantum computing to a 10-year-old\" has infinite valid responses. Some are brilliant. Some are terrible. Most are somewhere in between. And the same model might be brilliant at that question and terrible at summarising your specific company's legal documents.",
+      "copy": "Many software tests have an exact expected result: did the calculation return the right number, or did the button complete the intended action? Generative work often adds open-ended qualities. Two explanations can both be factually correct while differing in clarity, tone and usefulness for one reader. The same model may explain one topic well and mishandle your organisation's documents. Evaluation therefore has to define which job and which qualities count—not just ask whether the output exists."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-BENCHMARK-TABLE-HEADING",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**Major benchmarks (2026):**",
+      "copy": "**Examples of benchmark families:**"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-HLE-DESCRIPTION",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "| **Humanity's Last Exam** | The hardest possible questions across all domains | Designed to be nearly impossible for current models |",
+      "copy": "| **Humanity's Last Exam** | Challenging questions across many subjects | Designed to test frontier systems on questions that remain difficult |"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-SATURATION",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**2. Everyone aces it (Saturation).** MMLU — once the gold standard — has become too easy. Frontier models all score 85%+. When the spread is 1–2%, the benchmark can't tell you which model is better. It's like grading everyone pass/fail when the whole class is getting 98%. You need harder tests (which is why Humanity's Last Exam and GPQA exist — they're designed to be at the frontier of difficulty).",
+      "copy": "**2. The test stops separating systems well (Saturation).** When many systems cluster near the top of a benchmark, a small score gap may be sensitive to the setup and may reveal little about the practical difference between them. Researchers then need harder, broader or more relevant tests. A newer test is not automatically better; it must still be examined for what it measures and how."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-STATIC-DYNAMIC",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**5. Yesterday's exam (Static vs dynamic).** The real world changes. Benchmarks don't. A model might perform perfectly on a 2023 benchmark while failing on current questions — not because it's gotten worse, but because the world moved and the test didn't.",
+      "copy": "**5. Yesterday's exam (Freshness).** The world and the systems being tested change. Some benchmark versions are fixed; others add or protect new test material. Either way, an old result may not describe a new model, current facts or today's product setup. Record the date, version and conditions, then re-test what has changed."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-REMOVE-KILI-QUOTE",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "**Where this stands (2026):** The gap between benchmark scores and real production performance \"has never been wider\" (Kili Technology, 2026). Benchmarks are useful for quick comparison, but they're not the final word on which model is better for *your* specific use case.",
+      "copy": "**The practical rule:** a public benchmark can support a defined comparison, but it cannot decide whether an update is ready for your product. Pair general evidence with tests of the exact tasks, risks and users affected by the release."
+    },
+    {
+      "id": "CORRECT-AIF-CH12-DIMENSIONS-NOT-ONE-FIELD-ANSWER",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "The field's answer (2026): evaluate *dimensions* rather than correctness:",
+      "copy": "For open-ended output, one useful approach is to define and evaluate separate dimensions rather than force every judgment into one score:"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-LEARNING-SUMMARY",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "| 12 | Evaluation: benchmarks (standardised but flawed), human eval (reliable but expensive), custom evals (specific but requires investment), and why measuring \"good\" is fundamentally hard for generative AI |",
+      "copy": "| 12 | Evaluation: shared benchmarks, human comparisons and use-case evals answer different questions; regression testing checks whether a change broke an important task |"
+    },
+    {
+      "id": "CORRECT-AIF-CH12-LAUNCH-ANNOUNCEMENT-PROMPTS",
+      "chapter": 12,
+      "mode": "replace",
+      "anchor": "- Which benchmarks do they highlight? (Companies cherry-pick the ones they win.)\n- Do they mention benchmarks they *didn't* win? (Usually not.)",
+      "copy": "- Which benchmarks do they highlight, and what exact capability does each one test?\n- Are the compared results based on the same benchmark version, tools and settings?"
     }
   ],
   "sprinkles": [

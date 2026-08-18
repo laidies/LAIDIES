@@ -14937,3 +14937,25 @@ while remaining falsely unfinished in the launch record.
   safety lesson into a misleading promise—and why every image edit gets a full
   reread.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-472 — A vertical comparison can accidentally become a fake sequence
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 12 responsive evaluation visual.
+- **Failure:** The first desktop candidate did not clearly show one model
+  update entering all three evaluations. A naïve phone stack would also have
+  made benchmark, human comparison and use-case evaluation look like three
+  steps performed in that order.
+- **Root cause:** The concept needed both distribution and convergence, while a
+  narrow layout naturally reads top-to-bottom as a process.
+- **Prevention rule:** For parallel evidence on mobile, draw two explicit rails:
+  one distributes the same input independently to each test; the other collects
+  each result into the decision. Never connect one evaluation station to the
+  next when they are separate sources of evidence.
+- **Durable correction:** The phone asset labels `THREE SEPARATE TESTS` and
+  `ALL THREE RESULTS`, with independent branches on each side. The desktop uses
+  one overhead distribution rail and three result arrows. Independent review
+  confirmed that neither composition implies a false sequence.
+- **Possible Behind the Build angle:** How stacking three boxes on a phone can
+  quietly turn three kinds of evidence into a made-up three-step process.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
