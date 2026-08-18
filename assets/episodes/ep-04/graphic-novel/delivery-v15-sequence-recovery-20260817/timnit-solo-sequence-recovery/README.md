@@ -1,6 +1,6 @@
 # Episode 04 v15 — Timnit solo sequence recovery
 
-Status: **SOURCE RECOVERED / GROUP SHOT REJECTED / CANVA MOTION REQUIRED**
+Status: **CANVA STABLE SHOT BUILT LOCALLY / GROUP SHOT REJECTED / NOT YET ASSEMBLED**
 
 ## Visitor-visible correction
 
@@ -15,6 +15,16 @@ The recovered source is the exact earlier adult graphic-novel Timnit frame:
 It is byte-identical to the retained repository source
 `assets/episodes/ep-04/pixel/ep04-scene-11b-timnit-comic-v1-raising-alarm-1920.png`.
 
+The safe Canva replacement is:
+
+`ep04-scene-11b-timnit-canva-stable-shot-v15.mp4`
+
+It is a five-second 1920×1080/30fps, no-audio export from the exact recovered
+still. Full decode passes, and `mpdecimate` reduces its 150 decoded frames to
+one retained frame. That proves the replacement has no hidden full-frame pan,
+zoom, flash or subject drift. Canva design:
+<https://www.canva.com/design/DAHSoKzaqbU/Aw77pPCeUsRjVsTP5j-BuA/edit?ui=e30>
+
 ## Locked narration timing
 
 - `00:15:31.000–00:15:35.737`: Timnit-only source. No Joy, no group, no painterly substitute.
@@ -28,7 +38,9 @@ local screen/alarm activity while Timnit remained stable, but its producer is
 the retired Python motion builder. It is **motion reference only** and may not
 be assembled into v15.
 
-The compliant successor is made in Canva from the single recovered still:
+The stable Canva shot is eligible as the immediate safe replacement. A later
+localized-motion successor may be made in Canva from the same single recovered
+still only if it preserves these boundaries:
 
 - keep Timnit, the room, camera, wardrobe, desk, papers and door fixed;
 - animate only the existing report display and red alert button/sign with a
@@ -46,4 +58,5 @@ currently reports no bound `Timnit` reference directory. The existing source
 is preserved as Ali's requested retained identity; it is not evidence that a
 new likeness may be invented.
 
-No full-title export is authorized by this packet.
+No full-title export or release is authorized by this packet. The group image
+must not reappear while localized motion is pending.

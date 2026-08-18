@@ -3,7 +3,7 @@
   "recordedAt": "2026-08-18",
   "episode": "04",
   "candidateVersion": "v15",
-  "status": "SOURCE_RECOVERED_CANVA_MOTION_REQUIRED",
+  "status": "CANVA_STABLE_SHOT_BUILT_NOT_ASSEMBLED",
   "rejectedV14Occurrence": {
     "candidatePath": "assets/video/episode-04-full-v14-exact-source-launch-review.mp4",
     "candidateSha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
@@ -18,6 +18,20 @@
     "sha256": "6c1926bbe92f4a6a5aedf8876448978360c2f91e87c55a49c5ad71c0bd29a93e",
     "originalPath": "assets/episodes/ep-04/pixel/ep04-scene-11b-timnit-comic-v1-raising-alarm-1920.png",
     "identityRule": "RETAIN_EXISTING_SOURCE_NO_REGENERATION"
+  },
+  "canvaStableShot": {
+    "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/timnit-solo-sequence-recovery/ep04-scene-11b-timnit-canva-stable-shot-v15.mp4",
+    "sha256": "8265ff682206eb34394f543cb418aeb8411d300efd0127fe915517e15cd755a4",
+    "designUrl": "https://www.canva.com/design/DAHSoKzaqbU/Aw77pPCeUsRjVsTP5j-BuA/edit?ui=e30",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "decodedFrames": 150,
+    "durationSeconds": 5.0,
+    "audio": false,
+    "mpdecimateRetainedFrames": 1,
+    "visualVerdict": "TIMNIT_ONLY_ADULT_GRAPHIC_NOVEL_STABLE_NO_FULL_FRAME_EFFECT",
+    "assemblyStatus": "NOT_YET_ASSEMBLED"
   },
   "timeline": [
     {
@@ -49,7 +63,7 @@
     "prohibitedFromAssembly": true,
     "reason": "Produced by retired Python motion builder; reference only for restrained local report and alarm activity."
   },
-  "requiredMotion": {
+  "optionalLocalizedMotionSuccessor": {
     "tool": "Canva",
     "class": "ambient_loop",
     "sourceCount": 1,
