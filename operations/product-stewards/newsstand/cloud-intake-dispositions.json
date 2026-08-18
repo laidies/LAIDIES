@@ -1,17 +1,17 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-14T16:44:20-07:00",
+  "updatedAt": "2026-08-17T16:55:12-07:00",
   "remoteSource": {
     "repository": "laidies/LAIDIES",
     "issueNumber": 82,
     "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
-    "issueState": "OPEN_RECONCILED_CLOSE_PERMISSION_BLOCKED",
+    "issueState": "OPEN_RECONCILED_THROUGH_2026-08-17T23:46:39Z",
     "commit": "25966682",
     "fileSha": null,
-    "verifiedAt": "2026-08-15T09:34:42-07:00",
+    "verifiedAt": "2026-08-17T16:55:12-07:00",
     "closeAttemptAt": "2026-08-15T09:34:42-07:00",
-    "closeAttemptResult": "GitHub connector again returned HTTP 403 Resource not accessible by integration when the executor attempted to post the reconciliation comment. The queue remains open and closure was not attempted; no signal is unreconciled."
+    "closeAttemptResult": "The queue remains open because it is reused for continuing cloud intake. All comments visible through 2026-08-17T23:46:39Z have durable local dispositions; no closure was attempted."
   },
   "rules": {
     "allowedDispositions": [
@@ -139,6 +139,30 @@
       "relatedWorkOrderIds": ["LCWO-026"],
       "nextTrigger": "Primary court filings and regulator or permit records are bound and the NewsStand Daily owner has capacity.",
       "reviewAfter": "2026-08-21"
+    },
+    {
+      "signalId": "NSCI-b68028180914778e404a",
+      "title": "How to Decide What Work AI Should Do for You: The AI Deputization Audit",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "reason": "The five-factor task-fit method could become one useful Paige Practical AI Tip, but fast-changing GrokBot and ChatGPT Computer History examples must be separated from the durable method before drafting.",
+      "nextTrigger": "Paige's tip lane has capacity and a source packet separates the durable method from current product availability, privacy and control claims.",
+      "reviewAfter": "2026-08-24"
+    },
+    {
+      "signalId": "NSCI-396f984c72a18f2f9fcb",
+      "title": "British leader reportedly exchanged messages with impostor of top White House official",
+      "disposition": "NO_BUILD",
+      "reason": "The current incident is an impersonation story with no verified AI use; the report's AI references concern earlier warnings, so routing it as AI news would overstate the evidence.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-1e35a2734b7f5b3b3579",
+      "title": "The New Problems AI Is Creating (And How People Are Solving Them)",
+      "disposition": "WATCH",
+      "reason": "This is a multi-source roundup rather than one article premise. Its writing-accountability, de-skilling and human-learning leads require their named primary policy and research sources.",
+      "nextTrigger": "Recover and verify the exact Clay policy, BCG de-skilling research and KPMG adaptability report, then route only a distinct reader question with a practical consequence.",
+      "reviewAfter": "2026-08-24"
     }
   ],
   "sourceHealth": [
