@@ -190,6 +190,34 @@
       "mode": "replace",
       "anchor": "**Byte Pair Encoding (BPE)** — The most common method for building a token vocabulary. Starts from individual characters, repeatedly merges the most common adjacent pairs until the vocabulary reaches its target size.",
       "copy": "**Byte Pair Encoding (BPE)** — A widely used method for building a subword vocabulary by repeatedly merging frequent adjacent pieces. This chapter uses a simplified character-level example; real tokenisers may begin from bytes or other units."
+    },
+    {
+      "id": "CORRECT-AIF-CH07-STREAMING-MAIN",
+      "chapter": 7,
+      "mode": "replace",
+      "anchor": "**This is why you see responses appear word by word in a chat interface** — each word appears as it's generated. The model isn't writing the whole response and then showing it to you. It's producing it live, token by token.",
+      "copy": "**This is why you see responses appear piece by piece in a chat interface.** The model is not writing the whole response and then revealing it. It generates one token at a time, and the interface updates as tokens arrive. A token may be a whole word, part of one, punctuation or another reusable piece, so the visible updates do not map neatly to one word each."
+    },
+    {
+      "id": "CORRECT-AIF-CH07-STREAMING-PRACTICE",
+      "chapter": 7,
+      "mode": "replace",
+      "anchor": "> 🔍 **Concept in Practice: Why responses stream in word by word** When you watch an AI response appear gradually — word by word, sometimes pausing mid-sentence — you're watching the decode phase in real time. Each word you see appear is a newly generated token. The pauses happen when the model is computing the probability distribution for the next token. It's not \"thinking\" in a human sense — it's running the maths for the next prediction.",
+      "copy": "> 🔍 **Concept in Practice: Why responses stream piece by piece** When an AI response appears gradually, you are watching the decode phase reach the interface. The model selects one token, appends it, then repeats. The product may display one token immediately or batch several into a smoother update, so a visible word is not proof of one token. A pause can reflect next-token computation, tool use, network delay or interface batching; the animation is not a window into human-style thought."
+    },
+    {
+      "id": "CORRECT-AIF-CH07-STREAMING-QUICK-REFERENCE",
+      "chapter": 7,
+      "mode": "replace",
+      "anchor": "6. **Streaming** — each token is sent to your screen as it's generated (that's why responses appear word by word)",
+      "copy": "6. **Streaming** — generated tokens are delivered toward the interface as they become available; the product may display them individually or in small batches, so the response appears piece by piece rather than in a guaranteed one-word-per-token rhythm"
+    },
+    {
+      "id": "CORRECT-AIF-CH07-STREAMING-ACTION",
+      "chapter": 7,
+      "mode": "replace",
+      "anchor": "**Watch the streaming.** Next time you use an AI chatbot, watch the response appear. Notice it comes word by word (or chunk by chunk). That's the decode phase in real time. Each word you see is a new token being generated.",
+      "copy": "**Watch the streaming.** Next time you use an AI chatbot, watch the response appear in pieces. That is the interface receiving live generated output, sometimes one token at a time and sometimes in small batches. The useful clue is that the answer is still being produced—not that each visible word equals one token."
     }
   ],
   "sprinkles": [

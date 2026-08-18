@@ -30,34 +30,36 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 6 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 7 purpose-built proof
 
-- **Outcome:** Chapter 6 now contains one purpose-built vision-input visual at
-  section 6.2. It traces a photograph through patching, a vision encoder,
-  numerical image-token representations, one combined image-and-question
-  context sequence, the language model and a grounded answer.
+- **Outcome:** Chapter 7 now contains one purpose-built request journey at
+  section 7.2. It traces supplied context through prefill, reusable attention
+  notes, sequential next-token decoding, live streaming and the stop condition.
 - **Responsive composition:** the desktop 1672×941 plate and separately
-  composed 941×1672 mobile plate carry the same causal mechanism. The mobile
-  successor promotes the four misconception safeguards into the main reading
-  hierarchy rather than shrinking a landscape plate.
-- **Teaching correction:** the first phone candidate was structurally correct
-  but made `Numbers—not object labels`, `Pixels become image-token
-  representations`, the example `576` boundary and the variable-count warning
-  too small to rely on. The successor makes each legible at intended size.
-- **Verification:** build PASS; calibrated book checker PASS, including a
-  deliberate missing-Chapter-6-mobile failure; `git diff --check` PASS. The real
-  reader selected the 941×1672 mobile asset at 390px with zero document
-  overflow. Independent artifact-first review passed desktop and the repaired
-  mobile successor with no clipping, overlap, squashing, gibberish or causal
-  ambiguity.
+  composed 941×1672 mobile plate carry the same causal mechanism. Optional
+  context is labelled as optional; ordinary use keeps learned weights frozen.
+- **Accuracy correction:** four source statements that equated each visible
+  word with one token are replaced through the checksum-bound amendment layer.
+  The reader now sees piece-by-piece delivery, which a product may display one
+  token at a time or in small batches.
+- **Teaching correction:** the first phone candidate made four safeguards too
+  small and left the KV cache beside the model without a causal route. The
+  successor enlarges those boundaries and adds `REUSED DURING DECODE` from the
+  cache into the repeated token-selection loop.
+- **Verification:** build PASS; calibrated book checker PASS, including
+  deliberate missing-Chapter-7-mobile and returned-word/token failures; `git
+  diff --check` PASS. The real reader selected the mobile asset at 390px with
+  zero document overflow. Independent forward-testing passed all repaired
+  safeguards and the new cache connector with no clipping, overlap, squashing,
+  gibberish or causal ambiguity.
 - **Exact assets:** desktop SHA-256
-  `aef219c2b853c4b7c4078766c1702d61f5279cd4145a060ce8b6cc944b17663f`;
+  `f2faaaacca13a556b862ede24823b4ad4c3c78b3f896606c111a49a130a55b28`;
   mobile SHA-256
-  `a2ce21c0ae594884438f1e63fdad01100cc393048dd24fb2be89a3666f078864`.
+  `19367c584f348667dad42e1eaa5cd2100ef7ba7fe7f811cc18ff6371ca37cc30`.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** bind the exact Chapter 6 commit, then integrate and independently
-  review the Chapter 7 request/prefill/decode/streaming visual pair in progress.
+- **Next:** bind the exact Chapter 7 commit, then integrate and independently
+  review the Chapter 8 RAG visual pair already drafted.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

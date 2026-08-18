@@ -14783,6 +14783,25 @@ while remaining falsely unfinished in the launch record.
   and still hide the one sentence that keeps the lesson true.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
 
+## BTB-467 — A named intermediate needs a visible route to its consumer
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 7 request journey.
+- **Failure:** The first phone composition named the KV cache but left it beside
+  the prefill model with no connector to decoding. The text said it was reused;
+  the picture made it look decorative.
+- **Root cause:** The asset inventory included the correct intermediate object
+  without binding its producer-to-consumer edge as a required causal claim.
+- **Prevention rule:** Every stored note, retrieved chunk, intermediate value or
+  handoff shown in a mechanism diagram must have a visible source and consumer.
+  A nearby label does not establish a causal route.
+- **Durable correction:** The Chapter 7 mobile successor connects the KV cache
+  to Step 3 with an explicit `REUSED DURING DECODE` path; independent review
+  forward-tested that exact relationship at 390×844.
+- **Possible Behind the Build angle:** The cache was in the picture, but until
+  the arrow existed it was not in the explanation.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
 ## BTB-465 — Generated feedback arrows must be judged as causal claims
 
 - **Date:** 2026-08-17
