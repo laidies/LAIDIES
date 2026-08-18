@@ -30,48 +30,47 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 9 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 10 purpose-built proof
 
-- **Outcome:** Chapter 9 now contains a split two-panel teaching visual at
-  section 9.8. The first panel shows a request-time change: instructions,
-  examples and retrieved documents enter the current context while the model's
-  weights remain unchanged. The second shows three alternative training routes
-  that create a new model version before later use: fine-tuning, preference
-  training and full pretraining.
-- **Why it was split:** the first complete five-route poster was mechanically
-  correct but its labels became too small at the actual reader viewport. It was
-  rejected by the maker before independent review. Two separately readable
-  mechanism panels replaced it; their routes do not imply that the three
-  training methods happen in sequence.
-- **Accuracy correction:** twelve nearby Chapter 9 statements that described
-  fine-tuning as permanent or automatic, treated RAG as changing what a model
-  knows, universalised one training history, equated preference methods or
-  promised outcomes are replaced through the source-bound amendment layer.
-  The book now contains 31 technical clarifications in total.
-- **Viewport proof:** at 1280×720 both desktop panels render at
-  895.61×504.05px with zero document overflow. At 390×844 the distinct mobile
-  panels render at 355.21×631.15px and 355.21×797.41px with zero document
-  overflow. The real pixels were inspected at both viewports.
-- **Independent review:** artifact-first forward-testing passed the exact four
-  assets. It found a clear separation between temporary supplied context and
-  persistent weight changes, three alternative training routes, a preserved
-  prompt-plus-RAG combination, and no guarantee, arrow, clipping, overlap,
-  typo or critical legibility defect.
-- **Exact assets:** request desktop
-  `d0a1441e14d790e7f10ec8d412579cf058c4e42ff32d3c7d735ea23f2d6b3607`;
-  request mobile
-  `40a23366851c54ee6a277dc3d6d1c9f41c346be782cceb20e796e59c5e219e11`;
-  training desktop
-  `3293e870a76ab7a8ef872273f31baedac3bac2156f7592db71eb899739872d46`;
-  training mobile
-  `c6e797a94aab1e6997eead065c64ad166101d149d1506ff1ffa50067a47a9183`.
+- **Outcome:** Chapter 10 now contains one purpose-built teaching visual after
+  section 10.7. A reader's return-policy question travels through the product
+  around a model: wrapper, optional input check, harness/context assembly,
+  optional router, model, optional output check and wrapper delivery. Four
+  concrete context items are visibly inserted into the harness before the
+  current model input is assembled.
+- **Rejected predecessor:** independent review held the first desktop asset
+  because one context source was disconnected and another had two feeder
+  arrows, falsely implying two destinations. Repeating the same arrow-heavy
+  composition was stopped. The accepted successor uses four physical harness
+  slots instead of ambiguous feeder topology. Mobile uses a separately composed
+  vertical route rather than a squeezed desktop plate.
+- **Accuracy correction:** seventeen nearby Chapter 10 statements are replaced
+  through the source-bound amendment layer. The corrections remove universal
+  claims about guardrails, layers, orchestration, routing and timing; distinguish
+  a model's proposed tool call from the product's authorization; bound API cost
+  and routing claims; and stop inferring hidden routing from an interface. The
+  book now contains 48 technical clarifications in total.
+- **Viewport proof:** at 1280×720 the desktop figure renders at 901.61×641.05px
+  and its image at 895.61×504.05px. At 390×844 the distinct mobile figure
+  renders at 361.21px wide and its image at 355.21×748.66px. Both have zero
+  horizontal document overflow. The real reader pixels were inspected at both
+  viewports.
+- **Independent review:** artifact-first forward-testing passed both exact
+  assets. It confirmed one-to-one context insertion, truthful solid and dashed
+  route origins/destinations, equivalent desktop/mobile meaning, and a usable
+  beginner transfer: two products can use the same model yet answer differently
+  because the surrounding wrapper, context, routing and checks differ.
+- **Exact assets:** desktop
+  `7cc30d544a8af64667de0cd558a1dfe9428cd3d295ae24f57a45f493c586f290`;
+  mobile
+  `54c12b66b0c4793bba5185876355c3aa57a6827471a5a4d592274f65c1a4090b`.
 - **Verification:** build PASS; calibrated book checker PASS, including
-  deliberate missing-Chapter-9-mobile and returned-permanence-guarantee
-  failures; `git diff --check` PASS.
+  deliberate missing-Chapter-10-mobile and returned-safety-guarantee failures;
+  `git diff --check` PASS.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** bind the exact Chapter 9 commit, then build Chapter 10's visual of
-  the product system that surrounds a model from reader question to answer.
+- **Next:** bind the exact Chapter 10 commit, then build Chapter 11's smallest
+  truthful safety-and-trust visual proof.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

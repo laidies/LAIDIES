@@ -337,6 +337,125 @@
       "mode": "replace",
       "anchor": "3. Fine-tune only if behaviour needs permanent change (weeks, $$)",
       "copy": "3. Test fine-tuning only when you need a stronger recurring behaviour tendency and prompting is not reliable enough"
+    },
+    {
+      "id": "CORRECT-AIF-CH10-SURROUNDING-SYSTEM-NOT-GUARANTEE",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "The model does the generation. Everything else shapes what it generates, ensures it's safe, connects it to the outside world, and delivers it to you.",
+      "copy": "The model does the generation. The product around it decides what instructions and information to supply, may connect approved tools, may check the input or output, and delivers the result to you. Those layers can reduce risks; they do not ensure that every answer is safe or correct."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-LAYERS-VARY-BY-PRODUCT",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "Every AI product you use has all of these layers. The differences between products (why ChatGPT feels different from Claude, which feels different from Gemini) are mostly in the *layers around the model* — the system prompt, the tool access, the guardrails, the memory design — not just the model itself.",
+      "copy": "AI products use different combinations of these layers. A simple feature may wrap one model call; a larger product may add retrieval, memory, tools, routing and several checks. Products can feel different because of both the underlying model and the system built around it."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-API-COST-VARIES",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "The retailer pays per request — billed per token (input + output), the pricing from Chapter 4. For every customer interaction, a few cents goes to the API provider. The retailer gets AI capabilities without building or hosting anything.",
+      "copy": "The retailer pays the provider under that API's current pricing rules. Many text-model APIs charge for input and output tokens, but providers, models, tools, caching and media can change the bill. The retailer gets model access without training and operating that model itself, while still building and running the surrounding product."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-CONTEXT-PRESERVES-STRUCTURE",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "The model processes ALL of this as one combined input. It doesn't know which parts are \"system instructions\" vs \"user message\" vs \"retrieved document\" — it's all just tokens in a sequence. The harness assembled all five pieces in the right order. The model generates a response attending to all of them simultaneously.",
+      "copy": "The model processes the supplied material as one context sequence, but the product can preserve roles and boundaries using message roles, ordering, labels or other structure. The harness chooses what to include and how to arrange it. The model then generates from that supplied context; important material can still be omitted, misunderstood or outweighed by other content."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-HARNESS-JOB-BOUNDARY",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**This is the harness's entire job: assembling the right context window, in the right order, with the right information, before the model ever runs.** The quality of the response is largely determined by what's in this window — not by the model's raw intelligence.",
+      "copy": "**Context assembly is one major harness job:** selecting and arranging the material supplied before the model runs. A harness may also manage tools, state, retries, checks and multi-step control. The response depends on both the model and the system around it—including whether the right information was selected."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-SYSTEM-PROMPT-SIZE-NOT-UNIVERSAL",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "Real system prompts for production AI products are much longer — often 2,000-5,000 words. They include personality rules, formatting instructions, safety guidelines, tool documentation, and behavioural edge cases. Every word goes into your context window and uses tokens — that's why system prompts represent a real engineering trade-off: more detailed instructions = more predictable behaviour but less room for your actual conversation.",
+      "copy": "Production system instructions range from short to very long. They can include role, format, policy, tool and edge-case guidance. Supplied instructions use context space and input processing, but adding more words does not automatically make behaviour more predictable; teams test whether each instruction helps, conflicts or gets ignored."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-TOOL-CALL-PROPOSAL-NOT-ACTION",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "> ⏸️ **\"But how does the system DECIDE it needs to search the web? Who makes that call?\"** The model itself makes the decision — but only because the system prompt tells it it can. Here's what happens mechanically: The system prompt includes something like: \"You have access to a web search tool. If the user asks about current events or information you're not confident about, call the tool.\" When the model generates its response, instead of producing regular text tokens, it can produce a special structured output that means \"I want to call a tool.\" Something like: `{\"tool\": \"web_search\", \"query\": \"latest iPhone price 2026\"}` The orchestration layer sees this, pauses generation, runs the web search, gets results back, injects those results into the context window, and then tells the model: \"OK, here are the search results. Now continue your response.\" The model then generates its actual answer using both the question and the fresh search results. So it's a collaboration: the model decides WHEN to use a tool (because it was trained to recognise when it needs external information). The orchestration layer handles the HOW (actually running the tool and managing the back-and-forth). Neither could do this alone.",
+      "copy": "> ⏸️ **\"But how does the system decide it needs to search the web?\"** A product can let the model propose a tool call, use separate routing rules, or combine both. In the model-proposal pattern, the supplied instructions describe an available tool and the model generates structured text naming that tool and proposed arguments. The orchestration layer—not the model alone—validates the request, decides whether it is allowed, runs the tool if approved, and adds the result to a later context. The model can then generate another step or an answer from that result."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-ORCHESTRATION-NOT-UNIVERSAL",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "Modern AI products are orchestrated systems, not single model calls. The more capable the product seems, the more orchestration is happening behind the scenes.",
+      "copy": "Many AI products use orchestration when one model call is not enough. Others remain deliberately simple. Visible capability does not tell you how many hidden steps ran, so the useful question is which components the product actually called for this task."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-ROUTING-SAVINGS-REQUIRE-MEASUREMENT",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**Why this matters economically:** If every request went to the frontier model, costs would be unsustainable at scale. A product handling 10 million requests per day saves 70–90% on inference costs by routing appropriately — while users experience no quality difference on the easy requests.",
+      "copy": "**Why this matters economically:** routing can reduce cost and delay when a smaller or specialised model handles a task well enough. The saving and quality effect depend on the request mix, model prices, router errors and evaluation results; a cheaper route is not useful if it sends an important request to a model that cannot do the job."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-FULL-PRODUCT-SEQUENCE",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "When you open Claude and type a question, here's what actually happens:\n\n1. **Wrapper** receives your message (the chat interface)\n2. **Input guardrails** scan your message for policy violations\n3. **Harness** assembles the context window:- Loads the system prompt\n\n- Retrieves relevant memory facts about you\n- Includes the conversation history\n- Determines if tools are needed\n- Injects the current date/time\n\n1. **Router** picks the appropriate model (if the product uses routing)\n2. **Model** runs inference (prefill → decode → generates tokens)\n3. **Output guardrails** check the response before delivery\n4. **Wrapper** streams the response to your screen\n\nAll of that happens in 1–5 seconds. Seven layers deep, multiple systems coordinating — and you just see words appearing in a chat box.",
+      "copy": "When you type a question into an AI product, a typical route looks like this:\n\n1. The **wrapper** receives your message.\n2. The product may run an **input check**.\n3. The **harness** assembles the context the model will receive: your message, system instructions and any relevant chat, retrieved documents, memory, date or tool result the product chooses to supply.\n4. An optional **router** may select a model.\n5. The selected **model** runs inference and generates tokens.\n6. The product may run an **output check**.\n7. The **wrapper** displays or streams the answer.\n\nThe exact layers and timing vary by product and request. The important separation is stable: the surrounding product builds and delivers the interaction; the model generates within what that product supplies."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-API-QUICK-REFERENCE",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**API** — How applications send prompts to models and receive responses. Billed per token.",
+      "copy": "**API** — A defined way for one software system to send a request to another and receive a response. Many model APIs charge for input and output tokens, but pricing depends on the provider and service."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-ROUTER-QUICK-REFERENCE",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**Router** — Chooses which model handles each request. Sends simple tasks to cheap models, complex tasks to powerful ones. Saves 70-90% on inference costs.",
+      "copy": "**Router** — Chooses which model or path handles a request. It can reduce cost or delay, but the result depends on how accurately it matches each task to a capable route."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-TEXT-MAP-OPTIONAL-LAYERS",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "```\n                              ┌─── THE FULL PRODUCT STACK ───┐\n                              │                              │\nYOU → [Wrapper/UI] → [Input Guardrails] → [Harness/Orchestration] → [Router]\n                                                    │                    ↓\n                                          ┌─────────┼──────────┐   [Model Selection]\n                                          │         │          │        ↓\n                                     [Memory]  [RAG/Docs]  [Tools]  [MODEL]\n                                          │         │          │        ↓\n                                          └─────────┼──────────┘   [Generation]\n                                                    │                    ↓\n                                          [Output Guardrails] ← ─ ─ ─ ─ ┘\n                                                    ↓\n                                             [Response to YOU]\n\n```",
+      "copy": "```\nYOU\n ↓\n[Wrapper receives the message]\n ↓\n[Optional input check]\n ↓\n[Harness assembles the current context]\n ├── system instructions\n ├── relevant chat or memory\n ├── retrieved documents\n └── optional date or tool result\n ↓\n[MODEL generates]\n ↑\n └ - - [Optional router may select a model] - -┘\n ↓\n[Optional output check]\n ↓\n[Wrapper shows the response]\n\n```"
+    },
+    {
+      "id": "CORRECT-AIF-CH10-GUARDRAIL-DEFINITION-NOT-UNIVERSAL",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**Guardrails** | Filters and rules that check the model's output before it reaches you — blocking harmful, off-topic, or policy-violating content",
+      "copy": "**Guardrails** | Product checks or rules that may inspect an input, a proposed action or an output. They can reduce particular risks, but they do not make every result safe, correct or appropriate."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-HIDDEN-ROUTING-NOT-INFERRED",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**Think about routing.** If you use a product that offers model selection (like choosing between \"fast\" and \"powerful\" modes) — that's a router you're controlling manually. Products that don't show you this choice are still routing — just doing it automatically.",
+      "copy": "**Think about routing.** If a product lets you choose between model or mode options, you are making a visible routing choice. If it offers no choice, you cannot tell from the interface alone whether it routed the request automatically or simply used one model. Look for the product's own current documentation before claiming what happened behind the screen."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-ORCHESTRATION-QUICK-REFERENCE-NOT-UNIVERSAL",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**Orchestration** — Coordinating multiple steps, tools, or model calls in sequence. Most real AI products are orchestrated multi-step systems.",
+      "copy": "**Orchestration** — Coordinating multiple steps, tools or model calls. Some products use it for multi-step work; other features deliberately use one model call."
+    },
+    {
+      "id": "CORRECT-AIF-CH10-GUARDRAIL-QUICK-REFERENCE-NOT-UNIVERSAL",
+      "chapter": 10,
+      "mode": "replace",
+      "anchor": "**Guardrails** — Filters checking input and output for safety, policy compliance, and quality. Applied on both sides of the model.",
+      "copy": "**Guardrails** — Product checks or rules that may inspect an input, a proposed action or an output for a defined risk or policy. Their placement and coverage vary, and they do not guarantee a safe or correct result."
     }
   ],
   "sprinkles": [

@@ -14884,3 +14884,29 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why the most complete poster was the
   least useful explanation—and how splitting it made the science clearer.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-470 — Stop rerolling a generated arrow pattern that keeps lying
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 10 product-stack illustration.
+- **Failure:** The first desktop candidate gave one context card no route into
+  the harness and another two feeder arrows. The labels were accurate but the
+  lines asserted a false one-to-one relationship. Two narrow image edits
+  repeated the same topology defect.
+- **Root cause:** The composition asked an image generator to preserve several
+  exact parallel source-to-slot connections. It could reproduce the nouns and
+  general direction but not reliably preserve every endpoint.
+- **Prevention rule:** When a required generated arrow topology fails twice,
+  stop rerolling it. Change the visual grammar so the relationship is carried
+  by stable spatial containment, such as labelled objects visibly inserted into
+  distinct slots. Reserve arrows for the smaller number of causal transitions
+  that still need direction.
+- **Durable correction:** The Chapter 10 desktop successor puts four labelled
+  context cards directly into four harness slots and uses arrows only for the
+  request route and optional router loop. A separate vertical mobile composition
+  expresses the same mechanism. Independent artifact-first review passed both
+  exact assets.
+- **Possible Behind the Build angle:** Why four correct labels and one wrong
+  arrow can teach a false system—and why changing the diagram grammar worked
+  better than asking for another edit.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
