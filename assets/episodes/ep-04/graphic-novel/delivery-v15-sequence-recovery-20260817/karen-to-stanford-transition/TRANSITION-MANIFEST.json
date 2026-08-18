@@ -1,0 +1,83 @@
+{
+  "candidateId": "EP04-V15-KAREN-TO-STANFORD-PACED-TRANSITION-2026-08-17",
+  "status": "MAKER_INPUT_NOT_RELEASE_CANDIDATE",
+  "sourceMaster": {
+    "path": "../../../../../video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
+    "frameRate": 30,
+    "geometry": "1920x1080"
+  },
+  "sources": [
+    {
+      "job": "KAREN_QUOTE",
+      "path": "v14-karen-quote-00-12-45-000.png",
+      "sha256": "1cb499ac2dbee30c392a09542a2390c64a02a1416782ee68b42e4f4b1bc57967"
+    },
+    {
+      "job": "STANFORD_ESTABLISHING",
+      "path": "v14-stanford-establish-00-12-46-000.png",
+      "sha256": "d35a1404658b874ac88059b3221aa0fd511bf57497927eb4379c09d9c5379594"
+    },
+    {
+      "job": "FEIFEI_IMAGE_WALL",
+      "path": "v14-feifei-image-wall-00-12-51-000.png",
+      "sha256": "8482658be22fffd8c33b0b54bdf2748216b26f4068f13e9cb54f64f8f9184a0e"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "00:12:42.200000",
+      "end": "00:12:47.466667",
+      "startFrame": 22866,
+      "endFrameExclusive": 23024,
+      "state": "KAREN_QUOTE_HOLD",
+      "narrationJob": "Keep the quote readable through 'Write that one down.'"
+    },
+    {
+      "start": "00:12:47.466667",
+      "end": "00:12:48.966667",
+      "startFrame": 23024,
+      "endFrameExclusive": 23069,
+      "state": "KAREN_TO_STANFORD_SLOW_DISSOLVE",
+      "narrationJob": "Begin the decades-later move on the word 'decades'; no flash, swirl or particle transition."
+    },
+    {
+      "start": "00:12:48.966667",
+      "end": "00:12:53.933333",
+      "startFrame": 23069,
+      "endFrameExclusive": 23218,
+      "state": "STANFORD_ESTABLISHING_HOLD",
+      "narrationJob": "Let the Stanford place and image-wall scale register through the thaw line."
+    },
+    {
+      "start": "00:12:53.933333",
+      "end": "00:12:55.133333",
+      "startFrame": 23218,
+      "endFrameExclusive": 23254,
+      "state": "STANFORD_TO_FEIFEI_SLOW_DISSOLVE",
+      "narrationJob": "Introduce Fei-Fei only as the narration says the Stanford professor's name."
+    },
+    {
+      "start": "00:12:55.133333",
+      "end": "00:13:00.033333",
+      "startFrame": 23254,
+      "endFrameExclusive": 23401,
+      "state": "FEIFEI_IMAGE_WALL_HOLD",
+      "narrationJob": "Hold on the image-collection action through the heretical-idea sentence."
+    }
+  ],
+  "forbidden": [
+    "one-second or sub-second source flashes",
+    "swirls, sparkles, particles or white flashes",
+    "camera movement, crop drift or regenerated imagery",
+    "Fei-Fei appearing before the narration introduces the Stanford professor",
+    "changing source audio, caption timing or full-title runtime"
+  ],
+  "acceptance": [
+    "At 1x each of the three narrative states is readable and causally ordered.",
+    "The quote remains visible for the complete quote and write-it-down beat.",
+    "The Stanford establishing frame is fully visible for at least 4.9 seconds.",
+    "Fei-Fei begins no earlier than frame 23218, when the Stanford-professor sentence starts.",
+    "No transition contains a flash, swirl, sparkle or unrelated intermediate picture."
+  ]
+}
