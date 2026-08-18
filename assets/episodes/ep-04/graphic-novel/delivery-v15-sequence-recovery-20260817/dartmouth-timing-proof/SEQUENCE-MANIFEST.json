@@ -11,9 +11,36 @@
       "path": "../ep04-scene-04b-eniac-six-distinct-lights-state-b-v15.png",
       "sha256": "e1136dba85a7dfbe0297b3e2a33399dc4eb8bec5de055eea43373229bcd0e74f",
       "reason": "REJECTED: the regenerated light state changes people, wardrobe and machinery across the frame. Alternating it with the locked still would create global flicker and identity drift. It may not enter Canva or CapCut assembly."
+    },
+    {
+      "path": "../recovered/ep04-scene-05-grace-moth-landing-comic-event-v3.mp4",
+      "sha256": "ec171ff100363db616f7295842e3ad8a430ffd7f755c68a2eb9b7e479560ae43",
+      "reason": "REJECTED AS AN UNMASKED SHOT: tape/blur is already visible before the moth lands. Preserve its moth-flight motion only if a clean-page mask prevents the premature reveal."
+    }
+  ],
+  "preparedInputs": [
+    {
+      "path": "../ep04-scene-05-grace-clean-logbook-before-moth-v15.png",
+      "sha256": "fadae237a8505e72a0279673bc6fde1d7a8d36067b2877a654a0d50c4a11deb1",
+      "geometry": "1920x1080",
+      "status": "MAKER_INPUT_PENDING_SEQUENCE_REVIEW",
+      "job": "Clean pre-moth logbook state. No tape, blur, adhesive, insect or generated text. It may not replace the whole moving shot if doing so creates identity, crop or style drift; use the smallest page-area repair that preserves the recovered motion."
     }
   ],
   "sequence": [
+    {
+      "start": "00:10:10.840",
+      "end": "00:10:16.576",
+      "pictureJob": "Show the moth entering and reaching the machine before any tape appears in the logbook.",
+      "source": "recovered moth-flight motion with clean-page repair",
+      "prohibited": ["tape before landing", "blur patch before landing", "premature taped-moth reveal", "camera drift"]
+    },
+    {
+      "start": "00:10:16.576",
+      "end": "00:10:28.320",
+      "pictureJob": "Reveal the moth taped into the logbook only when the narration says the team taped it there, then close Grace's debugging beat.",
+      "prohibited": ["Dartmouth men", "empty classroom", "sparkle overlay", "same-image recrop"]
+    },
     {
       "start": "00:10:28.320",
       "end": "00:10:49.000",
@@ -41,6 +68,7 @@
   "acceptance": [
     "No Dartmouth-men pixel occurs before frame 19470 at 30 fps.",
     "No empty-classroom pixel occurs before frame 19740 at 30 fps.",
+    "No tape, adhesive blur or taped moth occurs before 00:10:16.576.",
     "No flash, sparkle, one-second insert or same-image recrop.",
     "Full 1x sound-on maker review confirms narration-picture order before independent review."
   ]
