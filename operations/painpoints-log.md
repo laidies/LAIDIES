@@ -14737,3 +14737,28 @@ while remaining falsely unfinished in the launch record.
   picture—and why responsive textbook art may need two compositions.
 - **Publication status:** INTERNAL VISUAL-METHOD CORRECTION / NOT INTEGRATED /
   NOT PUBLISHED.
+
+## BTB-464 — A correct visual cannot sit beside contradictory source shorthand
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 Chapter 2 visual teaching and source overlays.
+- **Failure:** The rebuilt picture correctly separated the nested model family
+  from the agent system around a model, but the immediately following source
+  table still called all four items nested. Either artifact alone looked
+  plausible; together they taught two incompatible relationships.
+- **Root cause:** Visual accuracy was checked against the mechanism, while the
+  adjacent prose was treated as already settled because its immutable source
+  bytes had been vetted. Integration review did not initially treat nearby
+  explanatory prose as part of the same teaching artifact.
+- **Prevention rule:** Before admitting a textbook visual, read the preceding
+  and following reader-visible explanation as one continuous lesson. A visual
+  and its adjacent prose must encode the same parts and relationships. Preserve
+  immutable source bytes, but use the governed amendment layer for an explicit
+  correction when current mechanism evidence exposes misleading shorthand.
+- **Durable correction:** Chapter 2 now adds an explicit source-bound
+  clarification before the four-layer table, and the checker binds that
+  correction plus the desktop/mobile visual pair. The visual review then
+  judged the exact integrated relationship artifact-first.
+- **Possible Behind the Build angle:** The diagram was right; the sentence
+  underneath quietly made the lesson wrong again.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.

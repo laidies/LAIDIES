@@ -30,6 +30,27 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
+## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
+
+- **Outcome:** Chapter 2 now contains one purpose-built visual that separates
+  the model-family relationship from the agent system around a model. Desktop
+  and separately composed 390px mobile assets are integrated after section 2.4.
+- **Accuracy correction:** The immutable Ali-vetted manuscript remains
+  unchanged. The existing amendment layer now corrects the nearby shorthand
+  that called agentic AI a fourth nested model: modern generative AI sits in
+  the ML/deep-learning model family; an agent is the wider plan/step/observe/
+  adjust system around a model, with optional memory, tools and human checks.
+- **Verification:** build PASS; calibrated book checker PASS, including a
+  deliberate missing-Chapter-2-mobile failure; `git diff --check` PASS. The
+  real reader selected the 1672×941 desktop asset at 1440px and the separately
+  composed 941×1672 asset at 390px, with zero document or figure overflow.
+  Role-distinct artifact-first visual review returned PASS on both exact files.
+- **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
+  NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
+- **Next:** show Chapter 2 at the exact preview anchor; on Ali acceptance,
+  continue to the next section-level visual proof rather than propagating a
+  repeated template.
+
 ## 2026-08-16 AI Fundamentals 101 — complete Quick manuscript textbook build
 
 The exact Ali-vetted 20-chapter Amazon Quick manuscript is now the source base

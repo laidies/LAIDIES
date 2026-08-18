@@ -120,6 +120,12 @@ try {
     throw new Error("calibration failed: checker accepted a purpose-built visual with no mobile composition");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch02-model-family-and-agent-system-mobile-v1.png">', ""));
+  const missingChapterTwoMobile = inspectBook(temporary);
+  if (missingChapterTwoMobile.pass || !missingChapterTwoMobile.errors.some(error => error.includes("Chapter 2 purpose-built visual is missing its separately composed mobile asset"))) {
+    throw new Error("calibration failed: checker accepted the Chapter 2 visual with no mobile composition");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.callout-practice{background:#fff0e8;border-left-color:#e65e2e}', '.callout-practice{background:#ffe1f1;border-left-color:var(--electric-pink)}'));
   const duplicatedCalloutColour = inspectBook(temporary);
   if (duplicatedCalloutColour.pass || !duplicatedCalloutColour.errors.some(error => error.includes("unique consistent colour mapping"))) {
@@ -137,7 +143,7 @@ try {
   if (returnedRepresentativeVisual.pass || !returnedRepresentativeVisual.errors.some(error => error.includes("rejected CSS representative teaching diagrams have returned"))) {
     throw new Error("calibration failed: checker accepted a returned rejected CSS representative visual");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL missing_purpose_built_mobile=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL returned_rejected_css_representative=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL missing_purpose_built_mobile=FAIL missing_chapter_two_mobile=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL returned_rejected_css_representative=FAIL technical_clarifications=2");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

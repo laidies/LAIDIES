@@ -26,6 +26,8 @@ const paths = {
   manifest: path.join(pilotDir, "artifact-manifest.json"),
   chapterOnePurposeBuiltDesktop: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png"),
   chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png"),
+  chapterTwoPurposeBuiltDesktop: path.join(pilotDir, "assets/ch02-model-family-and-agent-system-desktop-v1.png"),
+  chapterTwoPurposeBuiltMobile: path.join(pilotDir, "assets/ch02-model-family-and-agent-system-mobile-v1.png"),
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
@@ -386,6 +388,8 @@ const visualTeachingLayerActive = false;
 const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED";
 const chapterOnePurposeBuiltVisualActive = true;
 const chapterOnePurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
+const chapterTwoPurposeBuiltVisualActive = true;
+const chapterTwoPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const representativeTeachingVisualActive = false;
 const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
 const representativeTeachingVisualStatus = rejectedRepresentativeStatus;
@@ -417,6 +421,16 @@ function renderChapterOnePurposeBuiltVisual() {
     <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png" alt="One shared suspicious email is tested in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
   </picture>
   <figcaption id="ch01-purpose-built-caption"><strong>One email, two routes:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to the same new case.</figcaption>
+</figure>`;
+}
+
+function renderChapterTwoPurposeBuiltVisual() {
+  return `<figure id="ch02-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch02-model-family-and-agent-system" aria-describedby="ch02-purpose-built-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch02-model-family-and-agent-system-mobile-v1.png">
+    <img src="assets/ch02-model-family-and-agent-system-desktop-v1.png" alt="Two connected pictures. The first places modern generative AI inside deep learning, deep learning inside machine learning and machine learning inside the broader field of artificial intelligence. The second places a generative model inside an agent system that plans, takes a step, sees what happened and adjusts, with memory, tools and an optional check with the person using it." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch02-purpose-built-caption"><strong>Two relationships—not four nesting dolls:</strong> modern generative AI belongs to a model family built through machine learning and deep learning. An agent is the wider system around a model: it can plan, use memory or tools, check with you when needed, see what happened and adjust toward a goal.</figcaption>
 </figure>`;
 }
 
@@ -1017,6 +1031,12 @@ function buildReviewPage(source, fragment, manuscript) {
     if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 1.1 purpose-built visual placement anchor");
     mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterOnePurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
   }
+  if (chapterTwoPurposeBuiltVisualActive) {
+    const purposeBuiltAnchor = '<aside class="callout callout-key"><p>⏸️ <strong>One distinction before the shorthand:</strong>';
+    const purposeBuiltInsertion = mainFragment.indexOf(purposeBuiltAnchor);
+    if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 2.4 purpose-built visual placement anchor");
+    mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterTwoPurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
+  }
   if (visualTeachingLayerActive) {
     for (const asset of chapterOneTeachingAssets) {
       const anchorIndex = mainFragment.indexOf(asset.anchor);
@@ -1381,6 +1401,7 @@ const artifactPaths = [
   paths.inventory,
   paths.review,
   ...(chapterOnePurposeBuiltVisualActive ? [paths.chapterOnePurposeBuiltDesktop, paths.chapterOnePurposeBuiltMobile] : []),
+  ...(chapterTwoPurposeBuiltVisualActive ? [paths.chapterTwoPurposeBuiltDesktop, paths.chapterTwoPurposeBuiltMobile] : []),
   ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook] : []),
   ...(representativeTeachingVisualActive ? [paths.chapterSixBicycleTree] : []),
 ];
@@ -1400,7 +1421,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
-    teachingImages: Number(chapterOnePurposeBuiltVisualActive),
+    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterTwoPurposeBuiltVisualActive),
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,
@@ -1417,6 +1438,7 @@ const manifest = {
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
     visualTeachingLayer: visualTeachingLayerStatus,
     chapterOnePurposeBuiltVisual: chapterOnePurposeBuiltVisualStatus,
+    chapterTwoPurposeBuiltVisual: chapterTwoPurposeBuiltVisualStatus,
     representativeTeachingVisual: representativeTeachingVisualStatus,
     chapterOneDecisionSeam: chapterOneDecisionSeamStatus,
     chapterFourTokenProof: chapterFourTokenProofStatus,
