@@ -1,0 +1,65 @@
+{
+  "recordType": "episode-picture-occurrence-removal",
+  "episode": "04",
+  "candidate": "v15-sequence-recovery",
+  "occurrenceId": "chatgpt-cartoon-heroine-desk",
+  "status": "SPECIFIED_NOT_ASSEMBLED",
+  "sourceMaster": {
+    "path": "assets/video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
+    "authority": "rejected timing source only"
+  },
+  "remove": {
+    "start": "00:14:42.766667",
+    "end": "00:14:55.433333",
+    "startFrame": 26483,
+    "endFrameExclusive": 26863,
+    "durationFrames": 380,
+    "durationSeconds": 12.666667,
+    "reason": "The cut returns to an off-style cartoon/pixel heroine during the continuous ChatGPT explanation, creating an unsupported narrative reversal and violating the adult graphic-novel people-rendering lock."
+  },
+  "replacement": {
+    "method": "Extend the immediately preceding ChatGPT bridge continuously through the removed occurrence; do not introduce another image.",
+    "sourceFrame": {
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/chatgpt-cartoon-shot-removal/chatgpt-bridge-last-clean-frame-14-42-733333.png",
+      "sha256": "c1529bd6655f8849386b22142c1160386059c1edaeadedb48d6acd3a48e06ef7",
+      "programTime": "00:14:42.733333"
+    },
+    "motion": "Preserve the incumbent bridge motion only if its exact source clip is available and passes the no-loop-jump check; otherwise use a stable hold. Do not create a new effect."
+  },
+  "narrationPreserved": [
+    {
+      "start": "00:14:42.920",
+      "end": "00:14:47.620",
+      "exactProse": "That's the day AI stopped being a lab thing and became a you thing."
+    },
+    {
+      "start": "00:14:48.400",
+      "end": "00:14:54.660",
+      "exactProse": "The day it landed on your desk — the very desk you were sitting at three weeks ago, feeling behind."
+    }
+  ],
+  "locked": [
+    "original narration bytes and timing",
+    "external captions and timing",
+    "full-title program clock",
+    "next picture occurrence beginning at frame 26863"
+  ],
+  "forbidden": [
+    "the rejected blonde heroine desk image",
+    "any generated replacement character",
+    "pixel-art, cartoon or glamour-cartoon people rendering",
+    "a one-frame gap, black frame, flash or early next-shot reveal",
+    "new text, captions or effects burned into the picture",
+    "Python, CSS, HTML, SVG or JavaScript-authored visible pixels"
+  ],
+  "makerChecks": [
+    "Frames 26483 through 26862 contain zero pixels from the rejected heroine occurrence.",
+    "Frame 26482 to frame 26483 has no visible jump caused by the removal.",
+    "Frame 26862 to frame 26863 preserves the existing next-shot boundary without an early reveal.",
+    "Narration, audio payload, external caption file and 20:22 program clock remain unchanged.",
+    "Continuous 1x playback from 00:14:35 through 00:15:00 contains no flash, gap, off-style character or narrative backtrack."
+  ],
+  "acceptanceOwner": "Episode Media Quality independent judge",
+  "releaseAuthority": false
+}
