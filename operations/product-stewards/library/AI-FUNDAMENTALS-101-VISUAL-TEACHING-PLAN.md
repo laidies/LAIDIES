@@ -99,13 +99,17 @@ is produced only when it beats prose for that exact job.
   readable rule-card and relationship labels. Chapter 1.1 therefore requires a
   separately composed mobile asset with the same teaching meaning; shrinking
   the desktop composition is not an acceptable mobile treatment.
-- The successor desktop composition and separately composed 9:16 mobile asset
-  passed maker inspection and role-distinct pixel review at their intended
-  sizes on 2026-08-17. They show the same `FR33` email reaching `KEEP` under a
-  human-written exact rule and `SPAM` under a pattern learned from labelled
-  examples. Every visible label and arrow was inspected character by character.
-  The pair is an **internal representative proof only**: Ali acceptance is
-  pending, the assets are not rendered in the reader, and nothing is published.
+- Ali rejected the 2026-08-17 pair's beige full-image background on 2026-08-18;
+  it looked like a pasted vintage poster rather than part of the cool-white
+  reader. That pair is superseded as visual direction even though its mechanism
+  remains useful evidence. The replacement desktop and separately composed 9:16
+  mobile assets use a cool-white canvas, an almost-white lavender automation
+  field and an almost-white blue AI field, with warmth confined to physical
+  objects. They passed maker inspection and role-distinct pixel review at 850px
+  and 358px respectively, including the exact `FR33` rule-versus-pattern seam,
+  character-checked labels and arrow logic. The v2 pair remains an **internal
+  representative proof only**: Ali acceptance is pending, the assets are not
+  rendered in the reader, and nothing is published.
 - Do not scale, restore another figure, merge or publish until Ali accepts that
   one admitted Chapter 1 proof.
 
