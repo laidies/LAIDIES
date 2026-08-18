@@ -1,0 +1,61 @@
+{
+  "recordType": "episode-04-timnit-solo-sequence-recovery",
+  "recordedAt": "2026-08-18",
+  "episode": "04",
+  "candidateVersion": "v15",
+  "status": "SOURCE_RECOVERED_CANVA_MOTION_REQUIRED",
+  "rejectedV14Occurrence": {
+    "candidatePath": "assets/video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "candidateSha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
+    "startSeconds": 931.0,
+    "stopSeconds": 935.737,
+    "sourcePath": "assets/episodes/ep-04/pixel/ep04-scene-11-joy-timnit-emily-v1-review.png",
+    "sourceSha256": "71c0059cef5e4f50d6b544836ce23e34f448f8e0e3491dd557a6bf58c04221c3",
+    "verdict": "REMOVE_NEVER_INHERIT"
+  },
+  "recoveredTimnitSource": {
+    "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/timnit-solo-sequence-recovery/ep04-scene-11b-timnit-adult-graphic-novel-raising-alarm-v15.png",
+    "sha256": "6c1926bbe92f4a6a5aedf8876448978360c2f91e87c55a49c5ad71c0bd29a93e",
+    "originalPath": "assets/episodes/ep-04/pixel/ep04-scene-11b-timnit-comic-v1-raising-alarm-1920.png",
+    "identityRule": "RETAIN_EXISTING_SOURCE_NO_REGENERATION"
+  },
+  "timeline": [
+    {
+      "startSeconds": 931.0,
+      "stopSeconds": 935.737,
+      "subject": "Timnit Gebru",
+      "source": "recoveredTimnitSource",
+      "narrationJob": "Timnit Gebru introduction"
+    },
+    {
+      "startSeconds": 935.737,
+      "stopSeconds": 958.72,
+      "subject": "Emily Bender",
+      "sourcePath": "assets/episodes/ep-04/pixel/ep04-scene-11c-emily-comic-v2-timnit-style-lock-parrot-1920.png",
+      "sourceSha256": "353ef26e3b0cdf2ebcb2fb3d46e2b233ad2e595ed3dbf9a3d55e06d0f14bd177",
+      "narrationJob": "Emily Bender and stochastic-parrot passage"
+    },
+    {
+      "startSeconds": 958.72,
+      "stopSeconds": 974.8,
+      "subject": "Timnit Gebru",
+      "source": "recoveredTimnitSource",
+      "narrationJob": "Google departure and colleague protest"
+    }
+  ],
+  "legacyMotionReferenceOnly": {
+    "path": "assets/episodes/ep-04/pixel/ep04-cue48-local-motion-v1.mp4",
+    "sha256": "19199057e67203a78885f79c52df58a11a1200be729d8243d3188324fc0418f5",
+    "prohibitedFromAssembly": true,
+    "reason": "Produced by retired Python motion builder; reference only for restrained local report and alarm activity."
+  },
+  "requiredMotion": {
+    "tool": "Canva",
+    "class": "ambient_loop",
+    "sourceCount": 1,
+    "movingRegions": ["existing AI model report display", "existing red alert button and sign"],
+    "lockedRegions": ["Timnit", "wardrobe", "room", "door", "desk", "papers", "camera"],
+    "prohibited": ["Joy", "third person", "painterly rendering", "full-frame light bar", "sparkle", "zoom", "pan", "identity drift", "new text", "Python motion", "CSS motion"]
+  },
+  "releaseAuthority": false
+}

@@ -15718,3 +15718,21 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** JOY SOURCE/REFERENCE/MOTION CONTRACT RECOVERED
   LOCALLY; CANVA ANIMATION BLOCKED BY LOCKED MAC; NO EPISODE ASSEMBLY, SITE,
   DEPLOYMENT OR PUBLIC MEDIA CHANGED.
+
+### 2026-08-18 follow-up — a named woman is not interchangeable with a group composite
+
+- **Failure / surprise:** At the exact moment Episode 04 named Timnit Gebru,
+  v14 showed a painterly three-woman composite. The frame repeated Joy in a
+  different wardrobe, made the named subject unclear and discarded the
+  existing Timnit-only adult graphic-novel source and motion direction.
+- **Prevention rule:** A real-person narration entrance binds the named
+  subject, exact source and not-before clock. A group frame is ineligible unless
+  the narration's job is explicitly the group. When a second person is named,
+  the cut may change at that word boundary; it may not pre-empt the named
+  subject. Reuse the established single-subject identity before considering a
+  new render, and never use a painterly composite to bridge missing motion.
+- **Possible Behind the Build angle:** Why the right people in one frame can
+  still be the wrong picture for the sentence.
+- **Publication status:** TIMNIT-ONLY SOURCE AND CLOCK RECOVERED LOCALLY;
+  CANVA MOTION AND EPISODE ASSEMBLY PENDING; NO SITE, DEPLOYMENT OR PUBLIC
+  MEDIA CHANGED.
