@@ -687,6 +687,209 @@
       "mode": "replace",
       "anchor": "- Which benchmarks do they highlight? (Companies cherry-pick the ones they win.)\n- Do they mention benchmarks they *didn't* win? (Usually not.)",
       "copy": "- Which benchmarks do they highlight, and what exact capability does each one test?\n- Are the compared results based on the same benchmark version, tools and settings?"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-SANDBOX-TERM",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| **Sandbox** | An isolated environment where actions have no real consequences — a safe practice space |",
+      "copy": "| **Sandbox** | A restricted environment intended to limit what code or an automated action can reach or change. Its protections depend on the actual permissions and isolation; it reduces risk rather than guaranteeing zero consequences. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-CODE-SANDBOX-TERM",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| **Code execution sandbox** | A contained environment where AI can write and run code without affecting your real files or system |",
+      "copy": "| **Code execution sandbox** | A restricted place for running code with defined access to files, software, networks, time and computing resources. The exact limits vary by product and configuration. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-TOOL-SANDBOX-TERM",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| **Tool-use sandbox** | A test environment where an agent can \"try\" actions (like sending an email) without them actually sending |",
+      "copy": "| **Tool-use sandbox** | A test or simulation environment where proposed actions use fake, staged or restricted services instead of changing the real system. A draft-and-approve gate is related but is not itself always a sandbox. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-OPENING-HYPOTHETICAL",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "In early 2024, a developer was testing an AI agent that could write and execute code. He asked it to \"clean up my project files.\" The agent interpreted this as \"delete everything that looks unnecessary.\" It wrote a script. It ran the script. And before the developer could react, it had deleted files from a directory it shouldn't have had access to.\n\nThe damage was minor — he had backups. But the moment was clarifying: **this is what happens when AI can act, not just talk.**",
+      "copy": "Imagine asking an AI coding tool to \"clean up my project files.\" If the product lets it run a broad deletion command against the real folder, an ambiguous instruction can become lost work before you notice. If it can only propose a change, work on a copy or move files to a recoverable holding area, the same mistake is easier to inspect and undo.\n\nThe important difference is not whether the model sounded confident. It is which action the surrounding system allowed, against which data, with what recovery path."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-TEXT-HARM-BOUNDARY",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "For the first five chapters of this book, we covered AI systems that *generate text.* The worst a text generator can do is say something wrong or harmful — serious, but containable. You read something incorrect and move on.",
+      "copy": "Earlier chapters focused on systems generating text or media. Those outputs can still cause serious harm if someone trusts false medical guidance, exposes private material, spreads abuse or uses a generated claim in a consequential decision. Action-taking adds another risk: the system may directly change files, accounts, messages, money or other software before a person evaluates the result."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-SANDBOX-DEFINITION",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "A sandbox is an isolated environment. Actions taken inside it don't affect the outside world. The walls are enforced — the system *cannot* break out, even if it tries.",
+      "copy": "A sandbox is a restricted environment designed to limit what running code or an automated action can reach and change. Its boundaries can be enforced with separate accounts, containers, virtual machines, network rules, file permissions, temporary data and resource limits. Those controls can contain many mistakes, but their strength depends on correct design and configuration; \"sandboxed\" is not a promise of zero risk."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-CODE-PRODUCT-VARIATION",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "**Code execution sandbox:** When an AI system writes and runs code (Claude can do this, ChatGPT's Code Interpreter does this), it runs in a sandbox. The code can process data, create files, and produce results — but it can't access your real file system, can't connect to the internet (in most implementations), and can't install software on your machine. If the code has a bug or does something unexpected, the damage is contained.",
+      "copy": "**Code execution sandbox:** Some AI products can run generated code in a restricted workspace rather than directly on your computer. The workspace may receive files you deliberately upload and may have pre-installed software, network access, persistent storage or none of those things. The product's current documentation and configuration determine the boundary. A restriction can reduce the reach of a buggy command; it does not make the code correct or the environment invulnerable."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-CODE-WORKED-ROUTE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "3. The harness (Chapter 10) intercepts this code and routes it to the **sandbox** — a virtual mini-computer with:\n   - ✅ Access to the file you uploaded (copied into the sandbox)\n   - ✅ Python and common libraries (pandas, numpy)\n   - ❌ No network access (can't send your data anywhere)\n   - ❌ No access to your real filesystem (can't read your other files)\n   - ❌ No ability to install software or modify system settings\n   - ⏱️ A time limit (kills the process if it runs too long — prevents infinite loops)\n4. The code runs inside this locked room. It produces output: \"Top 5 customers: Acme Corp ($2.1M), ...\"\n5. The output (text + any files generated) passes back through the harness to you.\n6. The sandbox is destroyed. Nothing persists. If the code tried to `import os; os.system('rm -rf /')` — the sandbox blocked it at step 3. The operating system refused the call before it executed.",
+      "copy": "3. The surrounding product sends the proposed code to a restricted workspace configured for this task. In this worked example, it receives a copy of the uploaded spreadsheet, a Python runtime and selected libraries. It has no access to your other local files, and network calls are disabled. It also has a time and resource limit.\n4. The code runs against the copied file and produces a result.\n5. The product returns the result and any permitted output files for you to inspect.\n6. The workspace is removed after the session in this example. Other products may retain files or allow different access, so verify the actual settings before supplying sensitive data. A destructive command might still damage anything the workspace was permitted to reach."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-APPROVAL-NOT-SANDBOX",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "**Tool-use sandbox:** For agents that take actions (send messages, modify databases, make API calls), a sandbox lets the system *simulate* the action without executing it. \"This is what I would send. Do you approve?\" The action doesn't fire until a human confirms.",
+      "copy": "**Tool-use sandbox or simulation:** A system can test against fake records, a staging account or a service that cannot reach real customers or money. A separate pattern is **propose, then approve**: the system prepares an action, such as an email, but a permission gate prevents execution until an authorised person confirms. Both patterns limit consequences, but only the first is a simulated environment."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-BOUNDARY-NOT-INVULNERABLE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "> ⏸️ **\"But how does the sandbox actually prevent the code from escaping?\"** It's enforced at the operating system level, not by the AI itself. Think of it this way: the AI doesn't \"choose\" to stay in the sandbox. The sandbox is a locked room built by the operating system — the AI doesn't have the key, doesn't have the concept of a key, and couldn't use one if it did. Technically: the code runs in an isolated container (like a virtual mini-computer inside the real computer) with no network access, no access to the real file system, and limited computing time. Even if the AI wrote code that *tried* to access your files or connect to the internet, the operating system would block it the same way a locked door blocks you regardless of how motivated you are. The AI can't talk its way out of a sandbox because the restriction isn't enforced by another AI — it's enforced by the hardware and operating system underneath. This is why sandboxing is considered a hard safety boundary and alignment (Chapter 11) is considered a soft one — alignment depends on the model's training holding up. Sandboxing doesn't care what the model wants; it's physically constrained.",
+      "copy": "> ⏸️ **\"What actually enforces a sandbox?\"** The model does not enforce the boundary by promising to behave. The surrounding software and infrastructure restrict the account, files, network destinations, tools, time and computing resources available to the generated code. If the code requests something outside those permissions, the system should deny it.\n>\n> That makes containment different from a written instruction, but not infallible. A sandbox can be too broadly configured, contain a software vulnerability or receive sensitive data it was allowed to read. Strong systems combine least-privilege permissions, isolation, monitoring, updates, testing and recovery. Ask what the environment can actually access—not merely whether someone called it a sandbox."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-AUTONOMY-SECTION",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "Not every action needs a sandbox. The question is always: **what's the cost of getting it wrong?**",
+      "copy": "Not every action needs the same limit. Ask several linked questions: **what could happen if this is wrong; who is affected; can the change be contained, detected and recovered; and does the system have only the permissions it needs?** Consequence and recoverability are the centre of the decision."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-INDUSTRY-CLAIM",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "**Where the industry is (2026):** Most production AI agent systems operate at level 2 (human-in-the-loop) or level 3 (supervised autonomy with guardrails on irreversible actions). Fully autonomous agents exist but are limited to low-stakes tasks or environments with strong rollback capabilities.",
+      "copy": "There is no single industry-wide autonomy level. A product may automate a low-consequence, observable and recoverable task while requiring approval for an outward message, payment, account change or permanent deletion. The right boundary depends on the actual action and system—not the product's marketing label."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-IRREVERSIBILITY-FRAME",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "The most important question in deciding how much autonomy to give an AI system: **can the action be undone?**",
+      "copy": "A central question in deciding how much autonomy to allow is: **if this goes wrong, how well can we contain, detect and recover from it?** An undo button helps only if the error is noticed in time and the action did not already expose information, affect another person or trigger a second system."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-ACTION-TABLE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| Drafting a document | Fully reversible (just delete it) | Can do autonomously |\n| Moving a file to a folder | Easily reversible (move it back) | Can do autonomously |\n| Sending a message | Irreversible once delivered | Should confirm first |\n| Making a purchase | Irreversible (or hard to reverse) | Definitely confirm first |\n| Deleting data permanently | Irreversible | Must confirm, possibly require multiple confirmations |",
+      "copy": "| Drafting a document in an isolated workspace | Usually recoverable before anyone relies on it | May draft; keep source and change history |\n| Moving a file to a recoverable folder | Often recoverable if logged and retained | May act within a bounded folder; log and provide undo |\n| Sending a message outside the organisation | Recall may be unavailable or too late | Show recipient and final content; normally ask before sending |\n| Making a purchase or payment | Refund or reversal may be slow, costly or impossible | Require appropriate approval, limits and confirmation of amount/payee |\n| Permanently deleting data | Recovery may be impossible | Use least privilege, retention/trash where possible and explicit approval |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-ALWAYS-ASK",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "> 🔍 **Concept in Practice: Why AI assistants always ask \"shall I send this?\"** Every AI email assistant, scheduling tool, or messaging agent pauses before sending. Now you know why: sending is irreversible. The system operates in a sandbox of \"draft and propose\" until you push it over the line into \"execute.\" That pause — annoying as it sometimes feels — is the human-in-the-loop safety checkpoint. It exists because the consequences of sending a wrong message can't be undone by the system.",
+      "copy": "> 🔍 **Concept in Practice: Why an assistant may ask \"shall I send this?\"** A well-designed product can separate preparing a message from delivering it. The draft stays editable; the send permission changes the outside world. Before that step, the product can show the recipient, account and exact content for confirmation. Not every product pauses, and a click is useful only if the person receives enough clear information and authority to make the decision."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-HOT-TOPIC",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "## 13.5 — Why This Is a Hot Topic (2026)",
+      "copy": "## 13.5 — The Trade-off: Useful Action Without Uncontrolled Consequences"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-CURRENT-TENSION",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "**The current tension (2026):**",
+      "copy": "**The continuing tension:**"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-LEARNING-SUMMARY",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| 13 | Sandboxing: when AI acts (not just talks), you need safe practice spaces. The autonomy spectrum runs from fully sandboxed to fully autonomous. Irreversibility is the key factor in deciding how much autonomy to grant. |",
+      "copy": "| 13 | Containment and autonomy: decide whether a system may act, should simulate or must ask by examining consequence, permissions, observability and recovery—not by trusting the word \"sandbox\" |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-QUICK-REFERENCE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "> 📖 **Key Terms — Quick Reference** **Sandbox** — An isolated environment where actions can't escape to the real world. A safe practice space for AI systems that take actions. **Human-in-the-loop** — System pauses before acting and requires human approval. The default for most production agent systems (2026). **Autonomy spectrum** — Fully sandboxed → human-in-the-loop → supervised autonomy → fully autonomous. Most current systems sit at levels 2–3. **Irreversibility** — The key factor in deciding autonomy. If an action can't be undone (send, delete, purchase), it needs more oversight than one that can (draft, move, organise). **Code execution sandbox** — AI can write and run code in a container that can't access your real system. Used by ChatGPT's Code Interpreter, Claude, and others.",
+      "copy": "> 📖 **Key Terms — Quick Reference** **Sandbox** — A restricted environment intended to limit what code or actions can reach; its actual permissions define the protection. **Human-in-the-loop** — A system pauses at a named decision so an authorised person can inspect and approve, change or refuse the action. **Autonomy spectrum** — Different tasks can receive different degrees of independent action; one product need not sit at one level. **Recoverability** — How well a mistake can be contained, detected and reversed before it causes further effects. **Code execution sandbox** — A restricted runtime with configured access to files, software, networks, time and computing resources."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-OBJECTIVE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "> - Understand why sandboxing is one of the hottest topics in AI safety right now (2026)",
+      "copy": "> - Decide when an action may proceed, should be simulated, or needs human approval by examining consequence, permissions and recovery"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-IRREVERSIBILITY-TERM",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| **Irreversibility** | Whether an action can be undone. Irreversible actions (sending a payment, deleting data) need the most protection. |",
+      "copy": "| **Recoverability** | How well a mistake can be contained, detected and reversed before it spreads or affects someone else. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-PRACTICE-WORLD",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "**Sandboxing** is the practice of giving AI a contained space to operate where consequences can't escape. Before the system touches anything real, it works in a practice world where mistakes don't matter.",
+      "copy": "**Sandboxing** restricts what an automated action can reach. A simulation can use fake records so the action does not touch the real service; a code workspace may process a copied file with limited permissions; a staging account may allow realistic testing without reaching customers. Mistakes still matter because the boundary can be incomplete and allowed data can still be damaged or exposed."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-AUTONOMY-TABLE-COMPLETE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| Level | What it means | Example | When to use |\n| --- | --- | --- | --- |\n| **Fully sandboxed** | Can't affect anything real. All actions are simulated. | Code runs in a container, email is drafted but not sent | New/untested systems, high-stakes domains |\n| **Human-in-the-loop** | System proposes actions, human approves each one | \"I'd like to send this email. OK?\" → you click approve | Most production agent systems (2026) |",
+      "copy": "| Pattern | What it means | Worked example | Boundary |\n| --- | --- | --- | --- |\n| **Simulation or test environment** | Uses fake, copied or staged resources | Test a proposed payment against sample accounts | Verify the environment cannot reach real money or customers |\n| **Propose, then approve** | Prepares an action but cannot execute until an authorised person confirms | Draft a client email and show recipient plus final text | Approval must be informed and occur before delivery |\n| **Bounded independent action** | May act within narrow permissions, limits and monitoring | Move files inside one recoverable folder and log the change | Provide detection, undo or rollback and a stop condition |\n| **Broader independent action** | May take consequential steps without per-action approval | Rarely appropriate without strong authority, limits and recovery | Requires evidence for this exact task; capability alone is not enough |"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-REMOVE-RAW-AUTONOMY-ROWS",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "| **Supervised autonomy** | System acts on its own for low-risk tasks, asks for high-risk ones | Auto-files emails, but asks before sending a reply | Mature systems with clear risk boundaries |\n| **Fully autonomous** | System acts without asking | An agent that books flights, sends messages, and modifies schedules independently | Very limited current use; high trust required |",
+      "copy": "These patterns are not a maturity ladder. One product can use different boundaries for different actions, accounts and users."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-CLICK-NOT-ENTIRE-SAFETY",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "The sandbox here is temporal — the action existed in a \"proposed but not yet real\" state. The gate between \"proposed\" and \"real\" is your click. That click is the entire safety mechanism.",
+      "copy": "This is an approval gate, not a simulated sandbox. The action remains proposed until an authorised person confirms it. The click is only one control: the product must also show the right recipient and content, prevent execution before approval, record what happened and handle failure or duplicate delivery."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-MOST-PRODUCTS",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "This maps to how most AI products work today: they'll happily draft, organise, and prepare things for you autonomously — but pause and ask before sending, purchasing, or deleting.",
+      "copy": "A product can use these distinctions to set different permissions for different actions. Do not infer that it will pause from the word \"assistant\" or \"agent\"; inspect the actual confirmation, account and recovery behaviour before giving it access."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-BOUNDARIES-EVOLVE",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "The sandbox isn't going away. What's evolving is *where the sandbox boundaries sit* — which actions are safe to automate and which still need human approval. This will continue to shift as models become more reliable and as trust is built through demonstrated performance.",
+      "copy": "Boundaries should change only when evidence supports a different decision for the exact task. Better average model performance does not remove the need for least privilege, monitoring and recovery. A system may earn a wider limit for one well-tested action while another action remains simulated or approval-gated."
+    },
+    {
+      "id": "CORRECT-AIF-CH13-TEXT-MAP",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "```\n                    ┌─── ACTION & SAFETY ───┐\n                    │                       │\n[Agent proposes action] → [Sandbox / Simulation]\n                              ↓ (if safe)\n                    [Human-in-the-loop approval]\n                              ↓ (if approved)\n                    [Action executes in real world]\n                              ↓\n                    [Monitoring: did it work as expected?]\n\n```",
+      "copy": "```\nPROPOSED ACTION\n      ↓\nASSESS: consequence · permissions · detection · recovery\n      ├── Test against fake/copied resources → SANDBOX / SIMULATION\n      ├── Prepare but do not execute → ASK AN AUTHORISED PERSON\n      └── Within a proved low-consequence boundary → ACT + LOG\n\nEvery route still needs defined permissions, monitoring and a failure/recovery plan.\n```"
+    },
+    {
+      "id": "CORRECT-AIF-CH13-TRY-THIS",
+      "chapter": 13,
+      "mode": "replace",
+      "anchor": "**Think about reversibility.** For each action the system could take, ask: if this goes wrong, can it be undone? That's the framework companies use to decide where the sandbox boundaries sit.",
+      "copy": "**Test the boundary.** For each action, ask: what could go wrong, who would be affected, what can the system reach, how would I notice, and what could I recover? Then decide whether the action should stay simulated, require approval, or proceed inside a narrow logged permission."
     }
   ],
   "sprinkles": [

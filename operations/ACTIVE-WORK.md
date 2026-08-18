@@ -30,40 +30,41 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 12 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 13 purpose-built proof
 
-- **Outcome:** Chapter 12 now contains one responsive evidence-to-release
-  illustration after section 12.5. The same model update goes to three separate
-  evaluations: a public benchmark, a blind human comparison and a product-use
-  eval. The first two improve, but one customer-support task regresses, so all
-  three results feed `HOLD / FIX + RETEST` rather than a release decision based
-  on one headline score.
-- **Accuracy correction:** twenty-five Chapter 12 statements are corrected
-  through the source-bound amendment layer. The fabricated Claude Fable 5
-  leaderboard and stale dynamic scores are removed. Benchmarks, human
-  preference, contamination, LLM judges and use-case evals now keep their
-  evidence limits. The book contains 81 technical clarifications in total.
-- **Viewport proof:** at 1280×720 the enlarged desktop image renders at
-  895.61×504.05px. At 390×844 the separate mobile image renders at
-  355.21×631.15px. Both have zero horizontal document overflow. The real
-  reader pixels were inspected at both viewports.
-- **Independent review:** PASS. Artifact-first inspection confirmed one update
-  branches to three parallel tests, all results reach one release decision,
-  the regression defeats the higher general score, no station-to-station
-  sequence is implied, and critical labels remain readable without clipping.
+- **Outcome:** Chapter 13 now contains one responsive autonomy-by-consequence
+  illustration after section 13.4. It places four example actions on two
+  independent axes: how much harm an error could cause and how difficult the
+  action is to recover. Drafting and moving a file remain bounded examples;
+  sending a client email and making a payment wait for explicit approval.
+  Sandbox/simulation is shown separately as an optional way to test without
+  touching the real system, not as a guarantee.
+- **Accuracy correction:** twenty-nine Chapter 13 statements are corrected
+  through the source-bound amendment layer. Absolute sandbox and containment
+  claims, an unsourced incident, a collapsed autonomy spectrum and the
+  conflation of approval gates with sandboxes are removed. The book contains
+  110 technical clarifications in total.
+- **Viewport proof:** at 1280×720 the desktop image renders at
+  895.61×504.05px. At 390×844 the separately composed mobile image renders at
+  355.21×580.06px. Both have zero horizontal document and figure overflow.
+  The real reader pixels were inspected at both viewports.
+- **Independent review:** PASS. Artifact-first inspection confirmed the axes
+  are independent, the examples are positions rather than a sequence,
+  approval is explicit for email/payment, the sandbox remains a separate
+  optional aid, and critical labels remain readable without clipping.
 - **Exact assets:** desktop
-  `9eaff9bb511416df6c3521f28628608653e94ec10601e0eccc416db1fbbad17d`;
+  `ac2d8ab25b405e7faf2d1084545fd2c6f8708f6bb4948b901ec5026b3968347a`;
   mobile
-  `1b895afe4f6af61b3c1f277eb2754a77a40eebffaf949b499d565546f51132a7`.
+  `e063990b5aea0fa9ee45299c8770876b4c796021c049b4b5563c91144d1b17af`.
 - **Verification:** build PASS; calibrated checker PASS, including deliberate
-  missing-Chapter-12-mobile and returned-fabricated-leaderboard failures;
+  missing-Chapter-13-mobile and returned-sandbox-guarantee failures;
   `git diff --check` PASS.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / INDEPENDENT REVIEW
   PASS / PENDING ALI REVIEW / NOT PUBLISHED. The rejected CSS and Python visual
   layer remains quarantined.
-- **Next:** bind the exact Chapter 12 commit, then produce Chapter 13's
-  autonomy-by-consequence illustration without publishing or scaling an
-  unreviewed visual pattern.
+- **Next:** bind the exact Chapter 13 commit, then produce Chapter 14's
+  goal-to-action agent loop without making the model appear to perform external
+  actions itself or implying that a loop guarantees success.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

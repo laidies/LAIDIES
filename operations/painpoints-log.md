@@ -14959,3 +14959,28 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How stacking three boxes on a phone can
   quietly turn three kinds of evidence into a made-up three-step process.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-473 — A sandbox, an approval gate and a permission boundary are not interchangeable
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 13 responsive autonomy visual.
+- **Failure:** The manuscript and an earlier visual direction treated a sandbox
+  as both the place an action happens and the mechanism that authorises a real
+  action. That could teach readers that contained testing makes an action safe
+  to release or that a human click creates containment.
+- **Root cause:** Three different controls were compressed into one reassuring
+  word: simulation limits what the test can touch, approval decides whether a
+  proposed real action may proceed, and permissions limit what the system can
+  actually do.
+- **Prevention rule:** Show simulation, approval and permissions as separate
+  mechanisms. Never use `sandboxed` as a synonym for harmless, approved or
+  impossible to escape. Position action authority using consequence,
+  recoverability, permissions, monitoring and rollback together.
+- **Durable correction:** Chapter 13 now places four concrete actions on
+  consequence/recoverability axes, adds explicit approval gates to the
+  email/payment examples, and draws sandbox/simulation as a separate optional
+  test area with a permissions qualifier. Independent desktop/mobile review
+  found no material teaching or visual defect.
+- **Possible Behind the Build angle:** Why one comforting safety word can hide
+  three completely different controls.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
