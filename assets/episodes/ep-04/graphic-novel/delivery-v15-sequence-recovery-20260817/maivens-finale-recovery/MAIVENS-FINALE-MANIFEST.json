@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "laidies.ep04.maivens-finale-recovery.v1",
+  "status": "SOURCE_LOCKED_NOT_YET_ANIMATED",
+  "supersedes": {
+    "candidate": "episode-04-v14",
+    "reason": "Ali rejected both finale gallery frames because they contain invented people and duplicate Ada."
+  },
+  "episodeClock": {
+    "start": "00:16:51.540",
+    "end": "00:17:08.820",
+    "narrationJobs": [
+      "And then the lights come up, and it's just me, in the back of the LUMINAiRY, holding all of it.",
+      "Almost two hundred years.",
+      "A room full of women, most of whom had to fight to be believed.",
+      "One very confident chatbot."
+    ]
+  },
+  "visualContract": {
+    "heroine": "the only non-MAiVEN foreground character",
+    "motion": "recover the existing three-state lights-up sequence in Canva; one portrait brightens at a time; no flashing, sparkle field, random crowd, or generated face",
+    "prohibited": [
+      "invented people",
+      "duplicate MAiVENS",
+      "generated group portrait",
+      "retired v14 gallery frames",
+      "CSS, Python, HTML, SVG, or JavaScript visible imagery or animation"
+    ]
+  },
+  "recoveredSequence": [
+    {
+      "role": "start",
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-12-lights-up-v2.png",
+      "sha256": "3c2ac6d39beec9bfba4390ae02f65a7c502a10ef768606d2a8fb9e3c75732fee"
+    },
+    {
+      "role": "mid",
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-12-lights-up-v2-b-mid.png",
+      "sha256": "afcc279b22e3d95bef4432239b74227d4f5f3011717b17e612a65c2628b51252"
+    },
+    {
+      "role": "end",
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-12-lights-up-v2-c-end.png",
+      "sha256": "b2f12fa1a09882d7d8e7551f6539ade410479b75e19f98217a8b78561159fb46"
+    }
+  ],
+  "canonicalMaivens": [
+    {"name":"Ada Lovelace","path":"assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.png","sha256":"94a3515876659d95d79ac48b0ae738db85c4d86cbd49f3c39099e43fa3ab1e88"},
+    {"name":"Hedy Lamarr","path":"assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.png","sha256":"b7ea84e6fa35f859f21bdea63fee3c8f4404ebae4e60e7740cdd5ee4942e51d7"},
+    {"name":"Grace Hopper","path":"assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.png","sha256":"3005dda3fa7a5c99f55f9ffaa880a116d981c5a04fc24eb73ad75fb3334179b7"},
+    {"name":"Karen Sparck Jones","path":"assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.png","sha256":"4f68a5176f112bc17d37a1f7a7d67c8ac125579b25a58b209be65b33b85b9f58"},
+    {"name":"Fei-Fei Li","path":"assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.png","sha256":"aea03a96bea2ac1ab8b06a772d2f29ccb29b34c31dca2ea4c7d5f2663f707c7a"},
+    {"name":"Joy Buolamwini","path":"assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.png","sha256":"e66bf6b13dd7b3255178e23e8b42db78662e0e156a0cc24bbe59c9ca8007b820"},
+    {"name":"Timnit Gebru","path":"assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.png","sha256":"77b7d7fdf4a2dce352caea1c5879bb64aa6f16ed42fa2f323148d3a0a6c38833"},
+    {"name":"Kate Crawford","path":"assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.png","sha256":"e73eb66ef7305f63b8facbe1f962996a6233c63ca6580e83b209f45c71189bd8"}
+  ],
+  "acceptance": [
+    "all three recovered sequence hashes reproduce",
+    "all eight canonical portrait hashes reproduce",
+    "each named MAiVEN appears exactly once",
+    "no anonymous or duplicated woman is visible",
+    "Canva export is visually inspected at start, midpoint, and end before assembly",
+    "v14 remains rejected and unchanged"
+  ]
+}
