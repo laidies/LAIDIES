@@ -14763,6 +14763,26 @@ while remaining falsely unfinished in the launch record.
   underneath quietly made the lesson wrong again.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
 
+## BTB-466 — Essential visual safeguards cannot be mobile fine print
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 responsive textbook illustration.
+- **Failure:** The first Chapter 6 phone composition preserved the correct
+  photo-to-image-token mechanism but rendered four misconception-blocking
+  labels too small to read reliably at 390px. The diagram fit without overflow
+  while still failing its teaching job.
+- **Root cause:** Responsive review treated semantic parity and containment as
+  sufficient, but the smallest type carried the most important boundaries.
+- **Prevention rule:** Identify misconception-blocking text in the visual
+  contract and require it to sit in the primary mobile hierarchy at intended
+  size. A safeguard that exists only as fine print is absent for admission.
+- **Durable correction:** The repaired Chapter 6 mobile plate enlarges the
+  numerical-representation, non-object-label, worked-count and variable-count
+  boundaries. Independent forward-testing passed all four at 390×844.
+- **Possible Behind the Build angle:** A diagram can fit perfectly on a phone
+  and still hide the one sentence that keeps the lesson true.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
 ## BTB-465 — Generated feedback arrows must be judged as causal claims
 
 - **Date:** 2026-08-17

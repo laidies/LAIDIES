@@ -34,6 +34,8 @@ const paths = {
   chapterFourPurposeBuiltMobile: path.join(pilotDir, "assets/ch04-tokenisation-vocabulary-mobile-v1.png"),
   chapterFivePurposeBuiltDesktop: path.join(pilotDir, "assets/ch05-training-loop-desktop-v1.png"),
   chapterFivePurposeBuiltMobile: path.join(pilotDir, "assets/ch05-training-loop-mobile-v1.png"),
+  chapterSixPurposeBuiltDesktop: path.join(pilotDir, "assets/ch06-photo-to-context-desktop-v1.png"),
+  chapterSixPurposeBuiltMobile: path.join(pilotDir, "assets/ch06-photo-to-context-mobile-v1.png"),
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
@@ -402,6 +404,8 @@ const chapterFourPurposeBuiltVisualActive = true;
 const chapterFourPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const chapterFivePurposeBuiltVisualActive = true;
 const chapterFivePurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
+const chapterSixPurposeBuiltVisualActive = true;
+const chapterSixPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const representativeTeachingVisualActive = false;
 const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
 const representativeTeachingVisualStatus = rejectedRepresentativeStatus;
@@ -473,6 +477,16 @@ function renderChapterFivePurposeBuiltVisual() {
     <img src="assets/ch05-training-loop-desktop-v1.png" alt="A five-stage training loop using the example The cat sat on the. The known next token is mat. The model first makes chair most likely and gives mat only twelve percent. A high loss measures that mismatch. The error signal travels backward through the network and many weights receive tiny adjustments. The same example is shown again only to reveal the effect of one update: mat rises to fifty-six percent. Repeated small corrections build the trained model." loading="lazy" decoding="async">
   </picture>
   <figcaption id="ch05-purpose-built-caption"><strong>One training update, slowed down:</strong> the training example already contains the known next token. The model produces likelihoods; loss measures how poorly they fit; backpropagation traces contribution to the error; gradient descent nudges many weights. The repeated sentence here reveals the effect of one update. Real training continues across many different examples, and ordinary use of the finished model does not run this weight-changing loop.</figcaption>
+</figure>`;
+}
+
+function renderChapterSixPurposeBuiltVisual() {
+  return `<figure id="ch06-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch06-photo-becomes-image-token-context" aria-describedby="ch06-purpose-built-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch06-photo-to-context-mobile-v1.png">
+    <img src="assets/ch06-photo-to-context-desktop-v1.png" alt="A photograph of a portable CD player and headphones is split into patches. A vision encoder converts pixel patterns into numerical image-token representations rather than object labels. Those image tokens join the reader's question tokens in one context sequence. A language model attends across both kinds of token and answers that the headphones are beside the CD player." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch06-purpose-built-caption"><strong>One photo, converted before the language model uses it:</strong> the patch grid preserves local visual information; the vision encoder turns pixel patterns into numerical image-token representations; those tokens join the typed question in one context sequence. The model then uses relationships across both kinds of token to generate an answer. The 576 image-token count is this chapter's worked example, not a universal fixed count.</figcaption>
 </figure>`;
 }
 
@@ -1097,6 +1111,12 @@ function buildReviewPage(source, fragment, manuscript) {
     if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 5.5 purpose-built visual placement anchor");
     mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterFivePurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
   }
+  if (chapterSixPurposeBuiltVisualActive) {
+    const purposeBuiltAnchor = '<h4 id="ch-6-what-the-model-actually-sees">What the model actually "sees"</h4>';
+    const purposeBuiltInsertion = mainFragment.indexOf(purposeBuiltAnchor);
+    if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 6.2 purpose-built visual placement anchor");
+    mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterSixPurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
+  }
   if (visualTeachingLayerActive) {
     for (const asset of chapterOneTeachingAssets) {
       const anchorIndex = mainFragment.indexOf(asset.anchor);
@@ -1292,10 +1312,10 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 .gr-page>p,.gr-page>ul,.gr-page>ol{font-family:var(--reading-font)}
 .gr-page>p{max-width:65ch;line-height:1.68}
 .purpose-built-teaching-visual{width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);border-radius:16px;box-shadow:10px 10px 0 #eea0cf;overflow:hidden}.purpose-built-teaching-visual picture,.purpose-built-teaching-visual img{display:block;width:100%}.purpose-built-teaching-visual img{height:auto}.purpose-built-teaching-visual figcaption{margin:0;padding:1rem 1.25rem;background:#fff;color:#30395e;border-top:3px solid var(--navy);font-size:16px;line-height:1.5}
-#ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual{width:calc(100% + 12rem);margin-left:-6rem}
+#ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual,#ch06-purpose-built-visual{width:calc(100% + 12rem);margin-left:-6rem}
 .chapter-ahead{background:#fff;box-shadow:6px 6px 0 #aeeaf4}
 .chapter-ahead-body{padding:1.15rem;background:#fff}
-@media(max-width:850px){.purpose-built-teaching-visual,#ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
+@media(max-width:850px){.purpose-built-teaching-visual,#ch03-purpose-built-visual,#ch04-purpose-built-visual,#ch05-purpose-built-visual,#ch06-purpose-built-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
 .chapter-ahead .callout-objective{margin:0 0 1.25rem;padding:1.2rem 1.35rem;background:#e5f8ff;box-shadow:none}
 .chapter-ahead .callout-objective p{font-size:21px;line-height:1.35}
 .chapter-ahead .callout-objective ul{gap:.75rem 1.6rem}
@@ -1398,7 +1418,7 @@ ${teachingVisualCss}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Five replacement teaching visuals in Chapters 1–5 have passed maker and independent desktop/mobile inspection. None has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Six replacement teaching visuals in Chapters 1–6 have passed maker and independent desktop/mobile inspection. None has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -1466,6 +1486,7 @@ const artifactPaths = [
   ...(chapterThreePurposeBuiltVisualActive ? [paths.chapterThreePurposeBuiltDesktop, paths.chapterThreePurposeBuiltMobile] : []),
   ...(chapterFourPurposeBuiltVisualActive ? [paths.chapterFourPurposeBuiltDesktop, paths.chapterFourPurposeBuiltMobile] : []),
   ...(chapterFivePurposeBuiltVisualActive ? [paths.chapterFivePurposeBuiltDesktop, paths.chapterFivePurposeBuiltMobile] : []),
+  ...(chapterSixPurposeBuiltVisualActive ? [paths.chapterSixPurposeBuiltDesktop, paths.chapterSixPurposeBuiltMobile] : []),
   ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook] : []),
   ...(representativeTeachingVisualActive ? [paths.chapterSixBicycleTree] : []),
 ];
@@ -1485,7 +1506,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
-    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive),
+    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive),
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,
@@ -1506,6 +1527,7 @@ const manifest = {
     chapterThreePurposeBuiltVisual: chapterThreePurposeBuiltVisualStatus,
     chapterFourPurposeBuiltVisual: chapterFourPurposeBuiltVisualStatus,
     chapterFivePurposeBuiltVisual: chapterFivePurposeBuiltVisualStatus,
+    chapterSixPurposeBuiltVisual: chapterSixPurposeBuiltVisualStatus,
     representativeTeachingVisual: representativeTeachingVisualStatus,
     chapterOneDecisionSeam: chapterOneDecisionSeamStatus,
     chapterFourTokenProof: chapterFourTokenProofStatus,
