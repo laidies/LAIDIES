@@ -14789,6 +14789,10 @@ while remaining falsely unfinished in the launch record.
   Stage 3 cleaning/labelling. The stray branch toward model training was
   removed. The selected tray visibly contains cats and dogs before those same
   categories are labelled. Desktop and mobile now encode the same mechanism.
+  The Chapter 5 successor forward-tested the same rule: the known training
+  answer now bypasses the initial guess and enters only the loss comparison,
+  while the loss itself is shown numerically before its error signal travels
+  backward.
 - **Possible Behind the Build angle:** In a diagram, an arrow is a sentence—and
   pointing it at the wrong box teaches the wrong fact.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.

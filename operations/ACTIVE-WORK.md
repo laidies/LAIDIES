@@ -30,33 +30,34 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 4 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 5 purpose-built proof
 
-- **Outcome:** Chapter 4 now contains one purpose-built tokenisation visual at
-  section 4.3. It separates the vocabulary-building stage that happened earlier
-  from the moment a reader's English message is split into ordered pieces for a
-  model to process.
+- **Outcome:** Chapter 5 now contains one purpose-built training-loop visual at
+  section 5.5. It shows one next-token prediction moving through likelihoods,
+  comparison with the known training answer, a numerical loss, error tracing,
+  many tiny weight adjustments and the next attempt.
 - **Responsive composition:** the desktop 1672×941 plate and separately
-  composed 887×1774 mobile plate carry the same two-time-scale mechanism. The
-  phone uses a vertical composition rather than a squeezed desktop crop.
-- **Accuracy correction:** the immutable Ali-vetted source manuscript remains
-  unchanged. The checksum-bound clarification layer now makes the character-
-  first BPE sequence an explicitly simplified example, allows bytes and other
-  starting units, and replaces the false claim that a model can never examine
-  characters with the narrower lesson that exact-character work is less direct
-  and may be recovered through learned patterns, reasoning or tools.
-- **Verification:** build PASS; calibrated book checker PASS, including
-  deliberate missing-mobile and returned-absolute-claim failures; `git diff
-  --check` PASS. The real reader selected the desktop asset at 1440px and the
-  mobile asset at 390px, with zero document overflow. Independent artifact-first
-  review returned PASS after independently rejecting and then forward-testing
-  the two repaired prose defects.
+  composed 941×1672 mobile plate carry the same five-stage mechanism rather
+  than squeezing a landscape diagram into the phone layout.
+- **Causal correction:** the first reviewed candidate showed only a qualitative
+  loss gauge. The admitted successor binds `mat = 12%` to `LOSS = 2.12` and
+  keeps the known answer outside the model's initial guess. The repeated example
+  is explicitly a slowed-down view of one update, not a claim that one example
+  teaches a permanent fact or that ordinary use changes model weights.
+- **Verification:** build PASS; calibrated book checker PASS, including a
+  deliberate missing-Chapter-5-mobile failure; `git diff --check` PASS. The real
+  reader selected the 941×1672 mobile asset at 390px with zero document
+  overflow. Independent artifact-first review inspected desktop at 1440×900 and
+  mobile at 390×844 and returned PASS with no clipping, overlap, squashing,
+  gibberish, ambiguous causal arrow or critical illegibility.
+- **Exact assets:** desktop SHA-256
+  `507d7466fd432851ce2a12eb26381bee60505c672af4f31eccf7b948cd4c11f8`;
+  mobile SHA-256
+  `d504a5cbea04769cd38f3dee1b0ad31189c1358617413107c7915a6621494e36`.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** commit the exact Chapter 4 bytes, then build the smallest
-  representative Chapter 5 training-loop visual. The language/token-cost equity
-  question remains a separate evidence-led Big Picture investigation under
-  `IIR-20260818-019`.
+- **Next:** bind the exact Chapter 5 commit, then integrate and independently
+  review the Chapter 6 photo-to-image-token visual pair already drafted.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 
