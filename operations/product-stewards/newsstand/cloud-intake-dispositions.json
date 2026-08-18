@@ -1,17 +1,17 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-17T16:55:12-07:00",
+  "updatedAt": "2026-08-18T10:12:00-07:00",
   "remoteSource": {
     "repository": "laidies/LAIDIES",
     "issueNumber": 82,
     "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
-    "issueState": "OPEN_RECONCILED_THROUGH_2026-08-17T23:46:39Z",
-    "commit": "25966682",
+    "issueState": "OPEN_RECONCILED_THROUGH_2026-08-18T16:58:50Z",
+    "commit": "PENDING_LOCAL_COMMIT",
     "fileSha": null,
-    "verifiedAt": "2026-08-17T16:55:12-07:00",
+    "verifiedAt": "2026-08-18T10:12:00-07:00",
     "closeAttemptAt": "2026-08-17T17:02:20-07:00",
-    "closeAttemptResult": "The executor attempted to post the commit-bound reconciliation summary, but the GitHub connector returned HTTP 403 Resource not accessible by integration. The queue remains open for continuing cloud intake; all comments visible through 2026-08-17T23:46:39Z still have durable dispositions."
+    "closeAttemptResult": "The queue remains open for continuing cloud intake. All comments visible through 2026-08-18T16:58:50Z have durable local dispositions; no close was attempted because the issue is still the active cloud intake queue."
   },
   "rules": {
     "allowedDispositions": [
@@ -163,6 +163,30 @@
       "reason": "This is a multi-source roundup rather than one article premise. Its writing-accountability, de-skilling and human-learning leads require their named primary policy and research sources.",
       "nextTrigger": "Recover and verify the exact Clay policy, BCG de-skilling research and KPMG adaptability report, then route only a distinct reader question with a practical consequence.",
       "reviewAfter": "2026-08-24"
+    },
+    {
+      "signalId": "NSCI-9507a334d70f568ddb9f",
+      "title": "AI Companies Still Haven't Delivered on Their Biggest Promises",
+      "disposition": "WATCH",
+      "reason": "The AIDB episode is a disputed trust-and-power discussion built around second-hand claims and public replies; the exact interview, replies and primary essays must be bound before a fair Big Picture treatment.",
+      "nextTrigger": "Recover the exact All-In interview, Anthropic replies and primary essays, then prove one distinct ordinary-reader question rather than republishing the roundup.",
+      "reviewAfter": "2026-08-25"
+    },
+    {
+      "signalId": "NSCI-8e773c09b6dc8fd23f38",
+      "title": "OpenAI launches ChatGPT for Teens",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "reason": "The product change is consequential for parents, educators and teens, but the complete rollout, age, privacy, parental-control and safeguard boundaries are not yet source-bound.",
+      "nextTrigger": "Bind the exact OpenAI launch and current official product, privacy and safety pages, then confirm a distinct reader action and Daily owner capacity.",
+      "reviewAfter": "2026-08-21"
+    },
+    {
+      "signalId": "NSCI-dada8e680eeaa94a520c",
+      "title": "Sinking AI stocks pull Wall Street further from its record",
+      "disposition": "NO_BUILD",
+      "reason": "A one-day market decline with multiple drivers does not establish a durable AI lesson or practical LAiDIES reader action.",
+      "nextTrigger": null,
+      "reviewAfter": null
     }
   ],
   "sourceHealth": [

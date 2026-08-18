@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "laidies-source-reconciliation.v1",
+  "receiptId": "SRC-GITHUB-NSCI-20260818-ISSUE-82-CONTINUATION",
+  "createdAt": "2026-08-18T10:12:00-07:00",
+  "signals": [
+    {
+      "signalId": "NSCI-9507a334d70f568ddb9f",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-17/transcript.md",
+      "sourcePublishedAt": "2026-08-17T12:00:00Z",
+      "observedAt": "2026-08-18T10:07:30-07:00",
+      "finalRecheckAt": "2026-08-18T10:10:00-07:00",
+      "disposedAt": "2026-08-18T10:12:00-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "WATCH",
+      "terminalReason": "The episode is a broad, disputed trust-and-power discussion built around an investor's second-hand account and later public replies. It may support a future Big Picture question about promised benefits, concentrated power and public trust, but the exact investor interview, Anthropic replies and company claims must be bound before the topic can be fairly framed.",
+      "nextTrigger": "Recover the exact All-In interview, Dario Amodei response, Sholto Douglas response and the primary Anthropic or Meta essays cited in the exchange; then prove a distinct ordinary-reader question rather than turning the roundup itself into an article.",
+      "materialClaims": [
+        {
+          "claimId": "AIDB-ANTHROPIC-TRUST-POWER-DISCOURSE-20260817",
+          "claim": "The August 17 AIDB episode reports a public dispute about an investor's second-hand description of Anthropic leaders' views, Anthropic replies rejecting that description, and a wider argument about AI-company promises, concentrated power and public trust.",
+          "namedReferences": ["The AI Daily Brief", "Gavin Baker", "Dario Amodei", "Sholto Douglas", "Anthropic"],
+          "aliasesChecked": ["Anthropic only private company", "AI trust problem", "All-In Gavin Baker Anthropic"],
+          "disposition": "PARTIALLY_VERIFIED",
+          "dispositionReason": "The dated transcript confirms that the episode makes these claims and describes the dispute. The exact interview and social posts are not bound in this cycle, so none of the attributed positions is admitted for drafting.",
+          "searches": [
+            {
+              "track": "named_reference",
+              "query": "AIDB August 17 2026 Anthropic promises trust Gavin Baker Dario Amodei",
+              "checkedAt": "2026-08-18T10:09:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://aidailybrief.ai/e/2026-08-17/transcript.md",
+                  "publisher": "The AI Daily Brief",
+                  "publishedAt": "2026-08-17T12:00:00Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "NSCI-8e773c09b6dc8fd23f38",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://apnews.com/article/openai-chatgpt-teens-ai-safety-650cb35591de6546054d6c4e73b3290a",
+      "sourcePublishedAt": "2026-08-18T11:00:56Z",
+      "observedAt": "2026-08-18T10:07:30-07:00",
+      "finalRecheckAt": "2026-08-18T10:10:30-07:00",
+      "disposedAt": "2026-08-18T10:12:00-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "QUEUED_WITH_TRIGGER",
+      "terminalReason": "A teen-specific ChatGPT experience is a consequential product change for parents, educators and teen users, but one AP report does not establish the complete launch boundary. It is queued for a plain-language Daily explainer only after official availability, age handling, privacy, parental-control and safeguard limits are source-bound.",
+      "nextTrigger": "Bind the exact OpenAI launch page and current Help Center pages for eligible ages, rollout regions, age prediction or verification, parental controls, conversation privacy, data use and safeguard limitations; then confirm a distinct reader action and NewsStand Daily capacity.",
+      "materialClaims": [
+        {
+          "claimId": "OPENAI-CHATGPT-TEENS-LAUNCH-20260818",
+          "claim": "AP reported that OpenAI launched a ChatGPT experience for teenagers with content restrictions and study support; current OpenAI guidance says ChatGPT is not intended for children under 13, requires parental consent for ages 13 to 18, and says safeguards reduce but do not eliminate inappropriate responses.",
+          "namedReferences": ["Associated Press", "OpenAI", "ChatGPT for Teens"],
+          "aliasesChecked": ["ChatGPT teen experience", "ChatGPT parental controls", "OpenAI teen safety"],
+          "disposition": "ROUTED",
+          "dispositionReason": "The AP report confirms the launch announcement, while current official OpenAI help pages confirm the general age and safeguard boundaries. Exact rollout availability, the launch feature set and privacy/data-use implications still require a source packet before drafting.",
+          "searches": [
+            {
+              "track": "independent_reporting",
+              "query": "AP OpenAI launches ChatGPT for Teens August 18 2026",
+              "checkedAt": "2026-08-18T10:09:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://apnews.com/article/openai-chatgpt-teens-ai-safety-650cb35591de6546054d6c4e73b3290a",
+                  "publisher": "Associated Press",
+                  "publishedAt": "2026-08-18T11:00:56Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            },
+            {
+              "track": "official_or_primary",
+              "query": "site:openai.com ChatGPT teen safety age parental controls",
+              "checkedAt": "2026-08-18T10:10:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://help.openai.com/en/articles/8313401",
+                  "publisher": "OpenAI Help Center",
+                  "publishedAt": "2026-08-14T12:00:00Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                },
+                {
+                  "url": "https://help.openai.com/en/articles/12315553-parental-controls-in-chatgpt",
+                  "publisher": "OpenAI Help Center",
+                  "publishedAt": "2026-08-18T12:00:00Z",
+                  "relationship": "CONTEXT_ONLY"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "NSCI-dada8e680eeaa94a520c",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://apnews.com/article/stock-markets-oil-war-iran-trump-a805333e767251279e68e0686b28a8c9",
+      "sourcePublishedAt": "2026-08-18T03:19:53Z",
+      "observedAt": "2026-08-18T10:07:30-07:00",
+      "finalRecheckAt": "2026-08-18T10:11:00-07:00",
+      "disposedAt": "2026-08-18T10:12:00-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "NO_BUILD",
+      "terminalReason": "A one-day market decline does not establish a durable lesson about AI capability, adoption or value. The report is financial-market news with multiple drivers and no distinct practical LAiDIES reader action.",
+      "materialClaims": [
+        {
+          "claimId": "AP-AI-STOCKS-MARKET-DOWN-20260818",
+          "claim": "AP reported that several AI-related stocks fell while the S&P 500 moved farther from its recent record, alongside other market and geopolitical pressures.",
+          "namedReferences": ["Associated Press", "S&P 500", "AI stocks"],
+          "aliasesChecked": ["Wall Street AI stocks", "AI stock decline", "market record August 18 2026"],
+          "disposition": "VERIFIED",
+          "dispositionReason": "The current AP report confirms the bounded daily-market movement. It does not support a broader conclusion about AI products or long-term investment value and earns no content work order.",
+          "searches": [
+            {
+              "track": "independent_reporting",
+              "query": "AP sinking AI stocks Wall Street August 18 2026",
+              "checkedAt": "2026-08-18T10:11:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://apnews.com/article/stock-markets-oil-war-iran-trump-a805333e767251279e68e0686b28a8c9",
+                  "publisher": "Associated Press",
+                  "publishedAt": "2026-08-18T03:19:53Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "routing": {
+    "disposition": "MIXED_TERMINAL_AND_QUEUED",
+    "workOrderId": null,
+    "publicationFormatId": null,
+    "releaseState": "HOLD",
+    "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
+    "reason": "The three new cloud signals receive one source-watch, one bounded source-and-capacity trigger and one no-build ruling. None is eligible for drafting, publication or deployment in this cycle."
+  },
+  "publicAuthority": "NONE"
+}
