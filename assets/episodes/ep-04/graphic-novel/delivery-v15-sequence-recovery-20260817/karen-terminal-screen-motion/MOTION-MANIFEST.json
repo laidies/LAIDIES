@@ -2,15 +2,27 @@
   "candidateId": "EP04-V15-KAREN-TERMINAL-SCREEN-MOTION-2026-08-17",
   "status": "MAKER_INPUT_NOT_RELEASE_CANDIDATE",
   "sceneJob": "Make Karen's information-retrieval explanation feel alive without distracting from the narration or changing the approved adult-graphic-novel frame.",
-  "source": {
-    "path": "v14-karen-00-11-45-500.png",
-    "sha256": "5ee077c7604eb4b7d72be6ec8b548db4c4e7438feaf45b36871e28794eddd128",
-    "geometry": "1920x1080",
-    "derivedFrom": {
-      "path": "../../../../../video/episode-04-full-v14-exact-source-launch-review.mp4",
-      "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
-      "frameTime": "00:11:45.500"
+  "sources": [
+    {
+      "id": "BLOCK_SCREEN",
+      "path": "v14-karen-00-11-45-500.png",
+      "sha256": "5ee077c7604eb4b7d72be6ec8b548db4c4e7438feaf45b36871e28794eddd128",
+      "geometry": "1920x1080",
+      "frameTime": "00:11:45.500",
+      "allowedChange": "Existing green CRT blocks slowly dim and brighten in small groups."
+    },
+    {
+      "id": "DIAGRAM_SCREEN",
+      "path": "v14-karen-diagram-00-12-04-000.png",
+      "sha256": "3a7a2213ad18c6bb888ae0f933406e6059da89351389b1e2b1c5bfbc7811dc95",
+      "geometry": "1920x1080",
+      "frameTime": "00:12:04.000",
+      "allowedChange": "Existing diagram lines and box nodes illuminate progressively in slow groups."
     }
+  ],
+  "sourceMaster": {
+    "path": "../../../../../video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632"
   },
   "motionClass": "SUBTLE_ZERO_NET_LOOP",
   "durationSeconds": 12,
@@ -20,13 +32,13 @@
       "start": 0,
       "end": 2.5,
       "state": "SOURCE_HOLD",
-      "job": "Establish the existing CRT pattern without movement."
+      "job": "Establish the applicable existing CRT pattern without movement."
     },
     {
       "start": 2.5,
       "end": 5.5,
-      "state": "GROUP_A_SLOW_DIM_GROUP_B_SLOW_BRIGHTEN",
-      "job": "Change only a few existing green blocks with a soft, gradual luminance transition."
+      "state": "GROUP_A_SLOW_CHANGE",
+      "job": "Block screen: dim and brighten a few existing blocks. Diagram screen: illuminate one existing path and destination box."
     },
     {
       "start": 5.5,
@@ -37,8 +49,8 @@
     {
       "start": 7.5,
       "end": 10,
-      "state": "GROUP_C_SLOW_DIM_GROUP_D_SLOW_BRIGHTEN",
-      "job": "A second small, different block group changes slowly."
+      "state": "GROUP_B_SLOW_CHANGE",
+      "job": "Block screen: change a second small block group. Diagram screen: illuminate a second existing path and destination box."
     },
     {
       "start": 10,
@@ -58,7 +70,7 @@
     "whole-screen flashing or colour cycling",
     "rapid flicker or strobing",
     "camera movement, zoom, pan or crop drift",
-    "new text, generated lettering or new screen objects",
+    "new text, generated lettering, invented diagram geometry or new screen objects",
     "regeneration of any source pixel outside the CRT display face",
     "Python, CSS, HTML, SVG or JavaScript visible-pixel authoring"
   ],
@@ -66,7 +78,7 @@
     "At 1x the screen is visibly alive but never competes with the narration.",
     "No change begins or completes in less than 1.5 seconds.",
     "The first and last decoded frames are visually identical within encode tolerance.",
-    "Motion is confined to existing green CRT blocks; every locked still pixel remains unchanged.",
+    "Motion is confined to the first screen's existing green blocks and the second screen's existing diagram lines and box nodes; every locked still pixel remains unchanged.",
     "A known-static control is rejected by the calibrated motion gate before the candidate is trusted."
   ]
 }
