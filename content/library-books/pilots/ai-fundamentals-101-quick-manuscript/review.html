@@ -110,8 +110,10 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 .gr-page>p,.gr-page>ul,.gr-page>ol{font-family:var(--reading-font)}
 .gr-page>p{max-width:65ch;line-height:1.68}
+.purpose-built-teaching-visual{width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);border-radius:16px;box-shadow:10px 10px 0 #eea0cf;overflow:hidden}.purpose-built-teaching-visual picture,.purpose-built-teaching-visual img{display:block;width:100%}.purpose-built-teaching-visual img{height:auto}.purpose-built-teaching-visual figcaption{margin:0;padding:1rem 1.25rem;background:#fff;color:#30395e;border-top:3px solid var(--navy);font-size:16px;line-height:1.5}
 .chapter-ahead{background:#fff;box-shadow:6px 6px 0 #aeeaf4}
 .chapter-ahead-body{padding:1.15rem;background:#fff}
+@media(max-width:850px){.purpose-built-teaching-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
 .chapter-ahead .callout-objective{margin:0 0 1.25rem;padding:1.2rem 1.35rem;background:#e5f8ff;box-shadow:none}
 .chapter-ahead .callout-objective p{font-size:21px;line-height:1.35}
 .chapter-ahead .callout-objective ul{gap:.75rem 1.6rem}
@@ -349,6 +351,14 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>That's <strong>AI</strong> — a system that learned its own rules from examples.</p>
 <p>Now watch what didn't change. A human is still in this story. Someone still did the labour — a lot of someones in fact, all those little <em>yes-junk / no-keep</em> verdicts. The difference between the old filter and the new one was never <em>person versus machine.</em> It was <em>which job the person did.</em> In the old one, a human wrote the rules and the machine obeyed them. In the new one, humans supplied the examples, and the machine wrote its own rules.</p>
 <p>That swap is the exact seam between the software you've used your whole life and the stuff now getting called AI.</p>
+
+<figure id="ch01-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-rule-versus-learned-pattern" aria-describedby="ch01-purpose-built-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png">
+    <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png" alt="The same suspicious email reaches spam in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch01-purpose-built-caption"><strong>The seam:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to a new case.</figcaption>
+</figure>
 <aside class="callout callout-key"><p>📌 <strong>The Core Distinction</strong> <strong>Automation:</strong> A person writes the rules → the machine follows them exactly. <strong>AI:</strong> A person supplies examples → the machine figures out its own rules. A person is involved in both. The difference is <em>which job</em> the person did.</p>
 <p>⏸️ <strong>Let's make this concrete — same email, two different filters:</strong></p>
 <p>An email arrives: "Congrats!! You've W0N a FR33 iPad!!! Click here NOW!!!"</p>

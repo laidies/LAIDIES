@@ -24,6 +24,8 @@ const paths = {
   review: path.join(pilotDir, "review.html"),
   inventory: path.join(pilotDir, "claim-inventory.json"),
   manifest: path.join(pilotDir, "artifact-manifest.json"),
+  chapterOnePurposeBuiltDesktop: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png"),
+  chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png"),
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
@@ -382,6 +384,8 @@ const additionalConcepts = [
 const conceptDiagrams = teachingVisuals;
 const visualTeachingLayerActive = false;
 const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED";
+const chapterOnePurposeBuiltVisualActive = true;
+const chapterOnePurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const representativeTeachingVisualActive = false;
 const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
 const representativeTeachingVisualStatus = rejectedRepresentativeStatus;
@@ -404,6 +408,16 @@ const chapterNineCustomisationDecisionStatus = rejectedRepresentativeStatus;
 
 function renderConceptDiagram(concept) {
   return renderTeachingVisual(concept);
+}
+
+function renderChapterOnePurposeBuiltVisual() {
+  return `<figure id="ch01-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-rule-versus-learned-pattern" aria-describedby="ch01-purpose-built-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png">
+    <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png" alt="The same suspicious email reaches spam in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch01-purpose-built-caption"><strong>The seam:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to a new case.</figcaption>
+</figure>`;
 }
 
 function renderChapterOneDecisionSeam() {
@@ -997,6 +1011,12 @@ function buildReviewPage(source, fragment, manuscript) {
     const chapterFrontMatter = mainFragment.slice(headingEnd, firstSectionStart);
     mainFragment = `${mainFragment.slice(0, headingEnd)}\n<section class="chapter-ahead" aria-labelledby="chapter-${chapterNumber}-ahead-title"><p class="chapter-ahead-title" id="chapter-${chapterNumber}-ahead-title">What you will learn + the words you will need</p><div class="chapter-ahead-body">${chapterFrontMatter}</div></section>\n${mainFragment.slice(firstSectionStart)}`;
   });
+  if (chapterOnePurposeBuiltVisualActive) {
+    const purposeBuiltAnchor = '<aside class="callout callout-key"><p>📌 <strong>The Core Distinction</strong>';
+    const purposeBuiltInsertion = mainFragment.indexOf(purposeBuiltAnchor);
+    if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 1.1 purpose-built visual placement anchor");
+    mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterOnePurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
+  }
   if (visualTeachingLayerActive) {
     for (const asset of chapterOneTeachingAssets) {
       const anchorIndex = mainFragment.indexOf(asset.anchor);
@@ -1191,8 +1211,10 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 .gr-page>p,.gr-page>ul,.gr-page>ol{font-family:var(--reading-font)}
 .gr-page>p{max-width:65ch;line-height:1.68}
+.purpose-built-teaching-visual{width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);border-radius:16px;box-shadow:10px 10px 0 #eea0cf;overflow:hidden}.purpose-built-teaching-visual picture,.purpose-built-teaching-visual img{display:block;width:100%}.purpose-built-teaching-visual img{height:auto}.purpose-built-teaching-visual figcaption{margin:0;padding:1rem 1.25rem;background:#fff;color:#30395e;border-top:3px solid var(--navy);font-size:16px;line-height:1.5}
 .chapter-ahead{background:#fff;box-shadow:6px 6px 0 #aeeaf4}
 .chapter-ahead-body{padding:1.15rem;background:#fff}
+@media(max-width:850px){.purpose-built-teaching-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
 .chapter-ahead .callout-objective{margin:0 0 1.25rem;padding:1.2rem 1.35rem;background:#e5f8ff;box-shadow:none}
 .chapter-ahead .callout-objective p{font-size:21px;line-height:1.35}
 .chapter-ahead .callout-objective ul{gap:.75rem 1.6rem}
@@ -1358,6 +1380,7 @@ const artifactPaths = [
   paths.fragment,
   paths.inventory,
   paths.review,
+  ...(chapterOnePurposeBuiltVisualActive ? [paths.chapterOnePurposeBuiltDesktop, paths.chapterOnePurposeBuiltMobile] : []),
   ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook] : []),
   ...(representativeTeachingVisualActive ? [paths.chapterSixBicycleTree] : []),
 ];
@@ -1377,7 +1400,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
-    teachingImages: visualTeachingLayerActive ? chapterOneTeachingAssets.filter(asset => asset.countAsTeachingVisual !== false).length : 0,
+    teachingImages: Number(chapterOnePurposeBuiltVisualActive),
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,
@@ -1393,6 +1416,7 @@ const manifest = {
     freshnessRegistration: "PASS_20_CHAPTER_SCOPES_WEEKLY_AUTOMATION_MONTHLY_OR_QUARTERLY_REVIEW",
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
     visualTeachingLayer: visualTeachingLayerStatus,
+    chapterOnePurposeBuiltVisual: chapterOnePurposeBuiltVisualStatus,
     representativeTeachingVisual: representativeTeachingVisualStatus,
     chapterOneDecisionSeam: chapterOneDecisionSeamStatus,
     chapterFourTokenProof: chapterFourTokenProofStatus,

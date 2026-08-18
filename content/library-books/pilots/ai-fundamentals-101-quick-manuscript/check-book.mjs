@@ -108,6 +108,11 @@ export function inspectBook(pilotDir = ownDir) {
   const teachingVisualIds = [...review.matchAll(/data-teaching-visual="([^"]+)"/g)].map(match => match[1]);
   if (teachingVisualIds.length !== 0) errors.push("rejected Chapter 1 teaching visuals have returned to the reader");
   if (review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("rejected Chapter 1 visual summary has returned to the reader");
+  const purposeBuiltVisuals = [...review.matchAll(/data-purpose-built-teaching-visual="([^"]+)"/g)].map(match => match[1]);
+  if (purposeBuiltVisuals.length !== 1 || purposeBuiltVisuals[0] !== "ch01-rule-versus-learned-pattern") errors.push("reader does not contain exactly one admitted Chapter 1 purpose-built visual");
+  if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png">')) errors.push("Chapter 1 purpose-built visual is missing its separately composed mobile asset");
+  if (!review.includes('<img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png"')) errors.push("Chapter 1 purpose-built visual is missing its desktop asset");
+  if (!review.includes("The same suspicious email reaches spam in two ways")) errors.push("Chapter 1 purpose-built visual is missing its equivalent text explanation");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
@@ -155,14 +160,20 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== 0) errors.push("manifest still counts rejected Chapter 1 teaching visuals as active");
+  if (manifest.counts?.teachingImages !== 1) errors.push("manifest does not count exactly one purpose-built Chapter 1 teaching visual");
   if (manifest.counts?.cumulativeSystemMaps !== 0) errors.push("manifest still counts rejected cumulative maps as active");
   if (manifest.gates?.visualTeachingLayer !== "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest does not preserve Ali's rejection and quarantine of the visual teaching layer");
+  if (manifest.gates?.chapterOnePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 purpose-built visual status");
   const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
   for (const gate of ["representativeTeachingVisual", "chapterOneDecisionSeam", "chapterFourTokenProof", "chapterTwoJobFamily", "chapterThreeDataLifecycle", "chapterFiveTrainingLoop", "chapterSevenRequestJourney", "chapterEightContextRetrieval", "chapterNineCustomisationDecision"]) {
     if (manifest.gates?.[gate] !== rejectedRepresentativeStatus) errors.push(`manifest does not preserve rejection of ${gate}`);
   }
-  if ((manifest.artifacts || []).some(artifact => /ch01-/.test(artifact.path))) errors.push("manifest still binds rejected Chapter 1 visual assets as active artifacts");
+  const chapterOneVisualArtifacts = (manifest.artifacts || []).filter(artifact => /\/ch01-/.test(artifact.path));
+  const allowedChapterOneVisuals = new Set([
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png",
+  ]);
+  if (chapterOneVisualArtifacts.length !== 2 || chapterOneVisualArtifacts.some(artifact => !allowedChapterOneVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 1 visual assets");
   if (count(JSON.stringify(manifest.artifacts || []), /ch06-bicycle-tree-learning-image\.png/g) !== 0) errors.push("manifest still binds a rejected Chapter 6 visual asset as active");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
