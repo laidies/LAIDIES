@@ -15724,15 +15724,20 @@ while remaining falsely unfinished in the launch record.
 - **Failure / surprise:** At the exact moment Episode 04 named Timnit Gebru,
   v14 showed a painterly three-woman composite. The frame repeated Joy in a
   different wardrobe, made the named subject unclear and discarded the
-  existing Timnit-only adult graphic-novel source and motion direction.
+  existing Timnit-only adult graphic-novel source and motion direction. Later,
+  at 16:09.600, v14 replaced her again with a supposed aftermath frame whose
+  mottled facial texture made Timnit look decomposed and broke the locked style.
 - **Prevention rule:** A real-person narration entrance binds the named
   subject, exact source and not-before clock. A group frame is ineligible unless
   the narration's job is explicitly the group. When a second person is named,
   the cut may change at that word boundary; it may not pre-empt the named
   subject. Reuse the established single-subject identity before considering a
   new render, and never use a painterly composite to bridge missing motion.
+  A later narrative state does not authorize a new face rendering: if the
+  alternate state fails identity or style, retain the established clean source
+  and communicate the change through narration and permitted local motion.
 - **Possible Behind the Build angle:** Why the right people in one frame can
   still be the wrong picture for the sentence.
-- **Publication status:** TIMNIT-ONLY SOURCE AND CLOCK RECOVERED LOCALLY;
-  CANVA MOTION AND EPISODE ASSEMBLY PENDING; NO SITE, DEPLOYMENT OR PUBLIC
-  MEDIA CHANGED.
+- **Publication status:** BOTH V14 TIMNIT SUBSTITUTES REJECTED; TIMNIT-ONLY
+  SOURCE AND CLOCK RECOVERED LOCALLY; CANVA STABLE SHOT BUILT; EPISODE
+  ASSEMBLY PENDING; NO SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.
