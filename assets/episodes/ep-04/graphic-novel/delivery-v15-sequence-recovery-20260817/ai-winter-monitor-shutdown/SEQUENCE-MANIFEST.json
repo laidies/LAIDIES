@@ -1,0 +1,54 @@
+{
+  "candidateId": "EP04-V15-AI-WINTER-STAGED-MONITOR-SHUTDOWN-2026-08-17",
+  "status": "MAKER_INPUT_NOT_RELEASE_CANDIDATE",
+  "aliLock": "One monitor goes out first; hold that state long enough to read; then the second monitor goes out. Never extinguish both simultaneously.",
+  "sourceMaster": {
+    "path": "../../../../../video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
+    "geometry": "1920x1080",
+    "frameRate": "30fps"
+  },
+  "sequence": [
+    {
+      "start": "00:11:01.766667",
+      "end": "00:11:03.500",
+      "startFrame": 19853,
+      "state": "BOTH_MONITORS_ON",
+      "source": "v14-00-11-04-000.png",
+      "sourceSha256": "60d9c69e04f1781a5f84a6897d7e60322610b5a244d40af90e2457f7e2590655",
+      "pictureJob": "Establish the abandoned lab with both surviving screens weakly lit as the funding-dried-up line begins."
+    },
+    {
+      "start": "00:11:03.500",
+      "end": "00:11:09.533333",
+      "startFrame": 19905,
+      "state": "SMALL_RIGHT_MONITOR_OFF_MAIN_MONITOR_WEAKLY_ON",
+      "source": "v14-00-11-08-000.png",
+      "sourceSha256": "aad1a779f620c0defdb93909bf409d4bcc4011f90bc5174fec0287b78113c671",
+      "holdSeconds": 6.033333,
+      "pictureJob": "The first monitor dies. Hold the one-off state through the promises-curdled and embarrassing-to-say beat; no flash back to both-on or both-off."
+    },
+    {
+      "start": "00:11:09.533333",
+      "end": "00:11:16.066667",
+      "startFrame": 20086,
+      "state": "BOTH_MONITORS_OFF",
+      "source": "v14-00-11-12-000.png",
+      "sourceSha256": "9ddafb2522cf57eeda933ba7c8d685d5e8bd7f245ccea6d00c5dedd86a37f489",
+      "pictureJob": "The second monitor dies exactly as the narration names the AI winters; settle on the cold, dead room."
+    }
+  ],
+  "assemblyRules": [
+    "Use hard state changes at the exact listed frames; no white flash, sparkle, particle, crossfade or simultaneous blackout.",
+    "Do not use the rejected generated edit or the v14 interval where both screens extinguish together.",
+    "Do not add camera movement, zoom, crop, rain, snow motion or new objects.",
+    "Preserve source narration, source audio clock and external captions below the picture.",
+    "At 30fps the first shutdown begins at frame 19905 and the second shutdown begins at frame 20086."
+  ],
+  "acceptance": [
+    "A 1x watch clearly reads three ordered states: both on, one off held for at least six seconds, both off.",
+    "The two shutdowns cannot occur on the same frame.",
+    "No state lasts less than one second and no state flashes back after supersession.",
+    "The full-title runtime remains 00:20:22:09 and the narration/caption timing is unchanged."
+  ]
+}
