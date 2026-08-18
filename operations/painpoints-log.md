@@ -14762,3 +14762,33 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The diagram was right; the sentence
   underneath quietly made the lesson wrong again.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-465 — Generated feedback arrows must be judged as causal claims
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 responsive textbook illustration.
+- **Failure:** The first Chapter 3 mobile composition made a wrong model result
+  loop back only to the new test case, even though its label told the reader to
+  inspect the job, data and labels. Two subsequent image edits either added a
+  contradictory downward arrow or removed a required branch arrowhead. A later
+  candidate selected only cats in Stage 2, then introduced dogs at Stage 3 with
+  no route showing how they entered the prepared dataset.
+- **Root cause:** The prompt specified the feedback sentence but treated arrow
+  geometry and repeated-example continuity as visual polish. In a mechanism
+  diagram, every endpoint and recurring object is itself a factual claim; a
+  correct caption cannot repair a wrong path or an example that appears from
+  nowhere.
+- **Prevention rule:** Name every source, destination and branch in the visual
+  contract, track each worked example across stages, then inspect every rendered
+  arrow and recurring object at intended size. Stop regeneration once the
+  teaching composition is sound; a narrowly bounded deterministic bitmap
+  correction may repair a missing non-text arrowhead, but may not redraw the
+  lesson, lettering, objects or relationships.
+- **Durable correction:** The final mobile plate has one return line from the
+  wrong-result review area with two explicit branches to Stage 2 selection and
+  Stage 3 cleaning/labelling. The stray branch toward model training was
+  removed. The selected tray visibly contains cats and dogs before those same
+  categories are labelled. Desktop and mobile now encode the same mechanism.
+- **Possible Behind the Build angle:** In a diagram, an arrow is a sentence—and
+  pointing it at the wrong box teaches the wrong fact.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.

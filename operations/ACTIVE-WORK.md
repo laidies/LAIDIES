@@ -23,12 +23,35 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-10
+**Last reconciled:** 2026-08-17
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-17 AI Fundamentals visual rebuild — Chapter 3 purpose-built proof
+
+- **Outcome:** Chapter 3 now contains one purpose-built data-to-result visual at
+  section 3.5. It shows that people choose, clean and label a partial dataset;
+  a model learns from that prepared pile; and a wrong dog → CAT result returns
+  to human review of the job, selected data and labels before rebuilding.
+- **Responsive composition:** the desktop 1672×941 plate and separately
+  composed 941×1672 mobile plate carry the same five-stage lesson. The wide
+  desktop figure is deliberately allowed to use more of the reading pane;
+  the phone uses a vertical sequence rather than a squeezed desktop crop.
+- **Verification:** build PASS; calibrated book checker PASS, including a
+  deliberate missing-Chapter-3-mobile failure; `git diff --check` PASS. The
+  real reader selected the desktop asset at 1440px and the mobile asset at
+  390px, with zero document overflow. Independent artifact-first visual review
+  returned PASS on the exact final desktop/mobile files after it first rejected
+  unreadable labels, a generated record-card typo and a missing dog-selection
+  link; the revised artifacts prevented all three defects.
+- **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
+  NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
+- **Next:** commit the exact Chapter 3 bytes. The next visual contract is
+  Chapter 4 tokenisation; its language-equity issue is a separate evidence-led
+  Big Picture opportunity, not a claim to crowd into the core figure.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

@@ -111,9 +111,10 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 .gr-page>p,.gr-page>ul,.gr-page>ol{font-family:var(--reading-font)}
 .gr-page>p{max-width:65ch;line-height:1.68}
 .purpose-built-teaching-visual{width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);border-radius:16px;box-shadow:10px 10px 0 #eea0cf;overflow:hidden}.purpose-built-teaching-visual picture,.purpose-built-teaching-visual img{display:block;width:100%}.purpose-built-teaching-visual img{height:auto}.purpose-built-teaching-visual figcaption{margin:0;padding:1rem 1.25rem;background:#fff;color:#30395e;border-top:3px solid var(--navy);font-size:16px;line-height:1.5}
+#ch03-purpose-built-visual{width:calc(100% + 12rem);margin-left:-6rem}
 .chapter-ahead{background:#fff;box-shadow:6px 6px 0 #aeeaf4}
 .chapter-ahead-body{padding:1.15rem;background:#fff}
-@media(max-width:850px){.purpose-built-teaching-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
+@media(max-width:850px){.purpose-built-teaching-visual,#ch03-purpose-built-visual{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;border-radius:12px;box-shadow:5px 5px 0 #eea0cf}.purpose-built-teaching-visual figcaption{padding:.8rem .9rem;font-size:15px}}
 .chapter-ahead .callout-objective{margin:0 0 1.25rem;padding:1.2rem 1.35rem;background:#e5f8ff;box-shadow:none}
 .chapter-ahead .callout-objective p{font-size:21px;line-height:1.35}
 .chapter-ahead .callout-objective ul{gap:.75rem 1.6rem}
@@ -601,6 +602,14 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <p>In practice, most modern AI systems use a combination — a phase of unsupervised learning (absorb patterns from massive unlabelled data) followed by supervised fine-tuning (humans provide specific labelled examples or feedback to steer it in the right direction).</p>
 <h3 id="ch-3-3-5-garbage-in-garbage-out-and-the-subtle-version">3.5 — Garbage In, Garbage Out (And the Subtle Version)</h3>
 <p>You've probably heard the phrase "garbage in, garbage out." In AI, it means: if the training data is bad, the system will be bad. But "bad" is more nuanced than it sounds.</p>
+
+<figure id="ch03-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch03-data-choices-become-model-behaviour" aria-describedby="ch03-purpose-built-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch03-data-choices-pipeline-mobile-v1.png">
+    <img src="assets/ch03-data-choices-pipeline-desktop-v1.png" alt="A five-stage data lesson. People begin with a wider world of text, photos, records and clicks; choose what to include; clean and label selected cat and not-cat examples; train a model on that prepared pile; then test a new dog image. When the model wrongly predicts cat, a human reviewer returns to inspect the job, selected data and labels before deliberately rebuilding." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch03-purpose-built-caption"><strong>The model never sees the whole world:</strong> people choose, clean and label a smaller pile; the model learns from that pile. When a result is wrong, the useful response is to inspect the job, data and labels before deliberately rebuilding—not to assume a bigger pile will fix a skewed one.</figcaption>
+</figure>
 <h4 id="ch-3-the-obvious-version">The obvious version</h4>
 <p>If you train a spam filter on badly labelled data — where a bunch of legitimate emails were accidentally marked as spam — the filter will learn wrong patterns and start binning real messages. Bad labels → bad system. Straightforward.</p>
 <h4 id="ch-3-the-subtle-version-bias">The subtle version (bias)</h4>
