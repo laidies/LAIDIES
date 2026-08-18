@@ -15679,3 +15679,21 @@ while remaining falsely unfinished in the launch record.
   admission rather than movement count.
 - **Publication status:** SOURCE CORRECTION BUILT LOCALLY; MOTION HELD; NO
   EPISODE ASSEMBLY, SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.
+
+### 2026-08-17 follow-up — cue pictures must enter when their meaning begins
+
+- **Failure / surprise:** Episode 04 v14 previewed the Dartmouth men and the
+  empty `ARTIFICIAL INTELLIGENCE` classroom before their narration beats. The
+  edit treated nearby historical images as interchangeable coverage, causing
+  the picture to reveal consequences before the story earned them and then to
+  repeat or snap back.
+- **Prevention rule:** Meaning-bearing episode images receive explicit
+  not-before clock boundaries in the maker manifest. For Episode 04 the
+  Dartmouth men cannot occur before 10:49 and the empty classroom cannot occur
+  before 10:58. The maker verifies decoded boundary frames; an independent
+  reviewer watches the continuous sound-on passage. A checksum or correct image
+  choice cannot compensate for a wrong entrance time.
+- **Possible Behind the Build angle:** Why a historically correct picture can
+  still tell the wrong story when it arrives nine seconds early.
+- **Publication status:** V14 REJECTED; V15 SOURCE AND TIMING INPUTS BUILT
+  LOCALLY; NO NEW FULL EPISODE MASTER, SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.

@@ -18,7 +18,7 @@ It's ten-forty on a Tuesday, and someone has just said the four most unhelpful w
 
 ## ② Announcer — previously / this episode
 
-[tv announcer] Previously, on ladies: our heroine got a gorgeous, confident answer from the machine — and caught the one small detail that could have walked into her meeting and blown it up. She learned that sounding right and being right are not the same outfit. [playful] And on this episode: she gets told to "just use AI"... and discovers AI was never one thing at all. It's a whole cast — and a Slayer is only as good as the Watcher who tells her what she's walking into. This is Episode Four: Every SLAiYER Needs a Watcher.
+[tv announcer] Previously, on ladies: our heroine got a fabulous looking, confident answer from the machine — and caught the one small detail that could have walked into her meeting and blown it up. She learned that sounding right and being right are not the same outfit. [playful] And on this episode: she gets told to "just use AI"... and discovers AI was never one thing at all. It's a whole cast — and a Slayer is only as good as the Watcher who tells her what she's walking into. This is Episode Four: Every SLAiYER Needs a Watcher.
 
 ## ③ Welcome back
 
