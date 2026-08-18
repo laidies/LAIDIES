@@ -1,0 +1,92 @@
+{
+  "recordType": "episode-motion-repair-manifest",
+  "episode": "04",
+  "candidate": "v15-sequence-recovery",
+  "sequenceId": "feifei-tile-activation",
+  "status": "SPECIFIED_NOT_RENDERED",
+  "sourceMaster": {
+    "path": "assets/video/episode-04-full-v14-exact-source-launch-review.mp4",
+    "sha256": "b71493f71bfaf4e18fa9c254a52ed1c34182cbe36ed92b1684510e58804d2632",
+    "authority": "timing-and-rejected-source-evidence-only"
+  },
+  "approvedStill": {
+    "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/feifei-tile-activation/v14-13-47-000.png",
+    "sha256": "df09f2acf527babf3389bd778358987f1f8d5d6d79f24d5cf73a95a7e4b7bea8",
+    "use": "single locked base frame; preserve Fei-Fei, room, camera, daylight, image-wall geometry and adult graphic-novel rendering"
+  },
+  "programClock": {
+    "fps": 30,
+    "start": "00:13:47.200",
+    "end": "00:13:54.966667",
+    "startFrame": 24816,
+    "endFrameExclusive": 25049,
+    "durationFrames": 233,
+    "durationSeconds": 7.766667
+  },
+  "narrationBindings": [
+    {
+      "start": "00:13:47.180",
+      "end": "00:13:47.900",
+      "exactProse": "That is the spark.",
+      "motionJob": "Introduce one small local tile cluster with a slow soft brighten."
+    },
+    {
+      "start": "00:13:48.860",
+      "end": "00:13:54.960",
+      "exactProse": "That \"AI boom\" people won't stop talking about starts right there, with her data.",
+      "motionJob": "Activate two additional separated tile clusters in sequence, then hold all three clusters."
+    }
+  ],
+  "states": [
+    {
+      "start": "00:13:47.200",
+      "end": "00:13:48.866667",
+      "action": "Clean base hold; cluster A softly brightens once on 'spark'."
+    },
+    {
+      "start": "00:13:48.866667",
+      "end": "00:13:51.000",
+      "action": "Cluster B softly brightens while cluster A remains active."
+    },
+    {
+      "start": "00:13:51.000",
+      "end": "00:13:53.000",
+      "action": "Cluster C softly brightens while clusters A and B remain active."
+    },
+    {
+      "start": "00:13:53.000",
+      "end": "00:13:54.966667",
+      "action": "All three activated clusters hold steadily; no reset and no loop."
+    }
+  ],
+  "motionClass": "one-shot narration-bound local activation",
+  "transitionMinimumSeconds": 1.2,
+  "lockedPreservation": [
+    "Fei-Fei identity, pose, wardrobe and anatomy",
+    "camera and crop",
+    "room and image-wall layout",
+    "daylight direction and existing static shadows",
+    "all image-tile content",
+    "adult graphic-novel style"
+  ],
+  "forbidden": [
+    "a light bar, band, flare, sheen or shadow travelling across the frame",
+    "repeated or looping whole-frame illumination",
+    "sparkles, twinkles, particles or scan lines",
+    "camera pan, zoom, crop drift or subject motion",
+    "new or altered image tiles",
+    "rapid flashing, colour cycling or global exposure changes",
+    "generated text",
+    "Python, CSS, HTML, SVG or JavaScript-authored visible pixels"
+  ],
+  "makerFailConditions": [
+    "Any moving illumination crosses Fei-Fei, furniture, windows or the whole wall.",
+    "Any activated cluster resets before 00:13:54.966667.",
+    "Any activation is not local to existing image tiles.",
+    "Any visible geometry, identity, crop, daylight or style drift occurs.",
+    "Any transition completes in less than 1.2 seconds.",
+    "The rendered clip is not inspected continuously at 1x before judge handoff."
+  ],
+  "acceptanceOwner": "Episode Media Quality independent judge",
+  "releaseAuthority": false
+}
