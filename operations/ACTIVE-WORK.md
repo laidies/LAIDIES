@@ -30,28 +30,33 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-17 AI Fundamentals visual rebuild — Chapter 3 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 4 purpose-built proof
 
-- **Outcome:** Chapter 3 now contains one purpose-built data-to-result visual at
-  section 3.5. It shows that people choose, clean and label a partial dataset;
-  a model learns from that prepared pile; and a wrong dog → CAT result returns
-  to human review of the job, selected data and labels before rebuilding.
+- **Outcome:** Chapter 4 now contains one purpose-built tokenisation visual at
+  section 4.3. It separates the vocabulary-building stage that happened earlier
+  from the moment a reader's English message is split into ordered pieces for a
+  model to process.
 - **Responsive composition:** the desktop 1672×941 plate and separately
-  composed 941×1672 mobile plate carry the same five-stage lesson. The wide
-  desktop figure is deliberately allowed to use more of the reading pane;
-  the phone uses a vertical sequence rather than a squeezed desktop crop.
-- **Verification:** build PASS; calibrated book checker PASS, including a
-  deliberate missing-Chapter-3-mobile failure; `git diff --check` PASS. The
-  real reader selected the desktop asset at 1440px and the mobile asset at
-  390px, with zero document overflow. Independent artifact-first visual review
-  returned PASS on the exact final desktop/mobile files after it first rejected
-  unreadable labels, a generated record-card typo and a missing dog-selection
-  link; the revised artifacts prevented all three defects.
+  composed 887×1774 mobile plate carry the same two-time-scale mechanism. The
+  phone uses a vertical composition rather than a squeezed desktop crop.
+- **Accuracy correction:** the immutable Ali-vetted source manuscript remains
+  unchanged. The checksum-bound clarification layer now makes the character-
+  first BPE sequence an explicitly simplified example, allows bytes and other
+  starting units, and replaces the false claim that a model can never examine
+  characters with the narrower lesson that exact-character work is less direct
+  and may be recovered through learned patterns, reasoning or tools.
+- **Verification:** build PASS; calibrated book checker PASS, including
+  deliberate missing-mobile and returned-absolute-claim failures; `git diff
+  --check` PASS. The real reader selected the desktop asset at 1440px and the
+  mobile asset at 390px, with zero document overflow. Independent artifact-first
+  review returned PASS after independently rejecting and then forward-testing
+  the two repaired prose defects.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** commit the exact Chapter 3 bytes. The next visual contract is
-  Chapter 4 tokenisation; its language-equity issue is a separate evidence-led
-  Big Picture opportunity, not a claim to crowd into the core figure.
+- **Next:** commit the exact Chapter 4 bytes, then build the smallest
+  representative Chapter 5 training-loop visual. The language/token-cost equity
+  question remains a separate evidence-led Big Picture investigation under
+  `IIR-20260818-019`.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

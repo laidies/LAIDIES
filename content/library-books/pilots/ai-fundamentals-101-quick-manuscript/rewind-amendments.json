@@ -134,6 +134,62 @@
       "mode": "before",
       "anchor": "**What's the risk? (Model collapse)**",
       "copy": "One technical distinction matters before we get to the risk: this does not usually mean one model is training itself. A model generates new examples, and those examples may then be selected or mixed into the data used to train another model. Synthetic data can be useful; the danger comes from how it is produced, checked, mixed, and reused over time."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-STRAWBERRY-OPENING",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "Ask an AI \"how many r's are in the word strawberry?\" and it will confidently tell you two. The answer is three. Try it yourself — this isn't a rare glitch. As of 2026, even frontier models get this wrong more often than they get it right.",
+      "copy": "Ask an AI how many r's are in \"strawberry\" and it may answer correctly — but letter-counting has historically been an unexpectedly awkward task for language models. The answer is three. The interesting question is why a system that handles complex language can still stumble over a simple-looking spelling task."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-MACHINE-READING-BOUNDARY",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "The answer is in how the machine reads — or rather, how it *doesn't* read. Because a machine can't read English. It can't read any language. It doesn't see words, and it definitely doesn't see individual letters. What it works with is numbers — sequences of numbers. Every piece of maths inside the system operates on numbers, and your text has to become numbers before anything can happen.",
+      "copy": "The answer is in what reaches the model. It does not receive a page the way your eyes do. A tokeniser first divides the text into reusable pieces and maps those pieces to numbers. A piece can be a whole word, part of one, punctuation or even a single character, depending on the language, model and encoding. The model then works with that numbered sequence."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-STRAWBERRY-MECHANISM",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "And that strawberry question? The model never sees the individual letters. It sees `straw` + `berry` (or similar chunks) — and from those chunks, it has no way to inspect which letters appear inside. That's not a bug in its intelligence. It's a direct consequence of how this chopping works. Let's look at it.",
+      "copy": "And that strawberry question? The model usually processes one or more token pieces rather than starting with a neat row of letters. Some tokens may contain several characters; others may contain only one. That makes character-by-character work less direct than ordinary language prediction, although modern systems can sometimes compensate through learned patterns, reasoning or tools. Let's look at the chopping process."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-BPE-STARTING-UNITS",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "**Step 1:** Start with individual characters. Every letter, number, and punctuation mark is a token: `a`, `b`, `c`, ... `z`, `0`, `1`, ... `9`, `.`, `,`, `!`, etc.",
+      "copy": "**Step 1:** Begin with small base units. In this simplified character-level BPE example, those units are individual characters such as `a`, `b`, `1`, `.` and `!`. Real tokenisers vary: some start from bytes, characters, words or other pre-tokenised pieces."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-BPE-FAMILY",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "This process is called **Byte Pair Encoding (BPE)**, and it's what most major language models use — GPT, Claude, and others all build their vocabularies this way.",
+      "copy": "This simplified merge process describes **Byte Pair Encoding (BPE),** one widely used family of subword tokenisation methods. Other tokenisers use different starting units or algorithms, so the exact vocabulary and split depend on the model and encoding."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-BPE-RESULT",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "The result: common English words are typically one token each. Less common words split into 2-3 pieces. Very rare words might split into many small pieces. And the system can handle anything — even nonsense text or a language it barely knows — by falling back to smaller and smaller chunks.",
+      "copy": "The result in a typical English-focused subword tokeniser: many common words use one token, while less common or unusual text may need several smaller pieces. Exact splits vary by language, model and encoding, so English rules of thumb do not travel unchanged."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-STRAWBERRY-PRACTICE",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "> 🔍 **Concept in Practice: Why AI can't count the r's in \"strawberry\"** You may have seen this: ask an AI \"how many r's are in strawberry?\" and it confidently answers \"2.\" The answer is 3. Why does it get this wrong? Because the model never sees individual letters. It sees *tokens* — and \"strawberry\" likely gets split into chunks like `str` + `aw` + `berry`. The system processes those chunks as units. It has no way to examine individual characters inside a token, the same way you can't easily count the number of times a specific thread appears in a woven fabric just by looking at the overall pattern. That's tokenisation in action: the model is extraordinarily good at language — grammar, meaning, reasoning, style — because it operates at the chunk level. But tasks that require character-level inspection (counting specific letters, reversing words letter by letter, checking spelling character by character) are structurally hard for it. Not a bug in the intelligence — a direct consequence of how the input gets chopped up before the model ever sees it.",
+      "copy": "> 🔍 **Concept in Practice: Why letter-counting can be harder than it looks** A model normally predicts from token pieces, not from a purpose-built letter counter. If \"strawberry\" arrives as several multi-character pieces, counting one particular letter requires an extra character-level step that ordinary next-token prediction does not directly provide. That can make tasks such as counting letters, reversing a word or checking a spelling less reliable than their simplicity suggests. It is a tendency, not a permanent inability: a model may answer correctly from learned examples, deliberate reasoning or a tool. The useful lesson is to check exact-character tasks rather than assuming language fluency guarantees them."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-BPE-QUICK-REFERENCE",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "**Byte Pair Encoding (BPE)** — The most common method for building a token vocabulary. Starts from individual characters, repeatedly merges the most common adjacent pairs until the vocabulary reaches its target size.",
+      "copy": "**Byte Pair Encoding (BPE)** — A widely used method for building a subword vocabulary by repeatedly merging frequent adjacent pieces. This chapter uses a simplified character-level example; real tokenisers may begin from bytes or other units."
     }
   ],
   "sprinkles": [
