@@ -11,21 +11,39 @@
   },
   "remove": {
     "start": "00:14:42.766667",
-    "end": "00:14:55.433333",
+    "end": "00:14:48.000000",
     "startFrame": 26483,
-    "endFrameExclusive": 26863,
-    "durationFrames": 380,
-    "durationSeconds": 12.666667,
+    "endFrameExclusive": 26640,
+    "durationFrames": 157,
+    "durationSeconds": 5.233333,
     "reason": "The cut returns to an off-style cartoon/pixel heroine during the continuous ChatGPT explanation, creating an unsupported narrative reversal and violating the adult graphic-novel people-rendering lock."
   },
   "replacement": {
-    "method": "Extend the immediately preceding ChatGPT bridge continuously through the removed occurrence; do not introduce another image.",
-    "sourceFrame": {
-      "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/chatgpt-cartoon-shot-removal/chatgpt-bridge-last-clean-frame-14-42-733333.png",
-      "sha256": "c1529bd6655f8849386b22142c1160386059c1edaeadedb48d6acd3a48e06ef7",
-      "programTime": "00:14:42.733333"
+    "method": "Extend the immediately preceding ChatGPT bridge through 00:14:48.000000, then cut to the exact clean adult graphic-novel desk source and hold it continuously through 00:14:56.200000.",
+    "bridgePhase": {
+      "start": "00:14:42.766667",
+      "end": "00:14:48.000000",
+      "sourceFrame": {
+        "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/chatgpt-cartoon-shot-removal/chatgpt-bridge-last-clean-frame-14-42-733333.png",
+        "sha256": "c1529bd6655f8849386b22142c1160386059c1edaeadedb48d6acd3a48e06ef7",
+        "programTime": "00:14:42.733333"
+      },
+      "motion": "Preserve the incumbent bridge motion only if its exact source clip is available and passes the no-loop-jump check; otherwise use a stable hold. Do not create a new effect."
     },
-    "motion": "Preserve the incumbent bridge motion only if its exact source clip is available and passes the no-loop-jump check; otherwise use a stable hold. Do not create a new effect."
+    "cleanDeskPhase": {
+      "start": "00:14:48.000000",
+      "end": "00:14:56.200000",
+      "startFrame": 26640,
+      "endFrameExclusive": 26886,
+      "durationFrames": 246,
+      "durationSeconds": 8.2,
+      "sourceStill": {
+        "path": "assets/episodes/ep-04/pixel/ep04-open-04-desk-comic-v1-face-lock-1920.png",
+        "sha256": "3ac51c96ddf06d1c08e456e09041a01b8213251dcd2e74dc154517fbccaf1ff2",
+        "authority": "existing adult graphic-novel heroine desk source approved for the Episode 04 opening"
+      },
+      "motion": "Stable full-frame hold. Do not add streaks, sparkles, camera drift, zoom, pan or full-frame rain."
+    }
   },
   "narrationPreserved": [
     {
@@ -43,10 +61,12 @@
     "original narration bytes and timing",
     "external captions and timing",
     "full-title program clock",
-    "next picture occurrence beginning at frame 26863"
+    "clean adult graphic-novel desk source beginning exactly at frame 26640",
+    "next narrative picture occurrence beginning no earlier than frame 26886"
   ],
   "forbidden": [
     "the rejected blonde heroine desk image",
+    "the colored streak or sparkle overlay visible on the incumbent correct-style desk occurrence",
     "any generated replacement character",
     "pixel-art, cartoon or glamour-cartoon people rendering",
     "a one-frame gap, black frame, flash or early next-shot reveal",
@@ -54,9 +74,11 @@
     "Python, CSS, HTML, SVG or JavaScript-authored visible pixels"
   ],
   "makerChecks": [
-    "Frames 26483 through 26862 contain zero pixels from the rejected heroine occurrence.",
+    "Frames 26483 through 26639 contain zero pixels from the rejected heroine occurrence.",
     "Frame 26482 to frame 26483 has no visible jump caused by the removal.",
-    "Frame 26862 to frame 26863 preserves the existing next-shot boundary without an early reveal.",
+    "Frame 26640 is the exact clean desk source, and frames 26640 through 26885 contain no colored streaks, sparkles, drift, zoom, pan or other overlay.",
+    "The clean desk source remains continuously visible from 00:14:48.000 through 00:14:56.200; it is not a one-second flash.",
+    "Frame 26885 to frame 26886 changes only at the narration boundary into the next narrative beat.",
     "Narration, audio payload, external caption file and 20:22 program clock remain unchanged.",
     "Continuous 1x playback from 00:14:35 through 00:15:00 contains no flash, gap, off-style character or narrative backtrack."
   ],
