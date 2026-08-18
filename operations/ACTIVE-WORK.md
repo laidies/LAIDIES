@@ -30,38 +30,48 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 8 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 9 purpose-built proof
 
-- **Outcome:** Chapter 8 now contains one purpose-built RAG mechanism at
-  section 8.6. It traces prepared documents through chunking, embeddings and a
-  vector index, then shows a new question retrieving only selected passages
-  into the current context before a frozen model generates an answer.
-- **Responsive composition:** the desktop 1672×941 plate and separately
-  composed 941×1672 mobile plate carry the same causal mechanism. Both make
-  selected retrieval, current context and unchanged weights explicit.
-- **Accuracy correction:** five source statements that promised the entire
-  chat history, an accurate RAG answer or always-current retrieval are replaced
-  through the checksum-bound amendment layer. The reader now sees that product
-  context can omit history and that source, retrieval and generation failures
-  still require checking.
-- **Teaching correction:** independent review rejected two mobile successors:
-  one hid critical weight safeguards; another allowed selected chunks to
-  bypass context. The accepted successor has one route: question → embedding;
-  embedding + database → similarity search → context containing selected
-  chunks → frozen model → answer.
+- **Outcome:** Chapter 9 now contains a split two-panel teaching visual at
+  section 9.8. The first panel shows a request-time change: instructions,
+  examples and retrieved documents enter the current context while the model's
+  weights remain unchanged. The second shows three alternative training routes
+  that create a new model version before later use: fine-tuning, preference
+  training and full pretraining.
+- **Why it was split:** the first complete five-route poster was mechanically
+  correct but its labels became too small at the actual reader viewport. It was
+  rejected by the maker before independent review. Two separately readable
+  mechanism panels replaced it; their routes do not imply that the three
+  training methods happen in sequence.
+- **Accuracy correction:** twelve nearby Chapter 9 statements that described
+  fine-tuning as permanent or automatic, treated RAG as changing what a model
+  knows, universalised one training history, equated preference methods or
+  promised outcomes are replaced through the source-bound amendment layer.
+  The book now contains 31 technical clarifications in total.
+- **Viewport proof:** at 1280×720 both desktop panels render at
+  895.61×504.05px with zero document overflow. At 390×844 the distinct mobile
+  panels render at 355.21×631.15px and 355.21×797.41px with zero document
+  overflow. The real pixels were inspected at both viewports.
+- **Independent review:** artifact-first forward-testing passed the exact four
+  assets. It found a clear separation between temporary supplied context and
+  persistent weight changes, three alternative training routes, a preserved
+  prompt-plus-RAG combination, and no guarantee, arrow, clipping, overlap,
+  typo or critical legibility defect.
+- **Exact assets:** request desktop
+  `d0a1441e14d790e7f10ec8d412579cf058c4e42ff32d3c7d735ea23f2d6b3607`;
+  request mobile
+  `40a23366851c54ee6a277dc3d6d1c9f41c346be782cceb20e796e59c5e219e11`;
+  training desktop
+  `3293e870a76ab7a8ef872273f31baedac3bac2156f7592db71eb899739872d46`;
+  training mobile
+  `c6e797a94aab1e6997eead065c64ad166101d149d1506ff1ffa50067a47a9183`.
 - **Verification:** build PASS; calibrated book checker PASS, including
-  deliberate missing-Chapter-8-mobile and returned-RAG-guarantee failures;
-  `git diff --check` PASS. The real reader selected the mobile asset at 390px
-  with zero document overflow. Independent forward-testing passed the final
-  desktop/mobile pair with no clipping, overlap, typo or causal ambiguity.
-- **Exact assets:** desktop SHA-256
-  `c64576565c68aed97bdb940abc377973aa32f71c1b286e228ceca5191746bc62`;
-  mobile SHA-256
-  `94e5dd14e48a66498239e639d08f45c9ce6b7ce230c0a38dc20c46906216b6dd`.
+  deliberate missing-Chapter-9-mobile and returned-permanence-guarantee
+  failures; `git diff --check` PASS.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** bind the exact Chapter 8 commit, then integrate and independently
-  review Chapter 9's context-versus-weight-change decision visual.
+- **Next:** bind the exact Chapter 9 commit, then build Chapter 10's visual of
+  the product system that surrounds a model from reader question to answer.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

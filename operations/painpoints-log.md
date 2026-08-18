@@ -14859,3 +14859,28 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** In a diagram, an arrow is a sentence—and
   pointing it at the wrong box teaches the wrong fact.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-469 — A complete diagram can teach less when it has to be shrunk
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 9 responsive customisation visual.
+- **Failure:** The first Chapter 9 candidate fit every required route into one
+  poster, but the route labels became too small at the actual desktop and phone
+  reader widths. A subsequent phone composition also arranged fine-tuning,
+  preference training and pretraining vertically in a way that could make
+  alternatives look like a sequence.
+- **Root cause:** The brief treated route completeness as the primary constraint
+  and did not set a hard density limit or explicitly forbid arrows and spatial
+  sequencing between alternative methods.
+- **Prevention rule:** Split a comparison when every essential label cannot
+  remain primary-size at the intended viewport. For alternative methods, use a
+  shared starting point and independent branches; never let layout or arrows
+  imply an order that the mechanism does not have.
+- **Durable correction:** Chapter 9 now uses two separately composed panels for
+  desktop and mobile: one for temporary request-time context and one for
+  training a new model version. Maker pixel inspection and independent review
+  passed the exact four assets without clipping, critical small text or a false
+  causal sequence.
+- **Possible Behind the Build angle:** Why the most complete poster was the
+  least useful explanation—and how splitting it made the science clearer.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.

@@ -253,6 +253,90 @@
       "mode": "replace",
       "anchor": "> 💡 **Training vs RAG — two ways to give a model information** **Training:** Bake information permanently into the weights. Expensive, slow, frozen once done. Good for general knowledge and capabilities. **RAG:** Retrieve information on-the-fly and inject into context. Cheap, fast, always current. Good for specific, private, or frequently-changing information. Most production AI systems use both: a pre-trained model (general knowledge in weights) + RAG (specific current knowledge retrieved into context). Neither alone is sufficient.",
       "copy": "> 💡 **Training vs RAG — two ways to give a model information** **Training:** Bake patterns into the weights. Expensive, slow and frozen once done. Good for general knowledge and capabilities. **RAG:** Retrieve selected information at answer time and inject it into context. It can use newer, specific or private material without retraining — but only if the source collection is current and the system retrieves the right passages. Most production AI systems use both: a pre-trained model plus retrieval for information needed now. Neither route guarantees a correct answer."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-FINE-TUNING-NOT-PERMANENT-GUARANTEE",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**When it's not enough:** When you need the model to consistently behave in a very specific way (always use a particular format, always adopt a particular tone) across thousands of interactions without repeating the examples every time. Prompts live in the context window — they have to be sent every single time. If your behaviour modification takes 500 tokens of examples and instructions, you're paying for those 500 tokens on every single request, forever. That's when you consider baking the behaviour in permanently through fine-tuning.",
+      "copy": "**When it's not enough:** When you need a model version to make a particular format or tone more likely across many interactions without sending the same examples every time. Prompts and examples are supplied in the context for each request. If those instructions are long and repeated at scale, fine-tuning may be worth testing — but changing the weights does not guarantee that the model will follow the pattern every time."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-RAG-ACCESS-NOT-KNOWLEDGE",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**What RAG changes:** What the model *knows about.* It gives the model access to specific, current, or private information it was never trained on.",
+      "copy": "**What RAG changes:** What information the model can use for this request. It can give the model access to selected specific, newer or private information that was not stored in its trained weights. The answer still depends on the source collection, retrieval and generation all working well."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-FINE-TUNING-TENDENCY-NOT-DEFAULT",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**Fine-tuning** changes the approach entirely. Instead of instructing the model to behave differently, you actually **change its weights** — retrain it on thousands of examples of the exact behaviour you want. After fine-tuning, the SOAP format isn't something the model is being *told* to do. It's something the model *does naturally*, because its weights have been adjusted to make that format the default.",
+      "copy": "**Fine-tuning** changes the model version itself. Instead of supplying the same instruction only in the current request, you train on examples of the behaviour you want and adjust the model's weights before later use. That can make SOAP-format responses more likely without repeating the full example set each time. It does not make the format automatic: the fine-tuned model still needs testing on real and unfamiliar cases."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-FINE-TUNING-TONE-TENDENCY",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "- You need the model to adopt a domain-specific tone or vocabulary permanently — not \"when reminded\" but as its natural voice",
+      "copy": "- You need a model version to favour a domain-specific tone or vocabulary across many requests, and prompting alone is not reliable enough"
+    },
+    {
+      "id": "CORRECT-AIF-CH09-RLHF-RESULT-NOT-GUARANTEE",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**The result:** A model that's been shaped by human preferences to be helpful, follow instructions, refuse harmful requests, and produce quality outputs. Every major chatbot you've used (ChatGPT, Claude, Gemini) has been through this process.",
+      "copy": "**The result:** A model version whose responses have been shaped toward preferences such as helpfulness, instruction-following and safer refusal behaviour. Those are tendencies, not guarantees, and providers can use different combinations of preference-training methods."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-DPO-SIMILAR-AIM-NOT-SAME-OUTCOME",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**DPO (Direct Preference Optimisation):** A shortcut. Instead of building a separate reward model first, DPO skips that step and directly adjusts the main model based on the preference pairs. \"Humans preferred Response A over Response B — adjust the weights to produce more A-like responses.\" Same outcome, fewer steps. It's like cutting out the middleman — instead of training a judge and then training the employee based on the judge's scores, you just show the employee directly which work was preferred and let them learn from that.",
+      "copy": "**DPO (Direct Preference Optimisation):** A more direct preference-training method. Instead of first training a separate reward model and then using reinforcement learning, DPO adjusts the model from pairs such as \"humans preferred Response A over Response B.\" It pursues a similar broad aim with a different training procedure; it does not promise an identical model or identical results."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-DECISION-TABLE-TENDENCIES",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "| Its consistent behaviour pattern (format, style, tone) | **Fine-tuning** | Bakes behaviour into the weights permanently |\n| Its safety and helpfulness characteristics | **RLHF / DPO** | Shapes deep behavioural tendencies through preference data |",
+      "copy": "| Its recurring behaviour pattern (format, style, tone) | **Fine-tuning** | Adjusts the model version's weights so the pattern is more likely across later requests |\n| Its safety and helpfulness tendencies | **RLHF / DPO** | Uses preference data to shape later behaviour, which still requires testing |"
+    },
+    {
+      "id": "CORRECT-AIF-CH09-RAG-DOES-NOT-CHANGE-WEIGHTS",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**What RAG doesn't change:** How the model *behaves.* It still responds in the same style, follows the same patterns, has the same tendencies. It just has more (and better) information to work with.",
+      "copy": "**What RAG doesn't change:** The trained weights of the model version. Retrieved material can influence the answer, wording and format for this request, but RAG alone does not create a newly trained model version."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-PRACTICAL-TEST-NOT-BINARY",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "**The practical test:** If your problem is \"the model doesn't know the right answer\" — RAG. If your problem is \"the model knows the right answer but won't format it correctly or tone it the way we need\" — that's a behaviour problem, and RAG won't help. You need fine-tuning.",
+      "copy": "**The practical test:** If the request needs information the model was not trained on, investigate retrieval. If the same format or tone keeps failing after good instructions and examples, test whether fine-tuning improves that recurring tendency. Many products use both, and neither should be chosen without evaluation."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-FRENCH-ANALOGY-LIMIT",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "The difference: prompting is like telling someone \"please speak French\" every time (they can, but they have to think about it and sometimes slip). Fine-tuning is like the person living in France for a year until French becomes their default.",
+      "copy": "A rough analogy: prompting is like bringing a phrase card for this conversation; fine-tuning is more like practising the language before later conversations. Practice can make a response pattern more likely, but the person can still slip — and a model can too."
+    },
+    {
+      "id": "CORRECT-AIF-CH09-SHORTER-PROMPT-MEASURE",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "- You want faster inference (because the behaviour is baked in, you don't need long prompts explaining what to do every time — which also saves money on input tokens)",
+      "copy": "- Repeated instructions are making every request long, and testing shows a fine-tuned model can meet the task with shorter inputs; measure the actual speed, quality and cost rather than assuming a saving"
+    },
+    {
+      "id": "CORRECT-AIF-CH09-ORDER-NOT-PERMANENT",
+      "chapter": 9,
+      "mode": "replace",
+      "anchor": "3. Fine-tune only if behaviour needs permanent change (weeks, $$)",
+      "copy": "3. Test fine-tuning only when you need a stronger recurring behaviour tendency and prompting is not reliable enough"
     }
   ],
   "sprinkles": [
@@ -316,7 +400,7 @@
       "id": "HUMOUR-AIF-CH09-WHAT-LIKE-ITS-HARD",
       "chapter": 9,
       "mode": "append",
-      "anchor": "It's something the model *does naturally*, because its weights have been adjusted to make that format the default.",
+      "anchor": "That can make SOAP-format responses more likely without repeating the full example set each time.",
       "copy": "Thousands of examples later: \"What, like it's hard?\"",
       "teachingJob": "Lets the completed fine-tuning explanation land with Elle Woods confidence rather than another explanation.",
       "limitation": "The quote is a comic landing, not a claim that fine-tuning is easy, fast, or guaranteed.",
