@@ -15697,3 +15697,24 @@ while remaining falsely unfinished in the launch record.
   still tell the wrong story when it arrives nine seconds early.
 - **Publication status:** V14 REJECTED; V15 SOURCE AND TIMING INPUTS BUILT
   LOCALLY; NO NEW FULL EPISODE MASTER, SITE, DEPLOYMENT OR PUBLIC MEDIA CHANGED.
+
+### 2026-08-18 follow-up — motion effects must stay inside the object that owns them
+
+- **Failure / surprise:** Episode 04 v14 looped a five-second Joy face-detection
+  effect across a 28-second occurrence. A detection bar escaped the monitor,
+  crossed Joy and the room, then visibly reset. The earlier correct white-mask
+  action still existed, but only inside a retired pixel-art sequence, while the
+  current adult graphic-novel Joy still had no bound real-person reference.
+- **Prevention rule:** Every local screen, lamp, window or panel animation must
+  be clipped to that physical surface and inspected at the first frame, motion
+  extrema, loop boundary and last frame. A local effect that touches the
+  subject or full frame fails. Recover the semantic action from an older clip
+  without recovering retired pixels; bind an actual likeness reference before
+  asking Canva to animate a real person. If identity or anatomy drifts, keep
+  the person pixel-stable and animate only the object-local state change.
+- **Possible Behind the Build angle:** How an effect can be technically local
+  but visually escape its object—and why recovering motion is different from
+  restoring old pixels.
+- **Publication status:** JOY SOURCE/REFERENCE/MOTION CONTRACT RECOVERED
+  LOCALLY; CANVA ANIMATION BLOCKED BY LOCKED MAC; NO EPISODE ASSEMBLY, SITE,
+  DEPLOYMENT OR PUBLIC MEDIA CHANGED.

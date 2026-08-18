@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "laidies.episode-motion-repair.v1",
+  "episode": "04",
+  "sequence": "joy-white-mask-detection",
+  "status": "SOURCE_RECOVERED_PREACTION_FRAME_HELD_NOT_ANIMATED",
+  "programWindow": {
+    "start": "00:15:06.260",
+    "end": "00:15:28.180"
+  },
+  "narrationBeats": [
+    {
+      "start": "00:15:06.260",
+      "end": "00:15:12.248",
+      "text": "Joy Buolamwini, a grad student at MIT, goes to use face-detection software..."
+    },
+    {
+      "start": "00:15:12.248",
+      "end": "00:15:15.440",
+      "text": "and it can't see her. Her dark skin."
+    },
+    {
+      "start": "00:15:16.480",
+      "end": "00:15:19.740",
+      "text": "Not until she literally holds up a white mask."
+    },
+    {
+      "start": "00:15:20.640",
+      "end": "00:15:28.180",
+      "text": "So she proves it: tests the big commercial systems and shows they fail hardest of all on darker-skinned women."
+    }
+  ],
+  "authoritativeInputs": {
+    "visualSource": {
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/joy-mask-sequence-recovery/ep04-scene-11a-joy-adult-graphic-novel-mask-source-v15.png",
+      "sha256": "ce190f6b3f619bc9628b7cfd0fb16bd5603c40bc524f4fdd53c662b198ef85f0",
+      "use": "only permitted final-pixel source"
+    },
+    "likenessReference": {
+      "path": "operations/reference/real-people/joy-buolamwini/joy-buolamwini-tj-rak-mit-gender-shades-2018.jpg",
+      "sha256": "bb45156e540a6259344164046be2300098dd8ac33abf4e8be995b143f3aed6ec",
+      "use": "identity inspection only; not episode pixels"
+    },
+    "motionReference": {
+      "recoveryPath": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-scene-11-checkers-v4-narration-sync-v3-story.mp4",
+      "sha256": "5d1c3598de599a3b948ad0d544df34ecd80e21e12266bfe5aac679c0b476d32e",
+      "use": "action and timing reference only; retired pixel-art bytes prohibited from final candidate"
+    },
+    "rejectedCurrentMotion": {
+      "recoveryPath": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/ep-04/pixel/ep04-cue47-local-motion-v1.mp4",
+      "sha256": "d91478926d87c05e1f45523f33dc7d69d19656a481a0469cd7cd5d016955ee2c",
+      "reason": "repeating detection bar escapes monitor and crosses the full image"
+    },
+    "captions": {
+      "path": "assets/captions/episode-04.vtt",
+      "presentation": "external below video; never burned into picture"
+    }
+  },
+  "rejectedPreActionAttempts": [
+    {
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/joy-mask-sequence-recovery/_rejected/pre-action-v1-recomposed-rejected.png",
+      "sha256": "5a2f6b8ca0a4d679b863ec5a698e32d2e7d20b0d48c02c8212960b1f49795298",
+      "reason": "changed camera, crop and composition"
+    },
+    {
+      "path": "assets/episodes/ep-04/graphic-novel/delivery-v15-sequence-recovery-20260817/joy-mask-sequence-recovery/_rejected/pre-action-v2-reframed-rejected.png",
+      "sha256": "aaf4da9e44c6ccf7c2d3c7e9090d6f148afb69afbd3a1074367802a20f019842",
+      "reason": "reframed Joy and monitor instead of preserving the locked source"
+    }
+  ],
+  "motionPlan": [
+    {
+      "start": "00:15:06.260",
+      "end": "00:15:16.480",
+      "state": "preaction_source_required",
+      "action": "Joy is established with failed red detection inside monitor; mask is not yet raised; no accepted start frame exists"
+    },
+    {
+      "start": "00:15:16.480",
+      "end": "00:15:19.740",
+      "state": "mask_demonstration",
+      "action": "single deliberate presentation of white mask toward camera/screen; no loop"
+    },
+    {
+      "start": "00:15:19.740",
+      "end": "00:15:28.180",
+      "state": "successful_detection",
+      "action": "successful green detection state remains stable inside monitor"
+    }
+  ],
+  "toolBoundary": {
+    "animationMaker": "Canva",
+    "assembly": "CapCut",
+    "forbiddenVisiblePixelMethods": [
+      "Python",
+      "CSS",
+      "HTML",
+      "SVG",
+      "JavaScript"
+    ]
+  },
+  "nextAction": "After the Mac is unlocked, attempt one materially different Canva one-shot using the exact accepted mask-up frame and recovered action reference. No further still generation. Hold if Canva changes Joy, anatomy, camera or background.",
+  "acceptance": {
+    "loop": false,
+    "cameraMotion": false,
+    "fullFrameEffects": false,
+    "monitorLocalEffectsOnly": true,
+    "identityDriftAllowed": false,
+    "anatomyDriftAllowed": false,
+    "styleDriftAllowed": false,
+    "generatedTextAllowed": false,
+    "makerMayJudge": false,
+    "independentEpisodeMediaQualityReviewRequired": true
+  }
+}
