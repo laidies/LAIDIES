@@ -30,36 +30,38 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-18 AI Fundamentals visual rebuild — Chapter 7 purpose-built proof
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 8 purpose-built proof
 
-- **Outcome:** Chapter 7 now contains one purpose-built request journey at
-  section 7.2. It traces supplied context through prefill, reusable attention
-  notes, sequential next-token decoding, live streaming and the stop condition.
+- **Outcome:** Chapter 8 now contains one purpose-built RAG mechanism at
+  section 8.6. It traces prepared documents through chunking, embeddings and a
+  vector index, then shows a new question retrieving only selected passages
+  into the current context before a frozen model generates an answer.
 - **Responsive composition:** the desktop 1672×941 plate and separately
-  composed 941×1672 mobile plate carry the same causal mechanism. Optional
-  context is labelled as optional; ordinary use keeps learned weights frozen.
-- **Accuracy correction:** four source statements that equated each visible
-  word with one token are replaced through the checksum-bound amendment layer.
-  The reader now sees piece-by-piece delivery, which a product may display one
-  token at a time or in small batches.
-- **Teaching correction:** the first phone candidate made four safeguards too
-  small and left the KV cache beside the model without a causal route. The
-  successor enlarges those boundaries and adds `REUSED DURING DECODE` from the
-  cache into the repeated token-selection loop.
+  composed 941×1672 mobile plate carry the same causal mechanism. Both make
+  selected retrieval, current context and unchanged weights explicit.
+- **Accuracy correction:** five source statements that promised the entire
+  chat history, an accurate RAG answer or always-current retrieval are replaced
+  through the checksum-bound amendment layer. The reader now sees that product
+  context can omit history and that source, retrieval and generation failures
+  still require checking.
+- **Teaching correction:** independent review rejected two mobile successors:
+  one hid critical weight safeguards; another allowed selected chunks to
+  bypass context. The accepted successor has one route: question → embedding;
+  embedding + database → similarity search → context containing selected
+  chunks → frozen model → answer.
 - **Verification:** build PASS; calibrated book checker PASS, including
-  deliberate missing-Chapter-7-mobile and returned-word/token failures; `git
-  diff --check` PASS. The real reader selected the mobile asset at 390px with
-  zero document overflow. Independent forward-testing passed all repaired
-  safeguards and the new cache connector with no clipping, overlap, squashing,
-  gibberish or causal ambiguity.
+  deliberate missing-Chapter-8-mobile and returned-RAG-guarantee failures;
+  `git diff --check` PASS. The real reader selected the mobile asset at 390px
+  with zero document overflow. Independent forward-testing passed the final
+  desktop/mobile pair with no clipping, overlap, typo or causal ambiguity.
 - **Exact assets:** desktop SHA-256
-  `f2faaaacca13a556b862ede24823b4ad4c3c78b3f896606c111a49a130a55b28`;
+  `c64576565c68aed97bdb940abc377973aa32f71c1b286e228ceca5191746bc62`;
   mobile SHA-256
-  `19367c584f348667dad42e1eaa5cd2100ef7ba7fe7f811cc18ff6371ca37cc30`.
+  `94e5dd14e48a66498239e639d08f45c9ce6b7ce230c0a38dc20c46906216b6dd`.
 - **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
   NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
-- **Next:** bind the exact Chapter 7 commit, then integrate and independently
-  review the Chapter 8 RAG visual pair already drafted.
+- **Next:** bind the exact Chapter 8 commit, then integrate and independently
+  review Chapter 9's context-versus-weight-change decision visual.
 
 ## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
 

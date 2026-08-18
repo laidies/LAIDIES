@@ -218,6 +218,41 @@
       "mode": "replace",
       "anchor": "**Watch the streaming.** Next time you use an AI chatbot, watch the response appear. Notice it comes word by word (or chunk by chunk). That's the decode phase in real time. Each word you see is a new token being generated.",
       "copy": "**Watch the streaming.** Next time you use an AI chatbot, watch the response appear in pieces. That is the interface receiving live generated output, sometimes one token at a time and sometimes in small batches. The useful clue is that the answer is still being produced—not that each visible word equals one token."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-CONTEXT-INCLUDES-SUPPLIED-HISTORY",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "Everything the system can \"see\" during a single conversation has to fit inside this window: your message, the system's instructions, any documents you've attached, and the *entire conversation history* up to that point.",
+      "copy": "Everything the system can \"see\" for one request has to fit inside this window: your message, the system's instructions, any documents the product supplies, and whatever earlier conversation the product includes. A product may drop, summarise or omit older material, so the model does not necessarily receive a perfect copy of the whole chat."
+    },
+    {
+      "id": "CORRECT-AIF-CH04-CONTEXT-QUICK-REFERENCE",
+      "chapter": 4,
+      "mode": "replace",
+      "anchor": "| Why conversations have limits | The entire conversation history lives inside the context window. When it fills up, old messages get dropped. |",
+      "copy": "| Why conversations have limits | The product has to fit the current request and whatever earlier material it supplies inside the context window. Older messages may be dropped, summarised or omitted. |"
+    },
+    {
+      "id": "CORRECT-AIF-CH08-CONTEXT-HISTORY-BOUNDARY",
+      "chapter": 8,
+      "mode": "replace",
+      "anchor": "Every time you send a new message, the *entire conversation history* — every message you've sent and every response it gave — gets loaded into the context window alongside your new message. The model reads the whole thing from scratch, every single turn. It's not recalling anything from memory. It's re-reading the transcript.",
+      "copy": "Every time you send a new message, the product assembles a new context for that request. It may include your new message, system instructions and some earlier conversation, but it can drop, summarise or omit older material. The model works from whatever the product supplies on that turn; it is not privately recalling the whole transcript from its own memory."
+    },
+    {
+      "id": "CORRECT-AIF-CH08-RAG-ACCURACY-OVERCLAIM",
+      "chapter": 8,
+      "mode": "replace",
+      "anchor": "6. **Response delivered.** You get an accurate answer about *your company's specific policy* — even though the model was never trained on your HR documents.",
+      "copy": "6. **Response delivered.** You get an answer grounded in the policy text the system retrieved — even though the model was never trained on your HR documents. You still need to check that it retrieved the right, current passages and represented them correctly."
+    },
+    {
+      "id": "CORRECT-AIF-CH08-RAG-CURRENCY-OVERCLAIM",
+      "chapter": 8,
+      "mode": "replace",
+      "anchor": "> 💡 **Training vs RAG — two ways to give a model information** **Training:** Bake information permanently into the weights. Expensive, slow, frozen once done. Good for general knowledge and capabilities. **RAG:** Retrieve information on-the-fly and inject into context. Cheap, fast, always current. Good for specific, private, or frequently-changing information. Most production AI systems use both: a pre-trained model (general knowledge in weights) + RAG (specific current knowledge retrieved into context). Neither alone is sufficient.",
+      "copy": "> 💡 **Training vs RAG — two ways to give a model information** **Training:** Bake patterns into the weights. Expensive, slow and frozen once done. Good for general knowledge and capabilities. **RAG:** Retrieve selected information at answer time and inject it into context. It can use newer, specific or private material without retraining — but only if the source collection is current and the system retrieves the right passages. Most production AI systems use both: a pre-trained model plus retrieval for information needed now. Neither route guarantees a correct answer."
     }
   ],
   "sprinkles": [
@@ -239,7 +274,7 @@
       "id": "HUMOUR-AIF-CH04-THE-LIMIT",
       "chapter": 4,
       "mode": "append",
-      "anchor": "Everything the system can \"see\" during a single conversation has to fit inside this window: your message, the system's instructions, any documents you've attached, and the *entire conversation history* up to that point.",
+      "anchor": "Everything the system can \"see\" for one request has to fit inside this window: your message, the system's instructions, any documents the product supplies, and whatever earlier conversation the product includes. A product may drop, summarise or omit older material, so the model does not necessarily receive a perfect copy of the whole chat.",
       "copy": "In this case, *Mean Girls* got it backwards: \"The limit does not exist.\" Here, it does.",
       "teachingJob": "Makes the finite context-window boundary memorable after the boundary has been defined.",
       "limitation": "The joke does not substitute for the following explanation of why the limit exists.",

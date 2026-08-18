@@ -14802,6 +14802,30 @@ while remaining falsely unfinished in the launch record.
   the arrow existed it was not in the explanation.
 - **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
 
+## BTB-468 — A retrieval diagram needs one complete route, not plausible fragments
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 8 RAG illustration.
+- **Failure:** Early mobile candidates separately showed a vector database,
+  similarity search, selected chunks, context and a frozen model, yet their
+  arrows either disconnected retrieval from the database or let selected
+  chunks bypass the context box. All the right nouns were present while the
+  mechanism remained wrong.
+- **Root cause:** The production brief named required entities but did not
+  initially forbid duplicate or bypass routes. Image edits then preserved
+  plausible local arrows without proving one end-to-end path.
+- **Prevention rule:** For any retrieval, tool or multi-stage diagram, write the
+  one allowed causal route before generation and explicitly prohibit every
+  bypass. Independent review traces the route from source to consumer at the
+  intended viewport; correct labels cannot compensate for a competing arrow.
+- **Durable correction:** The accepted mobile plate has one route: user
+  question → query embedding; query embedding + vector database → similarity
+  search → current context containing the selected chunks → frozen model →
+  grounded answer. Desktop expresses the same relationship.
+- **Possible Behind the Build angle:** A diagram can contain every correct term
+  and still teach the wrong system if one arrow takes a shortcut.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
 ## BTB-465 — Generated feedback arrows must be judged as causal claims
 
 - **Date:** 2026-08-17

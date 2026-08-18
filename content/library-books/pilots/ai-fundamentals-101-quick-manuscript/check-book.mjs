@@ -50,7 +50,7 @@ export function inspectBook(pilotDir = ownDir) {
     if (!reference.anchor || !reference.teachingJob || !reference.limitation) errors.push(`${reference.id} is missing its anchor, teaching job or limitation`);
     if (!["retain", "replace", "after", "before", "append"].includes(reference.mode)) errors.push(`${reference.id} has unsupported mode`);
   }
-  if (rewind.clarifications?.length !== 14) errors.push(`expected 14 separated technical clarifications or corrections; found ${rewind.clarifications?.length ?? 0}`);
+  if (rewind.clarifications?.length !== 19) errors.push(`expected 19 separated technical clarifications or corrections; found ${rewind.clarifications?.length ?? 0}`);
   for (const clarification of rewind.clarifications || []) {
     if (!clarification.id || !clarification.anchor || !clarification.copy || !["before", "replace"].includes(clarification.mode)) errors.push("a technical clarification or correction is incomplete");
   }
@@ -109,7 +109,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (teachingVisualIds.length !== 0) errors.push("rejected Chapter 1 teaching visuals have returned to the reader");
   if (review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("rejected Chapter 1 visual summary has returned to the reader");
   const purposeBuiltVisuals = [...review.matchAll(/data-purpose-built-teaching-visual="([^"]+)"/g)].map(match => match[1]);
-  const expectedPurposeBuiltVisuals = ["ch01-rule-versus-learned-pattern", "ch02-model-family-and-agent-system", "ch03-data-choices-become-model-behaviour", "ch04-fixed-vocabulary-splits-message", "ch05-training-improves-one-prediction", "ch06-photo-becomes-image-token-context", "ch07-send-prefill-decode-stream"];
+  const expectedPurposeBuiltVisuals = ["ch01-rule-versus-learned-pattern", "ch02-model-family-and-agent-system", "ch03-data-choices-become-model-behaviour", "ch04-fixed-vocabulary-splits-message", "ch05-training-improves-one-prediction", "ch06-photo-becomes-image-token-context", "ch07-send-prefill-decode-stream", "ch08-rag-selected-documents-context"];
   if (purposeBuiltVisuals.length !== expectedPurposeBuiltVisuals.length || expectedPurposeBuiltVisuals.some(id => !purposeBuiltVisuals.includes(id))) errors.push("reader does not contain the exact active purpose-built visuals");
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">')) errors.push("Chapter 1 purpose-built visual is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png"')) errors.push("Chapter 1 purpose-built visual is missing its desktop asset");
@@ -132,6 +132,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch07-send-to-stream-mobile-v1.png">')) errors.push("Chapter 7 purpose-built visual is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch07-send-to-stream-desktop-v1.png"')) errors.push("Chapter 7 purpose-built visual is missing its desktop asset");
   if (!review.includes("The answer is generated live, not revealed from behind a curtain")) errors.push("Chapter 7 purpose-built visual is missing its equivalent text explanation");
+  if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch08-rag-context-mobile-v1.png">')) errors.push("Chapter 8 purpose-built visual is missing its separately composed mobile asset");
+  if (!review.includes('<img src="assets/ch08-rag-context-desktop-v1.png"')) errors.push("Chapter 8 purpose-built visual is missing its desktop asset");
+  if (!review.includes("RAG retrieves before the model answers")) errors.push("Chapter 8 purpose-built visual is missing its equivalent text explanation");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
@@ -176,16 +179,19 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(review, /class="toc-part"/g) !== 9) errors.push("review does not contain 9 table-of-contents parts");
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");
-  if (manifest.counts?.technicalClarifications !== 14) errors.push("manifest technical clarification count is not 14");
+  if (manifest.counts?.technicalClarifications !== 19) errors.push("manifest technical clarification count is not 19");
   if (/model never sees individual letters|no way to examine individual characters inside a token|Every letter, number, and punctuation mark is a token/i.test(visibleText(review))) {
     errors.push("Chapter 4 has returned a rejected absolute tokenisation claim");
   }
   if (/responses? (?:appear|stream) word by word|each word (?:you see )?(?:appear )?is a (?:newly generated |new )?token|each word appears as it's generated/i.test(visibleText(review))) {
     errors.push("Chapter 7 has returned a rejected word-to-token streaming claim");
   }
+  if (/entire conversation history|RAG[^.]{0,120}always current|accurate answer about your company'?s specific policy/i.test(visibleText(review))) {
+    errors.push("the book has returned a rejected context-history or RAG guarantee");
+  }
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== 7) errors.push("manifest does not count exactly seven active purpose-built teaching visuals");
+  if (manifest.counts?.teachingImages !== 8) errors.push("manifest does not count exactly eight active purpose-built teaching visuals");
   if (manifest.counts?.cumulativeSystemMaps !== 0) errors.push("manifest still counts rejected cumulative maps as active");
   if (manifest.gates?.visualTeachingLayer !== "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest does not preserve Ali's rejection and quarantine of the visual teaching layer");
   if (manifest.gates?.chapterOnePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 purpose-built visual status");
@@ -195,6 +201,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.gates?.chapterFivePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 5 purpose-built visual status");
   if (manifest.gates?.chapterSixPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 6 purpose-built visual status");
   if (manifest.gates?.chapterSevenPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 7 purpose-built visual status");
+  if (manifest.gates?.chapterEightPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 8 purpose-built visual status");
   const rejectedRepresentativeStatus = "REJECTED_BY_ALI_2026_08_17_DISABLED_NOT_RENDERED_NOT_PUBLISHED";
   for (const gate of ["representativeTeachingVisual", "chapterOneDecisionSeam", "chapterFourTokenProof", "chapterTwoJobFamily", "chapterThreeDataLifecycle", "chapterFiveTrainingLoop", "chapterSevenRequestJourney", "chapterEightContextRetrieval", "chapterNineCustomisationDecision"]) {
     if (manifest.gates?.[gate] !== rejectedRepresentativeStatus) errors.push(`manifest does not preserve rejection of ${gate}`);
@@ -241,6 +248,12 @@ export function inspectBook(pilotDir = ownDir) {
     "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch07-send-to-stream-mobile-v1.png",
   ]);
   if (chapterSevenVisualArtifacts.length !== 2 || chapterSevenVisualArtifacts.some(artifact => !allowedChapterSevenVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 7 visual assets");
+  const chapterEightVisualArtifacts = (manifest.artifacts || []).filter(artifact => /\/ch08-rag-context-/.test(artifact.path));
+  const allowedChapterEightVisuals = new Set([
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch08-rag-context-desktop-v1.png",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch08-rag-context-mobile-v1.png",
+  ]);
+  if (chapterEightVisualArtifacts.length !== 2 || chapterEightVisualArtifacts.some(artifact => !allowedChapterEightVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 8 visual assets");
   if (count(JSON.stringify(manifest.artifacts || []), /ch06-bicycle-tree-learning-image\.png/g) !== 0) errors.push("manifest still binds a rejected Chapter 6 visual asset as active");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
@@ -257,5 +270,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.error(`AI FUNDAMENTALS BOOK CHECK FAIL\n- ${result.errors.join("\n- ")}`);
     process.exit(1);
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 rendered_callouts=11 chapter_turns=20 parts=9");
+  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 technical_clarifications=19 teaching_images=8 chapter_turns=20 parts=9");
 }
