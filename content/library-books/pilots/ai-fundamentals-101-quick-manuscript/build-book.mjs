@@ -24,8 +24,8 @@ const paths = {
   review: path.join(pilotDir, "review.html"),
   inventory: path.join(pilotDir, "claim-inventory.json"),
   manifest: path.join(pilotDir, "artifact-manifest.json"),
-  chapterOnePurposeBuiltDesktop: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png"),
-  chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png"),
+  chapterOnePurposeBuiltDesktop: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png"),
+  chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png"),
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
@@ -413,10 +413,10 @@ function renderConceptDiagram(concept) {
 function renderChapterOnePurposeBuiltVisual() {
   return `<figure id="ch01-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-rule-versus-learned-pattern" aria-describedby="ch01-purpose-built-caption">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png">
-    <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png" alt="The same suspicious email reaches spam in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">
+    <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png" alt="One shared suspicious email is tested in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
   </picture>
-  <figcaption id="ch01-purpose-built-caption"><strong>The seam:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to a new case.</figcaption>
+  <figcaption id="ch01-purpose-built-caption"><strong>One email, two routes:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to the same new case.</figcaption>
 </figure>`;
 }
 

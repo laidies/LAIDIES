@@ -110,9 +110,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("rejected Chapter 1 visual summary has returned to the reader");
   const purposeBuiltVisuals = [...review.matchAll(/data-purpose-built-teaching-visual="([^"]+)"/g)].map(match => match[1]);
   if (purposeBuiltVisuals.length !== 1 || purposeBuiltVisuals[0] !== "ch01-rule-versus-learned-pattern") errors.push("reader does not contain exactly one admitted Chapter 1 purpose-built visual");
-  if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png">')) errors.push("Chapter 1 purpose-built visual is missing its separately composed mobile asset");
-  if (!review.includes('<img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png"')) errors.push("Chapter 1 purpose-built visual is missing its desktop asset");
-  if (!review.includes("The same suspicious email reaches spam in two ways")) errors.push("Chapter 1 purpose-built visual is missing its equivalent text explanation");
+  if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">')) errors.push("Chapter 1 purpose-built visual is missing its separately composed mobile asset");
+  if (!review.includes('<img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png"')) errors.push("Chapter 1 purpose-built visual is missing its desktop asset");
+  if (!review.includes("One shared suspicious email is tested in two ways")) errors.push("Chapter 1 purpose-built visual is missing its equivalent text explanation");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
@@ -170,8 +170,8 @@ export function inspectBook(pilotDir = ownDir) {
   }
   const chapterOneVisualArtifacts = (manifest.artifacts || []).filter(artifact => /\/ch01-/.test(artifact.path));
   const allowedChapterOneVisuals = new Set([
-    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-automation-vs-ai-purpose-built-desktop-v3.png",
-    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png",
   ]);
   if (chapterOneVisualArtifacts.length !== 2 || chapterOneVisualArtifacts.some(artifact => !allowedChapterOneVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 1 visual assets");
   if (count(JSON.stringify(manifest.artifacts || []), /ch06-bicycle-tree-learning-image\.png/g) !== 0) errors.push("manifest still binds a rejected Chapter 6 visual asset as active");

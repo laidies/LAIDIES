@@ -114,7 +114,7 @@ try {
     throw new Error("calibration failed: checker accepted a rejected visual asset in the active manifest");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v3.png">', ""));
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">', ""));
   const missingPurposeBuiltMobile = inspectBook(temporary);
   if (missingPurposeBuiltMobile.pass || !missingPurposeBuiltMobile.errors.some(error => error.includes("separately composed mobile asset"))) {
     throw new Error("calibration failed: checker accepted a purpose-built visual with no mobile composition");
