@@ -1,17 +1,17 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-18T10:12:00-07:00",
+  "updatedAt": "2026-08-19T16:36:00-07:00",
   "remoteSource": {
     "repository": "laidies/LAIDIES",
     "issueNumber": 82,
     "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
-    "issueState": "OPEN_RECONCILED_THROUGH_2026-08-18T16:58:50Z",
-    "commit": "8f5ead54e",
+    "issueState": "OPEN_RECONCILED_THROUGH_2026-08-19T17:08:04Z",
+    "commit": "PENDING_LOCAL_COMMIT",
     "fileSha": null,
-    "verifiedAt": "2026-08-18T10:12:00-07:00",
+    "verifiedAt": "2026-08-19T16:36:00-07:00",
     "closeAttemptAt": "2026-08-17T17:02:20-07:00",
-    "closeAttemptResult": "The queue remains open for continuing cloud intake. All comments visible through 2026-08-18T16:58:50Z have durable local dispositions; no close was attempted because the issue is still the active cloud intake queue."
+    "closeAttemptResult": "The queue remains open for continuing cloud intake. All comments visible through 2026-08-19T17:08:04Z have durable local dispositions; no close was attempted because the issue is still the active cloud intake queue."
   },
   "rules": {
     "allowedDispositions": [
@@ -187,6 +187,15 @@
       "reason": "A one-day market decline with multiple drivers does not establish a durable AI lesson or practical LAiDIES reader action.",
       "nextTrigger": null,
       "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-6054ea6f7abae2c3f051",
+      "title": "The AI Engineering Skills Map for Knowledge Workers",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "reason": "The five-part framework may contribute to existing Work-Life AI Mirror and reusable-skills work, but it is an AIDB authorial proposal, not a proven standard, and its named Andrew Ng source was not recovered.",
+      "relatedWorkOrderIds": ["LCWO-013", "LCWO-016"],
+      "nextTrigger": "Recover the exact Andrew Ng post and test each skill against primary evidence and the existing curriculum; reuse only distinct practical elements rather than creating a duplicate skills-map article.",
+      "reviewAfter": "2026-08-26"
     }
   ],
   "sourceHealth": [

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "laidies-source-reconciliation.v1",
+  "receiptId": "SRC-GITHUB-NSCI-20260819-ISSUE-82-CONTINUATION",
+  "createdAt": "2026-08-19T16:36:00-07:00",
+  "signals": [
+    {
+      "signalId": "NSCI-6054ea6f7abae2c3f051",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-18/transcript.md",
+      "sourcePublishedAt": "2026-08-18T12:00:00Z",
+      "observedAt": "2026-08-19T16:31:40-07:00",
+      "finalRecheckAt": "2026-08-19T16:35:00-07:00",
+      "disposedAt": "2026-08-19T16:36:00-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "QUEUED_WITH_TRIGGER",
+      "terminalReason": "The episode's five-skill framework is potentially useful contributing evidence for the existing Work-Life AI Mirror and reusable-skills work, but it is the host's proposed map rather than an established standard. Its broad claim that agents are already transforming knowledge work cannot be treated as fact from this source alone, and the Andrew Ng post that inspired it was not recovered in this cycle.",
+      "nextTrigger": "Recover the exact Andrew Ng skills-map post and test each proposed skill against current primary evidence and LAiDIES' existing career/reusable-skill curriculum; then reuse only distinct, practical elements inside LCWO-016 or LCWO-013 rather than creating a duplicate skills-map article.",
+      "materialClaims": [
+        {
+          "claimId": "AIDB-KNOWLEDGE-WORKER-SKILLS-MAP-20260818",
+          "claim": "The August 18 AIDB episode proposes five AI-related skills for knowledge workers—capability mapping, context and harness management, problem and product prototyping, new-opportunity identification and rapid skill acquisition—on top of domain judgment.",
+          "namedReferences": ["The AI Daily Brief", "Nathaniel Whittemore", "Andrew Ng", "DeepLearning.AI"],
+          "aliasesChecked": ["AI engineering skills map", "knowledge worker AI skills", "Andrew Ng AI engineering skills"],
+          "disposition": "PARTIALLY_VERIFIED",
+          "dispositionReason": "The dated transcript directly verifies the AIDB author's five-part framework and its stated Andrew Ng inspiration. The exact Andrew Ng post was not found, and the transcript does not independently establish that the five categories are complete, broadly adopted or outcome-proven.",
+          "searches": [
+            {
+              "track": "named_reference",
+              "query": "AIDB August 18 2026 AI Engineering Skills Map knowledge workers",
+              "checkedAt": "2026-08-19T16:33:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://aidailybrief.ai/e/2026-08-18/transcript.md",
+                  "publisher": "The AI Daily Brief",
+                  "publishedAt": "2026-08-18T12:00:00Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            },
+            {
+              "track": "official_or_primary",
+              "query": "site:deeplearning.ai Andrew Ng AI engineering skills map August 2026",
+              "checkedAt": "2026-08-19T16:34:30-07:00",
+              "outcome": "NO_RESULT",
+              "results": []
+            },
+            {
+              "track": "aliases_and_mechanism",
+              "query": "Andrew Ng building deploying AI applications software engineering fundamentals coding agents shaping the build skills map",
+              "checkedAt": "2026-08-19T16:34:45-07:00",
+              "outcome": "NO_RESULT",
+              "results": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "routing": {
+    "disposition": "QUEUED_WITH_TRIGGER",
+    "workOrderId": "LCWO-016",
+    "publicationFormatId": null,
+    "releaseState": "HOLD",
+    "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
+    "reason": "The signal is retained as source-held contributing evidence for existing career/reusable-skill work. It creates no new article, work order, publication or deployment."
+  },
+  "publicAuthority": "NONE"
+}
