@@ -1,3 +1,6 @@
+<!-- laidies-scope: prototype_only; authority: local_reproduction_only; overrides_sitewide: false -->
+> Prototype-only instructions. Root `AGENTS.md` and routed current sources win. Do not record new LAiDIES decisions here.
+
 # Prototype Instructions
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.

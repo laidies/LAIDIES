@@ -19,6 +19,7 @@ if (!fixtureMode && productionOverrides.length) {
 const pass = value => value === 'PASS' || String(value).startsWith('PASS_');
 
 for (const checker of [
+  'scripts/check-context-authority.mjs',
   'scripts/check-canonical-instruction-dependencies.mjs',
   'scripts/check-work-resolution-loop.mjs',
   'scripts/check-dispatcher-migration.mjs',
@@ -37,7 +38,6 @@ const mediaState = read(fixturePath('LAIDIES_MEDIA_STATE_PATH', 'operations/prod
 const registry = read(fixturePath('LAIDIES_ASSET_REGISTRY_PATH', 'operations/assets/active-asset-registry.json'));
 const runQueue = read(fixturePath('LAIDIES_RUN_QUEUE_PATH', 'operations/product-stewards/run-queue.json'));
 const classCatalogue = read(fixturePath('LAIDIES_CLASS_CATALOGUE_PATH', 'operations/classes/opening-day-class-catalogue-2026-07-31.json'));
-const activeWork = fs.readFileSync(path.join(root, fixturePath('LAIDIES_ACTIVE_WORK_PATH', 'operations/ACTIVE-WORK.md')), 'utf8');
 
 for (const [key, items] of Object.entries({
   review_now: queue.review_now,
@@ -118,9 +118,6 @@ if ((queue.being_built || []).some(item => /ODC-101/.test(item.title || ''))) {
 }
 if (!odcCatalogue || !/INTERNAL REPAIR REQUIRED/.test(odcCatalogue.current_truth || '') || !/not good enough/i.test(odcCatalogue.current_truth || '')) {
   errors.push('ODC-101 catalogue truth does not preserve Ali rejection');
-}
-if (!/ODC-101[\s\S]{0,300}INTERNAL REPAIR REQUIRED/.test(activeWork)) {
-  errors.push('ACTIVE-WORK does not preserve the ODC-101 internal-repair ruling');
 }
 
 if (errors.length) {

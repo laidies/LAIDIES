@@ -1,63 +1,52 @@
 #!/usr/bin/env python3
+
 import json
 import os
-import hashlib
+import re
+import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
-standing_card_path = Path(os.environ.get("LAIDIES_STANDING_CARD_PATH", root / "operations" / "runtime" / "STANDING-CARD.md"))
-decisions_path = root / "operations" / "DECISIONS.md"
-lessons_path = root / "operations" / "LESSONS-ACTIVE.md"
-canon_path = root / "operations" / "voice" / "laidies-canon-index.md"
-agreement_path = root / "operations" / "CODEX-WORKING-AGREEMENT.md"
-queue_path = Path(os.environ.get("LAIDIES_RUN_QUEUE_PATH", root / "operations" / "product-stewards" / "run-queue.json"))
-if not standing_card_path.is_file():
-    raise SystemExit("SessionStart blocked: operations/runtime/STANDING-CARD.md is missing")
-standing_card = standing_card_path.read_text(encoding="utf-8").strip()
-if not standing_card:
-    raise SystemExit("SessionStart blocked: operations/runtime/STANDING-CARD.md is empty")
-for label, source_path in (("decisions", decisions_path), ("lessons", lessons_path), ("canon", canon_path), ("agreement", agreement_path)):
-    if not source_path.is_file():
-        raise SystemExit(f"SessionStart blocked: standing-card source {label} is missing")
-    expected = hashlib.sha256(source_path.read_bytes()).hexdigest()
-    if f"{label}-sha256: {expected}" not in standing_card:
-        raise SystemExit("SessionStart blocked: STANDING-CARD.md is stale; run node scripts/build-standing-card.mjs")
+checker = root / "scripts" / "check-context-authority.mjs"
+active_work_path = root / "operations" / "ACTIVE-WORK.md"
+
+if not checker.is_file() or not active_work_path.is_file():
+    raise SystemExit("SessionStart blocked: minimum context-authority packet is missing")
+
+check = subprocess.run(
+    ["node", str(checker)],
+    cwd=root,
+    text=True,
+    capture_output=True,
+    check=False,
+)
+if check.returncode != 0:
+    raise SystemExit(f"SessionStart blocked: context authority failed\n{check.stdout}{check.stderr}")
+
+active_work = active_work_path.read_text(encoding="utf-8")
+
+def field(name):
+    match = re.search(rf"^- \*\*{re.escape(name)}:\*\* (.+)$", active_work, re.MULTILINE)
+    return match.group(1).strip() if match else "MISSING"
 
 explicit_lane = os.environ.get("LAIDIES_CLAIMED_LANE", "").strip()
-if explicit_lane:
-    lane_context = f"CLAIMED LANE — {explicit_lane}"
-else:
-    if not queue_path.is_file():
-        raise SystemExit("SessionStart blocked: operations/product-stewards/run-queue.json is missing")
-    try:
-        queue = json.loads(queue_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as error:
-        raise SystemExit(f"SessionStart blocked: run queue is unreadable: {error}")
-    active = queue.get("active", [])
-    if active:
-        claims = ", ".join(
-            f"{item.get('product_id', 'unknown')} ({item.get('claim_id', 'missing claim id')})"
-            for item in active
-        )
-        lane_context = f"ACTIVE QUEUE CLAIMS — {claims}. Match the current task to one exact claim before writing."
-    else:
-        lane_context = (
-            "CLAIMED LANE — NONE. The dispatcher remains paused; declare one bounded write lane "
-            "for this task before material edits and do not pull a second queue item."
-        )
-
-preamble = (
-    "Before material LAiDIES work, follow operations/product-stewards/"
-    "AUTONOMOUS-DELIVERY-RUNTIME.md and operations/assets/ASSET-CONTROL.md. "
-    "Never send objective FAIL/HOLD work to Ali. Resolve production assets "
-    "through the active registry, pilot before batching, and stop after two "
-    "failed repair cycles for root-cause correction."
+lane_context = (
+    f"WRITE LANE — {explicit_lane}"
+    if explicit_lane
+    else "WRITE LANE — NONE. Name exact owned paths before material edits."
 )
+
+context = "\n".join([
+    "LAiDIES MINIMUM CONTEXT PACKET",
+    "Read AGENTS.md, operations/ACTIVE-WORK.md, operations/DECISIONS.md, then one routed task source.",
+    "Do not preload archived registers, prototypes, the old Standing Card, or unrelated product dossiers.",
+    f"CURRENT TASK — {field('Task ID')} / {field('Status')}",
+    f"GOAL — {field('Goal')}",
+    f"NEXT — {field('Next action')}",
+    lane_context,
+])
 
 print(json.dumps({"hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": (
-        f"{preamble}\n\nSTANDING CARD — orientation only; retrieve exact authority when needed:\n{standing_card}"
-        f"\n\n{lane_context}"
-    )
+    "additionalContext": context,
 }}))

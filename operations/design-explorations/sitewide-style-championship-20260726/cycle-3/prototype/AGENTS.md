@@ -1,3 +1,6 @@
+<!-- laidies-scope: prototype_only; authority: local_reproduction_only; overrides_sitewide: false -->
+> Prototype-only instructions. Root `AGENTS.md` and routed current sources win. Do not record new LAiDIES decisions here.
+
 # Cycle 3 prototype boundary
 
 This directory is an isolated, non-production SVC-01 comparison. It must not be

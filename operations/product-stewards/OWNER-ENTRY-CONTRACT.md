@@ -14,26 +14,23 @@ Before an owner proposes, designs, scripts, builds or changes its product, run:
 node scripts/check-product-stewards.mjs --owner-entry <product-id>
 ```
 
-Then read:
+Then load only:
 
-1. repository and workspace instructions;
-2. `operations/CODEX-WORKING-AGREEMENT.md`;
-3. `operations/ACTIVE-WORK.md`;
-4. `operations/engine/LEDGER.md`;
-5. `operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md`;
-6. `CHAMPION-CONTRACT.md`, `ORCHESTRATOR.md`, the registry and run queue;
-7. the exact dossier and state named by the product's registry row;
-8. the parent building's current brief/spec/state when the product is a
-   subproduct;
-9. affected dependency owners and shared platform records;
-10. current source/content/code and latest acceptance evidence; and
-11. `VISITOR-STATE-EVALUATION-STANDARD.md`; and
-12. `BUILD-COMPLETION-POLICY.md`; and
-13. relevant prevention rules from `operations/painpoints-log.md`.
+1. the minimum packet in `operations/context-authority.json`;
+2. the exact dossier paths named by the product's registry row;
+3. the current source/content/code the task will actually change;
+4. one parent or shared-dependency source when the changed journey crosses that
+   boundary; and
+5. the applicable completion, admission, or release source when the task is
+   approaching that gate.
 
-Learning products also read `LEARNING-CONTENT-STANDARD.md` and complete the
-learning intake/complement card. Visual/design work also reads the applicable
-sitewide style, artwork and visual-admission records.
+Use `operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md` to retrieve
+additional sources on demand. Do not preload the full registry, run queue,
+portfolio contracts, historical ledger, painpoints log, or unrelated evidence.
+
+Learning products also retrieve `LEARNING-CONTENT-STANDARD.md`. Visual/design
+work retrieves the applicable style and visual-admission source. These are
+task-specific dependencies, not additions to every owner's startup context.
 
 ## What must exist
 

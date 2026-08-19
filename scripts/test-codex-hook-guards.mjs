@@ -32,11 +32,7 @@ function run(relative, payload, env = {}) {
 
 const fixtureDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-hook-queue-'));
 process.on('exit', () => fs.rmSync(fixtureDirectory, { recursive: true, force: true }));
-const emptyQueuePath = path.join(fixtureDirectory, 'empty-run-queue.json');
-const activeQueuePath = path.join(fixtureDirectory, 'active-run-queue.json');
 const regressedLibraryPath = path.join(fixtureDirectory, 'library-regressed.html');
-fs.writeFileSync(emptyQueuePath, JSON.stringify({ active: [] }));
-fs.writeFileSync(activeQueuePath, JSON.stringify({ active: [{ product_id: 'library', claim_id: 'claim-library-test' }] }));
 fs.writeFileSync(
   regressedLibraryPath,
   fs.readFileSync(path.join(root, 'library.html'), 'utf8').replace(
@@ -47,26 +43,18 @@ fs.writeFileSync(
 
 const sessionStart = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
   cwd: root,
-  env: { ...process.env, LAIDIES_RUN_QUEUE_PATH: emptyQueuePath },
+  env: process.env,
   encoding: 'utf8',
 });
-assert.equal(sessionStart.status, 0, 'session-start lesson injection must run');
+assert.equal(sessionStart.status, 0, 'minimum session context must run');
 const sessionPayload = JSON.parse(sessionStart.stdout);
 const sessionContext = sessionPayload?.hookSpecificOutput?.additionalContext || '';
-assert.match(sessionContext, /pilot before batching/i, 'permanent preamble must be injected');
-assert.match(sessionContext, /STANDING CARD/, 'standing card must be injected');
-assert.match(sessionContext, /Retrieve, do not preload/, 'retrieval direction must reach sessions');
-assert.match(sessionContext, /One writer owns an exact file lane at a time/, 'current collision-prevention rule must reach sessions');
-assert.ok(sessionContext.length < 9000, `session context must stay compact; got ${sessionContext.length} characters`);
-assert.match(sessionContext, /CLAIMED LANE — NONE/, 'an unclaimed session must be explicit while the dispatcher is paused');
-
-const activeQueue = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
-  cwd: root,
-  env: { ...process.env, LAIDIES_RUN_QUEUE_PATH: activeQueuePath },
-  encoding: 'utf8',
-});
-assert.equal(activeQueue.status, 0, 'an active queue claim must be injectable');
-assert.match(activeQueue.stdout, /ACTIVE QUEUE CLAIMS.*library \(claim-library-test\)/, 'active queue claim must reach session context');
+assert.match(sessionContext, /LAiDIES MINIMUM CONTEXT PACKET/, 'minimum packet label must be injected');
+assert.match(sessionContext, /Do not preload archived registers/, 'retrieval boundary must reach sessions');
+assert.match(sessionContext, /CURRENT TASK — CTX-RESET-20260818 \/ VERIFIED LOCALLY/, 'current task must reach sessions');
+assert.ok(sessionContext.length < 2000, `session context must stay compact; got ${sessionContext.length} characters`);
+assert.doesNotMatch(sessionContext, /STANDING CARD/, 'the old Standing Card must not be preloaded');
+assert.match(sessionContext, /WRITE LANE — NONE/, 'an unclaimed write lane must be explicit');
 
 const explicitLane = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
   cwd: root,
@@ -74,25 +62,7 @@ const explicitLane = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hook
   encoding: 'utf8',
 });
 assert.equal(explicitLane.status, 0, 'an explicit bounded lane must be injectable');
-assert.match(explicitLane.stdout, /CLAIMED LANE \\u2014 library:library\.html\+content\/library\/\*\*/, 'explicit lane must reach session context');
-
-const missingStandingCard = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
-  cwd: root,
-  env: { ...process.env, LAIDIES_STANDING_CARD_PATH: path.join(root, 'operations', '__missing-standing-card-calibration__.md') },
-  encoding: 'utf8',
-});
-assert.notEqual(missingStandingCard.status, 0, 'missing standing card must fail closed');
-assert.match(missingStandingCard.stderr, /STANDING-CARD\.md is missing/, 'missing-card failure must be explicit');
-
-const staleStandingCardPath = path.join(fixtureDirectory, 'stale-standing-card.md');
-fs.writeFileSync(staleStandingCardPath, '# stale\n');
-const staleStandingCard = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
-  cwd: root,
-  env: { ...process.env, LAIDIES_STANDING_CARD_PATH: staleStandingCardPath },
-  encoding: 'utf8',
-});
-assert.notEqual(staleStandingCard.status, 0, 'stale standing card must fail closed');
-assert.match(staleStandingCard.stderr, /STANDING-CARD\.md is stale/, 'stale-card failure must be explicit');
+assert.match(explicitLane.stdout, /WRITE LANE \\u2014 library:library\.html\+content\/library\/\*\*/, 'explicit lane must reach session context');
 
 const approval = run('operations/hooks/block-approval-forgery.py', {
   hook_event_name: 'PreToolUse',
@@ -190,4 +160,4 @@ const staleProjectionPayload = JSON.parse(staleProjection.stdout);
 assert.equal(staleProjectionPayload.decision, 'block', 'stale derived work status must block Stop');
 assert.match(staleProjectionPayload.reason, /projection is stale/i);
 
-console.log('CODEX HOOK GUARDS PASS config_wiring=7 session_card=1 session_retrieval=1 session_compact=1 session_lane=1 approval_deny=1 approval_allow=1 derived_status_deny=1 derived_status_generator_allow=1 legacy_one_sided_deny=1 legacy_paired_allow=1 voice_deny=1 shipcheck_deny=1 library_deny=1 library_allow=1 stop_current_allow=1 stop_stale_projection_deny=1');
+console.log('CODEX HOOK GUARDS PASS config_wiring=7 session_minimum_packet=1 session_retrieval=1 session_compact=1 session_lane=1 approval_deny=1 approval_allow=1 derived_status_deny=1 derived_status_generator_allow=1 legacy_one_sided_deny=1 legacy_paired_allow=1 voice_deny=1 shipcheck_deny=1 library_deny=1 library_allow=1 stop_current_allow=1 stop_stale_projection_deny=1');

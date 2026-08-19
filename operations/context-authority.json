@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "packetName": "LAiDIES minimum startup authority",
+  "startupAuthority": [
+    { "rank": 1, "role": "operating_contract", "path": "AGENTS.md", "maxLines": 180 },
+    { "rank": 2, "role": "decision_router", "path": "operations/DECISIONS.md", "maxLines": 140 },
+    { "rank": 3, "role": "naming_status", "path": "operations/voice/laidies-canon-index.md", "maxLines": 120 },
+    { "rank": 4, "role": "active_task", "path": "operations/ACTIVE-WORK.md", "maxLines": 80 }
+  ],
+  "maximumStartupLines": 500,
+  "historyOnly": [
+    "operations/archive/context-reset-20260818/ACTIVE-WORK.pre-reset.md",
+    "operations/archive/context-reset-20260818/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.pre-reset.md",
+    "operations/archive/context-reset-20260818/CODEX-WORKING-AGREEMENT.pre-reset.md",
+    "operations/archive/context-reset-20260818/DECISIONS.pre-reset.md",
+    "operations/archive/context-reset-20260818/engine/LEDGER.pre-reset.md",
+    "operations/archive/context-reset-20260818/voice/laidies-canon-index.pre-reset.md"
+  ],
+  "supersededRoots": [
+    "Website/",
+    "_superseded/",
+    "operations/archive/",
+    "operations/design-explorations/",
+    "operations/prototypes/"
+  ],
+  "scopedInstructions": [
+    { "path": "operations/design-explorations/episode-01-three-tabs-one-task-20260727/prototype/AGENTS.md", "scopeRoot": "operations/design-explorations/episode-01-three-tabs-one-task-20260727/prototype", "classification": "prototype_only" },
+    { "path": "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/AGENTS.md", "scopeRoot": "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype", "classification": "prototype_only" },
+    { "path": "operations/design-explorations/sitewide-style-championship-20260726/cycle-2/prototype/AGENTS.md", "scopeRoot": "operations/design-explorations/sitewide-style-championship-20260726/cycle-2/prototype", "classification": "prototype_only" },
+    { "path": "operations/design-explorations/sitewide-style-championship-20260726/cycle-3/prototype/AGENTS.md", "scopeRoot": "operations/design-explorations/sitewide-style-championship-20260726/cycle-3/prototype", "classification": "prototype_only" },
+    { "path": "operations/design-explorations/study-pack-storefront-20260728/prototype/AGENTS.md", "scopeRoot": "operations/design-explorations/study-pack-storefront-20260728/prototype", "classification": "prototype_only" },
+    { "path": "operations/product-stewards/town-entry-homepage/prototypes/first-visit-introduction-v1/AGENTS.md", "scopeRoot": "operations/product-stewards/town-entry-homepage/prototypes/first-visit-introduction-v1", "classification": "prototype_only" },
+    { "path": "operations/prototypes/homepage-editorial-v1/AGENTS.md", "scopeRoot": "operations/prototypes/homepage-editorial-v1", "classification": "prototype_only" }
+  ],
+  "codexDefaults": {
+    "model": "gpt-5.6-sol",
+    "model_reasoning_effort": "medium",
+    "plan_mode_reasoning_effort": "high",
+    "approval_policy": "never",
+    "max_concurrent_threads_per_session": 2,
+    "default_subagent_model": "gpt-5.6-terra",
+    "default_subagent_reasoning_effort": "medium",
+    "multi_agent_v2": true,
+    "hooks": true,
+    "fast_mode": false
+  }
+}

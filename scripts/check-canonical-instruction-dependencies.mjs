@@ -2,55 +2,45 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const root = process.cwd();
 const errors = [];
+
+const contextCheck = spawnSync(process.execPath, ['scripts/check-context-authority.mjs'], {
+  cwd: root,
+  encoding: 'utf8'
+});
+if (contextCheck.status !== 0) {
+  errors.push(`minimum context authority failed:\n${contextCheck.stdout}${contextCheck.stderr}`.trim());
+}
+
 const required = [
   'operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md',
-  'operations/CODEX-WORKING-AGREEMENT.md',
-  'operations/ACTIVE-WORK.md',
-  'operations/engine/LEDGER.md',
-  'operations/product-stewards/OWNER-ENTRY-CONTRACT.md',
-  'operations/product-stewards/VISITOR-STATE-EVALUATION-STANDARD.md',
-  'operations/product-stewards/LEARNING-CONTENT-STANDARD.md',
-  'operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md',
-  'operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md',
-  'operations/product-stewards/learning-content-ecosystem/AUTONOMOUS-CONTENT-EXECUTION-CONTRACT.md',
-  'operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md',
-  'operations/product-stewards/VISUAL-ADMISSION-PROTOCOL.md',
-  'docs/brand/style-creative-direction.md',
-  'docs/product/butterfly-clip-economy.md',
-  'docs/product/sustainable-growth-and-revenue-principles.md'
+  'operations/product-stewards/OWNER-ENTRY-CONTRACT.md'
 ];
-
 for (const relative of required) {
-  if (!fs.existsSync(path.join(root, relative))) errors.push(`missing canonical dependency: ${relative}`);
+  if (!fs.existsSync(path.join(root, relative))) errors.push(`missing retrieval control: ${relative}`);
 }
 
-const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
-if (!read('operations/product-stewards/OWNER-ENTRY-CONTRACT.md').includes('operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md')) {
-  errors.push('owner entry does not require the canonical dependency map');
-}
-const visitor = read('operations/product-stewards/VISITOR-STATE-EVALUATION-STANDARD.md');
-for (const phrase of [
-  'First-time visitor',
-  'Returning visitor without a Resident Card',
-  'Signed-in resident with a Resident Card',
-  'Returning resident, not signed in',
-  'Signed in without a completed Resident Card',
-  'one passing state cannot lend its PASS to another'
-]) {
-  if (!visitor.includes(phrase)) errors.push(`visitor-state contract missing: ${phrase}`);
-}
-
-const map = read('operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md');
-for (const heading of [
-  'Authority and inheritance rule',
-  'Mandatory sitewide dependencies',
-  'Product-specific inheritance',
-  'Brief and handoff admission'
-]) {
-  if (!map.includes(`## ${heading}`)) errors.push(`canonical map missing section: ${heading}`);
+if (!errors.length) {
+  const map = fs.readFileSync(path.join(root, required[0]), 'utf8');
+  const owner = fs.readFileSync(path.join(root, required[1]), 'utf8');
+  const normalizedMap = map.replace(/\s+/g, ' ').toLowerCase();
+  for (const phrase of [
+    'retrieve only the sources needed',
+    'Do not preload every dossier',
+    'archived material'
+  ]) {
+    if (!normalizedMap.includes(phrase.toLowerCase())) errors.push(`retrieval map missing: ${phrase}`);
+  }
+  for (const phrase of [
+    'minimum packet in `operations/context-authority.json`',
+    'Do not preload the full registry',
+    'task-specific dependencies'
+  ]) {
+    if (!owner.includes(phrase)) errors.push(`owner entry missing: ${phrase}`);
+  }
 }
 
 if (errors.length) {
@@ -58,5 +48,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`CANONICAL INSTRUCTION DEPENDENCIES PASS (${required.length} required sources)`);
 
+console.log('CANONICAL INSTRUCTION DEPENDENCIES PASS (minimum packet + task retrieval)');
