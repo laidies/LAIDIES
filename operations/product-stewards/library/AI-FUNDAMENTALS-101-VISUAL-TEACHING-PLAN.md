@@ -122,8 +122,12 @@ is produced only when it beats prose for that exact job.
   role-distinct review in the real 358px viewport. It remains pending Ali's
   acceptance; its independent pass does not authorize Chapter 2 production,
   merge, deployment or publication.
-- Do not scale beyond Chapter 1, merge or publish until the approved method is
-  integrated and Ali accepts the remaining Chapter 1 visual.
+- Ali directed full completion on 2026-08-18. Produce every remaining non-`NONE`
+  inventory decision chapter by chapter using the approved method. Routine
+  production and responsive integration no longer pause for per-image approval;
+  stop only for a genuine direction change, unresolved technical truth or a
+  repeated visual failure. Full-production authority does not authorize merge,
+  deployment, publication or book admission.
 
 ## Communication references used in the bounded proof
 

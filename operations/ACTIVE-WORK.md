@@ -1,6 +1,6 @@
 # Active work
 
-> **2026-08-18 AI Fundamentals Chapter 1 visual proof:** the rejected nine-figure
+> **2026-08-18 AI Fundamentals full visual production:** the rejected nine-figure
 > CSS layer remains disabled and zero of its figures render. Ali approved the
 > cool-white, integrated illustration-and-lettering method after the separately
 > composed Chapter 1.1 desktop and mobile assets passed exact-pixel review; that
@@ -11,10 +11,12 @@
 > Promotions, and labelled examples plus a new sender entering a learned pattern
 > whose output goes to Spam. The first mobile candidate failed at the real 323px
 > image width; the sparse successor is readable at a 358px viewport and passed
-> role-distinct review. Status is **CHAPTER 1.1 APPROVED AND INTEGRATED LOCALLY /
-> CHAPTER 1.4 BUILT LOCALLY AND INDEPENDENT-REVIEW PASS, ALI ACCEPTANCE PENDING /
-> MANUSCRIPT AND READER UX PRESERVED / NOT MERGED / NOT DEPLOYED / NOT
-> PUBLISHED**.
+> role-distinct review. Ali has now authorized completion of every remaining
+> non-`NONE` decision in the 129-aid section inventory without routine
+> per-image approval pauses. Work continues in isolated branch
+> `library/ai-fundamentals-full-visuals-20260818`. Status is **BUILDING FULL
+> VISUAL LEARNING LAYER / CHAPTER 1 METHOD LOCKED / MANUSCRIPT AND READER UX
+> PRESERVED / NOT MERGED / NOT DEPLOYED / NOT PUBLISHED**.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a
