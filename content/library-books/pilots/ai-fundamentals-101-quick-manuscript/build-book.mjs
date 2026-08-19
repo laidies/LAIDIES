@@ -24,8 +24,10 @@ const paths = {
   review: path.join(pilotDir, "review.html"),
   inventory: path.join(pilotDir, "claim-inventory.json"),
   manifest: path.join(pilotDir, "artifact-manifest.json"),
-  chapterOnePurposeBuiltDesktop: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png"),
-  chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png"),
+  chapterOnePurposeBuiltDesktop: path.join(pilotDir, "assets/ch01-automation-vs-ai-representative-desktop-v2.jpeg"),
+  chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg"),
+  chapterOneProductCutawayDesktop: path.join(pilotDir, "assets/ch01-one-inbox-two-routes-desktop-v1.jpeg"),
+  chapterOneProductCutawayMobile: path.join(pilotDir, "assets/ch01-one-inbox-two-routes-mobile-v1.jpeg"),
   chapterTwoPurposeBuiltDesktop: path.join(pilotDir, "assets/ch02-model-family-and-agent-system-desktop-v1.png"),
   chapterTwoPurposeBuiltMobile: path.join(pilotDir, "assets/ch02-model-family-and-agent-system-mobile-v1.png"),
   chapterThreePurposeBuiltDesktop: path.join(pilotDir, "assets/ch03-data-choices-pipeline-desktop-v1.png"),
@@ -411,7 +413,9 @@ const conceptDiagrams = teachingVisuals;
 const visualTeachingLayerActive = false;
 const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED";
 const chapterOnePurposeBuiltVisualActive = true;
-const chapterOnePurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
+const chapterOnePurposeBuiltVisualStatus = "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED";
+const chapterOneProductCutawayVisualActive = true;
+const chapterOneProductCutawayVisualStatus = "BUILT_LOCALLY_INDEPENDENT_REVIEW_PASS_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const chapterTwoPurposeBuiltVisualActive = true;
 const chapterTwoPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const chapterThreePurposeBuiltVisualActive = true;
@@ -463,10 +467,20 @@ function renderConceptDiagram(concept) {
 function renderChapterOnePurposeBuiltVisual() {
   return `<figure id="ch01-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-rule-versus-learned-pattern" aria-describedby="ch01-purpose-built-caption">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">
-    <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png" alt="One shared suspicious email is tested in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg">
+    <img src="assets/ch01-automation-vs-ai-representative-desktop-v2.jpeg" alt="One shared email is tested in two ways. Automation applies a person's exact FREE equals spam rule, so FR33 is kept. AI learns broader spam and keep patterns from labelled examples, so the same FR33 email is classified as spam." loading="lazy" decoding="async">
   </picture>
-  <figcaption id="ch01-purpose-built-caption"><strong>One email, two routes:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to the same new case.</figcaption>
+  <figcaption id="ch01-purpose-built-caption"><strong>Same email, different source of the decision:</strong> automation follows the exact rule a person wrote, so the disguised spelling does not match. AI applies a broader pattern learned from labelled examples, so the same message can still be classified as spam.</figcaption>
+</figure>`;
+}
+
+function renderChapterOneProductCutawayVisual() {
+  return `<figure id="ch01-product-cutaway-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-one-inbox-two-decision-routes" aria-describedby="ch01-product-cutaway-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch01-one-inbox-two-routes-mobile-v1.jpeg">
+    <img src="assets/ch01-one-inbox-two-routes-desktop-v1.jpeg" alt="One email inbox uses two decision routes at the same time. A person-written sender filter directs a matching store email to Promotions. Separately, people label spam and keep examples; the system learns a pattern; a message from a new sender enters that learned pattern; and the pattern directs it to the Spam tray in the same inbox." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch01-product-cutaway-caption"><strong>One inbox, two mechanisms:</strong> the Promotions route follows a filter a person wrote. The Spam route applies a pattern learned from labelled examples to a new sender. A product can use both at once without making every decision in the same way.</figcaption>
 </figure>`;
 }
 
@@ -1191,6 +1205,13 @@ function buildReviewPage(source, fragment, manuscript) {
     if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 1.1 purpose-built visual placement anchor");
     mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterOnePurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
   }
+  if (chapterOneProductCutawayVisualActive) {
+    const productCutawayAnchor = "Both are working on your email simultaneously.</p>";
+    const productCutawayStart = mainFragment.indexOf(productCutawayAnchor);
+    if (productCutawayStart < 0) throw new Error("missing Chapter 1.4 product-cutaway placement anchor");
+    const productCutawayInsertion = productCutawayStart + productCutawayAnchor.length;
+    mainFragment = `${mainFragment.slice(0, productCutawayInsertion)}\n${renderChapterOneProductCutawayVisual()}\n${mainFragment.slice(productCutawayInsertion)}`;
+  }
   if (chapterTwoPurposeBuiltVisualActive) {
     const purposeBuiltAnchor = '<aside class="callout callout-key"><p>⏸️ <strong>One distinction before the shorthand:</strong>';
     const purposeBuiltInsertion = mainFragment.indexOf(purposeBuiltAnchor);
@@ -1628,6 +1649,7 @@ const artifactPaths = [
   paths.inventory,
   paths.review,
   ...(chapterOnePurposeBuiltVisualActive ? [paths.chapterOnePurposeBuiltDesktop, paths.chapterOnePurposeBuiltMobile] : []),
+  ...(chapterOneProductCutawayVisualActive ? [paths.chapterOneProductCutawayDesktop, paths.chapterOneProductCutawayMobile] : []),
   ...(chapterTwoPurposeBuiltVisualActive ? [paths.chapterTwoPurposeBuiltDesktop, paths.chapterTwoPurposeBuiltMobile] : []),
   ...(chapterThreePurposeBuiltVisualActive ? [paths.chapterThreePurposeBuiltDesktop, paths.chapterThreePurposeBuiltMobile] : []),
   ...(chapterFourPurposeBuiltVisualActive ? [paths.chapterFourPurposeBuiltDesktop, paths.chapterFourPurposeBuiltMobile] : []),
@@ -1659,7 +1681,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
-    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive) + Number(chapterSevenPurposeBuiltVisualActive) + Number(chapterEightPurposeBuiltVisualActive) + Number(chapterNinePurposeBuiltVisualActive) + Number(chapterTenPurposeBuiltVisualActive) + Number(chapterElevenPurposeBuiltVisualActive) + Number(chapterTwelvePurposeBuiltVisualActive) + Number(chapterThirteenPurposeBuiltVisualActive),
+    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterOneProductCutawayVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive) + Number(chapterSevenPurposeBuiltVisualActive) + Number(chapterEightPurposeBuiltVisualActive) + Number(chapterNinePurposeBuiltVisualActive) + Number(chapterTenPurposeBuiltVisualActive) + Number(chapterElevenPurposeBuiltVisualActive) + Number(chapterTwelvePurposeBuiltVisualActive) + Number(chapterThirteenPurposeBuiltVisualActive),
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,
@@ -1676,6 +1698,7 @@ const manifest = {
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
     visualTeachingLayer: visualTeachingLayerStatus,
     chapterOnePurposeBuiltVisual: chapterOnePurposeBuiltVisualStatus,
+    chapterOneProductCutawayVisual: chapterOneProductCutawayVisualStatus,
     chapterTwoPurposeBuiltVisual: chapterTwoPurposeBuiltVisualStatus,
     chapterThreePurposeBuiltVisual: chapterThreePurposeBuiltVisualStatus,
     chapterFourPurposeBuiltVisual: chapterFourPurposeBuiltVisualStatus,

@@ -355,10 +355,10 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 
 <figure id="ch01-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-rule-versus-learned-pattern" aria-describedby="ch01-purpose-built-caption">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">
-    <img src="assets/ch01-automation-vs-ai-purpose-built-desktop-v4.png" alt="One shared suspicious email is tested in two ways: automation matches the exact CLICK HERE rule a person wrote, while AI applies a broader pattern learned from different examples people labelled spam or keep." loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg">
+    <img src="assets/ch01-automation-vs-ai-representative-desktop-v2.jpeg" alt="One shared email is tested in two ways. Automation applies a person's exact FREE equals spam rule, so FR33 is kept. AI learns broader spam and keep patterns from labelled examples, so the same FR33 email is classified as spam." loading="lazy" decoding="async">
   </picture>
-  <figcaption id="ch01-purpose-built-caption"><strong>One email, two routes:</strong> automation follows the exact rule a person wrote. AI learns a pattern from examples people labelled, then applies that pattern to the same new case.</figcaption>
+  <figcaption id="ch01-purpose-built-caption"><strong>Same email, different source of the decision:</strong> automation follows the exact rule a person wrote, so the disguised spelling does not match. AI applies a broader pattern learned from labelled examples, so the same message can still be classified as spam.</figcaption>
 </figure>
 <aside class="callout callout-key"><p>📌 <strong>The Core Distinction</strong> <strong>Automation:</strong> A person writes the rules → the machine follows them exactly. <strong>AI:</strong> A person supplies examples → the machine figures out its own rules. A person is involved in both. The difference is <em>which job</em> the person did.</p>
 <p>⏸️ <strong>Let's make this concrete — same email, two different filters:</strong></p>
@@ -391,6 +391,14 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 <h3 id="ch-1-1-4-when-a-product-uses-both-most-of-them-do">1.4 — When a Product Uses Both (Most of Them Do)</h3>
 <p>In real life, you don't encounter "AI" and "not AI" as separate things. You encounter <em>products</em> — and most products have both going on at the same time, in the same app, working together.</p>
 <p><strong>Gmail.</strong> You wrote a filter: "anything from <a href="mailto:noreply@store.com">noreply@store.com</a> goes to my Promotions tab." That fires every time, exactly as you set it up. That's the rule you wrote — automation. But in the same inbox, Gmail is also catching spam from senders you've never heard of, blocking phishing attempts it's never seen before, sorting emails into Primary vs Social vs Promotions even when you didn't set a rule. That's the learned part — AI. Both are working on your email simultaneously.</p>
+<figure id="ch01-product-cutaway-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-one-inbox-two-decision-routes" aria-describedby="ch01-product-cutaway-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch01-one-inbox-two-routes-mobile-v1.jpeg">
+    <img src="assets/ch01-one-inbox-two-routes-desktop-v1.jpeg" alt="One email inbox uses two decision routes at the same time. A person-written sender filter directs a matching store email to Promotions. Separately, people label spam and keep examples; the system learns a pattern; a message from a new sender enters that learned pattern; and the pattern directs it to the Spam tray in the same inbox." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch01-product-cutaway-caption"><strong>One inbox, two mechanisms:</strong> the Promotions route follows a filter a person wrote. The Spam route applies a pattern learned from labelled examples to a new sender. A product can use both at once without making every decision in the same way.</figcaption>
+</figure>
+
 <p><strong>Spotify.</strong> A playlist like "90s Jams" — where some editor at Spotify picked TLC, Alanis, No Doubt, one track at a time? That's curation. A person decided. Not AI. Your Discover Weekly? Learned from data. AI. Both live in the same app, both called "playlists," and now you can tell them apart.</p>
 <p><strong>A smart thermostat.</strong> When you first install it, you set it to 21°C (70°F). It obeys — that's the rule you set, not AI. Over the next two weeks, it watches when you turn it down, when you turn it up, what time you leave the house. Then it starts adjusting on its own — learning that you like it cooler at night, warmer when you wake up, off entirely by 8:30am on weekdays. That part is AI. It learned from your behaviour. Same device, both happening at once.</p>
 <aside class="callout callout-practice"><p>🔍 <strong>Concept in Practice: Why Does This Matter?</strong> Because "AI" has become a marketing word. Companies stick it on everything. When you see "powered by AI" on a product, you can now ask one question that cuts through it: <em><strong>Which part of this actually learned from data, and which part is just software following rules someone wrote?</strong></em></p>

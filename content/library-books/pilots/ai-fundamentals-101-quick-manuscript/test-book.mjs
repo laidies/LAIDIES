@@ -114,10 +114,16 @@ try {
     throw new Error("calibration failed: checker accepted a rejected visual asset in the active manifest");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-purpose-built-mobile-v4.png">', ""));
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg">', ""));
   const missingPurposeBuiltMobile = inspectBook(temporary);
   if (missingPurposeBuiltMobile.pass || !missingPurposeBuiltMobile.errors.some(error => error.includes("separately composed mobile asset"))) {
     throw new Error("calibration failed: checker accepted a purpose-built visual with no mobile composition");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch01-one-inbox-two-routes-mobile-v1.jpeg">', ""));
+  const missingChapterOneCutawayMobile = inspectBook(temporary);
+  if (missingChapterOneCutawayMobile.pass || !missingChapterOneCutawayMobile.errors.some(error => error.includes("Chapter 1 product cutaway is missing its separately composed mobile asset"))) {
+    throw new Error("calibration failed: checker accepted the Chapter 1 product cutaway with no mobile composition");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch02-model-family-and-agent-system-mobile-v1.png">', ""));
