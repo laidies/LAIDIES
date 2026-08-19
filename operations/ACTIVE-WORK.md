@@ -1,19 +1,19 @@
 # Active work
 
-> **2026-08-17 AI Fundamentals visual restart — integrated composition rule:**
-> the rejected nine-figure CSS layer remains disabled and zero of its figures
-> render. Ali rejected the repeated source-art-plus-later-lettering method:
-> textbook illustration, exact lettering, arrows and teaching relationship must
-> be produced together as one coherent asset. Generated lettering is eligible
-> only when every visible character is correct; failed lettering or arrow logic
-> triggers rejection, not a CSS/Figma/Slides repair. Nano Banana produced a
-> stronger Chapter 1 16:9 candidate, but successive internal versions still had
-> an omitted/backward causal arrow, duplicate KEEP/SPAM trays or imperfect small
-> lettering, so no candidate was integrated or sent to independent review. At
-> 358px reader width the desktop composition's rule card and relationship labels
-> were unreadable; Chapter 1 therefore requires a separately composed mobile
-> asset with the same meaning. Status is **BUILDING / REPRESENTATIVE VISUAL HOLD
-> / MANUSCRIPT AND READER UX PRESERVED / NOT MERGED / NOT DEPLOYED / NOT
+> **2026-08-18 AI Fundamentals Chapter 1 visual proof:** the rejected nine-figure
+> CSS layer remains disabled and zero of its figures render. Ali approved the
+> cool-white, integrated illustration-and-lettering method after the separately
+> composed Chapter 1.1 desktop and mobile assets passed exact-pixel review; that
+> pair is integrated in isolated branch
+> `library/ai-fundamentals-chapter1-approved-20260818`. The remaining admitted
+> Chapter 1 need now uses a desktop cutaway and a distinct portrait mobile asset
+> to show one inbox using two decision routes: a person-written sender filter to
+> Promotions, and labelled examples plus a new sender entering a learned pattern
+> whose output goes to Spam. The first mobile candidate failed at the real 323px
+> image width; the sparse successor is readable at a 358px viewport and passed
+> role-distinct review. Status is **CHAPTER 1.1 APPROVED AND INTEGRATED LOCALLY /
+> CHAPTER 1.4 BUILT LOCALLY AND INDEPENDENT-REVIEW PASS, ALI ACCEPTANCE PENDING /
+> MANUSCRIPT AND READER UX PRESERVED / NOT MERGED / NOT DEPLOYED / NOT
 > PUBLISHED**.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box

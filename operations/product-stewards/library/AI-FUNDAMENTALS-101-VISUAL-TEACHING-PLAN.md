@@ -111,8 +111,19 @@ is produced only when it beats prose for that exact job.
   2026-08-18. Approval authorizes responsive Chapter 1.1 reader integration and
   production of the remaining admitted Chapter 1 visual need; it does not admit
   the whole book, authorize a merge or authorize publication.
+- The remaining admitted Chapter 1 visual need is now built in the same approved
+  method as a product cutaway: a person-written sender filter routes a matching
+  store message to Promotions, while labelled `SPAM` and `KEEP` examples plus a
+  new sender enter a learned-pattern gear whose output routes to Spam in the same
+  inbox. The desktop asset passed maker inspection. A first portrait mobile
+  asset failed role-distinct review because its essential labels became too small
+  at the reader's actual 323px image width. Its sparse 9:16 successor preserves
+  the mechanism, exact lettering and arrow logic and passed maker plus
+  role-distinct review in the real 358px viewport. It remains pending Ali's
+  acceptance; its independent pass does not authorize Chapter 2 production,
+  merge, deployment or publication.
 - Do not scale beyond Chapter 1, merge or publish until the approved method is
-  integrated and the remaining Chapter 1 visual has passed its own pixel review.
+  integrated and Ali accepts the remaining Chapter 1 visual.
 
 ## Communication references used in the bounded proof
 

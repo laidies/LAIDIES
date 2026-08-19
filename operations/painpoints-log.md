@@ -14407,3 +14407,28 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-456 — Mobile textbook art needs a new composition, not a smaller export
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals textbook visuals and responsive learning design.
+- **Failure:** A correct portrait visual still failed in the actual reader
+  because its email address, example labels and learned-pattern explanation
+  became too small when the image rendered at 323px inside a 358px viewport.
+- **Root cause:** Source-image dimensions and desktop readability were treated
+  as evidence for mobile, even though the reader's content column reduced every
+  teaching label together.
+- **Prevention rule:** Inspect the complete visual inside the real mobile reader,
+  measure its rendered width and require every teaching-critical word and arrow
+  to remain independently legible. When it fails, remove decorative density and
+  recompose the hierarchy for portrait; do not shrink, crop or add later CSS
+  lettering.
+- **Durable correction:** Chapter 1.4 now has a sparse 9:16 asset whose labelled
+  examples and new sender feed the learned-pattern gear and whose only output
+  enters Spam. It passed maker inspection and role-distinct review at the real
+  358px viewport. Chapter 1.4 remains pending Ali acceptance; Chapter 2 and
+  publication remain unauthorized.
+- **Possible Behind the Build angle:** Why a high-resolution image can still be
+  unreadable on a phone.
+- **Publication status:** BUILT AND VERIFIED LOCALLY / ALI ACCEPTANCE PENDING /
+  NOT MERGED / NOT DEPLOYED / NOT PUBLISHED.
