@@ -109,7 +109,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (teachingVisualIds.length !== 0) errors.push("rejected Chapter 1 teaching visuals have returned to the reader");
   if (review.includes('data-chapter-one-summary="ch01-ai-claim-check"')) errors.push("rejected Chapter 1 visual summary has returned to the reader");
   const purposeBuiltVisuals = [...review.matchAll(/data-purpose-built-teaching-visual="([^"]+)"/g)].map(match => match[1]);
-  const expectedPurposeBuiltVisuals = ["ch01-rule-versus-learned-pattern", "ch01-one-inbox-two-decision-routes", "ch02-model-family-and-agent-system", "ch03-data-choices-become-model-behaviour", "ch04-fixed-vocabulary-splits-message", "ch05-training-improves-one-prediction", "ch06-photo-becomes-image-token-context", "ch07-send-prefill-decode-stream", "ch08-rag-selected-documents-context", "ch09-context-or-weight-change", "ch10-product-around-model", "ch11-layered-safety-journey", "ch12-evidence-to-release-decision", "ch13-autonomy-by-consequence-and-recovery"];
+  const expectedPurposeBuiltVisuals = ["ch01-rule-versus-learned-pattern", "ch01-one-inbox-two-decision-routes", "ch02-four-ai-jobs-one-service", "ch02-ai-convergence-timeline", "ch02-agent-tool-boundary-loop", "ch02-model-tradeoffs-field-guide", "ch03-data-choices-become-model-behaviour", "ch04-fixed-vocabulary-splits-message", "ch05-training-improves-one-prediction", "ch06-photo-becomes-image-token-context", "ch07-send-prefill-decode-stream", "ch08-rag-selected-documents-context", "ch09-context-or-weight-change", "ch10-product-around-model", "ch11-layered-safety-journey", "ch12-evidence-to-release-decision", "ch13-autonomy-by-consequence-and-recovery"];
   if (purposeBuiltVisuals.length !== expectedPurposeBuiltVisuals.length || expectedPurposeBuiltVisuals.some(id => !purposeBuiltVisuals.includes(id))) errors.push("reader does not contain the exact active purpose-built visuals");
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg">')) errors.push("Chapter 1 approved visual is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch01-automation-vs-ai-representative-desktop-v2.jpeg"')) errors.push("Chapter 1 approved visual is missing its desktop asset");
@@ -117,9 +117,17 @@ export function inspectBook(pilotDir = ownDir) {
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch01-one-inbox-two-routes-mobile-v1.jpeg">')) errors.push("Chapter 1 product cutaway is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch01-one-inbox-two-routes-desktop-v1.jpeg"')) errors.push("Chapter 1 product cutaway is missing its desktop asset");
   if (!review.includes("One inbox, two mechanisms")) errors.push("Chapter 1 product cutaway is missing its equivalent text explanation");
-  if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch02-model-family-and-agent-system-mobile-v1.png">')) errors.push("Chapter 2 purpose-built visual is missing its separately composed mobile asset");
-  if (!review.includes('<img src="assets/ch02-model-family-and-agent-system-desktop-v1.png"')) errors.push("Chapter 2 purpose-built visual is missing its desktop asset");
-  if (!review.includes("Two relationships—not four nesting dolls")) errors.push("Chapter 2 purpose-built visual is missing its equivalent text explanation");
+  const chapterTwoVisualChecks = [
+    ["ch02-four-ai-jobs-travel-service", "One product can combine several AI jobs"],
+    ["ch02-ai-convergence-timeline", "It did not appear overnight"],
+    ["ch02-agent-tool-boundary-loop", "An agent does not jump straight from model to world"],
+    ["ch02-model-tradeoffs-field-guide", "Foundation is a role"],
+  ];
+  for (const [assetStem, captionText] of chapterTwoVisualChecks) {
+    if (!review.includes(`<source media="(max-width: 600px)" srcset="assets/${assetStem}-mobile-v1.jpeg">`)) errors.push(`Chapter 2 ${assetStem} visual is missing its separately composed mobile asset`);
+    if (!review.includes(`<img src="assets/${assetStem}-desktop-v1.jpeg"`)) errors.push(`Chapter 2 ${assetStem} visual is missing its desktop asset`);
+    if (!review.includes(captionText)) errors.push(`Chapter 2 ${assetStem} visual is missing its equivalent text explanation`);
+  }
   if (!review.includes('<source media="(max-width: 600px)" srcset="assets/ch03-data-choices-pipeline-mobile-v1.png">')) errors.push("Chapter 3 purpose-built visual is missing its separately composed mobile asset");
   if (!review.includes('<img src="assets/ch03-data-choices-pipeline-desktop-v1.png"')) errors.push("Chapter 3 purpose-built visual is missing its desktop asset");
   if (!review.includes("The model never sees the whole world")) errors.push("Chapter 3 purpose-built visual is missing its equivalent text explanation");
@@ -224,12 +232,12 @@ export function inspectBook(pilotDir = ownDir) {
   }
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== 14) errors.push("manifest does not count exactly fourteen active purpose-built teaching visuals");
+  if (manifest.counts?.teachingImages !== 17) errors.push("manifest does not count exactly seventeen active purpose-built teaching visuals");
   if (manifest.counts?.cumulativeSystemMaps !== 0) errors.push("manifest still counts rejected cumulative maps as active");
   if (manifest.gates?.visualTeachingLayer !== "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest does not preserve Ali's rejection and quarantine of the visual teaching layer");
   if (manifest.gates?.chapterOnePurposeBuiltVisual !== "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 approved visual status");
-  if (manifest.gates?.chapterOneProductCutawayVisual !== "BUILT_LOCALLY_INDEPENDENT_REVIEW_PASS_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 product-cutaway status");
-  if (manifest.gates?.chapterTwoPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 2 purpose-built visual status");
+  if (manifest.gates?.chapterOneProductCutawayVisual !== "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 product-cutaway status");
+  if (manifest.gates?.chapterTwoPurposeBuiltVisual !== "BUILT_LOCALLY_ROLE_DISTINCT_CHAPTER_REVIEW_PASS_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 2 purpose-built visual status");
   if (manifest.gates?.chapterThreePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 3 purpose-built visual status");
   if (manifest.gates?.chapterFourPurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 4 purpose-built visual status");
   if (manifest.gates?.chapterFivePurposeBuiltVisual !== "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 5 purpose-built visual status");
@@ -255,10 +263,16 @@ export function inspectBook(pilotDir = ownDir) {
   if (chapterOneVisualArtifacts.length !== 4 || chapterOneVisualArtifacts.some(artifact => !allowedChapterOneVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 1 visual assets");
   const chapterTwoVisualArtifacts = (manifest.artifacts || []).filter(artifact => /\/ch02-/.test(artifact.path));
   const allowedChapterTwoVisuals = new Set([
-    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-model-family-and-agent-system-desktop-v1.png",
-    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-model-family-and-agent-system-mobile-v1.png",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-four-ai-jobs-travel-service-desktop-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-four-ai-jobs-travel-service-mobile-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-ai-convergence-timeline-desktop-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-ai-convergence-timeline-mobile-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-agent-tool-boundary-loop-desktop-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-agent-tool-boundary-loop-mobile-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-model-tradeoffs-field-guide-desktop-v1.jpeg",
+    "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch02-model-tradeoffs-field-guide-mobile-v1.jpeg",
   ]);
-  if (chapterTwoVisualArtifacts.length !== 2 || chapterTwoVisualArtifacts.some(artifact => !allowedChapterTwoVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 2 visual assets");
+  if (chapterTwoVisualArtifacts.length !== 8 || chapterTwoVisualArtifacts.some(artifact => !allowedChapterTwoVisuals.has(artifact.path))) errors.push("manifest binds missing or rejected Chapter 2 visual assets");
   const chapterThreeVisualArtifacts = (manifest.artifacts || []).filter(artifact => /\/ch03-/.test(artifact.path));
   const allowedChapterThreeVisuals = new Set([
     "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/assets/ch03-data-choices-pipeline-desktop-v1.png",

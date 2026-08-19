@@ -28,8 +28,14 @@ const paths = {
   chapterOnePurposeBuiltMobile: path.join(pilotDir, "assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg"),
   chapterOneProductCutawayDesktop: path.join(pilotDir, "assets/ch01-one-inbox-two-routes-desktop-v1.jpeg"),
   chapterOneProductCutawayMobile: path.join(pilotDir, "assets/ch01-one-inbox-two-routes-mobile-v1.jpeg"),
-  chapterTwoPurposeBuiltDesktop: path.join(pilotDir, "assets/ch02-model-family-and-agent-system-desktop-v1.png"),
-  chapterTwoPurposeBuiltMobile: path.join(pilotDir, "assets/ch02-model-family-and-agent-system-mobile-v1.png"),
+  chapterTwoJobsDesktop: path.join(pilotDir, "assets/ch02-four-ai-jobs-travel-service-desktop-v1.jpeg"),
+  chapterTwoJobsMobile: path.join(pilotDir, "assets/ch02-four-ai-jobs-travel-service-mobile-v1.jpeg"),
+  chapterTwoTimelineDesktop: path.join(pilotDir, "assets/ch02-ai-convergence-timeline-desktop-v1.jpeg"),
+  chapterTwoTimelineMobile: path.join(pilotDir, "assets/ch02-ai-convergence-timeline-mobile-v1.jpeg"),
+  chapterTwoAgentDesktop: path.join(pilotDir, "assets/ch02-agent-tool-boundary-loop-desktop-v1.jpeg"),
+  chapterTwoAgentMobile: path.join(pilotDir, "assets/ch02-agent-tool-boundary-loop-mobile-v1.jpeg"),
+  chapterTwoTradeoffsDesktop: path.join(pilotDir, "assets/ch02-model-tradeoffs-field-guide-desktop-v1.jpeg"),
+  chapterTwoTradeoffsMobile: path.join(pilotDir, "assets/ch02-model-tradeoffs-field-guide-mobile-v1.jpeg"),
   chapterThreePurposeBuiltDesktop: path.join(pilotDir, "assets/ch03-data-choices-pipeline-desktop-v1.png"),
   chapterThreePurposeBuiltMobile: path.join(pilotDir, "assets/ch03-data-choices-pipeline-mobile-v1.png"),
   chapterFourPurposeBuiltDesktop: path.join(pilotDir, "assets/ch04-tokenisation-vocabulary-desktop-v1.png"),
@@ -415,9 +421,9 @@ const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RE
 const chapterOnePurposeBuiltVisualActive = true;
 const chapterOnePurposeBuiltVisualStatus = "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED";
 const chapterOneProductCutawayVisualActive = true;
-const chapterOneProductCutawayVisualStatus = "BUILT_LOCALLY_INDEPENDENT_REVIEW_PASS_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
+const chapterOneProductCutawayVisualStatus = "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED";
 const chapterTwoPurposeBuiltVisualActive = true;
-const chapterTwoPurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
+const chapterTwoPurposeBuiltVisualStatus = "BUILT_LOCALLY_ROLE_DISTINCT_CHAPTER_REVIEW_PASS_NOT_PUBLISHED";
 const chapterThreePurposeBuiltVisualActive = true;
 const chapterThreePurposeBuiltVisualStatus = "BUILT_LOCALLY_PENDING_ALI_ACCEPTANCE_NOT_PUBLISHED";
 const chapterFourPurposeBuiltVisualActive = true;
@@ -484,13 +490,43 @@ function renderChapterOneProductCutawayVisual() {
 </figure>`;
 }
 
-function renderChapterTwoPurposeBuiltVisual() {
-  return `<figure id="ch02-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch02-model-family-and-agent-system" aria-describedby="ch02-purpose-built-caption">
+function renderChapterTwoJobsVisual() {
+  return `<figure id="ch02-four-ai-jobs-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch02-four-ai-jobs-one-service" aria-describedby="ch02-four-ai-jobs-caption">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/ch02-model-family-and-agent-system-mobile-v1.png">
-    <img src="assets/ch02-model-family-and-agent-system-desktop-v1.png" alt="Two connected pictures. The first places modern generative AI inside deep learning, deep learning inside machine learning and machine learning inside the broader field of artificial intelligence. The second places a generative model inside an agent system that plans, takes a step, sees what happened and adjusts, with memory, tools and an optional check with the person using it." loading="lazy" decoding="async">
+    <source media="(max-width: 600px)" srcset="assets/ch02-four-ai-jobs-travel-service-mobile-v1.jpeg">
+    <img src="assets/ch02-four-ai-jobs-travel-service-desktop-v1.jpeg" alt="One travel service performs four different AI jobs: predicts a delay, interprets a damaged-bag image, creates a new travel plan, and carries out a permissioned action loop that rebooks, checks the result and adjusts." loading="lazy" decoding="async">
   </picture>
-  <figcaption id="ch02-purpose-built-caption"><strong>Two relationships—not four nesting dolls:</strong> modern generative AI belongs to a model family built through machine learning and deep learning. An agent is the wider system around a model: it can plan, use memory or tools, check with you when needed, see what happened and adjust toward a goal.</figcaption>
+  <figcaption id="ch02-four-ai-jobs-caption"><strong>One product can combine several AI jobs:</strong> prediction, interpretation, generation and agentic action describe different work. They are not a ladder, and a product does not need to use every job.</figcaption>
+</figure>`;
+}
+
+function renderChapterTwoTimelineVisual() {
+  return `<figure id="ch02-convergence-timeline-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch02-ai-convergence-timeline" aria-describedby="ch02-convergence-timeline-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch02-ai-convergence-timeline-mobile-v1.jpeg">
+    <img src="assets/ch02-ai-convergence-timeline-desktop-v1.jpeg" alt="An uneven timeline rises through early optimism and falls through two AI winters. During the quiet decades, data, computing power and better approaches grow separately and converge at the transformer before conversational AI becomes publicly visible in 2022." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch02-convergence-timeline-caption"><strong>It did not appear overnight:</strong> repeated disappointments interrupted the field, while data, compute and better approaches accumulated over decades. Their convergence made the 2017 transformer useful at scale; conversational AI made the results visible to the public in 2022.</figcaption>
+</figure>`;
+}
+
+function renderChapterTwoAgentVisual() {
+  return `<figure id="ch02-agent-tool-loop-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch02-agent-tool-boundary-loop" aria-describedby="ch02-agent-tool-loop-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch02-agent-tool-boundary-loop-mobile-v1.jpeg">
+    <img src="assets/ch02-agent-tool-boundary-loop-desktop-v1.jpeg" alt="An agent receives a goal, plans, calls a tool across a visible boundary and receives a result. It decides whether to stop, adjust, or ask the user. Only after the user confirms does an action cross the tool boundary; the returned observation feeds the next decision." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch02-agent-tool-loop-caption"><strong>An agent does not jump straight from model to world:</strong> tool calls cross a boundary and results return. The loop can stop, adjust or pause for human confirmation; consequential action remains behind that checkpoint.</figcaption>
+</figure>`;
+}
+
+function renderChapterTwoTradeoffsVisual() {
+  return `<figure id="ch02-model-tradeoffs-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch02-model-tradeoffs-field-guide" aria-describedby="ch02-model-tradeoffs-caption">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/ch02-model-tradeoffs-field-guide-mobile-v1.jpeg">
+    <img src="assets/ch02-model-tradeoffs-field-guide-desktop-v1.jpeg" alt="A foundation model is shown as one broad base supporting many applications. Three separate field-guide bands compare size, access and thinking time as independent trade-offs rather than a ranking." loading="lazy" decoding="async">
+  </picture>
+  <figcaption id="ch02-model-tradeoffs-caption"><strong>Foundation is a role; size, access and thinking time are separate choices:</strong> small versus larger, open-weight versus closed, and direct versus extra reasoning each trade one benefit for another. None is a universal better-to-worse scale.</figcaption>
 </figure>`;
 }
 
@@ -1213,10 +1249,33 @@ function buildReviewPage(source, fragment, manuscript) {
     mainFragment = `${mainFragment.slice(0, productCutawayInsertion)}\n${renderChapterOneProductCutawayVisual()}\n${mainFragment.slice(productCutawayInsertion)}`;
   }
   if (chapterTwoPurposeBuiltVisualActive) {
-    const purposeBuiltAnchor = '<aside class="callout callout-key"><p>⏸️ <strong>One distinction before the shorthand:</strong>';
-    const purposeBuiltInsertion = mainFragment.indexOf(purposeBuiltAnchor);
-    if (purposeBuiltInsertion < 0) throw new Error("missing Chapter 2.4 purpose-built visual placement anchor");
-    mainFragment = `${mainFragment.slice(0, purposeBuiltInsertion)}\n${renderChapterTwoPurposeBuiltVisual()}\n${mainFragment.slice(purposeBuiltInsertion)}`;
+    const placements = [
+      {
+        anchor: '<h3 id="ch-2-2-3-the-timeline-why-it-took-so-long-and-then-seemed-to-happen-all-at-once">',
+        render: renderChapterTwoJobsVisual,
+        label: "Chapter 2.2 four-jobs visual",
+      },
+      {
+        anchor: '<h3 id="ch-2-2-4-agentic-ai-the-layer-that-acts">',
+        render: renderChapterTwoTimelineVisual,
+        label: "Chapter 2.3 convergence-timeline visual",
+      },
+      {
+        anchor: '<h3 id="ch-2-2-5-variations-within-the-family-size-openness-and-thinking">',
+        render: renderChapterTwoAgentVisual,
+        label: "Chapter 2.4 agent-tool-loop visual",
+      },
+      {
+        anchor: '<h3 id="ch-2-2-6-chapter-summary">',
+        render: renderChapterTwoTradeoffsVisual,
+        label: "Chapter 2.5 model-tradeoffs visual",
+      },
+    ];
+    for (const { anchor, render, label } of placements) {
+      const insertion = mainFragment.indexOf(anchor);
+      if (insertion < 0) throw new Error(`missing ${label} placement anchor`);
+      mainFragment = `${mainFragment.slice(0, insertion)}\n${render()}\n${mainFragment.slice(insertion)}`;
+    }
   }
   if (chapterThreePurposeBuiltVisualActive) {
     const purposeBuiltAnchor = '<h4 id="ch-3-the-obvious-version">The obvious version</h4>';
@@ -1585,7 +1644,7 @@ ${teachingVisualCss}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The visual teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Thirteen replacement teaching visuals in Chapters 1–13 have passed maker and independent desktop/mobile inspection. None has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The CSS teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Two Chapter 1 visual learning aids are approved and integrated locally. Chapter 2 now has four replacement visual learning aids that passed maker desktop/mobile inspection and role-distinct chapter review. Older Chapter 2–13 raster assets are not admitted by this restart. Nothing has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -1650,7 +1709,16 @@ const artifactPaths = [
   paths.review,
   ...(chapterOnePurposeBuiltVisualActive ? [paths.chapterOnePurposeBuiltDesktop, paths.chapterOnePurposeBuiltMobile] : []),
   ...(chapterOneProductCutawayVisualActive ? [paths.chapterOneProductCutawayDesktop, paths.chapterOneProductCutawayMobile] : []),
-  ...(chapterTwoPurposeBuiltVisualActive ? [paths.chapterTwoPurposeBuiltDesktop, paths.chapterTwoPurposeBuiltMobile] : []),
+  ...(chapterTwoPurposeBuiltVisualActive ? [
+    paths.chapterTwoJobsDesktop,
+    paths.chapterTwoJobsMobile,
+    paths.chapterTwoTimelineDesktop,
+    paths.chapterTwoTimelineMobile,
+    paths.chapterTwoAgentDesktop,
+    paths.chapterTwoAgentMobile,
+    paths.chapterTwoTradeoffsDesktop,
+    paths.chapterTwoTradeoffsMobile,
+  ] : []),
   ...(chapterThreePurposeBuiltVisualActive ? [paths.chapterThreePurposeBuiltDesktop, paths.chapterThreePurposeBuiltMobile] : []),
   ...(chapterFourPurposeBuiltVisualActive ? [paths.chapterFourPurposeBuiltDesktop, paths.chapterFourPurposeBuiltMobile] : []),
   ...(chapterFivePurposeBuiltVisualActive ? [paths.chapterFivePurposeBuiltDesktop, paths.chapterFivePurposeBuiltMobile] : []),
@@ -1681,7 +1749,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: visualTeachingLayerActive ? conceptDiagrams.length : 0,
-    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterOneProductCutawayVisualActive) + Number(chapterTwoPurposeBuiltVisualActive) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive) + Number(chapterSevenPurposeBuiltVisualActive) + Number(chapterEightPurposeBuiltVisualActive) + Number(chapterNinePurposeBuiltVisualActive) + Number(chapterTenPurposeBuiltVisualActive) + Number(chapterElevenPurposeBuiltVisualActive) + Number(chapterTwelvePurposeBuiltVisualActive) + Number(chapterThirteenPurposeBuiltVisualActive),
+    teachingImages: Number(chapterOnePurposeBuiltVisualActive) + Number(chapterOneProductCutawayVisualActive) + (chapterTwoPurposeBuiltVisualActive ? 4 : 0) + Number(chapterThreePurposeBuiltVisualActive) + Number(chapterFourPurposeBuiltVisualActive) + Number(chapterFivePurposeBuiltVisualActive) + Number(chapterSixPurposeBuiltVisualActive) + Number(chapterSevenPurposeBuiltVisualActive) + Number(chapterEightPurposeBuiltVisualActive) + Number(chapterNinePurposeBuiltVisualActive) + Number(chapterTenPurposeBuiltVisualActive) + Number(chapterElevenPurposeBuiltVisualActive) + Number(chapterTwelvePurposeBuiltVisualActive) + Number(chapterThirteenPurposeBuiltVisualActive),
     cumulativeSystemMaps: visualTeachingLayerActive ? 18 : 0,
     representativeTeachingVisuals: representativeTeachingVisualActive ? 1 + Number(chapterOneDecisionSeamActive) + Number(chapterTwoJobFamilyActive) + Number(chapterThreeDataLifecycleActive) + Number(chapterFourTokenProofActive) + Number(chapterFiveTrainingLoopActive) + Number(chapterSevenRequestJourneyActive) + Number(chapterEightContextRetrievalActive) + Number(chapterNineCustomisationDecisionActive) : 0,
     rewindReferences: rewindAmendments.references.length,

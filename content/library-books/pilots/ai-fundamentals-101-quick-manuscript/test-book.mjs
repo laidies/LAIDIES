@@ -126,9 +126,9 @@ try {
     throw new Error("calibration failed: checker accepted the Chapter 1 product cutaway with no mobile composition");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch02-model-family-and-agent-system-mobile-v1.png">', ""));
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch02-four-ai-jobs-travel-service-mobile-v1.jpeg">', ""));
   const missingChapterTwoMobile = inspectBook(temporary);
-  if (missingChapterTwoMobile.pass || !missingChapterTwoMobile.errors.some(error => error.includes("Chapter 2 purpose-built visual is missing its separately composed mobile asset"))) {
+  if (missingChapterTwoMobile.pass || !missingChapterTwoMobile.errors.some(error => error.includes("Chapter 2 ch02-four-ai-jobs-travel-service visual is missing its separately composed mobile asset"))) {
     throw new Error("calibration failed: checker accepted the Chapter 2 visual with no mobile composition");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
