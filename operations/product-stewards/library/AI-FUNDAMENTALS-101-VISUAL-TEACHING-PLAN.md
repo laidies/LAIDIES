@@ -107,11 +107,12 @@ is produced only when it beats prose for that exact job.
   field and an almost-white blue AI field, with warmth confined to physical
   objects. They passed maker inspection and role-distinct pixel review at 850px
   and 358px respectively, including the exact `FR33` rule-versus-pattern seam,
-  character-checked labels and arrow logic. The v2 pair remains an **internal
-  representative proof only**: Ali acceptance is pending, the assets are not
-  rendered in the reader, and nothing is published.
-- Do not scale, restore another figure, merge or publish until Ali accepts that
-  one admitted Chapter 1 proof.
+  character-checked labels and arrow logic. Ali approved this visual method on
+  2026-08-18. Approval authorizes responsive Chapter 1.1 reader integration and
+  production of the remaining admitted Chapter 1 visual need; it does not admit
+  the whole book, authorize a merge or authorize publication.
+- Do not scale beyond Chapter 1, merge or publish until the approved method is
+  integrated and the remaining Chapter 1 visual has passed its own pixel review.
 
 ## Communication references used in the bounded proof
 
