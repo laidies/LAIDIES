@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** REBUILDING — all nine CSS teaching figures and their prior PASS claims invalidated; section inventory and one Chapter 1 purpose-built proof required; not published
+**Status:** REBUILDING — all nine CSS teaching figures and their prior PASS claims invalidated; Chapter 1 method approved; Chapter 2 four-pair batch passed local desktop/mobile and role-distinct review at `5cc4193`; Chapter 3 production is incomplete on a Nano Banana daily-quota hold until 2026-08-19 00:45 local; not merged or published
 **Owner:** Library
 **Applies to:** the complete AI Fundamentals 101 successor, not the prose-only representative pilot
 

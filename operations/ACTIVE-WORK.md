@@ -14,9 +14,17 @@
 > role-distinct review. Ali has now authorized completion of every remaining
 > non-`NONE` decision in the 129-aid section inventory without routine
 > per-image approval pauses. Work continues in isolated branch
-> `library/ai-fundamentals-full-visuals-20260818`. Status is **BUILDING FULL
-> VISUAL LEARNING LAYER / CHAPTER 1 METHOD LOCKED / MANUSCRIPT AND READER UX
-> PRESERVED / NOT MERGED / NOT DEPLOYED / NOT PUBLISHED**.
+> `library/ai-fundamentals-full-visuals-20260818`. Chapter 2 now has four
+> purpose-built desktop/mobile pairs covering the four jobs, convergence
+> timeline, permissioned agent tool loop and independent model trade-offs. The
+> complete Chapter 2 batch passed maker inspection at desktop, 358px and 323px,
+> the calibrated book checker and role-distinct review, and is pushed at
+> `5cc4193`. Chapter 3.1 desktop production has started, but Google Nano Banana
+> reached its daily image-generation limit; the signed-in account reports a
+> reset at `00:45` local time on 2026-08-19. No substitute generator is
+> authorized. Status is **BUILDING FULL VISUAL LEARNING LAYER / CHAPTERS 1–2
+> METHOD LOCKED / CHAPTER 3 INCOMPLETE EXTERNAL-QUOTA HOLD / MANUSCRIPT AND
+> READER UX PRESERVED / NOT MERGED / NOT DEPLOYED / NOT PUBLISHED**.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a
