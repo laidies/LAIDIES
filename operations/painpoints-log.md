@@ -15063,3 +15063,26 @@ while remaining falsely unfinished in the launch record.
   to be one invisible Git setting—and why files on your laptop are not yet part
   of the product.
 - **Publication status:** INTERNAL RELEASE-INTEGRATION CORRECTION / NOT DEPLOYED.
+
+## BTB-478 — Rejection history is evidence, not routine task context
+
+- **Date:** 2026-08-21
+- **Area:** Library instruction authority and agent context hygiene.
+- **Failure:** The active Library packet had grown to 218 lines by accumulating
+  successive visual rejections, implementation commentary and repeated rules.
+  Every ordinary Library task therefore loaded historical reasoning alongside
+  current authority, making older compositions look available for reuse and
+  obscuring the small set of decisions an agent actually needed.
+- **Root cause:** Rejection evidence and current operating instructions shared
+  one append-only document with no enforced context budget.
+- **Prevention rule:** Routine page packets contain only current visitor outcome,
+  functional and visual invariants, exact active assets, release boundaries and
+  machine-readable prohibitions. Historical reasoning remains recoverable in
+  Git and registered evidence and is loaded only for a routed investigation.
+- **Durable correction:** `operations/library-decisions.md` is now a 90-line
+  active packet. Its checker passes current input and rejects calibrated stale
+  shelf and pagination directions; full repository CI passes with the compact
+  packet. Ali's page walkthrough may replace it only through explicit review.
+- **Possible Behind the Build angle:** Why keeping every lesson in the prompt
+  made the system remember more and understand less.
+- **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NOT DEPLOYED.
