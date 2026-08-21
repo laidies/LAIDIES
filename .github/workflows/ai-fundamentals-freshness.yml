@@ -1,0 +1,100 @@
+name: AI Fundamentals freshness
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 15 * * 1"
+  push:
+    paths:
+      - "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/**"
+      - "operations/product-stewards/learning-content-ecosystem/claim-register.json"
+      - "operations/product-stewards/learning-content-ecosystem/freshness-signal-inbox.json"
+      - "scripts/check-content-freshness.mjs"
+      - "scripts/test-ai-fundamentals-freshness.mjs"
+      - ".github/workflows/ai-fundamentals-freshness.yml"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-book-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Calibrate the book scope
+        run: node scripts/test-ai-fundamentals-freshness.mjs
+
+      - name: Run the current book freshness gate
+        id: freshness
+        shell: bash
+        run: |
+          set +e
+          node scripts/check-content-freshness.mjs \
+            --claim-prefix CLM-LIB-AIF- \
+            --as-of "$(date -u +%F)" \
+            --strict \
+            --report ai-fundamentals-freshness.md \
+            --json ai-fundamentals-freshness.json
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Preserve the exact report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-fundamentals-freshness-${{ github.run_id }}
+          path: |
+            ai-fundamentals-freshness.md
+            ai-fundamentals-freshness.json
+
+      - name: Raise one actionable hold issue
+        if: steps.freshness.outputs.exit_code != '0'
+        uses: actions/github-script@v7
+        env:
+          REPORT_PATH: ai-fundamentals-freshness.md
+        with:
+          script: |
+            const fs = require('fs');
+            const title = 'AI Fundamentals 101 freshness HOLD';
+            const report = fs.readFileSync(process.env.REPORT_PATH, 'utf8');
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              'The checksum-bound AI Fundamentals 101 freshness scope is due, blocked or invalid.',
+              '',
+              `Workflow run: ${runUrl}`,
+              '',
+              'Repair only the named affected chapter or registration. Do not restart a general manuscript rewrite.',
+              '',
+              '<details><summary>Freshness report</summary>',
+              '',
+              report.slice(0, 50000),
+              '',
+              '</details>',
+            ].join('\n');
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = open.find(issue => !issue.pull_request && issue.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }

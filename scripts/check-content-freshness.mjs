@@ -23,6 +23,7 @@ function parseArgs(argv) {
     report: null,
     json: null,
     episode: null,
+    claimPrefix: null,
     strict: false,
     maxCandidates: 300,
   };
@@ -32,6 +33,7 @@ function parseArgs(argv) {
     else if (value === "--report") args.report = argv[++index];
     else if (value === "--json") args.json = argv[++index];
     else if (value === "--episode") args.episode = argv[++index];
+    else if (value === "--claim-prefix") args.claimPrefix = argv[++index];
     else if (value === "--strict") args.strict = true;
     else if (value === "--max-candidates") {
       args.maxCandidates = Number.parseInt(argv[++index], 10);
@@ -42,6 +44,7 @@ function parseArgs(argv) {
 Options:
   --as-of YYYY-MM-DD       Evaluation date (default: today)
   --episode NN             Limit the release-gate view to one episode
+  --claim-prefix PREFIX    Limit the release-gate view to claim IDs with PREFIX
   --report PATH            Write a Markdown report
   --json PATH              Write the complete JSON result
   --max-candidates N       Candidate rows in Markdown (default: 300)
@@ -414,7 +417,7 @@ function evaluate(register, inbox, args, validation, candidates, scanMeta) {
   const episodeNeedle = args.episode
     ? new RegExp(`(?:episode|issue)[- _]?0?${Number(args.episode)}\\b`, "i")
     : null;
-  const claims = episodeNeedle
+  let claims = episodeNeedle
     ? register.claims.filter((claim) =>
         claim.consumers.some(
           (consumer) =>
@@ -423,6 +426,9 @@ function evaluate(register, inbox, args, validation, candidates, scanMeta) {
         ),
       )
     : register.claims;
+  if (args.claimPrefix) {
+    claims = claims.filter((claim) => claim.id.startsWith(args.claimPrefix));
+  }
   const claimIdSet = new Set(claims.map((claim) => claim.id));
   const due = claims.filter((claim) => claim.nextReviewAt <= args.asOf);
   const dueSoonLimit = new Date(`${args.asOf}T00:00:00Z`);
@@ -470,6 +476,7 @@ function evaluate(register, inbox, args, validation, candidates, scanMeta) {
   return {
     evaluatedAt: args.asOf,
     episode: args.episode,
+    claimPrefix: args.claimPrefix,
     gate: releaseHold ? "HOLD" : "PASS",
     coverage: register.coverage,
     counts: {
@@ -515,7 +522,9 @@ function escapeCell(value) {
 }
 
 function markdown(result, maxCandidates) {
-  const episodeLabel = result.episode
+  const episodeLabel = result.claimPrefix
+    ? `Claim prefix ${result.claimPrefix}`
+    : result.episode
     ? `Episode ${String(result.episode).padStart(2, "0")}`
     : "site-wide";
   const rows = [];
@@ -667,7 +676,7 @@ try {
     [
       `CONTENT FRESHNESS ${result.gate}`,
       `as_of=${result.evaluatedAt}`,
-      `scope=${result.episode ? `episode-${result.episode}` : "site-wide"}`,
+      `scope=${result.claimPrefix || (result.episode ? `episode-${result.episode}` : "site-wide")}`,
       `registered_claims=${result.counts.registeredClaims}`,
       `consumers=${result.counts.consumers}`,
       `due=${result.counts.due}`,

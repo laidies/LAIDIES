@@ -23,12 +23,209 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-05
+**Last reconciled:** 2026-08-17
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-18 AI Fundamentals visual rebuild — Chapter 13 purpose-built proof
+
+- **Outcome:** Chapter 13 now contains one responsive autonomy-by-consequence
+  illustration after section 13.4. It places four example actions on two
+  independent axes: how much harm an error could cause and how difficult the
+  action is to recover. Drafting and moving a file remain bounded examples;
+  sending a client email and making a payment wait for explicit approval.
+  Sandbox/simulation is shown separately as an optional way to test without
+  touching the real system, not as a guarantee.
+- **Accuracy correction:** twenty-nine Chapter 13 statements are corrected
+  through the source-bound amendment layer. Absolute sandbox and containment
+  claims, an unsourced incident, a collapsed autonomy spectrum and the
+  conflation of approval gates with sandboxes are removed. The book contains
+  110 technical clarifications in total.
+- **Viewport proof:** at 1280×720 the desktop image renders at
+  895.61×504.05px. At 390×844 the separately composed mobile image renders at
+  355.21×580.06px. Both have zero horizontal document and figure overflow.
+  The real reader pixels were inspected at both viewports.
+- **Independent review:** PASS. Artifact-first inspection confirmed the axes
+  are independent, the examples are positions rather than a sequence,
+  approval is explicit for email/payment, the sandbox remains a separate
+  optional aid, and critical labels remain readable without clipping.
+- **Exact assets:** desktop
+  `ac2d8ab25b405e7faf2d1084545fd2c6f8708f6bb4948b901ec5026b3968347a`;
+  mobile
+  `e063990b5aea0fa9ee45299c8770876b4c796021c049b4b5563c91144d1b17af`.
+- **Verification:** build PASS; calibrated checker PASS, including deliberate
+  missing-Chapter-13-mobile and returned-sandbox-guarantee failures;
+  `git diff --check` PASS.
+- **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / INDEPENDENT REVIEW
+  PASS / PENDING ALI REVIEW / NOT PUBLISHED. The rejected CSS and Python visual
+  layer remains quarantined.
+- **Next:** bind the exact Chapter 13 commit, then produce Chapter 14's
+  goal-to-action agent loop without making the model appear to perform external
+  actions itself or implying that a loop guarantees success.
+
+## 2026-08-17 AI Fundamentals visual rebuild — Chapter 2 purpose-built proof
+
+- **Outcome:** Chapter 2 now contains one purpose-built visual that separates
+  the model-family relationship from the agent system around a model. Desktop
+  and separately composed 390px mobile assets are integrated after section 2.4.
+- **Accuracy correction:** The immutable Ali-vetted manuscript remains
+  unchanged. The existing amendment layer now corrects the nearby shorthand
+  that called agentic AI a fourth nested model: modern generative AI sits in
+  the ML/deep-learning model family; an agent is the wider plan/step/observe/
+  adjust system around a model, with optional memory, tools and human checks.
+- **Verification:** build PASS; calibrated book checker PASS, including a
+  deliberate missing-Chapter-2-mobile failure; `git diff --check` PASS. The
+  real reader selected the 1672×941 desktop asset at 1440px and the separately
+  composed 941×1672 asset at 390px, with zero document or figure overflow.
+  Role-distinct artifact-first visual review returned PASS on both exact files.
+- **Truth boundary:** BUILT LOCALLY / VERIFIED LOCALLY / PENDING ALI REVIEW /
+  NOT PUBLISHED. The rejected CSS and Python visual layer remains quarantined.
+- **Next:** show Chapter 2 at the exact preview anchor; on Ali acceptance,
+  continue to the next section-level visual proof rather than propagating a
+  repeated template.
+
+## 2026-08-16 AI Fundamentals 101 — complete Quick manuscript textbook build
+
+The exact Ali-vetted 20-chapter Amazon Quick manuscript is now the source base
+for the working AI Fundamentals 101 textbook on branch
+`library/ai-fundamentals-quick-manuscript-20260816`. The immutable manuscript
+bytes are unchanged. A checksum-bound overlay currently contains 13 earned
+Rewind teaching references, one separated technical clarification and five
+brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
+The humour follows Ali's *Scream* model: it appears in ordinary
+prose after the mechanism, not as a new boxed lesson and not by quota.
+
+Current status is **TEXTBOOK PROSE BUILT LOCALLY / ENTIRE VISUAL TEACHING LAYER
+REJECTED BY ALI AND QUARANTINED / ZERO FIGURES OR MAPS RENDERED / NOT
+INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. Ali stopped after the
+first five figures because all five failed: source art was visibly squashed,
+one overlay covered teaching text, pictures did not carry the mechanism, and
+the Chapters 2–20 system largely presented coloured text boxes as diagrams.
+The prior maker and independent visual PASS is invalid. A propagation audit
+found the same family across the 48 rendered teaching figures and recommended
+quarantining the full layer rather than patching the first five. The current
+review therefore renders the Ali-vetted text with no active teaching figures,
+section diagrams, cumulative map pieces or final map. Its calibrated checker
+fails if any member of the rejected layer returns.
+
+The next visual work is capped at one representative mechanism. It must use a
+diagram-native spatial relationship that adds understanding beyond prose or a
+table, keep all technical text deterministic, survive desktop/mobile, and pass
+an artifact-first unfamiliar-reader explain-back plus unseen transfer before
+anything propagates. The original figures remain preserved in history as
+rejection evidence only.
+
+Historical candidate description, now invalidated: the Chapter 1 candidate showed
+written rules versus labelled examples; examples to learned likeness to a new
+photo match; and two distinct decision routes inside one inbox. The three
+teaching figures fit within one 390×844 viewport at 701px, 778px and 740px with
+zero horizontal overflow. The earlier magnifying-glass image was correctly
+removed and reclassified as a compact summary check. Independent review held
+the successor until the final stray generated lettering was removed from the
+rule-writing crop, then returned PASS. Ali's direct reader review invalidated the earlier visual
+inspection: the pictures did not independently communicate their teaching jobs,
+the first three repeated one mechanism and the large purple figure wrapper
+combined too many functions. The deterministic checker now fails if a rejected
+Chapter 1 figure returns. Its other negative calibrations continue to reject a
+missing chapter control, missing rendered humour line, hidden chapter
+orientation, expandable fake-map cards, a missing connected final map and two
+callout types sharing one colour. At that rejection point Chapter 1 rendered no
+teaching figure. Its prose retained the plain-language bridge from learned
+rules to Chapter 5, and the successor had to solve one exact learning problem
+with meaning visible from the artifact rather than maker intent. It has no
+false cumulative “AI boundary” component.
+The next candidate was a 1400 × 444 compact comparison: an exact
+`FREE` automation rule misses `FR33`, while a learned filter can connect three
+visible clues in the same message and may flag it. Ali correctly rejected its
+classification as a visual aid: it is a colour-coded table, and Figma added no
+teaching value. It remains unrendered. If retained as a table, it must be native
+HTML/CSS and recompose rather than shrink on mobile; it cannot count toward the
+visual layer. The next proof must make a spatial relationship teach something
+the surrounding prose or a table cannot.
+The following section 1.4 smart-thermostat illustration is also rejected. It
+eventually showed an exact `21°C > 19°C` comparison and repeated reader actions
+across three days, but Ali still could not immediately tell which actions were
+human, the text remained visibly misaligned and the `One Thermostat` label added
+nothing. An internal desktop pass is invalid. Roughly an hour spent generating
+and repairing this single rejected image demonstrates that bespoke ImageGen →
+Figma correction will not scale to the textbook. That rejection did not set a
+successful repair method. Ali directly corrected the later source-art-plus-
+overlay proposal on 2026-08-17: illustration, exact lettering, arrows and the
+teaching relationship must be created together as one coherent textbook asset,
+with generated lettering retained when every visible character is correct.
+CSS, Figma, Slides or another editor may not add the teaching lettering later.
+Nano Banana produced a stronger integrated Chapter 1 direction, but the bounded
+internal revisions still contained an omitted/backward causal arrow, duplicate
+example trays or imperfect small lettering and remain rejected internal
+evidence. A 358px probe also made the 16:9 composition's rule-card and
+relationship labels unreadable, so a separately composed mobile asset is
+required. No new asset is rendered in the reader and no independent review was
+commissioned.
+
+The remaining visual plan was previously implemented as one internal full-book candidate:
+45 section-bound teaching visuals across Chapters 2–20 plus the connected final
+map. Maker inspection covered every figure at 390 × 844 and representative
+desktop figures at 1440 × 1000; the current candidate has no measured horizontal
+escape, image failure, crop or over-height section figure. The final cumulative
+map is intentionally longer than one phone viewport so its labels remain
+readable. The independent artifact-first review held the first full-book
+candidate for four visible defect families, then passed the repaired `v48`
+candidate after the denoising progression, desktop word breaks, phone attention
+legend and two phone-height escapes were corrected. Ali review, Library
+integration and public release remain open.
+Chapter 20 supplies one connected hardware/software blueprint from supply chain,
+chips and data centres through training, product use, inference, optional tools,
+output and accountable human consequence. The opening objective card now uses
+a contained two-column desktop / one-column mobile layout with measured client
+height equal to scroll height. The body uses the system reading-sans stack at
+19px desktop / 18px mobile. The surviving layout was visually inspected at
+1280 and 390 widths;
+the earlier base system was also checked at 320, all with zero horizontal
+overflow. Each callout type now has its own persistent colour. The earlier
+57-record opportunity list is retired as an illustration quota. The current 45
+jobs were selected only where spatial structure, sequence, comparison or
+containment adds teaching value. The source-build visual is an internal reader,
+not the final admitted Library presentation. No public site bytes changed.
+
+## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
+
+### 2026-08-10 cold-reader false-pass repaired
+
+The Library admission gate now requires evidence from **three distinct,
+unfamiliar, observed human readers**. Each reader must complete orientation,
+lookup, explain-back and unseen-transfer tasks against the exact artifact; each
+response is bound to participant-specific evidence. Aggregate receipts, one
+reader, simulated readers, familiar readers, stale v1 records, duplicate
+participants, maker-administered sessions and unrelated or stale evidence now
+fail closed. The repair is committed and pushed at
+`419056b39cabf4d7ec5232fdb9b70a5173c2cb43`.
+
+This is a prevention repair, not book admission. No human sessions have been
+observed yet, and the Tokens representative proof remains **BUILDING — PRODUCER
+PASS / INDEPENDENT HOLD / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The existing
+Library integration/visual lock remains untouched.
+
+The current Library foreground is the committed and pushed **AI Fundamentals
+101 v3 tokens representative proof** on branch
+`library/ai-fundamentals-v3-representative-proof`, implementation commit
+`b16a39c0eda3003d5ed87ff8d195966c05d48cb9`. The exact 1,232-word prose,
+separate Concept Index entry, deterministic desktop/mobile strawberry diagram,
+manifest and producer review are under
+`content/library-books/pilots/ai-fundamentals-101-v3-representative-proof/`.
+The calibrated objective proof rejects seven recurrence classes and the
+exact-prose producer receipt matches with `verdict=PASS quality_authority=NONE`.
+
+Status is **BUILDING — PRODUCER PASS / INDEPENDENT HOLD / NOT DEPLOYED / NOT
+PUBLICLY VERIFIED**. The proof has not received cross-family independent
+semantic admission, three observed unfamiliar-reader explain-back and unseen
+transfer outcomes, or role-distinct visual-media admission. It does not replace
+the current Library page, reader, admission manifest or book cover. Ali has not
+approved it. The older Library sections below remain historical continuity and
+must not be read as current candidate authority where they conflict with this
+section or D-2026-08-09-105.
 
 ## 2026-08-05 launch-truth reconciliation
 

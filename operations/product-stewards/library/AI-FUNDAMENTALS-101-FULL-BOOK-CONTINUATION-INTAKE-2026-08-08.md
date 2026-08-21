@@ -39,7 +39,7 @@ promoted by this intake.
 
 ## Communication design that must exist before successor prose
 
-The successor uses `HANNAH_FRY_COMMUNICATION_LENS_V1` as a technique lens, not
+The successor uses `HANNAH_FRY_COMMUNICATION_LENS_V2` as a technique lens, not
 a voice or format to copy:
 
 1. Begin every major section with a human reason the mechanism changes what a
@@ -74,8 +74,11 @@ a voice or format to copy:
 ## Successor proof and stop conditions
 
 Before producing new prose, the producer contract must pass the current shared
-checker. The first successor proof is one complete representative section with
-its adjacent visual/Concept Index relationship—not the whole book. It must show
+checker. The first successor proof is the complete Chapter 2 token section with
+its adjacent deterministic strawberry visual and direct Concept Index entry—not
+the whole book. This is the highest-risk proof because Ali rejected the prior
+technical route, blurry screenshots, meaningless diagram and prose that named
+token internals before making the idea useful. The successor must show
 the human reason, curiosity payoff, concrete invisible mechanism,
 familiar-to-technical return, limitations/consequences and better next question
 in exact prose. The producer self-review then inspects those exact bytes; a

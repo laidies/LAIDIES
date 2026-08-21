@@ -62,7 +62,12 @@ assert.ok(
 );
 
 const heldDaily = structuredClone(dailyIssues);
-heldDaily.issues[0].stories[0].status = 'draft';
+const heldDailyIssue = heldDaily.issues.find(issue =>
+  issue.stories?.some(story => story.id === 'eu-ai-act-transparency-starts')
+);
+assert.ok(heldDailyIssue, 'the exact Daily fixture story must exist before hold calibration');
+const heldDailyStory = heldDailyIssue.stories.find(story => story.id === 'eu-ai-act-transparency-starts');
+heldDailyStory.status = 'draft';
 const heldDailyEnv = envWith();
 heldDailyEnv.ASSETS.fetch = async request => {
   const url = new URL(request.url);
@@ -71,7 +76,10 @@ heldDailyEnv.ASSETS.fetch = async request => {
   return new Response('STATIC');
 };
 const heldDailyResult = await (await ask('European AI transparency labels', heldDailyEnv)).json();
-assert.ok(!heldDailyResult.results.some(result => result.id.startsWith('daily-')), 'a non-published Daily story must remain invisible');
+assert.ok(
+  !heldDailyResult.results.some(result => result.id === 'daily-eu-ai-act-transparency-starts'),
+  'the exact non-published Daily story must remain invisible'
+);
 
 const signals = [];
 const signalSink = { writeDataPoint(point) { signals.push(point); } };

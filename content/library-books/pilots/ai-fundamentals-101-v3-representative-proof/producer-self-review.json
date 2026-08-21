@@ -1,0 +1,505 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "ai-fundamentals-101-v3-tokens-representative-proof",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "EXPLANATION",
+  "surface": "LIBRAIRY",
+  "maker": "library-owner-codex-sol",
+  "reviewer": {
+    "id": "library-owner-producer",
+    "principalId": "library-owner-codex-sol",
+    "role": "Library producer",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-09T13:00:00-07:00",
+  "artifact": {
+    "reviewText": {
+      "path": "content/library-books/pilots/ai-fundamentals-101-v3-representative-proof/review-text.md",
+      "sha256": "65f070f99db037aef7875e277705fab6ea410c6bc0db899ffa63cd7afe4aea05"
+    },
+    "manifest": {
+      "path": "content/library-books/pilots/ai-fundamentals-101-v3-representative-proof/artifact-manifest.json",
+      "sha256": "71745c0c5f795e07aecbf7509227215ad41f9f7f576c0da279b2f9355eee8e14"
+    },
+    "rendered": {
+      "path": "content/library-books/pilots/ai-fundamentals-101-v3-representative-proof/review.html",
+      "sha256": "ebb89a32261ca4c8e6b5ba22c34e8547db35e678714e013d233f763930cac23f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "library-owner-codex-sol",
+    "reviewedAt": "2026-08-09T12:30:00-07:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "ai-fundamentals-101-chapter-1-known-bad.txt:3"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare two job offers.",
+            "locator": "ai-fundamentals-101-job-offer-framing-known-bad.md:5"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "human stakes before theory",
+        "connected causal learning arc",
+        "warm funny practical voice"
+      ],
+      "evidence": [
+        {
+          "excerpt": "AI fluency starts with one useful, low-risk task.",
+          "locator": "episode-01.canon.md:lesson"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why can an AI write fluently but still be awkward at counting letters, and why do people keep talking about tokens?",
+    "promisedPayoff": "Understand how text reaches a language model, connect tokens to context and metering, and choose an exact method when every character matters.",
+    "centralMentalModel": "A tokenizer turns visible text into reusable pieces before the model processes it; the product later turns generated pieces back into readable text.",
+    "dailyLifeConnection": "Interpreting context-window claims, budgeting an API and checking character-exact strings.",
+    "surfaceJob": "A connected book section that teaches the mechanism, plus a separate compact Concept Index entry.",
+    "desiredReaderFeeling": "Oh, that is why a fluent model can trip over strawberry—and now token headlines make sense."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The section defines tokens only after the reader has completed the visible strawberry count, and it excludes implementation jargon from the teaching route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before a language model works with that word, a piece of software called a **tokenizer** divides the text into reusable pieces called **tokens**.",
+          "locator": "review-text.md:21"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader leaves able to interpret context-window claims, token-metered API use and character-exact tasks.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tokens matter outside viral spelling questions.",
+          "locator": "review-text.md:53"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The prose sounds like a knowledgeable friend: direct, warm and lightly funny without turning the lesson into a string of references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Three. No calculator. No emergency meeting. No tiny pair of reading glasses.",
+          "locator": "review-text.md:7"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The familiar strawberry puzzle creates curiosity, and each later beat answers the question rather than postponing it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "So why did this simple question become a famous way to catch chatbots looking unusually flustered?",
+          "locator": "review-text.md:9"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Provider-specific claims are qualified, the named encoding is explicit and the prose rejects a universal model-failure claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Another encoding may split the same word differently.",
+          "locator": "review-text.md:27"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The evergreen mechanism is separated from volatile provider limits and prices, which the prose sends to current documentation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "you check the provider's current documentation rather than relying on an old rule of thumb.",
+          "locator": "review-text.md:61"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The artifact is a readable connected book section followed by a deliberately separate lookup entry.",
+      "artifactEvidence": [
+        {
+          "excerpt": "## Concept Index entry",
+          "locator": "review-text.md:99"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "The text explicitly follows typed text through tokenizer, model and product, then connects tokens to context, hardware work and API metering.",
+      "artifactEvidence": [
+        {
+          "excerpt": "your text → tokenizer → token pieces → model → generated token pieces → readable response",
+          "locator": "review-text.md:83"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Four bounded real-life consequences cover product use, exact text work, API budgeting and context claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "**3. Exact text jobs deserve exact methods.**",
+          "locator": "review-text.md:63"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The explanation begins from a human-visible action, makes the invisible split visible, reconnects it to the mechanism, states the limit and ends with a better question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A person can point at the letters directly.",
+          "locator": "review-text.md:45"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "The arc moves from a shared strawberry count to causal mechanism, then earns the fluent-writing versus character-inspection click and lands on a usable question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Different jobs expose different parts of the system.",
+          "locator": "review-text.md:49"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "A simulated unfamiliar-reader probe can recover that humans see letters while the model starts with tokenizer-created text pieces; real observed evidence remains required for independent admission.",
+      "artifactEvidence": [
+        {
+          "excerpt": "fluent writing does not prove that the system handles every tiny feature of text the way you do.",
+          "locator": "review-text.md:47"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Without using the book's wording, explain why strawberry can be easy for you to inspect but awkward for a language model.",
+        "probeResponse": "I see individual letters, but the model first gets pieces made by a tokenizer. The r letters may sit inside those pieces, so letter counting is a different task from fluent sentence generation.",
+        "expectedEvidence": "Distinguishes human-visible letters from tokenizer-created pieces, names the character-level consequence and avoids claiming every model fails."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The practical section transfers the mechanism from strawberry to an unseen exact identifier and to interpreting a context-window claim; human observation remains required for admission.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If the task depends on every character—counting letters, checking a code, preserving a legal clause or matching an identifier—say so.",
+          "locator": "review-text.md:65"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A chatbot summarizes a policy correctly but changes one character in an employee ID. Use the token explanation to choose a safer next step.",
+        "probeResponse": "Fluent summarizing and exact character matching are different jobs. I would compare the identifier with the source or use a text tool that checks the exact string.",
+        "expectedEvidence": "Transfers the mechanism to character-sensitive work and chooses exact comparison rather than a more confident rewrite."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The closing question tells the reader exactly what to ask when wording, capacity or exact characters matter.",
+      "artifactEvidence": [
+        {
+          "excerpt": "How was this text split, what else is sharing the context window, and do I need a language answer or an exact character check?",
+          "locator": "review-text.md:95"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The magazine-clipping analogy maps variable-size reusable text pieces and explicitly stops before intention, meaning or human judgment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The tokenizer is not rummaging through *Sassy* with taste, intention or a glue stick.",
+          "locator": "review-text.md:39"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "benchmarkNameDrop is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "communicationPastiche is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "corporateSludge is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "curiosityWithoutPayoff is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "decorativeAnalogy is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "disconnectedSystem is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "entertainmentBeforeUnderstanding is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "factlessConfidence is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "familiarExampleWithoutTechnicalReturn is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "genericAction is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "glossaryAccumulation is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "inflatedTakeawayEnding is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "jargonBeforeMeaning is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "joylessInstruction is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "mechanismBeforeMotivation is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "mechanismCompressedBehindHook is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "missingMechanism is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "prematureClickBeforeMechanism is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "purposeTooNarrow is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "referenceConfetti is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "staleUnreviewableClaims is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "technicalExplainerVoice is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "templateRepetition is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "workedExampleOvertakesBookPurpose is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.",
+      "artifactLocator": "review-text.md:1-112"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-V3-TOKENS-CLAIM-SOURCE-PACKET-2026-08-09.md",
+        "sha256": "bfb6559ff8c5c3881148e74754b079982a64361250eaf7a98e1352788d45e00d"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "token-forms-and-sequence",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A token might be a whole word, part of a word, punctuation, a space or a single character.",
+            "locator": "review-text.md:21"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-V3-TOKENS-CLAIM-SOURCE-PACKET-2026-08-09.md",
+          "sha256": "bfb6559ff8c5c3881148e74754b079982a64361250eaf7a98e1352788d45e00d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A token can be a whole word, part of a word, punctuation, a space",
+            "locator": "source packet:claim 2"
+          }
+        ],
+        "scopeAndFreshness": "Durable mechanism checked against current OpenAI Help Center and tiktoken documentation on 2026-08-09."
+      },
+      {
+        "claimId": "strawberry-o200k-split",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Using OpenAI's `o200k_base` encoding, **strawberry** is split like this:",
+            "locator": "review-text.md:23"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-V3-TOKENS-CLAIM-SOURCE-PACKET-2026-08-09.md",
+          "sha256": "bfb6559ff8c5c3881148e74754b079982a64361250eaf7a98e1352788d45e00d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "o200k_base   count=3  pieces=['st', 'raw', 'berry']",
+            "locator": "source packet:reproducible split"
+          }
+        ],
+        "scopeAndFreshness": "Reproduced locally with official tiktoken 0.13.0 on 2026-08-09; the prose immediately says another encoding may differ."
+      },
+      {
+        "claimId": "character-level-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Tokenization is therefore one reason letter-by-letter jobs can be unexpectedly awkward for a language model.",
+            "locator": "review-text.md:47"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-V3-TOKENS-CLAIM-SOURCE-PACKET-2026-08-09.md",
+          "sha256": "bfb6559ff8c5c3881148e74754b079982a64361250eaf7a98e1352788d45e00d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Character-level tasks can be awkward for subword-token models",
+            "locator": "source packet:claim 6"
+          }
+        ],
+        "scopeAndFreshness": "Qualified as one contributor, not a universal current-model failure; supported by Cosma et al. EMNLP 2025."
+      },
+      {
+        "claimId": "limits-and-metering",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Tokens matter outside viral spelling questions.",
+            "locator": "review-text.md:53"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-V3-TOKENS-CLAIM-SOURCE-PACKET-2026-08-09.md",
+          "sha256": "bfb6559ff8c5c3881148e74754b079982a64361250eaf7a98e1352788d45e00d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Token counts matter because model limits and API metering are expressed in",
+            "locator": "source packet:claim 5"
+          }
+        ],
+        "scopeAndFreshness": "Current limits and prices intentionally omitted; recheck provider documentation before any provider-specific update."
+      }
+    ],
+    "reviewedThrough": "2026-08-09",
+    "nextTrigger": "Named encoding, provider limit, provider price or character-capability claim changes before admission.",
+    "correctionOwner": "Library owner"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "reviewIssues": 17,
+      "reviewCycles": 3
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "ai-fundamentals-101-v2"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer inspection found no new reusable defect; independent artifact-first review and observed unfamiliar-reader evidence remain outstanding."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer PASS has no independent quality authority.",
+    "This is one representative section, not the complete AI Fundamentals book.",
+    "No observed unfamiliar-reader explain-back or unseen-transfer evidence has been collected.",
+    "No Library page, reader route, public artifact or deployment was changed."
+  ]
+}

@@ -14382,7 +14382,7 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
 
-## BTB-456 — The content system called work ready and then made dispatch impossible
+## BTB-474 — The content system called work ready and then made dispatch impossible
 
 - **Date:** 2026-08-11
 - **Area:** AIDB / Learning System / NewsStand execution.
@@ -14420,7 +14420,7 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
 
-## BTB-457 — Mutable global checksums erased valid archive history
+## BTB-475 — Mutable global checksums erased valid archive history
 
 - **Date:** 2026-08-11
 - **Area:** NewsStand archive, editorial intake and release packaging.
@@ -14433,7 +14433,7 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** DEPLOYED AND VERIFIED PUBLICLY 2026-08-12 in the
   NewsStand backfill release; future archive additions remain checksum-bound.
 
-## BTB-458 — A correct Pages deployment can still serve the previous NewsStand runtime
+## BTB-476 — A correct Pages deployment can still serve the previous NewsStand runtime
 
 - **Date:** 2026-08-12
 - **Area:** NewsStand release, Cloudflare Pages and public verification.
@@ -14456,3 +14456,610 @@ while remaining falsely unfinished in the launch record.
   readers are seeing yesterday's JavaScript.
 - **Publication status:** CORRECTED, DEPLOYED AND VERIFIED PUBLICLY 2026-08-12;
   custom-domain hashes matched the exact successor assets.
+## BTB-456 — A technically accurate token explainer can still teach the wrong lesson
+
+- **Date:** 2026-08-09
+- **Area:** LIBRAiRY substantial-book production and learning admission.
+- **Failure risk:** A section can correctly mention bytes, merge rankings and
+  token IDs, include official screenshots and pass architecture checks while a
+  nontechnical reader still cannot explain what a token is, why the strawberry
+  example matters or what she should do differently. The visual can be intact
+  and still be too blurry or conceptually useless to teach.
+- **Root cause:** The rejected producer started from implementation detail and
+  integrity evidence instead of the reader's real question, then asked review
+  to infer teaching quality from required-field presence. Exact prose,
+  rendered legibility and unseen transfer were not the first proof.
+- **Prevention rule:** For foundational concepts, begin with a familiar human
+  action, make the invisible mechanism visible in plain language, return to a
+  real use consequence and keep the lookup entry separate. Mechanically reject
+  known jargon-first routes, universal claims, raster screenshots, missing
+  mobile teaching art, unlabelled examples, render/prose drift and merged index
+  architecture before semantic review. The maker PASS has no quality authority;
+  role-distinct review and observed unfamiliar-reader transfer remain required.
+- **Durable correction:** D-2026-08-09-105 and the v3 tokens proof bind the exact
+  `o200k_base` strawberry split, explicit variation warning, deterministic
+  desktop/mobile diagrams and seven calibrated objective failures.
+- **Possible Behind the Build angle:** Why the famous strawberry mistake is not
+  really a spelling lesson—and how a better diagram rescued tokens from jargon.
+- **Publication status:** INTERNAL REPRESENTATIVE PROOF / PRODUCER PASS ONLY /
+  NO INDEPENDENT ADMISSION, PUBLICATION OR DEPLOYMENT.
+
+## BTB-457 — A “cold-reader” gate accepted one aggregate evidence file
+
+- **Date:** 2026-08-09
+- **Area:** LIBRAiRY substantial-book admission and observed learner evidence.
+- **Failure risk:** A book could receive `ADMISSION_CANDIDATE` from one evidence
+  file and one aggregate task set even though the standing rule required three
+  distinct unfamiliar people. A simulated or maker-administered session could
+  therefore look structurally complete without proving that readers could
+  orient, find, explain and transfer the teaching.
+- **Root cause:** The prose-quality gate enforced participant identity and
+  observation bindings, but the later Library-specific cold-reader checker only
+  tested that `participantEvidencePaths` was nonempty. The governing prose and
+  executable admission check described different standards.
+- **Prevention rule:** Library cold-reader admission uses
+  `library-book-cold-reader-review.v2`. It requires three unique unfamiliar
+  `OBSERVED_HUMAN` participants; orientation, lookup, explain-back and unseen
+  transfer from every participant; unique checksum-bound observation evidence
+  naming the exact rendered artifact and recorded responses; and an
+  administrator independent from the maker. The calibrated test must remain in
+  `ci:build` and reject one-reader, duplicate, simulated, familiar, stale and
+  self-administered fixtures.
+- **Durable correction:** D-2026-08-09-106, the v2 schema, the Library admission
+  checker and its eleven-negative calibration now align the stated rule with
+  the executable gate.
+- **Possible Behind the Build angle:** Why “we tested it with a reader” is not
+  learner evidence until you can say who was observed, against which exact
+  artifact, doing what unfamiliar task.
+- **Publication status:** INTERNAL ADMISSION-SYSTEM REPAIR / NO BOOK ADMITTED,
+  DEPLOYED OR PUBLISHED.
+
+## BTB-458 — A Rewind teaching analogy is not the same thing as a funny sprinkle
+
+- **Date:** 2026-08-16
+- **Area:** LIBRAiRY textbook voice and Rewind Era adaptation.
+- **Failure risk:** A book can contain many accurate Rewind references and still
+  feel under-seasoned when those references are boxed explanations rather than
+  brief, funny lines woven naturally into the prose. Counting references hides
+  the missing voice and encourages more boxes instead of better writing.
+- **Root cause:** The first overlay treated teaching analogies and humour as one
+  category. It optimized each reference for a named mechanism and limitation,
+  but did not separately test whether the prose contained the quick comic winks
+  Ali meant by the *Scream* example.
+- **Prevention rule:** Track humour sprinkles separately from teaching
+  analogies. When the requested model is the *Scream* line, a sprinkle uses one
+  short, verified quote or recognizable line inside ordinary prose after the
+  mechanism is clear. A newly written metaphor that merely names a Rewind
+  property is still an analogy, not a quote. The line must remain intelligible
+  if the reader misses the reference, must not carry the technical explanation,
+  and has no per-chapter quota. Delete a forced line rather than filling a gap.
+- **Durable correction:** AI Fundamentals 101 now has a separate checksum-bound
+  `sprinkles` overlay and a calibrated render check. The *Legally Blonde* line
+  survived Ali's recognition test; the proposed *Gossip Girl*, Buffy and
+  cerulean-speech lines did not and were removed without replacement. A ninth
+  sandbox line had already been removed because it was forced and weakened the
+  preceding boundary. Five source-bound lines remain; there is no quota.
+- **Possible Behind the Build angle:** Why “add more 90s references” produced
+  more lessons instead of more personality—and the one-sentence rule that fixed
+  it.
+- **Publication status:** INTERNAL TEXTBOOK VOICE REPAIR / ALI REVIEW OPEN / NO
+  INTEGRATION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-459 — Count-valid textbook navigation was visibly broken
+
+- **Date:** 2026-08-16
+- **Area:** AI Fundamentals 101 responsive reader and generated chapter navigation.
+- **Failure risk:** The generated book passed because it contained 20 chapter
+  headings and 20 navigation controls, while Chapter 20's navigation was
+  actually inserted inside Chapter 1 and mobile table-of-contents selection
+  could collapse the long menu onto a blank viewport.
+- **Root cause:** The builder used the first generic `</div>` as the final
+  chapter boundary, and the checker counted controls without proving each one
+  sat between its own heading and the next. Mobile smooth scrolling also began
+  before the menu's layout collapse had completed.
+- **Prevention rule:** A generated long-form reader must prove every navigation
+  control is unique and inside its own chapter, then run the exact rendered
+  desktop/mobile interaction. On mobile, collapse the contents first and move
+  to the target only after the layout has settled. Counts and href existence do
+  not prove the interaction or document structure.
+- **Durable correction:** The builder now inserts the final navigation at the
+  final wrapper close, the calibrated checker rejects a misplaced Chapter 20
+  control, and the mobile handler performs an immediate post-collapse target
+  move. Exact 1440x1000 and 390x844 browser checks found all 20 boundaries
+  correct, no missing targets and no horizontal overflow.
+- **Possible Behind the Build angle:** How a book with all 20 chapter buttons
+  still put the last one in Chapter 1—and why looking at the actual page caught
+  what counting never could.
+- **Publication status:** PROTECTED PREVIEW REPAIR / ALI REVIEW OPEN / NO
+  PRODUCTION INTEGRATION OR PUBLICATION.
+
+## BTB-460 — A generated scene is not a teaching visual
+
+- **Date:** 2026-08-16
+- **Area:** AI Fundamentals 101 textbook visual teaching.
+- **Failure risk:** A colourful image can satisfy an “image exists” requirement
+  while leaving the reader unable to name what it represents, how the parts
+  relate or what concept they should retain. It decorates a textbook without
+  helping anyone learn.
+- **Root cause:** The first visual attempt translated “fixed rules versus learned
+  patterns” into an atmospheric Library sorting-machine scene. The replacement
+  then over-corrected to exactly one diagram per chapter. The first had no
+  explicit mechanism; the second treated chapters rather than concepts as the
+  unit of visual teaching. Both violated the existing no-decoration/no-quota
+  decision.
+- **Prevention rule:** Every textbook visual must state its teaching question
+  and render the actual mechanism with labelled inputs, transformations,
+  outputs, relationships and limits. Its caption must name the reader takeaway.
+  If the visual cannot be explained accurately without seeing the surrounding
+  prose, it is decoration and must be removed. Generated atmosphere does not
+  count toward the visual-teaching layer.
+- **Durable correction:** The rejected raster was removed. A section-bound
+  registry identified 58 genuine teaching questions, but its renderer then
+  reduced unlike mechanisms to the same numbered-card pattern and stretched
+  circular badges. It also hid chapter goals/terms and rendered the final system
+  as expandable cards. Ali rejected that second system on sight. The renderer is
+  now being repaired from instructional-design evidence: goals/terms stay
+  visible; labels sit beside the exact parts they explain; diagrams signal
+  sequence, comparison and boundaries without decorative detail; and the final
+  ecosystem is one connected blueprint. Calibrated checks now reject hidden
+  opening matter, expandable-card regression and a missing connected final map.
+  Ali's subsequent reader review rejected the entire four-image Chapter 1 set.
+  The first three repeated the same fixed-rule-versus-learning concept, none
+  made its teaching job independently inferable and the large purple wrapper
+  combined a title, question, picture, explanation and takeaway into one heavy
+  block. The prior maker inspection and visual “pass” are invalid. The figures
+  are withdrawn from the renderer, their manifest count is zero and a
+  calibrated negative now rejects any returned Chapter 1 figure. The next
+  representative must use the correct diagram-native form for one exact
+  learning problem and cannot depend on a caption to explain maker intent or
+  duplicate a nearby visual. Callout types still have unique persistent colours;
+  the calibrated check rejects colour reuse. A later inspection also caught a
+  false “AI boundary” map component attached to Chapter 1 and a cramped opening
+  objective card. The false component is removed; the system map now starts at
+  real components in Chapter 3 and connects physical compute to training and
+  inference. The objective card uses a contained two-column desktop layout with
+  full measured height. The remaining 57 records remain teaching opportunities,
+  not accepted visuals or a quota.
+- **Successor learning:** Several flowchart-style attempts still failed because
+  the reader had to infer which lane was automation, what evidence the learned
+  system used or why the result changed; one mechanically correct tall version
+  also required scrolling to compare its beginning and end. The first concept
+  to pass used an aligned comparison native to the teaching job: human input →
+  system operation → same-email outcome, with direct phrase-to-clue mappings.
+  Future comparison visuals must expose that causal alignment in one view. If
+  the maker has to explain the mechanism, or the whole relationship requires
+  scrolling, shrinking or panning, reject it before review. Ali's direct review
+  then exposed a more basic classification
+  failure: the result was still only a colour-coded table. It may be a useful
+  table, but colour and cells do not make it a diagram, illustration or
+  schematic, and Figma was unnecessary. A visual-aid gate must classify the
+  artifact type before judging clarity. A table can pass table usability while
+  still failing the visual-aid requirement. The next visual proof must use
+  spatial relationships to teach something prose or a table cannot.
+- **Representative repair:** The first illustrated thermostat successor also
+  failed: a generated male-coded hand added no teaching value, and the cutaway
+  looked like an invented futuristic machine rather than a thermostat. A more
+  recognisable room scene then showed only one daily schedule, which could be
+  mistaken for ordinary programming. The passing desktop concept uses one
+  thermostat and one radiator, an explicit `21°C > 19°C` rule path, repeated
+  reader actions across three days, a separate system-action state on the next
+  weekday and one neutral output arrow. The visual-aid preflight must therefore
+  test recognisability, who acts at every stage, repetition versus schedule,
+  and shared output before visual polish. Unnecessary body parts are prohibited
+  unless they perform an indispensable teaching job. Desktop concept pass does
+  not admit a shrunk mobile raster; mobile must recompose the logic with
+  editable labels.
+- **Ali rejection and method stop:** Ali then rejected the nominally passing
+  thermostat concept because the human actions were still unclear, several
+  labels looked off-centre or misplaced and `One Thermostat` was a needless
+  caption. The internal pass is invalid. Roughly an hour produced only one
+  rejected image. The root cause is procedural: image generation was used for
+  precise diagram structure, then Figma became a manual repair shop for logic,
+  labels, alignment and responsiveness. That workflow creates a bespoke design
+  job for every aid and cannot scale across the textbook. Stop producing
+  one-off diagram images. Group visual jobs into the smallest reusable native
+  component families, make labels and relationships structured data, prove one
+  family representative on desktop/mobile, and reserve generated or sourced
+  imagery for supporting objects or scenes that genuinely add teaching value.
+- **Purpose-built tool calibration:** A bounded Napkin AI free-plan test then
+  used only the exact 259-character `The Core Distinction` source passage. The
+  tool produced editable alternatives quickly, but replaced the lesson with
+  `Which technology should be used for the project?` and rendered generic
+  comparison arrows or a puzzled person branching toward Automation and AI.
+  It omitted the source's causal difference—person supplies rules versus
+  people supply examples. The prevention rule is therefore tool-independent:
+  fast generation and editability do not establish instructional usefulness.
+  Reject any generated foundation that changes the reader question or requires
+  manual reconstruction of its inputs, transformations and causal arrows.
+- **Possible Behind the Build angle:** Why an attractive “educational image”
+  can still teach nothing—and why review must test reader inference rather than
+  file existence or maker intent.
+- **Hybrid successor learning:** Direct Nano Banana source art became useful
+  only after deterministic labels, arrows, crops and responsive composition
+  carried the exact teaching relationships. Independent review rejected the
+  first four-figure set because two images were decorative restatements and
+  one unexplained dot diagram could teach the wrong mechanism. The admitted
+  successor has three distinct jobs—rules versus examples, examples to learned
+  likeness to new-photo match, and two decision routes inside one inbox—plus a
+  compact non-diagram summary check. Each teaching figure fits within a
+  390×844 viewport without overflow. Generated lettering outside the intended
+  rule card remained a release blocker until the crop and mask removed it.
+  Future textbook visual production must therefore classify diagram versus
+  summary, make the causal relationship visible in the pixels, fit the full
+  relationship in one mobile viewport and reject every stray generated mark.
+- **Publication status:** SUPERSEDED BY BTB-462 — THE CHAPTER 1 AND FULL-BOOK
+  VISUAL PASS WAS INVALIDATED BY ALI / QUARANTINED / NOT PUBLISHED.
+
+## BTB-462 — A responsive figure can still be a failed teaching artifact
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 full-book visual teaching.
+- **Failure risk:** A full textbook can pass image counts, responsive containment
+  and independent review while its pictures are distorted, its labels cover
+  content and most of its “diagrams” are merely prose arranged inside boxes.
+- **Root cause:** The producer optimised for rapid full-book coverage through a
+  small CSS-card renderer and reused raster crops. The reviewer then rewarded
+  readable labels, bounded geometry and connector presence instead of asking
+  whether the pixels carried a truthful mechanism that a newcomer could explain
+  and transfer. The checker enforced the presence of the failed artifacts, so
+  it turned an unproved method into a propagation requirement.
+- **Prevention rule:** Before scaling any visual family, hide its caption and ask
+  an unfamiliar reader to explain the causal relationship, name the job of each
+  visual element and apply it to one unseen case. Reject any figure whose art is
+  removable without loss of meaning, any table presented as a diagram, any
+  overlay over content, any forced raster distortion and any diagram whose
+  arrows omit the claimed loop or cause.
+- **Durable correction:** Ali's rejection invalidated the complete prior visual
+  PASS. The renderer and manifest now expose zero active teaching figures or
+  maps. The calibrated checker accepts the quarantined text-only review and
+  fails when a rejected section visual, Chapter 1 figure, map piece or completed
+  system map is reintroduced. A blind evaluator initially still passed three of
+  Ali's five rejected figures because it inferred the lesson from their labels.
+  After adding the art-removal, distortion/overlap and missing-loop/cause vetoes,
+  it held all five on the same exact pixels. Full-book propagation is blocked
+  until one new representative passes that artifact-first reader test.
+- **Possible Behind the Build angle:** Why “responsive, labelled and complete”
+  still did not mean a textbook diagram taught anything.
+- **Publication status:** VISUAL LAYER REJECTED / QUARANTINED / NOT PUBLISHED.
+
+## BTB-461 — A structurally present diagram can still render the wrong relationship (superseded by BTB-462)
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 visual-teaching propagation.
+- **Failure risk:** A generated book can contain the correct number of diagrams,
+  captions and section anchors while mobile CSS changes their reading order,
+  turns connector text vertical, removes the visual loop or lets an inner layout
+  escape its frame. The checker then reports success while the learner sees the
+  wrong mechanism.
+- **Root cause:** The first Chapters 2–20 propagation reused one class name for
+  both the outer figure and an inner layout, temporarily lost the base component
+  CSS, and recomposed multi-step pipelines as a two-column grid whose downward
+  arrows skipped to the wrong step. A placeholder rectangle labelled as a
+  bicycle also proved that semantic alt text cannot rescue unrecognisable pixels.
+- **Prevention rule:** Bind each diagram to one exact section and teaching job;
+  keep outer identity separate from inner layout; preserve sequence order when
+  recomposing; require base-style markers and horizontal-bound checks; measure
+  every phone figure; and visually read every real rendered artifact. Use a real
+  image asset only where the object itself matters, while keeping labels and
+  relationships deterministic and editable.
+- **Durable correction:** The visual registry now contains 45 section-bound jobs
+  across Chapters 2–20. Mobile pipelines are single ordered columns, cycle arrows
+  expose the loop, RAG and memory connectors remain horizontal text, supply-chain
+  and role handoffs are numbered, and the Chapter 6 object-to-patches lesson uses
+  a bound text-free bicycle-and-tree asset. The calibrated checker now rejects
+  the class-collision and missing-style regressions. Browser inspection at
+  1440×1000 and 390×844 found all 45 figures loaded, no horizontal page overflow,
+  no descendant escaping its desktop figure and no individual teaching figure
+  taller than the phone viewport. The cumulative Chapter 20 map remains a
+  deliberately scrollable reference on mobile because it connects the complete
+  physical, training, runtime, tool and governance system rather than shrinking
+  twenty chapters into unreadable poster text.
+- **Possible Behind the Build angle:** How a six-step diagram passed every count
+  while its arrows quietly taught step 1 → step 3—and why responsive order is
+  part of factual accuracy.
+- **Publication status:** HISTORICAL FALSE PASS AT `review.html?v=48` /
+  INVALIDATED BY ALI / SUPERSEDED BY BTB-462 / QUARANTINED / NOT PUBLISHED.
+
+## BTB-463 — Textbook lettering cannot be repaired after the picture
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals visual learning aids and responsive composition.
+- **Failure:** The restart initially returned to source illustration followed
+  by a proposed CSS/editor lettering layer. Ali identified this as a repeated
+  rejected method. A subsequent integrated Nano Banana candidate was more like
+  a textbook illustration, but bounded revisions still omitted or reversed a
+  causal arrow, duplicated KEEP/SPAM trays or produced imperfect small
+  lettering.
+- **Root cause:** Production treated illustration and explanation as separable
+  and assumed generated lettering was forbidden even when correct. It also
+  treated mobile as a scaled desktop check instead of a composition decision.
+- **Prevention rule:** Generate illustration, exact lettering, arrows and the
+  teaching relationship as one coherent asset. Keep generated lettering only
+  when every visible character is correct; reject rather than overlay-repair a
+  failed composition. Test at the actual reader width and create a separately
+  composed mobile asset when the desktop relationship shrinks below legibility.
+- **Durable correction:** The decision register, handoff and visual plan now
+  bind the integrated-composition rule. The 16:9 Chapter 1 candidate failed at
+  358px reader width, so a distinct mobile composition is required.
+- **Possible Behind the Build angle:** Why labels have to be designed with the
+  picture—and why responsive textbook art may need two compositions.
+- **Publication status:** INTERNAL VISUAL-METHOD CORRECTION / NOT INTEGRATED /
+  NOT PUBLISHED.
+
+## BTB-464 — A correct visual cannot sit beside contradictory source shorthand
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 Chapter 2 visual teaching and source overlays.
+- **Failure:** The rebuilt picture correctly separated the nested model family
+  from the agent system around a model, but the immediately following source
+  table still called all four items nested. Either artifact alone looked
+  plausible; together they taught two incompatible relationships.
+- **Root cause:** Visual accuracy was checked against the mechanism, while the
+  adjacent prose was treated as already settled because its immutable source
+  bytes had been vetted. Integration review did not initially treat nearby
+  explanatory prose as part of the same teaching artifact.
+- **Prevention rule:** Before admitting a textbook visual, read the preceding
+  and following reader-visible explanation as one continuous lesson. A visual
+  and its adjacent prose must encode the same parts and relationships. Preserve
+  immutable source bytes, but use the governed amendment layer for an explicit
+  correction when current mechanism evidence exposes misleading shorthand.
+- **Durable correction:** Chapter 2 now adds an explicit source-bound
+  clarification before the four-layer table, and the checker binds that
+  correction plus the desktop/mobile visual pair. The visual review then
+  judged the exact integrated relationship artifact-first.
+- **Possible Behind the Build angle:** The diagram was right; the sentence
+  underneath quietly made the lesson wrong again.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-466 — Essential visual safeguards cannot be mobile fine print
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 responsive textbook illustration.
+- **Failure:** The first Chapter 6 phone composition preserved the correct
+  photo-to-image-token mechanism but rendered four misconception-blocking
+  labels too small to read reliably at 390px. The diagram fit without overflow
+  while still failing its teaching job.
+- **Root cause:** Responsive review treated semantic parity and containment as
+  sufficient, but the smallest type carried the most important boundaries.
+- **Prevention rule:** Identify misconception-blocking text in the visual
+  contract and require it to sit in the primary mobile hierarchy at intended
+  size. A safeguard that exists only as fine print is absent for admission.
+- **Durable correction:** The repaired Chapter 6 mobile plate enlarges the
+  numerical-representation, non-object-label, worked-count and variable-count
+  boundaries. Independent forward-testing passed all four at 390×844.
+- **Possible Behind the Build angle:** A diagram can fit perfectly on a phone
+  and still hide the one sentence that keeps the lesson true.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-467 — A named intermediate needs a visible route to its consumer
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 7 request journey.
+- **Failure:** The first phone composition named the KV cache but left it beside
+  the prefill model with no connector to decoding. The text said it was reused;
+  the picture made it look decorative.
+- **Root cause:** The asset inventory included the correct intermediate object
+  without binding its producer-to-consumer edge as a required causal claim.
+- **Prevention rule:** Every stored note, retrieved chunk, intermediate value or
+  handoff shown in a mechanism diagram must have a visible source and consumer.
+  A nearby label does not establish a causal route.
+- **Durable correction:** The Chapter 7 mobile successor connects the KV cache
+  to Step 3 with an explicit `REUSED DURING DECODE` path; independent review
+  forward-tested that exact relationship at 390×844.
+- **Possible Behind the Build angle:** The cache was in the picture, but until
+  the arrow existed it was not in the explanation.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-468 — A retrieval diagram needs one complete route, not plausible fragments
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 8 RAG illustration.
+- **Failure:** Early mobile candidates separately showed a vector database,
+  similarity search, selected chunks, context and a frozen model, yet their
+  arrows either disconnected retrieval from the database or let selected
+  chunks bypass the context box. All the right nouns were present while the
+  mechanism remained wrong.
+- **Root cause:** The production brief named required entities but did not
+  initially forbid duplicate or bypass routes. Image edits then preserved
+  plausible local arrows without proving one end-to-end path.
+- **Prevention rule:** For any retrieval, tool or multi-stage diagram, write the
+  one allowed causal route before generation and explicitly prohibit every
+  bypass. Independent review traces the route from source to consumer at the
+  intended viewport; correct labels cannot compensate for a competing arrow.
+- **Durable correction:** The accepted mobile plate has one route: user
+  question → query embedding; query embedding + vector database → similarity
+  search → current context containing the selected chunks → frozen model →
+  grounded answer. Desktop expresses the same relationship.
+- **Possible Behind the Build angle:** A diagram can contain every correct term
+  and still teach the wrong system if one arrow takes a shortcut.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-465 — Generated feedback arrows must be judged as causal claims
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals 101 responsive textbook illustration.
+- **Failure:** The first Chapter 3 mobile composition made a wrong model result
+  loop back only to the new test case, even though its label told the reader to
+  inspect the job, data and labels. Two subsequent image edits either added a
+  contradictory downward arrow or removed a required branch arrowhead. A later
+  candidate selected only cats in Stage 2, then introduced dogs at Stage 3 with
+  no route showing how they entered the prepared dataset.
+- **Root cause:** The prompt specified the feedback sentence but treated arrow
+  geometry and repeated-example continuity as visual polish. In a mechanism
+  diagram, every endpoint and recurring object is itself a factual claim; a
+  correct caption cannot repair a wrong path or an example that appears from
+  nowhere.
+- **Prevention rule:** Name every source, destination and branch in the visual
+  contract, track each worked example across stages, then inspect every rendered
+  arrow and recurring object at intended size. Stop regeneration once the
+  teaching composition is sound; a narrowly bounded deterministic bitmap
+  correction may repair a missing non-text arrowhead, but may not redraw the
+  lesson, lettering, objects or relationships.
+- **Durable correction:** The final mobile plate has one return line from the
+  wrong-result review area with two explicit branches to Stage 2 selection and
+  Stage 3 cleaning/labelling. The stray branch toward model training was
+  removed. The selected tray visibly contains cats and dogs before those same
+  categories are labelled. Desktop and mobile now encode the same mechanism.
+  The Chapter 5 successor forward-tested the same rule: the known training
+  answer now bypasses the initial guess and enters only the loss comparison,
+  while the loss itself is shown numerically before its error signal travels
+  backward.
+- **Possible Behind the Build angle:** In a diagram, an arrow is a sentence—and
+  pointing it at the wrong box teaches the wrong fact.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-469 — A complete diagram can teach less when it has to be shrunk
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 9 responsive customisation visual.
+- **Failure:** The first Chapter 9 candidate fit every required route into one
+  poster, but the route labels became too small at the actual desktop and phone
+  reader widths. A subsequent phone composition also arranged fine-tuning,
+  preference training and pretraining vertically in a way that could make
+  alternatives look like a sequence.
+- **Root cause:** The brief treated route completeness as the primary constraint
+  and did not set a hard density limit or explicitly forbid arrows and spatial
+  sequencing between alternative methods.
+- **Prevention rule:** Split a comparison when every essential label cannot
+  remain primary-size at the intended viewport. For alternative methods, use a
+  shared starting point and independent branches; never let layout or arrows
+  imply an order that the mechanism does not have.
+- **Durable correction:** Chapter 9 now uses two separately composed panels for
+  desktop and mobile: one for temporary request-time context and one for
+  training a new model version. Maker pixel inspection and independent review
+  passed the exact four assets without clipping, critical small text or a false
+  causal sequence.
+- **Possible Behind the Build angle:** Why the most complete poster was the
+  least useful explanation—and how splitting it made the science clearer.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-470 — Stop rerolling a generated arrow pattern that keeps lying
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 10 product-stack illustration.
+- **Failure:** The first desktop candidate gave one context card no route into
+  the harness and another two feeder arrows. The labels were accurate but the
+  lines asserted a false one-to-one relationship. Two narrow image edits
+  repeated the same topology defect.
+- **Root cause:** The composition asked an image generator to preserve several
+  exact parallel source-to-slot connections. It could reproduce the nouns and
+  general direction but not reliably preserve every endpoint.
+- **Prevention rule:** When a required generated arrow topology fails twice,
+  stop rerolling it. Change the visual grammar so the relationship is carried
+  by stable spatial containment, such as labelled objects visibly inserted into
+  distinct slots. Reserve arrows for the smaller number of causal transitions
+  that still need direction.
+- **Durable correction:** The Chapter 10 desktop successor puts four labelled
+  context cards directly into four harness slots and uses arrows only for the
+  request route and optional router loop. A separate vertical mobile composition
+  expresses the same mechanism. Independent artifact-first review passed both
+  exact assets.
+- **Possible Behind the Build angle:** Why four correct labels and one wrong
+  arrow can teach a false system—and why changing the diagram grammar worked
+  better than asking for another edit.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-471 — If the qualifier is tiny, the diagram can teach the opposite rule
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 11 layered-safety illustration.
+- **Failure:** The first independently reviewed pair showed the right route but
+  made `PRIVATE NUMBER` too small to explain why the second draft was held. On
+  mobile, `SOME FLAGGED CASES` was also too small, inviting the false inference
+  that every flagged response reaches human reviewers. One image edit also
+  changed `these` to `thess` while repairing an unrelated label.
+- **Root cause:** The maker initially judged the overall composition rather
+  than measuring whether the two words that carry the exception and causal
+  reason survived at actual reader size. Generative editing also treated
+  supposedly preserved lettering as mutable.
+- **Prevention rule:** Before independent review, identify the smallest words
+  that carry a reason, exception, uncertainty or limitation and inspect those
+  exact pixels at intended size. After every image edit, reread every visible
+  word—not only the requested edit—because preservation instructions do not
+  make generated lettering deterministic.
+- **Durable correction:** Both successor assets use a large `PRIVATE NUMBER IN
+  DRAFT` callout; the mobile review station uses a large `SOME FLAGGED CASES /
+  HUMAN REVIEW` sign. The introduced spelling regression was corrected before
+  integration. Independent artifact-first re-review passed both exact hashes.
+- **Possible Behind the Build angle:** The tiny word that turned a careful
+  safety lesson into a misleading promise—and why every image edit gets a full
+  reread.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-472 — A vertical comparison can accidentally become a fake sequence
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 12 responsive evaluation visual.
+- **Failure:** The first desktop candidate did not clearly show one model
+  update entering all three evaluations. A naïve phone stack would also have
+  made benchmark, human comparison and use-case evaluation look like three
+  steps performed in that order.
+- **Root cause:** The concept needed both distribution and convergence, while a
+  narrow layout naturally reads top-to-bottom as a process.
+- **Prevention rule:** For parallel evidence on mobile, draw two explicit rails:
+  one distributes the same input independently to each test; the other collects
+  each result into the decision. Never connect one evaluation station to the
+  next when they are separate sources of evidence.
+- **Durable correction:** The phone asset labels `THREE SEPARATE TESTS` and
+  `ALL THREE RESULTS`, with independent branches on each side. The desktop uses
+  one overhead distribution rail and three result arrows. Independent review
+  confirmed that neither composition implies a false sequence.
+- **Possible Behind the Build angle:** How stacking three boxes on a phone can
+  quietly turn three kinds of evidence into a made-up three-step process.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-473 — A sandbox, an approval gate and a permission boundary are not interchangeable
+
+- **Date:** 2026-08-18
+- **Area:** AI Fundamentals 101 Chapter 13 responsive autonomy visual.
+- **Failure:** The manuscript and an earlier visual direction treated a sandbox
+  as both the place an action happens and the mechanism that authorises a real
+  action. That could teach readers that contained testing makes an action safe
+  to release or that a human click creates containment.
+- **Root cause:** Three different controls were compressed into one reassuring
+  word: simulation limits what the test can touch, approval decides whether a
+  proposed real action may proceed, and permissions limit what the system can
+  actually do.
+- **Prevention rule:** Show simulation, approval and permissions as separate
+  mechanisms. Never use `sandboxed` as a synonym for harmless, approved or
+  impossible to escape. Position action authority using consequence,
+  recoverability, permissions, monitoring and rollback together.
+- **Durable correction:** Chapter 13 now places four concrete actions on
+  consequence/recoverability axes, adds explicit approval gates to the
+  email/payment examples, and draws sandbox/simulation as a separate optional
+  test area with a permissions qualifier. Independent desktop/mobile review
+  found no material teaching or visual defect.
+- **Possible Behind the Build angle:** Why one comforting safety word can hide
+  three completely different controls.
+- **Publication status:** BUILT LOCALLY / VERIFIED LOCALLY / NOT PUBLISHED.
+
+## BTB-477 — Hidden checkout state and split authority created false missing-file diagnoses
+
+- **Date:** 2026-08-21
+- **Area:** Sunday release integration, repository hygiene and instruction authority.
+- **Failure:** The current product branch, the AI Fundamentals branch and the
+  iCloud working tree each contained valid but different pieces of the release.
+  A new release worktree silently inherited a Library-only sparse checkout, so
+  tracked episode assets and article bytes appeared missing. The current remote
+  CI also referenced two files that existed only as uncommitted iCloud bytes,
+  while the merged painpoints logs reused three identifiers for different
+  incidents.
+- **Root cause:** Branch lineage, sparse-checkout scope, tracked-file admission
+  and shared identifier allocation were not verified as one startup contract.
+  A file being present somewhere on disk was repeatedly mistaken for it being
+  part of the authoritative release tree.
+- **Prevention rule:** A release lane starts from the fetched remote tip, records
+  its merge base, proves whether sparse checkout is active, materializes the
+  complete changed dependency surface, and runs CI before product diagnosis.
+  Every command named by CI must be tracked. Shared record IDs are allocated
+  above the live maximum and checked for collisions before branches merge.
+- **Durable correction:** A clean full worktree now combines remote
+  `homepage-redesign` with the AI Fundamentals lineage; three new duplicate IDs
+  were reassigned; the exact missing correction migration and Library packet
+  checker were recovered into the isolated branch; and sparse mode was disabled
+  before rerunning gates. The Library instruction packet still fails its 90-line
+  limit and therefore remains HOLD pending Ali-reviewed compaction.
+- **Possible Behind the Build angle:** How 30 "missing" video assets turned out
+  to be one invisible Git setting—and why files on your laptop are not yet part
+  of the product.
+- **Publication status:** INTERNAL RELEASE-INTEGRATION CORRECTION / NOT DEPLOYED.

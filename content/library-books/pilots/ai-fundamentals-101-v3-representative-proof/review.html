@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Fundamentals 101 · Tokens representative proof</title>
+  <style>
+    :root{--ink:#101d4f;--purple:#7137d3;--pink:#ef4da2;--aqua:#26bfd6;--yellow:#ffd84f;--paper:#fffdf8;--lav:#eee7ff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#111c4e,#4f2f86);color:var(--ink);font-family:Arial,sans-serif;line-height:1.6}
+    .book{width:min(1180px,100%);margin:auto;background:var(--paper);min-height:100vh;box-shadow:0 0 80px #080d2c}
+    header{padding:3.25rem clamp(1.3rem,5vw,5rem);background:linear-gradient(120deg,#792eda 0 58%,#101d4f 58%);color:#fff;border-bottom:12px solid var(--aqua)}
+    .eyebrow,.section-label{display:inline-block;margin:0 0 .9rem;background:var(--yellow);color:var(--ink);padding:.45rem .8rem;border:4px solid var(--ink);border-radius:999px;box-shadow:7px 7px 0 var(--pink);font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    h1{margin:0;font-family:Georgia,serif;font-size:clamp(2.5rem,7vw,5.8rem);line-height:.95}header p{max-width:44rem;font-size:1.2rem;font-weight:700}
+    main{display:grid;grid-template-columns:250px minmax(0,1fr)}nav{padding:2.5rem 1.25rem;background:#e8e9ff;border-right:4px solid #aaa3ed;position:sticky;top:0;height:100vh;overflow:auto}nav strong{display:block;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.12em}nav a{display:block;color:var(--ink);font-weight:800;margin:.8rem 0;text-decoration-thickness:2px;text-underline-offset:4px}
+    article{padding:clamp(2rem,5vw,5rem);max-width:850px}h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.7rem);line-height:1.1;margin:.3rem 0 1.3rem}h3{color:var(--purple);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.2;margin-top:3.2rem}h4{font-size:1.4rem;margin:2.5rem 0 .5rem}p,li{font-size:1.16rem}.lead{font-family:Georgia,serif;font-size:clamp(1.35rem,2.4vw,1.85rem);font-weight:700;background:var(--lav);border-left:12px solid var(--purple);padding:1.5rem}
+    .word{font:bold clamp(1.3rem,4vw,2.4rem) 'Courier New',monospace;letter-spacing:.08em;text-align:center;padding:1.25rem;background:#fff2b7;border:5px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--pink)}
+    .figure{margin:2.5rem 0}.figure img{display:block;width:100%;height:auto}.figure figcaption{font-size:.95rem;font-weight:700;margin-top:.7rem}
+    .connection{background:var(--ink);color:#fff;padding:1.6rem;border-left:12px solid var(--pink);border-radius:8px}.connection strong{color:var(--yellow)}
+    .question{font:900 clamp(1.35rem,2.6vw,2rem) Arial,sans-serif;background:var(--yellow);padding:1.5rem;border:5px solid var(--ink);border-radius:24px;box-shadow:9px 9px 0 var(--aqua)}
+    .index{margin-top:5rem;padding:2rem;background:#f3e8ff;border:5px solid var(--ink);border-radius:28px;box-shadow:10px 10px 0 var(--pink)}.index h3{margin-top:.2rem}.index dt{font-weight:900;margin-top:1rem}.index dd{margin-left:0}
+    @media(max-width:780px){header{background:linear-gradient(145deg,#792eda,#101d4f)}main{display:block}nav{position:relative;height:auto;border-right:0;border-bottom:4px solid #aaa3ed;padding:1rem 1.3rem}nav a{display:inline-block;margin:.4rem .8rem .4rem 0}article{padding:1.4rem}.figure{margin-inline:-.7rem}.figure img{object-fit:contain}p,li{font-size:1.06rem}}
+  </style>
+</head>
+<body>
+  <div class="book">
+    <header>
+      <p class="eyebrow">Internal representative proof · not admitted</p>
+      <h1>AI Fundamentals 101</h1>
+      <p>One exact section proving the book can explain a real mechanism in plain English before the complete rebuild continues.</p>
+    </header>
+    <main>
+      <nav aria-label="On this proof">
+        <strong>On this proof</strong>
+        <a href="#tokens">Tokens</a>
+        <a href="#rewind">The analogy</a>
+        <a href="#strawberry">Strawberry</a>
+        <a href="#real-life">Real life</a>
+        <a href="#connection">System connection</a>
+        <a href="#concept-index">Concept Index</a>
+      </nav>
+      <article>
+        <p class="section-label">Chapter 2 · How language reaches a model</p>
+        <h2 id="tokens">Tokens: why AI can write a paragraph and still trip over a word</h2>
+        <p class="lead">Count the <strong>r</strong>s in <strong>strawberry</strong>. You can see them: one near the front, then two together near the end. Three. No calculator. No emergency meeting. No tiny pair of reading glasses.</p>
+        <p>So why did this simple question become a famous way to catch chatbots looking unusually flustered?</p>
+        <p>Current AI products may answer it correctly. The interesting part is not whether one chatbot passes one trick question today. The interesting part is that you and a language model do not begin with the same view of the word.</p>
+        <p>You see a neat row of letters:</p>
+        <p class="word">s · t · <mark>r</mark> · a · w · b · e · <mark>r</mark> · <mark>r</mark> · y</p>
+        <p>Before a language model works with that word, a piece of software called a <strong>tokenizer</strong> divides the text into reusable pieces called <strong>tokens</strong>. A token might be a whole word, part of a word, punctuation, a space or a single character. It is not automatically a word, a letter or a little parcel of meaning.</p>
+        <p>Using OpenAI's <code>o200k_base</code> encoding, <strong>strawberry</strong> is split like this:</p>
+        <p class="word">st | raw | berry</p>
+        <p>Another encoding may split the same word differently. That label matters: this is one real example, not the one eternal strawberry arrangement handed down on a stone tablet.</p>
+        <p>The model processes the ordered pieces. When it generates a response, the product turns generated pieces back into readable text for you. That middle step is easy to miss because the chat box makes the exchange feel as though the model saw exactly what you saw.</p>
+        <p><strong>It did not.</strong></p>
+
+        <h3 id="rewind">The Rewind Era version</h3>
+        <p>Think about making a sentence from words clipped out of old magazines. If the word you need is already in the pile, brilliant: use the whole clipping. If it is not, you assemble it from smaller scraps.</p>
+        <p>That is the useful part of the analogy. A tokenizer also reuses larger and smaller text pieces instead of insisting that every piece must be one full word.</p>
+        <p>Here is where the analogy stops. The tokenizer is not rummaging through <em>Sassy</em> with taste, intention or a glue stick. It follows a fixed encoding. And its pieces are not tiny meanings. The piece <strong>berry</strong> is a bit of text the model can process; it is not a miniature fruit concept living inside the machine.</p>
+
+        <figure class="figure">
+          <picture>
+            <source media="(max-width: 560px)" srcset="visuals/strawberry-token-route-mobile.svg">
+            <img src="visuals/strawberry-token-route.svg" alt="Four-step diagram: a person sees ten letters and counts three r letters; the o200k_base tokenizer example makes the pieces st, raw and berry; the model processes the ordered pieces; the product returns readable text. Another encoding may split the word differently.">
+          </picture>
+          <figcaption>The useful click: fluent writing and exact character inspection are different jobs.</figcaption>
+        </figure>
+
+        <h3 id="strawberry">What the strawberry example actually shows</h3>
+        <p>Look again at the split: <strong>st | raw | berry</strong>.</p>
+        <p>The three <strong>r</strong>s are tucked inside two pieces: one in <strong>raw</strong>, two in <strong>berry</strong>. A person can point at the letters directly. A model beginning with token pieces has to recover that letter-level detail from inside the pieces, learn a reliable way to handle it, or use another method that can inspect the characters.</p>
+        <p>Tokenization is therefore one reason letter-by-letter jobs can be unexpectedly awkward for a language model. It is not a curse that forces every model to answer incorrectly. Models can learn character patterns, and products can give them tools that count precisely. The point is simpler and more useful: fluent writing does not prove that the system handles every tiny feature of text the way you do.</p>
+        <p>That explains how a model can produce a polished paragraph about fruit cultivation and still need extra care with the letters in <strong>strawberry</strong>. Different jobs expose different parts of the system.</p>
+
+        <h3 id="real-life">Where tokens turn up in real life</h3>
+        <h4>1. A context window is measured in tokens.</h4>
+        <p>The context window is the amount of material a model can work with in one run. Your message, earlier conversation supplied by the product, attached material, retrieved passages, instructions, tool results and the model's response can all use part of that space. A “100,000-token context window” does not mean “100,000 words,” and it does not promise that every included detail will be used correctly. It tells you the size of a token allowance for that model and product setup.</p>
+        <h4>2. Some AI services meter API use in tokens.</h4>
+        <p>An API is a way for one piece of software to use another service. Developers may be charged for tokens sent to a model and tokens generated in return. If you use an ordinary consumer chatbot, you do not need to count every token like loose change at the bottom of your handbag. If you build or budget an AI service, token use can affect cost and capacity, so you check the provider's current documentation rather than relying on an old rule of thumb.</p>
+        <h4>3. Exact text jobs deserve exact methods.</h4>
+        <p>If the task depends on every character—counting letters, checking a code, preserving a legal clause or matching an identifier—say so. Ask for a character-by-character check or use a simple text tool that can inspect the exact string. A beautifully worded answer is not evidence that every character was handled correctly.</p>
+        <h4>4. Token counts vary.</h4>
+        <p>Different encodings can split the same text differently. The split can also vary across languages and kinds of text. That is why “one token equals one word” is not a safe conversion.</p>
+
+        <h3 id="connection">The connection to the rest of the system</h3>
+        <div class="connection">
+          <p>Tokens are the handoff between the words you type and the numerical work a language model can perform.</p>
+          <p><strong>your text → tokenizer → token pieces → model → generated token pieces → readable response</strong></p>
+        </div>
+        <p>The product gathers the text for the current job. The tokenizer divides that text into pieces. The model processes those pieces within a limited context window and generates more pieces. The product turns the result back into the words you read.</p>
+        <p>That sequence connects several ideas people often discuss as though they were unrelated. More text usually means more tokens. More tokens use more context space. Processing more tokens creates more work for the hardware running the model. In an API, those tokens may also affect the bill.</p>
+        <p>It does <strong>not</strong> follow that one token has one fixed energy cost, price or unit of intelligence. The model, hardware, software, workload and provider all matter. A token is a unit in the text-processing route, not a universal AI calorie.</p>
+        <h3>The question to take with you</h3>
+        <p class="question">How was this text split, what else is sharing the context window, and do I need a language answer or an exact character check?</p>
+
+        <section class="index" id="concept-index">
+          <p class="section-label">Separate lookup route</p>
+          <h3>Concept Index · Token</h3>
+          <dl>
+            <dt>Plain-English meaning</dt><dd>A reusable piece of text that a language model processes. It may be a whole word, part of a word, punctuation, a space or one character.</dd>
+            <dt>Where it fits</dt><dd>Text is tokenized before the model processes it. The model generates token pieces, and the product turns them back into readable text.</dd>
+            <dt>Why you will hear about it</dt><dd>Context limits and some API usage are measured in tokens. Tokenization also helps explain why exact letter-level jobs can be awkward even when the model writes fluently.</dd>
+            <dt>Do not confuse it with</dt><dd>a word, a letter, a fact, a thought or a fixed measure of intelligence, price or energy.</dd>
+            <dt>See</dt><dd>Chapter 2, “Tokens: why AI can write a paragraph and still trip over a word.”</dd>
+          </dl>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

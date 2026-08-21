@@ -178,6 +178,15 @@ reader responses. At minimum the receipt includes orientation, ordinary-
 language lookup with route recovery, explain-back and an unseen transfer case.
 The book's worked example cannot double as its transfer test.
 
+An `ADMISSION_CANDIDATE` receipt requires at least three distinct people who
+were unfamiliar with the artifact before the session. Every participant must
+be recorded as `OBSERVED_HUMAN`, complete orientation, lookup, explain-back and
+unseen-transfer tasks, and have participant-specific evidence bound to the
+exact rendered artifact SHA-256. The study administrator must be independent
+from the book maker. One reader, a simulated reader, duplicate participant IDs,
+aggregate answers, familiar collaborators, stale evidence or maker-administered
+testing fail closed under `library-book-cold-reader-review.v2`.
+
 Opening orientation, promise fidelity, connected progression, lookup and
 recovery, unseen transfer, analogy integrity, audience-relevant examples,
 misconception resistance, material accuracy, continuous rendered readability
