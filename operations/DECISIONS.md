@@ -32,6 +32,7 @@ proper domain source before building from it.
 | Episode canon | `operations/episode-canonical-source-spec.md` |
 | Episode/trailer visuals | `operations/episode-visual-system-lock.md` |
 | Episode asset admission and retired paths | `operations/assets/active-asset-registry.json` |
+| Repository-wide rejected/retired bytes and rejected consumer SHAs | `operations/quarantine/repository-wide-denylist-20260820.json`; `scripts/check-repository-hygiene.mjs` |
 | Episode video specialist packet | `operations/specialist-agents/episode-video-producer.json` |
 | Sitewide visual direction | `operations/site-visual-system-lock-2026-07-23.md` |
 | Runtime/Control Room truth | `operations/product-stewards/control-room/dashboard-state.json` |

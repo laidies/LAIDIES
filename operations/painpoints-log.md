@@ -14438,3 +14438,15 @@ while remaining falsely unfinished in the launch record.
   not stop an AI production system from using it again.
 - **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR / NO DEPLOYMENT OR
   PUBLIC CHANGE.
+
+
+## BTB-459 — Moving rejected bytes is incomplete while live authority still selects them
+
+- **Date:** 2026-08-20
+- **Area:** Repository-wide production inputs, launch configuration and asset authority.
+- **Failure risk:** Rejected or retired bytes can be physically separated yet return through an ACTIVE registry scope, launch manifest, catalogue identity or old builder selector. Conversely, moving every old-looking file destroys useful history and calibration evidence.
+- **Root cause:** Rejection was recorded in several incompatible forms: folder names, prose decisions, curation labels, exact hashes and status fields. Existing checks validated that rejection records existed but did not inspect their active consumers.
+- **Prevention rule:** Quarantine only exact-authority rejected paths; preserve evidence/source-mine material in guarded non-production locations; deny rejected consumer SHAs and rejected identities at ACTIVE, admission and opening-day boundaries; calibrate the checker on each false-pass family. Dates and version-like names alone never prove rejection.
+- **Durable correction:** Sixty-seven explicitly rejected, retired or superseded non-episode files (264,050,295 bytes) were moved out of the working checkout to a hash-verified recoverable quarantine. Nine Library asset authorities bound to the rejected page SHA were demoted. The exact rejected Concepts artifact moved to a source-mine-only eval path, and the immutable opening identity is now the unbuilt `ai-fundamentals-101` successor. The repository-hygiene test proves failure on hash tampering, ACTIVE rejected SHA reuse, rejected admission, rejected opening identity and returned denylisted paths.
+- **Possible Behind the Build angle:** Why an archive folder did not stop an AI agent from treating rejected work as current.
+- **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR / NO DEPLOYMENT OR PUBLIC CHANGE.

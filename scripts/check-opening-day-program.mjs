@@ -89,7 +89,7 @@ mediaGate = readManifest(program.media_gate_manifest, 'Opening-day media gate ma
 siteVideoGate = readManifest(program.site_video_gate_manifest, 'Universal site video and animation gate manifest is missing.');
 libraryAdmission = readManifest(program.library_admission_manifest, 'Opening-day Library admission manifest is missing.');
 
-const expectedLibraryBookIds = ['concepts-101', 'briefing-101', 'setup-101', 'accounts-101'];
+const expectedLibraryBookIds = ['ai-fundamentals-101', 'briefing-101', 'setup-101', 'accounts-101'];
 const configuredLibraryBookIds = Array.isArray(program.library_opening_book_ids)
   ? program.library_opening_book_ids
   : [];
@@ -209,6 +209,8 @@ function strictSiteVideoReadiness(manifest) {
 
 function strictLibraryReadiness(manifest) {
   const books = Array.isArray(manifest?.books) ? manifest.books : [];
+  const rejectedArtifacts = JSON.parse(fs.readFileSync(path.join(root, 'content/library-books/rejected-artifacts.json'), 'utf8'));
+  const rejectedShas = new Set((rejectedArtifacts.artifacts || []).map(item => item.artifact_sha256));
   const rows = expectedLibraryBookIds.map(id => books.find(item => item.book_id === id)).filter(Boolean);
   const schemaPresent = rows.length === expectedLibraryBookIds.length
     && rows.every(item => typeof item.source_path === 'string'
@@ -216,6 +218,7 @@ function strictLibraryReadiness(manifest) {
       && existingRelativeFile(item.source_path.slice(1))
       && typeof item.artifact_sha256 === 'string'
       && /^[a-f0-9]{64}$/.test(item.artifact_sha256)
+      && !rejectedShas.has(item.artifact_sha256)
       && crypto.createHash('sha256').update(fs.readFileSync(path.join(root, item.source_path.slice(1)))).digest('hex') === item.artifact_sha256);
   const ready = schemaPresent
     && rows.every(item => item.status === 'available'

@@ -1,0 +1,39 @@
+{
+  "schema": "laidies.repository-quarantine-denylist.v1",
+  "created": "2026-08-20",
+  "authority": [
+    "operations/DECISIONS.md",
+    "operations/ops/curation.json",
+    "operations/assets/active-asset-registry.json"
+  ],
+  "explicit_paths": [
+    ".retired",
+    "_superseded",
+    "assets/bws-fortune-teller/reveals/_rejected-20260705",
+    "assets/bws-fortune-teller/reveals/_retired-20260705-generic-pivot",
+    "assets/postcards/from-sunnyvaile/_superseded-20260708",
+    "assets/sunnyvaile-buildings/y2k-v3-rendered-signs/_superseded-20260705",
+    "assets/sunnyvaile-streets/_superseded-20260705",
+    "assets/sunnyvaile-streets/layout-consistency-pass-20260704/_raw-generated/sunnyvaile-town-map-address-logic-rejected-v1.png"
+  ],
+  "rejected_consumer_sha256": [
+    {
+      "surface": "library.html",
+      "sha256": "615a80f75bede151067fa447eb514cc535c14a1c5c4bf4d19baa5fbe04077dab",
+      "authority": "operations/DECISIONS.md Library candidate 615a80f7...dab is rejected and may never enter preview, deployment or publication"
+    }
+  ],
+  "retain_guards": [
+    "content/library-books/rejected-artifacts.json",
+    "operations/classes/_retired",
+    "operations/classes/_superseded",
+    "operations/control-room/rejections.json",
+    "operations/design-explorations",
+    "operations/evals",
+    "operations/ops/rejections.json"
+  ],
+  "excluded_scope": [
+    "assets/episodes",
+    "assets/video"
+  ]
+}

@@ -70,7 +70,7 @@ const disconnectedSource = { ...source, chapters: [{ ...source.chapters[0], body
 assert.match(inspect(rendered, disconnectedSource).join("\n"), /bodyHtml is incomplete/, "outline-only source must fail");
 
 const rejectedRegistry = JSON.parse(fs.readFileSync(path.join(root, "content/library-books/rejected-artifacts.json"), "utf8")).artifacts;
-const rejectedHtml = fs.readFileSync(path.join(root, "content/library-books/rendered/concepts-101.html"), "utf8");
+const rejectedHtml = fs.readFileSync(path.join(root, "operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html"), "utf8");
 const rejectedErrors = inspectLibraryBookCandidate({ source: JSON.parse(fs.readFileSync(path.join(root, "content/library-books/concepts-101.source.json"), "utf8")), sourceBytes: fs.readFileSync(path.join(root, "content/library-books/concepts-101.source.json")), sourcePath: "content/library-books/concepts-101.source.json", rendered: rejectedHtml, receipt: {}, rejectedArtifacts: rejectedRegistry, root });
 assert.match(rejectedErrors.join("\n"), /exact artifact is directly rejected/, "Ali-rejected exact artifact must fail unaided");
 assert.match(rejectedErrors.join("\n"), /repeated mini-template|link wall/, "known failure family must fail without relying only on its hash");

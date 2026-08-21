@@ -28,7 +28,7 @@ assert.match(strict.stderr, /Strict launch requires all 17 buildings/);
 assert.match(strict.stderr, /Strict launch requires 5\/5 opening media programmes PASS/);
 assert.match(strict.stderr, /Strict launch class readiness is fail-closed/);
 assert.match(strict.stderr, /Strict launch Library readiness is fail-closed/);
-assert.match(strict.stderr, /Strict launch site-video readiness is fail-closed/);
+assert.match(strict.stderr, /Strict launch (?:site-video readiness is fail-closed|requires all 8\/8 opening video programmes PASS)/);
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-visual-gate-'));
 try {
@@ -65,7 +65,7 @@ try {
     env: { ...process.env, LAIDIES_OPENING_DAY_PROGRAM_PATH: fixturePath },
   });
   assert.notEqual(staleLibrary.status, 0, 'gate must reject the retired Vocab 101 launch contract');
-  assert.match(staleLibrary.stderr, /Opening-day Library book IDs must be concepts-101/);
+  assert.match(staleLibrary.stderr, /Opening-day Library book IDs must be ai-fundamentals-101/);
 } finally {
   fs.rmSync(tempDir, { recursive: true, force: true });
 }

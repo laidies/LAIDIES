@@ -105,7 +105,7 @@ function accountCopyIsTruthful(source) {
   const candidateLibraryPath = path.join(candidateRoot, "library.html");
   const candidateContentPath = path.join(
     candidateRoot,
-    "content/library-books/rendered/concepts-101.html"
+    "operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html"
   );
   const productionClaimsPath = path.join(
     root,

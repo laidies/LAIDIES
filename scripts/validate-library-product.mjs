@@ -53,10 +53,10 @@ const counts = Object.fromEntries(
     books.filter((book) => book.status === status).length
   ])
 );
-if (counts.hold !== 4 || counts.preview !== 7 || counts.available !== 4) {
+if (counts.hold !== 8 || counts.preview !== 7 || counts.available !== 0) {
   throw new Error(`unexpected truthful catalogue state ${JSON.stringify(counts)}`);
 }
-const expectedAdmitted = ["accounts-101", "briefing-101", "concepts-101", "setup-101"];
+const expectedAdmitted = [];
 if (JSON.stringify(Object.keys(admitted).sort()) !== JSON.stringify(expectedAdmitted)) {
   throw new Error(`unexpected compiled Library admission ${JSON.stringify(Object.keys(admitted))}`);
 }

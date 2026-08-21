@@ -3,7 +3,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const root = process.cwd();
+const rootIndex = process.argv.indexOf('--root');
+const root = rootIndex >= 0 ? path.resolve(process.argv[rootIndex + 1]) : process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
 const fixtureIndex = process.argv.indexOf('--fixture-manifest');
 const fixtureManifest = fixtureIndex >= 0 ? process.argv[fixtureIndex + 1] : null;

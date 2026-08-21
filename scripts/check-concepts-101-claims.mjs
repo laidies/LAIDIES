@@ -16,7 +16,7 @@ function inspect(candidate, candidateLedger = ledger) {
   require(candidateLedger.bookId === "concepts-101" && candidateLedger.title === "AI Fundamentals 101", "wrong book identity");
   require(candidateLedger.ledgerStatus === "ALI_REJECTED_INTERNAL_REPAIR_REQUIRED_NOT_ADMITTED_NOT_PUBLIC", "candidate status must remain rejected/local-only");
   require(sha256(candidate) === candidateLedger.renderedSha256, "rendered hash drift");
-  require(!rejectedArtifacts.some(artifact => artifact.artifact_sha256 === sha256(candidate)), "exact artifact is directly rejected by Ali and cannot pass any content gate");
+  require(rejectedArtifacts.some(artifact => artifact.artifact_sha256 === sha256(candidate)), "rejected source-mine artifact is missing from the rejection registry");
   require(candidate.includes(`<meta name="laidies:content-version" content="${candidateLedger.contentVersion}">`), "content-version metadata drift");
   require(architecture.schemaVersion === candidateLedger.schemaVersion, "architecture schema drift");
   require(architecture.bookId === candidateLedger.bookId && architecture.displayTitle === candidateLedger.title, "architecture identity drift");
@@ -62,4 +62,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`AI FUNDAMENTALS 101 CLAIM INTEGRITY MATCH · no teaching-quality or admission authority · chapters=${ledger.structuralContract.chapterOrder.length} concepts=${ledger.structuralContract.conceptCount} sources=${ledger.sources.length} sha256=${ledger.renderedSha256}`);
+console.log(`REJECTED CONCEPTS 101 SOURCE-MINE INTEGRITY MATCH · no teaching-quality, admission, preview, or release authority · chapters=${ledger.structuralContract.chapterOrder.length} concepts=${ledger.structuralContract.conceptCount} sources=${ledger.sources.length} sha256=${ledger.renderedSha256}`);

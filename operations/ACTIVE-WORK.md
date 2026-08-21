@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** EPISODE-REJECTED-MEDIA-QUARANTINE-20260820
+- **Task ID:** REPOSITORY-WIDE-REJECTED-MATERIAL-QUARANTINE-20260820
 - **Status:** VERIFIED LOCALLY
 - **Owner:** Codex foreground; Ali owns acceptance and all product decisions
 - **Updated:** 2026-08-20 America/Vancouver
-- **Goal:** Extend rejected-media containment across every episode and the trailer, including ignored/untracked debris in the preservation-sensitive source checkout.
-- **Acceptance:** Exact current rejection authority; no accepted asset moved; every explicit rejected/superseded production byte inventoried and recoverably quarantined; stale builders/selectors isolated; all-episode reintroduction guard calibrated; source checkout migration hash-bound; exact scoped commit.
-- **Current step:** The branch quarantines 21 additional media files and 26 stale selector/builder files. The source checkout moved 95 rejected/superseded media files and 74 stale sources (2,213,091,336 bytes) into a verified non-iCloud quarantine; three retired trailer inputs can no longer be rebuilt by their old scripts.
-- **Next action:** Use the specialist's all-episode preflight on the next named repair. Current review candidates and Episode 05 rejection guards remain in place; independent quality, release and public gates remain separate.
+- **Goal:** Extend rejected, retired and superseded-material containment across the complete Website-homepage repository, not only the episode system.
+- **Acceptance:** Exact current disposition authority; no admitted/current asset moved; every safe production byte recoverably hash-quarantined; active references to non-current material repaired or explicitly held; repository-wide reintroduction guard calibrated; exact scoped commit.
+- **Current step:** Verified exact-authority repo-wide containment: 67 non-episode files / 264,050,295 bytes externally hash-quarantined; nine rejected Library consumer bindings demoted; rejected Concepts bytes isolated as source-mine-only; catalogue truth is 0 available / 0 admitted; context and repository guards calibrated.
+- **Next action:** Use this compact recovery lane as the clean base for new work. Reconcile ambiguous curation labels and historical prototypes only when an exact current product decision requires them; do not bulk-delete by age or filename.
 
 ## Boundaries
 

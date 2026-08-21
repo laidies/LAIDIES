@@ -1014,9 +1014,9 @@ function buildProjectRadarHtml(episode) {
   const indexPath = path.join(root, "index.html");
   const scriptPath = path.join(root, "script.js");
   const communityCardPath = path.join(root, "community", "laidy-spotlight.html");
-  const fortuneAssetPath = path.join(root, "assets", "businesswomen-special-fortune-teller-v1.png");
+  const fortuneExperiencePath = path.join(root, "games", "businesswomens-special.html");
   const butterflyAssetPath = path.join(root, "assets", "butterfly-clip-rating-token.png");
-  const hasFortuneTeller = fileHasText(indexPath, /paper fortune teller/i) && exists(fortuneAssetPath);
+  const hasFortuneTeller = fileHasText(fortuneExperiencePath, /data-fortune-state="ready"/) && fileHasText(fortuneExperiencePath, /data-lane="spiritFree"/);
   const hasButterflyRating = fileHasText(indexPath, /butterfly-rating/) && fileHasText(scriptPath, /updateButterflyRating/);
   const hasMemberPassFlow = fileHasText(scriptPath, /Create your lAIdies Card/) && fileHasText(scriptPath, /syncMemberRewards/);
   const hasFounderRewardShelf = fileHasText(communityCardPath, /reward shelf|founder reward|867 Club|secret badge/i);
@@ -1036,7 +1036,7 @@ function buildProjectRadarHtml(episode) {
       "Businesswomen's Special is now a fortune teller",
       hasFortuneTeller ? "ready" : "todo",
       hasFortuneTeller
-        ? `Current source uses the paper fortune-teller interaction and asset <code>${escapeHtml(rel(fortuneAssetPath))}</code>. Weekly reviews should test lane selection, flap reveal, result clarity, and no drinking-pressure framing.`
+        ? `Current source uses the paper fortune-teller interaction at <code>${escapeHtml(rel(fortuneExperiencePath))}</code>. Its visual remains explicitly held; weekly reviews should test lane selection, flap reveal, result clarity, and no drinking-pressure framing.`
         : "Wire the paper fortune-teller interaction and asset before treating this module as current."
     ),
     buildTask(

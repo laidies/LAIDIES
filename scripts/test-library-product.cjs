@@ -202,10 +202,10 @@ const server = http.createServer((request, response) => {
     .digest("hex");
   const conceptsArtifactPath = path.join(
     fixtureRoot,
-    "content/library-books/rendered/concepts-101.html"
+    "operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html"
   );
   fs.copyFileSync(
-    path.join(root, "content/library-books/rendered/concepts-101.html"),
+    path.join(root, "operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html"),
     conceptsArtifactPath
   );
   const conceptsArtifactHash = crypto
@@ -244,7 +244,7 @@ const server = http.createServer((request, response) => {
   const conceptsAdmissionRecord = {
     book_id: "concepts-101",
     status: "available",
-    source_path: "/content/library-books/rendered/concepts-101.html",
+    source_path: "/operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html",
     content_version: "concepts-101-2026-08-06.1",
     admission_version: "admission-fixture-v1",
     source_references: ["content/library-books/concepts-101.claims.json"],
