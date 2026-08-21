@@ -1058,6 +1058,15 @@ objective; every open lane keeps its own checkpoint.
 - **Remaining work:** Ali watches the exact checksum sound-on. An accepted cut then goes unchanged to independent Episode Media Quality for full-title audiovisual, caption, identity, continuity and accessibility judgment.
 - **Authority truth:** no site, player, release, deploy, publication or public media state changed.
 
+### 2026-08-21 — Episode 04 v23 continuity-gap repair checkpoint
+
+- **Status:** BUILT LOCALLY / MAKER VISUAL-CONTINUITY CHECK COMPLETE / READY FOR ALI SOUND-ON CREATIVE REVIEW / HOLD FOR ROLE-DISTINCT EPISODE MEDIA QUALITY.
+- **Literal output:** `assets/video/episode-04-full-v23-continuity-gap-repaired-review/episode-04-full-v23-continuity-gap-repaired-review.mp4`, SHA-256 `598ea7f5c5da2321abc7e56259ff2072662c34887ed7b393fc84838cb9f74812`, 1222.3 seconds, 1920x1080 H.264 + AAC. Review page: `operations/video-qa/episode-04-v23-continuity-gap-repaired-review/index.html`.
+- **What changed from v22:** closed the exposed-base gaps at `17:13.000–18:14.460` and `19:05.780–19:07.000`; retained the fixed LAiDIES identity beat; changed the post-field-trip service passage to a distinct established SUNNYVAiLE street instead of repeating the LUMiNAiRY still. Dark-glove Ada and the corrected white-closet wardrobe remain bound.
+- **Evidence:** fail-closed source-registration calibration rejected the deliberately incomplete control; the exact MP4 reached `20:22` in Safari; the repaired clocks were inspected in the real output; external captions rendered below the picture and changed with the programme clock.
+- **Remaining work:** Ali performs the creative sound-on review of this exact checksum. An accepted cut then goes unchanged to independent Episode Media Quality for full-title audiovisual, caption, identity, continuity and accessibility judgment.
+- **Authority truth:** no site, shared player, release, deploy, publication or public media state changed.
+
 ### 2026-08-08 governed learning-source intake checkpoint
 
 - **Current state:** `CAPTURED / ROUTED — NO ARTIFACT COMMISSION`.
