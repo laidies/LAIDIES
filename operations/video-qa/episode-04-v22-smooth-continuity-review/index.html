@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Episode 04 v22 — Internal motion review</title>
+  <style>
+    :root { color-scheme: dark; font-family: Arial, Helvetica, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #080c27; color: #f7f5ee; }
+    main { width: min(1440px, 100%); margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 8px; font-size: clamp(20px, 3vw, 34px); }
+    .status { margin: 0 0 16px; color: #c9d5ff; }
+    video { display: block; width: 100%; background: #000; border: 1px solid #334071; }
+    .caption-panel {
+      min-height: 112px;
+      display: grid;
+      place-items: center;
+      padding: 22px clamp(18px, 5vw, 72px);
+      background: #121938;
+      border: 1px solid #334071;
+      border-top: 0;
+      text-align: center;
+      font-size: clamp(20px, 2.4vw, 34px);
+      line-height: 1.25;
+    }
+    .caption-panel:empty::before { content: "Captions appear here below the image."; color: #8f98b8; }
+    .facts { margin: 14px 0 0; color: #aeb8da; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Episode 04 v22 — internal motion review</h1>
+    <p class="status">Local candidate only. No release or publication authority.</p>
+    <video id="episode" controls preload="metadata" aria-describedby="caption-panel">
+      <source src="../../../assets/video/episode-04-full-v22-smooth-continuity-review/episode-04-full-v22-smooth-continuity-review.mp4" type="video/mp4">
+    </video>
+    <div id="caption-panel" class="caption-panel" role="region" aria-live="off" aria-label="Episode captions"></div>
+    <p class="facts">Captions are external and rendered below the moving image. Master SHA-256: d310a3b61b702ce89fa6f7b79c487e618cecf46d08404cbd9d5841db005997a4.</p>
+  </main>
+  <script>
+    const video = document.querySelector('#episode');
+    const panel = document.querySelector('#caption-panel');
+    const toSeconds = value => {
+      const [hours, minutes, seconds] = value.replace(',', '.').split(':');
+      return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
+    };
+    const parseVtt = text => text
+      .replace(/^\uFEFF?WEBVTT[^\n]*\n+/, '')
+      .trim()
+      .split(/\n{2,}/)
+      .map(block => {
+        const lines = block.split('\n').filter(Boolean);
+        const timingIndex = lines.findIndex(line => line.includes('-->'));
+        if (timingIndex < 0) return null;
+        const [start, end] = lines[timingIndex].split('-->').map(value => value.trim().split(/\s+/)[0]);
+        return { start: toSeconds(start), end: toSeconds(end), text: lines.slice(timingIndex + 1).join(' ') };
+      })
+      .filter(Boolean);
+    let cues = [];
+    fetch('../../../assets/captions/episode-04.vtt')
+      .then(response => response.ok ? response.text() : Promise.reject(new Error(`VTT HTTP ${response.status}`)))
+      .then(text => { cues = parseVtt(text); })
+      .catch(error => { panel.textContent = `Caption load failed: ${error.message}`; });
+    const showCaption = () => {
+      const cue = cues.find(item => video.currentTime >= item.start && video.currentTime < item.end);
+      panel.textContent = cue ? cue.text : '';
+    };
+    video.addEventListener('timeupdate', showCaption);
+    video.addEventListener('seeked', showCaption);
+  </script>
+</body>
+</html>

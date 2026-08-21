@@ -23,7 +23,7 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-05
+**Last reconciled:** 2026-08-21
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
@@ -1048,6 +1048,15 @@ foreground work. Codex may open a bounded lane when the idea is independent and
 safe under `operations/PARALLEL-WORK.md`. If she says **Switch now**, update
 this file with AW-003’s exact resume point before opening a new foreground
 objective; every open lane keeps its own checkpoint.
+
+### 2026-08-21 — Episode 04 v22 smooth-continuity review checkpoint
+
+- **Status:** BUILT LOCALLY / MAKER VISUAL CHECK COMPLETE / HOLD FOR ALI SOUND-ON REVIEW AND ROLE-DISTINCT EPISODE MEDIA QUALITY.
+- **Literal output:** `assets/video/episode-04-full-v22-smooth-continuity-review/episode-04-full-v22-smooth-continuity-review.mp4`, SHA-256 `d310a3b61b702ce89fa6f7b79c487e618cecf46d08404cbd9d5841db005997a4`, 1222.3 seconds, 1920x1080 H.264 + AAC. Review page: `operations/video-qa/episode-04-v22-smooth-continuity-review/index.html`.
+- **What changed:** correct approved SUNNYVAiLE wardrobe pixels in the white-closet reveal; recovered dark-glove Ada motion; stable holds or 650 ms dissolves instead of mechanically moving stills; repeated one-second ENIAC/Timnit loops and rapid finale/field-trip/service portrait cycles removed; external captions remain below the picture.
+- **Evidence:** full `avconvert` decode/transcode completed with exit 0; fail-closed source-registration calibration rejected the deliberately incomplete control; normal-speed maker sampling covered opening, closet, LUMiNAiRY, time-jump, Ada, Hedy, ENIAC, Grace, finale and field trip.
+- **Remaining work:** Ali watches the exact checksum sound-on. An accepted cut then goes unchanged to independent Episode Media Quality for full-title audiovisual, caption, identity, continuity and accessibility judgment.
+- **Authority truth:** no site, player, release, deploy, publication or public media state changed.
 
 ### 2026-08-08 governed learning-source intake checkpoint
 
