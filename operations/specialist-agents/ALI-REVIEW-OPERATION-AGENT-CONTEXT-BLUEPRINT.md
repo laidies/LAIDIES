@@ -30,9 +30,10 @@ the relevant text:
 Suggested review order:
 
 1. Section 3 — universal definition of good and unacceptable.
-2. Section 6.11 — Episode Video Producer, as the first complete pilot.
-3. Section 5 — proposed operation/agent map.
-4. The remaining operation cards, only when that operation becomes active.
+2. Section 4.1 — how the operation is diagnosed and corrected.
+3. Section 6.11 — Episode Video Producer, as the first complete pilot.
+4. Section 5 — proposed operation/agent map.
+5. The remaining operation cards, only when that operation becomes active.
 
 ## 2. Context architecture: what loads when
 
@@ -153,6 +154,102 @@ No operation becomes ACTIVE until its packet answers all applicable fields.
 19. **Freshness/expiry** — what must be rechecked and when.
 20. **Learning loop** — how a rejection changes the producer or checker before
     the next candidate.
+
+### 4.1 Diagnose and correct the operation, not just its latest output
+
+Assume every established LAiDIES production lane may contain the same failure
+family until its real chain has been traced. Do not begin with a broad folder
+cleanup or another instruction document. Begin with one real output and prove
+which authority, producer, builder, validator, reviewer and consumer actually
+controlled it.
+
+For each active operation, create one compact **authority-to-outcome map**:
+
+`trigger → routed authority → exact task packet → producer/builder → candidate
+artifact → maker inspection → independent judgment → current-candidate pointer
+→ release/public consumer → measured result`
+
+Record these fields:
+
+| Field | Question the diagnosis must answer |
+|---|---|
+| Operation and real outcome | What changes for the visitor or business? |
+| Current authority | Which exact routed file owns the decision? |
+| Producer entry point | Which agent, skill, command or UI action makes the work? |
+| Consumed inputs | Which exact paths and SHAs did the producer actually read? |
+| Known-bad prevention | Which rejected examples and defects can stop production? |
+| Candidate identity | Which exact artifact and lineage is current? |
+| Maker observation | Who inspected the real continuous output, and what did they see? |
+| Independent gate | Who judged the artifact without inheriting maker claims? |
+| Consumer proof | Which real interface/service/public route consumed the admitted bytes? |
+| Feedback repair | Which producer/checker changes when a false pass occurs? |
+
+Classify every broken link with one of five labels:
+
+- `CONTRADICTORY` — two current sources prescribe incompatible behavior.
+- `DESCRIBED_NOT_CONSUMED` — the rule exists, but the producer/build does not
+  take it as an input.
+- `CHECKED_NOT_OBSERVED` — a technical receipt exists, but nobody inspected the
+  real semantic, visual, audiovisual or visitor result.
+- `RETIRED_STILL_REACHABLE` — a rejected/superseded identity, byte, selector,
+  review route or consumer can still become current.
+- `NO_FEEDBACK_REPAIR` — a rejection produced another candidate without changing
+  the producer, checker or method that allowed the defect.
+
+Run the following adversarial checks before calling the chain controlled:
+
+1. **Authority substitution:** replace the routed source with a plausible short
+   substitute; the packet/check must reject it.
+2. **Known-bad replay:** feed a previously rejected artifact without telling the
+   reviewer the expected defect; the revised system must reject it.
+3. **Producer-consumption proof:** show that changing a required authority/input
+   changes or blocks the build—not merely that the file exists.
+4. **Stale/current collision:** make a predecessor look newer or rename it
+   `final`; it must not become the current candidate.
+5. **Missing-input failure:** remove a required reference, source, owner or
+   downstream consumer; the operation must become `HOLD`, not improvise.
+6. **Representative result:** the smallest high-risk slice passes maker
+   inspection and independent artifact-first judgment before a full candidate.
+7. **Public identity:** where release applies, the exact admitted bytes and real
+   visitor journey—not a route, commit or HTTP response—must be verified.
+
+Correct failures in dependency order:
+
+1. Hold the affected production/release path while preserving existing bytes.
+2. Reconcile contradictory authority into one routed operation source; mark the
+   displaced records `SUPERSEDED` or historical.
+3. Make one machine-readable task/production packet the producer's required
+   input. A prose instruction may explain the rule but cannot be its only
+   enforcement.
+4. Bind current inputs, rejected identities and the candidate by stable IDs and
+   checksums where identity matters.
+5. Put the narrow fail-closed validation at the earliest builder/producer entry
+   point, then calibrate it with the known-bad cases.
+6. Prove the highest-risk representative slice through real maker observation
+   and role-distinct review.
+7. Admit one current candidate; make every predecessor clearly superseded and
+   unreachable from normal review/production selection.
+8. Verify the real downstream consumer, then update state and measurement.
+9. On a false pass, invalidate the verdict and repair the producer/evaluator
+   before another candidate. A third attempt on the same unresolved requirement
+   is blocked until a root-cause record changes the method.
+
+Do not audit the entire repository as one undifferentiated project. Work in
+representative families, highest repeated-rework/public-risk first:
+
+1. episode video and motion;
+2. books, classes and explanatory content;
+3. building/page design and visual-asset selection;
+4. interactive products, state and rewards;
+5. NewsStand/research/freshness production; and
+6. release, review routing and public verification.
+
+After one representative lane passes, extract only the genuinely shared
+mechanism—such as immutable candidate identity, rejected-input denial or
+artifact-bound review—then forward-test it in the next family. Do not force
+video-specific fields onto prose or page-specific review onto data work.
+
+**ALI REVIEW — diagnosis/correction model:** `[LOCK / CHANGE / ADD]`
 
 ## 5. Proposed operation and agent map
 
@@ -357,18 +454,42 @@ progressively loaded packets.
   - narration/audio/caption source and exact output path.
 - **Forbidden inputs:** Old contact sheets, review pages, selectors, prompts,
   build receipts, quarantined media or filenames used as selection authority.
-- **Tool boundary:** Canva animates one approved still. CapCut assembles, cuts,
-  sequences, aligns audio/captions and exports. Repository scripts build
-  reproducible sequences and perform decode/integrity/rejection checks.
+- **Single executable authority:** One occurrence ledger is the required input
+  to every active episode builder. Each row binds exact start/end, narration,
+  visual purpose, approved source path/SHA, identity/wardrobe/location reference
+  IDs/SHAs, asset state, motion class, transition, caption behavior, rejected
+  alternatives, approval status and supersession. Cue tables, occurrence audits,
+  repair configs and review notes may supply evidence; none independently
+  selects the timeline.
+- **Asset states:** Every selectable input is exactly `APPROVED_SOURCE`,
+  `INTERNAL_CANDIDATE` or `REJECTED_SOURCE`. Only `APPROVED_SOURCE` enters a full
+  assembly. Rejected identity is denied by checksum even after rename/copy.
+- **Tool boundary — unresolved until capability proof:** Current records conflict
+  about Canva, CapCut and code-created motion. Before further production, test
+  the hardest representative sequence and record which tool can produce each
+  required motion class while preserving approved identity and quality. Canva
+  may create character-preserving animation; an editor may create deterministic
+  pans, pushes, easing, dissolves, timing and assembly; repository scripts may
+  create reproducible technical sequences and integrity evidence. No tool is
+  approved by name alone, and tool provenance cannot excuse bad visible pixels.
+- **Motion grammar:** Each occurrence declares exactly one of `locked_still`,
+  `slow_push`, `slow_pull`, `controlled_pan`, `isolated_object_animation`,
+  `designed_transition` or `full_scene_animation`, plus its measurable timing,
+  crop/easing/travel and loop/one-shot constraints where applicable.
 - **Dependency order:**
   1. Rebuild the episode-specific task packet from current authority.
-  2. Run rejection and cue-scope guards.
-  3. Bind each selected source to narration purpose and motion class.
-  4. Prove the riskiest shot/transition in a short sequence.
-  5. Inspect pixels and decoded motion at delivery size.
-  6. Assemble and export only after inputs pass.
-  7. Watch the complete result at normal speed.
-  8. Send the exact master to a role-distinct audiovisual reviewer.
+  2. Reconcile the contradictory motion-tool records before selecting a method.
+  3. Build the occurrence ledger and run rejection, active-asset, real-person
+     reference and cue-scope guards from the builder entry point.
+  4. Prove the riskiest 15–30 second shot/transition in a short sequence.
+  5. Inspect actual pixels and decoded motion at delivery size with sound.
+  6. Independently judge the representative sequence without maker receipts
+     first; a failure repairs the ledger, producer or method before another cut.
+  7. Assemble and export the full candidate only after the pilot passes.
+  8. Watch the complete result continuously at normal speed with sound.
+  9. Send the exact master to a role-distinct audiovisual reviewer.
+  10. Promote it through one current-review pointer; every predecessor becomes
+      visibly `SUPERSEDED — DO NOT REVIEW` and cannot be selected by builders.
 - **Good:** No banned/live conflict; correct source at every occurrence; visual
   meaning matches narration; motion is noticeable but appropriate; loops do not
   jump; edit feels deliberate; captions/audio/end alignment are correct.
@@ -381,11 +502,17 @@ progressively loaded packets.
   audio details, maker-visible findings, checks/calibrations and what was not
   judged/released.
 - **Required checks:** `npm run check:rejected-episode-media`,
-  `npm run test:episode-cue-scope`, exact changed-surface decode/integrity checks,
-  full normal-speed maker watch, then independent audiovisual review.
+  `npm run test:episode-cue-scope`, real-person reference validation when a row
+  names a real person, occurrence-ledger validation at every active builder
+  entry point, exact changed-surface decode/integrity checks, full normal-speed
+  maker watch, then independent audiovisual review. The rejection guard must
+  scan every runnable builder/config/selector surface, not only `scripts/` and
+  current cue JSON.
 - **Stop:** Any missing/rejected/hash-mismatched input; unresolved narration or
   shot purpose; missing likeness; failed representative proof; repeated known
-  defect; no role-distinct reviewer.
+  defect; no role-distinct reviewer. After two failed cycles against the same
+  requirement/candidate lineage, a third build is blocked until a root-cause
+  record changes the producer, validator, tool or motion method.
 - **Completion language:** Separate `TECHNICAL_PASS`, maker watch, independent
   acceptance, successor-master assembly, deployment and public verification.
 
@@ -400,6 +527,10 @@ progressively loaded packets.
 **ALI — name the worst/rejected recurring defects:**
 
 `[ADD BAD EXAMPLES]`
+
+**ALI — motion-tool decision after the representative capability proof:**
+
+`[LOCK CANVA + EDITOR / SELECT DIFFERENT TOOL / CHANGE MOTION GRAMMAR]`
 
 ### 6.12 Independent Audiovisual Reviewer
 
@@ -514,13 +645,14 @@ bytes; it cannot manufacture the judgment.
 ## 9. Decisions needed before this becomes an active system
 
 1. Approve or revise the universal definition of good in Section 3.
-2. Approve or revise Episode Video Producer as the first specialist pilot.
-3. Confirm which proposed operations deserve distinct specialists versus a
+2. Approve or revise the diagnosis/correction model in Section 4.1.
+3. Approve or revise Episode Video Producer as the first specialist pilot.
+4. Confirm which proposed operations deserve distinct specialists versus a
    reusable skill invoked by the foreground agent.
-4. Add the strongest exact positive and negative examples for each active
+5. Add the strongest exact positive and negative examples for each active
    operation.
-5. Decide who may independently judge each qualitative gate.
-6. Only then split accepted cards into small packets/skills and forward-test them
+6. Decide who may independently judge each qualitative gate.
+7. Only then split accepted cards into small packets/skills and forward-test them
    on raw tasks without leaking the expected answer.
 
 **First review decision:** Is Section 3 the correct universal LAiDIES quality

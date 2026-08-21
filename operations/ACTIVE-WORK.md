@@ -9,9 +9,9 @@
 - **Owner:** Codex foreground; Ali owns acceptance and all product decisions
 - **Updated:** 2026-08-21 America/Vancouver
 - **Goal:** Give Ali one reviewable blueprint for the context, quality bar, examples, boundaries, workflow and checks required by every LAiDIES operation or specialist agent.
-- **Acceptance:** Explicit draft/non-authority status; small common-context architecture; reusable required-field template; complete proposed operation map; starter context cards for every major operation; detailed Episode Video Producer pilot; one first review decision; exact scoped commit.
-- **Current step:** Drafted and internally reviewed `operations/specialist-agents/ALI-REVIEW-OPERATION-AGENT-CONTEXT-BLUEPRINT.md`; no agent packet or skill has been activated from the draft.
-- **Next action:** Ali reviews Section 3 first and marks it `[LOCK]`, `[CHANGE]`, `[ADD]` or `[DELETE]`; accepted wording then becomes the common quality contract before any additional specialist is activated.
+- **Acceptance:** Explicit draft/non-authority status; small common-context architecture; reusable required-field template; authority-to-outcome diagnosis/correction loop; complete proposed operation map; starter context cards for every major operation; detailed Episode Video Producer pilot; one first review decision; exact scoped commit.
+- **Current step:** Expanded and internally reviewed `operations/specialist-agents/ALI-REVIEW-OPERATION-AGENT-CONTEXT-BLUEPRINT.md` with the cross-operation diagnosis/correction model and the executable-ledger/tool-capability Episode Video pilot; no agent packet or skill has been activated from the draft.
+- **Next action:** Ali reviews Sections 3, 4.1 and 6.11 in that order and marks each `[LOCK]`, `[CHANGE]`, `[ADD]` or `[DELETE]`; accepted wording then becomes the common quality contract and first representative correction lane before any additional specialist is activated.
 
 ## Boundaries
 

@@ -14450,3 +14450,31 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Sixty-seven explicitly rejected, retired or superseded non-episode files (264,050,295 bytes) were moved out of the working checkout to a hash-verified recoverable quarantine. Nine Library asset authorities bound to the rejected page SHA were demoted. The exact rejected Concepts artifact moved to a source-mine-only eval path, and the immutable opening identity is now the unbuilt `ai-fundamentals-101` successor. The repository-hygiene test proves failure on hash tampering, ACTIVE rejected SHA reuse, rejected admission, rejected opening identity and returned denylisted paths.
 - **Possible Behind the Build angle:** Why an archive folder did not stop an AI agent from treating rejected work as current.
 - **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR / NO DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-460 — A checked instruction is not an executed production control
+
+- **Date:** 2026-08-21
+- **Area:** Cross-operation authority, production, review and release chains.
+- **Failure risk:** A packet or checker can prove that the expected instruction
+  file exists and contains the right phrases while the real builder never reads
+  its decisions, a reviewer judges a different artifact, or an old candidate
+  remains reachable. The system looks governed while repeating known failures.
+- **Root cause:** Authority, producer inputs, candidate identity, qualitative
+  observation, current-review routing and downstream consumption are recorded
+  in separate document families. Many checks validate documentation rather than
+  prove that the producing code or tool consumed the required authority.
+- **Prevention rule:** Trace one real authority-to-outcome chain for every active
+  operation. Require the producer/build record to bind routed sources and exact
+  inputs; replay known-bad artifacts; prove missing or contradictory authority
+  fails closed; admit one current candidate; and verify the real consumer. A
+  false pass repairs the producer/evaluator before another candidate is made.
+- **Durable correction:** The operation/agent review blueprint now defines a
+  five-class gap taxonomy, seven adversarial checks, dependency-ordered repair
+  loop and representative-family rollout. Episode Video is the first pilot: one
+  occurrence ledger must drive builders, the motion-tool conflict requires a
+  capability proof, and a two-cycle failure blocks another patch build until
+  the method changes.
+- **Possible Behind the Build angle:** Why an AI system can quote the right rule
+  while the thing it builds never actually obeys it.
+- **Publication status:** INTERNAL OPERATING-SYSTEM DESIGN / NO PRODUCTION,
+  DEPLOYMENT OR PUBLIC CHANGE.
