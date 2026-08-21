@@ -14407,3 +14407,29 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-456 — A rejected label beside a live asset is not containment
+
+- **Date:** 2026-08-20
+- **Area:** Episode media production and asset selection.
+- **Failure risk:** Explicitly rejected images remained beside eligible episode
+  sources and one banned per-woman time card was selected by a later review
+  builder. A stale all-images page also marked the current Ali-approved face
+  lock as “DO NOT USE,” so consulting the old catalogue could either reintroduce
+  rejected work or wrongly discard current authority.
+- **Root cause:** Rejection was stored as prose and review-page decoration while
+  the bytes, old selectors and old builders stayed in live production folders.
+- **Prevention rule:** A current machine-readable rejection must move the exact
+  bytes to a recoverable rejected path, register the original path as retired,
+  isolate selectors/builders that can reintroduce it, and fail CI if the bytes,
+  an ACTIVE conflict or a banned key returns to current production sources.
+  Version-like filenames alone are not a rejection verdict.
+- **Durable correction:** The Episode 04 `BANNED-IN-CUT` block now drives a
+  checksum-bound quarantine manifest and calibrated reintroduction checker.
+  The episode-video specialist also rebuilds a bounded task packet from current
+  authority and is checksum-bound so an old or substitute instruction file
+  cannot silently replace its production contract.
+- **Possible Behind the Build angle:** Why writing “do not use” on an image did
+  not stop an AI production system from using it again.
+- **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR / NO DEPLOYMENT OR
+  PUBLIC CHANGE.

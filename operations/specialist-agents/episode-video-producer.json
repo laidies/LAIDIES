@@ -1,0 +1,17 @@
+{
+  "schema": "laidies.specialist-agent-packet.v1",
+  "id": "episode-video-producer",
+  "status": "ACTIVE",
+  "bindings": {
+    "agent_profile": {"path": ".codex/agents/episode_video_producer.toml", "sha256": "4ab5c082025a7b12d344295701a005539688ca58affb6540edfcbdf67338cf45"},
+    "skill": {"path": ".agents/skills/produce-laidies-episode-video/SKILL.md", "sha256": "5a743349ae39693a893ecf600271b8951f9bdd8f4e4cc27f3f446a4a5fa92895"},
+    "runtime_reference": {"path": ".agents/skills/produce-laidies-episode-video/references/episode-video-runtime.md", "sha256": "237bf5d98f03eaf726212c1ca472f45dbcf1b8b750b3499b73e61bccf54e4151"},
+    "interface": {"path": ".agents/skills/produce-laidies-episode-video/agents/openai.yaml", "sha256": "541dd56641e5a16facec2446034d8e8962a05d69f93763dde8ff0219fcd0e7a4"}
+  },
+  "required_runtime_checks": ["npm run check:rejected-episode-media", "npm run test:episode-cue-scope"],
+  "limits": [
+    "The profile and skill do not admit editorial or visual quality.",
+    "Every assignment must rebuild its episode-specific source packet from current records.",
+    "Historical selectors, prompts and build receipts cannot select media."
+  ]
+}

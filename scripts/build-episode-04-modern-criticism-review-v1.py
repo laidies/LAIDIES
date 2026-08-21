@@ -53,10 +53,10 @@ SEGMENTS = [
     {
         "start": 958.720,
         "end": 963.930,
-        "source": "assets/episodes/ep-04/pixel/ep04-tj-timnit-comic-v1-google-2020-1920.png",
+        "source": "assets/episodes/ep-04/pixel/ep04-tj-modern-comic-v1-2018-2021-1920.png",
         "source_type": "still",
         "narration": "Gebru raised the concern inside Google in 2020.",
-        "editorial_purpose": "Establish the exact place and year without prematurely depicting the disputed departure.",
+        "editorial_purpose": "Use Ali's approved single 2018–2021 era card; the rejected per-woman Google card must not return.",
     },
     {
         "start": 963.930,

@@ -31,6 +31,8 @@ proper domain source before building from it.
 | Prose admission | `operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md` |
 | Episode canon | `operations/episode-canonical-source-spec.md` |
 | Episode/trailer visuals | `operations/episode-visual-system-lock.md` |
+| Episode asset admission and retired paths | `operations/assets/active-asset-registry.json` |
+| Episode video specialist packet | `operations/specialist-agents/episode-video-producer.json` |
 | Sitewide visual direction | `operations/site-visual-system-lock-2026-07-23.md` |
 | Runtime/Control Room truth | `operations/product-stewards/control-room/dashboard-state.json` |
 | Ideas not yet active | `docs/growth/ali-idea-backlog.md` |

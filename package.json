@@ -8,11 +8,14 @@
     "gate:episode": "bash operations/engine/gate.sh 2",
     "test:codex-hooks": "node scripts/test-codex-hook-guards.mjs",
     "test:agent-role-routing": "node scripts/test-agent-role-routing.mjs",
+    "test:specialist-agent-packets": "node scripts/test-specialist-agent-packets.mjs && node scripts/check-specialist-agent-packets.mjs",
     "test:daily-private-pipeline": "node scripts/test-compose-daily-edition.mjs && node scripts/test-promote-daily-edition.mjs && node scripts/test-daily-private-workflow.mjs",
     "test:learning-claim-corrections": "node scripts/test-learning-claim-corrections.mjs",
     "test:exact-commit-preview": "node scripts/test-exact-commit-preview.mjs",
     "test:episode-cue-scope": "node scripts/test-episode-cue-scope.mjs",
     "test:media-defects": "node scripts/test-media-defect-fixtures.mjs",
+    "check:rejected-episode-media": "node scripts/check-rejected-episode-media.mjs",
+    "test:rejected-episode-media": "node scripts/test-rejected-episode-media.mjs && npm run check:rejected-episode-media",
     "test:newsstand-canon": "node scripts/test-newsstand-canonical-migration.mjs",
     "test:queue-claims": "node scripts/test-product-steward-claim-policy.mjs",
     "test:rejection-prevention": "node scripts/test-rejection-prevention.mjs",
@@ -22,7 +25,7 @@
     "test:output-path-cli-guards": "node scripts/test-output-path-cli-guards.mjs",
     "test:work-resolution-loop": "node scripts/test-work-resolution-loop.mjs",
     "test:content-prose-quality": "node scripts/test-content-producer-contract.mjs && node scripts/test-prose-quality-admission.mjs && node scripts/test-content-release-readiness.mjs",
-    "ci:build": "npm run test:context-authority && npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:agent-role-routing && npm run test:daily-private-pipeline && npm run test:learning-claim-corrections && npm run test:exact-commit-preview && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:rejection-prevention && npm run test:work-resolution-loop && npm run test:miss-jeeves-backend && npm run test:library-correction-backend && npm run test:content-prose-quality && node scripts/check-content-work-orders.mjs && node scripts/check-content-release-readiness.mjs && node scripts/check-canonical-instruction-dependencies.mjs && node scripts/check-library-instruction-packet.mjs",
+    "ci:build": "npm run test:context-authority && npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:agent-role-routing && npm run test:specialist-agent-packets && npm run test:daily-private-pipeline && npm run test:learning-claim-corrections && npm run test:exact-commit-preview && npm run test:media-defects && npm run test:rejected-episode-media && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:rejection-prevention && npm run test:work-resolution-loop && npm run test:miss-jeeves-backend && npm run test:library-correction-backend && npm run test:content-prose-quality && node scripts/check-content-work-orders.mjs && node scripts/check-content-release-readiness.mjs && node scripts/check-canonical-instruction-dependencies.mjs && node scripts/check-library-instruction-packet.mjs",
     "ci": "npm run ci:build && npm run test:operational-integrity"
   }
 }
