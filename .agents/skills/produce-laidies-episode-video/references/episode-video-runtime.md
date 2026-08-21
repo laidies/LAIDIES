@@ -21,6 +21,6 @@ Record:
 
 ## Current denial surfaces
 
-Use `operations/quarantine/episode-media-20260820.json` for exact quarantined paths and hashes. Use `scripts/check-rejected-episode-media.mjs` as the build-time denial guard. An archive or quarantine manifest explains history; it never admits reuse.
+Use `operations/quarantine/episode-media-denylist-20260820.json` for episode-wide denial authority, `operations/quarantine/episode-media-source-checkout-20260820.json` for the exact source-checkout move receipt, and `operations/quarantine/episode-media-20260820.json` for the first Episode 04 batch. Use `scripts/check-rejected-episode-media.mjs` as the build-time denial guard. An archive or quarantine manifest explains history; it never admits reuse.
 
 For real people, run `node scripts/check-real-person-references.mjs` with the required person names before rendering.

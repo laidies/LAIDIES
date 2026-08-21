@@ -14419,6 +14419,9 @@ while remaining falsely unfinished in the launch record.
   rejected work or wrongly discard current authority.
 - **Root cause:** Rejection was stored as prose and review-page decoration while
   the bytes, old selectors and old builders stayed in live production folders.
+  The first repair then scoped its machine-readable source to Episode 04, while
+  ignored and untracked Episode 01–03, shared and trailer debris remained in
+  the preservation checkout and escaped the branch-only inventory.
 - **Prevention rule:** A current machine-readable rejection must move the exact
   bytes to a recoverable rejected path, register the original path as retired,
   isolate selectors/builders that can reintroduce it, and fail CI if the bytes,
@@ -14428,7 +14431,9 @@ while remaining falsely unfinished in the launch record.
   checksum-bound quarantine manifest and calibrated reintroduction checker.
   The episode-video specialist also rebuilds a bounded task packet from current
   authority and is checksum-bound so an old or substitute instruction file
-  cannot silently replace its production contract.
+  cannot silently replace its production contract. Ali's correction expanded
+  the guard to an episode-wide denylist and a separately verified source-checkout
+  quarantine so Git-ignored bytes cannot evade containment.
 - **Possible Behind the Build angle:** Why writing “do not use” on an image did
   not stop an AI production system from using it again.
 - **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR / NO DEPLOYMENT OR

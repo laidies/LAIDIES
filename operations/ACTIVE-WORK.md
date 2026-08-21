@@ -8,10 +8,10 @@
 - **Status:** VERIFIED LOCALLY
 - **Owner:** Codex foreground; Ali owns acceptance and all product decisions
 - **Updated:** 2026-08-20 America/Vancouver
-- **Goal:** Stop explicitly rejected episode media from returning, then establish a narrow episode-video specialist that rebuilds context from current authority.
-- **Acceptance:** Current authority only; no accepted asset moved; rejected media quarantined with hashes and original paths; stale selectors isolated; reintroduction checker calibrated; affected review sequence repaired; specialist profile and skill hash-bound and calibrated; exact scoped commit.
-- **Current step:** Forty-three explicit Episode 04 rejects and twenty-two stale selectors are quarantined; the affected review sequence now uses the approved 2018–2021 card and passes technical validation; the first project-scoped episode-video specialist packet passes path-rebinding and tamper calibration.
-- **Next action:** Use the bounded episode-video specialist on the next named episode repair and evaluate whether it rejects stale inputs before production. Independent visual/editorial review, successor-master assembly, deployment and public verification remain separate HOLD gates.
+- **Goal:** Extend rejected-media containment across every episode and the trailer, including ignored/untracked debris in the preservation-sensitive source checkout.
+- **Acceptance:** Exact current rejection authority; no accepted asset moved; every explicit rejected/superseded production byte inventoried and recoverably quarantined; stale builders/selectors isolated; all-episode reintroduction guard calibrated; source checkout migration hash-bound; exact scoped commit.
+- **Current step:** The branch quarantines 21 additional media files and 26 stale selector/builder files. The source checkout moved 95 rejected/superseded media files and 74 stale sources (2,213,091,336 bytes) into a verified non-iCloud quarantine; three retired trailer inputs can no longer be rebuilt by their old scripts.
+- **Next action:** Use the specialist's all-episode preflight on the next named repair. Current review candidates and Episode 05 rejection guards remain in place; independent quality, release and public gates remain separate.
 
 ## Boundaries
 

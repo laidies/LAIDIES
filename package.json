@@ -15,7 +15,7 @@
     "test:episode-cue-scope": "node scripts/test-episode-cue-scope.mjs",
     "test:media-defects": "node scripts/test-media-defect-fixtures.mjs",
     "check:rejected-episode-media": "node scripts/check-rejected-episode-media.mjs",
-    "test:rejected-episode-media": "node scripts/test-rejected-episode-media.mjs && npm run check:rejected-episode-media",
+    "test:rejected-episode-media": "node scripts/test-rejected-episode-media.mjs && node scripts/test-quarantine-all-episode-media.mjs && npm run check:rejected-episode-media",
     "test:newsstand-canon": "node scripts/test-newsstand-canonical-migration.mjs",
     "test:queue-claims": "node scripts/test-product-steward-claim-policy.mjs",
     "test:rejection-prevention": "node scripts/test-rejection-prevention.mjs",
