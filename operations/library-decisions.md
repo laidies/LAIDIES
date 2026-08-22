@@ -44,6 +44,18 @@ older Library visual or public-framing instruction that conflicts with it.
   result requires a real roadmap record and external recommendations require a
   maintained trust register. The Homepage and Library share this service. See
   `operations/product-stewards/library/subproducts/miss-jeeves.md`.
+- Library books—beginning with AI Fundamentals 101—must teach a connected,
+  technically accurate and current system model in language usable without a
+  computer-science or engineering background. They locate each concept in the
+  wider AI ecosystem, distinguish what occurs before/behind/during/after the
+  reader's interaction, show what she controls and why it changes her results,
+  and earn repeated “Oh, that is why” understanding. Definitions without
+  mechanism and relationships fail. Books are living products with explicit
+  claim/source/recheck ownership; newly popular terms are evaluated for real
+  meaning and maturity before insertion. Societal debates may be mapped
+  neutrally and linked to a separately sourced big-picture treatment.
+  This is **walkthrough Part 1**; retain it while Ali supplies the remaining
+  book-experience direction before consolidating the final contract.
 
 ## Load for every Library task
 

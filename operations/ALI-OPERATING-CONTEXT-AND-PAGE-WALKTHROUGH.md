@@ -390,6 +390,29 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   and Library use one service and one visually rich LAiDIES result experience.
   Full binding contract:
   `product-stewards/library/BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.
+- **Library book experience — Ali walkthrough Part 1, 2026-08-22:** LAiDIES
+  must correct the central failure of most beginner AI material: disconnected
+  definitions that either omit how a mechanism works and why it matters or
+  assume computer-science and engineering knowledge. Books use accurate,
+  current technical sources but explain in plain language how each concept
+  fits into the wider AI system and the reader's real interaction with it.
+  AI Fundamentals is a connected A-to-Z mental model, not a glossary. A reader
+  should be able to reconstruct the main ecosystem map—how chips, compute,
+  data centres, training, models, memory and the other central concepts relate;
+  what happens before use, behind the scenes, during her interaction and after;
+  what she can control; what affects her; and how that knowledge improves her
+  use of AI. The intended repeated outcome is an earned “Oh—that is why that
+  happens” or “I understand that now” moment.
+  Books are living products: continuously check their claims and interaction
+  guidance as the technology and practice change, and extend the connected map
+  when verified concepts become material. Terms such as context engineering
+  and emerging loop/graph-engineering language are signals to evaluate for
+  meaning, maturity and placement—not automatic additions because they are
+  newly popular. Where a concept opens a wider societal debate, explain the
+  mechanism and contours without forcing a LAiDIES position, then route to an
+  appropriate sourced big-picture treatment such as a NewsStand article.
+  **Capture remains open for Ali's following messages; do not treat Part 1 as
+  the complete book-experience contract.**
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 
