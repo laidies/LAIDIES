@@ -492,6 +492,17 @@ append-only rejection registry points to historical candidate/evidence files
 that are absent from this release branch; it fails closed before evaluating any
 candidate. Do not bypass it or restore those bytes to a production input.
 
+### 2026-08-21 Ali operating-context and page-walkthrough workbook
+
+`operations/ALI-OPERATING-CONTEXT-AND-PAGE-WALKTHROUGH.md` is a **DRAFT FOR
+ALI REVIEW / NOT ACTIVE AGENT AUTHORITY**. It provides one human review surface
+for page vision, unacceptable outcomes, Sunday scope, continuous operations,
+specialist boundaries, orchestration and handoffs. If Ali approves the
+structure, each accepted section will be compiled into the one current
+product/operation packet routed to a task; agents must not load the entire
+workbook as ambient context. No existing product decision or release status is
+changed by the draft.
+
 Both isolated rejected LIBRAiRY successors remain quarantined. The former
 `library-visual-v4-20260804` admission and its dependent Library visual verdicts
 are **INVALIDATED BY ALI'S 2026-08-05 REJECTION**. They are historical evidence,
