@@ -20,6 +20,7 @@ const paths = {
   rewind: path.join(pilotDir, "rewind-amendments.json"),
   source: path.join(pilotDir, "book-source.json"),
   fragment: path.join(pilotDir, "rendered-review.html"),
+  heldCandidate: path.join(root, "content/library-books/rendered/ai-fundamentals-101.html"),
   review: path.join(pilotDir, "review.html"),
   inventory: path.join(pilotDir, "claim-inventory.json"),
   manifest: path.join(pilotDir, "artifact-manifest.json"),
@@ -1585,7 +1586,7 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · VISUAL TEACHING REBUILD · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
-<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The CSS teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Two Chapter 1 visual learning aids are approved and integrated locally. Chapter 2 now has four replacement visual learning aids that passed maker desktop/mobile inspection and role-distinct chapter review. Older Chapter 2–13 raster assets are not admitted by this restart. Nothing has been published or propagated through the full book. Unfamiliar-reader admission, Library integration and public release remain open.</div>${mainFragment}</main></div>
+<main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript remains a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters remain registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. The CSS teaching layer shown on 2026-08-17 was rejected by Ali and remains quarantined. Two Chapter 1 visual pairs are approved locally; four Chapter 2 pairs passed maker and role-distinct chapter review; Chapter 3–11 pairs remain pending Ali acceptance; and Chapter 12–13 pairs have recorded independent review but remain pending Ali acceptance. The distinct AI Fundamentals candidate is held and cannot open in the public Library. Unfamiliar-reader admission, exact visual acceptance and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
 </body></html>\n`;
 }
@@ -1634,6 +1635,7 @@ const sourceBytes = Buffer.from(`${JSON.stringify(source, null, 2)}\n`);
 fs.writeFileSync(paths.source, sourceBytes);
 const fragment = renderLibraryBookSource(source, rel(paths.source), sourceBytes);
 fs.writeFileSync(paths.fragment, fragment);
+fs.writeFileSync(paths.heldCandidate, fragment);
 const inventory = buildClaimInventory(finalManuscript, chapters);
 fs.writeFileSync(paths.inventory, `${JSON.stringify(inventory, null, 2)}\n`);
 const review = buildReviewPage(source, fragment, finalManuscript);
@@ -1646,6 +1648,7 @@ const artifactPaths = [
   paths.rewind,
   paths.source,
   paths.fragment,
+  paths.heldCandidate,
   paths.inventory,
   paths.review,
   ...(chapterOnePurposeBuiltVisualActive ? [paths.chapterOnePurposeBuiltDesktop, paths.chapterOnePurposeBuiltMobile] : []),

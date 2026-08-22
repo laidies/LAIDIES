@@ -261,10 +261,10 @@ The rejected scanner overlay was removed because it hung over the counter and
 did not read as part of the room; neither correction re-rendered Miss Jeeves or
 the whole room. The empty My Closet control is hidden until this device has a
 real saved Library place. No Claude, multi-role or dossier review was
-commissioned. The legacy full product test
-still fails at `scripts/test-library-product.cjs:1057` because it expects
-Concepts 101 to be admitted and expose **Open this book**; current truth remains
-zero admitted books, so that expectation was not satisfied or weakened. No
+commissioned. The protected Library browser gate now uses only a synthetic
+`reader-fixture-101` for reader mechanics; it no longer clears rejection state
+or opens Concepts 101, the Verification Rulebook or any other held product.
+Current truth remains zero admitted books. No
 deploy, publication, spend, provider connection or Ali-authority action occurred.
 
 The known-failure checker now rejects the former carpet, a mobile carpet layer
@@ -300,17 +300,18 @@ renders against the agreed Library direction.
   instant worldwide. Visitor timezone may personalize display but cannot hide,
   advance or rename an edition. Extreme-timezone and pre/post-release fixtures
   pass; no public deployment was made.
-- The Library opening set is exactly Concepts 101, Briefing 101, Setup 101 and
-  Accounts 101. Vocab 101 remains retired as a separate title. All four opening
-  books are HOLD: Concepts is directly rejected and the other three require the
-  corrected learning-admission evidence. Their exact rendered sources and claims
-  remain preserved; visual admission, protected
+- The Library opening set is exactly AI Fundamentals 101, Briefing 101, Setup
+  101 and Accounts 101. Vocab 101 and Concepts 101 remain retired as separate
+  titles. All four opening books are HOLD: AI Fundamentals has an exact distinct
+  source-import candidate but still requires visual, unfamiliar-reader and
+  release admission; the other three require corrected learning-admission
+  evidence. Their exact rendered sources and claims remain preserved; visual admission, protected
   preview, release and public verification remain separate and open.
 - Opening-day Classes, Library and site-video records now all have a complete
   readiness schema. Structural completeness is no longer conflated with public
   PASS: Classes are 0/3 ready, Library is 0/4 locally admitted, site video is
-  0/8 ready and all three systems report `NOT READY`; Library's four local
-  content admissions do not make the building release-ready.
+  0/8 ready and all three systems report `NOT READY`; Library has zero compiled
+  public book admissions.
 - The strict whole-town gate remains the release authority. Current exact truth
   is 0/17 release-ready buildings, 0/17 current visual admissions and 0/5
   opening media ready. The visual count includes stale Library and NewsStand
@@ -447,9 +448,9 @@ portrait service, rewards, native AT, changed-byte provider/public regression,
 deployment and public verification remain open.
 
 Both isolated rejected LIBRAiRY successors remain quarantined. The former
-`library-visual-v4-20260804` admission and every later Library visual verdict
+`library-visual-v4-20260804` admission and its dependent Library visual verdicts
 are **INVALIDATED BY ALI'S 2026-08-05 REJECTION**. They are historical evidence,
-not a current direction, candidate or PASS. The current `library.html` SHA-256
+not a current direction, candidate or PASS. The historical candidate SHA-256
 `615a80f75bede151067fa447eb514cc535c14a1c5c4bf4d19baa5fbe04077dab`
 is **REJECTED / DO NOT PREVIEW / DO NOT DEPLOY / DO NOT PUBLISH**. Ali found
 the covers too small to identify/read, the composition materially unchanged

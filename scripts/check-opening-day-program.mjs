@@ -89,7 +89,7 @@ mediaGate = readManifest(program.media_gate_manifest, 'Opening-day media gate ma
 siteVideoGate = readManifest(program.site_video_gate_manifest, 'Universal site video and animation gate manifest is missing.');
 libraryAdmission = readManifest(program.library_admission_manifest, 'Opening-day Library admission manifest is missing.');
 
-const expectedLibraryBookIds = ['concepts-101', 'briefing-101', 'setup-101', 'accounts-101'];
+const expectedLibraryBookIds = ['ai-fundamentals-101', 'briefing-101', 'setup-101', 'accounts-101'];
 const configuredLibraryBookIds = Array.isArray(program.library_opening_book_ids)
   ? program.library_opening_book_ids
   : [];

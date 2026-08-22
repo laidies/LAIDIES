@@ -15110,7 +15110,16 @@ while remaining falsely unfinished in the launch record.
   builder no longer imports or renders the rejected Chapter 6 asset, and its
   test injects that exact runtime reference to prove the guard fails. Retired
   Vocab and resolved relationship work were removed from the current graph and
-  queue without deleting their history.
+  queue without deleting their history. The directly rejected Concepts 101
+  identity was then removed from active admission, launch, catalogue, search,
+  learning-graph, episode-navigation and asset-registry consumers; an exact
+  distinct `ai-fundamentals-101` candidate now exists only as HOLD, while
+  Miss Jeeves denies every Library book until a separately admitted identity is
+  explicitly allowlisted. The protected browser gate also stopped clearing the
+  rejection registry and readmitting copied Concepts bytes: real catalogue
+  checks now require zero available books, while reader mechanics run against a
+  temporary synthetic identity. Local review additionally requires an explicit
+  `?local-review=1` opt-in instead of silently opening held books on localhost.
 - **Possible Behind the Build angle:** Why giving every specialist every lesson
   made each one worse—and how routing memory by job prevents old mistakes from
   becoming new instructions.

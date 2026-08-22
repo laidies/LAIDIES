@@ -12,16 +12,17 @@ Historical reasoning remains in Git, the rejection registry and
 
 | Surface | Exact current identity | Disposition |
 | --- | --- | --- |
-| `library.html` | SHA-256 `d32d11981df4c82bfae892adb9e022763716338b1277a5d131ba79211f04b245` | **ADAPT / HOLD FOR ALI WALKTHROUGH.** Current bytes are implementation evidence, not accepted visual authority. Do not infer a successor from older Library candidates. |
+| `library.html` | SHA-256 `64bdfcd41a6171ee5186cd7b6da9437bbef4d067f327aeace9039d09c458fee5` | **ADAPT / HOLD FOR ALI WALKTHROUGH.** Current bytes are implementation evidence, not accepted visual authority. Do not infer a successor from older Library candidates. |
 | Library page composition | `operations/library-decisions.md` | Current compact functional and visual invariants. Ali's page walkthrough may replace them through an explicit reviewed update. |
-| AI Fundamentals review reader | `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/review.html`, SHA-256 `33c73a5bf32a6b001960546f185cd357671b1369186cc206e8d3037cd7350aed` | **KEEP INTERNAL.** Not linked from the production catalogue and not admitted. |
+| AI Fundamentals review reader | `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/review.html`, SHA-256 `201c83c89844e6e00ac08c0b59d9262c6d2c11d14da9c8a0aec3e3d5d0807677` | **KEEP INTERNAL.** Not linked from the production catalogue and not admitted. |
 | AI Fundamentals rendered fragment | `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/rendered-review.html`, SHA-256 `06aa6fc8d07e0a241625efce6e83d836bb6f7a009429313ace44747a75552bfa` | **KEEP INTERNAL.** No production reader binding. |
+| AI Fundamentals held candidate | `content/library-books/rendered/ai-fundamentals-101.html`, SHA-256 `06aa6fc8d07e0a241625efce6e83d836bb6f7a009429313ace44747a75552bfa` | **HOLD.** Exact successor identity exists, but compiled public admission is empty. |
 
 ## Asset disposition register
 
 The exact visual bytes and SHA-256 values are bound by
 `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/artifact-manifest.json`
-at SHA-256 `57305c7bef78b2bd95979dcd3a0e73a893a5af4586a281c8fe568a3424ce6367`.
+at SHA-256 `81d1898c3f8aa136e18ef2f11c59848dd4e9acca8fd6cf449f278f6b62273803`.
 The manifest is identity evidence, not a quality verdict.
 
 | Chapter | Current rendered jobs | Current disposition |

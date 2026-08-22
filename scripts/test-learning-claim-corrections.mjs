@@ -22,8 +22,15 @@ assert(tokenClaim, 'maintained token-ratio claim is missing');
 assert.equal(tokenClaim.status, 'CURRENT');
 assert.deepEqual(tokenClaim.sourceIds, ['SRC-OPENAI-TOKEN-COUNTING-2026-08-05']);
 assert.deepEqual(tokenClaim.consumers.map(consumer => consumer.id).sort(), [
-  'CON-CONCEPTS101-TOKEN-RATIO',
   'CON-HANDBOOK-CH1-TOKEN-RATIO',
 ]);
+assert.equal(
+  claims.claims.flatMap(claim => claim.consumers || []).some(consumer =>
+    consumer.id?.startsWith('CON-CONCEPTS101-') ||
+    consumer.path === 'content/library-books/rendered/concepts-101.html'
+  ),
+  false,
+  'directly rejected Concepts 101 must not return as an active claim consumer'
+);
 
-console.log('LEARNING CLAIM CORRECTIONS TEST PASS token_ratio=1 chain_of_thought_retired=1 consumers=2');
+console.log('LEARNING CLAIM CORRECTIONS TEST PASS token_ratio=1 chain_of_thought_retired=1 active_consumers=1 rejected_concepts_consumer=absent');

@@ -736,10 +736,10 @@ const SECTIONS=[
    /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
       Vocab 101 from the public catalogue; it must not render on either shelf. */
    {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
-   {id:'concepts-101',t:'AI Fundamentals 101',topics:['basics'],status:'hold',statusLabel:'Local rebuild for review',s:'Follow one real request through the complete AI system, then look up any foundational concept when you need it.',inside:'Introduction, connected chapters, one client-handover case, a repair map and an alphabetical Concept Index.',depth:'Plain-English foundation · connected AI system map',img:B+'textbook-ai-fundamentals-101.png',c:'#7038c9'},
+   {id:'ai-fundamentals-101',t:'AI Fundamentals 101',topics:['basics'],status:'hold',statusLabel:'Visual and reader admission pending',s:'Follow the complete AI system in plain English, from data and training through models, products, agents, infrastructure and human review.',inside:'Twenty connected chapters, practical examples, current-source checks and a growing set of responsive teaching visuals.',depth:'Plain-English foundation · complete AI system',img:B+'textbook-ai-fundamentals-101.png',c:'#7038c9'},
    {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'hold',statusLabel:'Exact review in progress',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',inside:'Five-part procedure, controlled comparison, worked examples and checking boundaries.',depth:'Plain-English foundation · reusable procedure',img:B+'textbook-briefing-101.png',c:'#d83f86'},
-   {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'available',statusLabel:'Ready to read',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',inside:'Four-place sorting model, six-item worked table and product-specific limits.',depth:'Plain-English foundation · reusable sorting model',img:B+'textbook-setup-101.png',c:'#1597a7'},
-   {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'available',statusLabel:'Ready to read',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',inside:'Five-step decision rule, tempting wrong answers and a safe stop condition.',depth:'Plain-English foundation · account and authority decision',img:B+'textbook-accounts-101.png',c:'#e45e55'}
+   {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'hold',statusLabel:'Cold-reader revalidation required',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',inside:'Four-place sorting model, six-item worked table and product-specific limits.',depth:'Plain-English foundation · reusable sorting model',img:B+'textbook-setup-101.png',c:'#1597a7'},
+   {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Cold-reader revalidation required',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',inside:'Five-step decision rule, tempting wrong answers and a safe stop condition.',depth:'Plain-English foundation · account and authority decision',img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
  {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
   books:[
@@ -775,7 +775,7 @@ const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
 SECTIONS.forEach(Object.freeze);
 Object.freeze(SECTIONS);
 function exactAdmittedBookRecord(id){
- const localReviewHost=location.hostname==='127.0.0.1'||location.hostname==='localhost';
+ const localReviewHost=(location.hostname==='127.0.0.1'||location.hostname==='localhost')&&new URLSearchParams(location.search).get('local-review')==='1';
  const record=localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:ADMITTED_BOOK_RECORDS[id];
  if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
  const source=record.sourcePath;
@@ -799,7 +799,7 @@ function bookStatusText(b){return b&&b.statusLabel?b.statusLabel:'Not published'
 function bookVisitorStatus(b){
  if(bookIsAvailable(b))return 'Ready to read now';
  if(b?.listed===false)return 'Not in the current catalogue';
- if(b?.status==='hold')return 'Preview available · full book awaiting final review';
+ if(b?.status==='hold')return bookStatusText(b);
  if(b?.soon&&/^EP\s*\d+/i.test(b.soon))return `Arriving with ${b.soon.replace(/^EP/i,'Episode')}`;
  if(b?.soon)return 'Coming later';
  return 'Not available yet';
@@ -1049,7 +1049,7 @@ const JEEVES_ANSWERS=[
     title:'AI predicts what should come next from patterns it learned during training.',
     answer:'During training, the system studies many examples and adjusts a large set of numerical settings so it becomes better at predicting the next useful piece of an answer. When you ask a question, it builds a response one piece at a time from those learned patterns. That is why it can explain and draft convincingly, but can also produce an answer that sounds right without being true.',
     links:[
-      {label:'Open AI Fundamentals 101',book:'concepts-101',heading:'Chapter 1 — The complete AI system'},
+      {label:'Open AI Fundamentals 101',book:'ai-fundamentals-101',heading:'Chapter 1: What "AI" Actually Means (and What It Doesn\'t)'},
       {label:"See how to check AI's work",book:'how-to-check',heading:'Ask for receipts'}
     ]
   },
@@ -1059,7 +1059,7 @@ const JEEVES_ANSWERS=[
     title:'The honest answer is: we do not have that coverage ready yet.',
     answer:'A trustworthy answer changes by role, task, country and evidence date. The Library’s Jobs &amp; Work answer is still being re-verified, so Miss Jeeves will not pretend it is ready. Start with what the different kinds of AI actually do; the dedicated sourced answer will appear when its evidence is current and checked.',
     links:[
-      {label:'Learn what AGI claims actually mean',book:'concepts-101',heading:'AGI: a disputed definition'}
+      {label:'Learn what AGI claims actually mean',book:'ai-fundamentals-101',heading:'Chapter 20: AGI, ASI, and the Frontier'}
     ]
   },
   {
@@ -1069,7 +1069,7 @@ const JEEVES_ANSWERS=[
     answer:'Start with the task. Use an all-rounder for everyday drafting and thinking, a source-led research tool when the answer must come with evidence, and the assistant built into your work suite when the job lives inside those apps. Then give two tools the same real task and keep the one whose output you can actually use and verify.',
     links:[
       {label:"Open Who's Who in AI",book:'whos-who',heading:'Which one for which job'},
-      {label:'Learn how products, models and tools differ',book:'concepts-101',heading:'AI system, product, model and tool'}
+      {label:'Learn how products, models and tools differ',book:'ai-fundamentals-101',heading:'Chapter 10: Wrappers, Harnesses, and the Stack'}
     ]
   },
   {
@@ -1299,7 +1299,8 @@ function assignBookSectionAnchors(txt){
   });
 }
 function decoratePuffySections(b,id,txt){
-  const targets=(id==='vocab-101'?[...txt.querySelectorAll('.term')]:[...txt.querySelectorAll('h2')])
+  const termEntries=[...txt.querySelectorAll('.term')];
+  const targets=(termEntries.length?termEntries:[...txt.querySelectorAll('h2')])
     .filter(target=>!target.closest('.receipts,.vr-metadata,.vr-sources'));
   targets.forEach(target=>{
     const heading=target.matches('h1,h2,h3')?target:target.querySelector('h3');
@@ -1401,7 +1402,7 @@ function hydrateVerificationRulebook(txt){
  });
 }
 const READER_ACCENTS={
-  'vocab-101':'#245ed1','concepts-101':'#7038c9','briefing-101':'#d83f86',
+  'vocab-101':'#245ed1','ai-fundamentals-101':'#7038c9','briefing-101':'#d83f86',
   'setup-101':'#1597a7','accounts-101':'#e45e55','whos-who':'#245ed1',
   'straight-answers':'#6539a8','how-to-check':'#245ed1'
 };

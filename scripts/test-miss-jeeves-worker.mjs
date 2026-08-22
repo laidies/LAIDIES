@@ -141,21 +141,30 @@ const relatedAi = {
       coverage: 'related',
       answer: 'The catalogue covers context windows but not their specific effect on legal work.',
       topic_label: 'context windows',
-      source_ids: ['concept-context', 'book-concepts-101']
+      source_ids: ['concept-context', 'book-ai-fundamentals-101']
     }) };
   }
 };
 const related = await (await ask('How will context windows change legal work?', envWith(index.entries, relatedAi))).json();
-assert.equal(related.status, 'related');
-assert.equal(related.coverage, 'related');
-assert.match(related.answer, /does not have an exact answer/i);
-assert.deepEqual(related.results.map(result => result.id), ['concept-context', 'book-concepts-101']);
+assert.equal(related.status, 'not_covered', 'held Library candidates cannot become related results through model-selected IDs');
+assert.deepEqual(related.results, []);
 
 const chipsWithoutAi = await (await ask('Why are chips so important to AI?')).json();
 assert.equal(chipsWithoutAi.status, 'not_covered', 'deterministic fallback must not pretend generic AI material covers chips');
 
 const tokenWithoutAi = await (await ask('What is a token?')).json();
-assert.equal(tokenWithoutAi.results[0]?.url, '/library.html#concepts-101::@book-section-tokens-and-the-context-window');
+assert.notEqual(tokenWithoutAi.coverage, 'exact', 'held token material must not appear as exact current coverage');
+assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('concepts-101')));
+assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('ai-fundamentals-101')));
+
+const restoredRejectedConcepts = structuredClone(index.entries);
+restoredRejectedConcepts.push({
+  id: 'book-concepts-101', title: 'Concepts 101', url: '/library.html#concepts-101',
+  type: '101', section: 'The 101s', status: 'live', summary: 'Rejected fixture',
+  topics: ['context window'], aliases: ['what is a context window']
+});
+const restoredRejected = await (await ask('What is a context window?', envWith(restoredRejectedConcepts))).json();
+assert.ok(!restoredRejected.results.some(result => result.id === 'book-concepts-101'), 'restored rejected Concepts identity must fail closed');
 
 const invalidIndexEnv = envWith();
 invalidIndexEnv.ASSETS.fetch = async () => Response.json({ _meta: {}, entries: {} });
