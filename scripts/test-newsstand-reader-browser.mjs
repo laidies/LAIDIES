@@ -10,13 +10,23 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(process.env.NEWSSTAND_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."));
-const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const CHROME_CANDIDATES = process.env.NEWSSTAND_CHROME_PATH
+  ? [process.env.NEWSSTAND_CHROME_PATH]
+  : [
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "/usr/bin/google-chrome",
+      "/usr/bin/google-chrome-stable",
+      "/usr/bin/chromium",
+      "/usr/bin/chromium-browser"
+    ];
+const CHROME = CHROME_CANDIDATES.find((candidate) => fs.existsSync(candidate));
 const NOW_STALE = "2026-06-01T00:00:00Z";
 const TEST_CLOCKS = {
   "same-day": "2026-08-04T23:00:00-07:00",
   "next-day": "2026-08-05T12:00:00-07:00",
   "released-worldwide": "2026-08-05T06:30:00Z",
-  "backfill-current": "2026-08-11T23:00:00Z"
+  "backfill-current": "2026-08-11T23:00:00Z",
+  "release-cut-current": "2026-08-21T12:00:00-07:00"
 };
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
 const RETRACTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json";
@@ -24,8 +34,13 @@ const EVIDENCE_DIR = process.env.NEWSSTAND_EVIDENCE_DIR
   ? path.resolve(process.env.NEWSSTAND_EVIDENCE_DIR)
   : null;
 
-if (!fs.existsSync(CHROME)) {
-  console.log("SKIP NEWSSTAND BROWSER: Google Chrome is unavailable.");
+if (!CHROME) {
+  const message = `NEWSSTAND BROWSER UNAVAILABLE: checked ${CHROME_CANDIDATES.join(", ")}`;
+  if (process.env.NEWSSTAND_REQUIRE_BROWSER === "1") {
+    console.error(message);
+    process.exit(1);
+  }
+  console.log(`SKIP ${message}`);
   process.exit(0);
 }
 
@@ -104,13 +119,18 @@ function fixtureData(name) {
     story.slug = "forged-admitted-destination";
     if (story.sources && story.sources[0]) story.sources[0].url = "https://example.invalid/forged-source";
   }
+  if (name === "release-cut-freshness-bypass") {
+    data.publications.weekly.lastCheckedAt = TEST_CLOCKS["release-cut-current"];
+    data.publications.tribune.lastCheckedAt = TEST_CLOCKS["release-cut-current"];
+  }
   return data;
 }
 
 function fixtureScript(name) {
   const mutatesStorySource = new Set([
     "load-failure", "no-data", "dataset-hold", "stale", "unavailable", "mixed",
-    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered"
+    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered",
+    "release-cut-freshness-bypass"
   ]);
   if (!mutatesStorySource.has(name)) {
     return fs.readFileSync(path.join(ROOT, "content", "newsstand-stories.js"), "utf8");
@@ -674,6 +694,22 @@ try {
   await act(backfillCurrent, "document.querySelector('#ns-search-input').value='Kimi';document.querySelector('#ns-search-button').click()");
   check(await value(backfillCurrent, "document.querySelectorAll('.ns-front-story').length === 1 && document.querySelector('.ns-front-story').textContent.includes('Kimi K3')"), true, "archive search finds the admitted Kimi Daily snapshot");
   backfillCurrent.close();
+
+  const releaseCutFixture = process.env.NEWSSTAND_RELEASE_CUT_CALIBRATION === "pretend-overdue-papers-current"
+    ? "&fixture=release-cut-freshness-bypass"
+    : "";
+  const releaseCutCurrent = await openPage(`/newsstand.html?clock=release-cut-current${releaseCutFixture}`, { width: 1440, height: 1000 });
+  check(await value(releaseCutCurrent, "document.querySelector('#ns-title').textContent"), "A clear day at the NewsStand.", "August 21 release cut reports a clear day rather than a false current paper");
+  check(await value(releaseCutCurrent, "document.querySelector('#ns-system-status').textContent"), "No current publication.", "August 21 release cut exposes no current publication");
+  check(await value(releaseCutCurrent, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent"), "Latest complete edition · August 6, 2026", "August 21 release cut keeps the latest complete Daily as an archive");
+  check(await value(releaseCutCurrent, "document.querySelector('.ns-publication [data-status-for=\"weekly\"]').textContent"), "Check overdue · not current", "August 21 release cut fails the overdue Weekly closed");
+  check(await value(releaseCutCurrent, "document.querySelector('.ns-publication [data-status-for=\"tribune\"]').textContent"), "Check overdue · not current", "August 21 release cut fails the overdue Big Picture closed");
+  check(await value(releaseCutCurrent, "['weekly','tribune'].every((edition) => document.querySelector('[data-contents-for=\"' + edition + '\"]').getAttribute('data-story-count') === '0')"), true, "August 21 release cut exposes no stale Weekly or Big Picture headline");
+  await act(releaseCutCurrent, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
+  check(await value(releaseCutCurrent, "document.querySelectorAll('.ns-daily-issue').length === 1 && document.querySelector('.ns-daily-issue').textContent.includes('The cyclone model is open')"), true, "August 21 release cut opens the exact August 6 Daily archive");
+  await act(releaseCutCurrent, "document.querySelector('#ns-browse-all').click()");
+  check(await value(releaseCutCurrent, "document.querySelectorAll('.ns-front-story').length"), 4, "August 21 release cut archive exposes only four eligible Daily stories");
+  releaseCutCurrent.close();
 
   const growth = await openPage("/newsstand.html?fixture=growth", { width: 1440, height: 1000 });
   check(await value(growth, "document.querySelectorAll('.ns-publication').length"), 4, "growth keeps four stable papers");

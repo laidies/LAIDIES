@@ -50,6 +50,19 @@ const protectedBuilderDependencies = [
   'scripts/lib/public-screening-room-admission.mjs',
   'scripts/lib/public-runtime-family-admission.mjs',
 ];
+const protectedReleaseChecks = [
+  'package.json',
+  'scripts/test-compose-daily-edition.mjs',
+  'scripts/test-promote-daily-edition.mjs',
+  'scripts/test-daily-private-workflow.mjs',
+  'scripts/test-newsstand-canonical-migration.mjs',
+  'scripts/test-compile-newsstand-daily-longform.mjs',
+  'scripts/test-promote-newsstand-story.mjs',
+  'scripts/validate-newsstand-stories.mjs',
+  'scripts/test-newsstand-reader-contract.mjs',
+  'scripts/test-newsstand-reader-browser.mjs',
+  'scripts/test-newsstand-release-pipeline-v1.mjs',
+];
 assert.match(builderSource, /reproducible: true/);
 assert.doesNotMatch(builderSource, /generatedAt:\s*new Date\(\)\.toISOString\(\)/,
   'public artifact identity must not change with the build clock');
@@ -57,6 +70,10 @@ assert.match(workflow, /workflow_dispatch:/);
 for (const dependency of protectedBuilderDependencies) {
   assert.ok(fs.existsSync(path.join(repositoryRoot, dependency)), `controller is missing builder dependency ${dependency}`);
   assert.ok(workflow.includes(dependency), `workflow does not protect builder dependency ${dependency}`);
+}
+for (const checkPath of protectedReleaseChecks) {
+  assert.ok(fs.existsSync(path.join(repositoryRoot, checkPath)), `controller is missing release check ${checkPath}`);
+  assert.ok(workflow.includes(checkPath), `workflow does not protect release check ${checkPath}`);
 }
 assert.doesNotMatch(workflow, /^\s*push:/m);
 assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
@@ -67,6 +84,7 @@ assert.match(workflow, /wrangler@4\.119\.0 pages deploy/);
 assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
 assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
 assert.match(workflow, /check-newsstand-release-scope\.mjs/);
+assert.match(workflow, /NEWSSTAND_REQUIRE_BROWSER=1 node scripts\/test-newsstand-reader-browser\.mjs/);
 assert.match(workflow, /base_commit:/);
 assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);

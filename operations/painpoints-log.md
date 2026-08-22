@@ -15185,3 +15185,34 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The Study Pack that worked only because
   the designer's laptop still had files Git had never seen.
 - **Publication status:** INTERNAL RELEASE-SAFETY CORRECTION / NOT DEPLOYED.
+
+## BTB-482 — A freshness test pinned to release day can pass after the public paper expires
+
+- **Date:** 2026-08-21
+- **Area:** NewsStand release truth and time-relative public verification.
+- **Failure:** The NewsStand browser suite stopped at its August 11 release
+  clock. It still passed after the Weekly and Big Picture source windows had
+  expired, so the suite could not prove what a visitor would see for the
+  August 21 release cut. The production workflow ran on Linux while the test
+  looked only for the macOS Chrome path, so that exact browser gate could also
+  report a successful skip at deployment time.
+- **Root cause:** Release-day fixture coverage was mistaken for an ongoing
+  freshness gate. Structural validation and old fixed clocks proved the
+  reader's mechanics, not today's public classification. Browser availability
+  was treated as optional even inside the protected production workflow.
+- **Prevention rule:** Every release cut for a time-sensitive product must run
+  one fixed clock for the actual cut date and assert both sides of the
+  boundary: eligible archives remain usable and overdue/current claims fail
+  closed. Calibrate the case by making an overdue item falsely fresh and prove
+  the suite rejects it. A production browser check must fail when no supported
+  browser is present; it may skip only in explicitly non-release environments.
+- **Durable correction:** The NewsStand browser matrix now includes August 21,
+  asserts no current publication, retains the August 6 Daily archive, withholds
+  overdue Weekly/Big Picture bodies and exposes only the four eligible Daily
+  archive stories. The normal matrix passes 225 checks; the deliberately
+  false-freshness input fails on the current-paper claim. The test now resolves
+  Chrome on macOS and Linux, production sets `NEWSSTAND_REQUIRE_BROWSER=1`, and
+  every invoked NewsStand release check is locked to the controller commit.
+- **Possible Behind the Build angle:** The test suite was green because it was
+  still living ten days in the past.
+- **Publication status:** INTERNAL RELEASE-GATE CORRECTION / NO PUBLIC BYTES CHANGED.

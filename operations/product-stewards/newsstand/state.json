@@ -1,8 +1,8 @@
 {
   "product": "SUNNYVAiLE NewsStand Building",
-  "status": "LIVE NEWSSTAND — BACKFILL, WEEKLY AND BIG PICTURE RELEASE VERIFIED PUBLICLY",
-  "releaseStatus": "DEPLOYED AND VERIFIED PUBLICLY — CURRENT DAILY AND NEW SERVICE-COLUMN PRODUCTION REMAIN SEPARATE",
-  "asOf": "2026-08-12",
+  "status": "ARCHIVE LIVE AND PUBLICLY REVERIFIED — NO CURRENT PAPER ON 2026-08-21",
+  "releaseStatus": "DEPLOYED AND VERIFIED PUBLICLY — RELEASED ARCHIVE ONLY; NEW CURRENT EDITION REMAINS HOLD",
+  "asOf": "2026-08-21",
   "relationshipToActiveWork": "BOUNDED LAUNCH-RECOVERY LANE",
   "route": "/newsstand.html",
   "primaryFile": "newsstand.html",
@@ -21,12 +21,15 @@
     "source": "independently reviewed three-week backfill plus public Big Picture masthead and archive-route repairs",
     "lastPublicByteCommit": "efb6f36f1deb1612abe48da1a371a40a086bcd1f",
     "publicArtifactIdentitySha256": "d97b150906cd49431240c08ad451ce0b245bc79717b50749760624790a4099be",
+    "sourceNewsstandHtmlSha256": "91ecc8f97b64e89211bf02f311d92fb155dfb7961a05a64744b3b00760802447",
     "newsstandHtmlSha256": "47b6ca5114db1c8660b34272f6f665bd3423443eba9060ed20d686a47ba98c8c",
+    "publicHtmlTransform": "scripts/lib/public-html-transform.mjs injects the checksum-bound shared context-navigation script; the transformed source hash equals the public NewsStand HTML hash",
     "newsstandCssSha256": "422531dda4fa6c1435d4b293b575a9f1c39336d0039cd95601d28d70642ad3b2",
     "readerContractSha256": "638e21d5dba09e989494256ec3ee3859fa70bbba6f581088e414048507d268a8",
     "catchupContractSha256": "92627e55e46dca885e3f47cfba7dc48d6406aa5c6b8118235a1c84964182bc97",
     "storiesSha256": "dd68f9a0d5aa9229811c21c9b187695daae94886947b9acd744ab4cbff286ea2",
-    "rackMasterSha256": "203308ab4837c87e9c3e33239c3f329f2f06e1c58d1b68870b647ea48a7405b3"
+    "rackMasterSha256": "203308ab4837c87e9c3e33239c3f329f2f06e1c58d1b68870b647ea48a7405b3",
+    "publicRackCropSha256": "81df9892a8131aa742e7c60e9a1cfc069faf8fc852ff409e5ade44bfa4c8d143"
   },
   "currentImplementation": {
     "schemaVersion": "1.0.0",
@@ -34,29 +37,29 @@
     "storiesFile": "content/newsstand-stories.js",
     "readerContract": "content/newsstand-reader-contract.js",
     "storyState": "four dated Daily archive stories, one Weekly synthesis and one Big Picture story are published in the dataset; one Breaking health candidate remains held",
-    "freshnessTruth": "the latest admitted Daily is August 6 and the Weekly source check is August 11; runtime must classify each paper and archive item honestly",
+    "freshnessTruth": "as of August 21, the latest admitted Daily is the August 6 archive; Breaking is quiet; Weekly and Big Picture source checks are overdue and their bodies fail closed; no paper is presented as current",
     "visualAuthority": "the accepted four-paper rack is retained; Ali's approved Big Picture masthead replaces the retired Tribune label without changing the internal route key"
   },
   "verification": {
-    "readerStateFixtures": "VERIFIED LOCALLY — 10 deterministic states",
-    "renderedBrowserMatrix": "VERIFIED LOCALLY — 217 checks across desktop/mobile, including repeated history cycles, archive growth, stale/hold/correction/retraction/focus/motion/zoom",
+    "readerStateFixtures": "VERIFIED LOCALLY — 10 deterministic contract states plus a fixed August 21 release-cut browser state",
+    "renderedBrowserMatrix": "VERIFIED LOCALLY 2026-08-21 — 225 checks across desktop/mobile, including an August 21 clear-day/archive/stale-paper case and repeated history, hold, correction, retraction, focus, motion and zoom coverage; the calibrated false-freshness input is rejected",
     "canonicalMigration": "VERIFIED LOCALLY",
     "privateDailyPipeline": "VERIFIED LOCALLY — composer, canonical writer and workflow pass; scheduled-trigger and substitution bad cases fail as calibrated",
     "assistiveTechnology": "PARTIAL PASS — native Safari exposes the intended headings, controls, four toggle states, overdue/quiet messages and Daily stale fail-closed transition; spoken VoiceOver announcement order remains unverified",
     "independentProductAndVisualReview": "ACCEPTED 2026-08-11 — role-distinct product and visual judges inspected exact committed bytes and rendered desktop/390/320 evidence",
     "aidbScoutRun": "VERIFIED QUIET/HOLD 2026-08-11 — exact committed AIDB record 19066497ffe62438129cb2afcfffb29a749e1807; current source index still ends at August 10; AIDB is not NewsStand publication authority",
-    "currentEditorialRun": "CURRENT WEEKLY — source-checked August 11; latest complete Daily remains August 6; no August 12 Daily is claimed",
+    "currentEditorialRun": "NO CURRENT PAPER — latest complete Daily is the August 6 archive; Breaking is quiet; Weekly and Big Picture are overdue; no August 21 edition is claimed",
     "curatedPublicArtifact": "BUILT — 559 manifested files, 435614818 bytes, identity d97b150906cd49431240c08ad451ce0b245bc79717b50749760624790a4099be",
-    "productionController": "DIRECT CLOUDFLARE RELEASE USED — the repository GitHub Pages controller is not the origin serving laidies.ai and still needs migration",
-    "deployment": "DEPLOYED — Cloudflare Pages fb867acf-aa57-4574-a6f3-2e1cd2e2bf20",
-    "publicVerification": "VERIFIED — custom-domain hashes match the exact NewsStand HTML, story dataset, reader and Catch Me Up runtime; live desktop opens five archive items and the Weekly with three sources"
+    "productionController": "REPAIRED LOCALLY FOR CLOUDFLARE — not yet installed and bound on the default production branch; the August 12 public release used a direct Cloudflare upload",
+    "deployment": "DEPLOYED — last known Cloudflare Pages release identity fb867acf-aa57-4574-a6f3-2e1cd2e2bf20; the current serving deployment ID is not exposed by the public response and was not reverified through the provider API",
+    "publicVerification": "VERIFIED 2026-08-21 — custom-domain hashes match the transformed NewsStand HTML, story dataset, reader, Catch Me Up runtime, CSS and rack crop; a real browser opened the August 6 Daily archive while the page exposed no current publication and withheld overdue Weekly and Big Picture bodies"
   },
   "releaseBlockers": [
-    "no August 12 Daily has completed dated source intake and independent issue admission",
+    "no August 21 current edition has completed dated source intake and independent issue admission",
     "new Paige, Promptoscope and career/life candidates remain held until exact semantic admission; rejected drafts were not published",
-    "the durable production controller still targets GitHub Pages rather than the Cloudflare Pages origin",
+    "the repaired Cloudflare production controller is not yet installed and bound on the default production branch",
     "spoken VoiceOver announcement order remains unverified even though native Safari structure and browser focus/state checks pass"
   ],
-  "nextAction": "Run the next dated source-intake cycle, admit one complete Daily only if its exact story and service desks pass, and migrate the protected production release path to Cloudflare before calling publication autonomous.",
+  "nextAction": "Capture Ali's NewsStand page walkthrough as the approved desired-outcome contract; meanwhile admit a new current edition only if its exact story and service desks pass, and install the protected Cloudflare production controller before calling publication autonomous.",
   "authority": "Ali authorized the public NewsStand release on 2026-08-12; this record does not approve held or future content."
 }
