@@ -15331,3 +15331,36 @@ while remaining falsely unfinished in the launch record.
   repository for weeks while the hosting platform has never successfully read
   it.
 - **Publication status:** INTERNAL RELEASE-SYSTEM CORRECTION / NOT DEPLOYED.
+## BTB-487 — A source-safety gate can release a visually stripped website
+
+- **Date:** 2026-08-21
+- **Area:** Public asset admission, visual coverage and Cloudflare release.
+- **Failure:** A default-deny asset cutline removed hundreds of unadmitted images
+  from visitor pages and replaced them with blank `visual held` panels. The
+  curated build still passed because it proved that unsafe files were absent,
+  not that the affected experiences retained enough admitted artwork to remain
+  visually complete. The Homepage browser test compounded the failure by
+  requiring the placeholder count rather than testing recovered visual coverage.
+- **Root cause:** Asset-source safety and visitor-visible quality were treated as
+  the same gate. No fail-closed release check required critical route artwork to
+  decode, occupy a meaningful visible area and remain usable at desktop and
+  mobile sizes while rejected assets stayed absent.
+- **Prevention rule:** Public asset admission remains default-deny, but a release
+  also requires calibrated route-level visual coverage. The browser guard must
+  require each admitted recovery asset to decode and be materially visible at
+  1440, 390 and 320 pixels, keep rejected assets absent, and check affected
+  controls and headings for clipping. A blank placeholder count can never prove
+  visual readiness.
+- **Durable correction:** Seven existing person-free environment assets were
+  narrowly admitted and restored across the Homepage, LUMINAiRY, KSVL and
+  MAiKEOVER. The revised guard was calibrated to fail deliberately, passed the
+  exact candidate, and independent pixel review rejected then accepted the KSVL
+  mobile successor after its clipping repair. Commit `12d4a2a` was deployed as
+  Cloudflare production `a1a7bb01`; all four routes and seven assets returned 200
+  at `laidies.ai`, and exact live 390px screenshots were inspected. Rejected High,
+  Mall, Post Office, portrait, postcard and character artwork remains held for
+  bounded replacement production.
+- **Possible Behind the Build angle:** How a security-minded image cleanup made
+  a live website look unfinished—and the second gate that now prevents it.
+- **Publication status:** RECOVERY WAVE 1 DEPLOYED AND PUBLICLY VERIFIED
+  2026-08-21 / REPLACEMENT ARTWORK WAVE REMAINS OPEN.
