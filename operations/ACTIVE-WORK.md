@@ -1625,3 +1625,35 @@ objective; every open lane keeps its own checkpoint.
 - **Authority:** product vision, inventory and internal plan only. No HTML, CSS,
   JavaScript, visual candidate, trailer, postcard, referral, reward, deployment
   or public state changed.
+
+### 2026-08-22 three-page design-program operating checkpoint
+
+- **Current state:** `OPERATING GUARD VERIFIED LOCALLY / NO VISUAL CANDIDATE BUILT`.
+- **Scope:** Homepage, LIBRAiRY and Visitor's Centre are the first design set,
+  preserving all prior walkthrough decisions rather than restarting at the
+  Visitor's Centre.
+- **Recovered gate evidence:** the release worktree was missing quarantined
+  known-bad candidates and calibration screenshots required by the design-review
+  admission test. Exact bytes were recovered from the protected checkout only
+  as rejection fixtures. They are not design-eligible assets.
+- **Program correction:** one SHA-bound, default-deny manifest governs each
+  page's sources, admitted existing assets, prohibited assets, required new-art
+  roles, candidate dependencies and checkpoint policy. A checker must reject an
+  unlisted dependency and is calibrated against the old Visitor lobby and stale
+  Homepage Miss Jeeves scene.
+- **Preservation rule:** push the operating guard first; then push each
+  completed page direction set and each accepted iteration separately. Never
+  accumulate all three pages as one long-lived dirty worktree.
+- **Verification:** the focused program check passes; its calibration rejects a
+  stale source hash, an undeclared dependency, the rejected Visitor lobby and
+  the stale Homepage Miss Jeeves scene. The historical design-admission suite
+  passes 37 known-bad fixtures and two passing twins. The real candidate gate
+  correctly exits `VACUOUS` because there are zero visual candidates.
+- **Repository-wide check:** `npm run ci:build` reaches and passes the new
+  design-program test, then stops at the pre-existing Library instruction-packet
+  size limit (`157` lines; maximum `90`). That separate failure is not repaired
+  or represented as part of this checkpoint.
+- **Next trigger:** produce the shared header/type foundation and the first
+  representative Homepage direction set from the pushed operating checkpoint.
+- **Authority:** operating-system repair only. No page code, visual candidate,
+  deployment or public state changed.

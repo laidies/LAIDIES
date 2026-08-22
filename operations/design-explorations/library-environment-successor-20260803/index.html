@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LIBRAiRY environment successor — local proof</title>
+<style>
+:root{--ink:#07142f;--paper:#f8f5ff;--purple:#6b3fa0;--pink:#f15aa3;--teal:#19b9c5;--gold:#ffc857;--blue:#1368ce;--room:#121d43;--shadow:0 16px 40px rgba(7,20,47,.22)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#eaf9fb 0,#f7efff 55%,#fff4e8 100%);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+button,input{font:inherit}
+button{color:inherit}
+.local-flag{padding:8px 18px;background:#07142f;color:#fff;text-align:center;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.mast{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;max-width:1320px;margin:auto;padding:18px clamp(18px,4vw,54px) 17px}
+.eyebrow{margin:0 0 8px;color:#6b3fa0;font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+h1{margin:0;font-size:clamp(38px,5vw,70px);line-height:.85;letter-spacing:-.06em}
+.mast p:not(.eyebrow){max-width:650px;margin:13px 0 0;font-size:clamp(15px,1.25vw,18px);line-height:1.35}
+.directory{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.directory button{min-height:48px;padding:10px 16px;border:2px solid var(--ink);border-radius:3px;background:#fff;font-weight:900;box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+.directory button:hover,.directory button:focus-visible{background:#e8fbff;transform:translate(-1px,-1px);outline:3px solid #fff;outline-offset:2px}
+.directory .desk-link{background:var(--pink)}
+.proof{max-width:1240px;margin:auto;padding:0 clamp(10px,2.5vw,42px) 60px}
+.experience{position:relative;isolation:isolate;border:4px solid var(--ink);border-radius:7px;overflow:hidden;background:var(--room);box-shadow:var(--shadow)}
+.room{position:relative;aspect-ratio:1.58;overflow:hidden}
+.room>img{display:block;width:100%;height:100%;object-fit:cover}
+.room::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3),inset 0 -70px 90px rgba(7,20,47,.18)}
+.room-hint{position:absolute;right:2.3%;top:2.6%;z-index:3;max-width:280px;margin:0;padding:8px 11px;border:1px solid rgba(255,255,255,.5);border-radius:3px;background:rgba(7,20,47,.86);color:#fff;font-size:12px;line-height:1.35}
+.desk-control{position:absolute;z-index:4;right:2.5%;bottom:4%;width:min(22%,310px);min-height:70px;padding:12px 14px;border:2px solid #fff;border-radius:4px;background:rgba(7,20,47,.91);color:#fff;text-align:left;box-shadow:6px 6px 0 var(--pink);cursor:pointer}
+.desk-control b{display:block;color:#8df6ff;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.desk-control span{display:block;margin-top:4px;font-size:12px;line-height:1.3}
+.desk-control:hover,.desk-control:focus-visible{background:#351d61;outline:4px solid var(--gold);outline-offset:3px}
+.shelves{position:absolute;z-index:3;left:3.1%;top:26.4%;width:56.7%;height:54.8%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.6%}
+.bay{position:relative;min-width:0;padding:10.5% 8% 1%;display:grid;grid-template-rows:repeat(4,1fr)}
+.bay-sign{position:absolute;left:2%;right:2%;top:-13.5%;height:12%;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 7%;border:1px solid #bdc8da;border-radius:2px;background:linear-gradient(#31456b,#101c3c);color:#fff;box-shadow:0 4px 8px rgba(0,0,0,.35);font-size:clamp(7px,.8vw,13px);font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.bay-sign::before,.bay-sign::after{content:"";width:5px;height:5px;border-radius:50%;background:#e5c77c;box-shadow:inset 1px 1px 1px #fff}
+.bay-sign span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bay:nth-child(1) .bay-sign{border-top:5px solid var(--pink)}
+.bay:nth-child(2) .bay-sign{border-top:5px solid var(--teal)}
+.bay:nth-child(3) .bay-sign{border-top:5px solid var(--gold)}
+.shelf-row{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:0;padding-bottom:2%}
+.cover-button{position:relative;height:92%;max-height:130px;aspect-ratio:.68;border:0;padding:0;background:none;cursor:pointer;filter:drop-shadow(2px 3px 2px rgba(0,0,0,.46));transition:transform .12s ease,filter .12s ease}
+.cover-button img{display:block;width:100%;height:100%;object-fit:contain}
+.cover-button::after{content:"Preview";position:absolute;left:50%;bottom:-3px;transform:translate(-50%,48%);padding:2px 5px;border:1px solid #fff;border-radius:2px;background:#07142f;color:#fff;font-size:clamp(5px,.52vw,8px);font-weight:900;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;opacity:0}
+.cover-button:hover,.cover-button:focus-visible,.cover-button[aria-pressed="true"]{z-index:5;transform:translateY(-7%) scale(1.08);filter:drop-shadow(0 7px 6px rgba(0,0,0,.55))}
+.cover-button:hover::after,.cover-button:focus-visible::after,.cover-button[aria-pressed="true"]::after{opacity:1}
+.cover-button:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+.cover-button[aria-pressed="true"] img{outline:3px solid #fff;outline-offset:2px}
+.page-control{position:absolute;z-index:8;right:4%;bottom:1%;min-width:30px;min-height:27px;border:1px solid #fff;border-radius:2px;background:#07142f;color:#fff;font-size:9px;font-weight:900;cursor:pointer}
+.page-control[hidden]{display:none}
+.page-control:hover,.page-control:focus-visible{background:var(--pink);outline:2px solid var(--gold)}
+.preview{position:absolute;z-index:6;left:2.3%;bottom:2.3%;width:57.8%;min-height:13.5%;display:grid;grid-template-columns:minmax(105px,.55fr) 1.65fr auto;align-items:center;gap:14px;padding:12px 16px;border:2px solid #17284c;border-left:8px solid var(--pink);border-radius:3px;background:rgba(251,248,235,.96);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.preview-label{font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#695a77}
+.preview h2{margin:4px 0 0;font-size:clamp(16px,1.55vw,25px);line-height:1}
+.preview-copy{min-width:0}
+.preview-copy p{margin:0 0 5px;font-size:clamp(10px,.8vw,13px);line-height:1.25}
+.preview-topics{color:#3d4f70;font-size:clamp(9px,.72vw,12px)!important}
+.preview-status{display:inline-block;padding:3px 6px;border-radius:2px;background:#e1f5e7;color:#165b34;font-size:9px!important;font-weight:900;text-transform:uppercase}
+.preview-status.held{background:#ece6f6;color:#634b79}
+.open-button{min-width:120px;min-height:46px;padding:8px 12px;border:2px solid var(--ink);border-radius:3px;background:var(--teal);font-weight:900;box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+.open-button:disabled{background:#e0dce7;color:#6a6270;cursor:not-allowed;box-shadow:none}
+.open-button:not(:disabled):hover,.open-button:not(:disabled):focus-visible{background:var(--gold);outline:3px solid #fff;outline-offset:2px}
+.mobile-aisle-heading{display:none}
+dialog{border:0;padding:0;background:transparent;color:var(--ink)}
+dialog::backdrop{background:rgba(7,15,36,.82);backdrop-filter:blur(4px)}
+.reader{width:min(1180px,calc(100vw - 38px));height:min(850px,calc(100dvh - 38px));border:4px solid var(--ink);border-radius:6px;background:#f7f2e7;box-shadow:12px 12px 0 rgba(241,90,163,.78);overflow:hidden}
+.reader-head{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;min-height:110px;padding:22px 28px;background:linear-gradient(135deg,#142c62,#6b3fa0);color:#fff;border-bottom:7px solid var(--teal)}
+.reader-head small{display:block;margin-bottom:4px;color:#aef8ff;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+.reader-head h2{margin:0;font-family:Georgia,serif;font-size:clamp(27px,4vw,48px)}
+.reader-close{min-height:44px;padding:8px 13px;border:2px solid #fff;border-radius:3px;background:#fff;color:var(--ink);font-weight:900;cursor:pointer}
+.book-workspace{display:grid;grid-template-columns:260px 1fr;height:calc(100% - 117px);overflow:hidden}
+.contents{padding:26px 20px;background:#e9e3f4;border-right:2px solid #c9bddc;overflow:auto}
+.contents::before{content:"CONTENTS";display:block;margin-bottom:14px;color:#694d84;font-size:10px;font-weight:900;letter-spacing:.18em}
+.contents a{display:block;margin:0 0 5px;padding:9px 10px;border-left:4px solid transparent;color:#24375c;text-decoration:none;font-size:13px;font-weight:700}
+.contents a:hover,.contents a:focus-visible{border-left-color:var(--pink);background:#fff;outline:2px solid var(--blue)}
+.book-text{padding:42px clamp(28px,5vw,76px) 80px;overflow:auto;background:linear-gradient(90deg,rgba(116,81,54,.06),transparent 28px),#fffdf7;font-family:Georgia,serif;font-size:18px;line-height:1.68}
+.book-text .lede{margin:0 0 34px;padding:22px 24px;border-left:8px solid var(--pink);background:#eafaff;font-family:Arial,sans-serif;font-size:16px;line-height:1.5}
+.book-text h3{scroll-margin-top:22px;margin:52px 0 12px;padding-bottom:9px;border-bottom:4px solid var(--teal);font-family:Arial,sans-serif;font-size:27px}
+.book-text .example{padding:18px 20px;background:#f2eafa;border:1px solid #d8c9e7;border-radius:3px;font-family:Arial,sans-serif;font-size:15px}
+.desk{width:min(720px,calc(100vw - 32px));max-height:calc(100dvh - 32px);border:4px solid var(--ink);border-radius:6px;background:#f8fbff;box-shadow:12px 12px 0 rgba(25,185,197,.8);overflow:auto}
+.desk-head{display:flex;justify-content:space-between;gap:14px;align-items:start;padding:22px 24px;background:#351d61;color:#fff;border-bottom:7px solid var(--pink)}
+.desk-head h2{margin:0;font-size:31px}
+.desk-head p{margin:6px 0 0;max-width:490px;line-height:1.4}
+.desk-body{padding:26px}
+.desk-form{display:grid;grid-template-columns:1fr auto;gap:9px}
+.desk-form input{min-height:52px;padding:10px 13px;border:2px solid var(--ink);border-radius:3px;background:#fff}
+.desk-form button{min-height:52px;padding:10px 18px;border:2px solid var(--ink);border-radius:3px;background:var(--gold);font-weight:900;cursor:pointer}
+.desk-examples{margin:14px 0 0;color:#52607a;font-size:13px}
+.results{display:grid;gap:8px;margin-top:22px}
+.result{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px 14px;border:2px solid #bccbe0;border-left:7px solid var(--teal);background:#fff;text-align:left;cursor:pointer}
+.result b,.result span{display:block}
+.result span{margin-top:3px;font-size:12px;color:#4c5c72}
+.result small{font-weight:900;color:#674c7d}
+.result:hover,.result:focus-visible{border-color:var(--ink);outline:3px solid var(--gold)}
+@media (max-width:900px){
+ .mast{grid-template-columns:1fr}.directory{justify-content:flex-start}
+ .experience{overflow:visible;background:#e8f8fb}
+ .room{border-bottom:4px solid var(--ink)}
+ .room-hint{left:3%;right:auto;max-width:60%;font-size:10px}
+ .desk-control{right:3%;bottom:5%;width:35%;min-height:54px;padding:8px 10px}.desk-control b{font-size:11px}.desk-control span{font-size:9px}
+ .mobile-aisle-heading{display:block;margin:0;padding:18px 18px 10px;background:#e8f8fb;font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+ .shelves{position:static;width:auto;height:auto;display:flex;gap:14px;padding:8px 18px 18px;overflow-x:auto;scroll-snap-type:x mandatory;background:#e8f8fb}
+ .bay{flex:none;width:min(82vw,430px);min-width:min(82vw,430px);height:510px;padding:74px 28px 24px;grid-template-rows:repeat(4,1fr);scroll-snap-align:center;border:3px solid #c7bda9;border-radius:3px;background:linear-gradient(90deg,#d9d1c5 0 7%,transparent 7% 93%,#d9d1c5 93%),linear-gradient(#1b2848 0 18%,#d2c3a6 18% 19.5%,#1b2848 19.5% 39%,#d2c3a6 39% 40.5%,#1b2848 40.5% 60%,#d2c3a6 60% 61.5%,#1b2848 61.5% 81%,#d2c3a6 81% 82.5%,#1b2848 82.5% 100%);box-shadow:8px 8px 0 #07142f}
+ .bay-sign{top:16px;left:20px;right:20px;height:44px;font-size:13px}
+ .cover-button{height:86%;max-height:none}.cover-button::after{font-size:9px}
+ .page-control{right:34px;bottom:28px;min-width:52px;min-height:38px;font-size:11px}
+ .preview{position:static;width:auto;min-height:0;margin:0;border-width:3px 0 0;border-left:0;padding:18px;grid-template-columns:1fr auto;background:#fffdf7;box-shadow:none}
+ .preview-title{grid-column:1/-1}.preview-copy p{font-size:14px}.preview-topics{font-size:12px!important}.open-button{min-width:136px}
+ .book-workspace{grid-template-columns:1fr;overflow:auto}.contents{border-right:0;border-bottom:2px solid #c9bddc;max-height:175px}.book-text{overflow:visible}.reader{overflow:auto}.reader-head{position:sticky;top:0;z-index:5;min-height:92px}.book-workspace{height:auto}
+}
+@media (max-width:560px){
+ .local-flag{font-size:9px}.mast{padding-top:22px}.directory button{flex:1 1 135px}.proof{padding-inline:0}.experience{border-inline:0;border-radius:0}
+ .room{aspect-ratio:1.15}.room>img{object-position:65% center}.room-hint{display:none}.desk-control{width:46%;right:4%;bottom:5%}
+ .preview{grid-template-columns:1fr}.open-button{width:100%}
+ .desk-form{grid-template-columns:1fr}.reader{width:100vw;height:100dvh;border:0;border-radius:0}.reader-head{padding:16px}.reader-close{font-size:12px}.book-text{padding:28px 20px 60px;font-size:17px}.contents{padding:18px 15px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.cover-button{transition:none}}
+</style>
+</head>
+<body>
+<div class="local-flag">Local design proof · building remains BUILDING / HOLD · no publication claim</div>
+<header class="mast">
+  <div>
+    <p class="eyebrow">SUNNYVAiLE town reference building</p>
+    <h1>THE LIBRAiRY</h1>
+    <p>Plain-English books about AI, a shelf for choosing tools, and sourced answers you can check. Browse a shelf when you know the subject; ask Miss Jeeves when you only know the question.</p>
+  </div>
+  <nav class="directory" aria-label="Library directory">
+    <button type="button" data-jump="0">Browse 101s</button>
+    <button type="button" data-jump="1">Choose a tool</button>
+    <button type="button" data-jump="2">Find a reference</button>
+    <button class="desk-link" type="button" data-open-desk>Ask Miss Jeeves</button>
+  </nav>
+</header>
+<main class="proof">
+  <section class="experience" aria-labelledby="room-title">
+    <h2 id="room-title" hidden>Interactive Library room</h2>
+    <div class="room">
+      <img src="library-room-empty-shelves-candidate-v1.png" alt="A bright purple and teal SUNNYVAiLE Library with three empty display bays and Miss Jeeves at the reference desk">
+      <p class="room-hint"><strong>The room is the directory.</strong> Select a cover to preview it first, or ask at the labelled desk.</p>
+      <button class="desk-control" type="button" data-open-desk><b>Ask Miss Jeeves</b><span>Tell the reference desk your question. Get a direct answer and the exact source.</span></button>
+    </div>
+    <h2 class="mobile-aisle-heading">Walk the aisles · swipe sideways</h2>
+    <div class="shelves" id="shelves" aria-label="Library shelves"></div>
+    <aside class="preview" id="preview" aria-live="polite">
+      <div class="preview-title"><span class="preview-label">Selected book · preview before opening</span><h2 id="preview-title">Choose a book</h2></div>
+      <div class="preview-copy"><p id="preview-summary">Select any cover. We will show what it covers, what opening it does and whether it is ready.</p><p class="preview-topics" id="preview-topics"></p><p class="preview-status held" id="preview-status">Nothing selected</p></div>
+      <button class="open-button" id="open-book" type="button" disabled>Open book</button>
+    </aside>
+  </section>
+</main>
+
+<dialog id="reader" aria-labelledby="reader-title">
+  <div class="reader">
+    <header class="reader-head"><div><small>Open reference · continuous reading</small><h2 id="reader-title"></h2></div><button class="reader-close" type="button" data-close-reader>← Back to this shelf</button></header>
+    <div class="book-workspace"><nav class="contents" id="contents" aria-label="Book contents"></nav><article class="book-text" id="book-text"></article></div>
+  </div>
+</dialog>
+
+<dialog id="jeeves" aria-labelledby="jeeves-title">
+  <section class="desk">
+    <header class="desk-head"><div><h2 id="jeeves-title">Ask Miss Jeeves</h2><p>Use your own words. She checks the Library catalogue and points to the most relevant book before you open it.</p></div><button class="reader-close" type="button" data-close-desk>Back to the room</button></header>
+    <div class="desk-body"><form class="desk-form" id="desk-form"><input id="question" aria-label="Question for Miss Jeeves" placeholder="e.g. how do I know if an answer is true?"><button type="submit">Ask the desk</button></form><p class="desk-examples">Try: “which AI should I use?” · “what is a hallucination?” · “what should I never paste?”</p><div class="results" id="results" role="status" aria-live="polite"></div></div>
+  </section>
+</dialog>
+
+<script>
+const ROOT='../../../assets/library-101/';
+const PAGE_SIZE=4;
+const sections=[
+ {name:'101s',purpose:'The plain-English basics. Start here when the words themselves are the problem.',books:[
+  {id:'vocab',title:'Vocab 101',summary:'Prompt, token, context, model and hallucination in ordinary language.',topics:['Prompts','Tokens','Hallucinations','Context','Models'],keywords:'wrong false confident answer',image:'textbook-vocab-101.png',sample:true},
+  {id:'concepts',title:'Concepts 101',summary:'How generative AI works, why it predicts, and why it can sound so certain.',topics:['Prediction','Training','Confidence'],image:'textbook-concepts-101.png'},
+  {id:'briefing',title:'Briefing 101',summary:'How to give AI enough context, a clear job and a useful example.',topics:['Context','Constraints','Examples'],image:'textbook-briefing-101.png'},
+  {id:'setup',title:'Setup 101',summary:'Set useful defaults once so your tools already understand how you work.',topics:['Instructions','Defaults','Reusable context'],image:'textbook-setup-101.png'},
+  {id:'accounts',title:'Accounts 101',summary:'The privacy basics: what is safe to paste, what is not, and which account to use.',topics:['Privacy','Work accounts','Sensitive data'],image:'textbook-accounts-101.png'}]},
+ {name:'Tools',purpose:'Choose the right AI tool for the job before learning every button.',books:[
+  {id:'whos-who',title:"Who's Who in AI",summary:'The major AI companies, their tools, and which one fits which kind of task.',topics:['ChatGPT','Claude','Gemini','Copilot','Perplexity'],image:'book-whos-who.png'},
+  {id:'chatgpt',title:'ChatGPT',summary:'What the all-rounder is good at, where it struggles, and when to choose it.',topics:['Writing','Analysis','Images'],image:'book-chatgpt.png'},
+  {id:'claude',title:'Claude',summary:'Where Claude is especially useful for careful writing, long context and reasoning.',topics:['Writing','Documents','Reasoning'],image:'book-claude.png'},
+  {id:'gemini',title:'Gemini',summary:'How Google’s AI fits with Search, Workspace and multimodal work.',topics:['Google','Workspace','Multimodal'],image:'book-gemini.png'},
+  {id:'copilot',title:'Copilot',summary:'How Microsoft’s assistant works inside Word, Excel, PowerPoint and Teams.',topics:['Microsoft 365','Documents','Meetings'],image:'book-copilot.png'},
+  {id:'perplexity',title:'Perplexity',summary:'When to use an answer engine that makes its source links visible.',topics:['Research','Sources','Current information'],image:'book-perplexity.png'}]},
+ {name:'Reference',purpose:'Look up a sourced answer and learn how to check it yourself.',books:[
+  {id:'straight',title:'Straight Answers About AI',summary:'Sourced answers to the big questions about jobs, data and environmental impact.',topics:['Jobs','Privacy','Environment'],keywords:'evidence trustworthy',image:'book-straight-answers-about-ai.png'},
+  {id:'check',title:"How to Check AI's Work",summary:'A practical method for finding claims, checking sources and spotting confident errors.',topics:['Claims','Sources','Verification'],keywords:'answer true accurate trust verify fact evidence',image:'book-how-to-check-ai-work.png'},
+  {id:'paste',title:'What Not to Paste',summary:'The hard rules for client, personal, confidential and regulated information.',topics:['Confidentiality','Personal data','Risk'],image:'book-what-not-to-paste.png'},
+  {id:'cookbook',title:'The Prompt Cookbook',summary:'Reusable prompt structures for the jobs that come up every week.',topics:['Templates','Common jobs','Adaptation'],image:'book-the-prompt-cookbook.png'}]}
+];
+const byId=new Map(sections.flatMap((section,sectionIndex)=>section.books.map(book=>[book.id,{...book,section:section.name,sectionIndex}])));
+const pageState=sections.map(()=>0);
+let selected=null;
+let returnTarget=null;
+const shelves=document.getElementById('shelves');
+const previewTitle=document.getElementById('preview-title');
+const previewSummary=document.getElementById('preview-summary');
+const previewTopics=document.getElementById('preview-topics');
+const previewStatus=document.getElementById('preview-status');
+const openButton=document.getElementById('open-book');
+
+function renderShelves(){
+ shelves.innerHTML=sections.map((section,sectionIndex)=>{
+   const pages=Math.ceil(section.books.length/PAGE_SIZE);
+   const page=pageState[sectionIndex]%pages;
+   const visible=section.books.slice(page*PAGE_SIZE,page*PAGE_SIZE+PAGE_SIZE);
+   const rows=visible.map(book=>`<div class="shelf-row"><button class="cover-button" type="button" data-book="${book.id}" aria-pressed="${selected?.id===book.id}" aria-label="Preview ${book.title}. ${book.summary}"><img src="${ROOT+book.image}" alt="${book.title} book cover"></button></div>`).join('');
+   return `<section class="bay" data-section="${sectionIndex}" aria-label="${section.name}: ${section.purpose}"><h3 class="bay-sign"><span>${section.name}</span><small>${section.books.length} books</small></h3>${rows}<button class="page-control" type="button" data-page="${sectionIndex}" ${pages<2?'hidden':''} aria-label="Show more ${section.name} books">${page+1}/${pages} →</button></section>`;
+ }).join('');
+ document.querySelectorAll('[data-book]').forEach(button=>button.addEventListener('click',()=>selectBook(button.dataset.book,button)));
+ document.querySelectorAll('[data-page]').forEach(button=>button.addEventListener('click',()=>{const i=Number(button.dataset.page);pageState[i]=(pageState[i]+1)%Math.ceil(sections[i].books.length/PAGE_SIZE);renderShelves();}));
+}
+function selectBook(id,control,reveal=true){
+ selected=byId.get(id);returnTarget=control||document.querySelector(`[data-book="${id}"]`);
+ previewTitle.textContent=selected.title;
+ previewSummary.textContent=selected.summary;
+ previewTopics.textContent=`Inside: ${selected.topics.join(' · ')}. Opening enters a scrollable reference with contents navigation.`;
+ previewStatus.textContent=selected.sample?'Local reader UX sample — publication admission remains separate':'Catalogue preview — full book is not admitted yet';
+ previewStatus.classList.toggle('held',!selected.sample);
+ openButton.disabled=!selected.sample;
+ openButton.textContent=selected.sample?'Open local UX sample':'Not yet available';
+ document.querySelectorAll('[data-book]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.book===id)));
+ if(reveal)requestAnimationFrame(()=>{const rect=document.getElementById('preview').getBoundingClientRect();if(rect.bottom>innerHeight||rect.top<0)document.getElementById('preview').scrollIntoView({behavior:'smooth',block:'nearest'});});
+}
+document.querySelectorAll('[data-jump]').forEach(button=>button.addEventListener('click',()=>{
+ const bay=document.querySelector(`[data-section="${button.dataset.jump}"]`);bay?.scrollIntoView({behavior:'smooth',block:'center',inline:'center'});bay?.querySelector('[data-book]')?.focus();
+}));
+
+const sampleSections=[
+ {title:'What a prompt is',html:'<p>A prompt is simply what you give the tool: your question, request, context or example. A useful prompt tells the tool what job it is doing and what a good result needs to include.</p><div class="example"><strong>Useful pattern:</strong> “Help me draft a clear client update. The audience is non-technical. Keep it under 180 words, state what changed and end with the decision I need.”</div>'},
+ {title:'Tokens',html:'<p>AI tools process text in pieces called tokens. You rarely need to count them yourself. The practical point is that every tool has a limit to how much material it can consider at once.</p>'},
+ {title:'Hallucinations',html:'<p>A hallucination is a plausible-sounding answer that is unsupported or false. Fluency is not proof. Check consequential claims against reliable sources and ask the tool to separate evidence from inference.</p>'},
+ {title:'Context',html:'<p>Context is the background the tool needs to do the job well: who the result is for, what has already happened, constraints, source material and examples of the standard you want.</p>'},
+ {title:'Model versus tool',html:'<p>The model is the underlying AI system. The tool is the product interface around it. One product may offer several models, and the same model can appear in different tools with different features.</p>'}
+];
+const reader=document.getElementById('reader');
+openButton.addEventListener('click',()=>{
+ if(!selected?.sample)return;
+ document.getElementById('reader-title').textContent=selected.title;
+ document.getElementById('contents').innerHTML=sampleSections.map((section,index)=>`<a href="#sample-${index}">${section.title}</a>`).join('');
+ document.getElementById('book-text').innerHTML=`<p class="lede"><strong>${selected.title}</strong> covers ${selected.topics.join(', ')}. Use the contents to jump to one answer or keep scrolling to read the whole reference.</p>${sampleSections.map((section,index)=>`<section><h3 id="sample-${index}">${section.title}</h3>${section.html}</section>`).join('')}`;
+ reader.showModal();document.getElementById('book-text').scrollTop=0;
+});
+function closeReader(){reader.close();returnTarget?.focus();}
+document.querySelector('[data-close-reader]').addEventListener('click',closeReader);
+reader.addEventListener('click',event=>{if(event.target===reader)closeReader()});
+
+const jeeves=document.getElementById('jeeves');
+document.querySelectorAll('[data-open-desk]').forEach(button=>button.addEventListener('click',()=>{returnTarget=button;jeeves.showModal();setTimeout(()=>document.getElementById('question').focus(),0)}));
+function closeDesk(){jeeves.close();returnTarget?.focus();}
+document.querySelector('[data-close-desk]').addEventListener('click',closeDesk);
+jeeves.addEventListener('click',event=>{if(event.target===jeeves)closeDesk()});
+document.getElementById('desk-form').addEventListener('submit',event=>{event.preventDefault();searchCatalogue(document.getElementById('question').value)});
+function searchCatalogue(query){
+ const stop=new Set(['a','an','and','are','do','does','how','i','if','in','is','it','my','of','should','the','to','what']);
+ const terms=(query.toLowerCase().match(/[a-z0-9]+/g)||[]).filter(term=>term.length>1&&!stop.has(term));
+ const ranked=[...byId.values()].map(book=>{const hay=`${book.title} ${book.summary} ${book.topics.join(' ')} ${book.keywords||''}`.toLowerCase();return {book,score:terms.reduce((score,term)=>score+(hay.includes(term)?1:0),0)}}).filter(item=>item.score>0).sort((a,b)=>b.score-a.score).slice(0,5);
+ const results=document.getElementById('results');
+ if(!query.trim()){results.innerHTML='<p>Ask a question in your own words first.</p>';return}
+ if(!ranked.length){results.innerHTML='<p>Nothing in the current catalogue matches that yet. Miss Jeeves would keep the question visible and explain the gap rather than invent an answer.</p>';return}
+ results.innerHTML=ranked.map(({book})=>`<button class="result" type="button" data-result="${book.id}"><span><b>${book.title}</b><span>${book.summary}</span></span><small>${book.sample?'Local sample':'Held'}</small></button>`).join('');
+ results.querySelectorAll('[data-result]').forEach(button=>button.addEventListener('click',()=>{closeDesk();selectBook(button.dataset.result,document.querySelector(`[data-book="${button.dataset.result}"]`));document.getElementById('preview').scrollIntoView({behavior:'smooth',block:'center'});}));
+}
+renderShelves();
+selectBook('vocab',document.querySelector('[data-book="vocab"]'),false);
+</script>
+</body>
+</html>

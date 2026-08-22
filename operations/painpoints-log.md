@@ -15522,3 +15522,34 @@ while remaining falsely unfinished in the launch record.
   the least trustworthy—and how stable IDs stop AI help systems from answering
   with stale promises.
 - **Publication status:** INTERNAL CONTINUITY CORRECTION / NO PUBLIC CHANGE.
+
+## BTB-493 — A strict design gate can be unusable when its known-bad evidence is absent
+
+- **Date:** 2026-08-22
+- **Area:** Homepage, LIBRAiRY and Visitor's Centre design production.
+- **Failure:** The release worktree contained a strict design-review admission
+  checker but omitted the quarantined candidates, screenshots and evidence that
+  its calibration required. The test crashed before proving a known-bad concept
+  would fail. The system also had no one manifest binding these three pages'
+  current sources, admitted assets and prohibited dependencies, so a newly named
+  candidate could still reference retired imagery from inside HTML or CSS.
+- **Root cause:** Gate code and its negative evidence were not moved as one
+  dependency closure, while commit discipline remained prose rather than a
+  candidate-level pushed-commit requirement. File presence and a new candidate
+  name could bypass the intended visual-history boundary.
+- **Prevention rule:** A design program is operable only when its known-bad
+  fixtures and passing twins run, its page sources and reused assets are bound by
+  exact path and SHA-256, and every actual HTML/CSS asset reference is declared.
+  Rejected dependencies fail regardless of the candidate filename. Ali review
+  requires the exact pushed commit, and each completed page unit is pushed before
+  work accumulates on another page.
+- **Durable correction:** Exact quarantine evidence was recovered without
+  readmitting it. The three-page program manifest, dependency checker, calibrated
+  tests, tracked delivery lanes and CI wiring now reject stale hashes,
+  undeclared references, the old Visitor lobby and the stale Homepage Miss
+  Jeeves scene. The real visual gate remains correctly vacuous until a candidate
+  exists.
+- **Possible Behind the Build angle:** Why keeping the test is not enough: the
+  rejected examples are part of the safety system that stops an AI design
+  workflow from repeating old mistakes.
+- **Publication status:** INTERNAL OPERATING-SYSTEM REPAIR / NO VISUAL OR PUBLIC CHANGE.

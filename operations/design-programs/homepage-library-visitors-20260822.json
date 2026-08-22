@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "program_id": "homepage-library-visitors-20260822",
+  "status": "PREPRODUCTION_GUARDS_READY_NO_CANDIDATES",
+  "checkpoint_policy": {
+    "operating_guard": "COMMIT_AND_PUSH_BEFORE_VISUAL_PRODUCTION",
+    "completed_page_direction_set": "COMMIT_AND_PUSH_SEPARATELY",
+    "accepted_iteration": "COMMIT_AND_PUSH_SEPARATELY",
+    "ali_review_requires_exact_pushed_commit": true
+  },
+  "shared_governing_sources": [
+    {
+      "path": "operations/DECISIONS.md",
+      "sha256": "83d1dcd4a4f68a835c72bc35df8a03e7ffdc1de8d6da3d0515822b8a9f462063"
+    },
+    {
+      "path": "operations/site-visual-system-lock-2026-07-23.md",
+      "sha256": "0629fc7268be53bf55d5ff638d73d85d1d79f0d897f02188efef04a289c6311b"
+    }
+  ],
+  "global_prohibited_assets": [
+    {
+      "path": "assets/library/jeeves-scene.webp",
+      "sha256": "69edb1f3cacff5ee6d2bfa59bab5bd7f57c27c40267d4adbc5d1ec45818a3943",
+      "reason": "Ali rejected the current Homepage Miss Jeeves scene as stale"
+    },
+    {
+      "path": "assets/town-characters/scenes/fairy-godmother-scene.webp",
+      "sha256": "fb546e953c7f299df1b27b5743bd95bae19820b7352907a03fee08be92786ecd",
+      "reason": "Rejected Homepage character treatment"
+    }
+  ],
+  "pages": {
+    "homepage": {
+      "tracked_root": "operations/design-explorations/current/homepage",
+      "governing_sources": [
+        {
+          "path": "operations/product-stewards/town-entry-homepage/ALI-HOMEPAGE-WALKTHROUGH-2026-08-22.md",
+          "sha256": "73d93a0a0782ded2dd3b2479f75b1fb913cd72248e8a47a2f01376a3fe4530d5"
+        },
+        {
+          "path": "operations/product-stewards/town-entry-homepage/HOMEPAGE-NEXT-TASK-HANDOFF-2026-08-22.md",
+          "sha256": "a29651bf98d7138dcdec71e3042297e5c1121612892dc07ffda55eba228ec3cd"
+        }
+      ],
+      "allowed_existing_assets": [
+        {
+          "path": "assets/sunnyvaile-streets/main-street-dusk.webp",
+          "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b",
+          "role": "locked evergreen masthead"
+        }
+      ],
+      "prohibited_assets": [],
+      "required_new_art_roles": [
+        "current-town editorial bridge",
+        "canonical character introduction"
+      ],
+      "candidates": []
+    },
+    "library": {
+      "tracked_root": "operations/design-explorations/current/library",
+      "governing_sources": [
+        {
+          "path": "operations/library-decisions.md",
+          "sha256": "1f0ac7c8755e806c356ac9ba2581a207f8562bb24fad7f61923d1658b1472d6a"
+        },
+        {
+          "path": "operations/product-stewards/library/EXPERIENCE-BRIEF.md",
+          "sha256": "430c27dcdcf2db2406667bcb1c7912fa98a111340019ff12103e83962720b5a4"
+        },
+        {
+          "path": "operations/product-stewards/library/OPERATING-SPEC.md",
+          "sha256": "ac43c3874f2dd62c9973e49d43c4aabc35cfc5277fbcd7b10d1127c166081d5a"
+        }
+      ],
+      "allowed_existing_assets": [
+        {
+          "path": "assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png",
+          "sha256": "54904f475ab3352957a3008c8df2cf9fc2b72bdd73cb26d898c3b8572dfda7db",
+          "role": "admitted working reference-desk masthead room"
+        },
+        {
+          "path": "assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png",
+          "sha256": "42c3becaea58c796c4e75f7944ed7b3164c7be3ff3e57640841d9469ad57b1c2",
+          "role": "collection wall source"
+        },
+        {
+          "path": "assets/building-interiors/library-shelf/room/floor-geometric-v1.png",
+          "sha256": "acc97fc727483d3f286b44f9920d292b4a8eae57bded67412abd7eb20667fb20",
+          "role": "collection floor source"
+        },
+        {
+          "path": "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+          "sha256": "e5c34f940bbe7a2802103d87029220e74b526e82f21f661b0e3baf805423fed8",
+          "role": "six-book wall case"
+        },
+        {
+          "path": "assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png",
+          "sha256": "21435284dec81546f9bc278a7808c23a5308bc90cc55c462ce278349a1bd6b23",
+          "role": "four-book wall case"
+        },
+        {
+          "path": "assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png",
+          "sha256": "4eb593ffedcfe6ad126de3e030328ff0e31cfbee4564c58293b9a0fb119fb543",
+          "role": "upright shelf unit"
+        }
+      ],
+      "prohibited_assets": [],
+      "required_new_art_roles": [
+        "canonical Miss Jeeves identity placement",
+        "deterministic environmental lettering",
+        "admitted readable book covers"
+      ],
+      "candidates": []
+    },
+    "visitors-centre": {
+      "tracked_root": "operations/design-explorations/current/visitors-centre",
+      "governing_sources": [
+        {
+          "path": "operations/product-stewards/visitors-centre/ALI-VISITORS-CENTRE-WALKTHROUGH-2026-08-22.md",
+          "sha256": "3369f4475b739049b634eadb105e31226f6a60f6ec4af9cd5a1131bdddaae105"
+        },
+        {
+          "path": "operations/product-stewards/visitors-centre/EXPERIENCE-BRIEF.md",
+          "sha256": "5f9aadfcecfbd9b7cc467c5ab69ee38d60550f562b8ca828278894390fce624d"
+        },
+        {
+          "path": "operations/product-stewards/visitors-centre/OPERATING-SPEC.md",
+          "sha256": "a1eee9afadc8dbe6fc7fb5081ed457a73db2db259c9396ce29be82e841c8d3d2"
+        },
+        {
+          "path": "operations/product-stewards/visitors-centre/VISUAL-ASSET-INVENTORY.md",
+          "sha256": "57e4deb6026e1e6218c667fb7308a53a59f5728341a485e322c386d77f4e3833"
+        }
+      ],
+      "allowed_existing_assets": [
+        {
+          "path": "assets/final_map/sunnyvaile-town-map-final-v5.webp",
+          "sha256": "d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0",
+          "role": "canonical discovery map, never masthead"
+        }
+      ],
+      "prohibited_assets": [
+        {
+          "path": "assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png",
+          "sha256": "00125c9740e7ac2865bd2ea62b4486b397c91baa4138af8a576738d7daaaa95a",
+          "reason": "Ali rejected the old lobby"
+        },
+        {
+          "path": "assets/sunnyvaile-buildings/y2k-v3/01-welcome-wagon-visitors-centre.webp",
+          "sha256": "9a51280b12e70597b3a90516a1eff9c32f636a212b9d8cd60e677cee568a0210",
+          "reason": "not admitted as the interior masthead or page direction"
+        }
+      ],
+      "required_new_art_roles": [
+        "responsive SUNNYVAiLE tourist-information-centre interior",
+        "deterministic wayfinding and environmental lettering"
+      ],
+      "candidates": []
+    }
+  },
+  "calibration": {
+    "known_bad_dependencies": [
+      "assets/library/jeeves-scene.webp",
+      "assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png"
+    ]
+  }
+}
