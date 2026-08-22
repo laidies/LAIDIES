@@ -28,6 +28,11 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
   complete place, capability tree, content, visual system, visitor states and
   cross-building handoffs; a route or passing handler is not a finished
   building. `LOCKED LEDGER`
+- Ali's 2026-08-22 guided walkthrough selects the tourist-information-centre
+  product model, rejects the current public composition and tour pop-up, makes
+  complete town orientation and the admitted postcard collection explicit,
+  and holds remembered referral/reward behavior until the authoritative system
+  proves it. `LOCKED LEDGER`
 - Every visitor must receive a deliberately designed first-time,
   returning-without-Card or Resident Card experience, with device-local and
   verified-account scope kept separate. `LOCKED LEDGER`
@@ -51,6 +56,10 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
   she has arrived, can inspect the town through the exact current map or an
   equal named route, understands one destination's current limitation, and
   deliberately continues to that destination. `APPROVED BRIEF/ARTIFACT`
+- It is the town's complete tourist-information centre: the visitor can learn
+  how the site works, understand what every building is for and navigate to
+  every building without depending on the Homepage or LIBRAiRY to repeat the
+  full orientation. `LOCKED LEDGER`
 - The building must feel and operate like one inhabited welcome room whose map,
   counter and take-away objects perform the orientation job; it must not
   devolve into a generic dashboard, long card roll or disconnected stack of
@@ -91,8 +100,12 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
 
 ## Place metaphor, feeling and ritual
 
-- The place is a bright Visitor’s Centre/front-desk room at No. 1 MAiN whose
-  meaningful operated object is the SUNNYVAiLE map. `APPROVED BRIEF/ARTIFACT`
+- The place is a bright, vibrant 1990s tourist-information centre at No. 1 MAiN
+  inside the adult LAiDIES world. Its meaningful objects include the SUNNYVAiLE
+  map, destination information, guided-tour materials and admitted postcard
+  display. They operate as one place, not detached modules. `LOCKED LEDGER`
+- The map is a useful interactive discovery object but is not the masthead and
+  cannot carry the whole arrival composition. `LOCKED LEDGER`
 - The ritual is “locate yourself → choose a named place → read its current
   status → step inside,” with a take-away tour ticket, trailer ticket or
   postcard invitation available but never dominant. `APPROVED BRIEF/ARTIFACT`
@@ -101,6 +114,56 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
   desktop/mobile ruling. `CURRENT IMPLEMENTATION OBSERVED`
 - No greeter identity is assigned; generated or invented staff must not enter
   production as implied canon. `UNKNOWN`
+
+## Layered welcome, tour and trailer
+
+- The Centre owns the full optional guided orientation. It walks a visitor
+  through destinations, explains what each page is for and names what she can
+  do there. `LOCKED LEDGER`
+- Direct navigation is always available. Start, pause, skip, leave and resume
+  may not obscure a chosen destination or force returning visitors through
+  repeated onboarding. `LOCKED LEDGER`
+- Each destination still explains its own job and primary action compactly;
+  the shared tour must not turn every page into a long generic interruption.
+  `LOCKED LEDGER`
+- The current pop-up's retired plum/gold treatment is rejected. Its source may
+  characterize mechanics, but it is not visual or experience authority.
+  `LOCKED LEDGER`
+- The existing SUNNYVAiLE trailer and image family are potential supporting
+  artifacts only. They require exact currentness review against the present
+  town, routes, capabilities and learning loop before reuse. `UNKNOWN`
+- Avoid two independently maintained tour products. Use one canonical
+  orientation system with a complete building view and a goal/content-format
+  path view. Both consume the same building jobs, routes and readiness truth.
+  Exact labels remain open. `INFERENCE PENDING ALI LABEL RULING`
+- A complete building view may be explored in any order; it is not a forced
+  17-stop procession. Goal paths show only the relevant admitted destinations
+  and explain why their content formats differ. `LOCKED LEDGER`
+
+## Help desk and FAQ model
+
+- The Centre owns plain-language site help: navigation/findability, tour use,
+  Resident Card/login and local-versus-account scope, and the distinct jobs of
+  NewsStand, Episodes, Study Packs, LIBRAiRY books and Classes. `LOCKED LEDGER`
+- Answers use stable direct anchors and route changing identity, privacy,
+  finance, provider and destination truth to the owning current source.
+  Selection in an FAQ registry is specification only until exact prose,
+  admission and public verification exist. `LOCKED LEDGER`
+
+## Postcard invitation experience
+
+- The admitted postcard collection is a central visible attraction in the
+  Centre. A visitor chooses a card and begins a truthful invitation handoff to
+  a friend to visit SUNNYVAiLE and, if she chooses, create a Resident Card.
+  `LOCKED LEDGER`
+- Existing postcard artwork is mixed in quality; no card enters the gallery
+  until exact inventory, Brand/canon/provenance and destination-use admission
+  identify it as eligible. `LOCKED LEDGER`
+- Referral attribution, sender/recipient reward and a referral-only Resident
+  Card background are desired system outcomes. They remain held until the
+  provider, identity and append-only reward/ownership events prove the exact
+  lifecycle. A copied link, share invocation or local flag cannot substitute.
+  `LOCKED LEDGER`
 
 ## Complete owned product tree
 
@@ -132,9 +195,12 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
 | Welcome Tour ticket/offer | Secondary object | Start, resume, skip or ignore | Device-local `laidies_welcome_tour` | Shared tour chip or truthful storage failure | Follow/ignore/end tour | `CURRENT IMPLEMENTATION OBSERVED` |
 | Trailer ticket | Secondary object | Open illustrated trailer route | No Centre-owned state | Handoff only | Trailer product owns playback/result | `CURRENT IMPLEMENTATION OBSERVED` |
 | Postcard object/ticket | Secondary object | Open postcard/Post Office experience | No Centre-owned delivery state in intended candidate | Handoff only | Post Office owns preparation/share/delivery | `INFERENCE` |
+| Admitted postcard display | Central take-away object | Browse exact admitted cards and choose one | Card ID and invitation intent only | Opens the authoritative postcard invitation handoff | Post Office owns provider delivery/referral; Identity/Rewards own join and reward outcomes | `LOCKED LEDGER` |
 | Current postcard composer | Detached current section | Choose art, enter handle/note, invoke native share/text/email/copy | Transient form data; unvalidated local username prefill | External handoff or copied link; no delivery proof | Post Office | `CURRENT IMPLEMENTATION OBSERVED` |
 | Current “first fifteen minutes” route | Detached current section | Open episode/handbook/MAiKEOVER/Post Office | None | Navigation only | Receiving owner | `CURRENT IMPLEMENTATION OBSERVED` |
 | Current explainer/founder note | Detached current details | Expand/read | None | Editorial context only | Town Hall or canonical about surface is unresolved | `CURRENT IMPLEMENTATION OBSERVED` |
+| Help desk / FAQ | Findable help object | Choose a question or direct-linked answer | Question/answer ID only | Plain-language answer plus exact owning route | Visitor Centre owns orientation answer; specialist owner supplies changing truth | `LOCKED LEDGER` |
+| Goal/content path | Optional orientation view | Choose a visitor goal or compare content formats | Goal/path ID only | Short truthful itinerary across admitted destinations | Open chosen destination or return to complete town view | `PROPOSED ARCHITECTURE` |
 
 ## Required content and inventory
 
@@ -150,6 +216,9 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
 - Trailer, tour and postcard copy names only the next observable handoff and
   never claims playback, completion, delivery, joining, account creation,
   referral or reward. `LOCKED LEDGER`
+- Postcard gallery copy may explain the desired invitation and possible reward
+  only when it clearly separates the offer from the event that would actually
+  earn it and the system has an admitted receiver for that event. `LOCKED LEDGER`
 - The current shared tour's KSVL line promises listening while the Centre's
   accepted contract limits playback proof; this contradiction blocks trust
   completion until the shared owner reconciles it. `CURRENT IMPLEMENTATION OBSERVED`
@@ -195,6 +264,10 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
 - Invariants: intelligent adult LAiDIES voice, Rewind Era recognition,
   legible live text, truthful status, exact map, one coherent room and no
   invented canon or generic corporate dashboard. `LOCKED LEDGER`
+- Reject beige/pink neutral surfaces, retired plum/gold styling, generic CSS
+  boxes, unexplained blank bands and disconnected stacks. Use vibrant admitted
+  1990s colour and purposeful pop-art energy to make one coherent tourist
+  centre. `LOCKED LEDGER`
 - Freedoms: room composition, operated-map object, responsive crop and
   secondary ticket treatment may vary within the unresolved sitewide style
   championship and exact owner ruling. `INFERENCE`
@@ -237,16 +310,19 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
 
 ## Unresolved decisions and non-goals
 
-- Ali must explicitly rule on the Fold-Out Map Counter desktop/mobile/new/
-  returning/held-destination scenes after an independent visual-admission
-  review. `LOCKED LEDGER`
+- The prior Fold-Out Map Counter is not the selected product direction. A new
+  tourist-information-centre composition must satisfy this walkthrough and
+  pass independent visual admission before Ali sees or rules on exact
+  desktop/mobile scenes. `LOCKED LEDGER`
 - Whether the current postcard composer, first-fifteen-minutes route, explainer
   and founder note are removed or relocated is part of that owner ruling; no
   dossier record authorizes silent removal. `UNKNOWN`
 - The greeter identity, if any, is unassigned. `UNKNOWN`
-- Account-backed resident personalization, rewards, destination completion and
-  postcard delivery are non-goals for the Centre unless a later approved brief
-  explicitly changes scope. `APPROVED BRIEF/ARTIFACT`
+- Account-backed resident personalization and destination completion remain
+  outside the Centre's core route. Postcard delivery/referral and rewards are
+  cross-product dependencies now explicitly desired, but the Centre may expose
+  them only after their owners provide authoritative lifecycle evidence.
+  `LOCKED LEDGER`
 
 ## Reconciliation and approval state
 

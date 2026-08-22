@@ -15494,3 +15494,31 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How a feature can be “built” in code and
   still be invisible, unreachable or misleading on the actual website.
 - **Publication status:** INTERNAL PRODUCT-SYSTEM CORRECTION / NO PUBLIC CHANGE.
+
+## BTB-492 — A selected FAQ registry can disappear from the active release while stale prose remains
+
+- **Date:** 2026-08-22
+- **Area:** Visitor’s Centre orientation, help and release-branch continuity.
+- **Failure:** The active Sunday-release worktree had no structured `VCFAQ`
+  registry or stable answer-anchor selection, while an old editable FAQ draft
+  remained available with confirmation placeholders and unsupported login and
+  reward claims. A protected iCloud checkout still held the 2026-08-03 8/12
+  specification selection, but nothing in the release branch pointed to it.
+- **Root cause:** Specification selection, answer prose and release ancestry
+  lived in different checkouts. File presence made the stale draft easier to
+  discover than the structured record, even though the draft had no admission
+  authority.
+- **Prevention rule:** Every help/FAQ consumer must bind one stable question ID,
+  answer fragment, current owner source and exact release-branch registry. A
+  missing registry fails closed as `MISSING RECEIVER`; an editable draft,
+  historical checkout or remembered question cannot substitute. Reconcile the
+  registry deliberately and rerun freshness/owner checks before drafting.
+- **Durable correction:** The protected registry path and SHA, 8/12 selection
+  boundary, held/excluded states and missing-release status are recorded in the
+  Visitor walkthrough, capability inventory, operating spec, state and active
+  work. It was not silently copied or promoted because its evidence was last
+  reviewed on 2026-08-03.
+- **Possible Behind the Build angle:** Why the easiest FAQ file to find can be
+  the least trustworthy—and how stable IDs stop AI help systems from answering
+  with stale promises.
+- **Publication status:** INTERNAL CONTINUITY CORRECTION / NO PUBLIC CHANGE.

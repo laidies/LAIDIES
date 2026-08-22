@@ -1,10 +1,10 @@
 # Visitor’s Centre — operating specification
 
-**Status:** RECOVERY — PRIOR FUNCTIONAL BASE REJECTED BY ALI; INTENDED
-EXPERIENCE/FUNCTIONALITY/SPEC WORK ACTIVE; REPLACEMENT VISUAL PRODUCTION HELD
-FOR THE SITEWIDE BRAND DIRECTION. Prior interaction, state, accessibility and
-native evidence remains technical characterization only. It is not a product,
-Brand, integration, release or public candidate.
+**Status:** ALI TOURIST-CENTRE DIRECTION SELECTED / CURRENT PUBLIC EXPERIENCE
+REJECTED / SYSTEM INVENTORY AND REPLACEMENT SPEC ACTIVE / NO VISUAL CANDIDATE.
+Prior interaction, state, accessibility and native evidence remains technical
+characterization only. It is not a product, Brand, integration, release or
+public candidate.
 
 ## Identity and purpose
 
@@ -14,14 +14,14 @@ Brand, integration, release or public candidate.
 - **Audience:** New or returning visitors who want a clear introduction or a named town destination without memorizing the map.
 - **User job:** Understand the room's purpose, discover a named building through the wall map or directory, and leave through one intentional next route.
 - **Why LAiDIES offers it:** It makes orientation welcoming and legible without turning it into mandatory onboarding before practical AI learning.
-- **Distinct contribution:** A colourful, vibrant and unmistakably LAiDIES arrival place in which the environment itself performs orientation. The prior neutral white-page/front-desk/map/directory composition was rejected and cannot be revived by reskinning it.
+- **Distinct contribution:** A colourful, vibrant and unmistakably LAiDIES 1990s tourist-information centre where a visitor can learn how the complete site works, understand every building and navigate directly to each one. The prior neutral white-page/front-desk/map/directory composition was rejected and cannot be revived by reskinning it.
 - **Explicit non-goals:** The Centre does not make a downstream service ready, subscribe/mail/open/join/refer someone, issue rewards, require a tour/postcard/sign-in, or certify account persistence.
 
 ## Experience model
 
-- **Diegetic metaphor:** Not yet selected. The sitewide Brand direction must arrive before the Visitor owner may resume visual selection. Map, named directory and destination-reveal capabilities remain requirements, but they do not authorize the rejected front-desk composition, a boxed web layout or an independently selected replacement style.
-- **Ten-second comprehension:** “This is the front desk. I can choose a building by its name or map, see what happens there, and step inside. The tour and postcard are optional.”
-- **New-user journey:** Arrive → read orientation/starter route → choose map or directory → receive live destination reveal → choose “Step inside” or return to map. The visitor need not complete the tour, trailer, postcard or account flow.
+- **Diegetic metaphor:** A real town tourist-information centre inside SUNNYVAiLE. The map, complete named building information, tour materials, trailer and admitted postcard display operate as environmental objects in one coherent place. The map is not the masthead. Exact composition/artwork still requires the design-admission gate.
+- **Ten-second comprehension:** “This is SUNNYVAiLE's tourist-information centre. I can learn how the town works, see what every building is for, choose where to go or take an optional guided tour.”
+- **New-user journey:** Arrive → understand how SUNNYVAiLE organizes the site → choose direct map/named-building exploration or the optional guided tour → inspect a building or admitted postcard → deliberately enter a destination or invitation handoff. The visitor need not complete the tour, trailer, postcard or account flow.
 - **Returning-user journey:** Reopen the room → choose a destination directly; local prior selection may be used for presentation only and cannot imply a durable personal history. A returning visitor receives a useful continuation only if the destination is currently admitted by its owner.
 - **Anonymous/signed-in differences:** Core room, named directory and destination handoff work anonymously. Postcard/tour/sign-in are invitations. The room never claims a selected postcard was sent/opened, that a recipient joined, or that a visit became a reward.
 - **Mobile/desktop/accessibility behaviour:** At all widths, the named selector/directory is available without precise map tapping. A selection updates the `aria-live` destination reveal; keyboard users can reach selection, reveal, enter CTA and Back to map. Focus must return to the selection trigger after Back/Escape where a modal-like state exists. Test 390×844 plus representative desktop; source responsive CSS alone is not proof.
@@ -30,7 +30,7 @@ Brand, integration, release or public candidate.
 ## Mechanics and rules
 
 - **Inputs:** Map/tap or named-directory selection, destination reveal CTA, tour/trailer choice, anthem control, postcard card/note/email/share handoff.
-- **Core actions:** Select a building; inspect its name/address/one-liner/mechanics; enter its route; return to map; optionally start/decline/defer tour; optionally begin a postcard handoff.
+- **Core actions:** Learn how the town/site works; select any building; inspect its name/address/job/current limitation; enter its route; return to the Centre; browse the complete town in any order or choose a short goal/content-format path from the same canonical orientation system; optionally start/pause/skip/leave/resume contextual guidance; optionally watch the current trailer; browse admitted postcards and begin a truthful invitation handoff; open a stable FAQ answer.
 - **Authoritative completion event:** Correctly arriving at an intentional destination route after an explicit selection. Map selection/reveal itself is not downstream success. Tour start is not tour completion; postcard UI state is not delivery/open/join/referral/reward; audio button is not listening proof.
 - **Outputs/visible result:** One live reveal with a named CTA and a clear route; shared directory/map highlights are presentational. The Centre must maintain one dominant next action at each state.
 - **Replay/return loop:** Revisit/select another building or return to homepage; do not make orientation, postcard or tour a required ritual or local-reward loop.
@@ -44,6 +44,7 @@ Brand, integration, release or public candidate.
 ## Content and learning
 
 - **Format-specific job:** Orientation and confidence to choose a useful next learning/help route; it is not an AI lesson or assessment.
+- **Content-format explanation:** Current NewsStand reporting, narrative Episodes, Episode Study Packs, durable LIBRAiRY reference and future practice/feedback Classes receive distinct plain-language jobs. The Centre explains the difference and builds a short itinerary only from admitted destinations.
 - **Learning/behaviour outcome:** A newcomer can say what the Centre is, choose a building by name, and explain what will happen after the CTA.
 - **Correct mental model:** The map is a guide, not a readiness map; the directory is a direct accessible alternative; a handoff is not a service lifecycle or membership event.
 - **Misconceptions addressed:** “I have to know the map/numbered pin”; “the tour is required”; “postcard means sent”; “building selection earns a reward”; “a town route means every product is fully ready.”
@@ -51,17 +52,23 @@ Brand, integration, release or public candidate.
 - **Analogy and limits:** A visitor centre metaphor explains welcome/orientation; it does not mean physical service fulfilment, identity verification, or a concierge who can guarantee every destination.
 - **Assessment/transfer evidence:** Clean-state comprehension asks the visitor to identify the room, name a choice path, say what the CTA will do, and reach a deliberately chosen route. Selection count alone is not comprehension.
 - **Relationship to other products:** Town Entry owns homepage/Start Here; shared directory/map/header/tour are Platform/Town Entry dependencies; Post Office owns postcard lifecycle; Episode Media owns trailer; destination champions own their final experiences.
+- **Help/FAQ ownership:** Visitor’s Centre owns stable orientation questions and answer anchors. Identity, Privacy, Finance, Platform and destination owners supply changing factual truth and correction triggers.
+- **Current FAQ truth:** The active release worktree has no structured registry.
+  A protected iCloud checkout contains an 8/12 selected specification registry
+  last reviewed 2026-08-03, with every ID reserved/not live and no authorized
+  public answer prose. Reconciliation/freshness review is required before use;
+  the legacy editable FAQ draft is rejected as authority.
 - **Next useful experience:** A deliberately selected, admitted destination—not a forced tour, postcard or sign-in.
 
 ## Visual, voice and media
 
-- **Approved direction:** NONE. Ali rejected the prior neutral room-first/boxed composition and then ruled that broader Visitor visual production must wait for the sitewide Brand direction. Pre-ruling exploratory specimens are unadmitted Brand-championship inputs only; they are not an owner selection or implementation target.
+- **Approved product/visual direction:** A cohesive adult 1990s tourist-information centre inside the vibrant LAiDIES world. Purposeful pop-art colour and information objects support orientation. Ali rejects beige/pink neutrality, retired plum/gold, generic CSS boxes, disconnected modules and unexplained empty space. This selects the experience direction, not an exact composition or artwork; those still require the building design-admission gate.
 - **Character/location/canon rules:** The result must feel like entering the Visitor’s Centre inside SUNNYVAiLE, not opening a generic orientation website. Existing map and path-bound pre-ruling assets are optional inputs, not naming authority for the replacement composition.
 - **Voice/copy rules:** Welcoming, specific and action-true: “choose,” “see,” “step inside,” “start the tour,” “prepare/share a postcard.” Do not say “sent,” “opened,” “joined,” “earned,” or “unlocked” without the owning authoritative event.
-- **Required asset states:** Legible map plus named fallback; welcome postcard `assets/postcards/from-sunnyvaile/pc-welcome.png`; welcome title art; optional trailer/audio state with alt/caption/control/failure treatment.
+- **Required asset states:** Legible map plus named fallback; exact admitted postcard collection; welcome identity/title art; current trailer/media family with alt/captions/controls/failure treatment. Every earlier asset requires exact inventory and current-use authority before reuse.
 - **Motion/audio/narration continuity:** Tour/trailer/anthem must be optional, pauseable, keyboard-operable and reduced-motion compatible. No media can obstruct destination choice.
-- **Rejected/prohibited patterns:** The prior white-page/front-desk/map/directory grammar; neutral or off-palette shells; boxed-module and generic-card composition; “functional base now, Brand later”; incremental restyling of the rejected candidate; numbered pins; map-memory tests; long generic destination-card rolls; dashboard-like onboarding; postcard/tour gates; and any visual PASS inferred from interaction code or technical tests.
-- **Owner decision still required:** Sitewide Brand direction, through the controlled championship. Ali is not asked to choose among independently generated Visitor directions. A later Visitor-specific gate requires an explicit bounded continuation after the sitewide direction.
+- **Rejected/prohibited patterns:** The prior white-page/front-desk/map/directory grammar; the current retired-plum/gold tour pop-up; beige/pink neutral or off-palette shells; boxed-module and generic-card composition; large blank bands; “functional base now, Brand later”; incremental restyling of the rejected candidate; numbered pins; map-memory tests; long generic destination-card rolls; dashboard-like onboarding; postcard/tour gates; and any visual PASS inferred from interaction code or technical tests.
+- **Owner decision still required:** Exact responsive composition, artwork, trailer successor/currentness disposition and postcard-family admission. Ali is not asked to choose a generated direction before the design-admission gate passes.
 
 ## Technical and operational contract
 
@@ -70,7 +77,7 @@ Brand, integration, release or public candidate.
 - **Backend/services/providers:** Static public hosting; shared directory data in client script; trailer/audio assets; Post Office/share/email provider dependencies; Plausible tag. No Centre-owned backend or delivery ledger exists.
 - **Data/authoritative stores:** Shared directory is source for building names/routes. Any selection/note/email state observed in browser is temporary/local interface state. The public-promise registry is the owner-status source to consult before promotion, not evidence of downstream completion.
 - **Identity/session and persistence:** None required for core orientation. Any identity or postcard lifecycle is a Post Office/Identity handoff.
-- **Reward/economy:** None. Never grant/claim a reward for room entry, directory selection, tour start or postcard preparation.
+- **Reward/economy:** Never reward room entry, directory selection, tour start or postcard preparation. A verified referral may later trigger bounded sender/recipient rewards and a referral-only Resident Card background through the shared authoritative identity/reward ledger; these outcomes are currently unverified and held.
 - **Privacy/security/safety:** Do not collect postcard body/email or raw session data in Centre analytics. The postcard form/handoff must follow Post Office privacy/consent/retention rules; Centre evidence records only aggregate state after approval.
 - **Performance/reliability:** Map, trailer and card imagery require exact-artifact loading and interaction checks. Keep named route fallback usable under map/media/shared-script failure.
 - **Fallback/rollback:** If shared directory/map breaks, fail to a clear named fallback/home route; if a destination is held, remove/relabel its promotion rather than disguise it. Roll back only owned copy/state after portfolio reconciliation; no shared script change is authorized here.
@@ -102,7 +109,7 @@ Brand, integration, release or public candidate.
 - **Backend/data/reward:** Directory route binding and unknown/missing data recovery pass; postcard/trailer outcomes remain separately owned and require their provider/product evidence.
 - **Visual/media:** Map/room/asset loading, trailer controls/captions/failure and optional audio behavior reviewed on exact candidate; owner visual ruling recorded.
 - **Exact candidate/release/public verification:** Local interaction evidence already covers selected map/directory/reveal/return/postcard mechanics and 390×844. A new exact artifact must pass full clean journey; public verification needs the same bounded public-origin suite and approved analytics configuration.
-- **Current status/unresolved decisions:** **RECOVERY / VISUAL PRODUCTION HELD.** Deterministic clean-state, directory/map recovery, keyboard, storage, responsive, reduced-motion, handoff and bounded native checks characterize useful capabilities in the rejected base only. They do not admit its composition. Intended-experience/functionality/spec recovery may continue. Visual selection and implementation wait for the sitewide Brand direction and a bounded continuation. The eventual replacement must separately pass building experience, Brand/world continuity, product truth, responsive/accessibility, human comprehension, technical integration, analytics and exact release/public-origin gates.
+- **Current status/unresolved decisions:** **ALI DIRECTION CAPTURED / CURRENT PUBLIC EXPERIENCE REJECTED / INVENTORY ACTIVE / NO CANDIDATE.** Deterministic clean-state, directory/map recovery, keyboard, storage, responsive, reduced-motion, handoff and bounded native checks characterize useful capabilities in the rejected base only. They do not admit its composition. The eventual replacement must separately pass building experience, Brand/world continuity, product truth, responsive/accessibility, human comprehension, tour/trailer/postcard integration, analytics and exact release/public-origin gates.
 
 ## Source trail
 

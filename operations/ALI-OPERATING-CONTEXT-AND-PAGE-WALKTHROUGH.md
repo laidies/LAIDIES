@@ -270,9 +270,27 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
 
 - **Current intended job:** First-arrival orientation, Trailer, accurate town
   directory and useful starting routes.
-- **Ali walkthrough:** _To capture._
+- **Ali walkthrough, 2026-08-22:** The Centre should feel and work like a real
+  town tourist-information centre. It owns the complete explanation of how
+  SUNNYVAiLE and the site work, useful information about every building and a
+  direct route to each one. Its small interactive map can reveal building
+  information, but it is not the masthead or the whole experience. Build a
+  genuinely optional guided tour that explains each destination without
+  turning every page into lengthy onboarding for returning visitors. The
+  existing early trailer may support that job only after its content and image
+  family are checked against the current town. Postcards are a central visible
+  attraction: show the admitted collection and let a visitor invite a friend
+  toward SUNNYVAiLE/Resident Card. Referral rewards and an exclusive Resident
+  Card background are desired outcomes but remain unverified until the real
+  identity/reward path proves them. Reject the current blank bands, neutral
+  beige/pink surfaces, generic CSS boxes and retired plum/gold tour pop-up;
+  replace them with a cohesive vibrant 1990s LAiDIES tourist-centre experience.
+  Full authority:
+  `product-stewards/visitors-centre/ALI-VISITORS-CENTRE-WALKTHROUGH-2026-08-22.md`.
 - **Sunday cut:** complete first-time orientation with no dead destination or
-  fake readiness.
+  fake readiness, plus a current truthful tour/trailer and admitted postcard
+  handoff; exact referral/reward scope follows system inventory and provider
+  proof.
 
 ### 2. NewsStand
 

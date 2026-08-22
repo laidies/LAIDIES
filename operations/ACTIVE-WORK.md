@@ -1558,3 +1558,40 @@ objective; every open lane keeps its own checkpoint.
   navigation; true continuity is pop-out only. Butterfly Clips are a local
   prototype, community is provider-bounded, and account/reward/public outcomes
   remain held. No code or public state changed in this checkpoint.
+
+### 2026-08-22 Visitor’s Centre guided-walkthrough checkpoint
+
+- **Current state:** `ALI TOURIST-CENTRE VISION CAPTURED / CURRENT PUBLIC EXPERIENCE REJECTED / CAPABILITY INVENTORY COMPLETE / NO CANDIDATE BUILT`.
+- **Ali product ruling:** the Centre is SUNNYVAiLE's complete tourist-information
+  centre. It explains how the site and every building work, routes to all 17
+  buildings, offers a real optional guided tour and presents the admitted
+  postcard collection as a central invitation experience.
+- **Orientation extension:** avoid two separately maintained tours. The
+  proposed single orientation system offers a complete building view and a
+  goal/content-format path view from the same canonical records; exact public
+  labels remain open. Visitor FAQs own navigation/findability, tour behavior,
+  Resident Card/login scope and content-format differences, with changing
+  claims supplied by their specialist owners.
+- **Ali visual ruling:** the map remains a discovery object but is not the
+  masthead. Reject generic CSS boxes, detached modules, blank bands, beige/pink
+  neutrality and the retired plum/gold tour pop-up. The replacement is a
+  cohesive adult 1990s LAiDIES tourist-centre environment.
+- **Verified current truth:** the public page exposes 17 named map buttons and
+  named selector options, but destination status is unavailable and the whole
+  composition is rejected. Tour source exists but is unverified/currently
+  rejected visually; the trailer receiver is rebuilding; the postcard
+  catalogue is held with zero admitted cards; referral attribution and
+  sender/recipient rewards have no receiver; the exclusive Resident Card
+  background is planned only.
+- **FAQ recovery truth:** the release worktree lacks the structured `VCFAQ`
+  registry. The protected iCloud checkout preserves a 2026-08-03 8/12
+  specification selection at SHA-256 `dc16fa95…f21988`; every selected ID is
+  reserved/not live and no answer prose is admitted. The old editable FAQ draft
+  contains unsupported claims and is not authority.
+- **Bounded next step:** create the missing visual-asset inventory, then prove
+  one first-screen tourist-centre comprehension path, one building handoff and
+  one optional contextual tour stop before scaling. Exact plan:
+  `operations/product-stewards/visitors-centre/CAPABILITY-INVENTORY-AND-PASS-1-PLAN-2026-08-22.md`.
+- **Authority:** product vision, inventory and internal plan only. No HTML, CSS,
+  JavaScript, visual candidate, trailer, postcard, referral, reward, deployment
+  or public state changed.
