@@ -15587,3 +15587,22 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The three-page manifest/checker now enforce those bindings and calibrated failures. The Library router is 65 lines and routes detailed contracts instead of duplicating them.
 - **Possible Behind the Build angle:** Why “we documented everything” still fails unless the next worker receives one small executable packet.
 - **Publication status:** INTERNAL OPERATING-SYSTEM REPAIR / NO VISUAL OR PUBLIC CHANGE.
+
+## BTB-496 — Prose-compliant CSS decoration repeated the rejected Homepage
+
+- **Date:** 2026-08-22
+- **Area:** Homepage visual production.
+- **Failure:** A candidate preserved much of the requested content but rendered
+  the lower page as white/dotted fields, generic bordered text grids and random
+  circles. A subsequent generated route illustration was exposed before review.
+- **Root cause:** Missing visual assets were substituted with CSS decoration,
+  while prose compliance was mistaken for visual fidelity.
+- **Prevention rule:** Homepage production starts from one exact approved-visual
+  byte set and one reference-compared composed frame. No whole-page generation,
+  no candidate presentation before admission, and no code build until that frame
+  visibly clears the registered failures.
+- **Durable correction:** Rejected source hashes are bound in `DECISIONS.md`; the
+  uncommitted candidate and screenshots were removed from the repository lane.
+- **Possible Behind the Build angle:** Why correct requirements can still produce
+  the wrong pixels when the visual source of truth is prose.
+- **Publication status:** REJECTED / NOT COMMITTED / NOT DEPLOYED.

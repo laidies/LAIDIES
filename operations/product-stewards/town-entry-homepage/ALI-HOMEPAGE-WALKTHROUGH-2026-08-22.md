@@ -27,6 +27,20 @@ tagline or paraphrase the explanation. Improvements may change responsive
 composition and give **SUNNYVAiLE** more visual emphasis without changing those
 words or image bytes.
 
+Masthead lettering uses the image's own purple, pink and teal/cyan family;
+mint is not a masthead accent. The shared header may use the gradient treatment
+Ali liked, or an equally cohesive pop-art background, but its navigation remains
+the canonical town-wide utility rather than a Homepage contents menu.
+
+The redesign inherits the established LAiDIES identity rules. The public name
+is always written **LAiDIES** with that exact casing; the `Ai` is a deliberate
+contrasting colour unit, never dropped, separated or restyled into a different
+wordmark. In the live-text header treatment, preserve the canonical teal `Ai`
+and the square tittle over the `i`; only that tittle cycles through the six
+established accent colours, and reduced-motion visitors receive the static pink
+tittle. New layouts may recompose the surrounding header, but they do not
+silently replace these known identity behaviours.
+
 The comprehension sequence is non-negotiable:
 
 1. **LAiDIES teaches AI for women without requiring a technical background.**
