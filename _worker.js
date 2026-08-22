@@ -1,6 +1,6 @@
 const MAX_QUERY_LENGTH = 240;
 const AI_MODEL = '@cf/google/gemma-4-26b-a4b-it';
-const LIBRARY_ENTRY_ALLOWLIST = new Set(['book-concepts-101']);
+const LIBRARY_ENTRY_ALLOWLIST = new Set([]);
 const STOPWORDS = new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','important','in','is','it','me','my','of','on','or','should','so','take','the','to','use','what','which','why','will','with','you']);
 const TOPIC_RULES = [
   ['compute-chips-gpus', /\b(chip|chips|gpu|gpus|cpu|cpus|accelerator|accelerators|semiconductor|semiconductors|compute|data[ -]?centre|data[ -]?center)\b/i],
@@ -48,8 +48,7 @@ function safeEntry(entry) {
   if (entry.url.startsWith('/library.html')) {
     let libraryUrl;
     try { libraryUrl = new URL(entry.url, 'https://laidies.invalid'); } catch { return false; }
-    const admittedConceptsSection = libraryUrl.hash === '#concepts-101' || libraryUrl.hash.startsWith('#concepts-101::@book-section-');
-    if (!LIBRARY_ENTRY_ALLOWLIST.has(entry.id) && !admittedConceptsSection) return false;
+    if (!LIBRARY_ENTRY_ALLOWLIST.has(entry.id)) return false;
   }
   return typeof entry.id === 'string' && typeof entry.title === 'string' && typeof entry.summary === 'string' && Array.isArray(entry.topics) && Array.isArray(entry.aliases);
 }

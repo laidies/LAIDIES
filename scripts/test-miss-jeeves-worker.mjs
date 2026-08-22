@@ -62,7 +62,12 @@ assert.ok(
 );
 
 const heldDaily = structuredClone(dailyIssues);
-heldDaily.issues[0].stories[0].status = 'draft';
+const heldDailyIssue = heldDaily.issues.find(issue =>
+  issue.stories?.some(story => story.id === 'eu-ai-act-transparency-starts')
+);
+assert.ok(heldDailyIssue, 'the exact Daily fixture story must exist before hold calibration');
+const heldDailyStory = heldDailyIssue.stories.find(story => story.id === 'eu-ai-act-transparency-starts');
+heldDailyStory.status = 'draft';
 const heldDailyEnv = envWith();
 heldDailyEnv.ASSETS.fetch = async request => {
   const url = new URL(request.url);
@@ -71,7 +76,10 @@ heldDailyEnv.ASSETS.fetch = async request => {
   return new Response('STATIC');
 };
 const heldDailyResult = await (await ask('European AI transparency labels', heldDailyEnv)).json();
-assert.ok(!heldDailyResult.results.some(result => result.id.startsWith('daily-')), 'a non-published Daily story must remain invisible');
+assert.ok(
+  !heldDailyResult.results.some(result => result.id === 'daily-eu-ai-act-transparency-starts'),
+  'the exact non-published Daily story must remain invisible'
+);
 
 const signals = [];
 const signalSink = { writeDataPoint(point) { signals.push(point); } };
@@ -133,21 +141,30 @@ const relatedAi = {
       coverage: 'related',
       answer: 'The catalogue covers context windows but not their specific effect on legal work.',
       topic_label: 'context windows',
-      source_ids: ['concept-context', 'book-concepts-101']
+      source_ids: ['concept-context', 'book-ai-fundamentals-101']
     }) };
   }
 };
 const related = await (await ask('How will context windows change legal work?', envWith(index.entries, relatedAi))).json();
-assert.equal(related.status, 'related');
-assert.equal(related.coverage, 'related');
-assert.match(related.answer, /does not have an exact answer/i);
-assert.deepEqual(related.results.map(result => result.id), ['concept-context', 'book-concepts-101']);
+assert.equal(related.status, 'not_covered', 'held Library candidates cannot become related results through model-selected IDs');
+assert.deepEqual(related.results, []);
 
 const chipsWithoutAi = await (await ask('Why are chips so important to AI?')).json();
 assert.equal(chipsWithoutAi.status, 'not_covered', 'deterministic fallback must not pretend generic AI material covers chips');
 
 const tokenWithoutAi = await (await ask('What is a token?')).json();
-assert.equal(tokenWithoutAi.results[0]?.url, '/library.html#concepts-101::@book-section-tokens-and-the-context-window');
+assert.notEqual(tokenWithoutAi.coverage, 'exact', 'held token material must not appear as exact current coverage');
+assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('concepts-101')));
+assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('ai-fundamentals-101')));
+
+const restoredRejectedConcepts = structuredClone(index.entries);
+restoredRejectedConcepts.push({
+  id: 'book-concepts-101', title: 'Concepts 101', url: '/library.html#concepts-101',
+  type: '101', section: 'The 101s', status: 'live', summary: 'Rejected fixture',
+  topics: ['context window'], aliases: ['what is a context window']
+});
+const restoredRejected = await (await ask('What is a context window?', envWith(restoredRejectedConcepts))).json();
+assert.ok(!restoredRejected.results.some(result => result.id === 'book-concepts-101'), 'restored rejected Concepts identity must fail closed');
 
 const invalidIndexEnv = envWith();
 invalidIndexEnv.ASSETS.fetch = async () => Response.json({ _meta: {}, entries: {} });

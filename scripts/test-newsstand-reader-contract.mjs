@@ -12,7 +12,9 @@ const CONTRACT_FILE = path.join(ROOT, "content", "newsstand-reader-contract.js")
 const CASE_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-reader", "state-cases.json");
 const DRILL_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-reader", "correction-retraction-rollback-drill.json");
 const NOW = "2026-07-25T20:00:00Z";
+const NOW_CURRENT = "2026-08-11T22:30:00Z";
 const NOW_VANCOUVER_AUG_4 = "2026-08-05T00:50:00Z";
+const NOW_VANCOUVER_AUG_11 = "2026-08-12T05:44:30Z";
 
 function loadData() {
   const context = { window: {} };
@@ -24,7 +26,7 @@ function loadContract() {
   const context = { module: { exports: {} }, exports: {}, window: undefined };
   let source = fs.readFileSync(CONTRACT_FILE, "utf8");
   if (process.env.NEWSSTAND_CONTRACT_CALIBRATION === "bypass-story-freshness") {
-    source = source.replace("if (story && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours)) {", "if (false) {");
+    source = source.replace("if (story && ageHours(story.lastCheckedAt, now) > storyMaxAgeHours) {", "if (false) {");
   }
   if (process.env.NEWSSTAND_CONTRACT_CALIBRATION === "allow-empty-daily") {
     source = source.replace('if ((!issueItems || !issueItems.length) && !quietIssue) errors.push("daily issue has no admitted story or service item and no governed quiet disposition");', "if (false) errors.push(\"daily issue has no admitted story or service item and no governed quiet disposition\");");
@@ -41,6 +43,7 @@ function mutate(base, mutation) {
   if (mutation === "dataset-hold") data.datasetStatus = "hold";
   if (mutation === "publication-unavailable") {
     data.publications.tribune.status = "unavailable";
+    data.publications.weekly.status = "unavailable";
     data.publications.daily.status = "quiet";
     data.publications.daily.publishedAt = null;
   }
@@ -87,9 +90,13 @@ const drill = JSON.parse(fs.readFileSync(DRILL_FILE, "utf8"));
 
 assert.deepEqual(Array.from(contract.EDITIONS), ["breaking", "daily", "weekly", "tribune"]);
 assert.equal(contract.validate(base).length, 0);
-assert.equal(contract.visibleStories(base, "weekly", NOW).length, 0, "held Weekly story must fail closed");
+assert.equal(contract.visibleStories(base, "weekly", NOW_CURRENT).length, 1, "admitted Weekly story is visible at its current source check");
 assert.equal(contract.visibleStories(base, "tribune", NOW).length, 1);
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
+assert.equal(contract.visibleStories(base, "daily", NOW_VANCOUVER_AUG_11).length, 4, "all four source-checked Daily back issues remain readable without being presented as current");
+assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_11), "archive", "a source recheck must not turn an old Daily into today's edition");
+assert.equal(contract.datasetState(base, NOW_VANCOUVER_AUG_11).state, "ready", "an eligible archive is a usable NewsStand state even when no paper is current");
+assert.equal(contract.accessDecision(base, null, { scope: "hash" }, NOW_VANCOUVER_AUG_11).canExpose, true, "the dataset gate must allow a direct route to an eligible archive story");
 const staleStoryCandidate = JSON.parse(JSON.stringify(base));
 staleStoryCandidate.publications.daily.editionDate = "2026-08-04";
 staleStoryCandidate.publications.daily.lastCheckedAt = NOW_VANCOUVER_AUG_4;
@@ -182,6 +189,8 @@ const catchup = fs.readFileSync(path.join(ROOT, "content", "site", "newsstand-ca
 assert.doesNotMatch(css, /#4b2148/i, "retired plum cannot return as live NewsStand UI");
 const publicationControls = Array.from(html.matchAll(/<button class="ns-publication"[^>]*data-edition="([^"]+)"/g), (match) => match[1]);
 assert.deepEqual(publicationControls, ["breaking", "daily", "weekly", "tribune"], "the physical counter must expose exactly the four canonical papers");
+assert.match(html, /<strong>The Big Picture<\/strong>/, "the public fourth paper must use Ali's Big Picture masthead");
+assert.doesNotMatch(html, />The Tribune</, "the retired Tribune masthead cannot remain in current public markup");
 const publicationContents = Array.from(html.matchAll(/class="ns-publication__contents"[^>]*data-contents-for="([^"]+)"/g), (match) => match[1]);
 assert.deepEqual(publicationContents, publicationControls, "every canonical paper needs one in-paper live contents region");
 assert.equal((html.match(/class="ns-publication__job"/g) || []).length, 4, "every paper needs a visible job preview");
@@ -201,6 +210,8 @@ assert.match(html, /id="ns-browse-all"[^>]*>Browse all back issues<\/button>/, "
 assert.match(html, /id="ns-catchup-title">Catch me up\.<\/h2>/, "returning readers need a visible Catch Me Up route");
 assert.match(html, /id="ns-catchup-since" type="date"/, "Catch Me Up needs a visitor-editable start date");
 assert.match(html, /newsstand-catchup-v1\.js/, "the Catch Me Up consumer must be loaded");
+assert.match(html, /newsstand-stories\.js\?v=20260812-backfill-v1/, "a changed canonical story dataset needs a release-specific public cache key");
+assert.match(html, /newsstand-catchup-v1\.js\?v=20260812-backfill-v1/, "a changed Catch Me Up runtime needs a release-specific public cache key");
 assert.match(html, /resident-continuation-bootstrap-v1\.js/, "NewsStand must mount the admitted Resident continuation bootstrap");
 assert.equal((catchup.match(/record\.freshness\.expiresAt >= today/g) || []).length, 2,
   "Daily and historical service items must both fail closed after their freshness window");

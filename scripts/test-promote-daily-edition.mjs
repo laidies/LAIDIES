@@ -4,17 +4,27 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { composeDailyEnvelope } from "./compose-daily-edition.mjs";
 import { promoteDailyIssue } from "./promote-daily-edition.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const envelopeRaw = fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-04.json"), "utf8");
+const date = "2026-08-04";
+const radarPath = path.join(ROOT, `operations/agents/aidb-intelligence-desk/daily/${date}.md`);
+const composed = composeDailyEnvelope({
+  date,
+  radarRaw: fs.readFileSync(radarPath, "utf8"),
+  radarPath,
+  storiesRaw: fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8"),
+  columnsRaw: fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8")
+});
+const envelopeRaw = composed.canonical;
 const envelope = JSON.parse(envelopeRaw);
 const envelopeSha256 = crypto.createHash("sha256").update(envelopeRaw).digest("hex");
 const store = { schemaVersion: "daily-issues-v1", owner: "newsstand-daily", issues: [] };
 const decision = {
   schemaVersion: "daily-issue-admission-v1",
   decision: "ACCEPT_LOCAL_CANONICAL_WRITE",
-  editionDate: "2026-08-04",
+  editionDate: date,
   envelopeSha256,
   reviewedAt: "2026-08-04T20:00:00Z",
   reviewedBy: "independent-daily-issue-judge",

@@ -12,7 +12,8 @@ const ROOT = path.resolve(
   process.env.BLEND_SNAP_ROOT ||
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 );
-const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const CHROME = process.env.CHROME_PATH ||
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 if (!fs.existsSync(CHROME)) {
   console.log("SKIP BLEND & SNAP BROWSER: Google Chrome is unavailable.");
@@ -297,12 +298,14 @@ try {
     true, "current order enabled only after validation");
   check(await value(fresh, "document.querySelector('#bsSpecialName').textContent"),
     "Episode 04 Study Pack menu · The Founding Mothers", "current episode identity");
-  check(await value(fresh, "document.querySelector('#bsSpecialDesc').textContent.includes('2 of 4 pack pieces are ready')"),
+  check(await value(fresh, "document.querySelector('#bsSpecialDesc').textContent.includes('1 of 4 pack pieces is ready')"),
     true, "partial pack count is explicit");
   check(await value(fresh, "document.querySelectorAll('#bsComponents .bs-menu-line').length"),
-    5, "all component jobs rendered");
+    4, "all pack component jobs rendered");
   check(await value(fresh, "document.querySelectorAll('#bsComponents a').length"),
-    3, "only available component routes rendered");
+    1, "only available pack component routes rendered");
+  check(await value(fresh, "document.querySelector('[data-status=\"held\"]').textContent"),
+    "Cheat Sheet is being corrected", "multi-page printable is withheld from the one-page Cheat Sheet slot");
   check(await value(fresh, "document.querySelector('[data-status=\"planned\"]').textContent"),
     "Planned — no Study Sheet yet", "Study Sheet truth");
   check(await value(fresh, "document.querySelector('[data-status=\"unavailable\"]').textContent"),
@@ -340,9 +343,9 @@ try {
   check(await value(fresh, "document.activeElement.id"),
     "bsReceiptTitle", "receipt focus");
   check(await value(fresh, "document.querySelectorAll('#bsReceiptComponents li').length"),
-    5, "receipt component inventory");
+    4, "receipt pack component inventory");
   check(await value(fresh, "document.querySelectorAll('#bsReceiptComponents a').length"),
-    3, "receipt suppresses unavailable routes");
+    1, "receipt suppresses unavailable pack routes");
   await act(fresh,
     "document.querySelector('#bsCloseReceipt').focus(); document.querySelector('#bsCloseReceipt').click()"
   );
@@ -365,9 +368,15 @@ try {
   await press(fresh, " ", "Space", 32);
   check(await value(fresh, "document.querySelector('#bsReceiptTitle').textContent.includes('Episode 03')"),
     true, "past pack keyboard menu");
-  check(await value(fresh, "document.querySelector('#bsReceiptComponents [data-status=\"held\"]').textContent.includes('Held')"),
+  check(await value(fresh, `(() => {
+    const row=[...document.querySelectorAll('#bsReceiptComponents li')].find((item)=>item.querySelector('strong')?.textContent.includes('Cards'));
+    return row.querySelector('[data-status="held"]').textContent.includes('Held');
+  })()`),
     false, "past card status avoids internal held wording");
-  check(await value(fresh, "document.querySelector('#bsReceiptComponents [data-status=\"held\"]').textContent"),
+  check(await value(fresh, `(() => {
+    const row=[...document.querySelectorAll('#bsReceiptComponents li')].find((item)=>item.querySelector('strong')?.textContent.includes('Cards'));
+    return row.querySelector('[data-status="held"]').textContent;
+  })()`),
     "Cards are not available yet", "past card status is visitor-safe");
 
   const tour = await openPage("/blend-snap.html", { welcomeTourStep: 4 });
@@ -375,6 +384,19 @@ try {
     true, "rendered Welcome Tour explains variable pack availability");
   check(await value(tour, "!/fresh pack of trading cards|this week/i.test(document.querySelector('.svwt-line').textContent)"),
     true, "rendered Welcome Tour makes no weekly/card guarantee");
+
+  const formerReviewBypass = await openPage(
+    "/blend-snap.html?study-pack-review=ep01"
+  );
+  await act(formerReviewBypass,
+    "document.querySelector('[data-pack-episode=\"1\"]').click()"
+  );
+  check(await value(formerReviewBypass,
+    "document.querySelectorAll('#bsReceiptComponents a').length"
+  ), 0, "review query cannot fabricate held Episode 1 component links");
+  check(await value(formerReviewBypass,
+    "!/127\\.0\\.0\\.1:(4173|4182)/.test(document.querySelector('#bsReceipt').innerHTML)"
+  ), true, "review query cannot inject localhost routes");
 
   for (const episode of ["01", "02", "03", "04"]) {
     const issue = await openPage(`/issues/issue-${episode}.html`);
@@ -461,7 +483,7 @@ try {
   check(await value(mobile, "document.documentElement.scrollWidth <= 390"),
     true, "390 px no page overflow");
   check(await value(mobile, "document.querySelectorAll('#bsComponents .bs-menu-line').length"),
-    5, "mobile retains exact inventory");
+    4, "mobile retains exact pack inventory");
   check(await value(mobile, "getComputedStyle(document.querySelector('#bsOrderMobile')).display !== 'none'"),
     true, "mobile order control visible");
 
@@ -476,6 +498,11 @@ try {
     "/try-on.html?issue=3&from=blend-snap",
     { storageBlocked: true }
   );
+  check(await value(tryOnBlocked, `(() => {
+    const links=[document.querySelector('[data-wednesday-return]'),document.querySelector('.tryon-portal-note .button.secondary')];
+    return links.every((link)=>link.getAttribute('href')==='/blend-snap.html#the-study-pack') &&
+      links.every((link)=>link.textContent.includes('Back to Blend & Snap'));
+  })()`), true, "Try-On preserves the exact Blend & Snap handback");
   await act(tryOnBlocked,
     "document.querySelector('#tryonNotes').value='Keep this visible'; document.querySelector('#saveButton').click()"
   );
@@ -483,6 +510,34 @@ try {
     true, "Try-On storage failure is truthful");
   check(await value(tryOnBlocked, "document.querySelector('#tryonNotes').value"),
     "Keep this visible", "blocked save leaves user text on page");
+
+  const directTryOn = await openPage("/try-on.html?issue=3");
+  check(await value(directTryOn, `(() => {
+    const links=[document.querySelector('[data-wednesday-return]'),document.querySelector('.tryon-portal-note .button.secondary')];
+    return links.every((link)=>link.getAttribute('href')==='/') &&
+      links.every((link)=>link.textContent.includes('Back to SUNNYVAiLE'));
+  })()`), true, "direct Try-On keeps the safe town handback");
+
+  const heldEpisodeOneTryOn = await openPage("/try-on.html?issue=1&from=blend-snap");
+  check(await value(heldEpisodeOneTryOn, `(() => {
+    return location.pathname==='/blend-snap.html' && location.hash==='#the-study-pack';
+  })()`), true, "held Episode 01 Try-On redirects to its truthful Blend & Snap status");
+
+  const episodeThreeQuiz = await openPage(
+    "/learn/quiz.html?issue=3&from=blend-snap#quiz-start",
+    { width: 390, height: 844 }
+  );
+  check(await value(episodeThreeQuiz,
+    "!document.querySelector('.quiz-console').hidden && document.querySelector('#quizIssueLabel').textContent.includes('Episode 03')"
+  ), true, "Quiz receiver opens the exact Episode 03 paper");
+  check(await value(episodeThreeQuiz, `(() => {
+    const link=document.querySelector('[data-quiz-return="blend-snap"]');
+    return !!link && link.textContent.includes('Back to Blend & Snap') &&
+      new URL(link.href).pathname==='/blend-snap.html' &&
+      new URL(link.href).hash==='#the-study-pack';
+  })()`), true, "Quiz receiver preserves the Blend & Snap handback");
+  check(await value(episodeThreeQuiz, "document.documentElement.scrollWidth <= 390"),
+    true, "390 px Quiz receiver has no page overflow");
 
   console.log(
     `✓ BLEND & SNAP BROWSER: ${checks} rendered checks · ` +

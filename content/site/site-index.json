@@ -3,7 +3,7 @@
     "purpose": "Master catalog of every piece of LAiDIES material. Powers Ask Jeeves (the LIBRAiRY reference desk): a plain-words question -> a clickable list of every place that covers it, grouped by type. Also the backbone for any site search.",
     "rule": "NOTHING SHIPS WITHOUT AN INDEX ENTRY. Every new page/episode/book/activity gets an entry here (title, url, type, section, summary, topics, aliases) before it goes live. `scripts/check-index.js` lists live pages missing from here and must return zero before launch. Keep `status` accurate (live | preview | coming). Verify tool/model facts per the fact ledger before adding tool entries.",
     "schema": "entries[]: { id, title, url, type, section, status, summary, topics[], aliases[] }  — type: episode|101|tool|reference|concept|activity|building|character.  aliases = the plain-words a beginner would actually type (synonyms, 'how do I…', misspellings-of-intent). These carry keyword search.",
-    "version": "2026-07-09",
+    "version": "2026-08-21",
     "seed": "Live material + core concepts. Coming material (Ep5, per-tool books, What Not to Paste, The Prompt Cookbook, per-101 pages) gets added as it ships — that's the rule."
   },
   "entries": [
@@ -23,8 +23,8 @@
     { "id": "ref-whoswho", "title": "Who's Who in AI", "url": "/grimoire/power-map.html", "type": "tool", "section": "The Tools", "status": "live",
       "summary": "The directory of AI companies and their tools — who made what, and what you'd use each for (moving into The Tools case).", "topics": ["ai companies", "openai", "anthropic", "google", "chatgpt", "claude", "gemini", "copilot", "who makes ai"], "aliases": ["who makes chatgpt", "what company makes claude", "difference between the ai tools", "which apps are there", "who's behind ai"] },
 
-    { "id": "book-ai-fundamentals-101", "title": "AI Fundamentals 101", "url": "/library.html#ai-fundamentals-101", "type": "101", "section": "The 101s", "status": "hold",
-      "summary": "A plain-English guide to the moving parts beneath AI: models, training data, context windows, hallucinations and the disputed categories people blur together.", "topics": ["ai concepts", "models", "training data", "context window", "hallucination", "generative ai", "reasoning model", "agentic ai", "agi"], "aliases": ["how does ai work", "what is under the hood", "why does ai sound sure", "what is a model", "what is training data", "what is a context window", "what is agentic ai"] },
+    { "id": "book-ai-fundamentals-101", "title": "AI Fundamentals 101 — held for review", "url": "/library.html#ai-fundamentals-101", "type": "101", "section": "The 101s", "status": "preview",
+      "summary": "Held candidate only. The complete AI system textbook is not available until exact visual, unfamiliar-reader, correction and release admission pass.", "topics": ["ai concepts", "models", "training data", "context window", "hallucination", "generative ai", "reasoning model", "agentic ai", "agi"], "aliases": ["how does ai work", "what is under the hood", "why does ai sound sure", "what is a model", "what is training data", "what is a context window", "what is agentic ai"] },
 
     { "id": "concept-generative", "title": "Generative AI (glossary)", "url": "/learn/glossary.html", "type": "concept", "section": "The 101s", "status": "live",
       "summary": "The AI that creates things from words — text, images, slides, code.", "topics": ["generative ai", "creates content", "generates"], "aliases": ["what is generative ai", "gen ai meaning", "ai that writes"] },
@@ -34,10 +34,10 @@
       "summary": "When AI states something false with total confidence.", "topics": ["hallucination", "made up", "inaccurate", "fabricated"], "aliases": ["what is a hallucination", "why does ai make things up", "why is it wrong"] },
     { "id": "concept-model", "title": "Model (glossary)", "url": "/learn/glossary.html", "type": "concept", "section": "The 101s", "status": "live",
       "summary": "The underlying AI itself (GPT, Claude, Gemini) — distinct from the tool/app you open.", "topics": ["model", "llm", "language model", "gpt"], "aliases": ["what is a model", "model vs tool", "what's an llm", "difference between model and app"] },
-    { "id": "concept-context", "title": "Context and context windows", "url": "/library.html#ai-fundamentals-101", "type": "concept", "section": "AI Fundamentals 101", "status": "hold",
-      "summary": "The working material available for one response, distinct from training data and optional memory.", "topics": ["context", "context window", "working material", "memory"], "aliases": ["what is context", "what's a context window", "how much can it use at once"] },
-    { "id": "concept-token", "title": "Tokens and context windows", "url": "/library.html#ai-fundamentals-101", "type": "concept", "section": "AI Fundamentals 101", "status": "hold",
-      "summary": "A small unit the model processes; tokens occupy the bounded context window.", "topics": ["token", "tokens", "context window", "usage limit"], "aliases": ["what is a token", "why did i hit a limit", "how much can ai read"] },
+    { "id": "concept-context", "title": "Context and context windows — held for review", "url": "/library.html#ai-fundamentals-101", "type": "concept", "section": "AI Fundamentals 101", "status": "preview",
+      "summary": "Held with AI Fundamentals 101 until the exact section and complete book are admitted.", "topics": ["context", "context window", "working material", "memory"], "aliases": ["what is context", "what's a context window", "how much can it use at once"] },
+    { "id": "concept-token", "title": "Tokens and context windows — held for review", "url": "/library.html#ai-fundamentals-101", "type": "concept", "section": "AI Fundamentals 101", "status": "preview",
+      "summary": "Held with AI Fundamentals 101 until the exact section and complete book are admitted.", "topics": ["token", "tokens", "context window", "usage limit"], "aliases": ["what is a token", "why did i hit a limit", "how much can ai read"] },
     { "id": "concept-agent", "title": "Agent (glossary)", "url": "/learn/glossary.html", "type": "concept", "section": "The 101s", "status": "live",
       "summary": "AI that doesn't just tell you how — it goes and does the multi-step task.", "topics": ["agent", "autonomous", "does the task"], "aliases": ["what is an ai agent", "ai that does things for me", "what's an agent"] },
     { "id": "glossary", "title": "The Glossary", "url": "/learn/glossary.html", "type": "reference", "section": "The 101s", "status": "live",

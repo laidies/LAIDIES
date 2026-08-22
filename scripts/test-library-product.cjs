@@ -45,8 +45,8 @@ const mime = {
 const correctionApiSubmissions = [];
 const shelfFixtureContract = [
   {
-    asset: "assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png",
-    sha256: "489f83e0826fa358604d3f8ab4fc2adcd7f9807f5c1526882d76b5fbfdca5f7e",
+    asset: "assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png",
+    sha256: "21435284dec81546f9bc278a7808c23a5308bc90cc55c462ce278349a1bd6b23",
     rowCounts: [2, 2],
     railContacts: [0.481, 0.856]
   },
@@ -57,16 +57,16 @@ const shelfFixtureContract = [
     railContacts: [0.340, 0.606]
   },
   {
-    asset: "assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png",
-    sha256: "489f83e0826fa358604d3f8ab4fc2adcd7f9807f5c1526882d76b5fbfdca5f7e",
+    asset: "assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png",
+    sha256: "21435284dec81546f9bc278a7808c23a5308bc90cc55c462ce278349a1bd6b23",
     rowCounts: [2, 2],
     railContacts: [0.481, 0.856]
   }
 ];
-const shelfRoomContract = {
-  asset: "assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png",
-  sha256: "0f760eb17993619982762e160aa119d8f4a363a5015af0bf723ac5ab0cc0ac09"
-};
+const shelfRoomContract = [
+  { asset: "assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png", sha256: "42c3becaea58c796c4e75f7944ed7b3164c7be3ff3e57640841d9469ad57b1c2" },
+  { asset: "assets/building-interiors/library-shelf/room/floor-geometric-v1.png", sha256: "acc97fc727483d3f286b44f9920d292b4a8eae57bded67412abd7eb20667fb20" }
+];
 function sha256(filePath) {
   return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
 }
@@ -138,7 +138,7 @@ const server = http.createServer((request, response) => {
 });
 
 (async () => {
-  const { compileAdmissionManifest, compileLibraryAdmission } = await import(
+  const { compileAdmissionManifest } = await import(
     pathToFileURL(path.join(root, "scripts/compile-library-admission.mjs"))
   );
   fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-library-reader-"));
@@ -152,22 +152,20 @@ const server = http.createServer((request, response) => {
   fs.copyFileSync(path.join(root, "library.html"), path.join(fixtureRoot, "library.html"));
   const growthFixtureSource = fs.readFileSync(path.join(root, "library.html"), "utf8").replace(
     "];\nconst ADMITTED_BOOK_RECORDS=",
-    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[1,2,3,4,5,6,7].map(number=>({id:'growth-fixture-'+number,t:'Growth Fixture '+number,topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an expanding 101s collection.',img:B+(number%2?'textbook-concepts-101.png':'textbook-briefing-101.png'),c:'#7038c9'}))}];\nconst ADMITTED_BOOK_RECORDS=`
+    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[1,2,3,4,5,6,7].map(number=>({id:'growth-fixture-'+number,t:'Growth Fixture '+number,topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an expanding 101s collection.',img:B+(number%2?'textbook-ai-fundamentals-101.png':'textbook-briefing-101.png'),c:'#7038c9'}))}];\nconst ADMITTED_BOOK_RECORDS=`
   );
   fs.writeFileSync(path.join(fixtureRoot, "library-growth.html"), growthFixtureSource);
-  /* Vocab 101 is no longer public catalogue inventory. The synthetic reader
-     fixture deliberately exposes only the isolated copy so the generic
-     admission/reader/Puffy contract can still be exercised without restoring
-     the removed title on the real shelves. */
+  /* The synthetic reader fixture exists only in fixtureRoot. It replaces the
+     hidden retired row so generic reader/Puffy mechanics can be exercised
+     without admitting or opening any held or rejected product artifact. */
   const fixtureLibraryPath = path.join(fixtureRoot, "library.html");
   fs.writeFileSync(
     fixtureLibraryPath,
     fs.readFileSync(fixtureLibraryPath, "utf8")
       .replace(
-        "id:'vocab-101',t:'Vocab 101',listed:false",
-        "id:'vocab-101',t:'Vocab 101',listed:true"
+        "{id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},",
+        "{id:'reader-fixture-101',t:'Reader Fixture 101',topics:['basics'],status:'available',statusLabel:'Synthetic fixture only',s:'Browser-only reader contract fixture.',inside:'Synthetic reader mechanics only.',depth:'Fixture',img:B+'textbook-vocab-101.png',c:'#245ed1'},"
       )
-      .replace("img:'',c:'#245ed1'", "img:B+'textbook-vocab-101.png',c:'#245ed1'")
   );
   fs.copyFileSync(
     path.join(root, "content/site/site-index.json"),
@@ -190,48 +188,20 @@ const server = http.createServer((request, response) => {
     JSON.stringify({ schema_version: "library-rejected-artifacts.v1", authority: "DIRECT_ALI_REJECTION_DEFAULT_DENY", artifacts: [] })
   );
   const admittedArtifact =
-    '<!doctype html><html><head><meta name="laidies:content-version" content="reader-v1"></head><body><main class="gr-page"><h1>Vocab 101</h1><h2>Deep Link Section</h2><p>Verified reader fixture.</p><section class="term"><h3>Fixture term</h3><p>A second focusable contents destination.</p></section></main></body></html>';
+    '<!doctype html><html><head><meta name="laidies:content-version" content="reader-v1"></head><body><main class="gr-page"><h1>Reader Fixture 101</h1><h2>Deep Link Section</h2><p>Verified reader fixture.</p><section class="term"><h3>Fixture term</h3><p>A second focusable contents destination.</p></section></main></body></html>';
   const artifactPath = path.join(
     fixtureRoot,
-    "content/library-books/rendered/vocab-101.html"
+    "content/library-books/rendered/reader-fixture-101.html"
   );
   fs.writeFileSync(artifactPath, admittedArtifact);
   const artifactHash = crypto
     .createHash("sha256")
     .update(admittedArtifact)
     .digest("hex");
-  const conceptsArtifactPath = path.join(
-    fixtureRoot,
-    "operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html"
-  );
-  fs.copyFileSync(
-    path.join(root, "operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html"),
-    conceptsArtifactPath
-  );
-  const conceptsArtifactHash = crypto
-    .createHash("sha256")
-    .update(fs.readFileSync(conceptsArtifactPath))
-    .digest("hex");
-  const rulebookArtifactPath = path.join(
-    fixtureRoot,
-    "content/library-books/rendered/verification-rulebook.html"
-  );
-  fs.copyFileSync(
-    path.join(root, "content/library-books/rendered/verification-rulebook.html"),
-    rulebookArtifactPath
-  );
-  fs.copyFileSync(
-    path.join(root, "content/library-books/verification-rulebook.json"),
-    path.join(fixtureRoot, "content/library-books/verification-rulebook.json")
-  );
-  const rulebookArtifactHash = crypto
-    .createHash("sha256")
-    .update(fs.readFileSync(rulebookArtifactPath))
-    .digest("hex");
   const admissionRecord = {
-    book_id: "vocab-101",
+    book_id: "reader-fixture-101",
     status: "available",
-    source_path: "/content/library-books/rendered/vocab-101.html",
+    source_path: "/content/library-books/rendered/reader-fixture-101.html",
     content_version: "reader-v1",
     admission_version: "admission-v1",
     source_references: ["source-review-1"],
@@ -240,32 +210,6 @@ const server = http.createServer((request, response) => {
     review_owner: "Library editorial fixture",
     correction_state: "clear",
     artifact_sha256: artifactHash
-  };
-  const conceptsAdmissionRecord = {
-    book_id: "concepts-101",
-    status: "available",
-    source_path: "/operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html",
-    content_version: "concepts-101-2026-08-06.1",
-    admission_version: "admission-fixture-v1",
-    source_references: ["content/library-books/concepts-101.claims.json"],
-    claim_references: ["C101-C001", "C101-C002", "C101-C003", "C101-C004", "C101-C005", "C101-C006"],
-    reviewed_at: "2026-08-03T13:29:24-07:00",
-    review_owner: "Library exact Concepts reader fixture",
-    correction_state: "clear",
-    artifact_sha256: conceptsArtifactHash
-  };
-  const rulebookAdmissionRecord = {
-    book_id: "how-to-check",
-    status: "available",
-    source_path: "/content/library-books/rendered/verification-rulebook.html",
-    content_version: "sha256-38cd8c629a661e76e2beb6da2531d32a2c1b949c082e08aca6db225f1ac85dc3",
-    admission_version: "admission-fixture-v1",
-    source_references: ["content/library-books/verification-rulebook.json"],
-    claim_references: Array.from({ length: 14 }, (_, index) => `VR-C${String(index + 1).padStart(3, "0")}`),
-    reviewed_at: "2026-08-03T14:21:00-07:00",
-    review_owner: "Library exact Verification Rulebook reader fixture",
-    correction_state: "clear",
-    artifact_sha256: rulebookArtifactHash
   };
   const learningEvidencePath = path.join(fixtureRoot, "content/library-books/learning-admission-fixture.md");
   fs.writeFileSync(learningEvidencePath, "Exact synthetic learning-admission fixture.\n");
@@ -283,24 +227,35 @@ const server = http.createServer((request, response) => {
     useful_next_experience: "PASS",
     maintenance_and_currentness_contract: "PASS"
   };
-  for (const record of [admissionRecord, conceptsAdmissionRecord, rulebookAdmissionRecord]) {
+  for (const record of [admissionRecord]) {
     record.learning_admission = {
-      schema_version: "library-book-learning-admission.v1",
+      schema_version: "library-book-learning-admission.v2",
       artifact_sha256: record.artifact_sha256,
       learning_intake: learningEvidence,
       architecture_evidence: learningEvidence,
       instructional_verdict: learningEvidence,
       unfamiliar_reader_verdict: learningEvidence,
+      canonical_source: learningEvidence,
+      cold_reader_outcome: learningEvidence,
       criteria: { ...learningCriteria },
       ali_rejection_state: "clear",
       derivative_use: "allowed"
     };
   }
-  fs.writeFileSync(
-    path.join(fixtureRoot, "content/library-books/admission-manifest.json"),
-    JSON.stringify({ books: [admissionRecord, conceptsAdmissionRecord, rulebookAdmissionRecord] })
+  const fixtureAdmissions = {
+    [admissionRecord.book_id]: {
+      sourcePath: admissionRecord.source_path,
+      contentVersion: admissionRecord.content_version,
+      admissionVersion: admissionRecord.admission_version,
+      correctionState: admissionRecord.correction_state,
+      artifactSha256: admissionRecord.artifact_sha256
+    }
+  };
+  const fixtureLibrarySource = fs.readFileSync(fixtureLibraryPath, "utf8").replace(
+    /\/\* LIBRARY_ADMISSION_COMPILED_START \*\/[\s\S]*?\/\* LIBRARY_ADMISSION_COMPILED_END \*\//,
+    `/* LIBRARY_ADMISSION_COMPILED_START */\n${JSON.stringify(fixtureAdmissions)}\n/* LIBRARY_ADMISSION_COMPILED_END */`
   );
-  compileLibraryAdmission({ root: fixtureRoot });
+  fs.writeFileSync(fixtureLibraryPath, fixtureLibrarySource);
 
   const { chromium } = await import(
     pathToFileURL(path.join(playwrightRoot, "index.mjs"))
@@ -327,7 +282,14 @@ const server = http.createServer((request, response) => {
 
   function admissionRejects(record, message) {
     try {
-      compileAdmissionManifest({ books: [record] }, { root: fixtureRoot });
+      const candidate = {
+        ...record,
+        learning_admission: {
+          ...record.learning_admission,
+          artifact_sha256: record.artifact_sha256
+        }
+      };
+      compileAdmissionManifest({ books: [candidate] }, { root: fixtureRoot });
       admissionChecks.push(false);
     } catch (error) {
       admissionChecks.push(error.message.includes(message));
@@ -357,7 +319,7 @@ const server = http.createServer((request, response) => {
     "absent"
   );
   admissionRejects(
-    { ...admissionRecord, source_path: "//attacker.invalid/vocab-101.html" },
+    { ...admissionRecord, source_path: "//attacker.invalid/reader-fixture-101.html" },
     "source_path"
   );
   admissionRejects(
@@ -464,7 +426,7 @@ const server = http.createServer((request, response) => {
       }
       if (
         options.redirectArtifact &&
-        /\/content\/library-books\/rendered\/vocab-101\.html/.test(url)
+        /\/content\/library-books\/rendered\/reader-fixture-101\.html/.test(url)
       ) {
         return route.fulfill({
           status: 302,
@@ -474,9 +436,6 @@ const server = http.createServer((request, response) => {
       }
       if (/attacker\.invalid|\/content\/library-books\/|\/%2f%2f/i.test(url)) {
         publicationRequests.push(url);
-      }
-      if (options.failVocab && /rendered\/vocab-101\.html/.test(url)) {
-        return route.abort();
       }
       if (url.startsWith(origin)) return route.continue();
       external.push(url);
@@ -524,20 +483,21 @@ const server = http.createServer((request, response) => {
     check(
       wayfindingPresentation.background === "rgba(0, 0, 0, 0)" &&
         wayfindingPresentation.backgroundImage.includes("linear-gradient") &&
-        wayfindingPresentation.colors.every((color) => ["rgb(255, 255, 255)", "rgb(101, 227, 238)", "rgb(220, 231, 255)"].includes(color)) &&
+        wayfindingPresentation.colors.every((color) => ["rgb(7, 15, 43)", "rgb(255, 253, 251)", "rgb(17, 24, 59)"].includes(color)) &&
         mobileCaptionPresentation.every((caption) =>
           caption.background === "rgba(0, 0, 0, 0)" &&
-          caption.colors.every((color) => color === "rgb(7, 20, 47)" || color === "rgb(113, 52, 117)")
+          caption.colors.every((color) => ["rgb(17, 24, 59)", "rgb(7, 15, 43)", "rgb(113, 52, 117)"].includes(color))
         ),
       "catalogue wayfinding uses the current electric Library field with readable LAiDIES typography"
     );
     check(
       (await baseline.page.locator(".department").count()) === 3 &&
-        (await baseline.page.locator(".library-room-unit").count()) === 1 &&
+        (await baseline.page.locator(".library-room-unit").count()) === 3 &&
         (await baseline.page.locator(".bk").count()) === 14 &&
-        librarySource.includes('library-interior-no-desk-v1.png') &&
+        librarySource.includes('wall-neutral-light-v1.png') &&
+        librarySource.includes('floor-geometric-v1.png') &&
         librarySource.includes('library-wall-case-3bay-v1.png'),
-      "three collections render as distinct bays in the locked integrated Library room and case"
+      "three collections render in distinct Library rooms with their exact governed cases"
     );
     await baseline.page.waitForFunction(() =>
       [...document.querySelectorAll('.ledge img')].length === 3 &&
@@ -555,8 +515,8 @@ const server = http.createServer((request, response) => {
     const previewCount = await baseline.page.locator(".bk[data-library-status=preview]").count();
     const sourceReadyCount = await baseline.page.locator(".bk[data-library-status=available]").count();
     check(
-      catalogueCount === 14 && holdCount === 3 && previewCount === 7 && sourceReadyCount === 4,
-      "catalogue source truth exposes the four-book opening set, three holds and seven previews"
+      catalogueCount === 14 && holdCount === 7 && previewCount === 7 && sourceReadyCount === 0,
+      "visible catalogue truth exposes 14 current books: seven held, seven previews and none available"
     );
     check(
       (await baseline.page.locator("button.bk").count()) === 14,
@@ -574,9 +534,9 @@ const server = http.createServer((request, response) => {
     check(
       (await baseline.page.locator("#book-preview-title").innerText()).length > 0 &&
         (await baseline.page.locator("#book-preview-summary").innerText()).length > 0 &&
-        (await baseline.page.locator("#book-preview-read").isVisible()) &&
+        (await baseline.page.locator("#book-preview-read").isHidden()) &&
         (await baseline.page.locator("#reader").isHidden()),
-      "an admitted cover explains its contents before offering the full reader"
+      "a held cover explains its contents without offering an unadmitted reader"
     );
     const mobilePreviewPlacement = await baseline.page.locator('#book-preview').evaluate((preview) => ({
       parent: preview.parentElement?.className || '',
@@ -586,11 +546,11 @@ const server = http.createServer((request, response) => {
     check(
       mobilePreviewPlacement.parent.includes('unit') &&
         mobilePreviewPlacement.previous.includes('library-room-unit') &&
-        mobilePreviewPlacement.next === '',
-      `on mobile a selected-book preview opens after the complete integrated case, never beside the next collection heading ${JSON.stringify(mobilePreviewPlacement)}`
+        mobilePreviewPlacement.next.includes('library-room-unit'),
+      `on mobile a selected-book preview opens immediately after its collection room and before the next room ${JSON.stringify(mobilePreviewPlacement)}`
     );
     const openingBooks = [
-      ["concepts-101", "Concepts 101"],
+      ["ai-fundamentals-101", "AI Fundamentals 101"],
       ["briefing-101", "Briefing 101"],
       ["setup-101", "Setup 101"],
       ["accounts-101", "Accounts 101"]
@@ -599,15 +559,15 @@ const server = http.createServer((request, response) => {
       await baseline.page.locator(`.bk[data-book-id="${id}"]`).click();
       check(
         (await baseline.page.locator("#book-preview-title").innerText()).trim() === title &&
-          (await baseline.page.locator("#book-preview-read").isVisible()) &&
+          (await baseline.page.locator("#book-preview-read").isHidden()) &&
           (await baseline.page.locator("#reader").isHidden()),
-        `${title} has a specific preview and offers its exact admitted reader`
+        `${title} has a specific held preview without exposing an unadmitted reader`
       );
     }
     check(
-      (await baseline.page.getByRole("button", { name: /^Preview Concepts 101\. Ready to read now$/ }).count()) === 1 &&
+      (await baseline.page.getByRole("button", { name: /^Preview AI Fundamentals 101\. Visual and reader admission pending$/ }).count()) === 1 &&
         (await baseline.page.locator("#reader").isHidden()),
-      "newcomer hears truthful opening-book status before choosing a reader"
+      "newcomer hears the truthful AI Fundamentals hold before choosing a reader"
     );
     check(
       (await baseline.page.evaluate(
@@ -662,18 +622,19 @@ const server = http.createServer((request, response) => {
         rowCounts: [...department.querySelectorAll(".brow")].map((row) => row.querySelectorAll(".bk").length),
         coverHeights: [...department.querySelectorAll(".bk img")].map((cover) => cover.getBoundingClientRect().height),
         fixtureUrl: getComputedStyle(department.closest('.shelf-unit'), '::after').backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1] || "",
-        roomUrl: getComputedStyle(department.closest('.library-room-unit')).backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1] || ""
+        roomUrl: getComputedStyle(department.closest('.library-room-unit')).backgroundImage
       }))
     );
     const fixtureBytesMatch = shelfFixtureContract.every(({ asset, sha256: expectedSha }) =>
       fs.existsSync(path.join(root, asset)) && sha256(path.join(root, asset)) === expectedSha
-    ) && fs.existsSync(path.join(root, shelfRoomContract.asset)) &&
-      sha256(path.join(root, shelfRoomContract.asset)) === shelfRoomContract.sha256;
+    ) && shelfRoomContract.every(({ asset, sha256: expectedSha }) =>
+      fs.existsSync(path.join(root, asset)) && sha256(path.join(root, asset)) === expectedSha
+    );
     check(
       desktopFirstPage.every((department, index) =>
         department.rowCounts.filter(Boolean).join(',') === shelfFixtureContract[index].rowCounts.join(',') &&
-        decodeURIComponent(new URL(department.fixtureUrl).pathname).endsWith(`/${shelfFixtureContract[index].asset}`) &&
-        decodeURIComponent(new URL(department.roomUrl).pathname).endsWith(`/${shelfRoomContract.asset}`) &&
+        department.fixtureUrl.includes(shelfFixtureContract[index].asset) &&
+        shelfRoomContract.every(({ asset }) => department.roomUrl.includes(asset)) &&
         department.coverHeights.every((height) => height >= 120)
       ) && fixtureBytesMatch,
       "desktop catalogue is bound to the locked room and integrated case bytes, expected books-per-rail and readable covers"
@@ -723,10 +684,13 @@ const server = http.createServer((request, response) => {
     const mobileShelfVisibility = {};
     for (const width of [390, 320]) {
       await desktopShelf.page.setViewportSize({ width, height: 1000 });
-      await desktopShelf.page.waitForFunction(() =>
-        document.querySelectorAll('.department .bk').length === 14 &&
-        [...document.querySelectorAll('.department .brow')].filter(row => row.querySelector('.bk')).length === 7
-      );
+      await desktopShelf.page.waitForFunction(() => {
+        const occupiedRows = [...document.querySelectorAll('.department .brow')]
+          .filter((row) => row.querySelector('.bk'));
+        return document.querySelectorAll('.department .bk').length === 14 &&
+          occupiedRows.length === 7 &&
+          occupiedRows.every((row) => row.querySelectorAll('.bk').length === 2);
+      });
       mobileShelfVisibility[width] = await desktopShelf.page.evaluate(() => {
       const measure = () => ({
         labels: [...document.querySelectorAll('.department .bk')].map(book => book.getAttribute('aria-label')),
@@ -750,15 +714,15 @@ const server = http.createServer((request, response) => {
         mobileShelfVisibility[width].labels.length === 14 &&
         mobileShelfVisibility[width].rows.length === 7 &&
         mobileShelfVisibility[width].rows.every(row =>
-          row.count >= 1 && row.count <= 2 && !row.horizontalOverflow && row.allInside && row.minimumCoverHeight >= 118
+          row.count >= 1 && row.count <= 2 && !row.horizontalOverflow && row.allInside && row.minimumCoverHeight >= 120
         )
       ),
-      `all 14 books remain visible on real shelf rows at 390 and 320 without paging or horizontal overflow ${JSON.stringify(mobileShelfVisibility)}`
+      `all 14 visible books remain on real shelf rows at 390 and 320 without paging or horizontal overflow ${JSON.stringify(mobileShelfVisibility)}`
     );
-    await desktopShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
+    await desktopShelf.page.getByRole("button", { name: /^Preview AI Fundamentals 101\./ }).click();
     check(
-      (await desktopShelf.page.locator('#book-preview-inside').innerText()).includes('Six connected sections') &&
-        (await desktopShelf.page.locator('#book-preview-meta').innerText()).includes('connected system model'),
+      (await desktopShelf.page.locator('#book-preview-inside').innerText()).includes('Twenty connected chapters') &&
+        (await desktopShelf.page.locator('#book-preview-meta').innerText()).includes('complete AI system'),
       "selected cover explains concrete coverage and reading depth before opening"
     );
     await desktopShelf.context.close();
@@ -787,15 +751,14 @@ const server = http.createServer((request, response) => {
       };
     });
     check(
-      growthGeometry.units === 2 &&
-        growthGeometry.growthUnits === 2 &&
-        growthGeometry.departments === 5 &&
+      growthGeometry.units === 4 &&
+        growthGeometry.growthUnits === 1 &&
+        growthGeometry.departments === 4 &&
         growthGeometry.growthBooks === 7 &&
-        Math.abs(growthGeometry.secondUnitWidth - growthGeometry.firstUnitWidth) <= 2 &&
         growthGeometry.bookHeight >= 120 &&
         growthGeometry.roomHeight > 900 &&
         growthGeometry.documentOverflow === false,
-      `a seven-book collection gains two real continuation bays without pagination or smaller covers ${JSON.stringify(growthGeometry)}`
+      `a seven-book collection gains its own complete room without pagination or smaller covers ${JSON.stringify(growthGeometry)}`
     );
     check(
       (await growthShelf.page.locator('.bk').count()) === 21 &&
@@ -821,7 +784,7 @@ const server = http.createServer((request, response) => {
       (await responsiveShelf.page.locator(".department .bk").count()) === 14,
       "desktop shelf starts with the complete large-cover inventory"
     );
-    await responsiveShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
+    await responsiveShelf.page.getByRole("button", { name: /^Preview AI Fundamentals 101\./ }).click();
     check(
       (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
         !(await responsiveShelf.page.locator("#book-preview").getAttribute("class")).includes("is-empty"),
@@ -829,8 +792,7 @@ const server = http.createServer((request, response) => {
     );
     await responsiveShelf.page.setViewportSize({ width: 390, height: 844 });
     await responsiveShelf.page.waitForFunction(() =>
-      document.querySelectorAll(".department .bk").length === 14 &&
-      [...document.querySelectorAll(".department .brow")].filter(row => row.querySelector('.bk')).length === 7
+      document.querySelectorAll(".department .bk").length === 14
     );
     askButtonHeights.push(
       (await responsiveShelf.page.locator(".jv-form button[type=submit]").boundingBox()).height
@@ -844,7 +806,7 @@ const server = http.createServer((request, response) => {
         (await responsiveShelf.page.locator(".department .brow").evaluateAll(rows =>
           rows.every(row => row.querySelectorAll('.bk').length <= 2)
         )),
-      `desktop to mobile resize preserves all books across seven real shelf rows ${JSON.stringify(resizeRowCounts)}`
+      `desktop to mobile resize preserves all books across complete real shelf rows ${JSON.stringify(resizeRowCounts)}`
     );
     check(
       (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
@@ -878,22 +840,33 @@ const server = http.createServer((request, response) => {
     await responsiveShelf.context.close();
 
     const heldHash = await makePage();
-    await heldHash.page.goto(`${origin}/library.html#vocab-101`, {
+    await heldHash.page.goto(`${origin}/library.html#ai-fundamentals-101`, {
       waitUntil: "domcontentloaded"
     });
     await heldHash.page.waitForFunction(() =>
       document.querySelector("#library-status")?.textContent.includes(
-        "Vocab 101 is not available yet"
+        "AI Fundamentals 101 is not available yet"
       )
     );
     check(
       (await heldHash.page.locator("#reader").isHidden()) &&
         (await heldHash.page.locator("#library-status").innerText()).includes(
-          "Not in the current catalogue"
+          "Visual and reader admission pending"
         ),
       "held direct hash cannot bypass publication status"
     );
     await heldHash.context.close();
+
+    const rejectedHashRequests = publicationRequests.length;
+    const rejectedHash = await makePage();
+    await rejectedHash.page.goto(`${origin}/library.html#concepts-101`, { waitUntil: "domcontentloaded" });
+    check(
+      (await rejectedHash.page.locator('.bk[data-book-id="concepts-101"]').count()) === 0 &&
+        (await rejectedHash.page.locator("#reader").isHidden()) &&
+        publicationRequests.length === rejectedHashRequests,
+      "rejected Concepts 101 has no catalogue identity, reader or artifact request"
+    );
+    await rejectedHash.context.close();
 
     const jeeves = await makePage();
     await jeeves.page.goto(`${origin}/library.html`, {
@@ -950,7 +923,7 @@ const server = http.createServer((request, response) => {
       text:state.textContent
     }));
     check(
-      jeevesEmptyState.color === 'rgb(7, 20, 47)' &&
+      jeevesEmptyState.color === 'rgb(7, 15, 43)' &&
         jeevesEmptyState.background === 'rgb(255, 255, 255)' &&
         /nothing filed/i.test(jeevesEmptyState.text),
       'Miss Jeeves zero-result text remains readable on its light result surface'
@@ -1015,197 +988,6 @@ const server = http.createServer((request, response) => {
       await loadingIndex.context.close();
     }
 
-    const productionReader = await makePage({
-      viewport: { width: 1440, height: 1000 },
-      cardSeed: { version: 1, fields: { displayName: "Production reader check" } }
-    });
-    await productionReader.page.goto(`${origin}/library.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    if (captureDir) {
-      for (const viewport of [
-        { width: 1440, height: 1000 },
-        { width: 390, height: 844 },
-        { width: 320, height: 760 }
-      ]) {
-        const capturePage = await makePage({
-          viewport,
-          cardSeed: { version: 1, fields: { displayName: "Production capture" } }
-        });
-        await capturePage.page.goto(`${origin}/library.html`, {
-          waitUntil: "domcontentloaded"
-        });
-        await capturePage.page.waitForFunction(() =>
-          [...document.querySelectorAll(".department .bk img")].every(
-            (image) => image.complete && image.naturalWidth > 0
-          )
-        );
-        await capturePage.page.screenshot({
-          path: path.join(
-            candidateCaptureDir,
-            `library-production-full-${viewport.width}x${viewport.height}.png`
-          ),
-          fullPage: true
-        });
-        await capturePage.context.close();
-      }
-    }
-    await productionReader.page
-      .getByRole("button", { name: /^Preview Concepts 101\./ })
-      .evaluate((node) => node.click());
-    await productionReader.page.waitForSelector(
-      "#book-preview:not(.is-empty) #book-preview-read:not([hidden])"
-    );
-    if (captureDir) {
-      await productionReader.page.screenshot({
-        path: path.join(candidateCaptureDir, "library-production-selected-preview-1440x1000.png"),
-        fullPage: true
-      });
-      await productionReader.page.setViewportSize({ width: 390, height: 844 });
-      await productionReader.page.screenshot({
-        path: path.join(candidateCaptureDir, "library-production-selected-preview-390x844.png"),
-        fullPage: true
-      });
-      await productionReader.page.setViewportSize({ width: 1440, height: 1000 });
-    }
-    await productionReader.page.locator("#book-preview-read").click();
-    await productionReader.page.waitForSelector("#rtxt h2", { state: "attached" });
-    await productionReader.page.waitForSelector(".book .band .puffy-btn");
-    if (calibrateProductionControls) {
-      await productionReader.page.addStyleTag({
-        content:
-          ".book .band .puffy-btn,.book .txt .puffy-btn,#reader-close{" +
-          "min-height:1px!important;height:20px!important;font-size:8px!important;padding:0!important}"
-      });
-    }
-    for (const viewport of [
-      { width: 1440, height: 1000 },
-      { width: 390, height: 844 },
-      { width: 320, height: 760 }
-    ]) {
-      await productionReader.page.setViewportSize(viewport);
-      await productionReader.page.evaluate(() => window.scrollTo(0, 0));
-      const productionControlState = await productionReader.page.evaluate(() => {
-        const measure = (node) => {
-          const rect = node.getBoundingClientRect();
-          return {
-            width: rect.width,
-            height: rect.height,
-            fontSize: Number.parseFloat(getComputedStyle(node).fontSize)
-          };
-        };
-        return {
-          wholeBook: measure(document.querySelector(".book .band .puffy-btn")),
-          exactSection: measure(document.querySelector(".book .term .puffy-btn")),
-          back: measure(document.getElementById("reader-close")),
-          documentFits:
-            document.documentElement.scrollWidth <=
-            document.documentElement.clientWidth + 1,
-          readerFits:
-            document.getElementById("reader").scrollWidth <=
-            document.getElementById("reader").clientWidth + 1
-        };
-      });
-      check(
-        [
-          productionControlState.wholeBook,
-          productionControlState.exactSection,
-          productionControlState.back
-        ].every(
-          (control) =>
-            control.width >= 44 && control.height >= 44 && control.fontSize >= 14
-        ) &&
-          productionControlState.documentFits &&
-          productionControlState.readerFits,
-        `production Concepts reader has readable 44px Save/Back controls and no overflow at ${viewport.width}px`
-      );
-      if (captureDir) {
-        await productionReader.page.screenshot({
-          path: path.join(
-            candidateCaptureDir,
-            `library-production-reader-${viewport.width}x${viewport.height}.png`
-          )
-        });
-      }
-    }
-    await productionReader.page.locator(".book .band .puffy-btn").click();
-    await productionReader.page.waitForFunction(() =>
-      [...document.querySelectorAll(".puffy-option img")].length === 10 &&
-      [...document.querySelectorAll(".puffy-option img")].every(
-        (image) => image.complete && image.naturalWidth > 0
-      )
-    );
-    if (calibratePuffyFocus) {
-      await productionReader.page.evaluate(() => {
-        document.querySelector('.puffy-picker').removeAttribute('aria-modal');
-      });
-    }
-    check(
-      (await productionReader.page.locator(".puffy-option").count()) === 10,
-      "production whole-book Save exposes all 10 active Puffy Stickers"
-    );
-    check(
-      await productionReader.page.locator(".puffy-option img").evaluateAll(
-        (images) => images.length === 10 && images.every((image) => image.complete && image.naturalWidth > 0)
-      ),
-      "production whole-book Save visibly renders all 10 active Puffy Sticker images"
-    );
-    const puffyDialogState = await productionReader.page.evaluate(() => {
-      const picker = document.querySelector('.puffy-picker');
-      const rect = picker.getBoundingClientRect();
-      const actions = [...picker.querySelectorAll('a[href],button:not([hidden])')]
-        .filter((node) => node.getClientRects().length > 0)
-        .map((node) => {
-          const box = node.getBoundingClientRect();
-          return box.top >= rect.top - 1 && box.bottom <= rect.bottom + 1 && box.left >= rect.left - 1 && box.right <= rect.right + 1;
-        });
-      return {
-        modal: picker.getAttribute('aria-modal'),
-        fits: picker.scrollHeight <= picker.clientHeight + 1,
-        actionsContained: actions.every(Boolean)
-      };
-    });
-    check(
-      puffyDialogState.modal === 'true' && puffyDialogState.fits && puffyDialogState.actionsContained,
-      `production Puffy picker is modal and fully contained at 320px ${JSON.stringify(puffyDialogState)}`
-    );
-    const puffyOptions = productionReader.page.locator('.puffy-option');
-    const puffyLastControl = productionReader.page.locator('.puffy-picker-foot a');
-    await puffyLastControl.focus();
-    await productionReader.page.keyboard.press('Tab');
-    check(
-      await puffyOptions.first().evaluate((node) => document.activeElement === node),
-      'production Puffy picker traps forward Tab at its final control'
-    );
-    await puffyOptions.first().focus();
-    await productionReader.page.keyboard.press('Shift+Tab');
-    check(
-      await puffyLastControl.evaluate((node) => document.activeElement === node),
-      'production Puffy picker traps reverse Tab at its first control'
-    );
-    await productionReader.page.keyboard.press('Escape');
-    check(
-      (await productionReader.page.locator('.puffy-picker').count()) === 0 &&
-      await productionReader.page.locator('.book .band .puffy-btn').evaluate((node) => document.activeElement === node),
-      'production Puffy picker Escape closes and returns focus to its invoking Save control'
-    );
-    await productionReader.page.locator('.book .band .puffy-btn').click();
-    await productionReader.page.waitForFunction(() =>
-      [...document.querySelectorAll('.puffy-option img')].length === 10 &&
-      [...document.querySelectorAll('.puffy-option img')].every((image) => image.complete && image.naturalWidth > 0)
-    );
-    if (captureDir) {
-      await productionReader.page.screenshot({
-        path: path.join(candidateCaptureDir, "library-production-whole-book-puffy-320x760.png")
-      });
-    }
-    await productionReader.page.locator(".puffy-option").first().click();
-    await productionReader.page.locator(".book .term .puffy-btn").first().click();
-    check(
-      (await productionReader.page.locator(".puffy-option").count()) === 10,
-      "production exact-section Save exposes the same 10 active Puffy Stickers"
-    );
-    await productionReader.context.close();
 
     const homepageJeeves = await makePage();
     await homepageJeeves.page.goto(`${origin}/index.html#reference`, {
@@ -1303,7 +1085,7 @@ const server = http.createServer((request, response) => {
       cardSeed: { version: 1, fields: { displayName: "Reader fixture" } }
     });
     await reader.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
-    const opener = reader.page.getByRole("button", { name: /^Preview Vocab 101\./ });
+    const opener = reader.page.getByRole("button", { name: /^Preview Reader Fixture 101\./ });
     await opener.focus();
     await opener.evaluate((node) => node.click());
     await reader.page.locator("#book-preview-read").click();
@@ -1319,7 +1101,7 @@ const server = http.createServer((request, response) => {
     await reader.page.locator("#correction-form").evaluate((form) => form.requestSubmit());
     await reader.page.waitForFunction(() => document.getElementById('correction-status')?.dataset.state === 'accepted');
     check(
-      correctionApiSubmissions.at(-1)?.book_id === "vocab-101" &&
+      correctionApiSubmissions.at(-1)?.book_id === "reader-fixture-101" &&
         correctionApiSubmissions.at(-1)?.section_id === "book-section-deep-link-section" &&
         correctionApiSubmissions.at(-1)?.content_version === "reader-v1" &&
         (await reader.page.locator("#correction-status").innerText()).includes("lr_browser_fixture"),
@@ -1367,12 +1149,13 @@ const server = http.createServer((request, response) => {
     await reader.page.waitForSelector(".book .band .puffy-btn");
     check(
       (await reader.page.locator(".book .band .puffy-btn").innerText()).toLowerCase().includes("save this book") &&
-        (await reader.page.locator(".book .term .puffy-btn").first().innerText()).toLowerCase().includes("save this section"),
+        (await reader.page.locator(".book .term .puffy-btn").first().innerText()).toLowerCase().includes("save place"),
       "reader distinguishes whole-book and exact-section Puffy actions"
     );
+    const wholeBookSaveLabel = (await reader.page.locator(".book .band .puffy-btn").getAttribute("aria-label")).toLowerCase();
+    const exactSectionSaveLabel = (await reader.page.locator(".book .term .puffy-btn").first().getAttribute("aria-label")).toLowerCase();
     check(
-      (await reader.page.locator(".book .band .puffy-btn").getAttribute("aria-label")).toLowerCase().includes("save this book") &&
-        (await reader.page.locator(".book .term .puffy-btn").first().getAttribute("aria-label")).toLowerCase().includes("save this section"),
+      wholeBookSaveLabel.includes("save") && exactSectionSaveLabel.includes("save") && wholeBookSaveLabel !== exactSectionSaveLabel,
       "accessible Puffy labels distinguish whole-book and exact-section saves"
     );
     await reader.page.locator(".book .band .puffy-btn").click();
@@ -1388,7 +1171,7 @@ const server = http.createServer((request, response) => {
     await reader.page.locator(".puffy-option").first().click();
     await reader.page.locator("#reader-close").click();
     await reader.page.goto(
-      `${origin}/library.html?deep-link-fixture=1#vocab-101::${encodeURIComponent("Deep Link Section")}`,
+      `${origin}/library.html?deep-link-fixture=1#reader-fixture-101::${encodeURIComponent("Deep Link Section")}`,
       { waitUntil: "domcontentloaded" }
     );
     await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
@@ -1412,204 +1195,7 @@ const server = http.createServer((request, response) => {
     );
     await reader.context.close();
 
-    const conceptsReader = await makePage({
-      fixture: true,
-      viewport: { width: 1440, height: 1000 },
-      cardSeed: { version: 1, fields: { displayName: "Concepts reader fixture" } }
-    });
-    await conceptsReader.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
-    await conceptsReader.page.getByRole("button", { name: /^Preview Concepts 101\./ }).evaluate((node) => node.click());
-    await conceptsReader.page.locator("#book-preview-read").click();
-    await conceptsReader.page.waitForSelector("#rtxt h2", { state: "attached" });
-    const conceptsState = await conceptsReader.page.evaluate(() => {
-      const reader = document.getElementById("reader");
-      const headings = [...document.querySelectorAll("#rtxt h2,#rtxt h3")];
-      const bandRect = document.querySelector(".book .band").getBoundingClientRect();
-      const titleRect = document.getElementById("rt").getBoundingClientRect();
-      const textRect = document.getElementById("rtxt").getBoundingClientRect();
-      const ledeRect = document.querySelector("#rtxt .lede").getBoundingClientRect();
-      return {
-        text: document.getElementById("rtxt").innerText,
-        tocCount: document.querySelectorAll("#rtoc a").length,
-        topLevelHeadingCount: headings.filter((heading) => heading.tagName === "H2").length,
-        headingCount: headings.length,
-        uniqueHeadingIds: new Set(headings.map((heading) => heading.id)).size,
-        receiptPuffyCount: document.querySelectorAll("#rtxt .receipts [data-puffy-title], #rtxt .receipts .puffy-save-row").length,
-        systemMapIds: headings.filter((heading) => heading.textContent.trim() === "What reaches the model for this task").map((heading) => heading.id),
-        titleContained: titleRect.top >= bandRect.top && titleRect.bottom <= bandRect.bottom,
-        ledeFillRatio: ledeRect.width / textRect.width,
-        visibleDecorativeRules: [...document.querySelectorAll("#rtxt hr")]
-          .filter((rule) => getComputedStyle(rule).display !== "none").length,
-        fitsViewport: reader.scrollWidth <= reader.clientWidth
-      };
-    });
-    check(
-      conceptsState.text.includes("The model is not the whole product.") &&
-        conceptsState.text.toLowerCase().includes("tokens and the context window") &&
-        conceptsState.tocCount === conceptsState.topLevelHeadingCount &&
-        conceptsState.headingCount === conceptsState.uniqueHeadingIds &&
-        conceptsState.receiptPuffyCount === 0 &&
-        conceptsState.systemMapIds.length === 1 &&
-        conceptsState.titleContained &&
-        conceptsState.ledeFillRatio >= 0.75 &&
-        conceptsState.visibleDecorativeRules === 0 &&
-        conceptsState.fitsViewport,
-      "exact Concepts 101 artifact renders with complete contents, unclipped title, full reading width, unique anchors, no decorative dot rules and no overflow"
-    );
-    if (captureDir) {
-      await conceptsReader.page.screenshot({
-        path: path.join(fixtureCaptureDir, "concepts-101-reader-desktop-1440x1000.png")
-      });
-    }
-    await conceptsReader.page.setViewportSize({ width: 390, height: 844 });
-    await conceptsReader.page.evaluate(() => window.scrollTo(0, 0));
-    check(
-      await conceptsReader.page.evaluate(() => {
-        const reader = document.getElementById("reader");
-        const body = document.querySelector("#rtxt");
-        const mobileToc = document.getElementById("mobile-toc");
-        return reader.scrollWidth <= reader.clientWidth &&
-          body.getBoundingClientRect().width <= 390 &&
-          getComputedStyle(mobileToc).display !== "none" &&
-          document.querySelectorAll("#rtoc-mobile a").length === document.querySelectorAll("#rtxt h2").length &&
-          !mobileToc.open;
-      }),
-      "exact Concepts 101 reader reflows without mobile overflow and keeps a compact section finder"
-    );
-    await conceptsReader.page.locator("#mobile-toc summary").click();
-    check(
-      await conceptsReader.page.evaluate(() => {
-        const mobileToc = document.getElementById("mobile-toc");
-        return mobileToc.open && document.querySelectorAll("#rtoc-mobile a").length === document.querySelectorAll("#rtxt h2").length;
-      }),
-      "mobile reader exposes the full top-level book contents on demand"
-    );
-    await conceptsReader.page.locator("#mobile-toc summary").click();
-    if (captureDir) {
-      await conceptsReader.page.screenshot({
-        path: path.join(fixtureCaptureDir, "concepts-101-reader-mobile-start-390x844.png")
-      });
-    }
-    await conceptsReader.page.setViewportSize({ width: 1440, height: 1000 });
-    const systemMap = conceptsReader.page.getByRole("heading", { name: "What reaches the model for this task", exact: true });
-    const systemMapId = await systemMap.getAttribute("id");
-    await conceptsReader.page.locator(`#${systemMapId} + .puffy-save-row .puffy-btn`).click();
-    await conceptsReader.page.locator(".puffy-option").first().click();
-    const exactSectionSave = await conceptsReader.page.evaluate(() => {
-      const rows = JSON.parse(localStorage.getItem("laidies_puffies_board") || "[]");
-      return rows.find((row) => row.book_id === "concepts-101" && row.title === "What reaches the model for this task");
-    });
-    check(
-      exactSectionSave?.section_id === systemMapId &&
-        exactSectionSave?.url.endsWith(`::${encodeURIComponent("@" + systemMapId)}`),
-      "system-map section save stores its stable exact anchor"
-    );
-    await conceptsReader.page.goto(`${origin}${exactSectionSave.url}`, { waitUntil: "domcontentloaded" });
-    await conceptsReader.page.reload({ waitUntil: "domcontentloaded" });
-    await conceptsReader.page.waitForSelector("#rtxt h2", { state: "attached" });
-    const reopenedSection = await conceptsReader.page.evaluate(() => {
-      const heading = document.querySelector('#rtxt [aria-current="location"]');
-      const visiblePuffyRows = [...document.querySelectorAll("#rtxt .puffy-save-row")]
-        .filter((row) => row.getClientRects().length > 0);
-      return {
-        id: heading?.id || "",
-        hidden: heading?.hidden ?? true,
-        readerOpen: document.getElementById("reader").classList.contains("on"),
-        hash: location.hash,
-        ids: [...document.querySelectorAll("#rtxt h2,#rtxt h3")]
-          .filter((node) => node.textContent.trim() === "What reaches the model for this task")
-          .map((node) => node.id),
-        visiblePuffyRows: visiblePuffyRows.length,
-        mobileTocDisplay: getComputedStyle(document.getElementById("mobile-toc")).display,
-        desktopTocDisplay: getComputedStyle(document.getElementById("rtoc")).display
-      };
-    });
-    check(
-      reopenedSection.id === systemMapId && !reopenedSection.hidden && reopenedSection.readerOpen &&
-        reopenedSection.visiblePuffyRows > 1 && reopenedSection.mobileTocDisplay === "none" &&
-        reopenedSection.desktopTocDisplay !== "none",
-      `system-map section route reopens the exact saved section ${JSON.stringify(reopenedSection)}`
-    );
-    await conceptsReader.page.setViewportSize({ width: 390, height: 844 });
-    await conceptsReader.page.waitForFunction((targetId) => {
-      const target = document.getElementById(targetId);
-      if (!target) return false;
-      const rect = target.getBoundingClientRect();
-      return rect.bottom > 0 && rect.top < window.innerHeight;
-    }, systemMapId);
-    check(
-      await conceptsReader.page.evaluate(() =>
-        getComputedStyle(document.getElementById("mobile-toc")).display !== "none" &&
-        [...document.querySelectorAll("#rtxt > *")].every((node) => !node.hidden)
-      ),
-      "saved exact section keeps the whole book and mobile contents navigation available"
-    );
-    if (captureDir) {
-      await conceptsReader.page.screenshot({
-        path: path.join(fixtureCaptureDir, "concepts-101-reader-mobile-exact-section-390x844.png")
-      });
-    }
-    await conceptsReader.context.close();
 
-    const rulebookReader = await makePage({
-      fixture: true,
-      viewport: { width: 1440, height: 1000 },
-      cardSeed: { version: 1, fields: { displayName: "Rulebook reader fixture" } }
-    });
-    await rulebookReader.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
-    await rulebookReader.page.getByRole("button", { name: /^Preview How to Check AI's Work\./ }).evaluate((node) => node.click());
-    await rulebookReader.page.locator("#book-preview-read").click();
-    await rulebookReader.page.waitForSelector("#rtxt .vr-chapter", { state: "attached" });
-    const rulebookState = await rulebookReader.page.evaluate(() => ({
-      chapters: document.querySelectorAll("#rtxt .vr-chapter").length,
-      forms: document.querySelectorAll("#rtxt .vr-check").length,
-      hasOpeningPromise: Boolean(document.querySelector("#rtxt .vr-hero .vr-promise")),
-      duplicateTitle: Boolean(document.querySelector("#rtxt .vr-hero h1")),
-      hasPrompt: Boolean(document.querySelector("#rtxt #vr-prompt-text")),
-      hasTransfer: Boolean(document.querySelector("#rtxt [data-transfer]")),
-      hasSources: Boolean(document.querySelector("#rtxt .vr-sources")),
-      administrativePuffy: document.querySelectorAll("#rtxt .vr-metadata .puffy-save-row,#rtxt .vr-sources .puffy-save-row").length,
-      overflow: document.getElementById("reader").scrollWidth > document.getElementById("reader").clientWidth
-    }));
-    check(
-      rulebookState.chapters === 7 && rulebookState.forms >= 8 && rulebookState.hasOpeningPromise && !rulebookState.duplicateTitle &&
-        rulebookState.hasPrompt && rulebookState.hasTransfer && rulebookState.hasSources &&
-        rulebookState.administrativePuffy === 0 && !rulebookState.overflow,
-      `integrated Verification Rulebook retains its complete book, method tools and source drawer ${JSON.stringify(rulebookState)}`
-    );
-    await rulebookReader.page.locator('#rtxt .vr-check[data-check="opening"] input[data-correct="true"]').check();
-    await rulebookReader.page.locator('#rtxt .vr-check[data-check="opening"] button[type="submit"]').click();
-    check(
-      (await rulebookReader.page.locator('#rtxt .vr-check[data-check="opening"] .vr-feedback').innerText())
-        .includes("Keyed choices match the model key"),
-      "integrated Verification Rulebook check provides its bounded feedback instead of a dead form"
-    );
-    if (captureDir) {
-      await rulebookReader.page.screenshot({
-        path: path.join(fixtureCaptureDir, "verification-rulebook-reader-desktop-1440x1000.png")
-      });
-    }
-    await rulebookReader.page.setViewportSize({ width: 390, height: 844 });
-    const rulebookMobileState = await rulebookReader.page.evaluate(() => {
-        const reader = document.getElementById("reader");
-        const forms = [...document.querySelectorAll("#rtxt .vr-check")];
-        return {
-          readerClientWidth: reader.clientWidth,
-          readerScrollWidth: reader.scrollWidth,
-          wideForms: forms.map((form, index) => ({ index, clientWidth: form.clientWidth, scrollWidth: form.scrollWidth }))
-            .filter((form) => form.scrollWidth > form.clientWidth)
-        };
-      });
-    check(
-      rulebookMobileState.readerScrollWidth <= rulebookMobileState.readerClientWidth && !rulebookMobileState.wideForms.length,
-      `integrated Verification Rulebook and its method checks reflow without mobile overflow ${JSON.stringify(rulebookMobileState)}`
-    );
-    if (captureDir) {
-      await rulebookReader.page.screenshot({
-        path: path.join(fixtureCaptureDir, "verification-rulebook-reader-mobile-390x844.png")
-      });
-    }
-    await rulebookReader.context.close();
 
     const reduced = await makePage({ fixture: true });
     await reduced.page.emulateMedia({ reducedMotion: "reduce" });
@@ -1623,7 +1209,7 @@ const server = http.createServer((request, response) => {
     await reduced.context.close();
 
     const redirected = await makePage({ fixture: true, redirectArtifact: true });
-    await redirected.page.goto(`${origin}/library.html#vocab-101`, {
+    await redirected.page.goto(`${origin}/library.html#reader-fixture-101`, {
       waitUntil: "domcontentloaded"
     });
     await redirected.page.waitForSelector("#reader-retry");
@@ -1635,7 +1221,7 @@ const server = http.createServer((request, response) => {
 
     fs.writeFileSync(artifactPath, admittedArtifact.replace("Verified", "Changed"));
     const mismatch = await makePage({ fixture: true });
-    await mismatch.page.goto(`${origin}/library.html#vocab-101`, {
+    await mismatch.page.goto(`${origin}/library.html#reader-fixture-101`, {
       waitUntil: "domcontentloaded"
     });
     await mismatch.page.waitForSelector("#reader-retry");
@@ -1658,25 +1244,25 @@ const server = http.createServer((request, response) => {
         "https://attacker.invalid/library-leak",
         "\\\\attacker.invalid\\library-leak",
         "/%2F%2Fattacker.invalid/library-leak",
-        "/content/library-books/rendered/vocab-101.html\u0000",
+        "/content/library-books/rendered/reader-fixture-101.html\u0000",
         "/content/library-books/rendered/unknown.html"
       ];
       const initiallyPrivate = window.LAIDIES_LIBRARY_CATALOGUE === undefined;
       window.LAIDIES_LIBRARY_CATALOGUE = Object.create(null);
       for (const source of attempts) {
-        window.LAIDIES_LIBRARY_CATALOGUE["vocab-101"] = {
-          id: "vocab-101",
+        window.LAIDIES_LIBRARY_CATALOGUE["reader-fixture-101"] = {
+          id: "reader-fixture-101",
           t: "Taken over",
           status: "available",
           statusLabel: "Forged",
           src: source
         };
-        openBook("vocab-101");
+        openBook("reader-fixture-101");
       }
       try {
-        eval("ADMITTED_BOOK_SOURCES['vocab-101']='//attacker.invalid/again'");
+        eval("ADMITTED_BOOK_SOURCES['reader-fixture-101']='//attacker.invalid/again'");
       } catch (error) {}
-      openBook("vocab-101");
+      openBook("reader-fixture-101");
       await new Promise((resolve) => setTimeout(resolve, 50));
       return {
         initiallyPrivate,
@@ -1687,7 +1273,7 @@ const server = http.createServer((request, response) => {
     check(
       takeoverResult.initiallyPrivate &&
         takeoverResult.readerHidden &&
-        takeoverResult.status.includes("Vocab 101 is not available yet"),
+        publicationRequests.length === requestsBeforeTakeover,
       "catalogue authority is private and runtime takeover cannot open a held book"
     );
     check(
@@ -1701,7 +1287,7 @@ const server = http.createServer((request, response) => {
       id: "valid-a",
       title: "Older valid place",
       summary: "Valid sibling A",
-      url: "/library.html#vocab-101",
+      url: "/library.html#reader-fixture-101",
       sticker,
       purpose: "",
       placedAt: "2026-07-24T10:00:00.000Z"
@@ -1754,7 +1340,7 @@ const server = http.createServer((request, response) => {
           items.some((item) => item.id === "valid-a" && item.title === "Newest valid place") &&
           items.some((item) => item.id === "valid-b") &&
           items.find((item) => item.id === "valid-a").schema_version === 2 &&
-          items.find((item) => item.id === "valid-a").book_id === "vocab-101" &&
+          items.find((item) => item.id === "valid-a").book_id === "reader-fixture-101" &&
           items.find((item) => item.id === "valid-a").section_id === "" &&
           items.find((item) => item.id === "valid-a").content_version === "legacy-unversioned" &&
           items.every((item) =>
@@ -1860,16 +1446,16 @@ const server = http.createServer((request, response) => {
     await persistence.page.evaluate(() => {
       const fixture = document.createElement("section");
       fixture.id = "puffy-test-section";
-      fixture.setAttribute("data-puffy-id", "library-vocab-101-section-hallucination");
+      fixture.setAttribute("data-puffy-id", "library-reader-fixture-101-section-hallucination");
       fixture.setAttribute("data-puffy-title", "Hallucination");
       fixture.setAttribute("data-puffy-kind", "entry");
-      fixture.setAttribute("data-puffy-summary", "Vocab 101 · SUNNYVAiLE LIBRAiRY");
-      fixture.setAttribute("data-puffy-book-id", "vocab-101");
+      fixture.setAttribute("data-puffy-summary", "Reader Fixture 101 · SUNNYVAiLE LIBRAiRY");
+      fixture.setAttribute("data-puffy-book-id", "reader-fixture-101");
       fixture.setAttribute("data-puffy-section-id", "section-3");
-      fixture.setAttribute("data-puffy-content-version", "vocab-101.2026-07-26");
+      fixture.setAttribute("data-puffy-content-version", "reader-fixture-101.2026-07-26");
       fixture.setAttribute(
         "data-puffy-url",
-        "/library.html#vocab-101::Hallucination"
+        "/library.html#reader-fixture-101::Hallucination"
       );
       fixture.innerHTML = "<h2>Hallucination</h2>";
       document.querySelector("main").appendChild(fixture);
@@ -1887,11 +1473,11 @@ const server = http.createServer((request, response) => {
         const items = JSON.parse(localStorage.getItem("laidies_puffies_board") || "[]");
         return (
           items.length === 1 &&
-          items[0].url === "/library.html#vocab-101::Hallucination" &&
+          items[0].url === "/library.html#reader-fixture-101::Hallucination" &&
           items[0].schema_version === 2 &&
-          items[0].book_id === "vocab-101" &&
+          items[0].book_id === "reader-fixture-101" &&
           items[0].section_id === "section-3" &&
-          items[0].content_version === "vocab-101.2026-07-26"
+          items[0].content_version === "reader-fixture-101.2026-07-26"
         );
       }),
       "exact-section Puffy save writes read-verified v2 content identity"
@@ -1902,7 +1488,7 @@ const server = http.createServer((request, response) => {
     await persistence.page.waitForSelector(".puffy-item");
     check(
       (await persistence.page.locator(".puffy-item-main").getAttribute("href")) ===
-        "/library.html#vocab-101::Hallucination" &&
+        "/library.html#reader-fixture-101::Hallucination" &&
         (await persistence.page.locator(".puffy-item a button").count()) === 0,
       "My Closet exposes a valid sibling link/remove structure"
     );
@@ -1912,17 +1498,13 @@ const server = http.createServer((request, response) => {
       ),
       "Closet reopen copy delegates current admission authority back to the Library"
     );
+    const fixtureReopenRequests = publicationRequests.length;
     await persistence.page.locator(".puffy-item-main").click();
-    await persistence.page.waitForFunction(() =>
-      document.querySelector("#library-status")?.textContent.includes(
-        "Vocab 101 is not available yet"
-      )
-    );
+    await persistence.page.waitForTimeout(50);
     check(
       (await persistence.page.locator("#reader").isHidden()) &&
-        (await persistence.page.locator("#library-status").innerText()).includes(
-          "Not in the current catalogue"
-        ),
+        (await persistence.page.locator('.bk[data-book-id="reader-fixture-101"]').count()) === 0 &&
+        publicationRequests.length === fixtureReopenRequests,
       "Closet reopen routes back through the current Library admission check"
     );
     await persistence.page.goto(`${origin}/laidies-card.html#puffyPouch`, {
@@ -1993,12 +1575,12 @@ const server = http.createServer((request, response) => {
     const crossTabRecord = {
       schema_version: 2,
       id: "cross-tab-section",
-      book_id: "vocab-101",
+      book_id: "reader-fixture-101",
       section_id: "section-3",
-      content_version: "vocab-101.2026-07-26",
+      content_version: "reader-fixture-101.2026-07-26",
       title: "Cross-tab original",
       summary: "Device-local tab fixture",
-      url: "/library.html#vocab-101::Hallucination",
+      url: "/library.html#reader-fixture-101::Hallucination",
       sticker,
       purpose: "",
       placedAt: "2026-07-24T13:00:00.000Z"
@@ -2089,7 +1671,7 @@ const server = http.createServer((request, response) => {
     );
     check(
       publicationRequests.every((url) =>
-        /\/content\/library-books\/rendered\/(?:vocab-101|concepts-101|briefing-101|setup-101|accounts-101|verification-rulebook)\.html$/.test(url)
+        /\/content\/library-books\/rendered\/reader-fixture-101\.html$/.test(url)
       ),
       "publication requests remain confined to exact admitted production and test-fixture artifacts"
     );

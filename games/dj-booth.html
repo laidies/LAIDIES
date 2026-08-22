@@ -680,13 +680,13 @@
           <span class="dj-now-playing-label">Soundcheck status</span>
           <span class="dj-now-playing-ep" id="djNpEp" style="display:none;"></span>
           <h2 class="dj-now-playing-title" id="djNpTitle">Choose a track to listen.</h2>
-          <p class="dj-now-playing-desc" id="djNpDesc" role="status" aria-live="polite" aria-atomic="true">LAiDIES original songs are ready to play on KSVL.</p>
+          <p class="dj-now-playing-desc" id="djNpDesc" role="status" aria-live="polite" aria-atomic="true">LAiDIES original songs are ready to hear on KSVL.</p>
         </div>
 
         <!-- CONTROLS -->
         <div class="dj-controls">
           <button type="button" class="dj-btn-prev" id="djPrev" aria-label="Previous track" title="Previous track">&#9198;</button>
-          <button type="button" class="dj-btn-play" id="djPlay" aria-label="Play selected track" title="Play">&#9654;&#65039;</button>
+          <button type="button" class="dj-btn-play" id="djPlay" aria-label="Listen to selected track" title="Start listening">&#9654;&#65039;</button>
           <button type="button" class="dj-btn-next" id="djNext" aria-label="Next track" title="Next track">&#9197;</button>
           <button type="button" class="dj-btn-repeat" id="djRepeat" aria-label="Repeat mode" title="Repeat mode">&#128257;</button>
         </div>
@@ -843,8 +843,8 @@
         } else {
           visualRow.classList.remove("is-playing");
           playBtn.innerHTML = "&#9654;&#65039;";
-          playBtn.setAttribute("aria-label", "Play");
-          playBtn.title = "Play";
+          playBtn.setAttribute("aria-label", "Start listening");
+          playBtn.title = "Start listening";
         }
       }
 

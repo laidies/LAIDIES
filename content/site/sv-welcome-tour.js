@@ -17,7 +17,7 @@
 
   var STOPS = [
     { href: '/visitors-centre.html', name: "Visitor’s Centre", icon: 'map',
-      line: "Every good town starts at the Visitor’s Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
+      line: "Every good town starts at the Visitor’s Centre — start the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
     { href: '/newsstand.html', name: 'The NewsStand', icon: 'news',
       line: "Catch breaking news, a clear daily explainer, the week’s bigger picture and The Tribune’s take on the questions behind the headlines." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
@@ -39,7 +39,7 @@
     { href: '/mall.html', name: 'The Mall', icon: 'bag',
       line: "Ten stores, all references — every pop-culture moment the town reaches for has its own storefront, with a Directory at the door." },
     { href: '/games/dream-phone.html', name: 'Dream Phone', icon: 'phone',
-      line: "Call a SUNNYVAiLE character for a playful new perspective, or play For Real / As If and investigate an AI claim." },
+      line: "Call a SUNNYVAiLE character for a playful new perspective, or try For Real / As If and investigate an AI claim." },
     { href: '/sorority-house.html', name: 'Delta LAi Nu', icon: 'home',
       line: "Visit the Delta LAi Nu clubhouse for Girl Talk, community rooms and your Closet." },
     { href: '/town-hall.html', name: 'Town Hall', icon: 'columns',

@@ -2,25 +2,34 @@
   "use strict";
 
   var started = false;
+  // Literal deployable paths are the bootstrap's public-artifact dependency
+  // manifest. Runtime query strings are added separately for cache control.
+  var publicArtifactDependencies = {
+    supabaseConfig: "/content/site/supabase-config.js",
+    residentCardContract: "/content/site/resident-card-contract-v1.js",
+    identityClient: "/content/site/identity-client-v1.js",
+    accountRuntime: "/content/site/resident-account-runtime-v1.js",
+    continuation: "/content/site/resident-continuation-v1.js"
+  };
   var scripts = [
     {
-      src: "/content/site/supabase-config.js?v=20260702-1",
+      src: publicArtifactDependencies.supabaseConfig + "?v=20260702-1",
       ready: function () { return !!global.LAIDIES_SUPABASE_CONFIG; }
     },
     {
-      src: "/content/site/resident-card-contract-v1.js?v=20260726-repair-1",
+      src: publicArtifactDependencies.residentCardContract + "?v=20260726-repair-1",
       ready: function () { return !!global.LAIDIESResidentCard; }
     },
     {
-      src: "/content/site/identity-client-v1.js?v=20260729-continuation-1",
+      src: publicArtifactDependencies.identityClient + "?v=20260729-continuation-1",
       ready: function () { return !!global.LAIDIESIdentityV1; }
     },
     {
-      src: "/content/site/resident-account-runtime-v1.js?v=20260729-continuation-1",
+      src: publicArtifactDependencies.accountRuntime + "?v=20260729-continuation-1",
       ready: function () { return !!global.LAIDIESResidentAccountRuntime; }
     },
     {
-      src: "/content/site/resident-continuation-v1.js?v=20260729-continuation-1",
+      src: publicArtifactDependencies.continuation + "?v=20260729-continuation-1",
       ready: function () { return !!global.LAIDIESResidentContinuationV1; }
     }
   ];

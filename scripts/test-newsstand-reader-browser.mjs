@@ -10,12 +10,23 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(process.env.NEWSSTAND_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."));
-const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const CHROME_CANDIDATES = process.env.NEWSSTAND_CHROME_PATH
+  ? [process.env.NEWSSTAND_CHROME_PATH]
+  : [
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "/usr/bin/google-chrome",
+      "/usr/bin/google-chrome-stable",
+      "/usr/bin/chromium",
+      "/usr/bin/chromium-browser"
+    ];
+const CHROME = CHROME_CANDIDATES.find((candidate) => fs.existsSync(candidate));
 const NOW_STALE = "2026-06-01T00:00:00Z";
 const TEST_CLOCKS = {
   "same-day": "2026-08-04T23:00:00-07:00",
   "next-day": "2026-08-05T12:00:00-07:00",
-  "released-worldwide": "2026-08-05T06:30:00Z"
+  "released-worldwide": "2026-08-05T06:30:00Z",
+  "backfill-current": "2026-08-11T23:00:00Z",
+  "release-cut-current": "2026-08-21T12:00:00-07:00"
 };
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
 const RETRACTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json";
@@ -23,8 +34,13 @@ const EVIDENCE_DIR = process.env.NEWSSTAND_EVIDENCE_DIR
   ? path.resolve(process.env.NEWSSTAND_EVIDENCE_DIR)
   : null;
 
-if (!fs.existsSync(CHROME)) {
-  console.log("SKIP NEWSSTAND BROWSER: Google Chrome is unavailable.");
+if (!CHROME) {
+  const message = `NEWSSTAND BROWSER UNAVAILABLE: checked ${CHROME_CANDIDATES.join(", ")}`;
+  if (process.env.NEWSSTAND_REQUIRE_BROWSER === "1") {
+    console.error(message);
+    process.exit(1);
+  }
+  console.log(`SKIP ${message}`);
   process.exit(0);
 }
 
@@ -103,13 +119,18 @@ function fixtureData(name) {
     story.slug = "forged-admitted-destination";
     if (story.sources && story.sources[0]) story.sources[0].url = "https://example.invalid/forged-source";
   }
+  if (name === "release-cut-freshness-bypass") {
+    data.publications.weekly.lastCheckedAt = TEST_CLOCKS["release-cut-current"];
+    data.publications.tribune.lastCheckedAt = TEST_CLOCKS["release-cut-current"];
+  }
   return data;
 }
 
 function fixtureScript(name) {
   const mutatesStorySource = new Set([
     "load-failure", "no-data", "dataset-hold", "stale", "unavailable", "mixed",
-    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered"
+    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered",
+    "release-cut-freshness-bypass"
   ]);
   if (!mutatesStorySource.has(name)) {
     return fs.readFileSync(path.join(ROOT, "content", "newsstand-stories.js"), "utf8");
@@ -191,6 +212,7 @@ const server = http.createServer((request, response) => {
         const value = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
         const issue = value.issues.find((item) => item.editionDate === "2026-08-04");
         issue.admission.reviewedAt = new Date(new Date(clock).getTime() + (fixture === "pre-release" ? 1 : -1)).toISOString();
+        value.issues = value.issues.filter((item) => Date.parse(item.admission.reviewedAt) <= Date.parse(clock));
         response.writeHead(200, { "content-type": "application/json" });
         response.end(JSON.stringify(value));
         return;
@@ -214,11 +236,19 @@ const server = http.createServer((request, response) => {
         readyDesk.headline = "FORGED STRUCTURALLY VALID DESK COPY";
         readyDesk.summary = "Forged summary that preserves the accepted shape and identifiers.";
         readyDesk.destination = "/newsstand.html?forged=1";
+        archivedIssue.stories[0].headline = "FORGED ARCHIVED STORY SNAPSHOT";
         value.issues.find((issue) => issue.editionDate === "2026-08-04").desks[0].emptyState = "Forged but structurally valid quiet-desk copy.";
         response.writeHead(200, { "content-type": "application/json" });
         response.end(JSON.stringify(value));
         return;
       }
+      const referer = new URL(request.headers.referer);
+      const clock = TEST_CLOCKS[referer.searchParams.get("clock") || "same-day"] || TEST_CLOCKS["same-day"];
+      const value = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
+      value.issues = value.issues.filter((item) => Date.parse(item.admission.reviewedAt) <= Date.parse(clock));
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(value));
+      return;
     } catch {}
   }
   if (requestUrl.pathname === "/newsstand.html") {
@@ -483,15 +513,15 @@ try {
   clearTimeout(timeout);
 
   const base = await openPage("/newsstand.html", { width: 1440, height: 1000 });
-  await waitForValue(base, "document.querySelector('#ns-title').textContent", "The Daily and The Tribune are current.", "same-day Daily admission");
-  check(await value(base, "document.querySelector('#ns-title').textContent === 'The Daily and The Tribune are current.'"), true, "base arrival includes the canonical current-date Daily");
+  await waitForValue(base, "document.querySelector('#ns-title').textContent", "The Daily and The Weekly and The Big Picture are current.", "same-day Daily admission");
+  check(await value(base, "document.querySelector('#ns-title').textContent === 'The Daily and The Weekly and The Big Picture are current.'"), true, "base arrival includes the canonical current-date Daily and Weekly");
   check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026'"), true, "canonical Daily label uses its Vancouver edition date");
   check(await value(base, "(() => { const action = document.querySelector('.ns-state__primary'); return action.textContent.trim() === 'Choose a paper' && !action.hasAttribute('data-pull'); })()"), true, "arrival action does not choose between two current publications for the visitor");
   const rollover = await openPage("/newsstand.html?clock=next-day", { width: 390, height: 844, reducedMotion: true });
   await waitForValue(rollover, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Latest complete edition · August 4, 2026", "next-day Daily rollover");
-  check(await value(rollover, "document.querySelector('#ns-title').textContent === 'The Tribune is current.'"), true, "next-day arrival no longer claims the prior Daily is current");
+  check(await value(rollover, "document.querySelector('#ns-title').textContent === 'The Weekly and The Big Picture are current.'"), true, "next-day arrival no longer claims the prior Daily is current");
   check(await value(rollover, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 4, 2026' && document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Latest · Aug 4 ’26'"), true, "next-day compact and detailed Daily states agree on the latest complete date");
-  check(await value(rollover, "(() => { const action=document.querySelector('.ns-state__primary'); return action.textContent.trim()==='Pull the Tribune' && action.getAttribute('data-pull')==='tribune'; })()"), true, "next-day arrival points to the sole current publication");
+  check(await value(rollover, "(() => { const action=document.querySelector('.ns-state__primary'); return action.textContent.trim()==='Choose a paper' && !action.hasAttribute('data-pull'); })()"), true, "next-day arrival does not choose between the current Weekly and Tribune");
   await captureEvidence(rollover, "current-date-state-390.png");
   await captureEvidence(rollover, "current-date-rack-390.png", ".ns-paper-index");
   await act(rollover, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
@@ -523,7 +553,8 @@ try {
   check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "1", "Tribune eligible story count before pull");
   check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__headline').textContent === window.NEWSSTAND_DATA.stories.find((story) => story.edition === 'tribune').headline"), true, "Tribune canonical lead headline before pull");
   check(await value(base, "(() => { const story = window.NEWSSTAND_DATA.stories.find((item) => item.edition === 'tribune'); const text = String(story.laidies_read || story.the_story).replace(/<[^>]*>/g, ' ').trim(); const match = text.match(/^(.+?[.!?])\\s/); return document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__teaser').textContent === (match ? match[1] : text); })()"), true, "Tribune existing first-sentence teaser before pull");
-  check(await value(base, "['breaking','weekly'].every((edition) => { const node = document.querySelector('[data-contents-for=\"' + edition + '\"]'); const publication = window.NEWSSTAND_DATA.publications[edition]; return node.textContent.trim() === publication.note && node.getAttribute('data-story-count') === '0'; })"), true, "quiet and held papers reuse exact canonical notes");
+  check(await value(base, "(() => { const node = document.querySelector('[data-contents-for=\"breaking\"]'); const publication = window.NEWSSTAND_DATA.publications.breaking; return node.textContent.trim() === publication.note && node.getAttribute('data-story-count') === '0'; })()"), true, "quiet Breaking reuses its exact canonical note");
+  check(await value(base, "document.querySelector('[data-contents-for=\"weekly\"]').textContent.includes('moving the handoff line')"), true, "current Weekly exposes its admitted lead story");
   check(await value(base, "(() => { const node = document.querySelector('[data-contents-for=\"daily\"]'); return Number(node.getAttribute('data-service-count')) === 0 && node.textContent.includes('Quiet edition') && node.textContent.includes('August 4, 2026'); })()"), true, "current Daily paper previews the admitted quiet edition without prior-date carryover");
   check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026' && document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Current · Aug 4 ’26'"), true, "detailed and compact Daily states share the admitted date");
   check(await value(base, "(() => { const held = window.NEWSSTAND_DATA.stories.filter((story) => story.status === 'hold').map((story) => story.headline); return Array.from(document.querySelectorAll('.ns-publication__contents')).every((node) => held.every((headline) => !node.textContent.includes(headline))); })()"), true, "held headlines never leak onto papers");
@@ -534,7 +565,7 @@ try {
     return document.querySelectorAll('.ns-topic-button').length === expected.size;
   })()`), true, "browse by topic derives one control for every eligible story topic");
   check(await value(base, "!document.querySelector('#ns-topic-buttons').textContent.includes('privacy') && !document.querySelector('#ns-topic-buttons').textContent.includes('health')"), true, "held-story topics never leak into browse controls");
-  check(await value(base, "(() => { const action = (edition) => document.querySelector('.ns-publication[data-edition=\"' + edition + '\"] .ns-publication__action').textContent; return action('breaking') === 'Check this paper · No issue today' && action('daily') === 'Pull this paper · Opens here' && action('weekly') === 'Check this paper · No issue today' && action('tribune') === 'Pull this paper · Opens here'; })()"), true, "every paper action matches its truthful state");
+  check(await value(base, "(() => { const action = (edition) => document.querySelector('.ns-publication[data-edition=\"' + edition + '\"] .ns-publication__action').textContent; return action('breaking') === 'Check this paper · No issue today' && action('daily') === 'Pull this paper · Opens here' && action('weekly') === 'Pull this paper · Opens here' && action('tribune') === 'Pull this paper · Opens here'; })()"), true, "every paper action matches its truthful state");
   check(await value(base, `(() => {
     const eligible = window.NEWSSTAND_DATA.stories.filter((story) =>
       ['published', 'corrected'].includes(story.status));
@@ -577,7 +608,7 @@ try {
   const failedColumnsSharedDaily = await openPage("/newsstand.html?daily=2026-08-03&fixture=columns-load-failure", { width: 390, height: 844 });
   const failedIssueStore = await openPage("/newsstand.html?fixture=daily-issues-load-failure", { width: 390, height: 844 });
   const tamperedIssueStore = await openPage("/newsstand.html?fixture=daily-issues-tampered", { width: 390, height: 844 });
-  const tamperedStorySource = await openPage("/newsstand.html?fixture=admitted-story-tampered", { width: 390, height: 844 });
+  const tamperedStorySource = await openPage("/newsstand.html?daily=2026-08-03&fixture=admitted-story-tampered", { width: 390, height: 844 });
   const memoryTamper = await openPage("/newsstand.html?fixture=post-validation-memory-tamper", { width: 390, height: 844 });
   const sameDateInjection = await openPage("/newsstand.html?fixture=same-date-injection", { width: 390, height: 844 });
   try {
@@ -589,9 +620,9 @@ try {
     check(await value(failedColumnsSharedDaily, "document.querySelector('#paper-counter').hidden"), false, "shared Daily still opens when optional service columns fail to load");
     check(await value(failedColumnsSharedDaily, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-03", "columns failure preserves the exact canonical Daily date");
     check(await value(failedColumnsSharedDaily, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 4, "columns failure preserves the four immutable admitted archive desks");
-    check(await value(failedIssueStore, "document.querySelector('#ns-title').textContent === 'The Tribune is current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "canonical issue-store failure preserves the truthful static fallback without claiming August 4");
-    check(await value(tamperedIssueStore, "document.querySelector('#ns-title').textContent === 'The Tribune is current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "structurally valid but checksum-mismatched canonical issue copy fails closed to the truthful static fallback");
-    check(await value(tamperedStorySource, "document.querySelector('#ns-title').textContent === 'The Tribune is current.' && !document.body.textContent.includes('FORGED ADMITTED-ID STORY COPY')"), true, "mutated admitted-story bytes fail closed even when ID date and status remain accepted");
+    check(await value(failedIssueStore, "document.querySelector('#ns-title').textContent === 'The Weekly and The Big Picture are current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "canonical issue-store failure preserves the truthful static fallback without claiming August 4");
+    check(await value(tamperedIssueStore, "document.querySelector('#ns-title').textContent === 'The Weekly and The Big Picture are current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "structurally valid but checksum-mismatched canonical issue copy fails closed to the truthful static fallback");
+    check(await value(tamperedStorySource, "document.querySelector('.ns-daily-issue').dataset.dailyDate === '2026-08-03' && document.body.textContent.includes('Europe’s AI transparency rules started August 2') && !document.body.textContent.includes('FORGED ADMITTED-ID STORY COPY')"), true, "later canonical story changes cannot erase or replace an immutable archived Daily snapshot");
     const memoryTamperState = await value(memoryTamper, "JSON.stringify({status:document.querySelector('[data-status-for=\"daily\"]').textContent,contents:document.querySelector('[data-contents-for=\"daily\"]').textContent,count:document.querySelector('[data-contents-for=\"daily\"]').dataset.serviceCount||null,title:document.querySelector('#ns-title').textContent,error:window.__newsstandDailyIssueError||null})");
     check(JSON.parse(memoryTamperState).count, "4", "snapshot fixture waits for the exact admitted August 3 issue");
     await act(memoryTamper, `(() => {
@@ -624,8 +655,8 @@ try {
   await captureEvidence(base, "desktop-counter-1440.png", ".ns-publications");
   check(await value(base, "document.documentElement.scrollWidth <= window.innerWidth"), true, "1440 rack reflow");
   await act(base, "document.querySelector('.ns-publication[data-edition=\"weekly\"]').click()");
-  check(await value(base, "document.querySelectorAll('.ns-article').length"), 0, "held Weekly body suppressed");
-  check(await value(base, "document.activeElement.id"), "ns-empty", "held Weekly focus");
+  check(await value(base, "document.querySelectorAll('.ns-front-story').length"), 1, "current Weekly opens its admitted listing");
+  check(await value(base, "document.querySelector('.ns-front-story').textContent.includes('moving the handoff line')"), true, "Weekly lists the exact admitted synthesis");
   await act(base, "document.querySelector('.ns-publication[data-edition=\"tribune\"]').click()");
   check(await value(base, "document.querySelectorAll('.ns-front-story').length"), 1, "Tribune listing");
   check(await value(base, "document.activeElement.id"), "ns-reader-title", "open focus");
@@ -639,8 +670,8 @@ try {
   await act(base, "document.querySelector('#ns-return').click()");
   check(await value(base, "document.activeElement.id"), "ns-search-button", "search return focus");
   await act(base, "document.querySelector('#ns-browse-all').click()");
-  check(await value(base, `document.querySelectorAll('.ns-front-story').length ===
-    window.NEWSSTAND_DATA.stories.filter((story) => ['published', 'corrected'].includes(story.status)).length`), true, "browse all exposes every eligible back issue without a query");
+  check(await value(base, "document.querySelectorAll('.ns-front-story').length"), 3, "browse all exposes the two admitted papers plus the released August 3 Daily snapshot at the historical test clock");
+  check(await value(base, "!document.body.textContent.includes('Kimi K3’s weights are open') && !document.body.textContent.includes('The cyclone model is open')"), true, "browse all does not leak archive issues before their admission time");
   check(await value(base, "document.querySelector('#ns-reader-title').textContent"), "Newest first.", "browse all explains its ordering");
   check(await value(base, "document.activeElement.id"), "ns-reader-title", "browse all moves focus to the archive heading");
   await act(base, "document.querySelector('#ns-search-input').value=''");
@@ -654,13 +685,38 @@ try {
   check(await value(base, "document.querySelector('#ns-reader-title').textContent"), "verification", "topic result keeps the selected topic visible");
   base.close();
 
+  const backfillCurrent = await openPage("/newsstand.html?clock=backfill-current", { width: 1440, height: 1000 });
+  await waitForValue(backfillCurrent, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Latest complete edition · August 6, 2026", "three-week archive Daily admission");
+  check(await value(backfillCurrent, "window.__newsstandDailyIssueError || null"), null, "current Daily issue store validates before archive search");
+  await act(backfillCurrent, "document.querySelector('#ns-browse-all').click()");
+  check(await value(backfillCurrent, "document.querySelectorAll('.ns-front-story').length"), 5, "current archive exposes the existing Daily, three newly admitted Daily snapshots and the Weekly; older overdue source checks remain suppressed");
+  check(await value(backfillCurrent, "['Google’s new Flash models cost less','Kimi K3’s weights are open','The cyclone model is open','AI use may be moving the handoff line'].every((headline) => document.body.textContent.includes(headline))"), true, "current searchable archive contains the exact three-week Daily and Weekly batch");
+  await act(backfillCurrent, "document.querySelector('#ns-search-input').value='Kimi';document.querySelector('#ns-search-button').click()");
+  check(await value(backfillCurrent, "document.querySelectorAll('.ns-front-story').length === 1 && document.querySelector('.ns-front-story').textContent.includes('Kimi K3')"), true, "archive search finds the admitted Kimi Daily snapshot");
+  backfillCurrent.close();
+
+  const releaseCutFixture = process.env.NEWSSTAND_RELEASE_CUT_CALIBRATION === "pretend-overdue-papers-current"
+    ? "&fixture=release-cut-freshness-bypass"
+    : "";
+  const releaseCutCurrent = await openPage(`/newsstand.html?clock=release-cut-current${releaseCutFixture}`, { width: 1440, height: 1000 });
+  check(await value(releaseCutCurrent, "document.querySelector('#ns-title').textContent"), "A clear day at the NewsStand.", "August 21 release cut reports a clear day rather than a false current paper");
+  check(await value(releaseCutCurrent, "document.querySelector('#ns-system-status').textContent"), "No current publication.", "August 21 release cut exposes no current publication");
+  check(await value(releaseCutCurrent, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent"), "Latest complete edition · August 6, 2026", "August 21 release cut keeps the latest complete Daily as an archive");
+  check(await value(releaseCutCurrent, "document.querySelector('.ns-publication [data-status-for=\"weekly\"]').textContent"), "Check overdue · not current", "August 21 release cut fails the overdue Weekly closed");
+  check(await value(releaseCutCurrent, "document.querySelector('.ns-publication [data-status-for=\"tribune\"]').textContent"), "Check overdue · not current", "August 21 release cut fails the overdue Big Picture closed");
+  check(await value(releaseCutCurrent, "['weekly','tribune'].every((edition) => document.querySelector('[data-contents-for=\"' + edition + '\"]').getAttribute('data-story-count') === '0')"), true, "August 21 release cut exposes no stale Weekly or Big Picture headline");
+  await act(releaseCutCurrent, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
+  check(await value(releaseCutCurrent, "document.querySelectorAll('.ns-daily-issue').length === 1 && document.querySelector('.ns-daily-issue').textContent.includes('The cyclone model is open')"), true, "August 21 release cut opens the exact August 6 Daily archive");
+  await act(releaseCutCurrent, "document.querySelector('#ns-browse-all').click()");
+  check(await value(releaseCutCurrent, "document.querySelectorAll('.ns-front-story').length"), 4, "August 21 release cut archive exposes only four eligible Daily stories");
+  releaseCutCurrent.close();
+
   const growth = await openPage("/newsstand.html?fixture=growth", { width: 1440, height: 1000 });
   check(await value(growth, "document.querySelectorAll('.ns-publication').length"), 4, "growth keeps four stable papers");
   check(await value(growth, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "2", "second eligible story updates Tribune count");
   check(await value(growth, "document.querySelectorAll('[data-contents-for=\"tribune\"] .ns-publication__headline').length"), 1, "growth keeps one lead on the paper face");
   await act(growth, "document.querySelector('#ns-browse-all').click()");
-  check(await value(growth, `document.querySelectorAll('.ns-front-story').length ===
-    window.NEWSSTAND_DATA.stories.filter((story) => ['published', 'corrected'].includes(story.status)).length`), true, "growth renders every eligible issue in browse all without redesign");
+  check(await value(growth, "document.querySelectorAll('.ns-front-story').length"), 4, "growth adds one eligible Tribune issue to the released historical archive without redesign");
   check(await value(growth, "document.querySelector('.ns-topic-button[data-topic=\"agents\"]') !== null"), true, "growth adds a new eligible topic without redesign");
   await act(growth, "document.querySelector('.ns-topic-button[data-topic=\"agents\"]').click()");
   check(await value(growth, "document.querySelectorAll('.ns-front-story').length"), 1, "new growth topic opens its eligible issue");
@@ -782,8 +838,8 @@ try {
   noData.close();
 
   const stale = await openPage("/newsstand.html?fixture=stale#label-is-not-a-truth-detector");
-  check(await value(stale, "(() => { const action = document.querySelector('.ns-state__primary'); return !action.hasAttribute('data-pull') && !document.querySelector('[data-status-for=\"daily\"]').textContent.startsWith('Current'); })()"), true, "changed story-source bytes prevent the stale fixture from reusing the prior Daily admission");
-  check(await value(stale, "(() => { const tribune = document.querySelector('[data-contents-for=\"tribune\"]'); return !document.querySelector('#ns-title').textContent.includes('Daily') && tribune.getAttribute('data-story-count') === '0' && tribune.textContent.trim() === 'Check overdue · not current' && !tribune.querySelector('.ns-publication__headline'); })()"), true, "source mismatch suppresses Daily while the overdue Tribune also fails closed");
+  check(await value(stale, "(() => { const action = document.querySelector('.ns-state__primary'); return action.getAttribute('data-pull') === 'daily' && document.querySelector('[data-status-for=\"daily\"]').textContent.startsWith('Current'); })()"), true, "the exact admitted current Daily remains readable even when the mutable publication fixture is stale");
+  check(await value(stale, "(() => { const tribune = document.querySelector('[data-contents-for=\"tribune\"]'); return document.querySelector('#ns-title').textContent === 'The Daily is current.' && tribune.getAttribute('data-story-count') === '0' && tribune.textContent.trim() === 'Check overdue · not current' && !tribune.querySelector('.ns-publication__headline'); })()"), true, "the overdue Big Picture fails closed without erasing the independently admitted current Daily");
   check(await value(stale, "document.querySelectorAll('.ns-article').length"), 0, "stale direct hash");
   check(await value(stale, "document.querySelector('[data-access-state=\"stale\"]') !== null"), true, "stale archive warning");
   check(await value(stale, "document.querySelector('#ns-reader-title').textContent.includes('check overdue')"), true, "stale heading");
@@ -801,7 +857,7 @@ try {
   const unavailable = await openPage("/newsstand.html?fixture=unavailable");
   check(await value(unavailable, "document.querySelector('[data-contents-for=\"tribune\"]').textContent.trim()"), "Unavailable", "unavailable paper exposes only existing unavailable state");
   check(await value(unavailable, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "0", "unavailable paper suppresses eligible count");
-  check(await value(unavailable, "!document.querySelector('[data-status-for=\"daily\"]').textContent.startsWith('Current')"), true, "changed story-source bytes suppress the prior Daily admission");
+  check(await value(unavailable, "document.querySelector('[data-status-for=\"daily\"]').textContent.startsWith('Current')"), true, "an unavailable Tribune does not erase the independently admitted Daily snapshot");
   unavailable.close();
 
   const mixed = await openPage("/newsstand.html?fixture=mixed#label-is-not-a-truth-detector");

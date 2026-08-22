@@ -17,13 +17,6 @@
   var currentVisitKey = "visit:" + currentVisitAt;
   var previousVisit = latestPreviousVisit(readState());
   var sharedDailyHandled = false;
-  var storiesSourceHashPromise = fetch("/content/newsstand-stories.js", { credentials: "same-origin", cache: "no-store" })
-    .then(function (response) {
-      if (!response.ok) throw new Error("newsstand-stories-source-unavailable");
-      return response.text();
-    })
-    .then(function (source) { return sha256Text(source); })
-    .catch(function () { return ""; });
 
   function text(value) {
     var node = document.createElement("div");
@@ -173,6 +166,11 @@
       (data.publications.daily.editionDate || data.publications.daily.publishedAt)) || editorialDateOnly(new Date());
   }
 
+  function validEditorialReceiptPath(value, editionDate) {
+    return value === "operations/agents/aidb-intelligence-desk/daily/" + editionDate + ".md" ||
+      value === "operations/product-stewards/newsstand/editorial-intake/" + editionDate + ".md";
+  }
+
   function canonicalJson(value) {
     if (value === null || typeof value !== "object") return JSON.stringify(value);
     if (Array.isArray(value)) return "[" + value.map(canonicalJson).join(",") + "]";
@@ -206,9 +204,9 @@
   }
 
   async function validDailyIssueStore(value) {
-    if (!value || value.schemaVersion !== "daily-issues-v1" || value.owner !== "newsstand-daily" || !Array.isArray(value.issues)) return false;
-    var loadedStoriesSha256 = await storiesSourceHashPromise;
-    if (!loadedStoriesSha256) return false;
+    if (!global.NEWSSTAND_DATA || global.NEWSSTAND_DATA.datasetStatus !== "published" || !contract ||
+        contract.datasetState(global.NEWSSTAND_DATA, new Date().toISOString()).state !== "ready" ||
+        !value || value.schemaVersion !== "daily-issues-v1" || value.owner !== "newsstand-daily" || !Array.isArray(value.issues)) return false;
     var dates = new Set();
     for (var issueIndex = 0; issueIndex < value.issues.length; issueIndex += 1) {
       var issue = value.issues[issueIndex];
@@ -218,8 +216,8 @@
           !Array.isArray(issue.storyIds) || !Array.isArray(issue.stories) || !Array.isArray(issue.serviceRecordIds) || !Array.isArray(issue.desks) ||
           issue.desks.length !== DAILY_DESK_TYPES.length || !HASH.test(issue.envelopeSha256 || "") ||
           !issue.sourceIdentity || ![issue.sourceIdentity.radarSha256, issue.sourceIdentity.storiesSha256, issue.sourceIdentity.columnsSha256].every(function (hash) { return HASH.test(hash || ""); }) ||
-          issue.sourceIdentity.radarPath !== "operations/agents/aidb-intelligence-desk/daily/" + issue.editionDate + ".md" ||
-          issue.sourceIdentity.storiesPath !== "content/newsstand-stories.js" || issue.sourceIdentity.storiesSha256 !== loadedStoriesSha256 ||
+          !validEditorialReceiptPath(issue.sourceIdentity.radarPath, issue.editionDate) ||
+          issue.sourceIdentity.storiesPath !== "content/newsstand-stories.js" ||
           issue.sourceIdentity.columnsPath !== "content/daily-edition-columns.json" ||
           !issue.admission || ["ACCEPT_LOCAL_CANONICAL_WRITE", "ACCEPT_LOCAL_CANONICAL_SUCCESSOR"].indexOf(issue.admission.decision) === -1 ||
           (issue.admission.decision === "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" && !HASH.test(issue.admission.predecessorEnvelopeSha256 || "")) ||
@@ -243,11 +241,14 @@
           readyIds.join("\n") !== issue.serviceRecordIds.join("\n")) return false;
       if (issue.stories.map(function (story) { return story && story.id; }).join("\n") !== issue.storyIds.join("\n")) return false;
       if (issue.stories.some(function (snapshot) {
-        var source = sourceStories.find(function (story) {
-          return story.id === snapshot.id && story.edition === "daily" && dateOnly(story.publishedAt) === issue.editionDate &&
-            ["published", "corrected"].indexOf(story.status) !== -1;
-        });
-        return !source || canonicalJson(source) !== canonicalJson(snapshot);
+        return !snapshot || snapshot.edition !== "daily" || dateOnly(snapshot.publishedAt) !== issue.editionDate ||
+          ["published", "corrected"].indexOf(snapshot.status) === -1 || !snapshot.sourceApproval ||
+          snapshot.sourceApproval.status !== "approved" || typeof snapshot.sourceApproval.record !== "string" ||
+          snapshot.sourceApproval.record.indexOf("/operations/product-stewards/newsstand/evidence/stories/") !== 0 ||
+          !snapshot.headline || !snapshot.the_story || !snapshot.laidies_read || !snapshot.what_this_means ||
+          !Array.isArray(snapshot.sources) || !snapshot.sources.length || snapshot.sources.some(function (source) {
+            return !source || !source.id || !source.label || !source.url || source.approvalStatus !== "reviewed";
+          });
       })) return false;
       if (issue.disposition === "quiet" && (issue.storyIds.length || readyIds.length)) return false;
       if (issue.disposition === "candidates_pending_review" && !issue.storyIds.length && !readyIds.length) return false;
@@ -338,7 +339,7 @@
         "Unavailable";
     }
 
-    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Tribune" };
+    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Big Picture" };
     var order = ["breaking", "daily", "weekly", "tribune"];
     var dataset = contract.datasetState(data, now);
     var current = order.filter(function (edition) {
@@ -383,6 +384,15 @@
           return ["APPROVED", "PUBLISHED"].indexOf(record.status) !== -1 &&
             record.publicEligibility === "ELIGIBLE" && record.freshness &&
             record.freshness.expiresAt >= today;
+        })
+      : [];
+  }
+
+  function archivedDerivatives() {
+    return derivatives && Array.isArray(derivatives.records)
+      ? derivatives.records.filter(function (record) {
+          return record.status === "EXPIRED" && record.publicEligibility === "INELIGIBLE" &&
+            record.freshness && record.freshness.lastCheckedAt && record.freshness.expiresAt;
         })
       : [];
   }
@@ -655,7 +665,7 @@
     });
     var serviceItems = canonicalServiceItems.concat(legacyColumns);
     var admittedSourceIds = new Set(serviceItems.map(function (item) { return item.key.replace(/^service:/, ""); }));
-    eligibleDerivatives().filter(function (record) {
+    eligibleDerivatives().concat(archivedDerivatives()).filter(function (record) {
       return record.date >= since && record.date !== dailyDate && !storedDailyIssue(record.date) && !admittedSourceIds.has(record.id);
     }).forEach(function (record) {
       serviceItems.push({
@@ -663,7 +673,7 @@
         date: record.date,
         kind: record.type === "paige_tip" ? "The Daily · Paige’s tip" : "The Daily · Promptoscope",
         headline: record.headline,
-        state: "Filed",
+        state: record.status === "EXPIRED" ? "Archive · source check overdue" : "Filed",
         points: [record.body],
         route: record.canonicalPath && record.canonicalPath.charAt(0) === "/" ? record.canonicalPath : "",
         canOpen: Boolean(record.canonicalPath && record.canonicalPath.charAt(0) === "/"),
@@ -816,10 +826,13 @@
       .then(async function (value) {
         if (!await validDailyIssueStore(value)) throw new Error("daily-issues-invalid");
         dailyIssues = value;
-        global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
-          detail: { stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }) }
-        }));
         applyLatestDailyIssue();
+        global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
+          detail: {
+            stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }),
+            publication: JSON.parse(JSON.stringify(data.publications && data.publications.daily || null))
+          }
+        }));
         refreshPublicationChrome();
         updateDailyPaper();
         renderCatchup();

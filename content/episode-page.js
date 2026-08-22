@@ -128,7 +128,7 @@
       <div style="margin-top: 16px; padding: 14px 16px; background: rgba(185,93,120,0.08); border-radius: 10px; border: 1px solid rgba(185,93,120,0.2);">
         <p style="margin: 0 0 8px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #247b83;">\ud83c\udfb5 This episode\u2019s track \u2014 DJ JAIDY</p>
         <audio controls preload="metadata" src="../${track.file}" style="width: 100%; max-width: 400px; display: block;">
-          <a href="../${track.file}">Play "${track.title}"</a>
+          <a href="../${track.file}">Listen to "${track.title}"</a>
         </audio>
         <p style="margin: 6px 0 0; font-size: 0.82rem; color: #65515d; font-style: italic;">${track.title}</p>
       </div>

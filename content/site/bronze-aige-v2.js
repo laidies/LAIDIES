@@ -129,7 +129,7 @@
     tableLink.removeAttribute("onmouseover");
     tableLink.removeAttribute("onmouseout");
     tableLink.className = "bronze-table-link";
-    tableLink.textContent = "Play the full table version →";
+    tableLink.textContent = "Open the full table version →";
     fortunePanel.appendChild(tableLink);
   }
   if (tableNote && tableNote.tagName === "P") fortunePanel.appendChild(tableNote);

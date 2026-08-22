@@ -599,7 +599,7 @@
         </p>
         <div class="bs-state__actions">
           <button class="svb-action" id="bsOrderState" type="button" disabled>Loading the episode menu</button>
-          <button class="bs-theme" type="button" data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3">Play “Down at the Blend & Snap”</button>
+          <button class="bs-theme" type="button" data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3">Listen to “Down at the Blend & Snap”</button>
         </div>
       </div>
     </section>
@@ -951,17 +951,10 @@
           parsed.getUTCDate() === parts[2];
       }
 
-      var studyPackReviewMode =
-        new URLSearchParams(window.location.search).get("study-pack-review") === "ep01";
-
       function safeRoute(value) {
-        var isSiteRoute = typeof value === "string" &&
+        return typeof value === "string" &&
           /^\/(?!\/)[A-Za-z0-9_./?=&%#-]+$/.test(value) &&
           !value.includes("..");
-        var isBoundedLocalReviewRoute = studyPackReviewMode &&
-          typeof value === "string" &&
-          /^http:\/\/127\.0\.0\.1:(4173|4182)\/?$/.test(value);
-        return isSiteRoute || isBoundedLocalReviewRoute;
       }
 
       function hasOnlyKeys(value, allowed) {
@@ -1018,12 +1011,15 @@
             throw new Error("pack does not match published episode");
           }
           var quizHandoff = pack.quizHandoff;
+          var expectedQuizRoute = "/learn/quiz.html?issue=" +
+            encodeURIComponent(pack.episodeNumber) +
+            "&from=blend-snap#quiz-start";
           if (!quizHandoff || !hasOnlyKeys(quizHandoff, quizHandoffKeys) ||
               quizHandoff.id !== "quiz" || !statuses.includes(quizHandoff.status) ||
               !quizHandoff.label || !quizHandoff.job || !quizHandoff.statusLabel ||
               !quizHandoff.publicNote ||
               (quizHandoff.status === "available" &&
-                (!safeRoute(quizHandoff.route) || quizHandoff.route !== "/learn/quiz.html#quiz-start")) ||
+                (!safeRoute(quizHandoff.route) || quizHandoff.route !== expectedQuizRoute)) ||
               (quizHandoff.status !== "available" && quizHandoff.route !== null)) {
             throw new Error("Quiz handoff contract invalid");
           }
@@ -1106,7 +1102,8 @@
           "Episode " + episodeNumber + " Study Pack menu · " + currentEpisode.title;
         document.getElementById("bsSpecialDesc").textContent =
           readyCount + " of " + packPieces.length +
-          " pack pieces are ready. The Quiz is listed separately because it checks understanding; it is not part of the Pack.";
+          " pack pieces " + (readyCount === 1 ? "is" : "are") + " ready. " +
+          "The Quiz is listed separately because it checks understanding; it is not part of the Pack.";
         document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "false");
         document.getElementById("bsPackFallback").hidden = true;
         document.getElementById("bsPackRetry").hidden = true;
@@ -1176,7 +1173,7 @@
           if (activeThemeButton === button) {
             activeAudio.pause();
             button.classList.remove("is-playing");
-            button.textContent = "Play “Down at the Blend & Snap”";
+            button.textContent = "Listen to “Down at the Blend & Snap”";
             activeThemeButton = null;
             activeAudio = null;
             return;
@@ -1185,7 +1182,7 @@
           var audio = new Audio(button.getAttribute("data-src"));
           audio.addEventListener("ended", function() {
             button.classList.remove("is-playing");
-            button.textContent = "Play “Down at the Blend & Snap”";
+            button.textContent = "Listen to “Down at the Blend & Snap”";
             activeThemeButton = null;
             activeAudio = null;
           });
@@ -1258,36 +1255,7 @@
           fetchJson("/content/blend-snap-weekly-packs.json", controller.signal)
         ]).then(function(results) {
           if (loadId !== activeLoadId) return;
-          var packManifest = results[1];
-          if (studyPackReviewMode) {
-            packManifest = JSON.parse(JSON.stringify(packManifest));
-            var episodeOne = packManifest.packs.find(function(pack) {
-              return pack.episodeNumber === 1;
-            });
-            if (episodeOne) {
-              episodeOne.components.forEach(function(component) {
-                if (component.id === "try_on") {
-                  component.route = "http://127.0.0.1:4173/";
-                  component.status = "available";
-                  component.statusLabel = "Ready for review";
-                  component.publicNote = "Open the accepted local Try-On candidate.";
-                }
-                if (component.id === "cheat_sheet") {
-                  component.route = null;
-                  component.status = "held";
-                  component.statusLabel = "Redesign in progress";
-                  component.publicNote = "The earlier Cheat Sheet is held while the new one-page version is designed.";
-                }
-                if (component.id === "trading_cards") {
-                  component.route = "http://127.0.0.1:4182/";
-                  component.status = "available";
-                  component.statusLabel = "Ready for review";
-                  component.publicNote = "Open the new local Episode 01 Trading Card Pack candidate.";
-                }
-              });
-            }
-          }
-          applyPackData(packManifest, results[0].episodes || []);
+          applyPackData(results[1], results[0].episodes || []);
         }).catch(function() {
           if (loadId !== activeLoadId) return;
           showPackFailure();

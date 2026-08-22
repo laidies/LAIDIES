@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "kimi-k3-open-weights-not-laptop-ai",
+  "edition": "daily",
+  "candidateStatus": "approved-for-local-daily-assembly",
+  "candidatePath": "content/newsstand-stories.js",
+  "reviewArtifact": {
+    "canonicalization": "recursive-key-sorted-json-plus-newline",
+    "storySha256": "5341737a7a9a20cb01e361410b1319fb2866340db66c7ea174b19cba1ede5433"
+  },
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "nextRecheckAt": "2026-08-18",
+  "independentReview": "operations/product-stewards/newsstand/evidence/newsstand-three-week-backfill-independent-review-2026-08-11.md",
+  "sources": [
+    { "id": "moonshot-kimi-k3-model-card-2026-08-11", "url": "https://huggingface.co/moonshotai/Kimi-K3", "type": "vendor", "accessedAt": "2026-08-11" },
+    { "id": "moonshot-kimi-k3-license-2026-08-11", "url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE", "type": "primary-document", "accessedAt": "2026-08-11" },
+    { "id": "nist-uk-aisi-kimi-k3-2026-07", "url": "https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities", "type": "regulator", "accessedAt": "2026-08-11" }
+  ],
+  "claims": [
+    { "id": "K3-C01", "claim": "Moonshot released Kimi K3 model weights and a custom license.", "sourceIds": ["moonshot-kimi-k3-model-card-2026-08-11", "moonshot-kimi-k3-license-2026-08-11"], "risk": "medium" },
+    { "id": "K3-C02", "claim": "The model card describes 2.8T total parameters, 104B active parameters and a one-million-token context window.", "sourceIds": ["moonshot-kimi-k3-model-card-2026-08-11"], "risk": "medium" },
+    { "id": "K3-C03", "claim": "Open weights increase deployment control but do not supply the infrastructure required to operate this model.", "sourceIds": ["moonshot-kimi-k3-model-card-2026-08-11", "moonshot-kimi-k3-license-2026-08-11"], "risk": "low", "classification": "bounded editorial inference" },
+    { "id": "K3-C04", "claim": "The NIST and UK AISI findings are preliminary and bounded to selected cyber tests.", "sourceIds": ["nist-uk-aisi-kimi-k3-2026-07"], "risk": "high" }
+  ],
+  "requiredReview": ["architecture and license accuracy", "cyber-scope accuracy", "editorial comprehension", "historical Daily classification"],
+  "publicAuthority": "LOCAL_ASSEMBLY_ONLY_NO_DEPLOY"
+}

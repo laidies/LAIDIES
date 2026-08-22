@@ -59,14 +59,14 @@
 
     <div style="margin: 0 0 26px;">
       <button type="button"
-	              aria-label="Play Businesswomen's Special by The Embeddings"
+	              aria-label="Listen to Businesswomen's Special by The Embeddings"
 	              aria-pressed="false"
               data-src="/content/music/game-businesswomens-special.mp3"
               style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; border: 1.5px solid var(--rose); border-radius: 999px; color: var(--plum); font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;">
         <svg viewBox="0 0 24 24" style="width: 11px; height: 11px; fill: currentColor;" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         ♪ The song — "Businesswomen's Special" by The Embeddings
       </button>
-      <p id="bwsAudioStatus" role="status" aria-live="polite" aria-atomic="true" style="margin: 10px 0 0; font-size: 13px; font-weight: 700; color: var(--plum-soft);">Recorded track ready. Playback starts only when you press play.</p>
+      <p id="bwsAudioStatus" role="status" aria-live="polite" aria-atomic="true" style="margin: 10px 0 0; font-size: 13px; font-weight: 700; color: var(--plum-soft);">Recorded track ready. It starts only when you choose Listen.</p>
     </div>
 
     <style>
@@ -168,7 +168,7 @@
 
         <hr class="bws-menu-rule">
 
-        <p style="margin: 0; font-size: 12px; font-style: italic; color: var(--plum-soft); text-align: center;">Suggestions are dealt by the fortune teller. Cocktail and spirit-free have equal play; nothing is served or checked for availability.</p>
+        <p style="margin: 0; font-size: 12px; font-style: italic; color: var(--plum-soft); text-align: center;">Suggestions are dealt by the fortune teller. Cocktail and spirit-free have equal representation; nothing is served or checked for availability.</p>
       </aside>
 
     </div>
@@ -372,7 +372,7 @@
             if (activeAudio !== audio) return;
             button.classList.add('is-playing');
             button.setAttribute('aria-pressed', 'true');
-            announce('Recorded track playing. Press the same control to pause.');
+            announce('Recorded track active. Press the same control to pause.');
           });
           audio.addEventListener('pause', function() {
             if (activeAudio === audio) stopActive('Recorded track paused.');
@@ -381,13 +381,13 @@
             if (activeAudio === audio) stopActive('Recorded track ended.');
           });
           audio.addEventListener('error', function() {
-            if (activeAudio === audio) stopActive('The recorded track could not load or play. Nothing is playing.');
+            if (activeAudio === audio) stopActive('The recorded track could not start. No track is active.');
           });
           activeAudio = audio;
           button.setAttribute('aria-pressed', 'false');
-          announce('Recorded track starting. Nothing is marked as playing yet.');
+          announce('Recorded track starting. Nothing is marked as active yet.');
           Promise.resolve(audio.play()).catch(function() {
-            if (activeAudio === audio) stopActive('Playback was blocked or failed. Nothing is playing; press the control to try again.');
+            if (activeAudio === audio) stopActive('Playback was blocked or failed. No track is active; choose Listen to try again.');
           });
         }, true);
     })();

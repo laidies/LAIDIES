@@ -114,7 +114,8 @@
         data.schemaVersion !== 1 || data.registryId !== REGISTRY_ID ||
         data.publicRule !== PUBLIC_RULE || !Array.isArray(data.tracks) ||
         updatedAt === null || freshThrough === null ||
-        updatedAt > today || freshThrough < today || updatedAt > freshThrough) {
+        updatedAt > today || freshThrough < today || updatedAt > freshThrough ||
+        freshThrough > updatedAt + (31 * 24 * 60 * 60 * 1000)) {
       throw new Error('The KSVL catalogue record is missing, stale or malformed.');
     }
     var allowed = ['id','title','artist','src','mixes','status','rightsStatus','sourceStatus','lyricStatus','transcriptStatus','captionStatus','sourceLesson','freshnessOwner','publicNote'];
@@ -229,7 +230,7 @@
 
   function startLive() {
     if (!TRACKS.length) {
-      announce('KSVL cannot play a track right now. Please try again later.', 'held');
+      announce('KSVL cannot start a track right now. Please try again later.', 'held');
       return;
     }
     state.mixId = 'live';
@@ -457,7 +458,7 @@
     var deck = el('div', {class: 'ksvl-np-group'});
     npShuffleBtn = npButton('ksvl-np-btn--toggle', '🔀', 'Shuffle', {'aria-label': 'Shuffle · off', title: 'Shuffle', onclick: toggleShuffle});
     var prev = npButton('', '⏮', 'Back', {'aria-label': 'Previous track', title: 'Previous track', onclick: prevTrack});
-    npPlayBtn = npButton('ksvl-np-btn--play', '⏸', 'Pause', {'aria-label': 'Pause', title: 'Play / Pause', onclick: togglePlay});
+    npPlayBtn = npButton('ksvl-np-btn--play', '⏸', 'Pause', {'aria-label': 'Pause', title: 'Listen / Pause', onclick: togglePlay});
     var next = npButton('', '⏭', 'Next', {'aria-label': 'Next track', title: 'Next track', onclick: nextTrack});
     npRepeatBtn = npButton('ksvl-np-btn--toggle is-active', '🔁', 'Repeat', {'aria-label': 'Repeat all', title: 'Repeat', onclick: cycleRepeat});
     deck.appendChild(npShuffleBtn);
@@ -496,7 +497,7 @@
     // Group 2 — station: pop out · KSVL · stop
     var station = el('div', {class: 'ksvl-np-group'});
     if (!IS_POPUP) {
-      station.appendChild(npButton('ksvl-np-btn--link', '⧉', 'Pop out', {'aria-label': 'Pop out the player — music keeps playing while you browse', title: 'Pop out — music keeps playing while you browse', onclick: popOutPlayer}));
+      station.appendChild(npButton('ksvl-np-btn--link', '⧉', 'Pop out', {'aria-label': 'Pop out the player — music continues while you browse', title: 'Pop out — music continues while you browse', onclick: popOutPlayer}));
     }
     station.appendChild(npButton('ksvl-np-btn--link', '📻', 'KSVL', {href: '/radio.html', 'aria-label': 'Go to KSVL Radio', title: 'Open KSVL Radio'}));
     station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop', {'aria-label': 'Stop the music', title: 'Stop', onclick: stopPlayer}));
@@ -525,7 +526,7 @@
       : MIXES.filter(function(m) { return m.id === state.mixId; })[0];
     var label;
     if (state.mixId === 'single') {
-      label = 'Now playing';
+      label = 'Now listening';
     } else if (state.mixId === 'live') {
       label = 'KSVL soundcheck · item ' + (state.index + 1);
     } else if (state.mixId && state.mixId.indexOf('album:') === 0) {
@@ -541,8 +542,8 @@
     npTrack.textContent = displayTitle;
     npPosition.textContent = ' · ' + displayArtist;
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
-    setBtnLabel(npPlayBtn, state.paused ? 'Play' : 'Pause');
-    npPlayBtn.setAttribute('aria-label', state.paused ? 'Play' : 'Pause');
+    setBtnLabel(npPlayBtn, state.paused ? 'Resume' : 'Pause');
+    npPlayBtn.setAttribute('aria-label', state.paused ? 'Resume' : 'Pause');
     if (state.paused) npMini.classList.add('is-paused');
     else npMini.classList.remove('is-paused');
     np.classList.toggle('is-live', state.mixId === 'live');
@@ -719,7 +720,7 @@
     }
     var chip = document.createElement('div');
     chip.id = NUDGE_ID;
-    chip.textContent = text || '▶ Tap anywhere — the radio keeps playing';
+    chip.textContent = text || '▶ Tap anywhere — the radio continues';
     document.body.appendChild(chip);
   }
   function hideResumeNudge() {
@@ -794,7 +795,7 @@
     if (!isAdmittedSource(src)) {
       state.paused = true;
       state.lastFailure = {kind: 'admission', src: src};
-      announce('This track cannot play right now. Please choose another one or try again later.', 'error');
+      announce('This track cannot start right now. Please choose another one or try again later.', 'error');
       return;
     }
     // Use preloaded audio if it matches, else create fresh
@@ -854,7 +855,7 @@
       if (myToken !== playToken) return;
       state.paused = false;
       state.lastFailure = null;
-      announce('Playing ' + displayTitle + '.', 'playing');
+      announce('Now listening to ' + displayTitle + '.', 'playing');
       updateNowPlaying();
     });
     audio.addEventListener('pause', function() {
@@ -867,7 +868,7 @@
     if (state.restoring) {
       state.restoring = false;
       state.paused = true;
-      announce('Saved KSVL position restored on this device. Press Play to resume; sound will not start automatically.', 'status');
+      announce('Saved KSVL position restored on this device. Choose Resume to continue; sound will not start automatically.', 'status');
       updateNowPlaying();
       syncSoundControls();
       return;
@@ -884,7 +885,7 @@
       if (err && err.name === 'NotAllowedError') {
         state.paused = true;
         state.lastFailure = {kind: 'autoplay', src: src};
-        announce('The browser blocked playback. Use Retry or Play to start this track with an explicit action.', 'error');
+        announce('The browser blocked playback. Use Retry or Listen to start this track with an explicit action.', 'error');
       } else {
         state.paused = true;
         state.lastFailure = {kind: 'play', src: src};
@@ -982,7 +983,7 @@
   // so a specific song and the radio share one player. Used by the ♪ song chips.
   function startSingle(track) {
     if (!track || !track.src || !isAdmittedSource(track.src)) {
-      announce('That track cannot play right now. Please choose another one.', 'held');
+      announce('That track cannot start right now. Please choose another one.', 'held');
       return false;
     }
     state.mixId = 'single';
@@ -1014,7 +1015,7 @@
         state.paused = true;
         state.lastFailure = {kind: 'play', src: currentSrc()};
         announce(error && error.name === 'NotAllowedError' ?
-          'The browser blocked playback. Try again from this Play control.' :
+          'The browser blocked playback. Try again from this Listen control.' :
           'This track could not start. Nothing was counted or skipped.', 'error');
       });
     } else {
@@ -1063,8 +1064,8 @@
     var playBtn = el('button', {
       class: 'ksvl-cd-play-btn',
       type: 'button',
-      'aria-label': 'Play whole ' + mix.title + ' mix — ' + trackCount + ' tracks',
-      title: 'Play whole mix',
+      'aria-label': 'Listen to full ' + mix.title + ' mix — ' + trackCount + ' tracks',
+      title: 'Listen to full mix',
       text: '▶'
     });
     if (!trackCount) {
@@ -1081,7 +1082,7 @@
       var trackBtn = el('button', {
         class: 'ksvl-cd-back-track',
         type: 'button',
-        'aria-label': 'Play ' + (t.title || 'Untitled')
+        'aria-label': 'Listen to ' + (t.title || 'Untitled')
       }, [
         el('span', {class: 'ksvl-cd-back-track-icon', text: '▶'}),
         el('span', {class: 'ksvl-cd-back-track-title', text: t.title || 'Untitled'})
@@ -1138,8 +1139,8 @@
         el('div', {class: 'ksvl-mix-eyebrow', text: '★ KSVL · Mix CDs'}),
         el('h2', {class: 'ksvl-mix-title', text: 'Pick a mix.'}),
         el('p', {class: 'ksvl-mix-lede', text: TRACKS.length ?
-          'A rack of LAiDIES original songs. Press Play when you are ready; listening position stays on this device.' :
-          'KSVL cannot play a track right now. Please try again later.'}),
+          'A rack of LAiDIES original songs. Choose Listen when you are ready; listening position stays on this device.' :
+          'KSVL cannot start a track right now. Please try again later.'}),
         el('div', {class: 'ksvl-mix-grid'})
       ]);
       var grid = rack.querySelector('.ksvl-mix-grid');
@@ -1156,7 +1157,7 @@
     if (!popupActive()) hydrateFromStorage();
     if (!TRACKS.length && (mountEl || IS_POPUP)) {
       announce(catalogFailure ||
-        'KSVL cannot play a track right now. Please try again later.', 'held');
+        'KSVL cannot start a track right now. Please try again later.', 'held');
     }
   }
 

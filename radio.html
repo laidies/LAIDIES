@@ -60,7 +60,7 @@
     @media (prefers-reduced-motion: reduce) { .ksvl-hero-tunein__dot { animation: none; } }
   </style>
   <div class="sv-hero ksvl-studio" aria-labelledby="ksvlStudioTitle">
-    <div class="ksvl-studio-held" data-asset-status="held" role="img" aria-label="KSVL studio artwork is being prepared."></div>
+    <img src="assets/building-interiors/ksvl-booth.jpg?v=20260707" alt="Inside the KSVL 99.9 booth — a mixing console with heart-topped mics, ON AIR sign, walls of records, and the SUNNYVAiLE street glowing through the window at dusk" loading="eager">
     <div class="ksvl-studio__copy">
       <p class="ksvl-studio__kicker">MAiN Street · 99.9 FM · SUNNYVAiLE</p>
       <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>
@@ -191,7 +191,7 @@
 
     <h2>Mix CDs</h2>
 
-    <p>Six Sharpie-labelled shelves are stocked from KSVL's current catalogue. Open a case to see the tracks that pass the station check; an available Play button means that exact track is ready. Tracks that do not pass stay unavailable. Nothing starts automatically, and listening position stays on this device.</p>
+    <p>Six Sharpie-labelled shelves are stocked from KSVL's current catalogue. Open a case to see the tracks that pass the station check; an available Listen button means that exact track is ready. Tracks that do not pass stay unavailable. Nothing starts automatically, and listening position stays on this device.</p>
 
     <style>
       .ksvl-live-band {
@@ -401,8 +401,8 @@
             playBtn.type = 'button';
             playBtn.textContent = '▶';
             if (tracks.length) {
-              playBtn.setAttribute('aria-label', 'Play ' + a.band + ' — ' + a.album);
-              playBtn.setAttribute('title', 'Play album');
+              playBtn.setAttribute('aria-label', 'Listen to ' + a.band + ' — ' + a.album);
+              playBtn.setAttribute('title', 'Listen to album');
             } else {
               playBtn.disabled = true;
               playBtn.setAttribute('aria-label', a.band + ' album is not available yet');
@@ -449,7 +449,7 @@
                 var btn = document.createElement('button');
                 btn.className = 'ksvl-band-back-track';
                 btn.type = 'button';
-                btn.setAttribute('aria-label', 'Play ' + t.title);
+                btn.setAttribute('aria-label', 'Listen to ' + t.title);
                 var iconSpan = document.createElement('span');
                 iconSpan.className = 'ksvl-band-back-track-icon';
                 iconSpan.textContent = '▶';
@@ -918,7 +918,7 @@
     <div class="sv-trip-tie">
       <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
       <h3 class="sv-trip-tie__title">Choose a card song separately.</h3>
-      <p class="sv-trip-tie__body">KSVL listening history and favourites are not synced to an account. Your Resident Card has its own song choice; selecting or playing something here does not update the card or create a reward.</p>
+      <p class="sv-trip-tie__body">KSVL listening history and favourites are not synced to an account. Your Resident Card has its own song choice; selecting or hearing something here does not update the card or create a reward.</p>
       <p class="sv-trip-tie__note"><a href="/laidies-card.html" style="color: var(--rose);">Open the Resident Card song choice →</a></p>
     </div>
 

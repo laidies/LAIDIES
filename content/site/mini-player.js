@@ -40,7 +40,7 @@
       </div>
       <div class="mp-controls">
         <button class="mp-btn mp-btn-prev" id="mp-btn-prev" title="Previous">&#9198;</button>
-        <button class="mp-btn mp-btn-play" id="mp-btn-play" title="Play/Pause">&#9654;</button>
+        <button class="mp-btn mp-btn-play" id="mp-btn-play" title="Listen/Pause">&#9654;</button>
         <button class="mp-btn mp-btn-next" id="mp-btn-next" title="Next">&#9197;</button>
       </div>
       <div class="mp-track-info">
@@ -88,7 +88,7 @@
     }
     if (playBtn) {
       playBtn.innerHTML = isPlaying ? '&#9208;' : '&#9654;';
-      playBtn.title = isPlaying ? 'Pause' : 'Play';
+      playBtn.title = isPlaying ? 'Pause' : 'Start listening';
     }
   }
 

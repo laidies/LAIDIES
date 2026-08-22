@@ -45,7 +45,11 @@ function validateEnvelope(value) {
     reject("story snapshots do not match story IDs");
   }
   exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256"], "sourceIdentity");
-  if (value.sourceIdentity.radarPath !== `operations/agents/aidb-intelligence-desk/daily/${value.editionDate}.md` ||
+  const allowedReceiptPaths = [
+    `operations/agents/aidb-intelligence-desk/daily/${value.editionDate}.md`,
+    `operations/product-stewards/newsstand/editorial-intake/${value.editionDate}.md`
+  ];
+  if (!allowedReceiptPaths.includes(value.sourceIdentity.radarPath) ||
       value.sourceIdentity.storiesPath !== "content/newsstand-stories.js" ||
       value.sourceIdentity.columnsPath !== "content/daily-edition-columns.json" ||
       ![value.sourceIdentity.radarSha256, value.sourceIdentity.storiesSha256, value.sourceIdentity.columnsSha256].every((hash) => HASH.test(hash || ""))) {

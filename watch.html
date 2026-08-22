@@ -237,7 +237,7 @@
         <p class="screening-house-status">Illustrated listen-alongs</p>
       </div>
       <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do AI</h1>
-      <p class="scr-sub" id="screeningIntro">Choose a tape, take your seat, and press play. Read-along captions are available.</p>
+      <p class="scr-sub" id="screeningIntro">Choose a tape, take your seat, and start the episode. Read-along captions are available.</p>
 
       <nav class="episode-format-nav" id="episodeFormatNav" data-theme="dark" aria-label="Choose Episode 01 format">
         <a class="episode-format-nav__choice" id="formatRead" href="/issues/issue-01.html"><span>Read</span><small>Full written episode</small></a>
@@ -263,20 +263,20 @@
           <span id="screeningMeta">Illustrated listen-along · captions available</span>
         </div>
 
-        <div class="screening-mode" id="screeningMode" aria-label="Choose how to play this episode" hidden>
+        <div class="screening-mode" id="screeningMode" aria-label="Choose how to experience this episode" hidden>
           <button type="button" id="watchMode" aria-pressed="true">Watch</button>
           <button type="button" id="listenMode" aria-pressed="false">Listen only</button>
         </div>
 
         <div class="theatre" id="theatre">
-          <button class="big-play" id="bigPlay" type="button" aria-label="Play episode">▶</button>
+          <button class="big-play" id="bigPlay" type="button" aria-label="Start episode">▶</button>
           <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
           <div class="vhs-scan"></div>
           <div class="vhs-vignette"></div>
         </div>
 
         <div class="deck">
-          <button type="button" class="deck-play" id="btnPlay" aria-label="Play or pause">▶</button>
+          <button type="button" class="deck-play" id="btnPlay" aria-label="Start or pause">▶</button>
           <div class="deck-track" id="track" role="slider" tabindex="0" aria-label="Seek within the current narration" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
             <div class="deck-rail"></div>
             <div class="deck-fill" id="fill"></div>
@@ -304,7 +304,7 @@
       <a href="/chick-flicks.html"><span>Return the tape</span><b>The Chick Flicks</b></a>
       <a href="/issues/issue-01.html" id="screeningArticleLink"><span>Read the issue</span><b>Open the full story</b></a>
       <a href="/handbook.html"><span>Take it with you</span><b>The LA<span class="ai">i</span>DIES Handbook</b></a>
-      <p class="scr-note" id="scrNote">Press play for the illustrated listen-along. Motion-film editions are not approved for the public Screening Room.</p>
+      <p class="scr-note" id="scrNote">Start the illustrated listen-along when you are ready. Motion-film editions are not approved for the public Screening Room.</p>
     </section>
   </main>
 
@@ -1125,7 +1125,7 @@
         if (data.edition && data.edition.kind === 'cover-only-audio') {
           coverOnlyEdition = true;
           screeningMeta.textContent = 'Cover-only audio edition · static cover · read-along captions';
-          screeningIntro.textContent = 'The narration and read-along captions play while one static episode cover remains on screen.';
+          screeningIntro.textContent = 'The narration and read-along captions continue while one static episode cover remains on screen.';
           scrNote.textContent = 'This is a held cover-only audio edition. It is not an illustrated motion film or a narration-specific visual sequence.';
         } else if (visualsReleased) {
           coverOnlyEdition = false;

@@ -93,11 +93,11 @@
     if (publication.status === "hold" || publication.status === "unavailable" || publication.status === "quiet") {
       return publication.status;
     }
-    if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
     if (publication.edition === "daily" && publication.editionDate &&
-        publication.editionDate !== calendarDateInZone(now, publication.editorialTimeZone)) {
+        publication.editionDate < calendarDateInZone(now, publication.editorialTimeZone)) {
       return "archive";
     }
+    if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
     return "current";
   }
 
@@ -130,9 +130,10 @@
       publications[edition] = effectivePublicationState(data.publications[edition], now);
     });
     var current = EDITIONS.filter(function (edition) { return publications[edition] === "current"; });
+    var archived = EDITIONS.filter(function (edition) { return publications[edition] === "archive"; });
     var stale = EDITIONS.filter(function (edition) { return publications[edition] === "stale"; });
     var unavailable = EDITIONS.filter(function (edition) { return publications[edition] === "unavailable"; });
-    var state = current.length ? "ready" :
+    var state = current.length || archived.length ? "ready" :
       stale.length ? "stale" :
       unavailable.length ? "unavailable" :
       "clear";
@@ -141,6 +142,7 @@
       errors: [],
       publications: publications,
       currentEditions: current,
+      archivedEditions: archived,
       staleEditions: stale,
       unavailableEditions: unavailable
     };
@@ -209,7 +211,10 @@
     if (publicationState === "quiet") {
       return { canExpose: false, state: "quiet", edition: edition, reason: publication.note || "No qualified issue is filed." };
     }
-    if (story && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours)) {
+    var storyMaxAgeHours = publicationState === "archive"
+      ? Math.max(Number(publication.maxAgeHours), 720)
+      : Number(publication.maxAgeHours);
+    if (story && ageHours(story.lastCheckedAt, now) > storyMaxAgeHours) {
       return {
         canExpose: false,
         state: "stale",

@@ -34,7 +34,7 @@ window.LAIDIES_SITE_DATA = {
           "type": "glossary"
         },
         {
-          "label": "Play the Fun & Games shelf",
+          "label": "Explore the Fun & Games shelf",
           "url": "clubhouse.html",
           "type": "other"
         }

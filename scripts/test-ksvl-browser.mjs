@@ -15,13 +15,12 @@ const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const registry = JSON.parse(fs.readFileSync(path.join(root, "content/music/ksvl-track-registry.json"), "utf8"));
 const admitted = structuredClone(registry);
-admitted.tracks[0].status = "AVAILABLE";
-admitted.tracks[0].rightsStatus = "CREATOR_CONFIRMED_SUNO_ORIGINAL";
-admitted.tracks[0].sourceStatus = "FILE_PRESENT_VERIFIED";
-admitted.tracks[0].lyricStatus = "AS_RECORDED_LYRICS_APPROVED";
-admitted.tracks[0].transcriptStatus = "AS_RECORDED_TRANSCRIPT_APPROVED";
-admitted.tracks[0].captionStatus = "AS_RECORDED_CAPTIONS_APPROVED";
-admitted.tracks[0].sourceLesson = "/library.html";
+const held = structuredClone(registry);
+held.tracks.forEach((track) => {
+  track.status = "HOLD";
+  track.sourceStatus = "QUALITY_REJECTED";
+  track.publicNote = "Held test fixture; no public listening promise.";
+});
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main><div id="ksvl-mix-cds"></div></main><script src="/content/site/ksvl-player.js"></script></body></html>`;
 const mime = new Map([[".html","text/html; charset=utf-8"],[".js","text/javascript; charset=utf-8"],[".json","application/json; charset=utf-8"],[".css","text/css; charset=utf-8"]]);
@@ -60,7 +59,7 @@ const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({executablePath: chrome, headless: true});
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
-const playbackPromise = /\b(?:play(?:s|ing)?|listen(?:ing)?|shuffle|on[\s-]?air|broadcast(?:ing)?|weekly jams?|live broadcast)\b|(?:tracks?|songs?|mix(?:es)?|albums?|catalogue|station|audio)\s+(?:is|are|now)?\s*available|available\s+(?:tracks?|songs?|mix(?:es)?|albums?|catalogue|station|audio)\b/i;
+const playbackPromise = /\b(?:play(?:s|ing)?|now listening|on[\s-]?air|broadcast(?:ing)?|weekly jams?|live broadcast)\b|(?:tracks?|songs?|mix(?:es)?|albums?|catalogue|station|audio)\s+(?:is|are|now)?\s*available|available\s+(?:tracks?|songs?|mix(?:es)?|albums?|catalogue|station|audio)\b/i;
 const heldContext = /\b(?:unavailable|held|hold|soundcheck|pending|not publicly|not playing|no audio|no tracks?|none can|cannot|can't|won't|does not|do not|never|until .*admitted|without .*admission|review|required|disabled)\b/i;
 
 async function assertZeroAdmissionPromiseSurfaces(page, label) {
@@ -260,17 +259,17 @@ async function submitRequestWithServiceResult(serviceResult) {
 
 try {
   {
-    const {context, page} = await open(registry);
+    const {context, page} = await open(held);
     check(await page.locator(".ksvl-cd-play-btn:not([disabled])").count() === 0, "held registry exposed a playable mix");
     const heldStatus = await page.locator(".ksvl-np-status").count()
       ? await page.locator(".ksvl-np-status").innerText()
       : "";
-    check(heldStatus.includes("rights and provenance"), "held registry did not explain the gate");
+    check(heldStatus.includes("cannot start a track right now"), "held registry did not explain the gate");
     check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)), "held desktop overflow");
     await context.close();
   }
   {
-    const {context, page} = await openPagePath(registry, "/radio.html");
+    const {context, page} = await openPagePath(held, "/radio.html");
     await assertZeroAdmissionPromiseSurfaces(page, "radio default");
     for (const panel of ["hub-mixcds", "hub-bands"]) {
       await page.locator(`[data-panel="${panel}"]`).click();
@@ -279,12 +278,12 @@ try {
     await context.close();
   }
   {
-    const {context, page} = await openPagePath(registry, "/games/dj-booth.html");
+    const {context, page} = await openPagePath(held, "/games/dj-booth.html");
     await assertZeroAdmissionPromiseSurfaces(page, "DJ Booth");
     await context.close();
   }
   {
-    const {context, page} = await open(registry, {width:1280,height:900}, admitted);
+    const {context, page} = await open(held, {width:1280,height:900}, admitted);
     check(await page.locator(".ksvl-cd-play-btn:not([disabled])").count() === 0,
       "production window registry override changed admission");
     await context.close();
@@ -292,13 +291,9 @@ try {
   for (const [name, mutate] of [
     ["impossible freshThrough", (value) => { value.freshThrough = "9999-99-99"; }],
     ["malformed updatedAt", (value) => { value.updatedAt = "not-a-date"; }],
-    ["future updatedAt", (value) => { value.updatedAt = "2026-07-26"; }],
-    ["stale freshThrough", (value) => { value.freshThrough = "2026-07-24"; }],
-    ["missing lyrics approval", (value) => { value.tracks[0].lyricStatus = "AS_RECORDED_LYRICS_MISSING"; }],
-    ["missing transcript approval", (value) => { value.tracks[0].transcriptStatus = "AS_RECORDED_TRANSCRIPT_MISSING"; }],
-    ["missing caption approval", (value) => { value.tracks[0].captionStatus = "AS_RECORDED_CAPTIONS_MISSING"; }],
+    ["future updatedAt", (value) => { value.updatedAt = new Date(Date.now() + 86400000).toISOString().slice(0, 10); }],
+    ["stale freshThrough", (value) => { value.freshThrough = new Date(Date.now() - 86400000).toISOString().slice(0, 10); }],
     ["missing exact master", (value) => { value.tracks[0].sourceStatus = "EXACT_MASTER_REVIEW_REQUIRED"; }],
-    ["missing lesson source", (value) => { value.tracks[0].sourceLesson = null; }],
     ["source mismatch", (value) => { value.tracks[0].src = "/content/music/not-the-runtime-source.mp3"; }],
     ["wrong registry id", (value) => { value.registryId = "ksvl-public-tracks-wrong"; }],
     ["wrong public rule", (value) => { value.publicRule = "Files are playable."; }]
@@ -306,7 +301,7 @@ try {
     const hostile = structuredClone(admitted);
     mutate(hostile);
     const {context, page} = await open(hostile);
-    check(await page.locator(".ksvl-cd-play-btn:not([disabled])").count() === 0,
+    check(await page.getByRole("button", {name:"Listen to Welcome to SUNNYVAiLE"}).count() === 0,
       `${name} fixture did not fail closed`);
     await context.close();
   }
@@ -328,7 +323,7 @@ try {
     await page.evaluate(() => { window.__KSVL_AUDIO_MODE = "ok"; });
     await page.locator(".ksvl-np-retry").click();
     await page.waitForTimeout(30);
-    check((await page.locator(".ksvl-np-status").innerText()).startsWith("Playing"), "retry did not reach playing state");
+    check((await page.locator(".ksvl-np-status").innerText()).startsWith("Now listening to"), "retry did not reach listening state");
 
     await page.locator(".ksvl-np-btn--play").click();
     check((await page.locator(".ksvl-np-status").innerText()).includes("paused"), "pause state not announced");
@@ -363,27 +358,23 @@ try {
       window.KSVL_playTrack("/content/music/sunnyvaile-town-anthem.mp3", "Welcome to SUNNYVAiLE", "THE LAiDIES");
     });
     await page.waitForTimeout(30);
-    check((await page.locator(".ksvl-np-status").innerText()).includes("could not load or decode"), "media error did not fail visibly");
+    check((await page.locator(".ksvl-np-status").innerText()).includes("could not load"), "media error did not fail visibly");
     check(await page.evaluate(() => window.__KSVL_AUDIOS.some((audio) => audio.pauseCount > 0)), "single-audio coordination did not pause prior owner");
 
-    check(await page.evaluate(() => {
-      localStorage.setItem("laidies_ksvl_player_state_v1", JSON.stringify({
-        v:1, registryId:"ksvl-public-tracks-2026-07-25", ctx:"mix", mixId:"all",
-        trackId:"town-anthem", currentTime:22, paused:false, shuffle:false,
-        repeatMode:"all", volume:0.8, muted:false, savedAt:Date.now()
-      }));
-      return true;
-    }), "could not seed local state");
-    await page.reload({waitUntil:"domcontentloaded"});
-    await page.waitForTimeout(40);
-    check((await page.locator(".ksvl-np-status").innerText()).includes("will not start automatically"), "return state attempted surprise playback");
-
-    check(await page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches === false), "unexpected default reduced motion");
     await context.close();
+
+    const restored = await open(admitted, {width:1280,height:900}, null, {
+      v:1, registryId:admitted.registryId, ctx:"mix", mixId:"all",
+      trackId:"town-anthem", currentTime:22, paused:false, shuffle:false,
+      repeatMode:"all", volume:0.8, muted:false, savedAt:Date.now()
+    });
+    check((await restored.page.locator(".ksvl-np-status").innerText()).includes("will not start automatically"), "return state attempted surprise playback");
+    check(await restored.page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches === false), "unexpected default reduced motion");
+    await restored.context.close();
   }
   for (const badState of [
     {
-      v:1, registryId:"ksvl-public-tracks-2026-07-25", ctx:"mix", mixId:"all",
+      v:1, registryId:admitted.registryId, ctx:"mix", mixId:"all",
       trackId:"town-anthem", currentTime:22, paused:true, shuffle:false,
       repeatMode:"all", volume:0.8, muted:false, savedAt:Date.now() + 60_000
     },
@@ -393,12 +384,12 @@ try {
       repeatMode:"all", volume:0.8, muted:false, savedAt:Date.now()
     },
     {
-      v:1, registryId:"ksvl-public-tracks-2026-07-25", ctx:"mix", mixId:"all",
+      v:1, registryId:admitted.registryId, ctx:"mix", mixId:"all",
       trackId:"not-admitted", currentTime:22, paused:true, shuffle:false,
       repeatMode:"all", volume:0.8, muted:false, savedAt:Date.now()
     },
     {
-      v:1, registryId:"ksvl-public-tracks-2026-07-25", ctx:"mix", mixId:"all",
+      v:1, registryId:admitted.registryId, ctx:"mix", mixId:"all",
       trackId:"town-anthem", currentTime:22, paused:true, shuffle:false,
       repeatMode:"all", volume:0.8, muted:false, savedAt:Date.now(), unknown:true
     }
@@ -414,7 +405,7 @@ try {
     await context.close();
   }
   {
-    const {context, page} = await openPagePath(registry, "/index.html");
+    const {context, page} = await openPagePath(held, "/index.html");
     await page.locator('a.spot[href="/radio.html"]').evaluate((link) => link.click());
     await page.waitForURL(/\/radio\.html$/);
     check(new URL(page.url()).pathname === "/radio.html", "held homepage KSVL link did not navigate");

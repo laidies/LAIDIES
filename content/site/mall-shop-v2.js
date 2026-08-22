@@ -9,7 +9,7 @@
       action: "Queue this reference",
       carryTitle: "Tonight's watchlist",
       carryEmpty: "Nothing queued yet. Tune a title, then put it on tonight's watchlist.",
-      selectionKicker: "Now playing",
+      selectionKicker: "Now selected",
       selectionCopy: "Use the reference as a story shortcut: name the moment, identify the feeling, then make the AI connection.",
       zones: [
         { label: "Film wall", hint: "The big-screen canon", match: function (item) { return item.group === "Films"; } },
@@ -49,16 +49,16 @@
     },
     "gizmos-and-gadgets": {
       roomTitle: "Try it before you take it home.",
-      roomNote: "Personal audio on the left, communication at the demo bench, play-tech to the right.",
+      roomNote: "Personal audio on the left, communication at the demo bench, games and gadgets to the right.",
       action: "Leave it on the demo bench",
       carryTitle: "Your demo bench",
       carryEmpty: "No gadgets humming yet. Pick one and see what kind of behaviour it suggests.",
       selectionKicker: "Demo unit",
       selectionCopy: "Tools are useful when you can name the behaviour they unlock. Choose the object, then notice the interaction behind it.",
       zones: [
-        { label: "Personal audio", hint: "Press play and disappear", match: match(/Walkman|Discman/i) },
+        { label: "Personal audio", hint: "Press start and disappear", match: match(/Walkman|Discman/i) },
         { label: "Communication bench", hint: "Call, type, message", match: match(/Nokia|Motorola|Sidekick|iMac|Messenger|AOL/i) },
-        { label: "Play-tech shelf", hint: "Keep your hands busy", match: match(/Tamagotchi|Furby|Trapper|Lisa Frank|watch|camera|Game Boy/i) }
+        { label: "Games and gadgets shelf", hint: "Keep your hands busy", match: match(/Tamagotchi|Furby|Trapper|Lisa Frank|watch|camera|Game Boy/i) }
       ]
     },
     "hanger-management": {

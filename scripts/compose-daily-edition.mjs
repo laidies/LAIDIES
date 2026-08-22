@@ -30,13 +30,16 @@ function parseStories(raw) {
 
 export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw }) {
   if (!DATE.test(date || "")) reject("--date must be YYYY-MM-DD");
-  const expectedRadarPath = path.join(ROOT, `operations/agents/aidb-intelligence-desk/daily/${date}.md`);
-  if (path.resolve(radarPath || "") !== expectedRadarPath) reject("radar receipt must be the authoritative dated AIDB daily record");
-  if (!radarRaw.includes(date)) reject("radar receipt does not contain the issue date");
+  const allowedReceiptPaths = [
+    path.join(ROOT, `operations/agents/aidb-intelligence-desk/daily/${date}.md`),
+    path.join(ROOT, `operations/product-stewards/newsstand/editorial-intake/${date}.md`)
+  ];
+  if (!allowedReceiptPaths.includes(path.resolve(radarPath || ""))) reject("receipt must be the exact dated AIDB or NewsStand editorial-intake record");
+  if (!radarRaw.includes(date)) reject("editorial receipt does not contain the issue date");
   const dispositions = Array.from(radarRaw.matchAll(/^- \*\*NewsStand:\*\* (.+)$/gm), (match) => match[1].trim());
-  if (!dispositions.length) reject("radar receipt lacks a structured NewsStand disposition");
+  if (!dispositions.length) reject("editorial receipt lacks a structured NewsStand disposition");
   const quietRows = dispositions.filter((value) => /^NO (?:NEW )?HANDOFF\.(?:\s|$)/.test(value));
-  if (quietRows.length && quietRows.length !== dispositions.length) reject("radar receipt contains conflicting NewsStand dispositions");
+  if (quietRows.length && quietRows.length !== dispositions.length) reject("editorial receipt contains conflicting NewsStand dispositions");
   const quiet = quietRows.length === dispositions.length;
   const storiesData = parseStories(storiesRaw);
   const columnsData = JSON.parse(columnsRaw);
@@ -53,7 +56,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     record.publicEligibility === "ELIGIBLE" && record.freshness && record.freshness.expiresAt >= date);
   const exactStories = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
     String(story.publishedAt || "").slice(0, 10) === date && ["published", "corrected"].includes(story.status));
-  if (quiet && exactStories.length) reject("quiet radar disposition conflicts with a same-date published story");
+  if (quiet && exactStories.length) reject("quiet editorial disposition conflicts with a same-date published story");
 
   const desks = TYPES.map((type) => {
     const record = eligible.find((item) => item.type === type);
@@ -97,7 +100,7 @@ function main() {
   const radarPath = path.resolve(argument("--radar", args) || "");
   const output = path.resolve(argument("--output", args) || "");
   if (!output.startsWith(`${PRIVATE_ROOT}${path.sep}`)) reject("output must remain inside the private Daily issue directory");
-  if (!radarPath.startsWith(`${path.join(ROOT, "operations")}${path.sep}`) || !fs.existsSync(radarPath)) reject("radar receipt must be an existing operations file");
+  if (!radarPath.startsWith(`${path.join(ROOT, "operations")}${path.sep}`) || !fs.existsSync(radarPath)) reject("editorial receipt must be an existing operations file");
   const radarRaw = fs.readFileSync(radarPath, "utf8");
   const storiesRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
   const columnsRaw = fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8");

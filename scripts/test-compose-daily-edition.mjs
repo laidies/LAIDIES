@@ -30,7 +30,7 @@ assert.throws(() => composeDailyEnvelope({
   radarPath: path.join(ROOT, `operations/not-the-aidb-radar/${date}.md`),
   storiesRaw,
   columnsRaw
-}), /authoritative dated AIDB daily record/, "arbitrary operations paths must not authorize a quiet issue");
+}), /exact dated AIDB or NewsStand editorial-intake record/, "arbitrary operations paths must not authorize a quiet issue");
 assert.throws(() => composeDailyEnvelope({
   date,
   radarRaw: `${date}\nno new owner handoff\n`,
@@ -56,7 +56,7 @@ duplicateColumns.records.push(duplicate, secondDuplicate);
 assert.throws(() => composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw: JSON.stringify(duplicateColumns) }), /duplicate desk/, "duplicate same-date desk must fail");
 
 const conflictingStories = storiesRaw.replaceAll('publishedAt: "2026-08-03T22:00:00Z"', 'publishedAt: "2026-08-04T22:00:00Z"');
-assert.throws(() => composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw: conflictingStories, columnsRaw }), /quiet radar disposition conflicts/, "quiet disposition cannot hide a same-date published story");
+assert.throws(() => composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw: conflictingStories, columnsRaw }), /quiet editorial disposition conflicts/, "quiet disposition cannot hide a same-date published story");
 
 const legacy = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-03.json"), "utf8"));
 delete legacy.storySnapshots;

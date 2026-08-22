@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "manifest_version": "library-opening-set-learning-admission-2026-08-06.1",
-  "frozen_at": "2026-08-06T15:20:00-07:00",
-  "authority": "LOCAL_PRODUCTION_ADMISSION_FOUR_BOOKS_ARTIFACT_BOUND_INSTRUCTIONAL_AND_UNFAMILIAR_READER_PASS_RELEASE_NOT_AUTHORIZED",
+  "manifest_version": "library-current-held-admission-2026-08-21.1",
+  "frozen_at": "2026-08-21T00:00:00-07:00",
+  "authority": "CURRENT_HELD_BOOK_IDENTITIES_EXACT_ARTIFACT_BOUND_NO_PUBLIC_ADMISSION",
   "books": [
     {
       "book_id": "how-to-check",
       "status": "hold",
       "source_path": "/content/library-books/rendered/verification-rulebook.html",
-      "content_version": "sha256-6f9898d4ec3f0151e7aa171132e78b9227d76f65a18b1abc5f725c81577b7274",
+      "content_version": "sha256-38cd8c629a661e76e2beb6da2531d32a2c1b949c082e08aca6db225f1ac85dc3",
       "admission_version": "proposal-2026-08-03.2",
       "source_references": [
         "content/library-books/verification-rulebook.json",
@@ -41,45 +41,20 @@
       "reviewed_at": "2026-08-06T23:30:00-07:00",
       "review_owner": "Library owner exact-candidate repair — pending independent accuracy and unfamiliar-reader rejudgment",
       "correction_state": "blocked-no-triage-ledger",
-      "artifact_sha256": "19cf0fc41ac79ca34f595bbc1956c8410513421adb9ae0a7e8e060bffb78753c"
+      "artifact_sha256": "c862bc77deef8a54318f29e8aed35cbf9b8d76dea70044f0f12badfa64a96155"
     },
     {
       "book_id": "ai-fundamentals-101",
-      "status": "pending-successor",
+      "status": "hold",
       "source_path": "/content/library-books/rendered/ai-fundamentals-101.html",
-      "content_version": "successor-not-built",
-      "admission_version": "not-admitted",
-      "source_references": ["operations/product-stewards/library/AI-FUNDAMENTALS-101-V2-LEARNING-CONTENT-INTAKE.md"],
-      "claim_references": ["SUCCESSOR-CLAIMS-NOT-BOUND"],
-      "reviewed_at": "2026-08-20T00:00:00-07:00",
-      "review_owner": "Library successor required; no exact artifact admitted",
-      "correction_state": "successor-artifact-required",
-      "artifact_sha256": "",
-      "learning_admission": null
-    },
-    {
-      "book_id": "concepts-101",
-      "status": "source-mine-only",
-      "source_path": "/operations/evals/library-rejected-artifacts/concepts-101-3bf3d6bddd659af0.html",
-      "content_version": "ai-fundamentals-101-2026-08-06.5",
-      "admission_version": "ai-fundamentals-101-local-rebuild-2026-08-06.5",
-      "source_references": ["content/library-books/concepts-101.source.json", "content/library-books/concepts-101.claims.json"],
-      "claim_references": ["AF101-C001", "AF101-C002", "AF101-C003", "AF101-C004", "AF101-C005", "AF101-C006", "AF101-C007"],
-      "reviewed_at": "2026-08-06T17:50:13-07:00",
-      "review_owner": "Independent accuracy judge and independent unfamiliar-reader judge; Library product owner local admission",
-      "correction_state": "ali-review-required",
-      "artifact_sha256": "3bf3d6bddd659af063426701541c4d19debc2a39707bde2f7435a555cc835508",
-      "learning_admission": {
-        "schema_version": "library-book-learning-admission.v1",
-        "artifact_sha256": "3bf3d6bddd659af063426701541c4d19debc2a39707bde2f7435a555cc835508",
-        "learning_intake": {"path": "operations/product-stewards/library/LEARNING-CONTENT-INTAKE-OPENING-SET-2026-08-06.md", "sha256": "d5a7a4160bc1a9ae74b366fb16ce209a184750197e757de0898b3cc3fc5a2de1"},
-        "architecture_evidence": {"path": "operations/product-stewards/library/evidence-concepts-101-successor-2026-08-06/architecture.md", "sha256": "988ca5f25e0e310388de8c6610035cd5bd8ab2577dfe5376669d2388973578bb"},
-        "instructional_verdict": {"path": "operations/product-stewards/library/evidence-ai-fundamentals-101-2026-08-06/independent-accuracy-verdict.md", "sha256": "1dc4cb5dfd889f39681b4763bd435bc1c9211605cfd0b841a28825c4fc03c0b6"},
-        "unfamiliar_reader_verdict": {"path": "operations/product-stewards/library/evidence-ai-fundamentals-101-2026-08-06/independent-unfamiliar-reader-verdict.md", "sha256": "c36f85df849a6af4338ab313b0e95404eea2f0314059b78a7b1873efa39d96b8"},
-        "criteria": {"governing_reader_question":"HOLD","single_causal_mental_model":"HOLD","truthful_scannable_architecture":"HOLD","coherent_scope":"HOLD","recurring_worked_case":"HOLD","mapped_analogies_with_limits":"HOLD","nonduplicative_concept_relationships":"HOLD","synthesis_and_retention_map":"HOLD","useful_next_experience":"HOLD","maintenance_and_currentness_contract":"HOLD"},
-        "ali_rejection_state": "direct-rejection-exact-artifact",
-        "derivative_use": "prohibited-except-source-mine"
-      }
+      "content_version": "ai-fundamentals-101-quick-source-import-2026-08-16.1",
+      "admission_version": "source-import-candidate-hold-2026-08-21.1",
+      "source_references": ["content/library-books/pilots/ai-fundamentals-101-quick-manuscript/book-source.json", "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/artifact-manifest.json"],
+      "claim_references": ["HOLD-CLAIM-INVENTORY-EMPTY"],
+      "reviewed_at": "2026-08-21T00:00:00-07:00",
+      "review_owner": "Library source-import integrity only; exact content, visual and unfamiliar-reader admission pending",
+      "correction_state": "candidate-not-admitted",
+      "artifact_sha256": "06aa6fc8d07e0a241625efce6e83d836bb6f7a009429313ace44747a75552bfa"
     },
     {
       "book_id": "briefing-101",

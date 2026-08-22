@@ -696,7 +696,7 @@ const fortuneCards = [
     card: "The First iPod Shuffle",
     read: "You are letting the order choose itself and then acting surprised by the chaos.",
     message: "Random can be fun for music. It is less charming for dependencies.",
-    move: "Put the work in sequence before hitting play.",
+    move: "Put the work in sequence before starting.",
   },
   {
     card: "The Message Board Thread",
@@ -4340,6 +4340,14 @@ function resolveSiteUrl(path) {
 function getQuizReturnConfig() {
   const params = new URLSearchParams(window.location.search || "");
   const source = params.get("from");
+  if (source === "blend-snap") {
+    return {
+      source,
+      href: new URL("blend-snap.html#the-study-pack", getSiteRootUrl()).toString(),
+      label: "\u2190 Back to Blend & Snap",
+      bodyClass: "from-blend-snap",
+    };
+  }
   if (source === "episode-03-preview") {
     const fallbackHref = new URL("operations/review-packets/episode-03-reader-preview.html#issue-kit", getSiteRootUrl()).toString();
     let href = fallbackHref;
@@ -5916,7 +5924,7 @@ const SUBSCRIBE_PROXY_URL = "https://laidies-subscribe.wednesday-laidies.workers
 const SUBSCRIBE_COPY = {
   created: {
     title: "Check your inbox ✨",
-    body: "Tap the link we just sent and you're in — check spam if it's playing hard to get.",
+    body: "Tap the link we just sent and you're in — check spam if the message is hard to find.",
   },
   already: {
     title: "You're already on the list ✨",
