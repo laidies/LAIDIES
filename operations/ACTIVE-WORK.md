@@ -10,8 +10,8 @@
 - **Updated:** 2026-08-22 America/Vancouver
 - **Goal:** Restore execution from this clean authority lane and make every safely shippable LAiDIES visitor journey work publicly within 24 hours.
 - **Acceptance:** Current approved work is reconciled without rejected or historical design bytes; every shipped increment is built, locally verified, path-scoped committed, pushed, deployed and verified at `laidies.ai`; any journey that cannot safely ship is named `HOLD` with its exact blocker and next trigger.
-- **Current step:** Reconcile the current Sunday release lane into this governed worktree and establish one truthful visitor-journey release matrix before further page production.
-- **Next action:** Identify the exact commits and paths to migrate from `/Users/alisoneakin/Projects/laidies-sunday-release-current-20260821`, exclude rejected design artifacts, verify the release controller, and commit the reconciled operating state before page work resumes.
+- **Current step:** Homepage, LIBRAiRY and Visitor’s Centre decisions from the Context Chaos walkthrough and current tour are consolidated into compact routed sources; obsolete Codex tasks are archived and the old chat-spawning Control Room automation is paused.
+- **Next action:** Commit this approved-only authority migration, import and verify the current production-release controller without rejected design bytes, and establish the live visitor-journey release matrix before page production resumes.
 
 ## Boundaries
 

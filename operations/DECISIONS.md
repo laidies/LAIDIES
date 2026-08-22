@@ -43,6 +43,7 @@ proper domain source before building from it.
 | Area | Current source |
 |---|---|
 | LIBRAiRY | `operations/library-decisions.md` |
+| Visitor’s Centre | `operations/product-stewards/visitors-centre/EXPERIENCE-BRIEF.md` |
 | Homepage/town entry | `operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md` |
 | NewsStand | `operations/product-stewards/newsstand/EXPERIENCE-BRIEF.md` |
 | SUNNYVAiLE High | `operations/sunnyvaile-high-design-decisions-20260724.md` |
