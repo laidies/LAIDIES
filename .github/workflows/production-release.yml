@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       base_commit:
-        description: Exact currently deployed source commit used for the NewsStand scope comparison
+        description: Exact currently deployed source commit used for the production artifact comparison
         required: true
         type: string
       artifact_identity_sha256:
@@ -40,6 +40,7 @@ jobs:
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
       ARTIFACT_DIR: ${{ github.workspace }}/.release/site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
+      RELEASE_SCOPE_PATH: operations/release-control/sunday-production-scope-20260821.json
     steps:
       - uses: actions/checkout@v4
         with:
@@ -69,6 +70,7 @@ jobs:
             .github/workflows/production-release.yml \
             operations/release-control/public-entrypoints.json \
             operations/release-control/newsstand-production-scope.json \
+            operations/release-control/sunday-production-scope-20260821.json \
             scripts/build-public-site.mjs \
             scripts/lib/active-asset-admission.mjs \
             scripts/compile-library-admission.mjs \
@@ -83,8 +85,16 @@ jobs:
             scripts/check-production-release-approval.mjs \
             scripts/check-newsstand-release-scope.mjs \
             scripts/test-newsstand-release-scope.mjs \
+            scripts/check-sunday-release-scope.mjs \
+            scripts/test-sunday-release-scope.mjs \
+            scripts/validate-blend-snap-packs.mjs \
+            scripts/test-validate-blend-snap-packs.mjs \
+            scripts/test-blend-snap-browser.mjs \
+            scripts/test-library-product.cjs \
+            scripts/test-miss-jeeves-worker.mjs \
             scripts/test-production-release-controller.mjs \
             package.json \
+            package-lock.json \
             scripts/test-compose-daily-edition.mjs \
             scripts/test-promote-daily-edition.mjs \
             scripts/test-daily-private-workflow.mjs \
@@ -100,8 +110,18 @@ jobs:
         run: |
           npm run test:production-release-controller
           node scripts/test-newsstand-release-scope.mjs
-      - name: Run exact NewsStand release checks
+          node scripts/test-sunday-release-scope.mjs
+      - name: Run exact Sunday correction checks
+        shell: bash
         run: |
+          set -euo pipefail
+          export CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          export PLAYWRIGHT_CORE_PATH="$GITHUB_WORKSPACE/node_modules/playwright-core"
+          node scripts/validate-blend-snap-packs.mjs
+          node scripts/test-validate-blend-snap-packs.mjs
+          node scripts/test-blend-snap-browser.mjs
+          node scripts/test-library-product.cjs
+          node scripts/test-miss-jeeves-worker.mjs
           npm run test:daily-private-pipeline
           npm run test:newsstand-canon
           node scripts/validate-newsstand-stories.mjs
@@ -123,11 +143,12 @@ jobs:
           node scripts/create-release-manifest.mjs "$ARTIFACT_DIR" "$RECEIPT_DIR/artifact-manifest.json"
           actual_identity="$(jq -r .identitySha256 "$RECEIPT_DIR/artifact-manifest.json")"
           test "$actual_identity" = "$EXPECTED_IDENTITY"
-          node scripts/check-newsstand-release-scope.mjs \
+          node scripts/check-sunday-release-scope.mjs \
             "$RECEIPT_DIR/base-artifact-manifest.json" \
             "$RECEIPT_DIR/artifact-manifest.json" \
-            operations/release-control/newsstand-production-scope.json \
-            "$RECEIPT_DIR/newsstand-scope-receipt.json"
+            "$RELEASE_SCOPE_PATH" \
+            "$RECEIPT_DIR/sunday-scope-receipt.json"
+          cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"
       - name: Bind exact artifact and approval
         shell: bash
         run: |
@@ -170,6 +191,7 @@ jobs:
       PRODUCTION_BRANCH: homepage-redesign
       ARTIFACT_DIR: ${{ github.workspace }}/.release/site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
+      RELEASE_SCOPE_PATH: ${{ github.workspace }}/.release/receipt/release-scope.json
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -193,7 +215,7 @@ jobs:
             --project-name "$PROJECT_NAME" \
             --branch "$PRODUCTION_BRANCH" \
             --commit-hash "$SOURCE_COMMIT" \
-            --commit-message "Exact admitted NewsStand release $SOURCE_COMMIT" \
+            --commit-message "Exact admitted Sunday correction release $SOURCE_COMMIT" \
             --commit-dirty=false
           npx --yes wrangler@4.119.0 pages deployment list \
             --project-name "$PROJECT_NAME" --environment production --json > "$RECEIPT_DIR/deployments-after.json"
@@ -218,17 +240,51 @@ jobs:
         run: |
           set -euo pipefail
           deployment_url="$(jq -r .deploymentUrl "$RECEIPT_DIR/deployment.json")"
+          validate_effective_url() {
+            node - "$1" "$2" "$3" <<'NODE'
+          const [baseValue, artifactPath, effectiveValue] = process.argv.slice(2);
+          const base = new URL(baseValue);
+          const effective = new URL(effectiveValue);
+          const originalPath = `/${artifactPath}`;
+          const canonicalPath = artifactPath === 'index.html'
+            ? '/'
+            : artifactPath.endsWith('.html')
+              ? `/${artifactPath.slice(0, -5)}`
+              : originalPath;
+          if (effective.protocol !== 'https:' || effective.host !== base.host || ![originalPath, canonicalPath].includes(effective.pathname)) {
+            throw new Error(`unexpected release redirect for ${artifactPath}: ${effective.href}`);
+          }
+          NODE
+          }
           while IFS= read -r artifact_path; do
             expected="$(jq -r --arg path "$artifact_path" '.files[] | select(.path == $path) | .sha256' "$RECEIPT_DIR/artifact-manifest.json")"
             [[ "$expected" =~ ^[a-f0-9]{64}$ ]]
             curl --fail --silent --show-error --retry 8 --retry-all-errors \
-              "${deployment_url}${artifact_path}?release=${SOURCE_COMMIT}" > "$RUNNER_TEMP/immutable.bin"
+              --location --proto-redir '=https' --max-redirs 3 \
+              --output "$RUNNER_TEMP/immutable.bin" --write-out '%{url_effective}' \
+              "${deployment_url}${artifact_path}?release=${SOURCE_COMMIT}" > "$RUNNER_TEMP/immutable.final-url"
+            validate_effective_url "$deployment_url" "$artifact_path" "$(cat "$RUNNER_TEMP/immutable.final-url")"
             test "$(sha256sum "$RUNNER_TEMP/immutable.bin" | cut -d' ' -f1)" = "$expected"
             curl --fail --silent --show-error --retry 12 --retry-all-errors \
+              --location --proto-redir '=https' --max-redirs 3 \
               -H 'Cache-Control: no-cache' \
-              "https://laidies.ai/${artifact_path}?release=${SOURCE_COMMIT}" > "$RUNNER_TEMP/custom-domain.bin"
+              --output "$RUNNER_TEMP/custom-domain.bin" --write-out '%{url_effective}' \
+              "https://laidies.ai/${artifact_path}?release=${SOURCE_COMMIT}" > "$RUNNER_TEMP/custom-domain.final-url"
+            validate_effective_url "https://laidies.ai/" "$artifact_path" "$(cat "$RUNNER_TEMP/custom-domain.final-url")"
             test "$(sha256sum "$RUNNER_TEMP/custom-domain.bin" | cut -d' ' -f1)" = "$expected"
-          done < <(jq -r '.verificationPaths[]' operations/release-control/newsstand-production-scope.json)
+          done < <(jq -r '.verificationPaths[]' "$RELEASE_SCOPE_PATH")
+          while IFS= read -r artifact_path; do
+            immutable_result="$(curl --silent --show-error --location --proto-redir '=https' --max-redirs 3 \
+              --output /dev/null --write-out '%{http_code}\n%{url_effective}' \
+              "${deployment_url}${artifact_path}?release=${SOURCE_COMMIT}")"
+            test "$(printf '%s\n' "$immutable_result" | sed -n '1p')" = 404
+            validate_effective_url "$deployment_url" "$artifact_path" "$(printf '%s\n' "$immutable_result" | sed -n '2p')"
+            custom_result="$(curl --silent --show-error --location --proto-redir '=https' --max-redirs 3 \
+              -H 'Cache-Control: no-cache' --output /dev/null --write-out '%{http_code}\n%{url_effective}' \
+              "https://laidies.ai/${artifact_path}?release=${SOURCE_COMMIT}")"
+            test "$(printf '%s\n' "$custom_result" | sed -n '1p')" = 404
+            validate_effective_url "https://laidies.ai/" "$artifact_path" "$(printf '%s\n' "$custom_result" | sed -n '2p')"
+          done < <(jq -r '.removedPaths[]' "$RELEASE_SCOPE_PATH")
           test "$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' https://laidies.ai/operations/ACTIVE-WORK.md)" = 404
           test "$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' https://laidies.ai/operations/COMMIT-QUEUE.md)" = 404
           jq '.status="DEPLOYED_AND_VERIFIED_PUBLICLY" | .verifiedAt=(now|todateiso8601) | .publicUrl="https://laidies.ai/"' \

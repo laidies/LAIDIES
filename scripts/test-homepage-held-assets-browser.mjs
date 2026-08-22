@@ -25,9 +25,18 @@ const targets = [
   "/assets/town-characters/scenes/mme-claio-scene.webp"
   ,"/assets/sunnyvaile-buildings/web/02-sunnyvaile-newsstand.jpg",
   "/assets/town-characters/scenes/dj-sunnyv-scene.webp"
-  ,"/assets/sunnyvaile-streets/lantern-hill-evening.webp",
-  "/assets/sunnyvaile-streets/civic-square-midday.webp",
-  "/assets/sunnyvaile-streets/schoolhouse-road-morning.webp"
+];
+const recoveredHomepage = [
+  ["dream-phone", "/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp"],
+  ["luminairy-spot", "/assets/sunnyvaile-streets/lantern-hill-evening.webp"],
+  ["civic-square", "/assets/sunnyvaile-streets/civic-square-midday.webp"],
+  ["schoolhouse-road", "/assets/sunnyvaile-streets/schoolhouse-road-morning.webp"],
+  ["lantern-hill", "/assets/sunnyvaile-streets/lantern-hill-evening.webp"]
+];
+const recoveredRoutes = [
+  ["/luminairy.html", "/assets/building-interiors/luminairy-nave.jpg", ".luminairy-nave-held"],
+  ["/radio.html", "/assets/building-interiors/ksvl-booth.jpg", ".ksvl-studio-held"],
+  ["/maikeover.html", "/assets/building-interiors/maikeover-salon.jpg", ".mo-room-held"]
 ];
 const held = [
   ["dial-up", "Dial-up postcard visual held"],
@@ -35,20 +44,18 @@ const held = [
   ["chick-flicks", "Chick Flicks postcard visual held"],
   ["mme-claio", "Mme CLAi-O visual held"],
   ["bws", "Businesswomen’s Special visual held"],
-  ["dream-phone", "Dream Phone booth visual held"],
   ["girl-talk-truth", "Girl Talk Truth visual held"],
   ["girl-talk-dare", "Girl Talk Dare visual held"],
   ["puffy-binder", "Puffy binder postcard visual held"],
   ["newsstand", "NewsStand visual held"],
-  ["dj-sunnyv", "DJ SunnyV studio visual held"],
-  ["luminairy-spot", "LUMINAiRY visual held"],
-  ["civic-square", "Civic Square visual held"],
-  ["schoolhouse-road", "Schoolhouse Road visual held"],
-  ["lantern-hill", "Lantern Hill visual held"]
 ];
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
-check(targets.every((asset) => !source.includes(asset)), "one of the eight target source paths remains in index.html");
+if (process.env.CALIBRATE_VISUAL_FAILURE === "1") {
+  failures.push("calibration: deliberate visual-coverage failure");
+}
+check(targets.every((asset) => !source.includes(asset)), "a rejected or still-held source path remains in index.html");
+check(recoveredHomepage.every(([, asset]) => source.includes(asset)), "a required recovered Homepage source path is missing");
 check(source.includes('/assets/library/jeeves-scene.webp'), "Jeeves reference image was incorrectly removed");
 check(source.includes('id="lookup"') && source.includes('Search the LIBRAiRY'), "Miss Jeeves search surface changed");
 
@@ -76,13 +83,25 @@ try {
     page.on("pageerror", (error) => failures.push(`${width}px page error: ${error.message}`));
     await page.goto(`${origin}/index.html`, {waitUntil:"domcontentloaded"});
     await page.waitForSelector("[data-home-held='dial-up']");
-    check(await page.locator("[data-asset-status='held'][data-home-held]").count() === 15,
-      `${width}px does not render exactly fifteen held panels`);
+    check(await page.locator("[data-asset-status='held'][data-home-held]").count() === 9,
+      `${width}px does not render exactly nine held panels`);
     for (const [id, label] of held) {
       const panel = page.locator(`[data-home-held="${id}"]`);
       check(await panel.count() === 1 && (await panel.textContent()).includes(label),
         `${width}px held panel is missing or unclear: ${id}`);
       check(await panel.locator("img").count() === 0, `${width}px held panel still contains an image: ${id}`);
+    }
+    for (const [id, asset] of recoveredHomepage) {
+      check(await page.locator(`[data-home-held="${id}"]`).count() === 0,
+        `${width}px recovered image still has a held panel: ${id}`);
+      const image = page.locator(`img[src="${asset}"]`).first();
+      check(await image.count() === 1, `${width}px recovered image is missing: ${id}`);
+      if (await image.count()) {
+        await image.scrollIntoViewIfNeeded();
+        await image.evaluate((node) => node.decode ? node.decode().catch(() => {}) : Promise.resolve());
+        check(await image.evaluate((node) => node.complete && node.naturalWidth > 0 && node.naturalHeight > 0),
+          `${width}px recovered image did not decode: ${id}`);
+      }
     }
     check(await page.locator('img[src="/assets/library/jeeves-scene.webp"]').count() === 1,
       `${width}px Jeeves image/search surface was changed`);
@@ -110,6 +129,41 @@ try {
       `${width}px page requested a removed target asset`);
     await context.close();
   }
+  for (const width of [1440, 390, 320]) {
+    for (const [route, asset, formerHeldSelector] of recoveredRoutes) {
+      const context = await browser.newContext({viewport:{width, height:900}});
+      const page = await context.newPage();
+      page.on("pageerror", (error) => failures.push(`${route} ${width}px page error: ${error.message}`));
+      await page.goto(`${origin}${route}`, {waitUntil:"domcontentloaded"});
+      check(await page.locator(formerHeldSelector).count() === 0,
+        `${route} ${width}px still renders its former held panel`);
+      const image = page.locator(`img[src*="${asset.replace(/^\//, "")}"]`).first();
+      check(await image.count() === 1, `${route} ${width}px recovered image is missing`);
+      if (await image.count()) {
+        await image.scrollIntoViewIfNeeded();
+        await image.evaluate((node) => node.decode ? node.decode().catch(() => {}) : Promise.resolve());
+        check(await image.evaluate((node) => node.complete && node.naturalWidth > 0 && node.naturalHeight > 0),
+          `${route} ${width}px recovered image did not decode`);
+        check(await image.evaluate((node) => {
+          const rect = node.getBoundingClientRect();
+          return rect.width >= Math.min(300, window.innerWidth * 0.7) && rect.height >= 180;
+        }), `${route} ${width}px recovered image is not materially visible`);
+      }
+      if (route === "/radio.html") {
+        for (const selector of [".ksvl-studio__copy h1", ".ksvl-studio__motto", ".ksvl-studio .ksvl-hero-tunein"]) {
+          check(await page.locator(selector).first().evaluate((node) => {
+            const rect = node.getBoundingClientRect();
+            return rect.left >= 0 && rect.right <= window.innerWidth && node.scrollWidth <= node.clientWidth + 1;
+          }), `${route} ${width}px clips ${selector}`);
+        }
+      }
+      if (route === "/luminairy.html") {
+        check(await page.locator(".lum-state h2").evaluate((node) => node.scrollWidth <= node.clientWidth + 1),
+          `${route} ${width}px clips the votive-state heading`);
+      }
+      await context.close();
+    }
+  }
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
@@ -120,4 +174,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("HOMEPAGE HELD ASSETS BROWSER PASS panels=15 viewports=1440,390,320 checks=source-absence,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-image-request");
+console.log("PUBLIC VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=rejected-source-absence,recovered-image-decode,material-visibility,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");

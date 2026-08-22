@@ -330,7 +330,7 @@ circuit-board wallpaper, no Halloween, no childish diary clutter, pink as accent
 - **section — Try-On:** `assets/issue-03-section-try-on.png`
 - **social square:** `assets/issue-03-social-square.png`
 - **og:image (data):** `assets/episodes/issue-03/section-dont-pull-a-cher-v1.png`
-- **printable:** `content/printables/issue-03-elle-woods-receipts-pass.html`
+- **printable:** HOLD — the multi-page predecessor is retained only at `operations/_rejected/study-pack-printables-20260821/issue-03-elle-woods-receipts-pass.html`; build a separately admitted one-page successor.
 
 ---
 
@@ -347,7 +347,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 | Card pack | `content/site/card-packs.json → issue03` | 🔧 confirm aligned to revised references |
 | Glossary | `learn/glossary.html` (Hallucination · Source · Citation · Verification · Assumption) | 🔧 confirm defs match `concepts[]` |
 | LIBRAiRY / Verification Rulebook | `/grimoire/verification-rulebook.html` | 🔧 confirm 3 moves + rule + check patterns match |
-| Printable | `content/printables/issue-03-elle-woods-receipts-pass.html` | 🔧 confirm Try-On steps match |
+| Printable | HOLD — rejected multi-page predecessor is non-public | 🔧 build and admit a one-page successor that matches the Try-On |
 | Burn Book | `community/burn-book.html` | 🔧 confirm live for Ep3 |
 | BRONZE AiGE cocktail wall | `bronze-aige.html` | 🔧 add `cocktail_party` line |
 | KSVL / DJ Booth track | `games/dj-booth.html#djApp` | ✅ wired (⏳ lyrics pending) |

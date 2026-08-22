@@ -152,7 +152,7 @@ const server = http.createServer((request, response) => {
   fs.copyFileSync(path.join(root, "library.html"), path.join(fixtureRoot, "library.html"));
   const growthFixtureSource = fs.readFileSync(path.join(root, "library.html"), "utf8").replace(
     "];\nconst ADMITTED_BOOK_RECORDS=",
-    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[1,2,3,4,5,6,7].map(number=>({id:'growth-fixture-'+number,t:'Growth Fixture '+number,topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an expanding 101s collection.',img:B+(number%2?'textbook-concepts-101.png':'textbook-briefing-101.png'),c:'#7038c9'}))}];\nconst ADMITTED_BOOK_RECORDS=`
+    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[1,2,3,4,5,6,7].map(number=>({id:'growth-fixture-'+number,t:'Growth Fixture '+number,topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an expanding 101s collection.',img:B+(number%2?'textbook-ai-fundamentals-101.png':'textbook-briefing-101.png'),c:'#7038c9'}))}];\nconst ADMITTED_BOOK_RECORDS=`
   );
   fs.writeFileSync(path.join(fixtureRoot, "library-growth.html"), growthFixtureSource);
   /* The synthetic reader fixture exists only in fixtureRoot. It replaces the

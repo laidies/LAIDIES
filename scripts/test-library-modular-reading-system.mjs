@@ -46,7 +46,7 @@ try{
     await page.locator('[data-aisle="101s"] [data-step="1"]').click();
     assert.equal(await page.locator(`[data-aisle="101s"] #book-${width===1440?'setup':'briefing'}`).count(),1,`${width}px next shelf page failed`);
     const before=await page.locator('[data-aisle="101s"] .pager-status').textContent();
-    await page.evaluate(()=>{for(let i=1;i<=3;i++)window.__libraryProof.BOOKS.push({id:`growth-fixture-${i}`,shelf:'101s',title:`Growth Fixture ${i}`,image:'textbook-concepts-101.png',job:'Prove one more book requires data only.',coverage:'catalogue growth',depth:'Fixture',status:'Internal fixture',result:'Inspect only',inside:'Fixture'});window.__libraryProof.render()});
+    await page.evaluate(()=>{for(let i=1;i<=3;i++)window.__libraryProof.BOOKS.push({id:`growth-fixture-${i}`,shelf:'101s',title:`Growth Fixture ${i}`,image:'textbook-ai-fundamentals-101.png',job:'Prove one more book requires data only.',coverage:'catalogue growth',depth:'Fixture',status:'Internal fixture',result:'Inspect only',inside:'Fixture'});window.__libraryProof.render()});
     assert.match(await page.locator('[data-aisle="101s"] .pager-status').textContent(),/7 books/,`${width}px data-only growth failed from ${before}`);
     await page.evaluate(()=>{localStorage.setItem('laidies_puffies_board',JSON.stringify([{id:'saved-library-fixture',url:'/library.html#how-to-check'}]));window.__libraryProof.updateVisitorState();document.documentElement.style.scrollBehavior='auto';scrollTo(0,0)});
     assert.match(await page.locator('#stateCopy').textContent(),/Welcome back on this device: 1 saved Library find.*No Resident Card is needed.*Resume your latest saved place/);

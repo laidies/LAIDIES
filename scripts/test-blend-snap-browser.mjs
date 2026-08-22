@@ -12,7 +12,8 @@ const ROOT = path.resolve(
   process.env.BLEND_SNAP_ROOT ||
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 );
-const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const CHROME = process.env.CHROME_PATH ||
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 if (!fs.existsSync(CHROME)) {
   console.log("SKIP BLEND & SNAP BROWSER: Google Chrome is unavailable.");
@@ -516,6 +517,11 @@ try {
     return links.every((link)=>link.getAttribute('href')==='/') &&
       links.every((link)=>link.textContent.includes('Back to SUNNYVAiLE'));
   })()`), true, "direct Try-On keeps the safe town handback");
+
+  const heldEpisodeOneTryOn = await openPage("/try-on.html?issue=1&from=blend-snap");
+  check(await value(heldEpisodeOneTryOn, `(() => {
+    return location.pathname==='/blend-snap.html' && location.hash==='#the-study-pack';
+  })()`), true, "held Episode 01 Try-On redirects to its truthful Blend & Snap status");
 
   const episodeThreeQuiz = await openPage(
     "/learn/quiz.html?issue=3&from=blend-snap#quiz-start",

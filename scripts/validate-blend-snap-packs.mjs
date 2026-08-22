@@ -9,7 +9,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const manifestPath = process.env.BLEND_SNAP_MANIFEST_PATH ?
   path.resolve(process.env.BLEND_SNAP_MANIFEST_PATH) :
   path.join(root, "content/blend-snap-weekly-packs.json");
-const episodePath = path.join(root, "content/episode-index.json");
+const episodePath = process.env.BLEND_SNAP_EPISODE_INDEX_PATH ?
+  path.resolve(process.env.BLEND_SNAP_EPISODE_INDEX_PATH) :
+  path.join(root, "content/episode-index.json");
 const evidencePath = path.join(
   root,
   "operations/product-stewards/blend-snap/weekly-pack-evidence-ledger-2026-07-25.json"
@@ -197,6 +199,14 @@ for (const pack of manifest.packs) {
     (!cardDeclared && components.get("trading_cards").status === "unavailable"),
     `Episode ${pack.episodeNumber} card admission disagrees with source/economy truth.`
   );
+  const episodeLinks = Array.isArray(episode.siteLinks) ? episode.siteLinks : [];
+  check(!episodeLinks.some((link) =>
+    link?.type === "cardPack" && components.get("trading_cards").status !== "available"),
+  `Episode ${pack.episodeNumber} index still advertises a held card pack.`);
+  check(!episodeLinks.some((link) =>
+    components.get("cheat_sheet").status !== "available" &&
+    /(?:^|\/)(?:content\/printables\/|printable\.html)/.test(String(link?.url || ""))),
+  `Episode ${pack.episodeNumber} index still advertises a held printable.`);
   const quiz = pack.quizHandoff;
   const expectedQuizRoute = `/learn/quiz.html?issue=${pack.episodeNumber}&from=blend-snap#quiz-start`;
   check(quiz && Object.keys(quiz).every((key) => publicComponentKeys.has(key)) &&
@@ -243,6 +253,9 @@ check(tryOn.includes('params.get("from") === "blend-snap"') &&
   tryOn.includes('"/blend-snap.html#the-study-pack"') &&
   tryOn.includes('"Back to Blend & Snap"'),
 "Try-On does not preserve the originating Blend & Snap handback.");
+check(!/\n\s*1:\s*\{[\s\S]*?pad:\s*"01"/.test(tryOn) &&
+  tryOn.includes('if (!issues[issue]) location.replace("/blend-snap.html#the-study-pack")'),
+"Held Episode 01 Try-On can still expose its rejected lesson through a direct URL.");
 
 console.log(
   `✓ BLEND & SNAP PACKS: schema ${manifest.schemaVersion} · ` +

@@ -950,18 +950,6 @@
     ];
 
     var issues = {
-      1: {
-        pad: "01",
-        title: "On Wednesdays We Do AI",
-        exerciseTitle: "Give AI a better outfit for the task.",
-        instruction: "Pick one real task. Ask AI vaguely once. Ask again with audience, context, tone, length, and what good looks like. Compare the outputs.",
-        steps: [
-          "Pick one real task from your actual week.",
-          "Ask AI vaguely once.",
-          "Ask again with audience, context, tone, length, and what good looks like.",
-          "Compare the outputs and save what changed."
-        ]
-      },
       2: {
         pad: "02",
         title: "Tell Me What You Want",
@@ -1046,8 +1034,8 @@
     var params = new URLSearchParams(window.location.search || "");
     var issueMatch = String(params.get("issue") || "2").match(/\d+/);
     var issue = issueMatch ? Number(issueMatch[0]) : 2;
-    if (!issues[issue]) issue = 2;
-    var config = issues[issue];
+    if (!issues[issue]) location.replace("/blend-snap.html#the-study-pack");
+    var config = issues[issue] || issues[2];
     var issueKey = "issue-" + config.pad;
 
     var episodeEyebrow = document.getElementById("episodeEyebrow");
