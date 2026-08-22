@@ -54,9 +54,11 @@ makes a useful Library feel assembled rather than inhabited.
 
 ### 3. Two different entry jobs
 
-- **Ask Miss Jeeves:** ask a natural-language question and receive a bounded
-  answer/orientation plus useful next actions. Exact end-to-end behavior awaits
-  Ali's additional description and may not be inferred from current code.
+- **Ask Miss Jeeves:** ask a natural-language question, receive a short current
+  evidence-bound answer and see exact learning routes grouped by job: Library
+  book/section, Episodes, NewsStand, reinforcement, High, planned content and
+  governed external sources. The complete behavior lives in
+  `subproducts/miss-jeeves.md` and its dedicated build packet.
 - **Browse the Library shelves:** explore physical collections and books by
   subject, title and need.
 - Visitor copy must not call the experience a generic catalogue. “Catalogue”
@@ -126,8 +128,8 @@ book spotlights, hand-inked replacement room or CSS teaching diagrams.
 ## Dependency-ordered build
 
 1. Mount and test the shared header journey independently.
-2. Finish Ali's Miss Jeeves end-to-end behavior description and reconcile the
-   two entry jobs.
+2. Reconcile the two entry jobs and integrate the ratified Miss Jeeves results
+   architecture without turning Browse into a generic catalogue.
 3. Prove the highest-risk visual mechanism with one representative connected
    arrival-to-shelf composition using approved objects and live UI.
 4. Produce the full desktop/mobile room and shelf composition only after that
@@ -140,11 +142,12 @@ book spotlights, hand-inked replacement room or CSS teaching diagrams.
 8. Admit the exact visible candidate through the design Review Door before Ali
    sees it. Page release and book admission remain separate transactions.
 
-## Ali decision still open
+## Ali decisions
 
-One input remains: the ideal end-to-end Miss Jeeves experience from pressing
-Ask through answer, clarification, sources/routes and next action. Everything
-else in this packet is sufficiently decided for implementation judgment.
+The Library page and Miss Jeeves product behavior are sufficiently decided for
+implementation judgment. Ali's next required decision is acceptance or
+rejection of the exact admitted visual/product candidate; no architecture
+question remains open.
 
 ## Explicit non-goals
 

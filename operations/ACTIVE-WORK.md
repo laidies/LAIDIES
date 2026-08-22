@@ -476,6 +476,30 @@ MAiKEOVER remains `BUILDING`: its visual environment, public Card/handles,
 portrait service, rewards, native AT, changed-byte provider/public regression,
 deployment and public verification remain open.
 
+### 2026-08-22 LIBRAiRY walkthrough and Miss Jeeves product ruling
+
+Ali's live Library walkthrough is now current product authority through
+`operations/library-decisions.md`. Preserve the bright pop-art energy,
+collection grouping and informed book preview; repair the dull/disconnected
+arrival, repeated desk/shelf composition, floating rooms/books, cramped search
+and absent visible navigation. The Library page remains **HOLD / REPAIR
+REQUIRED / ZERO BOOKS ADMITTED**.
+
+Ali also specified Miss Jeeves as a proper reference and learning-direction
+tool: short current evidence-bound answer followed by exact routes grouped as
+Library section/book, Episodes, NewsStand, reinforcement, High, real planned
+content and governed external sources/trusted voices. The Homepage and Library
+share the service.
+
+Current candidate `_worker.js` passes its local retrieval, grounded-AI,
+Daily/Study-Pack, hold-enforcement, failure and privacy-signal tests. This does
+not prove the intended product: the flat index has no exact Library sections,
+classes, roadmap, external or trusted-voice records; the Worker Library
+allowlist is empty; grouped results are absent; and production AI binding is
+unknown. A synthetic public POST on 2026-08-22 returned empty HTTP 405, so the
+live backend is **BROKEN PUBLICLY**. Build authority is
+`operations/product-stewards/library/BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.
+
 ### 2026-08-21 current LIBRAiRY page release cut
 
 Current `library.html` SHA-256

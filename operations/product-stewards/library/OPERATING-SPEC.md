@@ -111,9 +111,14 @@ owner, native accessibility and newcomer-transfer gates clear.
 
 ## Subproduct contracts
 
-- **Miss Jeeves:** direct orientation first, then only working/admitted routes.
-  It does not invent a source, route to a held book, collect raw query
-  analytics or present perishable claims without source/date ownership.
+- **Miss Jeeves:** interpret an ordinary-language learning question, give a
+  short answer grounded only in current admitted excerpts, then explain and
+  group the best exact continuations across Library sections/whole books,
+  Episodes, NewsStand, reinforcement, High classes, real public-safe roadmap
+  records and vetted external sources or trusted voices. It does not invent a
+  source/date/roadmap item, route to held or stale material, blur related with
+  exact coverage, or collect raw-query analytics. The complete contract is
+  `BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.
 - **LIBRAiRY 101:** scrollable references, not paginated classes. One topic
   home, accurate mental model, misconception handling, evidence/date
   sensitivity and exact continuation.
@@ -154,11 +159,18 @@ owner, native accessibility and newcomer-transfer gates clear.
   `/handbook.html`.
 - **Frontend:** inline catalogue/reader/Miss Jeeves plus
   `content/site/puffy-bookmarks.js`.
-- **Search data:** `content/site/site-index.json`; freshness and publication
-  status must be reconciled before a result can be promoted.
+- **Search data:** current partial implementation uses
+  `content/site/site-index.json`, but the required authority is a deterministic
+  governed compiler from admitted owner sources with section IDs, learning
+  job, availability, source/date/freshness, correction and exact-route fields.
 - **Persistence:** `localStorage` keys `laidies_puffies_board` and
   `laidies_puffy_sticker_pouch`; device-local only.
-- **Backend:** none for books, search, saves or corrections. No account sync.
+- **Backend:** the current candidate includes same-origin
+  `POST /api/miss-jeeves` in `_worker.js`, with optional Workers AI synthesis
+  and deterministic fallback. Its local contract passes, but the production
+  AI binding is unproved and the public endpoint returned empty HTTP 405 on
+  2026-08-22. Books, Puffy saves and corrections remain device/static flows;
+  there is no account sync.
 - **Privacy:** never send raw Miss Jeeves queries, Puffy purpose labels,
   reading text or saved titles to analytics.
 - **Performance:** preserve lazy images, bounded bright-family runtime assets,
@@ -175,7 +187,8 @@ Allowed aggregate events use controlled IDs only:
 - admitted book opened;
 - section viewed;
 - reader load outcome;
-- Miss Jeeves outcome category (`orientation`, `catalogue`, `zero-result`);
+- Miss Jeeves controlled outcome category (`exact`, `related`, `none`,
+  `clarification`, `unavailable`) plus controlled result source IDs;
 - admitted destination opened; and
 - Puffy save/reopen/remove outcome.
 

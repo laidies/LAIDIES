@@ -378,8 +378,18 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   constraints and examples. Mount visible shared navigation so a visitor can
   return Home and move around SUNNYVAiLE. Keep AI Fundamentals unavailable
   until its exact book and visual admissions are complete.
-- **Miss Jeeves behavior:** Ali will supply the intended end-to-end answer
-  experience separately; do not infer it from the current implementation.
+- **Miss Jeeves behavior, Ali walkthrough 2026-08-22:** Treat an ordinary-
+  language question as a learning-direction job, not a generic site search.
+  Briefly interpret and answer it from current admitted evidence, then group
+  exact continuations across LIBRAiRY book sections and whole books, Episodes,
+  NewsStand, tools/activities/Study Packs, SUNNYVAiLE High classes, real
+  public-safe planned content and vetted external sources or trusted voices.
+  Explain what each format will help the visitor do and deep-link to the most
+  exact available place. Related material must not impersonate an exact
+  answer; held, stale and unreviewed material stays unavailable. The Homepage
+  and Library use one service and one visually rich LAiDIES result experience.
+  Full binding contract:
+  `product-stewards/library/BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 

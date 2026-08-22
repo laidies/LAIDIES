@@ -33,7 +33,7 @@ publication/search language, not the visitor-facing metaphor.
 1. A new visitor understands in ten seconds that this is a reference library, that covers are controls, and that Miss Jeeves can route a question.
 2. She can distinguish available books from previews before attempting to open one.
 3. An available book opens with a stable title, usable contents, complete readable body, source/currency context where required, and a recovery state if loading fails.
-4. Miss Jeeves gives a bounded direct answer and points to relevant, working book sections or a clearly labelled external route.
+4. Miss Jeeves gives a short evidence-grounded answer, then explains and groups the best exact working continuations across Library, Episodes, NewsStand, reinforcement, High classes, real planned content and vetted external sources or voices.
 5. She can save a whole book or exact section using one of her ten Puffies, reopen that exact location from My Closet, and remove it.
 6. A returning visitor can recover device-local saves without a false cross-device/account claim.
 7. A reader who spots an error can reach a clear editorial correction route; material corrections have an owner, source record and visible resolution status.
@@ -55,7 +55,7 @@ publication/search language, not the visitor-facing metaphor.
 | Dependency | Why it matters | Current truth |
 | --- | --- | --- |
 | Rendered book fragments | Reader content and deep links | Mixed readiness; Vocab/Concepts architecture remains under ruling; several live books have explicit editorial holds. |
-| `site-index.json` | Miss Jeeves retrieval | Loads client-side; no audited index freshness/coverage contract. |
+| Governed cross-town retrieval records | Miss Jeeves retrieval and exact deep links | Current candidate uses a 26-record flat `site-index.json` plus limited dynamic ingestion; it lacks the required section, class, roadmap, external-trust and freshness schema. Local Worker tests pass, but the public API returned empty HTTP 405 on 2026-08-22. |
 | Puffy bookmark script + My Closet | Save/retrieve journey | Device-local `localStorage`; local round trip was previously verified, not account sync. |
 | Town Hall feedback | General feedback | Exists, but is not a LIBRAiRY correction workflow. |
 | Plausible/Clarity | Learning from behaviour | Scripts are present on related surfaces, but no LIBRAiRY event contract, aggregate pull, baseline or evidence packet is wired. |

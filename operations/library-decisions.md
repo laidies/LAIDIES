@@ -35,8 +35,15 @@ older Library visual or public-framing instruction that conflicts with it.
   navigation.
 - AI Fundamentals remains unavailable until its exact content, visuals,
   reader, independent review, correction, release and public gates pass.
-- Miss Jeeves' end-to-end answer behavior remains open for Ali's additional
-  description. Do not infer it from the live implementation.
+- Miss Jeeves is a proper reference and learning-direction tool. She interprets
+  the visitor's question, gives a short current evidence-bound answer, then
+  groups exact deep links by learning job: Library book/section, Episodes,
+  NewsStand, reinforcement tools/activities/Study Packs, future High classes,
+  real planned content and governed external sources/trusted voices. She
+  explains what each route provides. No coverage is stated honestly; a planned
+  result requires a real roadmap record and external recommendations require a
+  maintained trust register. The Homepage and Library share this service. See
+  `operations/product-stewards/library/subproducts/miss-jeeves.md`.
 
 ## Load for every Library task
 
@@ -69,9 +76,11 @@ Book-content work also loads the exact current book source, admission manifest, 
 - Preview: one cover opens one selected-book preview with job, contents, depth,
   currentness and truthful availability. Back restores the initiating shelf
   control and position. **Open this book** appears only when admitted.
-- Miss Jeeves: question answering and shelf/title search are different. She gives
-  bounded answers and exact routes supported by admitted town material; Library
-  placement prioritizes books and sections. Every suggested question must resolve.
+- Miss Jeeves: question answering and shelf/title search are different. She
+  gives a short evidence-bound answer and grouped exact routes supported by
+  admitted town or governed external material; Library placement prioritizes
+  books and sections. Every suggested question must resolve. Parallel
+  browser-hardcoded answers are not a second authority.
 - Failure and privacy: no unsolicited error appears before a question. Failure
   retains the question and offers recovery. Analytics receive controlled topic,
   outcome, placement and source IDs—never raw questions, answers, reading text
