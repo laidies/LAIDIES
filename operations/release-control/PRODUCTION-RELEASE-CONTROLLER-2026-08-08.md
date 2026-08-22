@@ -1,8 +1,26 @@
 # Production release controller — 2026-08-08
 
-Status: **BUILDING — CONTROLLER CALIBRATED; CURRENT SOURCE NOT RELEASEABLE**
+Status: **BUILDING — GITHUB PARSE DEFECT CORRECTED LOCALLY; INSTALLATION AND RELEASE STILL HOLD**
 Owner: Control Room / release integration
-Evidence time: 2026-08-08 13:55 PDT
+Evidence time: 2026-08-21 19:20 PDT
+
+## 2026-08-21 operational correction
+
+The controller had never executed on GitHub. Every push produced an immediate
+zero-job failure because the job-level `env` block used `${{ runner.temp }}`;
+GitHub does not make the `runner` context available there. The earlier local
+calibration inspected strings and subprocess behavior but never proved GitHub
+could parse the workflow.
+
+The candidate now resolves both baseline temporary paths inside the build step
+from `$RUNNER_TEMP`. `scripts/test-production-release-controller.mjs` rejects
+the exact invalid job-level expression as a known-bad calibration. A pushed
+GitHub Actions run with an actual workflow graph remains required before the
+controller may be called installed or dispatchable.
+
+This correction does not widen the NewsStand-only public scope, establish the
+current whole-site deployed base, grant artifact approval, dispatch the
+workflow or deploy any visitor byte.
 
 ## Visitor outcome
 

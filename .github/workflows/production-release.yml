@@ -39,8 +39,6 @@ jobs:
       APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
       ARTIFACT_DIR: ${{ github.workspace }}/.release/site
-      BASE_ARTIFACT_DIR: ${{ runner.temp }}/laidies-base-site
-      BASE_SOURCE_DIR: ${{ runner.temp }}/laidies-base-source
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
     steps:
       - uses: actions/checkout@v4
@@ -114,6 +112,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          BASE_ARTIFACT_DIR="$RUNNER_TEMP/laidies-base-site"
+          BASE_SOURCE_DIR="$RUNNER_TEMP/laidies-base-source"
           git worktree add --detach "$BASE_SOURCE_DIR" "$BASE_COMMIT"
           ln -s "$GITHUB_WORKSPACE/node_modules" "$BASE_SOURCE_DIR/node_modules"
           node "$BASE_SOURCE_DIR/scripts/build-public-site.mjs" "$BASE_ARTIFACT_DIR"

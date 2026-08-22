@@ -15,6 +15,12 @@ function run(command, args, cwd) {
   return spawnSync(command, args, { cwd, encoding: 'utf8' });
 }
 
+function assertWorkflowContextIsDispatchable(source) {
+  if (/\$\{\{\s*runner\.temp\s*\}\}/.test(source)) {
+    throw new Error('runner context is unavailable in the job-level env block');
+  }
+}
+
 const forbiddenOutput = path.join(repositoryRoot, '.release-test-output');
 let result = run(process.execPath, [builder, forbiddenOutput], repositoryRoot);
 assert.notEqual(result.status, 0);
@@ -39,6 +45,12 @@ assert.match(result.stderr, /confirmation/);
 
 const workflow = fs.readFileSync(workflowPath, 'utf8');
 const builderSource = fs.readFileSync(builder, 'utf8');
+assert.doesNotThrow(() => assertWorkflowContextIsDispatchable(workflow));
+assert.throws(
+  () => assertWorkflowContextIsDispatchable(`${workflow}\n  BASE_SOURCE_DIR: \${{ runner.temp }}/bad-source\n`),
+  /runner context is unavailable/,
+  'known invalid GitHub workflow context must fail calibration',
+);
 const protectedBuilderDependencies = [
   'scripts/lib/active-asset-admission.mjs',
   'scripts/compile-library-admission.mjs',
@@ -86,8 +98,10 @@ assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
 assert.match(workflow, /check-newsstand-release-scope\.mjs/);
 assert.match(workflow, /NEWSSTAND_REQUIRE_BROWSER=1 node scripts\/test-newsstand-reader-browser\.mjs/);
 assert.match(workflow, /base_commit:/);
+assert.match(workflow, /BASE_SOURCE_DIR="\$RUNNER_TEMP\/laidies-base-source"/);
+assert.match(workflow, /BASE_ARTIFACT_DIR="\$RUNNER_TEMP\/laidies-base-site"/);
 assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and NewsStand scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and NewsStand scope guard bound');

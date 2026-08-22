@@ -1378,3 +1378,26 @@ objective; every open lane keeps its own checkpoint.
 - **Calibration:** the controller rejects an in-repository output and altered approval. The scope guard rejects an unrelated `index.html` mutation, a newly added public file and a no-op candidate. The unchanged live NewsStand baseline passes canonical migration, private Daily composition/promotion, story validation, ten reader states, 217 rendered browser checks and release-pipeline tests.
 - **Next trigger:** install the exact same controller bytes on the default branch so GitHub can dispatch it, bind `PRODUCTION_CONTROLLER_SHA` to that default-branch commit, then prepare the admitted Daily candidate on top of exact live source commit `466def319c47d9aaf02d48504738f80900ff9685`. No deploy occurs until exact prose, observed-reader, semantic, visual and release gates pass.
 - **Authority:** controller implementation only. No visitor-facing byte, canonical story, Cloudflare deployment or public state changed at this checkpoint.
+
+### 2026-08-21 Sunday release-controller reality check
+
+- **Current state:** `BUILDING / GITHUB WORKFLOW PARSE REPAIR LOCAL / NO DEPLOYMENT`.
+- **Failure found:** every pushed source commit generated an immediate zero-job
+  failure for `.github/workflows/production-release.yml`. GitHub reported two
+  invalid expressions at lines 42–43: `runner.temp` was referenced from the
+  job-level environment, where that context is unavailable. The controller had
+  therefore never reached its own local calibration, scope guard, build,
+  approval or deployment steps.
+- **Correction:** baseline source/artifact temporary paths now resolve from
+  `$RUNNER_TEMP` inside the build step. The controller test rejects the exact
+  known-invalid job-level expression before reporting PASS.
+- **Separate release hold:** the current protected scope is still NewsStand-only.
+  The Sunday candidate deterministically changes 12 public artifact paths,
+  including Library and Blend & Snap, and the scope guard correctly rejects it.
+  The recorded NewsStand base matches the live Library, Blend & Snap,
+  NewsStand and Chick Flicks bytes but does not match the live Homepage, so the
+  exact current whole-site deployment source remains unresolved.
+- **Next trigger:** push the parse repair and prove GitHub creates a real manual
+  workflow graph; then recover the exact Homepage deployment/base identity and
+  prepare a separately reviewed bounded multi-surface release scope. No
+  artifact-specific approval or public deploy is eligible yet.

@@ -15306,3 +15306,28 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** A link can work perfectly and still point
   to the wrong product.
 - **Publication status:** INTERNAL RELEASE-TRUTH AND HANDOFF REPAIR / NOT DEPLOYED.
+
+## BTB-486 — The production controller passed locally but GitHub could not parse it
+
+- **Date:** 2026-08-21
+- **Area:** Production release control, GitHub Actions and public-deployment evidence.
+- **Failure:** The repository called the Cloudflare production controller
+  calibrated, but every push created an immediate failed workflow with no jobs.
+  GitHub rejected `${{ runner.temp }}` in the job-level environment before any
+  controller step could run.
+- **Root cause:** The local controller test checked expected strings and helper
+  behavior but never checked the workflow's context availability or verified a
+  pushed GitHub job graph. Repository presence was mistaken for operational
+  installation.
+- **Prevention rule:** A release workflow is installed only when GitHub parses
+  the exact pushed bytes into the expected trigger and job graph. Calibrate the
+  local checker against each known-invalid workflow expression and require a
+  real remote graph before dispatch or release claims.
+- **Durable correction:** Baseline temporary paths now resolve from
+  `$RUNNER_TEMP` inside the build step, and the calibrated controller test
+  rejects the exact invalid job-level `runner.temp` expression. Remote graph
+  verification remains the next gate after push.
+- **Possible Behind the Build angle:** A deployment button can exist in the
+  repository for weeks while the hosting platform has never successfully read
+  it.
+- **Publication status:** INTERNAL RELEASE-SYSTEM CORRECTION / NOT DEPLOYED.
