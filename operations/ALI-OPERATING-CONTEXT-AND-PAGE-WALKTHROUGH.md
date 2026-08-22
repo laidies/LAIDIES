@@ -411,8 +411,33 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   newly popular. Where a concept opens a wider societal debate, explain the
   mechanism and contours without forcing a LAiDIES position, then route to an
   appropriate sourced big-picture treatment such as a NewsStand article.
-  **Capture remains open for Ali's following messages; do not treat Part 1 as
-  the complete book-experience contract.**
+- **Library book experience — Ali walkthrough Part 2, 2026-08-22:** Preserve
+  the feel and coherence of a real book without reproducing the frustrating
+  interaction of manually turning simulated pages. Reading should be
+  continuous and effortless. A table of contents remains available throughout
+  the experience, describes what each chapter covers and jumps directly to any
+  chapter or concept. Every chapter opens with what it covers and what the
+  reader can expect to understand, then uses clear headings, subheadings,
+  digestible text lengths and repeated summaries so the eye always knows where
+  to begin.
+  Visual teaching is core content, not decoration. Select the most faithful
+  visual form for the exact learning job—diagram, arrows/flow, relationship
+  map, comparison, image, worked example or another textbook aid—and require
+  it to make the mechanism or concept relationship easier to see. An image
+  added merely to break up text fails. The tokenization example should let a
+  reader see why a model can mishandle a familiar word/counting question, not
+  merely read another definition of tokenization.
+  Use a consistent, accessible colour-coded family of recurring learning
+  components such as examples, anticipated reader questions, “why this
+  matters,” connections and summaries. Each component's role must be
+  recognizable without relying on colour alone. End chapters with key concepts
+  and plain definitions plus practice/check-understanding questions whose
+  answers can be deliberately revealed after the reader tries. Show the
+  book's last substantive freshness review prominently enough to establish
+  trust without interrupting reading. Language remains conversational,
+  engaging and easy to follow.
+  **Capture remains open for Ali's following messages; do not treat Parts 1–2
+  as the complete book-experience contract.**
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 

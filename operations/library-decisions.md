@@ -54,8 +54,20 @@ older Library visual or public-framing instruction that conflicts with it.
   claim/source/recheck ownership; newly popular terms are evaluated for real
   meaning and maturity before insertion. Societal debates may be mapped
   neutrally and linked to a separately sourced big-picture treatment.
-  This is **walkthrough Part 1**; retain it while Ali supplies the remaining
-  book-experience direction before consolidating the final contract.
+  **Walkthrough Part 2:** make the reader recognizably book-like without
+  simulated-page-turn friction. Use continuous reading plus an always-
+  recoverable, descriptive table of contents and direct chapter/concept
+  navigation. Chapters state their learning promise first, use a strong
+  heading hierarchy, digestible prose and recurring summaries. Purpose-built
+  visual teaching must expose the assigned mechanism or relationship; a
+  decorative image does not count. A consistent accessible colour-coded
+  grammar distinguishes examples, anticipated questions, why-it-matters,
+  connections and summaries without using colour as the only cue. Each chapter
+  ends with key concepts/plain definitions and answer-reveal practice. The
+  book exposes its last substantive freshness review, and its language remains
+  conversational and easy to engage with.
+  This remains an **open Parts 1–2 capture** while Ali supplies the remaining
+  book-experience direction before the final contract is consolidated.
 
 ## Load for every Library task
 
