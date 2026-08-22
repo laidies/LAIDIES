@@ -65,8 +65,16 @@ if (!Array.isArray(scope.allowedChanges) || !scope.allowedChanges.length || !Arr
 const allowed = new Map();
 for (const row of scope.allowedChanges) {
   const artifactPath = normalized(row?.path);
-  if (allowed.has(artifactPath) || !['MODIFY', 'REMOVE'].includes(row?.operation)) throw new Error(`invalid or duplicate allowed change: ${artifactPath}`);
-  if (!SHA.test(row?.baseSha256 || '') || (row.operation === 'MODIFY' ? !SHA.test(row?.candidateSha256 || '') : row.candidateSha256 !== null)) {
+  if (allowed.has(artifactPath) || !['ADD', 'MODIFY', 'REMOVE'].includes(row?.operation) ||
+      (row.operation === 'ADD' && artifactPath !== '_worker.js')) {
+    throw new Error(`invalid or duplicate allowed change: ${artifactPath}`);
+  }
+  const validHashes = row.operation === 'ADD'
+    ? row.baseSha256 === null && SHA.test(row?.candidateSha256 || '')
+    : row.operation === 'MODIFY'
+      ? SHA.test(row?.baseSha256 || '') && SHA.test(row?.candidateSha256 || '')
+      : SHA.test(row?.baseSha256 || '') && row.candidateSha256 === null;
+  if (!validHashes) {
     throw new Error(`invalid hash binding for allowed change: ${artifactPath}`);
   }
   allowed.set(artifactPath, row);
@@ -81,7 +89,6 @@ for (const artifactPath of [...new Set([...baseFiles.keys(), ...candidateFiles.k
   actualChanges.push({ path: artifactPath, operation, baseSha256: before?.sha256 || null, candidateSha256: after?.sha256 || null });
 }
 if (!actualChanges.length) throw new Error('Sunday candidate has no public changes');
-if (actualChanges.some(change => change.operation === 'ADD')) throw new Error('Sunday correction cut may not add public files');
 if (actualChanges.length !== allowed.size) throw new Error('Sunday candidate change count does not match the exact scope');
 for (const change of actualChanges) {
   const expected = allowed.get(change.path);

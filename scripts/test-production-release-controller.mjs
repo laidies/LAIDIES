@@ -42,6 +42,17 @@ function assertWorkflowScopeTransferIsComplete(source) {
   }
 }
 
+function assertWorkflowApiVerificationIsComplete(source) {
+  if (!source.includes('verify_api_origin "$deployment_url" immutable') ||
+      !source.includes('verify_api_origin "https://laidies.ai/" custom-domain') ||
+      !source.includes('"${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}"') ||
+      !source.includes('method_not_allowed') ||
+      !source.includes('book-concepts-101') ||
+      !source.includes('ai-fundamentals-101')) {
+    throw new Error('release verification must prove the exact public API handler and held-book denial');
+  }
+}
+
 const forbiddenOutput = path.join(repositoryRoot, '.release-test-output');
 let result = run(process.execPath, [builder, forbiddenOutput], repositoryRoot);
 assert.notEqual(result.status, 0);
@@ -72,6 +83,12 @@ assert.throws(
   /runner context is unavailable/,
   'known invalid GitHub workflow context must fail calibration',
 );
+assert.doesNotThrow(() => assertWorkflowApiVerificationIsComplete(workflow));
+assert.throws(
+  () => assertWorkflowApiVerificationIsComplete(workflow.replace('verify_api_origin "$deployment_url" immutable', ':')),
+  /public API handler and held-book denial/,
+  'missing immutable API verification must fail calibration',
+);
 assert.doesNotThrow(() => assertWorkflowRedirectVerificationIsSafe(workflow));
 assert.throws(
   () => assertWorkflowRedirectVerificationIsSafe(workflow.replaceAll("--location --proto-redir '=https' --max-redirs 3", '')),
@@ -101,6 +118,7 @@ const protectedReleaseChecks = [
   'scripts/validate-blend-snap-packs.mjs',
   'scripts/test-validate-blend-snap-packs.mjs',
   'scripts/test-blend-snap-browser.mjs',
+  'scripts/test-homepage-held-assets-browser.mjs',
   'scripts/test-library-product.cjs',
   'scripts/test-miss-jeeves-worker.mjs',
   'scripts/test-compose-daily-edition.mjs',
@@ -115,6 +133,7 @@ const protectedReleaseChecks = [
   'scripts/test-newsstand-release-pipeline-v1.mjs',
 ];
 assert.match(builderSource, /reproducible: true/);
+assert.match(builderSource, /'_worker\.js'/, 'curated Pages artifact must include the advanced-mode Worker');
 assert.doesNotMatch(builderSource, /generatedAt:\s*new Date\(\)\.toISOString\(\)/,
   'public artifact identity must not change with the build clock');
 assert.match(workflow, /workflow_dispatch:/);
@@ -136,6 +155,8 @@ assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
 assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
 assert.match(workflow, /check-newsstand-release-scope\.mjs/);
 assert.match(workflow, /NEWSSTAND_REQUIRE_BROWSER=1 node scripts\/test-newsstand-reader-browser\.mjs/);
+assert.match(workflow, /CALIBRATE_HOMEPAGE_TRUTH_FAILURE=1 node scripts\/test-homepage-held-assets-browser\.mjs/);
+assert.match(workflow, /node scripts\/test-homepage-held-assets-browser\.mjs/);
 assert.match(workflow, /base_commit:/);
 assert.match(workflow, /BASE_SOURCE_DIR="\$RUNNER_TEMP\/laidies-base-source"/);
 assert.match(workflow, /BASE_ARTIFACT_DIR="\$RUNNER_TEMP\/laidies-base-site"/);
@@ -143,4 +164,4 @@ assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and exact Sunday scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and exact Sunday scope guard bound');

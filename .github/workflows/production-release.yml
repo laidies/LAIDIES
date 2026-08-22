@@ -90,6 +90,7 @@ jobs:
             scripts/validate-blend-snap-packs.mjs \
             scripts/test-validate-blend-snap-packs.mjs \
             scripts/test-blend-snap-browser.mjs \
+            scripts/test-homepage-held-assets-browser.mjs \
             scripts/test-library-product.cjs \
             scripts/test-miss-jeeves-worker.mjs \
             scripts/test-production-release-controller.mjs \
@@ -120,6 +121,11 @@ jobs:
           node scripts/validate-blend-snap-packs.mjs
           node scripts/test-validate-blend-snap-packs.mjs
           node scripts/test-blend-snap-browser.mjs
+          if CALIBRATE_HOMEPAGE_TRUTH_FAILURE=1 node scripts/test-homepage-held-assets-browser.mjs; then
+            echo "Homepage truth calibration unexpectedly passed" >&2
+            exit 1
+          fi
+          node scripts/test-homepage-held-assets-browser.mjs
           node scripts/test-library-product.cjs
           node scripts/test-miss-jeeves-worker.mjs
           npm run test:daily-private-pipeline
@@ -285,6 +291,32 @@ jobs:
             test "$(printf '%s\n' "$custom_result" | sed -n '1p')" = 404
             validate_effective_url "https://laidies.ai/" "$artifact_path" "$(printf '%s\n' "$custom_result" | sed -n '2p')"
           done < <(jq -r '.removedPaths[]' "$RELEASE_SCOPE_PATH")
+          verify_api_origin() {
+            local base_url="$1"
+            local label="$2"
+            local result_file="$RUNNER_TEMP/${label}-miss-jeeves-result.txt"
+            local body_file="$RUNNER_TEMP/${label}-miss-jeeves.json"
+            curl --silent --show-error --retry 8 --retry-all-errors \
+              --location --proto-redir '=https' --max-redirs 3 \
+              -H 'content-type: application/json' -H 'accept: application/json' \
+              --data '{"query":"What is a token?","placement":"library"}' \
+              --output "$body_file" --write-out '%{http_code}\n%{url_effective}' \
+              "${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}" > "$result_file"
+            test "$(sed -n '1p' "$result_file")" = 200
+            validate_effective_url "$base_url" "api/miss-jeeves" "$(sed -n '2p' "$result_file")"
+            jq -e '(.status == "ok" or .status == "related" or .status == "not_covered") and
+              ((.results // []) | all(.[];
+                (.id != "book-concepts-101" and .id != "concepts-101" and .id != "ai-fundamentals-101") and
+                (((.url // "") | startswith("/library.html")) | not)))' "$body_file" >/dev/null
+            curl --silent --show-error --location --proto-redir '=https' --max-redirs 3 \
+              --output "$body_file" --write-out '%{http_code}\n%{url_effective}' \
+              "${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}" > "$result_file"
+            test "$(sed -n '1p' "$result_file")" = 405
+            validate_effective_url "$base_url" "api/miss-jeeves" "$(sed -n '2p' "$result_file")"
+            jq -e '.status == "error" and .error == "method_not_allowed"' "$body_file" >/dev/null
+          }
+          verify_api_origin "$deployment_url" immutable
+          verify_api_origin "https://laidies.ai/" custom-domain
           test "$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' https://laidies.ai/operations/ACTIVE-WORK.md)" = 404
           test "$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' https://laidies.ai/operations/COMMIT-QUEUE.md)" = 404
           jq '.status="DEPLOYED_AND_VERIFIED_PUBLICLY" | .verifiedAt=(now|todateiso8601) | .publicUrl="https://laidies.ai/"' \

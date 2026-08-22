@@ -69,7 +69,19 @@ try {
   extraScope.candidateArtifactIdentitySha256 = extra.identitySha256;
   result = run(base, extra, extraScope);
   assert.notEqual(result.status, 0);
-  assert.match(result.stderr, /may not add public files/);
+  assert.match(result.stderr, /change count does not match|unbound public change/);
+
+  const workerAdded = structuredClone(candidate);
+  workerAdded.files.push({ path: '_worker.js', bytes: 6, sha256: sha256('worker') });
+  workerAdded.files.sort((a, b) => a.path.localeCompare(b.path));
+  workerAdded.fileCount += 1;
+  workerAdded.totalBytes += 6;
+  workerAdded.identitySha256 = sha256(workerAdded.files.map(record => `${record.sha256}  ${record.path}\n`).join(''));
+  const workerScope = structuredClone(scope);
+  workerScope.candidateArtifactIdentitySha256 = workerAdded.identitySha256;
+  workerScope.allowedChanges.push({ path: '_worker.js', operation: 'ADD', baseSha256: null, candidateSha256: sha256('worker') });
+  result = run(base, workerAdded, workerScope);
+  assert.equal(result.status, 0, result.stderr);
 
   const stale = structuredClone(scope);
   stale.allowedChanges[0].candidateSha256 = sha256('wrong');
@@ -89,7 +101,7 @@ try {
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /preserved production path drifted/);
 
-  console.log('SUNDAY RELEASE SCOPE CALIBRATION: PASS · added file, stale hash, missing removal verification and preserved-path drift rejected');
+  console.log('SUNDAY RELEASE SCOPE CALIBRATION: PASS · exact _worker.js restoration admitted · unrelated addition, stale hash, missing removal verification and preserved-path drift rejected');
 } finally {
   fs.rmSync(temporaryDirectory, { recursive: true, force: true });
 }
