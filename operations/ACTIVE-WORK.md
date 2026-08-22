@@ -510,9 +510,11 @@ removed in commit `4b1baf7`; the current release cut now also repairs the shared
 downstream handoffs. Available Episode 02–04 Try-Ons preserve
 `/blend-snap.html#the-study-pack`, and every adjacent Quiz opens its exact
 Episode paper through `issue=N&from=blend-snap`, exposes the café return and has
-no horizontal overflow at 390px. The browser suite passes 118 rendered checks.
+no horizontal overflow at 390px. The browser suite passes 119 rendered checks.
 
-All four current printable candidates remain preserved but are now **HELD**:
+All four current printable candidates remain preserved as non-public rejection
+evidence under `operations/_rejected/study-pack-printables-20260821/` and are
+**HELD**:
 they contain 4, 8, 4 and 2 printable pages, while the Study Pack contract defines
 a Cheat Sheet as a one-page reference. The manifest has 7 available items, 8
 held, 3 planned and 1 unavailable through 2026-08-23. A calibrated validator
@@ -1381,23 +1383,37 @@ objective; every open lane keeps its own checkpoint.
 
 ### 2026-08-21 Sunday release-controller reality check
 
-- **Current state:** `BUILDING / GITHUB WORKFLOW PARSE REPAIR LOCAL / NO DEPLOYMENT`.
+- **Current state:** `EXACT CORRECTION CUT VERIFIED LOCALLY / CONTROLLER DEFAULT-BRANCH INSTALLATION OPEN / NO NEW DEPLOYMENT`.
 - **Failure found:** every pushed source commit generated an immediate zero-job
   failure for `.github/workflows/production-release.yml`. GitHub reported two
   invalid expressions at lines 42–43: `runner.temp` was referenced from the
   job-level environment, where that context is unavailable. The controller had
   therefore never reached its own local calibration, scope guard, build,
   approval or deployment steps.
-- **Correction:** baseline source/artifact temporary paths now resolve from
-  `$RUNNER_TEMP` inside the build step. The controller test rejects the exact
-  known-invalid job-level expression before reporting PASS.
-- **Separate release hold:** the current protected scope is still NewsStand-only.
-  The Sunday candidate deterministically changes 12 public artifact paths,
-  including Library and Blend & Snap, and the scope guard correctly rejects it.
-  The recorded NewsStand base matches the live Library, Blend & Snap,
-  NewsStand and Chick Flicks bytes but does not match the live Homepage, so the
-  exact current whole-site deployment source remains unresolved.
-- **Next trigger:** push the parse repair and prove GitHub creates a real manual
-  workflow graph; then recover the exact Homepage deployment/base identity and
-  prepare a separately reviewed bounded multi-surface release scope. No
-  artifact-specific approval or public deploy is eligible yet.
+- **Production truth recovered:** remote `homepage-redesign` commit
+  `bf70d026de69a28ed702b759e17214ba4420d4ae` reproduces the live Homepage and
+  exact preserved NewsStand runtime. Its curated artifact identity is
+  `35c26807d6b9b2c314f3dec021c3e1f54c18c69ad517a143aa60d4a72484ee25`
+  with 566 manifest files. That commit is now an ancestor of the Sunday source
+  branch; ancestry is no longer inferred from matching individual files.
+- **Exact candidate:** the curated Sunday artifact identity is
+  `8c7e8197bbe2aafd7ee254f183ecb9b52a42cce3d10fda01f1a302b07e381fbd`
+  with 561 manifest files. The calibrated scope proves exactly 14 public
+  changes, five removals and 15 preserved production paths. The changed bytes
+  contain only rejection containment and truthful Library/Blend & Snap
+  corrections; Homepage, LUMINAiRY, KSVL, MAiKEOVER and the released NewsStand
+  archive remain byte-identical to production.
+- **Explicit holds:** AI Fundamentals 101 and all other Library books remain
+  unavailable; the Episode 01 three-part Study Pack remains incomplete; the
+  Trailer and Episodes 01–04 remain unreleased; no new current NewsStand edition
+  is included; the whole-town opening gate remains unmet.
+- **Controller correction:** temporary paths resolve from `$RUNNER_TEMP` inside
+  a step; redirect verification is same-origin and HTTPS-only; removed paths
+  must return 404; and the exact release scope is transferred into the deploy
+  receipt rather than read from an absent checkout. Calibrated tests reject the
+  prior parser, redirect and scope-transfer failures.
+- **Next trigger:** commit and install the byte-identical protected controller
+  paths on default branch `main`, prove GitHub parses the manual workflow, bind
+  `PRODUCTION_CONTROLLER_SHA`, then dispatch the exact Sunday source commit.
+  Deployment and public verification remain unavailable until those steps
+  succeed.
