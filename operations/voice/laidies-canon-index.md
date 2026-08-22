@@ -60,6 +60,7 @@ These old names are **retired. Do not use them in public or internal copy.** Map
 | Receipts Coven | **The Coven** | Same concept. The full freshness/spec build is **backlog**. |
 | Hot Goss | **The Weekly at the NewsStand** | The retired name must not appear in current visitor copy. Current news lives at the NewsStand as The Breaking, The Daily, The Weekly and The Tribune. |
 | Book of Receipts | **The Chamber of Receipts** | Older episode-era name. |
+| Play (public action/route label) | **Use the exact outcome: Listen, Pause, Practise, Try, Choose a game, Start, Open or Explore** | “Play” remains permitted only in internal technical terms such as playback; it is retired from visitor-facing copy. Ali, 2026-08-22. |
 
 ---
 

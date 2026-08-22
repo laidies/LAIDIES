@@ -19,9 +19,13 @@ must quickly understand:
 - joining is optional. Public learning and the Wednesday Postcard must not be
   confused with creating a Resident Card.
 
-The existing masthead copy largely succeeds at the first part. Preserve its
-substance, but give **SUNNYVAiLE** more visual emphasis and make the relationship
-between LAiDIES, the method and the town click faster.
+The existing masthead image and displayed copy are locked together. Preserve
+the exact `assets/sunnyvaile-streets/main-street-dusk.webp` image and the exact
+current headline, strapline, explanatory paragraph and “Be kind, rewind” line
+from `index.html`; do not redraw the street, replace its signs, invent a new
+tagline or paraphrase the explanation. Improvements may change responsive
+composition and give **SUNNYVAiLE** more visual emphasis without changing those
+words or image bytes.
 
 The comprehension sequence is non-negotiable:
 
@@ -81,7 +85,7 @@ of the result:
 - **Keep current and think bigger:** NewsStand current editions, topics,
   features and archive.
 - **Practise or try something:** tools and activities.
-- **Play and build a skill:** games that name the skill they reinforce, not
+- **Build a skill with a game:** games that name the skill they reinforce, not
   merely that they are fun.
 - **Explore women in AI:** LUMINAiRY, Mavens, Trailblazers and Patron Saints.
 - **Enter the world:** KSVL, Mall/Rewind references, town buildings and the
@@ -261,7 +265,7 @@ Use a **guided town square**, not an infinite feature catalogue:
 - **New in town:** a finite, dated set of current admitted items plus one route
   to the full NewsStand/current archive;
 - **What do you want to do?** a compact visitor-job layer for ask/find, learn,
-  keep current, practise/play and connect;
+  keep current, practise, choose a game and connect;
 - **How SUNNYVAiLE works:** a concise visual explanation plus an obvious full
   welcome tour;
 - **Explore the town:** the complete, directly labelled directory for the
@@ -284,7 +288,7 @@ It is not a compressed sitemap.
 The current implementation does not meet that contract:
 
 - Homepage uses its own `.topbar`, so the shared header does not mount there;
-- the shared **KSVL 99.9** item is a link to `/radio.html`, not a play action;
+- the shared **KSVL 99.9** item is a link to `/radio.html`, not an audio-start action;
 - Homepage has no `data-ksvl-start-live` control;
 - the current player has substantial controls after playback starts, but its
   local restoration deliberately excludes the `live` queue;
@@ -294,12 +298,12 @@ The current implementation does not meet that contract:
 
 The successor must use one canonical player and separate two outcomes:
 
-- **Play/Pause KSVL 99.9** starts or controls audio after an explicit user
+- **Listen/Pause KSVL 99.9** starts or controls audio after an explicit user
   action; and
 - **Open KSVL** navigates to the station page.
 
 Once started, visible controls retain the same location, name and meaning on
-every permitted page: play/pause, previous/next only when the catalogue really
+every permitted page: listen/pause, previous/next only when the catalogue really
 supports them, volume/mute, current track/status, stop and Open KSVL. Device
 Media Session controls are an enhancement, not a substitute. Full-page
 navigation destroys an in-page audio object, so uninterrupted audio must use a
@@ -317,6 +321,15 @@ correctly states:
 It is evidence that the direction was explored, not current Homepage authority.
 Useful mechanisms may be source-mined after the new hierarchy is settled; the
 prototype must not be copied wholesale or described as lost published work.
+
+## Rejected generated direction — 2026-08-22
+
+SHA-256 `7c10a8478838d672e8eea66423c718dec95a7350bea67a80be3d448e48512fff`
+is quarantined and is not an iteration base. It changed the approved masthead
+and method copy, collapsed the decided Daily structure into generic updates,
+used the retired public word **Play**, invented an icon family and relied on the
+rejected purple/yellow pairing. The successor must preserve the exact incumbent
+copy and masthead and use the machine-bound page packet before composition.
 
 ## Proposed Homepage hierarchy
 

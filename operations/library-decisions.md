@@ -10,6 +10,7 @@ This compact packet contains only current page-wide overrides, routing, active a
 ## Current page-wide decisions
 
 - Preserve the bright, bold pop-art energy, distinct 101s/Tools/Reference colours, physical entering-the-building idea and selected-book preview.
+- Use the vibrant production tokens already established in `library.html`: midnight `#070f2b`, ink `#11183b`, pink `#f254a9`, purple `#7137d6`, cyan `#15bce0`, cobalt `#2457e6`, sky `#78c7ff`, coral `#ff7366`, orange `#ff9b3d`, lime `#b7e42b`, mint `#7de2c2`, controlled yellow `#ffd34d` and cream `#fffdfb`. Use saturated gradients, halftone/pop-art texture, ink keylines, hard offset shadows and layered editorial framing. Select a bounded subset per page; do not pair purple with yellow.
 - Elevate the existing 1990s masthead room with colour, depth and authored energy; keep title and navigation as deterministic live UI.
 - Public choices are **Ask Miss Jeeves** and **browse the Library shelves and books**. “Catalogue” is internal terminology, not the visitor metaphor.
 - Reference Desk and Browse must have different composition, weight and direction.

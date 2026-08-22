@@ -52,6 +52,18 @@ try {
   );
   expectFailure('missing-library-contract', missingLibraryContract, 'missing required governing source');
 
+  const palePalette = structuredClone(manifest);
+  palePalette.visual_system.tokens.pink = '#f7b8d8';
+  expectFailure('pale-palette', palePalette, 'visual token pink must remain #f254a9');
+
+  const generatedPage = structuredClone(manifest);
+  generatedPage.visual_system.whole_page_image_generation = 'ALLOWED';
+  expectFailure('generated-page', generatedPage, 'whole-page image generation must be forbidden');
+
+  const missingLockedCopy = structuredClone(manifest);
+  missingLockedCopy.pages.homepage.locked_copy_fragments = [];
+  expectFailure('missing-locked-copy', missingLockedCopy, 'locked incumbent copy source/fragments are required');
+
   const oldLobby = manifest.pages['visitors-centre'].prohibited_assets[0];
   const sourcePath = `${scratch}/candidate.html`;
   const body = `<img src="/${oldLobby.path}" alt="fixture">\n`;
@@ -62,7 +74,8 @@ try {
     status: 'DRAFT_TRACKED',
     entry_path: sourcePath,
     source_files: [{ path: sourcePath, sha256: sha(body) }],
-    dependencies: [oldLobby]
+    dependencies: [oldLobby],
+    production_method: 'repo_composition'
   });
   expectFailure('rejected-lobby', rejectedLobby, 'prohibited dependency');
 
@@ -72,7 +85,8 @@ try {
     status: 'DRAFT_TRACKED',
     entry_path: sourcePath,
     source_files: [{ path: sourcePath, sha256: sha(body) }],
-    dependencies: []
+    dependencies: [],
+    production_method: 'repo_composition'
   });
   expectFailure('undeclared-dependency', undeclared, 'unmanifested asset reference');
 
@@ -84,7 +98,8 @@ try {
     source_files: [{ path: sourcePath, sha256: sha(body) }],
     dependencies: [oldLobby],
     pushed_commit: '0'.repeat(40),
-    pushed_ref: 'refs/heads/guard-fixture-does-not-exist'
+    pushed_ref: 'refs/heads/guard-fixture-does-not-exist',
+    production_method: 'repo_composition'
   });
   expectGitFailure('unpushed-remote', unpushed, 'pushed_ref is not present on origin');
   expectGitFailure('dirty-owned-lane', unpushed, 'tracked_root is dirty');
@@ -102,7 +117,8 @@ try {
     status: 'DRAFT_TRACKED',
     entry_path: homepageSource,
     source_files: [{ path: homepageSource, sha256: sha(homepageBody) }],
-    dependencies: [staleJeeves]
+    dependencies: [staleJeeves],
+    production_method: 'repo_composition'
   });
   expectFailure('rejected-jeeves', rejectedJeeves, 'prohibited dependency');
   fs.rmSync(homepageAbsolute, { recursive: true, force: true });

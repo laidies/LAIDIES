@@ -23,6 +23,16 @@ const LIBRARY_REQUIRED_SOURCES = [
   'operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md',
   'operations/product-stewards/library/BUILD-PACKET-LIBRARY-PAGE-ELEVATION-2026-08-22.md'
 ];
+const REQUIRED_VISUAL_TOKENS = {
+  midnight: '#070f2b', ink: '#11183b', pink: '#f254a9', purple: '#7137d6',
+  cyan: '#15bce0', cobalt: '#2457e6', sky: '#78c7ff', coral: '#ff7366',
+  orange: '#ff9b3d', lime: '#b7e42b', mint: '#7de2c2', yellow: '#ffd34d',
+  cream: '#fffdfb'
+};
+const REQUIRED_VISUAL_MECHANISMS = [
+  'saturated gradients', 'halftone or pop-art texture', 'dark ink keylines',
+  'hard offset shadows', 'layered editorial framing'
+];
 
 const sha256 = filePath => crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 const cleanPath = value => value.replace(/^\/+/, '').replace(/[?#].*$/, '');
@@ -99,6 +109,14 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
   if (manifest.checkpoint_policy?.approved_page_release !== 'DEPLOY_AND_PUBLICLY_VERIFY_WITHOUT_WAITING_FOR_OTHER_PAGES') {
     errors.push('approved page units must deploy and receive public verification without waiting for other pages');
   }
+  if (manifest.visual_system?.whole_page_image_generation !== 'FORBIDDEN') errors.push('whole-page image generation must be forbidden');
+  for (const [name, value] of Object.entries(REQUIRED_VISUAL_TOKENS)) {
+    if (manifest.visual_system?.tokens?.[name] !== value) errors.push(`visual token ${name} must remain ${value}`);
+  }
+  for (const mechanism of REQUIRED_VISUAL_MECHANISMS) {
+    if (!manifest.visual_system?.required_mechanisms?.includes(mechanism)) errors.push(`visual system is missing ${mechanism}`);
+  }
+  if (!manifest.visual_system?.forbidden_pairings?.includes('purple/yellow')) errors.push('purple/yellow pairing must remain forbidden');
   for (const source of manifest.shared_governing_sources || []) verifyBoundFile(root, source, 'shared governing source', errors);
 
   const globalProhibited = new Map();
@@ -125,6 +143,14 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         if (!librarySources.has(requiredSource)) errors.push(`library: missing required governing source ${requiredSource}`);
       }
     }
+    if (pageName === 'homepage') {
+      if (page.locked_copy_source !== 'index.html' || !Array.isArray(page.locked_copy_fragments) || page.locked_copy_fragments.length === 0) {
+        errors.push('homepage: locked incumbent copy source/fragments are required');
+      } else {
+        const incumbent = fs.readFileSync(path.join(root, page.locked_copy_source), 'utf8');
+        for (const fragment of page.locked_copy_fragments) if (!incumbent.includes(fragment)) errors.push(`homepage: locked incumbent copy is missing: ${fragment}`);
+      }
+    }
 
     const allowed = new Map();
     for (const asset of page.allowed_existing_assets || []) {
@@ -146,6 +172,7 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         errors.push(`${label}: id, entry_path and source_files are required`);
         continue;
       }
+      if (candidate.production_method !== 'repo_composition') errors.push(`${label}: production_method must be repo_composition`);
       const rootPrefix = `${page.tracked_root}/`;
       if (!candidate.entry_path.startsWith(rootPrefix)) errors.push(`${label}: entry_path escapes tracked_root`);
       const declared = new Map();
