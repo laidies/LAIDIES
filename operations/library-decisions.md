@@ -44,75 +44,14 @@ older Library visual or public-framing instruction that conflicts with it.
   result requires a real roadmap record and external recommendations require a
   maintained trust register. The Homepage and Library share this service. See
   `operations/product-stewards/library/subproducts/miss-jeeves.md`.
-- Library books—beginning with AI Fundamentals 101—must teach a connected,
-  technically accurate and current system model in language usable without a
-  computer-science or engineering background. They locate each concept in the
-  wider AI ecosystem, distinguish what occurs before/behind/during/after the
-  reader's interaction, show what she controls and why it changes her results,
-  and earn repeated “Oh, that is why” understanding. Definitions without
-  mechanism and relationships fail. Books are living products with explicit
-  claim/source/recheck ownership; newly popular terms are evaluated for real
-  meaning and maturity before insertion. Societal debates may be mapped
-  neutrally and linked to a separately sourced big-picture treatment.
-  **Walkthrough Part 2:** make the reader recognizably book-like without
-  simulated-page-turn friction. Use continuous reading plus an always-
-  recoverable, descriptive table of contents and direct chapter/concept
-  navigation. Chapters state their learning promise first, use a strong
-  heading hierarchy, digestible prose and recurring summaries. Purpose-built
-  visual teaching must expose the assigned mechanism or relationship; a
-  decorative image does not count. A consistent accessible colour-coded
-  grammar distinguishes examples, anticipated questions, why-it-matters,
-  connections and summaries without using colour as the only cue. Each chapter
-  ends with key concepts/plain definitions and answer-reveal practice. The
-  book exposes its last substantive freshness review, and its language remains
-  conversational and easy to engage with.
-- **Walkthrough Part 3:** Rewind Era humour and analogy are optional teaching
-  devices, not a branding quota. Admit one only when it maps faithfully to the
-  mechanism, improves understanding or recall, fits naturally and preserves
-  the real explanation. Ali's positive exemplar is the *Scream* “call coming
-  from inside the house” connection for synthetic data; forced quotes,
-  decorative name-drops, tenuous mappings and checklist references fail. The
-  reusable producer method must begin with the exact mechanism/teaching job,
-  draw from governed references, state the mapping and its limit, propose only
-  a few faithful candidates or `NONE`, and reject forced/distorting output
-  before Ali review. Ali is not the manual humour-insertion pass.
-- **Walkthrough Part 4:** books produce informed agency: readers can test
-  clickbait/inaccurate reporting, participate in conversations, use tools
-  better and troubleshoot from the mechanism. Add recurring concept-bound
-  “You may be seeing this because…” components with cause, applicable check or
-  response and uncertainty boundary; reject generic tips. Teach benefits,
-  risks and trade-offs from factual mechanisms rather than doomsaying or
-  uncritical enthusiasm. Current guidance binds its model/product/version and
-  explains why successor practice changed. AI Fundamentals owns the connected
-  foundation; later workflow- or product-specific books deepen a distinct job
-  and connect back to it rather than duplicating it.
-- **Walkthrough Part 5:** an admitted whole book or exact section has a stable
-  public share link and can be saved with one of the resident's active ten
-  Puffy stickers. The Closet reopens that exact scope without retracing the
-  Library journey and provides the resident's current personal view of
-  supported progress, collections and deliberate saves across SUNNYVAiLE.
-  Residents may give stickers their own recurring organizing meaning, but each
-  saved record also states its title, destination, scope and context. Public
-  shared links exclude private sticker/purpose/progress data. Current device-
-  local behavior must not be presented as account or cross-device persistence.
-- **Walkthrough Part 6:** books track reading/chapter completion and support
-  both continue-from-last-place and start-anywhere. Signed-in residents receive
-  durable resume/progress plus private highlights and notes; anonymous reading
-  remains available but may not imply account persistence. Books expose one
-  governed last-review/change summary; returning readers and cross-town
-  “what's new” can deep-link to added, corrected or changed sections. Audiobook
-  versions are desired. Print/download/offline remain undecided pending an
-  access, staleness, attribution/rights and content-protection proposal; no
-  system can promise perfect theft prevention.
-  Inventory and evaluate the existing roster rather than preserving titles by
-  inertia or discarding work blindly. Review Prompt Cookbook for a current
-  skills successor, the independent value of What Not to Pay, prevention-first
-  reframing for How to Check AI's Work and the Tools architecture. Ali's next
-  practical 101 applies Fundamentals to memory, personal context/setup,
-  scripts and AI-assisted configuration. Candidate future books may organize
-  around writing, research, data summaries and dashboards.
-  This remains an **open Parts 1–6 capture** while Ali supplies the remaining
-  book-experience direction before the final contract is consolidated.
+- Library books follow Ali's complete seven-part reader contract at
+  `operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`.
+  It governs connected/current mechanism teaching, continuous book-like
+  reading, purposeful visual aids, earned Rewind humour, practical agency,
+  exact sharing/Puffy saves, signed-in progress/private annotations,
+  updates/audio, catalogue reconsideration and evidence-based chapter/book
+  rewards. Do not recover those decisions from older artifacts or expand this
+  routine packet with duplicate book instructions.
 
 ## Load for every Library task
 
@@ -122,7 +61,10 @@ older Library visual or public-framing instruction that conflicts with it.
 4. `operations/product-stewards/library/FUNCTIONALITY-MAP.md` — real journeys and dependencies.
 5. This file — compact current page overrides and prohibited regressions.
 
-Book-content work also loads the exact current book source, admission manifest, rejection registry and content-quality contract routed by `operations/DECISIONS.md`.
+Book-content work also loads
+`operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`,
+the exact current book source, admission manifest, rejection registry and
+content-quality contract routed by `operations/DECISIONS.md`.
 
 ## Current page contract
 

@@ -500,6 +500,21 @@ unknown. A synthetic public POST on 2026-08-22 returned empty HTTP 405, so the
 live backend is **BROKEN PUBLICLY**. Build authority is
 `operations/product-stewards/library/BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.
 
+Ali then completed the seven-part Library book-experience walkthrough. Routine
+authority is
+`operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`;
+the raw guided capture remains in the page-walkthrough workbook for provenance,
+not as another routine instruction source. The contract binds connected/current
+mechanism teaching, continuous book-like reading, purpose-built visuals, earned
+Rewind humour, practical agency, exact sharing/Puffy saves, signed-in progress
+and private annotations, governed updates, audiobook intent and meaningful
+chapter/book rewards. Rewards may not derive from passive scrolling. Chapter
+and whole-book recognition require proportional evidence, deduplication and the
+shared economy; public showcase is resident-controlled. Exact reward design,
+account implementation, audio delivery and portable formats remain build or
+competition questions. AI Fundamentals is the representative proof. No book is
+admitted by this decision.
+
 ### 2026-08-21 current LIBRAiRY page release cut
 
 Current `library.html` SHA-256

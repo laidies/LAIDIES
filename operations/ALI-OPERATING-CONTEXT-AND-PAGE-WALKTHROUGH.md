@@ -533,8 +533,23 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   including useful scripts and how AI can help the reader configure the system.
   Other potentially valuable books organize around real work—writing,
   research, data summaries and dashboards—rather than arbitrary feature lists.
-  **Capture remains open for Ali's following messages; do not treat Parts 1–6
-  as the complete book-experience contract.**
+- **Library book experience — Ali walkthrough Part 7, 2026-08-22:** Reading
+  progress should lead to recognition and rewards, but never from passive
+  scrolling. Chapter completion may earn a smaller reward; whole-book
+  completion earns a distinct larger reward. Candidate outcomes include
+  Butterfly Clips that can be spent through the shared economy and visible
+  stickers, badges or other Closet collectibles. Exact reward objects and
+  amounts remain a product/economy design problem.
+  Meaningful completion needs proportional evidence such as a concept-level
+  knowledge check, explain-back or application. It may borrow a quiz mechanic
+  without turning every chapter into SUNNYVAiLE High. Records must be signed-
+  in, deduplicated and version-bound so scrolling, refreshes and repeat submits
+  cannot mint rewards. Public recognition is an intended incentive; the
+  resident explicitly chooses which eligible badges/collections appear on her
+  public Card/profile so private reading behavior is not exposed by default.
+  **The seven-part owner capture is complete.** The consolidated routine
+  authority is
+  `product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 
