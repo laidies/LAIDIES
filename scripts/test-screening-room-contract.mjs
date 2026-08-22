@@ -5,14 +5,17 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(process.env.SCREENING_ROOM_ROOT || process.cwd());
+const mediaRoot = path.resolve(process.env.SCREENING_ROOM_MEDIA_ROOT || root);
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const exists = (file) => fs.existsSync(path.join(root, file.split(/[?#]/)[0].replace(/^\/+/, "")));
+const mediaExists = (file) => fs.existsSync(path.join(mediaRoot, file.split(/[?#]/)[0].replace(/^\/+/, "")));
 const page = read("watch.html");
 const index = JSON.parse(read("content/episode-index.json"));
 const ids = ["trailer", "01", "02", "03", "04"];
 const warnings = [];
 const failures = [];
 const sha256 = (file) => crypto.createHash("sha256").update(fs.readFileSync(path.join(root, file))).digest("hex");
+const mediaSha256 = (file) => crypto.createHash("sha256").update(fs.readFileSync(path.join(mediaRoot, file))).digest("hex");
 const admission = JSON.parse(read("content/episodes/screening-room-admission.json"));
 const admissionSchema = JSON.parse(read("content/episodes/screening-room-admission.schema.json"));
 const derived = JSON.parse(read("content/episodes/screening-room-derived-editions.json"));
@@ -88,7 +91,13 @@ for (const id of ids) {
   assert.ok(record, `${id}: admission record missing`);
   assert.equal(record.admissionStatus, "hold", `${id}: must remain held`);
   assert.equal(record.humanReviewStatus, "pending", `${id}: human full-title review must remain pending`);
-  assert.equal(sha256(record.reviewFilm), record.reviewFilmSha256, `${id}: review-film hash mismatch`);
+  if (mediaExists(record.reviewFilm)) {
+    assert.equal(mediaSha256(record.reviewFilm), record.reviewFilmSha256, `${id}: review-film hash mismatch`);
+  } else {
+    assert.notEqual(record.admissionStatus, "admitted", `${id}: admitted review film is missing from this checkout`);
+    warnings.push(`${id}: exact held review film is not present in this checkout; payload integrity was not reverified`);
+  }
+  assert.ok(exists(record.reviewEvidence), `${id}: review evidence missing from this checkout`);
   assert.equal(sha256(record.reviewEvidence), record.reviewEvidenceSha256, `${id}: review-evidence hash mismatch`);
   assert.equal(sha256(record.occurrenceAuthority), record.occurrenceAuthoritySha256, `${id}: occurrence-authority hash mismatch`);
   const occurrenceAuthority = JSON.parse(read(record.occurrenceAuthority));

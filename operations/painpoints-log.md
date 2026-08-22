@@ -15124,3 +15124,35 @@ while remaining falsely unfinished in the launch record.
   made each one worse—and how routing memory by job prevents old mistakes from
   becoming new instructions.
 - **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NOT DEPLOYED.
+
+## BTB-480 — A cue-sheet ban did not protect the builders that assembled the film
+
+- **Date:** 2026-08-21
+- **Area:** Episode media, rejected-asset containment and portable release evidence.
+- **Failure:** Episode 04's cue sheet correctly excluded four rejected per-woman
+  time cards, but a separate review-sequence builder selected the banned Timnit
+  card and its output was assembled into held v10. Two older builders in active
+  build directories could also restore the rejected Main-Street transformation
+  and wrong Grace office generation. The Screening Room record additionally
+  depended on three uncommitted review receipts and crashed in a clean checkout
+  before reporting the real holds.
+- **Root cause:** The prohibition guarded one consumer instead of the complete
+  build surface, obsolete executable files remained beside current tools, and
+  repository authority was conflated with large local media-payload storage.
+- **Prevention rule:** Parse the authoritative banned block and scan every active
+  cue and builder before CI can pass. Move obsolete executable builders out of
+  active tool directories while retaining them as routed evidence. Commit small
+  authority/receipt files; verify large local review media through an explicit
+  separate payload root, and report unavailable held bytes as HOLD rather than
+  crashing or inferring readiness.
+- **Durable correction:** Three Episode 04 builders were moved to
+  `operations/_superseded/episode-04-builders/`; the new calibrated banned-cut
+  gate rejects the known Timnit relapse fixture and is part of `ci:build`; the
+  exact Episode 02–04 held review receipts were admitted to the release tree;
+  and the Screening Room contract now passes in a clean checkout with explicit
+  media-unavailable holds and re-verifies all exact master hashes when pointed
+  at the preserved payload checkout. Episode 04 v10 remains HOLD because its
+  bytes still contain the banned card; no replacement master was created.
+- **Possible Behind the Build angle:** Why banning an image in the timeline did
+  nothing when a different script could quietly put it back into the final cut.
+- **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NOT DEPLOYED.

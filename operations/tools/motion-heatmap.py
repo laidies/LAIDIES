@@ -39,7 +39,7 @@ def loops() -> dict[str, Path]:
     import importlib.util
 
     spec = importlib.util.spec_from_file_location(
-        "build_v2", ROOT / "assets/video/build-episode-04-full-v2-motion.py"
+        "build_v2_historical", ROOT / "operations/_superseded/episode-04-builders/build-episode-04-full-v2-motion.py"
     )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

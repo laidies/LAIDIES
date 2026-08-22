@@ -1,0 +1,155 @@
+{
+  "receiptId": "EMQ-E03-V15-FULL-TITLE-2026-08-01",
+  "recordedAt": "2026-08-01T22:50:06Z",
+  "reviewer": "Weekly Episodes owner acting independently of the Episode 03 v15 maker",
+  "scope": "Read-only independent full-title review of the exact local successor master. No media, caption, player, site, deployment, public, account or credential state was changed.",
+  "candidate": {
+    "path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+    "sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75",
+    "durationSeconds": 1048.0,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "statusBeforeReview": "BUILT_LOCALLY"
+  },
+  "boundEvidence": {
+    "technicalValidation": {
+      "path": "operations/video-qa/episode-03-v15-successor-validation-2026-08-01.json",
+      "sha256": "e9fbc05266244aa7ebd277b6180dac6b55384c94b0d73b4e21b16ae9b4491b4d",
+      "result": "TECHNICAL_AND_SCENE_ORDER_PASS_INDEPENDENT_NORMAL_SPEED_REVIEW_REQUIRED"
+    },
+    "successorAssembly": {
+      "path": "operations/video-qa/episode-03-v15-successor-assembly-2026-08-01.json",
+      "sha256": "52a91b82c7d7874f9f778e650e01e75cba9dff5f736388118ce8d8c097e2580b"
+    },
+    "captionTrack": {
+      "path": "assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "cueCount": 211,
+      "lastCueEndSeconds": 1046.95
+    },
+    "audioPayloadSha256": "c79a21349ef22723013372a0dfe0b6de9a7cae8b0c16e4b292aef947face7cd0",
+    "machineTranscript": {
+      "temporaryPath": "/private/tmp/episode-03-v14-whisper-small-en.json",
+      "sha256": "a9ef9c42efed4b3ac45c6f745482b1e84acc2601d5860ce9c9041fb0beeb6ad7",
+      "model": "faster-whisper-small.en",
+      "wordCount": 2349,
+      "scriptUnitAlignment": "162/162 (100.0%)",
+      "reuseBasis": "The bound v15 validator proves byte-identical audio payload continuity from v14, so the v14 transcript and signal analysis apply to this exact v15 audio payload.",
+      "useLimit": "Speech-presence and text-comparison evidence only; not evidence of naturalness, pronunciation, mix, speaker identity or human audibility."
+    },
+    "priorIndependentReview": {
+      "path": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v14-independent-full-title-review-receipt-2026-08-01.json",
+      "use": "Defines the 21 occurrence-level visual holds that the 13 v15 replacement sequences were required to resolve."
+    }
+  },
+  "methods": [
+    "Recomputed and matched the exact candidate SHA-256.",
+    "Reconciled the v15 successor graph against the v14 independent HOLD and all 13 replacement windows covering its 21 named occurrences.",
+    "Confirmed all-frame decode, full clock, zero black-frame events, exact v14 audio payload, caption checksum, 211 caption cues and caption coverage from the bound validator.",
+    "Inspected every versioned replacement contact sheet at original resolution and a dense 131-frame full-title sweep sampled every eight seconds.",
+    "Checked narration-picture ordering, identity, location, source style, visible wording, opening/title progression, worked-example progression and Episode 04 closing teaser against the bound source sequence.",
+    "Applied the complete v14 audio analysis by exact payload identity: -19.5 LUFS integrated, 4.5 LU loudness range, -1.4 dBFS true peak, no detected silence longer than 1.507 seconds and 162/162 tagged-script-unit alignment.",
+    "Did not claim an auditory listen: this execution environment exposes decoded signal, transcript and images but no auditory-perception channel."
+  ],
+  "repairedWindowVerdicts": [
+    {
+      "timecode": "00:00.000-00:18.700",
+      "id": "p00-recap-progression",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "The recap now progresses through four distinct crops rather than holding one three-panel frame."
+    },
+    {
+      "timecode": "01:48.400-02:15.000",
+      "id": "p07-welcome-ident-transition",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Office bridge, exact LAiDIES ident, David Rose recap and Elle transition now follow the spoken welcome and question setup."
+    },
+    {
+      "timecode": "02:58.000-03:19.000",
+      "id": "p10-draft-newsstand-responsibility",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Draft, NewsStand, source challenge, claim and byline-responsibility beats progress in narration order."
+    },
+    {
+      "timecode": "03:42.000-04:21.700",
+      "id": "p12-p13-court-assumption-hallucination",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Court/Burn Book comparison now advances through unsupported information, assumption and hallucination definitions."
+    },
+    {
+      "timecode": "04:44.000-05:28.000",
+      "id": "p15-p16-clue-claim-receipt",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Bethany, clue, assumption, newsroom, claim and receipt images now track the evidence-versus-conclusion explanation."
+    },
+    {
+      "timecode": "07:24.000-08:02.000",
+      "id": "p23-p24-verification-timeline",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Elle, Chutney, verification and timeline imagery now progresses through the fresh-perm contradiction and transfer to AI checking."
+    },
+    {
+      "timecode": "09:42.400-10:06.000",
+      "id": "p32-judgment-and-are-you-sure",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Human judgment, the are-you-sure question and its limited value now receive distinct narration-specific beats."
+    },
+    {
+      "timecode": "10:23.700-11:31.000",
+      "id": "p34-p36-evidence-cards",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Rulebook, Nature, Stanford and KPMG evidence now advances with the changing claims about incentives, sycophancy and citation failure."
+    },
+    {
+      "timecode": "11:51.200-13:33.400",
+      "id": "p39-p42-three-move-method",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Sources-attached warning, rulebook, moves one through three, receipt and no-invented-receipts beats culminate in the complete Prompt Like Elle page."
+    },
+    {
+      "timecode": "13:33.400-14:24.100",
+      "id": "p43-worked-example-and-cocktail",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "The former 50.7-second hold now alternates the complete prompt, receipt rule, three moves, Bronze AiGE group and cocktail explanation in semantic order."
+    },
+    {
+      "timecode": "14:24.100-14:52.000",
+      "id": "p44-receipt-signoff-rule",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Cocktail, group, receipt, signoff and weekly-rule beats now progress without a single static-card hold."
+    },
+    {
+      "timecode": "15:30.000-16:00.900",
+      "id": "p46-try-on-tests",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Claim, wrong-room examples, receipt, heroine and Chutney/Elle imagery now distinguish the Try-On claim-selection tests."
+    },
+    {
+      "timecode": "17:03.500-17:28.000",
+      "id": "p48-episode-04-teaser",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Episode 03 signoff, Episode 04 title, 'Is it new?', 'Who built it?', ENIAC women and the exact Episode 04 title anchor now provide purposeful closing progression."
+    }
+  ],
+  "confirmedDefects": [],
+  "subverdicts": {
+    "candidateIdentityClockDecodeAndBlackScan": "PASS",
+    "audioPayloadAndCaptionContinuity": "PASS",
+    "machineSpeechPresenceAndScriptCoverage": "PASS",
+    "allThirteenRepairedSequencesCoveringTwentyOnePriorOccurrences": "PASS",
+    "fullTitleNarrationPictureRelevance": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+    "fullTitleMotionSemanticsAndPacing": "PASS_STRONGEST_AVAILABLE_VISUAL_REVIEW",
+    "completeNormalSpeedAudibleHumanQualityReview": "NOT_PERFORMED_ENVIRONMENT_HAS_NO_AUDITORY_PERCEPTION_CHANNEL"
+  },
+  "hold": {
+    "reasonCodes": [
+      "HOLD_COMPLETE_1X_AUDIBLE_HUMAN_QUALITY_REVIEW_NOT_TRUTHFULLY_OBSERVABLE"
+    ],
+    "timecode": "00:00.000-17:28.000",
+    "confirmedMediaDefect": false,
+    "smallestNextAction": "A qualified independent human reviewer must play this exact SHA-256 unmuted at 1x from 00:00.000 through 17:28.000, listen continuously for narration naturalness, intelligibility, pronunciation, speaker and mix continuity while watching the semantic sequence, and return a checksum-bound PASS or timecoded HOLD. Do not re-encode or repair before that witness reports a genuine defect."
+  },
+  "verdict": "HOLD",
+  "releaseAuthority": "NONE",
+  "mutationTruth": "No media, caption, player, site, deployment, public, account or credential file was edited or bound by this review."
+}

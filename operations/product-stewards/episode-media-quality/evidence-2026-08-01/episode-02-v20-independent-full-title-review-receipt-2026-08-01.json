@@ -1,0 +1,140 @@
+{
+  "receiptId": "EMQ-E02-V20-FULL-TITLE-2026-08-01",
+  "recordedAt": "2026-08-02T03:29:42Z",
+  "reviewer": "Weekly Episodes owner acting independently of the Episode 02 v20 maker",
+  "scope": "Read-only independent review of the exact immutable Episode 02 v20 local successor. No media, caption, player, site, deployment, public, account or credential state was changed.",
+  "candidate": {
+    "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+    "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc",
+    "durationSeconds": 987.48,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "videoCodec": "H.264 High 4:4:4 Predictive, decoded yuv420p",
+    "audioCodec": "AAC LC, 48000 Hz, mono",
+    "statusBeforeReview": "BUILT_LOCALLY"
+  },
+  "boundEvidence": {
+    "manifest": {
+      "path": "operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json",
+      "sha256": "0c40de38854352d001df0d4286e3938bf1b5a7637bbc4193f9cbcba8e6ae5c24"
+    },
+    "contactSheet": {
+      "path": "operations/video-qa/episode-02-v20-occurrence-repaired-review/episode-02-v20-occurrence-repaired-contact-v1.jpg",
+      "sha256": "b55d09d8d253f37e4be14baffcbcf91dd3898ed6d673b94e03ab31555a0fed02"
+    },
+    "captionTrack": {
+      "path": "assets/captions/episode-02.vtt",
+      "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+      "cueCount": 194,
+      "lastCueEndSeconds": 986.67
+    },
+    "taggedNarrationScript": {
+      "path": "operations/audio/episode-02-elevenlabs-v3-tagged.txt",
+      "sha256": "735248dbff1eed52ad2ecabe56816ab2451a94edc58c23dc4e51cb4460b6c01c"
+    },
+    "audioPayloadSha256": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "machineTranscript": {
+      "temporaryPath": "/private/tmp/episode-02-v20-whisper-small-en.json",
+      "sha256": "833ee2412b05c71a9a6a9e42ce5c73d5c12f96b73e4eaf064a54f4080b3b539c",
+      "model": "faster-whisper-small.en",
+      "wordCount": 2299,
+      "scriptUnitAlignment": "149/150 (99.3%)",
+      "unmatchedScriptUnit": "Ooff.",
+      "useLimit": "Speech-presence and text-comparison evidence only; not evidence of naturalness, pronunciation, mix, speaker identity or human audibility."
+    },
+    "machineSignalAnalysis": {
+      "integratedLoudnessLufs": -19.6,
+      "loudnessRangeLu": 4.9,
+      "truePeakDbfs": -1.3,
+      "longestDetectedSilenceSecondsAtMinus45Db": 1.50235,
+      "longestDetectedSilenceTimecode": "07:42.292-07:43.794"
+    },
+    "decode": {
+      "result": "PASS",
+      "decodedFrames": 29625,
+      "expectedFrames": 29625,
+      "frozenAacPayload": "PASS_BYTE_IDENTICAL",
+      "externalVttUnchanged": true
+    }
+  },
+  "methods": [
+    "Recomputed and matched the exact candidate, manifest, contact-sheet, caption and narration-script SHA-256 values.",
+    "Reconciled all eight contiguous v20 repair batches with the complete 61-occurrence v19 HOLD queue.",
+    "Inspected every batch contact sheet at original resolution, the checksum-bound title contact sheet and 163 full-title frames sampled every six seconds.",
+    "Checked visible narrative order, identity and location continuity, designed lettering, semantic transitions, repeated holds, opening/title flow, lesson progression, Try-On, closing maxim and Episode 03 teaser.",
+    "Confirmed complete decode, exact frame clock, byte-identical frozen audio payload, unchanged 194-cue VTT and caption coverage through 16:26.670 from the bound manifest and independent parsing.",
+    "Measured the complete audio signal and transcribed the complete payload for script comparison. The only unmatched script unit was the brief interjection 'Ooff.'; the surrounding sentence and all other 149 script units aligned.",
+    "Did not claim a sound-on listen: this execution environment exposes decoded signal, transcript and images but no auditory-perception channel."
+  ],
+  "titleSegmentVerdicts": [
+    {
+      "timecode": "00:00.000-02:31.000",
+      "occurrences": "p00-p10",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Recap, episode premise/title, failed-versus-useful answer, welcome ident, town transition and the side-by-side bad/good comparison progress in narration order."
+    },
+    {
+      "timecode": "02:31.000-04:43.600",
+      "occurrences": "p11-p18",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Context definition, theatre origin, familiar/new café consequence, stranger/new-chat memory distinction and Spice Girls setup are distinct and readable."
+    },
+    {
+      "timecode": "04:43.600-07:10.000",
+      "occurrences": "p19-p26",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Specificity lyric, David Rose example, fold-in-the-cheese failure, new-hire checklist and delegation principle follow the spoken lesson without the prior premature cards."
+    },
+    {
+      "timecode": "07:10.000-10:00.000",
+      "occurrences": "p27-p34",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Briefing questions, Match This, vague policy result, PIVOT, revised brief, contractor exemption and reading payoff progress with readable text."
+    },
+    {
+      "timecode": "10:00.000-11:14.000",
+      "occurrences": "p35-p38",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Britney specificity, KSVL request, LIBRAiRY search and qualified Harvard/BCG results follow the radio-to-evidence transition."
+    },
+    {
+      "timecode": "11:14.000-13:28.000",
+      "occurrences": "p39-p46",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Study differentiator, Mollick quotation, hard-plus-soft explanation and cocktail-party delegation summary appear in conceptual order."
+    },
+    {
+      "timecode": "13:28.000-15:04.000",
+      "occurrences": "p47-p53",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Career analogy, postcard handoff, episode close and two-pass Try-On now progress through distinct narration-specific states."
+    },
+    {
+      "timecode": "15:04.000-16:27.480",
+      "occurrences": "p54-p60",
+      "verdict": "PASS_STRONGEST_AVAILABLE_VISUAL_AND_TEXTUAL_REVIEW",
+      "finding": "Specificity payoff, Study Pack, Pop Quiz, KSVL, Maikeover, closing maxim and Episode 03 teaser form a complete readable closing sequence."
+    }
+  ],
+  "confirmedDefects": [],
+  "subverdicts": {
+    "candidateIdentityClockAndDecode": "PASS",
+    "audioPayloadAndCaptionContinuity": "PASS",
+    "machineSpeechPresenceAndScriptCoverage": "PASS_WITH_ONE_UNMATCHED_INTERJECTION",
+    "visibleSemanticAndNarrativeCorrectness": "PASS_STRONGEST_AVAILABLE_REVIEW",
+    "readableDesignedText": "PASS_STRONGEST_AVAILABLE_REVIEW",
+    "transitionsTimingAndRepeatedHolds": "PASS_STRONGEST_AVAILABLE_REVIEW",
+    "completeNormalSpeedSoundOnHumanQualityReview": "NOT_PERFORMED_ENVIRONMENT_HAS_NO_AUDITORY_PERCEPTION_CHANNEL"
+  },
+  "hold": {
+    "reasonCodes": [
+      "HOLD_COMPLETE_1X_SOUND_ON_HUMAN_QUALITY_REVIEW_NOT_TRUTHFULLY_OBSERVABLE"
+    ],
+    "timecode": "00:00.000-16:27.480",
+    "confirmedMediaDefect": false,
+    "smallestNextAction": "A qualified independent human reviewer must play this exact SHA-256 unmuted at 1x from 00:00.000 through 16:27.480, listen continuously for narration naturalness, intelligibility, pronunciation, speaker and mix continuity while watching the semantic sequence and external captions, and return a checksum-bound PASS or timecoded HOLD. Do not re-encode or substitute another asset unless that witness identifies a genuine defect."
+  },
+  "verdict": "HOLD",
+  "releaseAuthority": "NONE",
+  "mutationTruth": "No media, caption, player, site, deployment, public, account or credential file was edited or bound by this review."
+}

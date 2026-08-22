@@ -1142,6 +1142,21 @@ AW-001 is complete only when:
 - Trailer v8 remains separate and objectively failed. Its next eligible work is
   source closure and one consolidated successor; the accepted B55 window alone
   is not a full-title repair.
+- The 2026-08-21 release trace found that Episode 04 v10's p46–p49 sequence
+  contains the explicitly banned per-woman Timnit time card. Three obsolete
+  builders capable of restoring that or other rejected Episode 04 material
+  were removed from active builder directories and retained under
+  `operations/_superseded/episode-04-builders/`. The calibrated
+  `npm run test:episode-banned-cut-assets` gate now scans every active Episode
+  04 cue/builder and rejects any current `BANNED-IN-CUT` token. Episode 04 v10
+  remains HOLD and was not rebuilt; its next successor requires a newly named,
+  default-deny builder with admitted exact sources.
+- The exact held Episode 02 v20, Episode 03 v15 and Episode 04 v10 review
+  receipts are now part of the release tree. Screening Room verification
+  separates committed authority/evidence from the optional local media-payload
+  root: a clean checkout reports unavailable held masters explicitly, while a
+  preserved payload root can reverify their exact recorded hashes. Neither path
+  converts integrity into a continuous audiovisual review or release approval.
 - Episode 5 remains decision-ready but unapproved. No canon, media, integration,
   deployment or publication authority was inferred.
 
