@@ -710,7 +710,7 @@ const server = http.createServer((request, response) => {
         mobileShelfVisibility[width].labels.length === 14 &&
         mobileShelfVisibility[width].rows.length === 7 &&
         mobileShelfVisibility[width].rows.every(row =>
-          row.count >= 1 && row.count <= 2 && !row.horizontalOverflow && row.allInside && row.minimumCoverHeight >= 118
+          row.count >= 1 && row.count <= 2 && !row.horizontalOverflow && row.allInside && row.minimumCoverHeight >= 120
         )
       ),
       `all 14 visible books remain on real shelf rows at 390 and 320 without paging or horizontal overflow ${JSON.stringify(mobileShelfVisibility)}`

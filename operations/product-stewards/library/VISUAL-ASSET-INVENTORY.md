@@ -12,7 +12,7 @@ Historical reasoning remains in Git, the rejection registry and
 
 | Surface | Exact current identity | Disposition |
 | --- | --- | --- |
-| `library.html` | SHA-256 `64bdfcd41a6171ee5186cd7b6da9437bbef4d067f327aeace9039d09c458fee5` | **ADAPT / HOLD FOR ALI WALKTHROUGH.** Current bytes are implementation evidence, not accepted visual authority. Do not infer a successor from older Library candidates. |
+| `library.html` | SHA-256 `4d499eb9d6eed708f73192a8bb65b51a5177679c67edc04d9706b28f157598ac` | **ADAPT / HOLD FOR ALI WALKTHROUGH.** The 120px mobile cover floor and 99-check product browser suite pass locally; current bytes remain implementation evidence, not accepted visual authority. |
 | Library page composition | `operations/library-decisions.md` | Current compact functional and visual invariants. Ali's page walkthrough may replace them through an explicit reviewed update. |
 | AI Fundamentals review reader | `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/review.html`, SHA-256 `201c83c89844e6e00ac08c0b59d9262c6d2c11d14da9c8a0aec3e3d5d0807677` | **KEEP INTERNAL.** Not linked from the production catalogue and not admitted. |
 | AI Fundamentals rendered fragment | `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/rendered-review.html`, SHA-256 `06aa6fc8d07e0a241625efce6e83d836bb6f7a009429313ace44747a75552bfa` | **KEEP INTERNAL.** No production reader binding. |
@@ -22,7 +22,7 @@ Historical reasoning remains in Git, the rejection registry and
 
 The exact visual bytes and SHA-256 values are bound by
 `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/artifact-manifest.json`
-at SHA-256 `81d1898c3f8aa136e18ef2f11c59848dd4e9acca8fd6cf449f278f6b62273803`.
+at SHA-256 `c0b6beca125cc17afadb91011d5ab4015de8c0a7146741f9d7b190c14752ad96`.
 The manifest is identity evidence, not a quality verdict.
 
 | Chapter | Current rendered jobs | Current disposition |

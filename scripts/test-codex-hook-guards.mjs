@@ -37,13 +37,13 @@ const activeQueuePath = path.join(fixtureDirectory, 'active-run-queue.json');
 const regressedLibraryPath = path.join(fixtureDirectory, 'library-regressed.html');
 fs.writeFileSync(emptyQueuePath, JSON.stringify({ active: [] }));
 fs.writeFileSync(activeQueuePath, JSON.stringify({ active: [{ product_id: 'library', claim_id: 'claim-library-test' }] }));
-fs.writeFileSync(
-  regressedLibraryPath,
-  fs.readFileSync(path.join(root, 'library.html'), 'utf8').replace(
-    'linear-gradient(145deg,#07142f',
-    'linear-gradient(145deg,#ffe1ee'
-  )
+const librarySource = fs.readFileSync(path.join(root, 'library.html'), 'utf8');
+const regressedLibrarySource = librarySource.replace(
+  '.brow{left:9%;right:9%;height:27%;min-height:120px;',
+  '.brow{left:9%;right:9%;height:27%;min-height:105px;'
 );
+assert.notEqual(regressedLibrarySource, librarySource, 'Library regression calibration must mutate the current mobile-cover contract');
+fs.writeFileSync(regressedLibraryPath, regressedLibrarySource);
 
 const sessionStart = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
   cwd: root,

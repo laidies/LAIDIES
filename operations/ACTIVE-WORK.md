@@ -476,6 +476,22 @@ MAiKEOVER remains `BUILDING`: its visual environment, public Card/handles,
 portrait service, rewards, native AT, changed-byte provider/public regression,
 deployment and public verification remain open.
 
+### 2026-08-21 current LIBRAiRY page release cut
+
+Current `library.html` SHA-256
+`4d499eb9d6eed708f73192a8bb65b51a5177679c67edc04d9706b28f157598ac` repairs the narrowest objective failure without changing the
+page concept: every one of the 14 covers now has at least one 120 CSS-pixel
+visible dimension at 390px and 320px, every occupied row stays inside its case,
+and the page has zero horizontal overflow. The known-failure preflight, 49
+calibrated rejection fixtures and 99-check product browser suite pass.
+
+Status remains **BUILT LOCALLY / OBJECTIVE PREFLIGHT PASS / EXACT DESIGN
+ADMISSION AND ALI PAGE JUDGMENT ABSENT / ZERO BOOKS ADMITTED / NOT DEPLOYED**.
+The global design-review admission gate is currently unavailable because its
+append-only rejection registry points to historical candidate/evidence files
+that are absent from this release branch; it fails closed before evaluating any
+candidate. Do not bypass it or restore those bytes to a production input.
+
 Both isolated rejected LIBRAiRY successors remain quarantined. The former
 `library-visual-v4-20260804` admission and its dependent Library visual verdicts
 are **INVALIDATED BY ALI'S 2026-08-05 REJECTION**. They are historical evidence,

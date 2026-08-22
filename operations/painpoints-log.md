@@ -15252,3 +15252,27 @@ while remaining falsely unfinished in the launch record.
   images and an authoritative plan managed to disagree about whether the images
   existed at all.
 - **Publication status:** INTERNAL RELEASE-TRUTH CORRECTION / NO PUBLIC BYTES CHANGED.
+
+## BTB-484 — The mobile book floor missed by two pixels while the browser test allowed it
+
+- **Date:** 2026-08-21
+- **Area:** LIBRAiRY mobile shelves and exact release gating.
+- **Failure:** At the narrowest 320px viewport, compact-case covers measured
+  118.125 CSS px high while the locked floor was 120px. The static preflight
+  correctly rejected the 105px compact-row rule, but the production browser
+  suite tolerated 118px and therefore passed the same current page.
+- **Root cause:** The implementation, static contract and real-pixel assertion
+  encoded three different thresholds for one requirement.
+- **Prevention rule:** One exact visitor-visible floor governs CSS, static
+  preflight and browser geometry. Measure the real narrowest viewport and do
+  not round a near miss into compliance.
+- **Durable correction:** Compact mobile rows now have a 120px minimum and the
+  browser suite requires 120px. At both 390px and 320px, all 14 covers remain
+  inside seven occupied rows, the minimum visible height is 120px and page
+  overflow is zero. The known-failure preflight, 49 calibrated rejection
+  fixtures and 99 browser checks pass. Exact asset and current-state bindings
+  now point to page SHA-256
+  `4d499eb9d6eed708f73192a8bb65b51a5177679c67edc04d9706b28f157598ac`.
+- **Possible Behind the Build angle:** Why 118.125 pixels is not “basically
+  120” when the whole failure was that readers could not identify the books.
+- **Publication status:** BUILT AND VERIFIED LOCALLY / DESIGN AND ALI REVIEW HOLD / NOT DEPLOYED.
