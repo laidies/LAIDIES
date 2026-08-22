@@ -21,6 +21,27 @@ function assertWorkflowContextIsDispatchable(source) {
   }
 }
 
+function assertWorkflowRedirectVerificationIsSafe(source) {
+  const redirectFlags = "--location --proto-redir '=https' --max-redirs 3";
+  const redirectFetches = source.split(redirectFlags).length - 1;
+  if (redirectFetches < 2 ||
+      !source.includes('validate_effective_url "$deployment_url" "$artifact_path"') ||
+      !source.includes('validate_effective_url "https://laidies.ai/" "$artifact_path"') ||
+      !source.includes("effective.protocol !== 'https:'") ||
+      !source.includes('effective.host !== base.host') ||
+      !source.includes('[originalPath, canonicalPath].includes(effective.pathname)')) {
+    throw new Error('release verification must follow only bounded same-origin HTTPS canonical redirects');
+  }
+}
+
+function assertWorkflowScopeTransferIsComplete(source) {
+  if (!source.includes('cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"') ||
+      !source.includes('RELEASE_SCOPE_PATH: ${{ github.workspace }}/.release/receipt/release-scope.json') ||
+      !source.includes("jq -r '.removedPaths[]' \"$RELEASE_SCOPE_PATH\"")) {
+    throw new Error('deploy job must consume the exact scope transferred in the release receipt');
+  }
+}
+
 const forbiddenOutput = path.join(repositoryRoot, '.release-test-output');
 let result = run(process.execPath, [builder, forbiddenOutput], repositoryRoot);
 assert.notEqual(result.status, 0);
@@ -51,6 +72,18 @@ assert.throws(
   /runner context is unavailable/,
   'known invalid GitHub workflow context must fail calibration',
 );
+assert.doesNotThrow(() => assertWorkflowRedirectVerificationIsSafe(workflow));
+assert.throws(
+  () => assertWorkflowRedirectVerificationIsSafe(workflow.replaceAll("--location --proto-redir '=https' --max-redirs 3", '')),
+  /bounded same-origin HTTPS canonical redirects/,
+  'known redirect-following omission must fail calibration',
+);
+assert.doesNotThrow(() => assertWorkflowScopeTransferIsComplete(workflow));
+assert.throws(
+  () => assertWorkflowScopeTransferIsComplete(workflow.replace('cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"', ':')),
+  /scope transferred in the release receipt/,
+  'missing deploy-scope transfer must fail calibration',
+);
 const protectedBuilderDependencies = [
   'scripts/lib/active-asset-admission.mjs',
   'scripts/compile-library-admission.mjs',
@@ -62,6 +95,25 @@ const protectedBuilderDependencies = [
   'scripts/lib/public-screening-room-admission.mjs',
   'scripts/lib/public-runtime-family-admission.mjs',
 ];
+const protectedReleaseChecks = [
+  'package.json',
+  'package-lock.json',
+  'scripts/validate-blend-snap-packs.mjs',
+  'scripts/test-validate-blend-snap-packs.mjs',
+  'scripts/test-blend-snap-browser.mjs',
+  'scripts/test-library-product.cjs',
+  'scripts/test-miss-jeeves-worker.mjs',
+  'scripts/test-compose-daily-edition.mjs',
+  'scripts/test-promote-daily-edition.mjs',
+  'scripts/test-daily-private-workflow.mjs',
+  'scripts/test-newsstand-canonical-migration.mjs',
+  'scripts/test-compile-newsstand-daily-longform.mjs',
+  'scripts/test-promote-newsstand-story.mjs',
+  'scripts/validate-newsstand-stories.mjs',
+  'scripts/test-newsstand-reader-contract.mjs',
+  'scripts/test-newsstand-reader-browser.mjs',
+  'scripts/test-newsstand-release-pipeline-v1.mjs',
+];
 assert.match(builderSource, /reproducible: true/);
 assert.doesNotMatch(builderSource, /generatedAt:\s*new Date\(\)\.toISOString\(\)/,
   'public artifact identity must not change with the build clock');
@@ -70,6 +122,10 @@ for (const dependency of protectedBuilderDependencies) {
   assert.ok(fs.existsSync(path.join(repositoryRoot, dependency)), `controller is missing builder dependency ${dependency}`);
   assert.ok(workflow.includes(dependency), `workflow does not protect builder dependency ${dependency}`);
 }
+for (const checkPath of protectedReleaseChecks) {
+  assert.ok(fs.existsSync(path.join(repositoryRoot, checkPath)), `controller is missing release check ${checkPath}`);
+  assert.ok(workflow.includes(checkPath), `workflow does not protect release check ${checkPath}`);
+}
 assert.doesNotMatch(workflow, /^\s*push:/m);
 assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
 assert.match(workflow, /PRODUCTION_CONTROLLER_SHA/);
@@ -77,14 +133,9 @@ assert.match(workflow, /environment:\n\s+name: production/);
 assert.match(workflow, /PROJECT_NAME: laidies-sunnyvaile/);
 assert.match(workflow, /wrangler@4\.119\.0 pages deploy/);
 assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
-assert.match(workflow, /new-id\+branch\+exact-byte-verification/);
-assert.match(workflow, /conflicting provider commit metadata/);
-assert.match(workflow, /for attempt in \$\(seq 1 10\)/);
-assert.match(workflow, /if\(matches\.length===0\) process\.exit\(2\);/);
-assert.match(workflow, /\/pages\/projects\/\$PROJECT_NAME\/deployments\?page=1&per_page=15/);
-assert.doesNotMatch(workflow, /pages deployment list/);
 assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
 assert.match(workflow, /check-newsstand-release-scope\.mjs/);
+assert.match(workflow, /NEWSSTAND_REQUIRE_BROWSER=1 node scripts\/test-newsstand-reader-browser\.mjs/);
 assert.match(workflow, /base_commit:/);
 assert.match(workflow, /BASE_SOURCE_DIR="\$RUNNER_TEMP\/laidies-base-source"/);
 assert.match(workflow, /BASE_ARTIFACT_DIR="\$RUNNER_TEMP\/laidies-base-site"/);
@@ -92,4 +143,4 @@ assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and NewsStand scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and exact Sunday scope guard bound');
