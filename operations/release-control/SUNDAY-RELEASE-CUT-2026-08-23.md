@@ -10,7 +10,7 @@ held work into released work.
 
 - Production source: `bf70d026de69a28ed702b759e17214ba4420d4ae`
 - Production artifact: `35c26807d6b9b2c314f3dec021c3e1f54c18c69ad517a143aa60d4a72484ee25`
-- Candidate artifact: `8c7e8197bbe2aafd7ee254f183ecb9b52a42cce3d10fda01f1a302b07e381fbd`
+- Candidate artifact: `149f6e85cb49245dace81a2a644f3b2b5305c79bdd6cfd22b75c46eca9a8cae4`
 - Candidate branch: `release/sunday-20260823-current`
 - Scope authority: `operations/release-control/sunday-production-scope-20260821.json`
 
@@ -34,8 +34,14 @@ the candidate artifact identity exactly.
    and redirect the rejected Episode 01 Try-On lesson to the held café state.
 5. Remove the rejected multi-page Cheat Sheet candidates from the public build
    while retaining them as non-public rejection evidence.
-6. Preserve the current production Homepage, LUMINAiRY, KSVL, MAiKEOVER and
-   released NewsStand archive byte-for-byte.
+6. Preserve the production Homepage structure and admitted visual assets while
+   removing false promises of a complete weekly Pack, automatic Wednesday
+   publication and bundled Card/Postcard signup. Preserve LUMINAiRY, KSVL,
+   MAiKEOVER and the released NewsStand archive byte-for-byte.
+7. Restore the Cloudflare Pages advanced-mode `_worker.js` omitted from the
+   current public artifact. Miss Jeeves must return handler-generated JSON and
+   deny every held/rejected Library identity; correction storage remains
+   fail-closed when its production database binding is unavailable.
 
 ## Explicitly held
 
@@ -47,19 +53,25 @@ the candidate artifact identity exactly.
 - A new current NewsStand edition.
 - Remaining incomplete building visuals, interactions, backends and whole-town
   opening requirements.
+- Server-authoritative Library correction storage unless the production D1
+  binding and real submit/status transaction are independently verified.
 
 ## Proof
 
-- Curated build: 559 copied files / 435,697,583 bytes / 415.51 MiB; zero
+- Curated build: 560 copied files / 435,720,619 bytes / 415.54 MiB; zero
   missing, oversized or prohibited-source dependencies.
-- Manifest: 561 files / 435,763,644 bytes.
-- Scope: 14 exact public changes / 5 exact removals / 15 exact production paths
+- Manifest: 562 files / 435,786,680 bytes.
+- Scope: 16 exact public changes / 1 exact Worker addition / 5 exact removals /
+  14 exact production paths
   preserved.
 - LIBRAiRY browser: 99 checks; 65 external requests blocked.
 - Blend & Snap browser: 119 rendered checks.
-- Public visual preservation: nine truthful Homepage holds, five recovered
-  Homepage assets and three recovered route assets across 1440/390/320.
+- Homepage truth and visual preservation: automatic weekly/Pack/subscription
+  promises rejected; nine truthful Homepage holds, five recovered Homepage
+  assets and three recovered route assets across 1440/390/320.
 - Miss Jeeves Worker: grounded, privacy-safe and retired-route checks pass.
+- Current public API negative: `POST /api/miss-jeeves` returns empty HTTP 405;
+  post-deploy verification requires real JSON handler responses at both origins.
 - Every named gate above has a calibrated negative that fails.
 
 ## Release boundary

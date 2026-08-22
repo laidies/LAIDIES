@@ -14,6 +14,22 @@ if (!playwrightRoot) {
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const falsePublicPromises = [
+  "The complete weekly experience",
+  "a new episode and its learning activities arrive every Wednesday",
+  "Blend & Snap · Try-On, guide and cards",
+  "One signup. Your Card and the Postcard.",
+  "Send me the Wednesday Postcard</strong> is already selected",
+];
+const requiredTruth = [
+  "The weekly route &middot; Getting polished",
+  "only components marked available",
+  "Held pieces stay out of the route.",
+  "Making a Resident Card does not subscribe you.",
+];
+const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
+  ? `${source}\n${falsePublicPromises[0]}`
+  : source;
 const targets = [
   "/assets/bws-fortune-teller/frame-1-closed.webp",
   "/assets/games/girl-talk/truth-card-face.webp",
@@ -58,6 +74,8 @@ check(targets.every((asset) => !source.includes(asset)), "a rejected or still-he
 check(recoveredHomepage.every(([, asset]) => source.includes(asset)), "a required recovered Homepage source path is missing");
 check(source.includes('/assets/library/jeeves-scene.webp'), "Jeeves reference image was incorrectly removed");
 check(source.includes('id="lookup"') && source.includes('Search the LIBRAiRY'), "Miss Jeeves search surface changed");
+check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
+check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
 
 const mime = new Map([[".html", "text/html; charset=utf-8"], [".js", "text/javascript; charset=utf-8"], [".json", "application/json; charset=utf-8"], [".css", "text/css; charset=utf-8"], [".webp", "image/webp"], [".png", "image/png"], [".jpg", "image/jpeg"], [".svg", "image/svg+xml"], [".mp3", "audio/mpeg"]]);
 const server = http.createServer((request, response) => {
@@ -174,4 +192,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=rejected-source-absence,recovered-image-decode,material-visibility,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");

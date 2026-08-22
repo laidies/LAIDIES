@@ -15314,19 +15314,30 @@ while remaining falsely unfinished in the launch record.
 - **Failure:** The repository called the Cloudflare production controller
   calibrated, but every push created an immediate failed workflow with no jobs.
   GitHub rejected `${{ runner.temp }}` in the job-level environment before any
-  controller step could run.
+  controller step could run. After that repair, the release-closure audit found
+  a second false pass: the curated Pages artifact omitted `_worker.js`, so the
+  live Miss Jeeves API returned an empty HTTP 405 and the next deploy would have
+  continued shipping static assets without its server handler.
 - **Root cause:** The local controller test checked expected strings and helper
   behavior but never checked the workflow's context availability or verified a
-  pushed GitHub job graph. Repository presence was mistaken for operational
-  installation.
+  pushed GitHub job graph. The artifact builder also treated HTML/static
+  references as the complete public system and ignored the Pages advanced-mode
+  entrypoint. Repository presence and static closure were mistaken for an
+  installed end-to-end runtime.
 - **Prevention rule:** A release workflow is installed only when GitHub parses
   the exact pushed bytes into the expected trigger and job graph. Calibrate the
   local checker against each known-invalid workflow expression and require a
-  real remote graph before dispatch or release claims.
+  real remote graph before dispatch or release claims. The public artifact must
+  also include every hosting-runtime entrypoint, and public verification must
+  exercise its real endpoint behavior rather than request its source filename.
 - **Durable correction:** Baseline temporary paths now resolve from
   `$RUNNER_TEMP` inside the build step, and the calibrated controller test
-  rejects the exact invalid job-level `runner.temp` expression. Remote graph
-  verification remains the next gate after push.
+  rejects the exact invalid job-level `runner.temp` expression. The curated
+  artifact now includes exact `_worker.js` bytes; the scope guard permits only
+  that named public addition; and deployment verification requires Miss Jeeves
+  JSON from both the immutable deployment and `laidies.ai` while denying every
+  rejected/held Library identity. Remote graph verification remains the next
+  gate after push.
 - **Possible Behind the Build angle:** A deployment button can exist in the
   repository for weeks while the hosting platform has never successfully read
   it.

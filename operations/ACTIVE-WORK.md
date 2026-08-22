@@ -1397,12 +1397,23 @@ objective; every open lane keeps its own checkpoint.
   with 566 manifest files. That commit is now an ancestor of the Sunday source
   branch; ancestry is no longer inferred from matching individual files.
 - **Exact candidate:** the curated Sunday artifact identity is
-  `8c7e8197bbe2aafd7ee254f183ecb9b52a42cce3d10fda01f1a302b07e381fbd`
-  with 561 manifest files. The calibrated scope proves exactly 14 public
-  changes, five removals and 15 preserved production paths. The changed bytes
-  contain only rejection containment and truthful Library/Blend & Snap
-  corrections; Homepage, LUMINAiRY, KSVL, MAiKEOVER and the released NewsStand
-  archive remain byte-identical to production.
+  `149f6e85cb49245dace81a2a644f3b2b5305c79bdd6cfd22b75c46eca9a8cae4`
+  with 562 manifest files. The calibrated scope proves exactly 16 public
+  changes, one bounded Worker addition, five removals and 14 preserved
+  production paths. The changed bytes
+  contain rejection containment, truthful Library/Blend & Snap corrections
+  and a bounded Homepage truth repair: the page no longer promises a complete
+  weekly Pack, automatic Wednesday publication or bundled Card/Postcard signup.
+  Homepage visual structure/assets, LUMINAiRY, KSVL, MAiKEOVER and the released
+  NewsStand archive remain byte-identical to production.
+- **API restoration:** live `POST /api/miss-jeeves` currently returns an empty
+  HTTP 405 because the deployed Pages artifact has no advanced-mode
+  `_worker.js`. The candidate now includes exact Worker SHA-256
+  `7dbda8b014563ed1afaf702a8436275d334a4b103ec6722bb43d4c5159cc2e25`.
+  Local tests prove grounded retrieval, held/rejected-book denial, privacy-safe
+  signals and fail-closed correction storage. The production controller must
+  verify both the immutable deployment and custom domain return JSON from the
+  real handler; a file hash cannot prove a Worker is active.
 - **Explicit holds:** AI Fundamentals 101 and all other Library books remain
   unavailable; the Episode 01 three-part Study Pack remains incomplete; the
   Trailer and Episodes 01–04 remain unreleased; no new current NewsStand edition
