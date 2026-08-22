@@ -95,7 +95,23 @@ older Library visual or public-framing instruction that conflicts with it.
   saved record also states its title, destination, scope and context. Public
   shared links exclude private sticker/purpose/progress data. Current device-
   local behavior must not be presented as account or cross-device persistence.
-  This remains an **open Parts 1–5 capture** while Ali supplies the remaining
+- **Walkthrough Part 6:** books track reading/chapter completion and support
+  both continue-from-last-place and start-anywhere. Signed-in residents receive
+  durable resume/progress plus private highlights and notes; anonymous reading
+  remains available but may not imply account persistence. Books expose one
+  governed last-review/change summary; returning readers and cross-town
+  “what's new” can deep-link to added, corrected or changed sections. Audiobook
+  versions are desired. Print/download/offline remain undecided pending an
+  access, staleness, attribution/rights and content-protection proposal; no
+  system can promise perfect theft prevention.
+  Inventory and evaluate the existing roster rather than preserving titles by
+  inertia or discarding work blindly. Review Prompt Cookbook for a current
+  skills successor, the independent value of What Not to Pay, prevention-first
+  reframing for How to Check AI's Work and the Tools architecture. Ali's next
+  practical 101 applies Fundamentals to memory, personal context/setup,
+  scripts and AI-assisted configuration. Candidate future books may organize
+  around writing, research, data summaries and dashboards.
+  This remains an **open Parts 1–6 capture** while Ali supplies the remaining
   book-experience direction before the final contract is consolidated.
 
 ## Load for every Library task

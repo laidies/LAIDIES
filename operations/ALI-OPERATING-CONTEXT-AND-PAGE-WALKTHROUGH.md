@@ -498,7 +498,42 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   device persistence must be reconciled separately from the current device-
   local implementation and may not be implied merely because a save appears
   in one browser.
-  **Capture remains open for Ali's following messages; do not treat Parts 1–5
+- **Library book experience — Ali walkthrough Part 6, 2026-08-22:** Books track
+  chapter/reading completion and offer a clear **continue where I left off**
+  route as well as **start anywhere**. Signed-in residents receive durable
+  progress and resume continuity. An anonymous reader can still read, but the
+  interface truthfully explains that signing in is required to remember the
+  place across supported sessions/devices; current local state is not account
+  proof.
+  Signed-in readers can privately highlight text and add notes, potentially as
+  part of the Closet/saved-item relationship. Private annotations never enter
+  public share URLs, analytics, search answers or another resident's view.
+  Exact storage, export, deletion, migration and account-revocation behavior
+  require the shared identity/data contract before release.
+  Each book shows its last substantive review and a useful change summary. A
+  returning reader can see what is new since her last visit, what section was
+  added/corrected/changed and jump directly to it; cross-town “what's new” may
+  surface the same governed change record. Do not repeat intrusive notices on
+  every page.
+  Audiobook/listening versions are a desired experience for commuting and
+  other hands-free use. Printing, downloading and offline reading remain
+  **UNDECIDED** because exported copies become stale and easy to detach from
+  LAiDIES authorship/currentness. No implementation may claim perfect theft
+  prevention; a future proposal must balance access, update propagation,
+  attribution/rights and content protection.
+  The existing book roster is not automatically retained as product intent.
+  Preserve its bytes and inventory the work, then evaluate every book against
+  a current distinct reader job. Prompt Cookbook may need a modern skills-
+  oriented successor; What Not to Pay may not earn a separate book; How to
+  Check AI's Work should be reconsidered around prevention-first work rather
+  than repetitive downstream checking; and Tools requires a current product
+  architecture. These are review directions, not immediate retirements.
+  A practical successor to AI Fundamentals is already in Ali's work: applying
+  the concepts to memory, personal context files and current setup practices,
+  including useful scripts and how AI can help the reader configure the system.
+  Other potentially valuable books organize around real work—writing,
+  research, data summaries and dashboards—rather than arbitrary feature lists.
+  **Capture remains open for Ali's following messages; do not treat Parts 1–6
   as the complete book-experience contract.**
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
