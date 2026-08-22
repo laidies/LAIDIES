@@ -479,7 +479,26 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   a ChatGPT-specific book that explains the available controls, what each one
   changes and how those behaviors connect back to the fundamentals—without
   duplicating or fragmenting the foundation.
-  **Capture remains open for Ali's following messages; do not treat Parts 1–4
+- **Library book experience — Ali walkthrough Part 5, 2026-08-22:** A reader
+  can share a stable link to an admitted whole book or exact section and can
+  save either scope using a **Puffy sticker**. Saving does not require walking
+  back through the Library later: the destination appears in My Closet and
+  reopens the exact book/section context.
+  The Closet is intended as the resident's current personal view across
+  SUNNYVAiLE—what she has done, supported progress/collections and everything
+  she deliberately saved. She selects an active set of up to ten Puffy
+  stickers in the Closet, may give those stickers her own organizing meaning
+  (for example, one she consistently uses for technical concepts), and chooses
+  one of those active stickers when saving. The sticker provides recognizable
+  visual organization in the Closet; the saved record still carries explicit
+  title, destination, scope and context so meaning never depends on remembering
+  a colour/image alone.
+  Shared URLs contain only the public book/section route—not the resident's
+  private sticker, purpose, progress or Closet data. Intended account/cross-
+  device persistence must be reconciled separately from the current device-
+  local implementation and may not be implied merely because a save appears
+  in one browser.
+  **Capture remains open for Ali's following messages; do not treat Parts 1–5
   as the complete book-experience contract.**
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.

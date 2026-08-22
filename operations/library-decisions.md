@@ -86,7 +86,16 @@ older Library visual or public-framing instruction that conflicts with it.
   explains why successor practice changed. AI Fundamentals owns the connected
   foundation; later workflow- or product-specific books deepen a distinct job
   and connect back to it rather than duplicating it.
-  This remains an **open Parts 1–4 capture** while Ali supplies the remaining
+- **Walkthrough Part 5:** an admitted whole book or exact section has a stable
+  public share link and can be saved with one of the resident's active ten
+  Puffy stickers. The Closet reopens that exact scope without retracing the
+  Library journey and provides the resident's current personal view of
+  supported progress, collections and deliberate saves across SUNNYVAiLE.
+  Residents may give stickers their own recurring organizing meaning, but each
+  saved record also states its title, destination, scope and context. Public
+  shared links exclude private sticker/purpose/progress data. Current device-
+  local behavior must not be presented as account or cross-device persistence.
+  This remains an **open Parts 1–5 capture** while Ali supplies the remaining
   book-experience direction before the final contract is consolidated.
 
 ## Load for every Library task
