@@ -24,7 +24,7 @@ declared replaceable or retired without stronger evidence.
 | `assets/postcards/from-sunnyvaile/pc-chick-flicks.webp` | 2 | `d427e7e55ff85849727d3b36b77447946f69ff53405d1555b0b51d5eb3f7f2b3` | **ADAPT** — repeated crop/use review pending |
 | `assets/postcards/from-sunnyvaile/pc-puffy-binder.webp` | 1 | `33c7cac9a7682372eb60f188fe364568d50c2be7304d9b0ec16b03bb8b158cd8` | **ADAPT** — postcard treatment/system pending |
 | `assets/mavens/y2k-stained-glass-v3-finished/ada-lovelace-y2k-stained-glass.png` | 1 | `94a3515876659d95d79ac48b0ae738db85c4d86cbd49f3c39099e43fa3ab1e88` | **ADAPT** — exact-use/canon review pending |
-| `assets/library/jeeves-scene.webp` | 2 | `69edb1f3cacff5ee6d2bfa59bab5bd7f57c27c40267d4adbc5d1ec45818a3943` | **ADAPT** — repeated crop/use review pending |
+| `assets/library/jeeves-scene.webp` | 1 current production use | `69edb1f3cacff5ee6d2bfa59bab5bd7f57c27c40267d4adbc5d1ec45818a3943` | **REJECT / REPLACE — ALI 2026-08-22.** Current Homepage Miss Jeeves identity is outdated; prior ADAPT/exact-byte admissions are invalid. Canonical successor unresolved. |
 | `assets/town-characters/scenes/fairy-godmother-scene.webp` | 3 | `fb546e953c7f299df1b27b5743bd95bae19820b7352907a03fee08be92786ecd` | **ADAPT** — repeated crop/use and character canon pending |
 | `assets/town-characters/scenes/mme-claio-scene.webp` | 1 | `1770378d02abf920eb803a6624f83e35498de47888c07359ebacfc8bbe154db4` | **ADAPT** — character canon pending |
 | `assets/town-characters/scenes/dj-sunnyv-scene.webp` | 1 | `9e6fcaad35429b74d8db3fd1149f8aac8e887c32ca7689c9784f89a0d12c9f78` | **ADAPT** — character canon pending |

@@ -15440,3 +15440,29 @@ while remaining falsely unfinished in the launch record.
   made a whimsical interface harder to navigate—and how we turned the metaphor
   into a real interaction contract.
 - **Publication status:** INTERNAL PRODUCT-VISION CAPTURE / NO PUBLIC CHANGE.
+
+## BTB-490 — A newer filename cannot repair a stale character identity
+
+- **Date:** 2026-08-22
+- **Area:** Homepage visual identity and asset selection.
+- **Failure:** The live Homepage still presents
+  `/assets/library/jeeves-scene.webp`, which Ali identified as not the latest
+  Miss Jeeves representation. Several newer-named Jeeves files exist and an
+  unapproved prototype substituted one, but none of those facts proves the
+  canonical character identity or authorizes a public replacement.
+- **Root cause:** Asset presence, modification date and prototype use were able
+  to look like succession without one exact canonical identity binding and
+  destination-use admission. The consumer had no fail-closed check against the
+  character's current approved reference.
+- **Prevention rule:** When Ali rejects a visible character as stale, bind the
+  exact consumer path as ineligible immediately. The visual curator must then
+  resolve one canonical identity reference and one destination-appropriate
+  asset; filenames, timestamps, duplicates and experimental use have no
+  succession authority. Production and release fail closed until that binding
+  exists.
+- **Durable correction:** The exact Homepage consumer is now rejected in the
+  decision register, walkthrough, Experience Brief, Operating Spec, state and
+  backlog. No replacement was selected or integrated.
+- **Possible Behind the Build angle:** Why “newer image” and “current
+  character” are different claims in an AI-generated visual library.
+- **Publication status:** INTERNAL PRODUCT-VISION CAPTURE / LIVE DEFECT REMAINS.

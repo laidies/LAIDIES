@@ -76,6 +76,15 @@ ACCEPTED / VERIFIED LOCALLY; no deployment or external-service authority.
     `DO/LEARN`, `UNDERSTAND LAiDIES`, `EXPLORE`, or `RETURN`, then remove or
     merge any block without a unique visitor job. Preserve the incumbent
     masthead, Daily newspaper direction, complete imagery and working routes.
+15. **Resolve character discovery and Miss Jeeves identity before visual
+    production.** Add a clear Homepage entrance to SUNNYVAiLE characters,
+    Patron Saints, MAiVENS and Trailblazers that explains their different jobs
+    and routes to the complete destinations. Reject the current Homepage use of
+    `/assets/library/jeeves-scene.webp` as outdated. Inventory the competing
+    Jeeves files against the canonical identity reference and admit exactly one
+    destination-appropriate successor; filename/date/prototype presence cannot
+    select it. Encode country/cottagecore and gothic-fairy-tale drift as known
+    visual failures alongside juvenile, generic and flat treatments.
 
 ## TEMPORARY HOLD / LIMIT WHILE BUILD REMAINS REQUIRED
 

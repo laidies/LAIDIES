@@ -22,7 +22,7 @@ This register prevents “preserve the incumbent” from being misread as
 | `/assets/sunnyvaile-streets/main-street-dusk.webp` | 3 | `KEEP` once; `REMOVE DUPLICATE / REPLACE` twice | Keep the exact image as the evergreen masthead. Do not repeat it as the Explore intent thumbnail and MAiN Street district filler. Those jobs need either no image or distinct authoritative context art. |
 | `/assets/town-characters/scenes/fairy-godmother-scene.webp` | 3 | `REPLACE` all | Ali has identified the current FAiRY Godmother image as incorrect. Replace it in the intent card, activity module and Willow Lane card. Do not solve three different jobs with one repeated replacement image. |
 | `/assets/postcards/from-sunnyvaile/pc-chick-flicks.webp` | 2 | `KEEP` strongest use; `REMOVE DUPLICATE / REPLACE` other | Use once where the postcard is the actual object or destination. The other episode/route use needs distinct episode or route art. |
-| `/assets/library/jeeves-scene.webp` | 2 | `KEEP` strongest use; `REMOVE DUPLICATE / REPLACE` other | Preserve one canonical Miss Jeeves/reference-desk role. The other Library/reference handoff needs distinct art or a non-image treatment. |
+| `/assets/library/jeeves-scene.webp` | 1 current production use | `REJECT / REPLACE` | **SUPERSEDED 2026-08-22:** Ali identified the visible Homepage Miss Jeeves as outdated. The prior keep-one ruling and later exact-byte admissions are invalid. Resolve one canonical identity reference and destination-appropriate successor; do not select by filename, timestamp or prototype use. |
 | `/assets/sunnyvaile-streets/lantern-hill-evening.webp` | 2 | `KEEP` strongest use; `REMOVE DUPLICATE / REPLACE` other | Preserve one canonical Lantern Hill/LUMINAiRY use. Do not reuse the same scene as both feature and district filler. |
 | `/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp` | 1 | `AUDIT / NOT APPROVED` | Verify against the current canonical Dream Phone identity before reuse; replace if it is an old building version. |
 | `/assets/sunnyvaile-buildings/web/02-sunnyvaile-newsstand.jpg` | 1 | `AUDIT / NOT APPROVED` | Verify against the current canonical NewsStand identity before reuse; replace if it is an old building version. |
@@ -66,6 +66,7 @@ permission for another unsolicited copy rewrite.
 A Homepage challenger is automatically held before Ali review if:
 
 - the incorrect FAiRY Godmother scene remains anywhere;
+- `/assets/library/jeeves-scene.webp` remains as the current Miss Jeeves image;
 - the masthead image is repeated elsewhere on the page;
 - any other repeated asset lacks an explicit, defensible second job;
 - an old building asset is used without canonical-owner verification;

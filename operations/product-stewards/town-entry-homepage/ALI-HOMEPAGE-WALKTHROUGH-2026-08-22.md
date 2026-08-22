@@ -100,6 +100,32 @@ Episodes, tools, games and future Classes understandable through their visitor
 job. Town Hall also needs a clear description if its job is to introduce
 LAiDIES/SUNNYVAiLE characters and civic world-building.
 
+The current page contains a short LUMINAiRY paragraph that names Patron Saints,
+MAiVENS and Trailblazers, but this is too easy to miss and does not introduce
+the people of the world. The revised hierarchy needs a meaningful, visually
+legible way to meet:
+
+- the recurring SUNNYVAiLE characters and the role each one plays;
+- the Patron Saints and the qualities or lessons they represent; and
+- the historical and current women in AI reached through LUMINAiRY.
+
+This is not a demand to put every person on the Homepage. It is a clear
+editorial entrance that explains why these groups matter and routes to the
+complete experience.
+
+### 6a. The Homepage Miss Jeeves artwork is outdated
+
+The current Homepage directly loads
+`/assets/library/jeeves-scene.webp`. Ali has identified the visible Miss Jeeves
+as not the latest character representation. That exact Homepage use is now
+rejected as stale identity evidence and may not be treated as the successor.
+
+Several newer-named Jeeves files exist, including
+`assets/library/jeeves-desk.png`, but file date, filename and prior prototype
+use do not prove which one is current or approved. The visual curator must
+resolve the exact canonical Miss Jeeves reference and reject superseded
+variants before a Homepage candidate is built.
+
 ### 7. Resident Card and Wednesday Postcard are conflated
 
 Creating a Resident Card is the opt-in path for supported saving, progress,
@@ -113,8 +139,8 @@ The live page uses softer pastel/candy colours where Ali expects the more
 vibrant, electric evolution of the LAiDIES palette. It also lacks the pop-art
 devices that can visually connect episode, editorial and town experiences.
 The whole composition should feel like a polished, lively 1990s town for adult
-women: bold and colourful, not country, juvenile, flat, generic, overly
-painterly or photorealistic.
+women: bright, bold and colourful—not country/cottagecore, gothic fairy tale,
+juvenile, flat, generic, overly painterly or photorealistic.
 
 Environment and object art can use the established vibrant 1990s town language.
 Pop-art shapes, callouts and graphic devices can bridge that system with the
@@ -155,8 +181,10 @@ turning the Homepage into a complete town directory.
    prominent Miss Jeeves and direct LIBRAiRY navigation.
 4. **Your Wednesday in SUNNYVAiLE** — the preserved episode ritual as a guided
    route, not the only way to use LAiDIES.
-5. **Distinctive town features** — LUMINAiRY, KSVL and the Rewind reference
-   world, edited for hierarchy rather than another equal card grid.
+5. **Meet the women and people of LAiDIES** — a meaningful entrance to the
+   SUNNYVAiLE characters, Patron Saints, MAiVENS and Trailblazers, with KSVL
+   and the Rewind reference world edited into the surrounding hierarchy rather
+   than another equal card grid.
 6. **Explore SUNNYVAiLE** — direct named building routes or truthful district
    reveals, with each building's purpose.
 7. **Save, collect and continue** — Resident Card/Closet value and exact
@@ -172,6 +200,7 @@ turning the Homepage into a complete town directory.
 - Do not make the Homepage duplicate every destination experience.
 - Do not make the town map a prerequisite for using LAiDIES.
 - Do not recover rejected or superseded images because they fill a blank.
+- Do not reuse `/assets/library/jeeves-scene.webp` as current Miss Jeeves art.
 - Do not propagate Cycle 9 styling until its mechanisms have been re-evaluated
   against this hierarchy and the current visual bar.
 

@@ -12,7 +12,9 @@ The existing records already said:
 
 - replace the incorrect FAiRY Godmother scene in all three jobs;
 - preserve only one strongest Miss Jeeves use and give the other job distinct
-  art or an intentional non-image treatment;
+  art or an intentional non-image treatment — **SUPERSEDED 2026-08-22:** Ali
+  rejected that surviving `/assets/library/jeeves-scene.webp` use as outdated;
+  no production use remains eligible;
 - preserve one canonical Lantern Hill use and replace the duplicate;
 - verify every old building asset with its canonical owner;
 - reject text over building entrances and important characters;
@@ -58,4 +60,3 @@ The section is judged from the rendered result first. Hashes, counts, contrast,
 overflow and source parity are supporting checks only.
 
 Only a PASS on this one-section proof may open a later full-page brief.
-

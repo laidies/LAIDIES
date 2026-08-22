@@ -1525,6 +1525,16 @@ objective; every open lane keeps its own checkpoint.
   Resident continuation and a separate Postcard action. Use a vibrant electric
   1990s composition with purposeful pop-art bridging, not another flat card
   stack.
+- **Ali visual/identity addendum:** reject country/cottagecore and gothic-
+  fairy-tale drift as well as generic pastel/card-grid treatment. The Homepage
+  needs a meaningful entrance to recurring SUNNYVAiLE characters, Patron
+  Saints, MAiVENS and Trailblazers. Its exact current Miss Jeeves asset,
+  `/assets/library/jeeves-scene.webp`, is directly rejected as outdated; the
+  canonical successor remains unresolved rather than inferred from filename.
+- **Layout authority correction:** the masthead's successful copy and locked
+  image remain protected, but the rest of the Homepage section order and card
+  stack may be rearchitected as one visitor-value composition. Older bounded
+  prototype limits do not freeze a layout Ali has now asked to rethink.
 - **Next trigger:** Ali rules the first post-hero block. Recommended order:
   What's happening in SUNNYVAiLE, grouped visitor jobs, Wednesday route.
 - **Authority:** walkthrough and internal product-context update only. No

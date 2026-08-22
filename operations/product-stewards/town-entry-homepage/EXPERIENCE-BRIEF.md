@@ -31,6 +31,14 @@ proposed information architecture are captured in
 - Separate Resident Card/Closet from Wednesday Postcard subscription.
 - Replace the soft, disconnected box sequence with one vibrant, electric,
   polished 1990s composition using purposeful pop-art devices.
+- Reject country/cottagecore and gothic-fairy-tale drift. The Homepage must be
+  bright, bold and recognizably 1990s without becoming juvenile or generic.
+- Give the SUNNYVAiLE characters, Patron Saints, MAiVENS and Trailblazers a
+  meaningful discovery entrance; the current buried LUMINAiRY sentence does
+  not establish that experience.
+- Reject the current Homepage use of `/assets/library/jeeves-scene.webp` as
+  outdated Miss Jeeves identity. Resolve the exact canonical successor before
+  building; a newer filename is not approval.
 - Treat the nine named held visual slots and the unapproved Cycle 9 electric
   prototype as recovery inputs, never as release-ready authority.
 
@@ -135,6 +143,10 @@ lend a PASS to another. `LOCKED LEDGER`
 
 - Invariants: practical value first; warm adult intelligence; candy colour as useful rhythm; town/object specificity; deterministic functional text; truthful limitations; no generic dashboard/card-grid takeover. `APPROVED BRIEF/ARTIFACT`
 - The current painterly site, provisional comic direction and controlled hybrid are all unapproved as sitewide authority. `LOCKED LEDGER`
+- The Homepage may be substantially restructured as one whole-page composition
+  to express the approved visitor hierarchy. Preserve the masthead's successful
+  explanation and other named strengths, not the current section order or card
+  stack merely because they are incumbent. `ALI CONFIRMED`
 - The current Homepage remains the comparison baseline. Glamour-cartoon/
   pop-sticker is rejected as cheap/not adult; no new Homepage visual treatment
   advances until Brand supplies revised sophisticated adult editorial/
@@ -146,6 +158,10 @@ lend a PASS to another. `LOCKED LEDGER`
   proven stale-art replacement only. `ALI CONFIRMED`
 - Legacy FAiRY Godmother and building art must be classified by exact use after
   the Brand ruling; existing presence and repetition do not confer approval.
+  `ALI CONFIRMED`
+- The Homepage use of `/assets/library/jeeves-scene.webp` is rejected as an
+  outdated Miss Jeeves representation. No nearby Jeeves asset becomes current
+  until its canonical identity and destination use are explicitly resolved.
   `ALI CONFIRMED`
 - Homepage freedom after the ruling: choose threshold-specific hierarchy, imagery, section rhythm and responsive composition without cloning a Library room or Visitor’s Centre counter. `LOCKED LEDGER`
 - Preserve the live Jost/rectangular homepage topbar as the current comparison authority until a separately locked shared-chrome change is admitted. `VERIFIED USER/PRODUCT EVIDENCE`

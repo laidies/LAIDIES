@@ -71,15 +71,23 @@ receiving products are ready.
 - **Approved direction:** Practical value first; editorial type, town imagery
   and object-world cues support—not replace—labelled navigation. Preserve the
   current luminous-dusk masthead as the selected baseline winner, including its
-  exact image and composition; do not rebuild it. Reject white-background
-  redesigns, muddy/grungy building filters, glamour-cartoon and sticker-comic
-  decoration. Later improvements are conservative: stronger 90s colour in UI
-  accents, clearer hierarchy, less duplication and replacement only of art
-  proved stale. Brand must translate this ruling into implementation rules
-  before visual changes. Preserve the live Jost/rectangular homepage
+  exact image and composition; do not rebuild it. The rest of the page may be
+  rearchitected as one coherent visitor-value hierarchy; current section order
+  and repeated card grids are not protected. Reject white-background redesigns,
+  muddy/grungy building filters, glamour-cartoon and sticker-comic decoration,
+  country/cottagecore and gothic-fairy-tale drift. Use bright, bold, electric
+  1990s colour and purposeful pop-art devices without juvenile clutter. Brand
+  must translate this ruling into implementation rules before visual changes.
+  Preserve the live Jost/rectangular homepage
   topbar as the current entry reference; do not infer that an older shared
   header is canonical (BTB prevention rule, 2026-07-25).
-- **Character/location/canon rules:** SUNNYVAiLE is an inviting learning town in the Rewind Era. Do not turn town imagery into proof of availability, membership, rewards, or a published reopening.
+- **Character/location/canon rules:** SUNNYVAiLE is a bright, bold learning town
+  in the Rewind Era. The Homepage needs a clear discovery entrance to its
+  recurring characters, Patron Saints, MAiVENS and Trailblazers without trying
+  to display every person. The current Homepage use of
+  `/assets/library/jeeves-scene.webp` is rejected as outdated; resolve the exact
+  canonical Miss Jeeves reference before replacement. Do not turn town imagery
+  into proof of availability, membership, rewards, or a published reopening.
 - **Voice/copy rules:** Warm, direct, specific and non-gatekeeping. Say “request,” “go to,” “open,” “play,” or “continue on this device” only when that is what the system can observe. Avoid filler urgency and generic lifestyle language.
 - **Required asset states:** Hero
   `assets/sunnyvaile-streets/main-street-dusk.webp`, SHA
