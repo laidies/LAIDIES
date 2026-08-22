@@ -1661,3 +1661,14 @@ objective; every open lane keeps its own checkpoint.
   representative Homepage direction set from the pushed operating checkpoint.
 - **Authority:** operating-system repair only. No page code, visual candidate,
   deployment or public state changed.
+
+### 2026-08-22 three-page current-packet closure
+
+- **Current state:** `CONTEXT PACKET AND GUARDS VERIFIED LOCALLY / PUSH PENDING / HOMEPAGE BUILD NEXT`.
+- **Foreground objective:** build the Homepage first, then LIBRAiRY and Visitor's Centre, releasing each accepted page independently.
+- **Current packet:** `operations/design-programs/HOMEPAGE-LIBRARY-VISITORS-WORK-ORDER-2026-08-22.md` now binds outcome, scope, authority, exact inputs, applicable locks, known-bad subset, acceptance, handoff and prohibitions without activating the draft context workbook.
+- **Guard closure:** the manifest now binds the work order and working agreement, records page owner/effective date/supersession and includes the confirmed Library book and page-elevation contracts. Reviewable candidates must exist on the declared origin ref and their owned lane must be clean.
+- **Compact Library packet:** `operations/library-decisions.md` is reduced from 157 to 65 lines and routes detailed book/page contracts rather than duplicating them.
+- **Verification:** the three-page guard and calibrated failure suite pass; missing packet, missing owner, missing Library contract, unpushed ref and dirty owned lane all reject. The Library instruction packet passes its four-source and 90-line guard.
+- **Next trigger:** commit and push this exact closure, then produce the three Homepage visual directions from the pushed packet.
+- **Authority:** operating-system implementation only. No page visual, HTML/CSS/JS, deployment or public state changed.

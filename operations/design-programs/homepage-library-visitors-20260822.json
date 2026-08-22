@@ -2,6 +2,10 @@
   "schema_version": 1,
   "program_id": "homepage-library-visitors-20260822",
   "status": "PREPRODUCTION_GUARDS_READY_NO_CANDIDATES",
+  "current_work_order": {
+    "path": "operations/design-programs/HOMEPAGE-LIBRARY-VISITORS-WORK-ORDER-2026-08-22.md",
+    "sha256": "d7db8d68721b7fafb01bd9436a3d4e0e7eeda75a05439e6f9acf21d6b1e3e848"
+  },
   "checkpoint_policy": {
     "operating_guard": "COMMIT_AND_PUSH_BEFORE_VISUAL_PRODUCTION",
     "completed_page_direction_set": "COMMIT_AND_PUSH_SEPARATELY",
@@ -17,6 +21,10 @@
     {
       "path": "operations/site-visual-system-lock-2026-07-23.md",
       "sha256": "0629fc7268be53bf55d5ff638d73d85d1d79f0d897f02188efef04a289c6311b"
+    },
+    {
+      "path": "operations/CODEX-WORKING-AGREEMENT.md",
+      "sha256": "1b5c1bb659925ff783f23d492b9e636225bbbadd2bed6ca3e2c1c939bda794ee"
     }
   ],
   "global_prohibited_assets": [
@@ -33,6 +41,9 @@
   ],
   "pages": {
     "homepage": {
+      "owner": "town-entry-homepage product steward",
+      "effective_date": "2026-08-22",
+      "supersedes": [],
       "tracked_root": "operations/design-explorations/current/homepage",
       "governing_sources": [
         {
@@ -59,11 +70,16 @@
       "candidates": []
     },
     "library": {
+      "owner": "library product steward",
+      "effective_date": "2026-08-22",
+      "supersedes": [
+        "operations/product-stewards/library/page-architecture-successor-2026-08-03.md"
+      ],
       "tracked_root": "operations/design-explorations/current/library",
       "governing_sources": [
         {
           "path": "operations/library-decisions.md",
-          "sha256": "1f0ac7c8755e806c356ac9ba2581a207f8562bb24fad7f61923d1658b1472d6a"
+          "sha256": "8a1dc835e4aec956da36eaadd3c0c90fed165da0fbe831001c2af5e3e73ce676"
         },
         {
           "path": "operations/product-stewards/library/EXPERIENCE-BRIEF.md",
@@ -72,6 +88,14 @@
         {
           "path": "operations/product-stewards/library/OPERATING-SPEC.md",
           "sha256": "ac43c3874f2dd62c9973e49d43c4aabc35cfc5277fbcd7b10d1127c166081d5a"
+        },
+        {
+          "path": "operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md",
+          "sha256": "83bff3ee5b2317614e93efce67241eee29f0eeefc9507bcd5eb00cc978de14ed"
+        },
+        {
+          "path": "operations/product-stewards/library/BUILD-PACKET-LIBRARY-PAGE-ELEVATION-2026-08-22.md",
+          "sha256": "841f8d7f8282a4bc52eec0f1ad84104378ac82630c2d70fc1152339914342663"
         }
       ],
       "allowed_existing_assets": [
@@ -115,6 +139,11 @@
       "candidates": []
     },
     "visitors-centre": {
+      "owner": "visitors-centre product steward",
+      "effective_date": "2026-08-22",
+      "supersedes": [
+        "assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png"
+      ],
       "tracked_root": "operations/design-explorations/current/visitors-centre",
       "governing_sources": [
         {

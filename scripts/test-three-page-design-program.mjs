@@ -18,6 +18,13 @@ function expectFailure(name, mutated, expected) {
   if (!errors.some(error => error.includes(expected))) throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
 }
 
+function expectGitFailure(name, mutated, expected) {
+  const fixturePath = path.join(scratchAbsolute, `${name}.json`);
+  fs.writeFileSync(fixturePath, `${JSON.stringify(mutated, null, 2)}\n`);
+  const errors = validateProgram({ root, manifestPath: fixturePath, verifyGit: true });
+  if (!errors.some(error => error.includes(expected))) throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
+}
+
 fs.mkdirSync(scratchAbsolute, { recursive: true });
 try {
   const baselineErrors = validateProgram({ root, manifestPath, verifyGit: false });
@@ -30,6 +37,20 @@ try {
   const bigBangRelease = structuredClone(manifest);
   delete bigBangRelease.checkpoint_policy.approved_page_release;
   expectFailure('big-bang-release', bigBangRelease, 'must deploy and receive public verification');
+
+  const missingWorkOrder = structuredClone(manifest);
+  delete missingWorkOrder.current_work_order;
+  expectFailure('missing-work-order', missingWorkOrder, 'current work order');
+
+  const missingOwner = structuredClone(manifest);
+  delete missingOwner.pages.homepage.owner;
+  expectFailure('missing-owner', missingOwner, 'owner, effective_date and supersedes');
+
+  const missingLibraryContract = structuredClone(manifest);
+  missingLibraryContract.pages.library.governing_sources = missingLibraryContract.pages.library.governing_sources.filter(
+    source => source.path !== 'operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md'
+  );
+  expectFailure('missing-library-contract', missingLibraryContract, 'missing required governing source');
 
   const oldLobby = manifest.pages['visitors-centre'].prohibited_assets[0];
   const sourcePath = `${scratch}/candidate.html`;
@@ -55,6 +76,19 @@ try {
   });
   expectFailure('undeclared-dependency', undeclared, 'unmanifested asset reference');
 
+  const unpushed = structuredClone(manifest);
+  unpushed.pages['visitors-centre'].candidates.push({
+    id: 'unpushed-fixture',
+    status: 'READY_FOR_ADMISSION',
+    entry_path: sourcePath,
+    source_files: [{ path: sourcePath, sha256: sha(body) }],
+    dependencies: [oldLobby],
+    pushed_commit: '0'.repeat(40),
+    pushed_ref: 'refs/heads/guard-fixture-does-not-exist'
+  });
+  expectGitFailure('unpushed-remote', unpushed, 'pushed_ref is not present on origin');
+  expectGitFailure('dirty-owned-lane', unpushed, 'tracked_root is dirty');
+
   const staleJeeves = manifest.global_prohibited_assets.find(item => item.path === 'assets/library/jeeves-scene.webp');
   const homepageScratch = `operations/design-explorations/current/homepage/.guard-fixture-${process.pid}`;
   const homepageAbsolute = path.join(root, homepageScratch);
@@ -73,7 +107,7 @@ try {
   expectFailure('rejected-jeeves', rejectedJeeves, 'prohibited dependency');
   fs.rmSync(homepageAbsolute, { recursive: true, force: true });
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS known_bad=REJECT undeclared=REJECT stale_hash=REJECT big_bang_release=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS known_bad=REJECT undeclared=REJECT stale_hash=REJECT missing_packet=REJECT missing_owner=REJECT missing_library_contract=REJECT unpushed=REJECT dirty_lane=REJECT big_bang_release=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
   fs.rmSync(path.join(root, `operations/design-explorations/current/homepage/.guard-fixture-${process.pid}`), { recursive: true, force: true });

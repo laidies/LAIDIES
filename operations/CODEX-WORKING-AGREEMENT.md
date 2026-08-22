@@ -140,7 +140,7 @@ bounded supporting work itself.
 | **BUILT LOCALLY** | Code/assets exist locally; verification is incomplete |
 | **VERIFIED LOCALLY** | The complete local journey passed named checks |
 | **DEPLOYED** | The intended version was published; public verification remains separate |
-| **VERIFIED PUBLICLY** | The deployed journey passed its real public checks |
+| **PUBLICLY VERIFIED** | The deployed journey passed its real public checks |
 | **PAUSED** | Intentionally interrupted; exact resume point and reason are recorded |
 | **DEFERRED** | Intentionally parked with a trigger/next step |
 | **BLOCKED** | Cannot proceed; blocker, owner and next action are explicit |

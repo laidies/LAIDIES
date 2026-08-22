@@ -8,6 +8,21 @@ import { fileURLToPath } from 'node:url';
 const DEFAULT_MANIFEST = 'operations/design-programs/homepage-library-visitors-20260822.json';
 const REQUIRED_PAGES = ['homepage', 'library', 'visitors-centre'];
 const REVIEWABLE = new Set(['READY_FOR_ADMISSION', 'ADMITTED_FOR_ALI_REVIEW']);
+const REQUIRED_WORK_ORDER_HEADINGS = [
+  'Outcome',
+  'Scope',
+  'Current authority',
+  'Exact inputs',
+  'Applicable locks',
+  'Known-bad subset',
+  'Acceptance',
+  'Handoff',
+  'Prohibitions'
+];
+const LIBRARY_REQUIRED_SOURCES = [
+  'operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md',
+  'operations/product-stewards/library/BUILD-PACKET-LIBRARY-PAGE-ELEVATION-2026-08-22.md'
+];
 
 const sha256 = filePath => crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 const cleanPath = value => value.replace(/^\/+/, '').replace(/[?#].*$/, '');
@@ -67,6 +82,19 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
   }
 
   if (manifest.schema_version !== 1) errors.push('schema_version must be 1');
+  verifyBoundFile(root, manifest.current_work_order, 'current work order', errors);
+  if (manifest.current_work_order?.path) {
+    const workOrderPath = path.join(root, manifest.current_work_order.path);
+    if (fs.existsSync(workOrderPath)) {
+      const workOrder = fs.readFileSync(workOrderPath, 'utf8');
+      for (const heading of REQUIRED_WORK_ORDER_HEADINGS) {
+        if (!new RegExp(`^## ${heading}$`, 'm').test(workOrder)) errors.push(`current work order: missing required field ${heading}`);
+      }
+      for (const metadata of ['Foreground owner', 'Effective date', 'Current authority/version', 'Resume trigger']) {
+        if (!new RegExp(`^\\*\\*${metadata}:\\*\\*\\s+\\S`, 'm').test(workOrder)) errors.push(`current work order: missing ${metadata}`);
+      }
+    }
+  }
   if (!manifest.checkpoint_policy?.ali_review_requires_exact_pushed_commit) errors.push('Ali review must require an exact pushed commit');
   if (manifest.checkpoint_policy?.approved_page_release !== 'DEPLOY_AND_PUBLICLY_VERIFY_WITHOUT_WAITING_FOR_OTHER_PAGES') {
     errors.push('approved page units must deploy and receive public verification without waiting for other pages');
@@ -85,9 +113,18 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
       errors.push(`missing page program: ${pageName}`);
       continue;
     }
+    if (!page.owner || !/^\d{4}-\d{2}-\d{2}$/.test(page.effective_date || '') || !Array.isArray(page.supersedes)) {
+      errors.push(`${pageName}: owner, effective_date and supersedes are required`);
+    }
     if (page.tracked_root !== `operations/design-explorations/current/${pageName}`) errors.push(`${pageName}: tracked_root is not the required recoverable lane`);
     if (!Array.isArray(page.governing_sources) || page.governing_sources.length === 0) errors.push(`${pageName}: governing_sources cannot be empty`);
     for (const source of page.governing_sources || []) verifyBoundFile(root, source, `${pageName} governing source`, errors);
+    if (pageName === 'library') {
+      const librarySources = new Set((page.governing_sources || []).map(source => source.path));
+      for (const requiredSource of LIBRARY_REQUIRED_SOURCES) {
+        if (!librarySources.has(requiredSource)) errors.push(`library: missing required governing source ${requiredSource}`);
+      }
+    }
 
     const allowed = new Map();
     for (const asset of page.allowed_existing_assets || []) {
@@ -140,6 +177,15 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         if (verifyGit && candidate.pushed_commit && candidate.pushed_ref) {
           if (git(root, ['cat-file', '-e', `${candidate.pushed_commit}:${candidate.entry_path}`]) === null) errors.push(`${label}: entry bytes are not in pushed_commit`);
           if (git(root, ['merge-base', '--is-ancestor', candidate.pushed_commit, candidate.pushed_ref]) === null) errors.push(`${label}: pushed_commit is not reachable from ${candidate.pushed_ref}`);
+          const remoteResult = git(root, ['ls-remote', '--refs', 'origin', candidate.pushed_ref]);
+          const remoteTip = remoteResult?.split(/\s+/)[0];
+          if (!/^[a-f0-9]{40}$/.test(remoteTip || '')) {
+            errors.push(`${label}: pushed_ref is not present on origin`);
+          } else if (git(root, ['merge-base', '--is-ancestor', candidate.pushed_commit, remoteTip]) === null) {
+            errors.push(`${label}: pushed_commit is not reachable from origin ${candidate.pushed_ref}`);
+          }
+          const ownedStatus = git(root, ['status', '--porcelain', '--untracked-files=all', '--', page.tracked_root]);
+          if (ownedStatus === null || ownedStatus.length > 0) errors.push(`${label}: tracked_root is dirty`);
         }
       }
     }

@@ -1,143 +1,51 @@
 # The LIBRAiRY — active instruction packet
 
-This is the only routine page-specific instruction packet for Library work. It records current decisions, not their history.
-Rejection evidence remains in Git and registered sources; do not load historical design packets unless this file routes the exact task to one.
+**Status:** CURRENT PAGE ROUTER
+**Owner:** Library product steward
+**Effective date:** 2026-08-22
+**Supersedes:** older Library visual/public-framing instructions where they conflict
 
-Last reconciled: 2026-08-22. Ali's live page walkthrough below supersedes any
-older Library visual or public-framing instruction that conflicts with it.
+This compact packet contains only current page-wide overrides, routing, active assets and prohibited regressions. Do not load historical design packets unless a routed current packet names one.
 
-## Ali live page ruling — 2026-08-22
+## Current page-wide decisions
 
-- Preserve the current bright, bold pop-art energy, distinct collection
-  colours, clear 101s/Tools/Reference grouping, entering-the-building idea and
-  selected-book preview.
-- Elevate rather than discard the current masthead concept: retain the real
-  1990s Library details, but give the room and live title treatment enough
-  colour, depth and authored visual energy to belong to the rest of the page.
-- Differentiate Reference Desk and Browse the Shelves compositionally. They may
-  retain related pop-art materials, but must not repeat the same visual weight
-  and directional balance.
-- Public framing is **Ask Miss Jeeves** versus **browse the Library shelves and
-  books**. “Catalogue” may remain an internal data/admission term; it is not the
-  visitor-facing product metaphor.
-- The shelf sequence must read as one connected physical Library. Rooms require
-  a convincing wall/case/floor relationship; books visibly sit on their rails.
-  Stacked floating rooms, pasted shelf units, misaligned books and card-grid
-  substitution fail.
-- The Titles and Topics search field must provide a generous, unclipped writing
-  area at desktop and mobile sizes.
-- Prompting remains a useful beginner/task entry point, but it is one part of
-  the current practice of providing and managing context, sources, constraints
-  and examples. Do not teach magic-word prompting or present it as the whole
-  workflow.
-- Mount visible shared navigation. Loading a header script without a header
-  mount target, or providing only a hidden/hover return control, is not
-  navigation.
-- AI Fundamentals remains unavailable until its exact content, visuals,
-  reader, independent review, correction, release and public gates pass.
-- Miss Jeeves is a proper reference and learning-direction tool. She interprets
-  the visitor's question, gives a short current evidence-bound answer, then
-  groups exact deep links by learning job: Library book/section, Episodes,
-  NewsStand, reinforcement tools/activities/Study Packs, future High classes,
-  real planned content and governed external sources/trusted voices. She
-  explains what each route provides. No coverage is stated honestly; a planned
-  result requires a real roadmap record and external recommendations require a
-  maintained trust register. The Homepage and Library share this service. See
-  `operations/product-stewards/library/subproducts/miss-jeeves.md`.
-- Library books follow Ali's complete seven-part reader contract at
-  `operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`.
-  It governs connected/current mechanism teaching, continuous book-like
-  reading, purposeful visual aids, earned Rewind humour, practical agency,
-  exact sharing/Puffy saves, signed-in progress/private annotations,
-  updates/audio, catalogue reconsideration and evidence-based chapter/book
-  rewards. Its visual grammar is a selectively expressive 1990s textbook in
-  the shared LAiDIES pop-art world—cohesive but never an overwhelming callout
-  or colour mishmash. Do not recover those decisions from older artifacts or
-  expand this routine packet with duplicate book instructions.
-- The Library and Miss Jeeves jointly own a privacy-bounded demand/content-gap
-  loop. Shelf discovery and no/weak-coverage results offer an explicit topic
-  request. Passive learning records controlled topic/outcome/source IDs only;
-  it never stores raw questions. Deliberate submissions store only disclosed
-  visitor-provided text through a protected intake. Aggregate demand separates
-  “we have it but people cannot find it” from “we need coverage,” then routes a
-  recommendation to the right format/product owner. Popularity informs
-  priority; it cannot auto-create a roadmap promise, content or publication.
+- Preserve the bright, bold pop-art energy, distinct 101s/Tools/Reference colours, physical entering-the-building idea and selected-book preview.
+- Elevate the existing 1990s masthead room with colour, depth and authored energy; keep title and navigation as deterministic live UI.
+- Public choices are **Ask Miss Jeeves** and **browse the Library shelves and books**. “Catalogue” is internal terminology, not the visitor metaphor.
+- Reference Desk and Browse must have different composition, weight and direction.
+- The shelves are one connected physical Library. Every cover sits wholly inside an opening, meets its rail and remains identifiable. No floating rooms, pasted cases, book wallpaper, generic card grid, pagination or shrinking covers to thumbnails.
+- All 14 current books remain visible. Search titles and topics gets a generous unclipped writing area at desktop and mobile sizes; results appear only after a search/topic choice.
+- One cover opens one adjacent preview with job, contents, depth, currentness and truthful availability. Back restores the initiating control and position. **Open this book** appears only when admitted.
+- Mount the canonical visible shared header. A loaded script, hidden return or hover-only control is not navigation.
+- Prompting is one beginner entry point within the broader work of providing and managing task, audience, sources, constraints, examples, tools, history and maintained context. Do not teach magic words.
+- AI Fundamentals remains unavailable until its exact content, visuals, reader, independent review, correction, release and public gates pass.
+- Miss Jeeves gives a short current evidence-bound answer and grouped exact learning routes; she states no coverage honestly. Suggested questions must resolve. Browser-hardcoded answers are not a second authority.
+- Topic demand separates “we have it but people cannot find it” from “we need coverage.” Passive records use controlled IDs only; explicit requests alone may store disclosed visitor text. Popularity never creates a promise or publication.
+- Puffy saves preserve whole-book versus exact-section scope. The first save attempt owns the Resident Card explanation; My Closet remains in the Sorority House.
+- Mobile explanation precedes what it explains; controls, covers and text remain readable without horizontal overflow. Desktop and mobile require real browser inspection.
 
-## Load for every Library task
+## Route by task
 
-1. `operations/DECISIONS.md` — cross-product and later locked decisions.
-2. `operations/product-stewards/library/CHARTER.md` — purpose and boundaries.
-3. `operations/product-stewards/library/EXPERIENCE-BRIEF.md` — visitor promise.
-4. `operations/product-stewards/library/FUNCTIONALITY-MAP.md` — real journeys and dependencies.
-5. This file — compact current page overrides and prohibited regressions.
-
-Book-content work also loads
-`operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`,
-the exact current book source, admission manifest, rejection registry and
-content-quality contract routed by `operations/DECISIONS.md`.
-
-## Current page contract
-
-- Title: **The LIBRAiRY**. It is a useful, funny reference desk and physical collection experience—not a generic card catalogue, class or page-flip toy.
-- Arrival: preserve the approved Miss Jeeves room and environmental joke. Offer
-  two direct choices: ask Miss Jeeves or browse the shelves. Resident Card setup
-  appears only when saving is attempted.
-- Collections: show 101s, Tools and Reference as three distinct comic-pop guides built from current covers, each with one plain-English explanation and an operable route to its physical shelf.
-- Shelf-finding controls: use one quiet, high-contrast search/topic/Closet surface.
-  Show results only after a search or topic choice. Do not show warnings, counts
-  or instruction paragraphs at rest.
-- Shelves: all 14 current Library books remain visible together. Add physical capacity as the collection grows; never paginate or shrink covers to fit.
-- Physical truth: every complete cover sits wholly inside one shelf opening,
-  visibly meets its rail, stays behind case signs/rails and remains identifiable.
-  Primary visible cover dimension is at least 120 CSS px; controls are at least
-  44 CSS px. Measure visible artwork, every book and real desktop/mobile pixels.
-- Rooms: use one coherent wall/case/floor composition. The three collections
-  have distinct locked-palette wall colours; all use the same unfiltered carpet.
-  Four-book groups use the intact compact two-bay case; six may use three bays.
-- Preview: one cover opens one selected-book preview with job, contents, depth,
-  currentness and truthful availability. Back restores the initiating shelf
-  control and position. **Open this book** appears only when admitted.
-- Miss Jeeves: question answering and shelf/title search are different. She
-  gives a short evidence-bound answer and grouped exact routes supported by
-  admitted town or governed external material; Library placement prioritizes
-  books and sections. Every suggested question must resolve. Parallel
-  browser-hardcoded answers are not a second authority.
-- Failure and privacy: no unsolicited error appears before a question. Failure
-  retains the question and offers recovery. Analytics receive controlled topic,
-  outcome, placement and source IDs—never raw questions, answers, reading text
-  or inferred personal need.
-- Demand learning: exact/related/none outcomes and controlled topic/source IDs
-  feed aggregate discovery and gap analysis. A separate explicit “request a
-  topic” control owns any visitor-supplied request text and its disclosure,
-  moderation, deduplication and receipt.
-- Save: Puffy saves use the Resident Card's 10 active stickers and preserve
-  whole-book versus exact-section scope. The first save attempt owns the Card
-  explanation. My Closet remains in the Sorority House.
-- Mobile: explanation precedes what it explains; controls, covers and text remain
-  readable without horizontal overflow. Desktop and mobile require real browser
-  inspection, not DOM dimensions alone.
-- Visual system: use the approved electric Rewind Era Library assets and coherent
-  display/body typography. Pop energy frames working text; quiet zones protect
-  every input, button and body line.
-
-## Authority and release boundaries
-
-- Page review: one maker browser check for objective function, accessibility and responsive defects, then Ali judges the exact visible candidate.
-- Book admission is separate. Zero books are admitted until exact current source,
-  render and substantial-book admission evidence pass. Rejected Concepts bytes
-  may be source-mined only and may not provide identity, template or derivative.
-- A local page, integrity receipt, checker pass or HTTP 200 is not publication.
-  Release requires exact artifact build, deployment and custom-domain verification.
+- Page purpose/boundaries: `operations/product-stewards/library/CHARTER.md` and `operations/product-stewards/library/EXPERIENCE-BRIEF.md`.
+- Journeys/dependencies: `operations/product-stewards/library/FUNCTIONALITY-MAP.md`.
+- Page visual implementation: `operations/product-stewards/library/BUILD-PACKET-LIBRARY-PAGE-ELEVATION-2026-08-22.md`.
+- Book reading/teaching behavior: `operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`, plus the exact book source and admission records routed by `operations/DECISIONS.md`.
+- Miss Jeeves: `operations/product-stewards/library/subproducts/miss-jeeves.md` and its current build packet.
+- Cross-product or later decisions: `operations/DECISIONS.md`.
 
 ## Current implementation assets
 
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png`
-- Room wall/floor: `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png`; `assets/building-interiors/library-shelf/room/floor-geometric-v1.png`
+- Wall/floor: `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png`; `assets/building-interiors/library-shelf/room/floor-geometric-v1.png`
 - Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`; `assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`
+
+## Release boundary
+
+Ali reviews the exact visible page candidate after maker function/accessibility/responsive checks. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication; release requires exact build, deployment and custom-domain verification.
 
 ## Prohibited active inputs
 
-Exact rejected page identities include `615a80f7…dab` and `7d4d01f4…c7c9`; checkpoint `db924c0d…bd6e` is a protected baseline, not page approval.
+Rejected page identities `615a80f7…dab` and `7d4d01f4…c7c9` remain excluded; `db924c0d…bd6e` is a protected baseline, not approval.
 
 ```banned
 101-shelf-kit.png

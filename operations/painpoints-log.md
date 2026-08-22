@@ -15576,3 +15576,14 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why a clean Git history can still hide a
   stagnant website—and how small verified releases keep redesign work useful.
 - **Publication status:** INTERNAL RELEASE-POLICY CORRECTION / NO PUBLIC CHANGE.
+
+## BTB-495 — A source allowlist is not yet an executable current task packet
+
+- **Date:** 2026-08-22
+- **Area:** Three-page redesign context routing.
+- **Failure:** The first redesign guard bound current walkthroughs and blocked retired assets, but it did not bind one foreground work order, page ownership/supersession, the working status contract or the complete current Library implementation contracts. A candidate could therefore be asset-safe while still being produced from an incomplete operating context.
+- **Root cause:** Artifact dependency control and task-context dispatch were treated as the same mechanism. The former answers “which bytes may this candidate use”; the latter answers “who is doing what now, under which authority, with what handoff and stop conditions.”
+- **Prevention rule:** Every reviewable redesign candidate must inherit one SHA-bound current work order with the nine compact packet fields, explicit page owner/effective date/supersession and its complete role-specific current contracts. The gate must also prove the candidate is on the real origin ref and its owned lane is clean.
+- **Durable correction:** The three-page manifest/checker now enforce those bindings and calibrated failures. The Library router is 65 lines and routes detailed contracts instead of duplicating them.
+- **Possible Behind the Build angle:** Why “we documented everything” still fails unless the next worker receives one small executable packet.
+- **Publication status:** INTERNAL OPERATING-SYSTEM REPAIR / NO VISUAL OR PUBLIC CHANGE.
