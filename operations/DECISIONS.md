@@ -35,6 +35,7 @@ proper domain source before building from it.
 | Repository-wide rejected/retired bytes and rejected consumer SHAs | `operations/quarantine/repository-wide-denylist-20260820.json`; `scripts/check-repository-hygiene.mjs` |
 | Episode video specialist packet | `operations/specialist-agents/episode-video-producer.json` |
 | Sitewide visual direction | `operations/site-visual-system-lock-2026-07-23.md` |
+| Current Homepage/LIBRAiRY/Visitor design production guard | `operations/design-programs/homepage-library-visitors-20260822.json` (input/admission manifest only; page decisions remain routed below) |
 | Runtime/Control Room truth | `operations/product-stewards/control-room/dashboard-state.json` |
 | Ideas not yet active | `docs/growth/ali-idea-backlog.md` |
 

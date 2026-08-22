@@ -10,8 +10,8 @@
 - **Updated:** 2026-08-22 America/Vancouver
 - **Goal:** Restore execution from this clean authority lane and make every safely shippable LAiDIES visitor journey work publicly within 24 hours.
 - **Acceptance:** Current approved work is reconciled without rejected or historical design bytes; every shipped increment is built, locally verified, path-scoped committed, pushed, deployed and verified at `laidies.ai`; any journey that cannot safely ship is named `HOLD` with its exact blocker and next trigger.
-- **Current step:** Homepage, LIBRAiRY and Visitor’s Centre decisions from the Context Chaos walkthrough and current tour are consolidated into compact routed sources; obsolete Codex tasks are archived and the old chat-spawning Control Room automation is paused.
-- **Next action:** Commit this approved-only authority migration, import and verify the current production-release controller without rejected design bytes, and establish the live visitor-journey release matrix before page production resumes.
+- **Current step:** All eight 2026-08-22 Homepage/LIBRAiRY/Visitor source briefs have been read and reconciled into the compact routed authorities. The missing three-page orchestration guard, exact approved Homepage v10 ident and clean-lane design-admission calibration are restored and locally passing. The previously staged release candidate remains preserved but is `HOLD`: it still contains public uses of Ali’s banned word `Play`, so it is not approved for commit or deployment as an exact public candidate.
+- **Next action:** Path-scope commit and push the operating guard first. Then reconcile every visitor-visible staged change against the routed briefs and sitewide public-copy ban, rebuild the exact artifact and rerun the changed-surface tests before any deploy. Homepage visual production resumes only from the admitted three-direction program after the release candidate is truthful.
 
 ## Boundaries
 

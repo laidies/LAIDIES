@@ -36,6 +36,11 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
     games, music and community. Welcome to the Rewind Era—twenty years of pop
     culture, from dial-up to downloads (1990–2010)—and to SUNNYVAiLE, the
     learning town where Girl Power meets Machine Power.`
+  - `Be kind, rewind. Put the pop-culture encyclopedia in your head to work on
+    what comes next.`
+  - `Your brain kept the references. We put them to work.`
+  - `The plot explains it. The analogy unlocks it. Practice makes it click. The
+    soundtrack makes it stick.`
 - Masthead text colours come from the image: purple, pink and teal/cyan. Mint is
   not a masthead accent.
 - The public name is always `LAiDIES`. The `Ai` is one contrasting unit and the
@@ -85,7 +90,10 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
 - Desktop and mobile expose direct LIBRAiRY navigation.
 - Starting/stopping KSVL and opening the KSVL page are separate labelled
   outcomes. After explicit playback, one persistent player supplies pause,
-  previous, next, volume and open-station controls across page navigation.
+  previous, next, volume and open-station controls wherever the canonical
+  player is mounted. Full-page navigation cannot be described as seamless or
+  uninterrupted until a shared application shell or explicit pop-out has been
+  implemented and proved.
 - Audio never autostarts.
 
 ## Visual and copy locks
