@@ -1,5 +1,20 @@
 # Active work
 
+> **2026-08-21 Episode 01 Study Pack release reconciliation:** The public
+> Blend & Snap source no longer contains the `study-pack-review=ep01` switch
+> that could rewrite held component status and inject localhost routes. The
+> Episode 01 Try-On, Cheat Sheet and Cards are all explicitly held in the
+> current manifest; the Quiz remains a separate available handoff to
+> SUNNYVAiLE High. Artifact-first desktop/mobile inspection invalidated the
+> older prototype PASS notes: its visible pack, Cheat Sheet, Try-On and Cards
+> assets are untracked and absent from a clean checkout; the Try-On has a
+> broken mobile title image and stale named-model examples; the Cards build is
+> missing its runtime assets. No prototype bytes were promoted. The manifest,
+> browser and cross-entry gates pass, and the calibrated manifest gate rejects
+> the exact removed production bypass. Next: repair one portable current
+> Episode 01 candidate, independently inspect its exact clean-build pixels and
+> flow, then bring that one candidate to Ali for the page-by-page vision pass.
+
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a
 > direction to reskin. Study Pack visual production remains subject to the
@@ -23,7 +38,7 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-17
+**Last reconciled:** 2026-08-21
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in

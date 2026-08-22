@@ -300,9 +300,9 @@ try {
   check(await value(fresh, "document.querySelector('#bsSpecialDesc').textContent.includes('2 of 4 pack pieces are ready')"),
     true, "partial pack count is explicit");
   check(await value(fresh, "document.querySelectorAll('#bsComponents .bs-menu-line').length"),
-    5, "all component jobs rendered");
+    4, "all pack component jobs rendered");
   check(await value(fresh, "document.querySelectorAll('#bsComponents a').length"),
-    3, "only available component routes rendered");
+    2, "only available pack component routes rendered");
   check(await value(fresh, "document.querySelector('[data-status=\"planned\"]').textContent"),
     "Planned — no Study Sheet yet", "Study Sheet truth");
   check(await value(fresh, "document.querySelector('[data-status=\"unavailable\"]').textContent"),
@@ -340,9 +340,9 @@ try {
   check(await value(fresh, "document.activeElement.id"),
     "bsReceiptTitle", "receipt focus");
   check(await value(fresh, "document.querySelectorAll('#bsReceiptComponents li').length"),
-    5, "receipt component inventory");
+    4, "receipt pack component inventory");
   check(await value(fresh, "document.querySelectorAll('#bsReceiptComponents a').length"),
-    3, "receipt suppresses unavailable routes");
+    2, "receipt suppresses unavailable pack routes");
   await act(fresh,
     "document.querySelector('#bsCloseReceipt').focus(); document.querySelector('#bsCloseReceipt').click()"
   );
@@ -375,6 +375,19 @@ try {
     true, "rendered Welcome Tour explains variable pack availability");
   check(await value(tour, "!/fresh pack of trading cards|this week/i.test(document.querySelector('.svwt-line').textContent)"),
     true, "rendered Welcome Tour makes no weekly/card guarantee");
+
+  const formerReviewBypass = await openPage(
+    "/blend-snap.html?study-pack-review=ep01"
+  );
+  await act(formerReviewBypass,
+    "document.querySelector('[data-pack-episode=\"1\"]').click()"
+  );
+  check(await value(formerReviewBypass,
+    "document.querySelectorAll('#bsReceiptComponents a').length"
+  ), 0, "review query cannot fabricate held Episode 1 component links");
+  check(await value(formerReviewBypass,
+    "!/127\\.0\\.0\\.1:(4173|4182)/.test(document.querySelector('#bsReceipt').innerHTML)"
+  ), true, "review query cannot inject localhost routes");
 
   for (const episode of ["01", "02", "03", "04"]) {
     const issue = await openPage(`/issues/issue-${episode}.html`);
@@ -461,7 +474,7 @@ try {
   check(await value(mobile, "document.documentElement.scrollWidth <= 390"),
     true, "390 px no page overflow");
   check(await value(mobile, "document.querySelectorAll('#bsComponents .bs-menu-line').length"),
-    5, "mobile retains exact inventory");
+    4, "mobile retains exact pack inventory");
   check(await value(mobile, "getComputedStyle(document.querySelector('#bsOrderMobile')).display !== 'none'"),
     true, "mobile order control visible");
 

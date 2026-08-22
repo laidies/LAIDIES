@@ -20,19 +20,20 @@ const asOf = asOfArg ? asOfArg.slice("--as-of=".length) :
   new Date().toISOString().slice(0, 10);
 const statuses = new Set(["available", "held", "planned", "unavailable"]);
 const standardRequiredIds = [
-  "study_sheet", "try_on", "cheat_sheet", "trading_cards", "quiz"
+  "study_sheet", "try_on", "cheat_sheet", "trading_cards"
 ];
 const episodeOneRequiredIds = [
-  "try_on", "cheat_sheet", "trading_cards", "quiz"
+  "try_on", "cheat_sheet", "trading_cards"
 ];
-const knownIds = new Set(standardRequiredIds);
+const knownIds = new Set([...standardRequiredIds, "quiz"]);
 const internalPublicTerms =
   /architecture exists|collection authority repair|episode index declares|server-authoritative|unproven/i;
 const publicManifestKeys = new Set([
   "schemaVersion", "manifestId", "updatedAt", "freshThrough", "packs"
 ]);
 const publicPackKeys = new Set([
-  "episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components"
+  "episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components",
+  "quizHandoff"
 ]);
 const publicComponentKeys = new Set([
   "id", "job", "label", "status", "statusLabel", "publicNote", "route"
@@ -165,8 +166,9 @@ for (const pack of manifest.packs) {
   }
   check(requiredIds.every((id) => components.has(id)),
     `Episode ${pack.episodeNumber} component inventory is incomplete.`);
-  check(componentEvidence.size === requiredIds.length &&
-    requiredIds.every((id) => componentEvidence.has(id)),
+  check(componentEvidence.size === requiredIds.length + 1 &&
+    requiredIds.every((id) => componentEvidence.has(id)) &&
+    componentEvidence.has("quiz"),
   `Episode ${pack.episodeNumber} private evidence inventory is incomplete.`);
   if (pack.episodeNumber === 1) {
     check(!components.has("study_sheet"),
@@ -182,11 +184,25 @@ for (const pack of manifest.packs) {
     (!cardDeclared && components.get("trading_cards").status === "unavailable"),
     `Episode ${pack.episodeNumber} card admission disagrees with source/economy truth.`
   );
-  check(components.get("quiz").status === "available",
-    `Episode ${pack.episodeNumber} quiz route should be explicit and adjacent.`);
+  const quiz = pack.quizHandoff;
+  check(quiz && Object.keys(quiz).every((key) => publicComponentKeys.has(key)) &&
+    quiz.id === "quiz" && quiz.status === "available" &&
+    quiz.label && quiz.job && quiz.statusLabel && quiz.publicNote &&
+    safeLocalRoute(quiz.route) && fs.existsSync(routeFile(quiz.route)),
+  `Episode ${pack.episodeNumber} quiz route should be explicit and adjacent.`);
+  check(!internalPublicTerms.test(`${quiz.statusLabel} ${quiz.publicNote}`),
+    `Episode ${pack.episodeNumber} quiz exposes internal evidence language.`);
+  const quizEvidence = componentEvidence.get("quiz");
+  check(quizEvidence && quizEvidence.evidenceOwner && quizEvidence.evidence &&
+    realDate(quizEvidence.verifiedOn) && quizEvidence.verifiedOn <= manifest.updatedAt,
+  `Episode ${pack.episodeNumber} quiz lacks private evidence/freshness.`);
+  available += 1;
 }
 
-const cafe = fs.readFileSync(path.join(root, "blend-snap.html"), "utf8");
+const cafePath = process.env.BLEND_SNAP_CAFE_PATH ?
+  path.resolve(process.env.BLEND_SNAP_CAFE_PATH) :
+  path.join(root, "blend-snap.html");
+const cafe = fs.readFileSync(cafePath, "utf8");
 check(cafe.includes("/content/blend-snap-weekly-packs.json"),
   "Café does not consume the canonical pack manifest.");
 check(cafe.includes("planned or held work never masquerades as ready"),
@@ -201,6 +217,9 @@ check(cafe.includes("component.status === \"available\"") &&
 check(cafe.includes("note.textContent = component.publicNote") &&
   !cafe.includes("note.textContent = component.evidence"),
   "Café must render visitor-facing notes, not internal evidence.");
+check(!cafe.includes("study-pack-review") &&
+  !/http:\/\/127\.0\.0\.1:(4173|4182)/.test(cafe),
+  "Café contains a production query bypass or localhost component route.");
 
 const tryOn = fs.readFileSync(path.join(root, "try-on.html"), "utf8");
 check(tryOn.includes("Could not save on this device"),

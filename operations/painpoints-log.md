@@ -15156,3 +15156,32 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why banning an image in the timeline did
   nothing when a different script could quietly put it back into the final cut.
 - **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NOT DEPLOYED.
+
+## BTB-481 — A hidden review switch and dirty checkout made an incomplete Study Pack look ready
+
+- **Date:** 2026-08-21
+- **Area:** Blend & Snap, Episode 01 Study Pack and release portability.
+- **Failure:** The production café accepted `?study-pack-review=ep01`, rewrote
+  held component truth in memory and injected localhost Try-On/Card routes.
+  Older prototype notes then described a complete passing pack even though its
+  visible images and component assets were untracked and absent from a clean
+  checkout. Artifact-first mobile inspection also exposed a broken Try-On title
+  image and stale named-model examples; the Cards route lacked its runtime
+  assets.
+- **Root cause:** Review-only routing lived inside production bytes, local
+  success was evaluated against dirty-worktree files, and historical receipts
+  were trusted before the current artifact was opened.
+- **Prevention rule:** Public runtime consumes only the canonical manifest and
+  may never rewrite admission from a query parameter or accept localhost
+  component routes. Release checks run against clean tracked bytes, scan for
+  review/localhost bypasses, then inspect the exact current desktop/mobile
+  artifact before consulting old receipts.
+- **Durable correction:** The production override was removed; Episode 01's
+  three components are explicitly held; the manifest validator now matches the
+  browser's real `components + quizHandoff` schema and rejects the removed
+  bypass when calibrated against the pre-fix source; 112 rendered café checks
+  and 44 cross-entry checks pass. The prototype remains HOLD and none of its
+  untracked assets were promoted.
+- **Possible Behind the Build angle:** The Study Pack that worked only because
+  the designer's laptop still had files Git had never seen.
+- **Publication status:** INTERNAL RELEASE-SAFETY CORRECTION / NOT DEPLOYED.

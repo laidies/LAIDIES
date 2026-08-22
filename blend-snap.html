@@ -951,17 +951,10 @@
           parsed.getUTCDate() === parts[2];
       }
 
-      var studyPackReviewMode =
-        new URLSearchParams(window.location.search).get("study-pack-review") === "ep01";
-
       function safeRoute(value) {
-        var isSiteRoute = typeof value === "string" &&
+        return typeof value === "string" &&
           /^\/(?!\/)[A-Za-z0-9_./?=&%#-]+$/.test(value) &&
           !value.includes("..");
-        var isBoundedLocalReviewRoute = studyPackReviewMode &&
-          typeof value === "string" &&
-          /^http:\/\/127\.0\.0\.1:(4173|4182)\/?$/.test(value);
-        return isSiteRoute || isBoundedLocalReviewRoute;
       }
 
       function hasOnlyKeys(value, allowed) {
@@ -1258,36 +1251,7 @@
           fetchJson("/content/blend-snap-weekly-packs.json", controller.signal)
         ]).then(function(results) {
           if (loadId !== activeLoadId) return;
-          var packManifest = results[1];
-          if (studyPackReviewMode) {
-            packManifest = JSON.parse(JSON.stringify(packManifest));
-            var episodeOne = packManifest.packs.find(function(pack) {
-              return pack.episodeNumber === 1;
-            });
-            if (episodeOne) {
-              episodeOne.components.forEach(function(component) {
-                if (component.id === "try_on") {
-                  component.route = "http://127.0.0.1:4173/";
-                  component.status = "available";
-                  component.statusLabel = "Ready for review";
-                  component.publicNote = "Open the accepted local Try-On candidate.";
-                }
-                if (component.id === "cheat_sheet") {
-                  component.route = null;
-                  component.status = "held";
-                  component.statusLabel = "Redesign in progress";
-                  component.publicNote = "The earlier Cheat Sheet is held while the new one-page version is designed.";
-                }
-                if (component.id === "trading_cards") {
-                  component.route = "http://127.0.0.1:4182/";
-                  component.status = "available";
-                  component.statusLabel = "Ready for review";
-                  component.publicNote = "Open the new local Episode 01 Trading Card Pack candidate.";
-                }
-              });
-            }
-          }
-          applyPackData(packManifest, results[0].episodes || []);
+          applyPackData(results[1], results[0].episodes || []);
         }).catch(function() {
           if (loadId !== activeLoadId) return;
           showPackFailure();
