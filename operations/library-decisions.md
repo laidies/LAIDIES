@@ -50,8 +50,10 @@ older Library visual or public-framing instruction that conflicts with it.
   reading, purposeful visual aids, earned Rewind humour, practical agency,
   exact sharing/Puffy saves, signed-in progress/private annotations,
   updates/audio, catalogue reconsideration and evidence-based chapter/book
-  rewards. Do not recover those decisions from older artifacts or expand this
-  routine packet with duplicate book instructions.
+  rewards. Its visual grammar is a selectively expressive 1990s textbook in
+  the shared LAiDIES pop-art world—cohesive but never an overwhelming callout
+  or colour mishmash. Do not recover those decisions from older artifacts or
+  expand this routine packet with duplicate book instructions.
 - The Library and Miss Jeeves jointly own a privacy-bounded demand/content-gap
   loop. Shelf discovery and no/weak-coverage results offer an explicit topic
   request. Passive learning records controlled topic/outcome/source IDs only;

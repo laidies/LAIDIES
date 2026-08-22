@@ -568,6 +568,19 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   requests, retain frequency and evidence, and route a decision-ready
   recommendation to the relevant product owner. Demand informs priority; it
   does not automatically create a roadmap promise, rewrite content or publish.
+- **Library book visual addendum — Ali walkthrough, 2026-08-22:** Make the
+  reading experience feel like a polished 1990s textbook that belongs inside
+  LAiDIES. Selectively use the shared pop-art language—small attention
+  graphics, word/speech bubbles, bursts, stickers, colour fields, patterns and
+  backgrounds—to establish hierarchy or reinforce a teaching moment. Reference
+  examples provide visual grammar, not wording to copy. Avoid an overwhelming
+  mishmash of colour, decorative inserts or competing callouts; readers must
+  always see where to start and what matters. The same recognizable motifs may
+  recur throughout the site so the town feels cohesive, while density and
+  composition adapt to each product's job rather than making every page
+  identical. Routine book authority is consolidated in
+  `product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`; sitewide
+  reconciliation belongs to the cross-system visual walkthrough.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 

@@ -67,6 +67,21 @@ the assigned mechanism or relationship: process/flow, diagram, map, comparison,
 worked example, representational image or another faithful textbook aid. An
 image added merely to interrupt prose fails.
 
+The overall reader should feel like a polished 1990s textbook reimagined inside
+the LAiDIES world—not a generic web article and not an overwhelming scrapbook.
+Use the shared pop-art visual vocabulary selectively: bursts, speech/word
+bubbles, stickers, arrows, colour fields, patterns and small attention devices
+may establish hierarchy, signal a recurring component or reinforce a teaching
+moment. They must not compete with the mechanism, create a wall of colour or
+make the reader hunt for the primary explanation. Instructional text, labels
+and controls remain deterministic live content; reference-image wording is
+inspiration for form, not copy to reproduce or bake into artwork.
+
+The book grammar should visibly belong to the same LAiDIES system used across
+the site. Shared motifs retain recognizable roles while each destination adapts
+their density and layout to its job. Cohesion does not require every page to
+look identical or every paragraph to receive a pop-art treatment.
+
 Use one accessible, colour-coded but not colour-dependent grammar for recurring
 jobs such as:
 
@@ -201,10 +216,11 @@ mobile, keyboard and native assistive technology:
 8. resident-controlled public recognition; and
 9. current exact source, render, deployment and public-origin proof.
 
-Non-goals are simulated page turning, decorative textbook visuals, glossary-
-only teaching, generic tips, forced pop-culture density, passive-scroll rewards,
-mandatory public reading history, false account sync, credential claims and
-unversioned downloadable copies.
+Non-goals are simulated page turning, decorative textbook visuals, an
+overwhelming colour/callout mishmash, glossary-only teaching, generic tips,
+forced pop-culture density, passive-scroll rewards, mandatory public reading
+history, false account sync, credential claims and unversioned downloadable
+copies.
 
 ## Still open for product/technical competition
 

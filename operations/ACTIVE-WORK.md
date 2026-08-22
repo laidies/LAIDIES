@@ -526,6 +526,14 @@ Jeeves. Popularity informs but does not automatically create a roadmap item,
 draft or publication. This is **SPECIFIED / NOT WIRED** and is merged into the
 Miss Jeeves build authority rather than creating another operating source.
 
+Ali's book-visual addendum requires a polished 1990s-textbook feel inside the
+shared LAiDIES pop-art language. Bursts, bubbles, stickers, colour fields and
+related motifs are selective hierarchy/teaching devices, not a density quota;
+an overwhelming mishmash fails. The reusable grammar should help books and the
+wider site feel like one world without making every product identical. This is
+merged into `BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`; no visual candidate was
+created or admitted.
+
 ### 2026-08-21 current LIBRAiRY page release cut
 
 Current `library.html` SHA-256
