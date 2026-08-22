@@ -1566,6 +1566,11 @@ objective; every open lane keeps its own checkpoint.
   centre. It explains how the site and every building work, routes to all 17
   buildings, offers a real optional guided tour and presents the admitted
   postcard collection as a central invitation experience.
+- **Explanation order ruling:** what SUNNYVAiLE is comes before how to use it.
+  The Centre owns the full learning-world explanation: why a town and Rewind
+  Era cues help, why the formats have distinct jobs, then how to choose a path
+  or building. Homepage keeps a compact causal summary derived from this source;
+  Town Hall keeps fictional civic history and characters.
 - **Orientation extension:** avoid two separately maintained tours. The
   proposed single orientation system offers a complete building view and a
   goal/content-format path view from the same canonical records; exact public

@@ -287,6 +287,13 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   replace them with a cohesive vibrant 1990s LAiDIES tourist-centre experience.
   Full authority:
   `product-stewards/visitors-centre/ALI-VISITORS-CENTRE-WALKTHROUGH-2026-08-22.md`.
+- **Explanation correction, 2026-08-22:** “What is SUNNYVAiLE?” comes before
+  “How do I use it?” The Centre owns the full LAiDIES learning concept: why the
+  town/Rewind Era support understanding and memory, and why Episodes, news,
+  books, songs, activities, games, tools, Study Packs and Classes have distinct
+  complementary jobs. Homepage keeps the minimum causal explanation needed
+  before a visitor chooses to enter the Centre; Town Hall owns fictional civic
+  history and characters.
 - **Sunday cut:** complete first-time orientation with no dead destination or
   fake readiness, plus a current truthful tour/trailer and admitted postcard
   handoff; exact referral/reward scope follows system inventory and provider

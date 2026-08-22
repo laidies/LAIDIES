@@ -60,6 +60,14 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
   how the site works, understand what every building is for and navigate to
   every building without depending on the Homepage or LIBRAiRY to repeat the
   full orientation. `LOCKED LEDGER`
+- The explanation begins with what SUNNYVAiLE is and why LAiDIES created this
+  learning world. It explains the distinct jobs of the available learning
+  formats before asking the visitor to choose a path or building. “How do I use
+  it?” without “What is it and why does it work this way?” is incomplete.
+  `LOCKED LEDGER`
+- Homepage retains a compact first-screen causal summary derived from this
+  contract; the Centre owns the complete version and reusable format/path
+  truth. `LOCKED LEDGER`
 - The building must feel and operate like one inhabited welcome room whose map,
   counter and take-away objects perform the orientation job; it must not
   devolve into a generic dashboard, long card roll or disconnected stack of
@@ -139,6 +147,24 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
 - A complete building view may be explored in any order; it is not a forced
   17-stop procession. Goal paths show only the relevant admitted destinations
   and explain why their content formats differ. `LOCKED LEDGER`
+
+## Learning-world explanation contract
+
+- First establish that SUNNYVAiLE is the fictional LAiDIES learning world, not
+  a real town or a decorative wrapper. `LOCKED LEDGER`
+- Explain the mechanism: familiar places give distinct learning jobs memorable
+  locations; Rewind Era recognition supplies retrieval cues and belonging;
+  neither nostalgia nor story replaces technical mechanism, evidence or
+  practice. `LOCKED LEDGER`
+- Explain format jobs before listing destinations: NewsStand = dated current
+  information; Episodes = memorable human stakes and narrative; LIBRAiRY books
+  = durable connected reference; Study Packs = review/practice; Classes =
+  demonstration, feedback and transfer; songs/activities/games/tools =
+  engagement, rehearsal, application or visible reasoning according to each
+  product's admitted contract. `LOCKED LEDGER`
+- Keep the explanation progressive and skippable. Returning or already-
+  oriented visitors retain direct access to every admitted building.
+  `LOCKED LEDGER`
 
 ## Help desk and FAQ model
 

@@ -48,9 +48,11 @@ visual page.
    patterns. Create the missing `VISUAL-ASSET-INVENTORY.md` before any visual
    production.
 2. **First-screen comprehension proof.** Produce one responsive desktop/mobile
-   structural prototype showing a real tourist-centre arrival, a clear “how
-   SUNNYVAiLE works” explanation and two explicit choices: explore any building
-   or take the optional tour. The map is visible but not the masthead.
+   structural prototype that answers “What is SUNNYVAiLE?” and shows the
+   tourist-centre arrival. It establishes the town/multiple-format learning
+   concept before two explicit actions: find a useful path or explore any
+   building. The map is visible but not the masthead; optional guidance remains
+   available without becoming a gate.
 3. **Mechanism proof.** Rebuild one destination interaction only: choose one
    named building by map or accessible named route → see its current job/state
    → step inside. Prove keyboard, touch, Back/Escape, live announcement and
@@ -59,18 +61,22 @@ visual page.
    compact contextual stop that can start, pause, skip, leave and resume without
    hiding direct navigation. Do not scale to 17 stops until this interaction is
    understood by a clean first-time visitor and unobtrusive on return.
-5. **Orientation architecture proof.** Use one canonical building/job record to
+5. **Learning-system explanation proof.** Test one compact layered explanation
+   that lets a clean visitor explain why the town exists and distinguish two
+   learning formats. It must reconnect Rewind Era familiarity to the real
+   learning mechanism and remain skippable.
+6. **Orientation architecture proof.** Use one canonical building/job record to
    render both the complete town view and one short “I want to learn” itinerary.
    Prove the itinerary clarifies content-format differences without creating a
    second duplicated tour or hiding the full directory.
-6. **FAQ proof.** Reconcile the protected 8/12 specification registry into the
+7. **FAQ proof.** Reconcile the protected 8/12 specification registry into the
    release branch without promoting its stale evidence. Bind `VCFAQ-001` or
    `VCFAQ-002` to its stable answer anchor and current owner truth. Do not draft
    identity/privacy/provider/Finance answers until their exact sources resolve.
-7. **Postcard proof boundary.** Inventory and independently admit one existing
+8. **Postcard proof boundary.** Inventory and independently admit one existing
    postcard before designing a gallery. The pilot ends at a truthful handoff;
    referral/reward UI remains absent until the missing receiver exists.
-8. **Admission.** Compare same-viewport public incumbent and candidate, pass the
+9. **Admission.** Compare same-viewport public incumbent and candidate, pass the
    exact design-review gate, then request Ali's visual verdict through the
    resolved review URL. No raw concept or local candidate is shown early.
 

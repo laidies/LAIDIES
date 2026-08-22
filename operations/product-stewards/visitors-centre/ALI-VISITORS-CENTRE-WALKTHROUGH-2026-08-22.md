@@ -15,6 +15,38 @@ The Centre is not a generic directory page. Its map, destination information,
 guided tour, trailer and postcard display are parts of one coherent
 tourist-centre experience.
 
+## Explanation order and Homepage boundary — locked by Ali, 2026-08-22
+
+“How do I use SUNNYVAiLE?” is not the first visitor question. The Centre must
+answer these in order:
+
+1. **What is SUNNYVAiLE?** It is the LAiDIES learning world—not a real town,
+   unexplained lore or decorative theme.
+2. **Why did LAiDIES build a town?** Familiar places give different kinds of AI
+   learning a memorable home; Rewind Era recognition supplies useful retrieval
+   cues and belonging without replacing technical depth.
+3. **Why are there Episodes, books, news, songs, activities, games, tools,
+   Study Packs and Classes?** Each format has a distinct cognitive or practical
+   job. They work together rather than repackaging the same content.
+4. **How do I use SUNNYVAiLE for what I need?** Goal/content paths and optional
+   guided orientation help the visitor choose.
+5. **What exists and where is it?** The complete building map, directory and
+   direct routes provide the answer.
+
+Some of this explanation currently lives on the Homepage. Do not remove the
+minimum needed there: the first Homepage screen must still say that LAiDIES
+teaches AI, SUNNYVAiLE organizes the different ways of learning and the
+buildings have familiar jobs. That prevents an unexplained-town bounce.
+
+The Visitor’s Centre becomes the authoritative full explanation and reusable
+source for that Homepage summary. It owns the deeper learning rationale,
+format differences, paths, tour, FAQs and complete directory. Town Hall owns
+fictional civic history and characters, not the learning-system rationale.
+
+The full Centre explanation remains layered and skippable. A visitor who
+already understands the concept can go directly to a building without reading
+an essay or replaying onboarding.
+
 ## Arrival and map
 
 - The small SUNNYVAiLE map may remain an interactive way to explore. Selecting
