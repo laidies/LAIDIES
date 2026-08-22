@@ -102,8 +102,8 @@ function validOrder() {
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
-    schemaVersion: "laidies-content-quality-exemplars.v1",
-    negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
+    schemaVersion: "laidies-content-quality-exemplars.v2",
+    negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesWhen: { contentClasses: ["EXPLANATION"], surfaceTags: ["LIBRAIRY"] }, failureFamilies: negativeFamilies }],
     positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: sha256(path.join(root, goodPath)), useFor: ["EXPLANATION"] }]
   }));
   const dispositions = Object.fromEntries(negativeFamilies.map(name => [name, { status: "CLEAR", producerGuard: `Prevent ${name}.`, preventionEvidence: `Fixture architecture explicitly prevents ${name}.` }]));
@@ -113,7 +113,7 @@ function validOrder() {
     readerContract: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", priorKnowledge: "None assumed.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "A work question.", surfaceJob: "Durable explanation.", desiredFeeling: "Oh, I get it now." },
     canonicalTruth: [{ claimId: "fixture", owner: "fixture-owner", freshnessTrigger: "source changes", source: { path: sourcePath, sha256: sha256(path.join(root, sourcePath)) } }],
     positiveExemplars: [{ id: "GOOD", strengthsToUse: ["connected mechanism"], patternsNotToCopy: ["exact structure"] }],
-    knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
+    knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v2", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
     draftArchitecture: { plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template." },
     communicationDesign: {
       benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V2",

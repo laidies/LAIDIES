@@ -83,16 +83,19 @@ desktop word breaks, an unreadable phone legend and two phone-height escapes.
 The repaired seven views and the previously inspected remainder now pass.
 This does not integrate the book into LIBRAiRY or publish it.
 
-## Current visual registry
+## Rejected historical visual registry
 
-The exact current 45-record implementation authority is
-`content/library-books/pilots/ai-fundamentals-101-quick-manuscript/teaching-visuals.mjs`.
+The rejected 45-record implementation is quarantined at
+`content/library-books/pilots/ai-fundamentals-101-quick-manuscript/_rejected-20260821/teaching-visuals.mjs`.
+It is historical evidence, not current implementation authority; current
+visual identity and disposition live in
+`operations/product-stewards/library/VISUAL-ASSET-INVENTORY.md`.
 Every record binds a section, reader question, visual family, visible mechanism
 and plain-language takeaway. The earlier chapter-level opportunity table is
 retired because it described a six-chapter prototype rather than this
 20-chapter manuscript and incorrectly proposed a Chapter 1 system-map piece.
-The generated `artifact-manifest.json` records the rendered count; neither that
-count nor the registry itself constitutes visual acceptance.
+The historical `artifact-manifest.json` recorded its rendered count; neither
+that count nor the rejected registry constitutes visual acceptance.
 
 ## Visual acceptance
 

@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { applicableNegativeExemplars } from "./check-content-producer-contract.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
@@ -31,10 +32,10 @@ export const FAILURE_FAMILIES = [
   "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"
 ];
 
-export function enforcedFailureFamilies(registry) {
+export function enforcedFailureFamilies(registry, context) {
   return [...new Set([
     ...FAILURE_FAMILIES,
-    ...(registry?.negativeExemplars || []).flatMap(item => item.failureFamilies || [])
+    ...applicableNegativeExemplars(registry, context || {}).flatMap(item => item.failureFamilies || [])
   ])].sort();
 }
 
@@ -103,13 +104,15 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
     }
   }
 
-  const negativeRegistry = new Map((registry.negativeExemplars || []).map(item => [item.id, item]));
-  const enforcedFamilies = enforcedFailureFamilies(registry);
+  require(registry.schemaVersion === "laidies-content-quality-exemplars.v2", "exemplar registry schemaVersion must be v2");
+  const scopedNegatives = applicableNegativeExemplars(registry, receipt);
+  const negativeRegistry = new Map(scopedNegatives.map(item => [item.id, item]));
+  const enforcedFamilies = enforcedFailureFamilies(registry, receipt);
   require(receipt?.calibration?.registrySha256 === sha256(registryBytes), "calibration registrySha256 is stale");
   require(receipt?.calibration?.reviewerPrincipalId === receipt?.reviewer?.principalId, "calibration reviewer does not match candidate reviewer");
   require(text(receipt?.calibration?.reviewedAt) && Date.parse(receipt.calibration.reviewedAt) <= Date.parse(receipt.reviewedAt), "calibration must be completed by this reviewer before candidate review");
   const suppliedNegatives = new Map((receipt?.calibration?.negatives || []).map(item => [item.exemplarId, item]));
-  require(suppliedNegatives.size === negativeRegistry.size, "every registered negative exemplar must be calibrated");
+  require(suppliedNegatives.size === negativeRegistry.size, "every applicable negative exemplar must be calibrated");
   for (const [id, negative] of negativeRegistry) {
     const calibration = suppliedNegatives.get(id);
     require(Boolean(calibration), `registered negative calibration ${id} is required`);

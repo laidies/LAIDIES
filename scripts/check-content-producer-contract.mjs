@@ -22,6 +22,31 @@ const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const text = value => typeof value === "string" && value.trim().length > 0;
 const array = (value, minimum = 1) => Array.isArray(value) && value.length >= minimum;
 
+function surfaceTags(surface) {
+  const normalized = String(surface || "").toUpperCase().replace(/[^A-Z0-9]+/g, "_");
+  const tags = new Set([normalized]);
+  const aliases = [
+    ["LIBRAIR", "LIBRAIRY"], ["NEWSSTAND", "NEWSSTAND"], ["THE_DAILY", "THE_DAILY"],
+    ["THE_BREAKING", "THE_BREAKING"], ["PAIGE", "PAIGE_PRACTICAL_AI_TIP"],
+    ["CAREER", "CAREER_WORK_LIFE_TIP"], ["PROMPTOSCOPE", "PROMPTOSCOPE"],
+    ["DAILY_SERVICE", "DAILY_SERVICE_COLUMN"], ["COMPACT_AI_TIP", "COMPACT_AI_TIP"]
+  ];
+  for (const [needle, tag] of aliases) if (normalized.includes(needle)) tags.add(tag);
+  return tags;
+}
+
+export function applicableNegativeExemplars(registry, { contentClass, surface }) {
+  const tags = surfaceTags(surface);
+  return (registry?.negativeExemplars || []).filter(item => {
+    const selector = item?.appliesWhen;
+    if (!selector || !array(selector.contentClasses)) return false;
+    const classMatch = selector.contentClasses.includes("*") || selector.contentClasses.includes(contentClass);
+    const requiredTags = Array.isArray(selector.surfaceTags) ? selector.surfaceTags : [];
+    const surfaceMatch = requiredTags.length === 0 || requiredTags.some(tag => tags.has(tag));
+    return classMatch && surfaceMatch;
+  });
+}
+
 function boundFile(root, binding, label, errors) {
   if (!binding || !text(binding.path) || !HASH.test(binding.sha256 || "")) {
     errors.push(`${label}: exact path and SHA-256 are required`);
@@ -77,18 +102,22 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     require(array(use?.patternsNotToCopy), `positiveExemplars[${index}].patternsNotToCopy is required`);
   }
 
-  const negatives = registry.negativeExemplars || [];
+  require(registry.schemaVersion === "laidies-content-quality-exemplars.v2", "exemplar registry schemaVersion must be v2");
+  for (const negative of registry.negativeExemplars || []) {
+    require(array(negative?.appliesWhen?.contentClasses), `negative exemplar ${negative?.id || "unknown"} lacks explicit content-class scope`);
+    require(Array.isArray(negative?.appliesWhen?.surfaceTags), `negative exemplar ${negative?.id || "unknown"} lacks explicit surface scope`);
+  }
+  const negatives = applicableNegativeExemplars(registry, contract);
   const negativeIds = negatives.map(item => item.id);
   require(contract?.knownFailurePreflight?.registryVersion === registry.schemaVersion, "knownFailurePreflight registryVersion is stale");
   require(contract?.knownFailurePreflight?.registrySha256 === sha256(registryBytes), "knownFailurePreflight registrySha256 is stale");
   require(new Set(negativeIds).size === negativeIds.length, "negative exemplar IDs must be unique");
   const suppliedNegativeIds = contract?.knownFailurePreflight?.negativeExemplarIds || [];
-  require(suppliedNegativeIds.length === negativeIds.length && negativeIds.every(id => suppliedNegativeIds.includes(id)), "every registered negative exemplar must be consumed before drafting");
+  require(suppliedNegativeIds.length === negativeIds.length && negativeIds.every(id => suppliedNegativeIds.includes(id)), "every applicable negative exemplar must be consumed before drafting");
   require(Array.isArray(contract?.knownFailurePreflight?.knownDefectsRemaining), "knownDefectsRemaining must be an array");
   const dispositions = contract?.knownFailurePreflight?.dispositions || {};
   for (const negative of negatives) {
     require(text(negative?.incidentId), `negative exemplar ${negative?.id || "unknown"} lacks incidentId`);
-    require(array(negative?.appliesTo), `negative exemplar ${negative?.id || "unknown"} lacks appliesTo`);
     boundFile(root, { path: negative.path, sha256: negative.sha256 }, `negative exemplar ${negative.id}`, errors);
     for (const family of negative?.failureFamilies || []) {
       require(dispositions?.[family]?.status === "CLEAR", `known failure ${family} is not CLEAR before drafting`);

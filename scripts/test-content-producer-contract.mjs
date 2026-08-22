@@ -22,8 +22,11 @@ try {
   const benchmark = write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
   const failureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
-    schemaVersion: "laidies-content-quality-exemplars.v1",
-    negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(bad), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies }],
+    schemaVersion: "laidies-content-quality-exemplars.v2",
+    negativeExemplars: [
+      { id: "BAD", path: badPath, sha256: hash(bad), incidentId: "fixture-incident", appliesWhen: { contentClasses: ["EXPLANATION"], surfaceTags: ["LIBRAIRY"] }, failureFamilies },
+      { id: "BAD-NEWS", path: badPath, sha256: hash(bad), incidentId: "fixture-news-incident", appliesWhen: { contentClasses: ["NEWS"], surfaceTags: ["THE_BREAKING"] }, failureFamilies: ["falseBreakingUrgency"] }
+    ],
     positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(good), useFor: ["EXPLANATION"] }]
   }));
   const dispositions = Object.fromEntries(failureFamilies.map(key => [key, { status: "CLEAR", producerGuard: `Prevent ${key} before drafting.`, preventionEvidence: `Fixture architecture explicitly prevents ${key}.` }]));
@@ -40,7 +43,7 @@ try {
     },
     canonicalTruth: [{ claimId: "fixture-claim", owner: "fixture-owner", freshnessTrigger: "source changes", source: { path: sourcePath, sha256: hash(source) } }],
     positiveExemplars: [{ id: "GOOD", strengthsToUse: ["connected mechanism"], patternsNotToCopy: ["exact structure"] }],
-    knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: hash(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
+    knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v2", registrySha256: hash(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
     draftArchitecture: {
       plainAnswer: "A plain answer first.", causalSequence: ["input", "mechanism", "decision"], workedCase: "Work handover case.",
       transferCase: "A family travel plan.", usefulAction: "Check the source before acting.", analogyPlan: [],
@@ -101,11 +104,11 @@ try {
   const wrongArcOrder = structuredClone(contract); wrongArcOrder.communicationDesign.explanationArc.order = "REVEAL_THEN_EXPLAIN";
   assert.match(inspect(wrongArcOrder).join("\n"), /must preserve the default explanatory sequence/);
   const laterRegistry = JSON.parse(fs.readFileSync(registry, "utf8"));
-  laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesTo: ["EXPLANATION"], path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
+  laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesWhen: { contentClasses: ["EXPLANATION"], surfaceTags: ["LIBRAIRY"] }, path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
-  assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
+  assert.match(inspect(omittedLaterFailure).join("\n"), /every applicable negative exemplar/);
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 scoped_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

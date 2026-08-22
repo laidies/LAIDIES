@@ -30,8 +30,14 @@ export function inspectBook(pilotDir = ownDir) {
   const source = json("book-source.json");
   const fragment = read("rendered-review.html").toString("utf8");
   const review = read("review.html").toString("utf8");
+  const builder = read("build-book.mjs").toString("utf8");
   const manifest = json("artifact-manifest.json");
   const errors = [];
+
+  const rejectedRuntimeAsset = "ch06-bicycle-tree-learning-image.png";
+  for (const [label, body] of [["builder", builder], ["book source", JSON.stringify(source)], ["rendered fragment", fragment], ["review", review]]) {
+    if (body.includes(rejectedRuntimeAsset)) errors.push(`${label} still consumes the quarantined Chapter 6 bicycle/tree asset`);
+  }
 
   const expected = {
     manuscript: "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9",

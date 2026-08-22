@@ -15086,3 +15086,32 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why keeping every lesson in the prompt
   made the system remember more and understand less.
 - **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NOT DEPLOYED.
+
+## BTB-479 — Global defect lists and manifest-only guards reintroduced stale work
+
+- **Date:** 2026-08-21
+- **Area:** Repository-wide context routing, rejected-media containment and active learning queues.
+- **Failure:** Every prose task was required to consume every known failure,
+  including NewsStand and service-column defects that had no relationship to a
+  Library textbook. Separately, a Chapter 6 image rejected by Ali remained in
+  the active book builder and rendered review while the manifest omitted it,
+  and a retired Vocab book remained in the active learning graph and queue.
+- **Root cause:** Defects had no enforced content-class or surface scope;
+  rejection checks inspected declarations instead of all active consumers; and
+  historical work records were treated as permanent active context.
+- **Prevention rule:** Route every negative exemplar by explicit content class
+  and destination surface, with only genuinely universal defects applying
+  globally. A rejected identity must fail any active builder, source, rendered
+  consumer or manifest that contains it. Resolved, retired and superseded work
+  leaves active queues and remains recoverable through Git or routed evidence.
+- **Durable correction:** The content-quality registry now carries explicit
+  scopes and both producer and review checks consume only applicable defects,
+  with calibrated fixtures proving irrelevant failures stay out. The AI book
+  builder no longer imports or renders the rejected Chapter 6 asset, and its
+  test injects that exact runtime reference to prove the guard fails. Retired
+  Vocab and resolved relationship work were removed from the current graph and
+  queue without deleting their history.
+- **Possible Behind the Build angle:** Why giving every specialist every lesson
+  made each one worse—and how routing memory by job prevents old mistakes from
+  becoming new instructions.
+- **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NOT DEPLOYED.

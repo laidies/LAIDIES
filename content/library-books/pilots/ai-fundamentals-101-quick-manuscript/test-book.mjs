@@ -114,6 +114,12 @@ try {
     throw new Error("calibration failed: checker accepted a rejected visual asset in the active manifest");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace("</style>", ".fixture{background:url('assets/ch06-bicycle-tree-learning-image.png')}</style>"));
+  const returnedQuarantinedRuntimeAsset = inspectBook(temporary);
+  if (returnedQuarantinedRuntimeAsset.pass || !returnedQuarantinedRuntimeAsset.errors.some(error => error.includes("still consumes the quarantined Chapter 6 bicycle/tree asset"))) {
+    throw new Error("calibration failed: checker accepted a runtime reference to the quarantined Chapter 6 bicycle/tree asset");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<source media="(max-width: 600px)" srcset="assets/ch01-automation-vs-ai-representative-mobile-v2.jpeg">', ""));
   const missingPurposeBuiltMobile = inspectBook(temporary);
   if (missingPurposeBuiltMobile.pass || !missingPurposeBuiltMobile.errors.some(error => error.includes("separately composed mobile asset"))) {
@@ -263,7 +269,7 @@ try {
   if (returnedChapterThirteenClaim.pass || !returnedChapterThirteenClaim.errors.some(error => error.includes("Chapter 13 has returned a rejected sandbox guarantee"))) {
     throw new Error("calibration failed: checker accepted a Chapter 13 sandbox guarantee");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL missing_purpose_built_mobile=FAIL missing_chapter_two_mobile=FAIL missing_chapter_three_mobile=FAIL missing_chapter_four_mobile=FAIL missing_chapter_five_mobile=FAIL missing_chapter_six_mobile=FAIL missing_chapter_seven_mobile=FAIL missing_chapter_eight_mobile=FAIL missing_chapter_nine_mobile=FAIL missing_chapter_ten_mobile=FAIL missing_chapter_eleven_mobile=FAIL missing_chapter_twelve_mobile=FAIL missing_chapter_thirteen_mobile=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL returned_rejected_css_representative=FAIL returned_absolute_token_claim=FAIL returned_word_token_claim=FAIL returned_rag_guarantee=FAIL returned_chapter_nine_guarantee=FAIL returned_chapter_ten_guarantee=FAIL returned_chapter_eleven_guarantee=FAIL returned_chapter_twelve_claim=FAIL returned_chapter_thirteen_claim=FAIL technical_clarifications=110");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL returned_section_visual=FAIL hidden_chapter_front_matter=FAIL returned_chapter_one_visual=FAIL returned_system_map=FAIL returned_visual_asset=FAIL returned_quarantined_runtime_asset=FAIL missing_purpose_built_mobile=FAIL missing_chapter_two_mobile=FAIL missing_chapter_three_mobile=FAIL missing_chapter_four_mobile=FAIL missing_chapter_five_mobile=FAIL missing_chapter_six_mobile=FAIL missing_chapter_seven_mobile=FAIL missing_chapter_eight_mobile=FAIL missing_chapter_nine_mobile=FAIL missing_chapter_ten_mobile=FAIL missing_chapter_eleven_mobile=FAIL missing_chapter_twelve_mobile=FAIL missing_chapter_thirteen_mobile=FAIL duplicate_callout_colour=FAIL returned_map_piece=FAIL returned_rejected_css_representative=FAIL returned_absolute_token_claim=FAIL returned_word_token_claim=FAIL returned_rag_guarantee=FAIL returned_chapter_nine_guarantee=FAIL returned_chapter_ten_guarantee=FAIL returned_chapter_eleven_guarantee=FAIL returned_chapter_twelve_claim=FAIL returned_chapter_thirteen_claim=FAIL technical_clarifications=110");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

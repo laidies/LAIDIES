@@ -83,7 +83,7 @@ const outcomes = {
   analogyIntegrity: outcome("The magazine-clipping analogy maps variable-size reusable text pieces and explicitly stops before intention, meaning or human judgment.", "The tokenizer is not rummaging through *Sassy* with taste, intention or a glue stick.", "review-text.md:39")
 };
 
-const failureFamilies = Object.fromEntries(enforcedFailureFamilies(registry).map(name => [name, {
+const failureFamilies = Object.fromEntries(enforcedFailureFamilies(registry, { contentClass: "EXPLANATION", surface: "LIBRAIRY" }).map(name => [name, {
   present: false,
   observation: `${name} is absent after full exact-prose producer inspection; the section uses one connected mechanism, one earned bounded analogy and specific reader actions.`,
   artifactLocator: "review-text.md:1-112"

@@ -5,7 +5,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderLibraryBookSource } from "../../../../scripts/render-library-book.mjs";
-import { teachingVisuals, renderTeachingVisual, teachingVisualCss } from "./teaching-visuals.mjs";
 
 const pilotDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(pilotDir, "../../../..");
@@ -63,7 +62,6 @@ const paths = {
   chapterOneSpriteRules: path.join(pilotDir, "assets/ch01-sprite-rules-and-examples.jpg"),
   chapterOneSpriteProducts: path.join(pilotDir, "assets/ch01-sprite-generalization-products.jpg"),
   chapterOneWomanRulebook: path.join(pilotDir, "assets/ch01-source-woman-rulebook.jpg"),
-  chapterSixBicycleTree: path.join(pilotDir, "assets/ch06-bicycle-tree-learning-image.png"),
 };
 
 const chapterOneTeachingAssets = [
@@ -415,9 +413,12 @@ const additionalConcepts = [
   ], takeaway: "The camps disagree about definitions, evidence, architecture and limits—not only about a date." },
 ];
 
-const conceptDiagrams = teachingVisuals;
+const conceptDiagrams = [];
 const visualTeachingLayerActive = false;
 const visualTeachingLayerStatus = "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED";
+if (visualTeachingLayerActive) {
+  throw new Error("The rejected visual teaching layer cannot be activated; build a new admitted successor instead.");
+}
 const chapterOnePurposeBuiltVisualActive = true;
 const chapterOnePurposeBuiltVisualStatus = "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED";
 const chapterOneProductCutawayVisualActive = true;
@@ -465,10 +466,6 @@ const chapterEightContextRetrievalActive = false;
 const chapterEightContextRetrievalStatus = rejectedRepresentativeStatus;
 const chapterNineCustomisationDecisionActive = false;
 const chapterNineCustomisationDecisionStatus = rejectedRepresentativeStatus;
-
-function renderConceptDiagram(concept) {
-  return renderTeachingVisual(concept);
-}
 
 function renderChapterOnePurposeBuiltVisual() {
   return `<figure id="ch01-purpose-built-visual" class="purpose-built-teaching-visual" data-purpose-built-teaching-visual="ch01-rule-versus-learned-pattern" aria-describedby="ch01-purpose-built-caption">
@@ -868,56 +865,6 @@ function renderChapterFourTokenProof() {
     <p class="ch4-letter-landing"><strong>This is the practical consequence:</strong> fluent language is a token-level strength; exact character counting or reversing can be harder because the model did not receive a neat row of individual letters.</p>
   </aside>
   <figcaption id="ch04-token-proof-caption"><strong>Trace it:</strong> repeated text builds a token vocabulary before use → your sentence is matched to that vocabulary → the chosen chunks become token IDs → the model processes those IDs. The shown splits and IDs are teaching examples, not a universal tokenizer output.</figcaption>
-</figure>`;
-}
-
-function renderChapterSixPatchProof() {
-  const patchCells = Array.from({ length: 24 }, (_, index) => `<i class="ch6-patch-cell ch6-patch-${index + 1}" aria-hidden="true"></i>`).join("");
-  const imageTokens = [1, 2, 3].map(number => `<i class="ch6-image-token"><b>${number}</b><span>image token</span></i>`).join("");
-  const compactImageTokens = [1, 2, 3].map(number => `<i class="ch6-image-token ch6-image-token-compact"><span>T${number}</span></i>`).join("");
-  return `<figure class="ch6-patch-proof" data-representative-teaching-visual="ch06-photo-to-patches" aria-labelledby="ch06-patch-proof-title" aria-describedby="ch06-patch-proof-caption">
-  <header class="ch6-patch-proof-head">
-    <p>6.2 · FROM PHOTO TO ANSWER</p>
-    <h4 id="ch06-patch-proof-title">A photo becomes pieces the model can calculate with</h4>
-    <span>The model does not experience one whole picture. Follow the same photo as it becomes a joined stream of image information and words.</span>
-  </header>
-  <div class="ch6-patch-proof-body">
-    <section class="ch6-upload" aria-label="Step 1: upload a photo and ask a question">
-      <div class="ch6-step-label"><b>1</b><span>YOU SEND</span></div>
-      <div class="ch6-photo-frame"><img src="assets/ch06-bicycle-tree-learning-image.png" alt="A purple bicycle beside a leafy tree"></div>
-      <p class="ch6-question">“What is in this photo?”</p>
-    </section>
-    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
-    <section class="ch6-divide" aria-label="Step 2: software divides the image into small patches">
-      <div class="ch6-step-label"><b>2</b><span>DIVIDE</span></div>
-      <div class="ch6-grid-photo" role="img" aria-label="The same bicycle photograph divided into a teaching grid of 24 small patches">
-        <img src="assets/ch06-bicycle-tree-learning-image.png" alt="">
-        <span class="ch6-patch-overlay" aria-hidden="true">${patchCells}</span>
-      </div>
-      <p>Small patches preserve pieces of colour, edge and position—not whole named objects.</p>
-    </section>
-    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
-    <section class="ch6-translate" aria-label="Step 3: a vision encoder translates patches into numerical representations">
-      <div class="ch6-step-label"><b>3</b><span>TRANSLATE</span></div>
-      <div class="ch6-sample-patches" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="ch6-encoder"><span>VISION ENCODER</span><strong>visual pieces → numbers</strong></div>
-      <div class="ch6-number-stream" aria-label="Three illustrative image-token bundles">${imageTokens}</div>
-      <p class="ch6-token-example"><strong>Inside token 1:</strong> 0.14 · −0.82 · 0.37 · … <small>illustrative values</small></p>
-      <p>The encoder converts all the patches into numerical image tokens the language model can use.</p>
-    </section>
-    <span class="ch6-flow-arrow" aria-hidden="true">→</span>
-    <section class="ch6-combine" aria-label="Step 4: image tokens and text tokens enter one combined sequence">
-      <div class="ch6-step-label"><b>4</b><span>READ TOGETHER</span></div>
-      <div class="ch6-context-ribbon">
-        <div class="ch6-image-token-row"><strong>IMAGE TOKENS<br><small>each holds numbers</small></strong>${compactImageTokens}<span>…</span></div>
-        <div class="ch6-text-token-row"><strong>WORDS</strong><i>What</i><i>is</i><i>in</i><i>this</i><i>photo?</i></div>
-        <p>ONE COMBINED SEQUENCE</p>
-      </div>
-      <div class="ch6-answer"><small>MODEL RELATES BOTH</small><strong>A purple bicycle beside a tree.</strong></div>
-    </section>
-  </div>
-  <aside class="ch6-misconception"><strong>What this blocks:</strong> a patch is not “the bicycle patch.” One object can cross many patches, so the model must relate patterns across the image. That is why recognising a bicycle can be easier than counting every small object perfectly.</aside>
-  <figcaption id="ch06-patch-proof-caption"><strong>Trace it:</strong> upload photo + question → divide the photo → translate patches into numbers → place image and word tokens in one sequence → generate an answer from both. Patch counts and internal values vary by system; the 24-square grid and numbers here are teaching examples.</figcaption>
 </figure>`;
 }
 
@@ -1392,10 +1339,6 @@ function buildReviewPage(source, fragment, manuscript) {
       if (tokenProofInsertion < 0) throw new Error("missing Chapter 4.3 representative visual placement anchor");
       mainFragment = `${mainFragment.slice(0, tokenProofInsertion)}\n${renderChapterFourTokenProof()}\n${mainFragment.slice(tokenProofInsertion)}`;
     }
-    const patchProofAnchor = '<h4 id="ch-6-what-the-model-actually-sees">What the model actually "sees"</h4>';
-    const patchProofInsertion = mainFragment.indexOf(patchProofAnchor);
-    if (patchProofInsertion < 0) throw new Error("missing Chapter 6.2 representative visual placement anchor");
-    mainFragment = `${mainFragment.slice(0, patchProofInsertion)}\n${renderChapterSixPatchProof()}\n${mainFragment.slice(patchProofInsertion)}`;
     if (chapterSevenRequestJourneyActive) {
       const requestJourneyAnchor = '<h3 id="ch-7-7-3-why-the-same-prompt-gives-different-answers">';
       const requestJourneyInsertion = mainFragment.indexOf(requestJourneyAnchor);
@@ -1566,7 +1509,6 @@ body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
 @media(max-width:850px){.ch1-core .ch1-later-flow{display:none}.ch1-core .ch1-later-mobile{display:block;margin:.5rem 0 0;padding:.45rem;background:#fff;border:2px solid #8499c9;border-radius:7px;color:#101842;font-size:11px;font-weight:800;line-height:1.3}.ch1-core .ch1-later-mobile span{display:block;color:#d31679;font-size:9px;letter-spacing:.1em}.ch1-three-step{padding:.7rem}.ch1-three-step section,.ch1-three-step .ch1-likeness-map{grid-template-columns:110px 1fr}.ch1-three-step .ch1-job strong{font-size:17px}.ch1-three-step .ch1-job small{font-size:13px;line-height:1.3}.ch1-inbox-map{grid-template-columns:1fr;padding:.7rem}.ch1-inbox-visual{width:min(250px,100%);margin:auto}.ch1-inbox-routes{grid-template-columns:1fr 1fr;gap:.5rem}.ch1-inbox-routes section{padding:.55rem}.ch1-inbox-routes span{font-size:9px}.ch1-inbox-routes strong{font-size:14px}.ch1-inbox-routes p{font-size:12px;line-height:1.3}.ch1-product-landing{padding:.55rem;font-size:14px}.ch1-product-landing b{font-size:18px}}
 @media(max-width:850px){.ch1-core .ch1-visual-head{padding:.65rem}.ch1-core .ch1-visual-head h4{font-size:22px}.ch1-core .ch1-visual-head span{font-size:14px}.ch1-core .ch1-art{max-height:82px}.ch1-core .ch1-lane{padding:.45rem}.ch1-core>figcaption{padding:.55rem .7rem;font-size:13px;line-height:1.3}.ch1-inbox-routes p{font-size:13px}}
 .ch1-art-rule-woman{background-position:0 14%}.ch1-art-rule-woman::after{content:"";position:absolute;z-index:2;top:0;right:0;width:18%;height:11%;background:#f4eafb}
-${teachingVisualCss}
 .build-banner{position:relative;top:auto}.reader-toc{top:0;height:100vh}
 .ch9-customisation-decision{scroll-margin-top:54px;width:calc(100% + 4rem);margin:2.2rem 0 3.2rem -2rem;background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 #72dff2;overflow:hidden;font-family:var(--reading-font);color:var(--navy)}.ch9-customisation-head{padding:1.05rem 1.25rem 1.15rem;background:linear-gradient(110deg,#101842 0 72%,#41209c 72%);color:#fff}.ch9-customisation-head p{margin:0;color:#76eaff;font-size:12px;font-weight:900;letter-spacing:.13em}.ch9-customisation-head h4{margin:.4rem 0 .35rem;color:#fff;font-size:30px;line-height:1.05;letter-spacing:-.025em}.ch9-customisation-head span{display:block;max-width:72ch;color:#ffd9ec;font-size:17px;font-weight:700;line-height:1.4}.ch9-case{padding:.8rem 1rem;background:#fff1e8;border-bottom:3px solid #e65e2e}.ch9-case span{display:block;color:#a83c13;font-size:10px;font-weight:900;letter-spacing:.09em}.ch9-case strong{display:block;margin:.2rem 0;font-size:17px;line-height:1.35}.ch9-case p{margin:0!important;color:#3e496a;font-size:14px!important;font-weight:800!important}.ch9-tree{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;padding:1rem;background:linear-gradient(180deg,#eef8ff,#fff7fc)}.ch9-root{grid-column:1/-1;width:min(440px,100%);margin:auto;padding:.65rem;background:#101842;border:4px double #76eaff;color:#fff;text-align:center}.ch9-root strong,.ch9-root span{display:block}.ch9-root strong{color:#76eaff;font-size:13px;letter-spacing:.09em}.ch9-root span{font-size:12px}.ch9-root-split{grid-column:1/-1;color:#ed238c;font-size:28px;font-weight:900;line-height:.7;text-align:center}.ch9-lane{min-width:0;border:3px solid #00aeca;background:#e8faff}.ch9-weights-lane{border-color:#ed238c;background:#fff0f7}.ch9-lane-head{padding:.65rem;background:#007f96;color:#fff}.ch9-weights-lane .ch9-lane-head{background:#ad1764}.ch9-lane-head b,.ch9-lane-head span{display:block}.ch9-lane-head b{font-size:12px;letter-spacing:.07em}.ch9-lane-head span{font-size:11px}.ch9-choice{display:grid;grid-template-columns:1fr 22px 1fr;align-items:center;gap:.25rem;margin:.65rem;padding:.55rem;background:#fff;border:2px solid #a8b6d6}.ch9-choice p{margin:0!important;color:#30395e;font-size:11px!important;line-height:1.35!important}.ch9-choice p strong,.ch9-choice p span{display:block}.ch9-choice p span{margin-top:.2rem}.ch9-choice>b{color:#6b2cff;font-size:18px;text-align:center}.ch9-choice>div{padding:.5rem;background:#101842;color:#fff}.ch9-choice>div small,.ch9-choice>div strong{display:block}.ch9-choice>div small{color:#76eaff;font-size:9px;font-weight:900;letter-spacing:.09em}.ch9-choice>div strong{font-size:11px;line-height:1.3}.ch9-foundation{border-style:dashed}.ch9-expiry,.ch9-persist{margin:.65rem!important;padding:.55rem!important;background:#fff;border-left:7px solid #00aeca;color:#30395e;font-size:11px!important;line-height:1.4!important}.ch9-persist{border-left-color:#ed238c}.ch9-expiry strong,.ch9-persist strong{color:#4e18ca}.ch9-combine{display:flex;gap:.7rem;padding:.8rem 1rem;background:#e8fff5;border-top:3px solid #18a76d}.ch9-combine strong{flex:0 0 auto;color:#13734d;font-size:12px;letter-spacing:.07em}.ch9-combine span{font-size:14px;line-height:1.4}.ch9-rule{display:flex;align-items:center;justify-content:center;gap:.55rem;padding:.75rem;background:#101842;color:#fff;text-align:center}.ch9-rule b{font-size:11px;letter-spacing:.05em}.ch9-rule span{color:#76eaff;font-size:20px;font-weight:900}.ch9-customisation-decision figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
 @media(max-width:850px){.ch9-customisation-decision{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #72dff2}.ch9-customisation-head{padding:.85rem}.ch9-customisation-head h4{font-size:24px}.ch9-customisation-head span{font-size:15px}.ch9-case strong{font-size:16px}.ch9-tree{grid-template-columns:1fr;padding:.75rem}.ch9-root,.ch9-root-split,.ch9-lane{grid-column:1}.ch9-root-split{transform:none}.ch9-root-split strong,.ch9-root-split span{display:block}.ch9-root-split strong{font-size:12px;letter-spacing:.07em;line-height:1.3}.ch9-root-split span{font-size:0;line-height:1}.ch9-root-split span::after{content:"↓  OR  ↓";font-size:24px}.ch9-lane-head b{font-size:13px}.ch9-lane-head span{font-size:13px}.ch9-choice{grid-template-columns:1fr;gap:.35rem}.ch9-choice p{font-size:14px!important}.ch9-choice>b{transform:none}.ch9-choice>div strong{font-size:14px}.ch9-choice>div small{font-size:11px}.ch9-expiry,.ch9-persist{font-size:13px!important}.ch9-combine{display:block}.ch9-combine strong{display:block;margin-bottom:.25rem}.ch9-combine span{font-size:15px}.ch9-rule{display:grid;grid-template-columns:1fr}.ch9-rule span{line-height:.6}.ch9-customisation-decision figcaption{font-size:15px}}
@@ -1591,7 +1533,6 @@ ${teachingVisualCss}
 .ch6-patch-proof-body{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:start;gap:.7rem;padding:1.15rem;background:linear-gradient(180deg,#edf7ff,#fff7fc)}.ch6-patch-proof-body>section{min-width:0}.ch6-step-label{display:flex;align-items:center;gap:.45rem;margin-bottom:.55rem;color:#4e18ca;font-size:13px;font-weight:900;letter-spacing:.09em}.ch6-step-label b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#4e18ca;color:white;font-size:14px}.ch6-flow-arrow{align-self:center;color:#ed238c;font-size:30px;font-weight:900;text-align:center}.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(2){grid-column:1/-1;transform:rotate(90deg)}.ch6-translate{grid-column:1}.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(3){grid-column:2}.ch6-combine{grid-column:3}
 .ch6-photo-frame,.ch6-grid-photo{position:relative;aspect-ratio:4/3;border:3px solid var(--navy);background:#dff7ff;overflow:hidden}.ch6-photo-frame img,.ch6-grid-photo>img{display:block;width:100%;height:100%;object-fit:cover}.ch6-question{position:relative;margin:-.7rem .5rem 0!important;padding:.45rem .55rem!important;background:#fff;border:2px solid #ed238c;box-shadow:3px 3px 0 #ffc7e3;color:#101842;font-size:13px!important;font-weight:900!important;line-height:1.25!important;text-align:center}
 .ch6-patch-overlay{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr)}.ch6-patch-cell{border:.8px solid rgba(255,255,255,.95);box-shadow:inset 0 0 0 .5px rgba(16,24,66,.55)}.ch6-patch-10,.ch6-patch-15,.ch6-patch-23{background:rgba(237,35,140,.18);box-shadow:inset 0 0 0 3px #ed238c}.ch6-divide>p,.ch6-translate>p{margin:.55rem 0 0!important;color:#394463;font-size:13px!important;line-height:1.35!important}
-.ch6-sample-patches{display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem}.ch6-sample-patches i{aspect-ratio:1;background-image:url('assets/ch06-bicycle-tree-learning-image.png');background-repeat:no-repeat;background-size:600% 400%;border:3px solid #ed238c}.ch6-sample-patches i:nth-child(1){background-position:60% 33%}.ch6-sample-patches i:nth-child(2){background-position:40% 67%}.ch6-sample-patches i:nth-child(3){background-position:100% 100%}.ch6-encoder{position:relative;margin:.75rem 0;padding:.58rem .5rem;background:#101842;color:#fff;text-align:center;clip-path:polygon(6% 0,94% 0,82% 100%,18% 100%)}.ch6-encoder::before{content:"↓";position:absolute;left:50%;top:-.75rem;transform:translateX(-50%);color:#6b2cff;font-size:18px}.ch6-encoder span,.ch6-encoder strong{display:block}.ch6-encoder span{color:#8ceeff;font-size:11px;font-weight:900;letter-spacing:.08em}.ch6-encoder strong{font-size:14px}.ch6-number-stream{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem}.ch6-number-stream i,.ch6-image-token{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.28rem;padding:.35rem;background:#fff;border:2px solid #00aeca;color:#35128b;font-size:10px;font-style:normal;font-weight:900;text-align:center}.ch6-number-stream b,.ch6-image-token b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#4e18ca;color:#fff;font-size:10px}.ch6-number-stream span,.ch6-image-token span{min-width:0;white-space:nowrap}.ch6-token-example{margin:.35rem 0 0!important;padding:.4rem!important;background:#edf9ff;border-left:5px solid #00aeca;color:#35128b!important;font-size:11px!important;line-height:1.25!important}.ch6-token-example small{display:block;color:#58617d;font-size:9px}
 .ch6-context-ribbon{padding:.7rem;background:#fff;border:3px solid #101842}.ch6-image-token-row,.ch6-text-token-row{display:flex;align-items:center;gap:.3rem;min-width:0}.ch6-image-token-row strong,.ch6-text-token-row strong{width:72px;flex:0 0 auto;color:#4e18ca;font-size:10px;letter-spacing:.08em;line-height:1.15}.ch6-image-token-row strong small{display:block;margin-top:.15rem;color:#58617d;font-size:8px;letter-spacing:0}.ch6-image-token{flex:1;grid-template-columns:auto minmax(0,1fr);padding:.28rem;gap:.18rem;background:#e8fbff;font-size:9px}.ch6-image-token b{width:17px;height:17px;margin:auto;font-size:8px}.ch6-image-token-compact{display:grid;grid-template-columns:1fr;place-items:center;min-width:38px;padding:.5rem .25rem;background:#e8fbff;font-size:11px}.ch6-image-token-compact span{white-space:normal}.ch6-image-token-row>span{font-weight:900}.ch6-text-token-row{margin-top:.55rem;flex-wrap:wrap}.ch6-text-token-row i{padding:.28rem .35rem;background:#fff0f7;border:2px solid #ed238c;color:#101842;font-size:12px;font-style:normal;font-weight:800}.ch6-context-ribbon>p{margin:.6rem 0 0!important;padding-top:.45rem!important;border-top:2px solid #6b2cff;color:#4e18ca;font-size:11px!important;font-weight:900!important;letter-spacing:.08em!important;text-align:center}.ch6-answer{margin-top:.7rem;padding:.7rem;background:#e8fff5;border:3px solid #18a76d}.ch6-answer small,.ch6-answer strong{display:block}.ch6-answer small{color:#13734d;font-size:10px;font-weight:900;letter-spacing:.08em}.ch6-answer strong{margin-top:.2rem;color:#101842;font-size:17px;line-height:1.25}
 .ch6-misconception{margin:0;padding:.8rem 1.15rem;background:#fff1e8;border-top:3px solid #e65e2e;color:#3c4059;font-size:15px;line-height:1.45}.ch6-misconception strong{color:#a83c13}.ch6-patch-proof figcaption{margin:0;padding:.9rem 1.15rem;background:#fff;border-top:2px solid #bcc8e2;color:#30395e;font-size:15px;line-height:1.5}
 @media(max-width:850px){.build-banner{position:relative;top:auto}.ch6-patch-proof{width:calc(100% + .4rem);margin:1.6rem 0 2.6rem -.2rem;box-shadow:5px 5px 0 #eea0cf}.ch6-patch-proof-head{padding:.85rem}.ch6-patch-proof-head h4{font-size:24px}.ch6-patch-proof-head span{font-size:15px}.ch6-patch-proof-body{grid-template-columns:1fr;gap:.45rem;padding:.8rem}.ch6-patch-proof-body>.ch6-flow-arrow,.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(2),.ch6-patch-proof-body>.ch6-flow-arrow:nth-of-type(3){grid-column:1;transform:rotate(90deg);font-size:24px;line-height:.7}.ch6-translate,.ch6-combine{grid-column:1;margin-top:0}.ch6-photo-frame,.ch6-grid-photo{max-height:260px}.ch6-question{font-size:15px!important}.ch6-divide>p,.ch6-translate>p{font-size:15px!important}.ch6-sample-patches{width:min(300px,82%);margin:auto}.ch6-number-stream{width:min(360px,100%);margin:auto}.ch6-image-token-row strong,.ch6-text-token-row strong{width:72px}.ch6-image-token{font-size:9px}.ch6-text-token-row i{font-size:12px}.ch6-answer strong{font-size:17px}.ch6-misconception,.ch6-patch-proof figcaption{font-size:15px}}
@@ -1731,7 +1672,6 @@ const artifactPaths = [
   ...(chapterTwelvePurposeBuiltVisualActive ? [paths.chapterTwelvePurposeBuiltDesktop, paths.chapterTwelvePurposeBuiltMobile] : []),
   ...(chapterThirteenPurposeBuiltVisualActive ? [paths.chapterThirteenPurposeBuiltDesktop, paths.chapterThirteenPurposeBuiltMobile] : []),
   ...(visualTeachingLayerActive ? [paths.chapterOneSpriteRules, paths.chapterOneSpriteProducts, paths.chapterOneWomanRulebook] : []),
-  ...(representativeTeachingVisualActive ? [paths.chapterSixBicycleTree] : []),
 ];
 const manifest = {
   schemaVersion: "laidies-library-source-import-manifest.v1",

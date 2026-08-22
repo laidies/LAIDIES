@@ -28,8 +28,11 @@ try {
   for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained that context supplies material, the policy supports the claim and a human checks the consequential detail.\n`);
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
-    schemaVersion: "laidies-content-quality-exemplars.v1",
-    negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
+    schemaVersion: "laidies-content-quality-exemplars.v2",
+    negativeExemplars: [
+      { id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-incident", appliesWhen: { contentClasses: ["EXPLANATION"], surfaceTags: ["LIBRAIRY"] }, failureFamilies: negativeFamilies },
+      { id: "BAD-NEWS", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-news-incident", appliesWhen: { contentClasses: ["NEWS"], surfaceTags: ["THE_BREAKING"] }, failureFamilies: ["falseBreakingUrgency"] }
+    ],
     positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION", "NEWS"] }]
   }));
 
@@ -58,7 +61,7 @@ try {
     },
     reverseBrief: { humanQuestion: "Can I make this promise?", promisedPayoff: "Diagnose and check the answer.", centralMentalModel: "Context and model create a draft; evidence supports the decision.", dailyLifeConnection: "A manager handover.", surfaceJob: "Durable explanation.", desiredReaderFeeling: "Oh, I get it now." },
     outcomes,
-    failureFamilies: Object.fromEntries(enforcedFailureFamilies(JSON.parse(fs.readFileSync(registry, "utf8"))).map(name => [name, { present: false, observation: `${name} is absent after exact-prose review.`, artifactLocator: "candidate.md:1" }])),
+    failureFamilies: Object.fromEntries(enforcedFailureFamilies(JSON.parse(fs.readFileSync(registry, "utf8")), { contentClass: "EXPLANATION", surface: "LIBRAIRY" }).map(name => [name, { present: false, observation: `${name} is absent after exact-prose review.`, artifactLocator: "candidate.md:1" }])),
     factualReview: { disposition: "CLAIMS_REVIEWED", sourceBindings: [bind(sourcePath)], claimMap: [{ claimId: "fixture-policy-evidence", status: "VERIFIED", candidateEvidence: [{ excerpt: "the policy remains the evidence", locator: "candidate.md:1" }], sourceBinding: bind(sourcePath), sourceEvidence: [{ excerpt: "policy is the evidence for the promise", locator: "source.md:1" }], scopeAndFreshness: "Synthetic fixture; recheck when source changes." }], reviewedThrough: "2026-08-07", nextTrigger: "source changes", correctionOwner: "fixture-owner" },
     ratchet: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0, reviewIssues: 0, reviewCycles: 1, priorComparable: { reviewIssues: 1, reviewCycles: 2 }, onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" },
     lineage: { kind: "SUCCESSOR", predecessorCandidateId: "fixture-prior" },
@@ -133,8 +136,9 @@ try {
   assert.match(inspect(missingComparable).join("\n"), /successor must bind a prior comparable/);
   const newsManifest = JSON.parse(fs.readFileSync(path.join(root, manifestPath), "utf8"));
   newsManifest.contentClass = "NEWS";
+  newsManifest.surface = "SUNNYVAiLE NewsStand / The Daily";
   fs.writeFileSync(path.join(root, manifestPath), JSON.stringify(newsManifest));
-  const news = structuredClone(receipt); news.contentClass = "NEWS"; news.artifact.manifest = bind(manifestPath);
+  const news = structuredClone(receipt); news.contentClass = "NEWS"; news.surface = "SUNNYVAiLE NewsStand / The Daily"; news.artifact.manifest = bind(manifestPath); news.calibration.negatives = [];
   news.outcomes.datedChange = structuredClone(news.outcomes.plainClarity);
   news.outcomes.consequenceAndUncertainty = structuredClone(news.outcomes.readerValue);
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
