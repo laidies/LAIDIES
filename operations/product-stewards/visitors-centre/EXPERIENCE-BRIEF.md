@@ -112,8 +112,17 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
   inside the adult LAiDIES world. Its meaningful objects include the SUNNYVAiLE
   map, destination information, guided-tour materials and admitted postcard
   display. They operate as one place, not detached modules. `LOCKED LEDGER`
+- The masthead places the visitor inside a tourist-information centre made
+  specifically for SUNNYVAiLE. Its counter, town information, leaflet/tour
+  materials, environmental signs and other room objects form the usable arrival
+  interface through deterministic accessible UI; the scene may not be a static
+  decorative image followed by generic modules. `LOCKED LEDGER`
 - The map is a useful interactive discovery object but is not the masthead and
   cannot carry the whole arrival composition. `LOCKED LEDGER`
+- No admitted existing image performs the masthead job. The rejected lobby
+  candidate cannot be repaired or reused as the new scene, and the canonical
+  map cannot substitute for it. A new responsive interior asset is required and
+  remains unproduced/unadmitted. `LOCKED LEDGER`
 - The ritual is “locate yourself → choose a named place → read its current
   status → step inside,” with a take-away tour ticket, trailer ticket or
   postcard invitation available but never dominant. `APPROVED BRIEF/ARTIFACT`

@@ -179,8 +179,20 @@ The Centre belongs visibly inside the adult LAiDIES Rewind Era world: vibrant
 1990s colours, purposeful pop-art energy and the character of a real tourist
 information centre. Reject generic CSS boxes, beige/pink neutral surfaces,
 retired plum/gold styling, unexplained empty space and disconnected modules.
-The exact responsive composition and artwork remain to be designed and passed
-through the building design-admission gate.
+
+The masthead is the **inside of a tourist-information centre made specifically
+for SUNNYVAiLE**. It should feel like entering that building, not looking at a
+generic tourism illustration. The counter, town information, wall displays,
+leaflet/tour materials, signs and other meaningful objects create the arrival
+and can carry real page actions through accessible live UI. They must not become
+a decorative room image followed by ordinary web boxes.
+
+The asset inventory confirms that no admitted existing image performs this
+masthead job. The prior lobby image is rejected/superseded, and the canonical
+town map remains a separate discovery object rather than a masthead fallback.
+A new responsive interior scene therefore needs to be produced and passed
+through the building visual-production and design-admission gates before Ali is
+shown a candidate.
 
 ## Current truth and next work
 
@@ -190,5 +202,5 @@ attribution, Resident Card signup and any sender/recipient reward must each be
 classified as public verified, local verified/not deployed, source
 present/unverified, planned, rejected/superseded or missing a receiver.
 
-No page code, visual candidate, trailer, postcard, reward, deployment or public
-state was changed by this walkthrough.
+No page code, visual candidate or new masthead image, trailer, postcard, reward,
+deployment or public state was changed by this walkthrough.

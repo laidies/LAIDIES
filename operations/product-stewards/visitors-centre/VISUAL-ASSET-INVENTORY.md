@@ -25,6 +25,11 @@ plum/gold tour styling, generic CSS boxes, disconnected modules and unexplained
 blank bands. The interactive map remains a meaningful object but is not the
 masthead or replacement lobby art.
 
+Ali further locked the masthead as the interior of a tourist-information centre
+made specifically for SUNNYVAiLE. No asset in this register is admitted for that
+job. A new responsive interior scene must be produced; its room objects support
+the usable arrival interface rather than acting as a decorative backdrop.
+
 ## Asset disposition register
 
 | Asset | SHA-256 | Visitor job | Disposition |
@@ -34,6 +39,10 @@ masthead or replacement lobby art.
 | `assets/sunnyvaile-buildings/y2k-v3/01-welcome-wagon-visitors-centre.webp` | `9a51280b12e70597b3a90516a1eff9c32f636a212b9d8cd60e677cee568a0210` | Early trailer building reference | `UNREGISTERED_DEFAULT_DENY`; retired-name/path and currentness review required; not a lobby fallback |
 | `assets/episodes/trailer/` family | not admitted as one current release tuple | Early SUNNYVAiLE trailer imagery | `SOURCE PRESENT / RECEIVER REBUILDING`; inventory exact members and current narrative fit before reuse |
 | on-disk postcard families consumed by `/postcard.html` | active catalogue contains zero admitted cards | Tourist-centre postcard display and invitation | `HELD / DEFAULT DENY`; exact Brand/canon/provenance/use admission required before any gallery |
+
+**Inventory verdict:** `NEW PURPOSE-BUILT MASTHEAD/ARRIVAL INTERIOR REQUIRED`.
+This is an asset requirement, not evidence that any candidate has been created,
+admitted, integrated or released.
 
 ## Required successor gate
 

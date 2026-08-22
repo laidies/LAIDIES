@@ -48,11 +48,15 @@ visual page.
    patterns. Create the missing `VISUAL-ASSET-INVENTORY.md` before any visual
    production.
 2. **First-screen comprehension proof.** Produce one responsive desktop/mobile
-   structural prototype that answers “What is SUNNYVAiLE?” and shows the
-   tourist-centre arrival. It establishes the town/multiple-format learning
-   concept before two explicit actions: find a useful path or explore any
-   building. The map is visible but not the masthead; optional guidance remains
-   available without becoming a gate.
+   structural prototype that answers “What is SUNNYVAiLE?” from inside a
+   purpose-built SUNNYVAiLE tourist-information centre. The counter, town
+   information, tour/leaflet materials and environmental signs must support the
+   real arrival interface rather than sit behind a generic module stack. It
+   establishes the town/multiple-format learning concept before two explicit
+   actions: find a useful path or explore any building. The canonical map is
+   visible but not the masthead; optional guidance remains available without
+   becoming a gate. Produce a new responsive interior scene because the asset
+   inventory contains no admitted image for this job.
 3. **Mechanism proof.** Rebuild one destination interaction only: choose one
    named building by map or accessible named route → see its current job/state
    → step inside. Prove keyboard, touch, Back/Escape, live announcement and

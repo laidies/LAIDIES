@@ -1581,6 +1581,13 @@ objective; every open lane keeps its own checkpoint.
   masthead. Reject generic CSS boxes, detached modules, blank bands, beige/pink
   neutrality and the retired plum/gold tour pop-up. The replacement is a
   cohesive adult 1990s LAiDIES tourist-centre environment.
+- **Masthead/asset ruling:** the masthead places the visitor inside a
+  tourist-information centre made specifically for SUNNYVAiLE. Meaningful room
+  objects form the usable arrival interface, not a decorative image above
+  generic modules. The recovered asset inventory confirms there is no admitted
+  image for this job: the old lobby is rejected and the canonical town map is
+  not a substitute. A new responsive interior scene is required and has not
+  been produced or admitted.
 - **Verified current truth:** the public page exposes 17 named map buttons and
   named selector options, but destination status is unavailable and the whole
   composition is rejected. Tour source exists but is unverified/currently
@@ -1599,9 +1606,10 @@ objective; every open lane keeps its own checkpoint.
   compliments, complaints or suggestions. Current Town Hall feedback is
   release-held with no safe receiver/staff lifecycle, and public civic records
   are planned only. Ali confirmation of the final framing remains open.
-- **Bounded next step:** create the missing visual-asset inventory, then prove
-  one first-screen tourist-centre comprehension path, one building handoff and
-  one optional contextual tour stop before scaling. Exact plan:
+- **Bounded next step:** produce and admit the new responsive interior only as
+  part of the representative proof, then prove one first-screen tourist-centre
+  comprehension path, one building handoff and one optional contextual tour
+  stop before scaling. Exact plan:
   `operations/product-stewards/visitors-centre/CAPABILITY-INVENTORY-AND-PASS-1-PLAN-2026-08-22.md`.
 - **Authority:** product vision, inventory and internal plan only. No HTML, CSS,
   JavaScript, visual candidate, trailer, postcard, referral, reward, deployment
