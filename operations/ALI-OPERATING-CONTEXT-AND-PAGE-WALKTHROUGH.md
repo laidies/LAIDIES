@@ -455,7 +455,31 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   LAiDIES/Rewind knowledge, proposes a small number of faithful candidates or
   `NONE`, states the mapping and its limit, and independently rejects forced or
   technically distorting results before they reach Ali.
-  **Capture remains open for Ali's following messages; do not treat Parts 1–3
+- **Library book experience — Ali walkthrough Part 4, 2026-08-22:** The larger
+  outcome is informed agency. A reader should be better able to cut through
+  clickbait or slightly inaccurate reporting, join technical/workplace
+  conversations with justified confidence, use tools more effectively and
+  diagnose ordinary failures from the mechanism instead of guessing. Weave in
+  a recurring concept-bound troubleshooting component: “You may be seeing
+  this because…,” followed by the relevant mechanism, what the reader can
+  check or change and where the explanation's certainty ends. This must not
+  collapse into generic tips.
+  Understanding also equips readers for consequential personal, workplace and
+  societal decisions about AI's benefits and risks. LAiDIES does not flatten
+  those discussions into either doomsaying or uncritical enthusiasm. It gives
+  readers the factual and mechanistic foundation to examine trade-offs, test
+  claims and avoid changing position solely because of the latest article.
+  This deeper “why,” not surface instructions alone, governs every Library
+  book and extends across LAiDIES books, courses and Episodes.
+  Guidance is current, source-bound and conditional when model/product/version
+  differences matter. When recommended practice changes, explain what changed,
+  why it changed and for which model or situation the successor guidance
+  applies. AI Fundamentals owns the connected foundational model. Additional
+  books may go deep on distinct work types, workflows or products—for example
+  a ChatGPT-specific book that explains the available controls, what each one
+  changes and how those behaviors connect back to the fundamentals—without
+  duplicating or fragmenting the foundation.
+  **Capture remains open for Ali's following messages; do not treat Parts 1–4
   as the complete book-experience contract.**
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.

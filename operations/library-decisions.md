@@ -76,7 +76,17 @@ older Library visual or public-framing instruction that conflicts with it.
   draw from governed references, state the mapping and its limit, propose only
   a few faithful candidates or `NONE`, and reject forced/distorting output
   before Ali review. Ali is not the manual humour-insertion pass.
-  This remains an **open Parts 1–3 capture** while Ali supplies the remaining
+- **Walkthrough Part 4:** books produce informed agency: readers can test
+  clickbait/inaccurate reporting, participate in conversations, use tools
+  better and troubleshoot from the mechanism. Add recurring concept-bound
+  “You may be seeing this because…” components with cause, applicable check or
+  response and uncertainty boundary; reject generic tips. Teach benefits,
+  risks and trade-offs from factual mechanisms rather than doomsaying or
+  uncritical enthusiasm. Current guidance binds its model/product/version and
+  explains why successor practice changed. AI Fundamentals owns the connected
+  foundation; later workflow- or product-specific books deepen a distinct job
+  and connect back to it rather than duplicating it.
+  This remains an **open Parts 1–4 capture** while Ali supplies the remaining
   book-experience direction before the final contract is consolidated.
 
 ## Load for every Library task
