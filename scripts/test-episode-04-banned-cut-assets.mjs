@@ -22,5 +22,17 @@ assert.notEqual(calibrated.status, 0, "known-bad consumer must fail the gate");
 assert.match(calibrated.stderr, /EP04 BANNED-CUT FAIL/);
 assert.match(calibrated.stderr, /ep04-tj-timnit-comic/);
 
+const derivedCalibrated = spawnSync(process.execPath, [checker], {
+  cwd: root,
+  encoding: "utf8",
+  env: {
+    ...process.env,
+    EP04_BANNED_SCAN_PATHS: "operations/test-fixtures/episode-04-banned-cut/bad-derived-consumer.py",
+  },
+});
+assert.notEqual(derivedCalibrated.status, 0, "known-bad derived consumer must fail the gate");
+assert.match(derivedCalibrated.stderr, /EP04 BANNED-CUT FAIL/);
+assert.match(derivedCalibrated.stderr, /p46-p49-modern-criticism-review-v1\.mp4/);
+
 console.log("EP04 BANNED-CUT TEST PASS");
-console.log("calibration=known-bad active consumer rejected");
+console.log("calibration=direct_and_derived_known_bad_consumers_rejected");

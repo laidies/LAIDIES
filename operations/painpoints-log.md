@@ -15140,14 +15140,17 @@ while remaining falsely unfinished in the launch record.
   build surface, obsolete executable files remained beside current tools, and
   repository authority was conflated with large local media-payload storage.
 - **Prevention rule:** Parse the authoritative banned block and scan every active
-  cue and builder before CI can pass. Move obsolete executable builders out of
-  active tool directories while retaining them as routed evidence. Commit small
+  cue, builder, validator and derived sequence identity before CI can pass. Move
+  obsolete executable builders and validators out of active tool directories
+  while retaining them as routed evidence. Commit small
   authority/receipt files; verify large local review media through an explicit
   separate payload root, and report unavailable held bytes as HOLD rather than
   crashing or inferring readiness.
-- **Durable correction:** Three Episode 04 builders were moved to
-  `operations/_superseded/episode-04-builders/`; the new calibrated banned-cut
-  gate rejects the known Timnit relapse fixture and is part of `ci:build`; the
+- **Durable correction:** Three Episode 04 builders plus the contaminated v10
+  assembler and two false-pass validators were moved to
+  `operations/_superseded/episode-04-builders/`; the calibrated banned-cut gate
+  rejects both the direct Timnit relapse fixture and the contaminated p46–p49
+  derived-sequence fixture and is part of `ci:build`; the
   exact Episode 02–04 held review receipts were admitted to the release tree;
   and the Screening Room contract now passes in a clean checkout with explicit
   media-unavailable holds and re-verifies all exact master hashes when pointed

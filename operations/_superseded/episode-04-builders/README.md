@@ -14,6 +14,12 @@ select assets prohibited by the machine-readable `BANNED-IN-CUT` block in
   generation.
 - `build-episode-04-modern-criticism-review-v1.py` selects the rejected
   per-woman Timnit time card; its output was assembled into held v10.
+- `assemble-episode-04-v10-successor.py` consumes that contaminated derived
+  p46–p49 sequence and can reassemble it into a full-title v10 candidate.
+- `validate-episode-04-modern-criticism-review-v1.py` can give a technical PASS
+  to the contaminated derived sequence without checking its rejected source.
+- `validate-episode-04-v10-successor.py` can give a technical PASS to the
+  resulting contaminated full-title candidate without tracing that dependency.
 
 Any successor starts with a newly named, default-deny builder whose exact
 inputs pass the current media-source admission boundary and the banned-cut

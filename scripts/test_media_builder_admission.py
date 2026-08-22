@@ -18,7 +18,6 @@ OPENING_BUILDERS = (
     "scripts/build-episode-01-full-v27-occurrence-repaired-review.py",
     "scripts/assemble-episode-02-v20-repaired-review.py",
     "scripts/assemble-episode-03-v15-successor.py",
-    "scripts/assemble-episode-04-v10-successor.py",
     "scripts/build-odc-101-review-animatic.py",
     "scripts/build-odc-201-review-animatic.py",
     "scripts/build-odc-lab-01-review-animatic.py",

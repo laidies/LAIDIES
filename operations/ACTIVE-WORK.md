@@ -1222,11 +1222,15 @@ AW-001 is complete only when:
   contains the explicitly banned per-woman Timnit time card. Three obsolete
   builders capable of restoring that or other rejected Episode 04 material
   were removed from active builder directories and retained under
-  `operations/_superseded/episode-04-builders/`. The calibrated
+  `operations/_superseded/episode-04-builders/`. The active v10 assembler and
+  two technical validators were also superseded because they consumed or
+  legitimized the contaminated derived sequence without tracing its rejected
+  source. The calibrated
   `npm run test:episode-banned-cut-assets` gate now scans every active Episode
-  04 cue/builder and rejects any current `BANNED-IN-CUT` token. Episode 04 v10
-  remains HOLD and was not rebuilt; its next successor requires a newly named,
-  default-deny builder with admitted exact sources.
+  04 production consumer and rejects both direct banned inputs and the exact
+  contaminated p46–p49 output. Episode 04 v10 remains HOLD and was not rebuilt;
+  no current Episode 04 rebuild path exists until an approved replacement uses
+  a newly named, default-deny builder with admitted exact sources.
 - The exact held Episode 02 v20, Episode 03 v15 and Episode 04 v10 review
   receipts are now part of the release tree. Screening Room verification
   separates committed authority/evidence from the optional local media-payload

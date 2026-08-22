@@ -211,11 +211,13 @@ ep04-tj-joy-comic
 ep04-tj-timnit-comic
 ep04-tj-emily-comic
 ep04-tj-kate-comic
+p46-p49-modern-criticism-review-v1.mp4
 ```
 
 Reasons, in order: wrong age (elderly admiral) · old generation · superseded pass ·
 the last four are the per-woman time-jump cards Ali rejected FOR TIMING in favour of the
-single 2018–2021 card.
+single 2018–2021 card · the derived p46–p49 review sequence is contaminated because it
+contains the rejected Timnit card and is not an approved successor.
 
 ## TRAILER — ALL COMIC (Ali, 2026-07-22, do not re-ask)
 - The "Welcome to SUNNYVAiLE" trailer (16:07, 32 beats, town-building tour) is redone **ALL COMIC**.
