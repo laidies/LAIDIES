@@ -85,6 +85,42 @@ ACCEPTED / VERIFIED LOCALLY; no deployment or external-service authority.
     destination-appropriate successor; filename/date/prototype presence cannot
     select it. Encode country/cottagecore and gothic-fairy-tale drift as known
     visual failures alongside juvenile, generic and flat treatments.
+16. **Prove the town comprehension model before polishing the full page.** The
+    first screen must make LAiDIES → SUNNYVAiLE → building jobs → Rewind Era
+    learning mechanism understandable without prior lore. Run clean-newcomer
+    prompts for “What is this?”, “Why a town?”, “What does a building mean?”
+    and “Where would you start?”; confusion on any of those blocks release.
+17. **Build the two-pass Homepage correction.** Pass 1 repairs the live
+    foundation using only verified receiving routes: comprehension, direct
+    navigation, finite hierarchy, broken actions, truthful labels, card
+    geometry/crops and stale visual holds. Pass 2 revises destination promotion
+    as each guided walkthrough and repository status inventory completes. Do
+    not freeze the final Homepage before the inventory, and do not leave the
+    visibly broken live foundation untouched while waiting.
+18. **Unify the shared header and KSVL runtime.** Retire the Homepage-only
+    header exception and the competing `mini-player.js` architecture. Provide
+    distinct Play/Pause KSVL and Open KSVL actions, one canonical player on
+    every permitted page, stable visible controls and an explicit pop-out or
+    proved application-shell path for uninterrupted playback. Test the user
+    gesture/autoplay boundary and do not label state restoration as seamless.
+19. **Recover and admit the first-session portal.** Recover the exact canonical
+    v10 MP4 bytes, define its composition with the dial-up/entering cue, then
+    build a muted, skippable, fail-open, reduced-motion-safe transition with
+    session-scoped replay suppression. The masthead and navigation remain
+    immediately available.
+20. **Create the destination capability inventory.** For every Homepage-worthy
+    feature, record its exact receiving route and one state:
+    `PUBLIC_VERIFIED`, `LOCAL_VERIFIED_NOT_DEPLOYED`,
+    `SOURCE_PRESENT_UNVERIFIED`, `PLANNED`, `REJECTED_SUPERSEDED`, or
+    `MISSING_RECEIVER`. Start with Closet, Butterfly Clips, Post Office
+    messages/postcards, community, saving, rewards and KSVL. The Homepage
+    consumes this record; it does not guess from old files.
+21. **Rebuild the intent and activity card systems.** Peer cards need equal
+    outer geometry, deliberate non-destructive image treatment, adequate
+    contrast, stable copy/action rows and working actions. Rewrite the
+    Businesswomen's Special entrance around its actual social AI happy-hour,
+    cocktail/spirit-free and conversation-menu job; the Romy and Michele
+    reference is flavour, not the only explanation.
 
 ## TEMPORARY HOLD / LIMIT WHILE BUILD REMAINS REQUIRED
 

@@ -19,6 +19,16 @@ receiving products are ready.
 
 - **Diegetic metaphor:** The homepage is the town threshold; Start Here is a visible Visitor’s Centre status doorway with an ordinary Visitor’s Centre link.
 - **Ten-second comprehension:** “LAiDIES helps women understand and use AI through stories and practical routes in SUNNYVAiLE. I can start learning, find the current episode, look up one answer, get a bounded practical-help route, or explore the town.” The first obvious safe action must be visible without requiring sign-in or map literacy.
+- **Town comprehension gate:** A first-time visitor can explain that LAiDIES
+  teaches AI, SUNNYVAiLE organizes different learning modes, each building has
+  a familiar job, and Rewind Era memory helps unfamiliar concepts make sense
+  and stick. Confusion about why a town exists or what it has to do with AI is
+  a release-blocking failure, not an acceptable cost of world-building.
+- **Discovery architecture:** Use a finite guided town square: a concise first
+  screen, a bounded New in town module, a compact visitor-job layer, one visual
+  How SUNNYVAiLE works explanation and a complete direct-labelled Explore
+  route. Do not use infinite loading or accumulate every capability as a peer
+  Homepage module.
 - **Evergreen masthead:** The masthead/hero carries the durable LAiDIES
   promise and stable visitor jobs. It never becomes the weekly episode/news
   billboard. Current episode and current news render only in the separate
@@ -27,6 +37,11 @@ receiving products are ready.
 - **Returning-user journey:** `/` → current episode/current-news cue only when its data and receiving route are current and admitted → direct route; otherwise an evergreen reference/orientation route. Any resume cue is presentational until authenticated, authoritative progress exists.
 - **Anonymous/signed-in differences:** Anonymous visitors retain all core orientation and learning access. Sign-in links may offer a handoff only; no entry text may imply that account restoration, card, Closet, rewards, community posting, or cross-device continuation is proven. `window.svShowResume` is a future hook, not completion evidence.
 - **Mobile/desktop/accessibility behaviour:** The same named primary choices and destinations must remain available at mobile and desktop widths. The mobile menu must expose and close the same navigation; keyboard focus, Escape, visible focus, landmarks, target size, image alternatives, zoom/reflow and reduced-motion behavior are release gates, not inferred from source presence. Responsive quality is continuous across desktop, intermediate and representative mobile widths: no random blank fields, equal-height stretching, destructive crops, orphaned labels/actions, overlay collisions or avoidable scroll burden. Every major visible region needs a clear job, and new/returning journeys must remain intuitive after each reflow.
+- **Session entry transition:** On the first Homepage arrival in a tab/session,
+  a brief muted entering-LAiDIES transition may hand into the masthead. It must
+  expose Skip/Pause, use a static reduced-motion path, survive storage/media
+  failure, never block core content and suppress replay for that tab/session,
+  including reload and internal return. A new tab/session may replay it.
 - **Empty/loading/error/offline/retry states:** If the shared checksum-bound projection cannot supply a fresh owner-admitted current route, retain static evergreen/previously labelled content and never call it current. Missing, stale, conflicting, tampered or transport-failed projection states contract to zero current promotions and unavailable status-check routes. If a map, audio, analytics, Post Office, or signed-in-resume integration fails, core navigation remains usable and the UI must not report subscription, playback, sign-in, progress, or completion it cannot observe. `/start-here.html` always retains a visible ordinary Visitor’s Centre link.
 
 ## Mechanics and rules
@@ -36,6 +51,18 @@ receiving products are ready.
 - **Authoritative completion event:** An intentional arrival at a correctly labelled receiving route is the only entry-level completion. It is not completion of the receiving product, a newsletter subscription, play, tour, learning task, reward, or account action.
 - **Outputs/visible result:** A clear next destination, or an honest unavailable/evergreen alternative. The homepage may show local tour paint only as device-local state; it cannot turn visits into a verified ritual or durable reward.
 - **Replay/return loop:** Return to a current route only after current-data validation; otherwise offer Library/Visitor’s Centre evergreen re-entry. Do not use a local counter as account memory.
+- **Header/KSVL mechanics:** One shared header owns a short, task-led navigation
+  set, current location, account/Closet handoff when proved, one complete Explore
+  menu and two distinct KSVL actions: Play/Pause KSVL and Open KSVL. One
+  canonical player owns visible controls in a stable location. Playback starts
+  only after explicit user action. Full-page state restoration is not described
+  as uninterrupted audio; true continuity requires a proved shared shell or the
+  explicit pop-out.
+- **Card-system mechanics:** Every peer set uses consistent outer geometry,
+  bounded image and copy areas, a stable action row, verified contrast and a
+  destination-specific focal-point/crop rule. Decorative empty height,
+  disappearing accents, cut-off copy and inert controls fail before visual
+  review.
 - **Promotion admission rules:**
   0. Homepage current/readiness presentation consumes Platform
      `readiness-current-projection` v1. Missing, stale, conflicting, tampered,
@@ -144,6 +171,13 @@ receiving products are ready.
 - **Downstream consumers:** Visitor’s Centre, Library, NewsStand, Chick Flicks, FAiRY, MAiKEOVER, Post Office and town-directory destinations.
 - **Conflicts/handoffs:** Entry must consume receiving-product limitations rather than overwrite their status. The Visitor’s Centre room-first direction cannot be replaced with homepage card patterns. The homepage currently consumes shared tour/charm/auth hooks whose device-local rewards and token-derived “Resident” presentation exceed entry-level completion; Functionality & Platform, Identity/Rewards and each producer must rule that contract. The social/reopening triad needs Ali's exact website, copy and image approval.
 - **Freshness/maintenance owner:** Town Entry champion checks labels/routes each episode/release; receiving champions update their status; Platform binds evidence to exact artifact/deployment.
+- **Destination inventory dependency:** The guided page-by-page tour and a
+  repository inventory classify each capability as public-verified,
+  local-verified/not-deployed, source-present/unverified, planned,
+  rejected/superseded or missing its receiving route. Homepage may preview only
+  the truthful state. Closet, Butterfly Clips, postcards/messages, saving,
+  community and rewards cannot inherit public-readiness from concept or local
+  source presence.
 
 ## Acceptance and release
 

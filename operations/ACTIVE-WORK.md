@@ -1540,3 +1540,21 @@ objective; every open lane keeps its own checkpoint.
 - **Authority:** walkthrough and internal product-context update only. No
   Homepage HTML, CSS, JavaScript, asset, visual candidate, release or public
   state changed.
+- **Comprehension ruling:** the first screen must explicitly connect LAiDIES
+  teaching AI to SUNNYVAiLE's building-based learning system and the Rewind Era
+  memory method. “Why is there a town?” is a blocking newcomer failure.
+- **Discovery/layout ruling:** use a finite guided town square plus complete
+  Explore route; no infinite feed, feature dump, unexplained blank space,
+  mismatched peer cards, destructive crops, cut-off copy or inert actions.
+- **Session/header/audio ruling:** recover the exact canonical v10 ident for a
+  muted, skippable, fail-open once-per-tab/session portal. Replace the Homepage
+  header exception and competing players with one shared task-led header and
+  canonical KSVL runtime; Play/Pause and Open KSVL are different outcomes.
+- **Build sequence:** perform a truthful foundation correction now, then revise
+  destination promotion as the guided walkthrough and exact
+  public/local/planned/rejected/missing-receiver inventory completes.
+- **Current implementation truth:** KSVL header links only navigate; Homepage
+  has no live-start control; live queue state does not restore across normal
+  navigation; true continuity is pop-out only. Butterfly Clips are a local
+  prototype, community is provider-bounded, and account/reward/public outcomes
+  remain held. No code or public state changed in this checkpoint.

@@ -46,6 +46,33 @@ The exact first post-hero section remains Ali-held. Current recommendation:
 current admitted SUNNYVAiLE/NewsStand preview, then grouped visitor jobs, then
 the Wednesday route. `ALI DECISION OPEN`
 
+### Town comprehension, discovery and shared utilities — Ali 2026-08-22
+
+- A first-time visitor must understand the causal product model on the first
+  screen: LAiDIES teaches AI; SUNNYVAiLE organizes complementary ways to learn;
+  each building has a familiar learning/service job; Rewind Era memory makes
+  unfamiliar ideas easier to understand and retain. “Why is there a town?” is
+  a blocking comprehension failure. `ALI CONFIRMED`
+- Use a finite guided-town-square structure with a complete plainly labelled
+  Explore route. Progressive disclosure reduces overload only when hidden
+  capabilities remain obvious to find. No infinite Homepage feed or full
+  feature dump. `ALI CONFIRMED`
+- The first Homepage arrival in a tab/session gets a brief, skippable,
+  reduced-motion-safe entering-LAiDIES transition that does not replay after
+  internal navigation or reload. It is muted, fail-open and cannot delay core
+  navigation. Exact combined media remains unbuilt. `ALI CONFIRMED`
+- The permanent header is one stable task-led utility system. KSVL playback and
+  opening the KSVL page are distinct, clearly labelled actions; one canonical
+  player owns persistent controls. Current source does not provide continuous
+  live-station playback across normal full-page navigation. `ALI CONFIRMED`
+- Peer cards have equal outer geometry, deliberate image regions, stable action
+  rows and no destructive crops or unexplained blank space. Businesswomen's
+  Special is a social AI happy-hour ritual with cocktail/spirit-free and
+  conversation-menu jobs, not merely a drink recommendation. `ALI CONFIRMED`
+- Homepage correction proceeds in two passes: a truthful foundation correction
+  now, followed by destination-informed revision as the guided walkthrough and
+  public/local/planned/rejected inventory is completed. `ALI CONFIRMED`
+
 ## Audience and visitor-state jobs
 
 | Visitor state | Arrival/orientation | Useful job | Known continuity | Primary result | Prompt or promise withheld |

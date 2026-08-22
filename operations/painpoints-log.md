@@ -15466,3 +15466,31 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why “newer image” and “current
   character” are different claims in an AI-generated visual library.
 - **Publication status:** INTERNAL PRODUCT-VISION CAPTURE / LIVE DEFECT REMAINS.
+
+## BTB-491 — A feature can exist in source and still be nonexistent to visitors
+
+- **Date:** 2026-08-22
+- **Area:** Homepage discovery, shared navigation and cross-page KSVL state.
+- **Failure:** LAiDIES has source for a sophisticated KSVL control bar,
+  community-provider states, local Butterfly Clip logic and several
+  Card/Closet concepts, yet the Homepage either hides, mislabels or overstates
+  them. The header's KSVL item only navigates, Homepage has no live-start
+  control, key pages do not mount the player, live-station state deliberately
+  does not restore, several activity buttons are inert, and local/prototype
+  capabilities can look like public features in planning copy.
+- **Root cause:** Existence, integration, deployment, discoverability and
+  end-to-end visitor outcome were recorded separately. The Homepage had no
+  exact capability-state input and two competing player/header architectures.
+- **Prevention rule:** Every Homepage-promoted capability binds one exact
+  receiving route and one status: public verified, local verified/not deployed,
+  source present/unverified, planned, rejected/superseded or missing receiver.
+  A shared utility also needs one canonical runtime and real cross-page journey
+  proof. Source presence, a control bar, local storage or a concept cannot
+  substitute for discoverability or visitor outcome.
+- **Durable correction:** The Homepage walkthrough, owner brief/spec, backlog,
+  state and decision register now require the capability inventory, one shared
+  header/KSVL runtime, truthful continuity language and two-pass Homepage
+  correction. No runtime, visual, deployment or public change was made.
+- **Possible Behind the Build angle:** How a feature can be “built” in code and
+  still be invisible, unreachable or misleading on the actual website.
+- **Publication status:** INTERNAL PRODUCT-SYSTEM CORRECTION / NO PUBLIC CHANGE.
