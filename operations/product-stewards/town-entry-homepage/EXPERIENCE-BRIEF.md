@@ -14,6 +14,30 @@
 - Entry-level success is an intentional arrival at a correctly labelled receiving route. It is not learning completion, subscription, playback, account creation, membership, reward, delivery or reopening proof. `LOCKED LEDGER`
 - Practical value leads; the story world makes the lesson memorable and the optional town depth makes products discoverable. `LOCKED LEDGER`
 
+## Ali live Homepage walkthrough — 2026-08-22
+
+Ali's current desired outcome, live-page critique, missing-visual truth and
+proposed information architecture are captured in
+`ALI-HOMEPAGE-WALKTHROUGH-2026-08-22.md`.
+
+- Preserve the substance of the current masthead explanation, but emphasize
+  SUNNYVAiLE and make the method/town relationship click faster.
+- Reorganize the page around current town information and clear visitor jobs;
+  preserve the Wednesday ritual without making it the only organizing idea.
+- Give Miss Jeeves and LIBRAiRY prominent direct entry; describe every major
+  feature by what it helps the visitor do.
+- Make town navigation direct and truthful. A district card that names several
+  destinations but opens one building is not a valid district reveal.
+- Separate Resident Card/Closet from Wednesday Postcard subscription.
+- Replace the soft, disconnected box sequence with one vibrant, electric,
+  polished 1990s composition using purposeful pop-art devices.
+- Treat the nine named held visual slots and the unapproved Cycle 9 electric
+  prototype as recovery inputs, never as release-ready authority.
+
+The exact first post-hero section remains Ali-held. Current recommendation:
+current admitted SUNNYVAiLE/NewsStand preview, then grouped visitor jobs, then
+the Wednesday route. `ALI DECISION OPEN`
+
 ## Audience and visitor-state jobs
 
 | Visitor state | Arrival/orientation | Useful job | Known continuity | Primary result | Prompt or promise withheld |

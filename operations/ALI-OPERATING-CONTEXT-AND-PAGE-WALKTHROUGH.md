@@ -249,8 +249,20 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   and a directory link labelled only “Miss Jeeves” do not count as findable
   LIBRAiRY navigation. The Homepage must name **LIBRAiRY** directly in its
   desktop and mobile primary navigation and provide a clear entry from the
-  Miss Jeeves/reference section.
-- **Sunday cut:** _To confirm._
+  Miss Jeeves/reference section. Ali then reviewed the full live Homepage. Its
+  masthead copy mostly explains the promise, but SUNNYVAiLE needs stronger
+  emphasis; current-town/NewsStand information is buried; the products are not
+  grouped by visitor job; district navigation overpromises and adds clicks;
+  Resident Card and Wednesday Postcard are conflated; the soft box sequence
+  does not express the vibrant electric 1990s visual direction; and nine named
+  visual slots remain held. Preserve the Wednesday ritual, What brought you to
+  town today?, KSVL, LUMINAiRY and the town metaphor, but edit them into one
+  hierarchy. Full authority:
+  `product-stewards/town-entry-homepage/ALI-HOMEPAGE-WALKTHROUGH-2026-08-22.md`.
+- **Sunday cut:** information hierarchy, direct destination discovery,
+  truthful current/empty states, separated Card/Postcard actions and admitted
+  replacement visual coverage; exact scope follows the post-hero ordering
+  decision and real destination readiness.
 - **Continuous operation:** current-feature rotation, destination health and
   evidence-based engagement improvement only after public verification.
 

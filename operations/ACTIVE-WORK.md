@@ -1507,3 +1507,26 @@ objective; every open lane keeps its own checkpoint.
 - **Authority:** internal context and proposed architecture only. No content,
   automation, destination artifact, deployment, publication or public state
   changed.
+
+### 2026-08-22 Homepage guided-walkthrough checkpoint
+
+- **Current state:** `ALI VISION CAPTURED / HOMEPAGE HIERARCHY PROPOSED / NO CANDIDATE BUILT`.
+- **Live-page finding:** the Homepage has the right ingredients but presents
+  them with insufficient hierarchy. Current-town/NewsStand value is buried;
+  visitor jobs are not grouped; district cards do not reliably reveal their
+  named destinations; Resident Card and Wednesday Postcard are conflated; and
+  nine named visual positions remain explicit hold panels.
+- **Recovered context:** the brighter Cycle 9 Homepage/Daily concept Ali
+  remembered exists as an expressly unapproved, unintegrated and non-public
+  local prototype. It may be source-mined but is not current authority.
+- **Proposed correction:** preserve the masthead substance and Wednesday
+  ritual, then organize the page around an admitted current-town preview,
+  grouped visitor jobs, direct named destinations, truthful town exploration,
+  Resident continuation and a separate Postcard action. Use a vibrant electric
+  1990s composition with purposeful pop-art bridging, not another flat card
+  stack.
+- **Next trigger:** Ali rules the first post-hero block. Recommended order:
+  What's happening in SUNNYVAiLE, grouped visitor jobs, Wednesday route.
+- **Authority:** walkthrough and internal product-context update only. No
+  Homepage HTML, CSS, JavaScript, asset, visual candidate, release or public
+  state changed.

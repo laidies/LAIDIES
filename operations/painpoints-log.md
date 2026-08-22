@@ -15415,3 +15415,28 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The difference between scheduling an AI
   workflow and proving it actually handed work to the next owner.
 - **Publication status:** INTERNAL OPERATING-SYSTEM DIAGNOSIS / NO PUBLIC CHANGE.
+
+## BTB-489 — A district card can create hierarchy without providing navigation
+
+- **Date:** 2026-08-22
+- **Area:** Homepage information architecture and town discovery.
+- **Failure:** The Civic Square Homepage card names the Visitor's Centre, Town
+  Hall, Post Office and LIBRAiRY but routes directly to Town Hall. It looks like
+  a district reveal while functioning as a single-building link. Primary
+  destinations remain hard to discover and the district adds an unexplained
+  click rather than reducing choice.
+- **Root cause:** The interface grouped destinations visually without defining
+  the receiving interaction or requiring every named destination to remain
+  directly actionable. Source copy was treated as proof of navigation.
+- **Prevention rule:** A district element passes only when it either reveals
+  direct labelled routes to every destination it names or truthfully describes
+  and opens one exact destination. Primary products also remain discoverable by
+  their exact public names outside the map. Browser tests must exercise the
+  actual destination actions, not only inspect labels and href presence.
+- **Durable correction:** The defect and rule are now bound in the Homepage
+  walkthrough, Experience Brief and decision register. The live interaction
+  remains unchanged until a gated Homepage candidate is built.
+- **Possible Behind the Build angle:** Why grouping links into a town district
+  made a whimsical interface harder to navigate—and how we turned the metaphor
+  into a real interaction contract.
+- **Publication status:** INTERNAL PRODUCT-VISION CAPTURE / NO PUBLIC CHANGE.
