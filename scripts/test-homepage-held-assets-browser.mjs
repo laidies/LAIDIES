@@ -30,6 +30,9 @@ const requiredTruth = [
 const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
   ? `${source}\n${falsePublicPromises[0]}`
   : source;
+const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILURE === "1"
+  ? source.replaceAll('data-library-entry="primary" href="/library.html"', 'data-library-entry="primary" href="#reference"')
+  : source;
 const targets = [
   "/assets/bws-fortune-teller/frame-1-closed.webp",
   "/assets/games/girl-talk/truth-card-face.webp",
@@ -74,6 +77,10 @@ check(targets.every((asset) => !source.includes(asset)), "a rejected or still-he
 check(recoveredHomepage.every(([, asset]) => source.includes(asset)), "a required recovered Homepage source path is missing");
 check(source.includes('/assets/library/jeeves-scene.webp'), "Jeeves reference image was incorrectly removed");
 check(source.includes('id="lookup"') && source.includes('Search the LIBRAiRY'), "Miss Jeeves search surface changed");
+check((libraryNavigationSource.match(/data-library-entry="primary" href="\/library\.html">LIBRAiRY<\/a>/g) || []).length === 2 &&
+  libraryNavigationSource.includes('data-library-entry="reference" href="/library.html">Visit the LIBRAiRY') &&
+  libraryNavigationSource.includes('data-library-entry="directory" href="/library.html">The LIBRAiRY</a>'),
+  "Homepage has no clearly labelled direct LIBRAiRY route in primary, mobile, reference and town-directory navigation");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
 
@@ -125,6 +132,18 @@ try {
       `${width}px Jeeves image/search surface was changed`);
     check(await page.locator("#lookup").count() === 1 && await page.getByRole("button", {name:"Search the LIBRAiRY"}).count() === 1,
       `${width}px Miss Jeeves lookup controls are missing`);
+    check(await page.locator('header nav a[data-library-entry="primary"][href="/library.html"]').filter({hasText:"LIBRAiRY"}).count() === 1 &&
+      await page.locator('#mobile-nav a[data-library-entry="primary"][href="/library.html"]').filter({hasText:"LIBRAiRY"}).count() === 1 &&
+      await page.locator('#reference a[data-library-entry="reference"][href="/library.html"]').filter({hasText:"Visit the LIBRAiRY"}).count() === 1 &&
+      await page.locator('.town-index a[data-library-entry="directory"][href="/library.html"]').filter({hasText:"The LIBRAiRY"}).count() === 1,
+      `${width}px Homepage does not expose every clearly labelled direct LIBRAiRY route`);
+    if (width <= 820) {
+      const menu = page.getByRole("button", {name:"Menu"});
+      await menu.click();
+      check(await page.locator('#mobile-nav a[data-library-entry="primary"][href="/library.html"]').isVisible(),
+        `${width}px mobile Menu does not reveal the direct LIBRAiRY route`);
+      await page.keyboard.press("Escape");
+    }
     check(await page.locator("#new-here").count() === 1 &&
       await page.locator('#new-here a[href="/issues/issue-04.html"]').count() >= 1 &&
       await page.locator('#new-here a[href="/watch.html?ep=04"]').count() === 1,
@@ -192,4 +211,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");

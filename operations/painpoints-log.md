@@ -15317,7 +15317,10 @@ while remaining falsely unfinished in the launch record.
   controller step could run. After that repair, the release-closure audit found
   a second false pass: the curated Pages artifact omitted `_worker.js`, so the
   live Miss Jeeves API returned an empty HTTP 405 and the next deploy would have
-  continued shipping static assets without its server handler.
+  continued shipping static assets without its server handler. The Homepage
+  check then exposed a third form of the same defect: it preserved a deep link
+  labelled “Miss Jeeves” but never required a plainly labelled LIBRAiRY route,
+  so route presence passed while a real visitor could not find the Library.
 - **Root cause:** The local controller test checked expected strings and helper
   behavior but never checked the workflow's context availability or verified a
   pushed GitHub job graph. The artifact builder also treated HTML/static
@@ -15330,14 +15333,18 @@ while remaining falsely unfinished in the launch record.
   real remote graph before dispatch or release claims. The public artifact must
   also include every hosting-runtime entrypoint, and public verification must
   exercise its real endpoint behavior rather than request its source filename.
+  Navigation checks must assert the visitor-facing label, placement and
+  responsive visibility of an intended primary destination—not only its href.
 - **Durable correction:** Baseline temporary paths now resolve from
   `$RUNNER_TEMP` inside the build step, and the calibrated controller test
   rejects the exact invalid job-level `runner.temp` expression. The curated
   artifact now includes exact `_worker.js` bytes; the scope guard permits only
   that named public addition; and deployment verification requires Miss Jeeves
   JSON from both the immutable deployment and `laidies.ai` while denying every
-  rejected/held Library identity. Remote graph verification remains the next
-  gate after push.
+  rejected/held Library identity. The Homepage guard now requires direct,
+  labelled LIBRAiRY entries in desktop, mobile, reference and town-directory
+  navigation at 1440, 390 and 320 pixels. Remote graph verification remains
+  the next gate after push.
 - **Possible Behind the Build angle:** A deployment button can exist in the
   repository for weeks while the hosting platform has never successfully read
   it.

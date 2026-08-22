@@ -124,6 +124,8 @@ html{scroll-padding-top:96px}
 .manifesto-copy{padding:72px clamp(28px,7vw,100px);display:flex;flex-direction:column;justify-content:center}
 .manifesto .eyebrow{color:#ec7a78}
 .reference .eyebrow{color:#ec7a78}
+.reference .library-entry{display:inline-flex;margin-top:20px;padding:11px 16px;border:1.5px solid #ec7a78;border-radius:10px;color:#fffdfb;background:rgba(26,10,20,.28);font-weight:800;text-decoration:none}
+.reference .library-entry:hover,.reference .library-entry:focus-visible{background:rgba(26,10,20,.5);outline-offset:3px}
 .weekly .eyebrow{color:#cabbe8}
 .manifesto h2{color:var(--plum-deep);max-width:16ch}
 .manifesto-copy>p{max-width:56ch;line-height:1.6;font-size:1.05rem;color:#fffdfb}
@@ -516,10 +518,10 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 <header class="topbar">
     <a class="logo" href="#top" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>
     <nav aria-label="Primary">
-      <a data-latest-episode-link href="/issues/issue-04.html">Latest Episode</a><a href="#method">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
+      <a data-latest-episode-link href="/issues/issue-04.html">Latest Episode</a><a href="#method">Start learning</a><a data-library-entry="primary" href="/library.html">LIBRAiRY</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
     <button class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
   </header>
-  <div id="mobile-nav" class="mobile-nav" hidden><a data-latest-episode-link href="/issues/issue-04.html">Latest Episode</a><a href="#method">Start learning</a><a href="#reference">Look it up</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html">Visit KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
+  <div id="mobile-nav" class="mobile-nav" hidden><a data-latest-episode-link href="/issues/issue-04.html">Latest Episode</a><a href="#method">Start learning</a><a data-library-entry="primary" href="/library.html">LIBRAiRY</a><a href="#activities">Activities</a><a href="#town">Explore SUNNYVAiLE</a><a class="nav-ksvl" href="/radio.html">Visit KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
 
   <main id="top" tabindex="-1">
     <section class="hero hero-dusk" aria-labelledby="hero-title">
@@ -658,7 +660,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 
     <section id="reference" class="reference">
       <img loading="lazy" decoding="async" src="/assets/library/jeeves-scene.webp" alt="Miss Jeeves at the SUNNYVAiLE library reference desk">
-      <div><p class="eyebrow">Need one answer—not a tour?</p><h2>Miss Jeeves will help you look it up.</h2><p>Search AI terms, models, companies, practical guides, sources, and previous episode lessons from one place.</p><form id="homepage-jeeves-form"><label for="lookup">What are you trying to understand?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Try: What is an AI agent?"><button type="submit">Search the LIBRAiRY</button></div></form><div class="popular"><span>Popular:</span><a href="/library.html#miss-jeeves?q=Hallucinations">Hallucinations</a><a href="/library.html#miss-jeeves?q=ChatGPT%20vs%20Claude">ChatGPT vs Claude</a><a href="/library.html#miss-jeeves?q=Prompting">Prompting</a></div></div>
+      <div><p class="eyebrow">Need one answer—not a tour?</p><h2>Miss Jeeves will help you look it up.</h2><p>Search AI terms, models, companies, practical guides, sources, and previous episode lessons from one place.</p><form id="homepage-jeeves-form"><label for="lookup">What are you trying to understand?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Try: What is an AI agent?"><button type="submit">Search the LIBRAiRY</button></div></form><div class="popular"><span>Popular:</span><a href="/library.html#miss-jeeves?q=Hallucinations">Hallucinations</a><a href="/library.html#miss-jeeves?q=ChatGPT%20vs%20Claude">ChatGPT vs Claude</a><a href="/library.html#miss-jeeves?q=Prompting">Prompting</a></div><a class="library-entry" data-library-entry="reference" href="/library.html">Visit the LIBRAiRY &rarr;</a></div>
     </section>
 
     <section id="town" class="town">
@@ -704,7 +706,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
           </div>
           <div class="tig tig-terracotta">
             <p class="tig-h">Use, explore &amp; take five</p>
-            <p><a href="/library.html">Miss Jeeves</a> · Reference desk and the LIBRAiRY</p>
+            <p><a data-library-entry="directory" href="/library.html">The LIBRAiRY</a> · Miss Jeeves, books and the reference desk</p>
             <p><a href="/games/fairy-godmother.html">FAiRY Godmother</a> · Prompt help and guidance</p>
             <p><a href="/games/madame-claio.html">Mme CLAi-O</a> · A reading for your question</p>
             <p><a href="/games/dream-phone.html">Dream Phone</a> · Call a town character or play For Real / As If. For fun—not personalized or professional advice.</p>

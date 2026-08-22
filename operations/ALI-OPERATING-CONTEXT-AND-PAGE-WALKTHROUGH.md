@@ -244,7 +244,12 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
 
 - **Current intended job:** Explain LAiDIES/SUNNYVAiLE, orient first-time and
   returning visitors, feature the current useful work and route into the town.
-- **Ali walkthrough:** _To capture._
+- **Ali walkthrough, 2026-08-22:** Ali tried to begin with the LIBRAiRY but
+  could not discover a route from the live Homepage. A map hotspot, topic chips
+  and a directory link labelled only “Miss Jeeves” do not count as findable
+  LIBRAiRY navigation. The Homepage must name **LIBRAiRY** directly in its
+  desktop and mobile primary navigation and provide a clear entry from the
+  Miss Jeeves/reference section.
 - **Sunday cut:** _To confirm._
 - **Continuous operation:** current-feature rotation, destination health and
   evidence-based engagement improvement only after public verification.
@@ -352,7 +357,8 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   admitted; AI Fundamentals has 17 responsive figures through Chapter 13 but
   Chapters 14–20, the cumulative map, learner sessions and final admissions are
   incomplete.
-- **Ali walkthrough:** _To capture._
+- **Ali walkthrough:** Ready to capture after the Homepage discoverability
+  defect above; Ali selected the LIBRAiRY as the first detailed page review.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 
