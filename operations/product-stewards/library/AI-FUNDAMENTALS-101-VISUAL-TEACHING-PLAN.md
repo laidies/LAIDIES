@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** FULL VISUAL LAYER REJECTED BY ALI / QUARANTINED / ZERO VISUALS RENDERED / ONE REPRESENTATIVE REBUILD REQUIRED
+**Status:** SUCCESSOR PARTIAL — 17 RESPONSIVE FIGURES ACTIVE THROUGH CHAPTER 13 / CHAPTERS 14–20 AND COMPLETE SYSTEM MAP NOT BUILT / FULL-BOOK ADMISSION HOLD
 **Owner:** Library
 **Applies to:** the complete AI Fundamentals 101 successor, not the prose-only representative pilot
 
@@ -11,13 +11,39 @@ work by making a relationship, sequence, comparison or failure path visible.
 No visual is admitted because a page looks empty or because every chapter is
 expected to have one.
 
-Technical labels, arrows, legends and captions are deterministic editable
-layers. Illustrative art may carry the Library's approved visual language, but
-it cannot invent the technical relationship or contain generated lettering.
-Every visual has an equivalent text explanation and remains understandable
-without colour.
+The illustration, exact lettering, arrows and teaching relationship are
+composed together as one coherent desktop or mobile textbook asset. Generated
+lettering is permitted only when every visible character is inspected and
+correct; CSS, Python, Figma or another overlay may not draw or repair the
+teaching relationship after generation. The HTML supplies a real caption and
+equivalent text explanation, and the lesson remains understandable without
+colour.
 
-## Current ruling — 2026-08-17
+## Current successor truth — 2026-08-21
+
+The rejected 2026-08-17 CSS/Python visual system remains quarantined, but it is
+not the current production state. A purpose-built successor now renders 17
+responsive teaching figures across Chapters 1–13. Each figure has separately
+composed desktop and mobile artwork; Chapter 9's one teaching figure contains
+two paired mechanism panels.
+
+- Chapter 1's two figures are Ali-approved and integrated locally.
+- Chapter 2's four figures have a role-distinct chapter review pass.
+- Chapters 3–11 are built locally and await Ali acceptance.
+- Chapters 12–13 have independent visual review passes and await Ali acceptance.
+- Chapters 14–20 have no active purpose-built successor figures.
+- The cumulative complete-system map is not built.
+- The full visual layer has not received exact full-book maker inspection,
+  independent admission or Ali acceptance and is not published.
+
+The artifact manifest and calibrated book checker bind this partial state. They
+must fail if the missing later chapters or system map are described as complete,
+or if the rejected visual family returns. The section-level inventory remains a
+planning inventory rather than a 129-image quota; it establishes that the later
+chapters contain unresolved visual teaching jobs, not that every proposed row
+must become an image.
+
+## Rejected predecessor ruling — 2026-08-17 (historical guard)
 
 Ali rejected the full-book visual method after inspecting the first five
 figures. This invalidates the maker and independent desktop/mobile PASS. The
@@ -118,7 +144,8 @@ that count nor the rejected registry constitutes visual acceptance.
   “woman using AI” scenes.
 - No visual quota and no repeated card template.
 - No provider logos where a system role is the actual lesson.
-- No generated technical lettering.
+- No unchecked generated lettering and no later overlay that separates labels
+  or arrows from the illustration that gives them meaning.
 - No animation unless motion is the only clear way to teach change over time;
   the book must still provide the static and text equivalent.
 
@@ -249,14 +276,13 @@ importantly, producing one rejected candidate consumed roughly an hour of
 bespoke image-generation and Figma repair, proving the method cannot scale to
 the book's visual inventory. This artifact remains rejection evidence only.
 
-The successor method must not use image generation as a diagram or layout
-engine. Diagram structure, labels, alignment, responsive order and accessibility
-belong in a small native reusable component family; generated or sourced imagery
-may supply only a supporting object or scene when it performs an indispensable
-teaching job. The visual-job registry must first be grouped into the smallest
-set of reusable forms—such as comparison flow, process/loop, layered system,
-annotated object, timeline and before/after—then one representative component
-must pass desktop and mobile before the family propagates.
+**Historical recommendation, superseded by Ali's later 2026-08-17 ruling:** this
+candidate proposed removing image generation from diagram/layout work and
+building native reusable component families with generated imagery used only
+as support. That method does not govern the current successor. The current
+method composes the illustration, labels, arrows and relationship together,
+uses a separately composed mobile asset when needed and checks every visible
+character and causal mark before integration.
 
 ### Napkin AI tool pilot — rejected as the default producer
 

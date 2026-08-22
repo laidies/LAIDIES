@@ -32,10 +32,15 @@ There are no annual review intervals.
 Remaining work before admission:
 
 1. complete Ali's review of the rendered Rewind overlay;
-2. add the visual teaching layer where it reduces reader effort;
-3. run the exact rendered desktop/mobile reader and newcomer-comprehension
-   checks; and
-4. integrate the accepted source and fragment without restoring the rejected
+2. complete the purpose-built visual teaching layer: 17 responsive figures are
+   active through Chapter 13, but Chapters 14–20 and the cumulative complete
+   system map are not built; Chapter 1 is Ali-approved, Chapter 2 has a
+   role-distinct chapter review pass, Chapters 3–11 await Ali acceptance and
+   Chapters 12–13 have independent review passes but still await Ali acceptance;
+3. run the exact full-book desktop/mobile/200-percent reader checks and the
+   required three distinct observed unfamiliar-human comprehension sessions;
+4. obtain exact full-book visual, content and correction admission; and
+5. integrate the accepted source and fragment without restoring the rejected
    Concepts 101 artifact or claiming publication before public verification.
 
 Build:

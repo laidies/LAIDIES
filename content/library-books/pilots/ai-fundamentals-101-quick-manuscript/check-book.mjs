@@ -241,6 +241,8 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.teachingImages !== 17) errors.push("manifest does not count exactly seventeen active purpose-built teaching visuals");
   if (manifest.counts?.cumulativeSystemMaps !== 0) errors.push("manifest still counts rejected cumulative maps as active");
   if (manifest.gates?.visualTeachingLayer !== "REJECTED_BY_ALI_2026_08_17_QUARANTINED_NOT_RENDERED_NOT_INTEGRATED_NOT_PUBLISHED") errors.push("manifest does not preserve Ali's rejection and quarantine of the visual teaching layer");
+  if (manifest.gates?.currentPurposeBuiltTeachingLayer !== "PARTIAL_17_RESPONSIVE_FIGURES_CHAPTERS_1_TO_13_ONLY_NOT_FULL_BOOK_ADMITTED") errors.push("manifest does not truthfully classify the current purpose-built teaching layer");
+  if (manifest.gates?.visualCompleteness !== "HOLD_CHAPTERS_14_TO_20_AND_CUMULATIVE_SYSTEM_MAP_NOT_BUILT") errors.push("manifest does not hold the missing Chapters 14-20 and cumulative system map");
   if (manifest.gates?.chapterOnePurposeBuiltVisual !== "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 approved visual status");
   if (manifest.gates?.chapterOneProductCutawayVisual !== "APPROVED_BY_ALI_2026_08_18_INTEGRATED_LOCALLY_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 1 product-cutaway status");
   if (manifest.gates?.chapterTwoPurposeBuiltVisual !== "BUILT_LOCALLY_ROLE_DISTINCT_CHAPTER_REVIEW_PASS_NOT_PUBLISHED") errors.push("manifest overstates or loses the Chapter 2 purpose-built visual status");
@@ -354,7 +356,11 @@ export function inspectBook(pilotDir = ownDir) {
     const absolute = path.join(path.resolve(pilotDir, "../../../.."), artifact.path);
     if (!fs.existsSync(absolute) || sha256(fs.readFileSync(absolute)) !== artifact.sha256) errors.push(`artifact binding mismatch: ${artifact.path}`);
   }
-  return { pass: errors.length === 0, errors };
+  return {
+    pass: errors.length === 0,
+    errors,
+    teachingFigures: manifest.counts?.teachingImages,
+  };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -363,5 +369,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.error(`AI FUNDAMENTALS BOOK CHECK FAIL\n- ${result.errors.join("\n- ")}`);
     process.exit(1);
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 technical_clarifications=110 teaching_images=14 chapter_turns=20 parts=9");
+  console.log(`AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 technical_clarifications=110 teaching_figures=${result.teachingFigures} chapter_turns=20 parts=9`);
 }

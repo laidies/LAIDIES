@@ -113,24 +113,38 @@ brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
 The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
-Current status is **TEXTBOOK PROSE BUILT LOCALLY / ENTIRE VISUAL TEACHING LAYER
-REJECTED BY ALI AND QUARANTINED / ZERO FIGURES OR MAPS RENDERED / NOT
-INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. Ali stopped after the
-first five figures because all five failed: source art was visibly squashed,
-one overlay covered teaching text, pictures did not carry the mechanism, and
-the Chapters 2–20 system largely presented coloured text boxes as diagrams.
-The prior maker and independent visual PASS is invalid. A propagation audit
-found the same family across the 48 rendered teaching figures and recommended
-quarantining the full layer rather than patching the first five. The current
-review therefore renders the Ali-vetted text with no active teaching figures,
-section diagrams, cumulative map pieces or final map. Its calibrated checker
-fails if any member of the rejected layer returns.
+Current status is **TEXTBOOK PROSE BUILT LOCALLY / 17 RESPONSIVE SUCCESSOR
+TEACHING FIGURES ACTIVE THROUGH CHAPTER 13 / CHAPTERS 14–20 AND COMPLETE SYSTEM
+MAP NOT BUILT / FULL-BOOK ADMISSION HOLD / NOT DEPLOYED / NOT PUBLICLY
+VERIFIED**. The 2026-08-17 CSS/Python visual family remains rejected and
+quarantined. It has been superseded in Chapters 1–13 by purpose-built paired
+desktop/mobile assets: Chapter 1 is Ali-approved; Chapter 2 has a role-distinct
+chapter review pass; Chapters 3–11 await Ali acceptance; and Chapters 12–13
+have independent review passes but still await Ali acceptance. The calibrated
+checker now binds both facts: the rejected family cannot return, and the
+partial successor cannot be described as a complete visual layer.
 
-The next visual work is capped at one representative mechanism. It must use a
-diagram-native spatial relationship that adds understanding beyond prose or a
-table, keep all technical text deterministic, survive desktop/mobile, and pass
-an artifact-first unfamiliar-reader explain-back plus unseen transfer before
-anything propagates. The original figures remain preserved in history as
+The historical rejection narrative below explains why the predecessor was
+quarantined; it is prevention evidence, not the current artifact count.
+
+The next visual build resumes with one Chapter 14 representative mechanism,
+then proceeds in dependency order through Chapters 15–20 and the complete
+system map. Each new figure must use a diagram-native spatial relationship that
+adds understanding beyond prose or a table, keep technical text deterministic,
+survive desktop/mobile and pass maker inspection before it can consume an
+independent review cycle.
+
+The 2026-08-21 release-cut browser check opened the exact local review at
+1440px and 390px, traversed every lazy-loaded figure and found 17 figures / 18
+picture panels, zero broken images, zero page or figure overflow, 20 chapter
+turn controls and the correct desktop or mobile source selected for all 18
+panels. This is objective local render evidence only. It is not visual quality,
+content admission, 200-percent zoom, unfamiliar-human or public proof.
+
+### Historical 2026-08-17 rejection and predecessor evidence
+
+At the 2026-08-17 rejection point, the next visual work was capped at one
+representative mechanism. The original figures remain preserved in history as
 rejection evidence only.
 
 Historical candidate description, now invalidated: the Chapter 1 candidate showed

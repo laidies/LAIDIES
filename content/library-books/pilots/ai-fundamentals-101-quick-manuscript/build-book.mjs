@@ -1708,6 +1708,8 @@ const manifest = {
     freshnessRegistration: "PASS_20_CHAPTER_SCOPES_WEEKLY_AUTOMATION_MONTHLY_OR_QUARTERLY_REVIEW",
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
     visualTeachingLayer: visualTeachingLayerStatus,
+    currentPurposeBuiltTeachingLayer: "PARTIAL_17_RESPONSIVE_FIGURES_CHAPTERS_1_TO_13_ONLY_NOT_FULL_BOOK_ADMITTED",
+    visualCompleteness: "HOLD_CHAPTERS_14_TO_20_AND_CUMULATIVE_SYSTEM_MAP_NOT_BUILT",
     chapterOnePurposeBuiltVisual: chapterOnePurposeBuiltVisualStatus,
     chapterOneProductCutawayVisual: chapterOneProductCutawayVisualStatus,
     chapterTwoPurposeBuiltVisual: chapterTwoPurposeBuiltVisualStatus,

@@ -15216,3 +15216,39 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The test suite was green because it was
   still living ten days in the past.
 - **Publication status:** INTERNAL RELEASE-GATE CORRECTION / NO PUBLIC BYTES CHANGED.
+
+## BTB-483 — A current plan said zero visuals while the active book rendered seventeen
+
+- **Date:** 2026-08-21
+- **Area:** AI Fundamentals 101 release truth and instruction hygiene.
+- **Failure:** The active book builder and manifest rendered 17 responsive
+  successor teaching figures through Chapter 13, but the current visual plan,
+  Library state and active-work record still described the August 17 rejected
+  predecessor as the present state: zero visuals and one representative rebuild
+  required. The checker then printed a hard-coded count of 14 even while
+  enforcing 17. A stale six-chapter producer contract still said
+  `READY_TO_DRAFT`, active work orders targeted a predecessor source path and
+  the plan's opening method contradicted Ali's later coherent-image lettering
+  ruling.
+- **Root cause:** Historical rejection evidence remained inside current-status
+  documents, and generated artifact truth was not bound to one explicit
+  completeness classification that could fail in both directions.
+- **Prevention rule:** Current product records must name the exact active
+  artifact, built coverage, missing coverage and approval boundary. Preserve a
+  rejected predecessor as a labelled historical guard, mark its contracts
+  `SUPERSEDED`, and make calibrated checks reject both false completion and
+  false erasure of valid successor work.
+- **Durable correction:** The manifest now binds the 17-figure Chapters 1–13
+  successor and separately holds Chapters 14–20 plus the complete system map;
+  the checker reports the manifest count and rejects both falsely complete and
+  zero-successor fixtures. The visual plan, active-work record, Library state,
+  README and work-order source paths now match the current exact build. The old
+  six-chapter producer contract and the rejected overlay-method recommendation
+  are explicitly historical. The current plan binds coherent purpose-built
+  desktop/mobile assets, exact lettering inspection and the no-CSS/Python
+  drawing boundary. The book remains HOLD for later visuals, full-book review,
+  three unfamiliar-human sessions, admission and publication.
+- **Possible Behind the Build angle:** How a green checker, a real set of
+  images and an authoritative plan managed to disagree about whether the images
+  existed at all.
+- **Publication status:** INTERNAL RELEASE-TRUTH CORRECTION / NO PUBLIC BYTES CHANGED.
