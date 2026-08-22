@@ -1588,6 +1588,17 @@ objective; every open lane keeps its own checkpoint.
   image for this job: the old lobby is rejected and the canonical town map is
   not a substitute. A new responsive interior scene is required and has not
   been produced or admitted.
+- **Shared-system ruling:** the global header must render and behave identically
+  on every page; building identity begins below it. Sitewide navigation, body,
+  control, eyebrow, H1/H2/H3, caption and status roles use one coherent type
+  hierarchy. Buildings keep varied palettes/environments but all integrate
+  purposeful Rewind Era pop-art language. Plain white boxes/backgrounds,
+  default black text and unconsidered white text are rejected as a design
+  system; white/near-black remain valid only for deliberate accessible contrast.
+- **Public Visitor type evidence:** computed styles on 2026-08-22 expose 6/7/8px
+  labels, headings at 14/19/30/~37px and Anton/Jost mixing. Ali also observed
+  the header rendering differently from other pages. These are defects for the
+  representative proof, not incumbent traits to preserve.
 - **Verified current truth:** the public page exposes 17 named map buttons and
   named selector options, but destination status is unavailable and the whole
   composition is rejected. Tour source exists but is unverified/currently

@@ -194,6 +194,35 @@ A new responsive interior scene therefore needs to be produced and passed
 through the building visual-production and design-admission gates before Ali is
 shown a candidate.
 
+## Shared header, typography and surface system — locked by Ali, 2026-08-22
+
+The current Visitor’s Centre does not look typographically related to the rest
+of the site. Ali specifically identified the header, heading treatment, font
+mixture, size mixture, eyebrows and plain white/black text and surfaces as
+inconsistent.
+
+The shared town header must look and behave the same on every public page. A
+building cannot restyle it locally; its own visual identity begins below the
+header. The current source still uses different header hosts (`.topbar` on the
+Homepage and `.sv-header` here), so loading the same script is not sufficient
+proof of the same rendered component. Exact desktop/mobile comparison remains a
+required implementation check.
+
+The site needs one common typography hierarchy: navigation, body, controls,
+eyebrows, H1, H2, H3, captions and statuses each have a stable role. A building
+may receive one purposeful display treatment, but not a pile of unrelated fonts
+and arbitrary sizes. Public computed-style inspection on 2026-08-22 found
+Visitor’s Centre labels at 6px, 7px and 8px and headings at 14px, 19px, 30px and
+approximately 37px, using both Anton and Jost. This is rejected evidence, not a
+scale to preserve.
+
+Each building should have a varied environment rather than the same background,
+but every page must use the shared rich Rewind Era visual language and integrate
+purposeful 1980s/1990s pop-art elements. Plain white boxes/backgrounds, default
+black text and unconsidered white text are not acceptable as the design system.
+White and near-black remain available when a deliberate high-contrast reading
+or functional role needs them.
+
 ## Current truth and next work
 
 The live page is rejected as a product experience. The guided-tour runtime,

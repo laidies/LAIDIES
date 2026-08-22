@@ -76,6 +76,11 @@ The website and episodes must feel like the same world:
 ## Typography and word art
 
 - Keep Jost for body copy, navigation, forms, and functional UI.
+- Use one shared sitewide role hierarchy for navigation, body, controls,
+  eyebrows, H1, H2, H3, captions and status text. Each role keeps its approved
+  font, size, weight, line height, tracking and spacing across pages; local CSS
+  may not silently redefine it. An eyebrow must read as the same role in every
+  building and remain comfortably legible at intended viewport sizes.
 - Comic display lettering must be constructed from the saved references in
   `operations/reference/comic-text-emphasis/` and
   `operations/reference/font-and-text-emphasis/`.
@@ -84,10 +89,31 @@ The website and episodes must feel like the same world:
   substantial dark keyline, coloured secondary edge, and hard offset shadow or
   a purposeful burst when warranted.
 - Do not scatter unrelated comic fonts across the page.
+- A building may use one approved display treatment for local identity, but it
+  cannot replace the common information hierarchy or introduce arbitrary font
+  families and scales section by section.
 - The current approved LAiDIES wordmark remains authoritative.
 - Brand words keep the accented lower-case `i`, with `Ai` coloured separately:
   LAiDIES, SUNNYVAiLE, MAiVENS, LUMINAiRY, MAiKEOVER.
 - The technology term is `AI`, both letters capitalized.
+
+## Shared header and varied building surfaces
+
+- The global LAiDIES/SUNNYVAiLE header is one canonical rendered component on
+  every public page: the same wordmark, navigation/account/menu contents,
+  typography, dimensions, spacing, behavior and responsive outcomes. Page-local
+  approximations, skins, scale changes and selector overrides are prohibited.
+  Building-specific visual identity starts below it.
+- Buildings do not share one cloned background. Give each place its own
+  palette, materials, environmental objects and composition while keeping it
+  visibly inside the shared adult Rewind Era system.
+- Integrate purposeful 1980s/1990s pop-art elements into the environment and
+  function; do not apply a generic sticker, pattern or decorative overlay to
+  satisfy the era requirement.
+- Plain white panels/pages, default black text and unconsidered white text are
+  not the site design language. White and near-black remain available only for
+  intentional high-contrast reading or functional roles. All pairings must
+  still meet accessibility contrast.
 
 ## Images
 

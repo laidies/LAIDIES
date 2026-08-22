@@ -57,6 +57,10 @@ visual page.
    visible but not the masthead; optional guidance remains available without
    becoming a gate. Produce a new responsive interior scene because the asset
    inventory contains no admitted image for this job.
+   The proof must render the canonical shared header unchanged and use the
+   shared typography roles. Fail it for any page-local header skin/override,
+   microscopic eyebrow, arbitrary heading scale or default white-box/black-text
+   composition.
 3. **Mechanism proof.** Rebuild one destination interaction only: choose one
    named building by map or accessible named route → see its current job/state
    → step inside. Prove keyboard, touch, Back/Escape, live announcement and
@@ -83,6 +87,8 @@ visual page.
 9. **Admission.** Compare same-viewport public incumbent and candidate, pass the
    exact design-review gate, then request Ali's visual verdict through the
    resolved review URL. No raw concept or local candidate is shown early.
+   Include a same-viewport cross-page header/type comparison, not merely a
+   component-presence or stylesheet check.
 
 ## Non-goals for Pass 1
 

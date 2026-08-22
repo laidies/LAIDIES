@@ -123,6 +123,17 @@ Control Room assigns an integration lock. `APPROVED BRIEF/ARTIFACT`
   candidate cannot be repaired or reused as the new scene, and the canonical
   map cannot substitute for it. A new responsive interior asset is required and
   remains unproduced/unadmitted. `LOCKED LEDGER`
+- The canonical global header must render and behave exactly as the same shared
+  component used across town; Visitor-specific styling begins below it and may
+  not override its type, geometry, spacing, controls or responsive behavior.
+  `LOCKED LEDGER`
+- Navigation, body, controls, eyebrows, H1, H2, H3, captions and statuses use
+  the sitewide typography roles. The room may add one approved display
+  treatment, not arbitrary font families or sizes. `LOCKED LEDGER`
+- Varied SUNNYVAiLE-specific surfaces and purposeful 1980s/1990s pop-art
+  elements supply character. Plain white boxes/backgrounds, default black text
+  and unconsidered white text are rejected; white/near-black remain available
+  only for deliberate accessible high-contrast roles. `LOCKED LEDGER`
 - The ritual is “locate yourself → choose a named place → read its current
   status → step inside,” with a take-away tour ticket, trailer ticket or
   postcard invitation available but never dominant. `APPROVED BRIEF/ARTIFACT`
