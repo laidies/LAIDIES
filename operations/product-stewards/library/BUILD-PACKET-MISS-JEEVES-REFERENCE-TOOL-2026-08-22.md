@@ -118,8 +118,15 @@ deep-links to the exact section/story/activity wherever supported.
    bindings, immutable deployment and `laidies.ai` behavior.
 3. Record only controlled aggregate topic, outcome, placement, latency band and
    source IDs. Never retain raw questions or answer text in analytics.
-4. Use zero-result/related-result patterns to propose content gaps; a human
-   owner decides whether a roadmap item is created.
+4. Use zero-result/related-result and high-demand exact-result patterns to
+   distinguish missing coverage, weak discovery and retrieval defects.
+5. Offer a separate disclosed topic-request intake when coverage is absent or
+   inadequate. It stores only deliberately submitted text, protects against
+   private/confidential data and abuse, deduplicates similar requests and
+   returns a receipt where supported. It is not raw-query logging.
+6. Route a demand/coverage recommendation to the best product job—Library,
+   NewsStand, Episode, High/class, reinforcement or Miss Jeeves—not a book by
+   default. A human owner decides whether a roadmap item is created.
 
 ## Representative acceptance suite
 
@@ -136,6 +143,10 @@ The first proof must cover at least:
 - model unavailable with useful deterministic results;
 - index unavailable with question-preserving retry;
 - no coverage with no invented answer/date;
+- high-demand covered topic routed to discovery improvement rather than a
+  duplicate content proposal;
+- explicit topic request consent, redaction/moderation, deduplication and
+  owner receipt while passive raw questions remain absent;
 - Homepage and Library parity; and
 - zero raw-question leakage.
 

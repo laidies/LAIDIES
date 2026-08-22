@@ -550,6 +550,24 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   **The seven-part owner capture is complete.** The consolidated routine
   authority is
   `product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`.
+- **Library demand and content-gap loop — Ali walkthrough, 2026-08-22:** Offer
+  a clear “I don't see my topic” request near shelf discovery and from Miss
+  Jeeves when coverage is absent or insufficient. Learn both what visitors
+  repeatedly seek and whether the site already has useful coverage. High
+  demand with good coverage should improve Homepage/NewsStand/Library
+  highlighting and routing; high demand with absent or weak coverage should
+  become a reviewed content-gap proposal. The system then recommends the best
+  format by learning job—a durable Library treatment, current NewsStand story,
+  Episode, class, activity/tool or improved Miss Jeeves answer—not a book by
+  default.
+  Passive search learning stores only controlled topic/outcome/source IDs and
+  aggregate counts, never raw questions or inferred personal profiles. A
+  visitor who deliberately requests a topic uses a separate disclosed intake
+  that stores only the text she chooses to submit, protects against sensitive
+  information/abuse and returns a receipt where supported. Cluster duplicate
+  requests, retain frequency and evidence, and route a decision-ready
+  recommendation to the relevant product owner. Demand informs priority; it
+  does not automatically create a roadmap promise, rewrite content or publish.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 

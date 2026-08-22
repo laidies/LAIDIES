@@ -515,6 +515,17 @@ account implementation, audio delivery and portable formats remain build or
 competition questions. AI Fundamentals is the representative proof. No book is
 admitted by this decision.
 
+Ali also specified a Library/Miss Jeeves demand and content-gap loop. Passive
+learning may retain controlled topic/outcome/source IDs and aggregate counts,
+never raw questions or inferred profiles. A separate explicit “request this
+topic” intake owns deliberate visitor text, disclosure, privacy/abuse controls,
+deduplication and receipts. The demand/coverage analysis distinguishes good
+content that is hard to find, retrieval defects and real gaps, then recommends
+the best format owner—Library, NewsStand, Episode, High, reinforcement or Miss
+Jeeves. Popularity informs but does not automatically create a roadmap item,
+draft or publication. This is **SPECIFIED / NOT WIRED** and is merged into the
+Miss Jeeves build authority rather than creating another operating source.
+
 ### 2026-08-21 current LIBRAiRY page release cut
 
 Current `library.html` SHA-256

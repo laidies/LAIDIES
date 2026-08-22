@@ -133,11 +133,40 @@ status/type/date boundaries, but a vector score is not admission or truth.
 - A held, stale, demoted or no-longer-public destination disappears or becomes
   a truthful non-operable status across Library, Homepage and saved results.
 
+## Demand and content-gap learning
+
+Miss Jeeves distinguishes two data paths:
+
+1. **Passive aggregate signal:** controlled topic ID, exact/related/none
+   outcome, placement and returned/opened source IDs. Never raw question text,
+   answer text or an inferred-needs profile.
+2. **Explicit topic request:** when exact coverage is absent or inadequate, the
+   visitor deliberately chooses to submit a bounded topic/request through a
+   disclosed intake. Store only what she elects to send; warn against private
+   or confidential information; apply moderation/abuse/PII protections,
+   deduplication, retention/deletion rules and a receipt where supported.
+
+Aggregate reports must separate:
+
+- high demand plus useful existing coverage: improve discovery, ranking,
+  Homepage/NewsStand features or explanatory routing;
+- high demand plus no/weak coverage: create a decision-ready content-gap
+  proposal;
+- repeated related/failed matches: improve retrieval/index records; and
+- low-volume but important/safety-critical gaps: retain for owner judgment
+  rather than ranking solely by popularity.
+
+The gap router recommends the best product job—Library, NewsStand, Episode,
+High/class, Study Pack/activity/tool or Miss Jeeves answer. It never assumes
+the answer is a book and never automatically creates a public roadmap item,
+draft, release or notification.
+
 ## Acceptance
 
 The exact build must pass a calibrated query suite covering exact, ambiguous,
 related, planned, external, stale, held, demoted, typo, zero-result, provider
-failure and privacy cases. Independent review judges answer usefulness,
+failure, passive-signal privacy, explicit-request consent/PII/abuse and
+deduplication cases. Independent review judges answer usefulness,
 factual/source fidelity, route relevance, distinction among learning jobs,
 LAiDIES voice, keyboard/mobile/assistive behavior and visible design. Local
 tests do not prove the AI binding, deployment or public endpoint.

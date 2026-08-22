@@ -52,6 +52,14 @@ older Library visual or public-framing instruction that conflicts with it.
   updates/audio, catalogue reconsideration and evidence-based chapter/book
   rewards. Do not recover those decisions from older artifacts or expand this
   routine packet with duplicate book instructions.
+- The Library and Miss Jeeves jointly own a privacy-bounded demand/content-gap
+  loop. Shelf discovery and no/weak-coverage results offer an explicit topic
+  request. Passive learning records controlled topic/outcome/source IDs only;
+  it never stores raw questions. Deliberate submissions store only disclosed
+  visitor-provided text through a protected intake. Aggregate demand separates
+  “we have it but people cannot find it” from “we need coverage,” then routes a
+  recommendation to the right format/product owner. Popularity informs
+  priority; it cannot auto-create a roadmap promise, content or publication.
 
 ## Load for every Library task
 
@@ -96,6 +104,10 @@ content-quality contract routed by `operations/DECISIONS.md`.
   retains the question and offers recovery. Analytics receive controlled topic,
   outcome, placement and source IDs—never raw questions, answers, reading text
   or inferred personal need.
+- Demand learning: exact/related/none outcomes and controlled topic/source IDs
+  feed aggregate discovery and gap analysis. A separate explicit “request a
+  topic” control owns any visitor-supplied request text and its disclosure,
+  moderation, deduplication and receipt.
 - Save: Puffy saves use the Resident Card's 10 active stickers and preserve
   whole-book versus exact-section scope. The first save attempt owns the Card
   explanation. My Closet remains in the Sorority House.

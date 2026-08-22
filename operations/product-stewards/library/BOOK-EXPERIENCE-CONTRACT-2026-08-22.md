@@ -171,6 +171,21 @@ discard useful work blindly.
 
 These are evaluation directions, not automatic title admissions or retirements.
 
+## Reader-request and demand loop
+
+Shelf discovery offers an explicit “I don't see my topic” request, while Miss
+Jeeves handles both lookup and no/weak-coverage recovery. Passive aggregate
+signals contain controlled topics and outcomes only—not raw questions. Any
+free-text topic request is a deliberate, disclosed submission through the
+separate governed intake.
+
+Demand analysis must distinguish content people cannot find from content that
+does not exist, and recommend the best format by learning job. A repeated
+question may call for better routing, a Homepage or NewsStand feature, a
+Library book/section, an Episode, class or practice—not automatic book
+production. Popularity is evidence, not sole editorial priority or permission
+to publish.
+
 ## Acceptance and non-goals
 
 The representative AI Fundamentals implementation must prove, on desktop,
