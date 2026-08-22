@@ -372,7 +372,15 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
 
 - **Current intended job:** Report a problem, offer feedback or submit an idea
   with a durable receipt, status and retry path.
-- **Ali walkthrough:** _To capture._
+- **Ali boundary addendum, 2026-08-22:** Differentiate Town Hall from the
+  Visitor’s Centre before redesign. Proposed split: Visitor’s Centre explains
+  the site, navigation, buildings, learning/content paths, stable FAQs and
+  postcards; Town Hall owns Mayor Deb, the Regulars, fictional town
+  backstory/history, civic notices/records and private compliments, complaints
+  or suggestions. Current records support the split, but the feedback form is
+  release-held with no safe server intake/staff lifecycle and public civic
+  records are only planned. Exact Town Hall history/character framing remains
+  for the Town Hall walkthrough; no duplicate help desk or feedback form.
 - **Sunday cut:** _To confirm against the real staff queue/service._
 
 ### 13. The LIBRAiRY

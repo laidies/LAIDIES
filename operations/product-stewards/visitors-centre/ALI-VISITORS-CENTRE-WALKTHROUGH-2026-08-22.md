@@ -88,6 +88,35 @@ excluded for missing correction/contact, Finance and Platform/Privacy truth.
 This record must be reconciled into the current release branch before FAQ
 production; the old editable `operations/faq-content.md` is not a substitute.
 
+## Proposed boundary with Town Hall — Ali confirmation open
+
+Ali identified a potential collision between the Visitor’s Centre and Town
+Hall. The current records support this non-overlapping split:
+
+- **Visitor’s Centre:** “What is SUNNYVAiLE, how does this site work, which
+  learning/content path fits what I need, where is each building and how do I
+  get there?” It owns orientation, navigation, tours, stable how-to-use-the-site
+  FAQs and postcards/invitations.
+- **Town Hall:** “Who runs and lives in this fictional town, what is its civic
+  history and how can I address the town?” It owns Mayor Deb, the Regulars,
+  town backstory/history, notices/civic records and the private compliment,
+  complaint or suggestion function when its real intake/staff lifecycle exists.
+
+The Centre may explain that feedback belongs at Town Hall and route there only
+when the intake is truthfully available. Town Hall may route navigation/help
+questions back to the Centre. Neither building creates a second FAQ store,
+feedback form, support channel, character encyclopedia or public-record system.
+
+Current Town Hall truth: Mayor Deb/history/Regular source exists; the character
+roster and device-local Town Regular interaction have bounded local evidence;
+the feedback form is deliberately disabled because no safe server intake or
+staff lifecycle is proved; public civic records are planned only. Town Hall is
+not a support hotline, emergency route, public message board or guaranteed
+reply channel.
+
+This boundary is recommended and recorded for continuity. Ali has not yet
+confirmed the final public framing or exact Town Hall history/character scope.
+
 ## Trailer
 
 An existing SUNNYVAiLE trailer explains the town and learning loop and has

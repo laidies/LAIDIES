@@ -21,6 +21,9 @@ They do not promote the page, destination or portfolio as a whole.
 | Referral-only Resident Card background | MAiKEOVER functionality map/background build packet | `PLANNED` | Background selection and future visual lane are described. | No exclusive entitlement, accepted visual, unlock event, revoke/refund or ownership exists. MAiKEOVER + Brand + Platform/Rewards. |
 | Structured Visitor FAQ selection | Protected iCloud checkout `operations/product-stewards/visitors-centre/FAQ-BEHIND-THE-BUILD-REGISTRY-SELECTION-v1.json`, SHA-256 `dc16fa95…f21988` | `SOURCE_PRESENT_UNVERIFIED` | 2026-08-03 specification selected 8/12 stable `VCFAQ` IDs and `/visitors-centre.html#answer-vcfaq-NNN` anchors; all are reserved/not live. | File is absent from this release worktree, five selected rows remain evidence-held, three are spec-only, four are excluded, and no answer prose/admission/public route is authorized. Visitor’s Centre + content/Identity/Platform/Finance owners. |
 | Legacy FAQ prose | `operations/faq-content.md` | `REJECTED_SUPERSEDED` | File labels itself editable and contains `[confirm]` plus unsupported login/reward claims. | Cannot be used as current answer truth or registry. Owners vary by claim. |
+| Town Hall civic history and characters | `/town-hall.html`; Town Hall dossier | `SOURCE_PRESENT_UNVERIFIED` / roster interaction `LOCAL_VERIFIED_NOT_DEPLOYED` | Mayor Deb archive, Regulars and Town Regular selection exist in source; bounded local evidence exists for the roster/device-local choice. | Destination freshness and public exact artifact remain incomplete. Town Hall owns; Centre links only. |
+| Town Hall private feedback | `/town-hall.html#town-hall-feedback`; Town Hall functionality map | `MISSING_RECEIVER` | Visible form is deliberately disabled and explains the release hold. | No safe server intake, staff lifecycle, receipt/status or correction propagation. Centre must not promote as open. Town Feedback + Platform. |
+| Town Hall civic records | Town Hall spec/backlog | `PLANNED` | Aggregate accountability model is described. | No raw private-note publication; consent/moderation/redaction/triage/owner approval absent. Town Feedback + Ali/Platform. |
 
 ## Homepage disposition
 
@@ -31,6 +34,9 @@ They do not promote the page, destination or portfolio as a whole.
 - When the Visitor’s Centre successor is admitted, Homepage Pass 2 decides
   whether the fuller orientation changes the compact How SUNNYVAiLE works
   preview. It does not add one section per capability.
+- Visitor’s Centre routes civic history/characters and eventual private
+  feedback to Town Hall; Town Hall routes navigation/site-use help back to the
+  Centre. The Homepage does not create a third combined help/contact surface.
 
 ## Bounded Pass 1 implementation plan
 

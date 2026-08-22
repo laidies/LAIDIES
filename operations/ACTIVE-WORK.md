@@ -1588,6 +1588,12 @@ objective; every open lane keeps its own checkpoint.
   specification selection at SHA-256 `dc16fa95…f21988`; every selected ID is
   reserved/not live and no answer prose is admitted. The old editable FAQ draft
   contains unsupported claims and is not authority.
+- **Town Hall boundary under review:** recommended split is Visitor’s Centre =
+  orientation/navigation/tours/content paths/site-use FAQs/postcards; Town Hall
+  = Mayor Deb/Regulars/fictional civic history/notices and accountable private
+  compliments, complaints or suggestions. Current Town Hall feedback is
+  release-held with no safe receiver/staff lifecycle, and public civic records
+  are planned only. Ali confirmation of the final framing remains open.
 - **Bounded next step:** create the missing visual-asset inventory, then prove
   one first-screen tourist-centre comprehension path, one building handoff and
   one optional contextual tour stop before scaling. Exact plan:
