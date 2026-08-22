@@ -503,6 +503,26 @@ product/operation packet routed to a task; agents must not load the entire
 workbook as ambient context. No existing product decision or release status is
 changed by the draft.
 
+### 2026-08-21 Blend & Snap receiver and Cheat Sheet truth repair
+
+The production review-query bypass and Episode 01 slug/ledger drift were already
+removed in commit `4b1baf7`; the current release cut now also repairs the shared
+downstream handoffs. Available Episode 02–04 Try-Ons preserve
+`/blend-snap.html#the-study-pack`, and every adjacent Quiz opens its exact
+Episode paper through `issue=N&from=blend-snap`, exposes the café return and has
+no horizontal overflow at 390px. The browser suite passes 118 rendered checks.
+
+All four current printable candidates remain preserved but are now **HELD**:
+they contain 4, 8, 4 and 2 printable pages, while the Study Pack contract defines
+a Cheat Sheet as a one-page reference. The manifest has 7 available items, 8
+held, 3 planned and 1 unavailable through 2026-08-23. A calibrated validator
+rejects a multi-page printable if it is relabelled `available`.
+
+Status remains **BLEND & SNAP BUILDING / EPISODE 01 THREE-PART PACK INCOMPLETE /
+EXACT PAGE AND ALI REVIEW ABSENT / NOT DEPLOYED**. Existing Episode 01 prototype
+assets remain non-portable and unadmitted; no Cards ownership or Closet round
+trip is implied.
+
 Both isolated rejected LIBRAiRY successors remain quarantined. The former
 `library-visual-v4-20260804` admission and its dependent Library visual verdicts
 are **INVALIDATED BY ALI'S 2026-08-05 REJECTION**. They are historical evidence,

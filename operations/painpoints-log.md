@@ -15276,3 +15276,30 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why 118.125 pixels is not “basically
   120” when the whole failure was that readers could not identify the books.
 - **Publication status:** BUILT AND VERIFIED LOCALLY / DESIGN AND ALI REVIEW HOLD / NOT DEPLOYED.
+
+## BTB-485 — A route existed, so four multi-page files were called one-page Cheat Sheets
+
+- **Date:** 2026-08-21
+- **Area:** Blend & Snap Study Pack admission and downstream handoffs.
+- **Failure:** The public pack manifest labelled Episode 02–04 Cheat Sheets
+  `available` because their HTML routes existed, even though the files contained
+  eight, four and two printable pages. Episode 01's four-page candidate was
+  already held. Available Try-Ons ignored their `from=blend-snap` origin, and all
+  four Quiz links used one generic URL without an exact café return.
+- **Root cause:** Route existence was treated as product admission. The checker
+  validated schema, freshness and local files but did not enforce the component's
+  defining one-page job or the receiver/return transaction.
+- **Prevention rule:** A downstream component is available only when its exact
+  format job and complete producer → receiver → result → return path pass. For a
+  Cheat Sheet, a local HTML file is insufficient; it must be one printable page
+  and pass print/mobile review. Every episode-bound handoff carries the episode
+  identity and originating surface explicitly.
+- **Durable correction:** All four current multi-page printable candidates are
+  held. The validator now rejects a multi-page file in an available Cheat Sheet
+  slot and the calibrated known-bad fixture fails. Episode 02–04 Try-Ons return
+  to the café, and each Quiz link opens the exact Episode paper and preserves the
+  café handback. Pack validation, 44 cross-entry checks and 118 rendered browser
+  checks pass.
+- **Possible Behind the Build angle:** A link can work perfectly and still point
+  to the wrong product.
+- **Publication status:** INTERNAL RELEASE-TRUTH AND HANDOFF REPAIR / NOT DEPLOYED.

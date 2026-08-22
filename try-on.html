@@ -1212,16 +1212,16 @@
       }
       if (receiptSaveFields) receiptSaveFields.hidden = !config.showReceiptFields;
       var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
-      var returnGroup = params.get("group") || "practice";
-      var groupParam = returnGroup ? "&group=" + encodeURIComponent(returnGroup) : "";
-      var returnHref = "/";
+      var fromBlendSnap = params.get("from") === "blend-snap";
+      var returnHref = fromBlendSnap ? "/blend-snap.html#the-study-pack" : "/";
+      var returnLabel = fromBlendSnap ? "Back to Blend & Snap" : "Back to SUNNYVAiLE";
       if (returnLink) {
         returnLink.href = returnHref;
-        returnLink.textContent = "\u2190 Back to SUNNYVAiLE";
+        returnLink.textContent = "\u2190 " + returnLabel;
       }
       if (portalReturnLink) {
         portalReturnLink.href = returnHref;
-        portalReturnLink.textContent = "Back to SUNNYVAiLE";
+        portalReturnLink.textContent = returnLabel;
       }
       if (communityLink) communityLink.href = "community.html?from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&group=connect" + draftParam;
       if (tryonSteps) {

@@ -4340,6 +4340,14 @@ function resolveSiteUrl(path) {
 function getQuizReturnConfig() {
   const params = new URLSearchParams(window.location.search || "");
   const source = params.get("from");
+  if (source === "blend-snap") {
+    return {
+      source,
+      href: new URL("blend-snap.html#the-study-pack", getSiteRootUrl()).toString(),
+      label: "\u2190 Back to Blend & Snap",
+      bodyClass: "from-blend-snap",
+    };
+  }
   if (source === "episode-03-preview") {
     const fallbackHref = new URL("operations/review-packets/episode-03-reader-preview.html#issue-kit", getSiteRootUrl()).toString();
     let href = fallbackHref;

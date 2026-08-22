@@ -1011,12 +1011,15 @@
             throw new Error("pack does not match published episode");
           }
           var quizHandoff = pack.quizHandoff;
+          var expectedQuizRoute = "/learn/quiz.html?issue=" +
+            encodeURIComponent(pack.episodeNumber) +
+            "&from=blend-snap#quiz-start";
           if (!quizHandoff || !hasOnlyKeys(quizHandoff, quizHandoffKeys) ||
               quizHandoff.id !== "quiz" || !statuses.includes(quizHandoff.status) ||
               !quizHandoff.label || !quizHandoff.job || !quizHandoff.statusLabel ||
               !quizHandoff.publicNote ||
               (quizHandoff.status === "available" &&
-                (!safeRoute(quizHandoff.route) || quizHandoff.route !== "/learn/quiz.html#quiz-start")) ||
+                (!safeRoute(quizHandoff.route) || quizHandoff.route !== expectedQuizRoute)) ||
               (quizHandoff.status !== "available" && quizHandoff.route !== null)) {
             throw new Error("Quiz handoff contract invalid");
           }
@@ -1099,7 +1102,8 @@
           "Episode " + episodeNumber + " Study Pack menu · " + currentEpisode.title;
         document.getElementById("bsSpecialDesc").textContent =
           readyCount + " of " + packPieces.length +
-          " pack pieces are ready. The Quiz is listed separately because it checks understanding; it is not part of the Pack.";
+          " pack pieces " + (readyCount === 1 ? "is" : "are") + " ready. " +
+          "The Quiz is listed separately because it checks understanding; it is not part of the Pack.";
         document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "false");
         document.getElementById("bsPackFallback").hidden = true;
         document.getElementById("bsPackRetry").hidden = true;

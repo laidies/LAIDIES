@@ -6,7 +6,9 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const manifestPath = path.join(root, "content/blend-snap-weekly-packs.json");
+const manifestPath = process.env.BLEND_SNAP_MANIFEST_PATH ?
+  path.resolve(process.env.BLEND_SNAP_MANIFEST_PATH) :
+  path.join(root, "content/blend-snap-weekly-packs.json");
 const episodePath = path.join(root, "content/episode-index.json");
 const evidencePath = path.join(
   root,
@@ -60,6 +62,13 @@ function safeLocalRoute(value) {
 
 function routeFile(route) {
   return path.join(root, route.split(/[?#]/)[0].replace(/^\//, ""));
+}
+
+function printablePageCount(filePath) {
+  const html = fs.readFileSync(filePath, "utf8");
+  return Array.from(html.matchAll(/class\s*=\s*["']([^"']+)["']/gi))
+    .filter((match) => match[1].split(/\s+/).includes("page"))
+    .length;
 }
 
 check(manifest.schemaVersion === "1.0.0", "Unsupported manifest schema.");
@@ -156,6 +165,10 @@ for (const pack of manifest.packs) {
       check(safeLocalRoute(component.route) &&
         fs.existsSync(routeFile(component.route)),
       `Episode ${pack.episodeNumber} ${component.id} available route is missing.`);
+      if (component.id === "cheat_sheet") {
+        check(printablePageCount(routeFile(component.route)) === 1,
+        `Episode ${pack.episodeNumber} Cheat Sheet must contain exactly one printable page.`);
+      }
     } else {
       if (component.status === "held") held += 1;
       if (component.status === "planned") planned += 1;
@@ -185,10 +198,12 @@ for (const pack of manifest.packs) {
     `Episode ${pack.episodeNumber} card admission disagrees with source/economy truth.`
   );
   const quiz = pack.quizHandoff;
+  const expectedQuizRoute = `/learn/quiz.html?issue=${pack.episodeNumber}&from=blend-snap#quiz-start`;
   check(quiz && Object.keys(quiz).every((key) => publicComponentKeys.has(key)) &&
     quiz.id === "quiz" && quiz.status === "available" &&
     quiz.label && quiz.job && quiz.statusLabel && quiz.publicNote &&
-    safeLocalRoute(quiz.route) && fs.existsSync(routeFile(quiz.route)),
+    quiz.route === expectedQuizRoute && safeLocalRoute(quiz.route) &&
+    fs.existsSync(routeFile(quiz.route)),
   `Episode ${pack.episodeNumber} quiz route should be explicit and adjacent.`);
   check(!internalPublicTerms.test(`${quiz.statusLabel} ${quiz.publicNote}`),
     `Episode ${pack.episodeNumber} quiz exposes internal evidence language.`);
@@ -224,6 +239,10 @@ check(!cafe.includes("study-pack-review") &&
 const tryOn = fs.readFileSync(path.join(root, "try-on.html"), "utf8");
 check(tryOn.includes("Could not save on this device"),
   "Try-On does not disclose blocked device storage.");
+check(tryOn.includes('params.get("from") === "blend-snap"') &&
+  tryOn.includes('"/blend-snap.html#the-study-pack"') &&
+  tryOn.includes('"Back to Blend & Snap"'),
+"Try-On does not preserve the originating Blend & Snap handback.");
 
 console.log(
   `✓ BLEND & SNAP PACKS: schema ${manifest.schemaVersion} · ` +
