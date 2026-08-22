@@ -1486,3 +1486,24 @@ objective; every open lane keeps its own checkpoint.
   `PRODUCTION_CONTROLLER_SHA`, then dispatch the exact Sunday source commit.
   Deployment and public verification remain unavailable until those steps
   succeed.
+
+### 2026-08-22 Source-to-publication operating-model checkpoint
+
+- **Current state:** `ALI OUTCOME CAPTURED / OPERATING MODEL PROPOSED / CURRENT LEARNING EXECUTOR STALLED`.
+- **Verified failure:** the existing Learning executor automation configuration
+  says `ACTIVE`, but `executor-state.json` has no heartbeat after
+  `2026-08-11T23:01:32.936Z`; its own calibrated checker returns
+  `EXECUTION_STALLED: heartbeat expired` on 2026-08-22. An active configuration
+  is not current execution evidence.
+- **Proposed correction:** use one shared evidence, claim, concept and routing
+  spine; dispatch compact destination-specific work orders to persistent
+  product owners; invoke temporary craft specialists only when the selected
+  artifact requires them. Hannah Fry and Feynman become explanation and
+  comprehension lenses, not permanent generic authors or one repeated format.
+- **Next trigger:** Ali reviews the proposed operating model. If accepted,
+  reconcile the stalled executor first, then prove one real source transaction
+  from verification through receiving-owner action and terminal/public truth
+  before scaling to additional destinations.
+- **Authority:** internal context and proposed architecture only. No content,
+  automation, destination artifact, deployment, publication or public state
+  changed.

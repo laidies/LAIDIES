@@ -15387,3 +15387,31 @@ while remaining falsely unfinished in the launch record.
   a live website look unfinished—and the second gate that now prevents it.
 - **Publication status:** RECOVERY WAVE 1 DEPLOYED AND PUBLICLY VERIFIED
   2026-08-21 / REPLACEMENT ARTWORK WAVE REMAINS OPEN.
+
+## BTB-488 — An active automation file can hide an eleven-day execution stall
+
+- **Date:** 2026-08-22
+- **Area:** Learning System, content routing and automatic handoffs.
+- **Failure:** The Learning executor's automation configuration and operating
+  record still described the twice-daily cycle as active, while its durable
+  executor state had no heartbeat after 2026-08-11. The structural product
+  steward check could still report `autonomous_delivery=ACTIVE_OR_NO_READY_WORK`
+  because it did not require a current executor heartbeat. The executor's own
+  check correctly failed with `EXECUTION_STALLED: heartbeat expired`.
+- **Root cause:** Configuration, intended cadence, queue eligibility and actual
+  execution evidence were distributed across separate records. A broad
+  structural check allowed the active label to survive without proving that a
+  receiving runner performed a current cycle.
+- **Prevention rule:** Any system-wide claim of automatic delivery must consume
+  the same current heartbeat and live-lane evidence as the executor-specific
+  fail-closed check. An active configuration, scheduled recurrence, queue row
+  or no-ready-work result cannot substitute for a current successful cycle.
+  Missing/expired execution evidence changes the visible state to
+  `EXECUTION_STALLED` and names the repair owner and next trigger.
+- **Durable correction:** The current failure and simpler source-to-publication
+  operating model are recorded. The executor itself remains unrepaired; its
+  next authorized implementation begins with reconciliation, followed by one
+  real source-to-terminal transaction before any scale claim.
+- **Possible Behind the Build angle:** The difference between scheduling an AI
+  workflow and proving it actually handed work to the next owner.
+- **Publication status:** INTERNAL OPERATING-SYSTEM DIAGNOSIS / NO PUBLIC CHANGE.

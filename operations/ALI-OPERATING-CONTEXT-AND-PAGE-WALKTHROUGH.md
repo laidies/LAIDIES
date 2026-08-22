@@ -584,6 +584,33 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 
+### Source-to-publication system — Ali walkthrough, 2026-08-22
+
+Ali wants one end-to-end system that can take new technical information,
+establish what is accurate and current, decide whether it belongs in a book
+chapter, NewsStand edition, class, Episode, tool or several distinct treatments,
+then carry each accepted treatment through production, visuals, implementation,
+review and publication without Ali repeatedly prompting the next step.
+
+The Hannah Fry and Richard Feynman communication methods must flow through
+LAiDIES learning without becoming imitation, forced analogy or one identical
+format. The shared method makes the human reason and real mechanism clear,
+uses familiar examples that reconnect to the technical truth, exposes gaps
+hidden by jargon and proves an unfamiliar learner can explain and transfer the
+idea. Each destination then adapts that truth to its different job.
+
+Do not create a permanent agent team per book or artifact. Use one shared
+evidence/concept/routing spine, persistent product ownership and temporary
+specialists with compact exact task packets. Automatic progression must be a
+real state transition with a receiving owner and next action, not a handoff
+document or `ACTIVE` label. The proposed operating model and verified current
+executor failure are recorded in
+`operations/product-stewards/learning-content-ecosystem/SOURCE-TO-PUBLICATION-OPERATING-MODEL-2026-08-22.md`.
+
+This captures Ali's desired outcome. The exact state machine and repair plan
+remain proposed until reviewed; no new production automation, publication or
+deployment is authorized by this entry.
+
 ### 14. SUNNYVAiLE High
 
 - **Current intended job:** Three complete pathways with observable skills,
