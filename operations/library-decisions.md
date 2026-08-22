@@ -47,6 +47,7 @@ Ali reviews the exact visible page candidate after maker function/accessibility/
 ## Prohibited active inputs
 
 Rejected page identities `615a80f7…dab` and `7d4d01f4…c7c9` remain excluded; `db924c0d…bd6e` is a protected baseline, not approval.
+Rejected exploration identities retained by hash only: `46185b93…7f3d`, `db5e59cd…6972`, `ccb390bd…b536`, `dda48deb…8fb72`, `057714da…9bb`, `621549b4…5632`, `57b889a9…8d45`. Their bytes are available in Git history, not the active tree.
 
 ```banned
 101-shelf-kit.png

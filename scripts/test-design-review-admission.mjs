@@ -37,6 +37,27 @@ const jsonVisual = `${fixtureRoot}/linked-visual.json`;
 fs.writeFileSync(path.join(root, jsonVisual), JSON.stringify({ candidate_path: 'concept.webm' }));
 const jsonArtifactVisual = `${fixtureRoot}/artifact-visual.json`;
 fs.writeFileSync(path.join(root, jsonArtifactVisual), JSON.stringify({ artifact: 'concept.bmp' }));
+const rejectedFixtureRoot = `${fixtureRoot}/rejected`;
+fs.mkdirSync(path.join(root, rejectedFixtureRoot), { recursive: true });
+const rejectedFixture = `${rejectedFixtureRoot}/known-bad.html`;
+const rejectedReceipt = `${rejectedFixtureRoot}/receipt.md`;
+const rejectedEvidence = `${rejectedFixtureRoot}/evidence.md`;
+fs.writeFileSync(path.join(root, rejectedFixture), '<main>known bad design fixture</main>\n');
+fs.writeFileSync(path.join(root, rejectedReceipt), '# rejected receipt fixture\n');
+fs.writeFileSync(path.join(root, rejectedEvidence), '# rejected design fixture evidence\n');
+const fixtureRejectionsPath = `${fixtureRoot}/rejections.json`;
+const fixtureRejections = JSON.parse(fs.readFileSync(path.join(root, 'operations/control-room/rejections.json'), 'utf8'));
+fixtureRejections.rejections.push({
+  id: 'design-admission-test-known-bad',
+  candidate_path: rejectedFixture,
+  quarantine_prefix: rejectedFixtureRoot,
+  candidate_sha256: hash(rejectedFixture),
+  rejected_by: 'calibration',
+  rejected_at: '2026-08-22',
+  prevention_refs: ['LESSON-11'],
+  evidence_path: rejectedEvidence
+});
+fs.writeFileSync(path.join(root, fixtureRejectionsPath), JSON.stringify(fixtureRejections));
 
 const itemEvidence = candidateBoundEvidence('item summary');
 const receipts = Object.fromEntries([
@@ -112,17 +133,17 @@ const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-design-admission-'))
 function run(item) {
   const queuePath = path.join(temp, 'queue.json');
   fs.writeFileSync(queuePath, JSON.stringify({ review_now: [item] }));
-  return spawnSync(process.execPath, [checker, '--fixture'], { cwd: root, encoding: 'utf8', env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath } });
+  return spawnSync(process.execPath, [checker, '--fixture'], { cwd: root, encoding: 'utf8', env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath, LAIDIES_REJECTIONS_PATH: fixtureRejectionsPath } });
 }
 function runBeingBuilt(item) {
   const queuePath = path.join(temp, 'being-built-queue.json');
   fs.writeFileSync(queuePath, JSON.stringify({ review_now: [], being_built: [item] }));
-  return spawnSync(process.execPath, [checker, '--fixture'], { cwd: root, encoding: 'utf8', env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath } });
+  return spawnSync(process.execPath, [checker, '--fixture'], { cwd: root, encoding: 'utf8', env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath, LAIDIES_REJECTIONS_PATH: fixtureRejectionsPath } });
 }
 function runVacuous() {
   const queuePath = path.join(temp, 'vacuous-queue.json');
   fs.writeFileSync(queuePath, JSON.stringify({ review_now: [], being_built: [] }));
-  return spawnSync(process.execPath, [checker, '--fixture'], { cwd: root, encoding: 'utf8', env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath } });
+  return spawnSync(process.execPath, [checker, '--fixture'], { cwd: root, encoding: 'utf8', env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath, LAIDIES_REJECTIONS_PATH: fixtureRejectionsPath } });
 }
 function resolveForReview(item, artifact = candidate.path) {
   const queuePath = path.join(temp, 'resolver-queue.json');
@@ -130,7 +151,7 @@ function resolveForReview(item, artifact = candidate.path) {
   return spawnSync(process.execPath, [resolver, '--fixture', artifact], {
     cwd: root,
     encoding: 'utf8',
-    env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath }
+    env: { ...process.env, LAIDIES_QUEUE_PATH: queuePath, LAIDIES_REJECTIONS_PATH: fixtureRejectionsPath }
   });
 }
 function expectFail(name, mutate, message) {
@@ -157,7 +178,7 @@ const presentationPassing = resolveForReview(validItem);
 if (presentationPassing.status !== 0 || !presentationPassing.stdout.includes('DESIGN PRESENTATION ADMITTED fixture-building-page')) {
   throw new Error(`admitted presentation did not resolve:\n${presentationPassing.stdout}${presentationPassing.stderr}`);
 }
-const presentationBlocked = resolveForReview(validItem, 'operations/design-explorations/library-modular-reading-system-v3-20260803/index.html');
+const presentationBlocked = resolveForReview(validItem, rejectedFixture);
 if (presentationBlocked.status === 0 || !presentationBlocked.stderr.includes('DESIGN PRESENTATION BLOCKED')) {
   throw new Error(`unadmitted local candidate was not blocked:\n${presentationBlocked.stdout}${presentationBlocked.stderr}`);
 }
@@ -177,10 +198,10 @@ expectFail('self-approved maker', item => { item.design_admission.roles.product_
 expectFail('scoped mechanics pass', item => { item.design_admission.scope = 'MECHANICS_ONLY'; }, 'scoped or mechanical review');
 expectFail('missing brand verdict', item => { delete item.design_admission.roles.brand_visual_judge; }, 'missing brand_visual_judge.agent_id');
 expectFail('rejected SHA resubmit', item => {
-  item.design_admission.candidate = binding('operations/design-explorations/library-environment-successor-v2-20260803/index.html');
+  item.design_admission.candidate = binding(rejectedFixture);
   item.review_artifacts = [item.design_admission.candidate];
 }, 'rejected artifact SHA');
-expectFail('quarantined receipt', item => { item.design_admission.roles.environment_artwork_maker.receipt = binding('operations/design-explorations/library-environment-successor-v2-20260803/MAKER-RECEIPT.md'); }, 'quarantined artifact directory');
+expectFail('quarantined receipt', item => { item.design_admission.roles.environment_artwork_maker.receipt = binding(rejectedReceipt); }, 'quarantined artifact directory');
 expectFail('unbound receipt', item => { item.design_admission.roles.environment_artwork_maker.receipt = binding(unboundReceipt); }, 'does not bind candidate SHA-256');
 expectFail('standing document receipt', item => { item.design_admission.roles.building_champion.receipt = binding('operations/product-stewards/library/CHARTER.md'); }, 'standing governing document');
 expectFail('duplicate role receipt', item => { item.design_admission.roles.research_benchmarking.receipt = item.design_admission.roles.building_champion.receipt; }, 'two roles share receipt');
