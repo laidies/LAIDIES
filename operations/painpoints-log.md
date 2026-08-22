@@ -15321,6 +15321,9 @@ while remaining falsely unfinished in the launch record.
   check then exposed a third form of the same defect: it preserved a deep link
   labelled “Miss Jeeves” but never required a plainly labelled LIBRAiRY route,
   so route presence passed while a real visitor could not find the Library.
+  The Library repeated the same mistake in reverse: it loaded the canonical
+  header script, but supplied no header mount element, so the script returned
+  without rendering navigation while source checks could still see its path.
 - **Root cause:** The local controller test checked expected strings and helper
   behavior but never checked the workflow's context availability or verified a
   pushed GitHub job graph. The artifact builder also treated HTML/static
@@ -15335,6 +15338,8 @@ while remaining falsely unfinished in the launch record.
   exercise its real endpoint behavior rather than request its source filename.
   Navigation checks must assert the visitor-facing label, placement and
   responsive visibility of an intended primary destination—not only its href.
+  A shared-component check must also prove the component mounted and is
+  operable in the rendered route; loading its source is not installation.
 - **Durable correction:** Baseline temporary paths now resolve from
   `$RUNNER_TEMP` inside the build step, and the calibrated controller test
   rejects the exact invalid job-level `runner.temp` expression. The curated

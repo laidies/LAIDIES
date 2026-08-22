@@ -353,12 +353,33 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
 - **What currently works locally:** current page provides the room, Miss Jeeves,
   three collection guides, search/topic controls and all 14 covers; objective
   mobile cover/overflow and 99 browser checks pass.
-- **Still held:** current page has no exact Ali judgment; zero books are
-  admitted; AI Fundamentals has 17 responsive figures through Chapter 13 but
-  Chapters 14–20, the cumulative map, learner sessions and final admissions are
-  incomplete.
-- **Ali walkthrough:** Ready to capture after the Homepage discoverability
-  defect above; Ali selected the LIBRAiRY as the first detailed page review.
+- **Still held:** Ali has now reviewed the live page and requires the bounded
+  repair below; zero books are admitted. AI Fundamentals has 17 responsive
+  figures through Chapter 13 but Chapters 14–20, the cumulative map, learner
+  sessions and final admissions are incomplete.
+- **Ali walkthrough, 2026-08-22:** Preserve the bright, bold, colourful pop-art
+  energy; the distinct Reference Desk and Browse the Shelves sections; the
+  clearly explained 101s, Tools and Reference collections; the feeling of
+  entering the building; and the selected-book preview that explains subject,
+  contents and availability before opening.
+  Repair the current composition rather than replacing those strengths. The
+  masthead/interior concept and visible 1990s details work, but the image and
+  title treatment are dull, plain and disconnected from the page palette. The
+  Reference Desk and Browse sections are too compositionally similar and both
+  weight activity to the same side; rebalance or reverse one. Explain the
+  distinct jobs of Miss Jeeves and browsing physical Library collections; do
+  not frame the visitor experience as a generic catalogue. The three shelf
+  rooms currently feel stacked, floating and disconnected, with no convincing
+  floor and books that do not visibly sit on their rails. Recompose them as one
+  connected physical Library experience while retaining all books and the
+  preview interaction. Widen the Titles and Topics search field. Keep useful
+  beginner prompting help, but make prompt wording one part of the broader,
+  current practice of supplying and managing task context, sources,
+  constraints and examples. Mount visible shared navigation so a visitor can
+  return Home and move around SUNNYVAiLE. Keep AI Fundamentals unavailable
+  until its exact book and visual admissions are complete.
+- **Miss Jeeves behavior:** Ali will supply the intended end-to-end answer
+  experience separately; do not infer it from the current implementation.
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
 

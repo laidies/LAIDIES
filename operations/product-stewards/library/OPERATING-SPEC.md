@@ -1,8 +1,8 @@
 # SUNNYVAiLE LIBRAiRY operating specification
 
-**Status:** **BOUNDED LOCAL PASS — independent Repair 1 rejudge 88/100; all
-books remain HOLD or PREVIEW**  
-**As of:** 2026-07-26  
+**Status:** **HOLD — ALI LIVE WALKTHROUGH RECORDED; PAGE ELEVATION REPAIR
+REQUIRED; all books remain HOLD or PREVIEW**
+**As of:** 2026-08-22
 **Authority:** product contract for the building and its four registered
 subproducts; it does not publish a held book or authorize deployment
 
@@ -33,7 +33,7 @@ learning job.
 
 The visitor must understand:
 
-1. the three shelves are the catalogue;
+1. the three shelves are physical Library collections she can browse;
 2. every cover says whether it is available, held or preview;
 3. only an `available` book opens;
 4. Miss Jeeves can orient and route her without bypassing a hold; and
@@ -45,8 +45,9 @@ Arrival → shelf-status explanation → browse three departments or ask Miss
 Jeeves → open only an admitted book → use contents or exact-section route →
 save a book/section locally → continue to the most useful next experience.
 
-When no book is admitted, the room remains useful as an honest catalogue and
-orientation desk. It must not simulate a working reader with teaser copy.
+When no book is admitted, the room remains useful as an honest map of the
+Library's books and an orientation desk. It must not simulate a working reader
+with teaser copy or present the visitor experience as a card catalogue.
 
 ### Returning visitor
 

@@ -9,11 +9,15 @@
 
 The SUNNYVAiLE LIBRAiRY makes a newcomer more capable with AI: she can enter a real library room, identify the right kind of help, open a substantial and honest source, get a direct answer when she does not know where to start, and save an exact useful place for later.
 
-The product is not a decorative bookshelf, a generic site search, or a claim that all displayed books are current and approved. Its shelves are the catalogue; its books, Miss Jeeves, and saved Puffy routes are one reference journey.
+The product is not a decorative bookshelf, a generic site search, a public
+card catalogue, or a claim that all displayed books are current and approved.
+Its physical shelves and books are the browsing experience; Miss Jeeves and
+saved Puffy routes complete one reference journey. “Catalogue” is internal
+publication/search language, not the visitor-facing metaphor.
 
 ## Owned scope
 
-- `library.html`: room arrival, shelf catalogue, availability truth, in-place reader, Miss Jeeves.
+- `library.html`: room arrival, physical shelf browsing, availability truth, in-place reader, Miss Jeeves.
 - Rendered book families under `content/library-books/`, including editorial readiness, source/currency gates and cross-book ownership.
 - Book and exact-section saves via `content/site/puffy-bookmarks.js`, the personal 10-sticker pouch, and retrieval from My Closet.
 - The reference/retrieval relationship with the legacy Reference Closet and the current correction/feedback route.

@@ -3,7 +3,40 @@
 This is the only routine page-specific instruction packet for Library work. It records current decisions, not their history.
 Rejection evidence remains in Git and registered sources; do not load historical design packets unless this file routes the exact task to one.
 
-Last reconciled: 2026-08-21. Ali's next page walkthrough may supersede this packet only through an explicit reviewed replacement.
+Last reconciled: 2026-08-22. Ali's live page walkthrough below supersedes any
+older Library visual or public-framing instruction that conflicts with it.
+
+## Ali live page ruling — 2026-08-22
+
+- Preserve the current bright, bold pop-art energy, distinct collection
+  colours, clear 101s/Tools/Reference grouping, entering-the-building idea and
+  selected-book preview.
+- Elevate rather than discard the current masthead concept: retain the real
+  1990s Library details, but give the room and live title treatment enough
+  colour, depth and authored visual energy to belong to the rest of the page.
+- Differentiate Reference Desk and Browse the Shelves compositionally. They may
+  retain related pop-art materials, but must not repeat the same visual weight
+  and directional balance.
+- Public framing is **Ask Miss Jeeves** versus **browse the Library shelves and
+  books**. “Catalogue” may remain an internal data/admission term; it is not the
+  visitor-facing product metaphor.
+- The shelf sequence must read as one connected physical Library. Rooms require
+  a convincing wall/case/floor relationship; books visibly sit on their rails.
+  Stacked floating rooms, pasted shelf units, misaligned books and card-grid
+  substitution fail.
+- The Titles and Topics search field must provide a generous, unclipped writing
+  area at desktop and mobile sizes.
+- Prompting remains a useful beginner/task entry point, but it is one part of
+  the current practice of providing and managing context, sources, constraints
+  and examples. Do not teach magic-word prompting or present it as the whole
+  workflow.
+- Mount visible shared navigation. Loading a header script without a header
+  mount target, or providing only a hidden/hover return control, is not
+  navigation.
+- AI Fundamentals remains unavailable until its exact content, visuals,
+  reader, independent review, correction, release and public gates pass.
+- Miss Jeeves' end-to-end answer behavior remains open for Ali's additional
+  description. Do not infer it from the live implementation.
 
 ## Load for every Library task
 
@@ -22,10 +55,10 @@ Book-content work also loads the exact current book source, admission manifest, 
   two direct choices: ask Miss Jeeves or browse the shelves. Resident Card setup
   appears only when saving is attempted.
 - Collections: show 101s, Tools and Reference as three distinct comic-pop guides built from current covers, each with one plain-English explanation and an operable route to its physical shelf.
-- Catalogue controls: use one quiet, high-contrast search/topic/Closet surface.
+- Shelf-finding controls: use one quiet, high-contrast search/topic/Closet surface.
   Show results only after a search or topic choice. Do not show warnings, counts
   or instruction paragraphs at rest.
-- Shelves: all 14 current catalogue books remain visible together. Add physical capacity as the collection grows; never paginate or shrink covers to fit.
+- Shelves: all 14 current Library books remain visible together. Add physical capacity as the collection grows; never paginate or shrink covers to fit.
 - Physical truth: every complete cover sits wholly inside one shelf opening,
   visibly meets its rail, stays behind case signs/rails and remains identifiable.
   Primary visible cover dimension is at least 120 CSS px; controls are at least
@@ -36,7 +69,7 @@ Book-content work also loads the exact current book source, admission manifest, 
 - Preview: one cover opens one selected-book preview with job, contents, depth,
   currentness and truthful availability. Back restores the initiating shelf
   control and position. **Open this book** appears only when admitted.
-- Miss Jeeves: question answering and catalogue search are different. She gives
+- Miss Jeeves: question answering and shelf/title search are different. She gives
   bounded answers and exact routes supported by admitted town material; Library
   placement prioritizes books and sections. Every suggested question must resolve.
 - Failure and privacy: no unsolicited error appears before a question. Failure
