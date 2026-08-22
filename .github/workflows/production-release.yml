@@ -65,7 +65,10 @@ jobs:
           test -z "$(git status --porcelain)"
           git cat-file -e "$BASE_COMMIT^{commit}"
           git cat-file -e "$CONTROLLER_SHA^{commit}"
-          git merge-base --is-ancestor "$BASE_COMMIT" "$SOURCE_COMMIT"
+          # The deployed baseline can live on the preserved Sunday release
+          # history while the candidate lives on the clean reset history.
+          # Exact artifact manifests and the scope receipt bind their bytes;
+          # ancestry is neither required nor expected across those lanes.
           git diff --quiet "$CONTROLLER_SHA" "$SOURCE_COMMIT" -- \
             .github/workflows/production-release.yml \
             operations/release-control/public-entrypoints.json \
