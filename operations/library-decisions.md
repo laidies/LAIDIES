@@ -66,7 +66,17 @@ older Library visual or public-framing instruction that conflicts with it.
   ends with key concepts/plain definitions and answer-reveal practice. The
   book exposes its last substantive freshness review, and its language remains
   conversational and easy to engage with.
-  This remains an **open Parts 1–2 capture** while Ali supplies the remaining
+- **Walkthrough Part 3:** Rewind Era humour and analogy are optional teaching
+  devices, not a branding quota. Admit one only when it maps faithfully to the
+  mechanism, improves understanding or recall, fits naturally and preserves
+  the real explanation. Ali's positive exemplar is the *Scream* “call coming
+  from inside the house” connection for synthetic data; forced quotes,
+  decorative name-drops, tenuous mappings and checklist references fail. The
+  reusable producer method must begin with the exact mechanism/teaching job,
+  draw from governed references, state the mapping and its limit, propose only
+  a few faithful candidates or `NONE`, and reject forced/distorting output
+  before Ali review. Ali is not the manual humour-insertion pass.
+  This remains an **open Parts 1–3 capture** while Ali supplies the remaining
   book-experience direction before the final contract is consolidated.
 
 ## Load for every Library task

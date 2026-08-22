@@ -436,7 +436,26 @@ existing pages. `Ali walkthrough` remains blank until Ali reviews that area.
   book's last substantive freshness review prominently enough to establish
   trust without interrupting reading. Language remains conversational,
   engaging and easy to follow.
-  **Capture remains open for Ali's following messages; do not treat Parts 1–2
+- **Library book experience — Ali walkthrough Part 3, 2026-08-22:** The
+  LAiDIES/Rewind Era layer must feel earned, natural and genuinely funny. A
+  reference is not admitted merely because it is recognisable, era-appropriate
+  or satisfies a checklist. It must map faithfully to the mechanism, improve
+  understanding or recall, fit the surrounding conversational prose and avoid
+  crowding out the technical explanation. The book must be allowed to use no
+  reference when none earns its place.
+  Ali's positive exemplar is the *Scream* “the call is coming from inside the
+  house” connection used with synthetic data: the relationship fit the idea,
+  made the passage funny, created a durable memory cue and helped the reader
+  want to continue. Negative exemplars are an unrelated quote, decorative
+  name-drop, forced comparison, tenuous mapping or repeated pop-culture insert
+  added simply to make the prose look branded.
+  Ali must not have to perform a manual reference-writing pass over every
+  chapter. The production system needs a reusable analogy/humour method that
+  starts from the exact mechanism and teaching job, draws only from governed
+  LAiDIES/Rewind knowledge, proposes a small number of faithful candidates or
+  `NONE`, states the mapping and its limit, and independently rejects forced or
+  technically distorting results before they reach Ali.
+  **Capture remains open for Ali's following messages; do not treat Parts 1–3
   as the complete book-experience contract.**
 - **Sunday cut:** page direction plus the exact admitted opening-book set must be
   explicitly reconciled; do not infer four books can be finished safely.
