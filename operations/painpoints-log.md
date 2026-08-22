@@ -15553,3 +15553,26 @@ while remaining falsely unfinished in the launch record.
   rejected examples are part of the safety system that stops an AI design
   workflow from repeating old mistakes.
 - **Publication status:** INTERNAL OPERATING-SYSTEM REPAIR / NO VISUAL OR PUBLIC CHANGE.
+
+## BTB-494 — Preserving work incrementally is not the same as improving the live site incrementally
+
+- **Date:** 2026-08-22
+- **Area:** Three-page redesign release flow.
+- **Failure:** Commit-and-push checkpoints protected work from dirty-worktree
+  loss, but the program did not explicitly say that an approved page should be
+  deployed before the entire redesign finished. That ambiguity could preserve
+  good work safely while leaving the visibly broken live site unchanged for an
+  unnecessarily long big-bang release.
+- **Root cause:** Repository preservation and visitor-visible release were
+  treated as one sequencing question even though they are different state
+  transitions with different evidence.
+- **Prevention rule:** Preserve every completed unit immediately. After Ali
+  approves an exact page candidate and its scoped gates pass, deploy and verify
+  that bounded unit at the public URL without waiting for neighboring pages.
+  Keep `PUSHED`, `DEPLOYED` and `PUBLICLY VERIFIED` distinct, and bind rollback.
+- **Durable correction:** The decision register, three-page program, manifest
+  and active-work record now require incremental public delivery after exact
+  candidate approval while preventing unrelated changes from riding along.
+- **Possible Behind the Build angle:** Why a clean Git history can still hide a
+  stagnant website—and how small verified releases keep redesign work useful.
+- **Publication status:** INTERNAL RELEASE-POLICY CORRECTION / NO PUBLIC CHANGE.

@@ -27,6 +27,10 @@ try {
   staleHash.pages.homepage.allowed_existing_assets[0].sha256 = '0'.repeat(64);
   expectFailure('stale-hash', staleHash, 'hash mismatch');
 
+  const bigBangRelease = structuredClone(manifest);
+  delete bigBangRelease.checkpoint_policy.approved_page_release;
+  expectFailure('big-bang-release', bigBangRelease, 'must deploy and receive public verification');
+
   const oldLobby = manifest.pages['visitors-centre'].prohibited_assets[0];
   const sourcePath = `${scratch}/candidate.html`;
   const body = `<img src="/${oldLobby.path}" alt="fixture">\n`;
@@ -69,7 +73,7 @@ try {
   expectFailure('rejected-jeeves', rejectedJeeves, 'prohibited dependency');
   fs.rmSync(homepageAbsolute, { recursive: true, force: true });
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS known_bad=REJECT undeclared=REJECT stale_hash=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS known_bad=REJECT undeclared=REJECT stale_hash=REJECT big_bang_release=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
   fs.rmSync(path.join(root, `operations/design-explorations/current/homepage/.guard-fixture-${process.pid}`), { recursive: true, force: true });

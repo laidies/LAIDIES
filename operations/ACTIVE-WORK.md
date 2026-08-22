@@ -1644,6 +1644,10 @@ objective; every open lane keeps its own checkpoint.
 - **Preservation rule:** push the operating guard first; then push each
   completed page direction set and each accepted iteration separately. Never
   accumulate all three pages as one long-lived dirty worktree.
+- **Incremental-live ruling:** once Ali approves an exact page candidate and its
+  scoped admission/release checks pass, deploy and publicly verify that bounded
+  unit without waiting for the other two pages or the whole-site redesign.
+  `PUSHED`, `DEPLOYED` and `PUBLICLY VERIFIED` remain separate states.
 - **Verification:** the focused program check passes; its calibration rejects a
   stale source hash, an undeclared dependency, the rejected Visitor lobby and
   the stale Homepage Miss Jeeves scene. The historical design-admission suite

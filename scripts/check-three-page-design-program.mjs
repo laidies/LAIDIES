@@ -68,6 +68,9 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
 
   if (manifest.schema_version !== 1) errors.push('schema_version must be 1');
   if (!manifest.checkpoint_policy?.ali_review_requires_exact_pushed_commit) errors.push('Ali review must require an exact pushed commit');
+  if (manifest.checkpoint_policy?.approved_page_release !== 'DEPLOY_AND_PUBLICLY_VERIFY_WITHOUT_WAITING_FOR_OTHER_PAGES') {
+    errors.push('approved page units must deploy and receive public verification without waiting for other pages');
+  }
   for (const source of manifest.shared_governing_sources || []) verifyBoundFile(root, source, 'shared governing source', errors);
 
   const globalProhibited = new Map();

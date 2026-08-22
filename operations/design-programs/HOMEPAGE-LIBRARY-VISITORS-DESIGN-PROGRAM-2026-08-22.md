@@ -24,6 +24,9 @@ environment, hierarchy, content truth and responsive composition.
 6. Commit and push each completed page direction set and each accepted successor
    separately. A completed Homepage unit is preserved even if LIBRAiRY or the
    Visitor's Centre remains in progress.
+7. After Ali approves an exact page candidate, deploy that bounded unit without
+   waiting for the other pages. Verify its real desktop/mobile journey on
+   `laidies.ai` and preserve its rollback identity before moving on.
 
 ## Page jobs
 
@@ -50,6 +53,10 @@ rejected Homepage Miss Jeeves scene.
 The recovered historical rejection fixtures are quarantine evidence only. Their
 presence makes the admission test capable of failing; it does not make any of
 their designs or assets eligible for reuse.
+
+Incremental release does not collapse status boundaries. `PUSHED`, `DEPLOYED`
+and `PUBLICLY VERIFIED` are separate facts, and only the final one establishes
+that the visitor-visible improvement is live and working.
 
 ## Current hold
 
