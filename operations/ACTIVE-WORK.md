@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** ALI-REVIEW-OPERATION-AGENT-CONTEXT-BLUEPRINT-20260821
-- **Status:** VERIFIED LOCALLY
-- **Owner:** Codex foreground; Ali owns acceptance and all product decisions
-- **Updated:** 2026-08-21 America/Vancouver
-- **Goal:** Give Ali one reviewable blueprint for the context, quality bar, examples, boundaries, workflow and checks required by every LAiDIES operation or specialist agent.
-- **Acceptance:** Explicit draft/non-authority status; small common-context architecture; reusable required-field template; authority-to-outcome diagnosis/correction loop; complete proposed operation map; starter context cards for every major operation; detailed Episode Video Producer pilot; one first review decision; exact scoped commit.
-- **Current step:** Expanded and internally reviewed `operations/specialist-agents/ALI-REVIEW-OPERATION-AGENT-CONTEXT-BLUEPRINT.md` with the cross-operation diagnosis/correction model and the executable-ledger/tool-capability Episode Video pilot; no agent packet or skill has been activated from the draft.
-- **Next action:** Ali reviews Sections 3, 4.1 and 6.11 in that order and marks each `[LOCK]`, `[CHANGE]`, `[ADD]` or `[DELETE]`; accepted wording then becomes the common quality contract and first representative correction lane before any additional specialist is activated.
+- **Task ID:** LAIDIES-24H-PUBLIC-RECOVERY-20260822
+- **Status:** BUILDING
+- **Owner:** Codex foreground; Ali owns taste and public-product decisions
+- **Updated:** 2026-08-22 America/Vancouver
+- **Goal:** Restore execution from this clean authority lane and make every safely shippable LAiDIES visitor journey work publicly within 24 hours.
+- **Acceptance:** Current approved work is reconciled without rejected or historical design bytes; every shipped increment is built, locally verified, path-scoped committed, pushed, deployed and verified at `laidies.ai`; any journey that cannot safely ship is named `HOLD` with its exact blocker and next trigger.
+- **Current step:** Reconcile the current Sunday release lane into this governed worktree and establish one truthful visitor-journey release matrix before further page production.
+- **Next action:** Identify the exact commits and paths to migrate from `/Users/alisoneakin/Projects/laidies-sunday-release-current-20260821`, exclude rejected design artifacts, verify the release controller, and commit the reconciled operating state before page work resumes.
 
 ## Boundaries
 
@@ -20,11 +20,15 @@
 - Recovery lane: `/Users/alisoneakin/Projects/laidies-context-reset-20260818`
 - Starting commit: `cee1127f622a07ab17e5aeab7c48ca381bfad3e7`
 - Branch: `codex/context-reset-20260818`
-- No reset, clean, deletion of source work, deployment, publication, provider
-  mutation, or spend is authorized.
+- No reset, clean, deletion of source work, unrelated provider mutation, or
+  spend is authorized. Ali authorized incremental live deployment on 2026-08-22;
+  release still requires exact-commit deployment and public-origin verification.
 
 ## History
 
 The previous 1,082-line mixed active-work record is preserved at
 `operations/archive/context-reset-20260818/ACTIVE-WORK.pre-reset.md`. It is
 historical evidence, not current task state.
+
+The operation-agent blueprint task is paused at its prior exact review point;
+it is not activated authority and cannot block the 24-hour recovery objective.
