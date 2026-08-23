@@ -14500,3 +14500,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The three-page manifest now carries compact exact-byte direction admission, the calibrated checker rejects stale screenshots, held or duplicate reviews and premature full-implementation claims, and the review resolver admits only the matching pushed candidate without adding a parallel receipt tree.
 - **Possible Behind the Build angle:** Why doing more review work before the design choice produced less reliable design work.
 - **Publication status:** INTERNAL DESIGN-SYSTEM REPAIR / NO DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-463 — A direction gate that never sees the whole page can admit the wrong design
+
+- **Date:** 2026-08-22
+- **Area:** Homepage design production, asset selection and owner review.
+- **Failure risk:** A partial CSS composition can satisfy a prose checklist while visibly omitting the approved masthead treatment, current images, first-session animation, live Daily content, exact wordmark and complete page rhythm. Multiple receipt-led reviews then delay the work without catching what Ali sees immediately.
+- **Root cause:** The review inputs were isolated viewport samples and maker assertions rather than one continuous same-viewport comparison of the incumbent and candidate. The producer also treated missing imagery as permission to generate or decorate instead of reusing current admitted site assets and checking the complete routed Homepage brief.
+- **Prevention rule:** Before owner review, build one complete representative page from current approved assets; expose every locked state, including the entrance; bind current data where the label says “latest”; and compare continuous desktop/mobile candidate pixels with the current live page at the same viewport. One role-distinct visual-experience judge reviews the pixels first. Rejected candidate hashes become fail-closed fixtures. Generated image text is allowed only when purposeful, exact, correctly spelled and legible at final size; gibberish and unreadable decoration fail.
+- **Durable correction:** Homepage directions A/B/C are recorded as full rejections and cannot re-enter review. The successor uses the locked masthead, exact v10 entrance, current Dream Phone/LUMINAiRY/map assets, live episode and Daily records, the exact LAiDIES wordmark treatment and the complete Homepage section sequence. The calibrated design-program guard now requires current same-viewport incumbent evidence, live-content binding, exact wordmark, full-section coverage and one exact-byte independent visual verdict.
+- **Possible Behind the Build angle:** Why more design reviews produced a worse Homepage—and the one visual comparison that finally made the gate useful.
+- **Publication status:** INTERNAL COMPLETE-PAGE PROOF / NOT DEPLOYED.

@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "program_id": "homepage-library-visitors-20260822",
-  "status": "OPERATING_GUARDS_BUILDING_NO_CANDIDATES",
+  "status": "HOMEPAGE_SUCCESSOR_INTERNAL_QA",
   "current_work_order": {
     "path": "operations/design-programs/HOMEPAGE-LIBRARY-VISITORS-WORK-ORDER-2026-08-22.md",
     "sha256": "afb15f704a5f94a882811744269ba3f99d1057300e9b6acea563418cbd43963f"
@@ -69,7 +69,7 @@
       "governing_sources": [
         {
           "path": "operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md",
-          "sha256": "1a0a24b8dceab6e2c6f68c54021cd257fa1274e86b81a0754458edaf285f2983"
+          "sha256": "97196b3244e1d32331e243f24d459ca5f741c0847e2a25cc1aab29bfaeb18651"
         }
       ],
       "allowed_existing_assets": [
@@ -87,6 +87,21 @@
           "path": "assets/video/delivery-20260714-opening-v6/fonts/Jost.ttf",
           "sha256": "6343b70971000b04c5d401c96ae08ce371086135e999d5e1e1413039c0213076",
           "role": "local Jost typography dependency"
+        },
+        {
+          "path": "assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp",
+          "sha256": "2e3eab0681771b03b62e1567032aacaac7375e807567239efaea59e74748a233",
+          "role": "current Homepage Dream Phone activity image"
+        },
+        {
+          "path": "assets/sunnyvaile-streets/lantern-hill-evening.webp",
+          "sha256": "b868381798aa9384dda9b7ab74a00487bbd189ead9f859f43e36ab2b571660d8",
+          "role": "current Homepage LUMINAiRY spotlight"
+        },
+        {
+          "path": "assets/final_map/sunnyvaile-town-map-final-v5.webp",
+          "sha256": "d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0",
+          "role": "canonical Homepage town map"
         }
       ],
       "prohibited_assets": [],
@@ -106,7 +121,8 @@
       "candidates": [
         {
           "id": "homepage-direction-a-front-page",
-          "status": "ADMITTED_FOR_ALI_REVIEW",
+          "status": "REJECTED_BY_ALI",
+          "owner_verdict": "FULL_REJECTION_DO_NOT_ITERATE",
           "entry_path": "operations/design-explorations/current/homepage/directions-20260822/direction-a.html",
           "production_method": "repo_composition",
           "pushed_commit": "6a5a0f31bd58ce7a8915ea6db527408c7d3da1ca",
@@ -140,7 +156,8 @@
         },
         {
           "id": "homepage-direction-b-town-signal",
-          "status": "ADMITTED_FOR_ALI_REVIEW",
+          "status": "REJECTED_BY_ALI",
+          "owner_verdict": "FULL_REJECTION_DO_NOT_ITERATE",
           "entry_path": "operations/design-explorations/current/homepage/directions-20260822/direction-b.html",
           "production_method": "repo_composition",
           "pushed_commit": "6a5a0f31bd58ce7a8915ea6db527408c7d3da1ca",
@@ -174,7 +191,8 @@
         },
         {
           "id": "homepage-direction-c-foldout-edition",
-          "status": "ADMITTED_FOR_ALI_REVIEW",
+          "status": "REJECTED_BY_ALI",
+          "owner_verdict": "FULL_REJECTION_DO_NOT_ITERATE",
           "entry_path": "operations/design-explorations/current/homepage/directions-20260822/direction-c.html",
           "production_method": "repo_composition",
           "pushed_commit": "6a5a0f31bd58ce7a8915ea6db527408c7d3da1ca",
@@ -204,6 +222,45 @@
               {"agent_id": "homepage-creative-review-euler", "role": "brand_visual", "verdict": "ADMIT", "candidate_sha256": "f51c450d7313a986425876cb2ef534b534a10c463e96335a288160acf8c009ba"}
             ],
             "maker_review": {"result": "PASS", "candidate_sha256": "f51c450d7313a986425876cb2ef534b534a10c463e96335a288160acf8c009ba", "known_defects_remaining": 0, "objective_defects_remaining": 0, "visible_issues_remaining": 0}
+          }
+        },
+        {
+          "id": "homepage-successor-complete-proof-20260822",
+          "status": "DRAFT_TRACKED",
+          "entry_path": "operations/design-explorations/current/homepage/successor-20260822/index.html",
+          "production_method": "repo_composition",
+          "source_files": [
+            {"path": "operations/design-explorations/current/homepage/successor-20260822/index.html", "sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995"},
+            {"path": "operations/design-explorations/current/homepage/successor-20260822/candidate.css", "sha256": "7e389b0dea422ad8c4f08a222441ba872597c46415013b9dcc5f789bd6d24ca5"},
+            {"path": "operations/design-explorations/current/homepage/successor-20260822/candidate.js", "sha256": "9ef41e56d89c4d211ea33cbd0c9da367b33b8829408d5f93b173966357b0d021"}
+          ],
+          "dependencies": [
+            {"path": "assets/sunnyvaile-streets/main-street-dusk.webp", "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b", "role": "locked evergreen masthead and current Homepage town scene"},
+            {"path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4", "sha256": "05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3", "role": "canonical first-session ident"},
+            {"path": "assets/video/delivery-20260714-opening-v6/fonts/Jost.ttf", "sha256": "6343b70971000b04c5d401c96ae08ce371086135e999d5e1e1413039c0213076", "role": "local Jost typography dependency"},
+            {"path": "assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp", "sha256": "2e3eab0681771b03b62e1567032aacaac7375e807567239efaea59e74748a233", "role": "current Homepage Dream Phone activity image"},
+            {"path": "assets/sunnyvaile-streets/lantern-hill-evening.webp", "sha256": "b868381798aa9384dda9b7ab74a00487bbd189ead9f859f43e36ab2b571660d8", "role": "current Homepage LUMINAiRY spotlight"},
+            {"path": "assets/final_map/sunnyvaile-town-map-final-v5.webp", "sha256": "d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0", "role": "canonical Homepage town map"}
+          ],
+          "admission": {
+            "presentation_stage": "REPRESENTATIVE_DIRECTION",
+            "selection_scope": "DIRECTION_SELECTION_BEFORE_FULL_IMPLEMENTATION",
+            "coverage": "COMPLETE_PAGE_PROOF",
+            "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995",
+            "screenshots": {
+              "desktop_1440": {"path": "operations/design-explorations/current/homepage/successor-20260822/evidence/desktop-1440.png", "sha256": "020f73daeaf0a0dd8ccffba0fcc3009013d71a34daf4afc778f3bfffa3b0c7f2", "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995"},
+              "mobile_390": {"path": "operations/design-explorations/current/homepage/successor-20260822/evidence/mobile-390.png", "sha256": "9001b0e170df3037dfe275ef6f64ed0f12608f2d1fe26cee94a52acd71c325bd", "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995"}
+            },
+            "incumbent_screenshots": {
+              "desktop_1440": {"path": "operations/design-explorations/current/homepage/successor-20260822/evidence/incumbent-desktop-1440.png", "sha256": "bed2781aaff07a677e36311b00932696b3ffb2372170768cfda605532e0498b3"},
+              "mobile_390": {"path": "operations/design-explorations/current/homepage/successor-20260822/evidence/incumbent-mobile-390.png", "sha256": "fb4439e462aca0debdb8a8e8ebd2c2690821e957a14dd6300b8fd3f31b36ffa7"}
+            },
+            "first_session_ident": {"path": "operations/design-explorations/current/homepage/successor-20260822/evidence/entrance-desktop-1440.png", "sha256": "82929429fa4e49bfcd66202141196f5dbf954a9c5fa4fcfe83ac3507bbe72b1f", "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995"},
+            "objective_checks": {"desktop_mobile_no_overflow": "PASS", "operable_targets_44px": "PASS", "public_play_absent": "PASS", "declared_routes_resolve": "PASS", "first_session_ident": "PASS", "reduced_motion_bypass": "PASS", "exact_wordmark": "PASS", "full_section_coverage": "PASS", "live_content_binding": "PASS"},
+            "independent_reviews": [
+              {"agent_id": "homepage-creative-review-euler", "role": "visual_experience", "verdict": "ADMIT", "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995", "comparison_basis": "SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE", "visible_regressions": 0, "locked_decision_violations": 0, "reviewed_surfaces": ["desktop_1440", "mobile_390", "first_session_ident"], "evidence": {"path": "operations/design-explorations/current/homepage/successor-20260822/evidence/independent-visual-verdict.json", "sha256": "53c5ac9d77b5f48c52227a017053657a75a731647dfe5f6fcea94ffaac6ff7e4"}}
+            ],
+            "maker_review": {"result": "PASS", "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995", "known_defects_remaining": 0, "objective_defects_remaining": 0, "visible_issues_remaining": 0}
           }
         }
       ]
@@ -318,6 +375,11 @@
     }
   },
   "calibration": {
+    "known_bad_candidate_sha256": [
+      "5f78b801a9b5f58c9f08bc7d3f792bc19df1af142d43dabdb822f5141afa5b96",
+      "cb4c420bea3a0e92752cd6bace1fe2d1614bc600d7be4d8c4f042b65e4e0d007",
+      "f51c450d7313a986425876cb2ef534b534a10c463e96335a288160acf8c009ba"
+    ],
     "known_bad_dependencies": [
       "assets/library/jeeves-scene.webp",
       "assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png"

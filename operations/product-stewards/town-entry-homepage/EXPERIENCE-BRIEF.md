@@ -106,6 +106,9 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
   of colour-swapped text boxes.
 - Use visual information throughout, but never crop away meaning or hide text.
   Peer controls keep equal outer geometry and readable action rows.
+- Text may be part of an image when it adds to the scene and is exact, correctly
+  spelled and legible at its final display size. Check every character. Current,
+  personalized or functional state remains live text so it can update honestly.
 - Avoid unexplained blank space and endless scrolling. Important choices stay
   visible; one complete Explore route holds the long tail.
 - Public copy uses LAiDIES voice and explains the real job. The word `Play` is
@@ -113,6 +116,19 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
 
 ## Banned and retired inputs
 
+- Homepage directions A/B/C shown on 2026-08-22 are fully rejected, not
+  iteration bases. Their exact entry SHA-256 values are
+  `5f78b801a9b5f58c9f08bc7d3f792bc19df1af142d43dabdb822f5141afa5b96`,
+  `cb4c420bea3a0e92752cd6bace1fe2d1614bc600d7be4d8c4f042b65e4e0d007`
+  and `f51c450d7313a986425876cb2ef534b534a10c463e96335a288160acf8c009ba`.
+  They failed the wordmark, image-led composition, full-page layout, required
+  section coverage, first-session review and current-content truth. No
+  successor may derive its layout, CSS decoration, header or Daily treatment
+  from them.
+- A Homepage review URL may never suppress the required first-session ident.
+  Review exposes the entrance by default and provides a visible replay control.
+- `Latest` NewsStand or episode content must resolve from the current admitted
+  data source at runtime. A fixed story title in a visual candidate is banned.
 - rejected candidate identity `7c10a847…fff` and its changed masthead/method
   copy, invented icon family and generic update treatment;
 - Cycle 9 or any historical exploration as a visual base;

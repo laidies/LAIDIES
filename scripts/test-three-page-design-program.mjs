@@ -63,26 +63,40 @@ try {
   expectFailure('unpushed', unpushed, 'pushed_ref absent on origin', true);
 
   const missingAdmission = structuredClone(manifest);
+  missingAdmission.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  missingAdmission.calibration.known_bad_candidate_sha256.shift();
   delete missingAdmission.pages.homepage.candidates[0].admission;
   expectFailure('missing-admission', missingAdmission, 'REPRESENTATIVE_DIRECTION admission');
 
   const staleScreenshot = structuredClone(manifest);
+  staleScreenshot.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  staleScreenshot.calibration.known_bad_candidate_sha256.shift();
   staleScreenshot.pages.homepage.candidates[0].admission.screenshots.mobile_390.sha256 = '0'.repeat(64);
   expectFailure('stale-screenshot', staleScreenshot, 'hash mismatch');
 
   const heldReview = structuredClone(manifest);
+  heldReview.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  heldReview.calibration.known_bad_candidate_sha256.shift();
   heldReview.pages.homepage.candidates[0].admission.independent_reviews[0].verdict = 'HOLD';
-  expectFailure('held-review', heldReview, 'every independent review must ADMIT');
+  expectFailure('held-review', heldReview, 'independent visual-experience review must ADMIT');
 
-  const duplicateReviewer = structuredClone(manifest);
-  duplicateReviewer.pages.homepage.candidates[0].admission.independent_reviews[1].agent_id = duplicateReviewer.pages.homepage.candidates[0].admission.independent_reviews[0].agent_id;
-  expectFailure('duplicate-reviewer', duplicateReviewer, 'two distinct independent reviews');
+  const missingComparison = structuredClone(manifest);
+  missingComparison.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  missingComparison.calibration.known_bad_candidate_sha256.shift();
+  delete missingComparison.pages.homepage.candidates[0].admission.incumbent_screenshots;
+  expectFailure('missing-comparison', missingComparison, 'incumbent desktop_1440 screenshot');
 
   const fullBeforeSelection = structuredClone(manifest);
+  fullBeforeSelection.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  fullBeforeSelection.calibration.known_bad_candidate_sha256.shift();
   fullBeforeSelection.pages.homepage.candidates[0].admission.selection_scope = 'FULL_IMPLEMENTATION';
   expectFailure('full-before-selection', fullBeforeSelection, 'selection scope must remain direction-first');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT duplicate_reviewer=REJECT full_before_selection=REJECT');
+  const rejectedReentry = structuredClone(manifest);
+  rejectedReentry.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  expectFailure('ali-rejected-reentry', rejectedReentry, 'exact Ali-rejected candidate cannot re-enter');
+
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT full_before_selection=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

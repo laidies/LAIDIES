@@ -77,25 +77,27 @@ function validateDirectionAdmission(root, candidate, label, errors) {
     return;
   }
   if (admission.candidate_sha256 !== candidateSha) errors.push(`${label}: admission candidate SHA does not match entry bytes`);
-  for (const viewport of ['desktop_1440','mobile_390','mobile_320']) {
+  for (const viewport of ['desktop_1440','mobile_390']) {
     const screenshot = admission.screenshots?.[viewport];
     binding(root, screenshot, `${label} ${viewport} screenshot`, errors);
     if (screenshot?.candidate_sha256 !== candidateSha) errors.push(`${label}: ${viewport} screenshot is not bound to candidate SHA`);
+    binding(root, admission.incumbent_screenshots?.[viewport], `${label} incumbent ${viewport} screenshot`, errors);
   }
   const checks = admission.objective_checks || {};
-  for (const key of ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass']) {
+  for (const key of ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass','exact_wordmark','full_section_coverage','live_content_binding']) {
     if (checks[key] !== 'PASS') errors.push(`${label}: objective check ${key} must PASS`);
   }
   const reviews = admission.independent_reviews || [];
-  const reviewerIds = reviews.map(review => review.agent_id).filter(Boolean);
-  if (reviews.length < 2 || new Set(reviewerIds).size !== reviews.length) errors.push(`${label}: two distinct independent reviews are required`);
+  if (reviews.length !== 1) errors.push(`${label}: exactly one role-distinct visual-experience review is required`);
   for (const review of reviews) {
-    if (!review.agent_id || !['research_ux','brand_visual'].includes(review.role) || review.verdict !== 'ADMIT' || review.candidate_sha256 !== candidateSha) {
-      errors.push(`${label}: every independent review must ADMIT the exact candidate with a valid role`);
+    binding(root, review.evidence, `${label} independent review evidence`, errors);
+    if (!review.agent_id || review.role !== 'visual_experience' || review.verdict !== 'ADMIT' || review.candidate_sha256 !== candidateSha) {
+      errors.push(`${label}: the independent visual-experience review must ADMIT the exact candidate`);
     }
+    if (review.comparison_basis !== 'SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE' || review.visible_regressions !== 0 || review.locked_decision_violations !== 0) errors.push(`${label}: independent review must compare same-viewport live/candidate renders with zero visible regressions or locked-decision violations`);
+    const surfaces = new Set(review.reviewed_surfaces || []);
+    for (const surface of ['desktop_1440','mobile_390','first_session_ident']) if (!surfaces.has(surface)) errors.push(`${label}: independent review missing surface ${surface}`);
   }
-  const roles = new Set(reviews.map(review => review.role));
-  if (!roles.has('research_ux') || !roles.has('brand_visual')) errors.push(`${label}: research/UX and Brand/visual reviews are both required`);
   const maker = admission.maker_review || {};
   if (maker.candidate_sha256 !== candidateSha || maker.result !== 'PASS' || maker.known_defects_remaining !== 0 || maker.objective_defects_remaining !== 0 || maker.visible_issues_remaining !== 0) {
     errors.push(`${label}: maker review must PASS exact bytes with zero remaining defects`);
@@ -110,6 +112,7 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
   let manifest;
   try { manifest = JSON.parse(fs.readFileSync(absoluteManifest, 'utf8')); }
   catch (error) { return [`manifest invalid JSON: ${error.message}`]; }
+  const knownBadCandidates = new Set(manifest.calibration?.known_bad_candidate_sha256 || []);
 
   if (manifest.schema_version !== 2) errors.push('schema_version must be 2');
   binding(root, manifest.current_work_order, 'current work order', errors);
@@ -187,6 +190,13 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
       }
       for (const ref of observed) if (!declared.has(ref)) errors.push(`${label}: unmanifested asset reference ${ref}`);
       for (const ref of declared.keys()) if (!observed.has(ref)) errors.push(`${label}: declared dependency not referenced: ${ref}`);
+      const entrySha = (candidate.source_files || []).find(item => item.path === candidate.entry_path)?.sha256;
+      if (candidate.status === 'REJECTED_BY_ALI') {
+        if (!knownBadCandidates.has(entrySha)) errors.push(`${label}: Ali-rejected entry SHA must be a known-bad calibration fixture`);
+        if (candidate.owner_verdict !== 'FULL_REJECTION_DO_NOT_ITERATE') errors.push(`${label}: Ali rejection must retain the full owner verdict`);
+      } else if (knownBadCandidates.has(entrySha)) {
+        errors.push(`${label}: exact Ali-rejected candidate cannot re-enter production or review`);
+      }
       if (REVIEWABLE.has(candidate.status)) {
         if (!/^[a-f0-9]{40}$/.test(candidate.pushed_commit || '') || !candidate.pushed_ref) errors.push(`${label}: reviewable candidate requires pushed commit/ref`);
         if (verifyGit && candidate.pushed_ref) {
