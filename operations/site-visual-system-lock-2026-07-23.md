@@ -62,7 +62,10 @@ The website and episodes must feel like the same world:
 
 ## Colour
 
-- Keep the existing light background gradients.
+- Do not preserve the Homepage's existing light pastel gradients as a visual
+  base. Ali rejected the half-pastel/half-bold split on 2026-08-23. Use the
+  vibrant production palette in bounded colour families, with saturated
+  gradients and real pop-art construction rather than pale CSS surfaces.
 - Use a near-black blue for dark mastheads, gutters, hard shadows, and ink.
 - Use a full vibrant 1990s accent spectrum. Pink, purple, cyan and teal remain
   available, but must not become the only repeated quartet.

@@ -2,7 +2,7 @@
  * SUNNYVAiLE homepage behaviours (2026-07 redesign).
  *  - mobile menu, activity filters, district tabs
  *  - interactive town map popups
- *  - song chips that play through a DOM <audio> (adopted by mini-player.js)
+ *  - KSVL links remain ordinary navigation; the canonical KSVL deck owns audio
  *  - Wednesday route progress paint (reads window.svTour from sv-tour-checkin.js)
  *  - published episode fallback presentation (editorial release data is backstage)
  *  - window.svShowResume(epTitle, href) hook for signed-in resume state
@@ -156,38 +156,6 @@
         closePopup(true);
       }
     });
-  })();
-
-  /* ---------- song chips → DOM <audio>, adopted by mini-player ---------- */
-  (function () {
-    var chips = document.querySelectorAll('.play-chip');
-    if (!chips.length) return;
-    var audio = document.createElement('audio');
-    audio.preload = 'none';
-    document.body.appendChild(audio);
-    var current = null;
-    function setIcon(chip, playing) {
-      if (chip) chip.querySelector('.pc-icon').innerHTML = playing ? '&#10074;&#10074;' : '&#9654;';
-    }
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        // Route through the KSVL player so the song plays as ITSELF (not the
-        // radio rotation) with the persistent bar + pop-out. Falls back to the
-        // inline audio only if the KSVL player isn't present.
-        if (window.KSVL_playTrack) {
-          window.KSVL_playTrack(chip.dataset.audio, chip.dataset.title || '', 'LAiDIES');
-          setIcon(current, false); current = chip; setIcon(chip, true);
-          return;
-        }
-        if (current === chip && !audio.paused) { audio.pause(); setIcon(chip, false); return; }
-        setIcon(current, false);
-        if (current !== chip) { audio.src = chip.dataset.audio; audio.dataset.title = chip.dataset.title || ''; }
-        current = chip; audio.play(); setIcon(chip, true);
-      });
-    });
-    audio.addEventListener('pause', function () { setIcon(current, false); });
-    audio.addEventListener('play', function () { setIcon(current, true); });
-    audio.addEventListener('ended', function () { setIcon(current, false); });
   })();
 
   /* ---------- Wednesday route progress paint ---------- */

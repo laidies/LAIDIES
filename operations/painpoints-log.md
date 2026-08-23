@@ -14662,3 +14662,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Source `9223dca3a3de04d93d1c8108505dc8fed297183b` replaces MAiKEOVER's raw storage read and `innerHTML` sink with `LAIDIESResidentCard.readHandle(window.localStorage)` and `replaceChildren`. Release source `750c062a27150bda6cbe5443ab16068f34e4e0aa`, artifact `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e` and deployment `840943b3-fbc7-4049-a0d7-0d12fba688af` passed the calibrated MAiKEOVER/Card contracts; all 15 fetchable verification paths matched at both public origins and the shared Miss Jeeves API returned HTTP 200 at both. Real account, public-profile and cross-device handle claims remain held.
 - **Possible Behind the Build angle:** Why fixing a malicious URL did not protect the same username after a browser remembered it.
 - **Publication status:** PRODUCTION FUNCTIONAL/SECURITY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-476 — Additive live-base design preserved the defects it was supposed to remove
+
+- **Date:** 2026-08-23
+- **Area:** Homepage visual direction and design admission.
+- **Failure:** The `04b08302…` Homepage proof kept the pastel/bold split, CSS decoration, missing imagery and old page order, then added a Daily rack whose image and text did not form a coherent editorial object. Internal review admitted it despite those visible brief violations.
+- **Root cause:** Production treated the live page as the visual target and review scored local compliance instead of comparing the complete composition with Ali's approved pop-art references and direct walkthrough.
+- **Prevention rule:** Homepage redesign begins with three complete image compositions grounded in the locked masthead, exact copy, vibrant LIBRAiRY palette, admitted real assets and exact pop-art references. Additive live-base patching, isolated section approval and code-before-selection are prohibited; Ali selects the visual target before implementation.
+- **Durable correction:** The candidate, Daily rack and internal admission are invalidated in the routed Homepage authority and active-asset registry. The proof CSS/JavaScript is removed from the Homepage source. No new process file was added.
+- **Possible Behind the Build angle:** Why a safe-looking incremental redesign can faithfully preserve everything the redesign was meant to fix.
+- **Publication status:** REJECTED INTERNAL DIRECTION / NOT DEPLOYED.

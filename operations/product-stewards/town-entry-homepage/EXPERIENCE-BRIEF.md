@@ -193,6 +193,14 @@ imagery, icons or visual systems.
   They fail integrated editorial-object architecture and credible mobile
   recomposition; the latter two also contain pseudo-signage. No successor may
   derive its layout or generated lettering from them.
+- The additive live-base proof with entry SHA-256
+  `04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2`
+  is fully rejected, including its method composition, physical Daily rack and
+  internal `ADMIT` verdict. It preserved the half-pastel/half-bold visual split,
+  accumulated CSS decoration, failed to reorganize the finite page, used a
+  nonsensical newspaper/text composition and left required imagery missing.
+  No Homepage successor may use additive live-base patching as its design
+  method or derive layout, section styling or Daily treatment from this proof.
 - A Homepage review URL may never suppress the required first-session ident.
   Review exposes the entrance by default and provides a visible replay control.
 - `Latest` NewsStand or episode content must resolve from the current admitted
