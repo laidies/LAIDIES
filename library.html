@@ -1587,8 +1587,11 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
   document.getElementById('mobile-toc').open=false;
   if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; setBookToc(toc,'');
-    fetch(publication.source,{credentials:'same-origin',redirect:'error',cache:'no-store'}).then(async r=>{
-      if(!r.ok||r.url!==new URL(publication.source,location.origin).href)throw new Error('not found');
+    fetch(publication.source,{credentials:'same-origin',redirect:'follow',cache:'no-store'}).then(async r=>{
+      const requestedUrl=new URL(publication.source,location.origin);
+      const canonicalUrl=new URL(requestedUrl.href);
+      if(canonicalUrl.pathname.endsWith('.html'))canonicalUrl.pathname=canonicalUrl.pathname.slice(0,-5);
+      if(!r.ok||![requestedUrl.href,canonicalUrl.href].includes(r.url))throw new Error('not found');
       const bytes=await r.arrayBuffer();
       if(await sha256Hex(bytes)!==publication.record.artifactSha256)throw new Error('artifact mismatch');
       return new TextDecoder().decode(bytes);

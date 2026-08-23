@@ -451,6 +451,22 @@ const server = http.createServer((request, response) => {
         }
       }
       if (
+        options.canonicalRedirectArtifact &&
+        /\/content\/library-books\/rendered\/reader-fixture-101\.html/.test(url)
+      ) {
+        return route.fulfill({
+          status: 308,
+          headers: { location: "/content/library-books/rendered/reader-fixture-101" },
+          body: ""
+        });
+      }
+      if (
+        options.canonicalRedirectArtifact &&
+        /\/content\/library-books\/rendered\/reader-fixture-101(?:\?.*)?$/.test(url)
+      ) {
+        return route.fulfill({ status: 200, contentType: "text/html", body: admittedArtifact });
+      }
+      if (
         options.redirectArtifact &&
         /\/content\/library-books\/rendered\/reader-fixture-101\.html/.test(url)
       ) {
@@ -1234,6 +1250,17 @@ const server = http.createServer((request, response) => {
     );
     await reduced.context.close();
 
+    const canonicalRedirect = await makePage({ fixture: true, canonicalRedirectArtifact: true });
+    await canonicalRedirect.page.goto(`${origin}/library.html#reader-fixture-101`, {
+      waitUntil: "domcontentloaded"
+    });
+    await canonicalRedirect.page.waitForSelector("#reader-fixture-heading");
+    check(
+      (await canonicalRedirect.page.locator('.reader-error[role="alert"]').count()) === 0,
+      "reader follows the exact same-origin extensionless canonical redirect"
+    );
+    await canonicalRedirect.context.close();
+
     const redirected = await makePage({ fixture: true, redirectArtifact: true });
     await redirected.page.goto(`${origin}/library.html#reader-fixture-101`, {
       waitUntil: "domcontentloaded"
@@ -1697,7 +1724,7 @@ const server = http.createServer((request, response) => {
     );
     check(
       publicationRequests.every((url) =>
-        /\/content\/library-books\/rendered\/reader-fixture-101\.html$/.test(url)
+        /\/content\/library-books\/rendered\/reader-fixture-101(?:\.html)?$/.test(url)
       ),
       "publication requests remain confined to exact admitted production and test-fixture artifacts"
     );

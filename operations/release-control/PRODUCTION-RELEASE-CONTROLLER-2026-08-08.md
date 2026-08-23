@@ -102,3 +102,8 @@ script on the custom domain. Rendered-book responses therefore carry
 `Cache-Control: no-transform`, which Cloudflare documents as disabling that
 rewrite. This is route-scoped to the books; the custom-domain verifier continues
 to require their exact reviewed hashes rather than normalizing provider changes.
+
+Cloudflare's canonical static routing redirects `.html` book requests to the
+same path without the extension. The reader may follow only that exact
+same-origin canonical form (or the original URL) before checking the admitted
+artifact hash and content version. Any other redirect remains a hard failure.
