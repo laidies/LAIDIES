@@ -11,7 +11,7 @@ const root = process.cwd();
 const checker = path.join(root, "scripts/validate-library-product.mjs");
 const clean = spawnSync(process.execPath, [checker], { cwd: root, encoding: "utf8" });
 assert.equal(clean.status, 0, clean.stderr || clean.stdout);
-assert.match(clean.stdout, /available=0 · admitted=0/);
+assert.match(clean.stdout, /ready=4 · admitted=4/);
 
 const stale = spawnSync(process.execPath, [checker], {
   cwd: root,
@@ -20,6 +20,21 @@ const stale = spawnSync(process.execPath, [checker], {
 });
 assert.notEqual(stale.status, 0, "an unauthorized admission must fail the Library contract");
 assert.match(`${stale.stdout}${stale.stderr}`, /unexpected compiled Library admission/);
+
+const staleLocalReview = spawnSync(process.execPath, [checker], {
+  cwd: root,
+  encoding: "utf8",
+  env: { ...process.env, LIBRARY_CONTRACT_CALIBRATION: "stale-local-review" }
+});
+assert.notEqual(
+  staleLocalReview.status,
+  0,
+  "a stale local-review source hash must fail the Library contract"
+);
+assert.match(
+  `${staleLocalReview.stdout}${staleLocalReview.stderr}`,
+  /local-review source hash is stale/
+);
 
 const manifest = JSON.parse(fs.readFileSync(path.join(root, "content/library-books/admission-manifest.json"), "utf8"));
 const rejectionState = JSON.parse(fs.readFileSync(path.join(root, "content/library-books/rejected-artifacts.json"), "utf8"));
@@ -39,5 +54,5 @@ assert.throws(
 );
 
 console.log("LIBRAiRY CONTRACT CALIBRATION PASS");
-console.log("- Current catalogue exposes zero available or admitted books.");
-console.log("- Unauthorized and directly rejected admissions were rejected.");
+console.log("- Current catalogue exposes exactly four ready, admitted opening books.");
+console.log("- Unauthorized, stale local-review and directly rejected admissions were rejected.");
