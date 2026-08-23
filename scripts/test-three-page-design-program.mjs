@@ -2,7 +2,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { libraryProofErrors, validateProgram, visitorProofErrors } from './check-three-page-design-program.mjs';
+import { homepageProofErrors, libraryProofErrors, validateProgram, visitorProofErrors } from './check-three-page-design-program.mjs';
 
 const root = process.cwd();
 const manifestPath = 'operations/design-programs/homepage-library-visitors-20260822.json';
@@ -13,6 +13,13 @@ const sha = value => crypto.createHash('sha256').update(value).digest('hex');
 
 function expectVisitorProofFailure(name, source, expected) {
   const errors = visitorProofErrors(source);
+  if (!errors.some(error => error.includes(expected))) {
+    throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
+  }
+}
+
+function expectHomepageProofFailure(name, source, expected) {
+  const errors = homepageProofErrors(source);
   if (!errors.some(error => error.includes(expected))) {
     throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
   }
@@ -34,6 +41,26 @@ function expectFailure(name, changed, expected, verifyGit = false) {
 
 fs.mkdirSync(scratchAbsolute, { recursive: true });
 try {
+  const homepageProofPath = path.join(root, 'operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html');
+  const homepageProofSource = fs.readFileSync(homepageProofPath, 'utf8');
+  const homepageProofBaseline = homepageProofErrors(homepageProofSource);
+  if (homepageProofBaseline.length) throw new Error(`Homepage proof baseline failed: ${homepageProofBaseline.join(' | ')}`);
+  expectHomepageProofFailure(
+    'homepage-method-collage',
+    homepageProofSource.replace('<section class="method"', '<div class="method-grid"></div><section class="method"'),
+    'rejected five-image method collage'
+  );
+  expectHomepageProofFailure(
+    'homepage-invented-copy',
+    homepageProofSource.replace('See everything in SUNNYVAiLE', 'Every building has a job.'),
+    'rejected invented Homepage copy'
+  );
+  expectHomepageProofFailure(
+    'homepage-copy-provenance',
+    homepageProofSource.replaceAll('data-copy-source=', 'data-unmapped-copy='),
+    'copy provenance'
+  );
+
   const visitorProofPath = path.join(root, 'operations/design-explorations/current/visitors-centre/live-base-proof-20260822/proof.js');
   const visitorProofSource = fs.readFileSync(visitorProofPath, 'utf8');
   const visitorProofBaseline = visitorProofErrors(visitorProofSource);

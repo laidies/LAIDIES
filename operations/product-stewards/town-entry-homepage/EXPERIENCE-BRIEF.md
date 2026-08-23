@@ -214,6 +214,24 @@ generated lettering, invented or malformed signage, unexplained bare tiles,
 full-page night treatment, incomplete Wednesday route and generic three-door
 Patron Saints/MAiVENS/Trailblazers block.
 
+### 2026-08-23 owner correction — method scale and copy provenance
+
+The five-image `Story / Analogy / Practice / Music / Community` method collage
+shown in the owner proof is rejected. It is confusing, consumes too much space
+and does not earn that space with a useful destination job. Do not restore it
+from examples 1 or 4. The method is one compact explanatory band using the
+already-approved `Your brain kept the references...` and `The plot explains
+it...` copy, the existing Homepage explanation, and a route to the Visitor's
+Centre. Community remains part of the wider LAiDIES experience and the Delta
+LAi Nu destination; it is not forced into the four-part method sentence.
+
+The second repeated failure was preserving the incumbent section architecture
+and merely reskinning it while filling gaps with newly invented public copy.
+Every meaning-bearing section in the next proof must declare its exact copy
+source. Unmapped filler, the rejected method collage, duplicated town
+explanations and copy recovered from generated reference images fail before
+owner review.
+
 The Homepage Daily/NewsStand preview is specifically required to show useful
 live content on arrival, not just publication names or an invitation to leave
 the page. In a compact editorial module, show the current admitted AI

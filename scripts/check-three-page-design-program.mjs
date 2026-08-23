@@ -61,6 +61,41 @@ function assetRefs(sourcePath, source) {
   return refs;
 }
 
+export function homepageProofErrors(source) {
+  const errors = [];
+  const requiredCopy = [
+    'AI fluency, taught through the pop culture you',
+    'Made to click. Built to stick.',
+    'Your brain kept the references.',
+    'The plot explains it. The analogy unlocks it. Practice makes it click. The soundtrack makes it stick.',
+    'What is happening in SUNNYVAiLE?',
+    'What brought you to town today?',
+    'On Wednesdays we do AI.',
+    'Meet the women behind AI.',
+    'See everything in SUNNYVAiLE'
+  ];
+  for (const fragment of requiredCopy) if (!source.includes(fragment)) errors.push(`approved Homepage copy missing: ${fragment}`);
+  if (source.includes('method-grid') || source.includes('method-card') || /Story ·|Analogy ·|Practice ·|Music ·|Community ·/.test(source)) {
+    errors.push('rejected five-image method collage is present');
+  }
+  const methodStart = source.indexOf('<section class="method"');
+  const methodEnd = methodStart < 0 ? -1 : source.indexOf('</section>', methodStart);
+  if (methodStart < 0 || methodEnd < 0 || source.slice(methodStart, methodEnd).includes('<img')) {
+    errors.push('method must be one compact image-free explanatory band');
+  }
+  for (const rejected of ['Every building has a job.', 'A Card, a Postcard and the radio are different things.']) {
+    if (source.includes(rejected)) errors.push(`rejected invented Homepage copy is present: ${rejected}`);
+  }
+  if ((source.match(/data-copy-source=/g) || []).length < 8) errors.push('every meaning-bearing Homepage section must declare copy provenance');
+  if (source.includes('linear-gradient(') || source.includes('radial-gradient(')) errors.push('Homepage proof uses CSS gradient art instead of a real visual asset');
+  const ordered = ['class="hero"', 'class="method"', 'class="happening"', 'class="intent"', 'class="wednesday"', 'class="women"', 'class="explore"', 'class="continue"'];
+  const positions = ordered.map(fragment => source.indexOf(fragment));
+  if (positions.some(position => position < 0) || positions.some((position, index) => index && position <= positions[index - 1])) {
+    errors.push('approved Homepage section order is missing or out of sequence');
+  }
+  return errors;
+}
+
 export function visitorProofErrors(source) {
   const errors = [];
   const lockedOrder = [
@@ -282,6 +317,14 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         else {
           const absolute = path.join(root, proofSource.path);
           if (fs.existsSync(absolute)) for (const error of visitorProofErrors(fs.readFileSync(absolute, 'utf8'))) errors.push(`${label}: ${error}`);
+        }
+      }
+      if (pageName === 'homepage' && REVIEWABLE.has(candidate.status)) {
+        const proofSource = (candidate.source_files || []).find(item => item.path === candidate.entry_path);
+        if (!proofSource) errors.push(`${label}: Homepage entry source is required`);
+        else {
+          const absolute = path.join(root, proofSource.path);
+          if (fs.existsSync(absolute)) for (const error of homepageProofErrors(fs.readFileSync(absolute, 'utf8'))) errors.push(`${label}: ${error}`);
         }
       }
       if (pageName === 'library' && REVIEWABLE.has(candidate.status)) {
