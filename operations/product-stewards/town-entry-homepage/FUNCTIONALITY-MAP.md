@@ -21,7 +21,7 @@ local route are not enough to promote a receiver as working.
 | KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
 | LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the route/artifact | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile or claim |
 | Explore / map / named buildings | Map geometry/focus `PUBLICLY_VERIFIED`; remaining receiver journeys `SOURCE_PRESENT_UNVERIFIED` | Direct named building links; optional map | A working map does not prove every destination's complete function |
-| Resident Card / Closet | `SOURCE_PRESENT_UNVERIFIED` | Make a Resident Card; Open my Closet | No account-backed resume, cross-device state, reward or ownership claim |
+| Resident Card / Closet | Signed-out Homepage handoff `PUBLICLY_VERIFIED`; Card/Closet lifecycle `SOURCE_PRESENT_UNVERIFIED` | Sign in; Make a Resident Card; Open my Closet | No account-backed resume, cross-device state, reward or ownership claim |
 | Wednesday Postcard | `MISSING_RECEIVER` | Request the Postcard at the Post Office | No subscription, confirmation, delivery, referral or reward claim |
 | Businesswomen's Special | `PUBLICLY_VERIFIED` | Visit the Businesswomen's Special | Cocktail and spirit-free remain equal choices; no order, service, account or reward claim |
 | FAiRY Godmother / Mme CLAi-O / Dream Phone / Delta LAi Nu Homepage handoffs | `PUBLICLY_VERIFIED` | Open the named activity from its Homepage card | Arrival proves the handoff, not every destination lifecycle or reward |
@@ -48,8 +48,8 @@ above, the current projection above wins.
 | Map popup | Activate hotspot; Escape/outside click | Named destination, limitation and link; focus recovery | Current production renders real desktop/mobile hit regions, focuses the destination link and restores the trigger on Escape | PUBLICLY VERIFIED AT BOTH ORIGINS, 1440/390/320 |
 | District cards/directory | Select route | Accessible alternate discovery | Six district cards route to single buildings; long directory repeats map | OBSERVED; ROLE/HIERARCHY OPEN |
 | Start Here | Load `/start-here.html` | Visitor's Centre redirect or ordinary fallback link | Meta refresh, `location.replace`, ordinary link | OBSERVED |
-| Card/Closet handoff | Select resident action | Exact local/account scope and route | Static local limitation copy; no deliberate state-specific entry variant | OBSERVED; PARTIAL |
-| Auth/resume projection | Token or future `svShowResume` call | Only proved account/resume state | Token-derived “Resident” script targets a selector the homepage may not expose; hook is not wired to authority | OBSERVED; NOT PROVED |
+| Card/Closet handoff | Select resident action | Exact local/account scope and route | Signed-out Homepage action now reaches the visible Resident Card email form at both origins and 1440/390/320; local Card and Closet lifecycle remains separate | PUBLICLY VERIFIED FOR SIGNED-OUT HANDOFF; LIFECYCLE PARTIAL |
+| Auth/resume projection | Token or future `svShowResume` call | Only proved account/resume state | Signed-out entry is labelled `Sign in`; token/account continuation and cross-device state are not promoted without lifecycle proof | SIGNED-OUT ENTRY VERIFIED; SIGNED-IN CONTINUATION NOT PROVED |
 | Tour/reward paint | Visit route/check stops | Honest local progress only unless authoritative service proves more | Shared script mints local FAiRY Play, ritual badge and express completion from route visits | OBSERVED; CONTRACT CONFLICT |
 | Charm hunt | Hidden charm interaction | Truthfully local collectible state | Shared local-storage script is loaded | OBSERVED; ENTRY VALUE/ACCESSIBILITY OPEN |
 | Audio | Activate play chip | Correct track plays; pause/recovery announced | KSVL handoff with inline audio fallback | OBSERVED; COMPLETE MEDIA QA MISSING |
