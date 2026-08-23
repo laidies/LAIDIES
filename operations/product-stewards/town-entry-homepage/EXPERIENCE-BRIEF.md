@@ -446,6 +446,46 @@ imagery, icons or visual systems.
 
 ## Visitor states and truth
 
+### 2026-08-23 owner correction — map order, weekly loop and destination art
+
+- The Post Office and KSVL continuation panels in candidate
+  `4a39b8ab…a06e7` use the wrong images. Do not reuse those image paths. Resolve
+  each panel from the current approved destination asset before another owner
+  review; `current`, `latest` or a plausible filename is not approval.
+- The directory below the town map follows the canonical building order and
+  canonical addresses. It must agree with the visible map, street grouping and
+  building numbering; a hand-authored destination list in an arbitrary order
+  fails even when every route resolves.
+- `On Wednesdays we do AI` explains the repeatable weekly episode loop, not
+  merely a row of destinations. Start with the trailer for a new visitor, then
+  explain how the episode, NewsStand, Chick Flicks, Blend & Snap/Study Pack,
+  SUNNYVAiLE High and the rest of the weekly experience connect.
+- The weekly route must use the actual stops and jobs. `Free time` includes all
+  activities, updating the visitor's Resident Card and finding charms hidden
+  in images. Do not reduce it to The Mall or invent a replacement sequence.
+- Replace the boring white episode card. The current episode art must fit its
+  intended frame without a meaning-destroying crop. The latest published
+  episode remains the signed-out default; any returning progress treatment
+  must state and use the progress that the current identity/persistence system
+  actually proves.
+- Provide an obvious `Start with the trailer` route without implying that the
+  trailer or a personalized progress system is public when it is still held.
+  If the trailer is not admitted, show the truthful held state rather than a
+  dead or misleading action.
+- The Homepage route refers to the existing illustrated Trailer issue at
+  `/issues/issue-trailer.html`, not to the separate rebuilt film. Name it as
+  the illustrated trailer and do not place held-rebuild copy beside its live
+  route; that made one control assert two contradictory states.
+- The `Learn` job routes to the LIBRAiRY and the LUMINAiRY, with SUNNYVAiLE
+  High joining that group when its learning experience is admitted. Delta
+  LAi Nu is not the Learn destination and its image may not represent Learn.
+- `Tools and Games` represents the available collection, not Dream Phone as
+  though it were the only activity. Show the category breadth and route to the
+  activities collection; individual examples may support the category but may
+  not replace it.
+- The Delta LAi Nu image used in candidate `4a39b8ab…a06e7` is not the correct
+  destination image. Do not reuse that path in the successor.
+
 - First-time, returning anonymous, device-local Resident Card and verified
   account-backed states keep the same usable public core.
 - Current content fails evergreen. Account, progress, reward, community,

@@ -950,3 +950,37 @@ passed. Detailed evidence is in
 passed for fidelity to the accepted working environment, responsive behaviour,
 accessibility structure and functional journeys. The inherited book-cover
 palette remains an explicit owner gate and is not approved by this result.
+
+## Homepage corrected-4 — 2026-08-23
+
+Source visual truth:
+`/Users/alisoneakin/.codex/generated_images/01a02af4-0237-7f72-803c-42d4d4ba2925/exec-b14acea2-e70d-4b89-b035-ec6b29ffbbba.png`
+(864 × 1821). Implementation:
+`operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`.
+
+The source overview and implementation viewport were opened in one comparison.
+It governs pop-panel rhythm, image density, palette and hierarchy rather than
+exact pixel positions; later owner decisions intentionally add explanations,
+current daily material and the complete destination system.
+
+Evidence inspected at 1280 × 720 and 390 × 844 CSS pixels, density 1:
+`/tmp/laidies-homepage-corrected-4-week-desktop-final.png`,
+`/tmp/laidies-homepage-corrected-4-today-mobile-cdp.png`, and
+`/tmp/laidies-homepage-corrected-4-week-mobile-aligned.png`.
+
+- Typography, spacing, vivid color tokens, real raster assets and current copy
+  hold at desktop and mobile. There is no horizontal overflow at 390px.
+- Learn visibly routes to LIBRAiRY and LUMINAiRY and qualifies High as future.
+  Tools and Games presents six activities rather than one Dream Phone route.
+- The illustrated Trailer CTA reaches `/issues/issue-trailer.html`; Browse all
+  activities reaches `#activities`.
+- 17 canonical directory destinations, 8 weekly stops and 6 activity cards
+  render with 0 broken images, 0 duplicate IDs, 0 console errors and no visible
+  link smaller than 44 × 44 CSS pixels.
+- Iteration 1 found a P1 contradiction between an active Trailer CTA and held
+  rebuilt-film copy. The successor names the existing illustrated Trailer issue
+  and removes the unrelated held-rebuild sentence. Independent recheck: ADMIT.
+
+### Final result
+
+passed — no actionable P0, P1 or P2 finding remains
