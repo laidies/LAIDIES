@@ -14,6 +14,7 @@ if (!playwrightRoot) {
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const homepageScriptSource = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");
 const falsePublicPromises = [
   "The complete weekly experience",
   "a new episode and its learning activities arrive every Wednesday",
@@ -33,6 +34,12 @@ const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
 const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILURE === "1"
   ? source.replaceAll('data-library-entry="primary" href="/library.html"', 'data-library-entry="primary" href="#reference"')
   : source;
+const servedIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
+  ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
+  : source;
+const servedHomepageScript = process.env.CALIBRATE_HOMEPAGE_MAP_FOCUS_FAILURE === "1"
+  ? homepageScriptSource.replace("        a.focus();", "        /* deliberate calibration: focus is not moved */")
+  : homepageScriptSource;
 const targets = [
   "/assets/bws-fortune-teller/frame-1-closed.webp",
   "/assets/games/girl-talk/truth-card-face.webp",
@@ -93,6 +100,12 @@ const server = http.createServer((request, response) => {
   const requested = url.pathname === "/" ? "/index.html" : url.pathname;
   const resolved = path.resolve(root, requested.replace(/^\/+/, ""));
   if (!resolved.startsWith(`${root}${path.sep}`)) return response.writeHead(403).end("Forbidden");
+  if (requested === "/index.html") {
+    return response.writeHead(200, {"content-type":"text/html; charset=utf-8"}).end(servedIndexSource);
+  }
+  if (requested === "/content/site/homepage.js") {
+    return response.writeHead(200, {"content-type":"text/javascript; charset=utf-8"}).end(servedHomepageScript);
+  }
   fs.readFile(resolved, (error, data) => {
     if (error) response.writeHead(404).end("Not found");
     else response.writeHead(200, {"content-type": mime.get(path.extname(resolved)) || "application/octet-stream"}).end(data);
@@ -151,8 +164,10 @@ try {
       await page.locator('#new-here a[href="/issues/issue-04.html"]').count() >= 1 &&
       await page.locator('#new-here a[href="/watch.html?ep=04"]').count() === 1,
       `${width}px Chick Flicks episode actions changed`);
+    const businesswomensAction = page.getByRole("button", {name:"Visit the Businesswomen’s Special"});
     check(await page.getByRole("button", {name:"Consult Mme CLAi-O"}).count() === 1 &&
-      await page.getByRole("button", {name:"Pick a drink"}).count() === 1 &&
+      await businesswomensAction.count() === 1 &&
+      await businesswomensAction.getAttribute("onclick") === "location.href='/games/businesswomens-special.html'" &&
       await page.getByRole("button", {name:"Visit Delta LAi Nu"}).count() === 1,
       `${width}px activity action text changed`);
     const fun = page.getByRole("button", {name:"Make me laugh"});
@@ -163,6 +178,19 @@ try {
       await page.locator('.activity-grid article[data-tags="fun quick"]').evaluate((card) => !card.hidden) &&
       await page.locator('.activity-grid article[data-tags="fun"]').evaluate((card) => !card.hidden),
       `${width}px held activity cards lost their fun filter membership`);
+    const libraryMapSpot = page.locator('.map-spot[data-name="The LIBRAiRY"]');
+    await libraryMapSpot.scrollIntoViewIfNeeded();
+    await libraryMapSpot.focus();
+    await page.keyboard.press("Enter");
+    const mapPopup = page.getByRole("dialog");
+    check(await mapPopup.isVisible() && await libraryMapSpot.getAttribute("aria-expanded") === "true",
+      `${width}px map popup did not open with an expanded trigger`);
+    check(await page.evaluate(() => document.activeElement && document.activeElement.getAttribute("href") === "/library.html"),
+      `${width}px map popup did not move focus to its destination link`);
+    await page.keyboard.press("Escape");
+    check(await mapPopup.isHidden() && await libraryMapSpot.getAttribute("aria-expanded") === "false" &&
+      await libraryMapSpot.evaluate((spot) => document.activeElement === spot),
+      `${width}px map popup did not close and restore focus on Escape`);
     check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
       `${width}px homepage overflows`);
     check(!requests.some((url) => targets.some((asset) => url.includes(asset))),
@@ -214,4 +242,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,businesswomens-receiver,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
