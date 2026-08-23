@@ -5,7 +5,7 @@
 - Source visual truth:
   - `operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-01-primary-editorial.png` — 864 × 1821 px.
   - `operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-04-primary-structure.png` — 842 × 1867 px.
-- Implementation: `operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`, SHA-256 `a80ffa9861ed1768654f65307aaddf1dc92e6cfdcc0327859d1a863edf1f0a31`.
+- Implementation: `operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`, SHA-256 `cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f`.
 - Browser-rendered implementation:
   - `evidence/desktop-1440.png` — 1440 × 900 px at a 1440 × 900 CSS viewport.
   - `evidence/mobile-390.png` — 390 × 844 px at a 390 × 844 CSS viewport.
