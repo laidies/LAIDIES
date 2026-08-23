@@ -10,7 +10,7 @@ held work into released work.
 
 - Production source: `bf70d026de69a28ed702b759e17214ba4420d4ae`
 - Production artifact: `35c26807d6b9b2c314f3dec021c3e1f54c18c69ad517a143aa60d4a72484ee25`
-- Candidate artifact: `5c7bcad0e8451711520421c64b267ba9941c3c1bfea90b4cd040056ab2c36a38`
+- Candidate artifact: `d7d27bd6c95bf133177ca1a7e94796fbb83fe8d2edfdf22dd181b94f9a32bd41`
 - Candidate branch: `codex/sunday-release-chrome-cleanup-20260822`
 - Scope authority: `operations/release-control/sunday-production-scope-20260821.json`
 
@@ -50,8 +50,9 @@ the candidate artifact identity exactly.
    `Use` and `FAiRY allowance` language while preserving technical media APIs,
    events and identifiers.
 10. Keep the complete “The Big Picture” paper label inside its painted slot at
-    320 pixels on Linux as well as macOS, without changing the other paper jobs,
-    statuses, actions or rack geometry.
+    320 pixels on Linux as well as macOS, and preserve at least two pixels of
+    separation between every adjacent live field without changing the other
+    paper jobs, statuses, actions or rack geometry.
 
 ## Explicitly held
 
@@ -70,7 +71,7 @@ the candidate artifact identity exactly.
 
 - Curated build: 559 copied files / 415.24 MiB; zero
   missing, oversized or prohibited-source dependencies.
-- Manifest: 561 files / 435,479,914 bytes.
+- Manifest: 561 files / 435,479,967 bytes.
 - Scope: 43 exact public changes / 1 exact Worker addition / 6 exact removals /
   11 exact production paths
   preserved.
