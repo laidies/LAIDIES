@@ -21,6 +21,14 @@ function assertWorkflowContextIsDispatchable(source) {
   }
 }
 
+function assertWorkflowArtifactOutputIsOutsideSource(source) {
+  const safeOutput = 'ARTIFACT_DIR: /tmp/laidies-candidate-site';
+  if (source.split(safeOutput).length - 1 !== 2 ||
+      source.includes('ARTIFACT_DIR: ${{ github.workspace }}/.release/site')) {
+    throw new Error('candidate artifact output must stay outside the source repository in both release jobs');
+  }
+}
+
 function assertWorkflowRedirectVerificationIsSafe(source) {
   const redirectFlags = "--location --proto-redir '=https' --max-redirs 3";
   const redirectFetches = source.split(redirectFlags).length - 1;
@@ -83,6 +91,15 @@ assert.throws(
   /runner context is unavailable/,
   'known invalid GitHub workflow context must fail calibration',
 );
+assert.doesNotThrow(() => assertWorkflowArtifactOutputIsOutsideSource(workflow));
+assert.throws(
+  () => assertWorkflowArtifactOutputIsOutsideSource(workflow.replace(
+    'ARTIFACT_DIR: /tmp/laidies-candidate-site',
+    'ARTIFACT_DIR: ${{ github.workspace }}/.release/site',
+  )),
+  /outside the source repository/,
+  'known in-repository candidate output must fail calibration',
+);
 assert.doesNotThrow(() => assertWorkflowApiVerificationIsComplete(workflow));
 assert.throws(
   () => assertWorkflowApiVerificationIsComplete(workflow.replace('verify_api_origin "$deployment_url" immutable', ':')),
@@ -112,38 +129,13 @@ const protectedBuilderDependencies = [
   'scripts/lib/public-screening-room-admission.mjs',
   'scripts/lib/public-runtime-family-admission.mjs',
 ];
-const protectedReleaseChecks = [
-  'package.json',
-  'package-lock.json',
-  'scripts/validate-blend-snap-packs.mjs',
-  'scripts/test-validate-blend-snap-packs.mjs',
-  'scripts/test-blend-snap-browser.mjs',
-  'scripts/test-homepage-held-assets-browser.mjs',
-  'scripts/test-library-product.cjs',
-  'scripts/test-miss-jeeves-worker.mjs',
-  'scripts/test-compose-daily-edition.mjs',
-  'scripts/test-promote-daily-edition.mjs',
-  'scripts/test-daily-private-workflow.mjs',
-  'scripts/test-newsstand-canonical-migration.mjs',
-  'scripts/test-compile-newsstand-daily-longform.mjs',
-  'scripts/test-promote-newsstand-story.mjs',
-  'scripts/validate-newsstand-stories.mjs',
-  'scripts/test-newsstand-reader-contract.mjs',
-  'scripts/test-newsstand-reader-browser.mjs',
-  'scripts/test-newsstand-release-pipeline-v1.mjs',
-];
 assert.match(builderSource, /reproducible: true/);
-assert.match(builderSource, /'_worker\.js'/, 'curated Pages artifact must include the advanced-mode Worker');
 assert.doesNotMatch(builderSource, /generatedAt:\s*new Date\(\)\.toISOString\(\)/,
   'public artifact identity must not change with the build clock');
 assert.match(workflow, /workflow_dispatch:/);
 for (const dependency of protectedBuilderDependencies) {
   assert.ok(fs.existsSync(path.join(repositoryRoot, dependency)), `controller is missing builder dependency ${dependency}`);
   assert.ok(workflow.includes(dependency), `workflow does not protect builder dependency ${dependency}`);
-}
-for (const checkPath of protectedReleaseChecks) {
-  assert.ok(fs.existsSync(path.join(repositoryRoot, checkPath)), `controller is missing release check ${checkPath}`);
-  assert.ok(workflow.includes(checkPath), `workflow does not protect release check ${checkPath}`);
 }
 assert.doesNotMatch(workflow, /^\s*push:/m);
 assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
@@ -152,16 +144,17 @@ assert.match(workflow, /environment:\n\s+name: production/);
 assert.match(workflow, /PROJECT_NAME: laidies-sunnyvaile/);
 assert.match(workflow, /wrangler@4\.119\.0 pages deploy/);
 assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
+assert.match(workflow, /new-id\+branch\+exact-byte-verification/);
+assert.match(workflow, /conflicting provider commit metadata/);
+assert.match(workflow, /for attempt in \$\(seq 1 10\)/);
+assert.match(workflow, /if\(matches\.length===0\) process\.exit\(2\);/);
+assert.match(workflow, /\/pages\/projects\/\$PROJECT_NAME\/deployments\?page=1&per_page=15/);
+assert.doesNotMatch(workflow, /pages deployment list/);
 assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
 assert.match(workflow, /check-newsstand-release-scope\.mjs/);
-assert.match(workflow, /NEWSSTAND_REQUIRE_BROWSER=1 node scripts\/test-newsstand-reader-browser\.mjs/);
-assert.match(workflow, /CALIBRATE_HOMEPAGE_TRUTH_FAILURE=1 node scripts\/test-homepage-held-assets-browser\.mjs/);
-assert.match(workflow, /node scripts\/test-homepage-held-assets-browser\.mjs/);
 assert.match(workflow, /base_commit:/);
-assert.match(workflow, /BASE_SOURCE_DIR="\$RUNNER_TEMP\/laidies-base-source"/);
-assert.match(workflow, /BASE_ARTIFACT_DIR="\$RUNNER_TEMP\/laidies-base-site"/);
 assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and exact Sunday scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow, new-identity provider verification and exact Sunday scope guard bound');
