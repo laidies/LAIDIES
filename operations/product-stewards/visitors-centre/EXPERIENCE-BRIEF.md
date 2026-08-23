@@ -84,6 +84,9 @@ state. Visitor-facing labels may be refined during exact page review.
 - Postcards are central visitor-centre objects: the admitted collection is
   visibly browsable and a visitor can choose one to invite someone to visit.
 - Existing postcard artwork is mixed quality and must be inventoried/admitted.
+- Until one coherent postcard family is admitted, the Centre routes to the Post
+  Office rack's held status. It must not bypass that status by opening the
+  postcard composer directly.
 - Delivery, referral attribution, joined-resident confirmation, Butterfly Clip
   rewards and exclusive Card-background unlocks remain `HOLD` until the complete
   lifecycle is exercised and verified.

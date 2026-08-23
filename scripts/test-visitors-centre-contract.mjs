@@ -81,7 +81,10 @@ check(/No Resident Card, account, name, ownership, sign-in, sync or cross-device
 check(!/laidies_card_username|localStorage/.test(page), "Visitor route still reads identity/Card-like local state");
 check(/Request tour start/.test(page), "optional tour handoff is missing");
 check(/Open the illustrated trailer/.test(page), "trailer handoff is missing");
-check(/Open postcard handoff/.test(page), "postcard product handoff is missing");
+check(/href="\/post-office\.html#rack"[\s\S]*?Check the postcard rack/.test(page),
+  "postcard handoff does not expose the Post Office rack's current truth");
+check(!/class="vc-ticket vc-ticket--postcard" href="\/postcard\.html"/.test(page),
+  "Visitor route bypasses the held Post Office rack and opens the composer directly");
 check(/A selection or route opening proves navigation only/.test(page), "navigation-only boundary is missing");
 check(!/vcPostcardForm|vcPostcardHandle|vcPostcardShare/.test(page), "postcard product remains copied into the Visitor route");
 check(!/id="from-the-founder"|class="vc-first-route"|<details class="vc-story"/.test(page),
