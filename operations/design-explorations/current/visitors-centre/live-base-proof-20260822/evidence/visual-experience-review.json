@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "candidate": {
+    "id": "visitors-centre-live-base-proof-20260822",
+    "entry_path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/index.html",
+    "entry_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf",
+    "pushed_commit": "dd4384612814999012b6d560c1b6f7ceef55bfd8",
+    "pushed_ref": "refs/heads/codex/context-reset-20260818"
+  },
+  "review": {
+    "agent_id": "library_blind_visual_admission",
+    "role": "visual_experience",
+    "method": "PIXEL_FIRST_SAME_VIEWPORT_COMPARISON",
+    "comparison_basis": "SAME_VIEWPORT_CURRENT_LIVE_PAGE",
+    "verdict": "ADMIT",
+    "visible_regressions": 0,
+    "locked_decision_violations": 0,
+    "total_issues": 0,
+    "reviewed_surfaces": [
+      "desktop_1440",
+      "mobile_390",
+      "owner_877x915"
+    ],
+    "verbatim_result": "ADMIT — locked-decision violations: 0; visible regressions: 0; total issues: 0.",
+    "finding": "The candidate replaces the incumbent map-as-masthead and held lobby with an authored SUNNYVAiLE tourist-information-centre interior, keeps the canonical map in a separate orientation section, distinguishes the name directory from the ticket rail, and remains readable without observed overflow on mobile. Routes and tickets claim navigation or a request only; they do not overclaim destination completion, accounts, delivery, rewards or learning success.",
+    "prevention_rule": "Treat map hotspots as allowed only when they are functional building routes; all other decorative circles or dots fail visual admission."
+  },
+  "candidate_screenshots": {
+    "desktop_1440": {
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/desktop-1440.png",
+      "sha256": "ca23d75cfe9d65826abf9fdbd5fc4bbe8b3e41393e5409bd0362f9d1482d79e2"
+    },
+    "mobile_390": {
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/mobile-390.png",
+      "sha256": "7e0a682bcfee2b08cf5c9e2c0839b1ba9d6020aa68fa19646a8b75dfb0873d4f"
+    },
+    "owner_877x915": {
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/owner-877x915.png",
+      "sha256": "1569a5cfba5d40d99f978b572cec9652bcef3ce7725cebbbefe0362732c5e2ff",
+      "viewport": {
+        "width": 877,
+        "height": 915
+      }
+    }
+  },
+  "incumbent_screenshots": {
+    "desktop_1440": {
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/incumbent-desktop-1440.png",
+      "sha256": "bdf71c0430a95ba1cbe4553cf692675a7824bdaaa07c35a8194087fa70a03637"
+    },
+    "mobile_390": {
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/incumbent-mobile-390.png",
+      "sha256": "a3bd707c01e1ef671ca95883cd8dfa0078a9252140aad269b638acff27ef12bd"
+    }
+  },
+  "continuous_journey_evidence": [
+    {
+      "surface": "map_desktop_1440",
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/section-map-desktop-1440.png",
+      "sha256": "ca48b90c66ae6cc055a7d85c5833724d2effafc80ad5501189a39c42c04ed219"
+    },
+    {
+      "surface": "map_mobile_390",
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/section-map-mobile-390.png",
+      "sha256": "3a512f22b681b1109cad1cd2346b231d81db6ed6a2fe09270ff4eb40fe6f5fef"
+    },
+    {
+      "surface": "tickets_desktop_1440",
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/section-tickets-desktop-1440.png",
+      "sha256": "d8d4138b3e7ea325eee0cab3e8e7a7509109d14819cdf903de4a3ca49c162685"
+    },
+    {
+      "surface": "tickets_mobile_390",
+      "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/section-tickets-mobile-390.png",
+      "sha256": "9cc5f239cba796bbe50b3e668b57e5d55289efe17081de3ffcc02398d1db86be"
+    }
+  ],
+  "maker_observations": {
+    "tourist_information_centre_interior_visible": true,
+    "generated_visible_text": 0,
+    "canonical_map_is_separate_from_masthead": true,
+    "named_building_routes": 17,
+    "horizontal_overflow_at_390": false,
+    "prohibited_old_lobby_present": false
+  },
+  "scope_truth": {
+    "direction_only": true,
+    "deployed": false,
+    "full_explanation_sequence": "HOLD",
+    "help_me_do_something_view": "HOLD",
+    "faq_public_copy": "HOLD",
+    "postcard_delivery_rewards_and_referral": "HOLD",
+    "tour_ksvl_truth_reconciliation": "HOLD",
+    "trailer_currentness": "HOLD"
+  }
+}

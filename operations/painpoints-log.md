@@ -14533,3 +14533,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The invalid stitched files were removed. The admitted packet now binds same-viewport top-page comparisons plus separate non-stitched Reference Desk, Browse, 101s, Tools and Reference Shelf captures at 1440 and 390 pixels; the successor reviewer independently confirmed all 14 covers, intentional grounded shelf composition and zero visible regressions or locked-decision violations.
 - **Possible Behind the Build angle:** Why a technically complete screenshot made a working Library look broken.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-466 — Generated tourist-centre art and stale browser assertions can both reintroduce false information
+
+- **Date:** 2026-08-22
+- **Area:** Visitor’s Centre representative direction, generated masthead art and route-readiness tests.
+- **Failure:** The first generated interior contained illegible invented brochure lettering, while the existing browser test expected superseded per-building status prose instead of the current fail-closed readiness projection.
+- **Root cause:** The image was initially judged from composition before its small print was inspected at intended size, and the test fixture had outlived the runtime data contract it claimed to protect.
+- **Prevention rule:** Inspect every generated public image at intended display size and reject any unverified glyph before repository admission; keep destination-browser assertions bound to the current readiness projection, where expired or absent evidence renders `unavailable` and never restores stale capability claims.
+- **Durable correction:** The bad generated image was rejected before use. A targeted image edit removed all generated words, numbers and pseudo-photographs from printed materials, leaving deterministic page UI responsible for meaning. Visitor contract, owner-parity and 67-check browser suites now assert the current 17-route fail-closed runtime rather than obsolete limitation copy.
+- **Possible Behind the Build angle:** Why a pretty brochure and an old passing test can tell the same kind of lie.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.

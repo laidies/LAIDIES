@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "program_id": "homepage-library-visitors-20260822",
-  "status": "HOMEPAGE_AND_LIBRARY_DIRECTIONS_ADMITTED_FOR_OWNER_REVIEW",
+  "status": "ALL_THREE_DIRECTIONS_ADMITTED_FOR_OWNER_REVIEW",
   "current_work_order": {
     "path": "operations/design-programs/HOMEPAGE-LIBRARY-VISITORS-WORK-ORDER-2026-08-22.md",
     "sha256": "afb15f704a5f94a882811744269ba3f99d1057300e9b6acea563418cbd43963f"
@@ -735,7 +735,121 @@
         "responsive SUNNYVAiLE tourist-information-centre interior",
         "deterministic wayfinding and environmental lettering"
       ],
-      "candidates": []
+      "candidates": [
+        {
+          "id": "visitors-centre-live-base-proof-20260822",
+          "status": "ADMITTED_FOR_ALI_REVIEW",
+          "entry_path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/index.html",
+          "production_method": "repo_composition",
+          "pushed_commit": "dd4384612814999012b6d560c1b6f7ceef55bfd8",
+          "pushed_ref": "refs/heads/codex/context-reset-20260818",
+          "runtime_base": {
+            "path": "visitors-centre.html",
+            "sha256": "1a8ba16e05c890da9435758eb6c026c33534f6f2835ee0261a06429beae58e5f"
+          },
+          "runtime_base_preserved_assets": [
+            {
+              "path": "assets/final_map/sunnyvaile-town-map-final-v5.webp",
+              "sha256": "d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0",
+              "role": "canonical map, separate from masthead"
+            }
+          ],
+          "source_files": [
+            {
+              "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/index.html",
+              "sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf"
+            },
+            {
+              "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/proof.css",
+              "sha256": "b6811c46e5f72394f613a127c4c05b1f05b6fe9aa63ebd806aa73f9c3f5baece"
+            },
+            {
+              "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/proof.js",
+              "sha256": "d06e53fdfab0894fc00994ef09a10531a9452e851e82504c0f7ba7c78ede69c7"
+            }
+          ],
+          "dependencies": [
+            {
+              "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/assets/visitors-centre-interior-clean-cards-v1.png",
+              "sha256": "5f75c4c2427adb3a748389384ea8dfd7ffb420898336f48284edd5078cf2b637",
+              "role": "responsive SUNNYVAiLE tourist-information-centre interior",
+              "generated_for_candidate": true
+            }
+          ],
+          "admission": {
+            "presentation_stage": "REPRESENTATIVE_DIRECTION",
+            "selection_scope": "DIRECTION_SELECTION_BEFORE_FULL_IMPLEMENTATION",
+            "candidate_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf",
+            "screenshots": {
+              "desktop_1440": {
+                "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/desktop-1440.png",
+                "sha256": "ca23d75cfe9d65826abf9fdbd5fc4bbe8b3e41393e5409bd0362f9d1482d79e2",
+                "candidate_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf"
+              },
+              "mobile_390": {
+                "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/mobile-390.png",
+                "sha256": "7e0a682bcfee2b08cf5c9e2c0839b1ba9d6020aa68fa19646a8b75dfb0873d4f",
+                "candidate_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf"
+              },
+              "owner_877x915": {
+                "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/owner-877x915.png",
+                "sha256": "1569a5cfba5d40d99f978b572cec9652bcef3ce7725cebbbefe0362732c5e2ff",
+                "candidate_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf",
+                "viewport": {
+                  "width": 877,
+                  "height": 915
+                }
+              }
+            },
+            "incumbent_screenshots": {
+              "desktop_1440": {
+                "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/incumbent-desktop-1440.png",
+                "sha256": "bdf71c0430a95ba1cbe4553cf692675a7824bdaaa07c35a8194087fa70a03637"
+              },
+              "mobile_390": {
+                "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/incumbent-mobile-390.png",
+                "sha256": "a3bd707c01e1ef671ca95883cd8dfa0078a9252140aad269b638acff27ef12bd"
+              }
+            },
+            "objective_checks": {
+              "desktop_mobile_no_overflow": "PASS",
+              "operable_targets_44px": "PASS",
+              "declared_routes_resolve": "PASS",
+              "exact_wordmark": "PASS",
+              "shared_header_mounted": "PASS",
+              "purpose_and_orientation_visible": "PASS",
+              "prohibited_assets_absent": "PASS"
+            },
+            "independent_reviews": [
+              {
+                "agent_id": "library_blind_visual_admission",
+                "role": "visual_experience",
+                "verdict": "ADMIT",
+                "candidate_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf",
+                "comparison_basis": "SAME_VIEWPORT_CURRENT_LIVE_PAGE",
+                "visible_regressions": 0,
+                "locked_decision_violations": 0,
+                "reviewed_surfaces": [
+                  "desktop_1440",
+                  "mobile_390",
+                  "owner_877x915"
+                ],
+                "evidence": {
+                  "path": "operations/design-explorations/current/visitors-centre/live-base-proof-20260822/evidence/visual-experience-review.json",
+                  "sha256": "5c99aa53988287223e4da81cd0286cd135574d88ce38c7068b0620e8c1de523c"
+                }
+              }
+            ],
+            "maker_review": {
+              "result": "PASS",
+              "candidate_sha256": "0d6c4089c4ff58f635060ae75431eb961ae9d512020f914c314b9f47a3d7eaaf",
+              "known_defects_remaining": 0,
+              "objective_defects_remaining": 0,
+              "visible_issues_remaining": 0
+            }
+          }
+        }
+      ]
     }
   },
   "calibration": {
