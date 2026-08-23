@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `4760ab5c-b04c-448f-a891-a7473880c0ce`, deployed source `7b0a86cb12890686e5996dcbb1c639035673c76a`, artifact identity `9d14a5119920e13dfc032ca2143d09c04e701836328d7e8694d6baebb9801f74`, immutable URL `https://4760ab5c.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes, the truthful Homepage → Wednesday Postcard request handoff, the truthful Homepage → NewsStand receiver and the bounded Homepage → MAiKEOVER pre-save arrival were verified at both origins on 2026-08-23. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, seven public Homepage functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes five exact activity receivers, truthful Businesswomen's Special framing, a real 44px town-map interaction with focus return, a signed-out Homepage action labelled `Sign in`, a bounded Homepage → MAiKEOVER pre-save arrival, Visitor's Centre orientation without a trailer promise, and a Wednesday Postcard action that names the real Buttondown request instead of claiming postcard selection. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `250060a3-7164-4abf-8f2b-54dd9f55f0e7`, deployed source `9e59d67db93e1d4ca9b7d22a8d783c91ca5702fa`, artifact identity `7564d6cdb42bcbfdb3054795cb857071765855a555dd752d1e92c998a97dd174`, immutable URL `https://250060a3.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact immutable bytes, custom-domain cache-key semantics, the canonical desktop/mobile header and the mobile LIBRAiRY journey were publicly verified on 2026-08-23. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, eight public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, and the separately verified MAiKEOVER/NewsStand receivers. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -60,6 +60,14 @@ is recorded here.
   state, four distinct papers, decoded Paige/rack art and no autostart or overflow.
   Page load writes only device-local catch-up visit timestamps. This does not prove
   the missing current Breaking/Daily/Paige/Career/Promptoscope Homepage adapter.
+- The canonical header is now public on Homepage, LIBRAiRY, Watch and every
+  shared-header consumer. At 760px and below it exposes exactly `LAiDIES`, direct
+  `LIBRAiRY` and a 44px `Menu`; Sign in/Join remain available inside Menu. The
+  42-case matrix covered Homepage, LIBRAiRY, Watch, LUMINAiRY, KSVL Radio,
+  MAiKEOVER and Visitor's Centre at the immutable/custom origins and 1440/390/320.
+  Two browser-control dispatch timeouts passed on immediate fresh-tab retries;
+  these were control interruptions, not product failures. The LIBRAiRY receiver
+  remains truthful: 14/14 held books are visible and 0/14 are admitted or openable.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
   creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
@@ -72,17 +80,23 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `7b0a86cb12890686e5996dcbb1c639035673c76a` |
-| Artifact identity | `9d14a5119920e13dfc032ca2143d09c04e701836328d7e8694d6baebb9801f74` |
-| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,355 bytes |
-| Exact public scope | 2 modifications / 0 additions / 0 removals / 6 protected production paths |
+| Deployed source | `9e59d67db93e1d4ca9b7d22a8d783c91ca5702fa` |
+| Artifact identity | `7564d6cdb42bcbfdb3054795cb857071765855a555dd752d1e92c998a97dd174` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,222 bytes |
+| Exact public scope | 59 modifications / 0 additions / 0 removals / 5 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `4760ab5c-b04c-448f-a891-a7473880c0ce` |
-| Immutable URL | `https://4760ab5c.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `250060a3-7164-4abf-8f2b-54dd9f55f0e7` |
+| Immutable URL | `https://250060a3.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | latest bounded journey verification completed `2026-08-23T09:55:16Z`; 14/14 critical public bytes matched; Homepage → Wednesday Postcard request passed 6/6 with the exact held-boundary receiver; legacy `/start-here.html` → Visitor's Centre also passed 6/6; Homepage → NewsStand passed 6/6 at both origins and 1440/390/320 with three labelled routes, truthful clear-day and four-paper states, decoded Paige/rack art, no autostart and no overflow; Homepage → MAiKEOVER pre-save arrival passed 6/6 at both origins and 1440/390/320 with four labelled routes, decoded 1600×900 salon art, seven drawers, truthful device-local/account and portrait-booth boundaries, a 52px Save control after opening Finish, Closet hidden before save and no overflow; Miss Jeeves remained privacy-safe at both origins |
-| Exact scope | `operations/release-control/homepage-postcard-request-truth-production-scope-20260823.json` |
-| Rollback deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
+| Public verification | completed `2026-08-23T10:35:56Z`; immutable exact bytes passed 63/63, all 59 custom-domain HTML consumers expose the new shared-header cache key with zero old-key matches, and four critical custom-domain assets match exactly. The seven-page × two-origin × three-width browser matrix passed 42/42 after two control-timeout retries. Homepage and shared pages expose `LAiDIES · LIBRAiRY · Menu` on mobile, the direct shortcut reaches LIBRAiRY, all visible header targets are at least 44px, and the receiver shows Miss Jeeves plus 14/14 held books with 0/14 open actions and no overflow. `_worker.js` is preserved in the manifest and compiled by Wrangler but is not directly fetchable by design. |
+| Exact scope | `operations/release-control/homepage-mobile-library-header-production-scope-20260823.json` |
+| Rollback deployment | `2284b17a-1f5f-46bd-8fce-d384af1a814e` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+
+The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6` and
+`2284b17a-1f5f-46bd-8fce-d384af1a814e` are superseded, not current. Wrangler
+reported a dirty-worktree warning solely because the isolated release source
+contained untracked `node_modules`; the deployed source commit, artifact
+manifest and public bytes are exact and independently bound above.
 
 ## Historical 2026-07-26 production release record
 
