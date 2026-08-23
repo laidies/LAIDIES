@@ -52,7 +52,7 @@ try {
   );
   expectHomepageProofFailure(
     'homepage-invented-copy',
-    homepageProofSource.replace('See everything in SUNNYVAiLE', 'Every building has a job.'),
+    homepageProofSource.replace('Open the NewsStand', 'Browse all back issues'),
     'rejected invented Homepage copy'
   );
   expectHomepageProofFailure(

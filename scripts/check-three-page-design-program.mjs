@@ -69,10 +69,17 @@ export function homepageProofErrors(source) {
     'Your brain kept the references.',
     'The plot explains it. The analogy unlocks it. Practice makes it click. The soundtrack makes it stick.',
     'What is happening in SUNNYVAiLE?',
+    'Open the NewsStand',
     'What brought you to town today?',
-    'On Wednesdays we do AI.',
+    'Learn',
+    'Understand the Headlines',
+    'Watch the Episodes',
+    'Tools and Games',
+    'Connect',
+    'On Wednesdays we do AI',
     'Meet the women behind AI.',
-    'See everything in SUNNYVAiLE'
+    'Explore SUNNYVAiLE',
+    'Listen live — KSVL 99.9'
   ];
   for (const fragment of requiredCopy) if (!source.includes(fragment)) errors.push(`approved Homepage copy missing: ${fragment}`);
   if (source.includes('method-grid') || source.includes('method-card') || /Story ·|Analogy ·|Practice ·|Music ·|Community ·/.test(source)) {
@@ -83,12 +90,19 @@ export function homepageProofErrors(source) {
   if (methodStart < 0 || methodEnd < 0 || source.slice(methodStart, methodEnd).includes('<img')) {
     errors.push('method must be one compact image-free explanatory band');
   }
-  for (const rejected of ['Every building has a job.', 'A Card, a Postcard and the radio are different things.']) {
+  for (const rejected of ['Every building has a job.', 'A Card, a Postcard and the radio are different things.', 'Browse all back issues', 'KSVL is also an always-available']) {
     if (source.includes(rejected)) errors.push(`rejected invented Homepage copy is present: ${rejected}`);
   }
   if ((source.match(/data-copy-source=/g) || []).length < 8) errors.push('every meaning-bearing Homepage section must declare copy provenance');
-  if (source.includes('linear-gradient(') || source.includes('radial-gradient(')) errors.push('Homepage proof uses CSS gradient art instead of a real visual asset');
-  const ordered = ['class="hero"', 'class="method"', 'class="happening"', 'class="intent"', 'class="wednesday"', 'class="women"', 'class="explore"', 'class="continue"'];
+  for (const requiredVisual of [
+    '/assets/sunnyvaile-streets/main-street-dusk.webp',
+    './assets/method-pop-bright-v2.png',
+    './assets/pop-burst-bg-v1.png',
+    '/assets/final_map/sunnyvaile-town-map-final-v5.webp',
+    '/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png'
+  ]) if (!source.includes(requiredVisual)) errors.push(`Homepage proof is missing bound visual source: ${requiredVisual}`);
+  if ((source.match(/<img\b/g) || []).length < 7) errors.push('Homepage proof does not contain enough real image-led sections');
+  const ordered = ['class="hero"', 'class="method"', 'class="section happening"', 'class="section intent"', 'class="section wednesday"', 'class="section women"', 'class="section explore"', 'class="continuations"'];
   const positions = ordered.map(fragment => source.indexOf(fragment));
   if (positions.some(position => position < 0) || positions.some((position, index) => index && position <= positions[index - 1])) {
     errors.push('approved Homepage section order is missing or out of sequence');

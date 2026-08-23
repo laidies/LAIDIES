@@ -116,6 +116,9 @@
     + '.svgh-panel-signin { border: 2px solid #57b6c0; color: #3a1838; }'
     + '.svgh-panel-join { background: #e982ab; border: 2px solid #e982ab; color: #3a1838; }'
     + '.svgh-panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px; margin-bottom: 14px; }'
+    + '.svgh-panel-scroll-cue { position: sticky; bottom: -14px; z-index: 1; margin: 0 -18px -14px; padding: 9px 18px 11px;'
+    + '  background: linear-gradient(180deg, rgba(255,253,251,0.88), #fffdfb 45%); border-top: 1px solid rgba(75,33,72,0.14);'
+    + '  color: var(--rose, #9b3f5f); font: 800 11px/1.2 "Jost", sans-serif; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; }'
     + '@media (max-width: 560px) { .svgh-panel-grid { grid-template-columns: 1fr; } }'
     + '.svgh-item { display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 8px;'
     + '  text-decoration: none; color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 13.5px;'
@@ -201,7 +204,8 @@
       + '<div class="svgh-panel-account"><a class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="svgh-panel-join" href="/maikeover.html">Join the town</a></div>'
       + '<div class="svgh-panel-grid">' + essentials + '</div>'
       + '<p class="svgh-panel-title">★ Every building · M<span class="ai">Ai</span>N Street &amp; beyond</p>'
-      + '<div class="svgh-panel-grid svgh-panel-grid--town"><span class="svgh-item" style="cursor:default;">Loading the map…</span></div>';
+      + '<div class="svgh-panel-grid svgh-panel-grid--town"><span class="svgh-item" style="cursor:default;">Loading the map…</span></div>'
+      + '<p class="svgh-panel-scroll-cue">Scroll for every building ↓</p>';
     withDirectory(function (list) {
       var town = panel.querySelector('.svgh-panel-grid--town');
       if (!town) return;

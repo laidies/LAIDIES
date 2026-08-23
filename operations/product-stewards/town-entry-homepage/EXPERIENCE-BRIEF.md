@@ -241,6 +241,59 @@ short readable value and route, plus one clear link to the full NewsStand.
 Space efficiency may come from hierarchy, tabs/edition structure or a concise
 front-page layout; it may not come from hiding all substance behind the link.
 
+### 2026-08-23 owner rejection — masthead actions and complete page structure
+
+The owner-reference synthesis with entry SHA-256
+`a26fea1398b68a9154b3d510e8de0c1183efbe41b3b993837abba1de89e27ac4`
+is fully rejected and is not an iteration base. Its internal admission failed:
+it missed known brief violations that were visible in the artifact.
+
+- Restore the useful masthead actions from the accepted Homepage source:
+  `New in town?`, `The latest episode`, `Just running an errand?`, `Explore the
+  town` and `Sign in`. They stay in the masthead unless the same jobs appear as
+  immediately adjacent, equally obvious cards below it. Do not move these jobs
+  into an arbitrary top-navigation list.
+- The masthead also has a prominent control that starts KSVL audio. Its public
+  label uses the sitewide `Play` ban's meaning-specific language, such as
+  `Listen live — KSVL 99.9`. Starting audio and opening the KSVL building are
+  separate actions, and audio never autostarts.
+- Use the canonical shared LAiDIES wordmark/header implementation. Do not draw
+  or typeset a substitute wordmark inside a candidate. Header links must map
+  directly to real page sections or real destinations; remove the synthesis's
+  bespoke link set rather than relabelling it.
+- Rebuild `What brought you to town today?` around five understandable outcome
+  groups: **Learn**, **Understand the Headlines**, **Watch the Episodes**,
+  **Tools and Games**, and **Connect**. Each group explains what the visitor
+  gets and routes to destinations that actually perform that job. No beige or
+  black filler panels, cut-off images, empty gaps or mismatched building art.
+- `What is happening in SUNNYVAiLE` must not repeat its heading as decorative
+  image text. Show the actual admitted current news stories and current Daily
+  services on the Homepage. Its single module-level CTA is `Open the
+  NewsStand`; do not substitute `Browse all back issues`.
+- The Wednesday section leads with the actual latest published episode for a
+  signed-out or unproved visitor, or the proved last episode for an eligible
+  signed-in visitor. The connected route supports that episode; it is not the
+  whole section. Remove the bad-arrow treatment and all invented copy implying
+  KSVL alone is always open. Every SUNNYVAiLE destination is available whenever
+  its truthful capability state permits it.
+- Use an uncropped, current and provenance-checked LUMINAiRY image. The women
+  and AI section must retain its real explanation and routes to both the
+  LUMINAiRY and Episode 04.
+- Show the full approved town map without cutting off its meaning. Every named
+  destination beside it states what the building is for; a bare place-name
+  directory is insufficient.
+- Resident Card/Closet, the Post Office/Wednesday Postcard, and KSVL are three
+  distinct visitor outcomes. Do not combine them into one miscellaneous card
+  row, and do not use a building exterior as evidence of a different job.
+- Do not reuse the synthesis's old, unverified or wrong-job images. A successor
+  requires a section-by-section source, crop and job map before composition.
+  Missing outcome imagery is generated or held; it is never replaced by a
+  convenient unrelated building image.
+- The bright, saturated 1990s pop-art direction from owner examples 1 and 4
+  remains binding. The successor uses real pop-art background assets and
+  editorial composition rather than plain colour slabs, CSS decoration, beige,
+  broad black fields or a return to the old Homepage layout.
+
 ## Required finite page jobs
 
 These jobs must all survive. Their exact order after the locked masthead and
