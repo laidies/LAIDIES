@@ -14544,3 +14544,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The bad generated image was rejected before use. A targeted image edit removed all generated words, numbers and pseudo-photographs from printed materials, leaving deterministic page UI responsible for meaning. Visitor contract, owner-parity and 67-check browser suites now assert the current 17-route fail-closed runtime rather than obsolete limitation copy.
 - **Possible Behind the Build angle:** Why a pretty brochure and an old passing test can tell the same kind of lie.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-467 — A release can pass product gates and still be blocked by its transfer path
+
+- **Date:** 2026-08-22
+- **Area:** NewsStand narrow layout, browser-process cleanup and protected Cloudflare release controller.
+- **Failure:** The exact release first failed on a real Linux-only three-pixel paper-title overflow, then on less than two pixels between adjacent live fields. After those pixels passed, deployment still stopped because the builder rejected an in-repository artifact directory and GitHub's uploader rejected an otherwise safe path containing `..`.
+- **Root cause:** Local macOS browser proof did not expose Linux font geometry, the 320-pixel assertion did not initially print the failing node metrics, and the controller calibration tested the builder's path rejection without proving that the workflow's real output path was both outside the repository and lexically acceptable to `actions/upload-artifact`.
+- **Prevention rule:** Narrow-layout guards must emit exact font, box and field geometry on failure and run on the release runner before approval. A production controller must use one absolute runner-local artifact directory outside the source tree, exercise that exact path through build, manifest and upload semantics, and bind controller identity to the exact release source when the clean reset and default-branch dependency lanes intentionally differ.
+- **Durable correction:** Chrome shutdown now waits through `Browser.close`, `SIGTERM` and `SIGKILL` before retrying profile removal. The 320-pixel rack uses a 15-pixel Big Picture title and a shifted job field that passes all 225 rendered NewsStand checks on macOS and Linux. The controller uses `/tmp/laidies-candidate-site`, its calibrated test rejects the known in-repository path, and the fix is merged to `main`. Exact source `e044ca899dfea867ba10f770cc99a0b8e32c100a` deployed as artifact `d7d27bd6c95bf133177ca1a7e94796fbb83fe8d2edfdf22dd181b94f9a32bd41`; immutable and custom-domain bytes, six 404 removals and Miss Jeeves JSON all verified publicly.
+- **Possible Behind the Build angle:** Why passing every website test still did not mean the deployment pipeline could move the files.
+- **Publication status:** PRODUCTION CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
