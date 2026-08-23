@@ -695,7 +695,10 @@
       if(fields.displayName) $('moNameInput').value=fields.displayName;
       if(fields.carry) $('moCarrySel').value=fields.carry;
       if(stored) $('moSeeCloset').style.display='inline';
-      var h=lsGet('laidies_card_username'); if(h) $('moHandleNote').textContent='@'+h;
+      var h=window.LAIDIESResidentCard
+        ? window.LAIDIESResidentCard.readHandle(localStorage)
+        : '';
+      if(h) $('moHandleNote').textContent='@'+h;
       renderPreview();
     })();
   })();
@@ -949,7 +952,11 @@
       });
     }
 
-    function localHandle() { try { return localStorage.getItem('laidies_card_username') || ''; } catch (_) { return ''; } }
+    function localHandle() {
+      return window.LAIDIESResidentCard
+        ? window.LAIDIESResidentCard.readHandle(localStorage)
+        : '';
+    }
 
     async function init() {
       var lh = localHandle();
@@ -996,7 +1003,7 @@
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
-<script defer src="/content/site/maikeover-v2.js?v=20260724-1"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260823-query-boundary-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>

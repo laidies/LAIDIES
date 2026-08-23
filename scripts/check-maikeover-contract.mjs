@@ -11,7 +11,10 @@ const closet = fs.readFileSync(
   "utf8"
 );
 const resident = read("resident-card.html");
-const helper = read("content/site/maikeover-v2.js");
+const helper = fs.readFileSync(
+  process.env.MAIKEOVER_HELPER_PATH || path.join(root, "content/site/maikeover-v2.js"),
+  "utf8"
+);
 const spec = read("operations/product-stewards/maikeover/OPERATING-SPEC.md");
 const publicCardContract = JSON.parse(read(
   "operations/product-stewards/maikeover/public-card-field-contract-v1.json"
@@ -59,6 +62,14 @@ forbidText(maikeover, "grab it. We'll confirm",
   "failed availability check still becomes optimistic success");
 requireText(helper, "This device remembers @",
   "returning arrival does not distinguish device-local memory");
+requireText(helper, "window.LAIDIESResidentCard",
+  "returning arrival does not read the shared Resident Card contract");
+requireText(helper, "contract.readHandle(window.localStorage)",
+  "returning arrival does not validate the stored handle before rendering");
+requireText(helper, "persistence.replaceChildren(label, detail)",
+  "returning arrival does not use text-only DOM rendering");
+forbidText(helper, "persistence.innerHTML",
+  "returning arrival still places stored handle data in an HTML sink");
 requireText(closet, "Device-local view:",
   "Closet lacks an explicit device-local state");
 for (const id of [

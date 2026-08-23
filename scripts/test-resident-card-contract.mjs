@@ -28,6 +28,10 @@ const identityClient = fs.readFileSync(
   path.join(root, "content", "site", "identity-client-v1.js"),
   "utf8"
 );
+const maikeoverHelper = fs.readFileSync(
+  path.join(root, "content", "site", "maikeover-v2.js"),
+  "utf8"
+);
 
 const checks = [];
 function check(value, label) {
@@ -62,6 +66,9 @@ check(maikeover.includes("One versioned envelope is the only authoritative local
 check(maikeover.includes("LAIDIESResidentCard.buildEnvelope"), "MAiKEOVER writes only shared-contract envelopes");
 check(maikeover.includes('src="/content/site/resident-card-contract-v1.js'), "MAiKEOVER loads the shared contract");
 check(maikeover.includes("Saved only in this browser. It is not reserved or public."), "MAiKEOVER preserves local-handle truth");
+check(maikeoverHelper.includes("contract.readHandle(window.localStorage)"), "MAiKEOVER validates its stored arrival handle through the shared contract");
+check(maikeoverHelper.includes("persistence.replaceChildren(label, detail)"), "MAiKEOVER renders its stored arrival handle through text-only DOM APIs");
+check(!maikeoverHelper.includes("persistence.innerHTML"), "MAiKEOVER stored handle cannot enter an HTML sink");
 check(closet.includes("Device-local view: sign in at the Resident Card desk to restore your private Card and supported continuation on another device."), "Closet preserves device-local persistence truth");
 check(closet.includes('src="/content/site/resident-card-contract-v1.js'), "Closet loads the shared contract");
 check(closet.includes("contract.read(localStorage)"), "Closet reads only through the shared projection");

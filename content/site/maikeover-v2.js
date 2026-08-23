@@ -33,16 +33,20 @@
     var title = document.getElementById("moArrivalTitle");
     var persistence = document.getElementById("moPersistenceState");
     if (!title) return;
-    var handle = localValue("laidies_card_username");
+    var contract = window.LAIDIESResidentCard;
+    var handle = contract ? contract.readHandle(window.localStorage) : "";
     title.textContent = handle
       ? "This device remembers @" + handle + "."
       : "New here? Take the chair.";
     if (persistence) {
-      persistence.innerHTML = handle
-        ? "<strong>Device-local card and handle draft:</strong> this browser remembers @" +
-          handle +
-          ". That does not prove an account, public card, or cross-device copy."
-        : "<strong>Device-local card:</strong> saving keeps this card in this browser on this device. It is not yet an account, public card, or cross-device copy.";
+      var label = document.createElement("strong");
+      label.textContent = handle
+        ? "Device-local card and handle draft:"
+        : "Device-local card:";
+      var detail = document.createTextNode(handle
+        ? " this browser remembers @" + handle + ". That does not prove an account, public card, or cross-device copy."
+        : " saving keeps this card in this browser on this device. It is not yet an account, public card, or cross-device copy.");
+      persistence.replaceChildren(label, detail);
     }
   }
 
