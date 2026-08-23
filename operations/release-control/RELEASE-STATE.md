@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `71ef51c7-874c-4e7d-a421-52d1edf589ed`, deployed source `b5ecb6da8c91a1380b7ed2e0216f74e06b62b9bc`, artifact identity `cf863aa6e76e764f559dd9932e630f2f00514035847cd57f8a639d49256d3f1d`, immutable URL `https://71ef51c7.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; three exact public modifications and 11 protected production paths were verified on 2026-08-23. DJ SunnyV’s Booth now consumes canonical KSVL by registry ID with no local audio owner or direct source ledger; the prior public language, Card/Closet and shared-entry truth remains checksum-preserved. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, ten public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, the separately verified MAiKEOVER/NewsStand receivers, and the canonical KSVL-backed DJ Booth. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4`, deployed source `569192d01cb42db93173a798833d3ffcc80b501e`, artifact identity `a2373e12f3df45079c630664ba633a433d21f33d48d676c6deb8df07ccb898c6`, immutable URL `https://ed969dd1.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; two exact public modifications and 13 protected production paths were verified on 2026-08-23. Malformed or ambiguous public Resident Card queries now fail before lookup and cannot be reflected as HTML; the single intended email/magic-link desk, canonical KSVL Booth, prior public language, Card/Closet and shared-entry truth remain checksum-preserved. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, thirteen public Homepage/shared-entry/sitewide functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, the separately verified MAiKEOVER/NewsStand receivers, the canonical KSVL-backed DJ Booth, and the fail-closed public Card query boundary. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -69,6 +69,12 @@ is recorded here.
   bounded to the device-local Card and Closet identity panel. It does not admit
   account restoration, handles, cross-device state, rewards, ownership,
   referrals, leaderboards or the complete Closet dashboard.
+- Resident Card has one intended email/magic-link desk; there was no duplicate
+  intake to remove. Current and legacy public Card query parameters now share
+  one strict parser. Invalid, ambiguous and hostile values are rejected before
+  lookup, never become a private/local fallback and are not echoed into the DOM.
+  The exact deployed bytes matched at both origins. Real public-profile lookup,
+  consent revoke and account lifecycle remain held pending current service proof.
 - The Closet truth successor keeps that identity panel and its existing room
   art, but removes the unproved wallet, report-card dashboard, Luminaries,
   Wednesday Tour, collection vessels, FAiRY bank and leaderboards from the
@@ -105,25 +111,26 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `b5ecb6da8c91a1380b7ed2e0216f74e06b62b9bc` |
-| Artifact identity | `cf863aa6e76e764f559dd9932e630f2f00514035847cd57f8a639d49256d3f1d` |
-| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,485,873 bytes |
-| Exact public scope | 3 modifications / 0 additions / 0 removals / 11 protected production paths |
-| Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `71ef51c7-874c-4e7d-a421-52d1edf589ed` |
-| Immutable URL | `https://71ef51c7.laidies-sunnyvaile.pages.dev/` |
+| Deployed source | `569192d01cb42db93173a798833d3ffcc80b501e` |
+| Artifact identity | `a2373e12f3df45079c630664ba633a433d21f33d48d676c6deb8df07ccb898c6` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,487,380 bytes |
+| Exact public scope | 2 modifications / 0 additions / 0 removals / 13 protected production paths |
+| Release path | Authenticated Wrangler 4.105.0 exact-artifact deployment; no GitHub run was used |
+| Cloudflare deployment | `ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4` |
+| Immutable URL | `https://ed969dd1.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T13:43:19Z`; all three changed artifact paths and 11 protected production paths matched the curated artifact exactly at both origins, and `_worker.js` returned successful Miss Jeeves JSON at both. The live Booth rendered seven admitted selections, decoded the existing art and exact selected KSVL audio, showed one active selection and no competing mini-player, paused through canonical KSVL with zero browser exceptions, and had no horizontal overflow at 1440/390/320. The first custom-domain image check ran before its async image finished; an immediate network-idle retry decoded the exact 1920×1080 source. |
-| Exact scope | `operations/release-control/ksvl-dj-booth-production-scope-20260823.json` |
-| Rollback deployment | `63774d48-9ae5-4901-95ad-b06f8ebf4725` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+| Public verification | completed `2026-08-23T14:05:26Z`; both changed artifact paths and all 13 protected production paths passed the exact scope, all 14 fetchable verification paths matched the curated artifact at both origins, and the Miss Jeeves API returned successful JSON at both. The public Card route parser and text-only not-found boundary are present at both origins; the previous vulnerable live file independently failed the calibrated gate. The prior live Booth browser journey remains checksum-preserved from deployment `71ef51c7-874c-4e7d-a421-52d1edf589ed`. |
+| Exact scope | `operations/release-control/resident-card-query-boundary-production-scope-20260823.json` |
+| Rollback deployment | `71ef51c7-874c-4e7d-a421-52d1edf589ed` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
 
 The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `2284b17a-1f5f-46bd-8fce-d384af1a814e` and
 `250060a3-7164-4abf-8f2b-54dd9f55f0e7` and
 `8769da59-d4de-4633-9e39-3527fa3b56e9` and
-`0875285d-b47d-4d9a-a586-508b660ec894` and
-`63774d48-9ae5-4901-95ad-b06f8ebf4725` are superseded, not current. The DJ
-Booth deployment explicitly marked the workspace dirty because the disclosed
+`0875285d-b47d-4d9a-a586-508b660ec894`,
+`63774d48-9ae5-4901-95ad-b06f8ebf4725` and
+`71ef51c7-874c-4e7d-a421-52d1edf589ed` are superseded, not current. The current
+deployment explicitly marked the workspace dirty because the disclosed
 user-owned `scripts/test-codex-hook-guards.mjs` modification remained excluded;
 the exact release scope, artifact manifest and public bytes are independently
 bound above.

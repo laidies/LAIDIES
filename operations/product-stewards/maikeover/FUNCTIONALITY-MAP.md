@@ -8,7 +8,9 @@ REAL-SERVICE GAPS REMAIN
 **Evidence ceiling:** repository, operating specs, local evidence and launch
 truth table inspected 2026-07-26; the bounded same-device Card save → reload →
 Closet identity-panel journey was publicly verified at both origins on
-2026-08-23. No real-account, provider or cross-device test was performed.
+2026-08-23. The public Card query boundary and generic text-only not-found state
+were deployed and exact-byte verified at both origins on 2026-08-23. No current
+real-account, provider, real public-profile or cross-device test was performed.
 
 ## Intended system result
 
@@ -38,7 +40,7 @@ login, membership, synced ownership or public identity.
 | Capability/object | Producer(s) | Current store/service | Closet consumer/result | Current truth | Missing backend/integration |
 |---|---|---|---|---|---|
 | Resident Card and visible local Closet edits | MAiKEOVER and Closet editor | Versioned `laidies_resident_card_v1` browser-local envelope | Card/Closet restore on this device | Independent local Repair 2 passed atomic write, restore and failure behavior; deployment `0875285d-b47d-4d9a-a586-508b660ec894` publicly preserved save, reload, doorway restoration and exact identity-field render at both origins while hiding unproved progression surfaces | Account migration/sync, merge/conflict and second-device restoration remain unverified |
-| Account profile, handle and visibility | MAiKEOVER/Resident Card | Supabase Auth, profile/RPC/RLS paths | Own Closet identity and restricted public Card/Closet modes | Code, migrations and deterministic privacy fixtures exist; real service journey not accepted | Controlled email/auth, handle conflict, logout/login, visibility revoke, two-account RLS and second-device suite |
+| Account profile, handle and visibility | MAiKEOVER/Resident Card | Supabase Auth, profile/RPC/RLS paths | Own Closet identity and restricted public Card/Closet modes | One intended email/magic-link desk is preserved. Code, migrations and deterministic privacy fixtures exist; malformed/ambiguous query rejection is deployed. Real service journey not accepted | Controlled email/auth, handle conflict, logout/login, visibility revoke, two-account RLS and second-device suite |
 | Puffy book/section saves | LIBRAiRY | Canonicalized device-local Puffy records | Puffy Board reopens/removes exact valid book/section | Representative Library → Closet → exact section → remove journey verified locally | Account/cross-device save sync, merge/delete propagation and stale-content reconciliation |
 | Puffy sticker pouch/preferences | Closet/Library | Browser-local Puffy preference records | Ten selected Puffy controls available on save surfaces | 10/10 selection and filtering verified locally | Account portability is not implemented/proven; all consuming save surfaces need version compatibility |
 | Wednesday route/check-ins | Episode/town stops and Closet route controls | Browser-local weekly tour state | Weekly route vessel and local progress summary | Local mechanics exist | One released-week authority, semantic completion events, dedupe/reset, source-page proof and any account sync |
@@ -54,7 +56,7 @@ login, membership, synced ownership or public identity.
 | FAiRY Plays | Reward earning sources and FAiRY consumption | Incomplete/mixed allowance and reward-event paths | FAiRY bank display; Godmother spend/refund | Shared contract not authoritative | One allowance ledger/API for grant/display/reserve/spend/release/refund, cost accounting, replay/idempotency and two-device consistency |
 | BEST FRIENDS necklaces/referral result | Post Office invite/join lifecycle | Idempotent Supabase RPC design plus Closet renderer | Both residents receive/display a necklace half | Code/design evidence only; real lifecycle untested | Controlled send/open/join, self/invalid/repeat rules, two-account attribution, grant idempotency and both-account visibility |
 | Backgrounds/unlocks | Card/Closet selection and proposed rewards | Currently selectable choices | Card/Closet background display | Choice works; ownership does not exist | Entitlement/availability rules or remove “unlock” language; revoke/refund/correction behavior |
-| Public Closet/collections | Public card/Closet route | Restricted public profile view; collections intended private unless separately admitted | Another visitor sees only consented public data | Field-isolation fixtures exist | Real RLS/public/private/not-found test; explicit per-collection visibility contract; cache/revocation propagation |
+| Public Closet/collections | Public card/Closet route | Restricted public profile view; collections intended private unless separately admitted | Another visitor sees only consented public data | Field-isolation fixtures exist. Current `?u` and legacy `?member` now share one strict parser; invalid or ambiguous values fail before lookup and the generic not-found state uses text-only DOM rendering. Exact deployed bytes match at both origins | Real RLS/public/private/not-found service test; explicit per-collection visibility contract; cache/revocation propagation |
 | Episodes read/listened, Try-Ons, Girl Talk, postcards, Mix CDs and other dashboard candidates | Multiple buildings/services | Several producers absent or not authoritative | Proposed week grid/tiles | Product-spec candidates, not reliable data | Define each real completion event and store first; do not build a count whose producer does not exist |
 
 ## Cross-page transactions that must pass
@@ -100,8 +102,10 @@ login, membership, synced ownership or public identity.
 
 The same-device Resident Card envelope and its Closet identity-panel handoff
 are publicly verified at both origins; the representative Puffy round trip has
-bounded local evidence. Accurate device-local copy is temporary truth, not the
-intended completion. Account restoration, cross-device progression, shared
+bounded local evidence. The public query boundary is also deployed: hostile or
+ambiguous handles are rejected before lookup and are never reflected as HTML.
+Accurate device-local copy is temporary truth, not the intended completion.
+Account restoration, real public-profile lookup, cross-device progression, shared
 rewards, Book Fair delivery, FAiRY Plays, BEST FRIENDS referrals and several
 dashboard collections are removed from the public Closet and remain **BUILD
 BEFORE LAUNCH** until their complete
