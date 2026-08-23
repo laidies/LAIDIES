@@ -25,7 +25,7 @@ local route are not enough to promote a receiver as working.
 | Wednesday Postcard | `MISSING_RECEIVER` | Request the Postcard at the Post Office | No subscription, confirmation, delivery, referral or reward claim |
 | Businesswomen's Special | `PUBLICLY_VERIFIED` | Visit the Businesswomen's Special | Cocktail and spirit-free remain equal choices; no order, service, account or reward claim |
 | FAiRY Godmother / Mme CLAi-O / Dream Phone / Delta LAi Nu Homepage handoffs | `PUBLICLY_VERIFIED` | Open the named activity from its Homepage card | Arrival proves the handoff, not every destination lifecycle or reward |
-| Visitor's Centre | `SOURCE_PRESENT_UNVERIFIED` | Visit the Visitor's Centre; Get oriented | No complete tour/trailer claim before receiver-specific public proof |
+| Visitor's Centre | Orientation handoff `PUBLICLY_VERIFIED`; redesign/tour/trailer `HOLD` | Visit the Visitor's Centre; Get oriented | No complete tour, trailer, postcard or redesign claim |
 
 The detailed recovered architecture below remains useful for transaction and
 failure design. Where one of its older status labels conflicts with the table
