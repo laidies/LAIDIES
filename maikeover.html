@@ -694,6 +694,7 @@
       if(fields.tvshow) $('moTvSel').value=fields.tvshow;
       if(fields.displayName) $('moNameInput').value=fields.displayName;
       if(fields.carry) $('moCarrySel').value=fields.carry;
+      if(stored) $('moSeeCloset').style.display='inline';
       var h=lsGet('laidies_card_username'); if(h) $('moHandleNote').textContent='@'+h;
       renderPreview();
     })();
