@@ -68,7 +68,7 @@ is recorded here.
 | Cloudflare deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
 | Immutable URL | `https://713f35f9.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T08:56:05Z`; 14/14 critical public bytes matched; Homepage contains zero trailer wording and its Visitor's Centre orientation passed 6/6 at both origins and 1440, 390 and 320 pixels; Miss Jeeves returned privacy-safe JSON at both origins; the live Homepage question handoff also passed 6/6 with blank-submit focus, private query transfer, URL cleanup, direct answer and no overflow |
+| Public verification | completed `2026-08-23T08:56:05Z`; 14/14 critical public bytes matched; Homepage contains zero trailer wording and its Visitor's Centre orientation passed 6/6 at both origins and 1440, 390 and 320 pixels; Miss Jeeves returned privacy-safe JSON at both origins; the live Homepage question handoff passed 6/6; and all three Latest Episode controls passed 6/6 with exact published Episode 04 title/receiver while draft Episode 05 remained unpromoted |
 | Exact scope | `operations/release-control/homepage-no-trailer-production-scope-20260823.json` |
 | Rollback deployment | `ea53cfa4-e8e4-446b-a415-d1be7ba7e74a` |
 

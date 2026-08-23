@@ -14,6 +14,7 @@ local route are not enough to promote a receiver as working.
 | Homepage job | Current status | Safe visitor action | Prohibited implication |
 |---|---|---|---|
 | Current public Homepage baseline | `PUBLICLY_VERIFIED` | New in town?; Start learning; Explore the town | The admitted redesign is not deployed or owner-approved |
+| Latest published episode | `PUBLICLY_VERIFIED` | Read Episode 04 · The Founding Mothers | No draft Episode 05, Wednesday-currentness or complete weekly-experience claim |
 | Released NewsStand archive | `PUBLICLY_VERIFIED` | Read the NewsStand archive | Never label it latest/current without a new admitted record |
 | Breaking / Daily / Paige / Career / Promptoscope | `MISSING_RECEIVER` | Honest current-news empty state plus archive | No live/fresh service claim |
 | Wednesday itinerary | `SOURCE_PRESENT_UNVERIFIED` | Explore the route; each stop states availability | No complete weekly experience, progress or reward claim |
@@ -38,7 +39,7 @@ above, the current projection above wins.
 | Promise/hero hierarchy | Load `/`; choose a stable visitor job | Understand practical AI value and one safe next step | Current hero routes to page sections, but its Episode action can be rewritten by latest content | CONTRACT CONFLICT — HERO MUST BE EVERGREEN |
 | Desktop/mobile entry navigation | Topbar link or menu button | Same named route set; clear open/close/focus behavior | Inline homepage topbar plus shared scripts; current rendered full matrix absent | OBSERVED |
 | Method/mission | `#method` | Understand story → concept → practice → music → optional town | Five-step current source; repeats several downstream entrances | OBSERVED |
-| Current episode | `#this-week`; episode index success | Exact latest published episode and read/listen routes | Success/failure logic in `homepage.js`; prior named local browser pass | VERIFIED LOCALLY FOR NAMED STATES |
+| Current episode | Three Homepage Latest Episode controls | Exact latest published episode and intentional receiver | At both public origins and 1440/390/320, all three controls resolve to `/issues/issue-04.html`, expose `Latest Episode: The Founding Mothers`, land on exact Episode 04 title/heading and do not promote draft Episode 05 | PUBLICLY VERIFIED |
 | Episode failure fallback | Non-OK/empty/invalid index | Previously-published evergreen route | `showEvergreenFallback()` | VERIFIED LOCALLY FOR NAMED STATE |
 | The Breaking/The Daily | Homepage current-news module | Conditional Breaking and current Daily explanation | D-043 only; no module/admitted shared feed | MISSING |
 | Current-content boundary | Fresh owner-admitted episode/news receipt | Render only in separate `#current` module below hero | Current receiver exists, but also mutates `.entry-episode-action` | REPAIR AFTER BRAND RULES |
