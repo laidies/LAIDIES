@@ -168,9 +168,11 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
     const roles = new Set(page.required_new_art_roles || []);
     for (const candidate of page.candidates || []) {
       const label = `${pageName}/${candidate.id || 'unnamed'}`;
-      const prefix = `${page.tracked_root}/`;
+      const activePrefix = `${page.tracked_root}/`;
+      const rejectedPrefix = `operations/design-explorations/rejected/${pageName}/`;
+      const prefix = candidate.status === 'REJECTED_BY_ALI' ? rejectedPrefix : activePrefix;
       if (!candidate.id || !candidate.entry_path || !(candidate.source_files || []).length) { errors.push(`${label}: id, entry_path and source_files required`); continue; }
-      if (!candidate.entry_path.startsWith(prefix)) errors.push(`${label}: entry escapes tracked_root`);
+      if (!candidate.entry_path.startsWith(prefix)) errors.push(`${label}: entry is outside its required ${candidate.status === 'REJECTED_BY_ALI' ? 'rejected archive' : 'tracked_root'}`);
       if (candidate.production_method !== 'repo_composition') errors.push(`${label}: production_method must be repo_composition`);
       const declared = new Map();
       for (const item of candidate.dependencies || []) {
@@ -184,7 +186,7 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
       const observed = new Set();
       for (const item of candidate.source_files || []) {
         binding(root, item, `${label} source`, errors);
-        if (!item.path.startsWith(prefix)) errors.push(`${label}: source escapes tracked_root: ${item.path}`);
+        if (!item.path.startsWith(prefix)) errors.push(`${label}: source is outside its required ${candidate.status === 'REJECTED_BY_ALI' ? 'rejected archive' : 'tracked_root'}: ${item.path}`);
         const absolute = path.join(root, item.path);
         if (fs.existsSync(absolute)) for (const ref of assetRefs(item.path, fs.readFileSync(absolute, 'utf8'))) observed.add(ref);
       }

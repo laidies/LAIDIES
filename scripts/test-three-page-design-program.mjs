@@ -96,7 +96,11 @@ try {
   rejectedReentry.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
   expectFailure('ali-rejected-reentry', rejectedReentry, 'exact Ali-rejected candidate cannot re-enter');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT full_before_selection=REJECT');
+  const rejectedInCurrent = structuredClone(manifest);
+  rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
+  expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
+
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT full_before_selection=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

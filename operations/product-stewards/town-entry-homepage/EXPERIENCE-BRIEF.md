@@ -6,8 +6,10 @@
 **Supersedes:** older Homepage briefs, prototypes, visual championships and chat-led summaries where they conflict
 
 Load this file with `operations/DECISIONS.md`, the current capability state and
-the exact implementation under review. Historical walkthroughs are provenance,
-not production authority.
+the exact implementation under review. This brief must retain Ali's direct
+2026-08-22 Homepage walkthrough without replacing her decisions with a shorter
+designer interpretation. If this file and that direct walkthrough diverge,
+stop production and reconcile the brief before making pixels.
 
 ## Visitor outcome
 
@@ -58,28 +60,72 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
   failures receive the static masthead immediately.
 - Navigation and primary actions never wait for the animation.
 
-## Page hierarchy and functions
+## Locked comprehension sequence
 
-1. **Arrival:** locked masthead and compact product explanation.
-2. **What is happening in SUNNYVAiLE:** prominent admitted NewsStand newspaper
-   treatment with current news, The Daily concept/explainer, Paige’s Practical
-   AI Tip, Career/Work-Life Tip, Promptoscope and any other admitted service.
-   Missing material gets an honest empty state; never invent filler.
-3. **What brought you into town:** direct outcome-labelled routes for learning,
-   asking/finding, current news, the Wednesday ritual, practical help, fun/social
-   use and exploring the town. Miss Jeeves and LIBRAiRY are prominent.
-4. **How SUNNYVAiLE works:** the existing accurate explanation of stories,
-   reference, practice, music and community; do not replace it with a slogan.
-5. **Wednesday route:** one connected itinerary through the episode, NewsStand,
-   Chick Flicks, Blend & Snap, Study Pack, SUNNYVAiLE High and related admitted
-   destinations. It is not the only way to use LAiDIES.
-6. **People:** a meaningful entrance to town characters, Patron Saints and real
-   women/MAiVENS/Trailblazers without inventing faces or identity art.
-7. **Explore:** direct named destinations and jobs. The map is optional
-   discovery, never a prerequisite or an extra click before a known route.
-8. **Continue and invite:** Resident Card/Closet and Wednesday Postcard are
-   visibly different objects and outcomes; neither may imply an unproved
-   account, reward, referral or delivery lifecycle.
+The top of the page must explain these ideas in this order:
+
+1. **Arrival:** the locked masthead explains that LAiDIES teaches AI for women
+   without a technical background.
+2. **The LAiDIES method:** immediately after the masthead, preserve the existing
+   explanation beginning `Your brain kept the references. We put them to work.`
+   It explains the roles of story, analogy, practice, music and community. Do
+   not replace it with a new slogan or move a Daily/news block ahead of it.
+3. **SUNNYVAiLE:** make clear that the town organizes those complementary ways
+   of learning into familiar buildings with familiar jobs.
+4. **The Rewind Era:** make clear that remembered references help unfamiliar
+   ideas become easier to understand and remember.
+
+## Required finite page jobs
+
+These jobs must all survive. Their exact order after the locked masthead and
+LAiDIES-method sequence is still an owner decision; a producer may not invent
+that order inside a visual candidate.
+
+- **What is happening in SUNNYVAiLE:** prominent admitted NewsStand newspaper
+  treatment with current news, The Daily concept/explainer, Paige’s Practical
+  AI Tip, Career/Work-Life Tip, Promptoscope and any other admitted service.
+  Missing material gets an honest empty state; never invent filler.
+- **What brought you into town:** direct outcome-labelled routes for learning,
+  asking/finding, current news, the Wednesday ritual, practical help, fun/social
+  use and exploring the town. Miss Jeeves and LIBRAiRY are prominent.
+- **Wednesday route:** one connected itinerary through the episode, NewsStand,
+  Chick Flicks, Blend & Snap, Study Pack, SUNNYVAiLE High and related admitted
+  destinations. It is not the only way to use LAiDIES.
+- **People:** a meaningful entrance to town characters, Patron Saints and real
+  women/MAiVENS/Trailblazers without inventing faces or identity art.
+- **Explore:** direct named destinations and jobs. The map is optional
+  discovery, never a prerequisite or an extra click before a known route.
+- **Continue and invite:** Resident Card/Closet and Wednesday Postcard are
+  visibly different objects and outcomes; neither may imply an unproved
+  account, reward, referral or delivery lifecycle.
+
+## Walkthrough fidelity locks
+
+- Retain and reorganize `What brought you to town today?`; do not replace its
+  useful visitor-intent model with a generic feature grid.
+- Retain the Wednesday loop, but do not make it the only way to understand or
+  enter LAiDIES.
+- Give women in AI, the LUMINAiRY and the Patron Saints a meaningful entrance.
+- Link directly to named buildings and jobs. Do not force a district-selection
+  click between a visitor and a destination they already chose.
+- Keep KSVL prominent as a learning mechanism, not decorative atmosphere.
+- Businesswomen's Special is a happy-hour social AI ritual with a cocktail or
+  spirit-free choice and a conversation menu. It is not a drink generator.
+- The whole page must be intuitive without hiding most choices behind endless
+  disclosure controls, and it must not become an endless disconnected scroll.
+
+## Production sequence
+
+1. Inventory every Homepage destination by actual capability state.
+2. Build the smallest desktop, intermediate and mobile first-screen proof that
+   preserves the masthead, proves the comprehension sequence and exposes the
+   primary navigation.
+3. Get Ali's direction verdict on that bounded proof.
+4. Only then compose the complete finite page from the required jobs above.
+
+A first-direction candidate must not be a speculative complete page. It must
+not use missing decisions as permission to invent ordering, public prose,
+imagery, icons or visual systems.
 
 ## Shared header and KSVL
 
@@ -113,6 +159,11 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
   visible; one complete Explore route holds the long tail.
 - Public copy uses LAiDIES voice and explains the real job. The word `Play` is
   banned in public UI.
+- Until Ali approves a copy change, meaning-bearing Homepage prose must be
+  copied exactly from the current `index.html`. A visual candidate may
+  recompose that copy but may not write replacement sentences, summaries or
+  filler. Canonical destination names and short functional control labels are
+  the only exceptions.
 
 ## Banned and retired inputs
 
@@ -125,6 +176,12 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
   section coverage, first-session review and current-content truth. No
   successor may derive its layout, CSS decoration, header or Daily treatment
   from them.
+- The later complete-page candidate with entry SHA-256
+  `b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995`
+  is also a full rejection and not an iteration base. It put sections in an
+  unapproved order, invented meaning-bearing copy, ignored the required
+  method-first sequence and failed to embody the direct morning walkthrough.
+  Its internal `ADMIT` verdict is invalidated by Ali's artifact review.
 - A Homepage review URL may never suppress the required first-session ident.
   Review exposes the entrance by default and provides a visible replay control.
 - `Latest` NewsStand or episode content must resolve from the current admitted
@@ -150,8 +207,8 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
 
 ## Open implementation decisions
 
-- Exact post-masthead responsive composition; current recommendation is The
-  Daily/current town first, visitor jobs second and Wednesday third.
+- Exact order and responsive composition of the required finite page jobs
+  after the locked masthead and LAiDIES-method sequence.
 - Which destination capabilities are `PUBLIC_VERIFIED`,
   `LOCAL_VERIFIED_NOT_DEPLOYED`, `SOURCE_PRESENT_UNVERIFIED`, `PLANNED`,
   `REJECTED_SUPERSEDED` or `MISSING_RECEIVER`.
