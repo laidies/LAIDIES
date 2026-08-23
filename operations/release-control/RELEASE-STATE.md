@@ -70,7 +70,7 @@ is recorded here.
 | Cloudflare deployment | `4760ab5c-b04c-448f-a891-a7473880c0ce` |
 | Immutable URL | `https://4760ab5c.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T09:13:40Z`; 14/14 critical public bytes matched; Homepage → Wednesday Postcard request passed 6/6 at both origins and 1440/390/320 with the exact Buttondown receiver, 44px input, no subscription receipt claim, no postcard selected/sent claim and no overflow; Miss Jeeves remained privacy-safe at both origins |
+| Public verification | completed `2026-08-23T09:13:40Z`; 14/14 critical public bytes matched; Homepage → Wednesday Postcard request passed 6/6 with the exact held-boundary receiver; legacy `/start-here.html` → Visitor's Centre also passed 6/6 at both origins and 1440/390/320 with the working heading, 18-option directory, decoded map and no overflow; Miss Jeeves remained privacy-safe at both origins |
 | Exact scope | `operations/release-control/homepage-postcard-request-truth-production-scope-20260823.json` |
 | Rollback deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
 
