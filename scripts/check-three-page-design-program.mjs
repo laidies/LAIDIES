@@ -97,7 +97,7 @@ function validateDirectionAdmission(root, candidate, label, pageName, errors) {
     ? ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass','exact_wordmark','full_section_coverage','live_content_binding','owner_viewport_primary_cta_visible','intermediate_composition_retained']
     : pageName === 'library'
       ? ['desktop_mobile_no_overflow','operable_targets_44px','declared_routes_resolve','exact_wordmark','shared_header_mounted','fourteen_covers_visible','zero_open_actions','search_unclipped','preview_focus_return','prohibited_assets_absent']
-      : ['desktop_mobile_no_overflow','operable_targets_44px','declared_routes_resolve','exact_wordmark','shared_header_mounted','purpose_and_orientation_visible','prohibited_assets_absent'];
+      : ['desktop_mobile_no_overflow','operable_targets_44px','declared_routes_resolve','exact_wordmark','shared_header_mounted','purpose_and_orientation_visible','full_explanation_sequence','image_led_format_jobs','goal_routes_visible','tour_pause_resume','prohibited_assets_absent'];
   for (const key of pageChecks) {
     if (checks[key] !== 'PASS') errors.push(`${label}: objective check ${key} must PASS`);
   }

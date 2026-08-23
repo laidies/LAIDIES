@@ -237,6 +237,30 @@ try {
   check(await storagePage.evaluate(() => document.activeElement?.textContent.includes("Keep using")), "tour storage recovery is not focused");
   await noStorage.close();
 
+  const tour = await context();
+  const tourPage = await tour.newPage();
+  await tourPage.goto(`${origin}/visitors-centre.html?welcome-tour=start`, { waitUntil: "domcontentloaded" });
+  await tourPage.locator("#svwtChip").waitFor();
+  check(await tourPage.getByRole("button", { name: "Pause tour" }).isVisible(),
+    "active tour does not expose Pause tour");
+  check(await tourPage.getByRole("button", { name: "End tour" }).isVisible(),
+    "active tour does not expose End tour");
+  check(await tourPage.locator(".svwt-progress-segment").count() === 17,
+    "active tour does not render 17 rectangular progress segments");
+  check(await tourPage.locator(".svwt-dot").count() === 0,
+    "active tour still renders circular progress dots");
+  await tourPage.getByRole("button", { name: "Pause tour" }).click();
+  check(await tourPage.locator("#svwtPaused").isVisible(), "Pause tour does not expose the paused state");
+  check(await tourPage.evaluate(() => document.activeElement?.textContent === "Resume tour"),
+    "paused tour does not move focus to Resume tour");
+  await tourPage.reload({ waitUntil: "domcontentloaded" });
+  check(await tourPage.locator("#svwtPaused").isVisible(), "paused tour does not survive page reload");
+  await tourPage.getByRole("button", { name: "Resume tour" }).click();
+  check(await tourPage.locator("#svwtChip").isVisible(), "Resume tour does not restore the active guide");
+  check((await tourPage.locator("#svwtChip").innerText()).toLowerCase().includes("stop 1 of 17"),
+    "Resume tour does not retain the current stop");
+  await tour.close();
+
   const mobile = await context({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
   const mobilePage = await mobile.newPage();
   await mobilePage.goto(`${origin}/visitors-centre.html`, { waitUntil: "domcontentloaded" });

@@ -11,6 +11,39 @@ const scratch = `operations/design-explorations/current/visitors-centre/.program
 const scratchAbsolute = path.join(root, scratch);
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
 
+function visitorProofErrors(source) {
+  const errors = [];
+  const lockedOrder = [
+    'What is SUNNYVAiLE?',
+    'One town · Different learning jobs',
+    'Help me do something',
+    'Show me the town'
+  ];
+  const positions = lockedOrder.map(fragment => source.indexOf(fragment));
+  if (positions.some(position => position < 0) || positions.some((position, index) => index && position <= positions[index - 1])) {
+    errors.push('Visitor proof does not preserve the locked explanation order');
+  }
+  const formatImages = [
+    '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
+    '/assets/town-characters/scenes/paige-scene.png',
+    '/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
+    '/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
+    '/assets/building-interiors/ksvl-booth.jpg',
+    '/assets/sunnyvaile-streets/schoolhouse-road-morning.webp'
+  ];
+  if (!formatImages.every(asset => source.includes(asset))) {
+    errors.push('Visitor format jobs are not bound to the six current-owner images');
+  }
+  return errors;
+}
+
+function expectVisitorProofFailure(name, source, expected) {
+  const errors = visitorProofErrors(source);
+  if (!errors.some(error => error.includes(expected))) {
+    throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
+  }
+}
+
 function expectFailure(name, changed, expected, verifyGit = false) {
   const fixture = path.join(scratchAbsolute, `${name}.json`);
   fs.writeFileSync(fixture, `${JSON.stringify(changed, null, 2)}\n`);
@@ -20,6 +53,21 @@ function expectFailure(name, changed, expected, verifyGit = false) {
 
 fs.mkdirSync(scratchAbsolute, { recursive: true });
 try {
+  const visitorProofPath = path.join(root, 'operations/design-explorations/current/visitors-centre/live-base-proof-20260822/proof.js');
+  const visitorProofSource = fs.readFileSync(visitorProofPath, 'utf8');
+  const visitorProofBaseline = visitorProofErrors(visitorProofSource);
+  if (visitorProofBaseline.length) throw new Error(`Visitor proof baseline failed: ${visitorProofBaseline.join(' | ')}`);
+  expectVisitorProofFailure(
+    'visitor-missing-explanation',
+    visitorProofSource.replace('What is SUNNYVAiLE?', 'Missing orientation'),
+    'locked explanation order'
+  );
+  expectVisitorProofFailure(
+    'visitor-text-only-format',
+    visitorProofSource.replace('/assets/town-characters/scenes/paige-scene.png', '/retired-placeholder.png'),
+    'six current-owner images'
+  );
+
   const baseline = validateProgram({ root, manifestPath, verifyGit: false });
   if (baseline.length) throw new Error(`baseline failed: ${baseline.join(' | ')}`);
 
@@ -125,6 +173,10 @@ try {
   delete missingVisitorOrientationProof.pages['visitors-centre'].candidates[0].admission.objective_checks.purpose_and_orientation_visible;
   expectFailure('missing-visitor-orientation-proof', missingVisitorOrientationProof, 'objective check purpose_and_orientation_visible must PASS');
 
+  const missingVisitorImageProof = structuredClone(manifest);
+  delete missingVisitorImageProof.pages['visitors-centre'].candidates[0].admission.objective_checks.image_led_format_jobs;
+  expectFailure('missing-visitor-image-proof', missingVisitorImageProof, 'objective check image_led_format_jobs must PASS');
+
   const wrongVisitorRuntime = structuredClone(manifest);
   wrongVisitorRuntime.pages['visitors-centre'].candidates[0].runtime_base.path = 'index.html';
   expectFailure('wrong-visitor-runtime', wrongVisitorRuntime, 'runtime base must be visitors-centre.html for visitors-centre');
@@ -137,7 +189,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

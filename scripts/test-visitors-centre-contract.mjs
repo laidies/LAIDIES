@@ -12,6 +12,7 @@ const check = (condition, message) => {
 };
 
 const page = read("visitors-centre.html");
+const tour = read("content/site/sv-welcome-tour.js");
 const directory = read("content/site/sunnyvaile-directory.js");
 const projection = JSON.parse(read("content/site/readiness/v1/entry-readiness-projection.v1.json"));
 const directorySandbox = {
@@ -87,6 +88,14 @@ check(!/id="from-the-founder"|class="vc-first-route"|<details class="vc-story"/.
   "non-admitted post-arrival stack remains");
 check(!/meaningful_action_completed|destination_completed/.test(page), "destination selection emits a completion-shaped event");
 check(/prefers-reduced-motion: reduce/.test(page), "reduced-motion treatment is missing");
+check(!/#3a1838|#4b2148|#c9a227|var\(--gold|svwt-dot/.test(tour),
+  "retired plum/gold or circular-dot Welcome Tour styling remains");
+check(/Pause tour/.test(tour) && /Resume tour/.test(tour) && /End tour/.test(tour),
+  "Welcome Tour does not expose explicit pause, resume and end controls");
+check(/state\.paused = true[\s\S]*writeState\(state\)/.test(tour)
+  && /if \(state\.paused\) renderPausedOffer\(state\)/.test(tour),
+  "Welcome Tour pause state is not persisted and restored");
+check(/svwt-progress-segment/.test(tour), "Welcome Tour lacks the rectangular progress treatment");
 
 check(projection.payload.destinations.length === 17, "shared projection does not contain 17 destinations");
 check(projection.payload.currentContent.length === 3, "shared projection does not contain three current-content slots");

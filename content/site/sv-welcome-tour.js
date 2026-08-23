@@ -17,7 +17,7 @@
 
   var STOPS = [
     { href: '/visitors-centre.html', name: "Visitor’s Centre", icon: 'map',
-      line: "Every good town starts at the Visitor’s Centre — start the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
+      line: "This is the town front desk. Pick a building on the wall—or choose one by name below—to see what happens there before you step inside." },
     { href: '/newsstand.html', name: 'The NewsStand', icon: 'news',
       line: "Catch breaking news, a clear daily explainer, the week’s bigger picture and The Tribune’s take on the questions behind the headlines." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
@@ -71,42 +71,41 @@
   }
   function brandHtml(s) { return esc(s).replace(/Ai/g, '<span class="ai">Ai</span>'); }
 
-  // Gold kit icons (sv-gold-icons.js) — inline, sized for chip text lines.
-  function ic(key, uid, size) {
-    return window.svGoldIcon
-      ? '<span class="svwt-ic">' + window.svGoldIcon(key, 'wt-' + uid, size || 16) + '</span>'
-      : '';
-  }
-
   var STYLE = ''
-    + '.svwt-chip { position: fixed; left: 16px; right: auto; bottom: 150px; z-index: 9300; width: min(320px, calc(100vw - 32px));'
-    + '  background: linear-gradient(160deg, #3a1838 0%, #4b2148 100%); color: #fffdfb;'
-    + '  border: 2px solid var(--gold, #c9a227); border-radius: 14px; padding: 14px 16px 12px;'
-    + '  box-shadow: 0 14px 40px rgba(26,8,24,0.45); font-family: "Jost", sans-serif; }'
+    + '.svwt-chip { position: fixed; left: 18px; right: auto; bottom: 132px; z-index: 9300; width: min(390px, calc(100vw - 36px));'
+    + '  background: linear-gradient(145deg, #070f2b 0%, #11183b 68%, #2457e6 145%); color: #fffdfb;'
+    + '  border: 4px solid #11183b; border-left-color: #f254a9; border-bottom-color: #15bce0; border-radius: 0; padding: 16px 18px 15px;'
+    + '  box-shadow: 10px 10px 0 #f254a9; font-family: "Jost", sans-serif; }'
     + '.svwt-eyebrow { display: flex; align-items: center; justify-content: space-between; gap: 8px;'
-    + '  font-size: 9.5px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold, #c9a227); margin: 0 0 6px; }'
-    + '.svwt-skip { background: transparent; border: 0; color: rgba(255,253,251,0.55); font-size: 13px; cursor: pointer; padding: 2px 4px; font-family: inherit; }'
-    + '.svwt-skip:hover { color: #fffdfb; }'
-    + '.svwt-skip:focus-visible, .svwt-next:focus-visible, .svwt-offer:focus-visible { outline: 3px solid #fffdfb; outline-offset: 3px; }'
-    + '.svwt-name { margin: 0 0 4px; font-size: 15.5px; font-weight: 700; }'
-    + '.svwt-line { margin: 0 0 12px; font-size: 12.5px; line-height: 1.5; color: rgba(255,253,251,0.88); }'
-    + '.svwt-next { display: inline-block; background: var(--gold, #c9a227); color: #341446; border: 0; border-radius: 999px;'
-    + '  padding: 8px 18px; font: 800 12px/1 "Jost", sans-serif; letter-spacing: 0.08em; text-transform: uppercase;'
-    + '  cursor: pointer; text-decoration: none; transition: background 0.15s ease, transform 0.12s ease; }'
-    + '.svwt-next:hover { background: #fffdfb; transform: translateY(-1px); }'
-    + '.svwt-dots { display: flex; gap: 5px; margin-top: 11px; }'
-    + '.svwt-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,253,251,0.25); }'
-    + '.svwt-dot.is-done { background: var(--gold, #c9a227); }'
-    + '.svwt-dot.is-here { background: #fffdfb; box-shadow: 0 0 6px rgba(255,253,251,0.8); }'
-    + '.svwt-offer { position: fixed; left: 16px; right: auto; bottom: 150px; z-index: 9300;'
-    + '  display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px;'
-    + '  background: linear-gradient(160deg, #3a1838 0%, #4b2148 100%); color: #fffdfb;'
-    + '  border: 2px solid var(--gold, #c9a227); border-radius: 999px; cursor: pointer;'
-    + '  box-shadow: 0 12px 32px rgba(26,8,24,0.4); font: 700 13px/1.2 "Jost", sans-serif; }'
-    + '.svwt-offer:hover { transform: translateY(-2px); }'
-    + '.svwt-offer .svwt-offer-x { color: rgba(255,253,251,0.5); margin-left: 4px; font-size: 14px; }'
-    + '.svwt-ic { display: inline-flex; vertical-align: -3px; margin-right: 2px; }'
-    + '@media (max-width: 640px) { .svwt-chip, .svwt-offer { bottom: 130px; left: 10px; right: auto; } }';
+    + '  font-size: 10px; font-weight: 900; letter-spacing: 0.21em; text-transform: uppercase; color: #ff7366; margin: 0 0 9px; }'
+    + '.svwt-controls { display: inline-flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }'
+    + '.svwt-pause, .svwt-skip, .svwt-resume-button, .svwt-end-button, .svwt-offer-start, .svwt-offer-dismiss {'
+    + '  min-height: 38px; border: 2px solid #15bce0; border-radius: 0; background: transparent; color: #fffdfb; cursor: pointer; padding: 6px 9px; font: 850 11px/1 "Jost", sans-serif; }'
+    + '.svwt-skip, .svwt-end-button, .svwt-offer-dismiss { border-color: #f254a9; }'
+    + '.svwt-pause:hover, .svwt-resume-button:hover, .svwt-offer-start:hover { background: #15bce0; color: #070f2b; }'
+    + '.svwt-skip:hover, .svwt-end-button:hover, .svwt-offer-dismiss:hover { background: #f254a9; color: #070f2b; }'
+    + '.svwt-pause:focus-visible, .svwt-skip:focus-visible, .svwt-next:focus-visible, .svwt-resume-button:focus-visible,'
+    + ' .svwt-end-button:focus-visible, .svwt-offer-start:focus-visible, .svwt-offer-dismiss:focus-visible { outline: 3px solid #fffdfb; outline-offset: 3px; }'
+    + '.svwt-name { margin: 0 0 6px; color: #78c7ff; font-size: 19px; font-weight: 900; }'
+    + '.svwt-name .ai { color: #f254a9; }'
+    + '.svwt-line { margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; color: #fffdfb; }'
+    + '.svwt-next { display: inline-flex; min-height: 44px; align-items: center; background: #ff7366; color: #070f2b; border: 3px solid #11183b; border-radius: 0;'
+    + '  padding: 9px 15px; box-shadow: 5px 5px 0 #15bce0; font: 900 12px/1.15 "Jost", sans-serif; letter-spacing: 0.06em; text-transform: uppercase;'
+    + '  cursor: pointer; text-decoration: none; transition: transform 0.12s ease; }'
+    + '.svwt-next:hover { transform: translate(-2px,-2px); }'
+    + '.svwt-progress { display: grid; grid-template-columns: repeat(17, 1fr); gap: 3px; margin-top: 15px; }'
+    + '.svwt-progress-segment { height: 5px; background: rgba(120,199,255,.28); }'
+    + '.svwt-progress-segment.is-done { background: #15bce0; }'
+    + '.svwt-progress-segment.is-here { background: #f254a9; }'
+    + '.svwt-offer, .svwt-paused { position: fixed; left: 18px; right: auto; bottom: 132px; z-index: 9300; width: min(390px, calc(100vw - 36px));'
+    + '  display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 14px 16px;'
+    + '  background: linear-gradient(112deg, #2457e6 0%, #7137d6 52%, #f254a9 145%); color: #fffdfb;'
+    + '  border: 4px solid #11183b; border-radius: 0; box-shadow: 8px 8px 0 #15bce0; font: 800 13px/1.3 "Jost", sans-serif; }'
+    + '.svwt-offer-actions, .svwt-paused-actions { display: flex; flex-wrap: wrap; gap: 8px; }'
+    + '.svwt-offer-start, .svwt-resume-button { background: #15bce0; color: #070f2b; border-color: #11183b; }'
+    + '@media (max-width: 640px) { .svwt-chip, .svwt-offer, .svwt-paused { left: 10px; right: 10px; bottom: 18px; width: auto; }'
+    + ' .svwt-eyebrow { align-items: flex-start; flex-direction: column; } .svwt-controls { justify-content: flex-start; }'
+    + ' .svwt-offer, .svwt-paused { grid-template-columns: 1fr; } }';
 
   function injectStyle() {
     if (document.getElementById('svwt-style')) return;
@@ -118,6 +117,15 @@
 
   function pathNow() { return window.location.pathname.replace(/\/index\.html$/, '/'); }
 
+  function clearExplicitStart() {
+    try {
+      var url = new URL(window.location.href);
+      if (url.searchParams.get('welcome-tour') !== 'start') return;
+      url.searchParams.delete('welcome-tour');
+      window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+    } catch (e) {}
+  }
+
   function endTour(state, how) {
     state = state || {};
     state.done = how === 'done';
@@ -125,6 +133,33 @@
     writeState(state);
     var chip = document.getElementById('svwtChip');
     if (chip) chip.remove();
+    var paused = document.getElementById('svwtPaused');
+    if (paused) paused.remove();
+  }
+
+  function renderPausedOffer(state) {
+    injectStyle();
+    var old = document.getElementById('svwtPaused');
+    if (old) old.remove();
+    var paused = document.createElement('div');
+    paused.id = 'svwtPaused';
+    paused.className = 'svwt-paused';
+    paused.setAttribute('role', 'region');
+    paused.setAttribute('aria-label', 'Welcome Tour paused');
+    paused.innerHTML = '<span>Welcome Tour paused at stop ' + Math.max(1, Number(state.step) || 1) + ' of ' + STOPS.length + '.</span>'
+      + '<span class="svwt-paused-actions"><button type="button" class="svwt-resume-button">Resume tour</button>'
+      + '<button type="button" class="svwt-end-button">End tour</button></span>';
+    paused.querySelector('.svwt-resume-button').addEventListener('click', function () {
+      state.paused = false;
+      writeState(state);
+      paused.remove();
+      renderChip(state);
+    });
+    paused.querySelector('.svwt-end-button').addEventListener('click', function () {
+      endTour(state, 'skipped');
+    });
+    document.body.appendChild(paused);
+    paused.querySelector('.svwt-resume-button').focus();
   }
 
   function renderChip(state) {
@@ -142,8 +177,8 @@
     chip.setAttribute('role', 'complementary');
     chip.setAttribute('aria-label', 'Welcome Tour guide');
 
-    var dots = STOPS.map(function (s, i) {
-      var cls = 'svwt-dot' + (i < stepIdx ? ' is-done' : (i === stepIdx ? ' is-here' : ''));
+    var progress = STOPS.map(function (s, i) {
+      var cls = 'svwt-progress-segment' + (i < stepIdx ? ' is-done' : (i === stepIdx ? ' is-here' : ''));
       return '<span class="' + cls + '" title="' + esc(s.name) + '"></span>';
     }).join('');
 
@@ -151,27 +186,36 @@
       // At the stop: explain it, offer the next leg (or the finale).
       var nextIdx = stepIdx + 1;
       var btn = isLast
-        ? '<a class="svwt-next" href="#" data-svwt-finish>Finish the tour ★</a>'
+        ? '<a class="svwt-next" href="#" data-svwt-finish>Finish the tour</a>'
         : '<a class="svwt-next" href="' + esc(STOPS[nextIdx].href) + '" data-svwt-advance>Next stop · ' + esc(STOPS[nextIdx].name) + ' →</a>';
       chip.innerHTML =
-        '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb1', 13) + ' Welcome Tour · Stop ' + (stepIdx + 1) + ' of ' + STOPS.length + '</span>'
-        + '<button type="button" class="svwt-skip" data-svwt-skip title="End the tour">✕</button></p>'
-        + '<p class="svwt-name">' + ic(stop.icon, 'stop' + stepIdx, 17) + ' ' + brandHtml(stop.name) + '</p>'
+        '<p class="svwt-eyebrow"><span>Welcome Tour · Stop ' + (stepIdx + 1) + ' of ' + STOPS.length + '</span>'
+        + '<span class="svwt-controls"><button type="button" class="svwt-pause" data-svwt-pause>Pause tour</button>'
+        + '<button type="button" class="svwt-skip" data-svwt-skip>End tour</button></span></p>'
+        + '<p class="svwt-name">' + brandHtml(stop.name) + '</p>'
         + '<p class="svwt-line">' + brandHtml(stop.line) + '</p>'
         + btn
-        + '<div class="svwt-dots">' + dots + '</div>';
+        + '<div class="svwt-progress" aria-label="Tour progress">' + progress + '</div>';
     } else {
       // Wandered off-route: gentle escort back, no guilt.
       chip.innerHTML =
-        '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb2', 13) + ' Welcome Tour · paused</span>'
-        + '<button type="button" class="svwt-skip" data-svwt-skip title="End the tour">✕</button></p>'
+        '<p class="svwt-eyebrow"><span>Welcome Tour · waiting at stop ' + (stepIdx + 1) + '</span>'
+        + '<span class="svwt-controls"><button type="button" class="svwt-pause" data-svwt-pause>Pause tour</button>'
+        + '<button type="button" class="svwt-skip" data-svwt-skip>End tour</button></span></p>'
         + '<p class="svwt-line">Exploring — love that. Your tour is waiting whenever you are.</p>'
         + '<a class="svwt-next" href="' + esc(stop.href) + '">Back to stop ' + (stepIdx + 1) + ' · ' + esc(stop.name) + ' →</a>'
-        + '<div class="svwt-dots">' + dots + '</div>';
+        + '<div class="svwt-progress" aria-label="Tour progress">' + progress + '</div>';
     }
     document.body.appendChild(chip);
 
     chip.addEventListener('click', function (e) {
+      if (e.target.closest('[data-svwt-pause]')) {
+        state.paused = true;
+        writeState(state);
+        chip.remove();
+        renderPausedOffer(state);
+        return;
+      }
       if (e.target.closest('[data-svwt-skip]')) {
         endTour(state, 'skipped');
         return;
@@ -198,10 +242,10 @@
     chip.id = 'svwtChip';
     chip.className = 'svwt-chip';
     chip.innerHTML =
-      '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb3', 13) + ' Welcome Tour · complete</span></p>'
-      + '<p class="svwt-name">' + ic('star', 'fin', 17) + ' Official Tourist!</p>'
+      '<p class="svwt-eyebrow"><span>Welcome Tour · complete</span></p>'
+      + '<p class="svwt-name">Official Tourist!</p>'
       + '<p class="svwt-line">You\'ve visited every stop. If you want, finish by making your Resident Card at MAiKEOVER on MAiN.</p>'
-      + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Preview my card ★</a>';
+      + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Preview my card</a>';
     document.body.appendChild(chip);
     setTimeout(function () {
       var c = document.getElementById('svwtChip');
@@ -213,17 +257,20 @@
   // never started, finished, or skipped the tour.
   function renderOffer() {
     injectStyle();
-    var offer = document.createElement('button');
-    offer.type = 'button';
+    var offer = document.createElement('div');
     offer.className = 'svwt-offer';
-    offer.innerHTML = ic('bus', 'offer', 18) + ' <span>First time in town? Take the <strong>Welcome Tour</strong></span><span class="svwt-offer-x" title="No thanks">✕</span>';
+    offer.setAttribute('role', 'region');
+    offer.setAttribute('aria-label', 'Welcome Tour offer');
+    offer.innerHTML = '<span>First time in town? Take the <strong>Welcome Tour</strong>.</span>'
+      + '<span class="svwt-offer-actions"><button type="button" class="svwt-offer-start">Start tour</button>'
+      + '<button type="button" class="svwt-offer-dismiss">No thanks</button></span>';
     offer.addEventListener('click', function (e) {
-      if (e.target.closest('.svwt-offer-x')) {
+      if (e.target.closest('.svwt-offer-dismiss')) {
         writeState({ step: 0, skipped: true });
         offer.remove();
         return;
       }
-      startTour();
+      if (e.target.closest('.svwt-offer-start')) startTour();
     });
     document.body.appendChild(offer);
   }
@@ -246,6 +293,7 @@
       notice.querySelector('button').focus();
       return;
     }
+    clearExplicitStart();
     if (pathNow() === STOPS[0].href) {
       var offer = document.querySelector('.svwt-offer');
       if (offer) offer.remove();
@@ -264,7 +312,8 @@
     if (params.get('welcome-tour') === 'start') { startTour(); return; }
 
     if (state && !state.done && !state.skipped && state.step >= 1) {
-      renderChip(state);
+      if (state.paused) renderPausedOffer(state);
+      else renderChip(state);
       return;
     }
     // Never started, never dismissed → offer it, on the Visitor’s Centre only.
