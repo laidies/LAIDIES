@@ -21,6 +21,14 @@ function assertWorkflowContextIsDispatchable(source) {
   }
 }
 
+function assertWorkflowArtifactOutputIsOutsideSource(source) {
+  const safeOutput = 'ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site';
+  if (source.split(safeOutput).length - 1 !== 2 ||
+      source.includes('ARTIFACT_DIR: ${{ github.workspace }}/.release/site')) {
+    throw new Error('candidate artifact output must stay outside the source repository in both release jobs');
+  }
+}
+
 function assertWorkflowRedirectVerificationIsSafe(source) {
   const redirectFlags = "--location --proto-redir '=https' --max-redirs 3";
   const redirectFetches = source.split(redirectFlags).length - 1;
@@ -82,6 +90,15 @@ assert.throws(
   () => assertWorkflowContextIsDispatchable(`${workflow}\n  BASE_SOURCE_DIR: \${{ runner.temp }}/bad-source\n`),
   /runner context is unavailable/,
   'known invalid GitHub workflow context must fail calibration',
+);
+assert.doesNotThrow(() => assertWorkflowArtifactOutputIsOutsideSource(workflow));
+assert.throws(
+  () => assertWorkflowArtifactOutputIsOutsideSource(workflow.replace(
+    'ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site',
+    'ARTIFACT_DIR: ${{ github.workspace }}/.release/site',
+  )),
+  /outside the source repository/,
+  'known in-repository candidate output must fail calibration',
 );
 assert.doesNotThrow(() => assertWorkflowApiVerificationIsComplete(workflow));
 assert.throws(
@@ -164,4 +181,4 @@ assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and exact Sunday scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and exact Sunday scope guard bound');
