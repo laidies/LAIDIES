@@ -42,7 +42,7 @@
         '<a href="/library.html"><img src="/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt=""><b>Books</b><strong>Look something up</strong><span>Ask Miss Jeeves at the LIBRAiRY reference desk</span></a>',
         '<a href="/blend-snap.html"><img src="/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png" alt=""><b>Activities</b><strong>See available Study Pack pieces</strong><span>Blend &amp; Snap · only components marked available</span></a>',
         '<a href="/radio.html"><img src="/assets/building-interiors/ksvl-booth.jpg" alt=""><b>Songs</b><strong>Listen to KSVL 99.9</strong><span>LAiDIES original songs</span></a>',
-        '<a href="/sunnyvaile-high.html"><img src="/assets/sunnyvaile-streets/schoolhouse-road-morning.webp" alt=""><b>Classes</b><strong>Demonstrations and practice</strong><span>The written class previews are open; the class tapes are still in production.</span></a>',
+        '<a href="/sunnyvaile-high.html"><img src="/assets/sunnyvaile-streets/schoolhouse-road-morning.webp" alt=""><b>Future classes</b><strong>Demonstrations and practice</strong><span>The class tapes are still in production.</span></a>',
       '</div>'
     ].join('');
 
