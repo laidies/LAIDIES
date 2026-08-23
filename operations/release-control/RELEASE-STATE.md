@@ -10,10 +10,10 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `840943b3-fbc7-4049-a0d7-0d12fba688af`, deployed source `750c062a27150bda6cbe5443ab16068f34e4e0aa`, artifact identity `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e`, immutable URL `https://840943b3.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; three exact public modifications and 13 protected production paths were verified on 2026-08-23. MAiKEOVER now validates the device-local handle through the shared Resident Card contract and renders it with text-only DOM APIs; the public Card query boundary, single intended email/magic-link desk, canonical KSVL Booth, prior public language, Card/Closet and shared-entry truth remain checksum-preserved. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, fourteen public Homepage/shared-entry/sitewide functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `9ba611c7-9381-41d7-bd7f-d437132f95f3`, deployed source `0c71527393d5981597c3a99d1be05ed991897717`, artifact identity `d189d747dc0f67c041a9c95feb18c8902cc3c51ae35032a7cb9b739887d08c12`, immutable URL `https://9ba611c7.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; 12 exact public modifications and eight protected production paths were verified on 2026-08-23. Post Office now hands sign-in requests to the sole Resident Card email desk; automatic account continuation is dormant on the shared header and NewsStand; account-backed Card restoration and cross-device continuation remain held. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, fifteen public Homepage/shared-entry/sitewide functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
 | Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, the separately verified MAiKEOVER/NewsStand receivers, the canonical KSVL-backed DJ Booth, and the fail-closed public Card query boundary. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
-| Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
+| Current working tree | `LOCAL / REMOTE COMMITS VERIFIED` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has a stale local HEAD after the iCloud-safe low-level commit route. Task bytes are pushed through exact GitHub commits ending at `0c71527393d5981597c3a99d1be05ed991897717`; the pre-existing user-owned `scripts/test-codex-hook-guards.mjs` modification remains excluded. Do not infer deployment from local branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 opening-day candidates | `BUILT LOCALLY / OWNER WATCH REQUIRED / HOLD` | Current exact candidates are Trailer v8 `1be8c4f1…a1332e`, Episode 01 v27 `50311e89…0f135a`, Episode 02 v20 `2b8bd0c3…a358cc`, Episode 03 v15 `6a7f2381…735b75`, and Episode 04 v10 `9fc40d96…57bfb`. The checksum-bound launch gate, playback package, portable package and review inbox agree on all five. No current candidate is accepted, released or bound publicly. The older Episode 04 v8 object remains publicly reachable only as historical deployment evidence and is not the opening-day source. |
@@ -75,6 +75,13 @@ is recorded here.
   lookup, never become a private/local fallback and are not echoed into the DOM.
   The exact deployed bytes matched at both origins. Real public-profile lookup,
   consent revoke and account lifecycle remain held pending current service proof.
+- The Post Office now sends private sign-in requests to that sole Resident Card
+  desk without collecting account email itself. Resident Card exposes one email
+  field and one request action, and no claim, restore, sync or cross-device
+  continuation controls. The shared header and NewsStand no longer auto-mount
+  the held continuation bootstrap. The first deployment of this correction was
+  rejected when the live browser reused the old shared-runtime cache key; the
+  accepted successor binds new version URLs on all six changed journey pages.
 - MAiKEOVER no longer concatenates the persistent `laidies_card_username`
   value into arrival-state HTML. It reads the handle through the shared strict
   Resident Card contract and constructs the visible state with text nodes.
@@ -118,17 +125,17 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `750c062a27150bda6cbe5443ab16068f34e4e0aa` |
-| Artifact identity | `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e` |
-| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,487,689 bytes |
-| Exact public scope | 3 modifications / 0 additions / 0 removals / 13 protected production paths |
+| Deployed source | `0c71527393d5981597c3a99d1be05ed991897717` |
+| Artifact identity | `d189d747dc0f67c041a9c95feb18c8902cc3c51ae35032a7cb9b739887d08c12` |
+| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,644 bytes |
+| Exact public scope | 12 modifications / 0 additions / 0 removals / 8 protected production paths |
 | Release path | Authenticated Wrangler 4.105.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `840943b3-fbc7-4049-a0d7-0d12fba688af` |
-| Immutable URL | `https://840943b3.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `9ba611c7-9381-41d7-bd7f-d437132f95f3` |
+| Immutable URL | `https://9ba611c7.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T14:23:37Z`; all three changed artifact paths and all 13 protected production paths passed the exact scope, all 15 fetchable verification paths matched the curated artifact at both origins, and the Miss Jeeves API returned successful JSON at both. The public MAiKEOVER helper uses the shared strict handle reader, text-node rendering and the new cache key; its predecessor independently failed the calibrated gate. The preceding public Card query boundary and live Booth journey remain checksum-preserved. No live-browser execution was used for this stored-handle-only release; exact public bytes match the locally syntax- and contract-tested artifact. |
-| Exact scope | `operations/release-control/maikeover-stored-handle-production-scope-20260823.json` |
-| Rollback deployment | `ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+| Public verification | completed `2026-08-23T19:24:22Z`; all 12 changed paths and eight protected paths passed the exact scope, and all 19 externally fetchable verification paths matched the curated artifact at the immutable and custom origins. `_worker.js` is artifact-bound and compiled by Wrangler but is not publicly fetchable by design. In the live browser, Post Office loaded no continuation script, its exact CTA reached Resident Card, Resident Card exposed exactly one email field and request button with no claim/restore/sync control, and NewsStand loaded no continuation script. The first deployment `5dc6ae37-715a-4795-b07a-7764b1f01576` was rejected after it exposed stale shared-runtime cache keys; it is not an accepted release. |
+| Exact scope | `operations/release-control/resident-signin-truth-production-scope-20260823.json` |
+| Rollback deployment | `840943b3-fbc7-4049-a0d7-0d12fba688af` (immediately prior accepted production); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
 
 The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `2284b17a-1f5f-46bd-8fce-d384af1a814e` and
@@ -136,8 +143,10 @@ The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `8769da59-d4de-4633-9e39-3527fa3b56e9` and
 `0875285d-b47d-4d9a-a586-508b660ec894`,
 `63774d48-9ae5-4901-95ad-b06f8ebf4725`,
-`71ef51c7-874c-4e7d-a421-52d1edf589ed` and
-`ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4` are superseded, not current. The current
+`71ef51c7-874c-4e7d-a421-52d1edf589ed`,
+`ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4`,
+`840943b3-fbc7-4049-a0d7-0d12fba688af` and the rejected cache-stale deployment
+`5dc6ae37-715a-4795-b07a-7764b1f01576` are superseded, not current. The current
 deployment explicitly marked the workspace dirty because the disclosed
 user-owned `scripts/test-codex-hook-guards.mjs` modification remained excluded;
 the exact release scope, artifact manifest and public bytes are independently

@@ -14523,6 +14523,17 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why preserving one approved screen produced more progress than generating three new Homepages.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
 
+## BTB-478 — Exact new bytes do not invalidate an old shared-runtime URL in a visitor's cache
+
+- **Date:** 2026-08-23
+- **Area:** Post Office → Resident Card sign-in truth and shared-runtime release verification.
+- **Failure:** The first exact artifact deployed the corrected shared header, but the six changed journey pages still requested its old version URL. A live browser therefore reused the cached predecessor and mounted held Resident continuation even though direct public hash checks returned the new JavaScript.
+- **Root cause:** Release verification proved server bytes, not the consumer URL that an existing browser would execute. The shared-runtime cache-key rule existed from the earlier header incident but was not applied during production.
+- **Prevention rule:** Every changed public JavaScript file must inventory its active consumers, give changed journey pages a new deterministic version URL, and be tested in a browser that previously loaded the old URL. Server-byte parity alone cannot publicly admit a shared-runtime change.
+- **Durable correction:** The rejected deployment `5dc6ae37-715a-4795-b07a-7764b1f01576` was superseded. Source `0c71527393d5981597c3a99d1be05ed991897717`, artifact `d189d747dc0f67c041a9c95feb18c8902cc3c51ae35032a7cb9b739887d08c12` and deployment `9ba611c7-9381-41d7-bd7f-d437132f95f3` bind new header, navigation and account-runtime URLs on the six changed pages. The same previously stale browser then showed no continuation script on Post Office or NewsStand and exactly one request-only Resident Card email desk.
+- **Possible Behind the Build angle:** Why deploying the right JavaScript still served the wrong behavior to the browser that had visited yesterday.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
 ## BTB-465 — One hero screenshot cannot admit a spatial Library journey
 
 - **Date:** 2026-08-22
