@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import http from "node:http";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -30,7 +31,7 @@ const chrome = process.env.CHROME_PATH ||
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const evidenceDir = path.resolve(
   process.env.MAIKEOVER_EVIDENCE_DIR ||
-  path.join(root, "operations", "product-stewards", "maikeover", "evidence-2026-07-25")
+  path.join(os.tmpdir(), "laidies-maikeover-browser-evidence")
 );
 fs.mkdirSync(evidenceDir, { recursive: true });
 
@@ -286,6 +287,18 @@ try {
     (await page.locator("#cardCarry").innerText()).includes("Caboodles case"),
     "Closet handoff did not render the locally saved carrying choice"
   );
+  for (const id of [
+    "walletSlots",
+    "dashboardSection",
+    "covenSection",
+    "tourSection",
+    "collectionSection",
+    "fairyBankSection",
+    "leaderboardSection"
+  ]) {
+    check(await page.locator(`#${id}`).isHidden(),
+      `unproved Closet surface remained visitor-visible: ${id}`);
+  }
   check(await page.locator("#shareCardBtn").isDisabled(),
     "device-local handle enabled a public Share action");
   const localShareText = await page.locator("#shareCardBtn").innerText();

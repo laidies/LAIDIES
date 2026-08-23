@@ -58,6 +58,25 @@ requireText(helper, "This device remembers @",
   "returning arrival does not distinguish device-local memory");
 requireText(closet, "Device-local view:",
   "Closet lacks an explicit device-local state");
+for (const id of [
+  "walletSlots",
+  "dashboardSection",
+  "covenSection",
+  "tourSection",
+  "collectionSection",
+  "fairyBankSection",
+  "leaderboardSection"
+]) {
+  requireText(closet, `id="${id}" hidden`,
+    `unproved Closet surface remains visitor-visible: ${id}`);
+}
+requireText(closet,
+  "canShare ? 'Share my public card' : 'Share unavailable",
+  "device-local Closet does not keep public sharing visibly held");
+forbidText(closet, "A LAiDY",
+  "Closet still uses retired LAiDY as a resident fallback");
+forbidText(closet, "There is no LAiDY registered",
+  "Closet not-found state still uses retired LAiDY as a member name");
 requireText(closet, "public_resident_cards",
   "public Card no longer uses the restricted public view");
 const publicSelectMatch = closet.match(
