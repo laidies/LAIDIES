@@ -37,7 +37,7 @@ login, membership, synced ownership or public identity.
 
 | Capability/object | Producer(s) | Current store/service | Closet consumer/result | Current truth | Missing backend/integration |
 |---|---|---|---|---|---|
-| Resident Card and visible local Closet edits | MAiKEOVER and Closet editor | Versioned `laidies_resident_card_v1` browser-local envelope | Card/Closet restore on this device | Independent local Repair 2 passed atomic write, restore and failure behavior; deployment `8769da59-d4de-4633-9e39-3527fa3b56e9` publicly passed save, reload, doorway restoration and exact identity-field render at both origins | Account migration/sync, merge/conflict and second-device restoration remain unverified |
+| Resident Card and visible local Closet edits | MAiKEOVER and Closet editor | Versioned `laidies_resident_card_v1` browser-local envelope | Card/Closet restore on this device | Independent local Repair 2 passed atomic write, restore and failure behavior; deployment `0875285d-b47d-4d9a-a586-508b660ec894` publicly preserved save, reload, doorway restoration and exact identity-field render at both origins while hiding unproved progression surfaces | Account migration/sync, merge/conflict and second-device restoration remain unverified |
 | Account profile, handle and visibility | MAiKEOVER/Resident Card | Supabase Auth, profile/RPC/RLS paths | Own Closet identity and restricted public Card/Closet modes | Code, migrations and deterministic privacy fixtures exist; real service journey not accepted | Controlled email/auth, handle conflict, logout/login, visibility revoke, two-account RLS and second-device suite |
 | Puffy book/section saves | LIBRAiRY | Canonicalized device-local Puffy records | Puffy Board reopens/removes exact valid book/section | Representative Library → Closet → exact section → remove journey verified locally | Account/cross-device save sync, merge/delete propagation and stale-content reconciliation |
 | Puffy sticker pouch/preferences | Closet/Library | Browser-local Puffy preference records | Ten selected Puffy controls available on save surfaces | 10/10 selection and filtering verified locally | Account portability is not implemented/proven; all consuming save surfaces need version compatibility |
@@ -103,5 +103,6 @@ are publicly verified at both origins; the representative Puffy round trip has
 bounded local evidence. Accurate device-local copy is temporary truth, not the
 intended completion. Account restoration, cross-device progression, shared
 rewards, Book Fair delivery, FAiRY Plays, BEST FRIENDS referrals and several
-dashboard collections remain **BUILD BEFORE LAUNCH** until their complete
+dashboard collections are removed from the public Closet and remain **BUILD
+BEFORE LAUNCH** until their complete
 producer/backend/consumer journeys pass.

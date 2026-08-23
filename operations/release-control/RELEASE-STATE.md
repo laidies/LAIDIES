@@ -10,8 +10,8 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `8769da59-d4de-4633-9e39-3527fa3b56e9`, deployed source `0196340a511769c67901da8ea9bf24a9a72982ea`, artifact identity `a342a5d4db9942220cc4f527e6c4ba08c64e1c3bd0307e9066af1d8d49dd06f0`, immutable URL `https://8769da59.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; the exact changed bytes, seven preserved public paths, and the same-device saved Card → reload → Closet identity-panel journey were publicly verified on 2026-08-23. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, nine public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `0875285d-b47d-4d9a-a586-508b660ec894`, deployed source `2a6db9f9afe4d53183d659c973512f3891d7a216`, artifact identity `22b9e09598099311d6c4a69c5c8565460f760c0e43c69e47f1ece1c556fe1f0f`, immutable URL `https://0875285d.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact changed bytes, seven preserved public paths, the same-device Card identity panel and the absence of held Closet progression surfaces were publicly verified on 2026-08-23. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, ten public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
 | Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, and the separately verified MAiKEOVER/NewsStand receivers. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
@@ -62,6 +62,11 @@ is recorded here.
   bounded to the device-local Card and Closet identity panel. It does not admit
   account restoration, handles, cross-device state, rewards, ownership,
   referrals, leaderboards or the complete Closet dashboard.
+- The Closet truth successor keeps that identity panel and its existing room
+  art, but removes the unproved wallet, report-card dashboard, Luminaries,
+  Wednesday Tour, collection vessels, FAiRY bank and leaderboards from the
+  visual and accessibility trees. The local/account/public code paths remain
+  held rather than deleted; no hidden module is promoted by this release.
 - The already-live Homepage → NewsStand arrival is separately public-proofed at
   both origins and 1440/390/320. Three labelled routes reach the truthful clear-day
   state, four distinct papers, decoded Paige/rack art and no autostart or overflow.
@@ -87,21 +92,22 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `0196340a511769c67901da8ea9bf24a9a72982ea` |
-| Artifact identity | `a342a5d4db9942220cc4f527e6c4ba08c64e1c3bd0307e9066af1d8d49dd06f0` |
-| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,280 bytes |
+| Deployed source | `2a6db9f9afe4d53183d659c973512f3891d7a216` |
+| Artifact identity | `22b9e09598099311d6c4a69c5c8565460f760c0e43c69e47f1ece1c556fe1f0f` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,401 bytes |
 | Exact public scope | 2 modifications / 0 additions / 0 removals / 7 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `8769da59-d4de-4633-9e39-3527fa3b56e9` |
-| Immutable URL | `https://8769da59.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `0875285d-b47d-4d9a-a586-508b660ec894` |
+| Immutable URL | `https://0875285d.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T11:05:21Z`; `maikeover.html`, `build-report.json` and six critical preserved paths matched the curated artifact exactly at both origins. The custom-domain and immutable browser journeys each restored the saved Card after reload, exposed `See it in my Closet →`, reached the same-origin Closet and rendered the same saved name plus the explicit `Device-local view` boundary. The complete Closet account/reward/progress surface was not admitted. `_worker.js` is preserved in the manifest and compiled by Wrangler but is not directly fetchable by design. |
-| Exact scope | `operations/release-control/maikeover-closet-handoff-production-scope-20260823.json` |
-| Rollback deployment | `250060a3-7164-4abf-8f2b-54dd9f55f0e7` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+| Public verification | completed `2026-08-23T11:23:22Z`; `laidies-card.html`, `build-report.json` and six critical preserved paths matched the curated artifact exactly at both origins. The custom-domain and immutable browser journeys each rendered the exact saved Card and `Device-local view` boundary while the wallet, report-card dashboard, Luminaries, Wednesday Tour, collection, FAiRY-bank and leaderboard surfaces were hidden from the visual and accessibility trees. `_worker.js` is preserved in the manifest and compiled by Wrangler but is not directly fetchable by design. |
+| Exact scope | `operations/release-control/closet-truth-production-scope-20260823.json` |
+| Rollback deployment | `8769da59-d4de-4633-9e39-3527fa3b56e9` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
 
 The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `2284b17a-1f5f-46bd-8fce-d384af1a814e` and
-`250060a3-7164-4abf-8f2b-54dd9f55f0e7` are superseded, not current. Wrangler
+`250060a3-7164-4abf-8f2b-54dd9f55f0e7` and
+`8769da59-d4de-4633-9e39-3527fa3b56e9` are superseded, not current. Wrangler
 reported a dirty-worktree warning solely because the isolated release source
 contained untracked `node_modules`; the deployed source commit, artifact
 manifest and public bytes are exact and independently bound above.
