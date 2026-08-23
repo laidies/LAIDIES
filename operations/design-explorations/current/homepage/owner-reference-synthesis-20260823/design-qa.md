@@ -12,6 +12,7 @@
   - evidence/mobile-390.png — stable continuous 390 × 9339 px page capture at a 390 × 844 CSS viewport.
   - evidence/desktop-method-1440.png — 1440 × 900 px focused method capture.
   - evidence/mobile-method-390.png — 390 × 844 px focused method capture.
+  - evidence/intermediate-900.png — 900 × 900 px intermediate-width capture.
   - evidence/owner-877x915.png — 877 × 915 px at an 877 × 915 CSS viewport.
   - evidence/first-session-ident-1440.png — 1440 × 900 px at a 1440 × 900 CSS viewport.
 - State: anonymous first visit unless the evidence name says otherwise. The dial-up ident was explicitly replayed.
