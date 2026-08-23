@@ -93,7 +93,7 @@
     + '  cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; flex-shrink: 0; }'
     + '.svgh-histbtn:hover { border-color: var(--rose, #9b3f5f); color: var(--rose, #9b3f5f); background: rgba(155,63,95,0.06); }'
     + '.svgh-menu-btn { display: inline-flex; align-items: center; gap: 8px; background: transparent;'
-    + '  border: 1.5px solid rgba(75,33,72,0.28); border-radius: 999px; padding: 7px 15px; white-space: nowrap;'
+    + '  border: 1.5px solid rgba(75,33,72,0.28); min-width: 44px; min-height: 44px; border-radius: 999px; padding: 7px 15px; white-space: nowrap;'
     + '  font: 700 12px/1 "Jost", sans-serif; letter-spacing: 0.1em; text-transform: uppercase;'
     + '  color: var(--plum, #4b2148); cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease; }'
     + '.svgh-menu-btn:hover, .svgh-menu-btn[aria-expanded="true"] { border-color: var(--rose, #9b3f5f); color: var(--rose, #9b3f5f); }'
@@ -111,6 +111,10 @@
     + '.svgh-panel.is-open { display: block; }'
     + '.svgh-panel-title { margin: 0 0 10px; font: 700 10.5px/1 "Jost", sans-serif; letter-spacing: 0.26em;'
     + '  text-transform: uppercase; color: var(--rose, #9b3f5f); }'
+    + '.svgh-panel-account { display: none; gap: 10px; margin: 0 0 16px; }'
+    + '.svgh-panel-account a { display: flex; min-height: 44px; align-items: center; justify-content: center; padding: 0 16px; border-radius: 8px; font: 800 13px/1 "Jost", sans-serif; text-decoration: none; }'
+    + '.svgh-panel-signin { border: 2px solid #57b6c0; color: #3a1838; }'
+    + '.svgh-panel-join { background: #e982ab; border: 2px solid #e982ab; color: #3a1838; }'
     + '.svgh-panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px; margin-bottom: 14px; }'
     + '@media (max-width: 560px) { .svgh-panel-grid { grid-template-columns: 1fr; } }'
     + '.svgh-item { display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 8px;'
@@ -124,10 +128,15 @@
     + '.svgh-nav { display: flex; align-items: center; }'
     + 'body:is(.class-v2,.quiz-v2) .svgh-nav { flex-wrap: wrap; justify-content: flex-end; }'
     + '.svgh-nav a { text-decoration: none; }'
+    + '.svgh-library-mobile { display: none; }'
     + '.site-header .svgh-nav { gap: 22px; }'
     + '.site-header .svgh-nav a { color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 14px; font-weight: 600; }'
     + '.site-header .svgh-nav a:hover { color: var(--rose, #9b3f5f); }'
-    + '@media (max-width: 760px) { .svgh-quick, .svgh-ksvl { display: none !important; } }'
+    + '@media (max-width: 760px) {'
+    + '  .svgh-quick, .svgh-ksvl, .svgh-signin, .svgh-join { display: none !important; }'
+    + '  .svgh-library-mobile { display: inline-flex !important; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 12px; border: 2px solid #57b6c0; border-radius: 8px; background: linear-gradient(135deg,#e982ab 0%,#57b6c0 100%); box-shadow: 3px 3px 0 #3a1838; color: #3a1838 !important; font-weight: 800; text-decoration: none; }'
+    + '  .svgh-panel-account { display: flex; }'
+    + '}'
     + '@container svgh (max-width: 520px) {'
     + '  body:is(.class-v2,.quiz-v2) :is(.svgh-quick,.svgh-ksvl,.svgh-histbtn) { display: none !important; }'
     + '  body:is(.class-v2,.quiz-v2) .svgh-jointail { display: none; }'
@@ -189,6 +198,7 @@
     }).join('');
     panel.innerHTML =
       '<p class="svgh-panel-title">★ Around town</p>'
+      + '<div class="svgh-panel-account"><a class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="svgh-panel-join" href="/maikeover.html">Join the town</a></div>'
       + '<div class="svgh-panel-grid">' + essentials + '</div>'
       + '<p class="svgh-panel-title">★ Every building · M<span class="ai">Ai</span>N Street &amp; beyond</p>'
       + '<div class="svgh-panel-grid svgh-panel-grid--town"><span class="svgh-item" style="cursor:default;">Loading the map…</span></div>';
@@ -255,6 +265,7 @@
       + (container === header ? '' : '<div class="site-header-spacer"></div>')
       + '<nav class="svgh-nav">'
       + quick
+      + '<a class="svgh-library-mobile" href="/library.html">LIBRAiRY</a>'
       + '<a class="svgh-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a>'
       + '<a class="sv-signin svgh-signin" href="' + esc(SIGNIN_HREF) + '">Sign in</a>'
       + '<a class="svgh-join" href="' + esc(JOIN_HREF) + '">Join<span class="svgh-jointail"> the town</span></a>'

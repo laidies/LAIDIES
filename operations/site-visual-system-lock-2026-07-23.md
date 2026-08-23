@@ -104,6 +104,9 @@ The website and episodes must feel like the same world:
 - Desktop and 390px evidence must show the complete header in frame with no
   wrapping, clipping or horizontal overflow. A checklist assertion does not
   prove this; computed target geometry and the rendered pixels must agree.
+- At 760px and below, the visible header is exactly the `LAiDIES` Home link,
+  a direct `LIBRAiRY` shortcut and `Menu`. Sign in, Join and the wider town
+  navigation remain available inside Menu instead of crowding the header.
 
 ## Images
 

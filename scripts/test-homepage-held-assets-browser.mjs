@@ -15,6 +15,7 @@ const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const homepageScriptSource = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");
+const globalHeaderSource = fs.readFileSync(path.join(root, "content/site/sv-global-header.js"), "utf8");
 const falsePublicPromises = [
   "The complete weekly experience",
   "a new episode and its learning activities arrive every Wednesday",
@@ -34,6 +35,14 @@ const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
 const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILURE === "1"
   ? source.replaceAll('data-library-entry="primary" href="/library.html"', 'data-library-entry="primary" href="#reference"')
   : source;
+const mobileLibraryShortcutSource = process.env.CALIBRATE_HOMEPAGE_MOBILE_LIBRARY_SHORTCUT_FAILURE === "1"
+  ? source.replace('data-library-entry="mobile-quick" href="/library.html"', 'data-library-entry="mobile-quick" href="#reference"')
+  : source;
+const globalMobileLibraryShortcutSource = process.env.CALIBRATE_GLOBAL_MOBILE_LIBRARY_SHORTCUT_FAILURE === "1"
+  ? globalHeaderSource.replace('class="svgh-library-mobile" href="/library.html"', 'class="svgh-library-mobile" href="#reference"')
+  : process.env.CALIBRATE_GLOBAL_MOBILE_MENU_SIZE_FAILURE === "1"
+    ? globalHeaderSource.replace('min-width: 44px; min-height: 44px; border-radius: 999px;', 'border-radius: 999px;')
+    : globalHeaderSource;
 const accountEntrySource = process.env.CALIBRATE_HOMEPAGE_ACCOUNT_PROMISE_FAILURE === "1"
   ? source.replace(
     '<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>',
@@ -116,6 +125,15 @@ check((libraryNavigationSource.match(/data-library-entry="primary" href="\/libra
   libraryNavigationSource.includes('data-library-entry="reference" href="/library.html">Visit the LIBRAiRY') &&
   libraryNavigationSource.includes('data-library-entry="directory" href="/library.html">The LIBRAiRY</a>'),
   "Homepage has no clearly labelled direct LIBRAiRY route in primary, mobile, reference and town-directory navigation");
+check(mobileLibraryShortcutSource.includes('class="mobile-library-link" data-library-entry="mobile-quick" href="/library.html">LIBRAiRY</a>'),
+  "Homepage has no direct mobile-header LIBRAiRY shortcut");
+check(globalMobileLibraryShortcutSource.includes('class="svgh-library-mobile" href="/library.html">LIBRAiRY</a>') &&
+  globalMobileLibraryShortcutSource.includes('.svgh-signin, .svgh-join { display: none !important; }') &&
+  globalMobileLibraryShortcutSource.includes('min-width: 44px; min-height: 44px; border-radius: 999px;') &&
+  globalMobileLibraryShortcutSource.includes('class="svgh-panel-account"') &&
+  globalMobileLibraryShortcutSource.includes('class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
+  globalMobileLibraryShortcutSource.includes('class="svgh-panel-join" href="/maikeover.html">Join the town</a>'),
+  "shared header has no direct mobile LIBRAiRY shortcut, still crowds it with account actions, has an undersized Menu, or loses mobile account routes");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
 check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
@@ -191,6 +209,11 @@ try {
       await page.locator('.town-index a[data-library-entry="directory"][href="/library.html"]').filter({hasText:"The LIBRAiRY"}).count() === 1,
       `${width}px Homepage does not expose every clearly labelled direct LIBRAiRY route`);
     if (width <= 820) {
+      const mobileLibraryShortcut = page.locator('header a.mobile-library-link[data-library-entry="mobile-quick"][href="/library.html"]');
+      check(await mobileLibraryShortcut.isVisible() && await mobileLibraryShortcut.evaluate((link) => {
+        const rect = link.getBoundingClientRect();
+        return rect.width >= 44 && rect.height >= 44;
+      }), `${width}px direct mobile-header LIBRAiRY shortcut is missing or undersized`);
       const menu = page.getByRole("button", {name:"Menu"});
       await menu.click();
       check(await page.locator('#mobile-nav a[data-library-entry="primary"][href="/library.html"]').isVisible(),
@@ -278,6 +301,29 @@ try {
         check(await page.locator(".lum-state h2").evaluate((node) => node.scrollWidth <= node.clientWidth + 1),
           `${route} ${width}px clips the votive-state heading`);
       }
+      const sharedMobileLibraryShortcut = page.locator('header a.svgh-library-mobile[href="/library.html"]');
+      if (width <= 760) {
+        check(await sharedMobileLibraryShortcut.isVisible() && await sharedMobileLibraryShortcut.evaluate((link) => {
+          const rect = link.getBoundingClientRect();
+          return rect.width >= 44 && rect.height >= 44;
+        }), `${route} ${width}px shared mobile header lacks the direct 44px LIBRAiRY shortcut`);
+        check(await page.locator('header .svgh-signin').isHidden() && await page.locator('header .svgh-join').isHidden(),
+          `${route} ${width}px shared mobile header still crowds the direct LIBRAiRY shortcut`);
+        check(await page.locator('header .svgh-menu-btn').evaluate((button) => {
+          const rect = button.getBoundingClientRect();
+          return rect.width >= 44 && rect.height >= 44;
+        }), `${route} ${width}px shared mobile Menu is undersized`);
+        await page.locator('header .svgh-menu-btn').click();
+        const panelSignin = page.locator('#svghPanel .svgh-panel-signin[href="/resident-card.html#rcAccountTitle"]');
+        const panelJoin = page.locator('#svghPanel .svgh-panel-join[href="/maikeover.html"]');
+        check(await panelSignin.isVisible() && await panelJoin.isVisible() &&
+          await panelSignin.evaluate((link) => link.getBoundingClientRect().height >= 44) &&
+          await panelJoin.evaluate((link) => link.getBoundingClientRect().height >= 44),
+          `${route} ${width}px shared mobile Menu loses the 44px Sign in or Join route`);
+        await page.keyboard.press('Escape');
+      } else {
+        check(await sharedMobileLibraryShortcut.isHidden(), `${route} ${width}px mobile-only LIBRAiRY shortcut leaked into desktop`);
+      }
       await context.close();
     }
   }
@@ -291,4 +337,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,direct-mobile-library-shortcut,shared-mobile-library-shortcut,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
