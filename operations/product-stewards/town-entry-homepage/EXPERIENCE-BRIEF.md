@@ -185,6 +185,14 @@ imagery, icons or visual systems.
   unapproved order, invented meaning-bearing copy, ignored the required
   method-first sequence and failed to embody the direct morning walkthrough.
   Its internal `ADMIT` verdict is invalidated by Ali's artifact review.
+- The three 1586×992 generated Daily-section assets offered on 2026-08-23 are
+  also rejected, not selection options or production sources. Their SHA-256
+  identities are `ea75d2d60926bb443b57da46f704a6fabb524d13859a8447890443407852be97`,
+  `6eb7186d0cc91cd380d6c6f5288635eecc91ef1c88c055efc2818dcbaee3133d`
+  and `b1fd0280e8bd94b124d68f188d303c6b64587236512f7d3916e0eb70439deaca`.
+  They fail integrated editorial-object architecture and credible mobile
+  recomposition; the latter two also contain pseudo-signage. No successor may
+  derive its layout or generated lettering from them.
 - A Homepage review URL may never suppress the required first-session ident.
   Review exposes the entrance by default and provides a visible replay control.
 - `Latest` NewsStand or episode content must resolve from the current admitted

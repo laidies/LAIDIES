@@ -14516,10 +14516,10 @@ while remaining falsely unfinished in the launch record.
 
 - **Date:** 2026-08-22
 - **Area:** Homepage visual direction and owner review.
-- **Failure:** Rebuilding the whole arrival repeatedly changed an approved masthead, weakened the LAiDIES wordmark and converted the method into detached CSS panels, forcing Ali to rediscover settled decisions in every review.
-- **Root cause:** The production unit was a replacement page instead of the smallest unresolved section running inside the current Homepage.
-- **Prevention rule:** A Homepage direction proof must use the exact current runtime and preserve the approved masthead bytes. Prototype only the unresolved section, then bind same-viewport incumbent/candidate pixels, the 877×915 owner viewport, direct mobile LIBRAiRY and the pausable canonical ident before admission.
-- **Durable correction:** `homepage-live-base-proof-20260822` adds the method directly after the incumbent masthead, uses five allowlisted real images and exposes only proof-specific CSS/JS behind `?homepage-proof=1`; exact source and review bytes are bound in the three-page design manifest.
+- **Failure:** Rebuilding the whole arrival repeatedly changed an approved masthead, weakened the LAiDIES wordmark and converted the method into detached CSS panels, forcing Ali to rediscover settled decisions in every review. The next three generated Daily objects repeated the same structural failure: generic box grids, no credible mobile recomposition and, in two assets, pseudo-signage.
+- **Root cause:** The production unit was a replacement page—or a generated section image—rather than the smallest unresolved section running inside the current Homepage with its real information architecture and live text planes fixed first.
+- **Prevention rule:** A Homepage direction proof must use the exact current runtime and preserve the approved masthead bytes. Prototype only the unresolved section, then bind same-viewport incumbent/candidate pixels, the 877×915 owner viewport, direct mobile LIBRAiRY and the pausable canonical ident before admission. A generated section asset is not a layout: fix the live information architecture, responsive reflow and deterministic text planes before generating any bounded scenery.
+- **Durable correction:** `homepage-live-base-proof-20260822` adds the method directly after the incumbent masthead, uses five allowlisted real images and exposes only proof-specific CSS/JS behind `?homepage-proof=1`; exact source and review bytes are bound in the three-page design manifest. The three Daily assets are now checksum-bound rejected inputs and removed from owner selection; the successor must start from the exact incumbent plus approved NewsStand objects and LAiDIES visual references.
 - **Possible Behind the Build angle:** Why preserving one approved screen produced more progress than generating three new Homepages.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
 
