@@ -1105,6 +1105,28 @@
        Reads the live count elements (never re-derives), stays in
        sync via MutationObserver, so self + public views both work.
        ============================================== -->
+  <script>
+    window.LAIDIESPublicCardRoute = Object.freeze({
+      parse: function(search) {
+        var params = new URLSearchParams(search || '');
+        var key = params.has('u') ? 'u' : (params.has('member') ? 'member' : '');
+        if (!key) return Object.freeze({ requested: false, valid: true, handle: '' });
+        var handle = String(params.get(key) || '').trim().toLowerCase();
+        var accountHandle = /^[a-z0-9_]{3,24}$/.test(handle);
+        var townCharacter = [
+          'mme-claio',
+          'fairy-godmother',
+          'dj-sunnyv',
+          'mayor-deb'
+        ].indexOf(handle) !== -1;
+        return Object.freeze({
+          requested: true,
+          valid: accountHandle || townCharacter,
+          handle: accountHandle || townCharacter ? handle : ''
+        });
+      }
+    });
+  </script>
   <style>
     .dash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 12px; }
     .dash-tile { display: flex; flex-direction: column; text-align: left; padding: 14px 14px 12px;
@@ -1132,8 +1154,8 @@
   <script>
     (function() {
       'use strict';
-      var params = new URLSearchParams(window.location.search);
-      var isPublic = !!(params.get('u') || params.get('member'));
+      var publicRoute = window.LAIDIESPublicCardRoute.parse(window.location.search);
+      var isPublic = publicRoute.requested;
 
       // src: count element the vessel renderers already write to (single source
       // of truth — the dashboard never re-derives). src:null = buildings tile,
@@ -1722,10 +1744,12 @@
 <script>
 (function() {
   'use strict';
-  var params = new URLSearchParams(window.location.search);
-  // Accept both ?u=ali (new, mapped from /@ali) and ?member=ali (legacy)
-  var viewUsername = params.get('u') || params.get('member');
-  var isPublicMode = !!viewUsername;
+  // Accept both ?u=ali (current) and ?member=ali (legacy) through one strict
+  // route boundary. A malformed public request must never fall back to the
+  // private/local Closet or reach a lookup/render sink.
+  var publicRoute = window.LAIDIESPublicCardRoute.parse(window.location.search);
+  var viewUsername = publicRoute.handle;
+  var isPublicMode = publicRoute.requested;
 
   var ARCHETYPES = { 'founder':'THE FOUNDER','strategist':'THE STRATEGIST','editor':'THE EDITOR','storyteller':'THE STORYTELLER','analyst':'THE ANALYST','coach':'THE COACH','artist':'THE ARTIST','iconoclast':'THE ICONOCLAST','elder':'THE ELDER','bestie':'THE BESTIE','confidant':'THE CONFIDANT','provocateur':'THE PROVOCATEUR' };
   var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
@@ -2189,16 +2213,36 @@
     renderCharmBracelet();
   }
 
-  function showNotFound(username) {
+  function showNotFound() {
     var main = document.querySelector('main');
     if (!main) return;
-    main.innerHTML =
-      '<div style="max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:\'Jost\',sans-serif;color:var(--plum);">' +
-      '<div style="font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;">★ SUNNYVAiLE Post Office</div>' +
-      '<h1 style="font-family:\'Playfair Display\',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;">No forwarding address</h1>' +
-      '<p style="font-size:17px;line-height:1.6;color:var(--plum);">No public Resident Card is available for <code style="background:var(--pearl);padding:3px 8px;border-radius:4px;font-family:monospace;">@' + username + '</code>. A private, unavailable or unverified account receives the same non-revealing result.</p>' +
-      '<p style="margin-top:32px;font-size:15px;"><a href="/" style="color:var(--rose);text-decoration:underline;font-weight:600;">← Back to town</a></p>' +
-      '</div>';
+    var wrapper = document.createElement('div');
+    wrapper.id = 'publicCardNotFound';
+    wrapper.style.cssText = "max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:'Jost',sans-serif;color:var(--plum);";
+
+    var eyebrow = document.createElement('div');
+    eyebrow.style.cssText = 'font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;';
+    eyebrow.textContent = '★ SUNNYVAiLE Post Office';
+
+    var title = document.createElement('h1');
+    title.style.cssText = "font-family:'Playfair Display',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;";
+    title.textContent = 'No forwarding address';
+
+    var message = document.createElement('p');
+    message.id = 'publicCardNotFoundMessage';
+    message.style.cssText = 'font-size:17px;line-height:1.6;color:var(--plum);';
+    message.textContent = 'No public Resident Card is available. A private, unavailable or unverified account receives the same non-revealing result.';
+
+    var route = document.createElement('p');
+    route.style.cssText = 'margin-top:32px;font-size:15px;';
+    var link = document.createElement('a');
+    link.href = '/';
+    link.style.cssText = 'color:var(--rose);text-decoration:underline;font-weight:600;';
+    link.textContent = '← Back to town';
+    route.appendChild(link);
+
+    wrapper.append(eyebrow, title, message, route);
+    main.replaceChildren(wrapper);
   }
 
   async function initSupabase() {
@@ -2545,11 +2589,15 @@
         persistenceState.textContent =
           'Public-card lookup: only an opted-in restricted card view may appear. A private, unavailable or unverified account receives the same non-revealing result.';
       }
+      if (!publicRoute.valid) {
+        showNotFound();
+        return;
+      }
       // Always call — Town Characters resolve from JSON before Supabase,
       // so they must load even when the client fails to init.
       var profile = await loadPublicProfile(viewUsername);
       if (!profile) {
-        showNotFound(viewUsername);
+        showNotFound();
         return;
       }
       currentProfile = profile;
