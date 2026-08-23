@@ -61,6 +61,37 @@ function assetRefs(sourcePath, source) {
   return refs;
 }
 
+export function visitorProofErrors(source) {
+  const errors = [];
+  const lockedOrder = [
+    'What is SUNNYVAiLE?',
+    'One town · Different learning jobs',
+    'Help me do something',
+    'Show me the town'
+  ];
+  const positions = lockedOrder.map(fragment => source.indexOf(fragment));
+  if (positions.some(position => position < 0) || positions.some((position, index) => index && position <= positions[index - 1])) {
+    errors.push('locked explanation order is missing or out of sequence');
+  }
+  const formatImages = [
+    '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
+    '/assets/town-characters/scenes/paige-scene.png',
+    '/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
+    '/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
+    '/assets/building-interiors/ksvl-booth.jpg',
+    '/assets/sunnyvaile-streets/schoolhouse-road-morning.webp'
+  ];
+  if (!formatImages.every(asset => source.includes(asset))) errors.push('six current-owner images are not all bound to the format jobs');
+  for (const route of ['/games/fairy-godmother.html', '/sorority-house.html', '#vc-proof-map']) {
+    if (!source.includes(route)) errors.push(`goal route missing: ${route}`);
+  }
+  if (!source.includes('Future classes') || !source.includes('The class tapes are still in production.')) {
+    errors.push('future-classes truth is missing');
+  }
+  if (/written class previews are open/i.test(source)) errors.push('unsupported class availability claim is present');
+  return errors;
+}
+
 function git(root, args) {
   try {
     return execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -226,6 +257,14 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         if (!item.path.startsWith(prefix)) errors.push(`${label}: source is outside its required ${candidate.status === 'REJECTED_BY_ALI' ? 'rejected archive' : 'tracked_root'}: ${item.path}`);
         const absolute = path.join(root, item.path);
         if (fs.existsSync(absolute)) for (const ref of assetRefs(item.path, fs.readFileSync(absolute, 'utf8'))) observed.add(ref);
+      }
+      if (pageName === 'visitors-centre' && REVIEWABLE.has(candidate.status)) {
+        const proofSource = (candidate.source_files || []).find(item => item.path.endsWith('/proof.js'));
+        if (!proofSource) errors.push(`${label}: Visitor proof.js source is required`);
+        else {
+          const absolute = path.join(root, proofSource.path);
+          if (fs.existsSync(absolute)) for (const error of visitorProofErrors(fs.readFileSync(absolute, 'utf8'))) errors.push(`${label}: ${error}`);
+        }
       }
       for (const ref of observed) if (!declared.has(ref)) errors.push(`${label}: unmanifested asset reference ${ref}`);
       for (const ref of declared.keys()) if (!observed.has(ref)) errors.push(`${label}: declared dependency not referenced: ${ref}`);

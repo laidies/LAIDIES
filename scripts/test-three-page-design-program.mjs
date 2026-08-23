@@ -2,7 +2,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { validateProgram } from './check-three-page-design-program.mjs';
+import { validateProgram, visitorProofErrors } from './check-three-page-design-program.mjs';
 
 const root = process.cwd();
 const manifestPath = 'operations/design-programs/homepage-library-visitors-20260822.json';
@@ -10,32 +10,6 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, manifestPath), 'utf8
 const scratch = `operations/design-explorations/current/visitors-centre/.program-test-${process.pid}`;
 const scratchAbsolute = path.join(root, scratch);
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
-
-function visitorProofErrors(source) {
-  const errors = [];
-  const lockedOrder = [
-    'What is SUNNYVAiLE?',
-    'One town · Different learning jobs',
-    'Help me do something',
-    'Show me the town'
-  ];
-  const positions = lockedOrder.map(fragment => source.indexOf(fragment));
-  if (positions.some(position => position < 0) || positions.some((position, index) => index && position <= positions[index - 1])) {
-    errors.push('Visitor proof does not preserve the locked explanation order');
-  }
-  const formatImages = [
-    '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
-    '/assets/town-characters/scenes/paige-scene.png',
-    '/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
-    '/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
-    '/assets/building-interiors/ksvl-booth.jpg',
-    '/assets/sunnyvaile-streets/schoolhouse-road-morning.webp'
-  ];
-  if (!formatImages.every(asset => source.includes(asset))) {
-    errors.push('Visitor format jobs are not bound to the six current-owner images');
-  }
-  return errors;
-}
 
 function expectVisitorProofFailure(name, source, expected) {
   const errors = visitorProofErrors(source);
@@ -59,13 +33,18 @@ try {
   if (visitorProofBaseline.length) throw new Error(`Visitor proof baseline failed: ${visitorProofBaseline.join(' | ')}`);
   expectVisitorProofFailure(
     'visitor-missing-explanation',
-    visitorProofSource.replace('What is SUNNYVAiLE?', 'Missing orientation'),
+    visitorProofSource.replaceAll('What is SUNNYVAiLE?', 'Missing orientation'),
     'locked explanation order'
   );
   expectVisitorProofFailure(
     'visitor-text-only-format',
     visitorProofSource.replace('/assets/town-characters/scenes/paige-scene.png', '/retired-placeholder.png'),
     'six current-owner images'
+  );
+  expectVisitorProofFailure(
+    'visitor-unsupported-class-availability',
+    visitorProofSource.replace('The class tapes are still in production.', 'The written class previews are open; the class tapes are still in production.'),
+    'unsupported class availability'
   );
 
   const baseline = validateProgram({ root, manifestPath, verifyGit: false });
@@ -100,7 +79,9 @@ try {
   expectFailure('undeclared', undeclared, 'unmanifested asset reference');
 
   const unallowlisted = structuredClone(manifest);
-  const unallowlistedAsset = manifest.pages.homepage.allowed_existing_assets[0];
+  const visitorAllowed = new Set(manifest.pages['visitors-centre'].allowed_existing_assets.map(item => item.path));
+  const unallowlistedAsset = manifest.pages.homepage.allowed_existing_assets.find(item => !visitorAllowed.has(item.path));
+  if (!unallowlistedAsset) throw new Error('unallowlisted-active: no Homepage-only asset available for calibration');
   const unallowlistedSource = `<img src="/${unallowlistedAsset.path}" alt="not admitted for this page">\n`;
   fs.writeFileSync(path.join(root, sourcePath), unallowlistedSource);
   unallowlisted.pages['visitors-centre'].candidates.push({
@@ -189,7 +170,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }
