@@ -14489,3 +14489,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The 24-hour recovery lane now has one 324-line startup packet, one active task, calibrated context/release guards, an exact 42-change/6-removal artifact scope, and a Homepage regression guard that rejects the retired Miss Jeeves source. The missing three-page program and checker are restored, the exact approved v10 ident is recovered by checksum, all eight morning source briefs are reconciled into compact routed authorities, and the design-admission test uses current preserved fixtures instead of deleted historical directories. A calibrated public-language guard rejects visitor-visible `Play` without renaming technical media APIs. KSVL and LIBRAiRY test fixtures now consume the current registry/review contracts rather than stale IDs, zero-admission assumptions or removed public rejection paths. Default-branch CI must also be treated as current authority: the controller successor combines the reset lane's Sunday scope and parse fix with `main`'s newer deployment polling, new-ID/branch binding, exact-byte fallback and conflicting-provider-metadata rejection.
 - **Possible Behind the Build angle:** Why “starting clean” fixed context bloat but did not by itself make the website safe to deploy.
 - **Publication status:** INTERNAL OPERATING-SYSTEM AND RELEASE REPAIR / NOT YET DEPLOYED.
+
+## BTB-462 — A full-product gate can make direction selection impossible
+
+- **Date:** 2026-08-22
+- **Area:** Homepage visual direction production and owner review admission.
+- **Failure risk:** Requiring account journeys, every downstream section and implementation-only handoff before Ali can choose among visual directions creates throwaway full pages, receipt sprawl and long delays before the only decision that matters.
+- **Root cause:** The design checker recognized `CONCEPT` as a stage but still applied the `FULL_PRODUCT` evidence contract, contradicting the current direction-first program.
+- **Prevention rule:** Representative directions must bind exact pushed source bytes, desktop/mobile pixels, objective browser checks, maker inspection and two distinct exact-byte independent reviews. Full-page journeys and implementation handoffs begin only after owner selection.
+- **Durable correction:** The three-page manifest now carries compact exact-byte direction admission, the calibrated checker rejects stale screenshots, held or duplicate reviews and premature full-implementation claims, and the review resolver admits only the matching pushed candidate without adding a parallel receipt tree.
+- **Possible Behind the Build angle:** Why doing more review work before the design choice produced less reliable design work.
+- **Publication status:** INTERNAL DESIGN-SYSTEM REPAIR / NO DEPLOYMENT OR PUBLIC CHANGE.

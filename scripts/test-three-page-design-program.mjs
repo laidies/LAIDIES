@@ -62,7 +62,27 @@ try {
   });
   expectFailure('unpushed', unpushed, 'pushed_ref absent on origin', true);
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT');
+  const missingAdmission = structuredClone(manifest);
+  delete missingAdmission.pages.homepage.candidates[0].admission;
+  expectFailure('missing-admission', missingAdmission, 'REPRESENTATIVE_DIRECTION admission');
+
+  const staleScreenshot = structuredClone(manifest);
+  staleScreenshot.pages.homepage.candidates[0].admission.screenshots.mobile_390.sha256 = '0'.repeat(64);
+  expectFailure('stale-screenshot', staleScreenshot, 'hash mismatch');
+
+  const heldReview = structuredClone(manifest);
+  heldReview.pages.homepage.candidates[0].admission.independent_reviews[0].verdict = 'HOLD';
+  expectFailure('held-review', heldReview, 'every independent review must ADMIT');
+
+  const duplicateReviewer = structuredClone(manifest);
+  duplicateReviewer.pages.homepage.candidates[0].admission.independent_reviews[1].agent_id = duplicateReviewer.pages.homepage.candidates[0].admission.independent_reviews[0].agent_id;
+  expectFailure('duplicate-reviewer', duplicateReviewer, 'two distinct independent reviews');
+
+  const fullBeforeSelection = structuredClone(manifest);
+  fullBeforeSelection.pages.homepage.candidates[0].admission.selection_scope = 'FULL_IMPLEMENTATION';
+  expectFailure('full-before-selection', fullBeforeSelection, 'selection scope must remain direction-first');
+
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT duplicate_reviewer=REJECT full_before_selection=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

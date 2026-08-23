@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 const DEFAULT_MANIFEST = 'operations/design-programs/homepage-library-visitors-20260822.json';
 const REQUIRED_PAGES = ['homepage', 'library', 'visitors-centre'];
 const REVIEWABLE = new Set(['READY_FOR_ADMISSION', 'ADMITTED_FOR_ALI_REVIEW']);
+const ADMITTED = 'ADMITTED_FOR_ALI_REVIEW';
 const TOKENS = {
   midnight: '#070f2b', ink: '#11183b', pink: '#f254a9', purple: '#7137d6',
   cyan: '#15bce0', cobalt: '#2457e6', sky: '#78c7ff', coral: '#ff7366',
@@ -61,6 +62,45 @@ function git(root, args) {
   } catch {
     return null;
   }
+}
+
+function gitBytes(root, args) {
+  try { return execFileSync('git', args, { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] }); }
+  catch { return null; }
+}
+
+function validateDirectionAdmission(root, candidate, label, errors) {
+  const admission = candidate.admission;
+  const candidateSha = (candidate.source_files || []).find(item => item.path === candidate.entry_path)?.sha256;
+  if (!admission || admission.presentation_stage !== 'REPRESENTATIVE_DIRECTION') {
+    errors.push(`${label}: admitted direction requires REPRESENTATIVE_DIRECTION admission`);
+    return;
+  }
+  if (admission.candidate_sha256 !== candidateSha) errors.push(`${label}: admission candidate SHA does not match entry bytes`);
+  for (const viewport of ['desktop_1440','mobile_390','mobile_320']) {
+    const screenshot = admission.screenshots?.[viewport];
+    binding(root, screenshot, `${label} ${viewport} screenshot`, errors);
+    if (screenshot?.candidate_sha256 !== candidateSha) errors.push(`${label}: ${viewport} screenshot is not bound to candidate SHA`);
+  }
+  const checks = admission.objective_checks || {};
+  for (const key of ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass']) {
+    if (checks[key] !== 'PASS') errors.push(`${label}: objective check ${key} must PASS`);
+  }
+  const reviews = admission.independent_reviews || [];
+  const reviewerIds = reviews.map(review => review.agent_id).filter(Boolean);
+  if (reviews.length < 2 || new Set(reviewerIds).size !== reviews.length) errors.push(`${label}: two distinct independent reviews are required`);
+  for (const review of reviews) {
+    if (!review.agent_id || !['research_ux','brand_visual'].includes(review.role) || review.verdict !== 'ADMIT' || review.candidate_sha256 !== candidateSha) {
+      errors.push(`${label}: every independent review must ADMIT the exact candidate with a valid role`);
+    }
+  }
+  const roles = new Set(reviews.map(review => review.role));
+  if (!roles.has('research_ux') || !roles.has('brand_visual')) errors.push(`${label}: research/UX and Brand/visual reviews are both required`);
+  const maker = admission.maker_review || {};
+  if (maker.candidate_sha256 !== candidateSha || maker.result !== 'PASS' || maker.known_defects_remaining !== 0 || maker.objective_defects_remaining !== 0 || maker.visible_issues_remaining !== 0) {
+    errors.push(`${label}: maker review must PASS exact bytes with zero remaining defects`);
+  }
+  if (admission.selection_scope !== 'DIRECTION_SELECTION_BEFORE_FULL_IMPLEMENTATION') errors.push(`${label}: selection scope must remain direction-first`);
 }
 
 export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_MANIFEST, verifyGit = true } = {}) {
@@ -152,9 +192,15 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         if (verifyGit && candidate.pushed_ref) {
           const remote = git(root, ['ls-remote', '--refs', 'origin', candidate.pushed_ref]);
           if (!/^[a-f0-9]{40}\s/.test(remote || '')) errors.push(`${label}: pushed_ref absent on origin`);
+          else if (git(root, ['merge-base', '--is-ancestor', candidate.pushed_commit, remote.split(/\s+/)[0]]) === null) errors.push(`${label}: pushed commit is not on pushed_ref`);
+          for (const item of candidate.source_files || []) {
+            const committed = gitBytes(root, ['show', `${candidate.pushed_commit}:${item.path}`]);
+            if (committed === null || crypto.createHash('sha256').update(committed).digest('hex') !== item.sha256) errors.push(`${label}: pushed commit does not contain exact source ${item.path}`);
+          }
           if ((git(root, ['status', '--porcelain', '--untracked-files=all', '--', page.tracked_root]) || '').length) errors.push(`${label}: tracked_root is dirty`);
         }
       }
+      if (candidate.status === ADMITTED) validateDirectionAdmission(root, candidate, label, errors);
     }
   }
   const knownBad = new Set(manifest.calibration?.known_bad_dependencies || []);
