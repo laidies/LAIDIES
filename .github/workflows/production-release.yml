@@ -38,7 +38,7 @@ jobs:
       APPROVAL_CONFIRMATION: ${{ inputs.approval_confirmation }}
       APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
-      ARTIFACT_DIR: ${{ github.workspace }}/.release/site
+      ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
       RELEASE_SCOPE_PATH: operations/release-control/sunday-production-scope-20260821.json
     steps:
@@ -202,7 +202,7 @@ jobs:
       SOURCE_COMMIT: ${{ inputs.source_commit }}
       PROJECT_NAME: laidies-sunnyvaile
       PRODUCTION_BRANCH: homepage-redesign
-      ARTIFACT_DIR: ${{ github.workspace }}/.release/site
+      ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
       RELEASE_SCOPE_PATH: ${{ github.workspace }}/.release/receipt/release-scope.json
     steps:

@@ -15,6 +15,52 @@ function run(command, args, cwd) {
   return spawnSync(command, args, { cwd, encoding: 'utf8' });
 }
 
+function assertWorkflowContextIsDispatchable(source) {
+  if (/\$\{\{\s*runner\.temp\s*\}\}/.test(source)) {
+    throw new Error('runner context is unavailable in the job-level env block');
+  }
+}
+
+function assertWorkflowArtifactOutputIsOutsideSource(source) {
+  const safeOutput = 'ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site';
+  if (source.split(safeOutput).length - 1 !== 2 ||
+      source.includes('ARTIFACT_DIR: ${{ github.workspace }}/.release/site')) {
+    throw new Error('candidate artifact output must stay outside the source repository in both release jobs');
+  }
+}
+
+function assertWorkflowRedirectVerificationIsSafe(source) {
+  const redirectFlags = "--location --proto-redir '=https' --max-redirs 3";
+  const redirectFetches = source.split(redirectFlags).length - 1;
+  if (redirectFetches < 2 ||
+      !source.includes('validate_effective_url "$deployment_url" "$artifact_path"') ||
+      !source.includes('validate_effective_url "https://laidies.ai/" "$artifact_path"') ||
+      !source.includes("effective.protocol !== 'https:'") ||
+      !source.includes('effective.host !== base.host') ||
+      !source.includes('[originalPath, canonicalPath].includes(effective.pathname)')) {
+    throw new Error('release verification must follow only bounded same-origin HTTPS canonical redirects');
+  }
+}
+
+function assertWorkflowScopeTransferIsComplete(source) {
+  if (!source.includes('cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"') ||
+      !source.includes('RELEASE_SCOPE_PATH: ${{ github.workspace }}/.release/receipt/release-scope.json') ||
+      !source.includes("jq -r '.removedPaths[]' \"$RELEASE_SCOPE_PATH\"")) {
+    throw new Error('deploy job must consume the exact scope transferred in the release receipt');
+  }
+}
+
+function assertWorkflowApiVerificationIsComplete(source) {
+  if (!source.includes('verify_api_origin "$deployment_url" immutable') ||
+      !source.includes('verify_api_origin "https://laidies.ai/" custom-domain') ||
+      !source.includes('"${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}"') ||
+      !source.includes('method_not_allowed') ||
+      !source.includes('book-concepts-101') ||
+      !source.includes('ai-fundamentals-101')) {
+    throw new Error('release verification must prove the exact public API handler and held-book denial');
+  }
+}
+
 const forbiddenOutput = path.join(repositoryRoot, '.release-test-output');
 let result = run(process.execPath, [builder, forbiddenOutput], repositoryRoot);
 assert.notEqual(result.status, 0);
@@ -39,6 +85,39 @@ assert.match(result.stderr, /confirmation/);
 
 const workflow = fs.readFileSync(workflowPath, 'utf8');
 const builderSource = fs.readFileSync(builder, 'utf8');
+assert.doesNotThrow(() => assertWorkflowContextIsDispatchable(workflow));
+assert.throws(
+  () => assertWorkflowContextIsDispatchable(`${workflow}\n  BASE_SOURCE_DIR: \${{ runner.temp }}/bad-source\n`),
+  /runner context is unavailable/,
+  'known invalid GitHub workflow context must fail calibration',
+);
+assert.doesNotThrow(() => assertWorkflowArtifactOutputIsOutsideSource(workflow));
+assert.throws(
+  () => assertWorkflowArtifactOutputIsOutsideSource(workflow.replace(
+    'ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site',
+    'ARTIFACT_DIR: ${{ github.workspace }}/.release/site',
+  )),
+  /outside the source repository/,
+  'known in-repository candidate output must fail calibration',
+);
+assert.doesNotThrow(() => assertWorkflowApiVerificationIsComplete(workflow));
+assert.throws(
+  () => assertWorkflowApiVerificationIsComplete(workflow.replace('verify_api_origin "$deployment_url" immutable', ':')),
+  /public API handler and held-book denial/,
+  'missing immutable API verification must fail calibration',
+);
+assert.doesNotThrow(() => assertWorkflowRedirectVerificationIsSafe(workflow));
+assert.throws(
+  () => assertWorkflowRedirectVerificationIsSafe(workflow.replaceAll("--location --proto-redir '=https' --max-redirs 3", '')),
+  /bounded same-origin HTTPS canonical redirects/,
+  'known redirect-following omission must fail calibration',
+);
+assert.doesNotThrow(() => assertWorkflowScopeTransferIsComplete(workflow));
+assert.throws(
+  () => assertWorkflowScopeTransferIsComplete(workflow.replace('cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"', ':')),
+  /scope transferred in the release receipt/,
+  'missing deploy-scope transfer must fail calibration',
+);
 const protectedBuilderDependencies = [
   'scripts/lib/active-asset-admission.mjs',
   'scripts/compile-library-admission.mjs',
@@ -78,4 +157,4 @@ assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and NewsStand scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow, new-identity provider verification and exact Sunday scope guard bound');
