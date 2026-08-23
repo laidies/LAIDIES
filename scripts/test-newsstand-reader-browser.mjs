@@ -335,6 +335,44 @@ function cdp(socket) {
 
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+function waitForChromeExit(milliseconds) {
+  if (chrome.exitCode !== null || chrome.signalCode !== null) return Promise.resolve(true);
+  return Promise.race([
+    new Promise((resolve) => chrome.once("exit", () => resolve(true))),
+    sleep(milliseconds).then(() => false)
+  ]);
+}
+
+async function stopChrome() {
+  if (chrome.exitCode !== null || chrome.signalCode !== null) return;
+  if (devtoolsEndpoint) {
+    try {
+      const browserSocket = await connect(devtoolsEndpoint);
+      await cdp(browserSocket).call("Browser.close");
+    } catch {}
+  }
+  if (await waitForChromeExit(3000)) return;
+  chrome.kill("SIGTERM");
+  if (await waitForChromeExit(3000)) return;
+  chrome.kill("SIGKILL");
+  if (!(await waitForChromeExit(3000))) {
+    throw new Error("Chrome did not exit after Browser.close, SIGTERM, and SIGKILL");
+  }
+}
+
+async function removeTemporaryProfile(directory) {
+  for (let attempt = 1; attempt <= 8; attempt += 1) {
+    try {
+      fs.rmSync(directory, { recursive: true, force: true });
+      return;
+    } catch (error) {
+      const retryable = ["EBUSY", "ENOTEMPTY", "EPERM"].includes(error?.code);
+      if (!retryable || attempt === 8) throw error;
+      await sleep(attempt * 200);
+    }
+  }
+}
+
 async function openPage(pathname, options = {}) {
   const target = await fetch(
     `${new URL(devtoolsEndpoint).origin.replace("ws:", "http:")}/json/new?${encodeURIComponent("about:blank")}`,
@@ -1011,13 +1049,8 @@ try {
   console.log(`✓ NEWSSTAND BROWSER: ${checks} rendered checks · three repeated paper/search history cycles at 620/900px · hold/stale/correction/retraction/focus/mobile/motion/zoom`);
 } finally {
   clearTimeout(timeout);
-  server.close();
-  if (chrome.exitCode === null) {
-    chrome.kill("SIGTERM");
-    await Promise.race([
-      new Promise((resolve) => chrome.once("exit", resolve)),
-      sleep(2000)
-    ]);
-  }
-  fs.rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  await stopChrome();
+  server.closeAllConnections?.();
+  await new Promise((resolve) => server.close(resolve));
+  await removeTemporaryProfile(profile);
 }
