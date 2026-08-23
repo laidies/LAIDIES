@@ -8,10 +8,25 @@
   var replay = document.querySelector('[data-replay]');
   var menu = document.querySelector('[data-menu]');
   var mobileNav = document.getElementById('mobile-nav');
-  var anthem = document.querySelector('[data-anthem]');
-  var anthemToggle = document.querySelector('[data-anthem-toggle]');
-  var audioStatus = document.querySelector('[data-audio-status]');
   var key = 'laidies-home-ident-v10-seen';
+
+  document.querySelectorAll('[data-latest-episode-link]').forEach(function (link) {
+    fetch('/content/episode-index.json').then(function (response) {
+      if (!response.ok) throw new Error('Episode index unavailable');
+      return response.json();
+    }).then(function (data) {
+      var published = (data.episodes || []).filter(function (episode) {
+        return episode.status === 'published' && Number.isFinite(Number(episode.number)) &&
+          typeof episode.issueUrl === 'string' && /^issues\/issue-[a-z0-9-]+\.html$/i.test(episode.issueUrl);
+      }).sort(function (a, b) { return Number(a.number) - Number(b.number); });
+      if (!published.length) return;
+      var latest = published[published.length - 1];
+      link.href = '/' + latest.issueUrl;
+      link.setAttribute('aria-label', 'Latest Episode: ' + latest.title);
+    }).catch(function () {
+      /* Keep the current published fallback already present in the HTML. */
+    });
+  });
 
   function reducedMotion() {
     return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -57,26 +72,5 @@
     menu.setAttribute('aria-expanded', String(!open));
     mobileNav.hidden = open;
   });
-  if (anthem && anthemToggle) {
-    anthemToggle.addEventListener('click', function () {
-      if (anthem.paused) {
-        anthem.play().then(function () {
-          anthemToggle.textContent = 'Pause';
-          if (audioStatus) audioStatus.textContent = 'Welcome to SUNNYVAiLE · THE LAiDIES';
-        }).catch(function () {
-          anthemToggle.textContent = 'Audio unavailable';
-          if (audioStatus) audioStatus.textContent = 'Open KSVL to choose another track.';
-        });
-      } else {
-        anthem.pause();
-        anthemToggle.textContent = 'Resume listening';
-      }
-    });
-    anthem.addEventListener('ended', function () {
-      anthemToggle.textContent = 'Start listening';
-      if (audioStatus) audioStatus.textContent = '';
-    });
-  }
-
   startEntrance(new URLSearchParams(window.location.search).get('entrance') === 'show');
 }());
