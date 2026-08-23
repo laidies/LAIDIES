@@ -316,6 +316,182 @@ html.homepage-proof .explainer .explainer-right {
 
 .homepage-proof .arrival-ident-out { opacity: 0; pointer-events: none; }
 
+.homepage-proof .home-daily {
+  --daily-ink: #241323;
+  --daily-teal: #073d47;
+  --daily-pink: #f254a9;
+  --daily-cyan: #15bce0;
+  --daily-coral: #ff7366;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #062630;
+  color: var(--daily-ink);
+}
+
+.homepage-proof .home-daily-scene {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.homepage-proof .home-daily-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homepage-proof .home-daily-rail {
+  position: absolute;
+  left: 2.2%;
+  right: 2.4%;
+  top: 2.3%;
+  height: 8.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.homepage-proof .home-daily-rail h2 {
+  max-width: 68%;
+  margin: 0;
+  color: var(--daily-coral);
+  font: 800 clamp(20px, 2.05vw, 36px)/.95 Archivo, Jost, sans-serif;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 0 #032831;
+}
+
+.homepage-proof .home-daily-rail h2 span { color: var(--daily-pink); }
+
+.homepage-proof .home-daily-paper {
+  position: absolute;
+  top: 21.6%;
+  width: 18%;
+  height: 43%;
+  padding: 5.4% 1.1% 1%;
+  color: #2b1727;
+}
+
+.homepage-proof .home-daily-paper h3 {
+  margin: 0;
+  font: 900 clamp(15px, 1.55vw, 28px)/.9 "Playfair Display", Georgia, serif;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+.homepage-proof .home-daily-paper p {
+  margin: .45em 0 0;
+  font: 800 clamp(8px, .68vw, 12px)/1.15 Jost, sans-serif;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.homepage-proof .home-daily-paper .home-daily-state {
+  margin-top: .8em;
+  font-size: clamp(7px, .6vw, 11px);
+}
+
+.homepage-proof .home-daily-breaking { left: 4.2%; color: #78163d; }
+.homepage-proof .home-daily-weekly { left: 46.4%; color: #403663; }
+.homepage-proof .home-daily-tribune { left: 68.1%; color: #76241e; }
+
+.homepage-proof .home-daily-head {
+  position: absolute;
+  left: 28.1%;
+  top: 47.8%;
+  width: 29.6%;
+  transform: rotate(1.45deg);
+  transform-origin: left top;
+  color: #063f48;
+}
+
+.homepage-proof .home-daily-head h3 {
+  margin: 0;
+  font: 900 clamp(24px, 2.25vw, 40px)/.9 "Playfair Display", Georgia, serif;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+.homepage-proof .home-daily-head p {
+  margin: .28em 0 0;
+  font: 800 clamp(9px, .72vw, 13px)/1.1 Jost, sans-serif;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+.homepage-proof .home-daily-content {
+  position: absolute;
+  left: 27.5%;
+  top: 57.3%;
+  width: 32.5%;
+  height: 31%;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  transform: rotate(1.45deg);
+  transform-origin: left top;
+  color: #063f48;
+}
+
+.homepage-proof .home-daily-item {
+  padding: .45em .3em .45em 0;
+  border-top: 1px solid rgba(6, 63, 72, .56);
+  font: 700 clamp(9px, .78vw, 14px)/1.2 Jost, sans-serif;
+}
+
+.homepage-proof .home-daily-item strong {
+  display: block;
+  margin-bottom: .12em;
+  font: 800 clamp(9px, .73vw, 13px)/1.05 Jost, sans-serif;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.homepage-proof .home-daily-actions {
+  align-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.homepage-proof .home-daily-action {
+  padding: .58em .85em;
+  border: 3px solid var(--daily-ink);
+  background: var(--daily-pink);
+  box-shadow: 4px 4px 0 #0e8796;
+  color: var(--daily-ink);
+  font: 800 clamp(10px, .76vw, 14px)/1 Jost, sans-serif;
+  text-decoration: none;
+  transform: rotate(-1deg);
+}
+
+.homepage-proof .home-daily-archive {
+  color: #063f48;
+  font: 800 clamp(9px, .7vw, 13px)/1.15 Jost, sans-serif;
+  text-underline-offset: .2em;
+}
+
+.homepage-proof .home-daily-action:focus-visible,
+.homepage-proof .home-daily-archive:focus-visible {
+  outline: 4px solid var(--proof-cream);
+  outline-offset: 3px;
+}
+
+.homepage-proof .home-daily-global-state {
+  position: absolute;
+  right: 4.4%;
+  top: 10.9%;
+  margin: 0;
+  color: var(--daily-cyan);
+  font: 800 clamp(10px, .79vw, 14px)/1.1 Jost, sans-serif;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 0 #032831;
+}
+
+.homepage-proof .home-daily-mobile { display: none; }
+
 @media (max-width: 1180px) {
   .homepage-proof .topbar nav { gap: 13px; }
   .homepage-proof .topbar nav a { font-size: .78rem; }
@@ -390,6 +566,83 @@ html.homepage-proof .explainer .explainer-right {
     left: 14px;
   }
   .homepage-proof .arrival-ident button { flex: 1; padding-inline: 10px; }
+
+  .homepage-proof .home-daily-desktop { display: none; }
+  .homepage-proof .home-daily-mobile {
+    display: block;
+    padding: 0 12px 24px;
+    background: #063b45;
+  }
+  .homepage-proof .home-daily-mobile-rail { padding: 24px 8px 20px; }
+  .homepage-proof .home-daily-mobile-rail h2 {
+    margin: 0;
+    color: var(--daily-coral);
+    font: 800 31px/.96 Archivo, Jost, sans-serif;
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+  }
+  .homepage-proof .home-daily-mobile-rail h2 span { color: var(--daily-pink); }
+  .homepage-proof .home-daily-mobile-paper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 420 / 625;
+    background: url('/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-daily-v1.png') center/100% 100% no-repeat;
+    color: #063f48;
+  }
+  .homepage-proof .home-daily-mobile-head {
+    position: absolute;
+    left: 13.5%;
+    right: 11%;
+    top: 30.3%;
+  }
+  .homepage-proof .home-daily-mobile-head h3 {
+    margin: 0;
+    font: 900 31px/.9 "Playfair Display", Georgia, serif;
+    letter-spacing: -.055em;
+    text-transform: uppercase;
+  }
+  .homepage-proof .home-daily-mobile-head p {
+    margin: 5px 0 0;
+    font: 800 10px/1.15 Jost, sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .homepage-proof .home-daily-mobile-copy {
+    position: absolute;
+    left: 13.5%;
+    right: 11%;
+    top: 41.5%;
+    bottom: 12.5%;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+  }
+  .homepage-proof .home-daily-mobile-copy .home-daily-item {
+    padding: 7px 0;
+    font-size: 11.5px;
+    line-height: 1.22;
+  }
+  .homepage-proof .home-daily-mobile-copy .home-daily-item strong { font-size: 10.5px; }
+  .homepage-proof .home-daily-mobile-copy .home-daily-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+  .homepage-proof .home-daily-mobile-copy .home-daily-action {
+    padding: 9px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .homepage-proof .home-daily-mobile-copy .home-daily-archive {
+    font-size: 10.5px;
+    line-height: 1.1;
+  }
+  .homepage-proof .home-daily-mobile-state {
+    margin: 14px 8px 0;
+    color: #f3c9c2;
+    font: 800 12px/1.3 Jost, sans-serif;
+    letter-spacing: .035em;
+    text-transform: uppercase;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
