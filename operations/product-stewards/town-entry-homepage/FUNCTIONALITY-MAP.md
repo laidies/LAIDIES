@@ -17,7 +17,7 @@ local route are not enough to promote a receiver as working.
 | Released NewsStand archive | `PUBLICLY_VERIFIED` | Read the NewsStand archive | Never label it latest/current without a new admitted record |
 | Breaking / Daily / Paige / Career / Promptoscope | `MISSING_RECEIVER` | Honest current-news empty state plus archive | No live/fresh service claim |
 | Wednesday itinerary | `SOURCE_PRESENT_UNVERIFIED` | Explore the route; each stop states availability | No complete weekly experience, progress or reward claim |
-| Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
+| Homepage question handoff, Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
 | KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
 | LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the route/artifact | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile or claim |
 | Explore / map / named buildings | Map geometry/focus `PUBLICLY_VERIFIED`; remaining receiver journeys `SOURCE_PRESENT_UNVERIFIED` | Direct named building links; optional map | A working map does not prove every destination's complete function |
@@ -44,7 +44,7 @@ above, the current projection above wins.
 | Current-content boundary | Fresh owner-admitted episode/news receipt | Render only in separate `#current` module below hero | Current receiver exists, but also mutates `.entry-episode-action` | REPAIR AFTER BRAND RULES |
 | Full/Express route | Weekly route links | Optional route sequence with truthful step state | Static links plus `sv-tour-checkin.js` local visit paint/rewards | OBSERVED; AUTHORITY CONFLICT |
 | Activities | Filter/button/link | Admitted tool/game route and limits | Five named Homepage actions reached their real receiving pages at both public origins and 1440/390/320 | PUBLICLY VERIFIED FOR NAMED HANDOFFS; DESTINATION LIFECYCLES PARTIAL |
-| Lookup | Submit reference form | Library arrival without analytics capture of query | JS discards query and routes to `/library.html` | OBSERVED |
+| Lookup | Submit reference form | Library arrival without retaining the query in the URL or analytics | At both public origins and 1440/390/320, blank submit focuses the input; a real question transfers client-side, cleans the URL, runs the direct grounded answer and introduces no overflow | PUBLICLY VERIFIED |
 | Map popup | Activate hotspot; Escape/outside click | Named destination, limitation and link; focus recovery | Current production renders real desktop/mobile hit regions, focuses the destination link and restores the trigger on Escape | PUBLICLY VERIFIED AT BOTH ORIGINS, 1440/390/320 |
 | District cards/directory | Select route | Accessible alternate discovery | Six district cards route to single buildings; long directory repeats map | OBSERVED; ROLE/HIERARCHY OPEN |
 | Start Here | Load `/start-here.html` | Visitor's Centre redirect or ordinary fallback link | Meta refresh, `location.replace`, ordinary link | OBSERVED |
