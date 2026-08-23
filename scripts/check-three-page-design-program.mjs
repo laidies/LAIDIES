@@ -178,6 +178,23 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
       if (!candidate.id || !candidate.entry_path || !(candidate.source_files || []).length) { errors.push(`${label}: id, entry_path and source_files required`); continue; }
       if (!candidate.entry_path.startsWith(prefix)) errors.push(`${label}: entry is outside its required ${candidate.status === 'REJECTED_BY_ALI' ? 'rejected archive' : 'tracked_root'}`);
       if (candidate.production_method !== 'repo_composition') errors.push(`${label}: production_method must be repo_composition`);
+      if (candidate.runtime_base) {
+        binding(root, candidate.runtime_base, `${label} runtime base`, errors);
+        if (pageName !== 'homepage' || candidate.runtime_base.path !== 'index.html') errors.push(`${label}: runtime base is only valid for the live Homepage proof`);
+      }
+      const runtimeBaseRefs = new Set();
+      if (candidate.runtime_base?.path) {
+        const absolute = path.join(root, candidate.runtime_base.path);
+        if (fs.existsSync(absolute)) for (const ref of assetRefs(candidate.runtime_base.path, fs.readFileSync(absolute, 'utf8'))) runtimeBaseRefs.add(ref);
+      }
+      if (!candidate.runtime_base && (candidate.runtime_base_preserved_assets || []).length) errors.push(`${label}: runtime-base preserved assets require a runtime base`);
+      for (const item of candidate.runtime_base_preserved_assets || []) {
+        binding(root, item, `${label} runtime-base preserved asset`, errors);
+        if (!item.role) errors.push(`${label}: runtime-base preserved asset requires role: ${item.path}`);
+        if (prohibited.has(item.path)) errors.push(`${label}: prohibited runtime-base preserved asset ${item.path}`);
+        if (allowed.get(item.path) !== item.sha256) errors.push(`${label}: runtime-base preserved asset is not allowlisted: ${item.path}`);
+        if (!runtimeBaseRefs.has(item.path)) errors.push(`${label}: runtime-base preserved asset is not referenced by ${candidate.runtime_base?.path}: ${item.path}`);
+      }
       const declared = new Map();
       for (const item of candidate.dependencies || []) {
         binding(root, item, `${label} dependency`, errors);
@@ -214,6 +231,14 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
           for (const item of candidate.source_files || []) {
             const committed = gitBytes(root, ['show', `${candidate.pushed_commit}:${item.path}`]);
             if (committed === null || crypto.createHash('sha256').update(committed).digest('hex') !== item.sha256) errors.push(`${label}: pushed commit does not contain exact source ${item.path}`);
+          }
+          if (candidate.runtime_base) {
+            const committed = gitBytes(root, ['show', `${candidate.pushed_commit}:${candidate.runtime_base.path}`]);
+            if (committed === null || crypto.createHash('sha256').update(committed).digest('hex') !== candidate.runtime_base.sha256) errors.push(`${label}: pushed commit does not contain exact runtime base ${candidate.runtime_base.path}`);
+          }
+          for (const item of candidate.runtime_base_preserved_assets || []) {
+            const committed = gitBytes(root, ['show', `${candidate.pushed_commit}:${item.path}`]);
+            if (committed === null || crypto.createHash('sha256').update(committed).digest('hex') !== item.sha256) errors.push(`${label}: pushed commit does not contain exact runtime-base preserved asset ${item.path}`);
           }
           if ((git(root, ['status', '--porcelain', '--untracked-files=all', '--', page.tracked_root]) || '').length) errors.push(`${label}: tracked_root is dirty`);
         }

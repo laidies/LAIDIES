@@ -108,6 +108,11 @@ try {
   fullBeforeSelection.pages.homepage.candidates[0].admission.selection_scope = 'FULL_IMPLEMENTATION';
   expectFailure('full-before-selection', fullBeforeSelection, 'selection scope must remain direction-first');
 
+  const wrongRuntimeAsset = structuredClone(manifest);
+  const liveBase = wrongRuntimeAsset.pages.homepage.candidates.find(candidate => candidate.id === 'homepage-live-base-proof-20260822');
+  liveBase.runtime_base_preserved_assets = [manifest.pages.homepage.allowed_existing_assets.find(item => item.path.includes('07-the-chick-flicks.webp'))];
+  expectFailure('wrong-runtime-asset', wrongRuntimeAsset, 'runtime-base preserved asset is not referenced by index.html');
+
   const rejectedReentry = structuredClone(manifest);
   rejectedReentry.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
   expectFailure('ali-rejected-reentry', rejectedReentry, 'exact Ali-rejected candidate cannot re-enter');
@@ -116,7 +121,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

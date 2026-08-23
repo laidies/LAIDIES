@@ -14511,3 +14511,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Directions A/B/C and successor `b4857077…b995` are archived under `operations/design-explorations/rejected/homepage/`, registered as fail-closed known-bad candidates and removed from current production. The Homepage authority now locks method immediately after the masthead, forbids invented copy/order and restores the dependency-first production sequence.
 - **Possible Behind the Build angle:** Why more design reviews produced a worse Homepage—and the one visual comparison that finally made the gate useful.
 - **Publication status:** INTERNAL FULL REJECTION / NOT DEPLOYED.
+
+## BTB-464 — A Homepage direction must preserve settled pixels before exploring unsettled ones
+
+- **Date:** 2026-08-22
+- **Area:** Homepage visual direction and owner review.
+- **Failure:** Rebuilding the whole arrival repeatedly changed an approved masthead, weakened the LAiDIES wordmark and converted the method into detached CSS panels, forcing Ali to rediscover settled decisions in every review.
+- **Root cause:** The production unit was a replacement page instead of the smallest unresolved section running inside the current Homepage.
+- **Prevention rule:** A Homepage direction proof must use the exact current runtime and preserve the approved masthead bytes. Prototype only the unresolved section, then bind same-viewport incumbent/candidate pixels, the 877×915 owner viewport, direct mobile LIBRAiRY and the pausable canonical ident before admission.
+- **Durable correction:** `homepage-live-base-proof-20260822` adds the method directly after the incumbent masthead, uses five allowlisted real images and exposes only proof-specific CSS/JS behind `?homepage-proof=1`; exact source and review bytes are bound in the three-page design manifest.
+- **Possible Behind the Build angle:** Why preserving one approved screen produced more progress than generating three new Homepages.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
