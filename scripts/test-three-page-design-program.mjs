@@ -97,6 +97,11 @@ try {
   delete missingComparison.pages.homepage.candidates[0].admission.incumbent_screenshots;
   expectFailure('missing-comparison', missingComparison, 'incumbent desktop_1440 screenshot');
 
+  const missingOwnerViewport = structuredClone(manifest);
+  missingOwnerViewport.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  missingOwnerViewport.calibration.known_bad_candidate_sha256.shift();
+  expectFailure('missing-owner-viewport', missingOwnerViewport, 'owner_877x915 screenshot');
+
   const fullBeforeSelection = structuredClone(manifest);
   fullBeforeSelection.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
   fullBeforeSelection.calibration.known_bad_candidate_sha256.shift();
@@ -111,7 +116,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT full_before_selection=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

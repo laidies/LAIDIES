@@ -83,8 +83,12 @@ function validateDirectionAdmission(root, candidate, label, errors) {
     if (screenshot?.candidate_sha256 !== candidateSha) errors.push(`${label}: ${viewport} screenshot is not bound to candidate SHA`);
     binding(root, admission.incumbent_screenshots?.[viewport], `${label} incumbent ${viewport} screenshot`, errors);
   }
+  const ownerViewport = admission.screenshots?.owner_877x915;
+  binding(root, ownerViewport, `${label} owner_877x915 screenshot`, errors);
+  if (ownerViewport?.candidate_sha256 !== candidateSha) errors.push(`${label}: owner_877x915 screenshot is not bound to candidate SHA`);
+  if (ownerViewport?.viewport?.width !== 877 || ownerViewport?.viewport?.height !== 915) errors.push(`${label}: owner_877x915 screenshot must bind the actual 877x915 owner viewport`);
   const checks = admission.objective_checks || {};
-  for (const key of ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass','exact_wordmark','full_section_coverage','live_content_binding']) {
+  for (const key of ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass','exact_wordmark','full_section_coverage','live_content_binding','owner_viewport_primary_cta_visible','intermediate_composition_retained']) {
     if (checks[key] !== 'PASS') errors.push(`${label}: objective check ${key} must PASS`);
   }
   const reviews = admission.independent_reviews || [];
@@ -96,7 +100,7 @@ function validateDirectionAdmission(root, candidate, label, errors) {
     }
     if (review.comparison_basis !== 'SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE' || review.visible_regressions !== 0 || review.locked_decision_violations !== 0) errors.push(`${label}: independent review must compare same-viewport live/candidate renders with zero visible regressions or locked-decision violations`);
     const surfaces = new Set(review.reviewed_surfaces || []);
-    for (const surface of ['desktop_1440','mobile_390','first_session_ident']) if (!surfaces.has(surface)) errors.push(`${label}: independent review missing surface ${surface}`);
+    for (const surface of ['desktop_1440','intermediate_900','mobile_390','owner_877x915','first_session_ident']) if (!surfaces.has(surface)) errors.push(`${label}: independent review missing surface ${surface}`);
   }
   const maker = admission.maker_review || {};
   if (maker.candidate_sha256 !== candidateSha || maker.result !== 'PASS' || maker.known_defects_remaining !== 0 || maker.objective_defects_remaining !== 0 || maker.visible_issues_remaining !== 0) {
