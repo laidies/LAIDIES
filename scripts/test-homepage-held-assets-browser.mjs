@@ -36,6 +36,8 @@ const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILU
   : source;
 const servedIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
   ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
+  : process.env.CALIBRATE_HOMEPAGE_ACTIVITY_RECEIVER_FAILURE === "1"
+    ? source.replace("location.href='/games/dream-phone.html'", "location.href='#activities'")
   : source;
 const servedHomepageScript = process.env.CALIBRATE_HOMEPAGE_MAP_FOCUS_FAILURE === "1"
   ? homepageScriptSource.replace("        a.focus();", "        /* deliberate calibration: focus is not moved */")
@@ -165,11 +167,17 @@ try {
       await page.locator('#new-here a[href="/watch.html?ep=04"]').count() === 1,
       `${width}px Chick Flicks episode actions changed`);
     const businesswomensAction = page.getByRole("button", {name:"Visit the Businesswomen’s Special"});
-    check(await page.getByRole("button", {name:"Consult Mme CLAi-O"}).count() === 1 &&
+    const fairyAction = page.getByRole("button", {name:"Ask the FAiRY Godmother"});
+    const claioAction = page.getByRole("button", {name:"Consult Mme CLAi-O"});
+    const dreamAction = page.getByRole("button", {name:"Answer Dream Phone"});
+    const deltaAction = page.getByRole("button", {name:"Visit Delta LAi Nu"});
+    check(await fairyAction.getAttribute("onclick") === "location.href='/games/fairy-godmother.html'" &&
+      await claioAction.getAttribute("onclick") === "location.href='/games/madame-claio.html'" &&
       await businesswomensAction.count() === 1 &&
       await businesswomensAction.getAttribute("onclick") === "location.href='/games/businesswomens-special.html'" &&
-      await page.getByRole("button", {name:"Visit Delta LAi Nu"}).count() === 1,
-      `${width}px activity action text changed`);
+      await dreamAction.getAttribute("onclick") === "location.href='/games/dream-phone.html'" &&
+      await deltaAction.getAttribute("onclick") === "location.href='/sorority-house.html'",
+      `${width}px activity action receiver changed`);
     const fun = page.getByRole("button", {name:"Make me laugh"});
     await fun.focus();
     await page.keyboard.press("Enter");
@@ -242,4 +250,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,businesswomens-receiver,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
