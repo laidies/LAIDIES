@@ -14596,3 +14596,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The unsafe 11-path candidate was not deployed. Eight exact increments now culminate in production source `9e59d67db93e1d4ca9b7d22a8d783c91ca5702fa`, artifact `7564d6cdb42bcbfdb3054795cb857071765855a555dd752d1e92c998a97dd174` and deployment `250060a3-7164-4abf-8f2b-54dd9f55f0e7`. Public proof preserves the seven earlier journeys and adds the canonical mobile header across all 59 active HTML consumers, direct mobile LIBRAiRY access, 44px Menu access, and missing mounts on LIBRAiRY/Watch. The final matrix passed 42/42 page/origin/width cases after two control-timeout retries; LIBRAiRY remained truthful with 14/14 held books and zero open actions. NewsStand still lacks the current Homepage adapter, MAiKEOVER Save/persistence remains unproved, and the incidental PNG rewrite was excluded.
 - **Possible Behind the Build angle:** Why “only two changed files” is not a deployable fact until the whole public artifact agrees.
 - **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-470 — Restoring saved state without restoring its next action strands returning visitors
+
+- **Date:** 2026-08-23
+- **Area:** MAiKEOVER Resident Card → same-device Closet continuation.
+- **Failure:** MAiKEOVER restored a saved Card after reload but hid `See it in my Closet →`, so the saved object existed while the visitor's only continuation doorway disappeared. The old browser test also asserted controls removed by the current portrait-booth hold and could not reach this regression cleanly.
+- **Root cause:** Hydration repainted Card fields but did not restore the saved-state action, and the existing end-to-end test was not kept current with the held portrait/account boundaries.
+- **Prevention rule:** A persisted object is not a verified journey until reload restores both its exact allowed fields and its next truthful action. Reuse the existing end-to-end test, calibrate the missing doorway against the pre-fix page, and keep account/reward/ownership assertions outside a device-local acceptance boundary.
+- **Durable correction:** Source `0196340a511769c67901da8ea9bf24a9a72982ea` now re-exposes the Closet doorway whenever a valid local Card hydrates. Artifact `a342a5d4db9942220cc4f527e6c4ba08c64e1c3bd0307e9066af1d8d49dd06f0` deployed as `8769da59-d4de-4633-9e39-3527fa3b56e9`; exact bytes and the save → reload → Closet identity-panel journey passed at both public origins. Complete Closet accounts, handles, cross-device state, rewards, referrals, leaderboards and ownership remain held.
+- **Possible Behind the Build angle:** Why saving data is only half of persistence—the visitor also needs the doorway back.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.

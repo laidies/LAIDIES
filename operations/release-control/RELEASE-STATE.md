@@ -10,8 +10,8 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `250060a3-7164-4abf-8f2b-54dd9f55f0e7`, deployed source `9e59d67db93e1d4ca9b7d22a8d783c91ca5702fa`, artifact identity `7564d6cdb42bcbfdb3054795cb857071765855a555dd752d1e92c998a97dd174`, immutable URL `https://250060a3.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact immutable bytes, custom-domain cache-key semantics, the canonical desktop/mobile header and the mobile LIBRAiRY journey were publicly verified on 2026-08-23. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, eight public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `8769da59-d4de-4633-9e39-3527fa3b56e9`, deployed source `0196340a511769c67901da8ea9bf24a9a72982ea`, artifact identity `a342a5d4db9942220cc4f527e6c4ba08c64e1c3bd0307e9066af1d8d49dd06f0`, immutable URL `https://8769da59.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; the exact changed bytes, seven preserved public paths, and the same-device saved Card → reload → Closet identity-panel journey were publicly verified on 2026-08-23. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, nine public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
 | Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, and the separately verified MAiKEOVER/NewsStand receivers. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
@@ -53,8 +53,15 @@ is recorded here.
 - The already-live Homepage → MAiKEOVER arrival is now separately public-proofed
   at both origins and 1440/390/320. The four labelled routes reach decoded salon
   art and seven drawers; opening Finish reveals a 52px Save control while Closet
-  remains hidden. Save was deliberately not activated, so Card persistence,
-  account continuation, cross-device state and portrait generation remain held.
+  remains hidden before save. That earlier arrival matrix deliberately stopped
+  before save; the successor proof below advances only the same-device Card and
+  Closet identity-panel continuation.
+- The same-device MAiKEOVER Card continuation is now public-proofed at both
+  origins: save, reload, reopen Finish, follow `See it in my Closet →`, and
+  recover the same allowed Card identity fields. This proof is intentionally
+  bounded to the device-local Card and Closet identity panel. It does not admit
+  account restoration, handles, cross-device state, rewards, ownership,
+  referrals, leaderboards or the complete Closet dashboard.
 - The already-live Homepage → NewsStand arrival is separately public-proofed at
   both origins and 1440/390/320. Three labelled routes reach the truthful clear-day
   state, four distinct papers, decoded Paige/rack art and no autostart or overflow.
@@ -80,20 +87,21 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `9e59d67db93e1d4ca9b7d22a8d783c91ca5702fa` |
-| Artifact identity | `7564d6cdb42bcbfdb3054795cb857071765855a555dd752d1e92c998a97dd174` |
-| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,222 bytes |
-| Exact public scope | 59 modifications / 0 additions / 0 removals / 5 protected production paths |
+| Deployed source | `0196340a511769c67901da8ea9bf24a9a72982ea` |
+| Artifact identity | `a342a5d4db9942220cc4f527e6c4ba08c64e1c3bd0307e9066af1d8d49dd06f0` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,280 bytes |
+| Exact public scope | 2 modifications / 0 additions / 0 removals / 7 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `250060a3-7164-4abf-8f2b-54dd9f55f0e7` |
-| Immutable URL | `https://250060a3.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `8769da59-d4de-4633-9e39-3527fa3b56e9` |
+| Immutable URL | `https://8769da59.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T10:35:56Z`; immutable exact bytes passed 63/63, all 59 custom-domain HTML consumers expose the new shared-header cache key with zero old-key matches, and four critical custom-domain assets match exactly. The seven-page × two-origin × three-width browser matrix passed 42/42 after two control-timeout retries. Homepage and shared pages expose `LAiDIES · LIBRAiRY · Menu` on mobile, the direct shortcut reaches LIBRAiRY, all visible header targets are at least 44px, and the receiver shows Miss Jeeves plus 14/14 held books with 0/14 open actions and no overflow. `_worker.js` is preserved in the manifest and compiled by Wrangler but is not directly fetchable by design. |
-| Exact scope | `operations/release-control/homepage-mobile-library-header-production-scope-20260823.json` |
-| Rollback deployment | `2284b17a-1f5f-46bd-8fce-d384af1a814e` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+| Public verification | completed `2026-08-23T11:05:21Z`; `maikeover.html`, `build-report.json` and six critical preserved paths matched the curated artifact exactly at both origins. The custom-domain and immutable browser journeys each restored the saved Card after reload, exposed `See it in my Closet →`, reached the same-origin Closet and rendered the same saved name plus the explicit `Device-local view` boundary. The complete Closet account/reward/progress surface was not admitted. `_worker.js` is preserved in the manifest and compiled by Wrangler but is not directly fetchable by design. |
+| Exact scope | `operations/release-control/maikeover-closet-handoff-production-scope-20260823.json` |
+| Rollback deployment | `250060a3-7164-4abf-8f2b-54dd9f55f0e7` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
 
-The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6` and
-`2284b17a-1f5f-46bd-8fce-d384af1a814e` are superseded, not current. Wrangler
+The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
+`2284b17a-1f5f-46bd-8fce-d384af1a814e` and
+`250060a3-7164-4abf-8f2b-54dd9f55f0e7` are superseded, not current. Wrangler
 reported a dirty-worktree warning solely because the isolated release source
 contained untracked `node_modules`; the deployed source commit, artifact
 manifest and public bytes are exact and independently bound above.

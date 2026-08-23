@@ -6,8 +6,9 @@ REAL-SERVICE GAPS REMAIN
 **Affected subproducts:** Resident Card; Closet & Progression
 **Functionality & Platform Director:** review required
 **Evidence ceiling:** repository, operating specs, local evidence and launch
-truth table inspected 2026-07-26; no new real-account, provider, cross-device
-or public-origin test was performed by this map.
+truth table inspected 2026-07-26; the bounded same-device Card save → reload →
+Closet identity-panel journey was publicly verified at both origins on
+2026-08-23. No real-account, provider or cross-device test was performed.
 
 ## Intended system result
 
@@ -21,9 +22,9 @@ permission to invent missing awards or re-derive incompatible balances.
 
 | Visitor state | Recognition source and proof scope | Intended experience difference | Current truth | Required next proof / launch disposition |
 |---|---|---|---|---|
-| First-time visitor | No accepted Card/account state | Understand MAiKEOVER, make a useful Card without an account, see what is saved and where it will reappear | Guest Card creation and bounded local save evidence exist | Clean-device mobile/desktop comprehension plus save/failure/Closet handoff; may launch only with same-device language |
+| First-time visitor | No accepted Card/account state | Understand MAiKEOVER, make a useful Card without an account, see what is saved and where it will reappear | Guest Card creation, validated device-local save, MAiKEOVER reload and Closet identity-panel handoff are publicly verified at both origins | Keep same-device language; edit, corrupt-envelope, storage-denied, two-tab, clear/delete and local-to-account transitions remain unverified |
 | Returning visitor without a Resident Card | Prior local visits/saves may exist, but no valid Card envelope | Resume useful device-local objects without replaying all newcomer orientation; offer Card only where it improves continuity | Individual local records exist; no canonical “returning visitor” recognition contract | Inventory allowed signals, avoid fingerprinting/identity claims, test useful return and corrupt/storage-denied fallback |
-| Resident Card holder — device-local | Valid versioned `laidies_resident_card_v1` envelope on this device | Restore Card/Closet, allow edits and show only locally proved collections | Atomic local write/restore/failure behavior passed independently | Test first/return → create/edit → Closet → reload/sign-out-like return; label **on this device** |
+| Resident Card holder — device-local | Valid versioned `laidies_resident_card_v1` envelope on this device | Restore Card/Closet, allow edits and show only locally proved collections | Atomic local write/restore/failure behavior passed independently; save → reload → visible Closet doorway → same Card identity panel passed at both public origins | `PUBLICLY_VERIFIED` for the bounded same-device identity panel only; keep every account/reward/ownership claim held |
 | Resident Card holder — verified account-backed | Supabase Auth session plus accepted profile/handle/RLS result | Restore permitted profile and owned state across devices; apply visibility/privacy accurately | Intended/code paths only; real account lifecycle not accepted | **HOLD** account/sync/public claims until controlled two-account/two-device, expiry, conflict, revoke and deletion suite passes |
 
 Required transitions include first visit → return without Card; visitor → local
@@ -36,7 +37,7 @@ login, membership, synced ownership or public identity.
 
 | Capability/object | Producer(s) | Current store/service | Closet consumer/result | Current truth | Missing backend/integration |
 |---|---|---|---|---|---|
-| Resident Card and visible local Closet edits | MAiKEOVER and Closet editor | Versioned `laidies_resident_card_v1` browser-local envelope | Card/Closet restore on this device | Independent local Repair 2 passed atomic write, restore and failure behavior | Account migration/sync, merge/conflict and second-device restoration remain unverified |
+| Resident Card and visible local Closet edits | MAiKEOVER and Closet editor | Versioned `laidies_resident_card_v1` browser-local envelope | Card/Closet restore on this device | Independent local Repair 2 passed atomic write, restore and failure behavior; deployment `8769da59-d4de-4633-9e39-3527fa3b56e9` publicly passed save, reload, doorway restoration and exact identity-field render at both origins | Account migration/sync, merge/conflict and second-device restoration remain unverified |
 | Account profile, handle and visibility | MAiKEOVER/Resident Card | Supabase Auth, profile/RPC/RLS paths | Own Closet identity and restricted public Card/Closet modes | Code, migrations and deterministic privacy fixtures exist; real service journey not accepted | Controlled email/auth, handle conflict, logout/login, visibility revoke, two-account RLS and second-device suite |
 | Puffy book/section saves | LIBRAiRY | Canonicalized device-local Puffy records | Puffy Board reopens/removes exact valid book/section | Representative Library → Closet → exact section → remove journey verified locally | Account/cross-device save sync, merge/delete propagation and stale-content reconciliation |
 | Puffy sticker pouch/preferences | Closet/Library | Browser-local Puffy preference records | Ten selected Puffy controls available on save surfaces | 10/10 selection and filtering verified locally | Account portability is not implemented/proven; all consuming save surfaces need version compatibility |
@@ -58,8 +59,10 @@ login, membership, synced ownership or public identity.
 
 ## Cross-page transactions that must pass
 
-1. **MAiKEOVER → Closet:** create, edit, failed write, reload and return preserve
-   exactly one allowed card envelope on the same device.
+1. **MAiKEOVER → Closet:** create → save → reload → restored Closet doorway →
+   same-device identity panel is `PUBLICLY_VERIFIED`. Edit, failed write,
+   corrupt-envelope, two-tab, clear/delete and local-to-account transitions
+   remain `HOLD`.
 2. **LIBRAiRY → Closet → LIBRAiRY:** save whole book/section, reopen exact
    valid destination, remove, handle held/renamed/deleted content and failed
    storage.
@@ -95,7 +98,8 @@ login, membership, synced ownership or public identity.
 
 ## Honest current launch boundary
 
-The same-device Resident Card envelope and representative Puffy round trip have
+The same-device Resident Card envelope and its Closet identity-panel handoff
+are publicly verified at both origins; the representative Puffy round trip has
 bounded local evidence. Accurate device-local copy is temporary truth, not the
 intended completion. Account restoration, cross-device progression, shared
 rewards, Book Fair delivery, FAiRY Plays, BEST FRIENDS referrals and several
