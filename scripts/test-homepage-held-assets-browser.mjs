@@ -40,6 +40,12 @@ const accountEntrySource = process.env.CALIBRATE_HOMEPAGE_ACCOUNT_PROMISE_FAILUR
     '<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Pick up where I left off</a>'
   )
   : source;
+const visitorOrientationSource = process.env.CALIBRATE_HOMEPAGE_TRAILER_PROMISE_FAILURE === "1"
+  ? source.replace(
+    "Visit the Visitor’s Centre &rarr;",
+    "Listen to the trailer at the Visitor’s Centre &rarr;"
+  )
+  : source;
 const receiverIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
   ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
   : process.env.CALIBRATE_HOMEPAGE_ACTIVITY_RECEIVER_FAILURE === "1"
@@ -109,6 +115,11 @@ check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longe
 check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
   !accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Pick up where I left off</a>'),
   "Homepage promises account-backed continuation before the visitor has signed in");
+check(visitorOrientationSource.includes('<a class="text-link" href="/visitors-centre.html">Visit the Visitor’s Centre &rarr;</a>') &&
+  visitorOrientationSource.includes('<a class="inline-link" href="/visitors-centre.html">the Visitor’s Centre</a>') &&
+  !visitorOrientationSource.includes("Listen to the trailer at the Visitor’s Centre") &&
+  !visitorOrientationSource.includes('href="/visitors-centre.html">the trailer</a>'),
+  "Homepage promises the held trailer instead of routing to the Visitor’s Centre orientation");
 
 const mime = new Map([[".html", "text/html; charset=utf-8"], [".js", "text/javascript; charset=utf-8"], [".json", "application/json; charset=utf-8"], [".css", "text/css; charset=utf-8"], [".webp", "image/webp"], [".png", "image/png"], [".jpg", "image/jpeg"], [".svg", "image/svg+xml"], [".mp3", "audio/mpeg"]]);
 const server = http.createServer((request, response) => {
