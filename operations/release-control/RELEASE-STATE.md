@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `713f35f9-48b6-4c2a-b78b-d4b9745f175d`, deployed source `e39e0eab47b228f67febbfc9a6780b2c3e5e6714`, artifact identity `97f9beb2cc6afc1fda0398e2476c400eabcf95b870b61162731118e7fca093cb`, immutable URL `https://713f35f9.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes and the no-trailer Homepage → Visitor's Centre orientation handoff were verified at both origins on 2026-08-23. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, six public Homepage functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes five exact activity receivers, truthful Businesswomen's Special framing, a real 44px town-map interaction with focus return, a signed-out Homepage action labelled `Sign in`, and Homepage links that route to the working Visitor's Centre orientation without promising the held trailer. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `4760ab5c-b04c-448f-a891-a7473880c0ce`, deployed source `7b0a86cb12890686e5996dcbb1c639035673c76a`, artifact identity `9d14a5119920e13dfc032ca2143d09c04e701836328d7e8694d6baebb9801f74`, immutable URL `https://4760ab5c.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes and the truthful Homepage → Wednesday Postcard request handoff were verified at both origins on 2026-08-23. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, seven public Homepage functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes five exact activity receivers, truthful Businesswomen's Special framing, a real 44px town-map interaction with focus return, a signed-out Homepage action labelled `Sign in`, Visitor's Centre orientation without a trailer promise, and a Wednesday Postcard action that names the real Buttondown request instead of claiming postcard selection. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -46,7 +46,9 @@ is recorded here.
   Escape. The signed-out Resident Card action now says `Sign in`; account-backed
   continuation remains held until its lifecycle is proved. Both method links now
   route to the working Visitor's Centre orientation instead of promising its held
-  trailer. The Visitor redesign, trailer, postcards and complete tour remain held.
+  trailer. The Wednesday Postcard action now names the real request counter;
+  provider acceptance/confirmation/delivery, postcard artwork, sending, referral
+  and rewards remain held. The Visitor redesign, trailer and complete tour remain held.
   None of these fixes selects or deploys the pending Homepage visual direction.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
@@ -60,17 +62,17 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `e39e0eab47b228f67febbfc9a6780b2c3e5e6714` |
-| Artifact identity | `97f9beb2cc6afc1fda0398e2476c400eabcf95b870b61162731118e7fca093cb` |
-| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,344 bytes |
+| Deployed source | `7b0a86cb12890686e5996dcbb1c639035673c76a` |
+| Artifact identity | `9d14a5119920e13dfc032ca2143d09c04e701836328d7e8694d6baebb9801f74` |
+| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,355 bytes |
 | Exact public scope | 2 modifications / 0 additions / 0 removals / 6 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
-| Immutable URL | `https://713f35f9.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `4760ab5c-b04c-448f-a891-a7473880c0ce` |
+| Immutable URL | `https://4760ab5c.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T08:56:05Z`; 14/14 critical public bytes matched; Homepage contains zero trailer wording; Visitor's Centre, Miss Jeeves, Latest Episode and KSVL handoffs each passed 6/6; and Homepage → LUMINAiRY passed 6/6 with labelled entry, decoded nave art, intentional building arrival, visible wing entrances, research-hold truth and no overflow |
-| Exact scope | `operations/release-control/homepage-no-trailer-production-scope-20260823.json` |
-| Rollback deployment | `ea53cfa4-e8e4-446b-a415-d1be7ba7e74a` |
+| Public verification | completed `2026-08-23T09:13:40Z`; 14/14 critical public bytes matched; Homepage → Wednesday Postcard request passed 6/6 at both origins and 1440/390/320 with the exact Buttondown receiver, 44px input, no subscription receipt claim, no postcard selected/sent claim and no overflow; Miss Jeeves remained privacy-safe at both origins |
+| Exact scope | `operations/release-control/homepage-postcard-request-truth-production-scope-20260823.json` |
+| Rollback deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
 
 ## Historical 2026-07-26 production release record
 
