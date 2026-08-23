@@ -14586,13 +14586,13 @@ while remaining falsely unfinished in the launch record.
   not stop a 29-pixel Menu—or a sentence the product was not allowed to claim.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTIONS / NOT DEPLOYED.
 
-## BTB-469 — A clean design lane is not automatically the current production base
+## BTB-469 — A clean design lane and a passing keyboard test are not automatically public interaction proof
 
 - **Date:** 2026-08-23
 - **Area:** Incremental Homepage release and browser evidence hygiene.
-- **Failure:** Building the pushed reset branch for a two-file Homepage fix would also have changed LIBRAiRY and Visitor bytes and removed four production assets. A separate Bronze browser test also rewrote a tracked evidence PNG while checking an unrelated audio journey.
-- **Root cause:** The design lane and deployed source intentionally have different histories, while build and browser tools did not make that boundary or their write side effects explicit.
-- **Prevention rule:** Every incremental release begins with manifests from the exact deployed source and candidate; any extra public path rejects the candidate. Apply the admitted delta onto the deployed source, rebuild, and require an exact scope receipt before deployment. Browser tests must write generated diagnostics outside tracked evidence unless refreshing that evidence is the declared task.
-- **Durable correction:** The unsafe 11-path candidate was not deployed. Release source `8a9d238eacc885dd0ea720dcf60fd8384142d955` was cut from deployed source `e044ca899dfea867ba10f770cc99a0b8e32c100a`; its scope admits only `index.html`, `content/site/homepage.js` and generated `build-report.json`, preserves five production paths, and produced public artifact `10481aeee0c6c98efae3aba5cbe259760480a2952329e25bde8adcc2c22091da`. The incidental PNG rewrite was restored and excluded.
+- **Failure:** Building the pushed reset branch for a two-file Homepage fix would also have changed LIBRAiRY and Visitor bytes and removed four production assets. A separate Bronze browser test rewrote a tracked evidence PNG. The map test then passed keyboard activation while every public hotspot had zero rendered height, so a pointer user could not activate it.
+- **Root cause:** The design lane and deployed source intentionally have different histories, while build and browser tools did not make that boundary or their write side effects explicit. The map check proved event wiring after programmatic focus but never measured or clicked the rendered hit region.
+- **Prevention rule:** Every incremental release begins with manifests from the exact deployed source and candidate; any extra public path rejects the candidate. Apply the admitted delta onto the deployed source, rebuild, and require an exact scope receipt before deployment. Browser tests must write diagnostics outside tracked evidence unless refreshing it is the task. Interactive-map admission must measure a real 44px target and activate the rendered point before keyboard focus behavior can pass.
+- **Durable correction:** The unsafe 11-path candidate was not deployed. Three exact incremental scopes now culminate in production source `12d65473953bddf1da930443e9db2fb3d5c38bd8`, artifact `8c01b5185a526ea989a9b47b4c7bdb327fe7e0f0ef7e2634224e8f4a525412f5` and deployment `b9414ea9-5539-4357-95b1-2098cc77fb7d`. Public proof covers 12/12 critical bytes, 30/30 named activity arrivals, 6/6 map target/focus checks and privacy-safe Miss Jeeves responses. The incidental PNG rewrite was excluded.
 - **Possible Behind the Build angle:** Why “only two changed files” is not a deployable fact until the whole public artifact agrees.
 - **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.

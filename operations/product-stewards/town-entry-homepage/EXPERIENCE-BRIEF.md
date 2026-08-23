@@ -95,6 +95,9 @@ that order inside a visual candidate.
   women/MAiVENS/Trailblazers without inventing faces or identity art.
 - **Explore:** direct named destinations and jobs. The map is optional
   discovery, never a prerequisite or an extra click before a known route.
+  Every rendered map destination is at least 44 by 44 CSS pixels and must pass
+  both real pointer activation and keyboard focus/return checks; programmatic
+  focus on a zero-size region is not interaction proof.
 - **Continue and invite:** Resident Card/Closet and Wednesday Postcard are
   visibly different objects and outcomes; neither may imply an unproved
   account, reward, referral or delivery lifecycle.

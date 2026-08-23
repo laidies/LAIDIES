@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `963b5695-a2e7-481f-b851-1ad7e55c43bd`, deployed source `8a9d238eacc885dd0ea720dcf60fd8384142d955`, artifact identity `10481aeee0c6c98efae3aba5cbe259760480a2952329e25bde8adcc2c22091da`, immutable URL `https://963b5695.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes and the two corrected journeys were verified at both origins on 2026-08-23. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `b9414ea9-5539-4357-95b1-2098cc77fb7d`, deployed source `12d65473953bddf1da930443e9db2fb3d5c38bd8`, artifact identity `8c01b5185a526ea989a9b47b4c7bdb327fe7e0f0ef7e2634224e8f4a525412f5`, immutable URL `https://b9414ea9.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes, all five Homepage activity arrivals and the repaired map interaction were verified at both origins on 2026-08-23. |
 | Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, the Homepage receiver/map correction and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional correction is public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production adds only the exact Homepage Businesswomen's Special receiver, its truthful social-ritual framing, and the town-map focus repair over the Sunday baseline. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production now includes the exact Homepage receivers for FAiRY Godmother, Mme CLAi-O, Businesswomen's Special, Dream Phone and Delta LAi Nu, the truthful Businesswomen's Special framing, and a real 44px town-map interaction with focus return. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -40,10 +40,10 @@ is recorded here.
   deployed, and both origins pass public verification.
 - Trailer and Episodes 01–04 opening-day masters remain `HOLD`; the historical
   Episode 04 deployment receipt does not make the current master admitted.
-- The August 23 Homepage functional increment is public: the previously dead
-  Businesswomen's Special action now reaches its real cocktail-or-spirit-free
-  interaction, and the map dialog moves and restores keyboard focus. This does
-  not select or deploy the pending Homepage visual direction.
+- The August 23 Homepage functional increments are public: five formerly dead
+  activity actions now reach their real destination pages, and the map has real
+  desktop/mobile hit regions, moves focus into its dialog and restores focus on
+  Escape. This does not select or deploy the pending Homepage visual direction.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
   creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
@@ -56,17 +56,17 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `8a9d238eacc885dd0ea720dcf60fd8384142d955` |
-| Artifact identity | `10481aeee0c6c98efae3aba5cbe259760480a2952329e25bde8adcc2c22091da` |
-| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,046 bytes |
-| Exact public scope | 3 modifications / 0 additions / 0 removals / 5 protected production paths |
+| Deployed source | `12d65473953bddf1da930443e9db2fb3d5c38bd8` |
+| Artifact identity | `8c01b5185a526ea989a9b47b4c7bdb327fe7e0f0ef7e2634224e8f4a525412f5` |
+| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,372 bytes |
+| Exact public scope | 2 modifications / 0 additions / 0 removals / 6 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `963b5695-a2e7-481f-b851-1ad7e55c43bd` |
-| Immutable URL | `https://963b5695.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `b9414ea9-5539-4357-95b1-2098cc77fb7d` |
+| Immutable URL | `https://b9414ea9.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T07:53:37Z`; exact Homepage, Homepage controller, Businesswomen's Special, LIBRAiRY, Visitor's Centre and NewsStand bytes matched at both origins; Homepage receiver and map-focus journeys passed at 1440, 390 and 320 pixels; Miss Jeeves returned privacy-safe JSON at both origins |
-| Exact scope | `operations/release-control/homepage-receiver-production-scope-20260823.json` |
-| Rollback deployment | `2da88bce-908e-4667-ae79-a08ca8b9522f` |
+| Public verification | completed `2026-08-23T08:22:46Z`; 12/12 critical public bytes matched; all five Homepage activity arrivals passed at both origins and 1440, 390 and 320 pixels; the map passed 6/6 responsive focus/target checks; Miss Jeeves returned privacy-safe JSON at both origins |
+| Exact scope | `operations/release-control/homepage-map-production-scope-20260823.json` |
+| Rollback deployment | `d1c05236-8740-4001-9dea-19e3b21f8a0d` |
 
 ## Historical 2026-07-26 production release record
 
