@@ -14523,6 +14523,17 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why preserving one approved screen produced more progress than generating three new Homepages.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
 
+## BTB-478 — Exact new bytes do not invalidate an old shared-runtime URL in a visitor's cache
+
+- **Date:** 2026-08-23
+- **Area:** Post Office → Resident Card sign-in truth and shared-runtime release verification.
+- **Failure:** The first exact artifact deployed the corrected shared header, but the six changed journey pages still requested its old version URL. A live browser therefore reused the cached predecessor and mounted held Resident continuation even though direct public hash checks returned the new JavaScript.
+- **Root cause:** Release verification proved server bytes, not the consumer URL that an existing browser would execute. The shared-runtime cache-key rule existed from the earlier header incident but was not applied during production.
+- **Prevention rule:** Every changed public JavaScript file must inventory its active consumers, give changed journey pages a new deterministic version URL, and be tested in a browser that previously loaded the old URL. Server-byte parity alone cannot publicly admit a shared-runtime change.
+- **Durable correction:** The rejected deployment `5dc6ae37-715a-4795-b07a-7764b1f01576` was superseded. Source `0c71527393d5981597c3a99d1be05ed991897717`, artifact `d189d747dc0f67c041a9c95feb18c8902cc3c51ae35032a7cb9b739887d08c12` and deployment `9ba611c7-9381-41d7-bd7f-d437132f95f3` bind new header, navigation and account-runtime URLs on the six changed pages. The same previously stale browser then showed no continuation script on Post Office or NewsStand and exactly one request-only Resident Card email desk.
+- **Possible Behind the Build angle:** Why deploying the right JavaScript still served the wrong behavior to the browser that had visited yesterday.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
 ## BTB-465 — One hero screenshot cannot admit a spatial Library journey
 
 - **Date:** 2026-08-22
@@ -14681,6 +14692,17 @@ while remaining falsely unfinished in the launch record.
 - **Failure:** An early synthesis carried the masthead darkness into later sections. Its successor repeated the deeper error by preserving old page architecture, inventing replacement copy and spending a large section on a Story/Analogy/Practice/Music/Community image collage that explained little. Stale or stitched captures also obscured the real mobile composition.
 - **Root cause:** The producer treated examples 1 and 4 as loose style inspiration while preserving the incumbent information architecture, instead of mapping each meaning-bearing section to approved copy and the owner’s requested job before layout.
 - **Prevention rule:** Bind the exact owner-selected references and current page brief before styling. Every meaning-bearing Homepage section must declare its approved copy source; the method remains a compact explanation, not a five-image collage; Community remains a destination rather than a forced method step. Keep dusk confined to the masthead, compare actual 1440, 877 and 390 viewport renders, and refresh review-bound screenshots after visible changes. A stitched capture is navigation evidence, not visual-admission evidence.
-- **Durable correction:** Homepage proof `0c776461…` uses examples 1 and 4 as structural and editorial truth, removes the oversized five-image method collage, preserves the approved method explanation in one compact image-free band, and moves the post-masthead page into bright cyan, coral, hot pink, cobalt, orange and lime compositions. The calibrated program check now rejects the collage, invented copy, missing copy provenance and wrong section order. Mobile overflow is zero, and the independent exact-pixel verdict admits the current proof. It remains an owner-review artifact and is not deployed.
+- **Durable correction:** Homepage proof `a26fea13…` uses examples 1 and 4 as structural and editorial truth, removes the oversized five-image method collage, preserves the approved method explanation in one compact band with one text-free bright pop-art texture, and moves the post-masthead page into bright cyan, coral, hot pink, cobalt, orange and lime compositions. The calibrated Homepage checks reject the collage, invented copy, missing copy provenance and wrong section order. Mobile overflow is zero, and the independent exact-pixel verdict admits the current proof across desktop, intermediate, mobile, owner and first-session-ident surfaces. The whole three-page program remains held only by separate uncommitted Visitor’s Centre authority/runtime hash drift. This proof remains an owner-review artifact and is not deployed.
 - **Possible Behind the Build angle:** How one beautiful night image nearly made an entire learning town feel closed after dark.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-479 — A source commit is not a safe release baseline when the live artifact contains uncommitted bytes
+
+- **Date:** 2026-08-23
+- **Area:** Visitor’s Centre postcard handoff and exact-artifact release control.
+- **Failure:** The Visitor’s Centre correction changed one route and two short copy lines, but rebuilding the recorded production source would also have removed four live LIBRAiRY assets and reverted the live LIBRAiRY HTML. The recorded source commit and deployed artifact were not reproducible equivalents.
+- **Root cause:** The prior production artifact contained newer LIBRAiRY bytes than its recorded source commit. The dependency crawler correctly followed the older committed HTML, so a fresh build silently excluded the background and three shelf-sign images that only the deployed HTML referenced.
+- **Prevention rule:** Before any incremental release, regenerate the recorded base manifest and require exact identity with production. If it differs, use the last exact deployed artifact as the base, bind every preserved path, and permit only the intended candidate delta. Never treat a commit label or successful builder exit as proof that unchanged production bytes are preserved.
+- **Durable correction:** The prior exact artifact `d189d747…` was recovered and re-manifested at 561 files. The successor changed only `visitors-centre.html` and `build-report.json`; the calibrated scope rejected a false candidate hash and admitted exact artifact `ced19564…`. Source `6edea2ac5fd9110900cd66b7f52cd162cc6fdbaa` and deployment `5a16a1a7-ed3f-4349-bc1c-ea680101ea20` matched at both public origins. Live browser clicks reached `/post-office#rack`, rendered the held-rack truth and produced zero console errors. The unrecorded historic LIBRAiRY source state remains a separate reproducibility repair; no LIBRAiRY production byte was changed here.
+- **Possible Behind the Build angle:** Why a three-line webpage fix nearly deleted four unrelated live images.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
