@@ -452,6 +452,11 @@ imagery, icons or visual systems.
   `4a39b8ab…a06e7` use the wrong images. Do not reuse those image paths. Resolve
   each panel from the current approved destination asset before another owner
   review; `current`, `latest` or a plausible filename is not approval.
+- The resolved Homepage continuation assets are
+  `assets/sunnyvaile-buildings/y2k-v3/13-sunnyvaile-post-office.webp` for the
+  Post Office and `assets/building-interiors/ksvl-booth.jpg` for KSVL. Both are
+  bound in the current Homepage design-program manifest; do not substitute a
+  postcard, generic DJ desk or another plausible-looking file.
 - The directory below the town map follows the canonical building order and
   canonical addresses. It must agree with the visible map, street grouping and
   building numbering; a hand-authored destination list in an arbitrary order
@@ -485,6 +490,9 @@ imagery, icons or visual systems.
   not replace it.
 - The Delta LAi Nu image used in candidate `4a39b8ab…a06e7` is not the correct
   destination image. Do not reuse that path in the successor.
+- The resolved Delta LAi Nu Homepage image is the manifest's curated-correct
+  community scene at
+  `assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg`.
 
 - First-time, returning anonymous, device-local Resident Card and verified
   account-backed states keep the same usable public core.

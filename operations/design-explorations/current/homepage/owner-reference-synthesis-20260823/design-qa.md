@@ -1,75 +1,83 @@
-# Homepage direction design QA
+# Homepage corrected-8 design QA
 
-## Comparison target
+## Bound visual truth
 
-- Source visual truth:
-  - operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-01-primary-editorial.png — 864 × 1821 px.
-  - operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-04-primary-structure.png — 842 × 1867 px.
-- Implementation: operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html.
-- Exact implementation SHA-256: a26fea1398b68a9154b3d510e8de0c1183efbe41b3b993837abba1de89e27ac4.
-- Browser-rendered implementation:
-  - evidence/desktop-1440.png — stable continuous 1440 × 5901 px page capture at a 1440 × 900 CSS viewport.
-  - evidence/mobile-390.png — stable continuous 390 × 9339 px page capture at a 390 × 844 CSS viewport.
-  - evidence/desktop-method-1440.png — 1440 × 900 px focused method capture.
-  - evidence/mobile-method-390.png — 390 × 844 px focused method capture.
-  - evidence/intermediate-900.png — 900 × 900 px intermediate-width capture.
-  - evidence/owner-877x915.png — 877 × 915 px at an 877 × 915 CSS viewport.
-  - evidence/first-session-ident-1440.png — 1440 × 900 px at a 1440 × 900 CSS viewport.
-- State: anonymous first visit unless the evidence name says otherwise. The dial-up ident was explicitly replayed.
-- Density normalization: all implementation captures are 1 CSS px to 1 output px. Reference crops and implementation captures were fitted into equal 720 px columns without changing source aspect ratios.
+- Owner reference: `operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-01-primary-editorial.png`, SHA-256 `46789f447c25356038d996b4dd9dcf9f5559d8556cc6ae41ea8ec5e820a0c02d`.
+- Candidate: `operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`, SHA-256 `e5ce960599f8aa147ffdba47ec39e8dba523066db5a231f14d3528a805949d6d`.
+- State: anonymous visitor. The latest admitted NewsStand issue is correctly shown as an archive, not current. Returning-state behavior remains device-local.
 
-## Full-view comparison evidence
+## Exact browser evidence
 
-- evidence/comparison-top-1440.png places reference 1 and the current masthead in one image.
-- Both use the locked dusk masthead, the same image-led hierarchy, a bright pink header, purple/pink/cyan image-derived accents and compact direct navigation.
-- The current proof adds the required visible sign-in action and explanatory copy. The body begins in bright cyan; the dusk masthead is not extended into a night-themed page.
+Primary viewports:
 
-## Focused comparison evidence
+- `evidence/desktop-1440.png` — 1440 × 900, SHA-256 `8f8dbb8a3e43661347f566650ca40d28b12b1cf5521e6ff4155755d56ad90799`.
+- `evidence/intermediate-900.png` — 900 × 900, SHA-256 `a6f94e5a3664f4e9975b604ccfea257c61bd875795548f4af0777af0706470c3`.
+- `evidence/owner-877x915.png` — 877 × 915, SHA-256 `4b77f2f0579c1986b049bee37b8c02bd40131d2fd38e55182b79590ba8e9035c`.
+- `evidence/mobile-390.png` — 390 × 844, SHA-256 `135a5dbbb3fcc98a5d78cc88885491b87ad98e86b78fa3871b8a6989f8607db3`.
+- `evidence/first-session-ident-1440.png` — 1440 × 900, SHA-256 `86cf42fda91cb66293091e74ff93c759cc5cc9d26d6a727400707d22a4cc411a`.
 
-- evidence/comparison-method-1440.png: the reference collage is shown against the corrected compact method band. Removing the five-image collage is the explicit owner correction, not accidental fidelity drift. The current band retains the approved method copy and existing explanation and routes to the Visitor’s Centre.
-- evidence/comparison-news-1440.png: the current NewsStand preserves reference 1’s editorial composition while replacing generated newspaper content with a dated local Daily record and current desk states.
-- evidence/comparison-route-1440.png: the current route preserves the reference’s circular-image rhythm and expands it to the approved eight-stop order.
-- evidence/mobile-method-390.png: the complete method explanation is readable at 390 px with no image sequence and no horizontal clipping.
+Focused desktop surfaces:
 
-## Required fidelity surfaces
+- `evidence/desktop-daily-1440.png` — SHA-256 `709fc85bade4bd254db748dc34bfa8136f559a9e0963f3abebe35fda1517ca7e`.
+- `evidence/desktop-intents-1440.png` — SHA-256 `e0d18cf19023d2d766e4982817ece5a0a4a531798cad745c0c3b8bb193d6cde1`.
+- `evidence/desktop-weekly-loop-1440.png` — SHA-256 `94f0b6bdf33aac08df897ad84c97d5f7ad1ee0102fd7161358c72fd62af0206b`.
+- `evidence/desktop-activities-1440.png` — SHA-256 `0bc94834e88139f41379ea0780c92e0a1cbc4cf3d860b3aa90bc060c3f04def1`.
+- `evidence/desktop-directory-1440.png` — SHA-256 `b6dd2a2a502eb6fc4891b55eabbb54c763d71629d4da71f4991ac4c02f111758`.
+- `evidence/desktop-continuations-1440.png` — SHA-256 `ec8b2fd00e5e2558b25964736c216a5437cd053c259faa74f324ffa8492d5a44`.
+- `evidence/desktop-ksvl-1440.png` — SHA-256 `a4202dffa4a6f22473b9db987ec6f3cefca67437275d3f3ef80c7275f98621c7`.
 
-- Fonts and typography: local Jost carries display and UI text; Georgia is limited to the newspaper headline. Desktop, owner and mobile wrapping is readable with no truncation.
-- Spacing and layout rhythm: the page uses distinct editorial compositions instead of repeating the incumbent block pattern. The method is one compact desktop band. Desktop and mobile report zero horizontal overflow.
-- Colors and visual tokens: bright pink, cyan, cobalt, coral, orange and lime carry the page below the dusk masthead. The rejected pale system and purple/yellow pairing are absent.
-- Image quality and asset fidelity: all environment and destination imagery uses real repository raster assets. The method contains one purpose-built text-free cyan, pink and purple pop-art texture and no Story/Analogy/Practice/Music/Community illustration tiles. No placeholder art, emoji, inline SVG or CSS gradient art appears.
-- Copy and content: the locked masthead and method copy are exact. Eight meaning-bearing sections declare their copy source. The previous invented Every building has a job and A Card, a Postcard and the radio are different things lines are absent. Visitor-visible Play is absent.
+Focused mobile surfaces:
 
-## Comparison history
+- `evidence/mobile-intents-390.png` — SHA-256 `eeca3c03076a2b4a5c528e026d6479f16d853885d6224573c9b47633c7a7ea00`.
+- `evidence/mobile-weekly-loop-390.png` — SHA-256 `60910681598160e502dc19f18950545ee9a5dd22744f2188a70ef8e0948da84f`.
+- `evidence/mobile-activities-390.png` — SHA-256 `e9779ddf4327aa7199af80241cc370302eef136cfe4f7750207c4c8a00677d98`.
+- `evidence/mobile-directory-390.png` — SHA-256 `f96ec2f322d35171b8d5c6d00db56c4f84cba3e03baf2467fa7a9da3794b36a4`.
+- `evidence/mobile-continuations-390.png` — SHA-256 `b1b76e5b05b8c42550534a10ed31a26b1b4d02a4e16e1e1e6bb6c1c976e66ef4`.
 
-1. Ali rejected the preceding exact proof because it preserved the old page architecture, invented copy and gave an oversized Story/Analogy/Practice/Music/Community collage most of the method section.
-2. The page was reorganized around the selected reference’s editorial sequence. The collage and duplicated town explanation were deleted; the method became one image-free explanatory band; the live NewsStand, destination strip and eight-stop route now follow directly.
-3. First corrected captures exposed two P2 issues: the mobile replay control overlapped the eyebrow and the header’s pop-art bitmap appeared as a dark rectangular patch. The mobile eyebrow width was constrained and the bitmap was reduced to a thin pop-art header strip.
-4. Post-fix evidence was recaptured from the exact current bytes in the files listed above. The prior P2 issues are absent.
+## Owner corrections resolved
 
-## Browser interaction and runtime checks
+- The shared gradient header, custom LAiDIES wordmark, masthead copy, masthead actions and visible KSVL control are retained.
+- Learn routes to LIBRAiRY and LUMINAiRY; SUNNYVAiLE High is explicitly future-qualified.
+- Tools and Games shows four distinct sources at entry and all six current activities below: FAiRY Godmother, Mme CLAi-O, Businesswomen’s Special, Dream Phone, Girl Talk and DJ Booth.
+- The weekly section explains the trailer, current-or-device-resume episode, eight-stop loop, device-local progress and Free Time scope.
+- Delta LAi Nu, Post Office and KSVL use the exact paths bound in the routed Homepage brief.
+- The map directory contains all 17 canonical destinations in six street groups. MAiN and Civic are packed as horizontal address rows; the remaining four streets are equal peers without empty card canvas.
+- The Daily exposes actual admitted headlines and service items. Because the repository has no current Daily on 2026-08-23, it visibly says `No current Daily is filed` and labels the latest issue `Archive · Aug 6, 2026`.
 
-- Anonymous state: full method visible; Episode 04 default; dated Daily story and desk states rendered.
-- Returning design state: method collapsed behind How LAiDIES and SUNNYVAiLE work; Resident Card label rendered; Episode 03 resume route rendered.
-- Mobile: direct LIBRAiRY link visible; Menu opened and exposed six remaining routes; measured horizontal overflow was zero.
-- Arrival: appeared, paused to Resume arrival, and skipped successfully.
-- Console errors and warnings during the mobile menu check: zero.
-- Static proof checks: the rejected five-tile labels and markup are absent; the method uses one local raster background; no CSS gradients; no visitor-visible Play; no horizontal overflow at 1440 or 390; inline script parsed.
+## Browser checks
+
+At 1440 × 900, 900 × 900 and 390 × 844:
+
+- horizontal overflow: `0`;
+- broken images: `0`;
+- visible controls below 44 px: `0` before the player opens;
+- visitor-visible `Play` family: absent;
+- directory entries: `17` in canonical `01`–`17` order;
+- directory groups: MAiN Street, Civic Square, Schoolhouse Road, Willow Lane, Wisteria Lane, Lantern Hill;
+- activity cards: `6`;
+- weekly stops: `8`.
+
+Interaction checks:
+
+- The dial-up arrival renders with both `Pause arrival` and `Skip arrival`.
+- `Listen live — KSVL 99.9` opens the canonical shared KSVL player and begins `Welcome to SUNNYVAiLE`.
+- The candidate raises shared player icon controls to a 44 px minimum width; no player control remains below the 44 px target.
+- Browser console errors and warnings: `0`. KSVL emits only its existing technical start log.
+
+## Review history and ratchet
+
+1. The predecessor was rejected for wrong/retired art, invented copy, missing explanation, ungrouped destinations, an unexplained route and a dark/pastel split.
+2. Corrected-7 was independently rejected before owner review because it called Aug 6/3/Jul 27 records “newest” and the directory left dead cyan canvas around short street groups.
+3. Corrected-8 now fails closed on NewsStand freshness and packs the directory into MAiN, Civic and four cross-street bands. Exact desktop and mobile pixels were recaptured after both repairs.
 
 ## Findings
 
-No actionable P0, P1 or P2 difference remains against the selected art direction after applying Ali’s explicit method-collage supersession.
+Maker inspection found no remaining P0, P1 or P2 defect. Independent successor review is required before this artifact can be presented as admitted.
 
-## Follow-up polish
+## Not proved by this direction
 
-- P3: the current admitted Daily is dated rather than presented as an undated “latest” object. When the NewsStand publishes a newer admitted issue, the same module will render it from the existing data binding.
+- This is not owner approval, production integration, deployment or public verification.
+- The NewsStand archive state is truthful but also exposes an editorial freshness gap outside this Homepage design scope.
+- Account-backed `what changed since your last visit` and cross-device episode progress remain held; the page does not claim they work.
 
-## Implementation checklist
-
-- [x] Exact references and exact candidate bytes compared.
-- [x] Rejected method collage removed.
-- [x] Approved copy and copy provenance enforced.
-- [x] Desktop, owner, mobile and dial-up states captured.
-- [x] Route, Daily, image, overflow, menu and arrival controls verified.
-- [x] Known-bad proof causes objective checker failure.
-
-final result: passed
+final result: pending independent review
