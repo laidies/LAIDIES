@@ -147,6 +147,16 @@ imagery, icons or visual systems.
 
 ## Visual and copy locks
 
+- Ali's 2026-08-23 partial direction is **not a candidate approval**: the newer
+  visual approach is moving closer and some treatments look cool, but several
+  are too dark. Increase brightness and visual breathing room without returning
+  to the rejected pale-pastel system.
+- Visual energy cannot replace orientation. The Homepage must carry enough
+  plain explanation for a newcomer to understand what LAiDIES and SUNNYVAiLE
+  are, why the town exists, what the complementary learning formats do and how
+  to begin using the site. A mostly visual treatment with too little explanatory
+  text is a blocking comprehension failure. Await Ali's continuing voice notes
+  before treating the exact balance or composition as decided.
 - Use the vibrant electric 1990s palette, saturated gradients, purposeful
   halftone/pop-art texture, ink keylines, hard offset shadows and editorial
   composition. Use bounded colour families per section; do not pair purple and
