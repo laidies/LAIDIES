@@ -955,7 +955,7 @@
       fill.style.width = pct + '%';
       if (knob) knob.style.left = pct + '%';
       theatre.classList.toggle('is-playing', playing());
-      var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : 'PLAY';
+      var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : playerMode === 'listen-only' ? 'LISTENING' : 'WATCHING';
       timeEl.textContent = fmt(el) + ' / ' + fmt(d);
       osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el);
       btnPlay.textContent = playing() ? '❚❚' : '▶';

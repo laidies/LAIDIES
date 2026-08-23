@@ -14607,3 +14607,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Source `0196340a511769c67901da8ea9bf24a9a72982ea` first restored the doorway after hydration. Its truth successor, source `2a6db9f9afe4d53183d659c973512f3891d7a216`, artifact `22b9e09598099311d6c4a69c5c8565460f760c0e43c69e47f1ece1c556fe1f0f` and deployment `0875285d-b47d-4d9a-a586-508b660ec894`, keeps the publicly verified Card identity panel while removing the unproved wallet, report-card dashboard, Luminaries, Wednesday Tour, collection, FAiRY-bank and leaderboard surfaces from the visual and accessibility trees. Complete Closet accounts, handles, cross-device state, rewards, referrals and ownership remain held. The browser test now writes screenshots to temporary storage instead of tracked evidence.
 - **Possible Behind the Build angle:** Why saving data is only half of persistence—the visitor also needs the doorway back.
 - **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-471 — A shipped language rule is not durable until the routed writing source owns it
+
+- **Date:** 2026-08-23
+- **Area:** Sitewide public action language and media controls.
+- **Failure:** The public site and calibrated language guard had removed the exact visitor-visible token `Play`, but variants such as `plays`, `played` and `playing` remained reachable and the rule lived in a release packet rather than the routed writing lock. A later page build could therefore reintroduce the language while still following the documented voice route.
+- **Root cause:** Implementation, prevention and routed authority were completed in different increments; the last one was not reconciled into the narrow source that future producers must read.
+- **Prevention rule:** Every public-language correction lands in the routed writing lock in the same task, with an executable guard that distinguishes visitor copy from technical APIs and proves both rejection and allowance cases.
+- **Durable correction:** The writing lock now bans the visitor-visible `Play` family, names action-specific replacements and explicitly preserves `.play()`, media events, identifiers, analytics keys and CSS classes. The calibrated test rejects variants in HTML, dynamic JavaScript and public JSON while permitting technical media behavior. Public deployment and custom-domain re-verification remain required before this correction may be called complete.
+- **Possible Behind the Build angle:** Why changing a button label is easy—and preventing it from quietly coming back is the real product work.
+- **Publication status:** PRODUCTION LANGUAGE CORRECTION / BUILDING.

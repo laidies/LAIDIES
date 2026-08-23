@@ -1147,7 +1147,7 @@
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
         { icon: '🔐', label: 'Diary secrets',     src: 'secretCount',    target: 'secretGrid',       total: 4,    pub: true,  hint: 'Try things around town' },
-        { icon: '🧚', label: 'F<span class="ai">Ai</span>RY wishes', src: 'fairyPlayCount', target: 'fairyBankSection', total: null, pub: false, hint: 'Bonus plays at Willow Lane' },
+        { icon: '🧚', label: 'F<span class="ai">Ai</span>RY wishes', src: 'fairyPlayCount', target: 'fairyBankSection', total: null, pub: false, hint: 'One-response preview at Willow Lane' },
         { icon: '🪪', label: 'Buildings visited', src: null,             target: 'walletGrid',       total: null, pub: false, hint: 'Stamped at the door' }
       ];
 
@@ -1293,7 +1293,7 @@
       <div id="tourGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px;">
         <!-- stop tiles injected by JS -->
       </div>
-      <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like playing the BRONZE AiGE song).</p>
+      <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like starting the BRONZE AiGE song).</p>
 
       <!-- Optional stops — anytime, no weekly reset -->
       <div class="opt-block">
@@ -1539,14 +1539,14 @@
        ============================================== -->
   <section class="passport-section" id="fairyBankSection" hidden>
     <p class="passport-section-eyebrow">★ Your Wallet</p>
-    <h2 class="passport-section-title">FAiRY Plays Bank</h2>
+    <h2 class="passport-section-title">FAiRY allowance</h2>
 
     <div class="fairy-bank">
       <div class="fairy-bank-icon">🧚</div>
       <div>
         <p class="fairy-bank-label">Bonus wishes earned</p>
         <p class="fairy-bank-count"><span id="fairyPlayCount">0</span><small>available</small></p>
-        <p class="passport-section-lede" style="margin: 0;">Bonus plays with the FAiRY Godmother at Willow Lane. Earn more by doing things around town:</p>
+        <p class="passport-section-lede" style="margin: 0;">This allowance is not available on the public site.</p>
         <ul class="fairy-earn-tips">
           <li>Finish the weekly pop quiz at SUNNYVAiLE High</li>
           <li>Complete the full Wednesday tour</li>

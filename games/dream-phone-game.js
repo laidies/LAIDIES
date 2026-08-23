@@ -275,7 +275,7 @@
   function maybeRemixScholar() {
     if (Object.keys(S.powersUsed).length >= 3) {
       var msg = safeUnlock("remix-scholar", "Dream Phone");
-      if (msg) appendOutput("\n\n🎴 Merit badge: Remix Scholar — you played all three remix cards in one game.");
+      if (msg) appendOutput("\n\n🎴 Merit badge: Remix Scholar — you used all three remix cards in one game.");
     }
   }
 
@@ -332,7 +332,7 @@
           hiddenMeritBadges["deb-unlocked"] = { id: "deb-unlocked", title: "Found Deb merit badge", sticker: "DEB", source: "Dream Phone", unlockMessage: "Found Deb unlocked. You blocked your number, she actually picked up, and she still told you nothing. Iconic, useless, immovable." };
         }
         if (hiddenMeritBadges["867-club"]) hiddenMeritBadges["867-club"].unlockMessage = "867 Club unlocked. You found the secret Dream Phone line. Pin the sticker and be a little smug in the group chat.";
-        if (hiddenMeritBadges["remix-scholar"]) hiddenMeritBadges["remix-scholar"].unlockMessage = "Remix Scholar unlocked. You played all three remix cards in one game. The drama was fully utilised.";
+        if (hiddenMeritBadges["remix-scholar"]) hiddenMeritBadges["remix-scholar"].unlockMessage = "Remix Scholar unlocked. You used all three remix cards in one game. The drama was fully utilised.";
       }
       if (typeof dreamPhoneSecretBadges === "object" && dreamPhoneSecretBadges && dreamPhoneSecretBadges[8675309]) {
         dreamPhoneSecretBadges[8675309].baseMessage = "867-5309 connected. I like the way you think. You found the secret Dream Phone line.";
@@ -426,7 +426,7 @@
       '<p class="dp-reveal-domain">Patron saint of ' + meta.domainLabel + "</p>" +
       '<p class="dp-reveal-line">“' + meta.power + '”</p>' +
       (coldRead ? '<p class="dp-reveal-badge">🎯 Cold Read badge — four dials flat. Deduction, not luck.</p>' : "") +
-      '<div class="dp-reveal-actions"><button type="button" class="dp-btn" id="dpPlayAgain">Play again</button></div>' +
+      '<div class="dp-reveal-actions"><button type="button" class="dp-btn" id="dpPlayAgain">Try another card</button></div>' +
       "</div>";
     el.reveal.innerHTML = html;
     el.reveal.hidden = false;

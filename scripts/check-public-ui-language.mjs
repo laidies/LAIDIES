@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const WORD = /\bplay\b/i;
+const WORD = /\bplay(?:s|ed|ing)?\b/i;
 const DYNAMIC_PUBLIC = [
   'script.js',
   'content/episode-page.js',
@@ -12,9 +12,19 @@ const DYNAMIC_PUBLIC = [
   'content/site/mall-shop-v2.js',
   'content/site/mini-player.js',
   'content/site/site-data.js',
+  'content/site/fairy-godmother-v2.js',
+  'content/site/sunnyvaile-directory.js',
   'content/site/sv-trailer-player.js',
   'content/site/sv-welcome-tour.js',
-  'games/dream-phone-bundles.js'
+  'games/data/receipts-stories.js',
+  'games/dream-phone-bundles.js',
+  'games/dream-phone-game.js'
+];
+const PUBLIC_JSON = [
+  'content/data/character-cards.json',
+  'content/data/mme-claio-deck.json',
+  'content/episodes/issue-01.json',
+  'content/site/site-index.json'
 ];
 
 export function findVisiblePlayHtml(source) {
@@ -45,9 +55,26 @@ export function findVisiblePlayJs(source) {
     for (const match of line.matchAll(quoted)) {
       const value = match[2];
       if (!WORD.test(value)) continue;
+      if (/^https?:\/\//i.test(value)) continue;
       if (technicalContext.test(line) || technicalLiteral.test(value) || /[{}]/.test(value) || /(?:^|[-_.#])play(?:ing)?(?:[-_.:#]|$)/i.test(value)) continue;
       failures.push({ line: index + 1, value: value.replace(/\s+/g, ' ').trim() });
     }
+  }
+  return failures;
+}
+
+export function findVisiblePlayJson(value, trail = '$') {
+  const failures = [];
+  if (typeof value === 'string') {
+    if (WORD.test(value)) failures.push({ trail, value });
+    return failures;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => failures.push(...findVisiblePlayJson(item, `${trail}[${index}]`)));
+    return failures;
+  }
+  if (value && typeof value === 'object') {
+    for (const [key, item] of Object.entries(value)) failures.push(...findVisiblePlayJson(item, `${trail}.${key}`));
   }
   return failures;
 }
@@ -58,12 +85,23 @@ export function checkPublicUiLanguage(root = process.cwd()) {
   for (const relative of manifest.entrypoints || []) {
     const absolute = path.join(root, relative);
     if (!fs.existsSync(absolute)) { failures.push(`${relative}: missing public entrypoint`); continue; }
-    for (const value of findVisiblePlayHtml(fs.readFileSync(absolute, 'utf8'))) failures.push(`${relative}: ${value}`);
+    const source = fs.readFileSync(absolute, 'utf8');
+    for (const value of findVisiblePlayHtml(source)) failures.push(`${relative}: ${value}`);
+    const scripts = [...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+    for (const script of scripts) {
+      for (const result of findVisiblePlayJs(script[1])) failures.push(`${relative}:inline:${result.line}: ${result.value}`);
+    }
   }
   for (const relative of DYNAMIC_PUBLIC) {
     const absolute = path.join(root, relative);
     if (!fs.existsSync(absolute)) { failures.push(`${relative}: missing dynamic public source`); continue; }
     for (const result of findVisiblePlayJs(fs.readFileSync(absolute, 'utf8'))) failures.push(`${relative}:${result.line}: ${result.value}`);
+  }
+  for (const relative of PUBLIC_JSON) {
+    const absolute = path.join(root, relative);
+    if (!fs.existsSync(absolute)) { failures.push(`${relative}: missing public JSON source`); continue; }
+    const parsed = JSON.parse(fs.readFileSync(absolute, 'utf8'));
+    for (const result of findVisiblePlayJson(parsed)) failures.push(`${relative}:${result.trail}: ${result.value}`);
   }
   return failures;
 }
@@ -76,5 +114,5 @@ if (invoked) {
     for (const failure of failures) console.error(`- ${failure}`);
     process.exit(1);
   }
-  console.log('PUBLIC UI LANGUAGE PASS — visitor-visible Play=0; technical media APIs preserved');
+  console.log('PUBLIC UI LANGUAGE PASS — visitor-visible Play/plays/played/playing=0; technical media APIs preserved');
 }
