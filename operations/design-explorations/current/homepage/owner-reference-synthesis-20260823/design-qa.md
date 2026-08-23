@@ -6,10 +6,12 @@
   - operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-01-primary-editorial.png — 864 × 1821 px.
   - operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-04-primary-structure.png — 842 × 1867 px.
 - Implementation: operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html.
-- Exact implementation SHA-256: 0c7764613dee6b93a21b8340e324e4b23675a68a7204f1f74c67a41688dc5e6d.
+- Exact implementation SHA-256: a26fea1398b68a9154b3d510e8de0c1183efbe41b3b993837abba1de89e27ac4.
 - Browser-rendered implementation:
-  - evidence/desktop-1440.png — 1440 × 900 px at a 1440 × 900 CSS viewport.
-  - evidence/mobile-390.png — 390 × 844 px at a 390 × 844 CSS viewport.
+  - evidence/desktop-1440.png — stable continuous 1440 × 5901 px page capture at a 1440 × 900 CSS viewport.
+  - evidence/mobile-390.png — stable continuous 390 × 9339 px page capture at a 390 × 844 CSS viewport.
+  - evidence/desktop-method-1440.png — 1440 × 900 px focused method capture.
+  - evidence/mobile-method-390.png — 390 × 844 px focused method capture.
   - evidence/owner-877x915.png — 877 × 915 px at an 877 × 915 CSS viewport.
   - evidence/first-session-ident-1440.png — 1440 × 900 px at a 1440 × 900 CSS viewport.
 - State: anonymous first visit unless the evidence name says otherwise. The dial-up ident was explicitly replayed.
@@ -23,7 +25,7 @@
 
 ## Focused comparison evidence
 
-- evidence/comparison-method-1440.png: the reference collage is shown against the corrected compact method band. Removing the five-image collage is the explicit owner correction, not accidental fidelity drift. The current band retains the approved method copy, adds the existing explanation and routes to the Visitor’s Centre.
+- evidence/comparison-method-1440.png: the reference collage is shown against the corrected compact method band. Removing the five-image collage is the explicit owner correction, not accidental fidelity drift. The current band retains the approved method copy and existing explanation and routes to the Visitor’s Centre.
 - evidence/comparison-news-1440.png: the current NewsStand preserves reference 1’s editorial composition while replacing generated newspaper content with a dated local Daily record and current desk states.
 - evidence/comparison-route-1440.png: the current route preserves the reference’s circular-image rhythm and expands it to the approved eight-stop order.
 - evidence/mobile-method-390.png: the complete method explanation is readable at 390 px with no image sequence and no horizontal clipping.
@@ -33,7 +35,7 @@
 - Fonts and typography: local Jost carries display and UI text; Georgia is limited to the newspaper headline. Desktop, owner and mobile wrapping is readable with no truncation.
 - Spacing and layout rhythm: the page uses distinct editorial compositions instead of repeating the incumbent block pattern. The method is one compact desktop band. Desktop and mobile report zero horizontal overflow.
 - Colors and visual tokens: bright pink, cyan, cobalt, coral, orange and lime carry the page below the dusk masthead. The rejected pale system and purple/yellow pairing are absent.
-- Image quality and asset fidelity: all environment and destination imagery uses real repository raster assets. The method deliberately contains no images. No placeholder art, emoji, inline SVG or CSS gradient art appears.
+- Image quality and asset fidelity: all environment and destination imagery uses real repository raster assets. The method contains one purpose-built text-free cyan, pink and purple pop-art texture and no Story/Analogy/Practice/Music/Community illustration tiles. No placeholder art, emoji, inline SVG or CSS gradient art appears.
 - Copy and content: the locked masthead and method copy are exact. Eight meaning-bearing sections declare their copy source. The previous invented Every building has a job and A Card, a Postcard and the radio are different things lines are absent. Visitor-visible Play is absent.
 
 ## Comparison history
@@ -50,7 +52,7 @@
 - Mobile: direct LIBRAiRY link visible; Menu opened and exposed six remaining routes; measured horizontal overflow was zero.
 - Arrival: appeared, paused to Resume arrival, and skipped successfully.
 - Console errors and warnings during the mobile menu check: zero.
-- Static proof checks: 19 real images; 8 copy-source bindings; no method images; no CSS gradients; no visitor-visible Play; no missing routes or asset files; inline script parsed.
+- Static proof checks: the rejected five-tile labels and markup are absent; the method uses one local raster background; no CSS gradients; no visitor-visible Play; no horizontal overflow at 1440 or 390; inline script parsed.
 
 ## Findings
 
