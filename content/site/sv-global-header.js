@@ -311,28 +311,9 @@
     })();
   }
 
-  // Account-backed continuation is shared across town. Load the idempotent
-  // bootstrap from the shared header so ordinary pages collect and restore only
-  // the explicitly supported private continuation fields.
-  function mountContinuation() {
-    if (window.LAIDIESResidentContinuationBootstrapV1 ||
-        document.querySelector('script[data-laidies-continuation-bootstrap]')) {
-      return;
-    }
-    var script = document.createElement('script');
-    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1';
-    script.async = true;
-    script.dataset.laidiesContinuationBootstrap = '1';
-    document.head.appendChild(script);
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      mount();
-      mountContinuation();
-    });
+    document.addEventListener('DOMContentLoaded', mount);
   } else {
     mount();
-    mountContinuation();
   }
 })();

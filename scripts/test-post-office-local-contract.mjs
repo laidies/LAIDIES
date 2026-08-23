@@ -19,6 +19,7 @@ const globalHeader = read("content/site/sv-global-header.js");
 const homepage = read("index.html");
 const previewHomepage = existsSync(resolve(root, "preview-homepage.html")) ? read("preview-homepage.html") : "";
 const chickFlicks = read("chick-flicks.html");
+const residentCard = read("resident-card.html");
 
 // A shared URL is a public identifier, never a container for a private note or handle.
 assert.match(postcard, /function postcardURL\(\)[\s\S]*?\?pc=/);
@@ -62,6 +63,7 @@ assert.match(postOffice, /The Post Office does not collect account email/i);
 assert.match(postOffice, /one place to request a private sign-in link/i);
 assert.match(postOffice, /does not prove that a message arrived, that an account was created, or that any state moved between devices/i);
 assert.match(postOffice, /Nothing has been submitted at this counter/i);
+assert.match(postOffice, />Request a private sign-in link<\/a>/i);
 assert.equal((postOffice.match(/href="\/resident-card\.html#rcAccountTitle"/g) || []).length, 1);
 assert.equal((postOffice.match(/type="email"/g) || []).length, 1);
 assert.match(postOffice, /<form id="po-newsletter-form" action="https:\/\/buttondown\.com\/api\/emails\/embed-subscribe\/laidies"[\s\S]*?<input id="po-email" type="email" name="email"/);
@@ -85,6 +87,11 @@ if (previewHomepage) {
 }
 assert.doesNotMatch(chickFlicks, /Get Wednesday delivery|Open a box at the Post Office/i);
 assert.match(chickFlicks, /Request the Wednesday newsletter/);
+assert.match(residentCard, /id="rcAccountTitle"/);
+assert.match(residentCard, /Request a sign-in link/);
+assert.match(residentCard, /does not\s+prove delivery, account creation, Card restoration or cross-device continuity/i);
+assert.doesNotMatch(residentCard, /explicitly claim it to a private account to restore supported state/i);
+assert.doesNotMatch(residentCard, /Keep this local Card with my account|Restore this Card to this browser|Pick up where I left off/);
 
 // The Post Office rack can only hand an admitted postcard identifier to the composer.
 const postcardIds = [...postcard.matchAll(/\{ id: '([^']+)'/g)].map((match) => match[1]);

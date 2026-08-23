@@ -89,7 +89,8 @@
     });
     var code = callbackCode();
     if (code) {
-      await controller.exchangeCode(code);
+      var callback = await client.auth.exchangeCodeForSession(code);
+      if (callback.error) throw callback.error;
       clearCallbackCode();
     }
     return Object.freeze({

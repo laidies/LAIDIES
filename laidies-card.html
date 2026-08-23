@@ -2536,7 +2536,7 @@
           return;
         }
         renderProfile(Object.assign({}, readCache(), patch));
-        saveBtn.textContent = 'Saved on this device — use the Resident Card desk for private account continuation';
+        saveBtn.textContent = 'Saved on this device — a sign-in-link request does not make it portable';
         setTimeout(function() {
           saveBtn.disabled = false;
           saveBtn.textContent = original;
@@ -2618,7 +2618,7 @@
     if (currentSession) {
       if (persistenceState) {
         persistenceState.textContent =
-          'Account-backed view: loading the supported private Card and continuation for this signed-in resident.';
+          'Controlled account preflight: checking the private Card fixture. Public account-backed Card continuation remains held.';
       }
       var own = await loadOwnProfile();
       if (own) {
@@ -2646,7 +2646,7 @@
       populateEditForm(cached);
       if (persistenceState) {
         persistenceState.textContent =
-          'Device-local view: sign in at the Resident Card desk to restore your private Card and supported continuation on another device. The Puffy Board and pouch are included; prompts, messages, drafts and other free-form activity stay in this browser.';
+          'Device-local view: this Closet shows only the Card and supported information saved in this browser. A sign-in-link request does not make it portable; prompts, messages, drafts and other free-form activity stay in this browser.';
       }
     }
 

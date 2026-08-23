@@ -24,6 +24,10 @@ const accountPage = fs.readFileSync(
   path.join(root, "content", "site", "resident-account-page-v1.js"),
   "utf8"
 );
+const accountRuntime = fs.readFileSync(
+  path.join(root, "content", "site", "resident-account-runtime-v1.js"),
+  "utf8"
+);
 const identityClient = fs.readFileSync(
   path.join(root, "content", "site", "identity-client-v1.js"),
   "utf8"
@@ -32,6 +36,15 @@ const maikeoverHelper = fs.readFileSync(
   path.join(root, "content", "site", "maikeover-v2.js"),
   "utf8"
 );
+const closetBridge = fs.readFileSync(
+  path.join(root, "content", "site", "closet-account-bridge-v1.js"),
+  "utf8"
+);
+const globalHeader = fs.readFileSync(
+  path.join(root, "content", "site", "sv-global-header.js"),
+  "utf8"
+);
+const newsstand = fs.readFileSync(path.join(root, "newsstand.html"), "utf8");
 
 const checks = [];
 function check(value, label) {
@@ -46,10 +59,17 @@ check(!/memberPassEmail|saveMemberPassButton/.test(page), "retired duplicate mem
 check(page.includes("resident-account-runtime-v1.js") && page.includes("resident-account-page-v1.js"), "single account desk loads the canonical private-account runtime");
 check((identityClient.match(/signInWithOtp\s*\(/g) || []).length === 1, "identity client owns one magic-link request path");
 check(accountPage.includes('byId("rcAccountEmail")') && accountPage.includes("requestMagicLink("), "account page wires the one email field to the identity client");
+check(page.includes("Request a sign-in link") && page.includes("does not yet make this Card portable"), "request-only account boundary is explicit");
+check(!/rcAccountClaimButton|rcAccountRestoreButton|rcAccountContinue/.test(page), "held claim, restore and continuation controls are absent");
+check(!/claimLocalCard|restoreRemoteCard|writeLocalEnvelope|ResidentContinuationV1/.test(accountPage), "public account page cannot claim, restore or sync continuation");
+check(!/runtime\.getState\(\)/.test(accountPage + closetBridge), "request and Closet surfaces do not fetch held remote Resident state");
+check(accountRuntime.includes("client.auth.exchangeCodeForSession(code)") && !accountRuntime.includes("controller.exchangeCode(code)"), "sign-in callback establishes a session without fetching held Resident state");
+check(accountPage.includes("Sign-in-link request accepted. Delivery has not been verified"), "provider acceptance does not claim message delivery");
 check(!/localStorage\.(?:setItem|getItem)\([^\n]*email/i.test(accountPage + identityClient), "email is not copied into local storage");
 check(!/card (?:can|will) save quiz scores|card (?:can|will) save stickers|card (?:can|will) sign posts|card (?:can|will) unlock rooms/i.test(page), "route does not grant progression or community authority");
 check(page.includes("A local handle is a draft label only") && page.includes("cannot sign posts, unlock rooms, publish a Card or authorize account data"), "local handle limits are explicit");
-check(page.includes("Signed-in continuation is limited to supported episode position") && page.includes("Public Cards and public reward ownership remain separate features"), "bounded continuation and public-feature limits are explicit");
+check(page.includes("Account-backed Cards, public Cards, reward ownership and cross-device continuation remain separate held features"), "account and public-feature holds are explicit");
+check(!page.includes("resident-continuation-v1.js"), "Resident Card does not load held continuation runtime");
 check(page.includes('role="status"') && page.includes('aria-live="polite"') && page.includes('aria-atomic="true"'), "status has accessible live semantics");
 check(runtime.includes("contract.read(window.localStorage)"), "status reads only through the shared projection");
 check(runtime.includes("textContent = value"), "runtime renders local values with textContent");
@@ -65,11 +85,14 @@ check(contract.includes('document.createElement("img")') && contract.includes("r
 check(maikeover.includes("One versioned envelope is the only authoritative local card write."), "MAiKEOVER keeps an atomic authoritative local write");
 check(maikeover.includes("LAIDIESResidentCard.buildEnvelope"), "MAiKEOVER writes only shared-contract envelopes");
 check(maikeover.includes('src="/content/site/resident-card-contract-v1.js'), "MAiKEOVER loads the shared contract");
-check(maikeover.includes("Saved only in this browser. It is not reserved or public."), "MAiKEOVER preserves local-handle truth");
+check(maikeover.includes("Saved only in this browser. It is not reserved, public or portable."), "MAiKEOVER preserves local-handle truth");
 check(maikeoverHelper.includes("contract.readHandle(window.localStorage)"), "MAiKEOVER validates its stored arrival handle through the shared contract");
 check(maikeoverHelper.includes("persistence.replaceChildren(label, detail)"), "MAiKEOVER renders its stored arrival handle through text-only DOM APIs");
 check(!maikeoverHelper.includes("persistence.innerHTML"), "MAiKEOVER stored handle cannot enter an HTML sink");
-check(closet.includes("Device-local view: sign in at the Resident Card desk to restore your private Card and supported continuation on another device."), "Closet preserves device-local persistence truth");
+check(closet.includes("Device-local view: this Closet shows only the Card and supported information saved in this browser"), "Closet preserves device-local persistence truth");
+check(!/writeLocalEnvelope|window\.location\.reload|restored the verified private Card/.test(closetBridge), "Closet bridge cannot auto-restore an unverified account-backed Card");
+check(!/mountContinuation|resident-continuation-bootstrap-v1/.test(globalHeader), "shared header cannot auto-mount held account continuation");
+check(!/resident-continuation-bootstrap-v1/.test(newsstand), "NewsStand cannot auto-mount held account continuation");
 check(closet.includes('src="/content/site/resident-card-contract-v1.js'), "Closet loads the shared contract");
 check(closet.includes("contract.read(localStorage)"), "Closet reads only through the shared projection");
 check(closet.includes("contract.replaceWithSafeImage"), "Closet delegates avatar rendering to the shared safe DOM helper");
