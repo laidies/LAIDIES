@@ -113,12 +113,16 @@ mapping and limit and rejects distortion before Ali review.
 
 ## Progress, saves, notes and identity
 
-- Reading/chapter progress is tracked. Signed-in residents receive durable
-  resume continuity. Anonymous reading remains available; local state may not
-  impersonate account or cross-device persistence.
-- Signed-in residents can privately highlight and annotate. Notes/highlights
-  require explicit storage, export, deletion, migration and account-revocation
-  behavior and never enter public search, analytics or shared links.
+- Reading/chapter progress is an intended account-backed capability, not
+  current launch truth. Once the shared identity and storage lifecycle are
+  proven, signed-in residents may receive durable resume continuity. Until
+  then, anonymous and Resident Card visitors receive only the separately
+  governed device-local behavior; local state may not impersonate account or
+  cross-device persistence.
+- Private signed-in highlighting and annotation remain product/technical
+  competition, not a current capability. Any successor requires explicit
+  storage, export, deletion, migration and account-revocation behavior and may
+  never enter public search, analytics or shared links.
 - A reader can save a whole book or exact section with one of her active ten
   Puffy stickers. My Closet reopens the exact scope without retracing the
   Library route.
