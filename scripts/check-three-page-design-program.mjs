@@ -9,6 +9,11 @@ const DEFAULT_MANIFEST = 'operations/design-programs/homepage-library-visitors-2
 const REQUIRED_PAGES = ['homepage', 'library', 'visitors-centre'];
 const REVIEWABLE = new Set(['READY_FOR_ADMISSION', 'ADMITTED_FOR_ALI_REVIEW']);
 const ADMITTED = 'ADMITTED_FOR_ALI_REVIEW';
+const RUNTIME_BASE = {
+  homepage: 'index.html',
+  library: 'library.html',
+  'visitors-centre': 'visitors-centre.html'
+};
 const TOKENS = {
   midnight: '#070f2b', ink: '#11183b', pink: '#f254a9', purple: '#7137d6',
   cyan: '#15bce0', cobalt: '#2457e6', sky: '#78c7ff', coral: '#ff7366',
@@ -69,7 +74,7 @@ function gitBytes(root, args) {
   catch { return null; }
 }
 
-function validateDirectionAdmission(root, candidate, label, errors) {
+function validateDirectionAdmission(root, candidate, label, pageName, errors) {
   const admission = candidate.admission;
   const candidateSha = (candidate.source_files || []).find(item => item.path === candidate.entry_path)?.sha256;
   if (!admission || admission.presentation_stage !== 'REPRESENTATIVE_DIRECTION') {
@@ -88,7 +93,12 @@ function validateDirectionAdmission(root, candidate, label, errors) {
   if (ownerViewport?.candidate_sha256 !== candidateSha) errors.push(`${label}: owner_877x915 screenshot is not bound to candidate SHA`);
   if (ownerViewport?.viewport?.width !== 877 || ownerViewport?.viewport?.height !== 915) errors.push(`${label}: owner_877x915 screenshot must bind the actual 877x915 owner viewport`);
   const checks = admission.objective_checks || {};
-  for (const key of ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass','exact_wordmark','full_section_coverage','live_content_binding','owner_viewport_primary_cta_visible','intermediate_composition_retained']) {
+  const pageChecks = pageName === 'homepage'
+    ? ['desktop_mobile_no_overflow','operable_targets_44px','public_play_absent','declared_routes_resolve','first_session_ident','reduced_motion_bypass','exact_wordmark','full_section_coverage','live_content_binding','owner_viewport_primary_cta_visible','intermediate_composition_retained']
+    : pageName === 'library'
+      ? ['desktop_mobile_no_overflow','operable_targets_44px','declared_routes_resolve','exact_wordmark','shared_header_mounted','fourteen_covers_visible','zero_open_actions','search_unclipped','preview_focus_return','prohibited_assets_absent']
+      : ['desktop_mobile_no_overflow','operable_targets_44px','declared_routes_resolve','exact_wordmark','shared_header_mounted','purpose_and_orientation_visible','prohibited_assets_absent'];
+  for (const key of pageChecks) {
     if (checks[key] !== 'PASS') errors.push(`${label}: objective check ${key} must PASS`);
   }
   const reviews = admission.independent_reviews || [];
@@ -98,9 +108,13 @@ function validateDirectionAdmission(root, candidate, label, errors) {
     if (!review.agent_id || review.role !== 'visual_experience' || review.verdict !== 'ADMIT' || review.candidate_sha256 !== candidateSha) {
       errors.push(`${label}: the independent visual-experience review must ADMIT the exact candidate`);
     }
-    if (review.comparison_basis !== 'SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE' || review.visible_regressions !== 0 || review.locked_decision_violations !== 0) errors.push(`${label}: independent review must compare same-viewport live/candidate renders with zero visible regressions or locked-decision violations`);
+    const expectedComparison = pageName === 'homepage' ? 'SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE' : 'SAME_VIEWPORT_CURRENT_LIVE_PAGE';
+    if (review.comparison_basis !== expectedComparison || review.visible_regressions !== 0 || review.locked_decision_violations !== 0) errors.push(`${label}: independent review must compare same-viewport live/candidate renders with zero visible regressions or locked-decision violations`);
     const surfaces = new Set(review.reviewed_surfaces || []);
-    for (const surface of ['desktop_1440','intermediate_900','mobile_390','owner_877x915','first_session_ident']) if (!surfaces.has(surface)) errors.push(`${label}: independent review missing surface ${surface}`);
+    const requiredSurfaces = pageName === 'homepage'
+      ? ['desktop_1440','intermediate_900','mobile_390','owner_877x915','first_session_ident']
+      : ['desktop_1440','mobile_390','owner_877x915'];
+    for (const surface of requiredSurfaces) if (!surfaces.has(surface)) errors.push(`${label}: independent review missing surface ${surface}`);
   }
   const maker = admission.maker_review || {};
   if (maker.candidate_sha256 !== candidateSha || maker.result !== 'PASS' || maker.known_defects_remaining !== 0 || maker.objective_defects_remaining !== 0 || maker.visible_issues_remaining !== 0) {
@@ -180,7 +194,7 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
       if (candidate.production_method !== 'repo_composition') errors.push(`${label}: production_method must be repo_composition`);
       if (candidate.runtime_base) {
         binding(root, candidate.runtime_base, `${label} runtime base`, errors);
-        if (pageName !== 'homepage' || candidate.runtime_base.path !== 'index.html') errors.push(`${label}: runtime base is only valid for the live Homepage proof`);
+        if (candidate.runtime_base.path !== RUNTIME_BASE[pageName]) errors.push(`${label}: runtime base must be ${RUNTIME_BASE[pageName]} for ${pageName}`);
       }
       const runtimeBaseRefs = new Set();
       if (candidate.runtime_base?.path) {
@@ -243,7 +257,7 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
           if ((git(root, ['status', '--porcelain', '--untracked-files=all', '--', page.tracked_root]) || '').length) errors.push(`${label}: tracked_root is dirty`);
         }
       }
-      if (candidate.status === ADMITTED) validateDirectionAdmission(root, candidate, label, errors);
+      if (candidate.status === ADMITTED) validateDirectionAdmission(root, candidate, label, pageName, errors);
     }
   }
   const knownBad = new Set(manifest.calibration?.known_bad_dependencies || []);
