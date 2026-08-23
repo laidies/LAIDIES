@@ -44,21 +44,13 @@ fs.writeFileSync(renderedPath, rendered);
 const artifactSha256 = crypto.createHash("sha256").update(rendered).digest("hex");
 const evidenceRelativePath = "content/library-books/correction-propagation-learning-evidence.md";
 const evidencePath = path.join(root, evidenceRelativePath);
-fs.writeFileSync(evidencePath, "Observed synthetic participant completed lookup, explain-back, correction and unseen-transfer tasks.\n");
-const receiptRelativePath = "content/library-books/correction-propagation-cold-reader.json";
-const receiptPath = path.join(root, receiptRelativePath);
-const task = (kind, locator) => ({ kind, verdict: "PASS", prompt: `Complete the ${kind} task.`, observedResponse: "The participant used the source and preserved the correction boundary.", expectedEvidence: "A source-bound answer and explicit correction state.", artifactLocator: locator });
-fs.writeFileSync(receiptPath, `${JSON.stringify({
-  schemaVersion: "library-book-cold-reader-review.v1",
-  artifactSha256,
-  reviewMode: "ARTIFACT_FIRST_COLD",
-  makerReceiptsOpenedAfterColdRead: true,
-  verdict: "ADMISSION_CANDIDATE",
-  reverseBrief: { readerJob: source.readerJob, centralMentalModel: "Claims remain provisional until checked against evidence.", practicalPayoff: "A correction demotes stale bytes everywhere.", readingMode: "Short procedure" },
-  readerTasks: [task("LOOKUP", "#check-the-claim"), task("EXPLAIN_BACK", "#check-the-claim"), task("UNSEEN_TRANSFER", "#record-the-result"), task("CORRECTION", "#record-the-result")],
-  nonCompensableVetoes: Object.fromEntries(["openingOrientation", "promiseFidelity", "connectedProgression", "lookupAndRecovery", "unseenTransfer", "analogyIntegrity", "audienceExamples", "misconceptionResistance", "materialAccuracy", "continuousRenderedReadability", "laidiesVoice"].map(key => [key, "PASS"])),
-  participantEvidencePaths: [evidenceRelativePath]
-}, null, 2)}\n`);
+fs.writeFileSync(evidencePath, [
+  `Verdict: **PASS for the exact artifact** \`${artifactSha256}\`.`,
+  "Verdict: **ADMISSION CANDIDATE**.",
+  "Evidence type: **STRUCTURED_ARTIFACT_FIRST_REVIEW**.",
+  "Human research: **NOT PERFORMED**. This is a simulated-reader and browser audit.",
+  `Exact artifact: \`${artifactSha256}\`.`
+].join("\n\n") + "\n");
 fs.writeFileSync(path.join(root, "content/library-books/rejected-artifacts.json"), `${JSON.stringify({ schema_version: "library-rejected-artifacts.v1", authority: "DIRECT_ALI_REJECTION_DEFAULT_DENY", artifacts: [] }, null, 2)}\n`);
 const binding = relative => ({ path: relative, sha256: crypto.createHash("sha256").update(fs.readFileSync(path.join(root, relative))).digest("hex") });
 const fixtureDirectory = path.resolve("operations/test-fixtures/library-corrections");
@@ -77,14 +69,13 @@ const manifest = {
     correction_state: "clear",
     artifact_sha256: artifactSha256,
     learning_admission: {
-      schema_version: "library-book-learning-admission.v2",
+      schema_version: "library-book-learning-admission.v3",
       artifact_sha256: artifactSha256,
       learning_intake: binding(evidenceRelativePath),
       architecture_evidence: binding(evidenceRelativePath),
       instructional_verdict: binding(evidenceRelativePath),
-      unfamiliar_reader_verdict: binding(evidenceRelativePath),
+      usability_verdict: binding(evidenceRelativePath),
       canonical_source: binding(sourceRelativePath),
-      cold_reader_outcome: binding(receiptRelativePath),
       criteria: Object.fromEntries(["governing_reader_question", "single_causal_mental_model", "truthful_scannable_architecture", "coherent_scope", "recurring_worked_case", "mapped_analogies_with_limits", "nonduplicative_concept_relationships", "synthesis_and_retention_map", "useful_next_experience", "maintenance_and_currentness_contract"].map(key => [key, "PASS"])),
       ali_rejection_state: "clear",
       derivative_use: "allowed"
@@ -211,7 +202,7 @@ fs.mkdirSync(path.join(compilerFixtureRoot, "content/library-books/sources"), { 
 fs.copyFileSync(renderedPath, path.join(
   compilerFixtureRoot, "content/library-books/rendered/verification-rulebook.html"
 ));
-for (const relative of [sourceRelativePath, evidenceRelativePath, receiptRelativePath, "content/library-books/rejected-artifacts.json"]) {
+for (const relative of [sourceRelativePath, evidenceRelativePath, "content/library-books/rejected-artifacts.json"]) {
   fs.copyFileSync(path.join(root, relative), path.join(compilerFixtureRoot, relative));
 }
 fs.writeFileSync(path.join(compilerFixtureRoot, "content/library-books/admission-manifest.json"),

@@ -43,10 +43,10 @@ try {
     { path: 'keep.html', bytes: 4, sha256: keepSha },
   ]);
   const scope = {
-    schema: 'laidies.sunday-production-scope.v1',
+    schema: 'laidies.production-scope.v2',
     project: 'laidies-sunnyvaile',
     productionBranch: 'homepage-redesign',
-    baseCommit: 'bf70d026de69a28ed702b759e17214ba4420d4ae',
+    baseCommit: 'e044ca899dfea867ba10f770cc99a0b8e32c100a',
     baseArtifactIdentitySha256: base.identitySha256,
     candidateArtifactIdentitySha256: candidate.identitySha256,
     allowedChanges: [
@@ -101,7 +101,7 @@ try {
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /preserved production path drifted/);
 
-  console.log('SUNDAY RELEASE SCOPE CALIBRATION: PASS · exact _worker.js restoration admitted · unrelated addition, stale hash, missing removal verification and preserved-path drift rejected');
+  console.log('PRODUCTION RELEASE SCOPE CALIBRATION: PASS · exact bound addition admitted · unrelated addition, stale hash, missing removal verification and preserved-path drift rejected');
 } finally {
   fs.rmSync(temporaryDirectory, { recursive: true, force: true });
 }

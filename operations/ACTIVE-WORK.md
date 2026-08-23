@@ -4,22 +4,22 @@
 
 ## Current task
 
-- **Task ID:** LAIDIES-24H-PUBLIC-RECOVERY-20260822
+- **Task ID:** LIBRARY-FOUR-BOOK-PUBLICATION-20260823
 - **Status:** BUILDING
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
-- **Updated:** 2026-08-22 America/Vancouver
-- **Goal:** Restore execution from this clean authority lane and make every safely shippable LAiDIES visitor journey work publicly within 24 hours.
-- **Acceptance:** Current approved work is reconciled without rejected or historical design bytes; every shipped increment is built, locally verified, path-scoped committed, pushed, deployed and verified at `laidies.ai`; any journey that cannot safely ship is named `HOLD` with its exact blocker and next trigger.
-- **Current step:** All eight 2026-08-22 Homepage/LIBRAiRY/Visitor source briefs are reconciled into the compact routed authorities. The operating/design guard is committed and pushed at `504a3adbfe01c3486f5d3dcf2ec0a72e4cf17644`. The release candidate is committed and pushed at `38c27516f8cb4ddc678025e245f15753db49536b`, removes every visitor-visible exact use of Ali's banned word `Play`, preserves technical media APIs, and is bound as artifact `87c2be42d34d5809a9650c4976809ebcedd3de7c8674e8af9f5a8312b469cd19`: 42 exact public changes, 6 removals and 11 exact production paths preserved. Scope, controller, public-language, Homepage, LIBRAiRY, Blend & Snap, NewsStand, KSVL, Miss Jeeves, Daily, link and inline-JS gates pass. PR #83 exposed one controller regression before merge: the reset workflow omitted newer `main` safeguards for deployment identity polling and conflicting provider metadata. The reconciled successor now passes both the Sunday controller calibration and those current-main assertions locally. Nothing is deployed or publicly verified yet.
-- **Next action:** Commit and push the reconciled controller successor, update PR #83 to the exact workflow bytes, require its CI to pass, merge the one-file controller installation, bind repository variables to the exact source, dispatch once, and verify the immutable deployment plus `laidies.ai`. Homepage visual production resumes only after this release checkpoint, from the admitted three-direction program.
+- **Updated:** 2026-08-23 America/Vancouver
+- **Goal:** Publish AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary as the four opening LIBRAiRY books.
+- **Acceptance:** The exact four rendered books and selected accepted visuals pass source/artifact admission, current factual and usability review, responsive navigation, accessible Save Book/Chapter/Section journeys, Miss Jeeves discovery, a zero-removal production scope, protected release control, immutable deployment verification and custom-domain verification at `laidies.ai`.
+- **Current step:** The clean release candidate is built and locally admitted. Ali declined paid/formal unfamiliar-reader research; `operations/library-decisions.md` now requires truthful artifact-first instructional/usability review without labelling simulations as observed humans. All four exact books pass the calibrated v3 admission checker. The public artifact identity is `7e2aed508ef99590a1377b2d4ff18b9bebb57033b0e7a5a22826d54eec7f34cb`: 23 exact public changes, zero removals and 17 critical deployed paths preserved. The Library product suite, active-asset gate, Miss Jeeves gate, production-scope calibration and controller calibration pass locally. Nothing from this candidate is deployed or publicly verified yet.
+- **Next action:** Commit and push the exact candidate, merge it to `main` through the protected GitHub route, bind `PRODUCTION_CONTROLLER_SHA` to the exact merged controller commit, dispatch the Ali-authorized exact artifact, and verify the immutable deployment and `laidies.ai` before marking complete.
 
 ## Boundaries
 
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This blueprint task made no source-checkout writes.
-- Recovery lane: `/Users/alisoneakin/Projects/laidies-context-reset-20260818`
-- Starting commit: `cee1127f622a07ab17e5aeab7c48ca381bfad3e7`
-- Branch: `codex/context-reset-20260818`
+- Recovery lane: `/tmp/laidies-library-release.AEjqSu`
+- Deployed starting commit: `e044ca899dfea867ba10f770cc99a0b8e32c100a`
+- Branch: `release/library-four-books-20260823`
 - No reset, clean, deletion of source work, unrelated provider mutation, or
   spend is authorized. Ali authorized incremental live deployment on 2026-08-22;
   release still requires exact-commit deployment and public-origin verification.

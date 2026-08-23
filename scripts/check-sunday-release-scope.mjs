@@ -50,23 +50,22 @@ const scope = readJson(scopePath);
 const baseFiles = toMap(base, 'base');
 const candidateFiles = toMap(candidate, 'candidate');
 
-if (scope?.schema !== 'laidies.sunday-production-scope.v1' || scope.project !== 'laidies-sunnyvaile' || scope.productionBranch !== 'homepage-redesign') {
-  throw new Error('invalid Sunday production scope');
+if (scope?.schema !== 'laidies.production-scope.v2' || scope.project !== 'laidies-sunnyvaile' || scope.productionBranch !== 'homepage-redesign') {
+  throw new Error('invalid production scope');
 }
-if (scope.baseCommit !== 'bf70d026de69a28ed702b759e17214ba4420d4ae' ||
+if (scope.baseCommit !== 'e044ca899dfea867ba10f770cc99a0b8e32c100a' ||
     scope.baseArtifactIdentitySha256 !== base.identitySha256 ||
     scope.candidateArtifactIdentitySha256 !== candidate.identitySha256) {
-  throw new Error('Sunday scope is not bound to the exact base and candidate artifacts');
+  throw new Error('production scope is not bound to the exact base and candidate artifacts');
 }
 if (!Array.isArray(scope.allowedChanges) || !scope.allowedChanges.length || !Array.isArray(scope.preservedPaths) || !Array.isArray(scope.verificationPaths) || !Array.isArray(scope.removedPaths)) {
-  throw new Error('Sunday scope is incomplete');
+  throw new Error('production scope is incomplete');
 }
 
 const allowed = new Map();
 for (const row of scope.allowedChanges) {
   const artifactPath = normalized(row?.path);
-  if (allowed.has(artifactPath) || !['ADD', 'MODIFY', 'REMOVE'].includes(row?.operation) ||
-      (row.operation === 'ADD' && artifactPath !== '_worker.js')) {
+  if (allowed.has(artifactPath) || !['ADD', 'MODIFY', 'REMOVE'].includes(row?.operation)) {
     throw new Error(`invalid or duplicate allowed change: ${artifactPath}`);
   }
   const validHashes = row.operation === 'ADD'
@@ -88,19 +87,19 @@ for (const artifactPath of [...new Set([...baseFiles.keys(), ...candidateFiles.k
   const operation = !before ? 'ADD' : !after ? 'REMOVE' : 'MODIFY';
   actualChanges.push({ path: artifactPath, operation, baseSha256: before?.sha256 || null, candidateSha256: after?.sha256 || null });
 }
-if (!actualChanges.length) throw new Error('Sunday candidate has no public changes');
-if (actualChanges.length !== allowed.size) throw new Error('Sunday candidate change count does not match the exact scope');
+if (!actualChanges.length) throw new Error('production candidate has no public changes');
+if (actualChanges.length !== allowed.size) throw new Error('production candidate change count does not match the exact scope');
 for (const change of actualChanges) {
   const expected = allowed.get(change.path);
   if (!expected || expected.operation !== change.operation || expected.baseSha256 !== change.baseSha256 || expected.candidateSha256 !== change.candidateSha256) {
-    throw new Error(`Sunday candidate has an unbound public change: ${change.path}`);
+    throw new Error(`production candidate has an unbound public change: ${change.path}`);
   }
 }
 
 const removed = new Set(scope.removedPaths.map(normalized));
 const expectedRemoved = new Set(actualChanges.filter(change => change.operation === 'REMOVE').map(change => change.path));
 if (removed.size !== scope.removedPaths.length || removed.size !== expectedRemoved.size || [...removed].some(item => !expectedRemoved.has(item))) {
-  throw new Error('Sunday removed-path verification set does not match the exact removals');
+  throw new Error('production removed-path verification set does not match the exact removals');
 }
 for (const row of scope.preservedPaths) {
   const artifactPath = normalized(row?.path);
@@ -114,7 +113,7 @@ for (const item of scope.verificationPaths) {
 }
 
 const receipt = {
-  schema: 'laidies.sunday-release-scope-receipt.v1',
+  schema: 'laidies.production-release-scope-receipt.v2',
   result: 'PASS',
   baseCommit: scope.baseCommit,
   baseIdentitySha256: base.identitySha256,
@@ -128,4 +127,4 @@ if (receiptPath) {
   fs.mkdirSync(path.dirname(path.resolve(receiptPath)), { recursive: true });
   fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
 }
-console.log(`SUNDAY RELEASE SCOPE: PASS · ${actualChanges.length} exact public changes · ${removed.size} removals · ${scope.preservedPaths.length} production paths preserved`);
+console.log(`PRODUCTION RELEASE SCOPE: PASS · ${actualChanges.length} exact public changes · ${removed.size} removals · ${scope.preservedPaths.length} production paths preserved`);
