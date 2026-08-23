@@ -14696,7 +14696,7 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How one beautiful night image nearly made an entire learning town feel closed after dark.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
 
-## BTB-478 — First-fold evidence can admit a broken page below the fold
+## BTB-481 — First-fold evidence can admit a broken page below the fold
 
 - **Date:** 2026-08-23
 - **Area:** Homepage full-page composition, responsive intent routing and design admission.
@@ -14705,4 +14705,26 @@ while remaining falsely unfinished in the launch record.
 - **Prevention rule:** Homepage admission requires continuous desktop/mobile renders plus targeted intermediate-menu and returning-state pixels. Every required visitor job must be visible without an unexplained gesture; dated publication content must use honest freshness language; tested personalization must also be visibly captured.
 - **Durable correction:** Candidate `4a39b8ab…` stacks all five mobile jobs, adds a visible shared-menu scroll affordance, labels the NewsStand items as the newest published stories with dates visible, and proves Episode 03 continuation separately from the Episode 04 default. The exact successor passed the calibrated three-page program, admission fixtures and an independent pixel-first recheck with zero visible regressions or locked violations, then was pushed in source commit `66956b0d…`. It remains an owner-review artifact and is not deployed.
 - **Possible Behind the Build angle:** Why a perfect hero screenshot can hide a broken Homepage three scrolls later.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-479 — A source commit is not a safe release baseline when the live artifact contains uncommitted bytes
+
+- **Date:** 2026-08-23
+- **Area:** Visitor’s Centre postcard handoff and exact-artifact release control.
+- **Failure:** The Visitor’s Centre correction changed one route and two short copy lines, but rebuilding the recorded production source would also have removed four live LIBRAiRY assets and reverted the live LIBRAiRY HTML. The recorded source commit and deployed artifact were not reproducible equivalents.
+- **Root cause:** The prior production artifact contained newer LIBRAiRY bytes than its recorded source commit. The dependency crawler correctly followed the older committed HTML, so a fresh build silently excluded the background and three shelf-sign images that only the deployed HTML referenced.
+- **Prevention rule:** Before any incremental release, regenerate the recorded base manifest and require exact identity with production. If it differs, use the last exact deployed artifact as the base, bind every preserved path, and permit only the intended candidate delta. Never treat a commit label or successful builder exit as proof that unchanged production bytes are preserved.
+- **Durable correction:** The prior exact artifact `d189d747…` was recovered and re-manifested at 561 files. The successor changed only `visitors-centre.html` and `build-report.json`; the calibrated scope rejected a false candidate hash and admitted exact artifact `ced19564…`. Source `6edea2ac5fd9110900cd66b7f52cd162cc6fdbaa` and deployment `5a16a1a7-ed3f-4349-bc1c-ea680101ea20` matched at both public origins. Live browser clicks reached `/post-office#rack`, rendered the held-rack truth and produced zero console errors. The unrecorded historic LIBRAiRY source state remains a separate reproducibility repair; no LIBRAiRY production byte was changed here.
+- **Possible Behind the Build angle:** Why a three-line webpage fix nearly deleted four unrelated live images.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-480 — Plausible filenames and fresh-looking labels are not Homepage truth
+
+- **Date:** 2026-08-23
+- **Area:** Homepage destination art, NewsStand preview and directory composition.
+- **Failure:** The Homepage successor repeatedly selected plausible but wrong destination images, called old Daily records “newest,” and arranged short street groups in cards with large empty fields. Those defects were already preventable from the current design-program asset roles, NewsStand dates and canonical directory data.
+- **Root cause:** The producer treated filename recency and visual plausibility as asset authority, then reviewed component presence instead of the exact meaning, freshness and packed composition visible to a visitor.
+- **Prevention rule:** Before Homepage rendering, bind every destination image to the exact current design-program or curation role, compute the reader-facing freshness state from the admitted record date, and render canonical directory groups in a layout that cannot create empty card canvas. A successor cannot reach owner review until a pixel-first reviewer independently rejects the known-bad stale-label and dead-space fixtures.
+- **Durable correction:** Corrected-8 uses the exact Post Office, KSVL and Delta paths named by current authority; labels Aug 6 and Aug 3 material as archive and says no current Daily is filed; packs MAiN, Civic and the four cross streets without empty card fields; and binds all 17 exact destinations plus six current activities. Its first independent pass rejected the stale Daily/dead-space defects; the successor review then admitted exact candidate `e5ce9605…` with zero visible blockers.
+- **Possible Behind the Build angle:** Why “latest-looking” news and “latest-proof” artwork can both be wrong even when every file loads.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
