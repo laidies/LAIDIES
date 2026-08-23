@@ -95,6 +95,17 @@ the successor:
   Career/Work-Life Tip and Promptoscope—with honest empty states for anything
   missing. Each item and the module itself have clear routes to the full
   NewsStand. No fixed visual-candidate headline may impersonate `Latest`.
+- Keep `What is happening now` distinct from `What is new since your last
+  visit`. The second job is a cross-town change feed covering released chapter
+  updates, newly admitted books, published episodes, new features and other
+  verified public site changes. The Homepage shows only a concise preview and
+  links to the complete change list at the NewsStand.
+- A signed-in visitor may eventually receive a personalized change list based
+  on an account-backed last-seen boundary. Until Identity and Platform prove
+  that boundary, signed-out and unproved states show a public recent-changes
+  fallback plus a truthful sign-in invitation; they never claim to know what
+  the visitor has or has not seen. Browser visit timestamps, a Resident Card or
+  a token alone are not proof of account-backed last-seen state.
 - `What brought you to town today?` remains the visitor-intent organizer, but
   every choice needs enough explanatory text to say what the visitor will get
   and where it goes. It must expose real starting points such as the latest
