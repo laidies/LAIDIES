@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `63774d48-9ae5-4901-95ad-b06f8ebf4725`, deployed source `012f40b4b51fd4795bbda00fb0150c41d7774648`, artifact identity `96dd8950abf2fc60dea322afd7fddf43c3c656b1af075e773330925ab0469b4f`, immutable URL `https://63774d48.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; 18 exact public changes, nine protected paths, the complete visitor-visible `Play`-family ban and the prior Card/Closet truth were publicly verified on 2026-08-23. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `71ef51c7-874c-4e7d-a421-52d1edf589ed`, deployed source `b5ecb6da8c91a1380b7ed2e0216f74e06b62b9bc`, artifact identity `cf863aa6e76e764f559dd9932e630f2f00514035847cd57f8a639d49256d3f1d`, immutable URL `https://71ef51c7.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; three exact public modifications and 11 protected production paths were verified on 2026-08-23. DJ SunnyV’s Booth now consumes canonical KSVL by registry ID with no local audio owner or direct source ledger; the prior public language, Card/Closet and shared-entry truth remains checksum-preserved. |
 | Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, ten public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, and the separately verified MAiKEOVER/NewsStand receivers. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, the separately verified MAiKEOVER/NewsStand receivers, and the canonical KSVL-backed DJ Booth. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -34,6 +34,13 @@ is recorded here.
   public language and mobile NewsStand rendering, and was verified at both
   public origins. Exact scope and proof live in
   `operations/release-control/SUNDAY-RELEASE-CUT-2026-08-23.md`.
+- DJ SunnyV’s Booth now consumes the admitted KSVL catalogue by exact registry
+  ID and delegates every audio action to the canonical KSVL deck. The former
+  hard-coded seven-track `Audio()` owner, direct music paths and mini-player
+  dependency are absent. Held-catalogue, admitted selection, decoded audio,
+  pause, seek, repeat, media-error, retry and one-audio cases passed before
+  release; the exact public journey then passed at both origins and at
+  1440/390/320 without changing the Booth’s room art or layout.
 - Homepage, LIBRAiRY and Visitor's Centre directions are pushed review
   candidates only. None may be described as deployed until Ali chooses it, the
   selected bytes are integrated into the production path, a scoped release is
@@ -98,26 +105,28 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `012f40b4b51fd4795bbda00fb0150c41d7774648` |
-| Artifact identity | `96dd8950abf2fc60dea322afd7fddf43c3c656b1af075e773330925ab0469b4f` |
-| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,461 bytes |
-| Exact public scope | 18 modifications / 0 additions / 0 removals / 9 protected production paths |
+| Deployed source | `b5ecb6da8c91a1380b7ed2e0216f74e06b62b9bc` |
+| Artifact identity | `cf863aa6e76e764f559dd9932e630f2f00514035847cd57f8a639d49256d3f1d` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,485,873 bytes |
+| Exact public scope | 3 modifications / 0 additions / 0 removals / 11 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `63774d48-9ae5-4901-95ad-b06f8ebf4725` |
-| Immutable URL | `https://63774d48.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `71ef51c7-874c-4e7d-a421-52d1edf589ed` |
+| Immutable URL | `https://71ef51c7.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T12:35:42Z`; all 26 directly fetchable verification paths matched the curated artifact exactly at both origins, and `_worker.js` was verified through successful JSON responses from `/api/miss-jeeves`. The complete public-language scan passed at both origins across 72 entrypoints, 11 deployed dynamic sources and four public JSON sources; representative browser pages had zero visible variants and the active Watch OSD rendered `WATCHING`. |
-| Exact scope | `operations/release-control/public-language-production-scope-20260823.json` |
-| Rollback deployment | `0875285d-b47d-4d9a-a586-508b660ec894` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+| Public verification | completed `2026-08-23T13:43:19Z`; all three changed artifact paths and 11 protected production paths matched the curated artifact exactly at both origins, and `_worker.js` returned successful Miss Jeeves JSON at both. The live Booth rendered seven admitted selections, decoded the existing art and exact selected KSVL audio, showed one active selection and no competing mini-player, paused through canonical KSVL with zero browser exceptions, and had no horizontal overflow at 1440/390/320. The first custom-domain image check ran before its async image finished; an immediate network-idle retry decoded the exact 1920×1080 source. |
+| Exact scope | `operations/release-control/ksvl-dj-booth-production-scope-20260823.json` |
+| Rollback deployment | `63774d48-9ae5-4901-95ad-b06f8ebf4725` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
 
 The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `2284b17a-1f5f-46bd-8fce-d384af1a814e` and
 `250060a3-7164-4abf-8f2b-54dd9f55f0e7` and
 `8769da59-d4de-4633-9e39-3527fa3b56e9` and
-`0875285d-b47d-4d9a-a586-508b660ec894` are superseded, not current. Wrangler
-reported a dirty-worktree warning solely because the isolated release source
-contained untracked `node_modules`; the deployed source commit, artifact
-manifest and public bytes are exact and independently bound above.
+`0875285d-b47d-4d9a-a586-508b660ec894` and
+`63774d48-9ae5-4901-95ad-b06f8ebf4725` are superseded, not current. The DJ
+Booth deployment explicitly marked the workspace dirty because the disclosed
+user-owned `scripts/test-codex-hook-guards.mjs` modification remained excluded;
+the exact release scope, artifact manifest and public bytes are independently
+bound above.
 
 ## Historical 2026-07-26 production release record
 

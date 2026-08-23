@@ -14629,3 +14629,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The desktop rack is now scoped only to Homepage proof entry `04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2`; the text-free mobile Daily object permits that same bounded proof while live HTML/JavaScript retains all publication names, jobs, state and actions. The independent pixel-first successor review reports zero visible regressions and zero locked violations.
 - **Possible Behind the Build angle:** Why “we already approved that image” does not answer whether it belongs on this page.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-473 — Loading the shared player does not prevent a page from creating a competing one
+
+- **Date:** 2026-08-23
+- **Area:** DJ SunnyV’s Booth and canonical KSVL audio ownership.
+- **Failure:** The Booth loaded `content/site/ksvl-player.js` but still maintained its own hard-coded seven-track list, detached `Audio()` object, preloads, controls and mini-player dependency. A track could therefore drift outside KSVL admission or compete with the town’s canonical audio owner even though the shared player appeared in the page source.
+- **Root cause:** The earlier check treated script inclusion and truthful copy as integration evidence; it did not inspect which component selected sources, created audio or owned failure/retry state.
+- **Prevention rule:** Every cross-town listening surface selects an admitted KSVL registry ID and delegates audio/control state to the canonical KSVL API. A calibrated guard rejects page-local `new Audio()`, direct `/content/music/` paths and competing mini-player dependencies; browser proof must show a held registry creates zero audio and an admitted selection produces one canonical owner with visible failure and retry.
+- **Durable correction:** The Booth now keeps its existing room, track cards and controls while consuming exact KSVL IDs. Static calibration rejected the old architecture; the full KSVL suite passed held, admitted, media-error, retry and single-audio cases. Source `b5ecb6da8c91a1380b7ed2e0216f74e06b62b9bc`, artifact `cf863aa6e76e764f559dd9932e630f2f00514035847cd57f8a639d49256d3f1d` and deployment `71ef51c7-874c-4e7d-a421-52d1edf589ed` then matched at both public origins, with real decoded selected audio, canonical pause state, decoded room art and no 1440/390/320 overflow.
+- **Possible Behind the Build angle:** Why importing the “right” player did not stop a second invisible audio system from running beside it.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
