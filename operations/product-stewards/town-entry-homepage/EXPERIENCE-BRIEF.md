@@ -60,6 +60,34 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
   failures receive the static masthead immediately.
 - Navigation and primary actions never wait for the animation.
 
+## Returning signed-in orientation
+
+- First-time, signed-out and unproved visitors receive the complete LAiDIES
+  method and SUNNYVAiLE explanation in the locked comprehension sequence.
+- A verified signed-in returning visitor receives that same explanation
+  collapsed behind one clear `How LAiDIES and SUNNYVAiLE work` title. The
+  visitor can expand it in place; no explanation is removed or made
+  inaccessible.
+- Automatic collapse requires both a proved account identity and a proved
+  prior-visit boundary. A token, Resident Card, browser history, local visit
+  timestamp or missing state cannot activate it alone. Identity failure falls
+  back to the complete first-time explanation.
+- The masthead itself gives returning visitors an obvious sign-in action and
+  explains the benefit: signing in is how the Homepage can show verified
+  personalized changes since the visitor's last account-backed visit. The
+  action is not hidden in the header or below the fold. The public masthead may
+  not promise this result until sign-in, last-seen and change-feed lifecycle
+  proof passes end to end.
+- For the Wednesday episode entrance, a verified signed-in returning visitor
+  sees the most recent still-published episode she was actually in and a resume
+  route to that episode. A first-time, signed-out, missing, invalid, held,
+  withdrawn or unproved progress state falls back to the latest published
+  episode. Draft Episode 05 or any other unreleased episode is never eligible.
+- Episode memory requires one account-backed progress record with the exact
+  episode identity, supported resume location, update time and invalidation
+  behavior. A route visit, browser history, token, Resident Card or local tour
+  mark alone cannot promote an episode as `where you left off`.
+
 ## Locked comprehension sequence
 
 The top of the page must explain these ideas in this order:

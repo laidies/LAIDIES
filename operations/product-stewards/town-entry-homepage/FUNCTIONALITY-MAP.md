@@ -14,7 +14,10 @@ local route are not enough to promote a receiver as working.
 | Homepage job | Current status | Safe visitor action | Prohibited implication |
 |---|---|---|---|
 | Current public Homepage baseline | `PUBLICLY_VERIFIED` | New in town?; Start learning; Explore the town | The admitted redesign is not deployed or owner-approved |
+| Returning signed-in explanation collapse | `HOLD` pending account-backed identity + prior-visit proof | First-time/unproved: full explanation; proved returning account: collapsed `How LAiDIES and SUNNYVAiLE work` title with expansion | No collapse from token presence, Resident Card, browser history or local visit timestamp alone |
+| Masthead returning sign-in value | Design required; personalized result `HOLD` | Visible masthead sign-in action explains that verified returning accounts receive changes since their last account-backed visit | No public promise of personalization until sign-in, last-seen and change-feed lifecycle pass end to end |
 | Latest published episode | `PUBLICLY_VERIFIED` | Read Episode 04 · The Founding Mothers | No draft Episode 05, Wednesday-currentness or complete weekly-experience claim |
+| Returning signed-in episode resume | `HOLD` pending account-backed progress producer/store/consumer | Proved returning account: resume the most recent still-published episode; every other state: latest published episode | No `where you left off` claim from a visit, browser history, token, Resident Card or local tour mark; no held/draft/withdrawn episode |
 | Homepage → released NewsStand archive and truthful current state | `PUBLICLY_VERIFIED` | Check the NewsStand; Read the NewsStand; visit the NewsStand directory route | Never label it latest/current without a new admitted record; no current Homepage adapter is proved |
 | Breaking / Daily / Paige / Career / Promptoscope | `MISSING_RECEIVER` | Honest current-news empty state plus archive | No live/fresh service claim |
 | What is new since your last visit | Public recent-changes feed `MISSING`; signed-in personalized projection `HOLD` | Show verified recent public changes; invite sign-in for future personalization | No claim that LAiDIES knows what a visitor saw until an account-backed last-seen boundary and complete change inventory pass end to end |
@@ -71,6 +74,13 @@ above, the current projection above wins.
 | Resident Card — device-local | No validated homepage projection is established | Static Card/Closet copy; other shared local keys | No deliberate owned variant | Local continuation only after validation | Same device only | Show public baseline and exact limitation | MISSING DELIBERATE STATE |
 | Resident Card — verified account-backed | Supabase-shaped token reader in shared auth script; no complete Card proof | Email-derived initials if target exists | Intended resident link/resume only | No new write in entry | Account/cross-device not proved here | Expiry/parser failure returns guest | NOT PROVED |
 
+The returning-orientation and episode-resume transitions are therefore
+deliberately held. They need `verified account + prior visit → collapsed
+explanation → expand in place → sign out/expiry/revoke → full explanation` and
+`verified account + valid published episode progress → resume episode → finish
+or invalidate → latest published fallback`, including second-tab/device and
+storage/service failure cases.
+
 Required transition tests remain open: first→return, visitor→Card, local
 Card→account, sign-out/expiry/revoke, storage denial/corruption, two tabs,
 second device, conflict/migration, Card update/delete and privacy reset.
@@ -81,6 +91,7 @@ second device, conflict/migration, Card update/delete and privacy reset.
 |---|---|---|---|---|---|---|---|
 | Published episode | Episode production/release | `homepage.js` | Static build/hosting | `content/episode-index.json` | Homepage, Chick Flicks, Watch, weekly surfaces | public artifact | Named local states pass; exact release freshness open |
 | Atomic current-episode record | Weekly Episodes `EPX-HOME-CURRENT-EPISODE-v1` | Separate Homepage current-episode module | Platform checksum/public-proof validation | Immutable complete record + bound fallback | Town Entry presentation, KSVL/card routes only when non-null and admitted | exact release artifact | SPECIFIED / QUEUED; current code mixes projection card with hard-coded Episode 04 state |
+| Account-backed episode progress | Episode reader/listener only after supported progress event | Missing Homepage resume adapter | Identity/progress service missing | Versioned account record: published episode ID, supported resume location, updated time and invalidation | Homepage Wednesday episode entrance; episode receiver | account | HOLD; no authoritative producer/store/consumer exists |
 | News publication state | NewsStand editorial/release | Missing homepage adapter | NewsStand pipeline | Admitted publication/correction record TBD | Homepage and NewsStand | public artifact | D-043 specified; integration missing |
 | Site change feed | Release/product owners | Missing Homepage and NewsStand adapter | Release/change pipeline missing | Versioned public change record covering chapters, books, episodes, features and other public releases | Homepage compact preview; NewsStand complete list | public; optional account projection | Public feed MISSING; account-backed last-seen producer/store/consumer HOLD |
 | Destination readiness | Product owners + release | Missing shared adapter | Portfolio/release system | Public-promise registry is documentary, not runtime authority | Homepage, Centre, directory | release evidence | Freshness-bound projection missing |
