@@ -260,6 +260,15 @@ Buttons say what will happen:
 * Make my Resident Card
 * Send me the Wednesday Postcard
 
+The visitor-visible words **Play**, **plays**, **played** and **playing** are
+banned across the site. Name the real action instead: **Listen**, **Start
+listening**, **Resume listening**, **Try**,
+**Open**, **Use**, **Start the episode**, or **FAiRY allowance**, according to
+what actually happens. **Pause** may remain where it is the real media state.
+This rule applies to visible copy, labels, titles, placeholders and accessible
+names. It does not rename technical media APIs, events, identifiers, analytics
+keys or CSS classes such as `.play()`, the `play` event or `is-playing`.
+
 Do not use “Learn more” when the destination has a name. Do not make a link
 look like a button in one place and plain underlined text in another without a
 real hierarchy reason. Actions grouped together use the same height, shape and

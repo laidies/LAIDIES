@@ -72,7 +72,7 @@ window.RECEIPTS_STORIES = [
     subject: "Furby",
     truth: "fake",
     difficulty: "med",
-    claim: "It turned out the NSA was right — teardowns found a hidden chip inside Furbies that recorded audio and played it back later.",
+    claim: "It turned out the NSA was right — teardowns found a hidden chip inside Furbies that recorded audio and repeated it later.",
     says: {
       receipts: "I've looked for that teardown for years. There's no report, no photo of a “recording chip,” nothing. Because it doesn't exist.",
       data: "Furbies ran on about 200 pre-programmed words on a timer. No microphone-to-memory, no recording capability. The teardown shows a speaker, not a recorder.",
@@ -151,7 +151,7 @@ window.RECEIPTS_STORIES = [
     why: "Receipts has the <b>Reuters photo</b>, Data has the <b>court details (Judge Hardcastle, Maple the Bear first)</b>, Boundary confirms. Converges on the public record. Real — Wildcard just can't remember which toy.",
     sources: [
       { label: "Snopes — divorcing couple dividing Beanie Babies", url: "https://www.snopes.com/fact-check/couple-divorce-beanie-babies/" },
-      { label: "Las Vegas Sun — Judge plays Solomon with Beanie Babies", url: "https://lasvegassun.com/news/1999/nov/05/judge-plays-solomon-with-beanie-babies/" }
+      { label: "Las Vegas Sun — Judge divides Beanie Babies", url: "https://lasvegassun.com/news/1999/nov/05/judge-plays-solomon-with-beanie-babies/" }
     ],
     verified: "2026-07-14"
   },

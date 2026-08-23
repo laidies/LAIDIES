@@ -1361,7 +1361,7 @@ const hiddenMeritBadges = {
     sticker: "ALIBI",
     source: "The Wednesday Ritual",
     unlockMessage:
-      "CHECKED THE ALIBI unlocked. You read, practiced, checked yourself, saved the useful pieces, opened THE EXTRA CREDIT, and played the anthem. Elle would allow it.",
+      "CHECKED THE ALIBI unlocked. You read, practised, checked yourself, saved the useful pieces, opened THE EXTRA CREDIT, and listened to the anthem. Elle would allow it.",
   },
 };
 
