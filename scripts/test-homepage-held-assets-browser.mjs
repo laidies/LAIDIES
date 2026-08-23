@@ -16,6 +16,15 @@ const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Conte
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const homepageScriptSource = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");
 const globalHeaderSource = fs.readFileSync(path.join(root, "content/site/sv-global-header.js"), "utf8");
+const headerMountSources = ["library.html", "watch.html"].map((file) => ({
+  file,
+  source: fs.readFileSync(path.join(root, file), "utf8")
+}));
+const calibratedHeaderMountSources = process.env.CALIBRATE_SHARED_HEADER_MOUNT_FAILURE === "1"
+  ? headerMountSources.map((entry, index) => index === 0
+    ? {...entry, source: entry.source.replace('<header class="sv-header"></header>', '')}
+    : entry)
+  : headerMountSources;
 const falsePublicPromises = [
   "The complete weekly experience",
   "a new episode and its learning activities arrive every Wednesday",
@@ -134,6 +143,8 @@ check(globalMobileLibraryShortcutSource.includes('class="svgh-library-mobile" hr
   globalMobileLibraryShortcutSource.includes('class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
   globalMobileLibraryShortcutSource.includes('class="svgh-panel-join" href="/maikeover.html">Join the town</a>'),
   "shared header has no direct mobile LIBRAiRY shortcut, still crowds it with account actions, has an undersized Menu, or loses mobile account routes");
+check(calibratedHeaderMountSources.every((entry) => entry.source.includes('<header class="sv-header"></header>')),
+  "a public page loads the shared header controller without mounting the canonical header");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
 check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
@@ -327,6 +338,28 @@ try {
       await context.close();
     }
   }
+  for (const width of [1440, 390, 320]) {
+    for (const route of ["/library.html", "/watch.html"]) {
+      const context = await browser.newContext({viewport:{width, height:900}});
+      const page = await context.newPage();
+      page.on("pageerror", (error) => failures.push(`${route} ${width}px page error: ${error.message}`));
+      await page.goto(`${origin}${route}`, {waitUntil:"domcontentloaded"});
+      const header = page.locator('header.sv-header[data-svgh-mounted="1"]');
+      check(await header.count() === 1, `${route} ${width}px did not mount the canonical shared header`);
+      const mobileLibraryShortcut = page.locator('header .svgh-library-mobile[href="/library.html"]');
+      if (width <= 760) {
+        check(await mobileLibraryShortcut.isVisible() && await mobileLibraryShortcut.evaluate((link) => {
+          const rect = link.getBoundingClientRect();
+          return rect.width >= 44 && rect.height >= 44;
+        }), `${route} ${width}px mounted header lacks the direct 44px LIBRAiRY shortcut`);
+      } else {
+        check(await mobileLibraryShortcut.isHidden(), `${route} ${width}px mobile-only LIBRAiRY shortcut leaked into desktop`);
+      }
+      check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
+        `${route} ${width}px overflows after mounting the shared header`);
+      await context.close();
+    }
+  }
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
@@ -337,4 +370,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,direct-mobile-library-shortcut,shared-mobile-library-shortcut,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 shared-header-mounts=2 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,direct-mobile-library-shortcut,shared-mobile-library-shortcut,canonical-header-mounts,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
