@@ -9,7 +9,9 @@ REAL-SERVICE GAPS REMAIN
 truth table inspected 2026-07-26; the bounded same-device Card save → reload →
 Closet identity-panel journey was publicly verified at both origins on
 2026-08-23. The public Card query boundary and generic text-only not-found state
-were deployed and exact-byte verified at both origins on 2026-08-23. No current
+were deployed and exact-byte verified at both origins on 2026-08-23. MAiKEOVER's
+device-local handle arrival state now uses the same strict reader and text-only
+DOM construction and was exact-byte verified at both origins. No current
 real-account, provider, real public-profile or cross-device test was performed.
 
 ## Intended system result
@@ -40,7 +42,7 @@ login, membership, synced ownership or public identity.
 | Capability/object | Producer(s) | Current store/service | Closet consumer/result | Current truth | Missing backend/integration |
 |---|---|---|---|---|---|
 | Resident Card and visible local Closet edits | MAiKEOVER and Closet editor | Versioned `laidies_resident_card_v1` browser-local envelope | Card/Closet restore on this device | Independent local Repair 2 passed atomic write, restore and failure behavior; deployment `0875285d-b47d-4d9a-a586-508b660ec894` publicly preserved save, reload, doorway restoration and exact identity-field render at both origins while hiding unproved progression surfaces | Account migration/sync, merge/conflict and second-device restoration remain unverified |
-| Account profile, handle and visibility | MAiKEOVER/Resident Card | Supabase Auth, profile/RPC/RLS paths | Own Closet identity and restricted public Card/Closet modes | One intended email/magic-link desk is preserved. Code, migrations and deterministic privacy fixtures exist; malformed/ambiguous query rejection is deployed. Real service journey not accepted | Controlled email/auth, handle conflict, logout/login, visibility revoke, two-account RLS and second-device suite |
+| Account profile, handle and visibility | MAiKEOVER/Resident Card | Supabase Auth, profile/RPC/RLS paths | Own Closet identity and restricted public Card/Closet modes | One intended email/magic-link desk is preserved. Code, migrations and deterministic privacy fixtures exist; malformed/ambiguous query rejection is deployed. MAiKEOVER reads the device-local handle through the shared strict contract and renders it with text nodes. Real service journey not accepted | Controlled email/auth, handle conflict, logout/login, visibility revoke, two-account RLS and second-device suite |
 | Puffy book/section saves | LIBRAiRY | Canonicalized device-local Puffy records | Puffy Board reopens/removes exact valid book/section | Representative Library → Closet → exact section → remove journey verified locally | Account/cross-device save sync, merge/delete propagation and stale-content reconciliation |
 | Puffy sticker pouch/preferences | Closet/Library | Browser-local Puffy preference records | Ten selected Puffy controls available on save surfaces | 10/10 selection and filtering verified locally | Account portability is not implemented/proven; all consuming save surfaces need version compatibility |
 | Wednesday route/check-ins | Episode/town stops and Closet route controls | Browser-local weekly tour state | Weekly route vessel and local progress summary | Local mechanics exist | One released-week authority, semantic completion events, dedupe/reset, source-page proof and any account sync |
@@ -104,6 +106,8 @@ The same-device Resident Card envelope and its Closet identity-panel handoff
 are publicly verified at both origins; the representative Puffy round trip has
 bounded local evidence. The public query boundary is also deployed: hostile or
 ambiguous handles are rejected before lookup and are never reflected as HTML.
+The same validated handle boundary now protects MAiKEOVER's persistent
+arrival-state rendering; this is not proof of a public or account-backed handle.
 Accurate device-local copy is temporary truth, not the intended completion.
 Account restoration, real public-profile lookup, cross-device progression, shared
 rewards, Book Fair delivery, FAiRY Plays, BEST FRIENDS referrals and several
