@@ -11,6 +11,7 @@ if (!playwrightRoot) throw new Error("Set PLAYWRIGHT_CORE_PATH to the playwright
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const directorySource = fs.readFileSync(path.join(root, "content/site/sunnyvaile-directory.js"), "utf8");
+const projectionSource = fs.readFileSync(path.join(root, "content/site/readiness/v1/entry-readiness-projection.v1.json"), "utf8");
 const evidenceDir = path.resolve(
   process.env.VISITORS_CENTRE_EVIDENCE_DIR ||
   path.join(root, "operations", "product-stewards", "visitors-centre", "evidence-repair-1-2026-07-26")
@@ -49,13 +50,6 @@ async function context(options = {}) {
       Object.defineProperty(window, "localStorage", { get() { throw new DOMException("blocked", "SecurityError"); } });
     });
   }
-  if (options.missingContractId) {
-    await ctx.addInitScript((id) => {
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector(`#vc-directory-fallback [data-vc-id="${id}"]`)?.closest("li")?.remove();
-      }, { capture: true });
-    }, options.missingContractId);
-  }
   await ctx.route("**/*", (route) => {
     const url = route.request().url();
     if (!url.startsWith(origin)) return route.abort();
@@ -70,6 +64,17 @@ async function context(options = {}) {
             .replace("SAiNT themes on rotation", "STALE MECHANIC SENTINEL")
         });
       }
+    }
+    if (options.missingContractId && url.includes("/content/site/readiness/v1/entry-readiness-projection.v1.json")) {
+      const envelope = JSON.parse(projectionSource);
+      envelope.payload.destinations = envelope.payload.destinations.filter(
+        (item) => item.destinationId !== options.missingContractId
+      );
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json; charset=utf-8",
+        body: JSON.stringify(envelope)
+      });
     }
     if (options.noMap && url.includes("/assets/final_map/")) return route.abort();
     return route.continue();
@@ -181,19 +186,14 @@ try {
   const stalePage = await stale.newPage();
   await stalePage.goto(`${origin}/visitors-centre.html`, { waitUntil: "domcontentloaded" });
   await stalePage.locator("#vc-directory option").nth(17).waitFor({ state: "attached" });
-  for (const [id, state, phrase] of [
-    ["ksvl-radio", "limited", "does not prove a track played"],
-    ["fairy-godmother", "held", "not approved for promotion"],
-    ["sunnyvaile-high", "held", "not a durable learning record"],
-    ["maikeover", "held", "cross-device"],
-    ["town-hall", "held", "not proof of reading"],
-    ["dream-phone", "held", "remain under review"],
-    ["post-office", "limited", "does not confirm delivery"]
+  for (const id of [
+    "ksvl-radio", "fairy-godmother", "sunnyvaile-high", "maikeover",
+    "town-hall", "dream-phone", "post-office"
   ]) {
     await stalePage.locator("#vc-directory").selectOption(id);
-    check(await stalePage.locator("#vc-card-state").getAttribute("data-state") === state,
+    check(await stalePage.locator("#vc-card-state").getAttribute("data-state") === "unavailable",
       `${id} reveal has the wrong current state`);
-    check((await stalePage.locator("#vc-card-list").innerText()).includes(phrase),
+    check((await stalePage.locator("#vc-card-list").innerText()).includes("Current readiness could not be verified"),
       `${id} reveal omits its current limitation`);
   }
   const staleText = await stalePage.locator("#vc-building-card").innerText();
@@ -202,8 +202,8 @@ try {
   check(!staleText.includes("STALE MECHANIC SENTINEL"),
     "reveal rendered stale shared mechanics");
   await stalePage.locator("#vc-directory").selectOption("fairy-godmother");
-  check((await stalePage.locator("#vc-card-enter").innerText()).includes("check status"),
-    "held destination navigation is not distinct from readiness/completion");
+  check((await stalePage.locator("#vc-card-enter").innerText()).includes("check current status"),
+    "unavailable destination navigation is not distinct from readiness/completion");
   await stale.close();
 
   const missingContract = await context({ missingContractId: "ksvl-radio" });
@@ -211,9 +211,9 @@ try {
   await missingContractPage.goto(`${origin}/visitors-centre.html`, { waitUntil: "domcontentloaded" });
   await missingContractPage.locator("#vc-directory option").nth(17).waitFor({ state: "attached" });
   await missingContractPage.locator("#vc-directory").selectOption("ksvl-radio");
-  check(await missingContractPage.locator("#vc-card-state").getAttribute("data-state") === "held",
-    "missing destination contract does not fail held");
-  check((await missingContractPage.locator("#vc-card-line").innerText()).includes("details are unavailable"),
+  check(await missingContractPage.locator("#vc-card-state").getAttribute("data-state") === "unavailable",
+    "missing destination contract does not fail unavailable");
+  check((await missingContractPage.locator("#vc-card-line").innerText()).includes("Open the named route only"),
     "missing destination contract invents a current summary");
   check((await missingContractPage.locator("#vc-card-list").innerText()).includes("navigation, not completion"),
     "missing destination contract does not bound navigation");

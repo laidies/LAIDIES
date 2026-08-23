@@ -53,8 +53,8 @@ for (const building of canonical) {
   check(decodeHtml(fallback?.name || "") === building.name, `static/shared name mismatch for ${building.id}`);
 }
 
-check(!/data-vc-state=|data-vc-summary=|data-vc-limitation=/.test(page),
-  "manual destination status prose remains embedded in the route");
+check(!/data-vc-summary=|data-vc-limitation=/.test(page),
+  "manual destination summary or limitation prose remains embedded in the route");
 for (const stalePhrase of [
   "Motion films remain held",
   "Product direction and evidence-game promotion remain under review",
