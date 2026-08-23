@@ -14555,3 +14555,33 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Chrome shutdown now waits through `Browser.close`, `SIGTERM` and `SIGKILL` before retrying profile removal. The 320-pixel rack uses a 15-pixel Big Picture title and a shifted job field that passes all 225 rendered NewsStand checks on macOS and Linux. The controller uses `/tmp/laidies-candidate-site`, its calibrated test rejects the known in-repository path, and the fix is merged to `main`. Exact source `e044ca899dfea867ba10f770cc99a0b8e32c100a` deployed as artifact `d7d27bd6c95bf133177ca1a7e94796fbb83fe8d2edfdf22dd181b94f9a32bd41`; immutable and custom-domain bytes, six 404 removals and Miss Jeeves JSON all verified publicly.
 - **Possible Behind the Build angle:** Why passing every website test still did not mean the deployment pipeline could move the files.
 - **Publication status:** PRODUCTION CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-468 — Objective-check labels can hide stale pixels and unsupported public truth
+
+- **Date:** 2026-08-23
+- **Area:** Visitor’s Centre and LIBRAiRY direction admission.
+- **Failure:** The Visitor direction carried an unsupported claim that written
+  class previews were open. The LIBRAiRY direction claimed 44px controls and no
+  mobile overflow while its evidence predated the actual shelf-width repair and
+  the rendered desktop Menu was only 29px high.
+- **Root cause:** The gate required `PASS` strings for objective checks but did
+  not inspect the exact proof content or CSS that those strings described. A
+  source hash could change without forcing fresh section pixels or a new
+  independent review of the real rendered result.
+- **Prevention rule:** A design admission must read the exact candidate source
+  for locked copy/order, current-owner imagery and high-risk responsive rules;
+  calibrate those checks by corrupting the real pattern; measure rendered target
+  geometry; and bind fresh non-stitched desktop/mobile section captures after
+  any source change. Availability words such as open, released or available
+  require a current owner binding.
+- **Durable correction:** Visitor now truthfully labels Future classes and the
+  class tapes still in production; its 76-check browser suite and refreshed
+  visual review pass. LIBRAiRY now constrains every mobile shelf to the viewport,
+  renders all visible header targets at least 44px, and passes exact 1440, 877
+  and 390 browser journeys with 14 covers, zero Open actions and focus return.
+  The three-page validator rejects missing Visitor order/images/truth and
+  missing LIBRAiRY entries/mobile fit/44px rules. The site visual lock now binds
+  one canonical header and rendered 44px target evidence.
+- **Possible Behind the Build angle:** Why a green accessibility checkbox did
+  not stop a 29-pixel Menu—or a sentence the product was not allowed to claim.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTIONS / NOT DEPLOYED.

@@ -2,7 +2,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { validateProgram, visitorProofErrors } from './check-three-page-design-program.mjs';
+import { libraryProofErrors, validateProgram, visitorProofErrors } from './check-three-page-design-program.mjs';
 
 const root = process.cwd();
 const manifestPath = 'operations/design-programs/homepage-library-visitors-20260822.json';
@@ -13,6 +13,13 @@ const sha = value => crypto.createHash('sha256').update(value).digest('hex');
 
 function expectVisitorProofFailure(name, source, expected) {
   const errors = visitorProofErrors(source);
+  if (!errors.some(error => error.includes(expected))) {
+    throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
+  }
+}
+
+function expectLibraryProofFailure(name, sources, expected) {
+  const errors = libraryProofErrors(sources);
   if (!errors.some(error => error.includes(expected))) {
     throw new Error(`${name}: expected ${expected}; got ${errors.join(' | ')}`);
   }
@@ -45,6 +52,27 @@ try {
     'visitor-unsupported-class-availability',
     visitorProofSource.replace('The class tapes are still in production.', 'The written class previews are open; the class tapes are still in production.'),
     'unsupported class availability'
+  );
+
+  const libraryCssPath = path.join(root, 'operations/design-explorations/current/library/live-base-proof-20260822/proof.css');
+  const libraryJsPath = path.join(root, 'operations/design-explorations/current/library/live-base-proof-20260822/proof.js');
+  const libraryProof = { css: fs.readFileSync(libraryCssPath, 'utf8'), js: fs.readFileSync(libraryJsPath, 'utf8') };
+  const libraryBaseline = libraryProofErrors(libraryProof);
+  if (libraryBaseline.length) throw new Error(`Library proof baseline failed: ${libraryBaseline.join(' | ')}`);
+  expectLibraryProofFailure(
+    'library-missing-entry-choice',
+    { ...libraryProof, js: libraryProof.js.replace('Browse the shelves', 'Missing second choice') },
+    'entry choices'
+  );
+  expectLibraryProofFailure(
+    'library-mobile-shelf-overflow',
+    { ...libraryProof, css: libraryProof.css.replace('left:0;right:auto;width:100%', 'left:5%;right:5%;width:auto') },
+    'mobile shelf width'
+  );
+  expectLibraryProofFailure(
+    'library-undersized-header',
+    { ...libraryProof, css: libraryProof.css.replaceAll('min-height:44px', 'min-height:29px') },
+    '44px header'
   );
 
   const baseline = validateProgram({ root, manifestPath, verifyGit: false });
@@ -170,7 +198,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

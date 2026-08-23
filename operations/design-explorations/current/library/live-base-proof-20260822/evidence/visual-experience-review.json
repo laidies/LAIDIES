@@ -4,7 +4,7 @@
     "id": "library-live-base-proof-20260822",
     "entry_path": "operations/design-explorations/current/library/live-base-proof-20260822/index.html",
     "entry_sha256": "84bd56c293d2487f290a7e3555c59036dce2e5a42e341e6e2b91e350b20ad9c1",
-    "pushed_commit": "a9bb8e1b86a0997fcaa3a8dc723017f4bbb14073",
+    "pushed_commit": "f93ef21576df49390f5fb780bc9d46ba0660d676",
     "pushed_ref": "refs/heads/codex/context-reset-20260818"
   },
   "review": {
@@ -15,26 +15,38 @@
     "verdict": "ADMIT",
     "visible_regressions": 0,
     "locked_decision_violations": 0,
+    "total_issues": 0,
     "reviewed_surfaces": [
       "desktop_1440",
       "mobile_390",
-      "owner_877x915"
+      "owner_877x915",
+      "reference_desk_desktop_1440",
+      "reference_desk_mobile_390",
+      "browse_desktop_1440",
+      "browse_mobile_390",
+      "101s_desktop_1440",
+      "101s_mobile_390",
+      "tools_desktop_1440",
+      "tools_mobile_390",
+      "reference_shelf_desktop_1440",
+      "reference_shelf_mobile_390"
     ],
     "verbatim_result": "ADMIT — locked-decision violations: 0; visible regressions: 0.",
-    "finding": "The successor visibly proves both entry jobs, explicit Home/Menu header at all supplied widths, and all 14 identifiable covers across three grounded, railed physical rooms (101s 4; Tools 6; Reference 4). Mobile preserves readable controls and intentional shelf composition without a card grid, purple-yellow pairing, CSS-art substitute, or horizontal-overflow evidence."
+    "finding": "The corrected direction visibly proves both Ask and Browse entry jobs, the exact LAiDIES and LIBRAiRY treatment, a visible Home/Menu header with 44px controls, and all 14 identifiable covers across three grounded physical shelf rooms (101s 4; Tools 6; Reference 4). At 390px both shelf-case edges remain in frame with no visible crop or overflow. No public Open action, retired asset, purple-yellow pairing, or generic white/black panel regression is visible.",
+    "prevention_rule": "Require a 390px section capture for every shelf after any width or header change, with both case edges and all header controls in frame."
   },
   "candidate_screenshots": {
     "desktop_1440": {
       "path": "operations/design-explorations/current/library/live-base-proof-20260822/evidence/desktop-1440.png",
-      "sha256": "8d5f3317c1f07648a106eb852dd8a1a1aa462afd5fc3334c16186a74467817cf"
+      "sha256": "00f7beec9c1887aacc7a02ac3544c32710010081dc578ca906683651391cc2cd"
     },
     "mobile_390": {
       "path": "operations/design-explorations/current/library/live-base-proof-20260822/evidence/mobile-390.png",
-      "sha256": "bf0d5a08cc3f99f3ba4fa029cdc72887a295ff30f77c683bd9afd3a9e46667c4"
+      "sha256": "b8de9683ce188662cd145649ff54f17b8c0b213af40cbafb9c532a91007483e5"
     },
     "owner_877x915": {
       "path": "operations/design-explorations/current/library/live-base-proof-20260822/evidence/owner-877x915.png",
-      "sha256": "5807daeea5cbaa661d5ce907413a39571dd98ef67c903c7e4b68393ad90c41f6",
+      "sha256": "5cc3a2099c9cb4d038d5ae53ee244b3fc7127488c81b00df17ae0b93bbab39b4",
       "viewport": { "width": 877, "height": 915 }
     }
   },
@@ -49,16 +61,16 @@
     }
   },
   "continuous_journey_evidence": [
-    { "candidate": "section-reference-desk-desktop-1440.png", "candidate_sha256": "9e86fc2d649a30109f4078e8189bf87501da5b0e03ed25d1cf6a2d65e0df0cd2", "incumbent": "incumbent-section-reference-desk-desktop-1440.png", "incumbent_sha256": "cfe0aefbeb0330a847230d1892a96b15b91ecd75870340fac83b18fed53de571" },
-    { "candidate": "section-browse-desktop-1440.png", "candidate_sha256": "8337ca56e1b49f58db153e4866b7f5994e3a86f2a8f086eae79d0262531caafd", "incumbent": "incumbent-section-browse-desktop-1440.png", "incumbent_sha256": "6acc9129db300164da71922900a76e253c28b8dc29d89137e8e602374ca3dc72" },
-    { "candidate": "section-101s-desktop-1440.png", "candidate_sha256": "ef32347ce42da2633ed03905f830c5f046878844b707e8bfe1f65d253d70d1af", "incumbent": "incumbent-section-101s-desktop-1440.png", "incumbent_sha256": "3ba49c395da1d342f2d10ecec01eef90bf9086ef754f852fa8f74da375ac3a56" },
-    { "candidate": "section-tools-desktop-1440.png", "candidate_sha256": "4b7db1fb484b8f5b04d88b03c3408939316b14fa5be07b130677a91e4aabd568", "incumbent": "incumbent-section-tools-desktop-1440.png", "incumbent_sha256": "7751347b172df3b8fd99ff4a2d6124890a6cd0d16223356aed09f5edd275e127" },
-    { "candidate": "section-reference-shelf-desktop-1440.png", "candidate_sha256": "f607fd582ae9da01385a73e0f9dfc7c606a60a81a3a20acfcbf48d4421ba261e", "incumbent": "incumbent-section-reference-shelf-desktop-1440.png", "incumbent_sha256": "90d8475ff8e6907bc30564fad40ec88db4584d12ab214f4d8107e574c1fba0bb" },
-    { "candidate": "section-reference-desk-mobile-390.png", "candidate_sha256": "3ad360549e6c94ea923ab0eda83fdc0419600ae5f012b60407f9a6e0b00ea76d", "incumbent": "incumbent-section-reference-desk-mobile-390.png", "incumbent_sha256": "401a4ff96b9a1625a0464cc70fb8ec0a104708e1451d7eaa15b4559b83799fce" },
-    { "candidate": "section-browse-mobile-390.png", "candidate_sha256": "3c411c0ed1a5999e9ed5b273de103112c8be85f270f37349e9142135af6af1fc", "incumbent": "incumbent-section-browse-mobile-390.png", "incumbent_sha256": "214249425c2a941437eec0d80871ed0107313c28b13a726f62903ef86b5acba0" },
-    { "candidate": "section-101s-mobile-390.png", "candidate_sha256": "8014a5f3feb77e6e03700dfcccb5c8f9e21b10d3ed4d0845f482731a71c1acf5", "incumbent": "incumbent-section-101s-mobile-390.png", "incumbent_sha256": "6de93526475d8af86f7d7068bbce67aea4c376cd1a8c102d62335f46b63c2aa7" },
-    { "candidate": "section-tools-mobile-390.png", "candidate_sha256": "0600a08136769360dfbf674306fc89d25bd07f72e9529bda297d3e7361c4367b", "incumbent": "incumbent-section-tools-mobile-390.png", "incumbent_sha256": "f783a67d3c84bd933b36c63dbcd6623a3f9a523d4380ca19f19feef1cd83e726" },
-    { "candidate": "section-reference-shelf-mobile-390.png", "candidate_sha256": "8e8985fd2dd5e102893a9348098e835337925810a90090a7e0b2d573b78dabbb", "incumbent": "incumbent-section-reference-shelf-mobile-390.png", "incumbent_sha256": "67d3f714ec2e24085c7770487ea956290784c83913709e4dc78368b5dbe61172" }
+    { "candidate": "section-reference-desk-desktop-1440.png", "candidate_sha256": "e4cd8fb6bfcf0bc6c5b3b87aabfe2e2e1c70d96e659e65d617e81e1f9720c8a3", "incumbent": "incumbent-section-reference-desk-desktop-1440.png", "incumbent_sha256": "cfe0aefbeb0330a847230d1892a96b15b91ecd75870340fac83b18fed53de571" },
+    { "candidate": "section-browse-desktop-1440.png", "candidate_sha256": "d8e2e0e9d46ca55362c19140dde235ef13a56c8f7a270f7d35fe7033310605a9", "incumbent": "incumbent-section-browse-desktop-1440.png", "incumbent_sha256": "6acc9129db300164da71922900a76e253c28b8dc29d89137e8e602374ca3dc72" },
+    { "candidate": "section-101s-desktop-1440.png", "candidate_sha256": "84946026db742447be9956224b17d98de809f7a40adbc468b38ff8e5427b12ce", "incumbent": "incumbent-section-101s-desktop-1440.png", "incumbent_sha256": "3ba49c395da1d342f2d10ecec01eef90bf9086ef754f852fa8f74da375ac3a56" },
+    { "candidate": "section-tools-desktop-1440.png", "candidate_sha256": "f76e97f5e2bf561c058e65a39b6de997b929731401f14ef6d2dca77490498027", "incumbent": "incumbent-section-tools-desktop-1440.png", "incumbent_sha256": "7751347b172df3b8fd99ff4a2d6124890a6cd0d16223356aed09f5edd275e127" },
+    { "candidate": "section-reference-shelf-desktop-1440.png", "candidate_sha256": "699a0cab8c743cc0b4d4941c2ec49d31f7ee138787c784017ad1c0fd43caca3a", "incumbent": "incumbent-section-reference-shelf-desktop-1440.png", "incumbent_sha256": "90d8475ff8e6907bc30564fad40ec88db4584d12ab214f4d8107e574c1fba0bb" },
+    { "candidate": "section-reference-desk-mobile-390.png", "candidate_sha256": "de1c5c4caa69d3cb4898fed3af3a35c48a83c77cf25a340f4e2f843bf75f78d3", "incumbent": "incumbent-section-reference-desk-mobile-390.png", "incumbent_sha256": "401a4ff96b9a1625a0464cc70fb8ec0a104708e1451d7eaa15b4559b83799fce" },
+    { "candidate": "section-browse-mobile-390.png", "candidate_sha256": "773be6c2e4be45ce5ebff713f47d063766701291e757d59a13457b2dd8f6161e", "incumbent": "incumbent-section-browse-mobile-390.png", "incumbent_sha256": "214249425c2a941437eec0d80871ed0107313c28b13a726f62903ef86b5acba0" },
+    { "candidate": "section-101s-mobile-390.png", "candidate_sha256": "3b94afc32cccaf7415246da514af87b9bd5a712305d2761a1dfc2b2d849ffd86", "incumbent": "incumbent-section-101s-mobile-390.png", "incumbent_sha256": "6de93526475d8af86f7d7068bbce67aea4c376cd1a8c102d62335f46b63c2aa7" },
+    { "candidate": "section-tools-mobile-390.png", "candidate_sha256": "f126c75d2b608b97e7748c53fa3a464ea276374822987a6a4e368353623c900b", "incumbent": "incumbent-section-tools-mobile-390.png", "incumbent_sha256": "f783a67d3c84bd933b36c63dbcd6623a3f9a523d4380ca19f19feef1cd83e726" },
+    { "candidate": "section-reference-shelf-mobile-390.png", "candidate_sha256": "370d44a7e62989c541fba480680148496824661f8aaed399a4876cc2bc7d4b62", "incumbent": "incumbent-section-reference-shelf-mobile-390.png", "incumbent_sha256": "67d3f714ec2e24085c7770487ea956290784c83913709e4dc78368b5dbe61172" }
   ],
   "maker_observations": {
     "visible_book_covers": 14,
@@ -68,6 +80,8 @@
     "search_result_count": 2,
     "focus_return_target": "accounts-101",
     "horizontal_overflow_at_390": false,
+    "header_targets_44px": true,
+    "shelf_case_edges_in_frame_at_390": true,
     "full_page_stitch_evidence": "REMOVED_INVALID_BROWSER_STITCH_DUPLICATED_SECTIONS_AND_GAPS"
   },
   "scope_truth": {

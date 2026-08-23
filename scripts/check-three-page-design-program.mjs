@@ -92,6 +92,24 @@ export function visitorProofErrors(source) {
   return errors;
 }
 
+export function libraryProofErrors({ css, js }) {
+  const errors = [];
+  const ask = js.indexOf('Ask Miss Jeeves');
+  const browse = js.indexOf('Browse the shelves');
+  if (ask < 0 || browse < 0 || browse <= ask || !js.includes('href="#miss-jeeves"') || !js.includes('href="#shelf-guide-title"')) {
+    errors.push('Ask Miss Jeeves and Browse the shelves entry choices are missing or out of order');
+  }
+  if (!/\.shelf-unit[^{}]*\{[^{}]*left:0;right:auto;width:100%/s.test(css)) {
+    errors.push('mobile shelf width is not constrained to the 390px viewport');
+  }
+  const fortyFourRules = [...css.matchAll(/min-height:44px/g)].length;
+  if (fortyFourRules < 3 || !css.includes('.svgh-skip{display:flex;min-height:44px')) {
+    errors.push('44px header and skip-link targets are not enforced');
+  }
+  if (/#[Ff][Ff][Dd]34[Dd]/.test(css)) errors.push('forbidden purple-yellow pairing token is present');
+  return errors;
+}
+
 function git(root, args) {
   try {
     return execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -264,6 +282,18 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         else {
           const absolute = path.join(root, proofSource.path);
           if (fs.existsSync(absolute)) for (const error of visitorProofErrors(fs.readFileSync(absolute, 'utf8'))) errors.push(`${label}: ${error}`);
+        }
+      }
+      if (pageName === 'library' && REVIEWABLE.has(candidate.status)) {
+        const proofCss = (candidate.source_files || []).find(item => item.path.endsWith('/proof.css'));
+        const proofJs = (candidate.source_files || []).find(item => item.path.endsWith('/proof.js'));
+        if (!proofCss || !proofJs) errors.push(`${label}: Library proof.css and proof.js sources are required`);
+        else {
+          const cssAbsolute = path.join(root, proofCss.path);
+          const jsAbsolute = path.join(root, proofJs.path);
+          if (fs.existsSync(cssAbsolute) && fs.existsSync(jsAbsolute)) {
+            for (const error of libraryProofErrors({ css: fs.readFileSync(cssAbsolute, 'utf8'), js: fs.readFileSync(jsAbsolute, 'utf8') })) errors.push(`${label}: ${error}`);
+          }
         }
       }
       for (const ref of observed) if (!declared.has(ref)) errors.push(`${label}: unmanifested asset reference ${ref}`);

@@ -89,6 +89,22 @@ The website and episodes must feel like the same world:
   LAiDIES, SUNNYVAiLE, MAiVENS, LUMINAiRY, MAiKEOVER.
 - The technology term is `AI`, both letters capitalized.
 
+## Shared public header and controls — locked 2026-08-23
+
+- Every public page uses one canonical header structure, typography hierarchy,
+  spacing system and interaction grammar. A building palette may vary within
+  the approved vibrant site tokens, but it may not substitute another header.
+- The header uses the exact `LAiDIES` wordmark with the lower-case `i` and a
+  separately coloured `Ai`; white-logo fallbacks, retired wordmarks and
+  invented lettering are not allowed.
+- Every visible operable target, including the brand/Home link, quick links,
+  KSVL, Sign in, Join and Menu, must render at least 44 by 44 CSS pixels on
+  desktop and mobile. Padding or a hidden overlay may enlarge the hit area only
+  when the full target remains visible, non-overlapping and keyboard operable.
+- Desktop and 390px evidence must show the complete header in frame with no
+  wrapping, clipping or horizontal overflow. A checklist assertion does not
+  prove this; computed target geometry and the rendered pixels must agree.
+
 ## Images
 
 - People must use the exact locked episode style anchored by
