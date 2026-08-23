@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `4760ab5c-b04c-448f-a891-a7473880c0ce`, deployed source `7b0a86cb12890686e5996dcbb1c639035673c76a`, artifact identity `9d14a5119920e13dfc032ca2143d09c04e701836328d7e8694d6baebb9801f74`, immutable URL `https://4760ab5c.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes and the truthful Homepage → Wednesday Postcard request handoff were verified at both origins on 2026-08-23. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `4760ab5c-b04c-448f-a891-a7473880c0ce`, deployed source `7b0a86cb12890686e5996dcbb1c639035673c76a`, artifact identity `9d14a5119920e13dfc032ca2143d09c04e701836328d7e8694d6baebb9801f74`, immutable URL `https://4760ab5c.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes, the truthful Homepage → Wednesday Postcard request handoff and the bounded Homepage → MAiKEOVER pre-save arrival were verified at both origins on 2026-08-23. |
 | Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, seven public Homepage functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes five exact activity receivers, truthful Businesswomen's Special framing, a real 44px town-map interaction with focus return, a signed-out Homepage action labelled `Sign in`, Visitor's Centre orientation without a trailer promise, and a Wednesday Postcard action that names the real Buttondown request instead of claiming postcard selection. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes five exact activity receivers, truthful Businesswomen's Special framing, a real 44px town-map interaction with focus return, a signed-out Homepage action labelled `Sign in`, a bounded Homepage → MAiKEOVER pre-save arrival, Visitor's Centre orientation without a trailer promise, and a Wednesday Postcard action that names the real Buttondown request instead of claiming postcard selection. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -50,6 +50,11 @@ is recorded here.
   provider acceptance/confirmation/delivery, postcard artwork, sending, referral
   and rewards remain held. The Visitor redesign, trailer and complete tour remain held.
   None of these fixes selects or deploys the pending Homepage visual direction.
+- The already-live Homepage → MAiKEOVER arrival is now separately public-proofed
+  at both origins and 1440/390/320. The four labelled routes reach decoded salon
+  art and seven drawers; opening Finish reveals a 52px Save control while Closet
+  remains hidden. Save was deliberately not activated, so Card persistence,
+  account continuation, cross-device state and portrait generation remain held.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
   creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
@@ -70,7 +75,7 @@ is recorded here.
 | Cloudflare deployment | `4760ab5c-b04c-448f-a891-a7473880c0ce` |
 | Immutable URL | `https://4760ab5c.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T09:13:40Z`; 14/14 critical public bytes matched; Homepage → Wednesday Postcard request passed 6/6 with the exact held-boundary receiver; legacy `/start-here.html` → Visitor's Centre also passed 6/6 at both origins and 1440/390/320 with the working heading, 18-option directory, decoded map and no overflow; Miss Jeeves remained privacy-safe at both origins |
+| Public verification | completed `2026-08-23T09:13:40Z`; 14/14 critical public bytes matched; Homepage → Wednesday Postcard request passed 6/6 with the exact held-boundary receiver; legacy `/start-here.html` → Visitor's Centre also passed 6/6; Homepage → MAiKEOVER pre-save arrival passed 6/6 at both origins and 1440/390/320 with four labelled routes, decoded 1600×900 salon art, seven drawers, truthful device-local/account and portrait-booth boundaries, a 52px Save control after opening Finish, Closet hidden before save and no overflow; Miss Jeeves remained privacy-safe at both origins |
 | Exact scope | `operations/release-control/homepage-postcard-request-truth-production-scope-20260823.json` |
 | Rollback deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
 
