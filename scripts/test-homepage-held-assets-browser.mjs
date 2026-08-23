@@ -34,11 +34,16 @@ const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
 const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILURE === "1"
   ? source.replaceAll('data-library-entry="primary" href="/library.html"', 'data-library-entry="primary" href="#reference"')
   : source;
-const servedIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
+const receiverIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
   ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
   : process.env.CALIBRATE_HOMEPAGE_ACTIVITY_RECEIVER_FAILURE === "1"
     ? source.replace("location.href='/games/dream-phone.html'", "location.href='#activities'")
   : source;
+const servedIndexSource = process.env.CALIBRATE_HOMEPAGE_MAP_GEOMETRY_FAILURE === "1"
+  ? receiverIndexSource
+    .replace(".map-wrap{position:relative;aspect-ratio:1400/637}\n.map-wrap>img{width:100%;height:100%;object-fit:contain;display:block}", ".map-wrap{position:relative}")
+    .replace(".map-spot{position:absolute;min-width:44px;min-height:44px", ".map-spot{position:absolute")
+  : receiverIndexSource;
 const servedHomepageScript = process.env.CALIBRATE_HOMEPAGE_MAP_FOCUS_FAILURE === "1"
   ? homepageScriptSource.replace("        a.focus();", "        /* deliberate calibration: focus is not moved */")
   : homepageScriptSource;
@@ -188,6 +193,10 @@ try {
       `${width}px held activity cards lost their fun filter membership`);
     const libraryMapSpot = page.locator('.map-spot[data-name="The LIBRAiRY"]');
     await libraryMapSpot.scrollIntoViewIfNeeded();
+    check(await libraryMapSpot.evaluate((spot) => {
+      const rect = spot.getBoundingClientRect();
+      return rect.width >= 44 && rect.height >= 44;
+    }), `${width}px map destination is not a real 44px click target`);
     await libraryMapSpot.focus();
     await page.keyboard.press("Enter");
     const mapPopup = page.getByRole("dialog");
