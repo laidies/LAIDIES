@@ -16,6 +16,21 @@ const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Conte
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const homepageScriptSource = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");
 const globalHeaderSource = fs.readFileSync(path.join(root, "content/site/sv-global-header.js"), "utf8");
+const collectHtmlFiles = (directory) => fs.readdirSync(directory, {withFileTypes:true}).flatMap((entry) => {
+  if ([".git", "node_modules", "operations", "assets", "approved-assets"].includes(entry.name)) return [];
+  const resolved = path.join(directory, entry.name);
+  if (entry.isDirectory()) return collectHtmlFiles(resolved);
+  return entry.isFile() && entry.name.endsWith(".html") ? [resolved] : [];
+});
+const sharedHeaderConsumers = collectHtmlFiles(root)
+  .map((file) => ({file:path.relative(root, file), source:fs.readFileSync(file, "utf8")}))
+  .filter((entry) => entry.source.includes("/content/site/sv-global-header.js?v=") &&
+    !/(?:\.pre-|\.pre\.|-magazine\.html$|-reskin\.html$)/.test(entry.file));
+const calibratedSharedHeaderConsumers = process.env.CALIBRATE_SHARED_HEADER_CACHE_KEY_FAILURE === "1"
+  ? sharedHeaderConsumers.map((entry, index) => index === 0
+    ? {...entry, source:entry.source.replace("svgh-760-2026-08-23-v3-5be5e50aeb8e", "svgh-stale-calibration")}
+    : entry)
+  : sharedHeaderConsumers;
 const headerMountSources = ["library.html", "watch.html"].map((file) => ({
   file,
   source: fs.readFileSync(path.join(root, file), "utf8")
@@ -145,6 +160,10 @@ check(globalMobileLibraryShortcutSource.includes('class="svgh-library-mobile" hr
   "shared header has no direct mobile LIBRAiRY shortcut, still crowds it with account actions, has an undersized Menu, or loses mobile account routes");
 check(calibratedHeaderMountSources.every((entry) => entry.source.includes('<header class="sv-header"></header>')),
   "a public page loads the shared header controller without mounting the canonical header");
+check(calibratedSharedHeaderConsumers.length === 59 && calibratedSharedHeaderConsumers.every((entry) =>
+  entry.source.includes("/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e") &&
+  !entry.source.includes("svgh-320-2026-08-04-v2-532de5ac8032")),
+  "a public shared-header consumer retains the stale cache key");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
 check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
