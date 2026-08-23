@@ -70,7 +70,7 @@ function git(root, args) {
 }
 
 function gitBytes(root, args) {
-  try { return execFileSync('git', args, { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] }); }
+  try { return execFileSync('git', args, { cwd: root, stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024 }); }
   catch { return null; }
 }
 

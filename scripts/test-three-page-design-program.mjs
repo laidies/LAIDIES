@@ -113,6 +113,14 @@ try {
   liveBase.runtime_base_preserved_assets = [manifest.pages.homepage.allowed_existing_assets.find(item => item.path.includes('07-the-chick-flicks.webp'))];
   expectFailure('wrong-runtime-asset', wrongRuntimeAsset, 'runtime-base preserved asset is not referenced by index.html');
 
+  const missingLibraryCoverProof = structuredClone(manifest);
+  delete missingLibraryCoverProof.pages.library.candidates[0].admission.objective_checks.fourteen_covers_visible;
+  expectFailure('missing-library-cover-proof', missingLibraryCoverProof, 'objective check fourteen_covers_visible must PASS');
+
+  const wrongLibraryRuntime = structuredClone(manifest);
+  wrongLibraryRuntime.pages.library.candidates[0].runtime_base.path = 'index.html';
+  expectFailure('wrong-library-runtime', wrongLibraryRuntime, 'runtime base must be library.html for library');
+
   const rejectedReentry = structuredClone(manifest);
   rejectedReentry.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
   expectFailure('ali-rejected-reentry', rejectedReentry, 'exact Ali-rejected candidate cannot re-enter');
@@ -121,7 +129,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

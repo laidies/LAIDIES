@@ -14522,3 +14522,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** `homepage-live-base-proof-20260822` adds the method directly after the incumbent masthead, uses five allowlisted real images and exposes only proof-specific CSS/JS behind `?homepage-proof=1`; exact source and review bytes are bound in the three-page design manifest.
 - **Possible Behind the Build angle:** Why preserving one approved screen produced more progress than generating three new Homepages.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-465 — One hero screenshot cannot admit a spatial Library journey
+
+- **Date:** 2026-08-22
+- **Area:** LIBRAiRY visual-direction evidence and owner review admission.
+- **Failure:** The first review packet showed only the top of the page, so it could not prove the browse controls, all 14 covers, or the three physical shelf rooms. A browser-generated full-page stitch then duplicated sections and inserted gaps, creating false visual defects.
+- **Root cause:** The evidence method treated a long spatial page like a single-screen landing page and trusted the in-app browser's stitched capture without inspecting the composed pixels.
+- **Prevention rule:** A Library direction must supply exact-viewport, non-stitched captures of both entry jobs and every shelf room at desktop and mobile sizes. Stitched captures are excluded from admission unless their pixels are first verified against the live scroll sequence.
+- **Durable correction:** The invalid stitched files were removed. The admitted packet now binds same-viewport top-page comparisons plus separate non-stitched Reference Desk, Browse, 101s, Tools and Reference Shelf captures at 1440 and 390 pixels; the successor reviewer independently confirmed all 14 covers, intentional grounded shelf composition and zero visible regressions or locked-decision violations.
+- **Possible Behind the Build angle:** Why a technically complete screenshot made a working Library look broken.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
