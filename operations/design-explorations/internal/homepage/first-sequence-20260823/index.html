@@ -1,135 +1,29 @@
 <!doctype html>
-<!-- INTERNAL HOLD: source checkpoint only. Not admitted for owner review or deployment. -->
+<!-- INTERNAL HOLD: deterministic owner-shortlist synthesis. Not admitted for owner review or deployment. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>LAiDIES Homepage first sequence</title>
+  <title>LAiDIES Homepage direction · examples 4 + 1</title>
   <style>
     @font-face{font-family:Jost;src:url('/assets/video/delivery-20260714-opening-v6/fonts/Jost.ttf') format('truetype');font-display:swap}
-    :root{
-      --ink:#10152d;
-      --plum:#3a1745;
-      --violet:#8752e7;
-      --pink:#ff4fa3;
-      --cyan:#34d8e6;
-      --teal:#00b8a9;
-      --coral:#ff6b5f;
-      --orange:#ff8b3d;
-      --cream:#fff4dc;
-      --line:4px solid var(--ink);
-      --shadow:9px 9px 0 var(--ink);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--ink);color:var(--ink);font-family:Jost,Arial,sans-serif}
-    a{color:inherit}
-    :focus-visible{outline:4px solid var(--orange);outline-offset:4px}
-    .skip{position:fixed;left:12px;top:12px;z-index:1000;transform:translateY(-160%);padding:12px 16px;background:var(--cream);border:var(--line);font-weight:900}
-    .skip:focus{transform:none}
-
-    .site-header{position:sticky;top:0;z-index:90;border-bottom:var(--line);background:linear-gradient(105deg,var(--cyan) 0 28%,var(--pink) 28% 60%,var(--coral) 60% 78%,var(--violet) 78%);box-shadow:0 6px 0 rgba(16,21,45,.45)}
-    .site-header__inner{min-height:72px;padding:8px clamp(16px,4vw,64px);display:flex;align-items:center;gap:20px}
-    .brand{display:inline-flex;align-items:center;min-height:44px;padding:0 5px;text-decoration:none;color:var(--ink);font-size:clamp(1.55rem,3vw,2.05rem);font-weight:900;letter-spacing:.035em;line-height:1}
-    .brand .ai{color:#006f78}
-    .brand .logo-i{position:relative}
-    .brand .logo-tit{position:absolute;left:50%;bottom:.92em;width:.18em;height:.18em;transform:translateX(-50%);background:var(--pink);border:1.5px solid var(--ink)}
-    .header-spacer{flex:1}
-    .primary-nav{display:flex;align-items:center;gap:4px}
-    .primary-nav a,.menu-button,.replay-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 13px;border:2px solid transparent;background:transparent;text-decoration:none;font-weight:850;white-space:nowrap}
-    .primary-nav a:hover,.replay-button:hover{background:var(--cream);border-color:var(--ink)}
-    .primary-nav .library{background:var(--cream);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
-    .menu-button{display:none;border-color:var(--ink);font:850 1rem Jost;cursor:pointer}
-    .replay-button{border:0;font:850 .86rem Jost;cursor:pointer}
-
-    .hero{position:relative;min-height:min(850px,calc(100vh - 72px));display:grid;align-items:end;overflow:hidden;border-bottom:var(--line);background:var(--plum)}
-    .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,21,45,.93) 0%,rgba(16,21,45,.72) 44%,rgba(16,21,45,.12) 72%),linear-gradient(0deg,rgba(16,21,45,.92),transparent 42%)}
-    .hero-copy{position:relative;z-index:1;width:min(760px,92vw);margin:0 0 clamp(32px,6vw,84px) clamp(20px,6vw,92px);padding:clamp(24px,4vw,52px);background:rgba(16,21,45,.88);border:3px solid var(--cyan);box-shadow:12px 12px 0 var(--pink)}
-    .connection{margin:0 0 16px;color:var(--coral);font-size:.86rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-    h1{margin:0;font-size:clamp(2.65rem,6vw,6rem);line-height:.91;letter-spacing:-.055em;color:var(--cyan);text-shadow:3px 3px 0 var(--plum)}
-    h1 em{color:var(--pink);font-style:normal}
-    .hero-tagline{display:block;margin-top:14px;color:#bca4ff;font-size:.49em;line-height:1;letter-spacing:-.025em}
-    .lede{max-width:65ch;margin:24px 0 0;color:var(--cream);font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.55}
-    .lede strong{color:var(--cyan)}
-    .namecheck{margin:18px 0 0;color:#ffc3df;font-size:1.05rem;line-height:1.5}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-    .hero-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 19px;border:3px solid var(--ink);background:var(--pink);box-shadow:5px 5px 0 var(--cyan);color:var(--ink);font-weight:900;text-decoration:none}
-    .hero-actions a+ a{background:var(--cyan);box-shadow:5px 5px 0 var(--pink)}
-
-    .method{background:var(--ink);border-bottom:var(--line)}
-    .method-intro{position:relative;isolation:isolate;padding:clamp(48px,8vw,118px) clamp(22px,7vw,110px);overflow:hidden;background:linear-gradient(112deg,var(--cyan) 0 48%,var(--pink) 48% 76%,var(--coral) 76%)}
-    .method-intro::before{content:"LAiDIES METHOD";position:absolute;right:-.05em;bottom:-.21em;z-index:-1;color:rgba(16,21,45,.12);font-size:clamp(5rem,15vw,14rem);font-weight:900;line-height:.8;letter-spacing:-.08em;white-space:nowrap}
-    .eyebrow{margin:0 0 13px;font-size:.9rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
-    .method-intro h2{max-width:1000px;margin:0;font-size:clamp(2.5rem,6vw,6.4rem);line-height:.92;letter-spacing:-.055em}
-    .method-strap{max-width:980px;margin:24px 0 0;font-size:clamp(1.2rem,2.5vw,2.15rem);font-weight:850;line-height:1.25}
-    .method-intro-copy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,84px);max-width:1180px;margin-top:34px;font-size:clamp(1rem,1.55vw,1.22rem);line-height:1.6}
-
-    .method-scene{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(340px,.75fr);min-height:560px;border-top:var(--line);background:var(--pink)}
-    .method-scene:nth-of-type(even){grid-template-columns:minmax(340px,.75fr) minmax(0,1.55fr);background:var(--cyan)}
-    .method-scene:nth-of-type(even) .scene-image{order:2}
-    .scene-image{min-height:420px;overflow:hidden;background:var(--plum)}
-    .scene-image img{display:block;width:100%;height:100%;object-fit:cover}
-    .scene-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(34px,5vw,76px);border-left:var(--line)}
-    .method-scene:nth-of-type(even) .scene-copy{border-left:0;border-right:var(--line)}
-    .scene-number{align-self:flex-start;margin:0 0 20px;padding:7px 12px;background:var(--ink);color:var(--cream);font-size:.8rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
-    .scene-copy h3{margin:0;font-size:clamp(2.3rem,4vw,4.6rem);line-height:.92;letter-spacing:-.045em}
-    .scene-copy p{margin:20px 0 0;font-size:clamp(1rem,1.45vw,1.18rem);line-height:1.55}
-    .scene-copy a{align-self:flex-start;margin-top:22px;font-weight:900;text-underline-offset:5px}
-
-    .method-finale{display:grid;grid-template-columns:1fr 1fr;border-top:var(--line);background:var(--coral)}
-    .finale-half{position:relative;min-height:620px;overflow:hidden}
-    .finale-half+ .finale-half{border-left:var(--line)}
-    .finale-half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .finale-copy{position:absolute;left:24px;right:24px;bottom:24px;padding:24px;background:var(--cyan);border:var(--line);box-shadow:7px 7px 0 var(--ink)}
-    .finale-half+ .finale-half .finale-copy{background:var(--pink)}
-    .finale-copy h3{margin:0;font-size:clamp(2rem,3vw,3.5rem);line-height:.95}
-    .finale-copy p{margin:13px 0 0;line-height:1.5}
-    .finale-copy a{display:inline-block;margin-top:14px;font-weight:900;text-underline-offset:5px}
-
-    .arrival{position:fixed;inset:0;z-index:999;display:grid;place-items:center;background:var(--ink)}
-    .arrival[hidden]{display:none}
-    .arrival video{width:100%;height:100%;object-fit:cover}
-    .arrival-controls{position:absolute;right:20px;bottom:20px;display:flex;gap:10px}
-    .arrival-controls button{min-height:48px;padding:10px 17px;border:3px solid var(--ink);background:var(--cyan);box-shadow:5px 5px 0 var(--pink);font:900 1rem Jost;color:var(--ink);cursor:pointer}
-    .arrival-controls button+button{background:var(--pink);box-shadow:5px 5px 0 var(--cyan)}
-
-    @media(max-width:900px){
-      .primary-nav a:not(.library),.replay-button{display:none}
-      .menu-button{display:inline-flex}
-      .hero{min-height:760px}
-      .hero::after{background:linear-gradient(0deg,rgba(16,21,45,.96) 0%,rgba(16,21,45,.72) 56%,rgba(16,21,45,.1) 88%)}
-      .hero-copy{width:auto;margin:0 20px 34px;padding:26px}
-      .method-intro-copy{grid-template-columns:1fr}
-      .method-scene,.method-scene:nth-of-type(even){grid-template-columns:1fr;min-height:0}
-      .method-scene:nth-of-type(even) .scene-image{order:0}
-      .scene-image{height:54vw;min-height:300px;max-height:560px}
-      .scene-copy,.method-scene:nth-of-type(even) .scene-copy{border:0;border-top:var(--line)}
-      .method-finale{grid-template-columns:1fr}
-      .finale-half+ .finale-half{border-left:0;border-top:var(--line)}
-    }
-    @media(max-width:560px){
-      .site-header__inner{min-height:62px;padding:7px 10px;gap:8px}
-      .brand{font-size:1.35rem}
-      .primary-nav{gap:6px}
-      .primary-nav .library,.menu-button{min-height:44px;padding:7px 9px;font-size:.78rem}
-      .hero{min-height:760px;align-items:end}
-      .hero>img{height:340px;bottom:auto}
-      .hero::after{background:linear-gradient(0deg,var(--ink) 0 58%,transparent 78%)}
-      .hero-copy{margin:0;padding:28px 20px 34px;border:0;border-top:3px solid var(--cyan);box-shadow:none;background:var(--ink)}
-      h1{font-size:2.75rem}
-      .hero-tagline{white-space:normal}
-      .hero-actions{display:grid}
-      .method-intro{padding:46px 20px 58px}
-      .method-intro h2{font-size:2.75rem}
-      .method-intro-copy{gap:4px}
-      .scene-image{height:72vw;min-height:280px}
-      .scene-copy{padding:36px 20px 46px}
-      .scene-copy h3{font-size:2.7rem}
-      .finale-half{min-height:580px}
-      .finale-copy{left:14px;right:14px;bottom:14px;padding:20px;box-shadow:5px 5px 0 var(--ink)}
-      .arrival-controls{left:14px;right:14px;bottom:14px;display:grid;grid-template-columns:1fr 1fr}
-    }
+    :root{--ink:#09132f;--plum:#30113f;--pink:#f254a9;--hot:#ff3c96;--cyan:#15bce0;--cobalt:#2457e6;--sky:#78c7ff;--coral:#ff7366;--orange:#ff9b3d;--lime:#b7e42b;--cream:#fffdfb;--line:4px solid var(--ink);--shadow:9px 9px 0 var(--ink)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--ink);font-family:Jost,Arial,sans-serif}img{display:block;width:100%}a{color:inherit}:focus-visible{outline:4px solid var(--orange);outline-offset:4px}.skip{position:fixed;left:12px;top:12px;z-index:1000;transform:translateY(-170%);padding:12px 16px;background:var(--cream);border:var(--line);font-weight:900}.skip:focus{transform:none}
+    .site-header{position:sticky;top:0;z-index:90;border-bottom:var(--line);background:linear-gradient(100deg,var(--pink),var(--coral) 38%,var(--cyan) 78%,var(--cobalt))}.site-header__inner{min-height:70px;padding:8px clamp(14px,4vw,60px);display:flex;align-items:center;gap:16px}.brand{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;text-decoration:none;color:var(--ink);font-size:clamp(1.55rem,3vw,2.15rem);font-weight:950;letter-spacing:.035em;line-height:1}.brand .ai{color:#6b258f}.brand .logo-i{position:relative}.brand .logo-tit{position:absolute;left:50%;bottom:.92em;width:.18em;height:.18em;transform:translateX(-50%);background:var(--pink);border:1.5px solid var(--ink)}.primary-nav{margin-left:auto;display:flex;align-items:center;gap:3px}.primary-nav a,.menu-button,.replay-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 12px;border:2px solid transparent;background:transparent;text-decoration:none;font:850 .91rem Jost;white-space:nowrap}.primary-nav a:hover,.replay-button:hover{background:var(--cream);border-color:var(--ink)}.primary-nav .library{background:var(--cream);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}.menu-button{display:none;border-color:var(--ink);cursor:pointer}.mobile-menu{display:none;padding:12px;background:var(--cream);border-top:3px solid var(--ink)}.mobile-menu a{display:flex;align-items:center;min-height:46px;padding:8px 12px;border-bottom:2px solid var(--ink);font-weight:850;text-decoration:none}
+    .hero{position:relative;min-height:min(820px,calc(100vh - 70px));display:grid;align-items:end;overflow:hidden;border-bottom:var(--line);background:var(--plum)}.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,19,47,.94),rgba(9,19,47,.73) 48%,rgba(9,19,47,.08) 78%),linear-gradient(0deg,rgba(9,19,47,.82),transparent 48%)}.hero-copy{position:relative;z-index:1;width:min(780px,92vw);margin:0 0 clamp(32px,6vw,76px) clamp(20px,6vw,88px);padding:clamp(24px,4vw,46px);background:rgba(9,19,47,.88);border:3px solid var(--cyan);box-shadow:12px 12px 0 var(--pink)}.connection,.eyebrow{margin:0 0 12px;font-size:.84rem;font-weight:950;letter-spacing:.15em;text-transform:uppercase}.connection{color:var(--pink)}h1{margin:0;font-size:clamp(2.8rem,6vw,6.1rem);line-height:.9;letter-spacing:-.055em;color:var(--cyan);text-shadow:3px 3px 0 var(--plum)}h1 em{color:var(--pink);font-style:normal}.hero-tagline{display:block;margin-top:15px;color:#c5a8ff;font-size:.47em;line-height:1}.lede{max-width:65ch;margin:22px 0 0;color:var(--cream);font-size:clamp(1.03rem,1.6vw,1.25rem);line-height:1.55}.lede strong{color:var(--cyan)}.namecheck{margin:17px 0 0;color:#ffc0df;line-height:1.5}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 18px;border:3px solid var(--ink);background:var(--pink);box-shadow:5px 5px 0 var(--cyan);font-weight:950;text-decoration:none}.button.alt{background:var(--cyan);box-shadow:5px 5px 0 var(--pink)}.returning-signin{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin-top:22px;padding:13px 15px;border:2px solid var(--pink);background:rgba(242,84,169,.13);color:var(--cream)}.returning-signin p{margin:0;line-height:1.42}.returning-signin a{display:inline-flex;align-items:center;min-height:44px;padding:8px 13px;background:var(--cream);border:2px solid var(--ink);color:var(--ink);font-weight:950;text-decoration:none}
+    .orientation{background:var(--ink);border:0}.orientation>summary{display:flex;align-items:center;min-height:64px;padding:14px clamp(20px,6vw,88px);background:var(--pink);border-bottom:var(--line);font-size:clamp(1.25rem,2.2vw,2rem);font-weight:950;cursor:pointer}.orientation[open]>summary{background:var(--cyan)}body.is-returning .orientation>summary{position:sticky;top:70px;z-index:20}
+    .method{padding:clamp(38px,6vw,88px);background:linear-gradient(118deg,#101947 0 36%,#4a1f70 36% 68%,#103b74 68%);border-bottom:var(--line)}.method-board{max-width:1400px;margin:auto;display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.45fr);border:var(--line);box-shadow:var(--shadow);background:var(--cream)}.method-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,64px);background:var(--ink);color:var(--cream)}.method-copy .eyebrow{color:var(--cyan)}.method-copy h2,.section-title{margin:0;font-size:clamp(2.6rem,5vw,5.8rem);line-height:.92;letter-spacing:-.05em}.method-copy h2 strong{color:var(--pink)}.method-copy>p:not(.eyebrow){font-size:clamp(1rem,1.45vw,1.2rem);line-height:1.55}.method-strap{color:var(--cyan);font-weight:850}.method-grid{display:grid;grid-template-columns:1.12fr .88fr;grid-template-rows:1fr 1fr;min-height:650px;background:var(--pink)}.method-card{position:relative;overflow:hidden;border-left:var(--line);border-bottom:var(--line)}.method-card:nth-child(3),.method-card:nth-child(4){border-bottom:0}.method-card img{width:100%;height:100%;object-fit:cover}.method-card:nth-child(1){grid-row:span 2}.method-card:nth-child(4){display:none}.image-label{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);padding:8px 12px;background:var(--cream);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--pink);font-size:clamp(1rem,1.5vw,1.3rem);font-weight:950}.method-card:nth-child(2) .image-label{box-shadow:5px 5px 0 var(--cyan)}.method-card:nth-child(3) .image-label{box-shadow:5px 5px 0 var(--orange)}
+    .town-model{display:grid;grid-template-columns:minmax(320px,.72fr) minmax(0,1.28fr);background:var(--cyan);border-bottom:var(--line)}.town-model__copy{padding:clamp(34px,6vw,86px);background:linear-gradient(135deg,var(--cyan),var(--sky))}.town-model__copy h2{margin:0;font-size:clamp(2.6rem,5vw,5.5rem);line-height:.92;letter-spacing:-.05em}.town-model__copy p{max-width:58ch;font-size:clamp(1.04rem,1.5vw,1.2rem);line-height:1.6}.town-model__image{position:relative;min-height:520px;border-left:var(--line);overflow:hidden}.town-model__image img{height:100%;object-fit:cover}.map-tag{position:absolute;right:20px;bottom:20px;width:min(360px,calc(100% - 40px));padding:18px;background:var(--pink);border:var(--line);box-shadow:7px 7px 0 var(--ink);font-weight:850}.map-tag a{display:inline-block;margin-top:10px;font-weight:950}
+    .happening{padding:clamp(42px,6vw,88px);background:linear-gradient(115deg,var(--pink),var(--coral) 47%,var(--cyan) 47% 100%);border-bottom:var(--line)}.section-head{max-width:1400px;margin:0 auto 28px;display:flex;justify-content:space-between;gap:30px;align-items:end}.section-head .section-title{max-width:900px}.section-head>p{max-width:48ch;margin:0;font-size:1.1rem;line-height:1.5}.news-layout{max-width:1400px;margin:auto;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.62fr);gap:24px}.daily-paper{position:relative;padding:clamp(28px,4vw,58px);background:var(--cream);border:var(--line);box-shadow:var(--shadow)}.paper-head{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;padding-bottom:18px;border-bottom:5px double var(--ink)}.paper-kicker{margin:0;color:var(--cobalt);font-weight:950;letter-spacing:.12em;text-transform:uppercase}.paper-head h3{margin:4px 0 0;font:950 clamp(3rem,7vw,7rem)/.83 Georgia,serif;letter-spacing:-.07em}.paper-date{padding:9px 12px;border:3px solid var(--ink);background:var(--cyan);font-weight:950}.paper-deck{margin:18px 0 0;font-size:1.08rem;line-height:1.55}.paper-columns{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:26px}.lead-story{padding-right:24px;border-right:3px solid var(--ink)}.lead-story .label,.desk .label,.changes .label{margin:0 0 8px;color:var(--cobalt);font-size:.76rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase}.lead-story h4{margin:0;font:900 clamp(2rem,3.8vw,4rem)/.98 Georgia,serif}.lead-story p{line-height:1.55}.lead-story a,.desk a,.changes a{font-weight:950;text-underline-offset:4px}.desk-stack{display:grid;gap:12px}.desk{padding:14px 16px;border:3px solid var(--ink);background:#effaff}.desk:nth-child(2){background:#ffe5f2}.desk:nth-child(3){background:#fff0dc}.desk h4{margin:0 0 6px;font-size:1.1rem}.desk p{margin:0;line-height:1.42}.changes{padding:26px;background:var(--ink);color:var(--cream);border:var(--line);box-shadow:var(--shadow)}.changes .label{color:var(--cyan)}.changes h3{margin:0;font-size:clamp(2.1rem,4vw,4rem);line-height:.94}.changes>p{line-height:1.5}.change-list{display:grid;gap:12px;margin:22px 0}.change{padding:14px;border:3px solid var(--cream);background:#173566}.change strong{display:block;color:var(--cyan)}.change span{display:block;margin-top:5px;line-height:1.38}.held-note{padding:14px;background:var(--pink);color:var(--ink);border:3px solid var(--cream);font-weight:800}.changes .button{width:100%;margin-top:14px;color:var(--ink)}
+    .intent{padding:clamp(42px,6vw,86px);background:#0e2f6e;color:var(--cream);border-bottom:var(--line)}.intent .section-head .eyebrow{color:var(--cyan)}.intent-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.intent-card{position:relative;min-height:330px;overflow:hidden;border:var(--line);background:var(--ink);color:var(--cream);text-decoration:none}.intent-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}.intent-card::after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(9,19,47,.97))}.intent-copy{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:20px}.intent-copy strong{display:block;color:var(--cyan);font-size:clamp(1.25rem,2vw,2rem);line-height:1}.intent-card:nth-child(even) .intent-copy strong{color:var(--pink)}.intent-copy span{display:block;margin-top:9px;line-height:1.38}.intent-copy b{display:inline-block;margin-top:11px;color:var(--cream)}
+    .wednesday{padding:clamp(42px,6vw,86px);background:linear-gradient(110deg,var(--cyan) 0 24%,var(--cobalt) 24% 100%);border-bottom:var(--line)}.wednesday .section-head{color:var(--cream)}.wednesday .eyebrow{color:var(--lime)}.route{max-width:1400px;margin:auto;display:grid;grid-template-columns:repeat(8,1fr);gap:8px;list-style:none;padding:0}.route li{position:relative}.route a{display:flex;height:100%;min-height:190px;flex-direction:column;gap:8px;padding:14px;background:var(--cream);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--pink);text-decoration:none}.route li:nth-child(even) a{box-shadow:4px 4px 0 var(--orange)}.route b{display:grid;place-items:center;width:36px;height:36px;background:var(--pink);border:2px solid var(--ink);font-size:1.05rem}.route strong{font-size:1.08rem;line-height:1.04}.route small{line-height:1.35}.route .verb{margin-top:auto;color:var(--cobalt);font-weight:950}.route-note{max-width:1400px;margin:22px auto 0;padding:17px 20px;background:var(--ink);color:var(--cream);border:3px solid var(--pink);line-height:1.5}
+    .women{display:grid;grid-template-columns:1fr 1fr;min-height:620px;background:var(--ink);border-bottom:var(--line)}.women-image{position:relative;overflow:hidden}.women-image img{width:100%;height:100%;object-fit:cover}.women-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--ink))}.women-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vw,86px);color:var(--cream)}.women-copy .eyebrow{color:var(--pink)}.women-copy h2{margin:0;font-size:clamp(2.7rem,5vw,5.6rem);line-height:.9}.women-copy p{font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.6}.women-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .explore{padding:clamp(42px,6vw,86px);background:linear-gradient(128deg,var(--coral),var(--orange));border-bottom:var(--line)}.explore-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,.6fr);border:var(--line);box-shadow:var(--shadow);background:var(--cream)}.explore-map{min-height:540px;border-right:var(--line)}.explore-map img{height:100%;object-fit:cover}.directory{padding:clamp(24px,4vw,48px);background:var(--cream)}.directory h3{margin:0;font-size:clamp(2rem,3vw,3.5rem)}.directory p{line-height:1.5}.destination-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.destination-list a{display:flex;align-items:center;min-height:48px;padding:9px 11px;border:2px solid var(--ink);background:#eaf9ff;font-weight:850;text-decoration:none}.destination-list a:nth-child(3n+2){background:#ffe3f0}.destination-list a:nth-child(3n){background:#fff0dc}
+    .continue{padding:clamp(42px,6vw,86px);background:#22134f;color:var(--cream);border-bottom:var(--line)}.continue-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.continue-card{display:grid;grid-template-rows:250px 1fr;background:var(--cream);color:var(--ink);border:var(--line);box-shadow:6px 6px 0 var(--pink);text-decoration:none}.continue-card:nth-child(2){box-shadow:6px 6px 0 var(--cyan)}.continue-card:nth-child(3){box-shadow:6px 6px 0 var(--orange)}.continue-card img{width:100%;height:250px;object-fit:cover;border-bottom:var(--line)}.continue-copy{padding:22px}.continue-copy h3{margin:0;font-size:clamp(1.7rem,2.6vw,2.7rem);line-height:1}.continue-copy p{line-height:1.5}.continue-copy strong{display:block;margin-top:14px;color:var(--cobalt)}
+    footer{padding:34px clamp(22px,5vw,70px);display:flex;align-items:center;gap:24px;background:var(--ink);color:var(--cream)}footer .brand{color:var(--cream)}footer p{margin:0;margin-left:auto}
+    .arrival{position:fixed;inset:0;z-index:999;display:grid;place-items:center;background:var(--ink)}.arrival[hidden]{display:none}.arrival video{width:100%;height:100%;object-fit:cover}.arrival-controls{position:absolute;right:20px;bottom:20px;display:flex;gap:10px}.arrival-controls button{min-height:48px;padding:10px 17px;border:3px solid var(--ink);background:var(--cyan);box-shadow:5px 5px 0 var(--pink);font:900 1rem Jost;color:var(--ink);cursor:pointer}.arrival-controls button+button{background:var(--pink);box-shadow:5px 5px 0 var(--cyan)}
+    @media(max-width:1080px){.primary-nav a:not(.library),.replay-button{display:none}.menu-button{display:inline-flex}.mobile-menu.is-open{display:block}.method-board,.town-model,.news-layout,.women,.explore-grid{grid-template-columns:1fr}.method-grid{min-height:580px}.town-model__image,.explore-map{border-left:0;border-top:var(--line)}.paper-columns{grid-template-columns:1fr}.lead-story{padding-right:0;padding-bottom:20px;border-right:0;border-bottom:3px solid var(--ink)}.intent-grid{grid-template-columns:repeat(2,1fr)}.intent-card:last-child{grid-column:span 2}.route{grid-template-columns:repeat(4,1fr)}.women-image{min-height:460px}.women-image::after{background:linear-gradient(0deg,var(--ink),transparent 45%)}.explore-map{border-right:0}.continue-grid{grid-template-columns:1fr 1fr}.continue-card:last-child{grid-column:span 2}}
+    @media(max-width:620px){.site-header__inner{min-height:62px;padding:7px 9px}.brand{font-size:1.34rem}.primary-nav{gap:5px}.primary-nav .library,.menu-button{padding:7px 8px;font-size:.76rem}.hero{min-height:820px}.hero>img{height:360px;bottom:auto}.hero::after{background:linear-gradient(0deg,var(--ink) 0 62%,transparent 80%)}.hero-copy{width:auto;margin:0;padding:28px 18px 34px;border:0;border-top:3px solid var(--cyan);box-shadow:none;background:var(--ink)}h1{font-size:2.7rem}.actions{display:grid}.returning-signin{grid-template-columns:1fr}.returning-signin a{justify-content:center}.method{padding:24px 14px}.method-board{grid-template-columns:1fr}.method-copy{padding:34px 20px}.method-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px;min-height:0}.method-card:nth-child(1){grid-row:auto;grid-column:span 2}.method-card{border-left:0;border-top:var(--line)}.method-card:nth-child(2){border-right:var(--line)}.town-model__copy,.happening,.intent,.wednesday,.explore,.continue{padding:38px 18px}.town-model__image{min-height:420px}.section-head{display:block}.paper-head{grid-template-columns:1fr}.paper-columns{display:block}.desk-stack{margin-top:18px}.intent-grid{grid-template-columns:1fr}.intent-card:last-child{grid-column:auto}.intent-card{min-height:290px}.route{grid-template-columns:1fr 1fr}.route a{min-height:170px}.women{grid-template-columns:1fr}.women-image{min-height:340px}.women-copy{padding:42px 20px}.explore-map{min-height:360px}.destination-list{grid-template-columns:1fr}.continue-grid{grid-template-columns:1fr}.continue-card:last-child{grid-column:auto}footer{display:block}footer p{margin-top:12px}.arrival-controls{left:14px;right:14px;bottom:14px;display:grid;grid-template-columns:1fr 1fr}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.arrival{display:none!important}}
   </style>
 </head>
@@ -138,139 +32,38 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="/" aria-label="LAiDIES home">L<span class="ai">A<span class="logo-i">i<span class="logo-tit" aria-hidden="true"></span></span></span>DIES</a>
-      <div class="header-spacer"></div>
       <button class="replay-button" type="button" data-replay>Replay arrival</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="/chick-flicks.html">Latest Episode</a>
-        <a class="library" href="/library.html">LIBRAiRY</a>
-        <a href="/visitors-centre.html">Explore SUNNYVAiLE</a>
-        <button class="menu-button" type="button">Menu</button>
-      </nav>
+      <nav class="primary-nav" aria-label="Primary"><a href="/issues/issue-04.html">Latest Episode</a><a href="#method">Start learning</a><a class="library" href="/library.html">LIBRAiRY</a><a href="#happening">What’s happening</a><a href="#town">Explore SUNNYVAiLE</a><a href="/radio.html">KSVL 99.9</a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button></nav>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile"><a href="/issues/issue-04.html">Latest Episode</a><a href="#method">Start learning</a><a href="#happening">What’s happening</a><a href="#town">Explore SUNNYVAiLE</a><a href="/radio.html">KSVL 99.9</a><a href="/resident-card.html#rcAccountTitle">Sign in</a></nav>
   </header>
-
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <img src="/assets/sunnyvaile-streets/main-street-dusk.webp" alt="SUNNYVAiLE's MAiN Street at dusk, storefronts and neon signs glowing">
-      <div class="hero-copy">
-        <p class="connection">LAiDIES online · Connected to the Rewind Era</p>
-        <h1 id="hero-title">AI fluency, taught through the pop culture you <em>never forgot.</em><span class="hero-tagline">Made to click. Built to stick.</span></h1>
-        <p class="lede">LAiDIES helps women understand and use AI through stories, practical tools, games, music and community. Welcome to the <strong>Rewind Era</strong>—twenty years of pop culture, from dial-up to downloads (1990–2010)—and to SUNNYVAiLE, the learning town where <strong>Girl Power meets Machine Power</strong>.</p>
-        <p class="namecheck"><strong>Be kind, rewind.</strong> Put the pop-culture encyclopedia in your head to work on what comes next.</p>
-        <div class="hero-actions">
-          <a href="/visitors-centre.html">New in town?</a>
-          <a href="/chick-flicks.html">The latest episode</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="method" id="method" aria-labelledby="method-title">
-      <div class="method-intro">
-        <p class="eyebrow">The LAiDIES method</p>
-        <h2 id="method-title">Your brain kept the references. We put them to work.</h2>
-        <p class="method-strap">The plot explains it. The analogy unlocks it. Practice makes it click. The soundtrack makes it stick.</p>
-        <div class="method-intro-copy">
-          <p>Your brain has been saving <em>Clueless</em>, Carrie Bradshaw, “Wannabe,” dial-up tones, butterfly clips and roll-on glitter for years. At LAiDIES, that is not useless trivia. It is a head start.</p>
-          <p>Every lesson unfolds in SUNNYVAiLE—a fictional town tuned to the Rewind Era (1990–2010), where sequential stories, accurate pop-culture analogies, practical activities and original songs work together to make AI easier to understand, use and remember.</p>
-        </div>
-      </div>
-
-      <article class="method-scene">
-        <div class="scene-image"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp" alt="The Chick Flicks video-rental storefront in SUNNYVAiLE"></div>
-        <div class="scene-copy">
-          <p class="scene-number">01 · Story</p>
-          <h3>Follow the plot</h3>
-          <p>Start with <a href="/visitors-centre.html">the Visitor’s Centre</a>, then read or hear the episodes in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p>
-          <p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story—and take your AI fluency further.</p>
-        </div>
-      </article>
-
-      <article class="method-scene">
-        <div class="scene-image"><img loading="lazy" src="/assets/episodes/ep-01/pixel/ep01-scene-09-chers-closet.png" alt="A LAiDIES episode scene using Cher's closet to make an AI idea familiar"></div>
-        <div class="scene-copy">
-          <p class="scene-number">02 · Analogy</p>
-          <h3>Unlock the idea</h3>
-          <p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p>
-          <p>Because sometimes “context window” makes more sense when explained through <em>The Devil Wears Prada</em>—and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p>
-        </div>
-      </article>
-
-      <article class="method-scene">
-        <div class="scene-image"><img loading="lazy" src="/assets/sunnyvaile-streets/schoolhouse-road-morning.webp" alt="Schoolhouse Road leading to SUNNYVAiLE High"></div>
-        <div class="scene-copy">
-          <p class="scene-number">03 · Practice</p>
-          <h3>Make it click</h3>
-          <p>Open the practice pieces that are actually ready for that episode. Blend &amp; Snap keeps each Try-On, one-page guide and teaching-card pack unavailable until its exact component passes review; the Pop Quiz remains a separate stop.</p>
-          <p>When a piece is available, it should leave you with something you can actually use—not just another tab you opened with excellent intentions and quietly abandoned three Tuesdays ago.</p>
-        </div>
-      </article>
-
-      <div class="method-finale">
-        <article class="finale-half">
-          <img loading="lazy" src="/assets/building-interiors/ksvl-booth.jpg" alt="Inside the KSVL 99.9 radio booth">
-          <div class="finale-copy">
-            <h3>Make it stick</h3>
-            <p>KSVL turns central lessons into memorable LAiDIES original songs.</p>
-            <p>Twenty-nine tracks are ready to hear. Pick a song, start listening and let the hook do the revision.</p>
-            <a href="/radio.html">Listen to KSVL</a>
-          </div>
-        </article>
-        <article class="finale-half">
-          <img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg" alt="The Delta LAi Nu house in SUNNYVAiLE">
-          <div class="finale-copy">
-            <h3>Join the town</h3>
-            <p>You can explore SUNNYVAiLE without signing up. Becoming a resident gives you a Card and a private account route for the supported continuation you explicitly keep; browser-only finds stay in that browser.</p>
-            <a href="/resident-card.html">See the Resident Card</a>
-          </div>
-        </article>
-      </div>
-    </section>
+    <section class="hero" aria-labelledby="hero-title"><img src="/assets/sunnyvaile-streets/main-street-dusk.webp" alt="SUNNYVAiLE's MAiN Street at dusk, storefronts and neon signs glowing"><div class="hero-copy"><p class="connection">LAiDIES online · Connected to the Rewind Era</p><h1 id="hero-title">AI fluency, taught through the pop culture you <em>never forgot.</em><span class="hero-tagline">Made to click. Built to stick.</span></h1><p class="lede">LAiDIES helps women understand and use AI through stories, practical tools, games, music and community. Welcome to the <strong>Rewind Era</strong>—twenty years of pop culture, from dial-up to downloads (1990–2010)—and to SUNNYVAiLE, the learning town where <strong>Girl Power meets Machine Power</strong>.</p><p class="namecheck"><strong>Be kind, rewind.</strong> Put the pop-culture encyclopedia in your head to work on what comes next.</p><div class="actions"><a class="button" href="/visitors-centre.html">New in town?</a><a class="button alt" href="/issues/issue-04.html">The latest episode</a></div><div class="returning-signin"><p><strong>Already visited?</strong> Sign in so your Homepage can show what changed since your last account-backed visit and where you left off.</p><a href="/resident-card.html#rcAccountTitle">Sign in and update my Homepage</a></div></div></section>
+    <details class="orientation" open><summary>How LAiDIES and SUNNYVAiLE work</summary>
+      <section class="method" id="method" aria-labelledby="method-title"><div class="method-board"><div class="method-copy"><p class="eyebrow">The LAiDIES method</p><h2 id="method-title">Your brain kept the references. <strong>We put them to work.</strong></h2><p class="method-strap">The plot explains it. The analogy unlocks it. Practice makes it click. The soundtrack makes it stick.</p><p>Every lesson unfolds in SUNNYVAiLE—a fictional town tuned to the Rewind Era (1990–2010), where sequential stories, accurate pop-culture analogies, practical activities and original songs work together to make AI easier to understand, use and remember.</p></div><div class="method-grid"><a class="method-card" href="/chick-flicks.html"><img src="/assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp" alt="The Chick Flicks video-rental storefront"><span class="image-label">Story · Follow the plot</span></a><a class="method-card" href="/issues/issue-01.html"><img src="/assets/episodes/ep-01/pixel/ep01-scene-09-chers-closet.png" alt="A LAiDIES episode scene using Cher's closet"><span class="image-label">Analogy · Unlock the idea</span></a><a class="method-card" href="/sunnyvaile-high.html"><img src="/assets/sunnyvaile-streets/schoolhouse-road-morning.webp" alt="Schoolhouse Road leading to SUNNYVAiLE High"><span class="image-label">Practice · Make it click</span></a></div></div></section>
+      <section class="town-model" aria-labelledby="town-model-title"><div class="town-model__copy"><p class="eyebrow">Why a town?</p><h2 id="town-model-title">Every building has a job.</h2><p>Stories, reference, current news, practice, music, activities and community work differently. SUNNYVAiLE gives each one a familiar place, so you can follow the whole learning route or go directly to the thing you need.</p><p>You do not have to learn the map before you can use LAiDIES.</p><a class="button" href="/visitors-centre.html">How SUNNYVAiLE works</a></div><div class="town-model__image"><img src="/assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="Map of SUNNYVAiLE and its buildings"><div class="map-tag">The Visitor’s Centre has the full directory, guided paths and town tour.<br><a href="/visitors-centre.html">Visit the Visitor’s Centre →</a></div></div></section>
+    </details>
+    <section class="happening" id="happening" aria-labelledby="happening-title"><div class="section-head"><div><p class="eyebrow">At the NewsStand</p><h2 class="section-title" id="happening-title">What is happening in SUNNYVAiLE?</h2></div><p>See what changed in AI, what the evidence supports, what it means and what—if anything—you should do differently.</p></div><div class="news-layout"><article class="daily-paper" aria-live="polite"><header class="paper-head"><div><p class="paper-kicker">The SUNNYVAiLE NewsStand</p><h3>The Daily</h3></div><div class="paper-date" data-desk-check>Desk check loading</div></header><p class="paper-deck">Dated news, Promptoscope and useful daily desks. A clear day or an update-needed desk is a real result; no paper exists to fill space.</p><div class="paper-columns"><div class="lead-story"><p class="label" data-story-label>Latest filed Daily</p><h4 data-story-headline>The cyclone model is open. The storm warning is still human.</h4><p data-story-summary>Open the most recently filed Daily story, with its date and evidence boundary intact.</p><a data-story-link href="/newsstand.html#weathernext-cyclones-open-model-human-warning">Read this filed story →</a></div><div class="desk-stack"><article class="desk"><p class="label">Paige’s Practical AI Tip</p><h4 data-desk-title="paige_tip">Tip check in progress.</h4><p data-desk-copy="paige_tip">Paige is checking today’s tip against the receipts. No filler while she does.</p></article><article class="desk"><p class="label">Promptoscope</p><h4 data-desk-title="promptoscope">Recalibrating.</h4><p data-desk-copy="promptoscope">The Promptoscope is recalibrating. Mercury has not been blamed.</p></article><article class="desk"><p class="label">Career / Work-Life Tip</p><h4 data-desk-title="career_life">The useful move is being checked.</h4><p data-desk-copy="career_life">The useful move is being checked. No generic confidence advice has been substituted.</p></article></div></div><div class="actions"><a class="button alt" href="/newsstand.html">Read the NewsStand</a><a class="button" href="/newsstand.html?daily=2026-08-06">Open the filed Daily</a></div></article><aside class="changes" aria-labelledby="changes-title"><p class="label">Across the whole town</p><h3 id="changes-title">What’s new since your last visit?</h3><p>The Homepage keeps this preview short. The NewsStand owns the complete public list of new chapters, books, episodes, features and building updates.</p><div class="change-list"><div class="change"><strong>Resident Card + Closet</strong><span>A saved local Card can be reopened on the same device.</span></div><div class="change"><strong>KSVL DJ Booth</strong><span>Choose an available track and listen in the canonical KSVL player.</span></div><div class="change"><strong>Mobile LIBRAiRY shortcut</strong><span>Open the LIBRAiRY directly from the compact header.</span></div></div><p class="held-note">Personalized “since your last visit” filtering remains held until account-backed last-seen state and the complete change feed are connected.</p><a class="button alt" href="/newsstand.html#whats-new">See all recent public changes</a><a class="button" href="/resident-card.html#rcAccountTitle">Sign in for future personalization</a></aside></div></section>
+    <section class="intent" id="today" aria-labelledby="intent-title"><div class="section-head"><div><p class="eyebrow">Come for the whole story—or one useful thing</p><h2 class="section-title" id="intent-title">What brought you to town today?</h2></div><p>You do not need to learn the town before you can use it. Each route says what you will get.</p></div><div class="intent-grid"><a class="intent-card" href="/issues/issue-04.html"><img src="/assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp" alt="The Chick Flicks"><span class="intent-copy"><strong>Learn the latest lesson</strong><span>Read, watch or listen to Episode 04: The Founding Mothers.</span><b>Open the episode →</b></span></a><a class="intent-card" href="/library.html#miss-jeeves"><img src="/assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The town LIBRAiRY"><span class="intent-copy"><strong>Look something up</strong><span>Ask Miss Jeeves about a term, model, company or previous lesson.</span><b>Search the LIBRAiRY →</b></span></a><a class="intent-card" href="/newsstand.html"><img src="/assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp" alt="The SUNNYVAiLE NewsStand"><span class="intent-copy"><strong>Understand the headlines</strong><span>See current reporting when the evidence earns it, or the released archive.</span><b>Check the NewsStand →</b></span></a><a class="intent-card" href="/blend-snap.html"><img src="/assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.webp" alt="Blend and Snap"><span class="intent-copy"><strong>Practise something useful</strong><span>Find the Study Pack pieces and Try-Ons that are actually available.</span><b>Visit Blend &amp; Snap →</b></span></a><a class="intent-card" href="/sorority-house.html"><img src="/assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg" alt="Delta LAi Nu"><span class="intent-copy"><strong>Find my people</strong><span>Browse Delta LAi Nu, Girl Talk and the admitted community experience.</span><b>Visit Delta LAi Nu →</b></span></a></div></section>
+    <section class="wednesday" id="this-week" aria-labelledby="wednesday-title"><div class="section-head"><div><p class="eyebrow">The connected weekly route</p><h2 class="section-title" id="wednesday-title">On Wednesdays we do AI.</h2></div><p>Use the full route when you want the whole experience. Every destination tells you what is actually available.</p></div><ol class="route"><li><a href="/newsstand.html"><b>1</b><strong>NewsStand</strong><small>News and Daily desks</small><span class="verb">Check</span></a></li><li><a data-episode-route href="/issues/issue-04.html"><b>2</b><strong data-episode-title>Episode 04 · The Founding Mothers</strong><small data-episode-copy>Latest published episode · read, watch or listen</small><span class="verb" data-episode-verb>Learn</span></a></li><li><a href="/blend-snap.html"><b>3</b><strong>Blend &amp; Snap</strong><small>Available Study Pack pieces</small><span class="verb">Practise</span></a></li><li><a href="/radio.html"><b>4</b><strong>KSVL 99.9</strong><small>Original lesson songs</small><span class="verb">Listen</span></a></li><li><a href="/sunnyvaile-high.html"><b>5</b><strong>SUNNYVAiLE High</strong><small>Take the Pop Quiz</small><span class="verb">Check</span></a></li><li><a href="/mall.html"><b>6</b><strong>The Mall</strong><small>Choose some free time</small><span class="verb">Explore</span></a></li><li><a href="/bronze-aige.html"><b>7</b><strong>BRONZE AiGE</strong><small>Happy-hour tools</small><span class="verb">Connect</span></a></li><li><a href="/sorority-house.html"><b>8</b><strong>Delta LAi Nu</strong><small>Girl Talk and community</small><span class="verb">Finish</span></a></li></ol><p class="route-note"><strong>KSVL is always open.</strong> The station is part of the Wednesday route, but you can listen to LAiDIES songs whenever you want.</p></section>
+    <section class="women" aria-labelledby="women-title"><div class="women-image"><img src="/assets/sunnyvaile-streets/lantern-hill-evening.webp" alt="The LUMINAiRY glowing on Lantern Hill"></div><div class="women-copy"><p class="eyebrow">Women have always built the future</p><h2 id="women-title">AI decisions should not be made without us.</h2><p>Patron Saints light up the lessons. MAiVENS built computing and AI. Trailblazers are shaping it now. The decisions about AI are being made right now—in the products we use, the workplaces we run and the industries we built.</p><p>AI fluency helps women work better with the technology, understand the headlines and participate in the important workplace and public discussions around it.</p><div class="women-links"><a class="button" href="/luminairy.html">Visit the LUMINAiRY</a><a class="button alt" href="/issues/issue-04.html">Read The Founding Mothers</a></div></div></section>
+    <section class="explore" id="town" aria-labelledby="explore-title"><div class="section-head"><div><p class="eyebrow">Guided first. Explorable always.</p><h2 class="section-title" id="explore-title">Explore SUNNYVAiLE</h2></div><p>Choose a known destination directly, or use the map when you want to wander.</p></div><div class="explore-grid"><div class="explore-map"><img src="/assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="Map of SUNNYVAiLE showing its districts and destinations"></div><div class="directory"><h3>Where do you want to go?</h3><p>Every building has a job. No district-selection step stands between you and the place you chose.</p><div class="destination-list"><a href="/visitors-centre.html">Visitor’s Centre</a><a href="/newsstand.html">NewsStand</a><a href="/chick-flicks.html">The Chick Flicks</a><a href="/blend-snap.html">Blend &amp; Snap</a><a href="/library.html">The LIBRAiRY</a><a href="/sunnyvaile-high.html">SUNNYVAiLE High</a><a href="/radio.html">KSVL 99.9</a><a href="/luminairy.html">The LUMINAiRY</a><a href="/maikeover.html">MAiKEOVER on MAiN</a><a href="/bronze-aige.html">BRONZE AiGE</a><a href="/sorority-house.html">Delta LAi Nu</a><a href="/post-office.html">Post Office</a><a href="/town-hall.html">Town Hall</a><a href="/mall.html">The Mall</a></div></div></div></section>
+    <section class="continue" aria-labelledby="continue-title"><div class="section-head"><div><p class="eyebrow">Continue in the way that suits you</p><h2 class="section-title" id="continue-title">A Card, a Postcard and the radio are different things.</h2></div><p>Nothing here is required to browse LAiDIES. Choose only the continuation you want.</p></div><div class="continue-grid"><a class="continue-card" href="/maikeover.html"><img src="/assets/sunnyvaile-buildings/y2k-v3/09-maikeover-on-maine.webp" alt="MAiKEOVER on MAiN"><span class="continue-copy"><h3>Resident Card + Closet</h3><p>Make a SUNNYVAiLE Card. The current device-local Card can be reopened in the Closet on this device; account and cross-device continuity remain limited to what the sign-in desk proves.</p><strong>Make my Resident Card →</strong></span></a><a class="continue-card" href="/post-office.html#rent"><img src="/assets/sunnyvaile-buildings/y2k-v3/13-sunnyvaile-post-office.webp" alt="The SUNNYVAiLE Post Office"><span class="continue-copy"><h3>Wednesday Postcard</h3><p>Request the weekly email separately at the Post Office. Making a Resident Card does not subscribe you.</p><strong>Request the Wednesday Postcard →</strong></span></a><a class="continue-card" href="/radio.html"><img src="/assets/building-interiors/ksvl-booth.jpg" alt="Inside the KSVL 99.9 radio booth"><span class="continue-copy"><h3>KSVL 99.9</h3><p>Hear LAiDIES original songs inspired by the lessons, characters and stories of SUNNYVAiLE. The station is available outside the Wednesday route.</p><strong>Listen to KSVL →</strong></span></a></div></section>
   </main>
-
-  <div class="arrival" data-arrival hidden>
-    <video muted playsinline preload="auto" aria-label="LAiDIES dial-up arrival animation">
-      <source src="/operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4" type="video/mp4">
-    </video>
-    <div class="arrival-controls">
-      <button type="button" data-pause>Pause arrival</button>
-      <button type="button" data-skip>Skip arrival</button>
-    </div>
-  </div>
-
+  <footer><a class="brand" href="#main" aria-label="LAiDIES home">L<span class="ai">Ai</span>DIES</a><p>Girl Power meets Machine Power.</p></footer>
+  <div class="arrival" data-arrival hidden><video muted playsinline preload="auto" aria-label="LAiDIES dial-up arrival animation"><source src="/operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4" type="video/mp4"></video><div class="arrival-controls"><button type="button" data-pause>Pause arrival</button><button type="button" data-skip>Skip arrival</button></div></div>
+  <script src="/content/newsstand-stories.js"></script>
   <script>
     (function(){
-      var key='laidies_home_ident_seen';
-      var arrival=document.querySelector('[data-arrival]');
-      var video=arrival.querySelector('video');
-      var pause=arrival.querySelector('[data-pause]');
-      var skip=arrival.querySelector('[data-skip]');
-      var replay=document.querySelector('[data-replay]');
-      var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function storeSeen(){try{sessionStorage.setItem(key,'1')}catch(e){}}
-      function wasSeen(){try{return sessionStorage.getItem(key)==='1'}catch(e){return true}}
-      function close(){storeSeen();arrival.hidden=true;video.pause();}
-      function open(force){
-        if(reduce||(!force&&wasSeen()))return;
-        arrival.hidden=false;
-        video.currentTime=0;
-        var started=video.play();
-        if(started&&started.catch)started.catch(close);
-      }
-      pause.addEventListener('click',function(){
-        if(video.paused){
-          var resumed=video.play();
-          if(resumed&&resumed.catch)resumed.catch(close);
-          pause.textContent='Pause arrival';
-        }else{
-          video.pause();
-          pause.textContent='Resume arrival';
-        }
-      });
-      skip.addEventListener('click',close);
-      replay.addEventListener('click',function(){open(true)});
-      video.addEventListener('ended',close);
-      video.addEventListener('error',close);
-      open(new URLSearchParams(location.search).has('replay-ident'));
+      var params=new URLSearchParams(location.search);var orientation=document.querySelector('.orientation');if(params.has('returning-signed-in')){document.body.classList.add('is-returning');orientation.open=false}if(params.get('resume-episode')==='03'&&params.has('returning-signed-in')){document.querySelector('[data-episode-route]').href='/issues/issue-03.html';document.querySelector('[data-episode-title]').textContent='Resume Episode 03 · The Burn Book Problem';document.querySelector('[data-episode-copy]').textContent='Your last proved published episode';document.querySelector('[data-episode-verb]').textContent='Resume'}
+      var menu=document.querySelector('.menu-button');var mobile=document.getElementById('mobile-menu');
+      menu.addEventListener('click',function(){var open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));mobile.classList.toggle('is-open',!open)});
+      var key='laidies_home_ident_seen';var arrival=document.querySelector('[data-arrival]');var video=arrival.querySelector('video');var pause=arrival.querySelector('[data-pause]');var skip=arrival.querySelector('[data-skip]');var replay=document.querySelector('[data-replay]');var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function storeSeen(){try{sessionStorage.setItem(key,'1')}catch(e){}}function wasSeen(){try{return sessionStorage.getItem(key)==='1'}catch(e){return true}}function close(){storeSeen();arrival.hidden=true;video.pause()}function open(force){if(reduce||(!force&&wasSeen()))return;arrival.hidden=false;video.currentTime=0;var started=video.play();if(started&&started.catch)started.catch(close)}
+      pause.addEventListener('click',function(){if(video.paused){var resumed=video.play();if(resumed&&resumed.catch)resumed.catch(close);pause.textContent='Pause arrival'}else{video.pause();pause.textContent='Resume arrival'}});skip.addEventListener('click',close);replay.addEventListener('click',function(){open(true)});video.addEventListener('ended',close);video.addEventListener('error',close);open(params.has('replay-ident'));
+      function dateLabel(value){if(!value)return 'Desk date unavailable';var d=new Date(value.length===10?value+'T12:00:00Z':value);return d.toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric',timeZone:'America/Vancouver'})}
+      function renderDaily(store){var issues=store&&Array.isArray(store.issues)?store.issues.filter(function(i){return i&&i.status==='complete'&&/^\d{4}-\d{2}-\d{2}$/.test(i.editionDate||'')}):[];issues.sort(function(a,b){return b.editionDate.localeCompare(a.editionDate)});var issue=issues[0];if(!issue)return;var checked=window.NEWSSTAND_DATA&&window.NEWSSTAND_DATA.lastCheckedAt;document.querySelector('[data-desk-check]').textContent='Last checked '+dateLabel(checked);var story=(issue.stories||[]).find(function(s){return s&&s.status==='published'&&s.headline&&s.slug});if(story){document.querySelector('[data-story-label]').textContent='Latest filed Daily · '+dateLabel(issue.editionDate);document.querySelector('[data-story-headline]').textContent=story.headline;document.querySelector('[data-story-link]').href='/newsstand.html#'+encodeURIComponent(story.slug)}['paige_tip','promptoscope','career_life'].forEach(function(type){var desk=(issue.desks||[]).find(function(d){return d.type===type});if(!desk)return;var title=document.querySelector('[data-desk-title="'+type+'"]');var copy=document.querySelector('[data-desk-copy="'+type+'"]');if(desk.state==='ready'){title.textContent=desk.headline;copy.textContent=desk.summary}else{copy.textContent=desk.emptyState||copy.textContent}})}
+      fetch('/content/newsstand-daily-issues.json',{credentials:'same-origin'}).then(function(r){if(!r.ok)throw new Error('daily unavailable');return r.json()}).then(renderDaily).catch(function(){document.querySelector('[data-desk-check]').textContent='News desk update unavailable'});
     }());
   </script>
 </body>
