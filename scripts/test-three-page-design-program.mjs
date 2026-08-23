@@ -125,10 +125,10 @@ try {
   unpushed.pages['visitors-centre'].candidates.push({
     id: 'unpushed', status: 'READY_FOR_ADMISSION', entry_path: sourcePath,
     source_files: [{ path: sourcePath, sha256: sha(emptySource) }], dependencies: [],
-    production_method: 'repo_composition', pushed_commit: '0'.repeat(40),
+    production_method: 'repo_composition', pushed_commit: 'not-a-commit',
     pushed_ref: 'refs/heads/does-not-exist'
   });
-  expectFailure('unpushed', unpushed, 'pushed_ref absent on origin', true);
+  expectFailure('unpushed', unpushed, 'reviewable candidate requires pushed commit/ref');
 
   const missingAdmission = structuredClone(manifest);
   missingAdmission.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
@@ -165,11 +165,6 @@ try {
   fullBeforeSelection.pages.homepage.candidates[0].admission.selection_scope = 'FULL_IMPLEMENTATION';
   expectFailure('full-before-selection', fullBeforeSelection, 'selection scope must remain direction-first');
 
-  const wrongRuntimeAsset = structuredClone(manifest);
-  const liveBase = wrongRuntimeAsset.pages.homepage.candidates.find(candidate => candidate.id === 'homepage-live-base-proof-20260822');
-  liveBase.runtime_base_preserved_assets = [manifest.pages.homepage.allowed_existing_assets.find(item => item.path.includes('07-the-chick-flicks.webp'))];
-  expectFailure('wrong-runtime-asset', wrongRuntimeAsset, 'runtime-base preserved asset is not referenced by index.html');
-
   const missingLibraryCoverProof = structuredClone(manifest);
   delete missingLibraryCoverProof.pages.library.candidates[0].admission.objective_checks.fourteen_covers_visible;
   expectFailure('missing-library-cover-proof', missingLibraryCoverProof, 'objective check fourteen_covers_visible must PASS');
@@ -198,7 +193,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT wrong_runtime_asset=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

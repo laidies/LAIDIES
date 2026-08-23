@@ -14673,3 +14673,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The candidate, Daily rack and internal admission are invalidated in the routed Homepage authority and active-asset registry. The proof CSS/JavaScript is removed from the Homepage source. No new process file was added.
 - **Possible Behind the Build angle:** Why a safe-looking incremental redesign can faithfully preserve everything the redesign was meant to fix.
 - **Publication status:** REJECTED INTERNAL DIRECTION / NOT DEPLOYED.
+
+## BTB-477 — A dusk masthead is not permission to turn the whole Homepage into night
+
+- **Date:** 2026-08-23
+- **Area:** Homepage owner-reference synthesis and responsive visual review.
+- **Failure:** An early synthesis carried the masthead darkness into the method and later sections, while stale or stitched review captures obscured the real mobile composition and repeated already-settled feedback.
+- **Root cause:** The producer treated the locked dusk image as a page-wide palette cue instead of one scene, and evidence identity was not refreshed after responsive corrections.
+- **Prevention rule:** Bind the exact owner-selected references and current page brief before styling. Keep dusk confined to the masthead; compare the actual 1440, 877 and 390 viewport renders; and refresh every review-bound screenshot after any visible or responsive change. A stitched full-page capture is navigation evidence, not a visual-admission surface.
+- **Durable correction:** The admitted proof uses examples 4 and 1 as structural and editorial truth, keeps explanatory copy and real imagery, and moves the post-masthead page into bright cyan, coral, hot pink, cobalt, orange and lime compositions. The mobile town explanation now stacks, horizontal overflow is zero, and the independent exact-pixel verdict admits the current proof. It remains an owner-review artifact and is not deployed.
+- **Possible Behind the Build angle:** How one beautiful night image nearly made an entire learning town feel closed after dark.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.

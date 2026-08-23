@@ -47,7 +47,7 @@
     },
     {
       "path": "operations/site-visual-system-lock-2026-07-23.md",
-      "sha256": "380f9d83f80e8643e3130e4f1f71e6e206cd6bf4097d8af3d0120f40c8b29b3a"
+      "sha256": "566d4626e4464ee14e1909e27245781b1e6ff54286a257927f87497650df5937"
     },
     {
       "path": "operations/CODEX-WORKING-AGREEMENT.md",
@@ -69,11 +69,11 @@
       "governing_sources": [
         {
           "path": "operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md",
-          "sha256": "17d09dffce16944f9ebe535a972a498ea92e82cb1f4be3f2bf46f9b058349671"
+          "sha256": "33fa91ae085e1d88f9a0445a8b31486f2265903572ce906e0efb995e3639dc6b"
         },
         {
           "path": "operations/product-stewards/town-entry-homepage/FUNCTIONALITY-MAP.md",
-          "sha256": "51c52138d3e4a032efc7f927436a3c50d71ccf3c83ccd4c6280b32029d3595dd"
+          "sha256": "018b09c5ab7a15205dabd115d6ebdf4a26d2fffc7206cf4c05567c5e4fbc0a6a"
         }
       ],
       "allowed_existing_assets": [
@@ -131,12 +131,23 @@
           "path": "assets/final_map/sunnyvaile-town-map-final-v5.webp",
           "sha256": "d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0",
           "role": "canonical Homepage town map"
-        }
+        },
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp", "sha256": "9db9514a5d795379da73b08544ef9fbff054c2a6d59e73825881af5ee0dc142b", "role": "current NewsStand building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp", "sha256": "4afd850f87a8a575f75963143a7892c60cb5c7816bf35e0a2cf6de0d47735081", "role": "current LIBRAiRY building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/04-the-mall.webp", "sha256": "bf253731367975dd81dfdd1327a1c586f248167e2574c31330279659c87c589e", "role": "current Mall building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/05-bronze-aige.webp", "sha256": "d17553b7a0598ec360272adc9f7a44819f4606fc507bb05cd93398716e2c9db3", "role": "current Bronze Aige building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.webp", "sha256": "9594eee49bed22e510378e14750bab9eb3df645ef69c8d2299d5276446916c6c", "role": "current Blend and Snap building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/09-maikeover-on-maine.webp", "sha256": "de11b6e0e9617b45526b31d26315b416930b35253992e77aaa13f0abdf39ac6b", "role": "current MAiKEOVER building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/10-delta-lai-nu-sorority-house.webp", "sha256": "60a4eaafa45fc8cb37df9f03cfaf9feda5dfdea9e2f3c1f500db2472ec97a2cd", "role": "current Delta LAi Nu route image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/13-sunnyvaile-post-office.webp", "sha256": "946d9272c8bc4ea808950efc677932ab5dc607d311051a463234c9f57bbab8d0", "role": "current Post Office building image"},
+        {"path": "assets/sunnyvaile-buildings/y2k-v3/14-sunnyvaile-high.webp", "sha256": "2aac11445b73f2a43e6422acc5be2e15eaf8cfa8f61e381bf55595f9bb61c742", "role": "current SUNNYVAiLE High building image"},
+        {"path": "assets/sunnyvaile-streets/lantern-hill-evening.webp", "sha256": "b868381798aa9384dda9b7ab74a00487bbd189ead9f859f43e36ab2b571660d8", "role": "current LUMINAiRY atmosphere image"}
       ],
       "prohibited_assets": [],
       "required_new_art_roles": [
         "current-town editorial bridge",
-        "canonical character introduction"
+        "canonical character introduction",
+        "pop-art atmosphere layer"
       ],
       "locked_copy_source": "index.html",
       "locked_copy_fragments": [
@@ -356,52 +367,160 @@
           }
         },
         {
-          "id": "homepage-live-base-proof-20260822",
-          "status": "REJECTED_BY_ALI",
-          "entry_path": "operations/design-explorations/current/homepage/live-base-proof-20260822/index.html",
+          "id": "homepage-owner-reference-synthesis-20260823",
+          "status": "ADMITTED_FOR_ALI_REVIEW",
+          "entry_path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html",
           "production_method": "repo_composition",
-          "pushed_commit": "8d4945d76be02613b94155023abebb0bff8e10a4",
+          "pushed_commit": "589fa6c4d2edfc1917832f4aefd8cbce06e6a393",
           "pushed_ref": "refs/heads/codex/context-reset-20260818",
-          "runtime_base": {
-            "path": "index.html",
-            "sha256": "1e2d2ad6dd24e6bb42560e30cf0f1f130cbdb82971f9bd98dbe2f0959d26cb04"
-          },
-          "runtime_base_preserved_assets": [
-            {"path": "assets/sunnyvaile-streets/main-street-dusk.webp", "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b", "role": "locked evergreen masthead"}
-          ],
           "source_files": [
-            {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/index.html", "sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-            {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/proof.css", "sha256": "dfe85bc9cde112180076e3867a391c86428a1c1fd28aaea61963692c6bb22ef0"},
-            {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/proof.js", "sha256": "966e1c7d067b5c8a9afa9c978b66aa03bc2d863db6e5c17060d5e0ac0b34cc2a"}
+            {
+              "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html",
+              "sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f"
+            }
           ],
           "dependencies": [
-            {"path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4", "sha256": "05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3", "role": "canonical first-session ident"},
-            {"path": "assets/building-interiors/ksvl-booth.jpg", "sha256": "7dc6778f73c6391f286f2aa63cbd6dc9067af764c1015d0a892ee0ecb3bd3155", "role": "active KSVL Homepage spotlight"},
-            {"path": "assets/sunnyvaile-streets/schoolhouse-road-morning.webp", "sha256": "f1e5f8c9bd4466b0590f12da0b55294caa6834ad394df89328d31e0fa1a1e870", "role": "active Homepage Schoolhouse Road practice image"},
-            {"path": "assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp", "sha256": "bb73f63b98d1646838f98967cedf9b23ee0b5645a603265f568cb8709ea54379", "role": "curated-correct Chick Flicks story scene"},
-            {"path": "assets/episodes/ep-01/pixel/ep01-scene-09-chers-closet.png", "sha256": "d5c161d08e1d30dd8d0fb426e41916c6a1008a246eaa414b629cb00c341dd79a", "role": "curated-correct Episode 01 analogy scene"},
-            {"path": "assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg", "sha256": "bc2d1d968f44972e4cfd1b6994405c984f6243eee3bdb6be3496c46c6c6c96fc", "role": "curated-correct Delta LAi Nu community scene"},
-            {"path": "assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-daily-v1.png", "sha256": "4394aa746dc469e0875602616709bafbb4427495c13978050eb2607ef4a12e0f", "role": "active text-free Daily mobile paper object"},
-            {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/assets/homepage-newsstand-rack-daily-v1.png", "sha256": "36084c09ca1646d71e4064651573598e8c3e151298ed43b98e82ca77393274ac", "role": "current-town editorial bridge", "generated_for_candidate": true}
+            {
+              "path": "assets/building-interiors/ksvl-booth.jpg",
+              "sha256": "7dc6778f73c6391f286f2aa63cbd6dc9067af764c1015d0a892ee0ecb3bd3155",
+              "role": "active KSVL Homepage spotlight"
+            },
+            {
+              "path": "assets/episodes/ep-01/pixel/ep01-scene-09-chers-closet.png",
+              "sha256": "d5c161d08e1d30dd8d0fb426e41916c6a1008a246eaa414b629cb00c341dd79a",
+              "role": "curated-correct Episode 01 analogy scene"
+            },
+            {
+              "path": "assets/final_map/sunnyvaile-town-map-final-v5.webp",
+              "sha256": "d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0",
+              "role": "canonical Homepage town map"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg",
+              "sha256": "bc2d1d968f44972e4cfd1b6994405c984f6243eee3bdb6be3496c46c6c6c96fc",
+              "role": "curated-correct Delta LAi Nu community scene"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp",
+              "sha256": "bb73f63b98d1646838f98967cedf9b23ee0b5645a603265f568cb8709ea54379",
+              "role": "curated-correct Chick Flicks story scene"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp",
+              "sha256": "9db9514a5d795379da73b08544ef9fbff054c2a6d59e73825881af5ee0dc142b",
+              "role": "current NewsStand building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp",
+              "sha256": "4afd850f87a8a575f75963143a7892c60cb5c7816bf35e0a2cf6de0d47735081",
+              "role": "current LIBRAiRY building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/04-the-mall.webp",
+              "sha256": "bf253731367975dd81dfdd1327a1c586f248167e2574c31330279659c87c589e",
+              "role": "current Mall building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/05-bronze-aige.webp",
+              "sha256": "d17553b7a0598ec360272adc9f7a44819f4606fc507bb05cd93398716e2c9db3",
+              "role": "current Bronze Aige building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.webp",
+              "sha256": "9594eee49bed22e510378e14750bab9eb3df645ef69c8d2299d5276446916c6c",
+              "role": "current Blend and Snap building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/09-maikeover-on-maine.webp",
+              "sha256": "de11b6e0e9617b45526b31d26315b416930b35253992e77aaa13f0abdf39ac6b",
+              "role": "current MAiKEOVER building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/10-delta-lai-nu-sorority-house.webp",
+              "sha256": "60a4eaafa45fc8cb37df9f03cfaf9feda5dfdea9e2f3c1f500db2472ec97a2cd",
+              "role": "current Delta LAi Nu route image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/13-sunnyvaile-post-office.webp",
+              "sha256": "946d9272c8bc4ea808950efc677932ab5dc607d311051a463234c9f57bbab8d0",
+              "role": "current Post Office building image"
+            },
+            {
+              "path": "assets/sunnyvaile-buildings/y2k-v3/14-sunnyvaile-high.webp",
+              "sha256": "2aac11445b73f2a43e6422acc5be2e15eaf8cfa8f61e381bf55595f9bb61c742",
+              "role": "current SUNNYVAiLE High building image"
+            },
+            {
+              "path": "assets/sunnyvaile-streets/lantern-hill-evening.webp",
+              "sha256": "b868381798aa9384dda9b7ab74a00487bbd189ead9f859f43e36ab2b571660d8",
+              "role": "current LUMINAiRY atmosphere image"
+            },
+            {
+              "path": "assets/sunnyvaile-streets/main-street-dusk.webp",
+              "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b",
+              "role": "locked evergreen masthead"
+            },
+            {
+              "path": "assets/sunnyvaile-streets/schoolhouse-road-morning.webp",
+              "sha256": "f1e5f8c9bd4466b0590f12da0b55294caa6834ad394df89328d31e0fa1a1e870",
+              "role": "active Homepage Schoolhouse Road practice image"
+            },
+            {
+              "path": "assets/video/delivery-20260714-opening-v6/fonts/Jost.ttf",
+              "sha256": "6343b70971000b04c5d401c96ae08ce371086135e999d5e1e1413039c0213076",
+              "role": "local Jost typography dependency"
+            },
+            {
+              "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4",
+              "sha256": "05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3",
+              "role": "canonical first-session ident"
+            },
+            {
+              "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/assets/pop-burst-bg-v1.png",
+              "sha256": "8c4c9abfa5f3c3f2e935f2a7d49edf1881757bf64d2d8007b338075eb773e464",
+              "role": "pop-art atmosphere layer",
+              "generated_for_candidate": true
+            }
           ],
           "admission": {
             "presentation_stage": "REPRESENTATIVE_DIRECTION",
             "selection_scope": "DIRECTION_SELECTION_BEFORE_FULL_IMPLEMENTATION",
-            "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2",
+            "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f",
             "screenshots": {
-              "desktop_1440": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/desktop-1440.png", "sha256": "dc14b5d9b5666db27a68efa79c7bdb649cb9aaaa79c020c08ec325c8754240ca", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-              "desktop_method_1440": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/desktop-method-1440.png", "sha256": "a8931ea123320574c7e43b3e245868573a42f5d7991aef53c2ab2fe65f70557c", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-              "intermediate_900": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/intermediate-900.png", "sha256": "28d4ff55e2aeb0bbe57ae815b3dabc2f18b59ea2ae4b38e656e98fdc31117a78", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-              "mobile_390": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/mobile-390.png", "sha256": "56d77dc40b7077eabf168fe942d63a2a32115eed67524f07d1ebb8ef2eb33f53", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-              "mobile_method_390": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/mobile-method-390.png", "sha256": "45640bafe10841285b034eb7fd3e41a0c7663d5461d0ea6738e273662b071923", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-              "owner_877x915": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/owner-877x915.png", "sha256": "8ca68bf90da4fb24958fd2d2e51e426fb6ce8c313db8f97dde6176fe485be810", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2", "viewport": {"width": 877, "height": 915}},
-              "first_session_ident": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/first-session-ident-1440.png", "sha256": "5b47b6530809f72501ac9c87b8678fcf65627438e3fc1be53bea7ee206d497c4", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2"},
-              "daily_desktop_1280": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/daily-desktop-1280.png", "sha256": "8e5b3695b76a20a491a69e7824682fdb0534d59908de98e3cc8af0b4d6cd4b5c", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2", "viewport": {"width": 1280, "height": 720}},
-              "daily_mobile_390": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/daily-mobile-390.png", "sha256": "290ca25dec94c2316bdcba388ee3c973ed38637c833af66553acd5ca31d6f0e6", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2", "viewport": {"width": 390, "height": 720}}
+              "desktop_1440": {
+                "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/desktop-1440.png",
+                "sha256": "c8b9907df41b0872bc333094f135b364ccf0f6bea46c8272def676a036a6fbe0",
+                "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f"
+              },
+              "mobile_390": {
+                "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/mobile-390.png",
+                "sha256": "6b5b0899b2a341ca944d2a377265925949e81646a01819a94c0b2e12fab9a84e",
+                "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f"
+              },
+              "owner_877x915": {
+                "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/owner-877x915.png",
+                "sha256": "e955a5edf65501dcc413248ff9142c15c2a8299274c4b96ff0c06a3198cc9164",
+                "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f",
+                "viewport": {
+                  "width": 877,
+                  "height": 915
+                }
+              },
+              "first_session_ident": {
+                "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/first-session-ident-1440.png",
+                "sha256": "32a6b2b7c911da73741fa453a6d62e9a80bf1ac132899ea73ce449d1fe31b141",
+                "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f"
+              }
             },
             "incumbent_screenshots": {
-              "desktop_1440": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/incumbent-desktop-1440.png", "sha256": "9f8c70f1954b795095eb132b87ec63b9cb884e8284e6b5653124edf16ad96fea"},
-              "mobile_390": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/incumbent-mobile-390.png", "sha256": "b03306e3faf6aa99e69354d5292df23b6ebb487e9d7165e83f8961fcfb598971"}
+              "desktop_1440": {
+                "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/incumbent-live-desktop-1440.png",
+                "sha256": "5874b09f69f3dbab6b1a206dbc106a1d6d8713995ff69b66f6c29cb6bdcecd71"
+              },
+              "mobile_390": {
+                "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/incumbent-live-mobile-390.png",
+                "sha256": "c64bf00ce077c595d528207a57172d5e0817794c31618328b28d85c18de530b5"
+              }
             },
             "objective_checks": {
               "desktop_mobile_no_overflow": "PASS",
@@ -418,18 +537,33 @@
             },
             "independent_reviews": [
               {
-                "agent_id": "library_blind_visual_admission",
+                "agent_id": "homepage_visual_recheck",
                 "role": "visual_experience",
                 "verdict": "ADMIT",
-                "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2",
+                "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f",
                 "comparison_basis": "SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE",
                 "visible_regressions": 0,
                 "locked_decision_violations": 0,
-                "reviewed_surfaces": ["desktop_1440", "intermediate_900", "mobile_390", "owner_877x915", "first_session_ident", "daily_desktop_1280", "daily_mobile_390"],
-                "evidence": {"path": "operations/design-explorations/current/homepage/live-base-proof-20260822/evidence/visual-experience-review.json", "sha256": "f0a0efd5f7ebe1acae08bde65fda1e6db69ce335b0a02e8217ed881aa16ad947"}
+                "reviewed_surfaces": [
+                  "desktop_1440",
+                  "intermediate_900",
+                  "mobile_390",
+                  "owner_877x915",
+                  "first_session_ident"
+                ],
+                "evidence": {
+                  "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/evidence/independent-visual-verdict.json",
+                  "sha256": "f9bf994674968a54025590e143f94df9254e9b7f6c7b60f738fa0c9b914c623f"
+                }
               }
             ],
-            "maker_review": {"result": "INVALIDATED_BY_ALI", "candidate_sha256": "04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2", "known_defects_remaining": 5, "objective_defects_remaining": 0, "visible_issues_remaining": 5, "owner_rejection": ["half-pastel/half-bold visual split", "CSS decoration instead of pop-art backgrounds", "nonsensical newspaper image and text composition", "additive section without page reorganization", "missing imagery"]}
+            "maker_review": {
+              "result": "PASS",
+              "candidate_sha256": "cbdac5a32de778b2f864196862536459a2f81fa3fa08e8b97ff7a0dcc8e5785f",
+              "known_defects_remaining": 0,
+              "objective_defects_remaining": 0,
+              "visible_issues_remaining": 0
+            }
           }
         }
       ]
