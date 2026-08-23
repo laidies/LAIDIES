@@ -10,8 +10,8 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `ea53cfa4-e8e4-446b-a415-d1be7ba7e74a`, deployed source `d899d7e52880b2c232f8caf2708a166639682373`, artifact identity `1e3badf6fbc0ed6bcc45f1b887161655ffa7f22fd2949db5860731deabbcbd90`, immutable URL `https://ea53cfa4.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes and the truthful Homepage → Visitor's Centre orientation handoff were verified at both origins on 2026-08-23. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, five public Homepage functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `713f35f9-48b6-4c2a-b78b-d4b9745f175d`, deployed source `e39e0eab47b228f67febbfc9a6780b2c3e5e6714`, artifact identity `97f9beb2cc6afc1fda0398e2476c400eabcf95b870b61162731118e7fca093cb`, immutable URL `https://713f35f9.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact bytes and the no-trailer Homepage → Visitor's Centre orientation handoff were verified at both origins on 2026-08-23. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, six public Homepage functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
 | Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes five exact activity receivers, truthful Businesswomen's Special framing, a real 44px town-map interaction with focus return, a signed-out Homepage action labelled `Sign in`, and Homepage links that route to the working Visitor's Centre orientation without promising the held trailer. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
@@ -60,17 +60,17 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `d899d7e52880b2c232f8caf2708a166639682373` |
-| Artifact identity | `1e3badf6fbc0ed6bcc45f1b887161655ffa7f22fd2949db5860731deabbcbd90` |
-| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,347 bytes |
+| Deployed source | `e39e0eab47b228f67febbfc9a6780b2c3e5e6714` |
+| Artifact identity | `97f9beb2cc6afc1fda0398e2476c400eabcf95b870b61162731118e7fca093cb` |
+| Curated build | 559 copied files / 415.24 MiB; manifest 561 files / 435,481,344 bytes |
 | Exact public scope | 2 modifications / 0 additions / 0 removals / 6 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `ea53cfa4-e8e4-446b-a415-d1be7ba7e74a` |
-| Immutable URL | `https://ea53cfa4.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `713f35f9-48b6-4c2a-b78b-d4b9745f175d` |
+| Immutable URL | `https://713f35f9.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T08:49:46Z`; 14/14 critical public bytes matched; Homepage → Visitor's Centre orientation passed 6/6 at both origins and 1440, 390 and 320 pixels; Miss Jeeves returned privacy-safe JSON at both origins |
-| Exact scope | `operations/release-control/homepage-visitor-orientation-truth-production-scope-20260823.json` |
-| Rollback deployment | `95127623-011d-4e66-a5ad-dd2433ef3b62` |
+| Public verification | completed `2026-08-23T08:56:05Z`; 14/14 critical public bytes matched; Homepage contains zero trailer wording and its Visitor's Centre orientation passed 6/6 at both origins and 1440, 390 and 320 pixels; Miss Jeeves returned privacy-safe JSON at both origins |
+| Exact scope | `operations/release-control/homepage-no-trailer-production-scope-20260823.json` |
+| Rollback deployment | `ea53cfa4-e8e4-446b-a415-d1be7ba7e74a` |
 
 ## Historical 2026-07-26 production release record
 
