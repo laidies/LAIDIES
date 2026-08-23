@@ -20,10 +20,10 @@ local route are not enough to promote a receiver as working.
 | Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
 | KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
 | LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the route/artifact | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile or claim |
-| Explore / map / named buildings | `SOURCE_PRESENT_UNVERIFIED`; map focus repair `LOCAL_VERIFIED_NOT_DEPLOYED` | Direct named building links; optional map | Route reachability is not receiver-function proof |
+| Explore / map / named buildings | `SOURCE_PRESENT_UNVERIFIED`; map focus repair `PUBLICLY_VERIFIED` | Direct named building links; optional map | Route reachability is not receiver-function proof |
 | Resident Card / Closet | `SOURCE_PRESENT_UNVERIFIED` | Make a Resident Card; Open my Closet | No account-backed resume, cross-device state, reward or ownership claim |
 | Wednesday Postcard | `MISSING_RECEIVER` | Request the Postcard at the Post Office | No subscription, confirmation, delivery, referral or reward claim |
-| Businesswomen's Special | `LOCAL_VERIFIED_NOT_DEPLOYED` | Visit the Businesswomen's Special | Do not call it public until the Homepage route and exact interaction pass at both public origins |
+| Businesswomen's Special | `PUBLICLY_VERIFIED` | Visit the Businesswomen's Special | Cocktail and spirit-free remain equal choices; no order, service, account or reward claim |
 | Visitor's Centre | `SOURCE_PRESENT_UNVERIFIED` | Visit the Visitor's Centre; Get oriented | No complete tour/trailer claim before receiver-specific public proof |
 
 The detailed recovered architecture below remains useful for transaction and
