@@ -19,7 +19,7 @@ local route are not enough to promote a receiver as working.
 | Breaking / Daily / Paige / Career / Promptoscope | `MISSING_RECEIVER` | Honest current-news empty state plus archive | No live/fresh service claim |
 | Wednesday itinerary | `SOURCE_PRESENT_UNVERIFIED` | Explore the route; each stop states availability | No complete weekly experience, progress or reward claim |
 | Homepage question handoff, Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
-| KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
+| Homepage → KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
 | LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the route/artifact | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile or claim |
 | Explore / map / named buildings | Map geometry/focus `PUBLICLY_VERIFIED`; remaining receiver journeys `SOURCE_PRESENT_UNVERIFIED` | Direct named building links; optional map | A working map does not prove every destination's complete function |
 | Resident Card / Closet | Signed-out Homepage handoff `PUBLICLY_VERIFIED`; Card/Closet lifecycle `SOURCE_PRESENT_UNVERIFIED` | Sign in; Make a Resident Card; Open my Closet | No account-backed resume, cross-device state, reward or ownership claim |
@@ -53,7 +53,7 @@ above, the current projection above wins.
 | Auth/resume projection | Token or future `svShowResume` call | Only proved account/resume state | Signed-out entry is labelled `Sign in`; token/account continuation and cross-device state are not promoted without lifecycle proof | SIGNED-OUT ENTRY VERIFIED; SIGNED-IN CONTINUATION NOT PROVED |
 | Tour/reward paint | Visit route/check stops | Honest local progress only unless authoritative service proves more | Shared script mints local FAiRY Play, ritual badge and express completion from route visits | OBSERVED; CONTRACT CONFLICT |
 | Charm hunt | Hidden charm interaction | Truthfully local collectible state | Shared local-storage script is loaded | OBSERVED; ENTRY VALUE/ACCESSIBILITY OPEN |
-| Audio | Activate play chip | Correct track plays; pause/recovery announced | KSVL handoff with inline audio fallback | OBSERVED; COMPLETE MEDIA QA MISSING |
+| KSVL handoff | Activate any labelled Homepage KSVL route | Intentional radio-studio arrival with explicit Listen controls and no autostart | At both public origins and 1440/390/320, Homepage exposes the labelled anthem/station routes; KSVL arrives with its exact heading, at least three Listen controls, the exact 29-track statement, zero audio before action and no overflow. The release KSVL suite separately covers decoded audio, denial/retry, seek and persistence. | PUBLICLY VERIFIED |
 | Newsletter | Submit homepage form | Provider request then inbox confirmation/error | Buttondown popup/embed; Post Office contract test passes, real lifecycle absent | PARTIAL |
 | Analytics | Page/action | Privacy-safe aggregate entry evidence | Plausible/Clarity load; generic events in shared scripts; no approved entry schema | MISSING CONTRACT |
 | Release/campaign | Approved exact site/copy/image | Public entry works and campaign points to it | No current exact clean candidate or approval triad | HOLD |
