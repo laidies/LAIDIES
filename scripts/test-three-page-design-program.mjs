@@ -51,6 +51,17 @@ try {
   undeclared.pages['visitors-centre'].candidates[0].dependencies = [];
   expectFailure('undeclared', undeclared, 'unmanifested asset reference');
 
+  const unallowlisted = structuredClone(manifest);
+  const unallowlistedAsset = manifest.pages.homepage.allowed_existing_assets[0];
+  const unallowlistedSource = `<img src="/${unallowlistedAsset.path}" alt="not admitted for this page">\n`;
+  fs.writeFileSync(path.join(root, sourcePath), unallowlistedSource);
+  unallowlisted.pages['visitors-centre'].candidates.push({
+    id: 'unallowlisted-active', status: 'DRAFT_TRACKED', entry_path: sourcePath,
+    source_files: [{ path: sourcePath, sha256: sha(unallowlistedSource) }],
+    dependencies: [unallowlistedAsset], production_method: 'repo_composition'
+  });
+  expectFailure('unallowlisted-active', unallowlisted, 'existing dependency is not allowlisted');
+
   const unpushed = structuredClone(manifest);
   const emptySource = '<main>candidate</main>\n';
   fs.writeFileSync(path.join(root, sourcePath), emptySource);
@@ -100,7 +111,7 @@ try {
   rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT full_before_selection=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT full_before_selection=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

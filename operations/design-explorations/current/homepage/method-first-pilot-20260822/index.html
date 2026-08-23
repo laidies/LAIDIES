@@ -20,12 +20,16 @@
   </div>
 
   <header class="site-header">
-    <a class="wordmark" href="#arrival" aria-label="LAiDIES home">L<span class="ai-unit">A<span class="i-wrap">i<span class="tittle" aria-hidden="true"></span></span></span>DIES</a>
+    <a class="wordmark" href="#arrival" aria-label="LAiDIES home">L<span class="ai-unit">A<span class="i-wrap">&#305;<span class="tittle" aria-hidden="true"></span></span></span>DIES</a>
     <nav class="desktop-nav" aria-label="Primary">
+      <a href="/issues/issue-04.html">Latest Episode</a>
+      <a href="#method">Start learning</a>
       <a href="/library.html">LIBRAiRY</a>
+      <a href="/#activities">Activities</a>
       <a href="/visitors-centre.html">Explore SUNNYVAiLE</a>
       <a class="listen" href="/radio.html">Listen to KSVL</a>
-      <a href="/resident-card.html#rcAccountTitle">Resident Card</a>
+      <a href="/resident-card.html#rcAccountTitle">Sign in</a>
+      <a class="join-town" href="/maikeover.html">Join the town</a>
     </nav>
     <div class="mobile-actions">
       <a href="/library.html">LIBRAiRY</a>
@@ -33,9 +37,13 @@
     </div>
   </header>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile primary" hidden>
+    <a href="/issues/issue-04.html">Latest Episode</a>
+    <a href="#method">Start learning</a>
+    <a href="/#activities">Activities</a>
     <a href="/visitors-centre.html">Explore SUNNYVAiLE</a>
     <a href="/radio.html">Listen to KSVL</a>
-    <a href="/resident-card.html#rcAccountTitle">Resident Card</a>
+    <a href="/resident-card.html#rcAccountTitle">Sign in</a>
+    <a href="/maikeover.html">Join the town</a>
   </nav>
 
   <main id="arrival">
@@ -67,23 +75,29 @@
         </div>
       </header>
 
-      <div class="method-story">
-        <article class="chapter chapter-plot">
-          <p class="chapter-number">01 · Story</p>
-          <h3>Follow the plot</h3>
-          <p>Start with <a href="/visitors-centre.html">the trailer</a>, then read or hear the episodes in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p>
-          <p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story—and take your AI fluency further.</p>
-        </article>
-        <article class="chapter chapter-idea">
-          <p class="chapter-number">02 · Analogy</p>
-          <h3>Unlock the idea</h3>
-          <p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p>
-          <p>Because sometimes “context window” makes more sense when explained through <em>The Devil Wears Prada</em>—and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p>
-        </article>
+      <div class="method-scenes">
+        <section class="method-scene scene-story" aria-labelledby="story-title">
+          <img src="/assets/sunnyvaile-interiors/chick-flicks-new-releases-empty-middle.webp" alt="The New Releases wall inside The Chick Flicks video store">
+          <article>
+            <p class="chapter-number">01 · Story</p>
+            <h3 id="story-title">Follow the plot</h3>
+            <p>Start with <a href="/visitors-centre.html">the trailer</a>, then read or hear the episodes in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p>
+            <p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story—and take your AI fluency further.</p>
+          </article>
+        </section>
+        <section class="method-scene scene-analogy" aria-labelledby="analogy-title">
+          <article>
+            <p class="chapter-number">02 · Analogy</p>
+            <h3 id="analogy-title">Unlock the idea</h3>
+            <p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p>
+            <p>Because sometimes “context window” makes more sense when explained through <em>The Devil Wears Prada</em>—and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p>
+          </article>
+          <img src="/assets/episodes/ep-01/pixel/ep01-scene-09-chers-closet.png" alt="A Rewind Era closet computer organizing outfits by context">
+        </section>
       </div>
 
       <div class="method-feature feature-practice">
-        <img src="/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth outside the SUNNYVAiLE Mall">
+        <img src="/assets/sunnyvaile-streets/schoolhouse-road-morning.webp" alt="SUNNYVAiLE High on Schoolhouse Road">
         <article>
           <p class="chapter-number">03 · Practice</p>
           <h3>Make it click</h3>
@@ -98,19 +112,24 @@
           <h3>Make it stick</h3>
           <p>KSVL turns central lessons into memorable LAiDIES original songs.</p>
           <p>Twenty-nine tracks are ready to hear. Pick a song, start listening and let the hook do the revision.</p>
-          <a class="feature-link" href="/radio.html">Listen to KSVL</a>
+          <audio data-anthem preload="metadata" src="/content/music/sunnyvaile-town-anthem.mp3"></audio>
+          <div class="ksvl-actions">
+            <button class="feature-link" type="button" data-anthem-toggle>Start listening</button>
+            <a class="feature-link feature-link-alt" href="/radio.html">Open KSVL</a>
+          </div>
+          <p class="audio-status" data-audio-status aria-live="polite"></p>
         </article>
         <img src="/assets/building-interiors/ksvl-booth.jpg" alt="The KSVL radio studio in SUNNYVAiLE">
       </div>
 
-      <div class="why-laidies">
-        <img src="/assets/sunnyvaile-streets/lantern-hill-evening.webp" alt="The LUMINAiRY at the top of Lantern Hill at sunset">
+      <div class="method-community">
+        <img src="/assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg" alt="Delta LAi Nu sorority house at sunset">
         <article>
-          <p class="eyebrow">Why LAiDIES exists</p>
-          <p>Women have shaped computing from its earliest foundations and helped build the ideas, machines and methods that made modern AI possible.</p>
-          <p>What it becomes next is being decided right now. Getting involved—learning it, using it, having opinions about it—is how we shape the future the way we shaped the past. That is why LAiDIES exists. And since we’re here anyway, we may as well have fun.</p>
-          <blockquote>“Computing is too important to be left to men.”<cite>— Karen Spärck Jones · Keeper of the Index</cite></blockquote>
-          <a class="feature-link" href="/luminairy.html">Read their stories at the LUMINAiRY</a>
+          <p class="chapter-number">05 · Community</p>
+          <h3>Join the town</h3>
+          <p>You can explore SUNNYVAiLE without signing up. Becoming a resident gives you a Card and a private account route for the supported continuation you explicitly keep; browser-only finds stay in that browser.</p>
+          <p><strong>Delta LAi Nu</strong>—SUNNYVAiLE’s sorority house—remains open to browse without a Card. Girl Talk is available there as a private honour-system SUNNYVAiLE spin on the classic ’90s truth-or-dare game; live conversation uses Hyvor’s separate sign-in when available.</p>
+          <a class="feature-link" href="/sorority-house.html">Visit Delta LAi Nu</a>
         </article>
       </div>
     </section>

@@ -27,7 +27,7 @@ const REQUIRED_LIBRARY = [
 ];
 const sha256 = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const clean = value => value.replace(/^\/+/, '').replace(/[?#].*$/, '');
-const assetPattern = /\.(?:avif|gif|jpe?g|png|svg|webp|mp4|webm|woff2?|ttf|otf)$/i;
+const assetPattern = /\.(?:avif|gif|jpe?g|png|svg|webp|mp3|m4a|aac|ogg|wav|mp4|webm|woff2?|ttf|otf)$/i;
 
 function binding(root, item, label, errors) {
   if (!item?.path || !/^[a-f0-9]{64}$/.test(item.sha256 || '')) {
@@ -180,7 +180,9 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
         if (prohibited.has(item.path)) errors.push(`${label}: prohibited dependency ${item.path}`);
         if (item.generated_for_candidate) {
           if (!item.path.startsWith(prefix) || !roles.has(item.role)) errors.push(`${label}: generated dependency has invalid path or role: ${item.path}`);
-        } else if (allowed.get(item.path) !== item.sha256) errors.push(`${label}: existing dependency is not allowlisted: ${item.path}`);
+        } else if (candidate.status !== 'REJECTED_BY_ALI' && allowed.get(item.path) !== item.sha256) {
+          errors.push(`${label}: existing dependency is not allowlisted: ${item.path}`);
+        }
         declared.set(item.path, item.sha256);
       }
       const observed = new Set();
