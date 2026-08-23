@@ -280,6 +280,29 @@ try {
   {
     const {context, page} = await openPagePath(held, "/games/dj-booth.html");
     await assertZeroAdmissionPromiseSurfaces(page, "DJ Booth");
+    await page.locator(".dj-track-card").first().evaluate((card) => card.click());
+    await page.waitForTimeout(30);
+    check(await page.evaluate(() => window.__KSVL_AUDIOS.length === 0),
+      "held DJ Booth created a competing or unadmitted audio owner");
+    await context.close();
+  }
+  {
+    const {context, page} = await openPagePath(admitted, "/games/dj-booth.html");
+    await page.waitForSelector('.dj-track-card[aria-disabled="false"]');
+    await page.locator(".dj-track-card").first().click();
+    await page.waitForTimeout(30);
+    const firstBoothState = await page.evaluate(() => window.KSVL_getPublicState?.());
+    check(firstBoothState?.trackId === "ep-01" && firstBoothState?.paused === false,
+      "DJ Booth did not hand the selected admitted track to canonical KSVL");
+    check(await page.evaluate(() => window.__KSVL_AUDIOS.filter((audio) => !audio.paused).length === 1),
+      "DJ Booth selection did not preserve one-audio ownership");
+    await page.evaluate(() => { window.__KSVL_AUDIO_MODE = "media-error"; });
+    await page.locator(".dj-track-card").nth(1).click();
+    await page.waitForTimeout(30);
+    check((await page.locator(".ksvl-np-status").innerText()).includes("could not load"),
+      "DJ Booth did not expose canonical KSVL media failure");
+    check(await page.evaluate(() => window.__KSVL_AUDIOS.filter((audio) => !audio.paused).length <= 1),
+      "DJ Booth retry/failure path left competing audio owners");
     await context.close();
   }
   {

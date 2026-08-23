@@ -69,6 +69,9 @@
   var activeRegistryId = '';
   var registryBySrc = {};
   var runtimeTracks = TRACKS.slice();
+  var resolveCatalogueReady;
+  var catalogueReadyPromise = new Promise(function(resolve) { resolveCatalogueReady = resolve; });
+  window.KSVL_whenReady = function() { return catalogueReadyPromise; };
 
   function safeLocalAudioPath(value) {
     return typeof value === 'string' &&
@@ -987,7 +990,7 @@
       return false;
     }
     state.mixId = 'single';
-    state.queue = [{ title: track.title || 'LAiDIES', artist: track.artist || 'LAiDIES', src: track.src }];
+    state.queue = [{ id: track.id || '', title: track.title || 'LAiDIES', artist: track.artist || 'LAiDIES', src: track.src }];
     state.index = 0;
     state.currentPart = 0;
     state.shuffle = false;
@@ -999,6 +1002,58 @@
   }
   window.KSVL_playTrack = function(src, title, artist) {
     return startSingle({ src: src, title: title, artist: artist });
+  };
+  window.KSVL_playTrackById = function(trackId) {
+    var track = TRACKS.filter(function(candidate) { return candidate.id === trackId; })[0];
+    if (!track) {
+      announce('That track cannot start right now. Please choose another one.', 'held');
+      return false;
+    }
+    return startSingle(track);
+  };
+  window.KSVL_getAdmittedTracks = function() {
+    return TRACKS.map(function(track) {
+      return { id: track.id, title: track.title, artist: track.artist };
+    });
+  };
+  window.KSVL_togglePlayback = function() {
+    if (!state.audio) return false;
+    togglePlay();
+    return true;
+  };
+  window.KSVL_cycleRepeat = function() {
+    cycleRepeat();
+    return state.repeatMode;
+  };
+  window.KSVL_seekToRatio = function(ratio) {
+    if (!state.audio || !Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
+      announce('This track does not provide usable seek metadata.', 'error');
+      return false;
+    }
+    try {
+      state.audio.currentTime = Math.max(0, Math.min(1, Number(ratio))) * state.audio.duration;
+      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status');
+      syncSoundControls();
+      return true;
+    } catch (error) {
+      announce('The browser could not seek in this track. Playback position was not changed.', 'error');
+      return false;
+    }
+  };
+  window.KSVL_getPublicState = function() {
+    var track = state.queue[state.index] || null;
+    var part = currentPart();
+    return track ? {
+      trackId: track.id || '',
+      title: track.title || '',
+      artist: track.artist || '',
+      paused: !!state.paused,
+      repeatMode: state.repeatMode,
+      currentTime: state.audio && Number.isFinite(state.audio.currentTime) ? state.audio.currentTime : 0,
+      duration: state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
+      status: npStatus ? npStatus.textContent : '',
+      partTitle: part && part.title ? part.title : ''
+    } : null;
   };
 
   function nextTrack() { if (state.queue.length) playIndex(state.index + 1); }
@@ -1328,10 +1383,18 @@
 
   function boot() {
     loadRegistry().catch(function() {}).then(function() {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', mount, {once: true});
-      } else {
+      var finishMount = function() {
         mount();
+        resolveCatalogueReady({
+          ready: catalogReady,
+          failure: catalogFailure,
+          tracks: window.KSVL_getAdmittedTracks()
+        });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finishMount, {once: true});
+      } else {
+        finishMount();
       }
     });
   }
