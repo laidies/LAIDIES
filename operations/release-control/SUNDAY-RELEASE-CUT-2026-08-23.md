@@ -1,6 +1,6 @@
 # Sunday release cut — 2026-08-23
 
-**Status:** VERIFIED LOCALLY / CONTROLLER INSTALLATION OPEN / NOT DEPLOYED
+**Status:** VERIFIED LOCALLY / CONTROLLER INSTALLED / NOT DEPLOYED
 
 This is the bounded production correction eligible to move toward Sunday
 release. It does not redefine the whole-town opening scope and does not convert
@@ -10,8 +10,8 @@ held work into released work.
 
 - Production source: `bf70d026de69a28ed702b759e17214ba4420d4ae`
 - Production artifact: `35c26807d6b9b2c314f3dec021c3e1f54c18c69ad517a143aa60d4a72484ee25`
-- Candidate artifact: `87c2be42d34d5809a9650c4976809ebcedd3de7c8674e8af9f5a8312b469cd19`
-- Candidate branch: `codex/context-reset-20260818`
+- Candidate artifact: `5c7bcad0e8451711520421c64b267ba9941c3c1bfea90b4cd040056ab2c36a38`
+- Candidate branch: `codex/sunday-release-chrome-cleanup-20260822`
 - Scope authority: `operations/release-control/sunday-production-scope-20260821.json`
 
 The source commit used for deployment is bound by the protected workflow at
@@ -49,6 +49,9 @@ the candidate artifact identity exactly.
    published town, using action-specific `Listen`, `Resume`, `Try`, `Open`,
    `Use` and `FAiRY allowance` language while preserving technical media APIs,
    events and identifiers.
+10. Keep the complete “The Big Picture” paper label inside its painted slot at
+    320 pixels on Linux as well as macOS, without changing the other paper jobs,
+    statuses, actions or rack geometry.
 
 ## Explicitly held
 
@@ -67,8 +70,8 @@ the candidate artifact identity exactly.
 
 - Curated build: 559 copied files / 415.24 MiB; zero
   missing, oversized or prohibited-source dependencies.
-- Manifest: 561 files / 435,479,868 bytes.
-- Scope: 42 exact public changes / 1 exact Worker addition / 6 exact removals /
+- Manifest: 561 files / 435,479,914 bytes.
+- Scope: 43 exact public changes / 1 exact Worker addition / 6 exact removals /
   11 exact production paths
   preserved.
 - LIBRAiRY browser: 99 checks; 65 external requests blocked.
@@ -80,6 +83,8 @@ the candidate artifact identity exactly.
 - Miss Jeeves Worker: grounded, privacy-safe and retired-route checks pass.
 - Public language: the calibrated guard finds zero visitor-visible exact
   `Play` uses while allowing required technical media APIs and identifiers.
+- NewsStand browser: 225 rendered checks, including four complete paper labels
+  and unchanged painted-slot ratios at 390 and 320 pixels.
 - KSVL: held, admitted, hostile-registry, denial/retry, seek, persistence,
   mobile, request-receipt and real decoded-audio journeys pass.
 - Current public API negative: `POST /api/miss-jeeves` returns empty HTTP 405;
