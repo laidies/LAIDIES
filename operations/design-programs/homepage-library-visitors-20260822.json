@@ -70,6 +70,10 @@
         {
           "path": "operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md",
           "sha256": "8a9b74321612423a8027d5a0595c43ff33d690183d97647dafa63cde2556fe52"
+        },
+        {
+          "path": "operations/product-stewards/town-entry-homepage/FUNCTIONALITY-MAP.md",
+          "sha256": "5c06ab5b5c5278e83fccfcff522bc17259061d0821d81fe36b823dbcb9560533"
         }
       ],
       "allowed_existing_assets": [
@@ -77,6 +81,11 @@
           "path": "assets/sunnyvaile-streets/main-street-dusk.webp",
           "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b",
           "role": "locked evergreen masthead"
+        },
+        {
+          "path": "assets/building-interiors/ksvl-booth.jpg",
+          "sha256": "7dc6778f73c6391f286f2aa63cbd6dc9067af764c1015d0a892ee0ecb3bd3155",
+          "role": "active KSVL Homepage spotlight"
         },
         {
           "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4",
@@ -265,6 +274,25 @@
             ],
             "maker_review": {"result": "PASS", "candidate_sha256": "b4857077210899230e8a0ca6382a95f47f18a2f970b580919c34f2e7cad6c995", "known_defects_remaining": 0, "objective_defects_remaining": 0, "visible_issues_remaining": 0}
           }
+        },
+        {
+          "id": "homepage-method-first-pilot-20260822",
+          "status": "DRAFT_TRACKED",
+          "entry_path": "operations/design-explorations/current/homepage/method-first-pilot-20260822/index.html",
+          "production_method": "repo_composition",
+          "source_files": [
+            {"path": "operations/design-explorations/current/homepage/method-first-pilot-20260822/index.html", "sha256": "21a38a60741990e54db63103c042b64bf5c537a337817a1c7c8129a1257eaeb0"},
+            {"path": "operations/design-explorations/current/homepage/method-first-pilot-20260822/candidate.css", "sha256": "fe1300a9e20f8fe592331847a7b01df11b0cc9cfee682d9de7fb50e201941a7c"},
+            {"path": "operations/design-explorations/current/homepage/method-first-pilot-20260822/candidate.js", "sha256": "239c246e8034ad06ae3c8a7c00362f97c2bd37a6198fdde9e8ca266fc3d30ccb"}
+          ],
+          "dependencies": [
+            {"path": "assets/sunnyvaile-streets/main-street-dusk.webp", "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b", "role": "locked evergreen masthead"},
+            {"path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4", "sha256": "05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3", "role": "canonical first-session ident"},
+            {"path": "assets/video/delivery-20260714-opening-v6/fonts/Jost.ttf", "sha256": "6343b70971000b04c5d401c96ae08ce371086135e999d5e1e1413039c0213076", "role": "local Jost typography dependency"},
+            {"path": "assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp", "sha256": "2e3eab0681771b03b62e1567032aacaac7375e807567239efaea59e74748a233", "role": "current Homepage Dream Phone activity image"},
+            {"path": "assets/building-interiors/ksvl-booth.jpg", "sha256": "7dc6778f73c6391f286f2aa63cbd6dc9067af764c1015d0a892ee0ecb3bd3155", "role": "active KSVL Homepage spotlight"},
+            {"path": "assets/sunnyvaile-streets/lantern-hill-evening.webp", "sha256": "b868381798aa9384dda9b7ab74a00487bbd189ead9f859f43e36ab2b571660d8", "role": "current Homepage LUMINAiRY spotlight"}
+          ]
         }
       ]
     },
