@@ -20,7 +20,7 @@ local route are not enough to promote a receiver as working.
 | Wednesday itinerary | `SOURCE_PRESENT_UNVERIFIED` | Explore the route; each stop states availability | No complete weekly experience, progress or reward claim |
 | Homepage question handoff, Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
 | Homepage → KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
-| LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the route/artifact | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile or claim |
+| Homepage → LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the truthful held-profile building | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile, biography, quotation or current-role claim |
 | Explore / map / named buildings | Map geometry/focus `PUBLICLY_VERIFIED`; remaining receiver journeys `SOURCE_PRESENT_UNVERIFIED` | Direct named building links; optional map | A working map does not prove every destination's complete function |
 | Resident Card / Closet | Signed-out Homepage handoff `PUBLICLY_VERIFIED`; Card/Closet lifecycle `SOURCE_PRESENT_UNVERIFIED` | Sign in; Make a Resident Card; Open my Closet | No account-backed resume, cross-device state, reward or ownership claim |
 | Wednesday Postcard | `MISSING_RECEIVER` | Request the Postcard at the Post Office | No subscription, confirmation, delivery, referral or reward claim |
