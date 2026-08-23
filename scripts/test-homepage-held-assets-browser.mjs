@@ -46,6 +46,12 @@ const visitorOrientationSource = process.env.CALIBRATE_HOMEPAGE_TRAILER_PROMISE_
     "Listen to the trailer at the Visitor’s Centre &rarr;"
   )
   : source;
+const postcardReceiverSource = process.env.CALIBRATE_HOMEPAGE_POSTCARD_RECEIVER_FAILURE === "1"
+  ? source.replace(
+    "Request the Wednesday Postcard</a>",
+    "Choose the Postcard</a>"
+  )
+  : source;
 const receiverIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
   ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
   : process.env.CALIBRATE_HOMEPAGE_ACTIVITY_RECEIVER_FAILURE === "1"
@@ -121,6 +127,9 @@ check(visitorOrientationSource.includes('<a class="text-link" href="/visitors-ce
   visitorOrientationSource.includes("New to LAiDIES? Start at the Visitor’s Centre to get oriented.") &&
   !/trailer/i.test(visitorOrientationSource),
   "Homepage promises the held trailer instead of routing to the Visitor’s Centre orientation");
+check(postcardReceiverSource.includes('<a class="button b-lilac" href="/post-office.html#rent">Request the Wednesday Postcard</a>') &&
+  !postcardReceiverSource.includes('href="/post-office.html#rent">Choose the Postcard</a>'),
+  "Homepage claims postcard selection where the receiver only opens the Wednesday Postcard request counter");
 
 const mime = new Map([[".html", "text/html; charset=utf-8"], [".js", "text/javascript; charset=utf-8"], [".json", "application/json; charset=utf-8"], [".css", "text/css; charset=utf-8"], [".webp", "image/webp"], [".png", "image/png"], [".jpg", "image/jpeg"], [".svg", "image/svg+xml"], [".mp3", "audio/mpeg"]]);
 const server = http.createServer((request, response) => {
