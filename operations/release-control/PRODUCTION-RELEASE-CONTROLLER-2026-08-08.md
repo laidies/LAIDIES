@@ -96,3 +96,9 @@ New immutable deployment hostnames can return transient 404s while Cloudflare
 propagates the just-uploaded files. Visitor-byte and API verification therefore
 retry failed responses for up to 120 seconds before issuing a release failure;
 the expected hashes, routes and response bodies are unchanged.
+
+Cloudflare Email Address Obfuscation can also rewrite HTML and inject a decode
+script on the custom domain. Rendered-book responses therefore carry
+`Cache-Control: no-transform`, which Cloudflare documents as disabling that
+rewrite. This is route-scoped to the books; the custom-domain verifier continues
+to require their exact reviewed hashes rather than normalizing provider changes.

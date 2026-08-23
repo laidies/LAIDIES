@@ -423,6 +423,15 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === '/api/miss-jeeves') return missJeeves(request, env);
     if (url.pathname === '/api/library-corrections' || url.pathname === '/api/library-corrections/status') return libraryCorrections(request, env);
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    if (!url.pathname.startsWith('/content/library-books/rendered/')) return response;
+    const headers = new Headers(response.headers);
+    const cacheControl = headers.get('cache-control');
+    headers.set('cache-control', cacheControl ? `${cacheControl}, no-transform` : 'no-transform');
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers
+    });
   }
 };
