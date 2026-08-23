@@ -958,7 +958,7 @@
     <div class="closet-arrival-copy">
       <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
       <h1>The Closet</h1>
-      <span>Your Resident Card and supported saved progress, all in one place.</span>
+      <span>Your Resident Card is your SUNNYVAiLE town ID.</span>
     </div>
   </div>
 
@@ -1059,7 +1059,7 @@
     </div>
 
       <!-- Wallet slots: one membership card per building, 90s-style -->
-      <div class="wallet-slots" id="walletSlots">
+      <div class="wallet-slots" id="walletSlots" hidden>
         <p class="wallet-slots-title">Membership cards</p>
         <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
         <div class="wallet-grid" id="walletGrid"></div>
@@ -1122,7 +1122,7 @@
     .vessel-flash { animation: dashVesselFlash 1.4s ease; }
     @keyframes dashVesselFlash { 0%, 100% { box-shadow: none; } 25% { box-shadow: 0 0 0 3px var(--gold, #c9a227); } }
   </style>
-  <section class="passport-section" id="dashboardSection">
+  <section class="passport-section" id="dashboardSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · At a glance</p>
     <h2 class="passport-section-title" id="dashTitle">Your Report Card</h2>
     <p class="passport-section-lede" id="dashLede">Every collection, counted. Tap a tile to jump straight to the shelf it lives on.</p>
@@ -1242,7 +1242,7 @@
        SECTION 1.25: YOUR COVEN — one favorite per pantheon
        (SAiNT / MAiVEN / TRAiLBLAZER / Town Character. Trip mechanic: pick at LUMINAiRY wings or the character's building.)
        ============================================== -->
-  <section class="passport-section" id="covenSection">
+  <section class="passport-section" id="covenSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · Your Luminaries</p>
     <h2 class="passport-section-title">Your Luminaries</h2>
     <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
@@ -1277,7 +1277,7 @@
   <!-- ==============================================
        SECTION 1.5: THIS WEEK'S TOUR (ritual mechanic)
        ============================================== -->
-  <section class="passport-section" id="tourSection">
+  <section class="passport-section" id="tourSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · This Week</p>
     <h2 class="passport-section-title">Your Wednesday Tour</h2>
     <p class="passport-section-lede">The 8-stop ritual — the week's episode, start to finish. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
@@ -1397,7 +1397,7 @@
   <!-- ==============================================
        SECTION 2: PASSPORT VESSELS
        ============================================== -->
-  <section class="passport-section" id="collectionSection">
+  <section class="passport-section" id="collectionSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
     <h2 class="passport-section-title">Your Collections</h2>
 
@@ -1537,7 +1537,7 @@
   <!-- ==============================================
        SECTION 3: FAIRY PLAYS BANK (self only)
        ============================================== -->
-  <section class="passport-section" id="fairyBankSection">
+  <section class="passport-section" id="fairyBankSection" hidden>
     <p class="passport-section-eyebrow">★ Your Wallet</p>
     <h2 class="passport-section-title">FAiRY Plays Bank</h2>
 
@@ -1560,7 +1560,7 @@
   <!-- ==============================================
        SECTION 4: LEADERBOARDS
        ============================================== -->
-  <section class="passport-section" id="leaderboardSection">
+  <section class="passport-section" id="leaderboardSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · Where You Rank</p>
     <h2 class="passport-section-title">Town Leaderboards</h2>
     <p class="passport-section-lede">Where you rank among the residents of SUNNYVAiLE.</p>
@@ -1776,7 +1776,7 @@
   function updateCardFromProfile(profile) {
     if (!profile) return;
     window.__laidiesLastProfile = profile;
-    document.getElementById('cardName').textContent = profile.display_name || 'A LAiDY';
+    document.getElementById('cardName').textContent = profile.display_name || 'SUNNYVAiLE Resident';
     // Archetype retired — hide the subtitle unless a legacy value exists.
     var archEl = document.getElementById('cardArchetype');
     var archVal = ARCHETYPES[profile.card_archetype] || profile.card_role || '';
@@ -1855,7 +1855,7 @@
     );
     shareBtn.hidden = !canShare;
     shareBtn.disabled = !canShare;
-    shareBtn.textContent = 'Share my public card';
+    shareBtn.textContent = canShare ? 'Share my public card' : 'Share unavailable — account proof required';
   }
   if (shareBtn) {
     shareBtn.addEventListener('click', function() {
@@ -2196,7 +2196,7 @@
       '<div style="max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:\'Jost\',sans-serif;color:var(--plum);">' +
       '<div style="font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;">★ SUNNYVAiLE Post Office</div>' +
       '<h1 style="font-family:\'Playfair Display\',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;">No forwarding address</h1>' +
-      '<p style="font-size:17px;line-height:1.6;color:var(--plum);">There is no LAiDY registered as <code style="background:var(--pearl);padding:3px 8px;border-radius:4px;font-family:monospace;">@' + username + '</code> in SUNNYVAiLE. She might not exist, or her closet might be set to private.</p>' +
+      '<p style="font-size:17px;line-height:1.6;color:var(--plum);">No public Resident Card is available for <code style="background:var(--pearl);padding:3px 8px;border-radius:4px;font-family:monospace;">@' + username + '</code>. A private, unavailable or unverified account receives the same non-revealing result.</p>' +
       '<p style="margin-top:32px;font-size:15px;"><a href="/" style="color:var(--rose);text-decoration:underline;font-weight:600;">← Back to town</a></p>' +
       '</div>';
   }
