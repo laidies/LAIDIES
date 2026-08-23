@@ -83,3 +83,11 @@ Ali's separate artifact-specific verdict.
 No workflow was dispatched. No Pages artifact was uploaded or deployed. The
 existing public site was not replaced or judged. No spend, purchase,
 subscription or Library visitor/content edit occurred.
+
+## 2026-08-23 runtime verification correction
+
+Cloudflare Pages executes `_worker.js` as edge runtime code and does not expose
+it as a visitor-downloadable file. It remains part of the exact artifact and
+change scope, but it must not appear in `verificationPaths`. The production
+scope checker now rejects runtime-only paths in that fetch list and its
+calibration proves the known-bad configuration fails.

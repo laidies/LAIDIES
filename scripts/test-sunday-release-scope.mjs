@@ -83,6 +83,12 @@ try {
   result = run(base, workerAdded, workerScope);
   assert.equal(result.status, 0, result.stderr);
 
+  const workerFetchScope = structuredClone(workerScope);
+  workerFetchScope.verificationPaths.push('_worker.js');
+  result = run(base, workerAdded, workerFetchScope);
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /runtime-only path cannot be fetched/);
+
   const stale = structuredClone(scope);
   stale.allowedChanges[0].candidateSha256 = sha256('wrong');
   result = run(base, candidate, stale);
@@ -101,7 +107,7 @@ try {
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /preserved production path drifted/);
 
-  console.log('PRODUCTION RELEASE SCOPE CALIBRATION: PASS · exact bound addition admitted · unrelated addition, stale hash, missing removal verification and preserved-path drift rejected');
+  console.log('PRODUCTION RELEASE SCOPE CALIBRATION: PASS · exact bound addition admitted · unrelated addition, runtime-only fetch verification, stale hash, missing removal verification and preserved-path drift rejected');
 } finally {
   fs.rmSync(temporaryDirectory, { recursive: true, force: true });
 }

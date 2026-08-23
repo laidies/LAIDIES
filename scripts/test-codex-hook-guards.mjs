@@ -49,9 +49,13 @@ const sessionStart = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hook
 assert.equal(sessionStart.status, 0, 'minimum session context must run');
 const sessionPayload = JSON.parse(sessionStart.stdout);
 const sessionContext = sessionPayload?.hookSpecificOutput?.additionalContext || '';
+const activeWork = fs.readFileSync(path.join(root, 'operations/ACTIVE-WORK.md'), 'utf8');
+const activeTaskId = activeWork.match(/^- \*\*Task ID:\*\* (.+)$/m)?.[1];
+const activeTaskStatus = activeWork.match(/^- \*\*Status:\*\* (.+)$/m)?.[1];
+assert.ok(activeTaskId && activeTaskStatus, 'active work must expose a current task id and status');
 assert.match(sessionContext, /LAiDIES MINIMUM CONTEXT PACKET/, 'minimum packet label must be injected');
 assert.match(sessionContext, /Do not preload archived registers/, 'retrieval boundary must reach sessions');
-assert.match(sessionContext, /CURRENT TASK — CTX-RESET-20260818 \/ VERIFIED LOCALLY/, 'current task must reach sessions');
+assert.ok(sessionContext.includes(`CURRENT TASK — ${activeTaskId} / ${activeTaskStatus}`), 'current task must reach sessions');
 assert.ok(sessionContext.length < 2000, `session context must stay compact; got ${sessionContext.length} characters`);
 assert.doesNotMatch(sessionContext, /STANDING CARD/, 'the old Standing Card must not be preloaded');
 assert.match(sessionContext, /WRITE LANE — NONE/, 'an unclaimed write lane must be explicit');

@@ -12,6 +12,7 @@ if (!baseManifestPath || !candidateManifestPath || !scopePath) {
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
 const SHA = /^[a-f0-9]{64}$/;
+const NON_FETCHABLE_RUNTIME_PATHS = new Set(['_worker.js']);
 const normalized = value => {
   if (typeof value !== 'string' || !value || value.startsWith('/') || value.includes('\\')) {
     throw new Error(`invalid artifact path: ${value}`);
@@ -109,6 +110,9 @@ for (const row of scope.preservedPaths) {
 }
 for (const item of scope.verificationPaths) {
   const artifactPath = normalized(item);
+  if (NON_FETCHABLE_RUNTIME_PATHS.has(artifactPath)) {
+    throw new Error(`runtime-only path cannot be fetched for public verification: ${artifactPath}`);
+  }
   if (!candidateFiles.has(artifactPath) || removed.has(artifactPath)) throw new Error(`candidate verification path is unavailable: ${artifactPath}`);
 }
 
