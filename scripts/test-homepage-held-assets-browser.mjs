@@ -34,6 +34,12 @@ const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
 const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILURE === "1"
   ? source.replaceAll('data-library-entry="primary" href="/library.html"', 'data-library-entry="primary" href="#reference"')
   : source;
+const accountEntrySource = process.env.CALIBRATE_HOMEPAGE_ACCOUNT_PROMISE_FAILURE === "1"
+  ? source.replace(
+    '<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>',
+    '<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Pick up where I left off</a>'
+  )
+  : source;
 const receiverIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
   ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
   : process.env.CALIBRATE_HOMEPAGE_ACTIVITY_RECEIVER_FAILURE === "1"
@@ -100,6 +106,9 @@ check((libraryNavigationSource.match(/data-library-entry="primary" href="\/libra
   "Homepage has no clearly labelled direct LIBRAiRY route in primary, mobile, reference and town-directory navigation");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
+check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
+  !accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Pick up where I left off</a>'),
+  "Homepage promises account-backed continuation before the visitor has signed in");
 
 const mime = new Map([[".html", "text/html; charset=utf-8"], [".js", "text/javascript; charset=utf-8"], [".json", "application/json; charset=utf-8"], [".css", "text/css; charset=utf-8"], [".webp", "image/webp"], [".png", "image/png"], [".jpg", "image/jpeg"], [".svg", "image/svg+xml"], [".mp3", "audio/mpeg"]]);
 const server = http.createServer((request, response) => {
@@ -171,6 +180,8 @@ try {
       await page.locator('#new-here a[href="/issues/issue-04.html"]').count() >= 1 &&
       await page.locator('#new-here a[href="/watch.html?ep=04"]').count() === 1,
       `${width}px Chick Flicks episode actions changed`);
+    check(await page.locator('.hero a.b-pink[href="/resident-card.html#rcAccountTitle"]').filter({hasText:"Sign in"}).count() === 1,
+      `${width}px Homepage account entry overpromises continuation before sign-in`);
     const businesswomensAction = page.getByRole("button", {name:"Visit the Businesswomen’s Special"});
     const fairyAction = page.getByRole("button", {name:"Ask the FAiRY Godmother"});
     const claioAction = page.getByRole("button", {name:"Consult Mme CLAi-O"});
