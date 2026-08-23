@@ -1,6 +1,6 @@
 # Sunday release cut — 2026-08-23
 
-**Status:** VERIFIED LOCALLY / CONTROLLER INSTALLED / NOT DEPLOYED
+**Status:** DEPLOYED AND VERIFIED PUBLICLY
 
 This is the bounded production correction eligible to move toward Sunday
 release. It does not redefine the whole-town opening scope and does not convert
@@ -11,6 +11,7 @@ held work into released work.
 - Production source: `bf70d026de69a28ed702b759e17214ba4420d4ae`
 - Production artifact: `35c26807d6b9b2c314f3dec021c3e1f54c18c69ad517a143aa60d4a72484ee25`
 - Candidate artifact: `d7d27bd6c95bf133177ca1a7e94796fbb83fe8d2edfdf22dd181b94f9a32bd41`
+- Deployed source: `e044ca899dfea867ba10f770cc99a0b8e32c100a`
 - Candidate branch: `codex/sunday-release-chrome-cleanup-20260822`
 - Scope authority: `operations/release-control/sunday-production-scope-20260821.json`
 
@@ -92,12 +93,20 @@ the candidate artifact identity exactly.
   post-deploy verification requires real JSON handler responses at both origins.
 - Every named gate above has a calibrated negative that fails.
 
-## Release boundary
+## Public deployment receipt
 
-Local proof is not deployment or publication. The next authorized mechanism is
-the protected GitHub production controller on default branch `main`. It must
-build the exact source commit, reproduce the candidate identity, compare it to
-the exact production artifact, require the registered Ali actor and literal
-artifact confirmation, deploy once through Cloudflare Pages, verify the
-immutable deployment and `laidies.ai`, and prove every removed path returns
-404. Until that succeeds, status remains **NOT DEPLOYED**.
+- GitHub run: `32621628038`
+- Cloudflare deployment ID: `2da88bce-908e-4667-ae79-a08ca8b9522f`
+- Immutable deployment: `https://2da88bce.laidies-sunnyvaile.pages.dev/`
+- Provider commit: `e044ca899dfea867ba10f770cc99a0b8e32c100a` — verified
+- Public verification completed: `2026-08-23T06:02:45Z`
+- Public URL: `https://laidies.ai/`
+- GitHub verification artifact: `9488589323`
+
+The protected controller reproduced the exact candidate identity, compared it
+to the exact deployed baseline, bound Ali's literal artifact approval, created
+one new production deployment, and verified exact bytes at both the immutable
+deployment and `laidies.ai`. It also verified all six removals as HTTP 404 and
+the Miss Jeeves JSON handler at both origins. Independent post-run checks
+reconfirmed exact Homepage, NewsStand and NewsStand CSS hashes, all six 404s,
+and privacy-safe Miss Jeeves results with no held Library identity exposed.
