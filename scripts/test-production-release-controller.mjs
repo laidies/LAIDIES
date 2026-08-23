@@ -149,6 +149,7 @@ assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
 assert.match(workflow, /new-id\+branch\+exact-byte-verification/);
 assert.match(workflow, /conflicting provider commit metadata/);
 assert.match(workflow, /for attempt in \$\(seq 1 10\)/);
+assert.match(workflow, /--retry 20 --retry-delay 5 --retry-max-time 120 --retry-all-errors/);
 assert.match(workflow, /if\(matches\.length===0\) process\.exit\(2\);/);
 assert.match(workflow, /\/pages\/projects\/\$PROJECT_NAME\/deployments\?page=1&per_page=15/);
 assert.doesNotMatch(workflow, /pages deployment list/);

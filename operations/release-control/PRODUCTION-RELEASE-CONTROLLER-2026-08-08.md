@@ -91,3 +91,8 @@ it as a visitor-downloadable file. It remains part of the exact artifact and
 change scope, but it must not appear in `verificationPaths`. The production
 scope checker now rejects runtime-only paths in that fetch list and its
 calibration proves the known-bad configuration fails.
+
+New immutable deployment hostnames can return transient 404s while Cloudflare
+propagates the just-uploaded files. Visitor-byte and API verification therefore
+retry failed responses for up to 120 seconds before issuing a release failure;
+the expected hashes, routes and response bodies are unchanged.
