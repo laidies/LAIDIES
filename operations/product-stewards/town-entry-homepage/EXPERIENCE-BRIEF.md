@@ -75,6 +75,115 @@ The top of the page must explain these ideas in this order:
 4. **The Rewind Era:** make clear that remembered references help unfamiliar
    ideas become easier to understand and remember.
 
+## 2026-08-23 owner walkthrough continuation — Homepage orientation
+
+The Homepage currently remains too easy to misread as a collection of visuals.
+A newcomer must not have to infer what the site is, why SUNNYVAiLE exists, how
+the buildings relate to one another, or where to go next. Apply these locks to
+the successor:
+
+- Immediately after the LAiDIES-method explanation, explain that SUNNYVAiLE is
+  the organizing model for the learning experience: familiar buildings have
+  specific jobs, and the complementary formats help a visitor learn, practise,
+  look something up, understand current news, use a tool, take a break or meet
+  the community. Link to the Visitor's Centre for the complete explanation,
+  directory, paths and tour.
+- `What is happening in SUNNYVAiLE` is a real editorial preview, not an
+  unexplained newspaper object or decorative rack. It must show readable,
+  current admitted NewsStand material—current stories, The Daily explanation,
+  the daily prompt and admitted tips/services such as Paige's Practical AI Tip,
+  Career/Work-Life Tip and Promptoscope—with honest empty states for anything
+  missing. Each item and the module itself have clear routes to the full
+  NewsStand. No fixed visual-candidate headline may impersonate `Latest`.
+- `What brought you to town today?` remains the visitor-intent organizer, but
+  every choice needs enough explanatory text to say what the visitor will get
+  and where it goes. It must expose real starting points such as the latest
+  episode and Miss Jeeves/LIBRAiRY instead of presenting unexplained names or
+  bare visual doors.
+- The Wednesday journey keeps one truthful connected order. Until Ali makes an
+  exact successor ruling, preserve the already-documented eight stops that
+  match her walkthrough: **NewsStand → The Chick Flicks (read, watch or listen
+  to the current episode) → Blend & Snap (available Study Pack pieces) → KSVL
+  → SUNNYVAiLE High (Pop Quiz) → The Mall/free time → BRONZE AiGE → Delta LAi
+  Nu (Girl Talk and the admitted community experience)**. KSVL is also an
+  always-available station outside this weekly route. Do not invent a different
+  middle order from Ali's momentary uncertainty while recalling the sequence.
+- Replace the redundant three-door Patron Saints/MAiVENS/Trailblazers treatment
+  with one meaningful women-and-AI section. It explains that women have always
+  built computing and AI, why women's participation now matters, and why AI
+  fluency helps visitors work better with the technology, understand the
+  headlines and participate in important public and workplace discussions.
+  Route onward to the LUMINAiRY and Episode 04. Patron Saints, MAiVENS and
+  Trailblazers may be explained inside that story; they are not three generic
+  substitutes for exploring the town.
+- `Explore SUNNYVAiLE` has one clear job. Direct destination links let visitors
+  go straight to a known building; the town map supports optional discovery.
+  Do not repeat the same heading for unrelated women-in-AI and map sections,
+  and do not present an inert map or force district navigation before a known
+  destination.
+- Explain the distinct continuation and communication choices: a Resident Card
+  can be made locally; the Closet keeps only state the current identity system
+  proves; the Wednesday Postcard newsletter can be requested without making a
+  Resident Card; and KSVL is the always-available station for LAiDIES songs and
+  related audio. Do not merge or overpromise those lifecycles.
+- Keep the explanation concise and layered: enough visible copy for the visitor
+  to understand the job, followed by exact `learn more`/destination links.
+  Visuals support that explanation; they do not replace it.
+- The dusk masthead is a locked image choice, not a whole-page night setting.
+  Keep its crop and image-derived text accents while making the page below it
+  brighter and more varied. Do not solve darkness by restoring the rejected
+  pale-pastel system.
+
+### Six-example direction signal — exact artifact mapping bound
+
+Ali reviewed six examples shown at approximately 07:18 on 2026-08-23. Her
+current signal is:
+
+- examples **1 and 4** are closest and are the primary references to reconcile;
+- examples **2 and 5** are not liked and must not be selected as bases;
+- examples **3 and 6** may contain useful secondary direction, but are not the
+  preferred bases; and
+- none of the six is approved as-is because every example still lacks enough
+  explanation for visitors to know what they are choosing.
+
+The displayed order is now bound to exact bytes:
+
+| Example | Exact generated-image source | SHA-256 | Owner signal |
+|---|---|---|---|
+| 1 | `exec-b14acea2-e70d-4b89-b035-ec6b29ffbbba.png` | `46789f447c25356038d996b4dd9dcf9f5559d8556cc6ae41ea8ec5e820a0c02d` | Primary reference; preserve its clearer editorial hierarchy and stronger current-happenings composition |
+| 2 | `exec-cee9469e-2e36-4c98-8b6f-5cdc0d90bda1.png` | `77d6dd7fb467ec09336b00b92626978c7d2dea124e21dad469a646162facf3df` | Not a base |
+| 3 | `exec-9f195119-5577-499e-8295-c67fa2df53ce.png` | `ed6f8323efaeb2b8c6105739973860c4a659ce3580b79e2d9eb9479ae78ad230` | Secondary only |
+| 4 | `exec-10654bc5-1cc5-4721-912c-8ded452a0a5e.png` | `e8d726c540f0aea48a8342d5f5278bc72f9721d4eb43f3a0b31ef46aa48b6d00` | Primary reference and structural base; preserve its brighter electric blue/pink comic-panel rhythm and image-led method |
+| 5 | `exec-b85f05a1-a222-4b1e-89b9-2f038a8a5105.png` | `d3b64cba2011ece0b1d767051fcad19efcc7978ff464aa8359ec4c216213b5eb` | Not a base |
+| 6 | `exec-3dbff3f8-17e4-4a33-b7d6-5269e21fe54a.png` | `929a1f4651074b567a601d13d913392367065c7782f929b0bf518b40358e26e6` | Secondary only |
+
+Exact copies of primary examples 1 and 4 are retained at
+`operations/design-explorations/reference/homepage/20260823-owner-shortlist/`.
+The four non-primary binaries are not duplicated into the repository; their
+source identity and checksum remain recorded above. These full-page generated
+images are layout and art-direction references only. Their generated words,
+signage, pseudo-UI, people and objects are not public-copy or production-asset
+authority.
+
+The next deterministic direction uses example 4 as the structural base and
+example 1 for the stronger `What is happening in SUNNYVAiLE` editorial
+composition. It must correct the shared comprehension failure rather than
+average all six into another direction. Specifically retain the dense but
+legible image-led editorial rhythm, saturated electric blue/pink/cyan colour,
+black-ink framing and varied section composition. Remove the blank Daily,
+generated lettering, invented or malformed signage, unexplained bare tiles,
+full-page night treatment, incomplete Wednesday route and generic three-door
+Patron Saints/MAiVENS/Trailblazers block.
+
+The Homepage Daily/NewsStand preview is specifically required to show useful
+live content on arrival, not just publication names or an invitation to leave
+the page. In a compact editorial module, show the current admitted AI
+headline(s), Paige's Practical AI Tip, the Career/Work-Life Tip, the daily
+prompt/Promptoscope and any other admitted current service. Give each item a
+short readable value and route, plus one clear link to the full NewsStand.
+Space efficiency may come from hierarchy, tabs/edition structure or a concise
+front-page layout; it may not come from hiding all substance behind the link.
+
 ## Required finite page jobs
 
 These jobs must all survive. Their exact order after the locked masthead and
