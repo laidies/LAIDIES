@@ -14618,3 +14618,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The writing lock now bans the visitor-visible `Play` family, names action-specific replacements and explicitly preserves `.play()`, media events, identifiers, analytics keys and CSS classes. The calibrated test rejects variants in HTML, dynamic JavaScript and public JSON while permitting technical media behavior, and CI now runs it. Source `012f40b4b51fd4795bbda00fb0150c41d7774648`, artifact `96dd8950abf2fc60dea322afd7fddf43c3c656b1af075e773330925ab0469b4f` and deployment `63774d48-9ae5-4901-95ad-b06f8ebf4725` passed exact-byte and language scans at both public origins across 72 entrypoints, 11 deployed dynamic sources and four public JSON sources.
 - **Possible Behind the Build angle:** Why changing a button label is easy—and preventing it from quietly coming back is the real product work.
 - **Publication status:** PRODUCTION LANGUAGE CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-472 — A visually correct reuse still fails when its route scope is implicit
+
+- **Date:** 2026-08-23
+- **Area:** Homepage Daily representative direction and active-asset admission.
+- **Failure:** The corrected physical Daily section had zero visible regressions, truthful source-bound state and credible desktop/mobile compositions, but its new desktop rack was absent from the active-asset registry and the existing mobile Daily paper was admitted only for NewsStand. Showing it then would have repeated the exact pattern of treating plausible pixels as authority.
+- **Root cause:** Asset review and route authority were recorded separately; reusing an admitted object on a new page was treated as automatically permitted.
+- **Prevention rule:** Every cross-route visual reuse must bind the exact consumer entry SHA, role and prohibited uses before owner review. Independent visual review cannot admit a candidate while either the new asset or reused asset lacks that exact route scope.
+- **Durable correction:** The desktop rack is now scoped only to Homepage proof entry `04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2`; the text-free mobile Daily object permits that same bounded proof while live HTML/JavaScript retains all publication names, jobs, state and actions. The independent pixel-first successor review reports zero visible regressions and zero locked violations.
+- **Possible Behind the Build angle:** Why “we already approved that image” does not answer whether it belongs on this page.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
