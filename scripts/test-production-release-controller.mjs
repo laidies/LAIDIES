@@ -22,7 +22,7 @@ function assertWorkflowContextIsDispatchable(source) {
 }
 
 function assertWorkflowArtifactOutputIsOutsideSource(source) {
-  const safeOutput = 'ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site';
+  const safeOutput = 'ARTIFACT_DIR: /tmp/laidies-candidate-site';
   if (source.split(safeOutput).length - 1 !== 2 ||
       source.includes('ARTIFACT_DIR: ${{ github.workspace }}/.release/site')) {
     throw new Error('candidate artifact output must stay outside the source repository in both release jobs');
@@ -94,7 +94,7 @@ assert.throws(
 assert.doesNotThrow(() => assertWorkflowArtifactOutputIsOutsideSource(workflow));
 assert.throws(
   () => assertWorkflowArtifactOutputIsOutsideSource(workflow.replace(
-    'ARTIFACT_DIR: ${{ github.workspace }}/../laidies-candidate-site',
+    'ARTIFACT_DIR: /tmp/laidies-candidate-site',
     'ARTIFACT_DIR: ${{ github.workspace }}/.release/site',
   )),
   /outside the source repository/,
