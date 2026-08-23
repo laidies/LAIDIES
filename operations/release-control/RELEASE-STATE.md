@@ -10,7 +10,7 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `0875285d-b47d-4d9a-a586-508b660ec894`, deployed source `2a6db9f9afe4d53183d659c973512f3891d7a216`, artifact identity `22b9e09598099311d6c4a69c5c8565460f760c0e43c69e47f1ece1c556fe1f0f`, immutable URL `https://0875285d.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; exact changed bytes, seven preserved public paths, the same-device Card identity panel and the absence of held Closet progression surfaces were publicly verified on 2026-08-23. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `63774d48-9ae5-4901-95ad-b06f8ebf4725`, deployed source `012f40b4b51fd4795bbda00fb0150c41d7774648`, artifact identity `96dd8950abf2fc60dea322afd7fddf43c3c656b1af075e773330925ab0469b4f`, immutable URL `https://63774d48.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; 18 exact public changes, nine protected paths, the complete visitor-visible `Play`-family ban and the prior Card/Closet truth were publicly verified on 2026-08-23. |
 | Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, ten public Homepage/shared-entry functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
 | Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, and the separately verified MAiKEOVER/NewsStand receivers. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
@@ -80,6 +80,12 @@ is recorded here.
   Two browser-control dispatch timeouts passed on immediate fresh-tab retries;
   these were control interruptions, not product failures. The LIBRAiRY receiver
   remains truthful: 14/14 held books are visible and 0/14 are admitted or openable.
+- Visitor-visible `Play`, `plays`, `played` and `playing` are now absent across
+  all 72 public entrypoints, 11 deployed dynamic sources and four public JSON
+  sources at both origins. The runtime Watch label was exercised and rendered
+  `WATCHING`; technical `.play()` calls, events, identifiers and CSS state remain
+  unchanged. The exact-word-only guard was replaced with the calibrated
+  HTML/JavaScript/JSON guard and added to CI.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
   creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
@@ -92,22 +98,23 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `2a6db9f9afe4d53183d659c973512f3891d7a216` |
-| Artifact identity | `22b9e09598099311d6c4a69c5c8565460f760c0e43c69e47f1ece1c556fe1f0f` |
-| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,401 bytes |
-| Exact public scope | 2 modifications / 0 additions / 0 removals / 7 protected production paths |
+| Deployed source | `012f40b4b51fd4795bbda00fb0150c41d7774648` |
+| Artifact identity | `96dd8950abf2fc60dea322afd7fddf43c3c656b1af075e773330925ab0469b4f` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,483,461 bytes |
+| Exact public scope | 18 modifications / 0 additions / 0 removals / 9 protected production paths |
 | Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `0875285d-b47d-4d9a-a586-508b660ec894` |
-| Immutable URL | `https://0875285d.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `63774d48-9ae5-4901-95ad-b06f8ebf4725` |
+| Immutable URL | `https://63774d48.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-23T11:23:22Z`; `laidies-card.html`, `build-report.json` and six critical preserved paths matched the curated artifact exactly at both origins. The custom-domain and immutable browser journeys each rendered the exact saved Card and `Device-local view` boundary while the wallet, report-card dashboard, Luminaries, Wednesday Tour, collection, FAiRY-bank and leaderboard surfaces were hidden from the visual and accessibility trees. `_worker.js` is preserved in the manifest and compiled by Wrangler but is not directly fetchable by design. |
-| Exact scope | `operations/release-control/closet-truth-production-scope-20260823.json` |
-| Rollback deployment | `8769da59-d4de-4633-9e39-3527fa3b56e9` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+| Public verification | completed `2026-08-23T12:35:42Z`; all 26 directly fetchable verification paths matched the curated artifact exactly at both origins, and `_worker.js` was verified through successful JSON responses from `/api/miss-jeeves`. The complete public-language scan passed at both origins across 72 entrypoints, 11 deployed dynamic sources and four public JSON sources; representative browser pages had zero visible variants and the active Watch OSD rendered `WATCHING`. |
+| Exact scope | `operations/release-control/public-language-production-scope-20260823.json` |
+| Rollback deployment | `0875285d-b47d-4d9a-a586-508b660ec894` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
 
 The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `2284b17a-1f5f-46bd-8fce-d384af1a814e` and
 `250060a3-7164-4abf-8f2b-54dd9f55f0e7` and
-`8769da59-d4de-4633-9e39-3527fa3b56e9` are superseded, not current. Wrangler
+`8769da59-d4de-4633-9e39-3527fa3b56e9` and
+`0875285d-b47d-4d9a-a586-508b660ec894` are superseded, not current. Wrangler
 reported a dirty-worktree warning solely because the isolated release source
 contained untracked `node_modules`; the deployed source commit, artifact
 manifest and public bytes are exact and independently bound above.
