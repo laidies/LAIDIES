@@ -117,8 +117,9 @@ check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card
   "Homepage promises account-backed continuation before the visitor has signed in");
 check(visitorOrientationSource.includes('<a class="text-link" href="/visitors-centre.html">Visit the Visitor’s Centre &rarr;</a>') &&
   visitorOrientationSource.includes('<a class="inline-link" href="/visitors-centre.html">the Visitor’s Centre</a>') &&
-  !visitorOrientationSource.includes("Listen to the trailer at the Visitor’s Centre") &&
-  !visitorOrientationSource.includes('href="/visitors-centre.html">the trailer</a>'),
+  visitorOrientationSource.includes('<li><a href="/visitors-centre.html">The Visitor’s Centre</a></li>') &&
+  visitorOrientationSource.includes("New to LAiDIES? Start at the Visitor’s Centre to get oriented.") &&
+  !/trailer/i.test(visitorOrientationSource),
   "Homepage promises the held trailer instead of routing to the Visitor’s Centre orientation");
 
 const mime = new Map([[".html", "text/html; charset=utf-8"], [".js", "text/javascript; charset=utf-8"], [".json", "application/json; charset=utf-8"], [".css", "text/css; charset=utf-8"], [".webp", "image/webp"], [".png", "image/png"], [".jpg", "image/jpeg"], [".svg", "image/svg+xml"], [".mp3", "audio/mpeg"]]);
