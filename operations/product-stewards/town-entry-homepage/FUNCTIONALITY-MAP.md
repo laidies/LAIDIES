@@ -1,9 +1,34 @@
 # Town Entry & Homepage functionality and cross-page touchpoint map
 
-**Status:** RECOVERED — SHARED CONTRACTS AND EXACT ADMISSION REMAIN OPEN  
+**Status:** CURRENT CAPABILITY PROJECTION RECORDED — VISUAL DIRECTION PENDING ALI
 **Product owner task:** `019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1`  
-**Functionality & Platform Director:** review required  
-**Write authority:** dossier only; routes and shared code are read-only
+**Updated:** 2026-08-23
+**Release boundary:** the Sunday correction is public; the admitted Homepage
+direction and complete-page redesign are not deployed.
+
+## Current Homepage promotion truth
+
+This table controls the next Homepage build. HTTP 200, source presence and a
+local route are not enough to promote a receiver as working.
+
+| Homepage job | Current status | Safe visitor action | Prohibited implication |
+|---|---|---|---|
+| Current public Homepage baseline | `PUBLICLY_VERIFIED` | New in town?; Start learning; Explore the town | The admitted redesign is not deployed or owner-approved |
+| Released NewsStand archive | `PUBLICLY_VERIFIED` | Read the NewsStand archive | Never label it latest/current without a new admitted record |
+| Breaking / Daily / Paige / Career / Promptoscope | `MISSING_RECEIVER` | Honest current-news empty state plus archive | No live/fresh service claim |
+| Wednesday itinerary | `SOURCE_PRESENT_UNVERIFIED` | Explore the route; each stop states availability | No complete weekly experience, progress or reward claim |
+| Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
+| KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
+| LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the route/artifact | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile or claim |
+| Explore / map / named buildings | `SOURCE_PRESENT_UNVERIFIED` | Direct named building links; optional map | Route reachability is not receiver-function proof; map focus return is open |
+| Resident Card / Closet | `SOURCE_PRESENT_UNVERIFIED` | Make a Resident Card; Open my Closet | No account-backed resume, cross-device state, reward or ownership claim |
+| Wednesday Postcard | `MISSING_RECEIVER` | Request the Postcard at the Post Office | No subscription, confirmation, delivery, referral or reward claim |
+| Businesswomen's Special | `SOURCE_PRESENT_UNVERIFIED` | Visit the BRONZE AiGE | No specific happy-hour action until its receiver is wired and verified |
+| Visitor's Centre | `SOURCE_PRESENT_UNVERIFIED` | Visit the Visitor's Centre; Get oriented | No complete tour/trailer claim before receiver-specific public proof |
+
+The detailed recovered architecture below remains useful for transaction and
+failure design. Where one of its older status labels conflicts with the table
+above, the current projection above wins.
 
 ## 1. Complete capability inventory
 
