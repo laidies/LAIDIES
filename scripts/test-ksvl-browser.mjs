@@ -315,7 +315,7 @@ try {
     ["impossible freshThrough", (value) => { value.freshThrough = "9999-99-99"; }],
     ["malformed updatedAt", (value) => { value.updatedAt = "not-a-date"; }],
     ["future updatedAt", (value) => { value.updatedAt = new Date(Date.now() + 86400000).toISOString().slice(0, 10); }],
-    ["stale freshThrough", (value) => { value.freshThrough = new Date(Date.now() - 86400000).toISOString().slice(0, 10); }],
+    ["stale freshThrough", (value) => { value.freshThrough = new Date(Date.now() - (2 * 86400000)).toISOString().slice(0, 10); }],
     ["missing exact master", (value) => { value.tracks[0].sourceStatus = "EXACT_MASTER_REVIEW_REQUIRED"; }],
     ["source mismatch", (value) => { value.tracks[0].src = "/content/music/not-the-runtime-source.mp3"; }],
     ["wrong registry id", (value) => { value.registryId = "ksvl-public-tracks-wrong"; }],

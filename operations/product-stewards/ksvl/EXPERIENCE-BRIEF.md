@@ -54,23 +54,26 @@ the promise cannot complete KSVL. `LOCKED LEDGER`
   do not contradict Ali's creator/public-playback confirmation, but no copy may
   imply that words or lesson context exist where they do not.
   `VERIFIED USER/PRODUCT EVIDENCE`
-- The local source player admits the 29 records after strict registry/runtime
-  parity and explicit user action. Mechanical catalogue validation passes.
+- The current public player admits the 29 records after strict registry/runtime
+  parity and explicit user action. Mechanical catalogue validation, exact
+  artifact parity and decoded time advancement pass at both public origins.
   Human audio quality, Safari, VoiceOver, native zoom, representative physical
   listening and live request-provider behavior remain unproved.
   `VERIFIED USER/PRODUCT EVIDENCE`
-- The dated 2026-07-25 local public artifact predates the 29-track restoration:
-  it has no copied `ksvl-track-registry.json`, and its player/radio hashes differ
-  from current source. Its 83 audio dependencies still hash-match source, but it
-  cannot prove the current public-origin catalogue or player.
+- Exact production artifact
+  `3437ba56e9c776099206b17973cefe061625f73995a7b40cb55613919bf6965c`
+  contains the current registry and all 29 computed track dependencies with
+  source-identical bytes. The live Radio start advances the admitted anthem at
+  both `https://883a5ee6.laidies-sunnyvaile.pages.dev/` and `https://laidies.ai/`.
   `VERIFIED USER/PRODUCT EVIDENCE`
-- `/radio.html` still contains zero-admission-era sentences saying the Mix CDs
-  cannot play and listening-based rewards are unavailable. That contradicts
-  the current 29-track state and requires a locked repair.
-  `CURRENT IMPLEMENTATION OBSERVED`
-- `/games/dj-booth.html` presents a separate hard-coded seven-track player. It
-  does not consume the 29-track registry or the shared KSVL state machine.
-  `CURRENT IMPLEMENTATION OBSERVED`
+- `/radio.html` now says its six shelves come from the current catalogue and
+  exposes Listen controls only for tracks that pass the station check. It does
+  not retain the former “none can play” contradiction. Listening-based sticker
+  rewards remain explicitly unavailable and unimplemented.
+  `VERIFIED PUBLICLY — 2026-08-23`
+- `/games/dj-booth.html` consumes registry IDs and delegates its controls to the
+  shared KSVL state machine; its separate hard-coded audio owner is absent.
+  `VERIFIED PUBLICLY — 2026-08-23`
 
 ### Verified 29-track inventory
 
