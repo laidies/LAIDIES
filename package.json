@@ -15,6 +15,7 @@
     "test:exact-commit-preview": "node scripts/test-exact-commit-preview.mjs",
     "test:pages-release-boundary": "node scripts/test-github-pages-release-boundary.mjs",
     "test:production-release-controller": "node scripts/test-production-release-controller.mjs && node scripts/test-newsstand-release-scope.mjs",
+    "test:newsstand-cloud-intake": "node scripts/test-source-registry.mjs && node scripts/test-newsstand-cloud-intake.mjs && node scripts/test-newsstand-cloud-intake-workflow.mjs",
     "test:episode-cue-scope": "node scripts/test-episode-cue-scope.mjs",
     "test:episode-banned-cut-assets": "node scripts/test-episode-04-banned-cut-assets.mjs",
     "test:media-defects": "node scripts/test-media-defect-fixtures.mjs",
