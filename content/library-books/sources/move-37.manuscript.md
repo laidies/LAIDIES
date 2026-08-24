@@ -16,8 +16,12 @@ A breakthrough is not merely a dazzling demonstration. A trailer can make a drea
 
 Some famous inventions will therefore receive less space than expected. Other, less glamorous things—data labelling, graphics chips, recommendation systems and human feedback—will move towards the centre. AI history makes little sense if we describe only the models and leave out the people and machinery that made them possible.
 
-There will be wonder here. A move in a board game really did make world champions stare at the board in disbelief. A protein-prediction system really did change the starting point for biological research. A machine learning to reverse noise into an image is a gorgeous idea. Wonder becomes more powerful, not less, when we understand exactly what happened.
+This story is much bigger than two famous machines
+AlphaGo’s Move 37 was astonishing. AlphaFold changed how scientists begin millions of investigations. They belong in this story—but they are two rooms in a very large house.
 
+AI did not spring into existence when a chatbot appeared. Its history includes people trying to turn reasoning into rules, machines learning from corrected mistakes, programs discovering patterns in images and language, systems learning through rewards, and models that can search documents, use tools or help scientists narrow an impossible number of possibilities.
+
+This book follows that larger journey. It is not a claim that one neat list contains every important paper or contributor. No honest history could do that. It is a map of the turning points that changed at least one of six things: what a machine could learn, perceive, understand as a pattern, generate, decide, or help investigate.
 ## parallel-machines | 2006: the parallel machine | A video-game chip changes what AI can attempt
 
 Imagine giving a million people the same small arithmetic problem. One brilliant mathematician could solve the problems one after another. Or a stadium full of ordinary calculators could solve many at the same time.
