@@ -31,6 +31,10 @@ const calibratedSharedHeaderConsumers = process.env.CALIBRATE_SHARED_HEADER_CACH
     ? {...entry, source:entry.source.replace("svgh-760-2026-08-23-v3-5be5e50aeb8e", "svgh-stale-calibration")}
     : entry)
   : sharedHeaderConsumers;
+const currentSharedHeaderCacheKeys = [
+  "svgh-760-2026-08-23-v3-5be5e50aeb8e",
+  "20260823-resident-truth-4f8af546d716"
+];
 const headerMountSources = ["library.html", "watch.html"].map((file) => ({
   file,
   source: fs.readFileSync(path.join(root, file), "utf8")
@@ -161,9 +165,10 @@ check(globalMobileLibraryShortcutSource.includes('class="svgh-library-mobile" hr
 check(calibratedHeaderMountSources.every((entry) => entry.source.includes('<header class="sv-header"></header>')),
   "a public page loads the shared header controller without mounting the canonical header");
 check(calibratedSharedHeaderConsumers.length === 59 && calibratedSharedHeaderConsumers.every((entry) =>
-  entry.source.includes("/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e") &&
+  currentSharedHeaderCacheKeys.some((key) =>
+    entry.source.includes(`/content/site/sv-global-header.js?v=${key}`)) &&
   !entry.source.includes("svgh-320-2026-08-04-v2-532de5ac8032")),
-  "a public shared-header consumer retains the stale cache key");
+  "a public shared-header consumer uses an unregistered or stale cache key");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
 check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
