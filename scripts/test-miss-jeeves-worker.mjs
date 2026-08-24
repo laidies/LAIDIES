@@ -162,6 +162,18 @@ assert.equal(tokenWithoutAi.coverage, 'exact', 'the admitted Dictionary token en
 assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('concepts-101')));
 assert.ok(tokenWithoutAi.results.some(result => result.id === 'book-section-ai-dictionary-term-token' && result.url.startsWith('/library.html#ai-dictionary')));
 
+const commonQuestions = [
+  ['Which AI should I use?', 'book-section-working-with-ai-101-chapter-7'],
+  ['Can I upload a work document?', 'book-section-working-with-ai-101-4-4-upload-paste-or-describe'],
+  ['How do I check an AI answer?', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
+  ['What can AI help me do at work?', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
+];
+for (const [question, expectedFirstId] of commonQuestions) {
+  const result = await (await ask(question)).json();
+  assert.equal(result.coverage, 'exact', `${question} must have exact governed coverage`);
+  assert.equal(result.results[0]?.id, expectedFirstId, `${question} must lead with its intended book section`);
+}
+
 const restoredRejectedConcepts = structuredClone(index.entries);
 restoredRejectedConcepts.push({
   id: 'book-concepts-101', title: 'Concepts 101', url: '/library.html#concepts-101',

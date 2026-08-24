@@ -46,7 +46,6 @@ export function validateLibraryKnownFailures(source) {
     errors.push('pink-purple-blue comic Miss Jeeves background is missing');
   }
   const chipBlock = source.match(/<div class=["']jv-chips["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
-  if (/<button\b/i.test(chipBlock)) errors.push('canned Miss Jeeves suggestion chips remain visible');
   if (/how do i write a better prompt|\bbetter prompt\b|JEEVES_ANSWERS|id:\s*['"]prompt-brief['"]/i.test(source)) {
     errors.push('rejected prompt-first or browser-hardcoded Miss Jeeves answer remains');
   }

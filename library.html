@@ -640,15 +640,23 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
 .empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
 
-/* OWNER_CORRECTED_OPENING_BOOK_GRID: four large individual covers replace the
-   rejected shelf/case display. The approved masthead above is intentionally untouched. */
+/* OWNER_CORRECTED_LIBRARY_SURFACE: Ali's supplied wide crop and brighter wall
+   treatment shorten the masthead; four standalone covers replace the rejected case. */
+.arrival-visual{height:clamp(300px,30vw,420px);background:var(--pink)}
+.arrival-visual>img{object-fit:cover;object-position:center 58%}
+.titleblock .ai{color:var(--cyan)}
+.jv{background-image:linear-gradient(120deg,rgba(239,77,156,.88) 0%,rgba(113,55,214,.86) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center;background-size:cover}
+.jv-kicker{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
+.jv-form button{box-shadow:6px 6px 0 var(--cyan)}
+.jv-chip:hover,.jv-chip:focus-visible{border-color:var(--pink)}
+.shelf-guide{background-image:linear-gradient(90deg,rgba(21,188,224,.84) 0%,rgba(21,188,224,.8) 42%,rgba(101,209,227,.8) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center 47%;background-size:cover}
 .shelf-captions{display:none!important}
 .shelf-guide .eyebrow{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
 .shelf-guide-heading>p{background:var(--cream);box-shadow:7px 7px 0 var(--pink)}
 .shelf-guide .libroom{grid-column:1/-1;width:100%;overflow:visible;background:transparent}
 .shelf-guide .unit{display:block}
 .book-cover-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:clamp(20px,3vw,42px);align-items:end;width:100%;padding:clamp(14px,2vw,24px) 0}
-.book-cover-grid .bk{position:relative;width:100%;max-width:none;height:clamp(300px,34vw,470px);display:flex;align-items:flex-end;justify-content:center;padding:0;border:0;border-radius:0;background:transparent;filter:drop-shadow(0 14px 10px rgba(49,20,54,.32))}
+.book-cover-grid .bk{position:relative;width:100%;max-width:260px;height:clamp(240px,26vw,360px);justify-self:center;display:flex;align-items:flex-end;justify-content:center;padding:0;border:0;border-radius:0;background:transparent;filter:drop-shadow(0 14px 10px rgba(49,20,54,.32))}
 .book-cover-grid .bk img{width:100%;height:100%;object-fit:contain;transform:none}
 .book-cover-grid .bk:hover,.book-cover-grid .bk:focus-visible{transform:translateY(-7px) scale(1.025);outline:4px solid var(--cream);outline-offset:5px}
 .book-cover-grid .empty-bay{position:static;grid-column:1/-1}
@@ -657,6 +665,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .topic-link:hover,.topic-link:focus-visible,.topic-link[aria-pressed="true"]{border-color:var(--cyan);background:var(--pink)}
 .catalogue-closet{box-shadow:5px 5px 0 var(--pink)}
 .catalogue-closet:hover,.catalogue-closet:focus-visible{outline-color:var(--cyan)}
+.checkout-action .checkout-back:hover,.checkout-action .checkout-back:focus-visible{outline-color:var(--cyan)}
 
 @media(max-width:700px){
   .jv{display:block}.jv-head{margin-bottom:18px}.jv-head .h{font-size:38px}.jv-form{display:grid;grid-template-columns:1fr auto}
@@ -676,9 +685,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .brow[data-book-count="2"]>.bk:first-child{justify-self:start}.brow[data-book-count="2"]>.bk:last-child{justify-self:end}
   .bk{flex-basis:clamp(120px,34vw,150px);width:clamp(120px,34vw,150px);max-width:150px}.shelf-unit.is-compact .bk{flex-basis:82px;width:82px;max-width:82px}.bk img{transform:translateY(-4%)}
 }
-@media(max-width:900px){
+@media(max-width:600px){
   .book-cover-grid{grid-template-columns:repeat(2,minmax(130px,1fr));gap:24px 18px}
-  .book-cover-grid .bk{height:clamp(230px,58vw,390px)}
+  .book-cover-grid .bk{height:clamp(210px,58vw,300px)}
 }
 @media(max-width:700px){
   .shelf-guide .libroom{margin-top:24px}
@@ -686,8 +695,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .topic-link{flex:0 1 auto}
 }
 @media(max-width:900px){
-  .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(360px,72vw,620px)}
+  .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(240px,40vw,320px)}
+  .arrival-visual>img{object-position:70% 58%}
 }
+@media(max-width:600px){.arrival-visual{height:220px}}
 @media(max-width:420px){.bk{flex-basis:120px;width:120px}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
@@ -712,7 +723,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p>
     </section>
     <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
-      <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt="Miss Jeeves at the reference desk with public computers, metal bookcases and Library equipment">
+      <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-hot-pink-walls-v1.png" alt="Miss Jeeves at the bright pink Library reference desk with public computers, bookcases and the geometric carpet">
     </section>
   </div>
 
@@ -728,6 +739,13 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
     </form>
+    <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
+      <b>Common questions:</b>
+      <button class="jv-chip" type="button">Which AI should I use?</button>
+      <button class="jv-chip" type="button">Can I upload a work document?</button>
+      <button class="jv-chip" type="button">How do I check an AI answer?</button>
+      <button class="jv-chip" type="button">What can AI help me do at work?</button>
+    </div>
     <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
   </section>
 
@@ -1123,6 +1141,12 @@ document.getElementById('jv-results').addEventListener('click',event=>{
  if(!control)return;
  openBook(control.dataset.openBook,control.dataset.openHeading||'');
 });
+document.querySelectorAll('.jv-chip').forEach(button=>button.addEventListener('click',()=>{
+ const input=document.getElementById('jv-q');
+ input.value=button.textContent.trim();
+ askMissJeeves(input.value);
+ input.focus();
+}));
 
 function renderShelfCopy(b,txt,toc,fallback){
   txt.innerHTML=fallback||b.body||'<p>This book is still being written.</p>';

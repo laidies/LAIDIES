@@ -121,6 +121,18 @@ for (const book of available) {
   }
 }
 
+const commonQuestionRoutes = new Map([
+  ['book-section-working-with-ai-101-chapter-7', ['Which AI should I use?']],
+  ['book-section-working-with-ai-101-4-4-upload-paste-or-describe', ['Can I upload a work document?']],
+  ['book-section-working-with-ai-101-11-3-a-practical-evaluation-framework', ['How do I check an AI answer?']],
+  ['book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at', ['What can AI help me do at work?']]
+]);
+for (const [recordId, aliases] of commonQuestionRoutes) {
+  const record = bookEntries.find(entry => entry.id === recordId);
+  if (!record) throw new Error(`Common Miss Jeeves question route is missing: ${recordId}`);
+  record.aliases = [...new Set([...record.aliases, ...aliases])];
+}
+
 const publicTypeJobs = {
   episode: 'see-explained',
   daily: 'current',
