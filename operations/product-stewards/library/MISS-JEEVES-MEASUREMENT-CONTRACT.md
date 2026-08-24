@@ -96,7 +96,7 @@ the public endpoints return `measurement_off`; answers and navigation continue.
 ## Current production evidence — 2026-08-24 UTC
 
 - The Library and Privacy page, health route, answer route and result-open route
-  are deployed at source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`.
+  are deployed at source `3359a4b89c44d5b51387210f13e04bb43fc24e36`.
 - Both the immutable deployment and `laidies.ai` report
   `aggregate_measurement: available`; result-open returns HTTP 202 with
   `recorded`.

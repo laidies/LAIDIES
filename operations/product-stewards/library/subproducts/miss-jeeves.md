@@ -93,9 +93,9 @@ destination supports it.
   D1-backed identity-free global minute budget supplies abuse protection because
   Pages does not accept the Workers rate-limit binding.
 - Production health is public at `/api/miss-jeeves/health`. The final release
-  is source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact
-  `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c`
-  and deployment `136bbe5a-e974-4225-80f2-70da06b9541a`; all 17 fetchable
+  is source `3359a4b89c44d5b51387210f13e04bb43fc24e36`, artifact
+  `8a759d5ce35b12f683514671b552c088e23ee3a63b403376efaf5f6a3b0d986e`
+  and deployment `9849b3b4-2a41-48d9-9362-0b1d262744cb`; all 17 fetchable
   release paths matched at the immutable deployment and `laidies.ai`.
 - Cloudflare's current Workers AI terms say customer content is not used to
   train models or improve Cloudflare or third-party services without explicit

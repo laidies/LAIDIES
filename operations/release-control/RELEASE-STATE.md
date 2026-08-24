@@ -10,7 +10,7 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages deployment `136bbe5a-e974-4225-80f2-70da06b9541a`, deployed source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact identity `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c`, immutable URL `https://136bbe5a.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The owner-corrected four-book LIBRAiRY and operational Miss Jeeves backend are public; all 17 fetchable scope paths matched at both origins and the live grounded/D1/privacy lifecycle passed on 2026-08-24 UTC. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages deployment `9849b3b4-2a41-48d9-9362-0b1d262744cb`, deployed source `3359a4b89c44d5b51387210f13e04bb43fc24e36`, artifact identity `8a759d5ce35b12f683514671b552c088e23ee3a63b403376efaf5f6a3b0d986e`, immutable URL `https://9849b3b4.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The owner-corrected four-book LIBRAiRY and operational Miss Jeeves backend are public; all 17 fetchable scope paths matched at both origins and the live grounded/D1/privacy/aggregate lifecycle passed on 2026-08-24 UTC. |
 | Current recovery lane | `LIBRAiRY COMPLETE / OTHER DIRECTIONS SEPARATE` | Branch `design/library-owner-corrected-20260823` is the current deployed Library source. Homepage and Visitor's Centre directions remain separate review candidates and are not promoted by this Library release. |
 | Difference from production | `NO KNOWN MISS JEEVES BACKEND GAP` | D1, Workers AI, keyed digest and Analytics Engine bindings are active. The controlled result-open record was returned by the Analytics Engine SQL API with no raw question or identity. Reporting and editorial judgment remain operating work, not missing backend. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
@@ -117,18 +117,18 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `e2b6f1a172893ff28609d474b3fec846f2d99ca6` |
-| Artifact identity | `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c` |
-| Curated build | 574 copied public files / 432.11 MiB; manifest 576 files / 453,163,058 bytes |
-| Exact public scope | 2 runtime/build-report successor changes / 0 removals / 16 checksum-preserved production paths / 17 fetchable verification paths |
+| Deployed source | `3359a4b89c44d5b51387210f13e04bb43fc24e36` |
+| Artifact identity | `8a759d5ce35b12f683514671b552c088e23ee3a63b403376efaf5f6a3b0d986e` |
+| Curated build | 574 copied public files / 432.11 MiB; manifest 576 files / 453,163,026 bytes |
+| Exact public scope | Privacy disclosure and build-report successor / 0 removals / 15 checksum-preserved production paths / 17 fetchable verification paths |
 | Release path | Authenticated Wrangler exact-artifact deployment on production branch `homepage-redesign` |
-| Cloudflare deployment | `136bbe5a-e974-4225-80f2-70da06b9541a` |
-| Immutable URL | `https://136bbe5a.laidies-sunnyvaile.pages.dev/` |
+| Cloudflare deployment | `9849b3b4-2a41-48d9-9362-0b1d262744cb` |
+| Immutable URL | `https://9849b3b4.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-24T06:00:24Z`; all 17 fetchable paths matched the candidate at both origins. Health reported catalogue/D1 healthy, Workers AI configured and aggregate measurement off. Four published common questions returned grounded exact coverage with the designed first section. Private search/request and no-consent fixtures returned 400 without adding D1 rows. One labelled explicit request returned 201, replayed across the custom domain without duplication, exposed public status and was editorially declined as `release_test`. Result-open returned 202 `measurement_off` at both origins. |
-| Bound services | D1 `laidies-library-corrections` (`cd7fbb14-fdc6-4a86-893d-e60c4195400e`), `MISS_JEEVES_DIGEST_KEY`, Workers AI binding; Analytics Engine binding held/off |
+| Public verification | completed `2026-08-24T06:15:52Z`; all 17 fetchable paths matched the candidate at both origins. Health reported catalogue/D1 healthy, Workers AI configured and aggregate measurement available. Four published common questions returned grounded exact coverage with the designed first section. Private search/request and no-consent fixtures returned 400 without adding D1 rows. One labelled explicit request returned 201, replayed across the custom domain without duplication, exposed public status and was editorially declined as `release_test`. Result-open returned 202 `recorded`; the Analytics Engine SQL API returned controlled answer/result-open rows without raw wording or identity. |
+| Bound services | D1 `laidies-library-corrections` (`cd7fbb14-fdc6-4a86-893d-e60c4195400e`), `MISS_JEEVES_DIGEST_KEY`, Workers AI binding and Analytics Engine dataset `laidies_miss_jeeves_signals_v1` |
 | Exact scope | `operations/release-control/miss-jeeves-operational-backend-production-scope-20260823.json` |
-| Rollback target | deployment `cdc01266-96b8-42cb-aed7-9c0bd0aeaa17` from source `cdbbe2717f0c0e6561c6b50c7df416bde54e1ead` |
+| Rollback target | deployment `c6ab86a1-22bc-4c4c-8625-60172e65e9cc` from source `0701bfd9b6177216272b9cac581ac3b84659d9a4` |
 
 ## Superseded production release record — 2026-08-23 — LIBRAiRY owner-rejection rollback
 
