@@ -14771,3 +14771,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Source `15aeb478c9270fabc249add259ae5841f14330ca` routes first-time visitors to the readable illustrated Trailer issue, exposes the audio hold, starts the issue in-page and preserves the valid Episode 01–04 audio editions. The exact artifact passed 26 browser journeys and a four-change calibrated scope. Artifact `3437ba56e9c776099206b17973cefe061625f73995a7b40cb55613919bf6965c` is live as deployment `883a5ee6-8982-4b5f-8cde-9ef82cc22708`; 20 paths matched at both origins and the live mobile handoff passed twice. The identical-byte deployment with incorrect full-SHA metadata was immediately superseded.
 - **Possible Behind the Build angle:** How a perfectly honest disabled player sat next to a button promising the exact thing it said was unavailable.
 - **Publication status:** PRODUCTION FUNCTIONAL/TRUTH CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-486 — A current design gate can preserve rejected history and enforce a superseded layout
+
+- **Date:** 2026-08-23
+- **Area:** Homepage design-program routing and owner-review admission.
+- **Failure:** The current three-page program still treated five Ali-rejected Homepage candidates as active inputs and required the old “What’s happening in SUNNYVAiLE” section after Ali had deferred that module until the NewsStand build. A clean sparse lane therefore either demanded archived evidence or reintroduced a superseded page section.
+- **Root cause:** The current admission manifest doubled as a historical ledger, while its checker hard-coded copy and order that should have followed the routed Homepage authority. Calibration also depended on whichever candidate happened to appear first instead of constructing its own bad fixture.
+- **Prevention rule:** A current design-program manifest contains only the current review candidate for each page. Rejected candidates live only in the rejection registry/archive. Route-sensitive checks bind the current experience brief, include a deliberate negative fixture for prematurely restored modules and construct calibration failures independently of manifest order.
+- **Durable correction:** Commit `d721172176baf7dc8d4ff46e1f008b1bdc355936` removes five rejected Homepage candidates from the current program, updates the checker and calibration for the NewsStand deferral, passes 37 design-admission fixtures and admits exact corrected-10 after independent same-viewport review with zero visible regressions or locked violations.
+- **Possible Behind the Build angle:** How a “safety” gate can quietly bring back the design decisions it was supposed to prevent.
+- **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / COMMITTED AND PUSHED / NO DEPLOYMENT.
