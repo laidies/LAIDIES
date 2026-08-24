@@ -640,11 +640,13 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
 .empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
 
+/* MASTHEAD_FULL_FRAME_CONTRACT */
 /* OWNER_CORRECTED_LIBRARY_SURFACE: Ali's supplied wide crop and brighter wall
    treatment shorten the masthead; four standalone covers replace the rejected case. */
-.arrival-visual{height:clamp(300px,30vw,420px);background:var(--pink)}
-.arrival-visual>img{object-fit:cover;object-position:center 58%}
-.titleblock .ai{color:var(--cyan)}
+.arrival-visual{height:auto;min-height:0;aspect-ratio:1746/901;background:var(--cyan)}
+.arrival-visual>img{object-fit:contain;object-position:center center}
+.titleblock h1{color:var(--cream);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--ink)}
+.titleblock .ai{color:var(--cream)}
 .jv{background-image:linear-gradient(120deg,rgba(239,77,156,.88) 0%,rgba(113,55,214,.86) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center;background-size:cover}
 .jv-kicker{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
 .jv-form button{box-shadow:6px 6px 0 var(--cyan)}
@@ -695,10 +697,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .topic-link{flex:0 1 auto}
 }
 @media(max-width:900px){
-  .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(240px,40vw,320px)}
-  .arrival-visual>img{object-position:70% 58%}
+  .library-intro{grid-template-columns:1fr}
 }
-@media(max-width:600px){.arrival-visual{height:220px}}
 @media(max-width:420px){.bk{flex-basis:120px;width:120px}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
@@ -723,7 +723,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p>
     </section>
     <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
-      <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-hot-pink-walls-v1.png" alt="Miss Jeeves at the bright pink Library reference desk with public computers, bookcases and the geometric carpet">
+      <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png" alt="Miss Jeeves at the light blue Library reference desk with public computers, bookcases and the geometric carpet">
     </section>
   </div>
 

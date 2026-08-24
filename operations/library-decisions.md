@@ -11,7 +11,7 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 - Preserve the bright, bold pop-art energy, the established semantic teaching-box colours, physical entering-the-building idea and selected-book preview.
 - Use the vibrant production tokens already established in `library.html`: midnight `#070f2b`, ink `#11183b`, pink `#f254a9`, purple `#7137d6`, cyan `#15bce0`, cobalt `#2457e6`, sky `#78c7ff`, coral `#ff7366`, orange `#ff9b3d`, lime `#b7e42b`, mint `#7de2c2` and cream `#fffdfb`. Use saturated gradients, halftone/pop-art texture, ink keylines, hard offset shadows and layered editorial framing. Yellow is not an active Library colour; do not recolour everything blue or purple.
-- Use Ali's 2026-08-23 wide masthead crop reference: the full curved desk and Miss Jeeves, both public computers, staircase/shelves and a useful band of geometric carpet remain visible. The masthead image must be substantially shorter than the rejected full-screen treatment. Its painted walls use a bright LAiDIES hot pink; do not add a black inset/frame or crop Miss Jeeves out. Keep title and navigation as deterministic live UI.
+- Use Ali's 2026-08-23 wide masthead crop reference: the full curved desk and all of Miss Jeeves, both public computers, staircase/shelves and a useful band of geometric carpet remain visible. Preserve the image's natural aspect ratio at every viewport; `object-fit: cover` and fixed-height crops are prohibited because they cut off Miss Jeeves's head. Its painted walls use the light blue-cyan from the Ask Miss Jeeves palette (`#65d1e3` target), not pink, neon blue or dark teal. Do not add a black inset/frame. The Library title uses cream letters with a strong ink outline and shadow; low-contrast coloured title lettering is prohibited. Keep title and navigation as deterministic live UI.
 - Public choices are **Ask Miss Jeeves** and **Browse all books**. The visible browse heading is exactly **Browse all books**—not “Browse all four books,” “Browse the books,” “Browse the shelves” or “Catalogue.”
 - Reference Desk and Browse must have different composition, weight and direction.
 - Launch with four large individual book-cover images directly beneath **Browse all books**, where the three collection boxes previously sat. Do not place them inside a bookshelf, shelf case, library-wall mockup or book wallpaper; the bookshelf approach was explicitly rejected as visually bad. Do not show 101s/Tools/Reference as separate choices until inventory growth makes them useful. Keep collection type only as searchable metadata and a Miss Jeeves result label. The four covers remain prominent and identifiable rather than shrinking to thumbnails.
@@ -38,7 +38,7 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Current implementation assets
 
-- Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-hot-pink-walls-v1.png`
+- Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`
 - Shelf wall, floor and case assets are not active inputs for the four-book browse presentation.
 

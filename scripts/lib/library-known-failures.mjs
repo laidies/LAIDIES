@@ -36,6 +36,16 @@ export function validateLibraryKnownFailures(source) {
   if (/arrival-scanner|library-flatbed-scanner-v1\.png/.test(source)) {
     errors.push('rejected floating scanner overlay remains');
   }
+  const mastheadContract = source.slice(source.lastIndexOf('/* MASTHEAD_FULL_FRAME_CONTRACT */'));
+  const fullFrameMasthead = /\.arrival-visual\s*\{[^}]*height\s*:\s*auto[^}]*aspect-ratio\s*:\s*1746\/901[^}]*\}/is.test(mastheadContract)
+    && /\.arrival-visual>img\s*\{[^}]*object-fit\s*:\s*contain[^}]*object-position\s*:\s*center\s+center[^}]*\}/is.test(mastheadContract)
+    && mastheadContract.includes('library-interior-wide-jeeves-blue-walls-v3.png');
+  const readableMastheadTitle = /\.titleblock h1\s*\{[^}]*color\s*:\s*var\(--cream\)[^}]*-webkit-text-stroke\s*:\s*3px\s+var\(--ink\)[^}]*text-shadow\s*:\s*6px\s+6px\s+0\s+var\(--ink\)[^}]*\}/is.test(mastheadContract)
+    && /\.titleblock \.ai\s*\{[^}]*color\s*:\s*var\(--cream\)[^}]*\}/is.test(mastheadContract);
+  if (!fullFrameMasthead || /library-interior-wide-(?:hot|brand)-pink-walls/i.test(mastheadContract)) {
+    errors.push('masthead no longer preserves Miss Jeeves full-frame with the approved light-blue wall asset');
+  }
+  if (!readableMastheadTitle) errors.push('Library masthead title no longer has the readable cream-and-ink treatment');
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));
   const majorText = majorCss.join('\n').toLowerCase();
