@@ -3,7 +3,6 @@
 
   var runtime = null;
   var state = null;
-  var continuationState = null;
 
   function byId(id) {
     return document.getElementById(id);
@@ -21,13 +20,8 @@
     node.dataset.tone = tone || "neutral";
   }
 
-  function remoteCard() {
-    return state && state.remote && state.remote.card || null;
-  }
-
   function render() {
     var signedIn = !!(state && state.session);
-    var remote = remoteCard();
     var local = state && state.localCard;
     var email = signedIn && state.session.user
       ? String(state.session.user.email || "")
@@ -35,31 +29,12 @@
 
     show("rcAccountSignedOut", !signedIn);
     show("rcAccountSignedIn", signedIn);
-    show("rcAccountClaim", signedIn && !remote && local && local.state === "saved");
-    show("rcAccountRestore", signedIn && !!remote);
-    show("rcAccountNoCard", signedIn && !remote && (!local || local.state !== "saved"));
-    show("rcAccountCloset", signedIn && !!remote);
-    var continueLink = byId("rcAccountContinue");
-    var continuation = continuationState &&
-      continuationState.document ||
-      window.LAIDIESResidentContinuationV1 &&
-      window.LAIDIESResidentContinuationV1.readLocalDocument();
-    var target = continuation && continuation.last;
-    if (continueLink) {
-      var canContinue = signedIn && target && target.path &&
-        target.path.indexOf("/resident-card") !== 0;
-      continueLink.hidden = !canContinue;
-      if (canContinue) {
-        continueLink.href = target.path;
-        continueLink.textContent = "Pick up: " + target.label + " →";
-      }
-    }
 
     if (!signedIn) {
       setStatus(
         local && local.state === "saved"
-          ? "Your local Card is still safe in this browser. Sign in to keep a private account-backed copy."
-          : "Sign in by email to restore an account-backed Card or create one after MAiKEOVER.",
+          ? "Your local Card is still saved only in this browser. Requesting a sign-in link does not make it portable."
+          : "Enter your email to ask for a private sign-in link. A request does not prove delivery, account creation, Card restoration or cross-device continuity.",
         "neutral"
       );
       return;
@@ -71,32 +46,17 @@
         ? "Signed in as " + email
         : "Signed in with a verified account";
     }
-    if (remote) {
-      var name = remote.document &&
-        remote.document.fields &&
-        remote.document.fields.displayName;
-      setStatus(
-        (name ? name + "’s" : "Your") +
-          " private account-backed Card is available. Restore it to this browser to use it throughout the Closet.",
-        "success"
-      );
-    } else {
-      setStatus(
-        local && local.state === "saved"
-          ? "This account does not have a Card yet. Keep the valid Card already saved in this browser."
-          : "This account does not have a Resident Card yet. Make one at MAiKEOVER, then return here to keep it.",
-        "neutral"
-      );
-    }
+    setStatus(
+      "A private session is active. Card claiming, restoration and cross-device continuation remain unavailable until the public lifecycle is verified.",
+      "neutral"
+    );
   }
 
   async function refresh() {
-    state = await runtime.getState();
-    if (state.error) throw state.error;
-    if (window.LAIDIESResidentContinuationV1) {
-      continuationState =
-        await window.LAIDIESResidentContinuationV1.syncWith(runtime);
-    }
+    state = {
+      session: await runtime.controller.getSession(),
+      localCard: runtime.localCard()
+    };
     render();
   }
 
@@ -112,7 +72,7 @@
         window.location.pathname
       );
       setStatus(
-        "Check your email for the LAiDIES sign-in link. The link returns to this Resident Card desk.",
+        "Sign-in-link request accepted. Delivery has not been verified; if a link arrives, it returns to this Resident Card desk.",
         "success"
       );
       email.value = "";
@@ -120,51 +80,6 @@
       setStatus(error && error.message
         ? error.message
         : "The sign-in link could not be requested.", "error");
-    } finally {
-      button.disabled = false;
-    }
-  }
-
-  async function claimLocalCard() {
-    var button = byId("rcAccountClaimButton");
-    button.disabled = true;
-    setStatus("Keeping this Card with your account…", "neutral");
-    try {
-      var local = runtime.localCard();
-      var result = await runtime.controller.claimLocalCard(
-        local.envelope,
-        crypto.randomUUID(),
-        null
-      );
-      if (!result.localPreserved) {
-        throw new Error("The local Card was not preserved after claim.");
-      }
-      await refresh();
-    } catch (error) {
-      setStatus(error && error.message
-        ? error.message
-        : "The Card could not be kept with this account.", "error");
-    } finally {
-      button.disabled = false;
-    }
-  }
-
-  async function restoreRemoteCard() {
-    var button = byId("rcAccountRestoreButton");
-    button.disabled = true;
-    setStatus("Restoring your account-backed Card to this browser…", "neutral");
-    try {
-      var remote = remoteCard();
-      runtime.writeLocalEnvelope(remote.document);
-      setStatus(
-        "Restored. This browser now uses your account-backed Card and signed-in continuation.",
-        "success"
-      );
-      window.dispatchEvent(new CustomEvent("laidies:resident-card-restored"));
-    } catch (error) {
-      setStatus(error && error.message
-        ? error.message
-        : "The Card could not be restored to this browser.", "error");
     } finally {
       button.disabled = false;
     }
@@ -190,9 +105,8 @@
     var form = byId("rcAccountForm");
     if (!form) return;
     form.addEventListener("submit", requestLink);
-    byId("rcAccountClaimButton").addEventListener("click", claimLocalCard);
-    byId("rcAccountRestoreButton").addEventListener("click", restoreRemoteCard);
-    byId("rcAccountSignOut").addEventListener("click", signOut);
+    var signOutButton = byId("rcAccountSignOut");
+    if (signOutButton) signOutButton.addEventListener("click", signOut);
     try {
       runtime = await window.LAIDIESResidentAccountRuntime.get();
       await refresh();

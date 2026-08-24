@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import http from "node:http";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -30,7 +31,7 @@ const chrome = process.env.CHROME_PATH ||
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const evidenceDir = path.resolve(
   process.env.MAIKEOVER_EVIDENCE_DIR ||
-  path.join(root, "operations", "product-stewards", "maikeover", "evidence-2026-07-25")
+  path.join(os.tmpdir(), "laidies-maikeover-browser-evidence")
 );
 fs.mkdirSync(evidenceDir, { recursive: true });
 
@@ -156,12 +157,15 @@ try {
   }
   check(JSON.stringify(observedDrawerOrder) === JSON.stringify(drawerOrder),
     `seven-drawer Tab order is not logical (${observedDrawerOrder.join(" → ")})`);
-  check(await page.locator("#moMake").isDisabled(), "portrait booth is not disabled");
-  check(await page.locator("#moPhoto").isDisabled(), "photo upload remains enabled");
+  check(await page.locator("#moMake").count() === 0,
+    "held portrait booth still exposes a generation control");
+  check(await page.locator("#moPhoto").count() === 0,
+    "held portrait booth still exposes a photo input");
   check(await contrastRatio(page, "#moPersistenceState", "#moPersistenceState") >= 4.5,
     "persistence-state computed text contrast is below 4.5:1");
-  check(await contrastRatio(page, "#moMake", "#moMake") >= 4.5,
-    "disabled Make button computed contrast is below 4.5:1");
+  check((await page.locator("#moPortraitHold").innerText())
+    .includes("No photo picker, description prompt or portrait provider is loaded"),
+  "held portrait booth does not explain that provider and intake controls are absent");
   const focusContrast = await page.evaluate(() => {
     const parse = (value) => {
       const match = String(value).match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)/);
@@ -261,6 +265,9 @@ try {
     "reload did not restore local movie");
   check(await page.locator("#moTvSel").inputValue() === "Absolutely Fabulous",
     "reload did not restore local television");
+  await page.locator('[data-mo-tool="finish"]').click();
+  check(await page.locator("#moSeeCloset").isVisible(),
+    "reload restored the local card but hid the Closet handoff");
   await page.screenshot({
     path: path.join(evidenceDir, "maikeover-local-return-desktop.png"),
     fullPage: true
@@ -280,6 +287,18 @@ try {
     (await page.locator("#cardCarry").innerText()).includes("Caboodles case"),
     "Closet handoff did not render the locally saved carrying choice"
   );
+  for (const id of [
+    "walletSlots",
+    "dashboardSection",
+    "covenSection",
+    "tourSection",
+    "collectionSection",
+    "fairyBankSection",
+    "leaderboardSection"
+  ]) {
+    check(await page.locator(`#${id}`).isHidden(),
+      `unproved Closet surface remained visitor-visible: ${id}`);
+  }
   check(await page.locator("#shareCardBtn").isDisabled(),
     "device-local handle enabled a public Share action");
   const localShareText = await page.locator("#shareCardBtn").innerText();
@@ -562,14 +581,16 @@ try {
   await residentHeldPage.goto(`${origin}/resident-card.html`, {
     waitUntil: "domcontentloaded"
   });
-  check((await residentHeldPage.locator('[role="status"]').innerText())
-    .includes("not taking email addresses yet"),
-  "Resident Card held state does not explain that email intake is closed");
-  check(await residentHeldPage.locator('input[type="email"], #memberPassEmail').count() === 0,
-    "Resident Card held route still ships an email input");
-  check(await residentHeldPage.locator("#saveMemberPassButton").count() === 0,
-    "Resident Card held route still ships an email submit control");
-  await residentHeldPage.locator('[role="status"] a').focus();
+  check((await residentHeldPage.locator("#rcAccountStatus").innerText())
+    .includes("account service is not available yet"),
+  "Resident Card unavailable state does not explain the account-service boundary");
+  check(await residentHeldPage.locator('#rcAccountSignedOut').isHidden() &&
+    await residentHeldPage.locator('#rcAccountEmail').count() === 1,
+    "Resident Card does not preserve exactly one hidden canonical email desk while unavailable");
+  check(await residentHeldPage.locator("#rcAccountEmailButton").count() === 1 &&
+    await residentHeldPage.locator("#rcAccountEmailButton").isHidden(),
+    "Resident Card does not keep the canonical request control hidden while unavailable");
+  await residentHeldPage.locator("#rcPrimaryAction").focus();
   check(await residentHeldPage.evaluate(() =>
     document.activeElement?.getAttribute("href") === "/maikeover.html"),
   "Resident Card held state lacks a keyboard-focusable recovery route");

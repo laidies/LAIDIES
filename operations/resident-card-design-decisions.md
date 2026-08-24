@@ -1,5 +1,16 @@
 # Resident Card construction — 2026-07-24
 
+> **CURRENT ACCOUNT BOUNDARY — 2026-08-23.** This update supersedes the
+> preserved-behaviour statements below where they imply a publicly verified
+> account lifecycle. Resident Card owns the sole private sign-in-link request
+> desk. A request proves neither message delivery nor account creation.
+> Account-backed Card claiming, restoration and cross-device continuation
+> remain held until their complete public lifecycle is verified. MAiKEOVER and
+> the Closet continue to use the device-local Card without escalating it into
+> account, public-profile, reward or ownership truth. The shared header,
+> NewsStand and other ordinary town pages must not automatically mount or run
+> account-backed continuation while that lifecycle remains held.
+
 ## Decision
 
 Resident Card is the MAiKEOVER intake experience, not a generic account form.

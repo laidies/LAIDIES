@@ -5,8 +5,11 @@
 <meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
 <link rel="canonical" href="https://laidies.ai/library" />
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+<script>if(new URLSearchParams(location.search).has('library-proof'))document.documentElement.classList.add('library-proof')</script>
+<link rel="stylesheet" href="/operations/design-explorations/current/library/live-base-proof-20260822/proof.css">
+<script defer src="/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+<script defer src="/operations/design-explorations/current/library/live-base-proof-20260822/proof.js"></script>
 <style>
 :root{--midnight:#070f2b;--ink:#11183b;--pink:#f254a9;--purple:#7137d6;--cyan:#15bce0;--cobalt:#2457e6;--sky:#78c7ff;--coral:#ff7366;--orange:#ff9b3d;--lime:#b7e42b;--mint:#7de2c2;--yellow:#ffd34d;--cream:#fffdfb}
 *{box-sizing:border-box}
@@ -564,7 +567,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .arrival-visual>img{object-position:center center}
 .library-world{background:linear-gradient(120deg,#f2c6e5 0%,#c7d7f5 100%);color:var(--ink)}
 .jv{grid-template-columns:minmax(250px,.62fr) minmax(380px,1.38fr);align-items:center;
-  background:linear-gradient(120deg,rgba(239,77,156,.86) 0%,rgba(113,55,214,.84) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center/cover no-repeat;padding:clamp(34px,4.4vw,60px) clamp(24px,6vw,92px);
+  background:linear-gradient(120deg,rgba(239,77,156,.96) 0%,rgba(113,55,214,.94) 54%,rgba(101,209,227,.96) 100%);padding:clamp(34px,4.4vw,60px) clamp(24px,6vw,92px);
   border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 #ef4d9c}
 .jv-kicker{border:3px solid var(--ink);background:var(--yellow);color:var(--ink);box-shadow:5px 5px 0 var(--pink)}
 .jv-head .h{color:var(--cream);text-shadow:5px 5px 0 var(--ink)}
@@ -578,7 +581,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-chip:hover,.jv-chip:focus-visible{background:var(--cyan);color:var(--ink);border-color:var(--yellow)}
 
 .shelf-guide{grid-template-columns:1fr;gap:clamp(22px,3vw,36px);
-  padding:clamp(32px,4vw,52px) clamp(24px,6vw,92px);background:linear-gradient(90deg,rgba(21,188,224,.96) 0%,rgba(21,188,224,.9) 42%,rgba(101,209,227,.78) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center 46%/cover no-repeat;color:var(--ink);
+  padding:clamp(32px,4vw,52px) clamp(24px,6vw,92px);background:linear-gradient(90deg,rgba(21,188,224,.98) 0%,rgba(21,188,224,.94) 42%,rgba(101,209,227,.9) 100%);color:var(--ink);
   border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 var(--purple)}
 .shelf-guide-heading{display:grid;grid-template-columns:minmax(230px,.55fr) minmax(360px,1.45fr);gap:clamp(18px,4vw,56px);align-items:end}
 .shelf-guide .eyebrow{grid-column:1;justify-self:start;display:inline-flex;align-items:center;width:max-content;padding:9px 16px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);color:var(--midnight);box-shadow:5px 5px 0 var(--pink)}
@@ -588,11 +591,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .shelf-caption{display:grid;grid-template-rows:auto 1fr;margin:0;overflow:hidden;border:4px solid var(--ink);border-radius:24px;background:var(--cream);box-shadow:8px 8px 0 var(--panel-accent,var(--pink));color:var(--ink);text-decoration:none;transition:transform .16s ease,box-shadow .16s ease}
 .shelf-caption:hover,.shelf-caption:focus-visible{transform:translateY(-5px);box-shadow:11px 13px 0 var(--panel-accent,var(--pink));outline:4px solid var(--cream);outline-offset:4px}
 .shelf-caption:nth-child(1){--panel-accent:var(--pink)}.shelf-caption:nth-child(2){--panel-accent:var(--yellow)}.shelf-caption:nth-child(3){--panel-accent:var(--purple)}
-.shelf-caption-art{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:0;min-height:210px;padding:18px 12px 0;overflow:hidden;background:linear-gradient(135deg,rgba(255,211,77,.86),rgba(242,84,169,.82)),url('assets/library/episode-01-pop-comic-bg-v1.png') center/cover no-repeat;border-bottom:4px solid var(--ink)}
-.shelf-caption:nth-child(2) .shelf-caption-art{background-image:linear-gradient(135deg,rgba(125,226,194,.83),rgba(21,188,224,.88)),url('assets/library/episode-01-pop-comic-bg-v1.png')}
-.shelf-caption:nth-child(3) .shelf-caption-art{background-image:linear-gradient(135deg,rgba(113,55,214,.82),rgba(242,84,169,.84)),url('assets/library/episode-01-pop-comic-bg-v1.png')}
-.shelf-caption-art img{width:31%;height:190px;object-fit:contain;filter:drop-shadow(0 8px 5px rgba(7,20,47,.42));transform:rotate(-5deg) translateY(4px)}
-.shelf-caption-art img:nth-child(2){z-index:2;width:36%;height:205px;transform:none}.shelf-caption-art img:nth-child(3){transform:rotate(5deg) translateY(4px)}
+.shelf-caption-art{display:none}
 .shelf-caption-copy{padding:17px 18px 19px;font-size:15px;line-height:1.48}
 .shelf-caption-copy b{display:block;margin-bottom:5px;font-family:'Jost',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:.06em;color:var(--ink)}
 .shelf-caption-jump{display:block;margin-top:12px;font-weight:900;color:var(--cobalt)}
@@ -670,6 +669,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
+<header class="sv-header"></header>
 <main>
 
 <div class="wrap">
@@ -714,12 +714,12 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
   <section class="shelf-guide" aria-labelledby="shelf-guide-title">
     <div class="shelf-guide-heading">
-      <div class="eyebrow">Browse the catalogue</div>
+      <div class="eyebrow">Browse the Library</div>
       <h2 id="shelf-guide-title">Browse the shelves</h2>
       <p>Start with the kind of help you need. Then choose a cover to see exactly what is inside.</p>
     </div>
     <div class="shelf-captions" id="shelf-captions" aria-label="What each Library shelf contains"></div>
-    <div class="catalogue-controls" aria-label="Find a book in the Library catalogue">
+    <div class="catalogue-controls" aria-label="Find a book in the Library">
       <label class="catalogue-control">Search titles and topics
         <input id="catalogue-search" type="search" placeholder="e.g. privacy, prompts or ChatGPT" autocomplete="off">
       </label>
@@ -802,7 +802,7 @@ const SECTIONS=[
    {id:'setup-101',t:'Setup 101',listed:false,topics:['getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-setup-101.png',c:'#1597a7'},
    {id:'accounts-101',t:'Accounts 101',listed:false,topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
- {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
+ {name:'THE TOOLS',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
   books:[
    {id:'whos-who',t:"Who's Who in AI",topics:['choosing-tools'],status:'hold',statusLabel:'Currentness and depth review',s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c'},
    {id:'chatgpt',t:'ChatGPT',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
@@ -811,7 +811,7 @@ const SECTIONS=[
    {id:'copilot',t:'Copilot',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
    {id:'perplexity',t:'Perplexity',topics:['choosing-tools','checking-research'],status:'preview',statusLabel:'Lands EP 5',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
   ]},
- {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'Use this shelf for a specific answer, a safety rule, or a reliable way to check what the AI told you.',mcap:'Sourced answers and checking guides.',
+ {name:'REFERENCE',cap:'Use this shelf for a specific answer, a safety rule, or a reliable way to check what the AI told you.',mcap:'Sourced answers and checking guides.',
   books:[
    {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research','privacy-safety'],status:'ready',statusLabel:'Opening edition',s:'Dated, sourced answers about jobs, data centres, privacy, productivity and learning—without pretending uncertainty has disappeared.',inside:'Fifteen consequential questions with confidence labels, sources and recheck triggers.',depth:'Living reference · source checked 23 August 2026',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
    {id:'ai-dictionary',t:'The AI Dictionary',topics:['basics','getting-started','choosing-tools'],status:'ready',statusLabel:'Opening edition',s:'Look up a term in plain English, then jump to the chapter that owns the full explanation.',inside:'179 deduplicated definitions linked to AI Fundamentals and Working with AI.',depth:'Derived reference · 179 maintained terms',img:B+'book-ai-dictionary.png',c:'#1597a7'},
@@ -930,12 +930,12 @@ function renderShelf(){
   const empty=visible.length?'':'<p class="empty-bay">No matching books on this shelf.</p>';
   const compactClass=visible.length>0&&visible.length<=4?' is-compact':'';
   const compactRoomClass=compactClass?' is-compact-room':'';
-  return `<div class="library-room-unit${compactRoomClass}" id="library-shelf-${sectionIndex}" tabindex="-1" data-collection-room="${sectionIndex}"><div class="shelf-unit${compactClass}" aria-label="${esc(section.name)} physical collection case"><section class="department" data-collection="${sectionIndex}" aria-labelledby="${titleId}"><h2 class="sr-only" id="${titleId}">${esc(section.name)}</h2><div class="bay"><div class="ledge" aria-hidden="true"><img src="${esc(section.sign)}" alt=""></div><p class="mobile-shelf-caption"><b>${esc(section.name)}</b>${esc(section.mcap||section.cap)}<span class="reel-cue">Choose a cover to preview.</span></p>${rows}${empty}</div></section></div></div>`;
+  return `<div class="library-room-unit${compactRoomClass}" id="library-shelf-${sectionIndex}" tabindex="-1" data-collection-room="${sectionIndex}"><div class="shelf-unit${compactClass}" aria-label="${esc(section.name)} physical collection case"><section class="department" data-collection="${sectionIndex}" aria-labelledby="${titleId}"><h2 class="sr-only" id="${titleId}">${esc(section.name)}</h2><div class="bay"><div class="ledge"><span class="shelf-live-sign">${esc(section.name)}</span></div><p class="mobile-shelf-caption"><b>${esc(section.name)}</b>${esc(section.mcap||section.cap)}<span class="reel-cue">Choose a cover to preview.</span></p>${rows}${empty}</div></section></div></div>`;
  });
  const wallcase=document.getElementById('wallcase');
  wallcase.innerHTML=rooms.join('');
  document.querySelector('.libroom')?.classList.toggle('has-multiple-units',rooms.length>1);
- document.getElementById('shelf-captions').innerHTML=SECTIONS.map((section,sectionIndex)=>`<a class="shelf-caption" href="#library-shelf-${sectionIndex}" data-shelf-jump="${sectionIndex}"><div class="shelf-caption-art" aria-hidden="true">${section.books.filter(book=>book.listed!==false&&book.img).slice(0,3).map(book=>`<img src="${esc(book.img)}" alt="">`).join('')}</div><div class="shelf-caption-copy"><b>${esc(section.name)}</b>${esc(section.cap)}<span class="shelf-caption-jump">Go to this shelf ↓</span></div></a>`).join('');
+ document.getElementById('shelf-captions').innerHTML=SECTIONS.map((section,sectionIndex)=>`<a class="shelf-caption" href="#library-shelf-${sectionIndex}" data-shelf-jump="${sectionIndex}"><div class="shelf-caption-copy"><b>${esc(section.name)}</b>${esc(section.cap)}<span class="shelf-caption-jump">Go to this shelf ↓</span></div></a>`).join('');
  const result=document.getElementById('catalogue-result');
  /* CATALOGUE_QUIET_DEFAULT_CONTRACT: counts are useful only after a visitor filters. */
  const catalogueHasActiveFilter=Boolean(catalogueFilter.q||catalogueFilter.topic!=='all'||catalogueFilter.collection!=='all'||catalogueFilter.status!=='all');
@@ -1086,7 +1086,7 @@ function validSiteIndex(data,responseUrl){
 }
 function renderJeevesIndexError(query){
  const box=document.getElementById('jv-results');
- box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the catalogue right now. Your question is still here.</p><button type="button" id="jv-retry">Try the catalogue again</button></section>`;
+ box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the Library right now. Your question is still here.</p><button type="button" id="jv-retry">Try the Library again</button></section>`;
  const retry=document.getElementById('jv-retry');
  retry.addEventListener('click',()=>{
    retry.disabled=true;
@@ -1237,7 +1237,7 @@ function renderJeevesService(payload,query){
 }
 function renderJeevesServiceError(query){
  const box=document.getElementById('jv-results');
- box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the catalogue right now. Your question is still here.</p><button type="button" id="jv-service-retry">Try the catalogue again</button></section>`;
+ box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the Library right now. Your question is still here.</p><button type="button" id="jv-service-retry">Try the Library again</button></section>`;
  document.getElementById('jv-service-retry').addEventListener('click',event=>{
    event.currentTarget.disabled=true;askMissJeeves(query);
  },{once:true});
@@ -1253,7 +1253,7 @@ async function askMissJeeves(value){
   if(curated){box.innerHTML=renderJeevesAnswer(curated);return;}
   if(location.protocol==='file:'){jvSearch(query);return;}
   const requestId=++jeevesServiceRequest;
-  box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town catalogue…</p>';
+  box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
   try{
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
@@ -1275,7 +1275,7 @@ function jvSearch(q){
   const intent=JEEVES_ANSWERS.find(item=>item.match(q));
   if(intent){box.innerHTML=renderJeevesAnswer(intent);return;}
   if(jeevesIndexState==='loading'){
-    box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the catalogue…</p>';
+    box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the Library…</p>';
     loadJeevesIndex().then(()=>jvSearch(q));
     return;
   }
@@ -1294,7 +1294,7 @@ function jvSearch(q){
     if(e.status==='coming')sc-=0.5;
     return {e,sc};
   }).filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,6);
-  if(!scored.length){box.innerHTML=`<p class="jv-none">Miss Jeeves checks the catalogue… nothing filed under that yet. Try “what is generative AI?” or “what's a hallucination?”</p>`;return;}
+  if(!scored.length){box.innerHTML=`<p class="jv-none">Miss Jeeves checks the Library… nothing filed under that yet. Try “what is generative AI?” or “what's a hallucination?”</p>`;return;}
   box.innerHTML=scored.map(({e})=>e.destination.kind==='book'
   ? `<button type="button" class="jv-card" data-open-book="${escapeJeevesText(e.destination.bookId)}" data-open-heading="${escapeJeevesText(e.destination.heading||'')}">
      <span class="jv-type jv-${e.type}">${escapeJeevesText(e.type)}</span>

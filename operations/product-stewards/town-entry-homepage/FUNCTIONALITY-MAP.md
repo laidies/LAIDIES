@@ -1,32 +1,66 @@
 # Town Entry & Homepage functionality and cross-page touchpoint map
 
-**Status:** RECOVERED — SHARED CONTRACTS AND EXACT ADMISSION REMAIN OPEN  
+**Status:** CURRENT CAPABILITY PROJECTION RECORDED — VISUAL DIRECTION PENDING ALI
 **Product owner task:** `019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1`  
-**Functionality & Platform Director:** review required  
-**Write authority:** dossier only; routes and shared code are read-only
+**Updated:** 2026-08-23
+**Release boundary:** the Sunday correction is public; the admitted Homepage
+direction and complete-page redesign are not deployed.
+
+## Current Homepage promotion truth
+
+This table controls the next Homepage build. HTTP 200, source presence and a
+local route are not enough to promote a receiver as working.
+
+| Homepage job | Current status | Safe visitor action | Prohibited implication |
+|---|---|---|---|
+| Current public Homepage baseline | `PUBLICLY_VERIFIED` | New in town?; Start learning; Explore the town | The admitted redesign is not deployed or owner-approved |
+| Returning signed-in explanation collapse | `HOLD` pending account-backed identity + prior-visit proof | First-time/unproved: full explanation; proved returning account: collapsed `How LAiDIES and SUNNYVAiLE work` title with expansion | No collapse from token presence, Resident Card, browser history or local visit timestamp alone |
+| Masthead returning sign-in value | Design required; personalized result `HOLD` | Visible masthead sign-in action explains that verified returning accounts receive changes since their last account-backed visit | No public promise of personalization until sign-in, last-seen and change-feed lifecycle pass end to end |
+| Latest published episode | `PUBLICLY_VERIFIED` | Read Episode 04 · The Founding Mothers | No draft Episode 05, Wednesday-currentness or complete weekly-experience claim |
+| Returning signed-in episode resume | `HOLD` pending account-backed progress producer/store/consumer | Proved returning account: resume the most recent still-published episode; every other state: latest published episode | No `where you left off` claim from a visit, browser history, token, Resident Card or local tour mark; no held/draft/withdrawn episode |
+| Homepage → released NewsStand archive and truthful current state | `PUBLICLY_VERIFIED` | Check the NewsStand; Read the NewsStand; visit the NewsStand directory route | Never label it latest/current without a new admitted record; no current Homepage adapter is proved |
+| Breaking / Daily / Paige / Career / Promptoscope | `MISSING_RECEIVER` | Honest current-news empty state plus archive | No live/fresh service claim |
+| What is new since your last visit | Public recent-changes feed `MISSING`; signed-in personalized projection `HOLD` | Show verified recent public changes; invite sign-in for future personalization | No claim that LAiDIES knows what a visitor saw until an account-backed last-seen boundary and complete change inventory pass end to end |
+| Wednesday itinerary | `SOURCE_PRESENT_UNVERIFIED` | Explore the route; each stop states availability | No complete weekly experience, progress or reward claim |
+| Homepage question handoff, Miss Jeeves and LIBRAiRY | `PUBLICLY_VERIFIED` | Ask Miss Jeeves; Search or browse the shelves | No complete reference tool or readable-book claim |
+| Mobile canonical header → LIBRAiRY | `PUBLICLY_VERIFIED` | Use the direct `LIBRAiRY` shortcut; use the 44px Menu for Sign in/Join | The route does not make held books readable: 14/14 are visible, 0/14 are admitted/openable |
+| Homepage → KSVL | `PUBLICLY_VERIFIED` | Listen to KSVL | No account sync, reward or uninterrupted-navigation claim |
+| Homepage → LUMINAiRY / Patron Saints / MAiVENS / Trailblazers | `PUBLICLY_VERIFIED` for the truthful held-profile building | Meet the women behind AI at the LUMINAiRY | No unadmitted individual profile, biography, quotation or current-role claim |
+| Explore / map / named buildings | Map geometry/focus `PUBLICLY_VERIFIED`; remaining receiver journeys `SOURCE_PRESENT_UNVERIFIED` | Direct named building links; optional map | A working map does not prove every destination's complete function |
+| Resident Card / Closet | Signed-out Homepage handoff, MAiKEOVER arrival and device-local Card save → reload → Closet identity panel `PUBLICLY_VERIFIED`; complete Closet/account/reward lifecycle `HOLD` | Sign in; Make a Resident Card; See it in my Closet | No account-backed resume, handle, cross-device state, reward, referral, leaderboard or ownership claim |
+| Homepage → Wednesday Postcard request counter | Handoff `PUBLICLY_VERIFIED`; provider/postcard lifecycle `MISSING_RECEIVER` | Request the Wednesday Postcard | No subscription, confirmation, delivery, postcard selection/sending, referral or reward claim |
+| Businesswomen's Special | `PUBLICLY_VERIFIED` | Visit the Businesswomen's Special | Cocktail and spirit-free remain equal choices; no order, service, account or reward claim |
+| FAiRY Godmother / Mme CLAi-O / Dream Phone / Delta LAi Nu Homepage handoffs | `PUBLICLY_VERIFIED` | Open the named activity from its Homepage card | Arrival proves the handoff, not every destination lifecycle or reward |
+| Visitor's Centre | Orientation handoff `PUBLICLY_VERIFIED`; redesign/tour/trailer `HOLD` | Visit the Visitor's Centre; Get oriented | No complete tour, trailer, postcard or redesign claim |
+
+The detailed recovered architecture below remains useful for transaction and
+failure design. Where one of its older status labels conflicts with the table
+above, the current projection above wins.
 
 ## 1. Complete capability inventory
 
 | Capability/element | User trigger and page | Intended visible result | Current implementation/evidence | Status |
 |---|---|---|---|---|
 | Promise/hero hierarchy | Load `/`; choose a stable visitor job | Understand practical AI value and one safe next step | Current hero routes to page sections, but its Episode action can be rewritten by latest content | CONTRACT CONFLICT — HERO MUST BE EVERGREEN |
-| Desktop/mobile entry navigation | Topbar link or menu button | Same named route set; clear open/close/focus behavior | Inline homepage topbar plus shared scripts; current rendered full matrix absent | OBSERVED |
+| Desktop/mobile entry navigation | Topbar link, direct mobile LIBRAiRY shortcut or menu button | Canonical desktop header; at 760px and below exactly `LAiDIES · LIBRAiRY · Menu`, with Sign in/Join inside Menu | Public 42-case matrix covers Homepage, LIBRAiRY, Watch, LUMINAiRY, KSVL Radio, MAiKEOVER and Visitor's Centre at both origins and 1440/390/320; all visible header targets are at least 44px and no page overflows | PUBLICLY VERIFIED |
 | Method/mission | `#method` | Understand story → concept → practice → music → optional town | Five-step current source; repeats several downstream entrances | OBSERVED |
-| Current episode | `#this-week`; episode index success | Exact latest published episode and read/listen routes | Success/failure logic in `homepage.js`; prior named local browser pass | VERIFIED LOCALLY FOR NAMED STATES |
+| Current episode | Three Homepage Latest Episode controls | Exact latest published episode and intentional receiver | At both public origins and 1440/390/320, all three controls resolve to `/issues/issue-04.html`, expose `Latest Episode: The Founding Mothers`, land on exact Episode 04 title/heading and do not promote draft Episode 05 | PUBLICLY VERIFIED |
 | Episode failure fallback | Non-OK/empty/invalid index | Previously-published evergreen route | `showEvergreenFallback()` | VERIFIED LOCALLY FOR NAMED STATE |
 | The Breaking/The Daily | Homepage current-news module | Conditional Breaking and current Daily explanation | D-043 only; no module/admitted shared feed | MISSING |
 | Current-content boundary | Fresh owner-admitted episode/news receipt | Render only in separate `#current` module below hero | Current receiver exists, but also mutates `.entry-episode-action` | REPAIR AFTER BRAND RULES |
 | Full/Express route | Weekly route links | Optional route sequence with truthful step state | Static links plus `sv-tour-checkin.js` local visit paint/rewards | OBSERVED; AUTHORITY CONFLICT |
-| Activities | Filter/button/link | Admitted tool/game route and limits | Current cards mix links, inline handlers and buttons | OBSERVED; RECEIVER ADMISSION PARTIAL |
-| Lookup | Submit reference form | Library arrival without analytics capture of query | JS discards query and routes to `/library.html` | OBSERVED |
-| Map popup | Activate hotspot; Escape/outside click | Named destination, limitation and link; focus recovery | Popup renders static data; closes on Escape but does not restore initiating focus | OBSERVED; A11Y GAP |
+| Activities | Filter/button/link | Admitted tool/game route and limits | Five named Homepage actions reached their real receiving pages at both public origins and 1440/390/320 | PUBLICLY VERIFIED FOR NAMED HANDOFFS; DESTINATION LIFECYCLES PARTIAL |
+| Lookup | Submit reference form | Library arrival without retaining the query in the URL or analytics | At both public origins and 1440/390/320, blank submit focuses the input; a real question transfers client-side, cleans the URL, runs the direct grounded answer and introduces no overflow | PUBLICLY VERIFIED |
+| Map popup | Activate hotspot; Escape/outside click | Named destination, limitation and link; focus recovery | Current production renders real desktop/mobile hit regions, focuses the destination link and restores the trigger on Escape | PUBLICLY VERIFIED AT BOTH ORIGINS, 1440/390/320 |
 | District cards/directory | Select route | Accessible alternate discovery | Six district cards route to single buildings; long directory repeats map | OBSERVED; ROLE/HIERARCHY OPEN |
-| Start Here | Load `/start-here.html` | Visitor's Centre redirect or ordinary fallback link | Meta refresh, `location.replace`, ordinary link | OBSERVED |
-| Card/Closet handoff | Select resident action | Exact local/account scope and route | Static local limitation copy; no deliberate state-specific entry variant | OBSERVED; PARTIAL |
-| Auth/resume projection | Token or future `svShowResume` call | Only proved account/resume state | Token-derived “Resident” script targets a selector the homepage may not expose; hook is not wired to authority | OBSERVED; NOT PROVED |
+| Start Here | Load public `/start-here.html` | Canonical Visitor's Centre orientation | Production `_redirects` sends the legacy path to Visitor's Centre; both origins and 1440/390/320 reach the exact heading, 18-option directory, decoded map and no overflow | PUBLICLY VERIFIED |
+| Card/Closet handoff | Select resident action; save locally; reload; reopen Finish; follow Closet doorway | Exact local/account scope and route | Signed-out Homepage action reaches the Resident Card route. Separately, MAiKEOVER reaches decoded salon art and seven drawers; at both public origins a saved Card survives reload, re-exposes `See it in my Closet →`, reaches the same-origin Closet and renders the same allowed identity fields under an explicit device-local boundary. | PUBLICLY VERIFIED FOR SIGNED-OUT HANDOFF, MAiKEOVER ARRIVAL AND DEVICE-LOCAL CARD/CLOSET IDENTITY PANEL; COMPLETE CLOSET/ACCOUNT/REWARD LIFECYCLE HELD |
+| Auth/resume projection | Token or future `svShowResume` call | Only proved account/resume state | Signed-out entry is labelled `Sign in`; token/account continuation and cross-device state are not promoted without lifecycle proof | SIGNED-OUT ENTRY VERIFIED; SIGNED-IN CONTINUATION NOT PROVED |
 | Tour/reward paint | Visit route/check stops | Honest local progress only unless authoritative service proves more | Shared script mints local FAiRY Play, ritual badge and express completion from route visits | OBSERVED; CONTRACT CONFLICT |
 | Charm hunt | Hidden charm interaction | Truthfully local collectible state | Shared local-storage script is loaded | OBSERVED; ENTRY VALUE/ACCESSIBILITY OPEN |
-| Audio | Activate play chip | Correct track plays; pause/recovery announced | KSVL handoff with inline audio fallback | OBSERVED; COMPLETE MEDIA QA MISSING |
+| KSVL handoff | Activate any labelled Homepage KSVL route | Intentional radio-studio arrival with explicit Listen controls and no autostart | At both public origins and 1440/390/320, Homepage exposes the labelled anthem/station routes; KSVL arrives with its exact heading, at least three Listen controls, the exact 29-track statement, zero audio before action and no overflow. The release KSVL suite separately covers decoded audio, denial/retry, seek and persistence. | PUBLICLY VERIFIED |
+| NewsStand handoff | Activate any of the three labelled Homepage NewsStand routes | Intentional NewsStand arrival with truthful publication state | At both public origins and 1440/390/320, all three routes reach `The SUNNYVAiLE NewsStand.`, `A clear day at the NewsStand.`, the Aug 11 desk-check detail and four distinct papers: quiet Breaking, Aug 6 Daily archive, Weekly update needed and Big Picture update needed. Paige and rack art decode, no audio autostarts and no overflow occurs. Loading the receiver writes device-local catch-up visit timestamps only. | PUBLICLY VERIFIED; CURRENT HOMEPAGE NEWS ADAPTER STILL MISSING |
+| Mobile LIBRAiRY header handoff | Activate the direct mobile shortcut on Homepage or a shared-header page | Canonical LIBRAiRY arrival without hiding access behind Menu | Both public origins and 390/320 reach the real LIBRAiRY; Miss Jeeves and masthead art render, 14/14 held books are visible, zero `Open this book` actions appear and no overflow occurs | PUBLICLY VERIFIED; BOOK ADMISSION REMAINS 0/14 |
 | Newsletter | Submit homepage form | Provider request then inbox confirmation/error | Buttondown popup/embed; Post Office contract test passes, real lifecycle absent | PARTIAL |
 | Analytics | Page/action | Privacy-safe aggregate entry evidence | Plausible/Clarity load; generic events in shared scripts; no approved entry schema | MISSING CONTRACT |
 | Release/campaign | Approved exact site/copy/image | Public entry works and campaign points to it | No current exact clean candidate or approval triad | HOLD |
@@ -40,6 +74,13 @@
 | Resident Card — device-local | No validated homepage projection is established | Static Card/Closet copy; other shared local keys | No deliberate owned variant | Local continuation only after validation | Same device only | Show public baseline and exact limitation | MISSING DELIBERATE STATE |
 | Resident Card — verified account-backed | Supabase-shaped token reader in shared auth script; no complete Card proof | Email-derived initials if target exists | Intended resident link/resume only | No new write in entry | Account/cross-device not proved here | Expiry/parser failure returns guest | NOT PROVED |
 
+The returning-orientation and episode-resume transitions are therefore
+deliberately held. They need `verified account + prior visit → collapsed
+explanation → expand in place → sign out/expiry/revoke → full explanation` and
+`verified account + valid published episode progress → resume episode → finish
+or invalidate → latest published fallback`, including second-tab/device and
+storage/service failure cases.
+
 Required transition tests remain open: first→return, visitor→Card, local
 Card→account, sign-out/expiry/revoke, storage denial/corruption, two tabs,
 second device, conflict/migration, Card update/delete and privacy reset.
@@ -50,7 +91,9 @@ second device, conflict/migration, Card update/delete and privacy reset.
 |---|---|---|---|---|---|---|---|
 | Published episode | Episode production/release | `homepage.js` | Static build/hosting | `content/episode-index.json` | Homepage, Chick Flicks, Watch, weekly surfaces | public artifact | Named local states pass; exact release freshness open |
 | Atomic current-episode record | Weekly Episodes `EPX-HOME-CURRENT-EPISODE-v1` | Separate Homepage current-episode module | Platform checksum/public-proof validation | Immutable complete record + bound fallback | Town Entry presentation, KSVL/card routes only when non-null and admitted | exact release artifact | SPECIFIED / QUEUED; current code mixes projection card with hard-coded Episode 04 state |
+| Account-backed episode progress | Episode reader/listener only after supported progress event | Missing Homepage resume adapter | Identity/progress service missing | Versioned account record: published episode ID, supported resume location, updated time and invalidation | Homepage Wednesday episode entrance; episode receiver | account | HOLD; no authoritative producer/store/consumer exists |
 | News publication state | NewsStand editorial/release | Missing homepage adapter | NewsStand pipeline | Admitted publication/correction record TBD | Homepage and NewsStand | public artifact | D-043 specified; integration missing |
+| Site change feed | Release/product owners | Missing Homepage and NewsStand adapter | Release/change pipeline missing | Versioned public change record covering chapters, books, episodes, features and other public releases | Homepage compact preview; NewsStand complete list | public; optional account projection | Public feed MISSING; account-backed last-seen producer/store/consumer HOLD |
 | Destination readiness | Product owners + release | Missing shared adapter | Portfolio/release system | Public-promise registry is documentary, not runtime authority | Homepage, Centre, directory | release evidence | Freshness-bound projection missing |
 | Town directory | Directory owner | Inline map + shared directory script elsewhere | Static hosting | `sunnyvaile-directory.js` and duplicated homepage markup | Homepage, Centre, shared headers | public artifact | Multiple copies can drift |
 | Tour stops | Route visit/check-in | `sv-tour-checkin.js`, `homepage.js` | none | `laidies_tour_<week>` | Homepage and stop pages | device | Route visit is completion; product authority disputed |

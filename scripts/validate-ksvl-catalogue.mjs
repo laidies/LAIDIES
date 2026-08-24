@@ -192,6 +192,11 @@ assert.ok(!player.includes("__KSVL_TEST_REGISTRY"), "production player exposes a
 const booth = fs.readFileSync(path.join(root, "games/dj-booth.html"), "utf8");
 assert.ok(booth.includes("Choose a track to listen."));
 assert.ok(!booth.includes("open.spotify.com/playlist/"));
+assert.ok(!/\bnew Audio\s*\(/.test(booth), "DJ Booth must not create a competing Audio owner");
+assert.ok(!/content\/music\/[a-z0-9][a-z0-9_./-]*\.(?:mp3|m4a|ogg|wav)/i.test(booth),
+  "DJ Booth must not hard-code track sources outside the KSVL registry");
+assert.ok(!booth.includes("content/site/mini-player.js"), "DJ Booth must not load the competing mini-player");
+assert.ok(booth.includes("KSVL_playTrackById"), "DJ Booth must delegate selected tracks to canonical KSVL");
 
 const homepage = fs.readFileSync(path.join(root, "index.html"), "utf8");
 assert.ok(!player.includes("__KSVL_TEST_REGISTRY"), "production player exposes a registry override");

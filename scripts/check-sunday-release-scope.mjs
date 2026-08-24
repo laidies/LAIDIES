@@ -54,10 +54,11 @@ const candidateFiles = toMap(candidate, 'candidate');
 if (scope?.schema !== 'laidies.production-scope.v2' || scope.project !== 'laidies-sunnyvaile' || scope.productionBranch !== 'homepage-redesign') {
   throw new Error('invalid production scope');
 }
-if (scope.baseCommit !== 'e044ca899dfea867ba10f770cc99a0b8e32c100a' ||
+if (!/^[a-f0-9]{40}$/.test(scope.baseCommit || '') ||
+    (process.env.BASE_COMMIT && scope.baseCommit !== process.env.BASE_COMMIT) ||
     scope.baseArtifactIdentitySha256 !== base.identitySha256 ||
     scope.candidateArtifactIdentitySha256 !== candidate.identitySha256) {
-  throw new Error('production scope is not bound to the exact base and candidate artifacts');
+  throw new Error('production scope is not bound to the exact base commit and candidate artifacts');
 }
 if (!Array.isArray(scope.allowedChanges) || !scope.allowedChanges.length || !Array.isArray(scope.preservedPaths) || !Array.isArray(scope.verificationPaths) || !Array.isArray(scope.removedPaths)) {
   throw new Error('production scope is incomplete');

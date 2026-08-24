@@ -14490,13 +14490,208 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why “starting clean” fixed context bloat but did not by itself make the website safe to deploy.
 - **Publication status:** INTERNAL OPERATING-SYSTEM AND RELEASE REPAIR / NOT YET DEPLOYED.
 
-## BTB-462 — A release gate must not manufacture research or trust a partial failed build
+## BTB-462 — A full-product gate can make direction selection impossible
+
+- **Date:** 2026-08-22
+- **Area:** Homepage visual direction production and owner review admission.
+- **Failure risk:** Requiring account journeys, every downstream section and implementation-only handoff before Ali can choose among visual directions creates throwaway full pages, receipt sprawl and long delays before the only decision that matters.
+- **Root cause:** The design checker recognized `CONCEPT` as a stage but still applied the `FULL_PRODUCT` evidence contract, contradicting the current direction-first program.
+- **Prevention rule:** Representative directions must bind exact pushed source bytes, desktop/mobile pixels, objective browser checks, maker inspection and two distinct exact-byte independent reviews. Full-page journeys and implementation handoffs begin only after owner selection.
+- **Durable correction:** The three-page manifest now carries compact exact-byte direction admission, the calibrated checker rejects stale screenshots, held or duplicate reviews and premature full-implementation claims, and the review resolver admits only the matching pushed candidate without adding a parallel receipt tree.
+- **Possible Behind the Build angle:** Why doing more review work before the design choice produced less reliable design work.
+- **Publication status:** INTERNAL DESIGN-SYSTEM REPAIR / NO DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-463 — A design gate built on a lossy brief can admit the wrong Homepage
+
+- **Date:** 2026-08-22
+- **Area:** Homepage design production, asset selection and owner review.
+- **Failure risk:** A polished-looking coded page can satisfy a condensed checklist while changing Ali's narrative order, inventing public copy and omitting the actual decisions from her walkthrough. Pixel review then legitimizes a concept that is wrong before styling is judged.
+- **Root cause:** The clean reset omitted `ALI-HOMEPAGE-WALKTHROUGH-2026-08-22.md` and `HOMEPAGE-NEXT-TASK-HANDOFF-2026-08-22.md`, even though the handoff required both. Production used only the lossy `EXPERIENCE-BRIEF.md`, skipped the required capability-inventory and bounded first-screen proof, and filled unresolved decisions with invented order and prose. The independent reviewer compared pixels but did not possess the missing source, so its `ADMIT` could not evaluate fidelity.
+- **Prevention rule:** The routed brief must bind the direct walkthrough's exact comprehension sequence and mark unresolved ordering as open. A first direction proves only masthead, method and primary navigation at desktop/intermediate/mobile; a full page waits for that verdict. Meaning-bearing prose remains exact current approved copy unless Ali approves a change. Rejected artifacts live outside `current`, and any owner rejection invalidates earlier internal quality verdicts.
+- **Durable correction:** Directions A/B/C and successor `b4857077…b995` are archived under `operations/design-explorations/rejected/homepage/`, registered as fail-closed known-bad candidates and removed from current production. The Homepage authority now locks method immediately after the masthead, forbids invented copy/order and restores the dependency-first production sequence.
+- **Possible Behind the Build angle:** Why more design reviews produced a worse Homepage—and the one visual comparison that finally made the gate useful.
+- **Publication status:** INTERNAL FULL REJECTION / NOT DEPLOYED.
+
+## BTB-464 — A Homepage direction must preserve settled pixels before exploring unsettled ones
+
+- **Date:** 2026-08-22
+- **Area:** Homepage visual direction and owner review.
+- **Failure:** Rebuilding the whole arrival repeatedly changed an approved masthead, weakened the LAiDIES wordmark and converted the method into detached CSS panels, forcing Ali to rediscover settled decisions in every review. The next three generated Daily objects repeated the same structural failure: generic box grids, no credible mobile recomposition and, in two assets, pseudo-signage.
+- **Root cause:** The production unit was a replacement page—or a generated section image—rather than the smallest unresolved section running inside the current Homepage with its real information architecture and live text planes fixed first.
+- **Prevention rule:** A Homepage direction proof must use the exact current runtime and preserve the approved masthead bytes. Prototype only the unresolved section, then bind same-viewport incumbent/candidate pixels, the 877×915 owner viewport, direct mobile LIBRAiRY and the pausable canonical ident before admission. A generated section asset is not a layout: fix the live information architecture, responsive reflow and deterministic text planes before generating any bounded scenery.
+- **Durable correction:** `homepage-live-base-proof-20260822` adds the method directly after the incumbent masthead, uses five allowlisted real images and exposes only proof-specific CSS/JS behind `?homepage-proof=1`; exact source and review bytes are bound in the three-page design manifest. The three Daily assets are now checksum-bound rejected inputs and removed from owner selection; the successor must start from the exact incumbent plus approved NewsStand objects and LAiDIES visual references.
+- **Possible Behind the Build angle:** Why preserving one approved screen produced more progress than generating three new Homepages.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-465 — One hero screenshot cannot admit a spatial Library journey
+
+- **Date:** 2026-08-22
+- **Area:** LIBRAiRY visual-direction evidence and owner review admission.
+- **Failure:** The first review packet showed only the top of the page, so it could not prove the browse controls, all 14 covers, or the three physical shelf rooms. A browser-generated full-page stitch then duplicated sections and inserted gaps, creating false visual defects.
+- **Root cause:** The evidence method treated a long spatial page like a single-screen landing page and trusted the in-app browser's stitched capture without inspecting the composed pixels.
+- **Prevention rule:** A Library direction must supply exact-viewport, non-stitched captures of both entry jobs and every shelf room at desktop and mobile sizes. Stitched captures are excluded from admission unless their pixels are first verified against the live scroll sequence.
+- **Durable correction:** The invalid stitched files were removed. The admitted packet now binds same-viewport top-page comparisons plus separate non-stitched Reference Desk, Browse, 101s, Tools and Reference Shelf captures at 1440 and 390 pixels; the successor reviewer independently confirmed all 14 covers, intentional grounded shelf composition and zero visible regressions or locked-decision violations.
+- **Possible Behind the Build angle:** Why a technically complete screenshot made a working Library look broken.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-466 — Generated tourist-centre art and stale browser assertions can both reintroduce false information
+
+- **Date:** 2026-08-22
+- **Area:** Visitor’s Centre representative direction, generated masthead art and route-readiness tests.
+- **Failure:** The first generated interior contained illegible invented brochure lettering, while the existing browser test expected superseded per-building status prose instead of the current fail-closed readiness projection.
+- **Root cause:** The image was initially judged from composition before its small print was inspected at intended size, and the test fixture had outlived the runtime data contract it claimed to protect.
+- **Prevention rule:** Inspect every generated public image at intended display size and reject any unverified glyph before repository admission; keep destination-browser assertions bound to the current readiness projection, where expired or absent evidence renders `unavailable` and never restores stale capability claims.
+- **Durable correction:** The bad generated image was rejected before use. A targeted image edit removed all generated words, numbers and pseudo-photographs from printed materials, leaving deterministic page UI responsible for meaning. Visitor contract, owner-parity and 67-check browser suites now assert the current 17-route fail-closed runtime rather than obsolete limitation copy.
+- **Possible Behind the Build angle:** Why a pretty brochure and an old passing test can tell the same kind of lie.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-467 — A release can pass product gates and still be blocked by its transfer path
+
+- **Date:** 2026-08-22
+- **Area:** NewsStand narrow layout, browser-process cleanup and protected Cloudflare release controller.
+- **Failure:** The exact release first failed on a real Linux-only three-pixel paper-title overflow, then on less than two pixels between adjacent live fields. After those pixels passed, deployment still stopped because the builder rejected an in-repository artifact directory and GitHub's uploader rejected an otherwise safe path containing `..`.
+- **Root cause:** Local macOS browser proof did not expose Linux font geometry, the 320-pixel assertion did not initially print the failing node metrics, and the controller calibration tested the builder's path rejection without proving that the workflow's real output path was both outside the repository and lexically acceptable to `actions/upload-artifact`.
+- **Prevention rule:** Narrow-layout guards must emit exact font, box and field geometry on failure and run on the release runner before approval. A production controller must use one absolute runner-local artifact directory outside the source tree, exercise that exact path through build, manifest and upload semantics, and bind controller identity to the exact release source when the clean reset and default-branch dependency lanes intentionally differ.
+- **Durable correction:** Chrome shutdown now waits through `Browser.close`, `SIGTERM` and `SIGKILL` before retrying profile removal. The 320-pixel rack uses a 15-pixel Big Picture title and a shifted job field that passes all 225 rendered NewsStand checks on macOS and Linux. The controller uses `/tmp/laidies-candidate-site`, its calibrated test rejects the known in-repository path, and the fix is merged to `main`. Exact source `e044ca899dfea867ba10f770cc99a0b8e32c100a` deployed as artifact `d7d27bd6c95bf133177ca1a7e94796fbb83fe8d2edfdf22dd181b94f9a32bd41`; immutable and custom-domain bytes, six 404 removals and Miss Jeeves JSON all verified publicly.
+- **Possible Behind the Build angle:** Why passing every website test still did not mean the deployment pipeline could move the files.
+- **Publication status:** PRODUCTION CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-468 — Objective-check labels can hide stale pixels and unsupported public truth
+
+- **Date:** 2026-08-23
+- **Area:** Visitor’s Centre and LIBRAiRY direction admission.
+- **Failure:** The Visitor direction carried an unsupported claim that written
+  class previews were open. The LIBRAiRY direction claimed 44px controls and no
+  mobile overflow while its evidence predated the actual shelf-width repair and
+  the rendered desktop Menu was only 29px high.
+- **Root cause:** The gate required `PASS` strings for objective checks but did
+  not inspect the exact proof content or CSS that those strings described. A
+  source hash could change without forcing fresh section pixels or a new
+  independent review of the real rendered result.
+- **Prevention rule:** A design admission must read the exact candidate source
+  for locked copy/order, current-owner imagery and high-risk responsive rules;
+  calibrate those checks by corrupting the real pattern; measure rendered target
+  geometry; and bind fresh non-stitched desktop/mobile section captures after
+  any source change. Availability words such as open, released or available
+  require a current owner binding.
+- **Durable correction:** Visitor now truthfully labels Future classes and the
+  class tapes still in production; its 76-check browser suite and refreshed
+  visual review pass. LIBRAiRY now constrains every mobile shelf to the viewport,
+  renders all visible header targets at least 44px, and passes exact 1440, 877
+  and 390 browser journeys with 14 covers, zero Open actions and focus return.
+  The three-page validator rejects missing Visitor order/images/truth and
+  missing LIBRAiRY entries/mobile fit/44px rules. The site visual lock now binds
+  one canonical header and rendered 44px target evidence.
+- **Possible Behind the Build angle:** Why a green accessibility checkbox did
+  not stop a 29-pixel Menu—or a sentence the product was not allowed to claim.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTIONS / NOT DEPLOYED.
+
+## BTB-469 — A clean design lane and a passing keyboard test are not automatically public interaction proof
+
+- **Date:** 2026-08-23
+- **Area:** Incremental Homepage release and browser evidence hygiene.
+- **Failure:** Building the pushed reset branch for a two-file Homepage fix would also have changed LIBRAiRY and Visitor bytes and removed four production assets. A Bronze test rewrote tracked evidence. The map test passed keyboard activation while every public hotspot had zero rendered height. The Homepage also promised `Pick up where I left off` before any signed-in continuation state existed. During the shared-header correction, an intermediate deployment served the exact new JavaScript bytes but all active HTML still requested the fixed old cache key, so custom-domain browsers kept executing the previous header; LIBRAiRY and Watch also loaded the controller without mounting the canonical header.
+- **Root cause:** The design lane and deployed source have different histories, while build/browser tools did not expose that boundary or their write side effects. The map check proved event wiring after programmatic focus but never measured the hit region; the account control named a hoped-for outcome rather than the signed-out receiver it could prove. Shared-runtime verification checked the changed script but not every consumer's cache key or canonical mount.
+- **Prevention rule:** Every incremental release begins with manifests from the exact deployed source and candidate; any extra public path rejects the candidate. Apply the admitted delta onto the deployed source and require an exact scope receipt. Browser diagnostics stay outside tracked evidence unless refreshing it is the task. Map admission requires a real 44px pointer target. Account controls expose only the currently proved visitor state and receiver; signed-in continuation labels require signed-in lifecycle proof. A shared-runtime change must inventory and refresh every active consumer cache key, verify every canonical mount, and calibrate both failures before deployment.
+- **Durable correction:** The unsafe 11-path candidate was not deployed. Eight exact increments now culminate in production source `9e59d67db93e1d4ca9b7d22a8d783c91ca5702fa`, artifact `7564d6cdb42bcbfdb3054795cb857071765855a555dd752d1e92c998a97dd174` and deployment `250060a3-7164-4abf-8f2b-54dd9f55f0e7`. Public proof preserves the seven earlier journeys and adds the canonical mobile header across all 59 active HTML consumers, direct mobile LIBRAiRY access, 44px Menu access, and missing mounts on LIBRAiRY/Watch. The final matrix passed 42/42 page/origin/width cases after two control-timeout retries; LIBRAiRY remained truthful with 14/14 held books and zero open actions. NewsStand still lacks the current Homepage adapter, MAiKEOVER Save/persistence remains unproved, and the incidental PNG rewrite was excluded.
+- **Possible Behind the Build angle:** Why “only two changed files” is not a deployable fact until the whole public artifact agrees.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-470 — Restoring saved state without restoring its next action strands returning visitors
+
+- **Date:** 2026-08-23
+- **Area:** MAiKEOVER Resident Card → same-device Closet continuation.
+- **Failure:** MAiKEOVER restored a saved Card after reload but hid `See it in my Closet →`, so the saved object existed while the visitor's only continuation doorway disappeared. The old browser test also asserted controls removed by the current portrait-booth hold and could not reach this regression cleanly.
+- **Root cause:** Hydration repainted Card fields but did not restore the saved-state action, and the existing end-to-end test was not kept current with the held portrait/account boundaries.
+- **Prevention rule:** A persisted object is not a verified journey until reload restores both its exact allowed fields and its next truthful action. Reuse the existing end-to-end test, calibrate the missing doorway against the pre-fix page, and keep account/reward/ownership assertions outside a device-local acceptance boundary.
+- **Durable correction:** Source `0196340a511769c67901da8ea9bf24a9a72982ea` first restored the doorway after hydration. Its truth successor, source `2a6db9f9afe4d53183d659c973512f3891d7a216`, artifact `22b9e09598099311d6c4a69c5c8565460f760c0e43c69e47f1ece1c556fe1f0f` and deployment `0875285d-b47d-4d9a-a586-508b660ec894`, keeps the publicly verified Card identity panel while removing the unproved wallet, report-card dashboard, Luminaries, Wednesday Tour, collection, FAiRY-bank and leaderboard surfaces from the visual and accessibility trees. Complete Closet accounts, handles, cross-device state, rewards, referrals and ownership remain held. The browser test now writes screenshots to temporary storage instead of tracked evidence.
+- **Possible Behind the Build angle:** Why saving data is only half of persistence—the visitor also needs the doorway back.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-471 — A shipped language rule is not durable until the routed writing source owns it
+
+- **Date:** 2026-08-23
+- **Area:** Sitewide public action language and media controls.
+- **Failure:** The public site and calibrated language guard had removed the exact visitor-visible token `Play`, but variants such as `plays`, `played` and `playing` remained reachable and the rule lived in a release packet rather than the routed writing lock. A later page build could therefore reintroduce the language while still following the documented voice route.
+- **Root cause:** Implementation, prevention and routed authority were completed in different increments; the last one was not reconciled into the narrow source that future producers must read.
+- **Prevention rule:** Every public-language correction lands in the routed writing lock in the same task, with an executable guard that distinguishes visitor copy from technical APIs and proves both rejection and allowance cases.
+- **Durable correction:** The writing lock now bans the visitor-visible `Play` family, names action-specific replacements and explicitly preserves `.play()`, media events, identifiers, analytics keys and CSS classes. The calibrated test rejects variants in HTML, dynamic JavaScript and public JSON while permitting technical media behavior, and CI now runs it. Source `012f40b4b51fd4795bbda00fb0150c41d7774648`, artifact `96dd8950abf2fc60dea322afd7fddf43c3c656b1af075e773330925ab0469b4f` and deployment `63774d48-9ae5-4901-95ad-b06f8ebf4725` passed exact-byte and language scans at both public origins across 72 entrypoints, 11 deployed dynamic sources and four public JSON sources.
+- **Possible Behind the Build angle:** Why changing a button label is easy—and preventing it from quietly coming back is the real product work.
+- **Publication status:** PRODUCTION LANGUAGE CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-472 — A visually correct reuse still fails when its route scope is implicit
+
+- **Date:** 2026-08-23
+- **Area:** Homepage Daily representative direction and active-asset admission.
+- **Failure:** The corrected physical Daily section had zero visible regressions, truthful source-bound state and credible desktop/mobile compositions, but its new desktop rack was absent from the active-asset registry and the existing mobile Daily paper was admitted only for NewsStand. Showing it then would have repeated the exact pattern of treating plausible pixels as authority.
+- **Root cause:** Asset review and route authority were recorded separately; reusing an admitted object on a new page was treated as automatically permitted.
+- **Prevention rule:** Every cross-route visual reuse must bind the exact consumer entry SHA, role and prohibited uses before owner review. Independent visual review cannot admit a candidate while either the new asset or reused asset lacks that exact route scope.
+- **Durable correction:** The desktop rack is now scoped only to Homepage proof entry `04b08302fca56e4c31eba83fe47880b6d6b773b51875cfea76233820bcdd98f2`; the text-free mobile Daily object permits that same bounded proof while live HTML/JavaScript retains all publication names, jobs, state and actions. The independent pixel-first successor review reports zero visible regressions and zero locked violations.
+- **Possible Behind the Build angle:** Why “we already approved that image” does not answer whether it belongs on this page.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-473 — Loading the shared player does not prevent a page from creating a competing one
+
+- **Date:** 2026-08-23
+- **Area:** DJ SunnyV’s Booth and canonical KSVL audio ownership.
+- **Failure:** The Booth loaded `content/site/ksvl-player.js` but still maintained its own hard-coded seven-track list, detached `Audio()` object, preloads, controls and mini-player dependency. A track could therefore drift outside KSVL admission or compete with the town’s canonical audio owner even though the shared player appeared in the page source.
+- **Root cause:** The earlier check treated script inclusion and truthful copy as integration evidence; it did not inspect which component selected sources, created audio or owned failure/retry state.
+- **Prevention rule:** Every cross-town listening surface selects an admitted KSVL registry ID and delegates audio/control state to the canonical KSVL API. A calibrated guard rejects page-local `new Audio()`, direct `/content/music/` paths and competing mini-player dependencies; browser proof must show a held registry creates zero audio and an admitted selection produces one canonical owner with visible failure and retry.
+- **Durable correction:** The Booth now keeps its existing room, track cards and controls while consuming exact KSVL IDs. Static calibration rejected the old architecture; the full KSVL suite passed held, admitted, media-error, retry and single-audio cases. Source `b5ecb6da8c91a1380b7ed2e0216f74e06b62b9bc`, artifact `cf863aa6e76e764f559dd9932e630f2f00514035847cd57f8a639d49256d3f1d` and deployment `71ef51c7-874c-4e7d-a421-52d1edf589ed` then matched at both public origins, with real decoded selected audio, canonical pause state, decoded room art and no 1440/390/320 overflow.
+- **Possible Behind the Build angle:** Why importing the “right” player did not stop a second invisible audio system from running beside it.
+- **Publication status:** PRODUCTION FUNCTIONAL CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-474 — A stale hold can hide both a valid feature and a real injection boundary
+
+- **Date:** 2026-08-23
+- **Area:** Resident Card email intake, public Card routing and release guards.
+- **Failure:** Active work and two repository guards described the one intended email/magic-link desk as a duplicate held intake, while a raw `?u` or legacy `?member` value could reach the public Card lookup and be concatenated into `main.innerHTML` on the not-found path.
+- **Root cause:** The guards preserved an older product state after private account continuation was released, while the public route treated the presence of a query parameter as sufficient identity syntax and reflected it before any canonical handle boundary.
+- **Prevention rule:** Reconcile current release ancestry before removing a capability. Resident Card must expose exactly one canonical email desk, and every public Card query must pass one strict parser before lookup. Invalid or ambiguous requests stay in public mode, fail non-revealingly and never enter an HTML sink. Calibrate the guard against the exact previously deployed vulnerable file.
+- **Durable correction:** The authority reconciliation found no duplicate intake, so the sole email desk remains. Source `0ce5b6e42909efb5ff05a7a733374fa0e0660db6` adds one parser for current and legacy routes, preserves the four exact fictional-town-character handles, rejects malformed/ambiguous input before lookup and rebuilds the generic not-found state with text-only DOM APIs. The old live file fails the new gate; the successor passes 45/45 Card checks and inline-script syntax. Release source `569192d01cb42db93173a798833d3ffcc80b501e`, artifact `a2373e12f3df45079c630664ba633a433d21f33d48d676c6deb8df07ccb898c6` and deployment `ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4` matched at both public origins without changing any unselected visual direction.
+- **Possible Behind the Build angle:** Why deleting the “duplicate” email form would have broken login while leaving the actual security defect untouched.
+- **Publication status:** PRODUCTION FUNCTIONAL/SECURITY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-475 — Query sanitization does not protect the same value when persistent storage bypasses it
+
+- **Date:** 2026-08-23
+- **Area:** MAiKEOVER device-local Resident Card handle rendering.
+- **Failure:** The public Card query repair validated URL handles and removed its reflected-HTML sink, but MAiKEOVER still read `laidies_card_username` directly from persistent same-origin storage and concatenated it into `persistence.innerHTML` on arrival.
+- **Root cause:** The first same-pattern search followed only the repaired URL parameters. It did not inventory every untrusted source that could carry the same identity value into an HTML sink, especially `localStorage` written by another page or older build.
+- **Prevention rule:** After any injection repair, inventory query, hash, referrer, persistent/session storage and provider-returned values across all same-origin consumers. Route shared identity through one strict parser and render it with text nodes or safe DOM construction; calibrated guards must reject both reflected and stored variants.
+- **Durable correction:** Source `9223dca3a3de04d93d1c8108505dc8fed297183b` replaces MAiKEOVER's raw storage read and `innerHTML` sink with `LAIDIESResidentCard.readHandle(window.localStorage)` and `replaceChildren`. Release source `750c062a27150bda6cbe5443ab16068f34e4e0aa`, artifact `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e` and deployment `840943b3-fbc7-4049-a0d7-0d12fba688af` passed the calibrated MAiKEOVER/Card contracts; all 15 fetchable verification paths matched at both public origins and the shared Miss Jeeves API returned HTTP 200 at both. Real account, public-profile and cross-device handle claims remain held.
+- **Possible Behind the Build angle:** Why fixing a malicious URL did not protect the same username after a browser remembered it.
+- **Publication status:** PRODUCTION FUNCTIONAL/SECURITY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-476 — Additive live-base design preserved the defects it was supposed to remove
+
+- **Date:** 2026-08-23
+- **Area:** Homepage visual direction and design admission.
+- **Failure:** The `04b08302…` Homepage proof kept the pastel/bold split, CSS decoration, missing imagery and old page order, then added a Daily rack whose image and text did not form a coherent editorial object. Internal review admitted it despite those visible brief violations.
+- **Root cause:** Production treated the live page as the visual target and review scored local compliance instead of comparing the complete composition with Ali's approved pop-art references and direct walkthrough.
+- **Prevention rule:** Homepage redesign begins with three complete image compositions grounded in the locked masthead, exact copy, vibrant LIBRAiRY palette, admitted real assets and exact pop-art references. Additive live-base patching, isolated section approval and code-before-selection are prohibited; Ali selects the visual target before implementation.
+- **Durable correction:** The candidate, Daily rack and internal admission are invalidated in the routed Homepage authority and active-asset registry. The proof CSS/JavaScript is removed from the Homepage source. No new process file was added.
+- **Possible Behind the Build angle:** Why a safe-looking incremental redesign can faithfully preserve everything the redesign was meant to fix.
+- **Publication status:** REJECTED INTERNAL DIRECTION / NOT DEPLOYED.
+
+## BTB-477 — A dusk masthead is not permission to turn the whole Homepage into night
+
+- **Date:** 2026-08-23
+- **Area:** Homepage owner-reference synthesis and responsive visual review.
+- **Failure:** An early synthesis carried the masthead darkness into later sections. Its successor repeated the deeper error by preserving old page architecture, inventing replacement copy and spending a large section on a Story/Analogy/Practice/Music/Community image collage that explained little. Stale or stitched captures also obscured the real mobile composition.
+- **Root cause:** The producer treated examples 1 and 4 as loose style inspiration while preserving the incumbent information architecture, instead of mapping each meaning-bearing section to approved copy and the owner’s requested job before layout.
+- **Prevention rule:** Bind the exact owner-selected references and current page brief before styling. Every meaning-bearing Homepage section must declare its approved copy source; the method remains a compact explanation, not a five-image collage; Community remains a destination rather than a forced method step. Keep dusk confined to the masthead, compare actual 1440, 877 and 390 viewport renders, and refresh review-bound screenshots after visible changes. A stitched capture is navigation evidence, not visual-admission evidence.
+- **Durable correction:** Homepage proof `0c776461…` uses examples 1 and 4 as structural and editorial truth, removes the oversized five-image method collage, preserves the approved method explanation in one compact image-free band, and moves the post-masthead page into bright cyan, coral, hot pink, cobalt, orange and lime compositions. The calibrated program check now rejects the collage, invented copy, missing copy provenance and wrong section order. Mobile overflow is zero, and the independent exact-pixel verdict admits the current proof. It remains an owner-review artifact and is not deployed.
+- **Possible Behind the Build angle:** How one beautiful night image nearly made an entire learning town feel closed after dark.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / NOT DEPLOYED.
+
+## BTB-478 — A release gate must not manufacture research or trust a partial failed build
 
 - **Date:** 2026-08-23
 - **Area:** LIBRAiRY book admission and exact public-artifact release.
 - **Failure risk:** A disproportionate three-person study can block otherwise reviewable opening-day books, while simulated evidence can be misdescribed as human observation. Separately, a failed public build can leave a partial output directory that looks like a destructive candidate if its non-zero exit is ignored.
 - **Root cause:** The content checker encoded one expensive research method as mandatory rather than the quality outcome Ali required, and legacy receipts blurred simulated-reader review with observed-human evidence. The first release comparison continued after the builder's default-deny asset gate returned non-zero, so its partial directory falsely appeared to remove unrelated public files.
 - **Prevention rule:** Formal user research is required only when the routed product decision calls for it. Structured editorial/browser review must state its evidence type and whether human research occurred; false human claims fail admission. Release assembly must stop on the first non-zero build and may create a manifest only after the builder reports success. Exact scope comparison must prove zero unintended removals. Runtime code remains checksum-bound in the release delta but must be verified through behaviour, not fetched as a public asset.
-- **Durable correction:** Library learning admission v3 binds exact canonical source, instructional verdict and truth-labelled artifact-first usability verdict; calibrated fixtures reject stale bindings, undisclosed simulation and false observed-human claims. Eight selected Library images are checksum-bound in the active registry after pixel review. The four-book artifact has 23 exact changes, zero removals and 17 protected deployed paths. Production verification tried to fetch Cloudflare's runtime-only `_worker.js`, exposed fresh-host propagation delay, caught Email Address Obfuscation changing rendered-book HTML, and then found the live reader rejecting Cloudflare's normal `.html` canonical redirect. The scope checker rejects runtime-only fetch paths, live checks retry propagation without weakening hashes, rendered books use the documented `no-transform` control, and the reader admits only the requested same-origin URL or its exact extensionless canonical form. A browser calibration still rejects arbitrary redirect targets.
+- **Durable correction:** Library learning admission v3 binds exact canonical source, instructional verdict and truth-labelled artifact-first usability verdict; calibrated fixtures reject stale bindings, undisclosed simulation and false observed-human claims. Eight selected Library images are checksum-bound in the active registry after pixel review. Production verification tried to fetch Cloudflare's runtime-only `_worker.js`, exposed fresh-host propagation delay, caught Email Address Obfuscation changing rendered-book HTML, and then found the live reader rejecting Cloudflare's normal `.html` canonical redirect. A final ancestry audit caught a subtler release error: the four-book line had been built from an older commit than the actual preceding production deployment. The scope checker rejects runtime-only fetch paths, live checks retry propagation without weakening hashes, rendered books use the documented `no-transform` control, and the reader admits only the requested same-origin URL or its exact extensionless canonical form. A browser calibration still rejects arbitrary redirect targets. The reconciled artifact is now bound to actual prior-production source `6edea2ac…`: 24 exact changes, zero removals and 22 critical production paths checksum-preserved.
 - **Possible Behind the Build angle:** Why a failed build briefly looked like it had deleted half the website—and how exact scope checks stopped it going live.
 - **Publication status:** FIRST PRODUCTION DEPLOYMENT CREATED; PUBLIC-VERIFICATION VERDICT HELD UNTIL THE CORRECTED SUCCESSOR RUN PASSES.

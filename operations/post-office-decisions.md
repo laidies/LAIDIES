@@ -1,5 +1,16 @@
 # POST OFFICE — DECISIONS (rebuild 2026-07-22)
 
+> **CURRENT SIGN-IN BOUNDARY — 2026-08-23.** This narrow update supersedes
+> older implementation descriptions below where they conflict. The Post Office
+> collects one newsletter email for Buttondown and **no account email**. Its
+> Counter Two routes exactly once to `/resident-card.html#rcAccountTitle`, the
+> sole intended private sign-in-link request desk. Opening that desk or
+> requesting a link does not prove message delivery, account creation, restore
+> or cross-device continuity. MAiKEOVER remains the device-local Card route.
+> The older resident-mail/box rebuild notes below are preserved history, not a
+> claim that those public account or resident-mail lifecycles are currently
+> admitted.
+
 > ⚠ **READ FIRST — the Post Office is not where mail should live.**
 > Ali, 2026-07-22: *"it's going to be annoying to have to leave whatever you are looking at (like
 > another profile), go to the post office to message them and see who messaged you."*

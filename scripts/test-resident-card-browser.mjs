@@ -2,19 +2,15 @@
 
 import fs from "node:fs";
 import http from "node:http";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = path.resolve(process.env.RESIDENT_CARD_ROOT || process.cwd());
+const ownsEvidenceDir = !process.env.RESIDENT_CARD_EVIDENCE_DIR;
 const evidenceDir = path.resolve(
   process.env.RESIDENT_CARD_EVIDENCE_DIR ||
-  path.join(
-    root,
-    "operations",
-    "product-stewards",
-    "resident-card",
-    "evidence-cycle-6-local-identity-p0"
-  )
+  fs.mkdtempSync(path.join(os.tmpdir(), "laidies-resident-card-browser-"))
 );
 fs.mkdirSync(evidenceDir, { recursive: true });
 const playwrightRoot = process.env.PLAYWRIGHT_CORE_PATH ||
@@ -119,7 +115,8 @@ try {
     check(await page.locator("#rcLocalKicker").textContent() === "No local card found", "newcomer gets an explicit empty state");
     check(await page.locator("#rcPrimaryAction").textContent() === "Make a local card", "newcomer gets the correct next action");
     check(await page.locator("#rcClosetAction").isHidden(), "empty state does not offer a card-backed Closet shortcut");
-    check(await page.locator('input[type="email"]').count() === 0, "route contains no email input");
+    check(await page.locator('input[type="email"]').count() === 1, "route contains exactly one sign-in-link email input");
+    check(await page.locator("#rcAccountSignedOut").isHidden(), "unavailable account runtime keeps the request form hidden");
     await context.close();
   }
 
@@ -290,13 +287,21 @@ try {
   }
 
   check(
-    !externalAttempts.some((url) => /supabase|magic.?link|auth\/v1|member_profiles/i.test(url)),
+    !externalAttempts.some((url) => {
+      try {
+        return new URL(url).hostname.endsWith(".supabase.co") ||
+          /auth\/v1|member_profiles/i.test(url);
+      } catch (_) {
+        return /auth\/v1|member_profiles/i.test(url);
+      }
+    }),
     "route attempts no account or profile backend request"
   );
   check(pageErrors.length === 0, "hostile whole-journey fixtures produce no page errors");
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
+  if (ownsEvidenceDir) fs.rmSync(evidenceDir, { recursive: true, force: true });
 }
 
 for (const label of checks) {

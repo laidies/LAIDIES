@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
     window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
@@ -958,7 +958,7 @@
     <div class="closet-arrival-copy">
       <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
       <h1>The Closet</h1>
-      <span>Your Resident Card and supported saved progress, all in one place.</span>
+      <span>Your Resident Card is your SUNNYVAiLE town ID.</span>
     </div>
   </div>
 
@@ -1059,7 +1059,7 @@
     </div>
 
       <!-- Wallet slots: one membership card per building, 90s-style -->
-      <div class="wallet-slots" id="walletSlots">
+      <div class="wallet-slots" id="walletSlots" hidden>
         <p class="wallet-slots-title">Membership cards</p>
         <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
         <div class="wallet-grid" id="walletGrid"></div>
@@ -1105,6 +1105,28 @@
        Reads the live count elements (never re-derives), stays in
        sync via MutationObserver, so self + public views both work.
        ============================================== -->
+  <script>
+    window.LAIDIESPublicCardRoute = Object.freeze({
+      parse: function(search) {
+        var params = new URLSearchParams(search || '');
+        var key = params.has('u') ? 'u' : (params.has('member') ? 'member' : '');
+        if (!key) return Object.freeze({ requested: false, valid: true, handle: '' });
+        var handle = String(params.get(key) || '').trim().toLowerCase();
+        var accountHandle = /^[a-z0-9_]{3,24}$/.test(handle);
+        var townCharacter = [
+          'mme-claio',
+          'fairy-godmother',
+          'dj-sunnyv',
+          'mayor-deb'
+        ].indexOf(handle) !== -1;
+        return Object.freeze({
+          requested: true,
+          valid: accountHandle || townCharacter,
+          handle: accountHandle || townCharacter ? handle : ''
+        });
+      }
+    });
+  </script>
   <style>
     .dash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 12px; }
     .dash-tile { display: flex; flex-direction: column; text-align: left; padding: 14px 14px 12px;
@@ -1122,7 +1144,7 @@
     .vessel-flash { animation: dashVesselFlash 1.4s ease; }
     @keyframes dashVesselFlash { 0%, 100% { box-shadow: none; } 25% { box-shadow: 0 0 0 3px var(--gold, #c9a227); } }
   </style>
-  <section class="passport-section" id="dashboardSection">
+  <section class="passport-section" id="dashboardSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · At a glance</p>
     <h2 class="passport-section-title" id="dashTitle">Your Report Card</h2>
     <p class="passport-section-lede" id="dashLede">Every collection, counted. Tap a tile to jump straight to the shelf it lives on.</p>
@@ -1132,8 +1154,8 @@
   <script>
     (function() {
       'use strict';
-      var params = new URLSearchParams(window.location.search);
-      var isPublic = !!(params.get('u') || params.get('member'));
+      var publicRoute = window.LAIDIESPublicCardRoute.parse(window.location.search);
+      var isPublic = publicRoute.requested;
 
       // src: count element the vessel renderers already write to (single source
       // of truth — the dashboard never re-derives). src:null = buildings tile,
@@ -1147,7 +1169,7 @@
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
         { icon: '🔐', label: 'Diary secrets',     src: 'secretCount',    target: 'secretGrid',       total: 4,    pub: true,  hint: 'Try things around town' },
-        { icon: '🧚', label: 'F<span class="ai">Ai</span>RY wishes', src: 'fairyPlayCount', target: 'fairyBankSection', total: null, pub: false, hint: 'Bonus plays at Willow Lane' },
+        { icon: '🧚', label: 'F<span class="ai">Ai</span>RY wishes', src: 'fairyPlayCount', target: 'fairyBankSection', total: null, pub: false, hint: 'One-response preview at Willow Lane' },
         { icon: '🪪', label: 'Buildings visited', src: null,             target: 'walletGrid',       total: null, pub: false, hint: 'Stamped at the door' }
       ];
 
@@ -1242,7 +1264,7 @@
        SECTION 1.25: YOUR COVEN — one favorite per pantheon
        (SAiNT / MAiVEN / TRAiLBLAZER / Town Character. Trip mechanic: pick at LUMINAiRY wings or the character's building.)
        ============================================== -->
-  <section class="passport-section" id="covenSection">
+  <section class="passport-section" id="covenSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · Your Luminaries</p>
     <h2 class="passport-section-title">Your Luminaries</h2>
     <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
@@ -1277,7 +1299,7 @@
   <!-- ==============================================
        SECTION 1.5: THIS WEEK'S TOUR (ritual mechanic)
        ============================================== -->
-  <section class="passport-section" id="tourSection">
+  <section class="passport-section" id="tourSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · This Week</p>
     <h2 class="passport-section-title">Your Wednesday Tour</h2>
     <p class="passport-section-lede">The 8-stop ritual — the week's episode, start to finish. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
@@ -1293,7 +1315,7 @@
       <div id="tourGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px;">
         <!-- stop tiles injected by JS -->
       </div>
-      <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like playing the BRONZE AiGE song).</p>
+      <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like starting the BRONZE AiGE song).</p>
 
       <!-- Optional stops — anytime, no weekly reset -->
       <div class="opt-block">
@@ -1397,7 +1419,7 @@
   <!-- ==============================================
        SECTION 2: PASSPORT VESSELS
        ============================================== -->
-  <section class="passport-section" id="collectionSection">
+  <section class="passport-section" id="collectionSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
     <h2 class="passport-section-title">Your Collections</h2>
 
@@ -1537,16 +1559,16 @@
   <!-- ==============================================
        SECTION 3: FAIRY PLAYS BANK (self only)
        ============================================== -->
-  <section class="passport-section" id="fairyBankSection">
+  <section class="passport-section" id="fairyBankSection" hidden>
     <p class="passport-section-eyebrow">★ Your Wallet</p>
-    <h2 class="passport-section-title">FAiRY Plays Bank</h2>
+    <h2 class="passport-section-title">FAiRY allowance</h2>
 
     <div class="fairy-bank">
       <div class="fairy-bank-icon">🧚</div>
       <div>
         <p class="fairy-bank-label">Bonus wishes earned</p>
         <p class="fairy-bank-count"><span id="fairyPlayCount">0</span><small>available</small></p>
-        <p class="passport-section-lede" style="margin: 0;">Bonus plays with the FAiRY Godmother at Willow Lane. Earn more by doing things around town:</p>
+        <p class="passport-section-lede" style="margin: 0;">This allowance is not available on the public site.</p>
         <ul class="fairy-earn-tips">
           <li>Finish the weekly pop quiz at SUNNYVAiLE High</li>
           <li>Complete the full Wednesday tour</li>
@@ -1560,7 +1582,7 @@
   <!-- ==============================================
        SECTION 4: LEADERBOARDS
        ============================================== -->
-  <section class="passport-section" id="leaderboardSection">
+  <section class="passport-section" id="leaderboardSection" hidden>
     <p class="passport-section-eyebrow">★ Closet · Where You Rank</p>
     <h2 class="passport-section-title">Town Leaderboards</h2>
     <p class="passport-section-lede">Where you rank among the residents of SUNNYVAiLE.</p>
@@ -1718,14 +1740,16 @@
 <script src="content/site/supabase-config.js"></script>
 <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
 <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
-<script src="/content/site/resident-account-runtime-v1.js?v=20260727-account-1"></script>
+<script src="/content/site/resident-account-runtime-v1.js?v=20260823-resident-truth-af5cd5ffe5d0"></script>
 <script>
 (function() {
   'use strict';
-  var params = new URLSearchParams(window.location.search);
-  // Accept both ?u=ali (new, mapped from /@ali) and ?member=ali (legacy)
-  var viewUsername = params.get('u') || params.get('member');
-  var isPublicMode = !!viewUsername;
+  // Accept both ?u=ali (current) and ?member=ali (legacy) through one strict
+  // route boundary. A malformed public request must never fall back to the
+  // private/local Closet or reach a lookup/render sink.
+  var publicRoute = window.LAIDIESPublicCardRoute.parse(window.location.search);
+  var viewUsername = publicRoute.handle;
+  var isPublicMode = publicRoute.requested;
 
   var ARCHETYPES = { 'founder':'THE FOUNDER','strategist':'THE STRATEGIST','editor':'THE EDITOR','storyteller':'THE STORYTELLER','analyst':'THE ANALYST','coach':'THE COACH','artist':'THE ARTIST','iconoclast':'THE ICONOCLAST','elder':'THE ELDER','bestie':'THE BESTIE','confidant':'THE CONFIDANT','provocateur':'THE PROVOCATEUR' };
   var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
@@ -1776,7 +1800,7 @@
   function updateCardFromProfile(profile) {
     if (!profile) return;
     window.__laidiesLastProfile = profile;
-    document.getElementById('cardName').textContent = profile.display_name || 'A LAiDY';
+    document.getElementById('cardName').textContent = profile.display_name || 'SUNNYVAiLE Resident';
     // Archetype retired — hide the subtitle unless a legacy value exists.
     var archEl = document.getElementById('cardArchetype');
     var archVal = ARCHETYPES[profile.card_archetype] || profile.card_role || '';
@@ -1855,7 +1879,7 @@
     );
     shareBtn.hidden = !canShare;
     shareBtn.disabled = !canShare;
-    shareBtn.textContent = 'Share my public card';
+    shareBtn.textContent = canShare ? 'Share my public card' : 'Share unavailable — account proof required';
   }
   if (shareBtn) {
     shareBtn.addEventListener('click', function() {
@@ -2189,16 +2213,36 @@
     renderCharmBracelet();
   }
 
-  function showNotFound(username) {
+  function showNotFound() {
     var main = document.querySelector('main');
     if (!main) return;
-    main.innerHTML =
-      '<div style="max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:\'Jost\',sans-serif;color:var(--plum);">' +
-      '<div style="font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;">★ SUNNYVAiLE Post Office</div>' +
-      '<h1 style="font-family:\'Playfair Display\',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;">No forwarding address</h1>' +
-      '<p style="font-size:17px;line-height:1.6;color:var(--plum);">There is no LAiDY registered as <code style="background:var(--pearl);padding:3px 8px;border-radius:4px;font-family:monospace;">@' + username + '</code> in SUNNYVAiLE. She might not exist, or her closet might be set to private.</p>' +
-      '<p style="margin-top:32px;font-size:15px;"><a href="/" style="color:var(--rose);text-decoration:underline;font-weight:600;">← Back to town</a></p>' +
-      '</div>';
+    var wrapper = document.createElement('div');
+    wrapper.id = 'publicCardNotFound';
+    wrapper.style.cssText = "max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:'Jost',sans-serif;color:var(--plum);";
+
+    var eyebrow = document.createElement('div');
+    eyebrow.style.cssText = 'font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;';
+    eyebrow.textContent = '★ SUNNYVAiLE Post Office';
+
+    var title = document.createElement('h1');
+    title.style.cssText = "font-family:'Playfair Display',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;";
+    title.textContent = 'No forwarding address';
+
+    var message = document.createElement('p');
+    message.id = 'publicCardNotFoundMessage';
+    message.style.cssText = 'font-size:17px;line-height:1.6;color:var(--plum);';
+    message.textContent = 'No public Resident Card is available. A private, unavailable or unverified account receives the same non-revealing result.';
+
+    var route = document.createElement('p');
+    route.style.cssText = 'margin-top:32px;font-size:15px;';
+    var link = document.createElement('a');
+    link.href = '/';
+    link.style.cssText = 'color:var(--rose);text-decoration:underline;font-weight:600;';
+    link.textContent = '← Back to town';
+    route.appendChild(link);
+
+    wrapper.append(eyebrow, title, message, route);
+    main.replaceChildren(wrapper);
   }
 
   async function initSupabase() {
@@ -2492,7 +2536,7 @@
           return;
         }
         renderProfile(Object.assign({}, readCache(), patch));
-        saveBtn.textContent = 'Saved on this device — use the Resident Card desk for private account continuation';
+        saveBtn.textContent = 'Saved on this device — a sign-in-link request does not make it portable';
         setTimeout(function() {
           saveBtn.disabled = false;
           saveBtn.textContent = original;
@@ -2545,11 +2589,15 @@
         persistenceState.textContent =
           'Public-card lookup: only an opted-in restricted card view may appear. A private, unavailable or unverified account receives the same non-revealing result.';
       }
+      if (!publicRoute.valid) {
+        showNotFound();
+        return;
+      }
       // Always call — Town Characters resolve from JSON before Supabase,
       // so they must load even when the client fails to init.
       var profile = await loadPublicProfile(viewUsername);
       if (!profile) {
-        showNotFound(viewUsername);
+        showNotFound();
         return;
       }
       currentProfile = profile;
@@ -2570,7 +2618,7 @@
     if (currentSession) {
       if (persistenceState) {
         persistenceState.textContent =
-          'Account-backed view: loading the supported private Card and continuation for this signed-in resident.';
+          'Controlled account preflight: checking the private Card fixture. Public account-backed Card continuation remains held.';
       }
       var own = await loadOwnProfile();
       if (own) {
@@ -2598,7 +2646,7 @@
       populateEditForm(cached);
       if (persistenceState) {
         persistenceState.textContent =
-          'Device-local view: sign in at the Resident Card desk to restore your private Card and supported continuation on another device. The Puffy Board and pouch are included; prompts, messages, drafts and other free-form activity stay in this browser.';
+          'Device-local view: this Closet shows only the Card and supported information saved in this browser. A sign-in-link request does not make it portable; prompts, messages, drafts and other free-form activity stay in this browser.';
       }
     }
 
@@ -2609,7 +2657,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/closet-account-bridge-v1.js?v=20260727-account-1"></script>
+  <script src="/content/site/closet-account-bridge-v1.js?v=20260823-resident-truth-e4635efc1ebc"></script>
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>

@@ -64,7 +64,7 @@
 
     if (freeWishesUsed >= 1) {
       arrivalStatus.textContent = "Local preview complete.";
-      arrivalNote.textContent = "This page does not verify subscriptions, member allowances, or FAiRY Plays.";
+      arrivalNote.textContent = "This page does not verify subscriptions, member allowances, or additional requests.";
       return;
     }
 

@@ -612,9 +612,8 @@
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
     </script>
-      <link rel="stylesheet" href="../content/site/mini-player.css">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
@@ -737,60 +736,57 @@
 
     <script>
     (function() {
-      // This booth uses the creator-confirmed local catalogue. Keep its list
-      // aligned with KSVL when tracks are added or held for a real file issue.
-      // === TRACK DATA ===
+      // The Booth owns presentation only. KSVL owns admission, sources,
+      // playback, retry, error state and one-audio coordination.
       var tracks = [
         {
+          id: "ep-01",
           ep: "EP 1",
           title: "On Wednesday We Do AI",
-          src: "../content/music/dj-jaidy-week-01-on-wednesday-we-do-ai.mp3",
           desc: "The anthem that started it all."
         },
         {
+          id: "ep-02",
           ep: "EP 2",
           title: "Tell Me What You Want",
-          src: "../content/music/dj-jaidy-week-02-tell-me-what-you-want.mp3",
           desc: "When your prompt game is strong."
         },
         {
+          id: "ep-03",
           ep: "EP 3",
           title: "Don't Be Chutney on the Stand",
-          src: "../content/music/dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3",
           desc: "The receipts anthem for checking the alibi before the answer gets on the stand."
         },
         {
+          id: "the-library",
           ep: "EP 4",
           title: "The LIBRAiRY",
-          src: "../content/music/dj-jaidy-week-04-the-library.mp3",
           desc: "For when 'just use AI' finally comes with instructions."
         },
         {
+          id: "impossible",
           ep: "BONUS",
           title: "Impossible to Underestimate You",
-          src: "../content/music/dj-jaidy-impossible-to-underestimate-you.mp3",
           desc: "For the woman who works with a mansplainer."
         },
         {
+          id: "debs-tomorrow",
           ep: "BONUS",
           title: "Tomorrow\u2019s Problem",
-          src: "../content/music/debs-tomorrow-problem.mp3",
           desc: "Deb\u2019s anthem for procrastinators everywhere."
         },
         {
+          id: "every-slaiyer-watcher",
           ep: "BONUS",
           title: "Every SLAiYER Needs a Watcher",
-          src: "../content/music/dj-jaidy-every-slaiyer-needs-a-watcher.mp3",
           desc: "You're the SLAiYER. LAiDIES is the Watcher."
         }
       ];
 
       // === ELEMENTS ===
-      var audio = new Audio();
-      audio.preload = "metadata";
       var currentTrack = -1;
-      var repeatMode = 0; // 0=off, 1=all, 2=one
       var isPlaying = false;
+      var availableIds = new Set();
 
       var visualRow = document.getElementById("djVisualRow");
       var playBtn = document.getElementById("djPlay");
@@ -858,7 +854,6 @@
       function loadTrack(index) {
         currentTrack = index;
         var t = tracks[index];
-        audio.src = t.src;
         npTitle.textContent = t.title;
         npEp.textContent = t.ep;
         npEp.style.display = "inline-block";
@@ -872,7 +867,14 @@
       function playTrack(index) {
         if (index < 0 || index >= tracks.length) return;
         loadTrack(index);
-        audio.play().catch(function() {});
+        if (!availableIds.has(tracks[index].id) ||
+            typeof window.KSVL_playTrackById !== "function" ||
+            !window.KSVL_playTrackById(tracks[index].id)) {
+          isPlaying = false;
+          npDesc.textContent = "KSVL cannot start this track right now. Please choose another one or try again later.";
+          updatePlayState();
+          return;
+        }
         isPlaying = true;
         updatePlayState();
       }
@@ -880,19 +882,18 @@
       // === CONTROLS ===
       playBtn.addEventListener("click", function() {
         if (currentTrack === -1) { playTrack(0); return; }
-        if (isPlaying) {
-          audio.pause();
-          isPlaying = false;
-        } else {
-          audio.play().catch(function() {});
-          isPlaying = true;
+        var state = typeof window.KSVL_getPublicState === "function" ? window.KSVL_getPublicState() : null;
+        if (!state || state.trackId !== tracks[currentTrack].id) {
+          playTrack(currentTrack);
+          return;
         }
+        window.KSVL_togglePlayback();
+        isPlaying = state.paused;
         updatePlayState();
       });
 
       prevBtn.addEventListener("click", function() {
         if (currentTrack === -1) { playTrack(0); return; }
-        if (audio.currentTime > 3) { audio.currentTime = 0; return; }
         var prev = currentTrack - 1;
         if (prev < 0) prev = tracks.length - 1;
         playTrack(prev);
@@ -905,58 +906,56 @@
       });
 
       repeatBtn.addEventListener("click", function() {
-        repeatMode = (repeatMode + 1) % 3;
-        var labels = ["\u{1F501}", "\u{1F501}", "\u{1F502}"];
-        var titles = ["Repeat off", "Repeat all", "Repeat one"];
-        repeatBtn.textContent = labels[repeatMode];
-        repeatBtn.title = titles[repeatMode];
-        repeatBtn.classList.toggle("is-active", repeatMode > 0);
+        if (typeof window.KSVL_cycleRepeat !== "function") return;
+        var mode = window.KSVL_cycleRepeat();
+        repeatBtn.textContent = mode === "one" ? "\u{1F502}" : "\u{1F501}";
+        repeatBtn.title = mode === "off" ? "Repeat off" : (mode === "one" ? "Repeat one" : "Repeat all");
+        repeatBtn.setAttribute("aria-label", repeatBtn.title);
+        repeatBtn.classList.toggle("is-active", mode !== "off");
       });
 
-      // === AUDIO EVENTS ===
-      audio.addEventListener("ended", function() {
-        if (repeatMode === 2) { audio.currentTime = 0; audio.play(); return; }
-        var next = currentTrack + 1;
-        if (next >= tracks.length) {
-          if (repeatMode === 1) { playTrack(0); }
-          else { isPlaying = false; updatePlayState(); }
-        } else {
-          playTrack(next);
-        }
-      });
-
-      audio.addEventListener("timeupdate", function() {
-        if (!audio.duration) return;
-        var pct = (audio.currentTime / audio.duration) * 100;
+      function syncFromKsvl() {
+        if (typeof window.KSVL_getPublicState !== "function") return;
+        var state = window.KSVL_getPublicState();
+        if (!state || !state.trackId) return;
+        var index = tracks.findIndex(function(track) { return track.id === state.trackId; });
+        if (index < 0) return;
+        if (currentTrack !== index) loadTrack(index);
+        isPlaying = !state.paused;
+        updatePlayState();
+        var pct = state.duration > 0 ? (state.currentTime / state.duration) * 100 : 0;
         progressFill.style.width = pct + "%";
-        seekBar.value = Math.round((audio.currentTime / audio.duration) * 1000);
-        timeEl.textContent = formatTime(audio.currentTime);
-      });
-
-      audio.addEventListener("loadedmetadata", function() {
-        durationEl.textContent = formatTime(audio.duration);
-        // Update card duration
+        seekBar.value = Math.round((pct / 100) * 1000);
+        timeEl.textContent = formatTime(state.currentTime);
+        durationEl.textContent = formatTime(state.duration);
+        if (state.status) npDesc.textContent = state.status;
         var durEl = document.querySelector('[data-dur-idx="' + currentTrack + '"]');
-        if (durEl) durEl.textContent = formatTime(audio.duration);
-      });
+        if (durEl && state.duration > 0) durEl.textContent = formatTime(state.duration);
+      }
 
       seekBar.addEventListener("input", function() {
-        if (audio.duration) {
-          audio.currentTime = (seekBar.value / 1000) * audio.duration;
+        if (typeof window.KSVL_seekToRatio === "function") {
+          window.KSVL_seekToRatio(Number(seekBar.value) / 1000);
           progressFill.style.width = (seekBar.value / 10) + "%";
         }
       });
 
-      // === PRELOAD DURATIONS ===
-      tracks.forEach(function(t, i) {
-        var tempAudio = new Audio();
-        tempAudio.preload = "metadata";
-        tempAudio.src = t.src;
-        tempAudio.addEventListener("loadedmetadata", function() {
-          var durEl = document.querySelector('[data-dur-idx="' + i + '"]');
-          if (durEl) durEl.textContent = formatTime(tempAudio.duration);
+      function connectToKsvl() {
+        if (typeof window.KSVL_whenReady !== "function") {
+          document.addEventListener("DOMContentLoaded", connectToKsvl, { once: true });
+          return;
+        }
+        window.KSVL_whenReady().then(function(result) {
+          availableIds = new Set((result.tracks || []).map(function(track) { return track.id; }));
+          tracklistEl.querySelectorAll(".dj-track-card").forEach(function(card, index) {
+            card.setAttribute("aria-disabled", availableIds.has(tracks[index].id) ? "false" : "true");
+          });
+          if (!result.ready || !availableIds.size) {
+            npDesc.textContent = result.failure || "KSVL cannot start a track right now. Please try again later.";
+          }
         });
-      });
+        window.setInterval(syncFromKsvl, 250);
+      }
 
       function focusRitualTrack() {
         var params = new URLSearchParams(window.location.search || "");
@@ -991,16 +990,9 @@
       }
 
       focusRitualTrack();
+      connectToKsvl();
 
     })();
-    </script>
-      <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
-
-    <script>
-    // Single audio playback — only one audio at a time
-    document.addEventListener('play', function(e) {
-      document.querySelectorAll('audio').forEach(function(a) { if (a !== e.target) a.pause(); });
-    }, true);
     </script>
     <script>
     (function() {

@@ -4,15 +4,21 @@
   "productionBranch": "homepage-redesign",
   "publicUrl": "https://laidies.ai/",
   "releasePurpose": "Admit and publish the four opening LIBRAiRY books while preserving the deployed site outside the exact Library delta.",
-  "baseCommit": "e044ca899dfea867ba10f770cc99a0b8e32c100a",
-  "baseArtifactIdentitySha256": "d7d27bd6c95bf133177ca1a7e94796fbb83fe8d2edfdf22dd181b94f9a32bd41",
-  "candidateArtifactIdentitySha256": "a11a8ee2715d80d4a6556a634ccd8e439fb00ed2bde4602d2b04aaf1849819cb",
+  "baseCommit": "6edea2ac5fd9110900cd66b7f52cd162cc6fdbaa",
+  "baseArtifactIdentitySha256": "5d653f50984cb48ff76d3df61906d0bd148ce4eb8ed8dab8b9451ea8e86fd753",
+  "candidateArtifactIdentitySha256": "68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7",
   "allowedChanges": [
     {
       "path": "_worker.js",
       "operation": "MODIFY",
       "baseSha256": "7dbda8b014563ed1afaf702a8436275d334a4b103ec6722bb43d4c5159cc2e25",
       "candidateSha256": "bc03a044744feddbdbc0026bc7936789f9fa9c11468d7117fd4a9cb29c9300a0"
+    },
+    {
+      "path": "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png",
+      "operation": "ADD",
+      "baseSha256": null,
+      "candidateSha256": "0f69a36c6bb4567823505467e184b965e2cd33d5d593df5497b8e7917f9cb0a0"
     },
     {
       "path": "assets/library-101/bright-family-v2/book-ai-dictionary.png",
@@ -29,8 +35,8 @@
     {
       "path": "build-report.json",
       "operation": "MODIFY",
-      "baseSha256": "004265118fb423c00ad7ab22ced018084a2c00e9526e351ff5505dadd7d4e127",
-      "candidateSha256": "852db52c4e9976e31ab7563732749fa56dcbcdbb8f580db37ea3611da7b72912"
+      "baseSha256": "aba1d239a01c4df2769b61e974c1b80a28c9e149489e9049e645ca2fbeeee2e8",
+      "candidateSha256": "2eec2157cec861ed7a22dfc21bec223c77be2de56844bdd29d79a3adc406a058"
     },
     {
       "path": "content/library-books/assets/ai-fundamentals-101/ch01-automation-vs-ai-desktop.jpeg",
@@ -131,30 +137,54 @@
     {
       "path": "content/site/site-index.json",
       "operation": "MODIFY",
-      "baseSha256": "9fd8cc1c9eef8684326c1dde3712b6fcac70c56e8ff8ab77acded01909920899",
-      "candidateSha256": "1f7a3b4815b254c74809563bd51c849d8f025c7c5eb7e145174914b0a46b1141"
+      "baseSha256": "6791bb610ac4faa0e9c89466900e0556b1761908a72899879592ab03d132ceaf",
+      "candidateSha256": "4dcd465ff1b72f5b4db44f6166b97531b1ca384a6874f2bbbfe4ca8894c27716"
     },
     {
       "path": "dependency-report.json",
       "operation": "MODIFY",
-      "baseSha256": "8926729d335517ebc9813b6d4fa92132db7a657596304eab190228c722dd75c6",
-      "candidateSha256": "a482eb31ac60170d85a12af314fa436ef3985cafc0c4b15afa1db84267bcd3cf"
+      "baseSha256": "340406f1202062ec01e377ce045b5ef7a7958a89f382de34fa685a63b450e130",
+      "candidateSha256": "be137da374980c63e3be49d66232995e1a4a022bcb082e009cc05e9fdede99cb"
     },
     {
       "path": "library.html",
       "operation": "MODIFY",
-      "baseSha256": "bab8ce593a246502dd9d05dc3a104b2e4704449594ff7ffc3a9268a9112adb59",
-      "candidateSha256": "531eb2f5d9c7b350656b27914ccfaee1f6d259007659a608b9d6eca2af064e40"
+      "baseSha256": "ee0b1a7804fc19bb087b4e87cabea4e9b5681770f28aad557191ddc72660231e",
+      "candidateSha256": "dd94d7c9edce725beaf3178e168e182be5a9baedb1b01ecbb58158457e50bdd5"
     }
   ],
   "preservedPaths": [
     {
       "path": "index.html",
-      "sha256": "3836cdf17ea3c7dcc20b430f2e472cdbc9c053f85058895c6a0ae1e5dd37c23a"
+      "sha256": "569adca21fd2a9850491e7d607018a2d7dcba59582f6398713817d94d8067fce"
+    },
+    {
+      "path": "visitors-centre.html",
+      "sha256": "3358aff4ca1dde772ace69759c609b4d5253ca7f83a3b201eb4975f48321f33f"
+    },
+    {
+      "path": "resident-card.html",
+      "sha256": "f50b229a69ba3972b072b72d76d35c3c347e579d2c712ddac508977cc8396b19"
+    },
+    {
+      "path": "maikeover.html",
+      "sha256": "81c1ed4fd1c65e213165fad87e261908f73cea2a17e815327df96f4e5c868aa0"
+    },
+    {
+      "path": "content/site/resident-account-runtime-v1.js",
+      "sha256": "af5cd5ffe5d02b9a9c79a4b6989da30669caef9d96110cd7bca7cf51cdc02864"
+    },
+    {
+      "path": "content/site/sv-global-header.js",
+      "sha256": "4f8af546d71600a6c4844a04b278230c22b9462012da9db82eac208b76df138f"
+    },
+    {
+      "path": "games/dj-booth.html",
+      "sha256": "fe9331cebf57f26b0be8709eb0611d3c4f66089c2d3e2dadb14d9b7aa619fcb6"
     },
     {
       "path": "newsstand.html",
-      "sha256": "f20225b57f2f040d58180e6fc9787aa71a703ad29e22b1504df6fbb8919835ec"
+      "sha256": "d9bf7978e405ce58d71f0b102d264ab8092561ca126e0c82444e44737bbe3886"
     },
     {
       "path": "content/newsstand-stories.js",
@@ -166,19 +196,19 @@
     },
     {
       "path": "issues/issue-01.html",
-      "sha256": "af43c95a73b6cffa72c545e0ef3aa8705fe6e65f1f769d9d791e6b366dcf9758"
+      "sha256": "474d43c788efd4a4223c42403cde1535d315ac366615f16b352c87618ba07e84"
     },
     {
       "path": "issues/issue-02.html",
-      "sha256": "3f38210189689d11af97759ecb00f1488a093aa88a111b5ed1467f7ae82cd92a"
+      "sha256": "bfacc338e7b2960db336d0a5957bc7919628b41d34e63987dd048c878793749c"
     },
     {
       "path": "issues/issue-03.html",
-      "sha256": "347cf2d38ef4f2eb80d6d7d58c6849951804a33cd1fc1748f071b567177b4cc6"
+      "sha256": "b3ce6f70fed4091b0c6e6ea47288cdc7cb49ccb90de9ec7d28ae7851b7d2b0e6"
     },
     {
       "path": "issues/issue-04.html",
-      "sha256": "7776a040c1af3bd5997f612c650f81751e4260442ca4ce6f4a69f514db33786f"
+      "sha256": "4b60e042b921c181cf7b03d3784aaa2a57494487cf994f624581559ed76dc4f5"
     },
     {
       "path": "assets/captions/episode-01.vtt",
@@ -211,13 +241,10 @@
     {
       "path": "content/music/public/episode-04-narration.m4a",
       "sha256": "bae15bb83b7c3cdfe05c60f5c0021a882b6e3ddcd791e8bf8f36363dcd5c9828"
-    },
-    {
-      "path": "maikeover.html",
-      "sha256": "0afc61a3cf478769503c022f182c8ffd87309452f4bf229a618492fb166f99a5"
     }
   ],
   "verificationPaths": [
+    "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png",
     "assets/library-101/bright-family-v2/book-ai-dictionary.png",
     "assets/library-101/bright-family-v2/textbook-working-with-ai-101.png",
     "build-report.json",
@@ -241,6 +268,12 @@
     "dependency-report.json",
     "library.html",
     "index.html",
+    "visitors-centre.html",
+    "resident-card.html",
+    "maikeover.html",
+    "content/site/resident-account-runtime-v1.js",
+    "content/site/sv-global-header.js",
+    "games/dj-booth.html",
     "newsstand.html",
     "content/newsstand-stories.js",
     "content/newsstand-reader-contract.js",
@@ -255,8 +288,7 @@
     "content/music/public/episode-01-narration.m4a",
     "content/music/public/episode-02-narration.m4a",
     "content/music/public/episode-03-narration.m4a",
-    "content/music/public/episode-04-narration.m4a",
-    "maikeover.html"
+    "content/music/public/episode-04-narration.m4a"
   ],
   "removedPaths": []
 }

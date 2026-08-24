@@ -97,7 +97,7 @@ window.dreamPhoneBundles = {
     },
     {
       object: `The CD skip`,
-      output: `A CD stuck on the same scratched second isn't adding meaning, it's just landing on the same note. You've made the point about what they meant; the action and the impact already played.`,
+      output: `A CD stuck on the same scratched second isn't adding meaning, it's just landing on the same note. You've made the point about what they meant; the action and the impact already landed.`,
       secret: `Counsel knows the secret: the skip isn't the song, it's the scratch — and replaying it won't smooth it out. Note the recommendation once and lift the needle off intent.`,
       speaker: `Counsel puts it on speaker: name the facts, the risk, and the call out loud, in that order, then let it run. A clean track doesn't need you nudging the disc.`,
       hangup: `Counsel says hang up: the CD's skipping on "but did they mean to" again. The action and the impact are on the table — let the meeting end.`,
@@ -160,7 +160,7 @@ window.dreamPhoneBundles = {
     },
     {
       object: `Anti-skip Discman`,
-      output: `A Discman with anti-skip kept playing through the bumps because it buffered a few seconds ahead instead of reacting to every jostle. Hold a little steadiness in reserve so one rough moment doesn't make the whole thing stutter.`,
+      output: `A Discman with anti-skip continued through the bumps because it buffered a few seconds ahead instead of reacting to every jostle. Hold a little steadiness in reserve so one rough moment doesn't make the whole thing stutter.`,
       secret: `Steady knows the secret: the protection wasn't magic, it was reading ahead. Keep a calm buffer on hand and the loud meeting can't knock the track off.`,
       speaker: `Steady puts it on speaker: when the room jostles, say the steady line — "same plan, here's the next step." A level voice is the anti-skip the whole table borrows.`,
       hangup: `Steady says hang up: you're about to react to one bump like the disc's ruined. It isn't — the buffer's holding, let it continue.`,

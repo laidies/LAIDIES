@@ -195,6 +195,21 @@ The Breaking and current The Daily visibility; The Breaking collapses on a
 clear day. Exact production composition remains unimplemented.
 `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED`
 
+The NewsStand also owns the complete public `What is new in SUNNYVAiLE` change
+list linked from the Homepage. This is a cross-town service desk, not a fifth
+publication and not editorial permission to collapse the four paper jobs. Its
+records come only from verified public releases and identify the changed
+chapter, book, episode, feature or other visitor-facing route with its public
+date and destination. The Homepage consumes a concise projection; the
+NewsStand exposes the complete list.
+
+Personalized `since your last visit` filtering requires an account-backed
+last-seen boundary plus the complete versioned change inventory. Neither is
+currently proved. Until both pass end to end, the NewsStand shows public recent
+changes and a truthful sign-in invitation without implying that a browser
+timestamp, Resident Card or token proves what the visitor has seen.
+`ALI CONFIRMED` `BUILD REQUIRED`
+
 NewsStand applies current evidence; the Library owns durable reference, High
 owns sequenced instruction/assessment, Episodes own narrative teaching and
 FAiRY owns bounded personal help. A story may hand to those products but may
@@ -217,6 +232,11 @@ brief, and a failed/unavailable desk must not earn “caught up” by implicatio
 - **Reader continuity:** browser `history.state` only for the bounded tested
   paper/search/hash restoration; no account or cross-device store.
   `CURRENT IMPLEMENTATION OBSERVED`
+- **Cross-town change continuity:** a public release-derived change store and
+  an account-backed last-seen producer/store/consumer contract are both
+  missing. Public recent changes may be shown once the release-derived store is
+  proved; personalized filtering remains held until Identity and Platform pass
+  the full lifecycle. `BUILD REQUIRED`
 - **Editorial admission/freshness:** canonical dataset plus centralized
   `accessDecision`; immutable source receipts, independent authority and a
   canonical write transaction are missing. `CURRENT IMPLEMENTATION OBSERVED`
@@ -326,4 +346,3 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
   ends of every named handoff.
 - **Portfolio Control Room:** must assign non-overlapping locks before any
   shared-system, live-route, canonical data or deployment change.
-

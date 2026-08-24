@@ -12,6 +12,7 @@ const check = (condition, message) => {
 };
 
 const page = read("visitors-centre.html");
+const tour = read("content/site/sv-welcome-tour.js");
 const directory = read("content/site/sunnyvaile-directory.js");
 const projection = JSON.parse(read("content/site/readiness/v1/entry-readiness-projection.v1.json"));
 const directorySandbox = {
@@ -53,8 +54,8 @@ for (const building of canonical) {
   check(decodeHtml(fallback?.name || "") === building.name, `static/shared name mismatch for ${building.id}`);
 }
 
-check(!/data-vc-state=|data-vc-summary=|data-vc-limitation=/.test(page),
-  "manual destination status prose remains embedded in the route");
+check(!/data-vc-summary=|data-vc-limitation=/.test(page),
+  "manual destination summary or limitation prose remains embedded in the route");
 for (const stalePhrase of [
   "Motion films remain held",
   "Product direction and evidence-game promotion remain under review",
@@ -80,13 +81,24 @@ check(/No Resident Card, account, name, ownership, sign-in, sync or cross-device
 check(!/laidies_card_username|localStorage/.test(page), "Visitor route still reads identity/Card-like local state");
 check(/Request tour start/.test(page), "optional tour handoff is missing");
 check(/Open the illustrated trailer/.test(page), "trailer handoff is missing");
-check(/Open postcard handoff/.test(page), "postcard product handoff is missing");
+check(/href="\/post-office\.html#rack"[\s\S]*?Check the postcard rack/.test(page),
+  "postcard handoff does not expose the Post Office rack's current truth");
+check(!/class="vc-ticket vc-ticket--postcard" href="\/postcard\.html"/.test(page),
+  "Visitor route bypasses the held Post Office rack and opens the composer directly");
 check(/A selection or route opening proves navigation only/.test(page), "navigation-only boundary is missing");
 check(!/vcPostcardForm|vcPostcardHandle|vcPostcardShare/.test(page), "postcard product remains copied into the Visitor route");
 check(!/id="from-the-founder"|class="vc-first-route"|<details class="vc-story"/.test(page),
   "non-admitted post-arrival stack remains");
 check(!/meaningful_action_completed|destination_completed/.test(page), "destination selection emits a completion-shaped event");
 check(/prefers-reduced-motion: reduce/.test(page), "reduced-motion treatment is missing");
+check(!/#3a1838|#4b2148|#c9a227|var\(--gold|svwt-dot/.test(tour),
+  "retired plum/gold or circular-dot Welcome Tour styling remains");
+check(/Pause tour/.test(tour) && /Resume tour/.test(tour) && /End tour/.test(tour),
+  "Welcome Tour does not expose explicit pause, resume and end controls");
+check(/state\.paused = true[\s\S]*writeState\(state\)/.test(tour)
+  && /if \(state\.paused\) renderPausedOffer\(state\)/.test(tour),
+  "Welcome Tour pause state is not persisted and restored");
+check(/svwt-progress-segment/.test(tour), "Welcome Tour lacks the rectangular progress treatment");
 
 check(projection.payload.destinations.length === 17, "shared projection does not contain 17 destinations");
 check(projection.payload.currentContent.length === 3, "shared projection does not contain three current-content slots");

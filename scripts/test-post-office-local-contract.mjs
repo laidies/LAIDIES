@@ -19,11 +19,13 @@ const globalHeader = read("content/site/sv-global-header.js");
 const homepage = read("index.html");
 const previewHomepage = existsSync(resolve(root, "preview-homepage.html")) ? read("preview-homepage.html") : "";
 const chickFlicks = read("chick-flicks.html");
+const residentCard = read("resident-card.html");
 
 // A shared URL is a public identifier, never a container for a private note or handle.
 assert.match(postcard, /function postcardURL\(\)[\s\S]*?\?pc=/);
-assert.match(postcard, /var picked = POSTCARDS\[0\]\.id;\s*renderCompose\(\)/);
-assert.doesNotMatch(postcard, /renderCompose\(\);\s*var picked = POSTCARDS\[0\]\.id/);
+assert.match(postcard, /var picked = null;\s*loadCatalogue\(\)/);
+assert.match(postcard, /function renderCompose\(\)[\s\S]*?picked = byId\[params\.get\('pc'\)\] \? params\.get\('pc'\) : POSTCARDS\[0\]\.id/);
+assert.match(postcard, /POSTCARDS = catalogue\.cards;[\s\S]*?renderCompose\(\)/);
 assert.doesNotMatch(postcard, /function postcardURL\([\s\S]*?(?:[?&]from=|[?&]note=)/);
 assert.match(postcard, /params\.has\('from'\).*params\.has\('note'\)/);
 assert.match(postcard, /history\.replaceState\(null, '', location\.pathname \+ safeQuery \+ location\.hash\)/);
@@ -56,9 +58,18 @@ assert.match(postOffice, /aria-describedby="po-newsletter-notice"/);
 assert.match(postOffice, /id="po-newsletter-status" role="status" aria-live="polite" hidden/);
 assert.match(postOffice, /Your browser blocked the Buttondown window, so no signup request was sent here/);
 assert.match(postOffice, /id="signin" aria-labelledby="po-signin-title"/);
-assert.match(postOffice, /account guest book is not taking email addresses/i);
-assert.match(postOffice, /Nothing has been submitted and no account has been created/);
-assert.match(postOffice, /No magic-link request starts at this counter/);
+assert.match(postOffice, /Sign-in requests start at the Resident Card desk/i);
+assert.match(postOffice, /The Post Office does not collect account email/i);
+assert.match(postOffice, /one place to request a private sign-in link/i);
+assert.match(postOffice, /does not prove that a message arrived, that an account was created, or that any state moved between devices/i);
+assert.match(postOffice, /Nothing has been submitted at this counter/i);
+assert.match(postOffice, />Request a private sign-in link<\/a>/i);
+assert.equal((postOffice.match(/href="\/resident-card\.html#rcAccountTitle"/g) || []).length, 1);
+assert.equal((postOffice.match(/type="email"/g) || []).length, 1);
+assert.match(postOffice, /<form id="po-newsletter-form" action="https:\/\/buttondown\.com\/api\/emails\/embed-subscribe\/laidies"[\s\S]*?<input id="po-email" type="email" name="email"/);
+assert.doesNotMatch(postOffice, /Resident Card page reports the same held account state/i);
+assert.doesNotMatch(postOffice, /account guest book is not taking email addresses/i);
+assert.doesNotMatch(postOffice, /No magic-link request starts at this counter/i);
 assert.doesNotMatch(postOffice, /Your email is your PO box|One delivery\. Every Wednesday|Rent your SUNNYVAiLE PO box/);
 assert.doesNotMatch(welcomeTour, /email becomes your PO box|no spam, ever|one delivery every Wednesday/i);
 assert.match(welcomeTour, /Get the Wednesday Postcard, sign in or make a SUNNYVAiLE postcard/i);
@@ -76,6 +87,11 @@ if (previewHomepage) {
 }
 assert.doesNotMatch(chickFlicks, /Get Wednesday delivery|Open a box at the Post Office/i);
 assert.match(chickFlicks, /Request the Wednesday newsletter/);
+assert.match(residentCard, /id="rcAccountTitle"/);
+assert.match(residentCard, /Request a sign-in link/);
+assert.match(residentCard, /does not\s+prove delivery, account creation, Card restoration or cross-device continuity/i);
+assert.doesNotMatch(residentCard, /explicitly claim it to a private account to restore supported state/i);
+assert.doesNotMatch(residentCard, /Keep this local Card with my account|Restore this Card to this browser|Pick up where I left off/);
 
 // The Post Office rack can only hand an admitted postcard identifier to the composer.
 const postcardIds = [...postcard.matchAll(/\{ id: '([^']+)'/g)].map((match) => match[1]);

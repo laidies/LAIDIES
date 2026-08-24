@@ -275,9 +275,10 @@ rendering, bind the exact destination/location style authority, accompanying
 text or narration, scene and teaching job, canon characters and places,
 identity/likeness references, era, age, wardrobe/accessories, required objects,
 prohibited contradictions, text plan and motion class. Consume the complete
-current visual known-bad registry. Generated text is forbidden by default;
-use a deterministic editable layer unless purpose-built lettering is itself
-the asset and is checked character-for-character. The maker then inspects the
+current visual known-bad registry. Generated image text is allowed when it is
+purposeful, exact, legible at final display size and checked character-for-character;
+gibberish, misspelling, fake labels and unreadable decorative text fail. Keep
+volatile or functional state in a deterministic editable layer. The maker then inspects the
 exact rendered pixels at intended size for identity, anatomy, physics, object
 orientation, period truth, text, semantic usefulness and narration alignment.
 Animation additionally requires decoded occurrence evidence, meaningful change,

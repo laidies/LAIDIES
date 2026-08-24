@@ -87,7 +87,7 @@
       if (!session) {
         link.textContent = 'Sign in';
         link.setAttribute('href', SIGN_IN_HREF);
-        link.setAttribute('title', 'Sign in to pick up where you left off');
+        link.setAttribute('title', 'Request a private sign-in link');
         link.removeAttribute('data-authenticated');
         return;
       }

@@ -1,7 +1,7 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-02
-**Release owner:** current whole-site release and product-champion orchestrator
+**Updated:** 2026-08-23
+**Release owner:** LAIDIES-24H-PUBLIC-RECOVERY-20260822 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
@@ -10,10 +10,10 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `60c3b069-39d2-4174-bc8f-3e99760374b3`, release-source commit `d6de6c0e43f1083fa2246d57215cdfcb6d774634`, immutable URL `https://60c3b069.laidies-sunnyvaile.pages.dev`; `https://laidies.ai/watch?ep=04` returned the exact tested Screening Room artifact bytes on 2026-07-26. |
-| Current branch candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | `release/episode-04-motion-2026-07-26` and its origin contain release-source `d6de6c0e43f1083fa2246d57215cdfcb6d774634`. The deployment adds only the exact Episode 04 film binding, truthful screening copy, and its contract update over the prior controlled public baseline. |
-| Difference from production | `NONE FOR DEPLOYED CANDIDATE` | Production is attached to release-source commit `d6de6c0`. Unrelated dirty studio, editorial, media and operations work remains local and is not part of the public artifact. |
-| Current working tree | `LOCAL / MIXED / NOT DEPLOYED` | Unrelated studio, editorial, media, design and operations work remains intentionally dirty and excluded from the bounded candidate commits. Use `git status` for the current count; do not infer deployment from the working tree. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `840943b3-fbc7-4049-a0d7-0d12fba688af`, deployed source `750c062a27150bda6cbe5443ab16068f34e4e0aa`, artifact identity `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e`, immutable URL `https://840943b3.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; three exact public modifications and 13 protected production paths were verified on 2026-08-23. MAiKEOVER now validates the device-local handle through the shared Resident Card contract and renders it with text-only DOM APIs; the public Card query boundary, single intended email/magic-link desk, canonical KSVL Booth, prior public language, Card/Closet and shared-entry truth remain checksum-preserved. |
+| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, fourteen public Homepage/shared-entry/sitewide functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
+| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, the separately verified MAiKEOVER/NewsStand receivers, the canonical KSVL-backed DJ Booth, and the fail-closed public Card query boundary. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 opening-day candidates | `BUILT LOCALLY / OWNER WATCH REQUIRED / HOLD` | Current exact candidates are Trailer v8 `1be8c4f1…a1332e`, Episode 01 v27 `50311e89…0f135a`, Episode 02 v20 `2b8bd0c3…a358cc`, Episode 03 v15 `6a7f2381…735b75`, and Episode 04 v10 `9fc40d96…57bfb`. The checksum-bound launch gate, playback package, portable package and review inbox agree on all five. No current candidate is accepted, released or bound publicly. The older Episode 04 v8 object remains publicly reachable only as historical deployment evidence and is not the opening-day source. |
@@ -27,18 +27,85 @@ is recorded here.
 > historical receipt, but do not call its film accepted or use it as the
 > opening-day source until an exact reconciled successor passes all gates.
 
-## What this means
+## What this means now
 
-- Work from the last several days is mixed: some is committed and pushed, one
-  production deployment is live, and a large amount is local only.
-- The scoped EOD product, integration, accessibility and terminology work in
-  release-source commit `0c6db9d` is live and publicly verified; excluded local
-  studio work is not deployed. Episode 04's exact accepted motion master is now
-  public; the Trailer and Episodes 01–03 remain on `HOLD`.
-- The newer product-champion work is committed and pushed on its scoped branch;
-  only the historical release-source `d6de6c0` deployment is publicly verified.
-  The five current opening-day film successors remain local and held for human
-  sound-on review and cover acceptance.
+- The bounded Sunday correction remains the protected production baseline. It removed
+  rejected public assets and promises, restored the advanced Worker, corrected
+  public language and mobile NewsStand rendering, and was verified at both
+  public origins. Exact scope and proof live in
+  `operations/release-control/SUNDAY-RELEASE-CUT-2026-08-23.md`.
+- DJ SunnyV’s Booth now consumes the admitted KSVL catalogue by exact registry
+  ID and delegates every audio action to the canonical KSVL deck. The former
+  hard-coded seven-track `Audio()` owner, direct music paths and mini-player
+  dependency are absent. Held-catalogue, admitted selection, decoded audio,
+  pause, seek, repeat, media-error, retry and one-audio cases passed before
+  release; the exact public journey then passed at both origins and at
+  1440/390/320 without changing the Booth’s room art or layout.
+- Homepage, LIBRAiRY and Visitor's Centre directions are pushed review
+  candidates only. None may be described as deployed until Ali chooses it, the
+  selected bytes are integrated into the production path, a scoped release is
+  deployed, and both origins pass public verification.
+- Trailer and Episodes 01–04 opening-day masters remain `HOLD`; the historical
+  Episode 04 deployment receipt does not make the current master admitted.
+- The August 23 Homepage functional increments are public: five formerly dead
+  activity actions now reach their real destination pages, and the map has real
+  desktop/mobile hit regions, moves focus into its dialog and restores focus on
+  Escape. The signed-out Resident Card action now says `Sign in`; account-backed
+  continuation remains held until its lifecycle is proved. Both method links now
+  route to the working Visitor's Centre orientation instead of promising its held
+  trailer. The Wednesday Postcard action now names the real request counter;
+  provider acceptance/confirmation/delivery, postcard artwork, sending, referral
+  and rewards remain held. The Visitor redesign, trailer and complete tour remain held.
+  None of these fixes selects or deploys the pending Homepage visual direction.
+- The already-live Homepage → MAiKEOVER arrival is now separately public-proofed
+  at both origins and 1440/390/320. The four labelled routes reach decoded salon
+  art and seven drawers; opening Finish reveals a 52px Save control while Closet
+  remains hidden before save. That earlier arrival matrix deliberately stopped
+  before save; the successor proof below advances only the same-device Card and
+  Closet identity-panel continuation.
+- The same-device MAiKEOVER Card continuation is now public-proofed at both
+  origins: save, reload, reopen Finish, follow `See it in my Closet →`, and
+  recover the same allowed Card identity fields. This proof is intentionally
+  bounded to the device-local Card and Closet identity panel. It does not admit
+  account restoration, handles, cross-device state, rewards, ownership,
+  referrals, leaderboards or the complete Closet dashboard.
+- Resident Card has one intended email/magic-link desk; there was no duplicate
+  intake to remove. Current and legacy public Card query parameters now share
+  one strict parser. Invalid, ambiguous and hostile values are rejected before
+  lookup, never become a private/local fallback and are not echoed into the DOM.
+  The exact deployed bytes matched at both origins. Real public-profile lookup,
+  consent revoke and account lifecycle remain held pending current service proof.
+- MAiKEOVER no longer concatenates the persistent `laidies_card_username`
+  value into arrival-state HTML. It reads the handle through the shared strict
+  Resident Card contract and constructs the visible state with text nodes.
+  The previously deployed helper failed the calibrated contract; the successor
+  and its cache-bound page matched the reviewed artifact exactly at both public
+  origins. This proves the stored-handle rendering boundary only, not a real
+  account, public-profile lookup or cross-device identity lifecycle.
+- The Closet truth successor keeps that identity panel and its existing room
+  art, but removes the unproved wallet, report-card dashboard, Luminaries,
+  Wednesday Tour, collection vessels, FAiRY bank and leaderboards from the
+  visual and accessibility trees. The local/account/public code paths remain
+  held rather than deleted; no hidden module is promoted by this release.
+- The already-live Homepage → NewsStand arrival is separately public-proofed at
+  both origins and 1440/390/320. Three labelled routes reach the truthful clear-day
+  state, four distinct papers, decoded Paige/rack art and no autostart or overflow.
+  Page load writes only device-local catch-up visit timestamps. This does not prove
+  the missing current Breaking/Daily/Paige/Career/Promptoscope Homepage adapter.
+- The canonical header is now public on Homepage, LIBRAiRY, Watch and every
+  shared-header consumer. At 760px and below it exposes exactly `LAiDIES`, direct
+  `LIBRAiRY` and a 44px `Menu`; Sign in/Join remain available inside Menu. The
+  42-case matrix covered Homepage, LIBRAiRY, Watch, LUMINAiRY, KSVL Radio,
+  MAiKEOVER and Visitor's Centre at the immutable/custom origins and 1440/390/320.
+  Two browser-control dispatch timeouts passed on immediate fresh-tab retries;
+  these were control interruptions, not product failures. The LIBRAiRY receiver
+  remains truthful: 14/14 held books are visible and 0/14 are admitted or openable.
+- Visitor-visible `Play`, `plays`, `played` and `playing` are now absent across
+  all 72 public entrypoints, 11 deployed dynamic sources and four public JSON
+  sources at both origins. The runtime Watch label was exercised and rendered
+  `WATCHING`; technical `.play()` calls, events, identifiers and CSS state remain
+  unchanged. The exact-word-only guard was replaced with the calibrated
+  HTML/JavaScript/JSON guard and added to CI.
 - The retired Fun Pack is removed from current navigation and orchestration;
   its legacy URL redirects to the individual activities. KSVL has 29 playable
   creator-confirmed originals. FAiRY's live v18 path returned a usable rendered
@@ -47,7 +114,36 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record
+## Current production release record — 2026-08-23
+
+| Field | Current value |
+|---|---|
+| Deployed source | `750c062a27150bda6cbe5443ab16068f34e4e0aa` |
+| Artifact identity | `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e` |
+| Curated build | 559 copied files / 415.25 MiB; manifest 561 files / 435,487,689 bytes |
+| Exact public scope | 3 modifications / 0 additions / 0 removals / 13 protected production paths |
+| Release path | Authenticated Wrangler 4.105.0 exact-artifact deployment; no GitHub run was used |
+| Cloudflare deployment | `840943b3-fbc7-4049-a0d7-0d12fba688af` |
+| Immutable URL | `https://840943b3.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | completed `2026-08-23T14:23:37Z`; all three changed artifact paths and all 13 protected production paths passed the exact scope, all 15 fetchable verification paths matched the curated artifact at both origins, and the Miss Jeeves API returned successful JSON at both. The public MAiKEOVER helper uses the shared strict handle reader, text-node rendering and the new cache key; its predecessor independently failed the calibrated gate. The preceding public Card query boundary and live Booth journey remain checksum-preserved. No live-browser execution was used for this stored-handle-only release; exact public bytes match the locally syntax- and contract-tested artifact. |
+| Exact scope | `operations/release-control/maikeover-stored-handle-production-scope-20260823.json` |
+| Rollback deployment | `ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4` (immediate prior); `4760ab5c-b04c-448f-a891-a7473880c0ce` is the pre-header stable baseline |
+
+The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
+`2284b17a-1f5f-46bd-8fce-d384af1a814e` and
+`250060a3-7164-4abf-8f2b-54dd9f55f0e7` and
+`8769da59-d4de-4633-9e39-3527fa3b56e9` and
+`0875285d-b47d-4d9a-a586-508b660ec894`,
+`63774d48-9ae5-4901-95ad-b06f8ebf4725`,
+`71ef51c7-874c-4e7d-a421-52d1edf589ed` and
+`ed969dd1-2fbc-47f1-b30e-7f5f0fda6cc4` are superseded, not current. The current
+deployment explicitly marked the workspace dirty because the disclosed
+user-owned `scripts/test-codex-hook-guards.mjs` modification remained excluded;
+the exact release scope, artifact manifest and public bytes are independently
+bound above.
+
+## Historical 2026-07-26 production release record
 
 Fill every field before declaring the relaunch ready:
 

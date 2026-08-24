@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <!-- Deliberately no ksvl-player / quick-rail on this page: the Screening
        Room plays its own narration track and wants a dark, focused stage. -->
@@ -229,6 +229,7 @@
 <body class="screening-room-page">
 
   <!-- canonical header injected by sv-global-header.js -->
+  <header class="sv-header"></header>
 
   <main class="screening-room-main">
     <section class="screening-arrival" aria-labelledby="scrTitle">
@@ -954,7 +955,7 @@
       fill.style.width = pct + '%';
       if (knob) knob.style.left = pct + '%';
       theatre.classList.toggle('is-playing', playing());
-      var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : 'PLAY';
+      var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : playerMode === 'listen-only' ? 'LISTENING' : 'WATCHING';
       timeEl.textContent = fmt(el) + ' / ' + fmt(d);
       osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el);
       btnPlay.textContent = playing() ? '❚❚' : '▶';

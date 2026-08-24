@@ -83,8 +83,11 @@ optionally claims/joins → both receive an idempotent reciprocal result`.
 ## Complete owned product tree
 
 - `/post-office.html`: building arrival, orientation, three counter choices,
-  postcard rack/writing-desk handoff, provider disclosure, held account status
-  and published-issue drawer. `CURRENT IMPLEMENTATION OBSERVED`
+  postcard rack/writing-desk handoff, provider disclosure, truthful Resident
+  Card sign-in handoff and published-issue drawer. It contains no account email
+  field and routes once to `/resident-card.html#rcAccountTitle`; request delivery,
+  account creation and cross-device lifecycle remain unverified.
+  `CURRENT IMPLEMENTATION OBSERVED`
 - `/postcard.html`: postcard catalogue, local note/signature preview, native
   share, text/email handoffs, canonical copy link and truthful local receipts.
   `CURRENT IMPLEMENTATION OBSERVED`

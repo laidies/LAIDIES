@@ -2,7 +2,7 @@
  * SUNNYVAiLE homepage behaviours (2026-07 redesign).
  *  - mobile menu, activity filters, district tabs
  *  - interactive town map popups
- *  - song chips that play through a DOM <audio> (adopted by mini-player.js)
+ *  - KSVL links remain ordinary navigation; the canonical KSVL deck owns audio
  *  - Wednesday route progress paint (reads window.svTour from sv-tour-checkin.js)
  *  - published episode fallback presentation (editorial release data is backstage)
  *  - window.svShowResume(epTitle, href) hook for signed-in resume state
@@ -116,9 +116,27 @@
     if (!wrap) return;
     var pop = wrap.querySelector('.map-pop');
     var h4 = pop.querySelector('h4'), p = pop.querySelector('p'), a = pop.querySelector('a');
+    var activeTrigger = null;
+    function closePopup(restoreFocus) {
+      if (pop.hidden) return;
+      pop.hidden = true;
+      if (activeTrigger) activeTrigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus && activeTrigger) activeTrigger.focus();
+      activeTrigger = null;
+    }
     wrap.querySelectorAll('.map-spot').forEach(function (b) {
+      b.setAttribute('aria-haspopup', 'dialog');
+      b.setAttribute('aria-controls', 'town-map-popup');
+      b.setAttribute('aria-expanded', 'false');
       b.addEventListener('click', function (e) {
         e.stopPropagation();
+        if (activeTrigger === b && !pop.hidden) {
+          closePopup(true);
+          return;
+        }
+        if (activeTrigger) activeTrigger.setAttribute('aria-expanded', 'false');
+        activeTrigger = b;
+        b.setAttribute('aria-expanded', 'true');
         h4.textContent = b.dataset.name; p.textContent = b.dataset.desc; a.href = b.dataset.href;
         pop.hidden = false;
         var W = wrap.clientWidth, H = wrap.clientHeight;
@@ -128,42 +146,16 @@
         var top = b.offsetTop - pop.offsetHeight - 10;
         if (top < 10) top = Math.min(b.offsetTop + b.offsetHeight + 10, H - pop.offsetHeight - 10);
         pop.style.left = left + 'px'; pop.style.top = top + 'px';
+        a.focus();
       });
     });
-    document.addEventListener('click', function (e) { if (!pop.hidden && !pop.contains(e.target)) pop.hidden = true; });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') pop.hidden = true; });
-  })();
-
-  /* ---------- song chips → DOM <audio>, adopted by mini-player ---------- */
-  (function () {
-    var chips = document.querySelectorAll('.play-chip');
-    if (!chips.length) return;
-    var audio = document.createElement('audio');
-    audio.preload = 'none';
-    document.body.appendChild(audio);
-    var current = null;
-    function setIcon(chip, playing) {
-      if (chip) chip.querySelector('.pc-icon').innerHTML = playing ? '&#10074;&#10074;' : '&#9654;';
-    }
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        // Route through the KSVL player so the song plays as ITSELF (not the
-        // radio rotation) with the persistent bar + pop-out. Falls back to the
-        // inline audio only if the KSVL player isn't present.
-        if (window.KSVL_playTrack) {
-          window.KSVL_playTrack(chip.dataset.audio, chip.dataset.title || '', 'LAiDIES');
-          setIcon(current, false); current = chip; setIcon(chip, true);
-          return;
-        }
-        if (current === chip && !audio.paused) { audio.pause(); setIcon(chip, false); return; }
-        setIcon(current, false);
-        if (current !== chip) { audio.src = chip.dataset.audio; audio.dataset.title = chip.dataset.title || ''; }
-        current = chip; audio.play(); setIcon(chip, true);
-      });
+    document.addEventListener('click', function (e) { if (!pop.hidden && !pop.contains(e.target)) closePopup(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !pop.hidden) {
+        e.preventDefault();
+        closePopup(true);
+      }
     });
-    audio.addEventListener('pause', function () { setIcon(current, false); });
-    audio.addEventListener('play', function () { setIcon(current, true); });
-    audio.addEventListener('ended', function () { setIcon(current, false); });
   })();
 
   /* ---------- Wednesday route progress paint ---------- */

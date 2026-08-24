@@ -14,6 +14,32 @@ if (!playwrightRoot) {
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const homepageScriptSource = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");
+const globalHeaderSource = fs.readFileSync(path.join(root, "content/site/sv-global-header.js"), "utf8");
+const collectHtmlFiles = (directory) => fs.readdirSync(directory, {withFileTypes:true}).flatMap((entry) => {
+  if ([".git", "node_modules", "operations", "assets", "approved-assets"].includes(entry.name)) return [];
+  const resolved = path.join(directory, entry.name);
+  if (entry.isDirectory()) return collectHtmlFiles(resolved);
+  return entry.isFile() && entry.name.endsWith(".html") ? [resolved] : [];
+});
+const sharedHeaderConsumers = collectHtmlFiles(root)
+  .map((file) => ({file:path.relative(root, file), source:fs.readFileSync(file, "utf8")}))
+  .filter((entry) => entry.source.includes("/content/site/sv-global-header.js?v=") &&
+    !/(?:\.pre-|\.pre\.|-magazine\.html$|-reskin\.html$)/.test(entry.file));
+const calibratedSharedHeaderConsumers = process.env.CALIBRATE_SHARED_HEADER_CACHE_KEY_FAILURE === "1"
+  ? sharedHeaderConsumers.map((entry, index) => index === 0
+    ? {...entry, source:entry.source.replace("svgh-760-2026-08-23-v3-5be5e50aeb8e", "svgh-stale-calibration")}
+    : entry)
+  : sharedHeaderConsumers;
+const headerMountSources = ["library.html", "watch.html"].map((file) => ({
+  file,
+  source: fs.readFileSync(path.join(root, file), "utf8")
+}));
+const calibratedHeaderMountSources = process.env.CALIBRATE_SHARED_HEADER_MOUNT_FAILURE === "1"
+  ? headerMountSources.map((entry, index) => index === 0
+    ? {...entry, source: entry.source.replace('<header class="sv-header"></header>', '')}
+    : entry)
+  : headerMountSources;
 const falsePublicPromises = [
   "The complete weekly experience",
   "a new episode and its learning activities arrive every Wednesday",
@@ -33,6 +59,45 @@ const truthSource = process.env.CALIBRATE_HOMEPAGE_TRUTH_FAILURE === "1"
 const libraryNavigationSource = process.env.CALIBRATE_HOMEPAGE_LIBRARY_NAV_FAILURE === "1"
   ? source.replaceAll('data-library-entry="primary" href="/library.html"', 'data-library-entry="primary" href="#reference"')
   : source;
+const mobileLibraryShortcutSource = process.env.CALIBRATE_HOMEPAGE_MOBILE_LIBRARY_SHORTCUT_FAILURE === "1"
+  ? source.replace('data-library-entry="mobile-quick" href="/library.html"', 'data-library-entry="mobile-quick" href="#reference"')
+  : source;
+const globalMobileLibraryShortcutSource = process.env.CALIBRATE_GLOBAL_MOBILE_LIBRARY_SHORTCUT_FAILURE === "1"
+  ? globalHeaderSource.replace('class="svgh-library-mobile" href="/library.html"', 'class="svgh-library-mobile" href="#reference"')
+  : process.env.CALIBRATE_GLOBAL_MOBILE_MENU_SIZE_FAILURE === "1"
+    ? globalHeaderSource.replace('min-width: 44px; min-height: 44px; border-radius: 999px;', 'border-radius: 999px;')
+    : globalHeaderSource;
+const accountEntrySource = process.env.CALIBRATE_HOMEPAGE_ACCOUNT_PROMISE_FAILURE === "1"
+  ? source.replace(
+    '<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>',
+    '<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Pick up where I left off</a>'
+  )
+  : source;
+const visitorOrientationSource = process.env.CALIBRATE_HOMEPAGE_TRAILER_PROMISE_FAILURE === "1"
+  ? source.replace(
+    "Visit the Visitor’s Centre &rarr;",
+    "Listen to the trailer at the Visitor’s Centre &rarr;"
+  )
+  : source;
+const postcardReceiverSource = process.env.CALIBRATE_HOMEPAGE_POSTCARD_RECEIVER_FAILURE === "1"
+  ? source.replace(
+    "Request the Wednesday Postcard</a>",
+    "Choose the Postcard</a>"
+  )
+  : source;
+const receiverIndexSource = process.env.CALIBRATE_HOMEPAGE_BWS_RECEIVER_FAILURE === "1"
+  ? source.replace("location.href='/games/businesswomens-special.html'", "location.href='/bronze-aige.html'")
+  : process.env.CALIBRATE_HOMEPAGE_ACTIVITY_RECEIVER_FAILURE === "1"
+    ? source.replace("location.href='/games/dream-phone.html'", "location.href='#activities'")
+  : source;
+const servedIndexSource = process.env.CALIBRATE_HOMEPAGE_MAP_GEOMETRY_FAILURE === "1"
+  ? receiverIndexSource
+    .replace(".map-wrap{position:relative;aspect-ratio:1400/637}\n.map-wrap>img{width:100%;height:100%;object-fit:contain;display:block}", ".map-wrap{position:relative}")
+    .replace(".map-spot{position:absolute;min-width:44px;min-height:44px", ".map-spot{position:absolute")
+  : receiverIndexSource;
+const servedHomepageScript = process.env.CALIBRATE_HOMEPAGE_MAP_FOCUS_FAILURE === "1"
+  ? homepageScriptSource.replace("        a.focus();", "        /* deliberate calibration: focus is not moved */")
+  : homepageScriptSource;
 const targets = [
   "/assets/bws-fortune-teller/frame-1-closed.webp",
   "/assets/games/girl-talk/truth-card-face.webp",
@@ -84,8 +149,36 @@ check((libraryNavigationSource.match(/data-library-entry="primary" href="\/libra
   libraryNavigationSource.includes('data-library-entry="reference" href="/library.html">Visit the LIBRAiRY') &&
   libraryNavigationSource.includes('data-library-entry="directory" href="/library.html">The LIBRAiRY</a>'),
   "Homepage has no clearly labelled direct LIBRAiRY route in primary, mobile, reference and town-directory navigation");
+check(mobileLibraryShortcutSource.includes('class="mobile-library-link" data-library-entry="mobile-quick" href="/library.html">LIBRAiRY</a>'),
+  "Homepage has no direct mobile-header LIBRAiRY shortcut");
+check(globalMobileLibraryShortcutSource.includes('class="svgh-library-mobile" href="/library.html">LIBRAiRY</a>') &&
+  globalMobileLibraryShortcutSource.includes('.svgh-signin, .svgh-join { display: none !important; }') &&
+  globalMobileLibraryShortcutSource.includes('min-width: 44px; min-height: 44px; border-radius: 999px;') &&
+  globalMobileLibraryShortcutSource.includes('class="svgh-panel-account"') &&
+  globalMobileLibraryShortcutSource.includes('class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
+  globalMobileLibraryShortcutSource.includes('class="svgh-panel-join" href="/maikeover.html">Join the town</a>'),
+  "shared header has no direct mobile LIBRAiRY shortcut, still crowds it with account actions, has an undersized Menu, or loses mobile account routes");
+check(calibratedHeaderMountSources.every((entry) => entry.source.includes('<header class="sv-header"></header>')),
+  "a public page loads the shared header controller without mounting the canonical header");
+check(calibratedSharedHeaderConsumers.length === 59 && calibratedSharedHeaderConsumers.every((entry) =>
+  ["svgh-760-2026-08-23-v3-5be5e50aeb8e", "20260823-resident-truth-4f8af546d716"].some((key) =>
+    entry.source.includes(`/content/site/sv-global-header.js?v=${key}`)) &&
+  !entry.source.includes("svgh-320-2026-08-04-v2-532de5ac8032")),
+  "a public shared-header consumer retains the stale cache key");
 check(falsePublicPromises.every((claim) => !truthSource.includes(claim)), "Homepage still promises held weekly or subscription behavior");
 check(requiredTruth.every((claim) => source.includes(claim)), "Homepage no longer states the exact weekly and subscription truth");
+check(accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Sign in</a>') &&
+  !accountEntrySource.includes('<a class="button b-pink" href="/resident-card.html#rcAccountTitle">Pick up where I left off</a>'),
+  "Homepage promises account-backed continuation before the visitor has signed in");
+check(visitorOrientationSource.includes('<a class="text-link" href="/visitors-centre.html">Visit the Visitor’s Centre &rarr;</a>') &&
+  visitorOrientationSource.includes('<a class="inline-link" href="/visitors-centre.html">the Visitor’s Centre</a>') &&
+  visitorOrientationSource.includes('<li><a href="/visitors-centre.html">The Visitor’s Centre</a></li>') &&
+  visitorOrientationSource.includes("New to LAiDIES? Start at the Visitor’s Centre to get oriented.") &&
+  !/trailer/i.test(visitorOrientationSource),
+  "Homepage promises the held trailer instead of routing to the Visitor’s Centre orientation");
+check(postcardReceiverSource.includes('<a class="button b-lilac" href="/post-office.html#rent">Request the Wednesday Postcard</a>') &&
+  !postcardReceiverSource.includes('href="/post-office.html#rent">Choose the Postcard</a>'),
+  "Homepage claims postcard selection where the receiver only opens the Wednesday Postcard request counter");
 
 const mime = new Map([[".html", "text/html; charset=utf-8"], [".js", "text/javascript; charset=utf-8"], [".json", "application/json; charset=utf-8"], [".css", "text/css; charset=utf-8"], [".webp", "image/webp"], [".png", "image/png"], [".jpg", "image/jpeg"], [".svg", "image/svg+xml"], [".mp3", "audio/mpeg"]]);
 const server = http.createServer((request, response) => {
@@ -93,6 +186,12 @@ const server = http.createServer((request, response) => {
   const requested = url.pathname === "/" ? "/index.html" : url.pathname;
   const resolved = path.resolve(root, requested.replace(/^\/+/, ""));
   if (!resolved.startsWith(`${root}${path.sep}`)) return response.writeHead(403).end("Forbidden");
+  if (requested === "/index.html") {
+    return response.writeHead(200, {"content-type":"text/html; charset=utf-8"}).end(servedIndexSource);
+  }
+  if (requested === "/content/site/homepage.js") {
+    return response.writeHead(200, {"content-type":"text/javascript; charset=utf-8"}).end(servedHomepageScript);
+  }
   fs.readFile(resolved, (error, data) => {
     if (error) response.writeHead(404).end("Not found");
     else response.writeHead(200, {"content-type": mime.get(path.extname(resolved)) || "application/octet-stream"}).end(data);
@@ -141,6 +240,11 @@ try {
       await page.locator('.town-index a[data-library-entry="directory"][href="/library.html"]').filter({hasText:"The LIBRAiRY"}).count() === 1,
       `${width}px Homepage does not expose every clearly labelled direct LIBRAiRY route`);
     if (width <= 820) {
+      const mobileLibraryShortcut = page.locator('header a.mobile-library-link[data-library-entry="mobile-quick"][href="/library.html"]');
+      check(await mobileLibraryShortcut.isVisible() && await mobileLibraryShortcut.evaluate((link) => {
+        const rect = link.getBoundingClientRect();
+        return rect.width >= 44 && rect.height >= 44;
+      }), `${width}px direct mobile-header LIBRAiRY shortcut is missing or undersized`);
       const menu = page.getByRole("button", {name:"Menu"});
       await menu.click();
       check(await page.locator('#mobile-nav a[data-library-entry="primary"][href="/library.html"]').isVisible(),
@@ -151,10 +255,20 @@ try {
       await page.locator('#new-here a[href="/issues/issue-04.html"]').count() >= 1 &&
       await page.locator('#new-here a[href="/watch.html?ep=04"]').count() === 1,
       `${width}px Chick Flicks episode actions changed`);
-    check(await page.getByRole("button", {name:"Consult Mme CLAi-O"}).count() === 1 &&
-      await page.getByRole("button", {name:"Pick a drink"}).count() === 1 &&
-      await page.getByRole("button", {name:"Visit Delta LAi Nu"}).count() === 1,
-      `${width}px activity action text changed`);
+    check(await page.locator('.hero a.b-pink[href="/resident-card.html#rcAccountTitle"]').filter({hasText:"Sign in"}).count() === 1,
+      `${width}px Homepage account entry overpromises continuation before sign-in`);
+    const businesswomensAction = page.getByRole("button", {name:"Visit the Businesswomen’s Special"});
+    const fairyAction = page.getByRole("button", {name:"Ask the FAiRY Godmother"});
+    const claioAction = page.getByRole("button", {name:"Consult Mme CLAi-O"});
+    const dreamAction = page.getByRole("button", {name:"Answer Dream Phone"});
+    const deltaAction = page.getByRole("button", {name:"Visit Delta LAi Nu"});
+    check(await fairyAction.getAttribute("onclick") === "location.href='/games/fairy-godmother.html'" &&
+      await claioAction.getAttribute("onclick") === "location.href='/games/madame-claio.html'" &&
+      await businesswomensAction.count() === 1 &&
+      await businesswomensAction.getAttribute("onclick") === "location.href='/games/businesswomens-special.html'" &&
+      await dreamAction.getAttribute("onclick") === "location.href='/games/dream-phone.html'" &&
+      await deltaAction.getAttribute("onclick") === "location.href='/sorority-house.html'",
+      `${width}px activity action receiver changed`);
     const fun = page.getByRole("button", {name:"Make me laugh"});
     await fun.focus();
     await page.keyboard.press("Enter");
@@ -163,6 +277,23 @@ try {
       await page.locator('.activity-grid article[data-tags="fun quick"]').evaluate((card) => !card.hidden) &&
       await page.locator('.activity-grid article[data-tags="fun"]').evaluate((card) => !card.hidden),
       `${width}px held activity cards lost their fun filter membership`);
+    const libraryMapSpot = page.locator('.map-spot[data-name="The LIBRAiRY"]');
+    await libraryMapSpot.scrollIntoViewIfNeeded();
+    check(await libraryMapSpot.evaluate((spot) => {
+      const rect = spot.getBoundingClientRect();
+      return rect.width >= 44 && rect.height >= 44;
+    }), `${width}px map destination is not a real 44px click target`);
+    await libraryMapSpot.focus();
+    await page.keyboard.press("Enter");
+    const mapPopup = page.getByRole("dialog");
+    check(await mapPopup.isVisible() && await libraryMapSpot.getAttribute("aria-expanded") === "true",
+      `${width}px map popup did not open with an expanded trigger`);
+    check(await page.evaluate(() => document.activeElement && document.activeElement.getAttribute("href") === "/library.html"),
+      `${width}px map popup did not move focus to its destination link`);
+    await page.keyboard.press("Escape");
+    check(await mapPopup.isHidden() && await libraryMapSpot.getAttribute("aria-expanded") === "false" &&
+      await libraryMapSpot.evaluate((spot) => document.activeElement === spot),
+      `${width}px map popup did not close and restore focus on Escape`);
     check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
       `${width}px homepage overflows`);
     check(!requests.some((url) => targets.some((asset) => url.includes(asset))),
@@ -201,6 +332,51 @@ try {
         check(await page.locator(".lum-state h2").evaluate((node) => node.scrollWidth <= node.clientWidth + 1),
           `${route} ${width}px clips the votive-state heading`);
       }
+      const sharedMobileLibraryShortcut = page.locator('header a.svgh-library-mobile[href="/library.html"]');
+      if (width <= 760) {
+        check(await sharedMobileLibraryShortcut.isVisible() && await sharedMobileLibraryShortcut.evaluate((link) => {
+          const rect = link.getBoundingClientRect();
+          return rect.width >= 44 && rect.height >= 44;
+        }), `${route} ${width}px shared mobile header lacks the direct 44px LIBRAiRY shortcut`);
+        check(await page.locator('header .svgh-signin').isHidden() && await page.locator('header .svgh-join').isHidden(),
+          `${route} ${width}px shared mobile header still crowds the direct LIBRAiRY shortcut`);
+        check(await page.locator('header .svgh-menu-btn').evaluate((button) => {
+          const rect = button.getBoundingClientRect();
+          return rect.width >= 44 && rect.height >= 44;
+        }), `${route} ${width}px shared mobile Menu is undersized`);
+        await page.locator('header .svgh-menu-btn').click();
+        const panelSignin = page.locator('#svghPanel .svgh-panel-signin[href="/resident-card.html#rcAccountTitle"]');
+        const panelJoin = page.locator('#svghPanel .svgh-panel-join[href="/maikeover.html"]');
+        check(await panelSignin.isVisible() && await panelJoin.isVisible() &&
+          await panelSignin.evaluate((link) => link.getBoundingClientRect().height >= 44) &&
+          await panelJoin.evaluate((link) => link.getBoundingClientRect().height >= 44),
+          `${route} ${width}px shared mobile Menu loses the 44px Sign in or Join route`);
+        await page.keyboard.press('Escape');
+      } else {
+        check(await sharedMobileLibraryShortcut.isHidden(), `${route} ${width}px mobile-only LIBRAiRY shortcut leaked into desktop`);
+      }
+      await context.close();
+    }
+  }
+  for (const width of [1440, 390, 320]) {
+    for (const route of ["/library.html", "/watch.html"]) {
+      const context = await browser.newContext({viewport:{width, height:900}});
+      const page = await context.newPage();
+      page.on("pageerror", (error) => failures.push(`${route} ${width}px page error: ${error.message}`));
+      await page.goto(`${origin}${route}`, {waitUntil:"domcontentloaded"});
+      const header = page.locator('header.sv-header[data-svgh-mounted="1"]');
+      check(await header.count() === 1, `${route} ${width}px did not mount the canonical shared header`);
+      const mobileLibraryShortcut = page.locator('header .svgh-library-mobile[href="/library.html"]');
+      if (width <= 760) {
+        check(await mobileLibraryShortcut.isVisible() && await mobileLibraryShortcut.evaluate((link) => {
+          const rect = link.getBoundingClientRect();
+          return rect.width >= 44 && rect.height >= 44;
+        }), `${route} ${width}px mounted header lacks the direct 44px LIBRAiRY shortcut`);
+      } else {
+        check(await mobileLibraryShortcut.isHidden(), `${route} ${width}px mobile-only LIBRAiRY shortcut leaked into desktop`);
+      }
+      check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
+        `${route} ${width}px overflows after mounting the shared header`);
       await context.close();
     }
   }
@@ -214,4 +390,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 shared-header-mounts=2 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,direct-mobile-library-shortcut,shared-mobile-library-shortcut,canonical-header-mounts,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");

@@ -62,7 +62,10 @@ The website and episodes must feel like the same world:
 
 ## Colour
 
-- Keep the existing light background gradients.
+- Do not preserve the Homepage's existing light pastel gradients as a visual
+  base. Ali rejected the half-pastel/half-bold split on 2026-08-23. Use the
+  vibrant production palette in bounded colour families, with saturated
+  gradients and real pop-art construction rather than pale CSS surfaces.
 - Use a near-black blue for dark mastheads, gutters, hard shadows, and ink.
 - Use a full vibrant 1990s accent spectrum. Pink, purple, cyan and teal remain
   available, but must not become the only repeated quartet.
@@ -88,6 +91,25 @@ The website and episodes must feel like the same world:
 - Brand words keep the accented lower-case `i`, with `Ai` coloured separately:
   LAiDIES, SUNNYVAiLE, MAiVENS, LUMINAiRY, MAiKEOVER.
 - The technology term is `AI`, both letters capitalized.
+
+## Shared public header and controls — locked 2026-08-23
+
+- Every public page uses one canonical header structure, typography hierarchy,
+  spacing system and interaction grammar. A building palette may vary within
+  the approved vibrant site tokens, but it may not substitute another header.
+- The header uses the exact `LAiDIES` wordmark with the lower-case `i` and a
+  separately coloured `Ai`; white-logo fallbacks, retired wordmarks and
+  invented lettering are not allowed.
+- Every visible operable target, including the brand/Home link, quick links,
+  KSVL, Sign in, Join and Menu, must render at least 44 by 44 CSS pixels on
+  desktop and mobile. Padding or a hidden overlay may enlarge the hit area only
+  when the full target remains visible, non-overlapping and keyboard operable.
+- Desktop and 390px evidence must show the complete header in frame with no
+  wrapping, clipping or horizontal overflow. A checklist assertion does not
+  prove this; computed target geometry and the rendered pixels must agree.
+- At 760px and below, the visible header is exactly the `LAiDIES` Home link,
+  a direct `LIBRAiRY` shortcut and `Menu`. Sign in, Join and the wider town
+  navigation remain available inside Menu instead of crowding the header.
 
 ## Images
 
