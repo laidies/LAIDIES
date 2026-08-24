@@ -29,7 +29,7 @@ bounded check passed; neither means deployed or publicly verified.
 | Now-playing context/words | Listen without or with audio | Title, artist, source meaning and equivalent non-audio route | Player provides title/artist; 29 transcripts/captions missing and lyric debt remains | BUILD BEFORE LAUNCH for promised accessibility/context |
 | Sticker Counter | Select up to three declaration stickers once | Honest device-local collection or authoritative Closet delivery | 20 items; local earned/picked keys; no Closet producer/service/consumer path | FIX BEFORE LAUNCH — local-only copy/Closet propagation conflict |
 | Listening achievements | Complete defined listening behavior | Only an approved, authoritative event may grant achievement | Achievement stickers exist; copy still says listening unavailable | OWNER DECISION REQUIRED; no grant contract exists |
-| Signed-out song request | Submit valid form without session | Save a labelled local draft or show storage failure | `ksvl_pending_request` local write and honest status copy | OBSERVED; reload/edit/delete/expiry/accessibility proof incomplete |
+| Signed-out song request | Submit valid form without session | Save a labelled local draft or show storage failure | Strict versioned `ksvl_pending_request` helper restores/edits/deletes a six-hour record, migrates the exact legacy shape, discards corrupt/expired/unknown-key records and falls back to local-only save when provider state is unavailable | VERIFIED LOCALLY — calibrated contract passes; public browser lifecycle required |
 | Signed-in song request | Submit valid form with provider session | One authoritative review receipt; no hearing/selection/production promise | Browser calls Supabase `.insert(payload).select().single()` | BLOCKED — BUILD REMAINS REQUIRED; real RLS/service lifecycle unproved |
 | Request status/correction/deletion | Return after receipt | Read status, correct/withdraw where allowed, delete under policy | Table has statuses; no requester UI or lifecycle route | BUILD BEFORE LAUNCH if request is current-release capability |
 | Request moderation/staff workflow | Staff reviews submissions | Authorized review, abuse handling and audit without exposing raw text | Schema has status/admin fields; no verified staff surface/service contract | BLOCKED — BUILD REMAINS REQUIRED |
@@ -73,7 +73,7 @@ bounded check passed; neither means deployed or publicly verified.
 | Player return state | Media events and controls | `saveState` / `hydrateFromStorage` | Browser storage | `laidies_ksvl_player_state_v1` | Any page loading shared player; popup | Device, six-hour TTL, registry/context bound | Strict local contract exists |
 | Popup ownership | Popup open/heartbeat/pagehide | shared player | Browser windows/storage | `laidies_ksvl_popup_beat` | Main page and popup | Device/browser only | Mechanism exists; stale/crash behavior needs proof |
 | Sticker collection | Confirm local pick or global `KSVL_stickers.earn` | inline `/radio.html` script | Browser storage only | `laidies_ksvl_stickers_earned`, `laidies_ksvl_stickers_picked` | Radio sticker UI; promised Closet has no consumer integration | Device only | Local result exists; Closet promise not delivered |
-| Signed-out request draft | Submit form without session | inline `/radio.html` script | Browser storage | `ksvl_pending_request` | No explicit reload/editor consumer found | Device only | Write/status exists; lifecycle incomplete |
+| Signed-out request draft | Submit form without session | `/radio.html` plus `content/site/ksvl-request-draft.js` | Browser storage | strict versioned `ksvl_pending_request`, six-hour TTL | Radio hub notice, restored form, edit/save and confirmed delete | Device only | VERIFIED LOCALLY — read-after-write, legacy migration, corrupt/expired discard and storage denial pass |
 | Signed-in request | Submit form with session | inline `/radio.html` Supabase client | Supabase Auth/PostgREST | `public.ksvl_song_requests` | Requester receipt; future staff/moderation/status UI | Account row | Insert/read compound call exists; live completion unproved |
 | Request receipt/status | Provider returns row | inline request handler | Supabase/RLS | request UUID/status fields | Current status text; no return dashboard | Account | Synthetic receipt fixture only |
 | Card song choice | Resident Card product | Card frontend/shared identity | Card service/store | Card-owned profile field | Resident Card surfaces; KSVL only links | Device or account per Card proof | KSVL explicitly does not write it |
@@ -112,8 +112,10 @@ propagation`
 device-local draft → read it back → show device-only result → edit/delete/expire
 or authenticate → never describe as delivered`
 
-Current gap: code writes but no explicit reload/read/edit/delete/expiry UI was
-found. Storage errors are honestly reported.
+Current local result: the exact six-hour device record has restore, edit/save,
+confirmed delete, legacy migration, corrupt/expired discard and storage-denial
+states. Provider-unavailable and no-receipt paths preserve only the same local
+draft. Public-origin browser lifecycle evidence remains required.
 
 ### 4.3 Signed-in request
 
