@@ -1,8 +1,14 @@
 # Move 37 — claim and source packet
 
-Status: EXPANDED RESEARCH COMPLETE FOR LOCAL TEXT CANDIDATE
+Status: INSUFFICIENT FOR DRAFTING — RETAINED AS STARTING BIBLIOGRAPHY
 Reviewed through: 2026-08-24
 Owner: LAiDIES Library with independent source review
+
+**Superseding research control:**
+`DEEP-RESEARCH-DOSSIER-2000-TODAY-2026-08-24.md`. Ali rejected the
+one-line-claim format as too shallow to support the book. This packet may supply
+source leads, but it does not establish chapter depth, historical consequence,
+contemporary reception, complete credit or permission to draft.
 
 ## Selection rule
 
