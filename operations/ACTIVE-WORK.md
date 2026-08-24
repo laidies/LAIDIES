@@ -4,25 +4,27 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-FOUR-BOOK-PUBLICATION-20260823
-- **Status:** PUBLICLY VERIFIED
+- **Task ID:** LIBRARY-TWO-LIVING-BOOKS-20260824
+- **Status:** LOCAL TEXT CANDIDATES COMPLETE — PUBLICATION HOLD
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
-- **Updated:** 2026-08-23 America/Vancouver
-- **Goal:** Publish AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary as the four opening LIBRAiRY books.
-- **Acceptance:** The exact four rendered books and selected accepted visuals pass source/artifact admission, current factual and usability review, responsive navigation, accessible Save Book/Chapter/Section journeys, Miss Jeeves discovery, a zero-removal production scope, protected release control, immutable deployment verification and custom-domain verification at `laidies.ai`.
-- **Current step:** `PUBLICLY VERIFIED`. AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary are live at `https://laidies.ai/library`. The final release source is `e31f6629f79403a8c1f9ed319956bdd490542c28`, artifact identity `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7`, Cloudflare deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` and immutable URL `https://6e7ffa1a.laidies-sunnyvaile.pages.dev/`. Exact comparison against actual prior-production source `6edea2ac…` passed with 24 Library/runtime changes, zero removals, 22 checksum-preserved production paths and 45 fetchable live checks. Final custom-domain browser verification opened all four exact titles with Contents and Book/Chapter/Section Puffy saves, verified the compact mobile Contents/Top navigation, and rechecked Homepage, Visitor’s Centre, Resident Card and KSVL/DJ Booth surfaces without application errors.
-- **Next action:** No release action remains for this task. Future content corrections or additional visuals are additive successor editions and must preserve these four public routes.
+- **Updated:** 2026-08-24 America/Vancouver
+- **Goal:** Create two complete sourced living books: **Move 37: The Breakthroughs That Changed AI** and **Who’s Who in AI: The companies, people and power behind the technology**.
+- **Acceptance:** Each book has a distinct durable-reference job; a complete canonical source; current claim-to-primary-source evidence; explicit uncertainty and recheck triggers; a prevention-first producer contract; exact-prose producer review; role-distinct semantic and cold-reader review; deterministic rendering; scannable contents; responsive reader compatibility; and an additive integration plan that preserves the four publicly verified opening books. No book is called published, available or public without Ali's release approval and exact public verification.
+- **Current step:** `LOCAL FIRST-EDITION TEXT CANDIDATES COMPLETE`. Ali directly retired “The Power Map” and selected **Who’s Who in AI**. Both books have primary-source packets, prevention-first producer contracts, independently reviewed representative proofs, complete canonical source JSON, deterministic rendered HTML, reader-visible source/freshness/correction routes, and exact-artifact instructional plus artifact-first usability verdicts. Final artifacts: Move 37 `32ab342827323301ca3e421a77576f5d7ec1a5d363b5ef87fa50f7a4a05eb42f`; Who’s Who `a60b188761cc42dcb60a49f50a46dd2dcbee29f14bbf60f99ed9bd46751e4cdd`.
+- **Next action:** Reconcile the newer live four-book release source, commission/approve covers and the visual teaching/relationship-map layer, then present one exact add-to-Library publication decision. Do not mark available or publish before Ali approves that release candidate and exact live verification passes.
 
 ## Boundaries
 
-- Source iCloud checkout remains preservation-sensitive and contains extensive
-  pre-existing dirty work. This blueprint task made no source-checkout writes.
-- Recovery lane: `/tmp/laidies-library-release.AEjqSu`
-- Deployed starting commit: `e044ca899dfea867ba10f770cc99a0b8e32c100a`
-- Branch: `release/library-four-books-20260823`
-- No reset, clean, deletion of source work, unrelated provider mutation, or
-  spend is authorized. Ali authorized incremental live deployment on 2026-08-22;
-  release still requires exact-commit deployment and public-origin verification.
+- Source iCloud and existing Project checkouts remain preservation-sensitive
+  and contain unrelated work. This task writes only in the isolated checkout
+  `/Users/alisoneakin/Projects/laidies-library-two-books-20260824` on branch
+  `codex/library-two-books-20260824`.
+- The public four-book Library is an incumbent dependency, not a working copy
+  to overwrite. Its live versions are newer than the pushed release branch;
+  integration remains HOLD until the exact current release source is
+  reconciled without regressions.
+- No deployment, publication, account/provider mutation, spend, destructive
+  cleanup or unrelated source-checkout change is authorized.
 
 ## History
 

@@ -9,6 +9,20 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Current page-wide decisions
 
+- Ali commissioned two additive living LIBRAiRY books on 2026-08-24:
+  **Move 37: The Breakthroughs That Changed AI**, a sourced account of the
+  pivotal technical and scientific moments that changed what AI could do and
+  what people learned from them; and **Who’s Who in AI: The companies, people
+  and power behind the technology**, a current map of the organizations,
+  leaders, models, infrastructure, dependencies and alliances shaping AI.
+  Both inherit the Library's existing versioned-source, correction, freshness
+  and recheck system. They are additive successors and may not replace,
+  silently rewrite or weaken the four publicly verified opening books.
+- **Who’s Who in AI** supersedes “The Power Map” as the visitor-facing book
+  name. Ali rejected “The Power Map” because readers may not know what it
+  contains. The book maps companies and consequential people together without
+  becoming a celebrity directory; deeper women-in-AI biographies continue to
+  route to the LUMINAiRY.
 - Preserve the bright, bold pop-art energy, distinct 101s/Tools/Reference colours, physical entering-the-building idea and selected-book preview.
 - Use the vibrant production tokens already established in `library.html`: midnight `#070f2b`, ink `#11183b`, pink `#f254a9`, purple `#7137d6`, cyan `#15bce0`, cobalt `#2457e6`, sky `#78c7ff`, coral `#ff7366`, orange `#ff9b3d`, lime `#b7e42b`, mint `#7de2c2`, controlled yellow `#ffd34d` and cream `#fffdfb`. Use saturated gradients, halftone/pop-art texture, ink keylines, hard offset shadows and layered editorial framing. Select a bounded subset per page; do not pair purple with yellow.
 - Elevate the existing 1990s masthead room with colour, depth and authored energy; keep title and navigation as deterministic live UI.

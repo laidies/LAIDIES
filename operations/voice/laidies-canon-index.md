@@ -25,6 +25,12 @@ sources.
   retired as a separate character.
 - **Dream Phone**: current product name. Its exact live/game status comes from
   the Dream Phone product sources, not this file.
+- **Who’s Who in AI**: current LIBRAiRY book name. The clarifying subtitle is
+  **The companies, people and power behind the technology.** “The Power Map”
+  is retired because it does not tell an unfamiliar reader what the book
+  contains. Women remain visible in the industry map; their deeper biography
+  and contribution profiles route to the LUMINAiRY rather than being
+  duplicated inside this book.
 - **Resident** and **Resident Card**: use these, not “member” or “membership,”
   unless a routed product source explicitly requires the ordinary word.
 
@@ -39,7 +45,7 @@ Do not use these as current architecture or visitor-facing names:
 - Potions Shelf
 - The Decoder as a separate building or shelf
 - Glossary as a separate building
-- Who's Who
+- The Power Map
 - Reference Closet
 - Receipts Coven
 - Hot Goss
