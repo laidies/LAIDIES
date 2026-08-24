@@ -1002,3 +1002,54 @@ No actionable P0, P1 or P2 findings remain.
 - Visual guard calibration: PASS; a deliberately wrong Save asset path was rejected before the real assertion was trusted.
 
 **final result: passed**
+
+---
+
+# LIBRAiRY reader selected-design successor — design QA
+
+Date: 2026-08-24
+Status: supersedes the owner-rejected height-shrunk implementation at `01a0da16815d140ee5e36b346671f23a486b55c4`.
+
+## Result
+
+`passed`
+
+No P0, P1 or P2 visual defects remain in the selected reader composition at the tested desktop, owner-window and mobile states.
+
+## Authority and captures
+
+- Selected visual authority: `/Users/alisoneakin/.codex/generated_images/01a02f80-da71-7c03-9874-ffff309f2e40/exec-6ffbe44e-7d11-4ae4-8884-546946b2a867.png` (1488 × 1057).
+- Desktop comparison capture: `/tmp/library-reader-desktop-1280x720-final.png` (1280 × 720 CSS pixels, DPR 1).
+- Compact owner-window state was inspected live at 877 × 915 during the correction; the final retained desktop capture is the 1280 × 720 state above.
+- Mobile capture: `/tmp/library-reader-mobile-390x844-final.png` (390 × 844 CSS pixels, DPR 1; telemetry confirmed `innerWidth=390`, `innerHeight=844`, and the mobile media query active).
+
+The selected reference and final desktop implementation were inspected together in the same comparison input. Focused regions inspected in the real browser: title and toolbar; Preface burst, divider and cyan rule; outlined semantic cards and icons; edge artwork; Contents; Save; and the first reading paragraphs.
+
+## Fidelity judgment
+
+- The lavender halftone frame, angled warm-white paper, split serif/sans title, pink brush stroke, compact top controls, vertical Contents tab, starburst marker, divider, cyan brush rule, main reading column and two outlined right cards are all present in the selected hierarchy.
+- The desktop implementation scales those relationships from the 1488-pixel authority instead of treating the image as a loose palette reference or shrinking the sheet from viewport height.
+- Intentional differences are limited to decisions Ali made after the mockup: truthful `WHY THIS MATTERS` and `WHAT THIS BOOK DOES` labels; teal Puffy-floppy Save; approved AI/computer Puffies replacing some decorative Rewind imagery; and the full admitted authored Preface rather than shortened mockup copy.
+- At 1280 × 720 the reader uses the full desktop width. The rejected 1013-pixel sheet, black gutters and vertically stacked heading are gone.
+- At 390 × 844 the edge frame is removed, the controls occupy one compact row, Contents stays available without a contents page, the heading remains readable and horizontal overflow is zero (`scrollWidth=390`).
+
+## Comparison history
+
+1. Rejected: conventional white reader retained colours but discarded the composition.
+2. Rejected: first pop-zine restoration sized the entire frame from viewport height, wrapped controls and made the Preface heading a tall stack at a normal desktop ratio.
+3. Blocked internally: geometry improved, but divider, brush strokes and card icons were still approximated and mobile inherited a 390-pixel flex basis that wasted most of the screen.
+4. Passed: dedicated raster details, width-led desktop geometry, truthful semantic cards and compact mobile reflow match the selected design without changing book prose.
+
+## Function and regression checks
+
+- Contents opened its overlay with 260 section links.
+- Save opened the existing Puffy picker; `Keep reading` closed it.
+- Top returned the internal reading pane from 500 pixels down to `scrollTop=0`.
+- `scripts/test-library-opening-books.cjs` passed all four books at 1280, 390 and 320 pixels.
+- `scripts/test-library-product.cjs` passed its 12-case four-book suite.
+- A deliberately broken Puffy-dialog calibration failed with exit 1, proving the product check can reject a bad state.
+- `scripts/check-library-instruction-packet.mjs` and `git diff --check` passed.
+
+## Scope not claimed
+
+This is a local visual and functional admission of the successor in `/tmp/laidies-library-owner-corrected-20260823`. It is not a deployment or public verification.
