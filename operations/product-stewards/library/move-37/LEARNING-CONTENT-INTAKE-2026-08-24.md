@@ -5,12 +5,12 @@
 
 ## 1. Trigger and intended result
 
-- **Working title:** The Breakthroughs That Changed AI
+- **Working title:** The Breakthroughs That Changed Modern AI: 2000 to Today
 - **Trigger:** Ali idea
 - **Trigger source and date:** Direct conversation, 2026-08-24
-- **Intended learner:** A capable adult who uses or encounters AI but has never
-  been given a connected history of the moments that changed what the field
-  believed was possible.
+- **Intended learner:** A capable adult who uses or encounters modern AI but
+  has never been shown how the pivotal developments since 2000 connect, why
+  they astonished researchers, or what they made possible.
 - **Problem or question she brings:** Which AI breakthroughs actually mattered,
   why were AlphaGo and AlphaFold extraordinary, and what did researchers learn
   from moments such as Move 37?
@@ -33,7 +33,7 @@
 
 ## 2. Canonical concept ownership
 
-- **Canonical concepts:** AI research history; learning systems; evaluation;
+- **Canonical concepts:** Modern AI research history from 2000; learning systems; evaluation;
   search and planning; deep learning; transformers; generative models; AI for
   science; breakthrough evidence.
 - **Existing concept-map rows:** `AI history and named contributors`; `Pivotal
@@ -95,6 +95,23 @@ compare why the moments qualified or apply an explicit breakthrough test.
 same reader questions without becoming a repetitive class transcript: before,
 what changed, how it worked, how it was checked, why it mattered, what it did
 not prove, what came next and sources/recheck trigger.
+
+**Scope decision, 2026-08-24:** The narrative begins in the 2000s, when data,
+compute and improved training began converging into the modern AI era. A short
+prelude introduces only the older foundations the reader needs: programmed
+rules, learning from error and neural networks. The pre-2000 history is not
+presented as a compressed timeline. The main book uses substantial story-led
+chapters for the modern breakthroughs.
+
+**Ending decision, 2026-08-24:** The final chapter looks forward to AGI,
+superintelligence, increasingly autonomous agents and AI-accelerated science.
+It distinguishes definitions from predictions and current evidence from
+hypothetical capability. It must explain why the possibilities inspire both
+wonder and serious concern without implying inevitability or treating any
+company's preferred definition or timeline as settled fact. Sources include
+the Google DeepMind Levels of AGI framework, OpenAI's published charter
+definition and independent scholarly treatment of hypothetical
+superintelligence.
 
 ## 5. LIBRAiRY admission question
 

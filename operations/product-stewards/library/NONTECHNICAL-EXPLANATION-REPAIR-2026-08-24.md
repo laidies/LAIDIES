@@ -25,7 +25,7 @@ Every substantial concept must contain, in natural prose rather than a visible t
 5. **A faithful example or analogy:** only where it materially clarifies the mechanism; state where the mapping stops.
 6. **A return to consequence:** explain why the mechanism or relationship matters outside the definition.
 7. **A limitation:** make clear what the result, relationship or analogy does not establish.
-8. **A teach-back:** ask the reader to restate, sort, predict or apply the idea without copying the book’s vocabulary, then supply diagnostic feedback.
+8. **A reviewer teach-back:** outside the reader-facing prose, ask an unfamiliar reviewer to restate, sort, predict or apply the idea without copying the book’s vocabulary. The book itself must not display the test or an approved answer unless Ali explicitly chooses a workbook format.
 
 This is a Feynman-style comprehension test—plain explanation, exposed gaps and transfer—not a claim that Richard Feynman authored this exact modern checklist.
 
@@ -42,6 +42,9 @@ Reject:
 - “in plain English” followed by another technical abstraction;
 - analogy without a return to the real mechanism and its limit;
 - a quiz that tests vocabulary recall instead of explanation or transfer.
+- any repeated reader-facing quiz, diagnostic question, `check the idea`,
+  `try the distinction`, model answer or approval-shaped explanation. Test the
+  prose in review; do not turn the book into the review instrument.
 
 ## Hannah Fry communication gate
 
@@ -103,3 +106,56 @@ not already made concrete. Reject the proposed book architecture when fewer
 than four distinct domains or fewer than three historical eras receive named
 landmarks. A broad title requires an explicit selection rule, exclusions and a
 living watchlist so that "all" is not falsely implied.
+
+## Third false pass: famous-name and audit-prose failure
+
+Ali directly rejected the successor
+`d39f1b7ccb6d184961460c296fccb8189801689adbc4ce549c1d1c7b584c2e62`.
+It opened with AlphaGo, Move 37 and AlphaFold before explaining what any of
+them were, and it retained headings and paragraphs shaped like review prompts:
+`Check the idea`, `Try the distinction`, `Sort a modern assistant`, `Choose the
+answer key` and similar constructions.
+
+The beginner-reader contract now rejects:
+
+- any proper noun used as a hook before the reader knows whether it is a
+  person, company, model, experiment, event or product;
+- any claim that a result was astonishing before the reader knows the obstacle
+  and the observed change;
+- visible reviewer language, diagnostic labels or repeated question-and-answer
+  scaffolds in narrative prose;
+- an introduction that inventories coverage, defends completeness or explains
+  the book's process before giving the reader a story she cares about;
+- a chapter that could be mistaken for an audit report when read aloud.
+
+The successor must open from an ordinary experience, create one live question
+and introduce every unfamiliar name at first use. Diagnostic understanding
+still matters, but it is evaluated outside the book through unfamiliar-reader
+retelling and transfer. It must not appear as classroom questions followed by
+approved answers in the narrative.
+
+## Fourth false pass: timeline-without-explanation failure
+
+Ali directly rejected the successor
+`79cacb4e57683af9252607191d6213afa3b2e74d35365c0bff0009c8c127c747`.
+The artifact named roughly thirty landmarks in fewer than five thousand words.
+Its decade ranges and compressed survey paragraphs created a timeline, not a
+book that explains breakthroughs.
+
+A successor cannot advance when core landmarks receive only enough space to
+name the method and state a boundary. Each core chapter must tell a complete
+explanatory story:
+
+1. the human ambition or stubborn problem;
+2. what people had tried and why it failed;
+3. the people and work that changed the approach;
+4. the mechanism, link by link, from an ordinary starting point;
+5. the result that persuaded other people;
+6. what researchers learned and built next;
+7. where an ordinary reader now meets the consequence;
+8. the important limitation or unresolved argument.
+
+Organise the book around substantial breakthrough stories or tightly connected
+families, not decades. A chronology may orient the reader, but it cannot be the
+main explanatory form. Secondary milestones belong in connective passages or
+a back-of-book timeline; they must not crowd the central stories into summaries.

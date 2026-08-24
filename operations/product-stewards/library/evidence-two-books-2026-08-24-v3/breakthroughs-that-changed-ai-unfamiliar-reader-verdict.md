@@ -1,4 +1,6 @@
-# The Breakthroughs That Changed AI — artifact-first usability verdict
+# The Breakthroughs That Changed AI — artifact-first usability verdict (INVALIDATED)
+
+Status: **INVALIDATED BY DIRECT OWNER REJECTION**. The simulated review accepted checklist-shaped prose and assumed that famous system names supplied meaning. This verdict cannot admit prose.
 
 Verdict: **ADMISSION CANDIDATE**.
 

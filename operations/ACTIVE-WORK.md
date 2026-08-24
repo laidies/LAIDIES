@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIBRARY-TWO-LIVING-BOOKS-20260824
-- **Status:** BREAKTHROUGHS SUCCESSOR VERIFIED LOCALLY — WHO’S WHO LOCAL CANDIDATE ON HOLD — PUBLICATION HOLD
+- **Status:** BREAKTHROUGHS THIRD SUCCESSOR REJECTED — DEEP-CHAPTER REBUILD REQUIRED — PUBLICATION HOLD
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-24 America/Vancouver
-- **Goal:** Create two complete sourced living books: **The Breakthroughs That Changed AI** and **Who’s Who in AI: The companies, people and power behind the technology**.
+- **Goal:** Create two complete sourced living books: **The Breakthroughs That Changed Modern AI: 2000 to Today** and **Who’s Who in AI: The companies, people and power behind the technology**.
 - **Acceptance:** Each book has a distinct durable-reference job; a complete canonical source; current claim-to-primary-source evidence; explicit uncertainty and recheck triggers; a prevention-first producer contract; exact-prose producer review; role-distinct semantic and cold-reader review; deterministic rendering; scannable contents; responsive reader compatibility; and an additive integration plan that preserves the four publicly verified opening books. No book is called published, available or public without Ali's release approval and exact public verification.
-- **Current step:** `BREAKTHROUGHS SUCCESSOR VERIFIED LOCALLY AFTER SECOND FALSE PASS`. Ali directly rejected the Move 37 successor `5cbc3a9825185f83706e6d404d12901b7765633f59a0a3c785b23312ef6a2243`; its reviews remain invalidated. The rebuilt reader-facing book is now **The Breakthroughs That Changed AI**. A four-domain representative proof passed before full production. The final successor `d39f1b7ccb6d184961460c296fccb8189801689adbc4ce549c1d1c7b584c2e62` covers multiple eras and domains, carries 39 reader-visible sources and passed role-distinct whole-artifact accuracy/scope and non-technical comprehension reviews. Who’s Who remains a separate local text candidate on publication hold.
-- **Next action:** Complete observed unfamiliar-reader research, reconcile the newer live four-book release source, and commission/approve the cover and visual teaching layer before presenting an exact publication decision. Do not mark available or publish before Ali approves an exact release candidate and live verification passes.
+- **Current step:** `BREAKTHROUGHS MODERN-ERA REBUILD`. Ali rejected the broad-history successor for robotic checklist prose, unexplained famous names, insufficient wonder, shallow landmark summaries and a date order that moved backwards. All candidate hashes are hard-rejected. Ali then narrowed the reader-facing narrative to the 2000s onward. The new title is **The Breakthroughs That Changed Modern AI: 2000 to Today**. Pre-2000 material is limited to a short foundations prelude; the book will use substantial story-led chapters rather than timeline ranges. Who’s Who remains a separate local text candidate on publication hold.
+- **Next action:** Pass substantial Move 37 and AlphaFold chapter proofs for beginner comprehension, causal depth and earned wonder, then build the remaining modern-era chapters to the same standard. Observed unfamiliar-reader research, release reconciliation, cover and visual teaching remain later HOLD gates.
 
 ## Boundaries
 

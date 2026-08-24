@@ -1,4 +1,6 @@
-# The Breakthroughs That Changed AI — whole-artifact instructional verdict
+# The Breakthroughs That Changed AI — whole-artifact instructional verdict (INVALIDATED)
+
+Status: **INVALIDATED BY DIRECT OWNER REJECTION**. The exact artifact retained robotic audit scaffolding and opened with unexplained references to AlphaGo, Move 37 and AlphaFold—the very subjects the beginner book needed to introduce. This verdict cannot admit prose.
 
 Verdict: **PASS for the exact artifact** `d39f1b7ccb6d184961460c296fccb8189801689adbc4ce549c1d1c7b584c2e62`.
 
