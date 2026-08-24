@@ -58,7 +58,9 @@ destination supports it.
 ## Current implementation truth
 
 - `library.html` accepts a question and the Homepage hands one to
-  `/library.html#miss-jeeves?q=...`.
+  `/library.html#miss-jeeves?q=...`. The Library shows no canned question chips
+  and contains no browser-hardcoded answer table or client-side fallback index;
+  the visitor's own question goes through the governed service.
 - The governed compiler `scripts/build-miss-jeeves-index.mjs` produces
   `content/site/miss-jeeves-index.json` from the four admitted opening books
   and current site index. The current local artifact contains 652 records with

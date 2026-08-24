@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { validateLibraryKnownFailures } from './lib/library-known-failures.mjs';
 
 const assets = [
@@ -16,8 +17,8 @@ const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gra
 <style>/* CATALOGUE_ROUNDED_GRAMMAR_CONTRACT */.shelf-guide .eyebrow{border-radius:999px}.shelf-caption{border-radius:24px}.catalogue-controls{border-radius:24px}.catalogue-closet{justify-content:center;min-height:76px}.catalogue-closet[hidden]{display:none}.catalogue-closet strong{display:block}.shelf-guide input{border-radius:16px}/* LIBRARY_WALL_CROP_CONTRACT */.library-room-unit{background-image:linear-gradient(red,red),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-size:100% 100%,100% 100%,auto 6%;background-repeat:no-repeat,no-repeat,repeat-x}.library-room-unit[data-collection-room="0"]{--room-tint:pink}.library-room-unit[data-collection-room="1"]{--room-tint:cyan}.library-room-unit[data-collection-room="2"]{--room-tint:purple}.library-room-unit.is-compact-room{aspect-ratio:2.1/1}/* LIBRARY_SHELF_DEPTH_CONTRACT */.shelf-unit:not(.is-compact){bottom:-5%}.shelf-unit::after{z-index:5;background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png')}.shelf-unit.is-compact{bottom:0}.shelf-unit.is-compact::after{background:url('assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png')}.brow--1{bottom:65.3%}.brow--2{bottom:38.7%}.brow--3{bottom:12.2%}.shelf-unit.is-compact .brow--1{bottom:51.2%}.shelf-unit.is-compact .brow--2{bottom:13.7%}.bk img{transform:translateY(-3%)}</style><style>@media(max-width:700px){/* MOBILE_BOOK_VISIBLE_SIZE_CONTRACT */.library-room-unit{background-size:100% calc(100% - 60px),100% calc(100% - 60px),auto 60px}.mobile-shelf-caption{display:none}.department{z-index:6}.brow{height:27%;min-height:120px;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}.shelf-unit.is-compact .brow{height:22%;min-height:120px}.shelf-unit.is-compact .brow--1{bottom:60%}.shelf-unit.is-compact .brow--2{bottom:35%}.bk img{transform:translateY(-4%)}}</style>
 <style>@media(max-width:700px){.library-room-unit{background-size:100% 100%,100% 100%,auto 6%}.shelf-unit.is-compact .brow{height:35%;min-height:120px}.shelf-unit.is-compact .brow--1{bottom:65%}.shelf-unit.is-compact .brow--2{bottom:5%}.bk img{transform:translateY(-4%)}}</style>
 <script>/* BOOK_VISIBLE_SIZE_CONTRACT */const LIBRARY_CASE_ANCHOR_CONTRACT={};const BOOK_PREVIEW_CHOICE_CONTRACT={};/* CATALOGUE_QUIET_DEFAULT_CONTRACT */const catalogueHasActiveFilter=false;const visible={length:4};const compactClass=visible.length>0&&visible.length<=4?' is-compact':'';result.textContent=!catalogueHasActiveFilter?'':'1 book found.';function resetBookPreview(){};resetBookPreview(true);returnTarget.focus({preventScroll:true});</script>
-<!-- MISS_JEEVES_SUGGESTION_CONTRACT --><div class="jv-chips"><button>how do I write a better prompt?</button><button>what's a hallucination?</button><button>who built AI?</button><button>what is generative AI?</button></div>
-<script>const jeevesRoutes=[{id:'prompt-brief',sourceId:'ep-02'},{id:'hallucination-basics',sourceId:'ep-03'},{id:'women-built-ai',sourceId:'ep-04'},{id:'generative-ai-basics',sourceId:'concept-generative'}];const answer='<article data-answer-id="prompt-brief"><a data-source-id="ep-02"></a></article>';</script>
+<div class="jv-chips"></div>
+<script>const answer='<article data-answer-id="service-answer"><a data-source-id="governed-source"></a></article>';</script>
 <button id="book-preview-back">Back to the shelf</button><button>Open this book</button>
 <h1 id="library-title">The LIBR<span class="ai">Ai</span>RY</h1><small>Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.</small><p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p><a class="catalogue-closet" hidden><span id="library-saved-count"></span></a><script>const closet=output.closest('.catalogue-closet');closet.hidden=!count;</script><div class="shelf-guide-heading"></div><div class="shelf-captions"></div><script>section.books.filter(book=>book.listed!==false&&book.img).slice(0,3);const guide='<a class="shelf-caption" href="#library-shelf-\${sectionIndex}" data-shelf-jump="\${sectionIndex}"><div class="shelf-caption-art"></div></a>';const room='<div id="library-shelf-\${sectionIndex}"></div>';</script><p class="library-status sr-only" id="library-status"></p><div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1" data-book-count="1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
 
@@ -34,10 +35,8 @@ const fixtures = [
   [good.replace('Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.', 'Ask Miss Jeeves when you only know the question.'), 'ask-or-browse orientation'],
   [good.replace('aria-live="polite" hidden', 'aria-live="polite"'), 'Resident Card setup copy'],
   [good.replace('113,55,214', '65,209,227'), 'Miss Jeeves background'],
-  [good.replace('MISS_JEEVES_SUGGESTION_CONTRACT', 'REMOVED_JEEVES_SUGGESTION_CONTRACT'), 'bounded suggestion contract'],
-  [good.replace('who built AI?', 'how does AI work?'), 'broad Miss Jeeves suggestion'],
-  [good.replace('what is generative AI?', 'what is an LLM?'), 'required bounded Miss Jeeves suggestion'],
-  [good.replace("sourceId:'ep-04'", "sourceId:'missing-ep-04'"), 'deterministic answer/source route'],
+  [good.replace('<div class="jv-chips"></div>', '<div class="jv-chips"><button>how do I write a better prompt?</button></div>'), 'canned Miss Jeeves suggestion chips'],
+  [good.replace('const answer=', "const JEEVES_ANSWERS=[{id:'prompt-brief'}];const answer="), 'prompt-first or browser-hardcoded Miss Jeeves answer'],
   [good.replace('data-answer-id', 'data-answer-removed'), 'answer/source evidence attributes'],
   [good.replaceAll('assets/library/episode-01-pop-comic-bg-v1.png', 'assets/library/missing-comic.png'), 'pop-comic catalogue background'],
   [good.replace('#c7d7f5', '#19d3d1'), 'Library world gradient'],
@@ -78,6 +77,12 @@ const fixtures = [
 for (const [fixture, expected] of fixtures) {
   assert(validateLibraryKnownFailures(fixture).some(error => error.includes(expected)), `${expected} fixture must fail`);
 }
+
+const currentLibrary=fs.readFileSync('library.html','utf8');
+assert.doesNotMatch(currentLibrary,/how do i write a better prompt|\bbetter prompt\b|JEEVES_ANSWERS|id:\s*['"]prompt-brief['"]/i,'current Library must not restore prompt-first or browser-hardcoded Miss Jeeves answers');
+const currentChipBlock=currentLibrary.match(/<div class=["']jv-chips["'][^>]*>([\s\S]*?)<\/div>/i)?.[1]||'';
+assert.doesNotMatch(currentChipBlock,/<button\b/i,'current Library must not display canned Miss Jeeves question chips');
+assert.match(currentLibrary,/placeholder="Ask your question about AI or using it at work"/,'current Library must invite the visitor’s own ordinary-language question');
 
 console.log('LIBRARY KNOWN-FAILURE TEST PASS');
 console.log(`calibrated_reject_fixtures=${fixtures.length}`);

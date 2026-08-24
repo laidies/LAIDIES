@@ -45,26 +45,10 @@ export function validateLibraryKnownFailures(source) {
   if (!['239,77,156','113,55,214','101,209,227'].every(token => jeevesText.includes(token)) || !jeevesText.includes('assets/library/episode-01-pop-comic-bg-v1.png')) {
     errors.push('pink-purple-blue comic Miss Jeeves background is missing');
   }
-  const jeevesSuggestions = [
-    ['how do I write a better prompt?', 'prompt-brief', 'ep-02'],
-    ["what's a hallucination?", 'hallucination-basics', 'ep-03'],
-    ['who built AI?', 'women-built-ai', 'ep-04'],
-    ['what is generative AI?', 'generative-ai-basics', 'concept-generative']
-  ];
   const chipBlock = source.match(/<div class=["']jv-chips["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
-  if (!/MISS_JEEVES_SUGGESTION_CONTRACT/.test(source)) {
-    errors.push('Miss Jeeves bounded suggestion contract marker is missing');
-  }
-  if (/which AI do I use\?|how does AI work\?/i.test(chipBlock)) {
-    errors.push('rejected broad Miss Jeeves suggestion remains visible');
-  }
-  for (const [question, answerId, sourceId] of jeevesSuggestions) {
-    if (!chipBlock.includes(`>${question}</button>`)) {
-      errors.push(`required bounded Miss Jeeves suggestion is missing: ${question}`);
-    }
-    if (!source.includes(`id:'${answerId}'`) || !source.includes(`sourceId:'${sourceId}'`)) {
-      errors.push(`Miss Jeeves suggestion lacks its deterministic answer/source route: ${question}`);
-    }
+  if (/<button\b/i.test(chipBlock)) errors.push('canned Miss Jeeves suggestion chips remain visible');
+  if (/how do i write a better prompt|\bbetter prompt\b|JEEVES_ANSWERS|id:\s*['"]prompt-brief['"]/i.test(source)) {
+    errors.push('rejected prompt-first or browser-hardcoded Miss Jeeves answer remains');
   }
   if (!/data-answer-id=/.test(source) || !/data-source-id=/.test(source)) {
     errors.push('Miss Jeeves answer/source evidence attributes are missing');

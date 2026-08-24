@@ -725,17 +725,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
     </div>
     <form class="jv-form">
-      <input id="jv-q" type="text" autocomplete="off" placeholder="e.g. how do I know if it's telling the truth?" aria-label="Ask Miss Jeeves a question">
+      <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
     </form>
-    <!-- MISS_JEEVES_SUGGESTION_CONTRACT: bounded question + deterministic answer/source route -->
-    <div class="jv-chips">
-      <b>Try:</b>
-      <button class="jv-chip" type="button">how do I write a better prompt?</button>
-      <button class="jv-chip" type="button">what's a hallucination?</button>
-      <button class="jv-chip" type="button">who built AI?</button>
-      <button class="jv-chip" type="button">what is generative AI?</button>
-    </div>
     <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
   </section>
 
@@ -1023,10 +1015,6 @@ function previewBook(id,trigger=null){
 }
 
 /* ── Ask Miss Jeeves ── */
-let IDX=[];
-let jeevesIndexState='loading';
-let jeevesIndexLoad=null;
-const MIN_SITE_INDEX_VERSION='2026-07-09';
 const INDEX_LIBRARY_BOOKS=Object.freeze({
  'ref-verification':'how-to-check',
  'ref-straight-answers':'straight-answers',
@@ -1053,119 +1041,6 @@ function safeIndexDestination(entry){
  try{url=new URL(entry.url,location.origin);}catch(error){return null;}
  return url.origin===location.origin?{kind:'url',url:url.pathname+url.search+url.hash}:null;
 }
-function validSiteIndex(data,responseUrl){
- if(responseUrl!==new URL('/content/site/site-index.json',location.origin).href||
-    !data||typeof data!=='object'||!data._meta||
-    typeof data._meta.version!=='string'||data._meta.version<MIN_SITE_INDEX_VERSION||
-    !Array.isArray(data.entries))return null;
- const ids=new Set();
- const entries=[];
- for(const entry of data.entries){
-   if(!entry||typeof entry!=='object'||typeof entry.id!=='string'||ids.has(entry.id)||
-      typeof entry.title!=='string'||typeof entry.url!=='string'||
-      typeof entry.type!=='string'||!/^[a-z0-9-]+$/.test(entry.type)||
-      !Array.isArray(entry.aliases)||!Array.isArray(entry.topics))return null;
-   ids.add(entry.id);
-   const destination=safeIndexDestination(entry);
-   if(destination)entries.push(Object.freeze({...entry,destination}));
- }
- return Object.freeze(entries);
-}
-function renderJeevesIndexError(query){
- const box=document.getElementById('jv-results');
- box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the Library right now. Your question is still here.</p><button type="button" id="jv-retry">Try the Library again</button></section>`;
- const retry=document.getElementById('jv-retry');
- retry.addEventListener('click',()=>{
-   retry.disabled=true;
-   loadJeevesIndex(true).then(()=>jvSearch(query));
- },{once:true});
-}
-function loadJeevesIndex(force=false){
- if(jeevesIndexLoad&&!force)return jeevesIndexLoad;
- if(force&&jeevesIndexState==='loading'&&jeevesIndexLoad)return jeevesIndexLoad;
- jeevesIndexState='loading';
- jeevesIndexLoad=fetch('/content/site/site-index.json',{credentials:'same-origin',redirect:'error',cache:'no-store'})
-  .then(r=>{if(!r.ok)throw new Error('index unavailable');return r.json().then(data=>({data,url:r.url}));})
-  .then(({data,url})=>{const entries=validSiteIndex(data,url);if(!entries)throw new Error('index invalid');IDX=entries;jeevesIndexState='ready';return entries;})
-  .catch(()=>{
-    IDX=[];jeevesIndexState='error';
-    return null;
-  })
-  .finally(()=>{jeevesIndexLoad=null;});
- return jeevesIndexLoad;
-}
-loadJeevesIndex();
-const JEEVES_ANSWERS=[
-  {
-    id:'how-ai-works',
-    match:q=>/\bhow\b.*\b(ai|artificial intelligence)\b.*\b(work|works|working)\b|\bwhat is ai\b/.test(q),
-    title:'AI predicts what should come next from patterns it learned during training.',
-    answer:'During training, the system studies many examples and adjusts a large set of numerical settings so it becomes better at predicting the next useful piece of an answer. When you ask a question, it builds a response one piece at a time from those learned patterns. That is why it can explain and draft convincingly, but can also produce an answer that sounds right without being true.',
-    links:[
-      {label:'Open AI Fundamentals 101',book:'ai-fundamentals-101',heading:'Chapter 1 — The complete AI system'},
-      {label:"See how to check AI's work",book:'how-to-check',heading:'Ask for receipts'}
-    ]
-  },
-  {
-    id:'ai-and-jobs',
-    match:q=>/\b(will|could|can)\b.*\bai\b.*\b(job|work|career)\b|\bai\b.*\b(take|replace|steal)\b.*\b(job|work)\b/.test(q),
-    title:'Not wholesale. The measured change is concentrated—and the forecast is still unsettled.',
-    answer:'Stanford’s August 2026 update found a 19% relative employment shortfall for workers aged 22–25 in the most AI-exposed occupations, concentrated in reduced hiring rather than a broad firing wave. That is descriptive, not proof that AI caused the whole change. Your useful question is which tasks in your role are exposed, which require judgment, and where new work is appearing.',
-    links:[
-      {label:'Open the sourced Jobs & Work answers',book:'straight-answers',heading:'Jobs & Work'},
-      {label:'Learn what AGI claims actually mean',book:'ai-fundamentals-101',heading:'AGI: a disputed definition'}
-    ]
-  },
-  {
-    id:'choose-ai-for-the-job',
-    match:q=>/\b(which|what)\b.*\b(ai|tool|model)\b.*\b(use|choose|pick|best)\b|\bwhich ai\b/.test(q),
-    title:'Choose for the job, not by one “best AI.”',
-    answer:'Start with the task. Use an all-rounder for everyday drafting and thinking, a source-led research tool when the answer must come with evidence, and the assistant built into your work suite when the job lives inside those apps. Then give two tools the same real task and keep the one whose output you can actually use and verify.',
-    links:[
-      {label:"Open Who's Who in AI",book:'whos-who',heading:'Which one for which job'},
-      {label:'Learn how products, models and tools differ',book:'ai-fundamentals-101',heading:'AI system, product, model and tool'}
-    ]
-  },
-  {
-    id:'prompt-brief',
-    match:q=>/\b(write|make|improve|fix)\b.*\b(prompt|instruction)\b|\bbetter prompt\b|\bhow do i ask\b/.test(q),
-    title:'Brief it like a smart new hire.',
-    answer:'Give the AI the context a capable stranger would need: <strong>who this is for, what the result must do, the tone, the length, what to avoid, and one example you already like.</strong> A better prompt is not magic wording; it is a clearer handover.',
-    links:[
-      {label:'Open Briefing 101',book:'briefing-101',heading:'Brief in five parts'},
-      {label:'Watch the prompting episode',url:'/issues/issue-02.html',sourceId:'ep-02'}
-    ]
-  },
-  {
-    id:'hallucination-basics',
-    match:q=>/\bhallucinat|\b(ai|it)\b.*\b(make|made|making|invent|invented)\b.*\b(up|facts?|sources?)\b|\bhow do i know\b.*\b(true|truth|trust)\b|\btelling (me )?the truth\b/.test(q),
-    title:'A hallucination is a confident made-up answer.',
-    answer:'The AI generates a plausible response but does not automatically know whether every claim is true. The fix is practical: give it the source when you can, turn on search when freshness matters, ask it to show its evidence, and click the source before you rely on the answer.',
-    links:[
-      {label:"Open How to Check AI's Work",book:'how-to-check',heading:'Ask for receipts'},
-      {label:'See the verification episode',url:'/issues/issue-03.html',sourceId:'ep-03'}
-    ]
-  },
-  {
-    id:'women-built-ai',
-    match:q=>/\bwho built ai\b|\bwho (made|invented) ai\b|\bwomen built ai\b|\bwas ai built by women\b/.test(q),
-    title:'AI was built over generations—and women were central to its major leaps.',
-    answer:'There was no single inventor of AI. Computing and AI developed over nearly two centuries through many people’s work. Women including Ada Lovelace, the ENIAC Six, Grace Hopper, Karen Spärck Jones and Fei-Fei Li made major advances in programming, language search and modern machine learning.',
-    links:[
-      {label:'Read The Founding Mothers',url:'/issues/issue-04.html',sourceId:'ep-04'}
-    ]
-  },
-  {
-    id:'generative-ai-basics',
-    match:q=>/\bwhat is generative ai\b|\bgen(?:erative)? ai meaning\b|\bai that (writes|creates|makes)\b/.test(q),
-    title:'Generative AI creates new content from learned patterns.',
-    answer:'You give it an instruction and it produces text, images, audio, video or code by predicting a fitting result from patterns learned during training. It is not simply looking up a stored answer, so fluent output can still be wrong and needs checking.',
-    links:[
-      {label:'Open the AI Dictionary',book:'ai-dictionary',heading:'Generative AI'}
-    ]
-  }
-];
-const SEARCH_STOPWORDS=new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','important','in','is','it','me','my','of','on','or','should','so','take','the','to','use','what','which','why','will','with','you']);
 function normalizeJeevesQuery(q){
   return (q||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/\bwhat's\b/g,'what is').replace(/[?!.]+$/,'');
 }
@@ -1173,19 +1048,6 @@ function escapeJeevesText(value){
  return String(value||'').replace(/[&<>"']/g,char=>({
    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
  }[char]));
-}
-function renderJeevesAnswer(intent){
-  const links=intent.links.map(link=>link.book
-    ? (bookIsAvailable(ALL[link.book])
-      ? `<button type="button" data-open-book="${escapeJeevesText(link.book)}" data-open-heading="${escapeJeevesText(link.heading)}">${link.label}</button>`
-      : `<span class="jv-held">${link.label} · ${bookVisitorStatus(ALL[link.book])}</span>`)
-    : `<a href="${link.url}"${link.sourceId?` data-source-id="${escapeJeevesText(link.sourceId)}"`:''}>${link.label}</a>`).join('');
-  return `<article class="jv-answer" data-answer-id="${escapeJeevesText(intent.id||'curated-answer')}">
-    <span class="jv-answer-kicker">Miss Jeeves says</span>
-    <h3>${intent.title}</h3>
-    <p>${intent.answer}</p>
-    <div class="jv-answer-links"><b>Go deeper</b>${links}</div>
-  </article>`;
 }
 function renderJeevesService(payload,query){
   const box=document.getElementById('jv-results');
@@ -1236,9 +1098,6 @@ async function askMissJeeves(value){
   const normalized=normalizeJeevesQuery(query);
   const box=document.getElementById('jv-results');
   if(!normalized){box.innerHTML='';document.getElementById('jv-q').focus();return;}
-  const curated=JEEVES_ANSWERS.find(item=>item.match(normalized));
-  if(curated){box.innerHTML=renderJeevesAnswer(curated);return;}
-  if(location.protocol==='file:'){jvSearch(query);return;}
   const requestId=++jeevesServiceRequest;
   box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
   try{
@@ -1255,56 +1114,15 @@ async function askMissJeeves(value){
     if(requestId===jeevesServiceRequest)renderJeevesServiceError(query);
   }
 }
-function jvSearch(q){
-  q=normalizeJeevesQuery(q);
-  const box=document.getElementById('jv-results');
-  if(!q){box.innerHTML='';return;}
-  const intent=JEEVES_ANSWERS.find(item=>item.match(q));
-  if(intent){box.innerHTML=renderJeevesAnswer(intent);return;}
-  if(jeevesIndexState==='loading'){
-    box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the Library…</p>';
-    loadJeevesIndex().then(()=>jvSearch(q));
-    return;
-  }
-  if(jeevesIndexState==='error'){renderJeevesIndexError(q);return;}
-  const toks=q.split(/\s+/).map(t=>t.replace(/[^a-z0-9-]/g,'')).filter(t=>t.length>1&&!SEARCH_STOPWORDS.has(t));
-  const scored=IDX.map(e=>{
-    const title=(e.title||'').toLowerCase();
-    const aliases=(e.aliases||[]).map(a=>a.toLowerCase());
-    const hay=[title,(e.summary||''),(e.topics||[]).join(' '),aliases.join(' ')].join(' ').toLowerCase();
-    const wordSet=new Set(hay.split(/[^a-z0-9-]+/).filter(Boolean));
-    const titleWords=new Set(title.split(/[^a-z0-9-]+/).filter(Boolean));
-    let sc=0;
-    aliases.forEach(a=>{if(a===q)sc+=10; else if(a.includes(q)||q.includes(a))sc+=6;});
-    if(title.includes(q))sc+=5;
-    toks.forEach(t=>{ if(wordSet.has(t)) sc+=(titleWords.has(t)?3:1); });
-    if(e.status==='coming')sc-=0.5;
-    return {e,sc};
-  }).filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,6);
-  if(!scored.length){box.innerHTML=`<p class="jv-none">Miss Jeeves checks the Library… nothing filed under that yet. Try “what is generative AI?” or “what's a hallucination?”</p>`;return;}
-  box.innerHTML=scored.map(({e})=>e.destination.kind==='book'
-  ? `<button type="button" class="jv-card" data-open-book="${escapeJeevesText(e.destination.bookId)}" data-open-heading="${escapeJeevesText(e.destination.heading||'')}">
-     <span class="jv-type jv-${e.type}">${escapeJeevesText(e.type)}</span>
-     <span class="jv-t">${escapeJeevesText(e.title)}</span>
-     <span class="jv-s">${escapeJeevesText(e.summary)}</span></button>`
-   : `<a class="jv-card" href="${e.destination.url}">
-     <span class="jv-type jv-${e.type}">${escapeJeevesText(e.type)}</span>
-     <span class="jv-t">${escapeJeevesText(e.title)}${e.status==='coming'?' · <em style="font-style:normal;color:#b06">soon</em>':''}</span>
-     <span class="jv-s">${escapeJeevesText(e.summary)}</span></a>`).join('');
-}
 document.querySelector('.jv-form').addEventListener('submit',event=>{
  event.preventDefault();
  askMissJeeves(document.getElementById('jv-q').value);
 });
-document.getElementById('jv-q').addEventListener('input',e=>jvSearch(e.target.value));
 document.getElementById('jv-results').addEventListener('click',event=>{
  const control=event.target.closest('[data-open-book]');
  if(!control)return;
  openBook(control.dataset.openBook,control.dataset.openHeading||'');
 });
-document.querySelectorAll('.jv-chip').forEach(c=>c.addEventListener('click',()=>{
-  document.getElementById('jv-q').value=c.textContent;askMissJeeves(c.textContent);document.getElementById('jv-q').focus();
-}));
 
 function renderShelfCopy(b,txt,toc,fallback){
   txt.innerHTML=fallback||b.body||'<p>This book is still being written.</p>';
