@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIBRARY-EXPERIENCE-REPAIR-20260823
-- **Status:** DEPLOYED / PUBLICLY VERIFIED — PASSIVE MEASUREMENT OFF
+- **Status:** DEPLOYED / PUBLICLY VERIFIED
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-23 America/Vancouver (successor publicly verified 2026-08-24T06:00:24Z)
 - **Goal:** Repair the public LIBRAiRY experience around the four opening books, use Ali's supplied wide masthead composition at a shorter height with a bright in-palette wall treatment, restore the pop-art section backgrounds, and finish the authoritative Miss Jeeves service honestly.
 - **Acceptance:** The masthead preserves Miss Jeeves, the computers, staircase/shelves, desk and useful carpet detail without a black inset; the heading is exactly “Browse all books”; exactly four prominent individual covers appear in one desktop/compact row with no shelf/case/wall/category boxes; cover → information → Open works on desktop/mobile; Miss Jeeves retrieves only current governed material, accepts explicit consent-based topic requests with receipts/status and remains truthful when passive measurement is off.
-- **Current step:** Production source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c` and Cloudflare deployment `136bbe5a-e974-4225-80f2-70da06b9541a` are public. Both origins passed 17/17 exact fetchable-byte checks, healthy catalogue/D1 service, all four grounded common-question routes, private-content and no-consent rejection, one-request idempotent topic-request submit/replay/status/editorial-decline lifecycle, and fail-closed `measurement_off` result-open behavior. The D1 database, AI binding and keyed digest secret are active. Analytics Engine collection is not active: the account feature and exact dataset exist, but Pages still rejects the binding.
-- **Next action:** Keep passive demand claims at `UNKNOWN` while measurement is off. A later provider-integration task may retry the exact `MISS_JEEVES_SIGNALS` Pages binding and must prove delivery before changing that status; it does not block the truthful current Library or Miss Jeeves service.
+- **Current step:** The owner-corrected Library and operational Miss Jeeves service are public. Both origins passed exact bytes, healthy catalogue/D1 service, all four grounded common-question routes, private-content and no-consent rejection, one-request idempotent topic-request submit/replay/status/editorial-decline lifecycle, and controlled aggregate delivery. The D1 database, AI binding, keyed digest secret and Analytics Engine dataset are active. A live SQL query returned the controlled result-open record with no raw question or identity.
+- **Next action:** Do not infer demand or motives from isolated aggregate rows. The next Miss Jeeves work is ordinary editorial operation: review explicit receipts, monitor source health and produce a bounded aggregate report only when volume is meaningful.
 
 ## Boundaries
 

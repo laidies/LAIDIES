@@ -1,6 +1,6 @@
 # Miss Jeeves privacy-safe measurement contract
 
-**Status:** endpoints deployed and publicly verified; live aggregate collection off
+**Status:** deployed, publicly verified and delivering controlled aggregates
 **Owner boundary:** Library owns the visitor interaction; Platform owns transport,
 retention, access and source health; Audience interprets aggregates; content and
 building owners decide what to change.
@@ -20,7 +20,7 @@ an action. It never automatically publishes, rewrites, ranks or retires content.
 
 ## Allowed events
 
-### `miss_jeeves_answer_outcome` — locally implemented
+### `miss_jeeves_answer_outcome` — deployed
 
 One record for every valid submitted question, including unavailable outcomes.
 This is the submission denominator.
@@ -33,12 +33,13 @@ This is the submission denominator.
 - `result_count`
 - `source_health`
 
-### `miss_jeeves_result_open` — deployed; sink remains off
+### `miss_jeeves_result_open` — deployed
 
 One record when a visitor opens a recommended result. It may include only the
 same schema, placement, outcome and topic fields plus one admitted `source_id`
-and its controlled destination type. The deployed endpoint returns
-`measurement_off` and writes nothing while `MISS_JEEVES_SIGNALS` is unbound.
+and its controlled destination type. The deployed endpoint returns `recorded`
+when the event is accepted and `measurement_off` without failing navigation if
+the binding is unavailable.
 
 ## Data that is prohibited
 
@@ -58,7 +59,7 @@ call.
 
 ## Retention and access
 
-- Event-level privacy-safe rows: maximum 90 days.
+- Event-level privacy-safe rows: Cloudflare's fixed three-month retention.
 - Daily aggregate counts by schema, placement, outcome, topic and source: maximum
   25 months, allowing year-over-year comparison.
 - Access: Platform operations for source health; Audience for aggregate analysis;
@@ -89,19 +90,20 @@ Before collection is enabled:
    reach the event sink.
 5. Public-origin testing proves answers continue working when measurement fails.
 
-Until then, `MISS_JEEVES_SIGNALS` remains unbound and collection is off.
+If any prerequisite fails in a successor, remove `MISS_JEEVES_SIGNALS` and let
+the public endpoints return `measurement_off`; answers and navigation continue.
 
 ## Current production evidence — 2026-08-24 UTC
 
 - The Library and Privacy page, health route, answer route and result-open route
   are deployed at source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`.
 - Both the immutable deployment and `laidies.ai` report
-  `aggregate_measurement: off`; result-open returns HTTP 202 with
-  `measurement_off`.
-- The Cloudflare account feature and dataset
-  `laidies_miss_jeeves_signals_v1` were created, but Pages still rejected the
-  Analytics Engine binding. No aggregate record is claimed until a successor
-  deployment accepts the binding and a delivery query is verified.
+  `aggregate_measurement: available`; result-open returns HTTP 202 with
+  `recorded`.
+- The Cloudflare account feature, dataset
+  `laidies_miss_jeeves_signals_v1` and Pages binding are active. An Analytics
+  Engine SQL query returned the controlled result-open record with topic,
+  placement, source ID, health and count and no raw question or identity.
 - Consent-based topic requests are a separate D1 workflow, not passive
   measurement. One labelled release fixture passed submit, cross-origin replay,
   receipt/status and editorial decline with exactly one stored request.

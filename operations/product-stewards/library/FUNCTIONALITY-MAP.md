@@ -31,7 +31,7 @@ Current source is implementation evidence; `EXPERIENCE-BRIEF.md` and
 | Cross-building continuations | Follow issue/High/NewsStand/FAiRY route | Reach admitted destination and useful handback | Some issue/index links exist; no complete handback registry | PARTIAL/INFERRED; P1 gap |
 | Retired Grimoire routes | Visit old AI-handbook URL | Redirect to current Library without treating legacy as current | Redirects documented; stale links remain | OBSERVED; migration incomplete |
 | Correction/report route | Find an exact error | Submit location-specific correction with receipt/status | Same-origin correction endpoint and D1 receipt/status ledger are deployed; full downstream correction propagation remains editorial work | DEPLOYED backend; propagation lifecycle not fully proved |
-| Aggregate analytics | Ask/search/save/reopen/remove | Privacy-safe outcome evidence | Miss Jeeves worker and result-open endpoint have an optional controlled-ID signal boundary; public disclosure is deployed; production Analytics Engine binding remains off | PUBLICLY VERIFIED OFF; no collection or delivery claim |
+| Aggregate analytics | Ask or open a Miss Jeeves result | Privacy-safe outcome evidence | Miss Jeeves worker and result-open endpoint send controlled IDs/counts through the production Analytics Engine binding | DEPLOYED / PUBLICLY VERIFIED; delivery query PASS |
 
 ## Visitor-state recognition and continuity
 
@@ -69,14 +69,14 @@ Required transition verdicts:
 | Book catalogue/status | Editorial owner changes frozen record after admission evidence | `SECTIONS`, `ALL`, `admittedBook()` in `library.html` | None | Frozen page record plus `ADMITTED_BOOK_SOURCES` | Desktop/mobile browse, Miss Jeeves, hash opener | Public artifact | Four opening books are admitted, deployed and publicly verified |
 | Rendered admitted book | Editorial build produces exact file | `openBook()` fetch/parser/reader | Static hosting | Explicit `/content/library-books/rendered/<id>.html` pairing | Reader, contents, section saver | Public artifact | AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary open publicly with exact source pairing |
 | Miss Jeeves answer | Visitor asks from Homepage or Library | Common questions or typed input plus `/api/miss-jeeves` client | Pages `_worker.js`; Workers AI binding | Current admitted catalogue plus published Daily/Study Pack records; no raw-query store | Library/Homepage visitor; exact town routes | Request only; passive signal excludes raw wording | Grounded AI, fallback and exact four-question route suite publicly verified at both origins |
-| Miss Jeeves learning signal | Completed answer outcome or result open | Same request placement/outcome | Optional Analytics Engine binding | Controlled placement/outcome/topic/source IDs | Product owner/Control Room | Aggregate only | Boundary/no-raw-query tests pass; production binding is off and endpoints report `measurement_off` |
+| Miss Jeeves learning signal | Completed answer outcome or result open | Same request placement/outcome | Analytics Engine binding | Controlled placement/outcome/topic/source IDs | Product owner/Control Room | Aggregate only | Boundary/no-raw-query tests and production delivery query pass; fixed provider retention is three months |
 | Reader state | Cover/hash/Miss Jeeves opens admitted ID | Inline reader modal | Static source fetch | DOM/history hash | Current page and Puffy decorator | Session/history only | Four opening books and exact-section routes are deployed and publicly verified |
 | Puffy board record | Reader save after sticker choice | `content/site/puffy-bookmarks.js` | None | `localStorage['laidies_puffies_board']` canonical record | Library saved control; Closet board; reopen route | Browser/device only, anonymous | Read-verified local round trip |
 | Puffy pouch | Closet selection/purpose change | Shared Puffy script | None | `localStorage['laidies_puffy_sticker_pouch']` | Library picker; Closet pouch/board | Browser/device only, anonymous | Read-verified local round trip |
 | Resident Card | MAiKEOVER/Closet, outside Library | Resident Card/Closet modules | Possible Supabase paths elsewhere are not Library proof | Device-local Card envelope; separately possible auth session | Closet shell only; Library saves do not sync | Device or separately verified account | No Library signed-in behavior |
 | Library correction | Reader identifies exact error | Compact contextual Report issue control | Pages `_worker.js` correction endpoint | D1 correction event/payload/status tables | Editorial correction workflow; downstream consumers still require adjudication | Explicit submitted correction only | Intake, receipt/status, idempotency and private-field denial implemented; full propagation remains open |
 | Miss Jeeves topic request | Visitor explicitly consents after inadequate coverage | Topic-request panel and public receipt/status | Pages `_worker.js`; D1 | Event, 30-day payload vault, HMAC aggregate, status-event and rate-window tables | Editorial CLI and public status endpoint | Explicit submitted text only; no identity | Public submit, cross-origin replay, status and editorial decline verified with one labelled fixture |
-| Library analytics outcome | Controlled Miss Jeeves outcome | Worker adapter; other Library events missing | Analytics Engine dataset exists but Pages binding is rejected | Controlled IDs/categories only | Product owner/Control Room | Aggregate | Fail-closed endpoint publicly verified; collection and delivery remain off |
+| Library analytics outcome | Controlled Miss Jeeves outcome | Worker adapter; other Library events missing | Analytics Engine dataset and Pages binding | Controlled IDs/categories only | Product owner/Control Room | Aggregate | Miss Jeeves answer/result-open delivery is publicly verified; broader Library measurement remains outside this backend |
 
 ## 4. End-to-end transaction contract
 
@@ -111,8 +111,8 @@ retrieval → optional grounded synthesis or deterministic fallback → bounded 
   analytics/logs/session replay.
 - **Measurement contract:** `MISS-JEEVES-MEASUREMENT-CONTRACT.md` defines the
   decision jobs, controlled taxonomy, event denominator, prohibited data,
-  retention/access limits and fail-closed production prerequisites. The local
-  outcome event exists behind an optional binding; live collection remains off.
+  retention/access limits and fail-closed production prerequisites. The
+  production binding and controlled delivery query are verified.
 - **Failure:** unavailable, malformed or stale index input now fails closed with
   an accessible retry that preserves the in-page query. Native AT/browser-family
   proof remains open.
@@ -163,7 +163,7 @@ Library rechecks admission → remove → local write/read-back → repaint`
 | No Puffy account sync | Cleared/other-device saves absent | Versioned account store, migration, merge/conflict/revoke/delete/RLS | Identity + saves/Closet | Library saves + MAiKEOVER | New schema/API; shared script; Closet | Two accounts/devices, migration/merge/logout/revoke/RLS/offline/idempotency | BUILD BEFORE LAUNCH |
 | Cross-tab browser-state proof | Native/browser-family behavior is still not independently witnessed | No product backend: retain the shared `storage` adapter and add native/browser-family evidence when release-bound | Saves/Closet | Library + MAiKEOVER | `puffy-bookmarks.js` | Chromium create/update/remove and visitor-state refresh PASS; native/browser-family witness remains | VERIFIED LOCALLY; no sync/ownership claim |
 | No explicit schema version | Future change risks destructive recovery | Versioned local schema/reversible migration | Saves/Closet | Library saves | Shared script; optional IndexedDB only after approval | Legacy migration, rollback and denial fixtures | P1 before schema change |
-| Passive analytics binding unavailable | Outcome collection is off, so no demand claims can be made | Make the existing Analytics Engine dataset bind successfully to Pages, then query controlled events and verify retention/access | Analytics | Library | `MISS_JEEVES_SIGNALS`; `laidies_miss_jeeves_signals_v1` | No raw query/title/purpose/text; production delivery proof | HELD/OFF; does not block the truthful unmeasured service |
+| Aggregate interpretation/reporting | Controlled events exist but do not explain motives or prove unique people | Produce a bounded aggregate report only when volume is meaningful; retain no raw wording or identity | Analytics | Library | `MISS_JEEVES_SIGNALS`; `laidies_miss_jeeves_signals_v1` | Counts/outcomes/source health with no prohibited data or automatic content decision | P1; collection is live, interpretation remains owner work |
 | Incomplete handbacks | Dependent journeys may not return | Shared deep-link/return registry | Cross-page navigation | Library + consumers | Hashes and affected specs/routes | Complete dependent journey returns to valid exact reference | P1 |
 
 ## 7. Shared-contract collision check

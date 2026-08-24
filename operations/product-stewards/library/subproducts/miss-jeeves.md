@@ -1,7 +1,7 @@
 # Miss Jeeves subproduct dossier
 
-**Status:** **OPERATIONAL BACKEND DEPLOYED / PUBLICLY VERIFIED / PASSIVE
-AGGREGATE COLLECTION OFF**
+**Status:** **OPERATIONAL BACKEND AND CONTROLLED AGGREGATES DEPLOYED /
+PUBLICLY VERIFIED**
 **As of:** 2026-08-24 UTC
 
 ## Product job
@@ -81,10 +81,10 @@ destination supports it.
   published common questions.
 - The optional aggregate signal path writes only controlled topic, outcome and
   source IDs when `MISS_JEEVES_SIGNALS` exists. Public disclosure and the
-  fail-closed result-open endpoint are deployed, but the production Analytics
-  Engine binding is still off because Pages continued to reject it after the
-  account feature and exact dataset were enabled. Live calls return
-  `measurement_off`; there is no passive collection or operating report.
+  fail-closed result-open endpoint are deployed. The production Analytics
+  Engine binding and dataset `laidies_miss_jeeves_signals_v1` are active; a
+  live SQL query returned the controlled result-open record without raw wording
+  or identity. Cloudflare's fixed retention is three months.
 - `POST /api/miss-jeeves/topic-request` is the explicit consent-only content-gap
   intake. D1 stores a public receipt/status lifecycle, controlled metadata,
   HMAC-keyed deduplication and a 30-day free-text payload vault. The editorial
@@ -188,8 +188,8 @@ deduplication cases. Independent review still judges answer usefulness,
 factual/source fidelity, route relevance, distinction among learning jobs,
 LAiDIES voice, keyboard/mobile/assistive behavior and visible design. Production
 AI binding, D1 lifecycle, privacy rejection, deterministic fallback, exact
-public bytes and both public origins are verified; passive aggregate delivery
-remains off and unverified.
+public bytes, both public origins and controlled aggregate delivery are
+verified.
 
 Build authority:
 `BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.
