@@ -625,3 +625,28 @@ imagery, icons or visual systems.
 No whole-page visual candidate may reach Ali until the repository design-review
 admission gate has been calibrated to reject the known failed candidate and the
 exact candidate passes desktop/mobile maker inspection.
+
+### 2026-08-23 owner correction — corrected-11 Method, header and section composition
+
+- Ali rejected the corrected-11 owner-review artifact after direct inspection.
+  Its earlier internal `ADMIT` is invalid. It may not be treated as owner
+  approval, a visual source or a production candidate.
+- The Episode 01 work still is not a generic LAiDIES Method image. Do not bind
+  `assets/episodes/issue-01/episode-01-inline-article-image.jpg` or the retired
+  Homepage copy `assets/homepage/method-reference-v1.jpg` to the Method section.
+- The Method needs an unmistakable section title, one meaning-bearing image and
+  a compact responsive composition. A giant equal split, an image with no
+  clear Method job, an untitled panel, an image-free text block or the rejected
+  five-tile collage fails before owner review.
+- Preserve the approved Method explanation verbatim. Do not invent replacement
+  prose to make a new composition fit.
+- The women-and-AI section may not return to a white card, white page or blank
+  two-column composition. Use a coherent image-led sequence and a saturated
+  pop-art surface with the existing purpose and calls to action intact.
+- `Direct destinations and optional discovery` is rejected Homepage language.
+  The map section label must describe the actual control: town map and building
+  directory.
+- The shared header keeps the canonical `LAiDIES` spelling and `Ai` accent,
+  with the dot correctly attached to the `i`. Links come from the canonical
+  header system and use one coherent hierarchy; do not replace them with an
+  arbitrary route set or render every control as a different square box.

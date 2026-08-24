@@ -14782,3 +14782,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Corrected-11 removes device-local episode resume, keeps the truthful eight-stop browser-local route check-ins, restores the full owner-directed page hierarchy and passes the calibrated device-resume rejection fixture. Direct Chrome captures at desktop, intermediate and mobile sizes show zero overflow, broken images, page errors or unequal route cards; an independent pixel review admits the exact candidate with zero visible regressions or locked-decision violations.
 - **Possible Behind the Build angle:** Why “remember where I left off” is an account architecture decision, not a line of friendly Homepage copy.
 - **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / ADMITTED FOR OWNER REVIEW / NOT DEPLOYED.
+
+## BTB-489 — A generic episode still cannot stand in for the LAiDIES Method
+
+- **Date:** 2026-08-23
+- **Area:** Homepage Method identity, section composition and design admission.
+- **Failure:** Corrected-11 reused an Episode 01 work still as the LAiDIES Method image, omitted an unmistakable section title and placed the image beside an oversized disconnected copy panel. The same candidate returned the women-and-AI section to a white card with blank space, exposed internal map-language and let one-off header overrides replace the canonical hierarchy.
+- **Root cause:** The producer bound an available image by mood rather than by the Method's actual communication job, then treated component presence and a prior internal `ADMIT` as evidence that Ali's known visual constraints had been met.
+- **Prevention rule:** The Method preflight binds one exact image whose visible objects jointly express story, analogy/practice and music; it rejects Episode stills, missing external titles, giant equal splits and generated lettering. Homepage admission also rejects a white/blank women panel, internal work-order labels and arbitrary header replacement. Any direct Ali rejection invalidates the prior admission before a successor is made.
+- **Durable correction:** Corrected-12 uses one purpose-built, text-free Rewind Era workspace scene; keeps the approved Method prose; stacks the image over copy at narrow widths; uses an image-led saturated women section; labels the map by its real job; and defers navigation to the canonical shared-header runtime. The known-bad asset/title/card/label fixtures now fail the Homepage design-program checker.
+- **Possible Behind the Build angle:** Why a pretty AI-at-work photo still failed to explain how LAiDIES teaches.
+- **Publication status:** INTERNAL SUCCESSOR / NOT OWNER-APPROVED / NOT DEPLOYED.

@@ -46,9 +46,29 @@ try {
   const homepageProofBaseline = homepageProofErrors(homepageProofSource);
   if (homepageProofBaseline.length) throw new Error(`Homepage proof baseline failed: ${homepageProofBaseline.join(' | ')}`);
   expectHomepageProofFailure(
-    'homepage-method-image-missing',
-    homepageProofSource.replace('/assets/episodes/issue-01/episode-01-inline-article-image.jpg', '/retired-placeholder.png'),
-    'bound editorial image'
+    'homepage-rejected-method-image',
+    homepageProofSource.replace('/assets/homepage/laidies-method-workspace-v1.png', '/assets/episodes/issue-01/episode-01-inline-article-image.jpg'),
+    'rejected Method image'
+  );
+  expectHomepageProofFailure(
+    'homepage-method-title-missing',
+    homepageProofSource.replace('class="method-heading"', 'class="method-heading-missing"'),
+    'clear section title'
+  );
+  expectHomepageProofFailure(
+    'homepage-internal-map-label',
+    homepageProofSource.replace('Town map and building directory', 'Direct destinations and optional discovery'),
+    'rejected internal map label'
+  );
+  expectHomepageProofFailure(
+    'homepage-white-card-women',
+    homepageProofSource.replace('.women-copy-inner{display:block', '.women-copy-inner{display:grid'),
+    'white-card women composition'
+  );
+  expectHomepageProofFailure(
+    'homepage-shared-header-missing',
+    homepageProofSource.replace('/content/site/sv-global-header.js', '/content/site/retired-header.js'),
+    'canonical shared-header runtime'
   );
   expectHomepageProofFailure(
     'homepage-invented-copy',
@@ -233,7 +253,7 @@ try {
   rejectedInCurrent.calibration.known_bad_candidate_sha256.push(rejectedInCurrent.pages.homepage.candidates[0].source_files.find(item => item.path === rejectedInCurrent.pages.homepage.candidates[0].entry_path).sha256);
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS homepage_method_image=REJECT homepage_device_local_resume=REJECT visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS homepage_rejected_method_image=REJECT homepage_method_title=REJECT homepage_internal_map_label=REJECT homepage_white_card_women=REJECT homepage_device_local_resume=REJECT visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

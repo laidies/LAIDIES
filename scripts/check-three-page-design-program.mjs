@@ -87,9 +87,19 @@ export function homepageProofErrors(source) {
   const methodStart = source.indexOf('<section class="method"');
   const methodEnd = methodStart < 0 ? -1 : source.indexOf('</section>', methodStart);
   const methodSource = methodStart < 0 || methodEnd < 0 ? '' : source.slice(methodStart, methodEnd);
-  if (!methodSource.includes('/assets/episodes/issue-01/episode-01-inline-article-image.jpg') || !methodSource.includes('class="method-copy"')) {
-    errors.push('method must pair the bound editorial image with the approved compact explanation');
+  if (!methodSource.includes('/assets/homepage/laidies-method-workspace-v1.png') || !methodSource.includes('class="method-heading"') || !methodSource.includes('class="method-copy"')) {
+    errors.push('Method must pair the bound single-scene Method image with a clear section title and the approved compact explanation');
   }
+  for (const rejectedMethodAsset of [
+    '/assets/episodes/issue-01/episode-01-inline-article-image.jpg',
+    '/assets/homepage/method-reference-v1.jpg'
+  ]) if (methodSource.includes(rejectedMethodAsset)) errors.push(`rejected Method image is present: ${rejectedMethodAsset}`);
+  if (source.includes('Direct destinations and optional discovery')) errors.push('rejected internal map label is present');
+  if (source.includes('.women-copy-inner{display:grid') || source.includes('background:rgba(255,248,239,.94)')) {
+    errors.push('rejected white-card women composition is present');
+  }
+  if (source.includes('function repairHeader') || source.includes('repairHeader()')) errors.push('arbitrary Homepage header replacement is present');
+  if (!source.includes('/content/site/sv-global-header.js')) errors.push('canonical shared-header runtime is missing');
   for (const rejected of ['Every building has a job.', 'A Card, a Postcard and the radio are different things.', 'Browse all back issues', 'KSVL is also an always-available']) {
     if (source.includes(rejected)) errors.push(`rejected invented Homepage copy is present: ${rejected}`);
   }
@@ -99,10 +109,10 @@ export function homepageProofErrors(source) {
   if ((source.match(/data-copy-source=/g) || []).length < 8) errors.push('every meaning-bearing Homepage section must declare copy provenance');
   for (const requiredVisual of [
     '/assets/sunnyvaile-streets/main-street-dusk.webp',
-    './assets/method-pop-bright-v2.png',
-    './assets/pop-burst-bg-v1.png',
+    '/assets/homepage/method-pop-bright-v2.png',
+    '/assets/homepage/pop-burst-bg-v1.png',
     '/assets/final_map/sunnyvaile-town-map-final-v5.webp',
-    '/assets/episodes/issue-01/episode-01-inline-article-image.jpg',
+    '/assets/homepage/laidies-method-workspace-v1.png',
     '/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png'
   ]) if (!source.includes(requiredVisual)) errors.push(`Homepage proof is missing bound visual source: ${requiredVisual}`);
   if ((source.match(/<img\b/g) || []).length < 7) errors.push('Homepage proof does not contain enough real image-led sections');
