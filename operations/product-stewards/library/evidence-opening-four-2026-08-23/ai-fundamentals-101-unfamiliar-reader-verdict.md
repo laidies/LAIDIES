@@ -8,9 +8,9 @@ Correction evidence: **ALI DIRECT-CORRECTION REGRESSION**.
 
 Human research: **NOT PERFORMED**. This is a simulated-reader and browser audit, not observed-human evidence.
 
-Exact artifact: `a2270c885ba2e4183c644311532e496c09a84a598dcfb223c7667fc19ba8fd91`.
+Exact artifact: `921aa20a3699402ef573e35a7fd89002ef86504798c2c524e4764cc15c81832c`.
 
-2026-08-24 bounded preface update: the reader shell, navigation, chapters, teaching sequence, visuals and exercises covered by this verdict are unchanged. Ali supplied the missing authored purpose and approved the exact sharpened preface that now precedes the existing reading guidance. Responsive maker inspection is required again before release because the opening is longer; this rebinding does not claim a new observed-human study.
+2026-08-24 bounded preface update: the reader shell, navigation, chapters, teaching sequence, visuals and exercises covered by this verdict are unchanged. Ali supplied the missing authored purpose and corrected its third transformation to “From ‘Whatever’ to ‘RSVP: Yes. I have notes.’” before the existing reading guidance. Responsive maker inspection is required again before release because the opening is longer; this rebinding does not claim a new observed-human study.
 
 The structured audit reconstructed the data → training → model → context/inference → product/tools → agent → infrastructure chain, found the RAG explanation, distinguished frozen training from current context, and applied the lesson to a policy changed last week. Browser testing confirmed the intended UTF-8 Library host delivers the fragment inside the responsive reader. No failed or unreviewed visual is included.
 

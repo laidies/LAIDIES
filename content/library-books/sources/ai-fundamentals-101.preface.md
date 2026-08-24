@@ -60,7 +60,7 @@ You cannot cut through that noise by memorising a list of approved opinions. You
 
 LAiDIES will continue investigating important stories in the NewsStand. But eventually, you should be able to look at the latest breathless headline and decide for yourself whether it deserves your attention—or merely an **“Ugh, as if.”**
 
-## 3. From “This has nothing to do with me” to “No, Aunt Linda. That isn’t how it works.”
+## 3. From “Whatever” to “RSVP: Yes. I have notes.”
 
 Once you understand how AI works, you can do more than use it better or identify nonsense. You can participate meaningfully in decisions about what happens next.
 

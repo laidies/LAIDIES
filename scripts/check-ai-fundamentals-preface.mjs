@@ -13,7 +13,7 @@ function defects(markdown) {
     "Alright, LAiDIES: listen—or should we say, read?—up. This book is important.",
     "## 1. From “ARGH, WTF?” to “Ah. That’s why.”",
     "## 2. From “OMG, the end is nigh!” to “Ugh, as if.”",
-    "## 3. From “This has nothing to do with me” to “No, Aunt Linda. That isn’t how it works.”",
+    "## 3. From “Whatever” to “RSVP: Yes. I have notes.”",
     "## What we want this book to change",
     "https://www.bcs.org/articles-opinion-and-research/computings-too-important-to-be-left-to-men/",
     "## How This Book Works"
@@ -41,7 +41,7 @@ const markdown = fs.readFileSync(prefacePath, "utf8");
 const errors = defects(markdown);
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
 const rendered = fs.readFileSync(renderedPath, "utf8");
-if (source.contentVersion !== "ai-fundamentals-101-2026-08-24.5") errors.push("canonical source content version is stale");
+if (source.contentVersion !== "ai-fundamentals-101-2026-08-24.6") errors.push("canonical source content version is stale");
 if (!source.intro?.bodyHtml?.includes("Alright, LAiDIES: listen—or should we say, read?—up.")) errors.push("canonical source does not contain the approved opening");
 if (!source.intro?.bodyHtml?.includes("computings-too-important-to-be-left-to-men")) errors.push("canonical source lost the verified BCS citation");
 if (!rendered.includes("Alright, LAiDIES: listen—or should we say, read?—up.")) errors.push("rendered book does not contain the approved opening");
