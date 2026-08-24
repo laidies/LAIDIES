@@ -707,6 +707,10 @@ main.cf-page {
   font-size: 17px;
 }
 
+.cf-trailer__copy {
+  min-width: 0;
+}
+
 .cf-trailer__copy > a {
   display: inline-block;
   margin-top: 22px;
@@ -717,6 +721,8 @@ main.cf-page {
 }
 
 .cf-trailer__player {
+  box-sizing: border-box;
+  width: 100%;
   min-width: 0;
 }
 
@@ -906,6 +912,7 @@ main.cf-page {
 
   .cf-counter h2,
   .cf-trailer h2 {
+    overflow-wrap: anywhere;
     font-size: clamp(42px, 13vw, 64px);
   }
 

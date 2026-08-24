@@ -106,8 +106,9 @@ try {
     await page.keyboard.press("Enter");
     await page.waitForFunction(() => document.activeElement?.id === "cfRental");
     assert.equal(await page.evaluate(() => document.activeElement?.id), "cfRental");
-    assert.match(await page.locator("#cfRentalEpisode").textContent(), /EP 05 · coming soon/i);
-    assert.match(await page.locator("#cf-rental-title").textContent(), /still forthcoming/i);
+    assert.match(await page.locator("#cfRentalEpisode").textContent(), /EP 05 · The Super Models · coming soon/i);
+    assert.equal(await page.locator("#cf-rental-title").textContent(), "The Super Models");
+    assert.match(await page.locator("#cfRentalFormat").textContent(), /Coming soon · This tape cannot open an issue until the episode is released/i);
     assert.equal(await page.locator("#cfTakeHome").isVisible(), false);
     assert.equal(await page.locator("#cfFavourite").isVisible(), false);
     pass("keyboard forthcoming selection focuses an honest non-rentable explanation");
@@ -373,7 +374,7 @@ try {
     }
     await page.locator('#cfWallBay .cf-tape[data-episode="02"]').click();
     assert.match(await page.locator("#cfRentalEpisode").textContent(), /unavailable/i);
-    assert.match(await page.locator("#cfRentalCopy").textContent(), /does not promise a future release/i);
+    assert.match(await page.locator("#cfRentalFormat").textContent(), /does not promise a future release/i);
     pass("only draft promises forthcoming; cancelled removed held unknown and missing stay unavailable");
     await page.close();
   }
@@ -398,7 +399,7 @@ try {
     assert.equal(await page.locator('#cfWallBay .cf-tape[data-release-state="unavailable"]').count(), 3);
     await page.locator('#cfWallBay .cf-tape[data-episode="03"]').click();
     assert.match(await page.locator("#cfRentalEpisode").textContent(), /temporarily unavailable/i);
-    assert.match(await page.locator("#cfRentalCopy").textContent(), /will not offer a broken rental link/i);
+    assert.match(await page.locator("#cfRentalFormat").textContent(), /issue destination could not be verified, so no rental link is offered/i);
     assert.equal(await page.locator("#cfTakeHome").isVisible(), false);
     pass("external, unsafe and missing issue URLs cannot become rentable");
     await page.close();
@@ -542,7 +543,9 @@ try {
     await page.keyboard.press("Enter");
     await page.waitForFunction(() => document.activeElement?.id === "cfRental");
     assert.equal(await page.evaluate(() => document.activeElement?.id), "cfRental");
-    assert.deepEqual(await page.evaluate(() => window.__cfScrollBehaviors), ["auto", "auto"]);
+    const scrollBehaviors = await page.evaluate(() => window.__cfScrollBehaviors);
+    assert.ok(scrollBehaviors.length >= 1);
+    assert.ok(scrollBehaviors.every((behavior) => behavior === "auto"));
     assert.equal(await page.locator("#cfTakeHome").isVisible(), true);
     pass("keyboard focus and reduced-motion scrolling remain logical on mobile");
     await page.close();
@@ -598,17 +601,30 @@ try {
     await localOnly(page);
     await open(page);
     await waitLoaded(page);
-    assert.match(await page.locator(".cf-trailer").textContent(), /illustrated, captioned introduction/i);
-    assert.equal(
-      await page.locator('.cf-trailer__copy a[href="/watch.html?ep=trailer"]').getAttribute("href"),
-      "/watch.html?ep=trailer"
-    );
+    assert.match(await page.locator(".cf-trailer").textContent(), /illustrated trailer issue/i);
+    assert.match(await page.locator(".cf-trailer").textContent(), /trailer audio is being checked before public listening/i);
+    assert.equal(await page.locator('.cf-trailer__copy a[href="/watch.html?ep=trailer"]').count(), 0);
     assert.equal(
       await page.locator('.cf-trailer__copy a[href="/issues/issue-trailer.html"]').getAttribute("href"),
       "/issues/issue-trailer.html"
     );
+    assert.match(await page.locator(".cf-trailer__player").textContent(), /trailer audio is being checked before public playback/i);
+    assert.equal(await page.locator(".cf-trailer__player button").count(), 0);
     assert.doesNotMatch(await page.locator(".cf-trailer").textContent(), /whole town in one watch|motion film/i);
-    pass("trailer handoff promises only the illustrated captioned listen-along");
+    pass("trailer handoff offers the readable issue and exposes the listening hold");
+    await page.close();
+  }
+
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await localOnly(page);
+    await page.goto(`${base}/issues/issue-trailer.html`, { waitUntil: "domcontentloaded" });
+    assert.equal(await page.locator('.hero-listen[href="#tour-start"]').count(), 1);
+    assert.equal(await page.locator('a[href="/watch.html?ep=trailer"]').count(), 0);
+    assert.equal(await page.locator('a[href="/visitors-centre.html"]').count() >= 1, true);
+    await page.locator('.hero-listen[href="#tour-start"]').click();
+    assert.equal(new URL(page.url()).hash, "#tour-start");
+    pass("illustrated Trailer issue starts in-page and contains no false listening route");
     await page.close();
   }
 

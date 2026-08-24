@@ -9,6 +9,11 @@ BUILD LOCK REQUIRED
 2026-07-26; no live route, shared service, media, deployment or public state
 was changed.
 
+**Current Trailer entrance truth — 2026-08-23:** the illustrated Trailer issue
+is readable. Trailer listening remains held, so public discovery may open the
+issue or a held Screening Room status but may not advertise immediate audio.
+This does not change the valid cover-only audio editions for Episodes 01–04.
+
 ## 1. Complete capability inventory
 
 | Capability/element | User trigger and page | Intended visible result | Current implementation/evidence | Status |

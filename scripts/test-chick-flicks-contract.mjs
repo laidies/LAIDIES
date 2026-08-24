@@ -6,7 +6,10 @@ import path from "node:path";
 const root = process.cwd();
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const exists = (file) => fs.existsSync(path.join(root, file));
-const page = read("chick-flicks.html");
+const sourcePage = read("chick-flicks.html");
+const page = process.env.CHICK_FLICKS_TRAILER_PROMISE_CALIBRATION === "1"
+  ? sourcePage.replace("</main>", '<a href="/watch.html?ep=trailer">False trailer listening promise</a></main>')
+  : sourcePage;
 const styles = read("content/chick-flicks.css");
 const index = JSON.parse(read("content/episode-index.json"));
 const checks = [];
@@ -14,6 +17,19 @@ const check = (name, fn) => {
   fn();
   checks.push(name);
 };
+
+check("trailer entrances expose the readable issue and preserve the listening hold", () => {
+  const trailerIssue = read("issues/issue-trailer.html");
+  assert.match(page, /Start with the illustrated trailer issue/i);
+  assert.match(page, /trailer audio is being checked before public listening/i);
+  assert.match(page, /href="\/issues\/issue-trailer\.html"/);
+  assert.doesNotMatch(page, /\/watch\.html\?ep=trailer/);
+  assert.doesNotMatch(page, /whole town in one watch|full motion film|motion movie/i);
+  assert.match(trailerIssue, /id="tour-start"/);
+  assert.match(trailerIssue, /href="#tour-start">Start the illustrated tour/i);
+  assert.match(trailerIssue, /href="\/visitors-centre\.html">Explore the current town directory/i);
+  assert.doesNotMatch(trailerIssue, /\/watch\.html\?ep=trailer|Listen to the illustrated trailer/i);
+});
 
 check("episode index has unique positive numbered records with titles", () => {
   assert.ok(Array.isArray(index.episodes) && index.episodes.length > 0);
@@ -112,12 +128,6 @@ check("dynamic status, retry, broken-cover and reduced-motion states exist", () 
   assert.match(styles, /\.cf-tape\.is-image-missing \.cf-tape__fallback/);
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(styles, /\.cf-aisles__track button \{[\s\S]*?min-height: 44px/);
-});
-
-check("trailer copy preserves illustrated listen-along and motion-film hold", () => {
-  assert.match(page, /illustrated, captioned introduction/i);
-  assert.match(page, /\/watch\.html\?ep=trailer/);
-  assert.doesNotMatch(page, /whole town in one watch|full motion film|motion movie/i);
 });
 
 check("all configured aisles are visible and include a deliberate empty state", () => {

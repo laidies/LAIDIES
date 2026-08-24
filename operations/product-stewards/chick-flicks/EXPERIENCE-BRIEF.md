@@ -12,6 +12,13 @@ owner-entry, complete-building, functionality and visitor-state controls. It
 does not approve a live-route edit, a new visual direction or any episode
 media.
 
+**Current Trailer entrance truth — 2026-08-23:** the illustrated Trailer issue
+is readable now. Public entrances must route to that issue or show the held
+Screening Room status; they must not promise Trailer listening while its audio
+and title admission remain held. This current truth narrows older generic
+`optional trailer/listen-along` language below without changing the valid
+cover-only audio editions for Episodes 01–04.
+
 ## Stable promise and user outcome
 
 Chick Flicks is SUNNYVAiLE's 1999 video-rental store: a visitor stands in the
@@ -35,7 +42,7 @@ date. `LOCKED LEDGER`
 
 | Visitor state | Recognition and arrival | Useful job and primary action | Result, next step and return promise | Current launch scope |
 |---|---|---|---|---|
-| First-time visitor | No valid Chick Flicks return record is required; no Card/account inference | Understand released versus forthcoming, learn that Episode 01 is the starting tape, choose a released tape or the optional trailer/listen-along | Reach the exact issue or Screening Room programme; return to the store through an explicit route | Catalogue has bounded local evidence; human comprehension, native accessibility and public-origin proof remain open |
+| First-time visitor | No valid Chick Flicks return record is required; no Card/account inference | Understand released versus forthcoming, learn that Episode 01 is the starting tape, choose a released tape or read the illustrated Trailer issue | Reach the exact issue; a held Screening Room entrance may report status but may not promise listening; return to the store through an explicit route | Catalogue has bounded local evidence; human comprehension, native accessibility and public-origin proof remain open |
 | Returning visitor without a Resident Card | Valid versioned device-local favourite, last-rental or Screening Room progress only | Continue a valid same-device favourite/rental/listen-along or choose another released tape without replaying all newcomer orientation | Resume only the exact valid programme/device record; Start over clears it; no account or completion claim | Catalogue and player return mechanics have bounded local evidence |
 | Resident Card holder — device-local | Separately valid local Card plus separately validated Chick Flicks records; Card is not login | Receive the same free catalogue/player experience; optionally see a truthful on-this-device favourite association | Continue locally; Card presence grants no availability, sync, ownership, reward or public identity | Same-device language only; Card-to-Closet favourite propagation requires shared-owner confirmation |
 | Resident Card holder — verified account-backed, if supported | Accepted auth/profile/session evidence, not a local Card alone | No account-backed Chick Flicks benefit is currently approved or proved | Fall back to the same anonymous/device-local experience; do not claim cross-device history or resume | Account-backed Chick Flicks state is HOLD |
@@ -95,7 +102,7 @@ fulfilment state. `APPROVED BRIEF/ARTIFACT`
 | Tape detail/rental action | Selected VHS box in the wall/detail area | Episode number, title, status and verified local issue URL | Honest issue handoff; never completion | `LOCKED LEDGER` |
 | Favourite/member-card control | Selected released tape and compact member-card area | `laidies_favorite_episode`, device-local only | Reversible same-device confirmation and coordinated Closet display where proved | `CURRENT IMPLEMENTATION OBSERVED` |
 | Due-date rental card | Fires after a verified tape handoff gesture | `laidies_cf_last_rental`, device-local only | Playful return hint for the next visit; no obligation | `APPROVED BRIEF/ARTIFACT` |
-| Trailer/Screening Room entrance | First-time block and released-tape secondary route | Exact allowed programme ID | Opens illustrated listen-along with truthful per-title status | `LOCKED LEDGER` |
+| Trailer/Screening Room entrance | First-time block and released-tape secondary route | Readable illustrated issue or exact allowed programme ID | Opens the readable Trailer issue or a held Screening Room status; never promises held listening | `CURRENT TRAILER TRUTH — 2026-08-23` |
 | Programme shelf | Screening Room | Exact allowlist: trailer, 01, 02, 03, 04 | Selects one programme; unknown IDs fail coherently | `CURRENT IMPLEMENTATION OBSERVED` |
 | Player transport/seek/chapters | Screening Room | Current programme clock and admitted cue/caption records | Play, pause or seek; failure stops transport and offers retry/exit | `CURRENT IMPLEMENTATION OBSERVED` |
 | Caption region | Below the Screening Room image | Exact VTT clock/coverage state | Synchronized read-along or explicit transcript-unavailable state | `LOCKED LEDGER` |
