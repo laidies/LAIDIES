@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "laidies-content-producer-contract.v1",
+  "candidateId": "luminairy-page-introduction-2026-08-24-v1",
+  "surface": "LUMINAIRY_PAGE_INTRODUCTION",
+  "contentClass": "REFERENCE",
+  "producer": "codex-root-luminairy-producer",
+  "readerContract": {
+    "humanQuestion": "What is the LUMINAiRY, why would I use it, and which wing should I enter?",
+    "promisedPayoff": "One plain introduction explains the room and the distinct value of all three wings before the visitor chooses.",
+    "priorKnowledge": "The visitor is not expected to know LAiDIES' Saint, Maven, or Trailblazer taxonomy.",
+    "centralMentalModel": "The LUMINAiRY brings together memorable cultural teaching devices, computing history, and present-day AI practice in three different wings.",
+    "dailyLifeConnection": "The visitor can choose whether she needs a memorable working habit, historical context, or a view of current AI practice.",
+    "surfaceJob": "Introduce the LUMINAiRY and route the visitor to the three wing doors without a second instruction lecture.",
+    "desiredFeeling": "Oriented, curious, and ready to choose a wing."
+  },
+  "canonicalTruth": [
+    {
+      "claimId": "LUMINAIRY-THREE-WING-PURPOSE-2026-08-24",
+      "owner": "LUMINAiRY product owner",
+      "freshnessTrigger": "A wing purpose, name, roster boundary, or page-purpose decision changes.",
+      "source": {
+        "path": "operations/voice/laidies-canon-index.md",
+        "sha256": "2d4befd1a8daa60b3ef0cc1ca817f470e753de5d39f59a692c13624362d04080"
+      }
+    }
+  ],
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "strengthsToUse": [
+        "Answer the visitor's actual question immediately.",
+        "Use plain distinctions instead of internal taxonomy language.",
+        "End with a clear, useful next route."
+      ],
+      "patternsNotToCopy": [
+        "Do not inherit long-form section length for a compact hero.",
+        "Do not introduce unrelated factual or product claims."
+      ]
+    }
+  ],
+  "knownFailurePreflight": {
+    "registryVersion": "laidies-content-quality-exemplars.v1",
+    "registrySha256": "9a105dbe63c19357c653029e6c39b3ee840ec14ebaa01a8ead0f7c2d8566b6f3",
+    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002"],
+    "dispositions": {
+      "glossaryAccumulation": {"status": "CLEAR", "producerGuard": "Use only the three established wing names and explain each in ordinary language.", "preventionEvidence": "The planned introduction contains no glossary or extra labels."},
+      "templateRepetition": {"status": "CLEAR", "producerGuard": "Use one purpose-first paragraph rather than repeating a second orientation component.", "preventionEvidence": "The separate orientation band is explicitly removed from the structure."},
+      "decorativeAnalogy": {"status": "CLEAR", "producerGuard": "Use no analogy in the introductory copy.", "preventionEvidence": "The draft architecture uses direct explanation only."},
+      "referenceConfetti": {"status": "CLEAR", "producerGuard": "Name only the LUMINAiRY and its three wings.", "preventionEvidence": "No outside names, quotations, or decorative references are planned."},
+      "missingMechanism": {"status": "CLEAR", "producerGuard": "Explain what each wing helps the visitor understand or do.", "preventionEvidence": "Each wing has one distinct visitor payoff in the planned paragraph."},
+      "genericAction": {"status": "CLEAR", "producerGuard": "Keep the existing exact action Choose a wing.", "preventionEvidence": "The hero CTA routes directly to the wing doors."},
+      "jargonBeforeMeaning": {"status": "CLEAR", "producerGuard": "State what the LUMINAiRY is before naming the taxonomy.", "preventionEvidence": "The first sentence gives the purpose; the second explains the three wing choices."},
+      "disconnectedSystem": {"status": "CLEAR", "producerGuard": "Connect all three wings to the single LUMINAiRY purpose.", "preventionEvidence": "The paragraph begins with the room-level purpose and then maps each wing to it."},
+      "joylessInstruction": {"status": "CLEAR", "producerGuard": "Keep the invitation concise and confident, not legalistic or defensive.", "preventionEvidence": "Browser-storage, badge, test, mastery, and ranking disclaimers are excluded."},
+      "purposeTooNarrow": {"status": "CLEAR", "producerGuard": "Describe understanding, questioning, and using AI rather than one feature or interaction.", "preventionEvidence": "The room-level purpose spans cultural practice, history, and current work."},
+      "mechanismBeforeMotivation": {"status": "CLEAR", "producerGuard": "Lead with why the LUMINAiRY exists before explaining wing mechanics.", "preventionEvidence": "Purpose is the first sentence and the doors follow without an instruction band."},
+      "workedExampleOvertakesBookPurpose": {"status": "CLEAR", "producerGuard": "Do not use a person or card example in the page introduction.", "preventionEvidence": "The planned copy remains at room and wing level."},
+      "technicalExplainerVoice": {"status": "CLEAR", "producerGuard": "Remove implementation language about local storage and card-opening semantics from the introduction.", "preventionEvidence": "The rejected same-browser and badge/mastery sentence is prohibited by regression test."}
+    },
+    "knownDefectsRemaining": []
+  },
+  "draftArchitecture": {
+    "plainAnswer": "The LUMINAiRY brings cultural touchstones, computing history, and present-day practitioners together to make AI easier to understand, question, and use.",
+    "causalSequence": [
+      "The first sentence names what the room contains and why it exists.",
+      "The second sentence distinguishes the useful job of each wing.",
+      "The existing Choose a wing action takes the visitor directly to the doors."
+    ],
+    "workedCase": "A visitor seeking a memorable AI working habit is routed to PATRON SAiNTS.",
+    "transferCase": "A visitor seeking present-day AI practice is routed to TRAiLBLAZERS.",
+    "usefulAction": "Choose the wing that matches what you want to understand now.",
+    "formatSpecificStructure": "Two compact hero sentences followed by the existing Choose a wing action; no separate orientation band.",
+    "antiTemplateDecision": "Do not add ranking, mastery, badge, browser-storage, archive-status, or production-process disclaimers above the wing doors.",
+    "analogyPlan": [],
+    "humourPlan": {"noneReason": "The room and wing names carry the world-building; the introduction's job is immediate orientation."}
+  },
+  "communicationDesign": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "The hero needs a human reason to enter and a clear bridge from the room's purpose to the three choices, not a full explanatory arc.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": {"disposition": "APPLY", "reason": "A new visitor first needs to know what this named room is for.", "plannedEvidence": "The opening sentence answers what the LUMINAiRY is and why it exists."},
+      "usefulCuriosity": {"disposition": "APPLY", "reason": "The three distinct routes should make the visitor want to choose rather than read rules.", "plannedEvidence": "Each wing is attached to a concrete kind of understanding."},
+      "invisibleProcessConcrete": {"disposition": "NOT_APPLICABLE", "reason": "This compact room introduction does not teach an invisible technical process."},
+      "familiarTechnicalMovement": {"disposition": "NOT_APPLICABLE", "reason": "This is route-setting copy, not a technical explanation."},
+      "limitationsConsequences": {"disposition": "NOT_APPLICABLE", "reason": "Wing-specific evidence boundaries remain with the relevant wing and cards."},
+      "humourSurprise": {"disposition": "NOT_APPLICABLE", "reason": "Added jokes would delay the room's purpose; the names and environment provide the character."},
+      "betterNextQuestion": {"disposition": "APPLY", "reason": "The introduction should turn uncertainty into a clear choice among three needs.", "plannedEvidence": "The copy distinguishes habits, history and ideas, and people shaping AI now before the Choose a wing action."}
+    },
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": ["human reason to care", "clear distinctions", "useful next route"],
+      "adaptation": "Compress the arc into purpose, three wing payoffs, and one direct action."
+    }
+  },
+  "representativeProofPlan": {
+    "highestRisk": "The replacement could remain taxonomy-first, vague, or defensive and still fail to explain the LUMINAiRY.",
+    "plannedProof": "A regression test rejects the old band and phrases; maker and independent reviewers read the exact hero at desktop and mobile size.",
+    "acceptanceOutcome": "A new visitor can explain what the LUMINAiRY is, why it exists, and how the three wings differ before selecting one."
+  },
+  "ratchet": {
+    "targets": {"repeatedKnownDefects": 0, "objectiveDefectsFirstFoundAtReview": 0},
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "status": "READY_TO_DRAFT"
+}

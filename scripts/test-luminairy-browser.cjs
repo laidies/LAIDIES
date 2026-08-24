@@ -45,7 +45,11 @@ async function run() {
     assert.doesNotMatch(await page.locator('meta[name="description"]').getAttribute("content"), /43 illustrated guides/i, "page metadata must not collapse the three wings into an all-guides label");
     assert.equal(await page.locator(".lum-hero__lead").count(), 0, "the three distinct wings must not be collapsed into a false all-guides umbrella");
     assert.equal(await page.locator(".lum-hero__status").count(), 0, "internal archive and production status must not appear in the visitor hero");
-    assert.equal((await page.locator("#orientationTitle").textContent()).trim(), "Choose a wing.", "orientation must name the actual choice without calling every subject a guide");
+    assert.equal(await page.locator(".lum-orientation").count(), 0, "a second defensive orientation band must not return after the hero explains the room");
+    const heroIntroduction = (await page.locator(".lum-hero__body").textContent()).trim();
+    assert.match(heroIntroduction, /The LUMINAiRY is where LAiDIES brings together cultural touchstones, computing history, and present-day practitioners/i, "the hero must first explain what the LUMINAiRY is");
+    assert.match(heroIntroduction, /make AI easier to understand, question, and use/i, "the hero must explain why the LUMINAiRY exists");
+    assert.match(heroIntroduction, /PATRON SAiNTS.+memorable working habits.+MAiVENS.+history and ideas behind computing.+TRAiLBLAZERS.+people shaping AI now/is, "the hero must distinguish the useful job of all three wings");
     assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one from each wing.", "local-votive heading must give the actual action without mislabelling every subject as a guide");
     assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
     assert.match(await page.locator(".lum-tab--saints .lum-tab__copy").textContent(), /13 cards/i, "the Saints door count must use the canonical card noun");
@@ -54,8 +58,8 @@ async function run() {
     assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search PATRON SAiNT cards", "the search label must name its active scope");
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
-    assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence/i, "internal correction-route and repeated disclaimer language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted stylesheet");
+    assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /purpose-first-v1$/, "purpose-first successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
@@ -68,18 +72,15 @@ async function run() {
       const root = getComputedStyle(document.documentElement);
       const hero = getComputedStyle(document.querySelector(".lum-hero__copy"));
       const search = getComputedStyle(document.querySelector("#lumSearch"));
-      const orientation = getComputedStyle(document.querySelector(".lum-orientation"));
       return {
         displayFont: root.getPropertyValue("--lum-display"),
         heroRadius: parseFloat(hero.borderRadius),
-        searchRadius: parseFloat(search.borderRadius),
-        orientationBackground: orientation.backgroundImage
+        searchRadius: parseFloat(search.borderRadius)
       };
     });
     assert.match(siteSystem.displayFont, /Jost/i, "LUMINAiRY structural display type must use the shared Jost system");
     assert.ok(siteSystem.heroRadius >= 10, `hero interface panel needs the shared rounded grammar, got ${siteSystem.heroRadius}px`);
     assert.ok(siteSystem.searchRadius >= 10, `search control needs the shared rounded grammar, got ${siteSystem.searchRadius}px`);
-    assert.notEqual(siteSystem.orientationBackground, "none", "major non-image surfaces must use the current gradient system");
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
     assert.match(await page.locator("#lumResultStatus").textContent(), /13 of 13 cards shown/i, "Saint result count must use the canonical card noun");
     const saintFinalRowOffset = await page.evaluate(() => {

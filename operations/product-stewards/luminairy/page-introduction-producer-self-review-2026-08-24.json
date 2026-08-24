@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "REFERENCE",
+  "candidateId": "luminairy-page-introduction-2026-08-24-v1",
+  "surface": "LUMINAIRY_PAGE_INTRODUCTION",
+  "maker": "codex-root-luminairy",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "luminairy-page-introduction-producer",
+    "principalId": "codex-root-luminairy",
+    "role": "producer",
+    "modelFamily": "gpt-5.6-sol"
+  },
+  "reviewedAt": "2026-08-24T11:40:00-07:00",
+  "verdict": "PASS",
+  "limitations": [
+    "This receipt judges the page introduction; portrait, profile, source-link and audio quality remain under their existing gates.",
+    "The review is local and does not establish deployment or public availability."
+  ],
+  "artifact": {
+    "reviewText": {"path": "luminairy.html", "sha256": "6745e617e5e0a7d1aaac9f785177468b398673a13e2c522af5c19aa9a833a2e6"},
+    "manifest": {"path": "operations/product-stewards/luminairy/page-introduction-content-manifest-2026-08-24.json", "sha256": "13db7f958b986fdebc01c1597707b698c6711492a05a8fbf30505aba942e4740"}
+  },
+  "calibration": {
+    "registrySha256": "9a105dbe63c19357c653029e6c39b3ee840ec14ebaa01a8ead0f7c2d8566b6f3",
+    "reviewerPrincipalId": "codex-root-luminairy",
+    "reviewedAt": "2026-08-24T11:35:00-07:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"],
+        "evidence": [{"excerpt": "Chapter 1 — Meet the parts of the system", "locator": "known-bad chapter opening"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["purposeTooNarrow", "mechanismBeforeMotivation", "workedExampleOvertakesBookPurpose", "technicalExplainerVoice"],
+        "evidence": [{"excerpt": "## Introduction — What you are actually using", "locator": "known-bad introduction opening"}]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": ["answers the visitor question directly", "uses plain distinctions", "ends in a useful next action"],
+      "evidence": [{"excerpt": "Real questions about AI. Real data. No vibes-only answers.", "locator": "straight-answers opening"}]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What is the LUMINAiRY, why would I use it, and which wing should I enter?",
+    "promisedPayoff": "One plain introduction explains the room and its three choices before the visitor acts.",
+    "centralMentalModel": "The room joins memorable cultural practice, computing history, and present-day AI work in three distinct wings.",
+    "dailyLifeConnection": "The visitor chooses whether she needs a working habit, historical context, or a view of people shaping AI now.",
+    "surfaceJob": "Introduce the LUMINAiRY and route the visitor to the wing doors without a second lecture.",
+    "desiredReaderFeeling": "Oriented, curious, and ready to choose."
+  },
+  "outcomes": {
+    "plainClarity": {"verdict": "PASS", "observation": "The first sentence answers what the LUMINAiRY is and why it exists in plain language.", "artifactEvidence": [{"excerpt": "The LUMINAiRY is where LAiDIES brings together cultural touchstones, computing history, and present-day practitioners", "locator": "luminairy.html .lum-hero__body"}]},
+    "readerValue": {"verdict": "PASS", "observation": "The copy connects the collection to understanding, questioning and using AI.", "artifactEvidence": [{"excerpt": "to make AI easier to understand, question, and use", "locator": "luminairy.html .lum-hero__body"}]},
+    "laidiesVoice": {"verdict": "PASS", "observation": "The established room and wing names carry the world while the prose remains adult and direct.", "artifactEvidence": [{"excerpt": "Enter PATRON SAiNTS for memorable working habits", "locator": "luminairy.html .lum-hero__body"}]},
+    "engagingEnjoyable": {"verdict": "PASS", "observation": "The copy is an invitation into three distinct routes, not a policy disclaimer.", "artifactEvidence": [{"excerpt": "Enter PATRON SAiNTS for memorable working habits", "locator": "luminairy.html .lum-hero__body"}]},
+    "factualIntegrity": {"verdict": "PASS", "observation": "The three wing descriptions match the canon and do not make person-level claims.", "artifactEvidence": [{"excerpt": "MAiVENS for the history and ideas behind computing, or TRAiLBLAZERS for the people shaping AI now", "locator": "luminairy.html .lum-hero__body"}]},
+    "freshnessReviewability": {"verdict": "PASS", "observation": "The only changeable editorial claim is the canon-bound purpose of the three wings.", "artifactEvidence": [{"excerpt": "MAiVENS for the history and ideas behind computing, or TRAiLBLAZERS for the people shaping AI now", "locator": "luminairy.html .lum-hero__body"}]},
+    "surfaceFit": {"verdict": "PASS", "observation": "Two compact sentences fit the hero and lead directly to its action.", "artifactEvidence": [{"excerpt": "Choose a wing <span aria-hidden=\"true\">↓</span>", "locator": "luminairy.html .lum-hero__action"}]},
+    "lookupAccuracy": {"verdict": "PASS", "observation": "Each established wing name is paired with its correct scope.", "artifactEvidence": [{"excerpt": "PATRON SAiNTS for memorable working habits, MAiVENS for the history and ideas behind computing", "locator": "luminairy.html .lum-hero__body"}]},
+    "systemRelationship": {"verdict": "PASS", "observation": "The room-level purpose appears before the three wings are distinguished.", "artifactEvidence": [{"excerpt": "The LUMINAiRY is where LAiDIES brings together cultural touchstones, computing history, and present-day practitioners", "locator": "luminairy.html .lum-hero__body"}]},
+    "dailyLifeConnection": {"verdict": "PASS", "observation": "Memorable working habits gives the practical Saints route while the other routes provide context and current practice.", "artifactEvidence": [{"excerpt": "PATRON SAiNTS for memorable working habits", "locator": "luminairy.html .lum-hero__body"}]},
+    "communicationBenchmark": {"verdict": "PASS", "observation": "The compact copy retains human reason, clear distinctions and a useful next route without imitating a voice.", "artifactEvidence": [{"excerpt": "to make AI easier to understand, question, and use", "locator": "luminairy.html .lum-hero__body"}]},
+    "usefulAction": {"verdict": "PASS", "observation": "The invitation ends with one direct action linked to the wing section.", "artifactEvidence": [{"excerpt": "Choose a wing <span aria-hidden=\"true\">↓</span>", "locator": "luminairy.html .lum-hero__action"}]},
+    "analogyIntegrity": {"verdict": "PASS", "observation": "No analogy is used or needed in the purpose-first introduction.", "artifactEvidence": [{"excerpt": "The LUMINAiRY is where LAiDIES brings together cultural touchstones, computing history, and present-day practitioners", "locator": "luminairy.html .lum-hero__body"}]}
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {"present": false, "observation": "No benchmark or personality is named in the visitor copy.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "communicationPastiche": {"present": false, "observation": "The prose uses the established LAiDIES room voice without imitation.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "corporateSludge": {"present": false, "observation": "The copy uses concrete collection and visitor-purpose language.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "curiosityWithoutPayoff": {"present": false, "observation": "The three routes state what the visitor gets.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "decorativeAnalogy": {"present": false, "observation": "No analogy appears.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "disconnectedSystem": {"present": false, "observation": "The opening purpose connects all three wings.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "entertainmentBeforeUnderstanding": {"present": false, "observation": "Purpose precedes world-building taxonomy.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "factlessConfidence": {"present": false, "observation": "Wing claims are bounded by the canon.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "familiarExampleWithoutTechnicalReturn": {"present": false, "observation": "No worked example appears in this route-setting copy.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "genericAction": {"present": false, "observation": "Choose a wing is a direct linked action.", "artifactLocator": "luminairy.html .lum-hero__action"},
+    "glossaryAccumulation": {"present": false, "observation": "Only the three established wing names appear.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "inflatedTakeawayEnding": {"present": false, "observation": "The copy ends with bounded wing distinctions.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "jargonBeforeMeaning": {"present": false, "observation": "The room purpose comes before the three labels.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "joylessInstruction": {"present": false, "observation": "The defensive implementation disclaimer is absent.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "mechanismBeforeMotivation": {"present": false, "observation": "Why the room exists is the opening sentence.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "mechanismCompressedBehindHook": {"present": false, "observation": "No hook delays the explanation.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "missingMechanism": {"present": false, "observation": "Each wing is connected to its visitor job.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "prematureClickBeforeMechanism": {"present": false, "observation": "The CTA follows the purpose and distinctions.", "artifactLocator": "luminairy.html .lum-hero__action"},
+    "purposeTooNarrow": {"present": false, "observation": "The room spans understanding, questioning and use.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "referenceConfetti": {"present": false, "observation": "No outside references or names are introduced.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "staleUnreviewableClaims": {"present": false, "observation": "The editorial wing scopes are canon-bound and have a named change trigger.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "technicalExplainerVoice": {"present": false, "observation": "Browser-storage, badge, test and mastery language is absent.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "templateRepetition": {"present": false, "observation": "There is one hero explanation and no second orientation band.", "artifactLocator": "luminairy.html .lum-hero__body"},
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "No person or card example displaces the room purpose.", "artifactLocator": "luminairy.html .lum-hero__body"}
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [{"path": "operations/voice/laidies-canon-index.md", "sha256": "2d4befd1a8daa60b3ef0cc1ca817f470e753de5d39f59a692c13624362d04080"}],
+    "claimMap": [
+      {
+        "claimId": "luminairy-three-wing-purpose",
+        "status": "VERIFIED",
+        "candidateEvidence": [{"excerpt": "PATRON SAiNTS for memorable working habits, MAiVENS for the history and ideas behind computing, or TRAiLBLAZERS for the people shaping AI now", "locator": "luminairy.html .lum-hero__body"}],
+        "sourceBinding": {"path": "operations/voice/laidies-canon-index.md", "sha256": "2d4befd1a8daa60b3ef0cc1ca817f470e753de5d39f59a692c13624362d04080"},
+        "sourceEvidence": [{"excerpt": "PATRON SAiNTS** are memorable cultural\nteaching devices, **MAiVENS** are historical and critical computing/AI lineage,\nand **TRAiLBLAZERS** are present-day builders and practitioners", "locator": "operations/voice/laidies-canon-index.md:73"}],
+        "scopeAndFreshness": "Editorial wing definitions; recheck when a wing purpose or roster boundary changes."
+      }
+    ],
+    "reviewedThrough": "2026-08-24",
+    "nextTrigger": "A wing purpose, name, roster boundary or page-purpose decision changes.",
+    "correctionOwner": "luminairy-product-owner"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {"kind": "FIRST", "noComparableReason": "This is the first artifact-bound review of the page-level purpose introduction."},
+  "learningDisposition": {"disposition": "NO_NEW_DEFECT", "rationale": "The known purpose-before-mechanics defect was removed before independent review and no new prose defect remains."}
+}

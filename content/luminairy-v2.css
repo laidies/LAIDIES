@@ -163,24 +163,11 @@ input:focus-visible,
   border-block: 4px solid var(--lum-amber);
 }
 
-.lum-orientation,
 .lum-local,
 .lum-archive {
   padding-inline: max(24px, calc((100vw - 1320px) / 2));
 }
 
-.lum-orientation {
-  padding-block: clamp(44px, 6vw, 74px);
-  color: var(--lum-white);
-  background: linear-gradient(135deg, #cf438f 0%, var(--lum-purple) 58%, #4b5fb4 100%);
-  border-bottom: 5px solid var(--lum-teal);
-}
-
-.lum-orientation > div {
-  max-width: 1080px;
-}
-
-.lum-orientation h2,
 .lum-archive__head h2,
 .lum-local h2,
 .lum-panel__intro h2 {
@@ -192,17 +179,8 @@ input:focus-visible,
   color: var(--lum-white);
 }
 
-.lum-orientation h2,
 .lum-archive__head h2 {
   font-size: clamp(2.35rem, 4.7vw, 4.9rem);
-}
-
-.lum-orientation > div > p:last-child {
-  max-width: 760px;
-  margin: 22px 0 0;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 1.05rem;
-  line-height: 1.65;
 }
 
 .lum-local {
