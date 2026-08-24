@@ -49,11 +49,14 @@ async function run() {
     assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one from each wing.", "local-votive heading must give the actual action without mislabelling every subject as a guide");
     assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
     assert.match(await page.locator(".lum-tab--saints .lum-tab__copy").textContent(), /13 cards/i, "the Saints door count must use the canonical card noun");
+    assert.equal(await page.locator(".lum-panel .lum-search").count(), 1, "the active-wing filter must live inside the wing it filters");
+    assert.equal(await page.locator(".lum-archive__head .lum-search").count(), 0, "a wing-scoped filter must not appear above all three wing doors like a global search");
+    assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search PATRON SAiNT cards", "the search label must name its active scope");
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence/i, "internal correction-route and repeated disclaimer language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /no-method-panel-v2$/, "method-panel successor must load its matching cache-busted stylesheet");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /retry-v1$/, "retry successor must load its matching cache-busted interaction script");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -126,6 +129,7 @@ async function run() {
 
     await page.getByRole("tab", { name: /MAiVENS/ }).click();
     assert.equal(await page.locator(".lum-card").count(), 23, "Maven wing must render 23 cards");
+    assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search MAiVEN profiles", "the filter scope must update with the active wing");
     assert.deepEqual(await imageFailures(page), [], "all Maven images must decode");
     assert.ok(await page.locator(".lum-card__link").count() >= 23, "every Maven needs a source/work link");
     assert.match(await page.locator("#lumWingKicker").textContent(), /dark sapphire/i);
@@ -138,6 +142,8 @@ async function run() {
     await mavenTab.focus();
     await mavenTab.press("ArrowRight");
     assert.equal(await page.getByRole("tab", { name: /TRAiLBLAZERS/ }).getAttribute("aria-selected"), "true", "ArrowRight must activate the next tab");
+    assert.equal(await page.locator("#lumSearch").inputValue(), "", "changing wings must clear a wing-scoped query");
+    assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search TRAiLBLAZER profiles", "keyboard wing changes must update the filter scope");
     assert.equal(await page.locator(".lum-card").count(), 7, "Trailblazer wing must render 7 cards");
     const trailFinalRowOffset = await page.evaluate(() => {
       const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();

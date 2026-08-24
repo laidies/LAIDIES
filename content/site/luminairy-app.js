@@ -5,17 +5,20 @@
     saints: {
       label: "PATRON SAiNTS · pink wing",
       title: "Borrow the move, not the mythology.",
-      description: "These are explicit LAiDIES teaching devices inspired by real people or fictional characters. They are not endorsements, biographies, or claims that the source would teach AI this way."
+      description: "These are explicit LAiDIES teaching devices inspired by real people or fictional characters. They are not endorsements, biographies, or claims that the source would teach AI this way.",
+      searchLabel: "Search PATRON SAiNT cards"
     },
     mavens: {
       label: "MAiVENS · dark sapphire wing",
       title: "Meet the women in the machine's lineage.",
-      description: "Each card pairs one bounded, sourced contribution with a clearly labelled LAiDIES lesson. The archive is a route into the work, not a greatest-women ranking."
+      description: "Each card pairs one bounded, sourced contribution with a clearly labelled LAiDIES lesson. The archive is a route into the work, not a greatest-women ranking.",
+      searchLabel: "Search MAiVEN profiles"
     },
     trailblazers: {
       label: "TRAiLBLAZERS · golden amber wing",
       title: "See how present-day AI gets built and used.",
-      description: "These current profiles are dated because roles change. “Trailblazer” is LAiDIES' editorial classification, not anyone's job title or endorsement of this page."
+      description: "These current profiles are dated because roles change. “Trailblazer” is LAiDIES' editorial classification, not anyone's job title or endorsement of this page.",
+      searchLabel: "Search TRAiLBLAZER profiles"
     }
   };
 
@@ -271,6 +274,7 @@
     document.getElementById("lumWingKicker").textContent = meta.label;
     document.getElementById("lumWingTitle").textContent = meta.title;
     document.getElementById("lumWingDescription").textContent = meta.description;
+    document.getElementById("lumSearchLabel").textContent = meta.searchLabel;
     panel.setAttribute("aria-labelledby", "tab-" + state.wing);
     document.body.dataset.lumWing = state.wing;
     playlistButton.hidden = state.wing !== "saints";
