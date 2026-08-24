@@ -14760,3 +14760,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Source `ff91842d5040aecd50fb2453d1065c6d82d53d60` removes both proof runtimes and changes the Visitor ticket to `Check trailer status` with the Screening Room’s exact held wording. The calibrated bad fixtures failed; the Visitor 76-check browser suite, four-book LIBRAiRY suite and Miss Jeeves worker passed. Exact artifact `0d5a2c1e3d30bc45d4f6bb326fb9c796f68cf1fe349f9aaa3bb208db7e0bc4c8` is live as deployment `b5195bf5-6784-4404-80ae-67a6040a05d1`; all 17 fetchable changed/protected paths matched at both origins.
 - **Possible Behind the Build angle:** Why a stylesheet that “just 404s” is evidence that prototype code escaped into production—and how a truthful link can still make a false promise.
 - **Publication status:** PRODUCTION FUNCTIONAL/TRUTH CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-487 — A write-only local draft is not a returning-visitor journey
+
+- **Date:** 2026-08-23
+- **Area:** KSVL signed-out request drafts and provider-failure truth.
+- **Failure:** Radio could write one `ksvl_pending_request` object but never read, edit, expire or delete it. It also tried to initialize the request provider before deciding whether a signed-out visitor could save locally, so a missing provider client could strand the visitor’s text behind a generic station error.
+- **Root cause:** The first implementation treated a successful `localStorage.setItem` as the feature result. It had no strict data envelope, consumer, lifecycle or distinction between provider availability and local draft authority.
+- **Prevention rule:** A device-local draft requires one versioned, bounded producer/store/consumer contract: exact keys and lengths, finite TTL, read-after-write, safe restore/edit, explicit confirmed delete, corrupt/expired discard, storage-denial fallback and legacy migration. Provider unavailability or no receipt may preserve only that local draft and must never imply delivery.
+- **Durable correction:** Source `faead10a026fd24027eb2f369d99ee0ded8deec9` adds the strict six-hour KSVL helper and connects Radio’s request counter to restore, edit/save and delete states. The old Radio failed ten calibrated contract requirements; the successor passed restore/edit/delete/expiry/migration/storage-denial/provider-fallback checks. Exact artifact `953f655881479af7685ec1f3dcec396cc2dcb6e5636fb75267d27116276abf83` is live as deployment `39926838-3ebc-4d41-a152-536f66bda13b`; 52/52 immutable/custom path hashes matched and both public Radio routes passed responsive/error checks.
+- **Possible Behind the Build angle:** Why saving a draft once is not the same thing as letting someone come back to it.
+- **Publication status:** PRODUCTION FUNCTIONAL/TRUTH CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.

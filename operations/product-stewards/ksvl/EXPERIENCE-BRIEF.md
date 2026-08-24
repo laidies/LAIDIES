@@ -80,7 +80,7 @@ the promise cannot complete KSVL. `LOCKED LEDGER`
   corrupt/expired/unknown-key records, and preserves a local draft when the
   request provider is unavailable or returns no receipt. None of those states
   is described as delivered or reviewed.
-  `VERIFIED LOCALLY — PUBLIC RELEASE PROOF REQUIRED`
+  `VERIFIED PUBLICLY — deployment 39926838, both origins, 2026-08-23`
 
 ### Verified 29-track inventory
 
