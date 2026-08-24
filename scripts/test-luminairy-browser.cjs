@@ -18,6 +18,16 @@ async function imageFailures(page) {
   });
 }
 
+async function imageFailuresFor(page, selector) {
+  return page.locator(selector).evaluateAll(async (images) => {
+    images.forEach((image) => { image.loading = "eager"; });
+    await Promise.all(images.map((image) => image.decode().catch(() => null)));
+    return images
+      .filter((image) => !image.complete || image.naturalWidth < 100)
+      .map((image) => image.getAttribute("src"));
+  });
+}
+
 async function run() {
   const browser = await chromium.launch({
     headless: true,
@@ -32,6 +42,10 @@ async function run() {
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
+    assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
+    assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
+    assert.deepEqual(await imageFailuresFor(page, "#lumNaveImage, .lum-tab__image"), [], "nave and wing-door artwork must decode");
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
     assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
     const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
@@ -102,6 +116,9 @@ async function run() {
     await page.locator(".lum-card").first().locator(".lum-card__song").click();
     await page.locator("#lumAudioStatus.is-error").waitFor();
     assert.match(await page.locator("#lumAudioStatus").textContent(), /could not/i, "audio failure must be visible");
+    await page.setViewportSize({ width: 900, height: 800 });
+    const compactDesktopOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    assert.ok(compactDesktopOverflow <= 1, `compact desktop horizontal overflow must be <=1px, got ${compactDesktopOverflow}px`);
     await context.close();
 
     const blockedContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
@@ -152,7 +169,7 @@ async function run() {
 
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cards, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, and mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cards, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, compact-desktop overflow, and mobile overflow");
   } finally {
     await browser.close();
   }

@@ -7,9 +7,9 @@
   <meta name="description" content="Meet the PATRON SAiNTS, MAiVENS, and TRAiLBLAZERS of the LAiDIES LUMINAiRY: 43 illustrated guides, sourced profiles, practical lessons, and Saint songs.">
   <link rel="canonical" href="https://laidies.ai/luminairy">
   <meta property="og:url" content="https://laidies.ai/luminairy">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="/content/luminairy-v2.css?v=20260823-complete">
+  <link rel="stylesheet" href="/content/luminairy-v2.css?v=20260823-room-v2">
   <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/luminairy-claim-gate.js?v=20260823-r3"></script>
@@ -20,16 +20,19 @@
 
   <main id="mainContent">
     <section class="lum-hero" aria-labelledby="lumTitle">
+      <div class="lum-hero__media" aria-hidden="true">
+        <img id="lumNaveImage" src="/assets/building-interiors/luminairy-nave.jpg" alt="">
+      </div>
       <div class="lum-hero__copy">
         <p class="lum-kicker">Lantern Hill · SUNNYVAiLE</p>
         <h1 id="lumTitle">The <span>LUMINAiRY</span></h1>
         <p class="lum-hero__lead">Forty-three guides. Three different jobs. Nobody is here merely for the halo.</p>
         <p class="lum-hero__body">PATRON SAiNTS make useful AI habits memorable. MAiVENS show the women who shaped computing and how we understand it. TRAiLBLAZERS show where present-day AI is being built, operated, questioned, and put to work.</p>
-      </div>
-      <div class="lum-hero__windows" aria-hidden="true">
-        <span class="lum-window lum-window--saint"></span>
-        <span class="lum-window lum-window--maven"></span>
-        <span class="lum-window lum-window--trail"></span>
+        <a class="lum-hero__action" href="#archiveTitle">Choose a wing <span aria-hidden="true">↓</span></a>
+        <div class="lum-hero__status" id="lumResearchStatus">
+          <span>Archive status</span>
+          <strong>43 source-reviewed profiles · 12 Saint songs ready · Carrie’s song coming later</strong>
+        </div>
       </div>
     </section>
 
@@ -58,6 +61,7 @@
         <p class="lum-kicker">Your local votive</p>
         <h2 id="localTitle">Pick one from each wing—if it helps.</h2>
         <p id="lumLocalStatus">Selections stay in this browser on this device. They are not an account, public identity, reward, or cross-device record.</p>
+        <a class="lum-closet-door" href="/laidies-card.html#covenSection">See these local choices in Your Luminaries <span aria-hidden="true">→</span></a>
       </div>
       <div class="lum-local__picks" aria-live="polite" aria-atomic="true">
         <div><span>SAiNT</span><strong data-pick-output="saints">No candle lit</strong></div>
@@ -80,13 +84,16 @@
 
       <div class="lum-tabs" role="tablist" aria-label="LUMINAiRY wings">
         <button id="tab-saints" class="lum-tab lum-tab--saints" type="button" role="tab" aria-selected="true" aria-controls="lumPanel" data-wing="saints">
-          <span>★ Wing I</span><strong>PATRON SAiNTS</strong><small>Memorable practice</small>
+          <span class="lum-tab__art" aria-hidden="true"><img class="lum-tab__image" src="/assets/sunnyvaile-interiors/luminairy-saints-wing-door.jpg" alt=""></span>
+          <span class="lum-tab__copy"><span>★ Wing I · 13 guides</span><strong>PATRON SAiNTS</strong><small>Memorable practice</small><em>Enter the pink wing →</em></span>
         </button>
         <button id="tab-mavens" class="lum-tab lum-tab--mavens" type="button" role="tab" aria-selected="false" aria-controls="lumPanel" tabindex="-1" data-wing="mavens">
-          <span>✦ Wing II</span><strong>MAiVENS</strong><small>History and critique</small>
+          <span class="lum-tab__art" aria-hidden="true"><img class="lum-tab__image" src="/assets/sunnyvaile-interiors/luminairy-maivens-wing-door.jpg" alt=""></span>
+          <span class="lum-tab__copy"><span>✦ Wing II · 23 profiles</span><strong>MAiVENS</strong><small>History and critique</small><em>Enter the sapphire wing →</em></span>
         </button>
         <button id="tab-trailblazers" class="lum-tab lum-tab--trailblazers" type="button" role="tab" aria-selected="false" aria-controls="lumPanel" tabindex="-1" data-wing="trailblazers">
-          <span>◆ Wing III</span><strong>TRAiLBLAZERS</strong><small>Present-day practice</small>
+          <span class="lum-tab__art" aria-hidden="true"><img class="lum-tab__image" src="/assets/sunnyvaile-interiors/luminairy-trailblazers-wing-door.jpg" alt=""></span>
+          <span class="lum-tab__copy"><span>◆ Wing III · 7 profiles</span><strong>TRAiLBLAZERS</strong><small>Present-day practice</small><em>Enter the golden wing →</em></span>
         </button>
       </div>
 
