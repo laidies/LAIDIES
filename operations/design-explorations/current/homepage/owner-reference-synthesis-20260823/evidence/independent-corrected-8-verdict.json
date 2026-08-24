@@ -2,29 +2,32 @@
   "schemaVersion": "laidies-independent-visual-verdict-v1",
   "candidate": {
     "path": "operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html",
-    "sha256": "e5ce960599f8aa147ffdba47ec39e8dba523066db5a231f14d3528a805949d6d"
+    "sha256": "da6bac4857191967f73dd8ff31a2218663fd6173eb757b183c2da4697b253fd5"
+  },
+  "owner_reference": {
+    "path": "operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-01-primary-editorial.png",
+    "sha256": "46789f447c25356038d996b4dd9dcf9f5559d8556cc6ae41ea8ec5e820a0c02d"
   },
   "reviewer": {
-    "agent_id": "homepage_visual_recheck",
+    "agent_id": "homepage_source_inventory",
     "role": "visual_experience"
   },
   "verdict": "ADMIT",
-  "comparison_basis": "SAME_VIEWPORT_CURRENT_LIVE_HOMEPAGE",
+  "comparison_basis": "EXACT_OWNER_REFERENCE_AND_CANDIDATE_PIXELS",
   "visible_regressions": 0,
   "locked_decision_violations": 0,
   "reviewed_surfaces": [
+    "owner_reference",
     "desktop_1440",
     "intermediate_900",
     "owner_877x915",
     "mobile_390",
     "first_session_ident",
-    "desktop_daily",
     "desktop_intents",
     "desktop_weekly_loop",
     "desktop_activities",
     "desktop_directory",
     "desktop_continuations",
-    "desktop_ksvl",
     "mobile_intents",
     "mobile_weekly_loop",
     "mobile_activities",
@@ -32,9 +35,11 @@
     "mobile_continuations"
   ],
   "prior_rejection_repairs": {
-    "daily_freshness": "PASS — archive is explicitly dated and never presented as current",
-    "directory_dead_space": "PASS — MAiN and Civic are packed rows; remaining streets are compact peers"
+    "owner_reference_available": "PASS — exact reference bytes exist and match the bound SHA-256",
+    "fairy_glamour_asset_removed": "PASS — both Homepage uses now show the Willow Lane house, not the rejected glossy portrait"
   },
+  "review_issue_count": 0,
+  "review_cycle_count": 1,
   "remaining_uncertainty": "Screenshots do not prove live links or persistence. Browser interaction and objective checks are recorded separately in design-qa.md.",
-  "prevention_rule": "Preserve explicit Daily freshness-state rendering; never display an archive as current."
+  "prevention_rule": "A Homepage review may not admit a character image outside its exact route scope; use the routed place image or hold the slot."
 }

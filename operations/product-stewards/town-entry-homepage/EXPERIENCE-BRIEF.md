@@ -51,10 +51,22 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
 
 ## First-session entry
 
-- Compose a brief dial-up/entering-SUNNYVAiLE portal into the locked masthead.
+- Restore the complete arrival as a state transition inside the locked masthead,
+  at exactly the masthead's size. The sequence is: dial up to SUNNYVAiLE; a
+  horizontal VHS/static line opens into the canonical LAiDIES animation; the
+  completed animation contracts to a second static line; and the real masthead
+  expands from that same line. It is not a full-viewport takeover, a modal, a
+  short video followed by a cut, or a newly approximated transition.
 - The canonical source is
   `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4`,
   SHA-256 `05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3`.
+- The previously built VHS/static-to-masthead mechanism is reusable from
+  `operations/design-explorations/sitewide-style-championship-20260726/cycle-9/incumbent-daily-pager/preview.js`
+  (SHA-256 `5706015245e2470ec8c563548217445450b7c80451b36aa3066d416b32f6d68a`)
+  and its `candidate.css` (SHA-256
+  `6da09e915abcef4b0e55197ae80185edaab0c546532e0e408ceae3052fe07e81`).
+  This is a narrow interaction-mechanism exception only: Cycle 9's page
+  layout, copy, Daily treatment and visual direction remain banned inputs.
 - It appears once per browser session, never on every return to Home.
 - It is muted, skippable and pausable; reduced-motion users and media/storage
   failures receive the static masthead immediately.
@@ -172,6 +184,43 @@ the successor:
   Keep its crop and image-derived text accents while making the page below it
   brighter and more varied. Do not solve darkness by restoring the rejected
   pale-pastel system.
+
+### 2026-08-23 owner correction — masthead and town discovery
+
+- Use the canonical shared LAiDIES header and wordmark; never substitute typed
+  candidate lettering. Header links must map to the real visible section or
+  destination they name, and their responsive layout may not break or wrap
+  into an incoherent row.
+- Make `Replay dial-up arrival` a quiet secondary control. It must not compete
+  with the masthead message or primary actions.
+- Remove the masthead's wasted top space and the empty band before its action
+  row. Do not add a dark backing panel behind the copy merely to create
+  contrast; use the locked image crop and image-derived accents.
+- In the masthead prose, `Rewind Era` and `SUNNYVAiLE` use different approved
+  image-derived accent colours. `Be kind, rewind.` and `Girl Power meets
+  Machine Power` are also intentional accent moments. The small rule beside
+  `Be kind, rewind.` must not repeat the blue/cyan rule already used elsewhere.
+- `LAiDIES online · connected to the Rewind Era` ends with a blinking `_`
+  cursor when motion is permitted, with a stable visible cursor for reduced
+  motion.
+- `Explore SUNNYVAiLE` is an interactive discovery tool. Desktop composition
+  places the complete map on the left and the canonical ordered building cards
+  on the right; narrow layouts stack without losing either job. Hovering,
+  focusing or touching a building card lights its matching numbered map dot.
+  Activating a card opens one accessible detail card with the building's exact
+  image, name, canonical address, purpose and a `Visit building` link. The card
+  image and the map building must describe the same destination. Reuse the
+  existing Homepage hotspot/dialog behavior and `SV_BUILDINGS` as the single
+  ordered data source rather than inventing another list.
+- The Visitor's Centre is the introduction to SUNNYVAiLE and how to navigate
+  the town. It is not a destination for learning AI concepts; learning routes
+  belong to the LIBRAiRY and LUMINAiRY, with SUNNYVAiLE High joining when its
+  learning experience is admitted.
+- Hold the content and final composition of `What is happening in SUNNYVAiLE`
+  until the NewsStand build is finished. The Homepage successor may preserve a
+  truthful bounded placeholder or omit the unresolved preview from owner
+  review; it may not invent stories, Daily values or a replacement editorial
+  model.
 
 ### Six-example direction signal — exact artifact mapping bound
 
