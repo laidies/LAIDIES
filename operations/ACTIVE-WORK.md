@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-EXPERIENCE-REPAIR-20260823
-- **Status:** DEPLOYED / PUBLICLY VERIFIED
+- **Task ID:** LIBRARY-BOOK-VISUAL-PLACEMENT-20260824
+- **Status:** BUILDING
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
-- **Updated:** 2026-08-23 America/Vancouver (successor publicly verified 2026-08-24T06:15:52Z)
-- **Goal:** Repair the public LIBRAiRY experience around the four opening books, use Ali's supplied wide masthead composition at a shorter height with a bright in-palette wall treatment, restore the pop-art section backgrounds, and finish the authoritative Miss Jeeves service honestly.
-- **Acceptance:** The masthead preserves Miss Jeeves, the computers, staircase/shelves, desk and useful carpet detail without a black inset; the heading is exactly “Browse all books”; exactly four prominent individual covers appear in one desktop/compact row with no shelf/case/wall/category boxes; cover → information → Open works on desktop/mobile; Miss Jeeves retrieves only current governed material, accepts explicit consent-based topic requests with receipts/status and remains truthful when passive measurement is off.
-- **Current step:** The owner-corrected Library and operational Miss Jeeves service are public. Both origins passed exact bytes, healthy catalogue/D1 service, all four grounded common-question routes, private-content and no-consent rejection, one-request idempotent topic-request submit/replay/status/editorial-decline lifecycle, and controlled aggregate delivery. The D1 database, AI binding, keyed digest secret and Analytics Engine dataset are active. A live SQL query returned the controlled result-open record with no raw question or identity.
-- **Next action:** Do not infer demand or motives from isolated aggregate rows. The next Miss Jeeves work is ordinary editorial operation: review explicit receipts, monitor source health and produce a bounded aggregate report only when volume is meaningful.
+- **Updated:** 2026-08-24 America/Vancouver
+- **Goal:** Move each admitted teaching image out of the book/chapter opening and into the exact section whose idea it depicts, without changing the approved image bytes or teaching prose.
+- **Acceptance:** AI Fundamentals chapter 1 opens with its objectives and key terms; its automation-versus-AI image follows the explanation in section 1.1; its combined inbox-routes image follows the introduction to section 1.4; Working with AI introduces its loop before displaying the loop image; no teaching images are adjacent; all four books and persistent desktop/mobile navigation still work; the exact successor is deployed and verified at both public origins.
+- **Current step:** Source/render/admission checks pass. The known-bad stacked placement is rejected by the calibrated guard, and the four-book browser suite passes at 1280, 390 and 320 pixels. Release-scope assembly and exact public verification remain.
+- **Next action:** Build the public artifact from the committed successor, compare it to the exact current production artifact, deploy only the allowed delta, then verify image order and reader navigation at the immutable deployment and laidies.ai.
 
 ## Boundaries
 

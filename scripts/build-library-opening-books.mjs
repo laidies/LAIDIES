@@ -116,7 +116,7 @@ function makeDictionary(fundamentalsTerms, workingTerms) {
   const registry = [...byKey.values()].sort((a, b) => a.label.localeCompare(b.label)).map(term => ({
     term_id: slug(term.label), canonical_label: term.label, aliases: [], plain_definition: term.definition,
     scope_or_limit: "Plain-language teaching definition. Follow the linked chapter for its mechanism, examples and limits.",
-    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-23.1" : "working-with-ai-101-2026-08-23.1",
+    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-24.2" : "working-with-ai-101-2026-08-24.2",
     owner_section_anchor: term.ownerAnchor,
     practical_anchor: term.practicalAnchor ? { book_id: "working-with-ai-101", section_anchor: term.practicalAnchor } : null,
     source_claim_ids: [`TERM-${slug(term.label).toUpperCase()}`],
@@ -156,12 +156,26 @@ function addLaunchVisuals(fundamentals, working) {
   }
   const chapterOne = fundamentals.chapters.find(section => section.id === "chapter-1");
   chapterOne.bodyHtml = chapterOne.bodyHtml.replace(/<figure class="teaching-visual">[\s\S]*?<\/figure>/g, "");
-  chapterOne.bodyHtml = `<figure class="teaching-visual"><picture><source media="(max-width:700px)" srcset="/content/library-books/assets/ai-fundamentals-101/ch01-automation-vs-ai-mobile.jpeg"><img src="/content/library-books/assets/ai-fundamentals-101/ch01-automation-vs-ai-desktop.jpeg" alt="Side-by-side comparison of fixed automation rules and an AI system that learns patterns from examples."></picture><figcaption>Automation follows a rule written in advance; AI learns a pattern from examples and applies it to new input.</figcaption></figure><figure class="teaching-visual"><picture><source media="(max-width:700px)" srcset="/content/library-books/assets/ai-fundamentals-101/ch01-one-inbox-two-routes-mobile.jpeg"><img src="/content/library-books/assets/ai-fundamentals-101/ch01-one-inbox-two-routes-desktop.jpeg" alt="One inbox splitting messages between a fixed rules route and a learned-pattern AI route."></picture><figcaption>One product can contain both: a fixed rule routes known conditions; a learned model handles pattern-based decisions.</figcaption></figure>${chapterOne.bodyHtml}`;
+  const automationVisual = `<figure class="teaching-visual"><picture><source media="(max-width:700px)" srcset="/content/library-books/assets/ai-fundamentals-101/ch01-automation-vs-ai-mobile.jpeg"><img src="/content/library-books/assets/ai-fundamentals-101/ch01-automation-vs-ai-desktop.jpeg" alt="Side-by-side comparison of fixed automation rules and an AI system that learns patterns from examples."></picture><figcaption>Automation follows a rule written in advance; AI learns a pattern from examples and applies it to new input.</figcaption></figure>`;
+  const combinedRoutesVisual = `<figure class="teaching-visual"><picture><source media="(max-width:700px)" srcset="/content/library-books/assets/ai-fundamentals-101/ch01-one-inbox-two-routes-mobile.jpeg"><img src="/content/library-books/assets/ai-fundamentals-101/ch01-one-inbox-two-routes-desktop.jpeg" alt="One inbox splitting messages between a fixed rules route and a learned-pattern AI route."></picture><figcaption>One product can contain both: a fixed rule routes known conditions; a learned model handles pattern-based decisions.</figcaption></figure>`;
+  const automationAnchor = `<p>That swap is the exact seam between the software you've used your whole life and the stuff now getting called AI.</p>`;
+  const combinedRoutesAnchor = `<p>In real life, you don't encounter "AI" and "not AI" as separate things. You encounter <em>products</em> — and most products have both going on at the same time, in the same app, working together.</p>`;
+  if (chapterOne.bodyHtml.split(automationAnchor).length !== 2 || chapterOne.bodyHtml.split(combinedRoutesAnchor).length !== 2) {
+    throw new Error("AI Fundamentals visual placement anchors must each occur exactly once");
+  }
+  chapterOne.bodyHtml = chapterOne.bodyHtml
+    .replace(automationAnchor, `${automationAnchor}${automationVisual}`)
+    .replace(combinedRoutesAnchor, `${combinedRoutesAnchor}${combinedRoutesVisual}`);
   const introduction = working.intro;
   introduction.bodyHtml = introduction.bodyHtml
     .replace(/<figure class="teaching-visual">[\s\S]*?<\/figure>/g, "")
     .replace(/<figure class="working-loop-visual">[\s\S]*?<\/figure>/g, "");
-  introduction.bodyHtml = `<figure class="teaching-visual"><picture><source media="(max-width:700px)" srcset="/content/library-books/assets/working-with-ai-101/working-loop-mobile.png"><img src="/content/library-books/assets/working-with-ai-101/working-loop-desktop.png" alt="The Working with AI loop: set context, brief the task, shape the output, evaluate it and save what works."></picture><figcaption>The practical loop used throughout this book: set up, brief, shape, evaluate and make the useful parts repeatable.</figcaption></figure>${introduction.bodyHtml}`;
+  const workingLoopAnchor = `<p>This book turns those moving parts into one repeatable loop:</p>`;
+  const workingLoopVisual = `<figure class="teaching-visual"><picture><source media="(max-width:700px)" srcset="/content/library-books/assets/working-with-ai-101/working-loop-mobile.png"><img src="/content/library-books/assets/working-with-ai-101/working-loop-desktop.png" alt="The Working with AI loop: set context, brief the task, shape the output, evaluate it and save what works."></picture><figcaption>The practical loop used throughout this book: set up, brief, shape, evaluate and make the useful parts repeatable.</figcaption></figure>`;
+  if (introduction.bodyHtml.split(workingLoopAnchor).length !== 2) {
+    throw new Error("Working with AI loop visual placement anchor must occur exactly once");
+  }
+  introduction.bodyHtml = introduction.bodyHtml.replace(workingLoopAnchor, `${workingLoopAnchor}${workingLoopVisual}`);
 }
 
 function addWorkingPanelSemantics(working) {
@@ -187,13 +201,13 @@ function emit(source, sourcePath, renderedPath) {
 
 const fundamentalsPath = "content/library-books/sources/ai-fundamentals-101.source.json";
 const fundamentals = JSON.parse(read(fundamentalsPath));
-fundamentals.contentVersion = "ai-fundamentals-101-2026-08-23.1";
+fundamentals.contentVersion = "ai-fundamentals-101-2026-08-24.2";
 fundamentals.freshness.reviewedThrough = "2026-08-23";
 fundamentals.freshness.nextTrigger = "Weekly currentness scan, immediate source-change signal and before each public edition";
 
 const workingMarkdown = read("content/library-books/sources/working-with-ai-101.manuscript.md");
 const working = sourceFromTopLevelMarkdown({
-  markdown: workingMarkdown, bookId: "working-with-ai-101", contentVersion: "working-with-ai-101-2026-08-23.1", displayTitle: "Working with AI 101", eyebrow: "THE 101s · SUNNYVAiLE LIBRAiRY",
+  markdown: workingMarkdown, bookId: "working-with-ai-101", contentVersion: "working-with-ai-101-2026-08-24.2", displayTitle: "Working with AI 101", eyebrow: "THE 101s · SUNNYVAiLE LIBRAiRY",
   readerJob: "Turn the connected concepts from AI Fundamentals 101 into a practical, repeatable way to work with AI while retaining judgment.",
   lede: "A hands-on companion for managing context, briefing work, controlling output, choosing modes, evaluating results and building repeatable workflows.",
   sourceReferences: [
