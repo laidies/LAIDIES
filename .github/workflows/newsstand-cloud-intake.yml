@@ -1,0 +1,82 @@
+name: NewsStand private cloud source intake
+
+on:
+  schedule:
+    - cron: "30 16,23 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill_since:
+        description: "Optional bounded AIDB/Mollick recovery start (YYYY-MM-DD, maximum 21 days)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: newsstand-cloud-intake
+  cancel-in-progress: false
+
+jobs:
+  private-intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore private deduplication state
+        uses: actions/cache/restore@v4
+        with:
+          path: .newsstand-cloud-intake/state.json
+          key: newsstand-cloud-intake-${{ github.run_id }}
+          restore-keys: |
+            newsstand-cloud-intake-
+
+      - name: Prove intake guards can reject unsafe states
+        run: |
+          node scripts/test-source-registry.mjs
+          node scripts/test-newsstand-cloud-intake.mjs
+          node scripts/test-newsstand-cloud-intake-dispositions.mjs
+          node scripts/check-newsstand-cloud-intake-dispositions.mjs
+          node scripts/test-newsstand-cloud-intake-workflow.mjs
+
+      - name: Run private source intake
+        env:
+          BACKFILL_SINCE: ${{ inputs.backfill_since }}
+        run: |
+          previous=()
+          if [[ -f .newsstand-cloud-intake/state.json ]]; then
+            previous=(--previous .newsstand-cloud-intake/state.json)
+          fi
+          backfill=()
+          if [[ -n "$BACKFILL_SINCE" ]]; then
+            backfill=(--backfill-since "$BACKFILL_SINCE")
+          fi
+          node scripts/run-newsstand-cloud-intake.mjs \
+            "${previous[@]}" \
+            "${backfill[@]}" \
+            --output .newsstand-cloud-intake/receipt.json \
+            --state-output .newsstand-cloud-intake/state.json
+
+      - name: Upload private intake receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-private-intake-${{ github.run_id }}
+          path: .newsstand-cloud-intake/receipt.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Update durable reconciliation queue when attention is required
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/upsert-newsstand-intake-issue.mjs .newsstand-cloud-intake/receipt.json
+
+      - name: Save private deduplication state
+        uses: actions/cache/save@v4
+        with:
+          path: .newsstand-cloud-intake/state.json
+          key: newsstand-cloud-intake-${{ github.run_id }}
