@@ -41,6 +41,13 @@ const renderedBookResponse = await worker.fetch(new Request('https://laidies.ai/
 assert.equal(await renderedBookResponse.text(), 'STATIC', 'rendered books must continue to Pages static assets');
 assert.match(renderedBookResponse.headers.get('cache-control') || '', /(?:^|,\s*)no-transform(?:,|$)/, 'rendered books must prevent provider HTML rewriting');
 
+const htmlEnv = envWith();
+htmlEnv.ASSETS.fetch = async () => new Response('<a href="mailto:hello@laidies.ai">Email</a>', {
+  headers: { 'content-type': 'text/html; charset=utf-8' }
+});
+const htmlResponse = await worker.fetch(new Request('https://laidies.ai/postcard'), htmlEnv);
+assert.match(htmlResponse.headers.get('cache-control') || '', /(?:^|,\s*)no-transform(?:,|$)/, 'all HTML must prevent provider rewriting at the custom domain');
+
 const wrongMethod = await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves'), envWith());
 assert.equal(wrongMethod.status, 405, 'API must reject non-POST requests');
 
@@ -175,4 +182,4 @@ invalidIndexEnv.ASSETS.fetch = async () => Response.json({ _meta: {}, entries: {
 const unavailable = await (await ask('women in AI', invalidIndexEnv)).json();
 assert.equal(unavailable.status, 'unavailable');
 
-console.log('MISS JEEVES WORKER PASS static_forward=1 rendered_book_no_transform=1 arbitrary_retrieval=1 retired_routes_denied=1 grounded_ai=1 unavailable_state=1 privacy_safe_signal=1 controlled_gap_topic=1 raw_question_leak_calibration=1');
+console.log('MISS JEEVES WORKER PASS static_forward=1 html_no_transform=1 arbitrary_retrieval=1 retired_routes_denied=1 grounded_ai=1 unavailable_state=1 privacy_safe_signal=1 controlled_gap_topic=1 raw_question_leak_calibration=1');

@@ -424,7 +424,9 @@ export default {
     if (url.pathname === '/api/miss-jeeves') return missJeeves(request, env);
     if (url.pathname === '/api/library-corrections' || url.pathname === '/api/library-corrections/status') return libraryCorrections(request, env);
     const response = await env.ASSETS.fetch(request);
-    if (!url.pathname.startsWith('/content/library-books/rendered/')) return response;
+    const contentType = response.headers.get('content-type') || '';
+    const isHtml = url.pathname.endsWith('.html') || contentType.toLowerCase().includes('text/html');
+    if (!isHtml) return response;
     const headers = new Headers(response.headers);
     const cacheControl = headers.get('cache-control');
     headers.set('cache-control', cacheControl ? `${cacheControl}, no-transform` : 'no-transform');
