@@ -182,7 +182,7 @@
       <button type="button" class="ksvl-hub" data-panel="hub-request" aria-expanded="false" aria-controls="hub-request">
         <span class="ksvl-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#kvh4)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="kvh4" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M4.6 9 C4.6 6.4 7.2 4.8 12 4.8 C16.8 4.8 19.4 6.4 19.4 9 L18.5 11 C18.2 11.7 17.4 12 16.7 11.7 L15 11 C14.4 10.7 14 10.1 14.1 9.4 L14.2 8.4 C12.8 8.1 11.2 8.1 9.8 8.4 L9.9 9.4 C10 10.1 9.6 10.7 9 11 L7.3 11.7 C6.6 12 5.8 11.7 5.5 11 Z"/><path d="M9.5 15 H14.5 M8 18.2 H16"/></svg></span>
         <p class="ksvl-hub__name">Call In a Request</p>
-        <p class="ksvl-hub__count">Pitch DJ SunnyV a song idea</p>
+        <p class="ksvl-hub__count" id="ksvl-request-hub-count">Pitch DJ SunnyV a song idea</p>
         <span class="ksvl-hub__cta"><span class="when-closed">Pick up the phone →</span><span class="when-open">Close ×</span></span>
       </button>
     </div>
@@ -740,7 +740,7 @@
 
         <label style="display: block;">
           <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);">Topic</span>
-          <input id="ksvl-req-topic" type="text" required maxlength="200" placeholder="e.g. The mansplainer in the 4pm status meeting" style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--gold); border-radius: 8px; font: inherit; font-size: 15px;" />
+          <input id="ksvl-req-topic" type="text" required minlength="3" maxlength="200" placeholder="e.g. The mansplainer in the 4pm status meeting" style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--gold); border-radius: 8px; font: inherit; font-size: 15px;" />
           <span id="ksvl-req-topic-count" style="display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 11px; color: var(--cream); opacity: 0.7; text-align: right;">0 / 200</span>
         </label>
 
@@ -751,7 +751,8 @@
         </label>
 
         <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
-          <button id="ksvl-req-submit" type="submit" style="padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Save or send for review →</button>
+          <button id="ksvl-req-submit" type="submit" style="min-height: 44px; padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Save or send for review →</button>
+          <button id="ksvl-req-delete" type="button" hidden style="min-height: 44px; padding: 10px 20px; background: transparent; color: var(--cream); border: 2px solid var(--cream); border-radius: 999px; font-weight: 800; font-size: 13px; cursor: pointer;">Delete saved draft</button>
           <span id="ksvl-req-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" style="font-size: 13px; color: var(--cream); opacity: 0.85; line-height: 1.4;"></span>
         </div>
       </form>
@@ -802,6 +803,7 @@
       })();
     </script>
 
+    <script src="/content/site/ksvl-request-draft.js?v=20260823-1"></script>
     <script>
       (function() {
         'use strict';
@@ -814,9 +816,84 @@
         var submitBtn = document.getElementById('ksvl-req-submit');
         var statusEl = document.getElementById('ksvl-req-status');
         var styleSelect = document.getElementById('ksvl-req-style');
+        var deleteBtn = document.getElementById('ksvl-req-delete');
+        var hubCount = document.getElementById('ksvl-request-hub-count');
+        var defaultHubCount = 'Pitch DJ SunnyV a song idea';
+        var draftApi = window.KSVLRequestDraft;
 
-        topicInput.addEventListener('input', function() { topicCount.textContent = topicInput.value.length + ' / 200'; });
-        lyricsInput.addEventListener('input', function() { lyricsCount.textContent = lyricsInput.value.length + ' / 1000'; });
+        function updateCounts() {
+          topicCount.textContent = topicInput.value.length + ' / 200';
+          lyricsCount.textContent = lyricsInput.value.length + ' / 1000';
+        }
+        topicInput.addEventListener('input', updateCounts);
+        lyricsInput.addEventListener('input', updateCounts);
+
+        function setDraftVisible(visible) {
+          deleteBtn.hidden = !visible;
+          hubCount.textContent = visible ? 'Saved draft on this device · open to edit' : defaultHubCount;
+        }
+
+        function showLocalDraftStatus(message, focus) {
+          var link = document.createElement('a');
+          link.href = '/resident-card.html';
+          link.textContent = 'Sign in with your Resident Card';
+          link.style.color = 'var(--gold)';
+          link.style.textDecoration = 'underline';
+          link.style.fontWeight = '700';
+          statusEl.replaceChildren(
+            document.createTextNode(message + ' '),
+            link,
+            document.createTextNode(' if you want to attempt delivery for station review.')
+          );
+          if (focus) statusEl.focus();
+        }
+
+        function saveLocalDraft(message) {
+          var result = draftApi ? draftApi.write(localStorage, {
+            style: styleSelect.value,
+            topic: topicInput.value,
+            lyrics: lyricsInput.value
+          }, Date.now()) : { state: 'unavailable' };
+          if (result.state === 'saved') {
+            setDraftVisible(true);
+            showLocalDraftStatus(message || 'Draft saved only on this device. It has not been sent or reviewed.', true);
+            return true;
+          }
+          statusEl.textContent = 'This browser could not save the draft. It has not been sent; copy your text before leaving.';
+          statusEl.focus();
+          return false;
+        }
+
+        if (draftApi) {
+          var restored = draftApi.read(localStorage, Date.now());
+          if (restored.state === 'restored') {
+            styleSelect.value = restored.draft.style;
+            topicInput.value = restored.draft.topic;
+            lyricsInput.value = restored.draft.lyrics;
+            updateCounts();
+            setDraftVisible(true);
+            showLocalDraftStatus('Draft restored from this device. It has not been sent or reviewed.', false);
+          } else if (restored.state === 'discarded') {
+            statusEl.textContent = 'An old or invalid device-only draft was cleared. Nothing was sent.';
+          } else if (restored.state === 'unavailable') {
+            statusEl.textContent = 'This browser could not read a saved draft. Nothing was sent.';
+          }
+        }
+
+        deleteBtn.addEventListener('click', function() {
+          if (!window.confirm('Delete this device-only draft? It has not been sent.')) return;
+          var result = draftApi ? draftApi.clear(localStorage) : { state: 'unavailable' };
+          if (result.state !== 'cleared') {
+            statusEl.textContent = 'This browser could not delete the saved draft.';
+            statusEl.focus();
+            return;
+          }
+          form.reset();
+          updateCounts();
+          setDraftVisible(false);
+          statusEl.textContent = 'Device-only draft deleted. Nothing was sent.';
+          statusEl.focus();
+        });
 
         var supabaseClient = null;
         async function initSupabase() {
@@ -842,6 +919,12 @@
           var lyrics = lyricsInput.value.trim();
           if (!style || !topic) {
             statusEl.textContent = 'Pick a style and give it a topic — those are the essentials.';
+            (style ? topicInput : styleSelect).focus();
+            return;
+          }
+          if (topic.length < 3) {
+            statusEl.textContent = 'Give the topic at least three characters.';
+            topicInput.focus();
             return;
           }
           submitBtn.disabled = true;
@@ -851,7 +934,8 @@
 
           var client = await initSupabase();
           if (!client) {
-            statusEl.textContent = 'Couldn\'t reach the station. Try again in a bit.';
+            // Provider unavailable: preserve only a truthful device-local draft.
+            saveLocalDraft('The station could not check sign-in. A draft is saved only on this device and has not been sent or reviewed.');
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             return;
@@ -864,17 +948,7 @@
           } catch (_) {}
 
           if (!session) {
-            var savedLocally = false;
-            try {
-              localStorage.setItem('ksvl_pending_request', JSON.stringify({ style: style, topic: topic, lyrics: lyrics, saved_at: new Date().toISOString() }));
-              savedLocally = true;
-            } catch (_) {
-              savedLocally = false;
-            }
-            statusEl.innerHTML = savedLocally ?
-              'Draft saved only on this device. It has not been sent or reviewed. <a href="/resident-card.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">Sign in with your Resident Card</a> if you want to attempt delivery for station review.' :
-              'This browser could not save the draft. It has not been sent; copy your text before leaving.';
-            statusEl.focus();
+            saveLocalDraft('Draft saved only on this device. It has not been sent or reviewed.');
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             return;
@@ -896,9 +970,10 @@
             statusEl.textContent = 'Received for station review · receipt ' + receiptId +
               '. This does not mean DJ SunnyV has heard, selected or promised to produce it.';
             statusEl.focus();
+            if (draftApi) draftApi.clear(localStorage);
             form.reset();
-            topicCount.textContent = '0 / 200';
-            lyricsCount.textContent = '0 / 1000';
+            updateCounts();
+            setDraftVisible(false);
             submitBtn.textContent = 'Sent ✓';
             setTimeout(function() {
               submitBtn.disabled = false;
@@ -906,8 +981,7 @@
             }, 3000);
           } catch (err) {
             console.error('[KSVL Request] Insert failed:', err);
-            statusEl.textContent = 'The station did not return a request receipt. Nothing is being described as delivered; try again when you are ready.';
-            statusEl.focus();
+            saveLocalDraft('The station did not return a request receipt. Nothing is being described as delivered. A draft is saved only on this device.');
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
           }

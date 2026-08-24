@@ -74,6 +74,13 @@ the promise cannot complete KSVL. `LOCKED LEDGER`
 - `/games/dj-booth.html` consumes registry IDs and delegates its controls to the
   shared KSVL state machine; its separate hard-coded audio owner is absent.
   `VERIFIED PUBLICLY — 2026-08-23`
+- `/radio.html` now treats a signed-out request as a strict device-only draft:
+  it restores and edits a valid six-hour record, migrates the exact prior
+  four-field record, deletes only after an explicit confirmed action, discards
+  corrupt/expired/unknown-key records, and preserves a local draft when the
+  request provider is unavailable or returns no receipt. None of those states
+  is described as delivered or reviewed.
+  `VERIFIED LOCALLY — PUBLIC RELEASE PROOF REQUIRED`
 
 ### Verified 29-track inventory
 
