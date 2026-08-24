@@ -1,4 +1,6 @@
-# Who’s Who in AI — artifact-first usability verdict
+# Who’s Who in AI — artifact-first usability verdict (INVALIDATED)
+
+Status: **INVALIDATED 2026-08-24**. This simulated structural review did not establish conversational engagement or non-technical comprehension.
 
 Verdict: **ADMISSION CANDIDATE**.
 

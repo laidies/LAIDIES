@@ -1,4 +1,6 @@
-# Move 37 — instructional verdict
+# Move 37 — instructional verdict (INVALIDATED FOR PROSE ADMISSION)
+
+Status: **INVALIDATED 2026-08-24** after the exact-artifact voice and non-technical comprehension audit. The verdict below remains evidence of the earlier factual and structural review only. It cannot admit public prose.
 
 Verdict: **PASS for the exact artifact** `32ab342827323301ca3e421a77576f5d7ec1a5d363b5ef87fa50f7a4a05eb42f`.
 
