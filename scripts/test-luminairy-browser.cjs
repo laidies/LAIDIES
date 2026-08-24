@@ -42,6 +42,7 @@ async function run() {
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one guide from each wing.", "local-votive heading must give the actual action without defensive hedging");
     assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /site-system-v4-luminous$/, "luminous-door successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /site-system-v3$/, "visual successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
