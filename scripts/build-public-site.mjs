@@ -358,6 +358,7 @@ function copyFile(relative) {
 fs.mkdirSync(output, { recursive: true });
 for (const entry of visitorHtmlEntries()) enqueue(entry);
 for (const entry of [
+  '_worker.js',
   '404.html',
   '_redirects',
   'manifest.webmanifest',
