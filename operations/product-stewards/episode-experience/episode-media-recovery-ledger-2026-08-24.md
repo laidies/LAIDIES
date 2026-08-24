@@ -93,3 +93,21 @@ gate.
 
 No deployment, public binding or Watch restoration is authorized by this
 ledger.
+
+## First bounded motion-mechanism proof
+
+Episode 1 now has one internal corporate-world proof at
+`operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/manifest.json`.
+It uses five controlled states for the Heroine's writing hand and pen, plus a
+2.5% fixed-canvas fractional push toward her report and an exact eased return.
+The raw sequence has a zero seam; the decoded MP4 passes the calibrated loop
+checker and its decoded speed curve no longer contains the integer-crop
+hold/jump pattern found in two rejected builders.
+
+This does **not** admit the art or motion. The Mac was locked when the exact MP4
+was opened for the required normal-speed continuous maker watch, no independent
+visual admission has happened, the historical base-generation prompt is not
+preserved exactly, and the proof was built as an internal mechanism test rather
+than the required Canva animation/CapCut assembly. It therefore remains
+`INTERNAL_MECHANISM_PROOF_HOLD_VISUAL_REVIEW` and is ineligible for an episode,
+Watch, deployment or public use.

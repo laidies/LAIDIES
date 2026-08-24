@@ -1,0 +1,99 @@
+{
+  "schema": "laidies.episode-motion-mechanism-proof.v1",
+  "status": "INTERNAL_MECHANISM_PROOF_HOLD_VISUAL_REVIEW",
+  "createdAt": "2026-08-24",
+  "episode": "Episode 1",
+  "sceneJob": "Corporate-world Heroine reviews and marks a report while the camera makes one slow purposeful push toward her work and returns continuously.",
+  "authority": {
+    "visualSystem": "operations/episode-visual-system-lock.md",
+    "peopleStyle": {
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422"
+    },
+    "corporateWardrobe": {
+      "path": "assets/episodes/ep-04/pixel/ep04-open-15a-transformation-reusable-fullbody-corporate-master-v2-1920.png",
+      "sha256": "184d8c745df1da68b45be097ce5ce7c75f96f22bbde42df01b50739830d11c2c"
+    },
+    "compositionReference": {
+      "path": "assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-footnotes-drafts-v1-corporate.png",
+      "sha256": "34e13100bc3da9c580d52cd671d4b5e6d89adec41dc301ee692ff2ac2999be15"
+    }
+  },
+  "generation": {
+    "tool": "OpenAI image generation image-edit workflow",
+    "promptRecord": "MISSING_EXACT_HISTORICAL_PROMPT_BLOCKS_VISUAL_ADMISSION",
+    "boundedInstruction": "One canon Heroine in corporate attire at a physically coherent desk, marking a report; adult graphic-novel rendering; no invented people, extra limbs, impossible electronics, glamour cartoon or text generation.",
+    "baseFrame": {
+      "path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/frames/frame-01.png",
+      "sha256": "b7a4b6edf3f6d6335381c7e49341a17c9d3c0aabcf1e70d3e8ef8512f7502637"
+    }
+  },
+  "controlledFrames": [
+    {"path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/frames/frame-01.png", "sha256": "b7a4b6edf3f6d6335381c7e49341a17c9d3c0aabcf1e70d3e8ef8512f7502637", "state": "start"},
+    {"path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/frames/frame-02.png", "sha256": "0fa384ef81d2f447c48b142d573214d2613f690dfac3ab705e85fe7554424815", "state": "writing movement 1"},
+    {"path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/frames/frame-03.png", "sha256": "9a9991591c4fbfbd48c902c6d4935769ef50d9c1ccca0445057fe45365b6d1e7", "state": "writing movement 2"},
+    {"path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/frames/frame-04.png", "sha256": "0fa384ef81d2f447c48b142d573214d2613f690dfac3ab705e85fe7554424815", "state": "return writing movement 1"},
+    {"path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/frames/frame-05.png", "sha256": "fd21d33b67752808c2c206b19e3d7d0051bfaeb340ae49544776b2d18ad8e5cd", "state": "pixel-identical return to start; PNG encoding differs"}
+  ],
+  "localizedChange": {
+    "region": {"left": 500, "top": 555, "width": 325, "height": 245},
+    "changedPixelsOutsideRegion": 0,
+    "builder": {
+      "path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/build-localized-writing-frames.mjs",
+      "sha256": "07706f2f5e1b5340498a29f27aa533a6742073fbace373402d5f34f237ea257e"
+    }
+  },
+  "animation": {
+    "builder": {
+      "path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/build-loop-video.py",
+      "sha256": "0382f60308f68b492ea78149534079ea1d9e0df99ca9750a065017769fa04d5a"
+    },
+    "output": {
+      "path": "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/ep01-corporate-footnotes-writing-loop-v1.mp4",
+      "sha256": "0c4049f8a80b6e90730ce8d8c032c6a51b7c403dbd0a8de5068d0213ec9e5f16",
+      "geometry": "1672x940",
+      "fps": 30,
+      "frames": 121,
+      "durationSeconds": 4.033333333333333
+    },
+    "motion": {
+      "local": "Controlled writing-hand and pen sequence 1-2-3-2-1",
+      "camera": "2.5 percent fixed-canvas fractional Ken Burns-style push toward Heroine/report and exact return",
+      "easing": "cosine ease-in-out"
+    }
+  },
+  "mechanicalEvidence": {
+    "loopCheckerCalibration": "PASS: known true loop accepted and known linear-drift loop rejected",
+    "decodedLoopContinuity": "PASS: seam 1.410; internal p90 1.591; ratio 0.89; budget 2.386",
+    "rawMotionCurve": "median 1.162; p90 1.587; max 1.603; acceleration p90 0.086; acceleration max 0.110; seam 0.0",
+    "decodedMotionCurve": "median 1.227; p90 1.591; max 1.663; acceleration p90 0.147; acceleration max 0.222"
+  },
+  "rejectedPredecessors": [
+    {
+      "method": "Whole-image continuation edit",
+      "reason": "Changed 10.24 percent and 11.33 percent of pixels outside the authorized hand-and-pen region",
+      "paths": [
+        "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/rejected-full-frame-edits/generated-frame-02-full-drift-rejected.png",
+        "operations/video-qa/episode-01-corporate-footnotes-motion-proof-v1/rejected-full-frame-edits/generated-frame-03-full-drift-rejected.png"
+      ]
+    },
+    {
+      "method": "Integer crop camera move",
+      "reason": "Decoded curve alternated holds and jumps; rejected as micro-jerky"
+    },
+    {
+      "method": "Dynamic-canvas affine camera move",
+      "reason": "Canvas-size rounding produced an alternating decoded speed curve; rejected"
+    }
+  ],
+  "review": {
+    "normalSpeedContinuousVisualWatch": "BLOCKED_MAC_LOCKED_NOT_PERFORMED",
+    "independentVisualAdmission": "NOT_PERFORMED",
+    "audioReview": "NOT_APPLICABLE_TO_SILENT_MECHANISM_PROOF",
+    "canvaAnimation": "NOT_PERFORMED_INTERNAL_PROOF_ONLY",
+    "capcutAssembly": "NOT_PERFORMED_INTERNAL_PROOF_ONLY"
+  },
+  "releaseAuthority": false,
+  "eligibleForEpisodeAssembly": false,
+  "eligibleForWatch": false
+}
