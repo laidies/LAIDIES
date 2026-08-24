@@ -56,6 +56,11 @@ try {
     'rejected invented Homepage copy'
   );
   expectHomepageProofFailure(
+    'homepage-premature-newsstand-preview',
+    homepageProofSource.replace('<section class="section intent"', '<section class="section happening"></section><section class="section intent"'),
+    'deferred NewsStand Homepage preview'
+  );
+  expectHomepageProofFailure(
     'homepage-copy-provenance',
     homepageProofSource.replaceAll('data-copy-source=', 'data-unmapped-copy='),
     'copy provenance'
@@ -184,6 +189,7 @@ try {
   const missingOwnerViewport = structuredClone(manifest);
   missingOwnerViewport.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
   missingOwnerViewport.calibration.known_bad_candidate_sha256.shift();
+  delete missingOwnerViewport.pages.homepage.candidates[0].admission.screenshots.owner_877x915;
   expectFailure('missing-owner-viewport', missingOwnerViewport, 'owner_877x915 screenshot');
 
   const fullBeforeSelection = structuredClone(manifest);
@@ -213,11 +219,13 @@ try {
   expectFailure('wrong-visitor-runtime', wrongVisitorRuntime, 'runtime base must be visitors-centre.html for visitors-centre');
 
   const rejectedReentry = structuredClone(manifest);
-  rejectedReentry.pages.homepage.candidates[0].status = 'ADMITTED_FOR_ALI_REVIEW';
+  rejectedReentry.pages.homepage.candidates[0].source_files.find(item => item.path === rejectedReentry.pages.homepage.candidates[0].entry_path).sha256 = rejectedReentry.calibration.known_bad_candidate_sha256[0];
   expectFailure('ali-rejected-reentry', rejectedReentry, 'exact Ali-rejected candidate cannot re-enter');
 
   const rejectedInCurrent = structuredClone(manifest);
-  rejectedInCurrent.pages.homepage.candidates[0].entry_path = rejectedInCurrent.pages.homepage.candidates[0].entry_path.replace('/rejected/', '/current/');
+  rejectedInCurrent.pages.homepage.candidates[0].status = 'REJECTED_BY_ALI';
+  rejectedInCurrent.pages.homepage.candidates[0].owner_verdict = 'FULL_REJECTION_DO_NOT_ITERATE';
+  rejectedInCurrent.calibration.known_bad_candidate_sha256.push(rejectedInCurrent.pages.homepage.candidates[0].source_files.find(item => item.path === rejectedInCurrent.pages.homepage.candidates[0].entry_path).sha256);
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
   console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');

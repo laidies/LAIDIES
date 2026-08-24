@@ -68,7 +68,6 @@ export function homepageProofErrors(source) {
     'Made to click. Built to stick.',
     'Your brain kept the references.',
     'The plot explains it. The analogy unlocks it. Practice makes it click. The soundtrack makes it stick.',
-    'What is happening in SUNNYVAiLE?',
     'Open the NewsStand',
     'What brought you to town today?',
     'Learn',
@@ -102,7 +101,10 @@ export function homepageProofErrors(source) {
     '/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png'
   ]) if (!source.includes(requiredVisual)) errors.push(`Homepage proof is missing bound visual source: ${requiredVisual}`);
   if ((source.match(/<img\b/g) || []).length < 7) errors.push('Homepage proof does not contain enough real image-led sections');
-  const ordered = ['class="hero"', 'class="method"', 'class="section happening"', 'class="section intent"', 'class="section wednesday"', 'class="section women"', 'class="section explore"', 'class="continuations"'];
+  if (source.includes('class="section happening"')) {
+    errors.push('deferred NewsStand Homepage preview must remain omitted until the NewsStand build is finished');
+  }
+  const ordered = ['class="hero"', 'class="method"', 'class="section intent"', 'class="section wednesday"', 'class="section women"', 'class="section explore"', 'class="continuations"'];
   const positions = ordered.map(fragment => source.indexOf(fragment));
   if (positions.some(position => position < 0) || positions.some((position, index) => index && position <= positions[index - 1])) {
     errors.push('approved Homepage section order is missing or out of sequence');
