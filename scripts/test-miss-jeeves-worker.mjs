@@ -112,22 +112,21 @@ let aiPayload = null;
 const ai = {
   async run(model, payload) {
     aiPayload = { model, payload };
-    return { response: JSON.stringify({
+    return { response: {
       coverage: 'exact',
       answer: 'Episode 4 is the strongest place to begin because it covers women across the history of AI.',
       topic_id: 'women-ai-history',
       topic_label: 'women in AI',
       source_ids: ['ep-04']
-    }) };
+    } };
   }
 };
 const grounded = await (await ask('women in AI', envWith(index.entries, ai))).json();
 assert.equal(grounded.mode, 'grounded-ai');
-assert.equal(aiPayload.model, '@cf/google/gemma-4-26b-a4b-it');
+assert.equal(aiPayload.model, '@cf/meta/llama-3.1-8b-instruct-fp8-fast');
 assert.ok(aiPayload.payload.messages[0].content.includes('use only the supplied'));
-assert.equal(aiPayload.payload.max_completion_tokens, 650, 'reasoning model must have enough output budget to return its JSON answer');
-assert.equal(aiPayload.payload.reasoning_effort, 'low', 'catalogue routing should use bounded reasoning effort');
-assert.equal('max_tokens' in aiPayload.payload, false, 'deprecated max_tokens must not cap the reasoning model before its answer');
+assert.equal(aiPayload.payload.max_tokens, 300, 'catalogue reasoning must have a bounded output budget');
+assert.deepEqual(aiPayload.payload.response_format, { type: 'json_object' }, 'catalogue reasoning must request structured JSON');
 assert.deepEqual(grounded.results.map(result => result.id), ['ep-04']);
 assert.ok(!JSON.stringify(aiPayload).includes('BUTTONDOWN'));
 
@@ -180,6 +179,25 @@ for (const [question, expectedFirstId] of commonQuestions) {
   assert.match(result.topic_id, /^[a-z0-9-]+$/, `${question} must expose only a controlled topic ID`);
   assert.equal(result.results[0]?.id, expectedFirstId, `${question} must lead with its intended book section`);
 }
+
+const alternateExactAi = {
+  async run() {
+    return { response: {
+      coverage: 'exact',
+      answer: 'The catalogue has practical guidance for checking an AI answer.',
+      topic_id: 'verification-misinformation',
+      topic_label: 'checking AI answers',
+      source_ids: ['book-section-ai-fundamentals-101-ch-11-11-8-the-trust-framework-when-to-trust-ai-output']
+    } };
+  }
+};
+const designedCommonRoute = await (await ask('How do I check an AI answer?', envWith(index.entries, alternateExactAi))).json();
+assert.equal(designedCommonRoute.mode, 'grounded-ai');
+assert.equal(
+  designedCommonRoute.results[0]?.id,
+  'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework',
+  'grounded reasoning must preserve the designed first route for a published common question'
+);
 
 const restoredRejectedConcepts = structuredClone(index.entries);
 restoredRejectedConcepts.push({

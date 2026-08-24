@@ -1,6 +1,6 @@
 const MAX_QUERY_LENGTH = 240;
 const MAX_TOPIC_REQUEST_LENGTH = 500;
-const AI_MODEL = '@cf/google/gemma-4-26b-a4b-it';
+const AI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fp8-fast';
 const ADMITTED_LIBRARY_PARENTS = new Set(['ai-fundamentals-101','working-with-ai-101','straight-answers','ai-dictionary']);
 const LEARNER_JOBS = new Set(['understand','see-explained','current','practise','step-by-step','planned','trusted']);
 const STOPWORDS = new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','important','in','is','it','me','my','of','on','or','should','so','take','the','to','use','what','which','why','will','with','you']);
@@ -19,6 +19,12 @@ const TOPIC_RULES = [
   ['ai-concepts', /\b(ai|artificial intelligence|machine learning|llm|llms|model|models|training|prediction)\b/i]
 ];
 const TOPIC_IDS = new Set([...TOPIC_RULES.map(([id]) => id), 'other']);
+const COMMON_QUESTION_TARGETS = new Map([
+  ['which ai should i use', 'book-section-working-with-ai-101-chapter-7'],
+  ['can i upload a work document', 'book-section-working-with-ai-101-4-4-upload-paste-or-describe'],
+  ['how do i check an ai answer', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
+  ['what can ai help me do at work', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
+]);
 const SAFE_EVENT_ID = /^[a-z0-9][a-z0-9._:-]{0,159}$/i;
 const PRIVATE_CONTENT_PATTERNS = [
   /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
@@ -245,7 +251,9 @@ function writeResultOpenSignal(env, { placement, topicId = 'other', resultId }) 
 }
 
 function parseAiJson(response) {
-  const value = response?.response || response?.result?.response || response?.choices?.[0]?.message?.content;
+  const structured = response?.response || response?.result?.response;
+  if (structured && typeof structured === 'object' && !Array.isArray(structured)) return structured;
+  const value = structured || response?.choices?.[0]?.message?.content || response?.result?.choices?.[0]?.message?.content;
   if (typeof value !== 'string' || !value.trim()) throw new Error('AI returned no answer');
   const candidate = value.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
   return JSON.parse(candidate);
@@ -277,8 +285,8 @@ async function reasonAcrossCatalogue(query, entries, env) {
         content: JSON.stringify({ question: query, sources })
       }
     ],
-    max_completion_tokens: 650,
-    reasoning_effort: 'low',
+    max_tokens: 300,
+    response_format: { type: 'json_object' },
     temperature: 0.1
   });
   const parsed = parseAiJson(response);
@@ -286,7 +294,9 @@ async function reasonAcrossCatalogue(query, entries, env) {
     throw new Error('AI returned invalid result');
   }
   const byId = new Map(candidates.map(({entry}) => [entry.id, entry]));
-  const selected = [...new Set(parsed.source_ids)].map(id => byId.get(id)).filter(Boolean).slice(0, 4);
+  let selected = [...new Set(parsed.source_ids)].map(id => byId.get(id)).filter(Boolean).slice(0, 4);
+  const designedTarget = byId.get(COMMON_QUESTION_TARGETS.get(normalize(query)));
+  if (designedTarget) selected = [designedTarget, ...selected.filter(entry => entry.id !== designedTarget.id)].slice(0, 4);
   const topicId = TOPIC_IDS.has(parsed.topic_id) ? parsed.topic_id : classifyTopic(query, selected.map(entry => ({ entry })));
   if (parsed.coverage === 'none' || !selected.length) {
     return { coverage: 'none', answer: parsed.answer.trim(), topicId, matches: [] };
