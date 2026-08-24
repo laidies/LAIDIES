@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "laidies-content-producer-contract.v1",
+  "candidateId": "luminairy-profile-cards-2026-08-23",
+  "surface": "LUMINAIRY_PROFILE_CARDS",
+  "contentClass": "REFERENCE",
+  "producer": "codex-root-luminairy-producer",
+  "readerContract": {
+    "humanQuestion": "Who is this woman or cultural guide, why is she in this wing, and what useful AI lesson should I remember?",
+    "promisedPayoff": "Each card gives one bounded fact or clearly labelled cultural interpretation, one practical lesson, and a trustworthy route to continue.",
+    "priorKnowledge": "The reader may recognize some names but is not expected to know computing history, current AI organizations, or LAiDIES' teaching roles.",
+    "centralMentalModel": "The three wings do different jobs: SAiNTS make habits memorable, MAiVENS show the lineage and critique of computing, and TRAiLBLAZERS show current practice.",
+    "dailyLifeConnection": "The lesson on each card should change one ordinary choice: define the job, test the evidence, choose a tool, protect private information, or ask a better question.",
+    "surfaceJob": "A compact, source-linked profile archive that remains enjoyable to browse and does not turn into a biography wall.",
+    "desiredFeeling": "Oriented, interested, and capable of explaining why each guide belongs without being asked to worship a greatest-women canon."
+  },
+  "canonicalTruth": [
+    {
+      "claimId": "LUM-PROFILES-2026-08-23",
+      "owner": "LUMINAiRY editorial sub-champion",
+      "freshnessTrigger": "A source correction, current-role change, link failure, roster decision, or lesson-role change.",
+      "source": {
+        "path": "operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md",
+        "sha256": "99bb954d9ebdbbbf2e8ecf95df4a96f0ab17f46689e3d8ce3d624d5410749c59"
+      }
+    }
+  ],
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "strengthsToUse": [
+        "Answer why the person matters before adding detail.",
+        "Separate supported fact, LAiDIES interpretation, and freshness limits.",
+        "Turn evidence into a practical reader move and an exact continuation link."
+      ],
+      "patternsNotToCopy": [
+        "Do not repeat the same answer scaffold word-for-word across 43 cards.",
+        "Do not inherit any of the exemplar's dated claims or long-form section lengths."
+      ]
+    }
+  ],
+  "knownFailurePreflight": {
+    "registryVersion": "laidies-content-quality-exemplars.v1",
+    "registrySha256": "9a105dbe63c19357c653029e6c39b3ee840ec14ebaa01a8ead0f7c2d8566b6f3",
+    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002"],
+    "dispositions": {
+      "glossaryAccumulation": {"status": "CLEAR", "producerGuard": "Use one plain lesson per card and define a technical term only where it performs that lesson.", "preventionEvidence": "The card schema has no glossary field and caps the fact and lesson at one short paragraph each."},
+      "templateRepetition": {"status": "CLEAR", "producerGuard": "Keep the information architecture stable but vary sentence construction according to the actual work.", "preventionEvidence": "Role, fact, lesson, freshness, and links have separate fields rather than a repeated prose formula."},
+      "decorativeAnalogy": {"status": "CLEAR", "producerGuard": "Use no analogy unless it precisely explains the person's contribution.", "preventionEvidence": "The profile plan uses direct explanations and no analogy field."},
+      "referenceConfetti": {"status": "CLEAR", "producerGuard": "Every named work or institution must link to the source that supports that exact card.", "preventionEvidence": "The source packet maps every Maven and Trailblazer to a claim-specific source."},
+      "missingMechanism": {"status": "CLEAR", "producerGuard": "State the contribution in cause-and-effect language where a mechanism is required.", "preventionEvidence": "Lessons explain what changes in search, data, privacy, interfaces, deployment, or model behaviour."},
+      "genericAction": {"status": "CLEAR", "producerGuard": "Make each lesson a distinct choice the reader can recognize or use.", "preventionEvidence": "The locked Saint roles and each Maven/Trailblazer interpretation have a unique reader job."},
+      "jargonBeforeMeaning": {"status": "CLEAR", "producerGuard": "Put ordinary meaning before terms such as compiler, differential privacy, or probabilistic model.", "preventionEvidence": "Each technical term is paired with what it lets people or systems do."},
+      "disconnectedSystem": {"status": "CLEAR", "producerGuard": "Explain the three wing jobs at the archive level and the person-specific job on each card.", "preventionEvidence": "Wing introduction plus role/fact/lesson fields preserve the relationship between person and archive."},
+      "joylessInstruction": {"status": "CLEAR", "producerGuard": "Keep the Saint teaching device playful while treating real women's work with adult warmth and specificity.", "preventionEvidence": "Visual wings carry the delight; factual cards avoid flat encyclopedia prose and forced jokes."},
+      "purposeTooNarrow": {"status": "CLEAR", "producerGuard": "Connect each profile to durable judgment, not one prompt trick.", "preventionEvidence": "Lessons cover evidence, privacy, uncertainty, systems, teaching, and deployment choices."},
+      "mechanismBeforeMotivation": {"status": "CLEAR", "producerGuard": "Lead each wing with why a visitor would use it.", "preventionEvidence": "The archive introduction states the three reader jobs before the technical contributions."},
+      "workedExampleOvertakesBookPurpose": {"status": "CLEAR", "producerGuard": "Treat every profile as one lens within a larger lineage, not a complete history.", "preventionEvidence": "The page explicitly rejects greatest-women ranking and preserves three collections."},
+      "technicalExplainerVoice": {"status": "CLEAR", "producerGuard": "Use capable-adult plain language and short sentences.", "preventionEvidence": "Card copy avoids insider abbreviations unless the source work requires and explains them."}
+    },
+    "knownDefectsRemaining": []
+  },
+  "draftArchitecture": {
+    "plainAnswer": "Every card answers who she is, what she changed or represents, what LAiDIES learns from it, and where to continue.",
+    "causalSequence": [
+      "A visitor first sees the wing and the person's distinct role.",
+      "A bounded factual sentence or labelled cultural interpretation explains why she belongs.",
+      "A practical lesson translates that reason into a useful judgment or habit.",
+      "A source, work, social, or song link lets the visitor continue without trusting the card alone."
+    ],
+    "workedCase": "Karen Spärck Jones: Cambridge-supported information-retrieval work becomes the plain lesson that search weighs what distinguishes a term, not just whether it appears.",
+    "transferCase": "Amanda Askell: a current first-party Constitution source becomes the lesson that model behaviour is designed through explicit values and revisions.",
+    "usefulAction": "Choose one guide, read the evidence boundary, and follow the exact source or song rather than treating the portrait as proof.",
+    "formatSpecificStructure": "Wing job; portrait card; name and role; one bounded fact or interpretation; one LAiDIES lesson; freshness label where volatile; exact continuation links; optional local pick.",
+    "antiTemplateDecision": "Do not add invented quotations, generic struggle paragraphs, ranking language, or decorative objects to make every profile look equally dramatic.",
+    "analogyPlan": [],
+    "humourPlan": {"lessonJob": "The playful Saint titles make habits memorable; no jokes are added to historical erasure, living-person role claims, or source limits."}
+  },
+  "communicationDesign": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "A reference card has room for one visible mechanism and one useful landing, not a full lecture arc.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": {"disposition": "APPLY", "reason": "The visitor needs to know why this person belongs and what to do with the lesson.", "plannedEvidence": "Role and lesson appear before continuation links."},
+      "usefulCuriosity": {"disposition": "APPLY", "reason": "A surprising contribution can invite the reader into primary evidence.", "plannedEvidence": "Each Maven fact names one concrete contribution without inflated first claims."},
+      "invisibleProcessConcrete": {"disposition": "APPLY", "reason": "Several contributions concern hidden software, statistical, privacy, or organizational systems.", "plannedEvidence": "The lesson states the visible effect of the underlying work in plain language."},
+      "familiarTechnicalMovement": {"disposition": "APPLY", "reason": "Readers need movement from an ordinary decision to the technical contribution.", "plannedEvidence": "Each lesson links the person's work to search, instructions, data, privacy, interfaces, or deployment."},
+      "limitationsConsequences": {"disposition": "APPLY", "reason": "Historical priority and current-role claims are easy to overstate.", "plannedEvidence": "The source packet and cards avoid absolute firsts and date volatile roles."},
+      "humourSurprise": {"disposition": "APPLY", "reason": "The Saint wing uses playful archetypes to make the learning move memorable.", "plannedEvidence": "Humour remains in titles and songs, not unsupported biography."},
+      "betterNextQuestion": {"disposition": "APPLY", "reason": "The archive should produce a useful follow-on question, not passive admiration.", "plannedEvidence": "Every card ends with an evidence or work route and a distinct practical lesson."}
+    },
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": ["human reason to care", "one concrete mechanism", "scope limit", "useful next route"],
+      "adaptation": "Each card compresses the arc into role, fact, lesson, and source; the wing introduction carries the shared starting point."
+    }
+  },
+  "representativeProofPlan": {
+    "highestRisk": "Profiles could repeat stale current roles, inflated first claims, or attractive but source-free interpretations.",
+    "plannedProof": "Validate this contract, bind exact card text to the source packet, run maker self-review, then require a role-distinct artifact-first factual and visual review.",
+    "acceptanceOutcome": "A reader can distinguish sourced fact from LAiDIES interpretation and explain one useful reason each selected guide belongs."
+  },
+  "ratchet": {
+    "targets": {"repeatedKnownDefects": 0, "objectiveDefectsFirstFoundAtReview": 0},
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "status": "READY_TO_DRAFT"
+}

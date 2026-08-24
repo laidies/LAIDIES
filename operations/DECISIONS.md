@@ -107,6 +107,7 @@ rule is actually written.
 | LOCKED | **Pop culture is never decoration.** | `voice/laidies-writing-lock.md:349` |
 | LOCKED | **Never present a stale era as current** — see the banned-as-unqualified claim list. | `voice/laidies-writing-lock.md:709` |
 | LOCKED | **Episode 1 is the gold standard** for voice. Ep04 is a deliberate departure — a guide chapter, not a normal episode. | `voice/laidies-canon-index.md:106` |
+| LOCKED | **LUMINAiRY is 13 PATRON SAiNT cards, 23 MAiVENS and 7 TRAiLBLAZERS, with distinct jobs, locked roles, palette/portrait rules and required profile media.** | `voice/laidies-canon-index.md` §5; `engine/LEDGER.md` D-2026-08-23-105 |
 | LOCKED | **Episode 01's written edition uses the dark full-width reading template, not the split-screen feature cover.** Keep the standing-ovation hero, centred live title, dark article field, 840px editorial shell and 720px reading measure. Read / Listen / Watch remains a separate persistent control. | `operations/episode-issue-page-design-decisions-20260724.md#episode-01-supersession--2026-08-05`; Ali 2026-08-05 |
 | LOCKED | **Rewind Era = 1990–2010** — "twenty years of pop culture, from dial-up to downloads." Marked DECIDED. | `ACTIVE-WORK.md:473` |
 | LOCKED | **Retired gold `#c9a227` and plum `#4b2148` as UI colour = automatic page FAIL.** | `page-design-bar.md:37` |

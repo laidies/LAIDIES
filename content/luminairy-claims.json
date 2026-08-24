@@ -1,61 +1,400 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "product": "luminairy",
-  "generatedOn": "2026-07-26",
+  "generatedOn": "2026-08-23",
   "correctionRoute": "/town-hall.html#town-hall-feedback",
-  "correctionRouteState": "preflight-no-submission-or-response-promise",
   "admissionPolicy": "fail-closed",
-  "claimBinding": "exact-identity-context-selector-text-source-evidence-envelope-plus-offline-signed-receipt",
+  "claimBinding": "exact-wing-identity-profile-json-sha256-plus-offline-p256-signed-review-receipt",
   "receiptManifest": "/content/luminairy-editorial-receipts.json",
-  "admissionRule": "A record may be admitted only when one atomic rendered node matches its normalized text and SHA-256, the full identity/context/claim/source/evidence/date/owner envelope matches admissionBindingSha256, and a separate offline editorial authority has signed an exact matching receipt. Legacy records remain held until decomposed and independently admitted.",
+  "sourcePacket": "/operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md",
+  "sourcePacketSha256": "99bb954d9ebdbbbf2e8ecf95df4a96f0ab17f46689e3d8ce3d624d5410749c59",
   "records": [
-    {"claimId":"saint-cher-dionne-card","personId":"cher-horowitz-dionne-davenport","wing":"saints","selector":"[data-saint-id=\"cher-dionne\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-dolly-parton-card","personId":"dolly-parton","wing":"saints","selector":"[data-saint-id=\"dolly-parton\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-elle-woods-card","personId":"elle-woods","wing":"saints","selector":"[data-saint-id=\"elle-woods\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-miranda-priestly-card","personId":"miranda-priestly","wing":"saints","selector":"[data-saint-id=\"miranda-priestly\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-buffy-summers-card","personId":"buffy-summers","wing":"saints","selector":"[data-saint-id=\"buffy-summers\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-david-rose-card","personId":"david-rose","wing":"saints","selector":"[data-saint-id=\"david-rose\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-deb-card","personId":"deb","wing":"saints","selector":"[data-saint-id=\"deb\"]","claimKind":"fictional-laidies-canon","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-samantha-jones-card","personId":"samantha-jones","wing":"saints","selector":"[data-saint-id=\"samantha-jones\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-bette-midler-card","personId":"bette-midler","wing":"saints","selector":"[data-saint-id=\"bette-midler\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-sister-mary-clarence-card","personId":"sister-mary-clarence","wing":"saints","selector":"[data-saint-id=\"sister-mary-clarence\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-golden-girls-card","personId":"the-golden-girls","wing":"saints","selector":"[data-saint-id=\"the-golden-girls\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-carrie-bradshaw-card","personId":"carrie-bradshaw","wing":"saints","selector":"[data-saint-id=\"carrie-bradshaw\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"saint-regina-george-card","personId":"regina-george","wing":"saints","selector":"[data-saint-id=\"regina-george\"]","claimKind":"laidies-interpretation-and-context","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-
-    {"claimId":"maven-ada-lovelace-profile","personId":"ada-lovelace","wing":"mavens","selector":"[data-foundress-slug=\"ada-lovelace\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-grace-hopper-profile","personId":"grace-hopper","wing":"mavens","selector":"[data-foundress-slug=\"grace-hopper\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-hedy-lamarr-profile","personId":"hedy-lamarr","wing":"mavens","selector":"[data-foundress-slug=\"hedy-lamarr\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-karen-sparck-jones-profile","personId":"karen-sparck-jones","wing":"mavens","selector":"[data-foundress-slug=\"karen-sparck-jones\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-hannah-fry-profile","personId":"hannah-fry","wing":"mavens","selector":"[data-maven-slug=\"hannah-fry\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-fei-fei-li-profile","personId":"fei-fei-li","wing":"mavens","selector":"[data-maven-slug=\"fei-fei-li\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-timnit-gebru-profile","personId":"timnit-gebru","wing":"mavens","selector":"[data-maven-slug=\"timnit-gebru\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-rachel-thomas-profile","personId":"rachel-thomas","wing":"mavens","selector":"[data-maven-slug=\"rachel-thomas\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-joy-buolamwini-profile","personId":"joy-buolamwini","wing":"mavens","selector":"[data-maven-slug=\"joy-buolamwini\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-kate-crawford-profile","personId":"kate-crawford","wing":"mavens","selector":"[data-maven-slug=\"kate-crawford\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-meredith-whittaker-profile","personId":"meredith-whittaker","wing":"mavens","selector":"[data-maven-slug=\"meredith-whittaker\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-emily-bender-profile","personId":"emily-bender","wing":"mavens","selector":"[data-maven-slug=\"emily-bender\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-eniac-six-profile","personId":"eniac-six","wing":"mavens","selector":"[data-maven-slug=\"eniac-six\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-margaret-hamilton-profile","personId":"margaret-hamilton","wing":"mavens","selector":"[data-maven-slug=\"margaret-hamilton\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-frances-allen-profile","personId":"frances-allen","wing":"mavens","selector":"[data-maven-slug=\"frances-allen\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-grace-wahba-profile","personId":"grace-wahba","wing":"mavens","selector":"[data-maven-slug=\"grace-wahba\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-cynthia-dwork-profile","personId":"cynthia-dwork","wing":"mavens","selector":"[data-maven-slug=\"cynthia-dwork\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-daphne-koller-profile","personId":"daphne-koller","wing":"mavens","selector":"[data-maven-slug=\"daphne-koller\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-barbara-liskov-profile","personId":"barbara-liskov","wing":"mavens","selector":"[data-maven-slug=\"barbara-liskov\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-jean-sammet-profile","personId":"jean-sammet","wing":"mavens","selector":"[data-maven-slug=\"jean-sammet\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-adele-goldberg-profile","personId":"adele-goldberg","wing":"mavens","selector":"[data-maven-slug=\"adele-goldberg\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-shafi-goldwasser-profile","personId":"shafi-goldwasser","wing":"mavens","selector":"[data-maven-slug=\"shafi-goldwasser\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-lynn-conway-profile","personId":"lynn-conway","wing":"mavens","selector":"[data-maven-slug=\"lynn-conway\"]","claimKind":"biography-profile","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-
-    {"claimId":"trailblazer-mira-murati-card","personId":"mira-murati","wing":"trailblazers","selector":"[data-builder-slug=\"mira-murati\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-daniela-amodei-card","personId":"daniela-amodei","wing":"trailblazers","selector":"[data-builder-slug=\"daniela-amodei\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-lila-ibrahim-card","personId":"lila-ibrahim","wing":"trailblazers","selector":"[data-builder-slug=\"lila-ibrahim\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-fidji-simo-card","personId":"fidji-simo","wing":"trailblazers","selector":"[data-builder-slug=\"fidji-simo\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-chelsea-finn-card","personId":"chelsea-finn","wing":"trailblazers","selector":"[data-builder-slug=\"chelsea-finn\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-amanda-askell-card","personId":"amanda-askell","wing":"trailblazers","selector":"[data-builder-slug=\"amanda-askell\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-allie-k-miller-card","personId":"allie-k-miller","wing":"trailblazers","selector":"[data-builder-slug=\"allie-k-miller\"]","claimKind":"current-role-and-interpretation","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"maven-lineage-context","wing":"mavens","selector":"[data-lum-claim-block=\"maven-lineage-context\"]","claimKind":"context-block","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"turing-memoriam-context","wing":"mavens","selector":"[data-lum-claim-block=\"turing-memoriam\"]","claimKind":"context-block","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"},
-    {"claimId":"trailblazer-wing-context","wing":"trailblazers","selector":"[data-lum-claim-block=\"trailblazer-wing-context\"]","claimKind":"context-block","status":"held","correctionOwner":"saints-mavens-trailblazers-editorial"}
+    {
+      "claimId": "saints-cher-dionne",
+      "wing": "saints",
+      "profileId": "cher-dionne",
+      "status": "admitted",
+      "profileSha256": "dc09c3ee30f42507ecae62f844eddccddd95d770531185d94f81cd1970778f74",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-david-rose",
+      "wing": "saints",
+      "profileId": "david-rose",
+      "status": "admitted",
+      "profileSha256": "4dce304904124a6fed561f0a24a2eb2b3458d82b7d112ad3a3faae8b55be2858",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-elle-woods",
+      "wing": "saints",
+      "profileId": "elle-woods",
+      "status": "admitted",
+      "profileSha256": "4e2f59d23aa0d6e9cf1b71b37e5f442c8482b5f81d2ab70691d709fb7f48cc6c",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-samantha-jones",
+      "wing": "saints",
+      "profileId": "samantha-jones",
+      "status": "admitted",
+      "profileSha256": "58b7af986344ba9eec232424446d60029bea540aef691518e70d1d40e5b15966",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-miranda-priestly",
+      "wing": "saints",
+      "profileId": "miranda-priestly",
+      "status": "admitted",
+      "profileSha256": "03241e05b0b3843483ec578e52b6f08499c890e539bd850b666fe4ad55f13524",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-deb",
+      "wing": "saints",
+      "profileId": "deb",
+      "status": "admitted",
+      "profileSha256": "f0dba8d748f6d24fcbf728f329b894d7879d1780113323cc542e20a903592685",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-buffy-summers",
+      "wing": "saints",
+      "profileId": "buffy-summers",
+      "status": "admitted",
+      "profileSha256": "b183902c0976cb7595e87f28c763efe2d46cdca999467eaa2342b0232285cdb4",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-dolly-parton",
+      "wing": "saints",
+      "profileId": "dolly-parton",
+      "status": "admitted",
+      "profileSha256": "d60d596eb0df476ba589019968e80aba0a4c941c282f8380346064c4d558f7a3",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-sister-mary-clarence",
+      "wing": "saints",
+      "profileId": "sister-mary-clarence",
+      "status": "admitted",
+      "profileSha256": "3514c441c5f8c1f64a9d69b151337ff298846f0728e2041b37ab18fb607dbe51",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-carrie-bradshaw",
+      "wing": "saints",
+      "profileId": "carrie-bradshaw",
+      "status": "admitted",
+      "profileSha256": "6ac8d520243376cd8e5e4ece41140f4a76c7d590a4fee628b1e27ff813aa3b98",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-bette-midler",
+      "wing": "saints",
+      "profileId": "bette-midler",
+      "status": "admitted",
+      "profileSha256": "1bc5215809367ca12af34061d159238af1d8f4b89b5e28a5b5a33397c97b41a3",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-the-golden-girls",
+      "wing": "saints",
+      "profileId": "the-golden-girls",
+      "status": "admitted",
+      "profileSha256": "465f8972a71902e21c05610670e166bfecb4245b4b088fa882a397f0069a3941",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "saints-regina-george",
+      "wing": "saints",
+      "profileId": "regina-george",
+      "status": "admitted",
+      "profileSha256": "8514e842d5d59e67e72c2447d7f54667ac711dd6448f80674dcf5b5013c9a584",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-ada-lovelace",
+      "wing": "mavens",
+      "profileId": "ada-lovelace",
+      "status": "admitted",
+      "profileSha256": "36356526ba691f2fbd3a78f4ce01ae1a8ff8b1ec5abf7a938b872fecc1c9aa72",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-grace-hopper",
+      "wing": "mavens",
+      "profileId": "grace-hopper",
+      "status": "admitted",
+      "profileSha256": "08eb0877b69308e53e8ca315e4b0c23d6964d9a92e0a652198ae0fb1192f922c",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-hedy-lamarr",
+      "wing": "mavens",
+      "profileId": "hedy-lamarr",
+      "status": "admitted",
+      "profileSha256": "8a6071d86bca320aff17ed98bb4f1eae0ab1404e7391f6dbb77d92c18879490c",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-karen-sparck-jones",
+      "wing": "mavens",
+      "profileId": "karen-sparck-jones",
+      "status": "admitted",
+      "profileSha256": "d0c1378b300ddfc463d3bd5d1d50ef878e3ec7064ae10bfd9d5c499ce828fe59",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-hannah-fry",
+      "wing": "mavens",
+      "profileId": "hannah-fry",
+      "status": "admitted",
+      "profileSha256": "84e29fd711a67e4f0dadfa6e3fc0a5bec4d29ade26d77230a08bc86e6c5ba445",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-fei-fei-li",
+      "wing": "mavens",
+      "profileId": "fei-fei-li",
+      "status": "admitted",
+      "profileSha256": "53bf6bd7405095f1040373560df0f1e26c9ff808824bcf8c87f95d62a83be33a",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-timnit-gebru",
+      "wing": "mavens",
+      "profileId": "timnit-gebru",
+      "status": "admitted",
+      "profileSha256": "e2d36843f59a44e31f28478b21bda1f734fa531aba9a5506d5ae49b49c3931ed",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-rachel-thomas",
+      "wing": "mavens",
+      "profileId": "rachel-thomas",
+      "status": "admitted",
+      "profileSha256": "40628ce6064372a3e9d220dbebec465f580af656aef46aa0d4a0cb73fd29323f",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-joy-buolamwini",
+      "wing": "mavens",
+      "profileId": "joy-buolamwini",
+      "status": "admitted",
+      "profileSha256": "edfe6ddad16b3fae8cbbe7e373be1bceabc92943a80143c6a28b0658b366dd1b",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-kate-crawford",
+      "wing": "mavens",
+      "profileId": "kate-crawford",
+      "status": "admitted",
+      "profileSha256": "dec82f5bee1f8915ce59957ceedaf83694d232d2d3e33a077496d9d2c536196f",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-meredith-whittaker",
+      "wing": "mavens",
+      "profileId": "meredith-whittaker",
+      "status": "admitted",
+      "profileSha256": "3954c31ed52dc998cc600099d7809803aacccc301cdd2a621c9d6c9caaf68fd3",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-emily-bender",
+      "wing": "mavens",
+      "profileId": "emily-bender",
+      "status": "admitted",
+      "profileSha256": "3befab637f9606f7a385f7fc9e6ee09b88415496afbe16e4e5d02566093c78f0",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-eniac-six",
+      "wing": "mavens",
+      "profileId": "eniac-six",
+      "status": "admitted",
+      "profileSha256": "82dc33cd5d5524d27601a6c8717cdc91f25ced204ee3757d00641df2594bad83",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-margaret-hamilton",
+      "wing": "mavens",
+      "profileId": "margaret-hamilton",
+      "status": "admitted",
+      "profileSha256": "be4d411ad30b4bafd6f3f6ae127649964e7c2bc77f13d9d6dd31c890a5a39ac0",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-frances-allen",
+      "wing": "mavens",
+      "profileId": "frances-allen",
+      "status": "admitted",
+      "profileSha256": "4081fb603bfaf1079aec52009e9008331a915d065a374e579791fac81d9169fa",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-grace-wahba",
+      "wing": "mavens",
+      "profileId": "grace-wahba",
+      "status": "admitted",
+      "profileSha256": "2d5a9ee6fb60331a5e32abc8dc0545cad3137c64c9fa592bb1fb9e9d4d352fd1",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-cynthia-dwork",
+      "wing": "mavens",
+      "profileId": "cynthia-dwork",
+      "status": "admitted",
+      "profileSha256": "d385126688eb72879da658c1eb44dc2b81f656a33ede04c8b458284b2a2f24eb",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-daphne-koller",
+      "wing": "mavens",
+      "profileId": "daphne-koller",
+      "status": "admitted",
+      "profileSha256": "a96c3bb07488fb9429bc9128fa16da8115a56402445562e783f7ef8b648b9fa9",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-barbara-liskov",
+      "wing": "mavens",
+      "profileId": "barbara-liskov",
+      "status": "admitted",
+      "profileSha256": "ac6d40b5bc2a218a0d088cc2cbb5160ca2b15708b047919456f22080942dbb85",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-jean-sammet",
+      "wing": "mavens",
+      "profileId": "jean-sammet",
+      "status": "admitted",
+      "profileSha256": "ee4d656dec348752f13d2551a8e3e6a6146b03697ce62cac573ad9f63e1a349f",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-adele-goldberg",
+      "wing": "mavens",
+      "profileId": "adele-goldberg",
+      "status": "admitted",
+      "profileSha256": "c76a9a8e639de62fa167cb2e8a0fd6d080be7f7c68f61657636813d1d04de4c1",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-shafi-goldwasser",
+      "wing": "mavens",
+      "profileId": "shafi-goldwasser",
+      "status": "admitted",
+      "profileSha256": "08737af4f35301d255c4946de3979914bb74dd1e21670ca755a95fb4eabf09a1",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "mavens-lynn-conway",
+      "wing": "mavens",
+      "profileId": "lynn-conway",
+      "status": "admitted",
+      "profileSha256": "9d1201769fe2484b672b2e8d546dfe1646e673df1f08595584b4cb50412214a6",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2027-08-23"
+    },
+    {
+      "claimId": "trailblazers-mira-murati",
+      "wing": "trailblazers",
+      "profileId": "mira-murati",
+      "status": "admitted",
+      "profileSha256": "835a810345d45e9b0e929a2a9aa9d30439763d156d35a94152e8e4d524c5ffc1",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    },
+    {
+      "claimId": "trailblazers-daniela-amodei",
+      "wing": "trailblazers",
+      "profileId": "daniela-amodei",
+      "status": "admitted",
+      "profileSha256": "79fbabf9e366970de7c7e19548bfe69c60a2938e3ae3bdc2e325fbf6d670216e",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    },
+    {
+      "claimId": "trailblazers-lila-ibrahim",
+      "wing": "trailblazers",
+      "profileId": "lila-ibrahim",
+      "status": "admitted",
+      "profileSha256": "139e5f1dfef9bcd60a4ee95a0c38956e51233b09a6b8438cbc7f575233316da7",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    },
+    {
+      "claimId": "trailblazers-fidji-simo",
+      "wing": "trailblazers",
+      "profileId": "fidji-simo",
+      "status": "admitted",
+      "profileSha256": "c85255a84012ce094fb42c905d40b25ca83394248fe9257051d4af6de44656f0",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    },
+    {
+      "claimId": "trailblazers-chelsea-finn",
+      "wing": "trailblazers",
+      "profileId": "chelsea-finn",
+      "status": "admitted",
+      "profileSha256": "4a736a00b4b3f5543f432f484be27a5e3f224c179f6a05acdd51b5ba609bb47a",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    },
+    {
+      "claimId": "trailblazers-amanda-askell",
+      "wing": "trailblazers",
+      "profileId": "amanda-askell",
+      "status": "admitted",
+      "profileSha256": "a608ec08aaf025c614620ee64aa73f0e0f8429acf895de64055a25bbbf2b46e9",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    },
+    {
+      "claimId": "trailblazers-allie-k-miller",
+      "wing": "trailblazers",
+      "profileId": "allie-k-miller",
+      "status": "admitted",
+      "profileSha256": "deb36e2e486d8d1c66f2dfbea40341723030e750bdd594cdc8c16a0c1cd253b7",
+      "verifiedOn": "2026-08-23",
+      "recheckOn": "2026-11-23"
+    }
   ]
 }

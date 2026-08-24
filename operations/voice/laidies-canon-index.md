@@ -1,6 +1,6 @@
 # LAiDIES — Canon Index (Single Source of Truth)
 
-**Last updated:** 2026-06-21
+**Last updated:** 2026-08-23
 
 **Status of this document:** This is the current canon. Where it conflicts with any older doc — the Website Rescue brief, the Trust Layer doc, older Codex notes, prior ChatGPT summaries, or earlier handoffs — **this page wins.** Older docs stay useful for history, file locations, and prior intent, but they do not override the names, architecture, or decisions below.
 
@@ -50,7 +50,7 @@ These old names are **retired. Do not use them in public or internal copy.** Map
 ## 3. Overloaded words — one meaning each
 
 - **Coven** = the Grimoire section for real women in AI. (The elaborate "Receipts Coven" build with freshness dates = backlog.)
-- **Receipts** = shorthand for the **Chamber of Receipts** (sources/proof). The internal claim-tracking tool is the **Claims Ledger** (backlog). Elle Woods is the **Patron Saint of Receipts** (an archetype, not a section).
+- **Receipts** = shorthand for the **Chamber of Receipts** (sources/proof). The internal claim-tracking tool is the **Claims Ledger** (backlog). Elle Woods now teaches **Critical Thinking**, not a separate Receipts lane.
 - **Closet** = **Lore Closet** only. ("Reference Closet" retired.)
 
 ---
@@ -68,16 +68,46 @@ The Grimoire is the durable library. These are the weekly and interactive surfac
 
 ---
 
-## 5. Patron Saint lanes (locked — do not blur)
+## 5. LUMINAiRY wings and teaching lanes (locked — do not blur)
 
-- **Cher Horowitz** — Early Adoption
+The three wings have different jobs. **PATRON SAiNTS** are memorable cultural
+teaching devices, **MAiVENS** are historical and critical computing/AI lineage,
+and **TRAiLBLAZERS** are present-day builders and practitioners. Allie K. Miller
+belongs with the TRAiLBLAZERS, not the MAiVENS.
+
+### PATRON SAiNTS — 13 cards
+
+- **Cher Horowitz + Dionne Davenport** — Trendsetting
 - **David Rose** — Specificity
-- **Elle Woods** — Receipts
+- **Elle Woods** — Critical Thinking
+- **Samantha Jones** — Tool Choice
 - **Miranda Priestly** — Standards
-- **Buffy** — Slaying (actually using the tools)
-- **Regina George** — Dangerous Confidence
-- **Deb (corporate cryptid)** — "Loop Me Out"
+- **Deb (corporate cryptid)** — Boundaries
+- **Buffy Summers** — Execution
 - **Dolly Parton** — Common Sense
+- **Sister Mary Clarence** — Teaching
+- **Carrie Bradshaw** — Staying Current
+- **Bette Midler** — Doing It All (text, images, audio, files, data and code)
+- **The Golden Girls** — Never Too Late
+- **Regina George** — Dangerous Confidence (**red ANTI-SAINT**, not a model)
+
+Oprah Winfrey, Jessica Fletcher and Jennifer Lopez are removed from the roster.
+Trendsetting creates the useful pattern other people want to follow; Staying
+Current notices and verifies what changed. Every Saint card has a song. Cher's
+existing solo song may temporarily serve the Cher + Dionne duo card; Carrie
+requires the new Staying Current song.
+
+### Visual and information contract
+
+- PATRON SAiNTS use pink; Regina's ANTI-SAINT card uses red.
+- MAiVENS use dark sapphire blue.
+- TRAiLBLAZERS use golden amber with California poppies.
+- Every profile has information and one painterly portrait in the same waist-up
+  card system, ending at the natural waist/belt in the rendered crop.
+- Wardrobe is identity-appropriate and individually researched; no universal
+  navy suits, random props or generated lettering.
+- MAiVENS and TRAiLBLAZERS link to work, authoritative sources or official
+  social profiles where applicable.
 
 ---
 
@@ -114,7 +144,7 @@ The **patron saint card portraits** (`assets/saints/*.png`) and the **Girl Talk 
 When commissioning new character art, episode hero treatments, room card imagery, or any LAiDIES card-style visual, match:
 - The illustration register (rendering style, line/colour treatment)
 - The colour palette (plum, rose, blush, powder, cream, pearl, gold accents — keyed to the existing tokens)
-- The composition density (portraits as character + signature object/context, not isolated headshots)
+- The composition density (painterly waist-up portraits with identity-specific wardrobe and a clean, legible card crop; no random prop added merely to fill space)
 - The Y2K/grown-up-editorial energy (per the writing lock's voice rules)
 
 Pieces in other styles — even ones already on disk — are out of scope for the canonical card set unless they're explicitly re-treated to match. Mixed registers are how a site stops looking designed.

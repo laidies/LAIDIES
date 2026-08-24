@@ -54,14 +54,14 @@ Each saint = **her character + her one AI truth, fused.** See
 # SAiNT SONGS
 # ============================================================
 
-## Bette Midler — PATRON SAiNT of Range ("The Triple Threat")
+## Bette Midler — PATRON SAiNT of Doing It All ("The Triple Threat")
 **Band:** The Ensembles *(NEW band, locked 2026-07-16 — ML "ensemble methods"
 (many models combined) + the Broadway "ensemble"/big-cast showstopper; album
 **"Wisdom of the Crowd."** Can carry future cabaret/showstopper saints.)*
 **Status:** SHIPPED — `saint-bette-midler.mp3` + `ksvl-transitions/dj-sunnyv-intro-saint-bette-midler.mp3` (DJ intro), wired into `ksvl-player.js` (saints mix).
-**AI truth (Range/Multimodal):** it's not just a text box — show it pictures, talk to
-it, hand it your files, let it see your screen. Use every mode. Don't be just one
-thing; don't use it like it's just one thing.
+**AI truth (Doing It All / multimodal range):** it is not just a text box — use
+AI for text, pictures, audio, files, data and code. Use the capability the job
+needs, while remembering that one tool need not be best at every mode.
 
 **Comedic engine:** The Divine Miss M is the brassy maximalist who refuses to be ONE
 thing (torch songs AND comedy AND Broadway AND movies). "Why be one thing when you
@@ -160,6 +160,91 @@ so use 'em ALL — every tool you got — let 'em be the wind beneath your wings
 (but darling... YOU'RE still the one that flies.)
 Do it ALL... like BET!
 (the WORKS!)
+```
+
+---
+
+## Carrie Bradshaw — PATRON SAiNT of Staying Current
+**Band:** The Refreshes *(proposed)*
+**Status:** LYRICS LOCKED — audio render owed (`saint-carrie-bradshaw-staying-current.mp3`).
+**AI truth:** a polished answer can be stale. Check when the underlying fact was
+true, whether the model used a live source, and what changed before acting.
+Staying current notices the change; Cher and Dionne's trendsetting lesson is
+about creating the useful pattern other people choose to follow.
+
+**Style (Suno):**
+```
+glossy late-1990s to early-2000s city pop, chic disco pulse, bright piano, walking bass, clipped rhythm guitar, warm strings, witty conversational female lead, sophisticated magazine-column energy, strutting rather than frantic, 116 BPM, memorable call-and-response hook, clean studio recording, no crowd or applause
+```
+
+**Lyrics (FINAL — 2026-08-23):**
+```
+[Intro]
+(typewriter click, bright piano)
+I couldn't help but wonder...
+when exactly was that answer true?
+
+[Verse 1]
+It gave me every detail with a very certain air,
+a title, price and policy — all perfectly prepared.
+But confidence has timing, and the timing left a clue:
+the answer knew the old world, not the one I woke up to.
+
+[Pre-Chorus]
+What changed? (check the date!)
+Who said? (show the source!)
+Did it look outside the model —
+or just finish the thought in force?
+
+[Chorus]
+Stay current like Carrie! (what changed?)
+Date it, trace it, ask again!
+A polished little answer can be yesterday in heels,
+so find the live receipt before you treat it like it's real.
+Stay current like Carrie! (check when!)
+The first draft isn't where the story ends.
+
+[Verse 2]
+For history, use the archive; for today, go look around.
+Search the official source and see what happened on the ground.
+A model's learned-up knowledge and a live result aren't twins —
+one recalls the pattern; one can tell you what just shifted since.
+
+[Pre-Chorus]
+What changed? (check the date!)
+Who said? (show the source!)
+If the role, the rule or price can move,
+verify it at the source.
+
+[Chorus]
+Stay current like Carrie! (what changed?)
+Date it, trace it, ask again!
+A polished little answer can be yesterday in heels,
+so find the live receipt before you treat it like it's real.
+Stay current like Carrie! (check when!)
+The first draft isn't where the story ends.
+
+[Bridge]
+(spoken over strings and bass)
+Cher and Dionne set the look — they make the next thing happen.
+Carrie checks the city beat and notices what changed.
+One starts the pattern. One refreshes the page.
+(typewriter return)
+Different column. Different job.
+
+[Final Chorus]
+(key lift, strings open up)
+Stay current like Carrie! (what changed?)
+Date it, trace it, ask again!
+Names and rules and prices move; a link can lose its way,
+so read the date, inspect the source, and recheck it today.
+Stay current like Carrie! (check when!)
+The first draft isn't where the story ends.
+
+[Outro]
+(piano, typewriter click)
+And just like that...
+we checked the date.
 ```
 
 ---
@@ -436,7 +521,7 @@ OH HAPPY DAY!  [-END]
 
 ---
 
-## Samantha Jones — PATRON SAiNT of Orientation
+## Samantha Jones — PATRON SAiNT of Tool Choice
 **Band:** The Bots *(town's dance/club act)*
 **Status:** SHIPPED — `saint-samantha-jones.mp3` + `ksvl-transitions/dj-sunnyv-intro-saint-samantha-jones.mp3` (DJ intro), wired into `ksvl-player.js` (saints mix).
 **AI truth:** size up the tools before you start and pick the right one for the job —
@@ -731,15 +816,138 @@ down at the Blend & Snap... and it clicks!
 
 ---
 
+## SUNNYVAiLE Town Anthem  (THE LAiDIES)
+**Status:** SHIPPED (`content/music/sunnyvaile-town-anthem.mp3`) — Ali LOVES this one.
+**What it is:** the town's identity anthem — "you're not behind, you're home." Soft piano build → big anthemic key-change; Clueless "now get in, loser… we're learning AI" bridge. Keep the phonetic "Sunny-Vale."
+**Lyrics:**
+```
+[Intro] (soft piano, building) ooh... Sunny-Vale...
+[Verse 1] you nod in the meeting like you read the thing, / but you're winging it hard every time the words "AI" ring — / they buried it in buzzwords, made it sound so tall — / honey, you've broken ceilings... what's another wall?
+[Pre-Chorus] but you were never slow, girl — you were never the last, / you just needed a room that moves as smart and as fast — / so come on...
+[Chorus] welcome to Sunny-Vale — you're not behind, you're home! / a hundred clever women, and you're never on your own! / the 90s shaped us — and AI's shaping now, / you don't chase the future here, we'll show you how! / oh, Sunny-Vale... your people are here... / ohhh-oh-oh, Sunny-Vale...
+[Verse 2] you don't need a hoodie or a start-up name, / full calendar, high standard — you were built for this game, / Clay-oh's in the window, the Bronze Age plays, / pull up a chair, babe — we've been saving your place...
+[Pre-Chorus] 'cause you were never slow, girl — you were never the last, / on Wednesdays we do AI and we're having a blast — / so come on...
+[Chorus] (repeat)
+[Bridge] (stripped, vocal + piano, build) no more figuring it out at eleven at night, alone... / no more pretending you've got it — these are your own... / (drums swell) now get in, loser... we're learning... AI...!
+[Final Chorus] (KEY CHANGE, biggest) (repeat chorus)
+[Outro] (big, fading) you're not behind... you're home... ohhh-oh-oh, Sunny-Vale...
+```
+
+## Wednesday Anthem  (THE LAiDIES)
+**Status:** SHIPPED (mp3). The ONE fixed weekly-ritual song ([[wednesday-anthem-canon]]) — distinct from the episode song. A walk-through of the whole town's Wednesday. Fast cascading piano; super-catchy "it's Wednesday in Sunny-Vale and we run everything" hook.
+**Lyrics (canonical — Ali's version 2026-07-17; keep phonetic spellings "reed", "WHENS-day", "Sunny-Vale", "Clay-oh", "Delta Lai Nuu"):**
+```
+[Intro]
+(cold open — fast cascading piano riff alone, no vocal)
+
+[Verse 1]
+(strong drum beat)
+you've got mail — it's Wednesday, the Drop is on its way,
+swing by the NewsStand, reed the stories of the day,
+then it's straight to the Chick Flicks, grab the latest episode,
+the sun is shining bright, the town's awake, and the day is gonna roll...
+
+[Pre-Chorus]
+here it comes, here it comes —
+the best day of the week —
+(lift up...)
+
+[Chorus]
+oh-oh — it's WHENS-day! — in Sunny-Vale!
+where the smart girls meet, it's a hump day treat!
+clock the middle of the week and let the whole town sing —
+it's Wednesday in Sunny-Vale and we run everything!
+
+[Verse 2]
+grab a coffee at the Blend & Snap and study for a while,
+then it's the high school for the quiz — yeah,  you did it with a smile,
+flip the radio on, there's a brand-new song to hear,
+KSVL's got it spinning and the chorus is so clear...
+
+[Bridge of errands]
+run around the town now — see Clay-oh read your cards,
+call the Dream Phone on the corner when the question's getting hard,
+ask the FAiRY Godmother, get a glow-up for your day,
+get a Makeover on Main and walk out all the way!
+
+[Chorus]
+oh-oh — it's WEDNES-day! — in Sunny-Vale!
+where the smart girls meet, and it's a hump day treat!
+clock the middle of the week and let the whole town sing —
+it's Wednesday in Sunny-Vale and we run everything!
+
+[Verse 3]
+four o'clock at Bronze Age and the Businesswomen's pour,
+meet the girls for happy hour, then the band comes on for more,
+stay for the live show, dance until it's late,
+then it's back to Delta Lai Nuu to celebrate...
+
+[Bridge — night, big build]
+chatting with the LAiDIES, playing Girl Talk 'til we're done,
+truth or dare under the neon light, Wednesday's number one —
+(drums + harmonies swell)
+the whole town glowing from the morning to the night —
+it's Wednesday in Sunny-Vale and everything's alright!
+
+[Final Chorus — biggest]
+oh-oh — it's WEDNES-day! — in Sunny-Vale!
+where the smart girls meet, and it's a hump day treat!
+clock the middle of the week and let the whole town sing —
+it's Wednesday in Sunny-Vale and we run everything!
+(piano riff returns, soaring)
+
+[Outro]
+(piano winding down)
+neon's off now... town's asleep...
+see you next Wednesday... for another midweek treat...
+```
+
+---
+
+## Episode Intro Theme  (THE LAiDIES) — top of every episode
+**Status:** SHIPPED — `content/music/sunnyvaile-episode-intro.mp3` (~29s, Ali approved 2026-07-17).
+A blend of the Town + Wednesday anthem choruses on the anthem tune. Style = short cold-open-to-hook
+Y2K empowerment pop.
+**Lyrics (FINAL — Ali 2026-07-17):**
+```
+[Intro — anthem tune (Cover), ~25s]
+welcome to Sunny-Vale — you're not behind, you're home!
+so many clever women, and you're never on your own!
+the 90s shaped us — and AI's shaping now,
+you don't chase the future here, we'll show you how!
+(oh-oh —) it's Wednesday! — in Sunny-Vale!
+ohhh-ohhhh-ohhhh sunny-vale.
+```
+
+## Episode Outro Theme  (THE LAiDIES) — closing credits
+**Status:** SHIPPED — `content/music/sunnyvaile-episode-outro.mp3` (~25s). Warm wind-down; lands on
+the locked sign-off ([[episode-audio-format]]).
+**Lyrics (FINAL — Ali 2026-07-17):**
+```
+[Outro — warm wind-down, piano + soft synth]
+that's a wrap on Wednesday, the lights go low,
+you got your one good thing, now away you go —
+the neon's all off now... the town's asleep...
+see you next Wednesday... for another midweek treat...
+yeahhhhhh  in sunny-vale.
+```
+
 ## Still to transcribe into this songbook
 These shipped but their lyrics are still **mp3-only** — capture them here when handy
 so nothing is a lost drive away from gone:
-- SUNNYVAiLE Town Anthem · Wednesday Anthem (THE LAiDIES)
 - Saint songs: Cher, Buffy, Dolly, Elle, Regina
 - Game/town songs: Businesswomen's Special, Dream Phone, Girl Talk, Mme CLAi-O,
   Ask LAiDY, Debs Tomorrow Problem, episode Wednesday Anthems (weeks 01–04)
 
-## Owed saint songs (not yet written)
-- **Oprah** (Staying Current) — run the engine
-- **Jessica Fletcher** (proposed — "the follow-up question / interrogate the answer") — TBD
-- SHIPPED ✅: Deloris · Samantha · Bette · The Golden Girls (Betty White idea → collective Golden Girls saint)
+## Current saint-song disposition
+- **Elle Woods** (Critical Thinking / The Attorney) — existing shipped Elle
+  track accepted for the current card by Ali on 2026-08-23.
+- **Samantha Jones** (Tool Choice / The Publicist) — existing shipped “Size 'em
+  Up Like Samantha” track accepted; its job-first tool-selection mechanism is
+  the current role.
+- **Cher Horowitz + Dionne Davenport** (Trendsetting / The Trendsetters) — use
+  the existing Cher solo track temporarily; a duo-specific version remains a
+  future improvement, not a blocker.
+- **Carrie Bradshaw** (Staying Current / The Columnist) — lyrics/style locked in
+  this songbook; audio render remains owed.
+- SHIPPED ✅: Deloris · Bette · The Golden Girls (Betty White idea → collective Golden Girls saint)
