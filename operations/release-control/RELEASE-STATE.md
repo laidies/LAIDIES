@@ -114,7 +114,21 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-23 — LIBRAiRY experience successor
+## Current production release record — 2026-08-23 — LIBRAiRY owner-rejection rollback
+
+| Field | Current value |
+|---|---|
+| Deployed source | `e31f6629f79403a8c1f9ed319956bdd490542c28` |
+| Artifact identity | `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7` |
+| Release path | Exact rerun of previously successful GitHub release event `32677901263`; original source, workflow, scope, artifact and approval bindings passed |
+| Cloudflare deployment | `739b7fef-52ab-4301-bcb5-1263c4a5fa8b` |
+| Immutable URL | `https://739b7fef.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Controller completed `2026-08-24T03:48:40Z`. Live `library.html` SHA-256 `dd94d7c9edce725beaf3178e168e182be5a9baedb1b01ecbb58158457e50bdd5` exactly matches the rollback artifact. The rejected successor is not current production. |
+| Reason | Ali rejected the successor's changed/cropped masthead, removed locked backgrounds, black inset, bookshelf treatment and incorrect “Browse all four books” copy. |
+| Next release boundary | The restored baseline remains incomplete against the new browse brief. No successor deploys without Ali's direct visual approval of the exact candidate. |
+
+## Rejected and rolled-back production record — 2026-08-23 — LIBRAiRY experience successor
 
 | Field | Current value |
 |---|---|
