@@ -6,7 +6,7 @@ import path from 'node:path';
 import worker from '../_worker.js';
 
 class MemoryD1 {
-  constructor() { this.requests=[]; this.payloads=[]; this.statuses=[]; this.aggregates=new Map(); }
+  constructor() { this.requests=[]; this.payloads=[]; this.statuses=[]; this.aggregates=new Map(); this.rateWindows=new Map(); }
   prepare(sql) {
     const db=this;
     return { sql, values:[], bind(...values){this.values=values;return this;}, async first(){
@@ -17,7 +17,12 @@ class MemoryD1 {
         const status=db.statuses.filter(row=>row.request_id===request.request_id).sort((a,b)=>b.created_at.localeCompare(a.created_at))[0];
         return {...structuredClone(request),state:status.state,updated_at:status.created_at};
       }
+      if(sql.includes('SELECT request_count FROM miss_jeeves_topic_request_rate_windows')) return {request_count:db.rateWindows.get(this.values[0])||0};
       throw new Error(`unhandled first: ${sql}`);
+    }, async run(){
+      if(sql.startsWith('INSERT INTO miss_jeeves_topic_request_rate_windows')) { db.rateWindows.set(this.values[0],(db.rateWindows.get(this.values[0])||0)+1); return {success:true}; }
+      if(sql.startsWith('DELETE FROM miss_jeeves_topic_request_rate_windows')) { for(const key of db.rateWindows.keys())if(key<this.values[0])db.rateWindows.delete(key); return {success:true}; }
+      throw new Error(`unhandled run: ${sql}`);
     }};
   }
   async batch(statements) {
@@ -81,6 +86,9 @@ assert.equal(JSON.stringify(status).includes(body.question),false);
 
 const limitedEnv={...env,MISS_JEEVES_TOPIC_LIMITER:{async limit(){return {success:false};}}};
 assert.equal((await submit(body,'rate-limit-fixture',limitedEnv)).status,429,'rate limiter must reject abusive volume');
+const fallbackEnv={...env};
+delete fallbackEnv.MISS_JEEVES_TOPIC_LIMITER;
+assert.equal((await submit({...body,question:'Please cover a safe fallback topic.'},'global-rate-fixture',fallbackEnv)).status,201,'identity-free global budget must protect Pages when the Worker rate binding is unavailable');
 
 const open=await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/result-open',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({result_id:'book-section-working-with-ai-101-chapter-7',topic_id:'tools-model-selection',placement:'library'})}),env);
 assert.equal(open.status,202);
@@ -96,5 +104,7 @@ assert.match(migration,/payload_vault/);
 assert.match(migration,/expires_at/);
 assert.match(migration,/request_aggregates/);
 assert.match(migration,/append-only/);
+const abuseMigration=fs.readFileSync(path.resolve(import.meta.dirname,'..','migrations/library-corrections/0003_miss_jeeves_abuse_budget.sql'),'utf8');
+assert.match(abuseMigration,/request_rate_windows/);
 
-console.log('MISS JEEVES TOPIC REQUEST PASS consent=1 pii_rejection_calibrated=1 receipt_safe=1 replay=1 conflict=1 dedupe_aggregate=1 status=1 rate_limit=1 result_open_signal=1 raw_text_leak=0 health=1');
+console.log('MISS JEEVES TOPIC REQUEST PASS consent=1 pii_rejection_calibrated=1 receipt_safe=1 replay=1 conflict=1 dedupe_aggregate=1 status=1 rate_limit=1 identity_free_global_budget=1 result_open_signal=1 raw_text_leak=0 health=1');

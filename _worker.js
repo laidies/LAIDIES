@@ -386,12 +386,21 @@ function normalizeTopicRequest(input) {
   };
 }
 
-async function enforceTopicRequestRateLimit(request, env) {
-  if (!env.MISS_JEEVES_TOPIC_LIMITER || typeof env.MISS_JEEVES_TOPIC_LIMITER.limit !== 'function') return true;
-  const networkKey = String(request.headers.get('cf-connecting-ip') || 'unidentified');
-  const key = await sha256Text(`miss-jeeves-topic-request:${networkKey}`);
-  try { return Boolean((await env.MISS_JEEVES_TOPIC_LIMITER.limit({ key })).success); }
-  catch { return false; }
+async function enforceTopicRequestRateLimit(request, env, db) {
+  if (env.MISS_JEEVES_TOPIC_LIMITER && typeof env.MISS_JEEVES_TOPIC_LIMITER.limit === 'function') {
+    const networkKey = String(request.headers.get('cf-connecting-ip') || 'unidentified');
+    const key = await sha256Text(`miss-jeeves-topic-request:${networkKey}`);
+    try { return Boolean((await env.MISS_JEEVES_TOPIC_LIMITER.limit({ key })).success); }
+    catch { return false; }
+  }
+  const windowStart = new Date(Math.floor(Date.now() / 60000) * 60000).toISOString();
+  const pruneBefore = new Date(Date.now() - 10 * 60000).toISOString();
+  try {
+    await db.prepare('INSERT INTO miss_jeeves_topic_request_rate_windows (window_start, request_count) VALUES (?1,1) ON CONFLICT(window_start) DO UPDATE SET request_count=request_count+1').bind(windowStart).run();
+    const row = await db.prepare('SELECT request_count FROM miss_jeeves_topic_request_rate_windows WHERE window_start=?1').bind(windowStart).first();
+    db.prepare('DELETE FROM miss_jeeves_topic_request_rate_windows WHERE window_start < ?1').bind(pruneBefore).run().catch(() => {});
+    return Number(row?.request_count || 0) <= 120;
+  } catch { return false; }
 }
 
 async function missJeevesTopicRequestSubmit(request, env) {
@@ -400,7 +409,7 @@ async function missJeevesTopicRequestSubmit(request, env) {
   if (!String(request.headers.get('content-type') || '').toLowerCase().includes('application/json')) return json({ status: 'error', error: 'content_type_required' }, 415);
   const idempotencyKey = String(request.headers.get('idempotency-key') || '');
   if (!SAFE_EVENT_ID.test(idempotencyKey)) return json({ status: 'error', error: 'idempotency_key_required' }, 400);
-  if (!(await enforceTopicRequestRateLimit(request, env))) return json({ status: 'error', error: 'rate_limited', message: 'That is too many requests at once. Please wait a minute and try again.' }, 429);
+  if (!(await enforceTopicRequestRateLimit(request, env, db))) return json({ status: 'error', error: 'rate_limited', message: 'That is too many requests at once. Please wait a minute and try again.' }, 429);
   let normalized;
   try { normalized = normalizeTopicRequest(await request.json()); }
   catch (error) { return json({ status: 'error', error: error.message || 'invalid_submission' }, 400); }
