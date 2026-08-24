@@ -462,6 +462,7 @@ async function missJeevesResultOpen(request, env) {
   if (!SAFE_EVENT_ID.test(resultId)) return json({ status: 'error', error: 'invalid_result_id' }, 400);
   const placement = body?.placement === 'homepage' ? 'homepage' : 'library';
   const topicId = TOPIC_IDS.has(body?.topic_id) ? body.topic_id : 'other';
+  if (!env.MISS_JEEVES_SIGNALS || typeof env.MISS_JEEVES_SIGNALS.writeDataPoint !== 'function') return json({ status: 'measurement_off' }, 202);
   writeResultOpenSignal(env, { placement, topicId, resultId });
   return json({ status: 'recorded' }, 202);
 }

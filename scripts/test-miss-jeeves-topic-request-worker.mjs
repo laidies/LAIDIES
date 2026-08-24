@@ -94,6 +94,10 @@ const open=await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/re
 assert.equal(open.status,202);
 assert.equal(signals.at(-1).blobs[0],'miss_jeeves_result_open');
 assert.equal(JSON.stringify(signals).includes(body.question),false,'aggregate measurement must never contain request text');
+const measurementOffEnv={...env};
+delete measurementOffEnv.MISS_JEEVES_SIGNALS;
+const measurementOff=await (await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/result-open',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({result_id:'book-section-working-with-ai-101-chapter-7',topic_id:'tools-model-selection',placement:'library'})}),measurementOffEnv)).json();
+assert.equal(measurementOff.status,'measurement_off','unbound measurement must report off rather than pretend an event was recorded');
 
 const health=await (await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/health'),env)).json();
 assert.equal(health.status,'ok');
