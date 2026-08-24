@@ -67,3 +67,39 @@ The next independent reviewer must answer with evidence from the rendered book:
 6. Does the book sound like LAiDIES beside Episode 1, rather than an accurate corporate explainer?
 
 Any `PARTIAL`, inferred comprehension or unsupported “readable” judgment is `REPAIR`, not `PASS`.
+
+## Second false pass: coverage and assumed-language failure
+
+Ali directly rejected the successor Move 37 artifact
+`5cbc3a9825185f83706e6d404d12901b7765633f59a0a3c785b23312ef6a2243`.
+It cannot be used as a positive exemplar or prose-admission candidate.
+
+The artifact exposed two defects that the preceding gate failed to prevent:
+
+1. **Promised-history mismatch.** A title promising the breakthroughs that
+   changed AI cannot give full narrative weight mainly to AlphaGo and
+   AlphaFold while compressing other eras and mechanisms into survey
+   paragraphs. The title, contents hierarchy and word allocation must make the
+   breadth visible before prose review.
+2. **Translated-jargon illusion.** Defining a specialist noun with more
+   specialist nouns is not explanation. Terms such as representation,
+   decoder, policy network, value network, token, residual connection,
+   evolutionary alignment and numerical space remain unexplained until a
+   reader can picture the problem, follow the change and say why it mattered
+   without using those terms.
+
+Before a successor full draft, require a representative sequence containing
+at least three different eras and domains. For each landmark, a reviewer must
+answer in ordinary language:
+
+- What could people not make a computer do reliably before this?
+- What new idea changed that, as a visible sequence rather than a definition?
+- What could people do afterwards that they could not do before?
+- Where might an ordinary reader encounter the consequence today?
+- What did the breakthrough still not solve?
+
+Reject the proof if the answer requires any technical term that the proof has
+not already made concrete. Reject the proposed book architecture when fewer
+than four distinct domains or fewer than three historical eras receive named
+landmarks. A broad title requires an explicit selection rule, exclusions and a
+living watchlist so that "all" is not falsely implied.

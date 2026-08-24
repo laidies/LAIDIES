@@ -1,4 +1,6 @@
-# Move 37 — repaired instructional verdict
+# Move 37 — repaired instructional verdict (INVALIDATED)
+
+Status: **INVALIDATED 2026-08-24 BY DIRECT OWNER REJECTION**. The exact artifact remained too narrow for its promised history and too dependent on unexplained specialist language for a non-technical reader. This verdict cannot admit prose.
 
 Verdict: **PASS for the exact artifact** `5cbc3a9825185f83706e6d404d12901b7765633f59a0a3c785b23312ef6a2243`.
 

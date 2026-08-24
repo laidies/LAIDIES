@@ -1,6 +1,6 @@
 # Move 37 — claim and source packet
 
-Status: RESEARCH COMPLETE FOR REPRESENTATIVE PROOF
+Status: EXPANDED RESEARCH COMPLETE FOR LOCAL TEXT CANDIDATE
 Reviewed through: 2026-08-24
 Owner: LAiDIES Library with independent source review
 
@@ -75,16 +75,35 @@ Low-confidence regions may be disordered or uncertain. A single predicted confor
 | Moment | Durable mechanism or reframing | Core source |
 |---|---|---|
 | 1950, Turing | Replace an argument about essence with an observable behavioural question | https://academic.oup.com/mind/article/LIX/236/433/986238 |
+| 1957, perceptron | Learn a simple decision boundary from corrected examples | https://hdl.handle.net/1813/8365 |
+| 1966, ELIZA | Show how rule-based text patterns can create an impression of conversation without comprehension | https://dl.acm.org/doi/10.1145/365153.365168 |
+| 1969, Shakey | Combine perception, planning and action in a bounded physical environment | https://www.sri.com/hoi/shakey-the-robot/ |
+| 1989, Q-learning | Revise action-value estimates from delayed reward without a supplied model of the environment | https://www.cs.rhul.ac.uk/~chrisw/thesis.html |
 | 1986, backpropagation | Adjust hidden layers by propagating output error backwards | https://awards.acm.org/binaries/content/assets/press-releases/2019/march/turing-award-2018.pdf |
+| 1997, LSTM | Learn gates that retain, discard and expose information across a sequence | https://direct.mit.edu/neco/article/9/8/1735/6109/Long-Short-Term-Memory |
+| 1998, LeNet | Reuse learned local pattern detectors across document images | https://ieeexplore.ieee.org/document/726791 |
+| 2009, ImageNet | Supply large-scale labelled data and a shared visual evaluation | https://ieeexplore.ieee.org/document/5206848 |
 | 2012, AlexNet | Large convolutional network + labelled data + GPUs learns visual features at scale | https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html |
+| 2013, word2vec | Learn numerical word neighbourhoods from use in context | https://papers.nips.cc/paper_files/paper/2013/hash/9aa42b31882ec039965f3c4923ce901b-Abstract.html |
 | 2014, attention | Let a decoder weight the relevant source positions rather than depend on one fixed summary | https://arxiv.org/abs/1409.0473 |
 | 2014, GANs | Generator and discriminator improve through an adversarial objective | https://proceedings.neurips.cc/paper_files/paper/2014/file/f033ed80deb0234979a61f95710dbe25-Paper.pdf |
 | 2015, residual networks | Learn a change around a shortcut connection, enabling much deeper networks | https://arxiv.org/abs/1512.03385 |
+| 2015, U-Net | Combine image context with restored fine detail for pixel-level segmentation | https://arxiv.org/abs/1505.04597 |
+| 2015, DQN | Join learned perception from pixels to reward-guided action | https://www.nature.com/articles/nature14236 |
 | 2016, AlphaGo | Learned evaluation focuses search and self-play improves policy | https://www.nature.com/articles/nature16961 |
 | 2017, transformer | Tokens attend directly to other tokens without recurrence; training parallelises | https://arxiv.org/abs/1706.03762 |
+| 2018, BERT | Pre-train broad language representations once, then adapt them to many tasks | https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/ |
+| 2020, GPT-3 | Specify some new tasks through text instructions or examples without retraining | https://arxiv.org/abs/2005.14165 |
+| 2020, RAG | Retrieve outside passages and place them in context before generation | https://arxiv.org/abs/2005.11401 |
+| 2020, MuZero | Learn only the internal predictions needed for planning rather than receiving game dynamics | https://www.nature.com/articles/s41586-020-03051-4 |
 | 2020, DDPM | Learn to reverse a gradual noising process | https://proceedings.neurips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html |
 | 2021, CLIP | Learn aligned text and image representations from matching pairs | https://cdn.openai.com/papers/Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.pdf |
 | 2021, AlphaFold2 | Predict 3D structure with learned geometry, evolutionary evidence, and confidence | https://www.nature.com/articles/s41586-021-03819-2 |
+| 2022, instruction following | Use demonstrations and ranked human preferences to shape assistant behaviour | https://arxiv.org/abs/2203.02155 |
+| 2022–2024, reasoning and tools | Elicit intermediate work, interleave actions and spend more computation on difficult answers | https://arxiv.org/abs/2210.03629 |
+| 2023, GraphCast | Learn global weather transitions on a connected Earth representation | https://deepmind.google/research/publications/22598/ |
+| 2023, GNoME | Combine learned candidate ranking with physics calculations in a materials-discovery loop | https://www.nature.com/articles/s41586-023-06735-9 |
+| 2023, RT-2 | Represent robot actions in a sequence form learned alongside vision and language | https://deepmind.google/blog/rt-2-new-model-translates-vision-and-language-into-action/ |
 
 ## Freshness triggers
 

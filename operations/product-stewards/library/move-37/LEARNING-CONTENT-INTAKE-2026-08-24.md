@@ -5,7 +5,7 @@
 
 ## 1. Trigger and intended result
 
-- **Working title:** Move 37: The Breakthroughs That Changed AI
+- **Working title:** The Breakthroughs That Changed AI
 - **Trigger:** Ali idea
 - **Trigger source and date:** Direct conversation, 2026-08-24
 - **Intended learner:** A capable adult who uses or encounters AI but has never
@@ -23,10 +23,10 @@
 - **Where this appears in her life:** AI news, workplace strategy, public
   funding and regulation, scientific claims, investment claims and decisions
   about what technology deserves trust or attention.
-- **Observable result:** She can explain at least three landmark moments in
-  cause-and-effect terms, distinguish a research breakthrough from adoption or
-  marketing, state what each moment did not prove and apply the book's test to
-  a new claim.
+- **Observable result:** She can follow the major eras and domains represented
+  in the book, explain why named landmark moments mattered in cause-and-effect
+  terms, distinguish a research breakthrough from adoption or marketing,
+  state what each moment did not prove and apply the book's test to a new claim.
 - **Concrete next use:** When a company announces a “historic breakthrough,”
   she can ask what previously failed, what changed technically, how the result
   was independently checked and what capability or practice changed afterward.

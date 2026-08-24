@@ -1,4 +1,6 @@
-# Move 37 — repaired artifact-first usability verdict
+# Move 37 — repaired artifact-first usability verdict (INVALIDATED)
+
+Status: **INVALIDATED 2026-08-24 BY DIRECT OWNER REJECTION**. The simulated review failed to detect that readers would not know what much of the terminology meant or why the compressed mechanisms mattered. This verdict cannot admit prose.
 
 Verdict: **ADMISSION CANDIDATE**.
 

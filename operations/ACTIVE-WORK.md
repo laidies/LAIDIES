@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIBRARY-TWO-LIVING-BOOKS-20260824
-- **Status:** LOCAL TEXT CANDIDATES COMPLETE — PUBLICATION HOLD
+- **Status:** BREAKTHROUGHS SUCCESSOR VERIFIED LOCALLY — WHO’S WHO LOCAL CANDIDATE ON HOLD — PUBLICATION HOLD
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-24 America/Vancouver
-- **Goal:** Create two complete sourced living books: **Move 37: The Breakthroughs That Changed AI** and **Who’s Who in AI: The companies, people and power behind the technology**.
+- **Goal:** Create two complete sourced living books: **The Breakthroughs That Changed AI** and **Who’s Who in AI: The companies, people and power behind the technology**.
 - **Acceptance:** Each book has a distinct durable-reference job; a complete canonical source; current claim-to-primary-source evidence; explicit uncertainty and recheck triggers; a prevention-first producer contract; exact-prose producer review; role-distinct semantic and cold-reader review; deterministic rendering; scannable contents; responsive reader compatibility; and an additive integration plan that preserves the four publicly verified opening books. No book is called published, available or public without Ali's release approval and exact public verification.
-- **Current step:** `LOCAL REPAIRED FIRST-EDITION TEXT CANDIDATES COMPLETE`. Ali directly retired “The Power Map” and selected **Who’s Who in AI**. The earlier prose verdicts were invalidated after Ali’s engagement and comprehension challenge. Both books were rewritten against the bound non-technical explanation repair: human reason first, ordinary-language causal chain, terms after meaning, limited analogies, consequences, limitations and diagnostic transfer. Fresh role-distinct reviews pass the repaired defects, and new exact-artifact instructional plus artifact-first usability verdicts bind only the successors. Final artifacts: Move 37 `5cbc3a9825185f83706e6d404d12901b7765633f59a0a3c785b23312ef6a2243`; Who’s Who `4e87b988b832d03c204c72a58ffd3c186a1aecf004f4e7bf0ad68cd2dd3b2ec2`.
-- **Next action:** Reconcile the newer live four-book release source, complete observed unfamiliar-reader research, commission/approve covers and the visual teaching/relationship-map layer, then present one exact add-to-Library publication decision. Do not mark available or publish before Ali approves that release candidate and exact live verification passes.
+- **Current step:** `BREAKTHROUGHS SUCCESSOR VERIFIED LOCALLY AFTER SECOND FALSE PASS`. Ali directly rejected the Move 37 successor `5cbc3a9825185f83706e6d404d12901b7765633f59a0a3c785b23312ef6a2243`; its reviews remain invalidated. The rebuilt reader-facing book is now **The Breakthroughs That Changed AI**. A four-domain representative proof passed before full production. The final successor `d39f1b7ccb6d184961460c296fccb8189801689adbc4ce549c1d1c7b584c2e62` covers multiple eras and domains, carries 39 reader-visible sources and passed role-distinct whole-artifact accuracy/scope and non-technical comprehension reviews. Who’s Who remains a separate local text candidate on publication hold.
+- **Next action:** Complete observed unfamiliar-reader research, reconcile the newer live four-book release source, and commission/approve the cover and visual teaching layer before presenting an exact publication decision. Do not mark available or publish before Ali approves an exact release candidate and live verification passes.
 
 ## Boundaries
 
