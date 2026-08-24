@@ -50,7 +50,9 @@ async function run() {
     assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
     assert.match(await page.locator(".lum-tab--saints .lum-tab__copy").textContent(), /13 cards/i, "the Saints door count must use the canonical card noun");
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /load-recovery-v1$/, "load-recovery successor must load its matching cache-busted stylesheet");
+    assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
+    assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence/i, "internal correction-route and repeated disclaimer language must not appear on the visitor page");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /no-method-panel-v2$/, "method-panel successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /retry-v1$/, "retry successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
@@ -77,6 +79,13 @@ async function run() {
     assert.notEqual(siteSystem.orientationBackground, "none", "major non-image surfaces must use the current gradient system");
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
     assert.match(await page.locator("#lumResultStatus").textContent(), /13 of 13 cards shown/i, "Saint result count must use the canonical card noun");
+    const saintFinalRowOffset = await page.evaluate(() => {
+      const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();
+      const cardBox = document.querySelector(".lum-card:last-child").getBoundingClientRect();
+      return Math.abs((gridBox.left + gridBox.width / 2) - (cardBox.left + cardBox.width / 2));
+    });
+    assert.ok(saintFinalRowOffset <= 1, `a single final card must be centered instead of leaving a right-side end-cap, got ${saintFinalRowOffset}px`);
+    assert.equal(await page.getByRole("link", { name: "Corrections", exact: true }).getAttribute("href"), "/town-hall.html#town-hall-feedback", "the trust route belongs in one quiet footer link");
     assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
     const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
     assert.equal(await carrieCard.locator(".lum-card__song").count(), 0, "deferred Carrie audio must not render a broken play control");
@@ -130,6 +139,12 @@ async function run() {
     await mavenTab.press("ArrowRight");
     assert.equal(await page.getByRole("tab", { name: /TRAiLBLAZERS/ }).getAttribute("aria-selected"), "true", "ArrowRight must activate the next tab");
     assert.equal(await page.locator(".lum-card").count(), 7, "Trailblazer wing must render 7 cards");
+    const trailFinalRowOffset = await page.evaluate(() => {
+      const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();
+      const cardBox = document.querySelector(".lum-card:last-child").getBoundingClientRect();
+      return Math.abs((gridBox.left + gridBox.width / 2) - (cardBox.left + cardBox.width / 2));
+    });
+    assert.ok(trailFinalRowOffset <= 1, `the final Trailblazer must be centered instead of leaving a right-side end-cap, got ${trailFinalRowOffset}px`);
     assert.equal(await page.locator("#lumPlaylist").isVisible(), false, "Saint playlist control must be absent outside the Saints wing");
     assert.equal(await page.locator("#lumAudioStatus").isVisible(), false, "Saint playback status must clear when leaving the Saints wing");
     assert.deepEqual(await imageFailures(page), [], "all Trailblazer images must decode");
