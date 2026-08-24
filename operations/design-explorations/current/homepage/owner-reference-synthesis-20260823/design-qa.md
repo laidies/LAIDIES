@@ -1,83 +1,87 @@
-# Homepage corrected-8 design QA
+# Homepage corrected-11 design QA
 
 ## Bound visual truth
 
 - Owner reference: `operations/design-explorations/reference/homepage/20260823-owner-shortlist/example-01-primary-editorial.png`, SHA-256 `46789f447c25356038d996b4dd9dcf9f5559d8556cc6ae41ea8ec5e820a0c02d`.
-- Candidate: `operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`, SHA-256 `e5ce960599f8aa147ffdba47ec39e8dba523066db5a231f14d3528a805949d6d`.
-- State: anonymous visitor. The latest admitted NewsStand issue is correctly shown as an archive, not current. Returning-state behavior remains device-local.
+- Candidate: `operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`, SHA-256 `3b350d56af7d948cbb2e89343af901f7698d2f7215a1857b1c18636e453cf832`.
+- Routed brief: `operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md`, SHA-256 `b4cf93e4a2f6edfebd08f84b9d50ad24748317f91dc6040a2bb391be2d3586ef`.
+- State: owner-review direction only. It is not production integration, deployment or public verification.
 
 ## Exact browser evidence
 
 Primary viewports:
 
-- `evidence/desktop-1440.png` — 1440 × 900, SHA-256 `8f8dbb8a3e43661347f566650ca40d28b12b1cf5521e6ff4155755d56ad90799`.
-- `evidence/intermediate-900.png` — 900 × 900, SHA-256 `a6f94e5a3664f4e9975b604ccfea257c61bd875795548f4af0777af0706470c3`.
-- `evidence/owner-877x915.png` — 877 × 915, SHA-256 `4b77f2f0579c1986b049bee37b8c02bd40131d2fd38e55182b79590ba8e9035c`.
-- `evidence/mobile-390.png` — 390 × 844, SHA-256 `135a5dbbb3fcc98a5d78cc88885491b87ad98e86b78fa3871b8a6989f8607db3`.
-- `evidence/first-session-ident-1440.png` — 1440 × 900, SHA-256 `86cf42fda91cb66293091e74ff93c759cc5cc9d26d6a727400707d22a4cc411a`.
+- `evidence/desktop-1440.png` — 1440 × 900, SHA-256 `f50b1b797d05631acf5c66ac78bcad89d0a119d842e16f2dce0571b6f62ec0b0`.
+- `evidence/intermediate-900.png` — 900 × 900, SHA-256 `45f0972edcad13df330a6246df6b6b2883e6fa8a64b5f4530fc5fed338cbdf30`.
+- `evidence/owner-877x915.png` — 877 × 915, SHA-256 `ec9ea9ee1dbefb5345191c313de0a99cb16463b2674195a76651c09ae41aef08`.
+- `evidence/mobile-390.png` — 390 × 844, SHA-256 `458bef088657dbe1905ddd753e3801a3176acd723a037e1c3d830345b693a4d5`.
+- `evidence/first-session-ident-1440.png` — 1440 × 900, SHA-256 `85dd8dd98fc53216124615553f0725d5f8bbad4eef21ec40c70a51d2f7e27432`.
 
 Focused desktop surfaces:
 
-- `evidence/desktop-daily-1440.png` — SHA-256 `709fc85bade4bd254db748dc34bfa8136f559a9e0963f3abebe35fda1517ca7e`.
-- `evidence/desktop-intents-1440.png` — SHA-256 `e0d18cf19023d2d766e4982817ece5a0a4a531798cad745c0c3b8bb193d6cde1`.
-- `evidence/desktop-weekly-loop-1440.png` — SHA-256 `94f0b6bdf33aac08df897ad84c97d5f7ad1ee0102fd7161358c72fd62af0206b`.
-- `evidence/desktop-activities-1440.png` — SHA-256 `0bc94834e88139f41379ea0780c92e0a1cbc4cf3d860b3aa90bc060c3f04def1`.
-- `evidence/desktop-directory-1440.png` — SHA-256 `b6dd2a2a502eb6fc4891b55eabbb54c763d71629d4da71f4991ac4c02f111758`.
-- `evidence/desktop-continuations-1440.png` — SHA-256 `ec8b2fd00e5e2558b25964736c216a5437cd053c259faa74f324ffa8492d5a44`.
-- `evidence/desktop-ksvl-1440.png` — SHA-256 `a4202dffa4a6f22473b9db987ec6f3cefca67437275d3f3ef80c7275f98621c7`.
+- `evidence/desktop-method-1440.png` — SHA-256 `eac0b30c8c98fb012db0d742cdf1f0a23a13bfac038828350a2fedd328512cd3`.
+- `evidence/desktop-intents-1440.png` — SHA-256 `85a283c8cc680591486b722d7f27b74fc017b7c0e352503f7ba44bc0959325dd`.
+- `evidence/desktop-weekly-loop-1440.png` — SHA-256 `d719b31afd020ce85371e9fb1e3bc828f95c29e851aa893dab69696caf36fe14`.
+- `evidence/desktop-activities-1440.png` — SHA-256 `4c7fca4bf61ad26023d894b7edc56f76e903a71feecadd0f59b1297c37b63492`.
+- `evidence/desktop-women-1440.png` — SHA-256 `f2dd9db03545a7a1557850105fa94ae3d798a3d5ce45a9331c96c2be9468a23f`.
+- `evidence/desktop-directory-1440.png` — SHA-256 `4cbbd3b26087e95f0ac9f7f805e86a1117d1edff6c26ab6ed9fa8010b52be715`.
+- `evidence/desktop-directory-open-1440.png` — SHA-256 `8ff913e02b1ae219b33a6c1d74edd121012d446dbd164d41e33efda1cb09469e`.
+- `evidence/desktop-continuations-1440.png` — SHA-256 `c784fbe3d8566155c77d97248920626b59d6047e232fc54067243f072e1bda51`.
+- `evidence/desktop-resident-open-1440.png` — SHA-256 `4e88ca7e41ebc5f013ae9a39f6dd4b379effd8e44e0c25f24da72ddee8c980a2`.
 
 Focused mobile surfaces:
 
-- `evidence/mobile-intents-390.png` — SHA-256 `eeca3c03076a2b4a5c528e026d6479f16d853885d6224573c9b47633c7a7ea00`.
-- `evidence/mobile-weekly-loop-390.png` — SHA-256 `60910681598160e502dc19f18950545ee9a5dd22744f2188a70ef8e0948da84f`.
-- `evidence/mobile-activities-390.png` — SHA-256 `e9779ddf4327aa7199af80241cc370302eef136cfe4f7750207c4c8a00677d98`.
-- `evidence/mobile-directory-390.png` — SHA-256 `f96ec2f322d35171b8d5c6d00db56c4f84cba3e03baf2467fa7a9da3794b36a4`.
-- `evidence/mobile-continuations-390.png` — SHA-256 `b1b76e5b05b8c42550534a10ed31a26b1b4d02a4e16e1e1e6bb6c1c976e66ef4`.
+- `evidence/mobile-method-390.png` — SHA-256 `fc9c0e81d8f77ef5b6ff5eb33a6c262032ac3844e9ce1cfcb93432ae30c5ad3b`.
+- `evidence/mobile-intents-390.png` — SHA-256 `6ca453be10232facdd9fe2aa3f1f3557b0f151da551b6b04d094e70d38d005fd`.
+- `evidence/mobile-weekly-loop-390.png` — SHA-256 `6db7dc108fcd1b921306116cea1ada00997a46aa2d032c8b4ee00aeede6de6bc`.
+- `evidence/mobile-activities-390.png` — SHA-256 `79f567f5fb3fd47c81084d8a6c6e005609b1b525581b2be423543e0dc6429c78`.
+- `evidence/mobile-directory-390.png` — SHA-256 `fb65d8e66e8d65fde55f2c44e0f7941526430af84dc81c5ca1edbef8c26afad8`.
+- `evidence/mobile-continuations-390.png` — SHA-256 `91599ed3875fe65f1ccc1f9a67b912d65c8e36717ff9b402e7feaa9a5a9cd611`.
 
-## Owner corrections resolved
+The direct Playwright captures replaced the earlier broken stitched full-page evidence. The current continuous renders are `evidence/corrected-fullpage-desktop-1440.png`, SHA-256 `5310271238314378c9dbfcb97dc4ba54d258712785637bafa3404643e1870ed5`, and `evidence/corrected-fullpage-mobile-390.png`, SHA-256 `6f70475147ee2cbe7c69354adc40742512ea28d41a90a27e25046a7a8e69c0f7`.
 
-- The shared gradient header, custom LAiDIES wordmark, masthead copy, masthead actions and visible KSVL control are retained.
-- Learn routes to LIBRAiRY and LUMINAiRY; SUNNYVAiLE High is explicitly future-qualified.
-- Tools and Games shows four distinct sources at entry and all six current activities below: FAiRY Godmother, Mme CLAi-O, Businesswomen’s Special, Dream Phone, Girl Talk and DJ Booth.
-- The weekly section explains the trailer, current-or-device-resume episode, eight-stop loop, device-local progress and Free Time scope.
-- Delta LAi Nu, Post Office and KSVL use the exact paths bound in the routed Homepage brief.
-- The map directory contains all 17 canonical destinations in six street groups. MAiN and Civic are packed as horizontal address rows; the remaining four streets are equal peers without empty card canvas.
-- The Daily exposes actual admitted headlines and service items. Because the repository has no current Daily on 2026-08-23, it visibly says `No current Daily is filed` and labels the latest issue `Archive · Aug 6, 2026`.
+## Owner corrections resolved in this candidate
+
+- Section introductions now use one full-width hierarchy. The rejected equal split with an empty upper-right area and tiny detached explanation is absent.
+- The Method is image-led and uses the approved explanation rather than a five-image label collage or an image-free text box.
+- The five intent jobs are Learn, Understand the Headlines, Watch the Episodes, Tools and Games, and Connect. Learn uses one coherent LIBRAiRY image; Watch uses The Chick Flicks; Tools and Games is the whole current collection, not Dream Phone alone.
+- The Wednesday section explains the trailer, latest published episode, eight-stop loop, browser-local route check-ins and complete Free Time scope. Signed-out visitors always receive the latest episode; account-backed resume remains held. All eight stop cards use equal outer geometry. The episode image is stacked above its copy at desktop and mobile.
+- The Businesswomen's Special and Girl Talk uses no longer show the owner-rejected old substitute images.
+- The women-and-AI purpose, why AI fluency matters now, and both actions are restored.
+- The map is the primary visual, the 17-card directory has a visible count and scroll cue, and a selected card lights its matching map marker before opening the address, purpose, contents and `Visit building` action.
+- Resident Card benefits are restored behind `Learn everything a Resident Card gets you`, followed by `Get my Resident Card` and `Open my Closet`. The Wednesday Postcard is a compact separate strip. KSVL is a separate listening feature.
+- The header has one coherent link treatment and direct destinations. The masthead retains Sign in, KSVL, the compact replay control, accent colours and blinking connected cursor.
 
 ## Browser checks
 
-At 1440 × 900, 900 × 900 and 390 × 844:
+At 1440 × 900, 900 × 900, 877 × 915 and 390 × 844:
 
 - horizontal overflow: `0`;
-- broken images: `0`;
-- visible controls below 44 px: `0` before the player opens;
-- visitor-visible `Play` family: absent;
+- broken images, console errors and page errors: `0`;
 - directory entries: `17` in canonical `01`–`17` order;
-- directory groups: MAiN Street, Civic Square, Schoolhouse Road, Willow Lane, Wisteria Lane, Lantern Hill;
 - activity cards: `6`;
-- weekly stops: `8`.
+- weekly stops: `8` with equal card geometry;
+- mobile header retains the direct LIBRAiRY link.
 
 Interaction checks:
 
-- The dial-up arrival renders with both `Pause arrival` and `Skip arrival`.
-- `Listen live — KSVL 99.9` opens the canonical shared KSVL player and begins `Welcome to SUNNYVAiLE`.
-- The candidate raises shared player icon controls to a 44 px minimum width; no player control remains below the 44 px target.
-- Browser console errors and warnings: `0`. KSVL emits only its existing technical start log.
-
-## Review history and ratchet
-
-1. The predecessor was rejected for wrong/retired art, invented copy, missing explanation, ungrouped destinations, an unexplained route and a dark/pastel split.
-2. Corrected-7 was independently rejected before owner review because it called Aug 6/3/Jul 27 records “newest” and the directory left dead cyan canvas around short street groups.
-3. Corrected-8 now fails closed on NewsStand freshness and packs the directory into MAiN, Civic and four cross-street bands. Exact desktop and mobile pixels were recaptured after both repairs.
-
-## Findings
-
-Maker inspection found no remaining P0, P1 or P2 defect. The role-distinct successor review inspected the exact desktop, intermediate, owner, mobile, arrival, Daily, intent, weekly, activity, directory and continuation pixels and returned `ADMIT` with zero visible blockers or locked-decision violations.
+- Arrival trace: dial-up; connected; first static line; full 4.67-second canonical ident; second static line; masthead expansion; arrival removal. The ident does not flash back to the dial-up state.
+- The arrival has Pause/Resume and Skip controls; reduced motion bypasses it.
+- Selecting Visitor's Centre activates map marker `1`, opens `01 · No. 1 MAiN`, and exposes `/visitors-centre.html` as the visit link.
+- Opening the Resident Card disclosure reveals the full six-benefit list plus `Get my Resident Card` and `Open my Closet`.
 
 ## Not proved by this direction
 
-- This is not owner approval, production integration, deployment or public verification.
-- The NewsStand archive state is truthful but also exposes an editorial freshness gap outside this Homepage design scope.
-- Account-backed `what changed since your last visit` and cross-device episode progress remain held; the page does not claim they work.
+- This is not Ali's approval, production integration, deployment or public verification.
+- Account-backed `what changed since your last visit`, account-backed episode progress and cross-device state remain held.
+- The Homepage current-news module remains held until the NewsStand build supplies a truthful producer and freshness contract.
 
-final result: passed for owner review; not owner-approved or deployed
+## Independent pixel review
+
+- Verdict: `ADMIT` for owner review.
+- Reviewer: `homepage_asset_match`, role `visual_experience`.
+- Candidate SHA-256: `3b350d56af7d948cbb2e89343af901f7698d2f7215a1857b1c18636e453cf832`.
+- Verdict evidence: `evidence/independent-corrected-8-verdict.json`, SHA-256 `3f31af20286e015650e2aa03f1061329a2ed0cc932d6ede7cfd227e2709e1578`.
+- Visible regressions: `0`. Locked-decision violations: `0`. Review issues: `0`.
+
+final result: passed the exact owner-review admission gate; not owner-approved, integrated into production or deployed

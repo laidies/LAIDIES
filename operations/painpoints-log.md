@@ -14771,3 +14771,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Source `faead10a026fd24027eb2f369d99ee0ded8deec9` adds the strict six-hour KSVL helper and connects Radio’s request counter to restore, edit/save and delete states. The old Radio failed ten calibrated contract requirements; the successor passed restore/edit/delete/expiry/migration/storage-denial/provider-fallback checks. Exact artifact `953f655881479af7685ec1f3dcec396cc2dcb6e5636fb75267d27116276abf83` is live as deployment `39926838-3ebc-4d41-a152-536f66bda13b`; 52/52 immutable/custom path hashes matched and both public Radio routes passed responsive/error checks.
 - **Possible Behind the Build angle:** Why saving a draft once is not the same thing as letting someone come back to it.
 - **Publication status:** PRODUCTION FUNCTIONAL/TRUTH CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-488 — A visually plausible return state can invent account functionality
+
+- **Date:** 2026-08-23
+- **Area:** Homepage weekly loop, design evidence and owner-review admission.
+- **Failure:** A Homepage candidate correctly showed the latest episode to signed-out visitors but also let device-local history impersonate the signed-in “return to my last episode” promise. Its first full-page evidence was also assembled by a broken stitcher that duplicated sections and created false layout defects.
+- **Root cause:** The producer combined two different truth levels—browser-local route check-ins and unbuilt account-backed episode progress—because both looked like “resume” behavior. Evidence capture was trusted because it produced a file, not because the pixels formed one continuous page.
+- **Prevention rule:** Signed-out Homepage episode routing always resolves to the latest published episode. A personalized last-episode return requires proved account-backed storage and consumption; browser-local state may label only browser-local destination visits. The calibrated design gate rejects device-local resume language and implementation tokens. Continuous desktop/mobile evidence is captured directly in one browser page; stitched output is rejected when it repeats or skips content.
+- **Durable correction:** Corrected-11 removes device-local episode resume, keeps the truthful eight-stop browser-local route check-ins, restores the full owner-directed page hierarchy and passes the calibrated device-resume rejection fixture. Direct Chrome captures at desktop, intermediate and mobile sizes show zero overflow, broken images, page errors or unequal route cards; an independent pixel review admits the exact candidate with zero visible regressions or locked-decision violations.
+- **Possible Behind the Build angle:** Why “remember where I left off” is an account architecture decision, not a line of friendly Homepage copy.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / ADMITTED FOR OWNER REVIEW / NOT DEPLOYED.

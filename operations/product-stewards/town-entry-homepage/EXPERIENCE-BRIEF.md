@@ -51,10 +51,22 @@ directory, paths, tour and help; the Homepage owns the compact causal model.
 
 ## First-session entry
 
-- Compose a brief dial-up/entering-SUNNYVAiLE portal into the locked masthead.
+- Restore the complete arrival as a state transition inside the locked masthead,
+  at exactly the masthead's size. The sequence is: dial up to SUNNYVAiLE; a
+  horizontal VHS/static line opens into the canonical LAiDIES animation; the
+  completed animation contracts to a second static line; and the real masthead
+  expands from that same line. It is not a full-viewport takeover, a modal, a
+  short video followed by a cut, or a newly approximated transition.
 - The canonical source is
   `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4`,
   SHA-256 `05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3`.
+- The previously built VHS/static-to-masthead mechanism is reusable from
+  `operations/design-explorations/sitewide-style-championship-20260726/cycle-9/incumbent-daily-pager/preview.js`
+  (SHA-256 `5706015245e2470ec8c563548217445450b7c80451b36aa3066d416b32f6d68a`)
+  and its `candidate.css` (SHA-256
+  `6da09e915abcef4b0e55197ae80185edaab0c546532e0e408ceae3052fe07e81`).
+  This is a narrow interaction-mechanism exception only: Cycle 9's page
+  layout, copy, Daily treatment and visual direction remain banned inputs.
 - It appears once per browser session, never on every return to Home.
 - It is muted, skippable and pausable; reduced-motion users and media/storage
   failures receive the static masthead immediately.
@@ -172,6 +184,43 @@ the successor:
   Keep its crop and image-derived text accents while making the page below it
   brighter and more varied. Do not solve darkness by restoring the rejected
   pale-pastel system.
+
+### 2026-08-23 owner correction — masthead and town discovery
+
+- Use the canonical shared LAiDIES header and wordmark; never substitute typed
+  candidate lettering. Header links must map to the real visible section or
+  destination they name, and their responsive layout may not break or wrap
+  into an incoherent row.
+- Make `Replay dial-up arrival` a quiet secondary control. It must not compete
+  with the masthead message or primary actions.
+- Remove the masthead's wasted top space and the empty band before its action
+  row. Do not add a dark backing panel behind the copy merely to create
+  contrast; use the locked image crop and image-derived accents.
+- In the masthead prose, `Rewind Era` and `SUNNYVAiLE` use different approved
+  image-derived accent colours. `Be kind, rewind.` and `Girl Power meets
+  Machine Power` are also intentional accent moments. The small rule beside
+  `Be kind, rewind.` must not repeat the blue/cyan rule already used elsewhere.
+- `LAiDIES online · connected to the Rewind Era` ends with a blinking `_`
+  cursor when motion is permitted, with a stable visible cursor for reduced
+  motion.
+- `Explore SUNNYVAiLE` is an interactive discovery tool. Desktop composition
+  places the complete map on the left and the canonical ordered building cards
+  on the right; narrow layouts stack without losing either job. Hovering,
+  focusing or touching a building card lights its matching numbered map dot.
+  Activating a card opens one accessible detail card with the building's exact
+  image, name, canonical address, purpose and a `Visit building` link. The card
+  image and the map building must describe the same destination. Reuse the
+  existing Homepage hotspot/dialog behavior and `SV_BUILDINGS` as the single
+  ordered data source rather than inventing another list.
+- The Visitor's Centre is the introduction to SUNNYVAiLE and how to navigate
+  the town. It is not a destination for learning AI concepts; learning routes
+  belong to the LIBRAiRY and LUMINAiRY, with SUNNYVAiLE High joining when its
+  learning experience is admitted.
+- Hold the content and final composition of `What is happening in SUNNYVAiLE`
+  until the NewsStand build is finished. The Homepage successor may preserve a
+  truthful bounded placeholder or omit the unresolved preview from owner
+  review; it may not invent stories, Daily values or a replacement editorial
+  model.
 
 ### Six-example direction signal — exact artifact mapping bound
 
@@ -293,6 +342,69 @@ it missed known brief violations that were visible in the artifact.
   remains binding. The successor uses real pop-art background assets and
   editorial composition rather than plain colour slabs, CSS decoration, beige,
   broad black fields or a return to the old Homepage layout.
+
+### 2026-08-23 owner rejection — corrected-10 composition and hierarchy
+
+- Candidate `corrected-10` is not an iteration-ready owner artifact. Its page
+  structure may be repaired only by preserving the accepted masthead and copy
+  while replacing the rejected composition described here.
+- Remove `Just running an errand?` from the masthead. It is not an intelligible
+  visitor job and the prior lock is superseded. Masthead actions follow real,
+  named jobs in a useful order: first-time orientation, the current episode,
+  town discovery, tools and games, sign-in and KSVL listening.
+- The LAiDIES Method may not be two disconnected text boxes on an empty field.
+  Give the section one clear title, the approved explanation and a
+  meaning-bearing image-led composition. Do not restore the rejected five-tile
+  Story/Analogy/Practice/Music/Community collage merely to satisfy the image
+  requirement.
+- Every major Homepage section has an unmistakable title and eyebrow with
+  sufficient contrast against its real background. Eyebrows and headings may
+  not disappear into same-value blue or cyan fields.
+- The `Learn` visitor-job card uses one coherent image, not a split image.
+  `Watch the Episodes` uses a current Chick Flicks destination image rather
+  than episode cover art. If no admitted Chick Flicks image exists, the slot is
+  held for new asset admission and is not filled with an unrelated image.
+- Girl Talk and Businesswomen's Special may not use the images rejected in the
+  owner review. No plausible old or held game image may replace them. They need
+  current admitted game imagery before owner review.
+- The weekly route has eight equal outer card sizes, but equal geometry may not
+  create empty content areas or force every unrelated Homepage outcome into the
+  same visual weight. The weekly episode feature stacks the complete current
+  episode image above its copy; it is not split vertically and its art is not
+  meaning-destroyingly cropped.
+- Tighten the masthead's unused sky and the gap above its action row. Preserve
+  the image and copy but reduce dead space. Correct the canonical LAiDIES
+  wordmark dot rather than drawing a new wordmark.
+- Header links use one coherent treatment and route only to real visible
+  Homepage sections or public destinations. The left-side canonical wordmark
+  remains; the rejected inconsistent link set does not.
+- The arrival never returns to the dial-up window or dial-up imagery after the
+  ident begins. The visible sequence is exactly: dial-up connection, first
+  static line, full canonical ident, second static line, then the masthead
+  expands from that line.
+- `Explore SUNNYVAiLE` gives the map the visual majority. The building list has
+  an explicit count and scroll instruction plus a persistently visible scroll
+  affordance. The high-contrast title and eyebrow remain legible. Cards keep
+  canonical number/address order and activate their matching map marker.
+- Restore the complete supported Resident Card and Closet value explanation
+  from the incumbent Homepage: the customizable town ID, automatic building
+  visit stamps, supported quiz/activity keepsakes, luminaries, weekly items,
+  charms and their truthful browser/account boundaries. Do not reduce the
+  outcome to `save on this device` or delete the route to the full Closet.
+- Give the Resident Card/Closet the space earned by those benefits. The
+  Wednesday Postcard is a compact, distinct subscription callout—not an
+  equal-height feature panel. KSVL remains a separate listening feature.
+- The Homepage retains an explicit reason for women to learn AI and a clear
+  action from that explanation. Explain, using the approved Homepage meaning,
+  that AI fluency helps women work better with the technology, understand the
+  headlines and participate in the workplace and public decisions being made
+  now. Route to the LUMINAiRY and the women's-history episode; do not replace
+  the reason with a generic empowerment slogan.
+- The Resident Card section uses progressive disclosure: a visible `Learn
+  everything a Resident Card gets you` control opens the complete supported
+  benefit list in place, followed by `Get my Resident Card` and `Open my
+  Closet` actions. The collapsed state still says enough to explain the Card's
+  job and truthful persistence boundary.
 
 ## Required finite page jobs
 
