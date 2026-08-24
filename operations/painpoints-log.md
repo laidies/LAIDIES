@@ -14418,3 +14418,30 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The rejected Canva intro was moved out of the active source path and all four CapCut registrations now say `INVALIDATED_REJECTED_SOURCE_DO_NOT_EXPORT`. Rejected outro substitutes have null active stills. The timeline now uses only Civic Square midday and Town Park afternoon as town shots. A deterministic Deb/Matron source-preserving pair exists only as an internal rough and cannot advance without independent visual admission.
 - **Possible Behind the Build angle:** Why a checksum-perfect video pipeline still produced the wrong town—and how the fix moved visual truth ahead of animation and assembly.
 - **Publication status:** LOCAL RECOVERY / VISUAL ADMISSION HOLD / NO ANIMATION, FINAL EXPORT, DEPLOYMENT OR PUBLIC VERIFICATION.
+## BTB-484 — Pixel movement is not scene animation
+
+- **Date:** 2026-08-24
+- **Area:** Weekly Episode and trailer animation production.
+- **Failure:** CSS rain, particles and generic moving overlays could be treated
+  as animation even when they floated uniformly over faces, buildings and
+  objects, ignored the scene's depth and surfaces, and did not perform the job
+  of the narration. A motion detector could see changing pixels and still miss
+  the visible failure.
+- **Root cause:** The production and review method tested whether something
+  moved, not whether the depicted scene itself moved coherently.
+- **Prevention rule:** Start from the exact admitted adult-graphic-novel image
+  and create several controlled frames in which only the genuine moving parts
+  change. Cyclic motion must return continuously to frame one; one-way action
+  remains a transition or one-shot. Same-viewport review must reject style or
+  identity drift, uniform overlays, broken perspective/depth/occlusion,
+  missing surface and lighting response, narration mismatch and visible loop
+  resets. CSS, compositing and nonzero pixel change can flag evidence but can
+  never admit the animation.
+- **Durable correction:** The Episode Visual System and decision register now
+  bind the controlled frame-sequence method, the adult graphic-novel lock and
+  scene-integration review as release requirements.
+- **Possible Behind the Build angle:** Why moving rain pixels did not make the
+  town feel wet—and how changing only the real moving parts turned an effect
+  into animation.
+- **Publication status:** PRODUCTION RULE LOCKED / TRAILER AND EPISODES 1–4
+  REMAIN ON VISUAL, TIMING AND SOUND-ON REVIEW HOLD.

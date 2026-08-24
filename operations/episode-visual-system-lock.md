@@ -8,6 +8,67 @@ speech/caption treatment, emphasis frame, trading-card insert, landscape, and ba
 This file is the single visual authority map. A later prompt, old image, mood board,
 or model default cannot override it.
 
+## 0. The six recurring failures — Ali, 2026-08-03 and 2026-08-24
+
+These are the specific ways episode visuals keep coming back wrong. Check every
+one before presenting anything.
+
+1. **Glamour-cartoon drift.** The render slides toward a glossy, glamorous
+   cartoon instead of the locked master style in §1. The master image governs —
+   not the model's default idea of an attractive face.
+2. **Invented backgrounds and people.** Characters and locations that are **not
+   in town canon** get made up. Every person and place in a frame must exist in
+   the canon roster (`town-keeper-roster.md`, character reference sets). If it
+   isn't in canon, it doesn't go in the frame.
+3. **No subtle animation.** Rain, glowing light, drift, breath, flicker — the
+   small continuous motion that makes a shot feel alive is missing, and a
+   frozen frame ships as an animation. **A still is not an animation.**
+4. **Motion that doesn't match the narration.** The animation must reflect what
+   is actually being said over it — fulsome enough to carry the line, and
+   accurate to its content, not generic ambient movement. Timing maps live in
+   `operations/captions/episode-NN-timing-map.json`.
+5. **Visible loop seams.** A loop must be continuous — the beginning and the end
+   indistinguishable. Zero net travel. If a clip travels directionally it is a
+   transition, not a loop, and must not be looped.
+6. **Fake scene animation made from CSS or generic overlays.** Rain, sparkles,
+   smoke, glow, dust, light leaks, particles, texture movement and similar
+   effects fail when they are merely placed over a still or clip. The effect
+   must belong to the scene: respect its perspective, depth, occlusion,
+   surfaces, lighting, weather, character interaction and narration job. Rain
+   that passes uniformly over foreground faces and distant buildings, does not
+   strike or disappear behind objects, or leaves the scene lighting and ground
+   unchanged is a graphic overlay, not rain animation. Pixel movement, an
+   animated CSS layer or a compositing effect does not make the shot animated.
+
+### Required animation method
+
+Build scene motion from a controlled sequence of the approved image. Preserve
+the admitted composition, identities, adult graphic-novel rendering and all
+parts that should remain still; create several frames in which **only the real
+moving parts change**. Sequence those frames at the timing the scene requires.
+For cyclic motion, the last frame must lead continuously back to the first with
+no jump, lighting reset, position reset or texture flash. Movement with a real
+one-way ending is a transition or one-shot and must not be forced into a loop.
+
+The frame sequence does not relax the style lock: no frame may drift into
+glamour cartoon, painterly rendering, blotchy skin, altered identity or an
+invented environment. A sequence of wrong images is still a failed animation.
+
+### What is mechanically checkable
+
+| Failure | Tool | Status |
+|---|---|---|
+| 5 — loop seam | `operations/tools/check-loop-continuity.py` | **Built, calibrated 2026-08-03.** Compares the wrap against the clip's own p90 frame step, with an absolute perceptual floor so near-static clips don't false-fail. `--self-test` proves it separates a true loop from a drifting one. |
+| 3 — no subtle motion | same tool, `[STATIC]` flag | **Built.** Flags clips whose internal motion p90 is below 0.5 — effectively a still. |
+| 2 — non-canon people/places | `operations/tools/check-episode-brief.py` | **Built, calibrated 2026-08-03.** Validates the brief BEFORE render: every name in `CHARACTERS:` must be in canon (77 names harvested from the roster + canon index), every path in `REFERENCES:` must exist on disk, and `MOTION:` must be declared. A new character must be written `Name (NEW — needs Ali)`. |
+| 1 — glamour drift | not automatable | Needs a side-by-side against the §1 master. `motion-heatmap.py` and contact sheets make the human check fast. |
+| 4 — narration match | partly | Clip duration vs the timing map is checkable; whether the motion *means* the line is not. |
+| 6 — CSS/overlay fake scene animation | partly | Source inspection can detect CSS/runtime overlays, but a same-viewport review of the decoded shot must judge perspective, depth, occlusion, lighting, surface response and narration fit. Motion detection alone cannot pass it. |
+| required frame-sequence method | partly | Frame differencing must show that change is confined to the declared moving regions; loop continuity is machine-checked, while same-viewport review confirms that the sequence preserves the admitted scene and adult graphic-novel style. |
+
+Do not claim a clip passes on the strength of the two automated checks. They
+cover the two most mechanical failures, not the two most important ones.
+
 ## 1. Master people-rendering style
 
 The exact master is:
