@@ -4,21 +4,21 @@
 
 ## Current task
 
-- **Task ID:** AI-FUNDAMENTALS-CHAPTER-OPENING-SEQUENCE-20260824
-- **Status:** COMPLETE / DEPLOYED / PUBLICLY VERIFIED
+- **Task ID:** AI-FUNDAMENTALS-AUTHORED-PREFACE-RESTORATION-20260824
+- **Status:** BUILDING
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-24 America/Vancouver
-- **Goal:** Let every AI Fundamentals chapter establish its teaching hook before presenting the objectives and key-terms panels.
-- **Acceptance:** All 20 chapter titles are followed immediately by their first numbered teaching section; the unchanged objective and key-terms panels close that opening section before section `.2`; no prose, term, anchor or visual is lost; the order passes at 1280, 390 and 320 pixels; the known-bad title → two panels → prose arrangement fails calibration; the exact successor is committed, deployed and publicly verified.
-- **Current step:** Complete. Source `757cef9d9cbf87d0eeaee6d348374701e1a8434d`, artifact `433b52f6620f85895508f751d8356e114a0a59ae8f73b2870e85d98e2afd49e4` and deployment `d0db552e-2d41-46ca-a214-da1a1f7a6961` are public. Both origins match all four changed visitor files. The live desktop and 390px readers preserve the correct first section → objectives → key terms → second section sequence across all 20 chapters with zero overflow. Miss Jeeves remains healthy with 652 records and all 20 whole-chapter routes.
-- **Next action:** None for this correction. Keep the chapter-opening order as a build/admission invariant during future content updates.
+- **Goal:** Restore Ali's approved purpose-led AI Fundamentals preface in place of the unrelated system-map substitute without changing the remaining book or reader.
+- **Acceptance:** The approved three-part preface is the first book section; the existing reading guidance follows it; no unavailable three-mode promise appears; the Karen Spärck Jones attribution links to the BCS interview; the remaining chapters, anchors, visuals and reader behaviour are unchanged; the exact successor is committed, deployed and publicly verified at desktop and mobile widths.
+- **Current step:** Approved prose has replaced the incorrect source opening. Rebuild, exact admission rebinding, regression checks, commit, deploy and public verification remain.
+- **Next action:** Rebuild the opening set and bind the exact successor evidence before release.
 
 ## Boundaries
 
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This task made no source-checkout writes.
 - Production source worktree: `/tmp/laidies-library-owner-corrected-20260823`
-- Deployed source commit: `757cef9d9cbf87d0eeaee6d348374701e1a8434d`
+- Current production baseline: `757cef9d9cbf87d0eeaee6d348374701e1a8434d`
 - Source branch: `design/library-owner-corrected-20260823`
 - No reset, clean, deletion of source work, unrelated provider mutation, or
   spend was performed. The first identical upload was tagged with a mistyped

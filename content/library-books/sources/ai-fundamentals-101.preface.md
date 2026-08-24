@@ -1,20 +1,104 @@
 # Preface — Why This Book Matters
 
-AI is already part of decisions about jobs, education, health care, public services, energy, copyright, competition, security and who gets to make consequential choices. Those decisions are too important to leave entirely to engineers, executives, investors and whichever commentator has the loudest microphone that week.
+Alright, LAiDIES: listen—or should we say, read?—up. This book is important.
 
-You do not need to design a chip or train a model. You do need enough of the big picture to tell what a claim is actually about.
+We created *AI Fundamentals 101* because there should be one place that explains the fundamental concepts of AI, how they connect and what has to happen before you can type something into an AI application and receive an answer.
 
-If a company says its model will replace a profession, you need to know the difference between doing well on a test and running a service full of real people, private information, exceptions and consequences. If a headline says AI is draining the power grid, you need to know that training and everyday use are different workloads, that hardware and data-centre design matter, and that a global forecast is not proof about one local project. If a politician proposes “regulating AI,” you need to know whether the problem lives in the chip supply chain, the training data, the model, the product, the way an employer uses it or the lack of an appeal when it gets something important wrong.
+That means the models and software, but also the chips, computing power, data centres, energy, infrastructure, people and decisions behind them. It means explaining the buzzwords that appear in headlines—tokens, training data, frontier models, compute, agents, guardrails and sandboxes—and, more importantly, what they mean when you use an AI tool and why you should care.
 
-The answer on your screen is the last stop, not the whole trip.
+But this is not a standard textbook or a collection of definitions you could simply look up online.
 
-Before a chatbot can write one sentence, companies have designed and manufactured specialised chips, packed servers into data centres, secured electricity and cooling, assembled enormous collections of data, paid for computing power and trained a model. A product team then decides how you will reach that model, what information it can use, which tools it can call, what it is allowed to do and how much access will cost. Only then do you type a request and get something back.
+No, no. LAiDIES would never do that to you.
 
-The chat box is a little like the AOL window: it is the part you touch, not the whole system humming behind it. The analogy stops there—AI is not the internet, and an AI product is not merely a doorway. But it is a useful warning against mistaking the visible interface for the infrastructure, companies, labour and technical decisions underneath it.
+This is not a “florals for spring” situation. We can—and we will—do better.
 
-Otherwise, one enormous label—**AI**—gets asked to do all the thinking for us. Convenient for the people selling the story. Useless for everyone trying to decide what is true and what should happen next.
+So why is it important for you, a woman of distinction—or a friend to womankind; everyone is welcome here—to understand this without first acquiring a PhD in computer science?
 
-You do not need an electrical-engineering degree. You need enough of the map that somebody cannot wave a glossy demo, a scary headline or a billion-dollar forecast at you and call the argument finished.
+We’re so glad you asked.
+
+## 1. From “ARGH, WTF?” to “Ah. That’s why.”
+
+AI is already changing how people work, create, find information and make decisions. It is also unusually accessible: you can open an application, type a request and ask it to help you produce almost anything from a meeting summary to a website.
+
+But accessible does not mean self-explanatory.
+
+Think about electricity. You do not need to understand the electrical grid before you turn on a lamp. You flick a switch and—bam—light. For most people, most of the time, electricity is effectively plug and play.
+
+Generative AI is different. The person using it helps shape what happens next. What you ask, what context you provide, what the system can see, which tools it can use and how you evaluate its answer can all change the result.
+
+Without some understanding of how the system works, it is easy to receive something completely different from what you intended, become frustrated and conclude: “I don’t understand the hype. This thing sucks.”
+
+We do not want you walking away from a useful technology because nobody explained what was happening.
+
+This book will help you recognise why an AI tool has gone off track—and what you can do about it. The goal is to move from:
+
+**“Why can’t this thing follow one basic instruction?”**
+
+to:
+
+**“Oh. I see what happened. I know what to change.”**
+
+In other words: from **“ARGH, WTF?”** to **“Ah. That’s why.”**
+
+## 2. From “OMG, the end is nigh!” to “Ugh, as if.”
+
+AI is not a passing fad. It is also not magic, salvation or Skynet arriving on Tuesday.
+
+The field moves extraordinarily quickly, and everyone wants a piece of the attention surrounding it. Every day brings new announcements, forecasts, warnings, demonstrations and supposed life-changing hacks.
+
+Some are carefully researched. Others belong beside the celebrity psychics at the supermarket checkout.
+
+Not every headline, content creator, company announcement or AI commentator is equally reliable. A benchmark result is not automatically proof that a profession is about to disappear. An impressive demonstration is not necessarily a dependable product. A viral “three prompts that will change your life” video may be describing something useful—or something you already know how to do wearing a new hat.
+
+You cannot cut through that noise by memorising a list of approved opinions. You need enough of the fundamentals to ask:
+
+- What part of the AI system is this actually about?
+- What evidence supports the claim?
+- What does the demonstration leave out?
+- Does this affect the AI tool I use?
+- What would have to be true for this prediction to happen?
+
+LAiDIES will continue investigating important stories in the NewsStand. But eventually, you should be able to look at the latest breathless headline and decide for yourself whether it deserves your attention—or merely an **“Ugh, as if.”**
+
+## 3. From “This has nothing to do with me” to “No, Aunt Linda. That isn’t how it works.”
+
+Once you understand how AI works, you can do more than use it better or identify nonsense. You can participate meaningfully in decisions about what happens next.
+
+AI raises real questions about work, education, public services, copyright, energy, privacy, security, competition and who gets to make consequential choices. It also presents real opportunities. Neither the benefits nor the risks should be waved away.
+
+What guardrails do we need? Who should control powerful models? Who gets access to computing power? When should an automated decision require a human review or a right of appeal? What does a new data centre mean for the community in which it is built? How should work and the economy change if AI becomes capable of doing substantially more?
+
+These debates are already happening—in workplaces, governments, schools, city halls and homes. You deserve the knowledge required to participate in them.
+
+As computer scientist Karen Spärck Jones put it, “[computing is too important to be left to men](https://www.bcs.org/articles-opinion-and-research/computings-too-important-to-be-left-to-men/).”
+
+Ditto for AI.
+
+And it is not only a question of who is allowed into the room. The loudest voices are often the people most willing to make claims they do not understand. That includes your fictional Aunt Linda, who insists the new data centre killed her friend’s cat.
+
+No, Aunt Linda. The cat was 20.
+
+But, in fairness to Aunt Linda, nobody ever explained how a data centre works, what its genuine effects might be or how to distinguish those effects from a coincidence. Once you understand the system, you can move the conversation away from panic or dismissal and towards the actual benefits, costs and choices.
+
+That matters, because refusing to engage does not stop decisions from being made. It only means they will be made without you.
+
+## What we want this book to change
+
+By the end of *AI Fundamentals 101*, you should be better able to:
+
+- get useful results from the AI tools you choose to use;
+- understand what AI headlines and product claims are actually describing;
+- recognise where a problem, risk or limitation sits within the larger system;
+- ask better questions before accepting somebody else’s prediction; and
+- help shape how AI is used in your workplace, community and society.
+
+This is a living book. The underlying concepts are relatively stable; the products, companies, examples and capabilities around them change quickly. Those details will remain under review and will be updated as the field changes.
+
+You do not need to become an AI engineer.
+
+You need enough of the map that nobody can wave a glossy demonstration, a terrifying headline or a billion-dollar forecast at you and call the argument finished.
+
+So, let’s get to it.
 
 ## How This Book Works
 
