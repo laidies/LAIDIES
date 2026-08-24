@@ -114,7 +114,23 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-23
+## Current production release record — 2026-08-23 — four-book LIBRAiRY
+
+| Field | Current value |
+|---|---|
+| Deployed source | `e31f6629f79403a8c1f9ed319956bdd490542c28` |
+| Artifact identity | `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7` |
+| Curated build | 571 copied files / 426.75 MiB; manifest 573 files / 447,551,984 bytes |
+| Exact public scope | 24 Library/runtime changes / 0 removals / 22 checksum-preserved production paths / 45 fetchable verification paths |
+| Release path | GitHub exact-artifact workflow run `32677901263`; calibrated controller, source, base, scope, artifact and approval bindings all passed |
+| Cloudflare deployment | `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` |
+| Immutable URL | `https://6e7ffa1a.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | completed `2026-08-24T00:58:20Z`; immutable and custom-domain bytes matched the exact artifact. Live browser verification then opened AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary with no reader error, confirmed Contents and whole-book/section saves on every book plus chapter saves where chapters exist, confirmed compact mobile Contents/Top navigation, and rechecked Homepage, Visitor’s Centre, Resident Card and canonical KSVL/DJ Booth surfaces. |
+| Exact scope | `operations/release-control/library-four-book-production-scope-20260823.json` |
+| Rollback targets | immediate prior Library deployment `5becb7eb-38d0-4a21-b691-ee61b847eb00` is superseded because it used the older source line; safe pre-Library production baseline is `5a16a1a7-ed3f-4349-bc1c-ea680101ea20` from source `6edea2ac5fd9110900cd66b7f52cd162cc6fdbaa` |
+
+## Superseded production release record — 2026-08-23
 
 | Field | Current value |
 |---|---|

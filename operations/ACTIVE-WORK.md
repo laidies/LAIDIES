@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIBRARY-FOUR-BOOK-PUBLICATION-20260823
-- **Status:** BUILDING
+- **Status:** PUBLICLY VERIFIED
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-23 America/Vancouver
 - **Goal:** Publish AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary as the four opening LIBRAiRY books.
 - **Acceptance:** The exact four rendered books and selected accepted visuals pass source/artifact admission, current factual and usability review, responsive navigation, accessible Save Book/Chapter/Section journeys, Miss Jeeves discovery, a zero-removal production scope, protected release control, immutable deployment verification and custom-domain verification at `laidies.ai`.
-- **Current step:** All four books passed the calibrated content, reader and responsive-browser gates and were deployed once. The post-deployment ancestry check found that release source was based on `e044ca89…`, while the actual immediately preceding production source was the newer `6edea2ac…`; the release therefore remained held despite passing book checks. The later production line and four-book line are now reconciled without discarding either. Exact artifact comparison against `6edea2ac…` reports 24 Library/runtime changes, zero removals and 22 critical production paths checksum-preserved. The rebound candidate identity is `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7`.
-- **Next action:** Run the changed-surface and restored-journey checks, commit and push the reconciled merge, bind the exact controller SHA, deploy artifact `68e7b2a1…`, then verify all four books and the preserved Visitor Centre, Resident Card, Homepage and KSVL journeys at `laidies.ai`.
+- **Current step:** `PUBLICLY VERIFIED`. AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary are live at `https://laidies.ai/library`. The final release source is `e31f6629f79403a8c1f9ed319956bdd490542c28`, artifact identity `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7`, Cloudflare deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` and immutable URL `https://6e7ffa1a.laidies-sunnyvaile.pages.dev/`. Exact comparison against actual prior-production source `6edea2ac…` passed with 24 Library/runtime changes, zero removals, 22 checksum-preserved production paths and 45 fetchable live checks. Final custom-domain browser verification opened all four exact titles with Contents and Book/Chapter/Section Puffy saves, verified the compact mobile Contents/Top navigation, and rechecked Homepage, Visitor’s Centre, Resident Card and KSVL/DJ Booth surfaces without application errors.
+- **Next action:** No release action remains for this task. Future content corrections or additional visuals are additive successor editions and must preserve these four public routes.
 
 ## Boundaries
 
