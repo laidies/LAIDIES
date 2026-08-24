@@ -1,6 +1,6 @@
 # The Breakthroughs That Changed Modern AI — deep research dossier
 
-**Status:** RESEARCH IN PROGRESS — NOT AUTHORISED FOR DRAFTING  
+**Status:** RESEARCH BASELINE COMPLETE FOR ALI DRAFT — FINAL RECONCILIATION OPEN
 **Research date:** 2026-08-24  
 **Scope:** 2000 to today, with only the pre-2000 foundations required to make the modern story intelligible  
 **Publication state:** HOLD
@@ -1226,7 +1226,34 @@ research; no quantitative claim on those subjects is yet admitted.
 - IEA energy-supply scenarios and boundaries: https://www.iea.org/reports/energy-and-ai/energy-supply-for-ai
 - ILO research on human labour behind AI: https://researchrepository.ilo.org/esploro/outputs/journalArticle/Challenging-the-Myth-of-AI-Autonomy/995703567802676
 
-## Research gaps that block drafting
+## Research gaps that block admission or publication
+
+### Draft-admission update after continued research
+
+Ali directed the work to continue through a complete draft. The following gaps
+were closed sufficiently for a transparent draft, not for publication:
+
+- Generative-image lineage now connects GANs, the 2015 diffusion formulation,
+  score-based work, denoising diffusion, CLIP, latent diffusion and LAION-5B;
+  creator-consent, copyright and downstream creative-practice evidence remain
+  final-review gaps.
+- Feedback labour now separates the InstructGPT preference-labeling record from
+  independently reported Kenyan toxicity-classification work. The latter must
+  never be described as all ChatGPT reinforcement learning from human feedback.
+- Speech now includes independent evidence that aggregate improvement did not
+  mean equal performance across speakers; the cited US study's racial disparity
+  is bounded to the five systems and recordings it evaluated.
+- Recommendation research now includes matrix factorization, two-stage deep
+  candidate selection/ranking and a platform-specific randomized feed study.
+- Open weights, multimodality, framework lineage, AI for science, energy,
+  concentration and data labour have evidence-bounded draft dispositions.
+- A 2,000-word meaning-before-name Move 37 representative chapter passed a blind
+  model-based beginner review on exact artifact
+  `6793fc4f4610ec0171fb51ce4ae30a775cfa6d0ba30b2f7878bfb0c969847bdc`.
+  This is not unfamiliar-human evidence or publication approval.
+
+The numbered list below is retained as the final-reconciliation register. It no
+longer prohibits Ali's draft; unresolved items prohibit admission or publication.
 
 The following work remains compulsory:
 
@@ -1288,7 +1315,9 @@ The following work remains compulsory:
 ## Research-state verdict
 
 The earlier source packet was a bibliography, not deep research. This dossier
-now establishes a defensible causal spine and exposes the material gaps that
-still block prose. **No manuscript draft is authorised.** The next gate is
-closure of the eleven research gaps above, followed by one independently reviewed
-representative chapter—not a complete book and not a PASS verdict.
+now establishes a defensible causal spine and records the remaining
+final-reconciliation gaps. Ali's direction authorized a complete draft after the
+representative chapter cleared the model-based beginner gate. A 14-chapter local
+draft now exists. **It is not admitted or published.** The next gate is Ali's
+substantive review followed by exact-artifact accuracy and beginner review; the
+unresolved items above continue to block any PASS or release verdict.
