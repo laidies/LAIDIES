@@ -14445,3 +14445,15 @@ while remaining falsely unfinished in the launch record.
   into animation.
 - **Publication status:** PRODUCTION RULE LOCKED / TRAILER AND EPISODES 1–4
   REMAIN ON VISUAL, TIMING AND SOUND-ON REVIEW HOLD.
+**Ali correction, 2026-08-24:** The episode failure gate also rejects Heroine
+wardrobe discontinuity between the corporate world and SUNNYVAiLE; extra,
+missing or phantom limbs; impossible electronics, objects and spatial layouts;
+random people or cars; and wet-looking pavement or sidewalks. These are now
+explicit in the Episode Visual System and decision register so a reviewer
+cannot score around them as incidental generation defects.
+
+**Ali correction, 2026-08-24:** Proper transitions and smooth, purposeful
+camera movement are also mandatory. Ken Burns-style pans and zooms are allowed
+when they serve the shot, but shaking, jerking, snapping, stutter, aimless
+drift, poor cropping and transition discontinuity fail. Camera movement cannot
+be used to pretend that a scene with required internal motion is animated.

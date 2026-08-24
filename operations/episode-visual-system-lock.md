@@ -8,7 +8,7 @@ speech/caption treatment, emphasis frame, trading-card insert, landscape, and ba
 This file is the single visual authority map. A later prompt, old image, mood board,
 or model default cannot override it.
 
-## 0. The six recurring failures — Ali, 2026-08-03 and 2026-08-24
+## 0. The ten recurring failures — Ali, 2026-08-03 and 2026-08-24
 
 These are the specific ways episode visuals keep coming back wrong. Check every
 one before presenting anything.
@@ -16,10 +16,13 @@ one before presenting anything.
 1. **Glamour-cartoon drift.** The render slides toward a glossy, glamorous
    cartoon instead of the locked master style in §1. The master image governs —
    not the model's default idea of an attractive face.
-2. **Invented backgrounds and people.** Characters and locations that are **not
-   in town canon** get made up. Every person and place in a frame must exist in
-   the canon roster (`town-keeper-roster.md`, character reference sets). If it
-   isn't in canon, it doesn't go in the frame.
+2. **Invented backgrounds, people or vehicles.** Characters and locations that
+   are **not in town canon** get made up, or random background people and cars
+   appear without a scene job. Every visible person and place must exist in the
+   canon roster (`town-keeper-roster.md`, character reference sets). No random
+   pedestrians, crowds, drivers, parked cars or moving vehicles. If a person or
+   vehicle is not explicitly required, canon-bound and relevant to the scene,
+   it does not go in the frame.
 3. **No subtle animation.** Rain, glowing light, drift, breath, flicker — the
    small continuous motion that makes a shot feel alive is missing, and a
    frozen frame ships as an animation. **A still is not an animation.**
@@ -39,6 +42,29 @@ one before presenting anything.
    strike or disappear behind objects, or leaves the scene lighting and ground
    unchanged is a graphic overlay, not rain animation. Pixel movement, an
    animated CSS layer or a compositing effect does not make the shot animated.
+7. **Heroine wardrobe discontinuity.** In the corporate world, the Heroine
+   always wears her locked corporate attire. After she enters SUNNYVAiLE, she
+   wears the iconic 1990s outfit selected for that episode. A shot may not mix,
+   improvise, modernize or silently switch those wardrobes. The world and the
+   episode determine the outfit; model variation does not.
+8. **Anatomy, object or structural impossibility.** Extra, missing or phantom
+   arms; duplicated hands or fingers; screens on the back of electronics;
+   impossible doors, counters, furniture, rooms, streets or building layouts;
+   unsupported objects; contradictory perspective; and any other physical
+   structure that could not exist or function in the depicted space fail.
+9. **Wet-looking pavement or sidewalks.** SUNNYVAiLE streets, pavements and
+   sidewalks must not acquire glossy, rain-wet, mirror-like or reflective
+   surfaces. This remains prohibited even in a scene with atmospheric motion;
+   an effect may not change the approved town surface material.
+10. **Bad camera movement or transitions.** Every shot change needs an
+    intentional, scene-appropriate transition. Camera movement may use a
+    smooth Ken Burns-style pan, push or pull on an approved still when that
+    framing movement serves the line, but it must never be shaky, jerky,
+    stuttering, snapping, directionally confused, aimless or badly cropped.
+    The move needs stable speed and easing, a deliberate start and end frame,
+    and visual continuity with the adjacent shot. A Ken Burns move changes the
+    camera framing; it does not substitute for scene motion when the people,
+    objects, weather or environment are supposed to move.
 
 ### Required animation method
 
@@ -60,11 +86,15 @@ invented environment. A sequence of wrong images is still a failed animation.
 |---|---|---|
 | 5 — loop seam | `operations/tools/check-loop-continuity.py` | **Built, calibrated 2026-08-03.** Compares the wrap against the clip's own p90 frame step, with an absolute perceptual floor so near-static clips don't false-fail. `--self-test` proves it separates a true loop from a drifting one. |
 | 3 — no subtle motion | same tool, `[STATIC]` flag | **Built.** Flags clips whose internal motion p90 is below 0.5 — effectively a still. |
-| 2 — non-canon people/places | `operations/tools/check-episode-brief.py` | **Built, calibrated 2026-08-03.** Validates the brief BEFORE render: every name in `CHARACTERS:` must be in canon (77 names harvested from the roster + canon index), every path in `REFERENCES:` must exist on disk, and `MOTION:` must be declared. A new character must be written `Name (NEW — needs Ali)`. |
+| 2 — non-canon people/places/vehicles | `operations/tools/check-episode-brief.py` plus pixel review | **Partly built.** The brief gate validates every declared `CHARACTERS:` name against canon and every reference path on disk. The same-viewport pixel review must also reject undeclared background people, crowds and vehicles that generation introduced. |
 | 1 — glamour drift | not automatable | Needs a side-by-side against the §1 master. `motion-heatmap.py` and contact sheets make the human check fast. |
 | 4 — narration match | partly | Clip duration vs the timing map is checkable; whether the motion *means* the line is not. |
 | 6 — CSS/overlay fake scene animation | partly | Source inspection can detect CSS/runtime overlays, but a same-viewport review of the decoded shot must judge perspective, depth, occlusion, lighting, surface response and narration fit. Motion detection alone cannot pass it. |
 | required frame-sequence method | partly | Frame differencing must show that change is confined to the declared moving regions; loop continuity is machine-checked, while same-viewport review confirms that the sequence preserves the admitted scene and adult graphic-novel style. |
+| 7 — Heroine wardrobe continuity | partly | The brief and shot ledger must bind `WORLD:` and the exact approved wardrobe reference. The decoded sequence must be reviewed for any outfit switch or model-invented variation. |
+| 8 — physical/anatomical coherence | not reliably automatable | Inspect the exact pixels at intended size for limbs, hands, electronics, object support, perspective and usable spatial structure. Any impossible anatomy or layout fails. |
+| 9 — dry town surfaces | partly | The brief must prohibit wet/glossy pavement and sidewalks; same-viewport review judges the actual surface pixels and reflections. |
+| 10 — transitions and camera movement | partly | Timing and frame-to-frame displacement can flag abrupt speed changes, but the exact continuous edit must be watched at normal speed to judge stable motion, framing, easing, transition purpose and continuity. |
 
 Do not claim a clip passes on the strength of the two automated checks. They
 cover the two most mechanical failures, not the two most important ones.
