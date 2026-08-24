@@ -14407,3 +14407,14 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-483 — A valid episode manifest can still point at visibly wrong art
+
+- **Date:** 2026-08-24
+- **Area:** Weekly Episode shared intro/outro visual production.
+- **Failure:** The intro/outro workflow produced and repeatedly presented mottled or painterly characters, incorrect identities, invented or unnamed buildings, night scenes, vehicles, inconsistent portrait scale and generic grey label panels. A user-rejected Canva intro remained registered as the source for four CapCut episode projects, while rejected outro substitutes remained populated as active still inputs.
+- **Root cause:** Production treated identity/style references as if they were production-ready assets, built multiple plates before one representative pair had passed, and relied on manifest/file checks that did not judge the rendered pixels. The Canva upload pool also failed to separate rejected sources from eligible sources.
+- **Prevention rule:** Resolve exact canonical image bytes before composition. Episode bookend town shots may use only eligible files from `assets/codex-map-refs-20260705/building-heroes/` or `assets/codex-map-refs-20260705/approved-scenes/`; character scene art is identity evidence, not automatic rendering approval. One source-bound, matched-scale character pair must pass maker inspection and independent same-viewport visual review before any further pair, animation or assembly. Rejection clears active `still` fields, quarantines the source and invalidates every downstream project that names it.
+- **Durable correction:** The rejected Canva intro was moved out of the active source path and all four CapCut registrations now say `INVALIDATED_REJECTED_SOURCE_DO_NOT_EXPORT`. Rejected outro substitutes have null active stills. The timeline now uses only Civic Square midday and Town Park afternoon as town shots. A deterministic Deb/Matron source-preserving pair exists only as an internal rough and cannot advance without independent visual admission.
+- **Possible Behind the Build angle:** Why a checksum-perfect video pipeline still produced the wrong town—and how the fix moved visual truth ahead of animation and assembly.
+- **Publication status:** LOCAL RECOVERY / VISUAL ADMISSION HOLD / NO ANIMATION, FINAL EXPORT, DEPLOYMENT OR PUBLIC VERIFICATION.
