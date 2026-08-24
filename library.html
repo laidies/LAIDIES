@@ -215,7 +215,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 /* ── the open book — a designed 90s magazine / textbook spread, themed per book ── */
 #reader{--accent:#7c2f4f;position:fixed!important;inset:0!important;width:100dvw;height:100dvh;max-width:none!important;
-  margin:0!important;transform:none!important;z-index:5000;display:none;overflow:hidden;
+  margin:0!important;transform:none!important;z-index:9999;display:none;overflow:hidden;
   background:rgba(28,14,26,.52);backdrop-filter:blur(3px) saturate(.85)}
 #reader.on{display:grid;place-items:center;padding:26px}
 .reader-open{overflow:hidden}
@@ -355,7 +355,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .reader-contents nav a{display:flex;gap:9px;padding:9px;color:#263654;text-decoration:none;font-size:12.5px;line-height:1.3}
 .reader-toc-group{margin:0;border-top:1px solid #dce5fb}.reader-toc-group:first-child{border-top:0}
 .reader-toc-group>summary{display:flex;align-items:flex-start;gap:9px;min-height:44px;padding:10px 9px;cursor:pointer;list-style:none;color:#263654;font-size:12.5px;font-weight:800;line-height:1.3}
-.reader-toc-group>summary::-webkit-details-marker{display:none}.reader-toc-group>summary::after{content:"+";margin-left:auto;color:var(--accent);font-size:17px;line-height:1}.reader-toc-group[open]>summary::after{content:"−"}
+.reader-toc-group>summary{list-style:disclosure-closed}.reader-toc-group[open]>summary{list-style:disclosure-open}
+.reader-toc-group>summary::-webkit-details-marker{display:inline;color:var(--accent)}.reader-toc-group>summary::after{content:none}
 .reader-toc-children{display:grid;padding:0 0 8px 29px}.reader-toc-children a{border-left:2px solid #dce5fb;color:#4d5875;font-size:12px}.reader-toc-children .reader-toc-start{color:#263654;font-weight:900}
 .reader-contents nav a:hover,.reader-contents nav a:focus-visible,.reader-contents nav a[aria-current="location"]{background:#eef3ff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
 .reader-top{flex:0 0 auto;min-width:78px;border:0;border-left:1px solid #d7dff5;background:#fff;color:#07142f;padding:8px 14px;font:900 11px/1 'Jost',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -468,6 +469,53 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt tbody tr:nth-child(even){background:#f0f4ff}
 .book .txt::after{content:"SUNNYVAiLE LIBRAiRY · RETURN TO THE SHELF WHEN YOU ARE DONE";height:auto;margin:42px 0 0;padding-top:13px;
   color:#68789a;border-top:1px solid #cbd6ec;background:none;font-size:8px;font-weight:800;letter-spacing:.18em;text-align:center}
+
+/* Ali-selected pop-zine reader: long-form paper first, approved Puffy motifs
+   in the frame, and one compact overlay Contents control at every width. */
+#reader.on{padding:14px}
+.book{position:relative;width:min(1420px,calc(100dvw - 28px));max-height:calc(100dvh - 28px);padding-left:116px;
+  border:2px solid #6b42bf;border-radius:4px;background:#eee8ff;box-shadow:0 34px 90px rgba(2,8,28,.62)}
+.reader-pop-frame{position:absolute;inset:0 auto 0 0;z-index:0;width:116px;overflow:hidden;background:#e8e0fa;border-right:2px solid #6b42bf;pointer-events:none}
+.reader-pop-frame::before{content:"";position:absolute;inset:0;background-image:url('/assets/puffies/puffy-star-pink.png');background-size:34px;background-repeat:repeat;opacity:.08}
+.reader-motif{position:absolute;z-index:1;display:block;width:auto;height:auto;object-fit:contain;filter:drop-shadow(2px 4px 0 rgba(59,36,114,.2))}
+.reader-motif-cursor{top:18px;left:15px;width:70px}.reader-motif-lightning{top:142px;left:19px;width:61px}
+.reader-motif-cassette{top:286px;left:-8px;width:126px}.reader-motif-computer{bottom:18px;left:2px;width:108px}.reader-motif-star{right:9px;bottom:168px;width:36px}
+.book>.band,.book>.correction-desk,.book>.body{position:relative;z-index:2}
+.book>.band{z-index:20}
+.book .band{min-height:134px;padding:27px 30px 25px;background:#fff;color:#101842;border-bottom:4px solid #18c6d8;align-items:center;gap:30px}
+.book .band::before,.book .band::after{content:none}
+.book .band>div:first-child{min-width:280px;flex:1 1 430px;align-self:auto}
+.book .band .m{order:2;margin:7px 0 0;color:#6b42bf;font-size:9px;line-height:1.4;font-weight:900;letter-spacing:.19em;opacity:1}
+.book .band .t{display:inline-block;width:max-content;max-width:100%;padding:0 4px 7px 0;border-bottom:5px solid #ed4a9e;color:#101842;
+  font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4vw,58px);font-weight:800;line-height:.98;letter-spacing:-.035em;text-shadow:none}
+.reader-actions{flex:0 1 650px;gap:7px;align-items:center;justify-content:flex-end}
+.reader-contents{position:relative;flex:0 0 auto;min-width:0}
+.reader-contents>summary{min-height:44px;padding:10px 14px;gap:8px;border:2px solid #6b42bf;border-radius:6px;background:#f4efff;color:#352269;
+  font-size:12px;letter-spacing:.02em;text-transform:none}
+.reader-contents>summary::before,.reader-contents>summary::after{content:none}
+.reader-contents[open]>summary{background:#fff}
+.reader-contents-label{font-weight:900}.reader-contents nav{left:auto;right:0;top:calc(100% + 9px);width:min(470px,calc(100dvw - 54px));max-height:min(68vh,640px);
+  padding:12px;background:#fff;border:3px solid #6b42bf;border-radius:4px;box-shadow:9px 9px 0 rgba(16,24,66,.24)}
+.reader-save-book,.reader-top,.book .band button:not(.puffy-btn){align-self:auto;min-width:44px;min-height:44px;margin:0;padding:8px 11px;border:0;border-radius:0;
+  background:#fff;color:#101842;box-shadow:none;font:900 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.02em;text-transform:none}
+.reader-save-book{display:inline-flex;align-items:center;gap:6px}.reader-save-book img{width:34px;height:34px;margin:0;filter:drop-shadow(1px 2px 0 rgba(23,42,72,.18))}
+.reader-save-book span{font-size:11px}.reader-top{border-left:1px solid #d9d4e8;border-right:1px solid #d9d4e8;text-transform:uppercase;letter-spacing:.06em}
+.book .band #reader-close{padding:10px 14px;border:2px solid #18c6d8;border-radius:6px;background:#fff;white-space:nowrap}
+.book .band #reader-report{min-width:0;margin:0;padding:10px 7px;border:0;border-radius:0;background:transparent;color:#354461;box-shadow:none;text-decoration:none;font-size:11px;white-space:nowrap}
+.book .band button:not(.puffy-btn):hover,.book .band button:not(.puffy-btn):focus-visible,.reader-contents>summary:hover,.reader-contents>summary:focus-visible{
+  background:#f2edff;color:#101842;transform:none;box-shadow:none;outline:3px solid #18c6d8;outline-offset:2px}
+.book .body{display:grid;grid-template-columns:1fr;min-height:0;background:#fff}
+.book .toc{display:none!important}
+.book .txt{padding:38px max(34px,calc((100% - 790px)/2)) 62px;background:#fff;color:#17213b;font-size:16.5px;line-height:1.72}
+.book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
+.book .txt .lede{max-width:790px;margin:0 auto 38px;padding:19px 22px 20px;background:#f0eaff;border:3px solid #101842;border-left:10px solid #6b2cff;border-radius:4px;
+  color:#17213b;font-size:18px;line-height:1.5;box-shadow:none}
+.book .txt .lede::before{color:#6b2cff}
+.book .txt h2{margin:48px 0 12px;padding:0 0 12px;border-bottom:4px solid #18c6d8;color:#101842;font-size:25px;line-height:1.13;letter-spacing:.04em}
+.book .txt h2[data-source-block^="chapter-"]{margin:54px -18px 20px;padding:18px 18px 16px;background:#101842;border-bottom:7px solid #18c6d8;color:#fff}
+.book .txt h3{color:#5b2eb7}.book .txt a{color:#6035ba}
+.book .txt .callout,.book .txt .key-terms-reference,.book .txt .working-panel{border-radius:4px}
+.book .txt .callout>b:first-child{border-radius:2px}
 
 @media(max-width:900px){
   .library-hero{grid-template-columns:1fr;min-height:0}
@@ -718,6 +766,47 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .library-intro .lede{font-size:16px}
 }
 @media(max-width:420px){.bk{flex-basis:120px;width:120px}}
+
+/* Keep the selected reader responsive rules authoritative over the older
+   catalogue breakpoints above. Contents stays a compact overlay, not a
+   persistent sidebar or a second title block. */
+@media(max-width:900px){
+  #reader.on{padding:8px}
+  .book{width:calc(100dvw - 16px);max-height:calc(100dvh - 16px);padding-left:0;border-radius:3px}
+  .reader-pop-frame{display:none}
+  .book .band{min-height:0;padding:20px 20px 16px;align-items:flex-start;flex-direction:column;gap:15px}
+  .book .band>div:first-child{min-width:0;width:100%;flex:0 0 auto}
+  .book .band .m{display:block;margin-top:7px}
+  .book .band .t{padding-bottom:6px;border-bottom-width:4px;font-size:clamp(31px,8vw,43px)}
+  .reader-actions{display:flex;width:100%;flex:0 0 auto;justify-content:flex-start;gap:5px}
+  .book .band button:not(.puffy-btn){align-self:auto;margin-top:0}
+  .reader-contents>summary{padding:9px 10px;gap:8px}
+  .reader-contents>summary::before,.reader-contents>summary::after{content:none}
+  .reader-contents nav{left:0;right:auto;width:min(470px,calc(100dvw - 40px))}
+  .book .body{grid-template-columns:1fr}
+  .book .toc{display:none!important}
+  .book .txt{padding:30px max(24px,calc((100% - 720px)/2)) 48px}
+}
+@media(max-width:560px){
+  #reader.on{padding:0}
+  .book{width:100dvw;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+  .book .band{padding:14px 14px 11px;gap:10px}
+  .book .band .m{display:none}
+  .book .band .t{font-size:29px}
+  .reader-actions{display:grid;grid-template-columns:auto auto auto minmax(0,1fr);gap:3px;width:100%}
+  .reader-contents>summary{padding:9px 10px}
+  .reader-save-book{padding:5px 7px}
+  .reader-save-book img{width:30px;height:30px}
+  .reader-save-book span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .reader-top{min-width:0;padding:8px}
+  .book .band #reader-close{grid-column:4;padding:9px 10px;font-size:10px}
+  .book .band #reader-report{grid-column:1/-1;justify-self:end;padding:4px 3px;font-size:10px}
+  .reader-contents nav{position:fixed;left:10px;right:10px;top:108px;width:auto;max-height:calc(100dvh - 122px)}
+  .book .txt{padding:25px 18px 36px;font-size:16px;line-height:1.68}
+  .book .txt .lede{padding:17px 16px;font-size:16px}
+  .book .txt h2{font-size:19px}
+  .book .txt h2[data-source-block^="chapter-"]{margin-left:-6px;margin-right:-6px;padding:14px 10px}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
@@ -817,8 +906,21 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book">
+    <div class="reader-pop-frame" aria-hidden="true">
+      <img class="reader-motif reader-motif-cursor" src="/assets/puffies/usable-25-images/62-holographic-cursor-arrow.png" alt="">
+      <img class="reader-motif reader-motif-lightning" src="/assets/puffies/puffy-lightning-bolt-teal.png" alt="">
+      <img class="reader-motif reader-motif-cassette" src="/assets/puffies/usable-25-images/64-black-pink-cassette.png" alt="">
+      <img class="reader-motif reader-motif-computer" src="/assets/puffies/usable-25/06-retro-computer-heart.png" alt="">
+      <img class="reader-motif reader-motif-star" src="/assets/puffies/puffy-star-pink.png" alt="">
+    </div>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
-      <div class="reader-actions"><button id="reader-report" type="button" title="Send a correction about this book; its version and your current section are attached automatically">Report an issue</button><button id="reader-close" type="button">← back to the shelf</button></div></div>
+      <div class="reader-actions">
+        <details class="reader-contents" id="mobile-toc"><summary><span class="reader-contents-label">Contents</span><span class="reader-current-section sr-only" id="reader-current-section">Start of book</span></summary><nav id="rtoc-mobile" aria-label="All chapters and sections"></nav></details>
+        <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt=""><span>Save</span></button>
+        <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
+        <button id="reader-close" type="button">← Back to the shelf</button>
+        <button id="reader-report" type="button" title="Send a correction about this book; its version and your current section are attached automatically">Report issue</button>
+      </div></div>
     <section class="correction-desk" id="correction-desk" hidden aria-labelledby="correction-title">
       <form id="correction-form">
         <h3 id="correction-title">Report an issue with this book</h3>
@@ -832,11 +934,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-    <div class="reader-jumpbar" aria-label="Book navigation">
-      <details class="reader-contents" id="mobile-toc"><summary><span class="reader-current-section" id="reader-current-section">Start of book</span></summary><nav id="rtoc-mobile" aria-label="All chapters and sections"></nav></details>
-      <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">Book</button>
-      <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
-    </div>
     <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
   </div>
 </div>

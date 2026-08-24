@@ -14729,6 +14729,17 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why approving the right picture did not mean it appeared at the right moment—and why the same “do not retype authority” rule applies to deployment hashes.
 - **Publication status:** PRODUCTION LIBRARY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
 
+## BTB-485 — Functional reader tests can miss the site shell covering the book
+
+- **Date:** 2026-08-24
+- **Area:** Four-book LIBRAiRY reader visual redesign and responsive navigation.
+- **Failure:** The first pop-zine implementation passed book loading, overflow and Contents navigation, but the persistent site header still sat above the modal reader. It clipped the desktop book title and removed the mobile title band from view. Older phone media rules also overrode the new compact toolbar, and the opening repeated the book title and promise panel before the Preface even though the selected direction had removed that sequence.
+- **Root cause:** Behavioural checks inspected elements and geometry inside the reader without comparing the whole rendered viewport against the selected visual. The reader's older stacking value and later source-order media rules remained valid CSS, so neither produced a script error.
+- **Prevention rule:** A modal reader redesign requires same-viewport whole-screen comparison after functional checks. Verify the modal against the global shell, keep one final responsive rule block authoritative, and compare opening hierarchy—not only copy presence—against the approved direction. A Save control is not accepted until its exact art and ten-sticker picker are exercised in a real browser state.
+- **Durable correction:** The reader now owns the foreground below the Puffy picker, the legacy sidebar stays hidden, one compact Contents overlay works at 1280/390/320px, and the duplicate host title/promise layer is suppressed without changing book bytes. Exact approved cursor, lightning, cassette, computer, star and teal-floppy Puffy assets supply the motif system. Same-canvas design QA, mobile Contents, the ten-sticker picker, all four full-book readers and Miss Jeeves passed locally.
+- **Possible Behind the Build angle:** The feature worked perfectly—underneath the navigation bar nobody was supposed to see.
+- **Publication status:** LOCAL OWNER-REVIEW CANDIDATE / NOT DEPLOYED.
+
 ## BTB-483 — Orientation panels work better after the chapter earns attention
 
 - **Date:** 2026-08-24

@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** AI-FUNDAMENTALS-AUTHORED-PREFACE-RESTORATION-20260824
-- **Status:** COMPLETE / DEPLOYED / PUBLICLY VERIFIED
+- **Task ID:** LIBRARY-BOOK-READER-POP-ZINE-REDESIGN-20260824
+- **Status:** READY FOR OWNER REVIEW
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-24 America/Vancouver
-- **Goal:** Restore Ali's approved purpose-led AI Fundamentals preface in place of the unrelated system-map substitute without changing the remaining book or reader.
-- **Acceptance:** The approved three-part preface is the first book section; the existing reading guidance follows it; no unavailable three-mode promise appears; the Karen Spärck Jones attribution links to the BCS interview; the remaining chapters, anchors, visuals and reader behaviour are unchanged; the exact successor is committed, deployed and publicly verified at desktop and mobile widths.
-- **Current step:** Complete. Ali's corrected third transformation—From “Whatever” to “RSVP: Yes. I have notes.”—is bound in source `e7fc827018aa937c5ae06bc72be0ba56a6616213`, artifact identity `efe5cc550385c5be3dc8d112141b1e0ee5f99ef3fa387862a71bdfebbbe6c922` and deployment `c3cde9a0-b530-4e9f-bfd2-7dcc3c48a6d2`. Both origins matched all five changed visitor files; the real laidies.ai reader passed at desktop and 390px mobile widths with no horizontal overflow.
-- **Next action:** None for this bounded correction.
+- **Goal:** Implement Ali's selected pop-zine textbook reader direction across all four opening Library books without changing admitted prose, semantic meaning or book functions.
+- **Acceptance:** The white long-form reading surface, editorial hierarchy and approved Rewind/computer motif frame match the selected visual; semantic boxes retain their actual manuscript jobs; desktop and mobile Contents collapse to one compact toolbar control and open an overlay drawer; Save uses the teal floppy Puffy and opens the visitor's ten selected stickers; all four books remain navigable, readable and overflow-free at 1280, 390 and 320px; the exact successor is visually compared to the approved target before any public release.
+- **Current step:** The local implementation is complete and design QA passed. The reader uses the selected pop-zine shell, exact approved Puffy assets, compact overlay Contents and the ten-sticker Save interaction without changing admitted book artifacts.
+- **Next action:** Ali reviews the exact local browser candidate. Public release remains separate and requires approval of this implemented candidate.
 
 ## Boundaries
 

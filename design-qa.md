@@ -950,3 +950,55 @@ passed. Detailed evidence is in
 passed for fidelity to the accepted working environment, responsive behaviour,
 accessibility structure and functional journeys. The inherited book-cover
 palette remains an explicit owner gate and is not approved by this result.
+
+---
+
+# LIBRAiRY book reader pop-zine redesign — design QA
+
+**Source visual truth:** `/Users/alisoneakin/.codex/generated_images/01a02f80-da71-7c03-9874-ffff309f2e40/exec-2c45b6c3-d9c1-4d85-97ed-56314f83f6d0.png`
+
+**Rendered implementation:** `http://127.0.0.1:8892/library.html#ai-fundamentals-101`
+
+**Final implementation evidence:**
+
+- Desktop: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-desktop-final.png`
+- Mobile: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-mobile-final.png`
+- Same-canvas desktop comparison: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-comparison-final.png`
+- Save interaction: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-save-picker.png`
+- Mobile Contents interaction: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-mobile-contents.png`
+
+**Viewport and normalization:** The source is 1488 × 1057 pixels. The desktop implementation was captured from a 1440 × 1024 CSS-pixel viewport at device scale factor 1; the book element is 1412 × 996 pixels. For the same-canvas comparison, the source was center-cropped to 1412 × 996 and placed beside the unscaled implementation. Mobile was captured at 390 × 844 CSS pixels at device scale factor 1.
+
+**State:** AI Fundamentals 101 open at the Preface; desktop Contents closed; mobile default and Contents-open states; Resident Card device state supplied for the ten-sticker Save interaction.
+
+## Findings
+
+No actionable P0, P1 or P2 findings remain.
+
+- **Typography:** The final reader preserves the source direction's editorial serif book title and navy all-caps section hierarchy. The implementation uses the site's actual Playfair Display and Jost stack, with readable long-form line height. The actual published preface is longer than the exploratory visual's abbreviated copy; preserving the admitted prose is intentional.
+- **Spacing and layout:** The final desktop reader is a large white paper surface with one 116px lavender motif rail and a compact toolbar. Long-form copy is constrained to 790px. Mobile removes the decorative rail, keeps all controls reachable and has zero horizontal overflow at 390 and 320px.
+- **Colours:** Deep navy/plum, purple, cyan and magenta match the selected direction. No yellow was introduced into the reader treatment. Semantic manuscript panels retain distinct purpose-led colours rather than receiving one global tint.
+- **Images:** The frame and Save action use exact approved Puffy raster assets. No emoji, CSS-drawn substitute, inline SVG or generic AI cliché replaced the selected imagery. The implementation deliberately uses fewer edge motifs than the exploratory image so the live reading surface remains calm.
+- **Copy and controls:** `Contents`, `Save`, `Top`, `Back to the shelf` and `Report issue` retain their actual functions. The duplicate internal title/promise display is suppressed so the Preface begins immediately; the source bytes are unchanged. `From “Whatever” to “RSVP: Yes. I have notes.”` remains the authored third Preface section, not a mislabeled callout.
+
+## Focused interaction evidence
+
+- Save opens `Choose from your 10` and renders exactly ten `.puffy-option` controls from the resident's preselected pouch. The toolbar uses `/assets/puffies/usable-25-images/60-teal-floppy-disk.png`.
+- Mobile Contents opens as an overlay within the 390 × 844 viewport, preserves grouped chapter numbering and nested sections, and closes after navigation.
+- All four books opened as their full admitted artifacts at 1280, 390 and 320px; chapter/section navigation, late-section jump and Top return passed with no document or reader overflow.
+- Browser console and page-error collection returned zero errors in the desktop and mobile captures.
+
+## Comparison history
+
+1. **Blocked — P1 stacking defect.** The first desktop and mobile captures showed the site header above the reader, clipping the book title and toolbar. Fixed by placing the modal reader above the site shell while leaving the Puffy picker above the reader. Post-fix evidence: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-desktop-v2.png` and `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-mobile-v2.png`.
+2. **Blocked — P2 duplicate opening hierarchy.** The first corrected capture still repeated the book eyebrow, title and promise panel inside the paper before the Preface, recreating the rejected title/box/text sequence. Fixed by suppressing only those duplicate host-rendered nodes. Post-fix evidence: `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-desktop-final.png` and `operations/design-qa/library-reader-pop-zine-20260824/qa-reader-mobile-final.png`.
+3. **Passed.** The final same-canvas comparison and focused interaction captures show no actionable P0/P1/P2 difference. The remaining differences are intentional: actual admitted prose instead of mock copy, a quieter right edge, and browser-safe rectangular paper instead of the exploratory image's skewed paper silhouette.
+
+## Verification
+
+- `scripts/test-library-opening-books.cjs`: PASS for four previews, four full readers and three viewports.
+- `scripts/test-library-product.cjs`: PASS, 12 current four-book product checks.
+- `scripts/test-miss-jeeves-worker.mjs`: PASS; the reader change did not regress Miss Jeeves.
+- Visual guard calibration: PASS; a deliberately wrong Save asset path was rejected before the real assertion was trusted.
+
+**final result: passed**
