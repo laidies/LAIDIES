@@ -76,7 +76,7 @@ export function homepageProofErrors(source) {
     'Tools and Games',
     'Connect',
     'On Wednesdays we do AI',
-    'Meet the women behind AI.',
+    'Meet the women behind AI',
     'Explore SUNNYVAiLE',
     'Listen live — KSVL 99.9'
   ];
@@ -86,11 +86,15 @@ export function homepageProofErrors(source) {
   }
   const methodStart = source.indexOf('<section class="method"');
   const methodEnd = methodStart < 0 ? -1 : source.indexOf('</section>', methodStart);
-  if (methodStart < 0 || methodEnd < 0 || source.slice(methodStart, methodEnd).includes('<img')) {
-    errors.push('method must be one compact image-free explanatory band');
+  const methodSource = methodStart < 0 || methodEnd < 0 ? '' : source.slice(methodStart, methodEnd);
+  if (!methodSource.includes('/assets/episodes/issue-01/episode-01-inline-article-image.jpg') || !methodSource.includes('class="method-copy"')) {
+    errors.push('method must pair the bound editorial image with the approved compact explanation');
   }
   for (const rejected of ['Every building has a job.', 'A Card, a Postcard and the radio are different things.', 'Browse all back issues', 'KSVL is also an always-available']) {
     if (source.includes(rejected)) errors.push(`rejected invented Homepage copy is present: ${rejected}`);
+  }
+  if (/remembered on this device|unfinished Screening Room|laidies_screening_progress_v1|resumeNumber|isResume/.test(source)) {
+    errors.push('device-local episode history cannot promote the Homepage resume episode');
   }
   if ((source.match(/data-copy-source=/g) || []).length < 8) errors.push('every meaning-bearing Homepage section must declare copy provenance');
   for (const requiredVisual of [
@@ -98,6 +102,7 @@ export function homepageProofErrors(source) {
     './assets/method-pop-bright-v2.png',
     './assets/pop-burst-bg-v1.png',
     '/assets/final_map/sunnyvaile-town-map-final-v5.webp',
+    '/assets/episodes/issue-01/episode-01-inline-article-image.jpg',
     '/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png'
   ]) if (!source.includes(requiredVisual)) errors.push(`Homepage proof is missing bound visual source: ${requiredVisual}`);
   if ((source.match(/<img\b/g) || []).length < 7) errors.push('Homepage proof does not contain enough real image-led sections');

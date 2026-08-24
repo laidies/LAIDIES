@@ -343,6 +343,69 @@ it missed known brief violations that were visible in the artifact.
   editorial composition rather than plain colour slabs, CSS decoration, beige,
   broad black fields or a return to the old Homepage layout.
 
+### 2026-08-23 owner rejection — corrected-10 composition and hierarchy
+
+- Candidate `corrected-10` is not an iteration-ready owner artifact. Its page
+  structure may be repaired only by preserving the accepted masthead and copy
+  while replacing the rejected composition described here.
+- Remove `Just running an errand?` from the masthead. It is not an intelligible
+  visitor job and the prior lock is superseded. Masthead actions follow real,
+  named jobs in a useful order: first-time orientation, the current episode,
+  town discovery, tools and games, sign-in and KSVL listening.
+- The LAiDIES Method may not be two disconnected text boxes on an empty field.
+  Give the section one clear title, the approved explanation and a
+  meaning-bearing image-led composition. Do not restore the rejected five-tile
+  Story/Analogy/Practice/Music/Community collage merely to satisfy the image
+  requirement.
+- Every major Homepage section has an unmistakable title and eyebrow with
+  sufficient contrast against its real background. Eyebrows and headings may
+  not disappear into same-value blue or cyan fields.
+- The `Learn` visitor-job card uses one coherent image, not a split image.
+  `Watch the Episodes` uses a current Chick Flicks destination image rather
+  than episode cover art. If no admitted Chick Flicks image exists, the slot is
+  held for new asset admission and is not filled with an unrelated image.
+- Girl Talk and Businesswomen's Special may not use the images rejected in the
+  owner review. No plausible old or held game image may replace them. They need
+  current admitted game imagery before owner review.
+- The weekly route has eight equal outer card sizes, but equal geometry may not
+  create empty content areas or force every unrelated Homepage outcome into the
+  same visual weight. The weekly episode feature stacks the complete current
+  episode image above its copy; it is not split vertically and its art is not
+  meaning-destroyingly cropped.
+- Tighten the masthead's unused sky and the gap above its action row. Preserve
+  the image and copy but reduce dead space. Correct the canonical LAiDIES
+  wordmark dot rather than drawing a new wordmark.
+- Header links use one coherent treatment and route only to real visible
+  Homepage sections or public destinations. The left-side canonical wordmark
+  remains; the rejected inconsistent link set does not.
+- The arrival never returns to the dial-up window or dial-up imagery after the
+  ident begins. The visible sequence is exactly: dial-up connection, first
+  static line, full canonical ident, second static line, then the masthead
+  expands from that line.
+- `Explore SUNNYVAiLE` gives the map the visual majority. The building list has
+  an explicit count and scroll instruction plus a persistently visible scroll
+  affordance. The high-contrast title and eyebrow remain legible. Cards keep
+  canonical number/address order and activate their matching map marker.
+- Restore the complete supported Resident Card and Closet value explanation
+  from the incumbent Homepage: the customizable town ID, automatic building
+  visit stamps, supported quiz/activity keepsakes, luminaries, weekly items,
+  charms and their truthful browser/account boundaries. Do not reduce the
+  outcome to `save on this device` or delete the route to the full Closet.
+- Give the Resident Card/Closet the space earned by those benefits. The
+  Wednesday Postcard is a compact, distinct subscription callout—not an
+  equal-height feature panel. KSVL remains a separate listening feature.
+- The Homepage retains an explicit reason for women to learn AI and a clear
+  action from that explanation. Explain, using the approved Homepage meaning,
+  that AI fluency helps women work better with the technology, understand the
+  headlines and participate in the workplace and public decisions being made
+  now. Route to the LUMINAiRY and the women's-history episode; do not replace
+  the reason with a generic empowerment slogan.
+- The Resident Card section uses progressive disclosure: a visible `Learn
+  everything a Resident Card gets you` control opens the complete supported
+  benefit list in place, followed by `Get my Resident Card` and `Open my
+  Closet` actions. The collapsed state still says enough to explain the Card's
+  job and truthful persistence boundary.
+
 ## Required finite page jobs
 
 These jobs must all survive. Their exact order after the locked masthead and

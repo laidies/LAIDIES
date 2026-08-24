@@ -46,9 +46,9 @@ try {
   const homepageProofBaseline = homepageProofErrors(homepageProofSource);
   if (homepageProofBaseline.length) throw new Error(`Homepage proof baseline failed: ${homepageProofBaseline.join(' | ')}`);
   expectHomepageProofFailure(
-    'homepage-method-collage',
-    homepageProofSource.replace('<section class="method"', '<div class="method-grid"></div><section class="method"'),
-    'rejected five-image method collage'
+    'homepage-method-image-missing',
+    homepageProofSource.replace('/assets/episodes/issue-01/episode-01-inline-article-image.jpg', '/retired-placeholder.png'),
+    'bound editorial image'
   );
   expectHomepageProofFailure(
     'homepage-invented-copy',
@@ -59,6 +59,11 @@ try {
     'homepage-premature-newsstand-preview',
     homepageProofSource.replace('<section class="section intent"', '<section class="section happening"></section><section class="section intent"'),
     'deferred NewsStand Homepage preview'
+  );
+  expectHomepageProofFailure(
+    'homepage-device-local-resume',
+    homepageProofSource.replace('Signed-out visitors open the latest published episode.', 'This browser resumes the episode remembered on this device.'),
+    'device-local episode history'
   );
   expectHomepageProofFailure(
     'homepage-copy-provenance',
@@ -228,7 +233,7 @@ try {
   rejectedInCurrent.calibration.known_bad_candidate_sha256.push(rejectedInCurrent.pages.homepage.candidates[0].source_files.find(item => item.path === rejectedInCurrent.pages.homepage.candidates[0].entry_path).sha256);
   expectFailure('rejected-in-current', rejectedInCurrent, 'rejected archive');
 
-  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
+  console.log('THREE-PAGE DESIGN PROGRAM CALIBRATION PASS — baseline=PASS homepage_method_image=REJECT homepage_device_local_resume=REJECT visitor_order=REJECT visitor_text_only=REJECT visitor_unsupported_class_availability=REJECT library_entry_choice=REJECT library_mobile_overflow=REJECT library_undersized_header=REJECT pale=REJECT authority=REJECT copy=REJECT known_bad=REJECT undeclared=REJECT unallowlisted_active=REJECT unpushed=REJECT missing_admission=REJECT stale_screenshot=REJECT held_review=REJECT missing_comparison=REJECT missing_owner_viewport=REJECT full_before_selection=REJECT missing_library_cover_proof=REJECT wrong_library_runtime=REJECT missing_visitor_orientation_proof=REJECT wrong_visitor_runtime=REJECT rejected_current=REJECT');
 } finally {
   fs.rmSync(scratchAbsolute, { recursive: true, force: true });
 }

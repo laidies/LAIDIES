@@ -14782,3 +14782,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Commit `d721172176baf7dc8d4ff46e1f008b1bdc355936` removes five rejected Homepage candidates from the current program, updates the checker and calibration for the NewsStand deferral, passes 37 design-admission fixtures and admits exact corrected-10 after independent same-viewport review with zero visible regressions or locked violations.
 - **Possible Behind the Build angle:** How a “safety” gate can quietly bring back the design decisions it was supposed to prevent.
 - **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / COMMITTED AND PUSHED / NO DEPLOYMENT.
+
+## BTB-487 — A visually plausible return state can invent account functionality
+
+- **Date:** 2026-08-23
+- **Area:** Homepage weekly loop, design evidence and owner-review admission.
+- **Failure:** A Homepage candidate correctly showed the latest episode to signed-out visitors but also let device-local history impersonate the signed-in “return to my last episode” promise. Its first full-page evidence was also assembled by a broken stitcher that duplicated sections and created false layout defects.
+- **Root cause:** The producer combined two different truth levels—browser-local route check-ins and unbuilt account-backed episode progress—because both looked like “resume” behavior. Evidence capture was trusted because it produced a file, not because the pixels formed one continuous page.
+- **Prevention rule:** Signed-out Homepage episode routing always resolves to the latest published episode. A personalized last-episode return requires proved account-backed storage and consumption; browser-local state may label only browser-local destination visits. The calibrated design gate rejects device-local resume language and implementation tokens. Continuous desktop/mobile evidence is captured directly in one browser page; stitched output is rejected when it repeats or skips content.
+- **Durable correction:** Corrected-11 removes device-local episode resume, keeps the truthful eight-stop browser-local route check-ins, restores the full owner-directed page hierarchy and passes the calibrated device-resume rejection fixture. Direct Chrome captures at desktop, intermediate and mobile sizes show zero overflow, broken images, page errors or unequal route cards; an independent pixel review admits the exact candidate with zero visible regressions or locked-decision violations.
+- **Possible Behind the Build angle:** Why “remember where I left off” is an account architecture decision, not a line of friendly Homepage copy.
+- **Publication status:** INTERNAL REPRESENTATIVE DIRECTION / ADMITTED FOR OWNER REVIEW / NOT DEPLOYED.
