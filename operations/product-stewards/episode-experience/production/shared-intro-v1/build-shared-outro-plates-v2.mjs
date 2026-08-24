@@ -4,6 +4,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 
+throw new Error(
+  "REJECTED OUTRO V2 BUILDER: it creates night scenes, removes or replaces approved building names, and introduces unapproved vehicles. No output from this builder is permitted.",
+);
+
 const require = createRequire(import.meta.url);
 const sharp = require("sharp");
 const root = process.cwd();
