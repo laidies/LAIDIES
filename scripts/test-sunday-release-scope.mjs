@@ -26,7 +26,15 @@ const write = (name, value) => {
   fs.writeFileSync(filename, `${JSON.stringify(value, null, 2)}\n`);
   return filename;
 };
-const run = (base, candidate, scope) => spawnSync(process.execPath, [checker, write('base.json', base), write('candidate.json', candidate), write('scope.json', scope)], { cwd: root, encoding: 'utf8' });
+const run = (base, candidate, scope) => {
+  const fixtureEnv = { ...process.env };
+  delete fixtureEnv.BASE_COMMIT;
+  return spawnSync(process.execPath, [checker, write('base.json', base), write('candidate.json', candidate), write('scope.json', scope)], {
+    cwd: root,
+    encoding: 'utf8',
+    env: fixtureEnv,
+  });
+};
 
 try {
   const oldSha = sha256('old');
