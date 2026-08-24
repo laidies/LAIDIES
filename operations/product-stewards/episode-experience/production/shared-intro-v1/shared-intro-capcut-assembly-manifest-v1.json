@@ -1,0 +1,75 @@
+{
+  "schema": "laidies.shared-episode-intro.capcut-assembly.v1",
+  "status": "READY_FOR_CAPCUT_ASSEMBLY_NOT_EXPORTED",
+  "placement": "Immediately after the announcer finishes the On this episode of LAiDIES preview; never at episode start.",
+  "timeline": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration_seconds": 29.232
+  },
+  "shared_inputs": {
+    "character_town_animation": {
+      "path": "assets/episodes/shared/intro-v1/laidies-shared-intro-character-town-canva-v5-text-safe-motion.mp4",
+      "sha256": "0c58d0c807728b2c662b821f914dfebe1f87992ad5525f0393c4b5683d3b3e08",
+      "source_in_seconds": 0.0,
+      "source_out_seconds": 25.082,
+      "timeline_start_seconds": 0.0,
+      "timeline_end_seconds": 25.082,
+      "audio": "disabled"
+    },
+    "song": {
+      "path": "content/music/sunnyvaile-episode-intro.mp3",
+      "sha256": "7dc3ac7776ee592f0d96a3ee5b71c0ff85a45e87614929a3aecf944493b144b5",
+      "timeline_start_seconds": 0.0,
+      "timeline_end_seconds": 29.232,
+      "replace": false
+    }
+  },
+  "episode_outputs": [
+    {
+      "episode": "01",
+      "ident_path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-01-on-wednesdays-we-do-ai-clean-electric-v2.mp4",
+      "ident_sha256": "fe67ced8a2ba78c011e0306afd4171defcc38026d6758c171cbb4bce1181490a",
+      "ident_timeline_start_seconds": 25.082,
+      "ident_timeline_end_seconds": 29.232,
+      "output_path": "assets/episodes/shared/intro-v1/assembled/laidies-episode-01-shared-intro-v1.mp4",
+      "status": "NOT_EXPORTED"
+    },
+    {
+      "episode": "02",
+      "ident_path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-clean-electric-v2.mp4",
+      "ident_sha256": "9d048b84e2207dd1ccf2f4c58b9e8b824f39f4c6d122006cf0238d94da120edd",
+      "ident_timeline_start_seconds": 25.082,
+      "ident_timeline_end_seconds": 29.232,
+      "output_path": "assets/episodes/shared/intro-v1/assembled/laidies-episode-02-shared-intro-v1.mp4",
+      "status": "NOT_EXPORTED"
+    },
+    {
+      "episode": "03",
+      "ident_path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-03-the-burn-book-problem-clean-electric-v2.mp4",
+      "ident_sha256": "436410d4ffbb6c178740ebdd17c4bb2b35a20f694720e2ea5ba74ab9daed7947",
+      "ident_timeline_start_seconds": 25.082,
+      "ident_timeline_end_seconds": 29.232,
+      "output_path": "assets/episodes/shared/intro-v1/assembled/laidies-episode-03-shared-intro-v1.mp4",
+      "status": "NOT_EXPORTED"
+    },
+    {
+      "episode": "04",
+      "ident_path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-04-founding-mothers-clean-electric-v2.mp4",
+      "ident_sha256": "40053fe3a2af5166b736ebad1496f7c57906e55d0f9552482565a48b70734b99",
+      "ident_timeline_start_seconds": 25.082,
+      "ident_timeline_end_seconds": 29.232,
+      "output_path": "assets/episodes/shared/intro-v1/assembled/laidies-episode-04-shared-intro-v1.mp4",
+      "status": "NOT_EXPORTED"
+    }
+  ],
+  "capcut_rules": [
+    "Assemble only; do not add CapCut animation.",
+    "Keep the Canva character-town clip full-frame with no crop or additional zoom.",
+    "Scale the 960x540 ident to 1920x1080 proportionally with no crop.",
+    "Use a hard cut from the character-town clip to the episode-specific ident at 25.082 seconds.",
+    "Do not regenerate, retime or substitute the episode-specific ident.",
+    "Export H.264 MP4 at 1920x1080 and 30 fps with the song audible for the complete 29.232-second timeline."
+  ]
+}
