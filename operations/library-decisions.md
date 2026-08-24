@@ -11,11 +11,11 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 - Preserve the bright, bold pop-art energy, the established semantic teaching-box colours, physical entering-the-building idea and selected-book preview.
 - Use the vibrant production tokens already established in `library.html`: midnight `#070f2b`, ink `#11183b`, pink `#f254a9`, purple `#7137d6`, cyan `#15bce0`, cobalt `#2457e6`, sky `#78c7ff`, coral `#ff7366`, orange `#ff9b3d`, lime `#b7e42b`, mint `#7de2c2` and cream `#fffdfb`. Use saturated gradients, halftone/pop-art texture, ink keylines, hard offset shadows and layered editorial framing. Yellow is not an active Library colour; do not recolour everything blue or purple.
-- Make the 1990s masthead materially shorter. Preserve the carpet, which Ali approved; the rest of the current masthead artwork is not protected and may be recropped, reworked or replaced so the arrival has colour, depth and authored energy. Keep title and navigation as deterministic live UI.
-- Public choices are **Ask Miss Jeeves** and **Browse the books**. “Catalogue” and “Browse the shelves” are internal/physical descriptions, not the visitor-facing action label.
+- Preserve the approved top Library masthead composition and its established backgrounds. Do not crop further into the Library image, replace its backgrounds, add a black inset/frame inside it or otherwise redesign that locked top. Any future size or spacing adjustment must leave those approved pixels/composition intact and requires Ali's direct approval on the exact candidate. Keep title and navigation as deterministic live UI.
+- Public choices are **Ask Miss Jeeves** and **Browse all books**. The visible browse heading is exactly **Browse all books**—not “Browse all four books,” “Browse the books,” “Browse the shelves” or “Catalogue.”
 - Reference Desk and Browse must have different composition, weight and direction.
-- Launch with one connected physical **All Books** shelf for the four admitted books, placed directly below the **Browse the books** introduction where the three collection-choice boxes previously sat. Search/topic controls follow the visible books and are optional narrowing, not an entry gate. Do not show 101s/Tools/Reference as separate shelf choices until inventory growth makes those choices genuinely useful. Keep collection type as searchable metadata and as a Miss Jeeves result label. Every cover sits wholly inside an opening, meets its rail and remains identifiable. The current shelf artwork is rejected and not protected: rebuild the visible case/wall/floor relationship so it reads as a real, grounded Library shelf. No floating rooms, pasted cases, book wallpaper, generic card grid, pagination or shrinking covers to thumbnails.
-- All four launch books remain visible on the one shelf. Search titles and topics gets a generous unclipped writing area at desktop and mobile sizes; results appear only after a search/topic choice.
+- Launch with four large individual book-cover images directly beneath **Browse all books**, where the three collection boxes previously sat. Do not place them inside a bookshelf, shelf case, library-wall mockup or book wallpaper; the bookshelf approach was explicitly rejected as visually bad. Do not show 101s/Tools/Reference as separate choices until inventory growth makes them useful. Keep collection type only as searchable metadata and a Miss Jeeves result label. The four covers remain prominent and identifiable rather than shrinking to thumbnails.
+- All four launch books remain visible together. Search titles and topics gets a generous unclipped writing area at desktop and mobile sizes; results appear only after a search/topic choice.
 - One cover opens one adjacent preview with job, contents, depth, currentness and truthful availability. Back restores the initiating control and position. **Open this book** appears only when admitted.
 - Mount the canonical visible shared header. A loaded script, hidden return or hover-only control is not navigation.
 - Prompting is one beginner entry point within the broader work of providing and managing task, audience, sources, constraints, examples, tools, history and maintained context. Do not teach magic words.
@@ -38,12 +38,12 @@ This compact packet contains only current page-wide overrides, routing, active a
 ## Current implementation assets
 
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png`
-- Wall/floor: `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png`; `assets/building-interiors/library-shelf/room/floor-geometric-v1.png`
-- Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`; `assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`
+- Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`
+- Shelf wall, floor and case assets are not active inputs for the four-book browse presentation.
 
 ## Release boundary
 
-Ali reviews the exact visible page candidate after maker function/accessibility/responsive checks. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication; release requires exact build, deployment and custom-domain verification.
+Ali reviews and directly approves the exact visible page candidate after maker function/accessibility/responsive checks. An internal maker or independent `ADMIT` verdict cannot substitute for Ali's visual approval and cannot authorize deployment. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication; release requires Ali's exact-candidate approval, exact build, deployment and custom-domain verification.
 
 ## Prohibited active inputs
 
