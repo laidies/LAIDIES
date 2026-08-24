@@ -5,7 +5,21 @@
 Control Room governs shared-system order. Ali receives one decision at a time.
 
 ## P0 — current Episode 5 critical path
+**Opening-media launch reconciliation — NOW, parallel and non-colliding**
 
+- Ali reports unresolved visual, timing and animation failures across Episodes
+  01 v27, 02 v20, 03 v15 and 04 v10. The earlier no-named-machine/frame-defect
+  statement and strongest-available visual labels are invalid as quality
+  evidence because they did not include a complete continuous sound-on watch.
+  Each exact tuple remains HOLD for a fresh occurrence audit against the ten
+  current episode failure rules, followed by one full-title unmuted 1× verdict.
+- Trailer v8 is different: it has confirmed timecoded failures and requires
+  one consolidated source-admitted successor. Do not mix its repair with the
+  four human-only title gates.
+- Current recovery ledger:
+  `episode-media-recovery-ledger-2026-08-24.md`.
+- Evidence:
+  `control-room-handoff-opening-media-human-review-reconciliation-2026-08-05.md`.
 1. **EPX-010 — Complete the top-level ownership rebind.**
    - Owner: Control Room.
    - Result: `episode-experience` becomes portfolio-level with
@@ -278,14 +292,3 @@ Control Room governs shared-system order. Ali receives one decision at a time.
   considered; only distinct valuable work is selected.
 - **Resume from the July 10 writing handoff:** decline. It predates the
   D-018/D-019 correction and Ali's Gate 1 rejection.
-- Ali reports unresolved visual, timing and animation failures across Episodes
-  01 v27, 02 v20, 03 v15 and 04 v10. The earlier no-named-machine/frame-defect
-  statement and strongest-available visual labels are invalid as quality
-  evidence because they did not include a complete continuous sound-on watch.
-  Each exact tuple remains HOLD for a fresh occurrence audit against the ten
-  current episode failure rules, followed by one full-title unmuted 1× verdict.
-- Trailer v8 is different: it has confirmed timecoded failures and requires
-  one consolidated source-admitted successor. Do not mix its repair with the
-  four human-only title gates.
-- Current recovery ledger:
-  `episode-media-recovery-ledger-2026-08-24.md`.
