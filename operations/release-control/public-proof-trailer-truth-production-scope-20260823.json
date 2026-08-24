@@ -1,0 +1,112 @@
+{
+  "schema": "laidies.production-scope.v2",
+  "project": "laidies-sunnyvaile",
+  "productionBranch": "homepage-redesign",
+  "publicUrl": "https://laidies.ai/",
+  "releasePurpose": "Remove prototype-only proof runtimes from public LIBRAiRY and Visitor Centre pages, and make the Visitor Centre trailer ticket match the Screening Room's current held truth.",
+  "baseCommit": "3d4fa57c2dd39dcc63d466b7f6680b03a86d92da",
+  "baseArtifactIdentitySha256": "e647e079c52c6791663c05d6bbc235284ca05a237a5d020fb6c2d7946e65745a",
+  "candidateArtifactIdentitySha256": "0d5a2c1e3d30bc45d4f6bb326fb9c796f68cf1fe349f9aaa3bb208db7e0bc4c8",
+  "allowedChanges": [
+    {
+      "path": "build-report.json",
+      "operation": "MODIFY",
+      "baseSha256": "500f5ba9cbb2a3a5ad42c414e2261b8c47036cdffc057862b0e774d567cd7ea5",
+      "candidateSha256": "3863212198ebaf4989df59331b75377deab83569a0a5d5e177e2944a9c26ddf1"
+    },
+    {
+      "path": "library.html",
+      "operation": "MODIFY",
+      "baseSha256": "b9b795dab5f273d21d08a6db5cb9d2f7e80140cc5740ac4bfaf5d48dd9f17547",
+      "candidateSha256": "326b95de6f8cda22afebaad693480e6a2722826102df5b5e609d34d2eed61d32"
+    },
+    {
+      "path": "visitors-centre.html",
+      "operation": "MODIFY",
+      "baseSha256": "3358aff4ca1dde772ace69759c609b4d5253ca7f83a3b201eb4975f48321f33f",
+      "candidateSha256": "eb383c092d7db08cd5dcb29bb366b025910aa2b161c0c17edf97285274fc0135"
+    }
+  ],
+  "removedPaths": [],
+  "preservedPaths": [
+    {
+      "path": "_worker.js",
+      "sha256": "0bb06ac8eb464fa8e25429f3d11a2d8d11eff75a95fa65d37e4dbb6c50fc54e1"
+    },
+    {
+      "path": "index.html",
+      "sha256": "569adca21fd2a9850491e7d607018a2d7dcba59582f6398713817d94d8067fce"
+    },
+    {
+      "path": "watch.html",
+      "sha256": "80b1d000594919fc948b565a2c50d44bbc546f45c06faba3bcc69f1b7128ea2d"
+    },
+    {
+      "path": "post-office.html",
+      "sha256": "31ba1fa65534363a851aaaae5effd4c3d843a64675e2e1824ba142e2c5ddcee9"
+    },
+    {
+      "path": "postcard.html",
+      "sha256": "32e271a28add93c02f0a14e48effddb9be3de6106377ddc9c1ee9b17c6df9a56"
+    },
+    {
+      "path": "resident-card.html",
+      "sha256": "f50b229a69ba3972b072b72d76d35c3c347e579d2c712ddac508977cc8396b19"
+    },
+    {
+      "path": "content/site/sv-global-header.js",
+      "sha256": "9371167fd8c14212ddb9d910b74dcfbdc24b86c9d548a8c508c7af4be9a3d59d"
+    },
+    {
+      "path": "content/site/sv-nav-auth.js",
+      "sha256": "a6e7832439e1ce12bc75ff7dd11a7bbc7e952d691de319c9722c2aeedb4df92c"
+    },
+    {
+      "path": "content/site/sv-welcome-tour.js",
+      "sha256": "91097e2c08643b06365724e1d55533298fc992386445c4a3e4fbda1edde03591"
+    },
+    {
+      "path": "content/site/sunnyvaile-directory.js",
+      "sha256": "79a03bdcb067e8004ce494dd46525e87934fe203df983a361fba4f87de7f41d0"
+    },
+    {
+      "path": "content/site/readiness/v1/entry-readiness-projection.v1.json",
+      "sha256": "5a5bf791f273874535fcbf4fa88f1a3bddb1004512c04d8e2c733b5da61a3ab0"
+    },
+    {
+      "path": "content/library-books/rendered/ai-fundamentals-101.html",
+      "sha256": "3c61d0125ca43b10464017308547e7f2ba93e7128d11b3ad88152a604a126b76"
+    },
+    {
+      "path": "content/library-books/rendered/working-with-ai-101.html",
+      "sha256": "3ad12c56db9220b63e53361388d98ccfcbc355f1739aaa7c86a48cfb564b20ab"
+    },
+    {
+      "path": "content/library-books/rendered/straight-answers.html",
+      "sha256": "5226313a05dc54cc56419c2d3e8067b8bfd3cbc4f73cb3e367d1dfed0c455d8d"
+    },
+    {
+      "path": "content/library-books/rendered/ai-dictionary.html",
+      "sha256": "a1d2b803d9bcda33c6e7fc279f6ae85f7a34785ab891b5339aeb9f38139e38b5"
+    }
+  ],
+  "verificationPaths": [
+    "build-report.json",
+    "library.html",
+    "visitors-centre.html",
+    "index.html",
+    "watch.html",
+    "post-office.html",
+    "postcard.html",
+    "resident-card.html",
+    "content/site/sv-global-header.js",
+    "content/site/sv-nav-auth.js",
+    "content/site/sv-welcome-tour.js",
+    "content/site/sunnyvaile-directory.js",
+    "content/site/readiness/v1/entry-readiness-projection.v1.json",
+    "content/library-books/rendered/ai-fundamentals-101.html",
+    "content/library-books/rendered/working-with-ai-101.html",
+    "content/library-books/rendered/straight-answers.html",
+    "content/library-books/rendered/ai-dictionary.html"
+  ]
+}

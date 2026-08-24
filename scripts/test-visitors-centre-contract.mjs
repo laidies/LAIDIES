@@ -11,7 +11,12 @@ const check = (condition, message) => {
   if (!condition) failures.push(message);
 };
 
-const page = read("visitors-centre.html");
+const sourcePage = read("visitors-centre.html");
+const page = process.env.VISITORS_CENTRE_INTERNAL_PROOF_CALIBRATION === "1"
+  ? sourcePage.replace("</head>", '<link rel="stylesheet" href="/operations/design-explorations/current/visitors-centre/proof.css"></head>')
+  : process.env.VISITORS_CENTRE_TRAILER_TRUTH_CALIBRATION === "1"
+    ? sourcePage.replace("Trailer playback is temporarily unavailable.", "This ticket opens the player.")
+    : sourcePage;
 const tour = read("content/site/sv-welcome-tour.js");
 const directory = read("content/site/sunnyvaile-directory.js");
 const projection = JSON.parse(read("content/site/readiness/v1/entry-readiness-projection.v1.json"));
@@ -79,8 +84,13 @@ check(/The wall map did not load\. The named directory below still works\./.test
 check(/No Resident Card, account, name, ownership, sign-in, sync or cross-device state is inspected or inferred here/.test(page),
   "Card/account non-inference boundary is missing");
 check(!/laidies_card_username|localStorage/.test(page), "Visitor route still reads identity/Card-like local state");
+check(!/operations\/design-explorations\/|visitors-centre-proof/.test(page),
+  "internal Visitor proof runtime leaks into the public page");
 check(/Request tour start/.test(page), "optional tour handoff is missing");
-check(/Open the illustrated trailer/.test(page), "trailer handoff is missing");
+check(/href="\/watch\.html\?ep=trailer"[\s\S]*?The trailer is being rebuilt before it returns to the public Screening Room\.[\s\S]*?Check trailer status[\s\S]*?Trailer playback is temporarily unavailable\./.test(page),
+  "trailer ticket does not match the receiving Screening Room's held truth");
+check(!/Open the illustrated trailer|Open the receiving video player/.test(page),
+  "Visitor route still promises an available illustrated trailer");
 check(/href="\/post-office\.html#rack"[\s\S]*?Check the postcard rack/.test(page),
   "postcard handoff does not expose the Post Office rack's current truth");
 check(!/class="vc-ticket vc-ticket--postcard" href="\/postcard\.html"/.test(page),

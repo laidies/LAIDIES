@@ -140,6 +140,12 @@ const server = http.createServer((request, response) => {
 
 (async () => {
   const currentLibrary = fs.readFileSync(path.join(root, "library.html"), "utf8");
+  const currentLibraryForProofGuard = process.env.LIBRARY_INTERNAL_PROOF_DEPENDENCY_CALIBRATION === "1"
+    ? `${currentLibrary}\n<link rel="stylesheet" href="/operations/design-explorations/current/library/proof.css">`
+    : currentLibrary;
+  if (/operations\/design-explorations\/|library-proof/.test(currentLibraryForProofGuard)) {
+    throw new Error("internal LIBRAiRY proof runtime leaks into the public page");
+  }
   const currentOpeningIds = ["ai-fundamentals-101", "working-with-ai-101", "straight-answers", "ai-dictionary"];
   const isCurrentFourBookLibrary = currentOpeningIds.every((id) => currentLibrary.includes(`id:'${id}'`));
   const legacyCalibration = Object.keys(process.env).some((key) => key.startsWith("LIBRARY_") && key.endsWith("_CALIBRATION"));
