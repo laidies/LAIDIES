@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "library-book-cold-reader-review.v1",
+  "artifactSha256": "3c61d0125ca43b10464017308547e7f2ba93e7128d11b3ad88152a604a126b76",
+  "reviewMode": "ARTIFACT_FIRST_COLD",
+  "reviewer": "role-distinct independent cold reader with foreground delivery reconciliation",
+  "reviewedAt": "2026-08-23T13:00:00-07:00",
+  "makerReceiptsOpenedAfterColdRead": true,
+  "reverseBrief": {"readerJob":"Build a nontechnical connected model of the AI system.","centralMentalModel":"Data, training, model, context and inference, product and tools, agents, then physical infrastructure form a connected chain.","practicalPayoff":"Locate the layer behind an AI claim and ask the right limiting or verification question.","readingMode":"Sequential explainer followed by chapter-level reference."},
+  "readerTasks": [
+    {"kind":"LOOKUP","prompt":"What is RAG?","observedResponse":"Retrieved the embed, search, retrieve, inject and generate sequence plus the current/right-source limit.","expectedEvidence":"Mechanism and limit, not a slogan.","artifactLocator":"#chapter-8 §8.6","verdict":"PASS"},
+    {"kind":"EXPLAIN_BACK","prompt":"Why can a model sound current without knowing today?","observedResponse":"Distinguished frozen training weights from live context and noted the answer does not reveal which supplied a claim.","expectedEvidence":"Correct causal distinction.","artifactLocator":"#chapter-8 §8.2","verdict":"PASS"},
+    {"kind":"UNSEEN_TRANSFER","prompt":"How should an assistant answer from a policy changed last week?","observedResponse":"Retrieve the current policy into context and verify that the retrieved material is the right current version.","expectedEvidence":"Transfers training/context/RAG model.","artifactLocator":"#chapter-8 §8.6","verdict":"PASS"},
+    {"kind":"DECISION","prompt":"May an agent send an external message without review?","observedResponse":"Required recipient/final-content review for external sending and stronger approval for payment or deletion.","expectedEvidence":"Uses consequence and recoverability.","artifactLocator":"#chapter-13 §13.4","verdict":"PASS"}
+  ],
+  "nonCompensableVetoes":{"openingOrientation":"PASS","promiseFidelity":"PASS","connectedProgression":"PASS","lookupAndRecovery":"PASS","unseenTransfer":"PASS","analogyIntegrity":"PASS","audienceExamples":"PASS","misconceptionResistance":"PASS","materialAccuracy":"PASS","continuousRenderedReadability":"PASS","laidiesVoice":"PASS"},
+  "participantEvidencePaths": ["operations/product-stewards/library/evidence-opening-four-2026-08-23/ai-fundamentals-101-participant-observation.md"],
+  "verdict": "ADMISSION_CANDIDATE",
+  "limitations": ["Rendered artifact is a governed fragment; continuous UTF-8 and responsive readability were reconciled in its intended Library host."]
+}

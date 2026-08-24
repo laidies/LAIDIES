@@ -245,6 +245,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt [aria-current="location"]:focus{outline:0;background:color-mix(in srgb,var(--accent) 9%,#f7f5ff);border-left:6px solid var(--accent);padding:7px 10px}
 .book .txt h4{font-family:'Playfair Display',serif;font-size:17px;margin:20px 0 5px;color:var(--accent-ink)}
 .book .txt p{margin:0 0 14px}
+.book .txt pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.book .txt code{overflow-wrap:anywhere}
 .book .txt ul,.book .txt ol{margin:0 0 16px;padding-left:20px}
 .book .txt li{margin:6px 0;padding-left:4px}
 .book .txt ul li::marker{color:var(--accent)}
@@ -298,6 +300,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt tbody tr:last-child td{border-bottom:0}
 /* pull quote */
 .book .txt blockquote{margin:22px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);font-family:'Playfair Display',serif;font-size:19px;font-style:italic;line-height:1.4;color:var(--accent-ink)}
+.book .txt .teaching-visual{margin:26px 0 34px;padding:12px;background:#fff;border:2px solid color-mix(in srgb,var(--accent) 55%,#c9d6f1);box-shadow:8px 8px 0 color-mix(in srgb,var(--accent) 24%,#dbe4ff)}
+.book .txt .teaching-visual picture,.book .txt .teaching-visual img{display:block;width:100%;height:auto}
+.book .txt .teaching-visual figcaption{padding:11px 5px 2px;color:#34476d;font-size:13px;font-weight:700;line-height:1.48}
 /* Open book — a useful SUNNYVAiLE reference edition, not a web page in a
    rounded modal. The paper, index and entries behave like one editorial
    object; colour belongs to the book rather than to a generic card system. */
@@ -305,7 +310,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book{--accent-ink:color-mix(in srgb,var(--accent) 72%,#07142f);width:min(1160px,calc(100dvw - 52px));max-height:calc(100dvh - 52px);
   border:1px solid rgba(255,255,255,.62);border-radius:7px;background:#f4f6ff;color:#25283b;
   box-shadow:0 42px 110px rgba(2,8,28,.66)}
-.book .band{min-height:142px;padding:34px 28px 20px;background:
+.book .band{min-height:142px;padding:34px 28px 28px;background:
   linear-gradient(118deg,color-mix(in srgb,var(--accent) 86%,#07142f) 0 62%,#07142f 62% 100%);
   border-bottom:6px solid #18c6d8;align-items:center}
 .book .band::before{content:"";height:7px;background:var(--accent)}
@@ -314,7 +319,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .band .t{font-size:clamp(28px,3.5vw,42px);line-height:1.08;letter-spacing:-.02em}
 .book .band .m{max-width:700px;color:#fff;font-size:10px;line-height:1.42;font-weight:800;letter-spacing:.18em;opacity:.9}
 .book .band .t>.puffy-btn{color:#fff}
-.book .band .puffy-save-row{justify-content:flex-start;margin-top:10px}
+.book .band .puffy-save-row{justify-content:flex-start;margin:10px 0 9px}
 .book .band button:not(.puffy-btn){align-self:center;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;
   min-width:44px;min-height:44px;padding:10px 14px;font-weight:800;font-size:14px;line-height:1.2;box-shadow:4px 4px 0 #18c6d8;transition:transform .15s,box-shadow .15s}
 .book .band button:not(.puffy-btn):hover{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
@@ -328,7 +333,26 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .toc a::before{color:var(--accent);font-weight:900;opacity:1}
 .book .toc a:hover,.book .toc a:focus-visible{background:#fff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
 .book .toc::after{content:none;display:none}
-.mobile-toc{display:none}
+.reader-jumpbar{position:relative;z-index:8;display:flex;align-items:stretch;flex:0 0 auto;min-height:48px;background:#fff;border-bottom:3px solid #18c6d8;color:#07142f}
+.reader-contents{position:relative;flex:1;min-width:0}
+.reader-contents summary{display:flex;align-items:center;gap:11px;min-height:45px;padding:8px 17px;cursor:pointer;list-style:none;font:800 11px/1.25 'Jost',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#07142f}
+.reader-contents summary::-webkit-details-marker{display:none}
+.reader-contents summary::before{content:"CONTENTS";flex:0 0 auto;padding:5px 8px;background:var(--accent);color:#fff;border-radius:3px;font-size:10px}
+.reader-contents summary::after{content:"\25BE";margin-left:auto;color:var(--accent);font-size:15px;transition:transform .15s}
+.reader-contents[open] summary::after{transform:rotate(180deg)}
+.reader-current-section{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0;text-transform:none;color:#34476d;font-size:12px;font-weight:700}
+.reader-contents summary:focus-visible,.reader-top:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.reader-contents nav{position:absolute;left:0;top:100%;z-index:12;display:grid;width:min(620px,calc(100dvw - 100px));max-height:min(62vh,560px);overflow:auto;padding:10px 12px 14px;background:#fff;border:2px solid var(--accent);box-shadow:8px 8px 0 rgba(7,20,47,.22);counter-reset:toc}
+.reader-contents:not([open]) nav{display:none}
+.reader-contents nav a{counter-increment:toc;display:flex;gap:9px;padding:8px 9px;color:#263654;text-decoration:none;font-size:12.5px;line-height:1.3;border-top:1px solid #dce5fb}
+.reader-contents nav a:first-child{border-top:0}
+.reader-contents nav a::before{content:counter(toc,decimal-leading-zero);min-width:20px;color:var(--accent);font-size:10.5px;font-weight:900}
+.reader-contents nav a[data-level="3"]{padding-left:32px;color:#4d5875;font-size:12px}
+.reader-contents nav a:hover,.reader-contents nav a:focus-visible,.reader-contents nav a[aria-current="location"]{background:#eef3ff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
+.reader-top{flex:0 0 auto;min-width:78px;border:0;border-left:1px solid #d7dff5;background:#fff;color:#07142f;padding:8px 14px;font:900 11px/1 'Jost',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.reader-top:hover{background:#eef3ff}
+.reader-save-book{flex:0 0 auto;min-width:72px;border:0;border-left:1px solid #d7dff5;background:#fff;color:#07142f;padding:7px 11px;font:900 10px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase;cursor:pointer}
+.reader-save-book img{display:block;width:20px;height:20px;margin:0 auto 2px;object-fit:contain}.reader-save-book:hover,.reader-save-book:focus-visible{background:#eef3ff;outline:2px solid var(--accent);outline-offset:-2px}
 .book .txt{padding:38px 54px 58px;color:#2c2738;background:
   linear-gradient(90deg,rgba(255,255,255,.86),rgba(249,248,255,.96)),
   radial-gradient(circle at 10% 10%,color-mix(in srgb,var(--accent) 8%,transparent),transparent 45%);
@@ -339,10 +363,13 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt .lede::before{content:"WHAT THIS BOOK WILL HELP YOU UNDERSTAND";display:block;margin-bottom:9px;color:var(--accent);
   font-family:'Jost',sans-serif;font-size:9px;font-weight:900;letter-spacing:.2em}
 .book .txt .lede::first-letter{float:none;margin:0;font:inherit;color:inherit}
-.book .txt h2{margin:46px -18px 8px;padding:14px 18px 13px;color:#fff;background:var(--accent);
+.book .txt h2{margin:46px 0 8px;padding:0 0 10px;color:#17213b;background:transparent;border-bottom:4px solid #18c6d8;
   font-family:'Jost',sans-serif;font-size:20px;line-height:1.1;text-transform:uppercase;letter-spacing:.055em}
-.book .txt h2::before{position:static;display:inline;margin-right:12px;color:#fff;font-size:10px;opacity:.78}
+.book .txt h2::before{position:static;display:inline;margin-right:12px;color:var(--accent);font-size:10px;opacity:.78}
 .book .txt h2::after{content:none}
+.book .txt h2[data-source-block^="chapter-"]{margin:48px -18px 18px;padding:15px 18px 14px;color:#fff;background:#07142f;border-bottom:6px solid #18c6d8}
+.book .txt h2[data-source-block^="part-"]{margin:52px -18px 12px;padding:14px 18px;color:#07142f;background:#dff7fa;border:0;border-left:8px solid #18c6d8}
+.book .txt h2[data-source-block^="chapter-"] *,.book .txt h2[data-source-block^="part-"] *{color:inherit}
 .book .txt .term{display:grid;grid-template-columns:minmax(175px,210px) 1fr;column-gap:28px;row-gap:0;
   margin:0;padding:22px 4px 23px;background:transparent;border:0;border-top:2px solid color-mix(in srgb,var(--accent) 25%,#d5dced);
   border-radius:0;box-shadow:none}
@@ -355,10 +382,33 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt .term-feature{margin:12px -14px;padding:24px 18px;background:color-mix(in srgb,var(--accent) 8%,#f8f6ff);
   border-top:3px solid var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 25%,#d5dced)}
 .book .txt .go-deeper{margin-top:5px;padding-top:9px;border-top:1px solid color-mix(in srgb,var(--accent) 22%,#d5dced)}
-.book .txt .callout{margin:32px 0 20px;padding:20px 22px;background:#101d40;color:#f7f5ff;border:0;border-left:8px solid #e84a95;
-  border-radius:3px;box-shadow:none}
-.book .txt .callout>b:first-child{background:#18c6d8;color:#07142f;border-radius:2px}
+.book .txt .callout{--panel-bg:#e8f1ff;--panel-line:#18c6d8;margin:32px 0 20px;padding:20px 22px;background:var(--panel-bg);color:#17213b;border:3px solid #101842;border-left:10px solid var(--panel-line);
+  border-radius:7px;box-shadow:none}
+.book .txt .callout-objective{--panel-bg:#e5f8ff;--panel-line:#00aeca}
+.book .txt .callout-question{--panel-bg:#ffe1f1;--panel-line:#ed238c}
+.book .txt .callout-practice{--panel-bg:#fff0e8;--panel-line:#e65e2e}
+.book .txt .callout-insight{--panel-bg:#e7fff3;--panel-line:#18a76d}
+.book .txt .callout-note{--panel-bg:#e8f1ff;--panel-line:#00aeca}
+.book .txt .callout-key{--panel-bg:#f0e8ff;--panel-line:#6b2cff}
+.book .txt .callout-big-picture{--panel-bg:#e7e5ff;--panel-line:#332c9e}
+.book .txt .callout-landmark{--panel-bg:#e9eeff;--panel-line:#4558e8}
+.book .txt .callout>b:first-child{background:var(--panel-line);color:#fff;border-radius:2px}
 .book .txt .callout p{margin:8px 0 0}
+.book .txt .key-terms-reference{margin:30px 0;padding:21px 22px;background:#eef4ff;border:3px solid #101842;border-top:10px solid #6b2cff}
+.book .txt .key-terms-reference>h3{margin-top:0;color:#101842}
+.book .txt .key-terms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.book .txt .key-term-card{padding:13px 14px;background:#fff;border:2px solid #b7c2df;border-left:8px solid #00aeca;border-radius:7px}
+.book .txt .key-term-card dt{font-weight:900;color:#17213b}.book .txt .key-term-card dd{margin:5px 0 0}
+.book .txt .working-panel{--panel-bg:#e8f1ff;--panel-line:#00aeca;margin:30px 0;padding:20px 22px;background:var(--panel-bg);color:#17213b;border:3px solid #101842;border-left:10px solid var(--panel-line);border-radius:7px}
+.book .txt .working-panel>h2,.book .txt .working-panel>h3{margin:0 0 12px;padding:0 0 8px;color:#17213b;background:transparent;border:0;border-bottom:2px solid var(--panel-line)}
+.book .txt .working-objectives{--panel-bg:#e5f8ff;--panel-line:#00aeca}
+.book .txt .working-key-terms{--panel-bg:#eef4ff;--panel-line:#6b2cff}
+.book .txt .working-practice{--panel-bg:#fff0e8;--panel-line:#e65e2e}
+.book .txt .working-kit{--panel-bg:#e7fff3;--panel-line:#18a76d}
+.book .txt .working-next{--panel-bg:#f0e8ff;--panel-line:#6b2cff}
+.book .txt .working-principle{margin:24px 0;padding:17px 20px;background:#ffe1f1;color:#17213b;border:3px solid #101842;border-left:10px solid #ed238c;border-radius:7px}
+.book .txt .working-prompt-card{margin:22px 0;padding:18px 20px;white-space:pre-wrap;overflow-wrap:anywhere;background:#101d40;color:#fff;border-left:8px solid #18c6d8}
+.book .txt .working-prompt-card *,.book .txt .vr-prompt *{color:inherit}
 .book .txt .receipts{margin:22px 0 0;padding:18px 20px;background:#eaf0ff;border:1px solid #b8c9ee;border-radius:3px;font-size:12px}
 .book .txt .receipts h3{color:#34476d}
 .book .txt .receipts li{color:#425477}
@@ -392,7 +442,15 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt details{margin:12px 0;padding:12px;background:#fff;border:1px solid #c9d6f1}.book .txt summary{cursor:pointer;font-weight:900}
 .book .txt .vr-source-list,.book .txt .vr-handoffs,.book .txt .vr-ledger-list{padding:0;list-style:none}.book .txt .vr-source-list li,.book .txt .vr-handoffs li,.book .txt .vr-ledger-list>li{padding:12px 0;border-bottom:1px solid #c9d6f1}
 .book .txt .vr-claim{margin:13px 0;padding:12px;background:#fff;border-left:5px solid var(--accent)}
-.book .band .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 11px 7px 8px;font-size:14px;line-height:1.2;letter-spacing:.035em}
+.book .band .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 12px 7px 9px;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;box-shadow:4px 4px 0 #18c6d8;font-size:13px;line-height:1.2;letter-spacing:.035em}
+.book .band .puffy-save-row .puffy-btn:hover,.book .band .puffy-save-row .puffy-btn:focus-visible{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
+.book .puffy-button-art{display:none}
+.reader-inline-save{float:right;display:inline-grid;place-items:center;width:44px;height:44px;margin:-11px 0 -11px 8px;border:0;background:transparent;color:#07142f;cursor:pointer}
+.reader-inline-save img{display:block;width:28px;height:28px;padding:3px;object-fit:contain;border:1px solid color-mix(in srgb,var(--accent) 55%,#07142f);border-radius:3px;background:#fff;box-shadow:2px 2px 0 #18c6d8}
+.reader-inline-save:hover img,.reader-inline-save:focus-visible img{background:#eef3ff;outline:2px solid #18c6d8;outline-offset:2px}
+.book .txt h2[data-source-block^="chapter-"]>.reader-inline-save{margin-top:-5px}
+.book .band #reader-report{min-width:0;background:transparent;color:#fff;border-color:transparent;border-radius:0;padding:10px 5px;box-shadow:none;text-decoration:underline;text-underline-offset:4px;font-size:12px}
+.book .band #reader-report:hover,.book .band #reader-report:focus-visible{background:rgba(255,255,255,.12);box-shadow:none;transform:none}
 .book .txt .puffy-save-row{margin:2px 0 10px;justify-content:flex-end}
 .book .txt .puffy-save-row .puffy-btn{min-width:44px;min-height:40px;padding:5px 8px;border-color:transparent;background:transparent;color:#5a6680;font-size:11px;line-height:1.2;letter-spacing:.025em;opacity:.7}
 .book .txt .puffy-save-row .puffy-btn:hover,.book .txt .puffy-save-row .puffy-btn:focus-visible{background:#eef3ff;color:#263654;opacity:1}
@@ -414,14 +472,12 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 }
 
 @media(max-width:560px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
-  .mobile-toc{display:block;flex:0 0 auto;margin:0;background:#fff;border-bottom:3px solid #18c6d8;color:#07142f}
-  .mobile-toc summary{padding:13px 18px;cursor:pointer;font:800 11px/1.35 'Jost',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#07142f}
-  .mobile-toc summary:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
-  .mobile-toc nav{display:grid;max-height:34vh;overflow:auto;padding:0 12px 13px;counter-reset:toc}
-  .mobile-toc nav a{counter-increment:toc;display:flex;gap:9px;padding:9px 7px;color:#263654;text-decoration:none;font-size:13px;line-height:1.3;border-top:1px solid #dce5fb}
-  .mobile-toc nav a::before{content:counter(toc,decimal-leading-zero);min-width:20px;color:var(--accent);font-size:11px;font-weight:900}
-  .mobile-toc nav a:focus-visible{outline:3px solid var(--accent);outline-offset:-2px}
-  .book .txt{padding:24px 18px 34px;font-size:15.5px}.book .txt h2{margin:38px -8px 7px;padding:12px 10px;font-size:17px}.book .txt .lede{padding:18px;font-size:16px}
+  .reader-contents nav{width:calc(100dvw - 102px);max-height:54vh}
+  .reader-contents summary{padding:7px 10px;gap:8px}.reader-contents summary::before{content:"CONTENTS";padding:5px 7px}
+  .reader-top{min-width:76px;padding:8px 10px}.reader-current-section{font-size:11px}
+  .book .txt{padding:24px 18px 34px;font-size:15.5px}.book .txt h2{margin:38px 0 7px;padding:0 0 10px;font-size:17px}.book .txt h2[data-source-block^="chapter-"],.book .txt h2[data-source-block^="part-"]{margin-left:-8px;margin-right:-8px;padding:12px 10px}.book .txt .lede{padding:18px;font-size:16px}
+  .book .txt .key-terms-grid{grid-template-columns:1fr}.book .txt .working-panel{padding:17px 16px}
+  .book .txt table{width:100%;table-layout:fixed}.book .txt th,.book .txt td{overflow-wrap:anywhere;word-break:normal;padding:8px 6px}
   #reader.on{padding:12px}.book{max-height:calc(100vh - 24px)}
   .book .band{min-height:0;flex:0 0 auto;padding:20px 18px 17px;align-items:flex-start;flex-direction:column}
   .book .band::after{content:none}.book .band .m{max-width:100%;font-size:8px;line-height:1.45}
@@ -598,7 +654,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .ledge{top:3.9%;width:45%;height:7.2%}.mobile-shelf-caption{display:none}
   /* MOBILE_BOOK_VISIBLE_SIZE_CONTRACT: normal-case rows retain enough height for a readable cover at the narrowest admitted viewport. */
   .department{z-index:6}.brow{left:9%;right:9%;height:27%;min-height:120px;gap:9%;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}
-  .shelf-unit.is-compact .brow{left:3%;right:3%;height:35%;min-height:120px}.shelf-unit.is-compact .brow--1{bottom:65%}.shelf-unit.is-compact .brow--2{bottom:5%}
+  .shelf-unit.is-compact .brow{left:3%;right:3%;height:35%;min-height:105px}.shelf-unit.is-compact .brow--1{bottom:65%}.shelf-unit.is-compact .brow--2{bottom:5%}
   .brow[data-book-count="2"]>.bk:first-child{justify-self:start}.brow[data-book-count="2"]>.bk:last-child{justify-self:end}
   .bk{flex-basis:clamp(120px,34vw,150px);width:clamp(120px,34vw,150px);max-width:150px}.shelf-unit.is-compact .bk{flex-basis:82px;width:82px;max-width:82px}.bk img{transform:translateY(-4%)}
 }
@@ -707,7 +763,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book">
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
-      <div class="reader-actions"><button id="reader-report" type="button">Report an issue</button><button id="reader-close" type="button">← back to the shelf</button></div></div>
+      <div class="reader-actions"><button id="reader-report" type="button" title="Send a correction about this book; its version and your current section are attached automatically">Report an issue</button><button id="reader-close" type="button">← back to the shelf</button></div></div>
     <section class="correction-desk" id="correction-desk" hidden aria-labelledby="correction-title">
       <form id="correction-form">
         <h3 id="correction-title">Report an issue with this book</h3>
@@ -721,7 +777,11 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-    <details class="mobile-toc" id="mobile-toc"><summary>Find a section in this book</summary><nav id="rtoc-mobile" aria-label="Book contents"></nav></details>
+    <div class="reader-jumpbar" aria-label="Book navigation">
+      <details class="reader-contents" id="mobile-toc"><summary><span class="reader-current-section" id="reader-current-section">Start of book</span></summary><nav id="rtoc-mobile" aria-label="All chapters and sections"></nav></details>
+      <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">Book</button>
+      <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
+    </div>
     <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
   </div>
 </div>
@@ -731,15 +791,16 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 'use strict';
 const B='assets/library-101/bright-family-v2/';
 const SECTIONS=[
- {name:'THE 101s',cap:'Start here for the plain-English building blocks: concepts, briefing, setup and accounts.',mcap:'Plain-English building blocks.',
+ {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'Start with the connected fundamentals, then put them to work with practical briefs, checks and reusable workflows.',mcap:'Understand it. Then use it.',
   books:[
    /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
-      Vocab 101 from the public Library; it must not render on either shelf. */
-   {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the Library',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
-   {id:'ai-fundamentals-101',t:'AI Fundamentals 101',topics:['basics'],status:'hold',statusLabel:'Visual and reader admission pending',s:'Follow the complete AI system in plain English, from data and training through models, products, agents, infrastructure and human review.',inside:'Twenty connected chapters, practical examples, current-source checks and a growing set of responsive teaching visuals.',depth:'Plain-English foundation · complete AI system',img:B+'textbook-ai-fundamentals-101.png',c:'#7038c9'},
-   {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'hold',statusLabel:'Exact review in progress',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',inside:'Five-part procedure, controlled comparison, worked examples and checking boundaries.',depth:'Plain-English foundation · reusable procedure',img:B+'textbook-briefing-101.png',c:'#d83f86'},
-   {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'hold',statusLabel:'Cold-reader revalidation required',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',inside:'Four-place sorting model, six-item worked table and product-specific limits.',depth:'Plain-English foundation · reusable sorting model',img:B+'textbook-setup-101.png',c:'#1597a7'},
-   {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Cold-reader revalidation required',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',inside:'Five-step decision rule, tempting wrong answers and a safe stop condition.',depth:'Plain-English foundation · account and authority decision',img:B+'textbook-accounts-101.png',c:'#e45e55'}
+      Vocab 101 from the public catalogue; it must not render on either shelf. */
+   {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
+   {id:'ai-fundamentals-101',t:'AI Fundamentals 101',topics:['basics','impact-society'],status:'ready',statusLabel:'Opening edition',s:'Understand the connected AI system—from data and models to products, agents, infrastructure, work and public consequences.',inside:'20 connected chapters, a concept index and selected teaching visuals.',depth:'Plain-English foundation · full textbook',img:B+'textbook-ai-fundamentals-101.png',c:'#7038c9'},
+   {id:'working-with-ai-101',t:'Working with AI 101',topics:['prompting','getting-started','choosing-tools','checking-research'],status:'ready',statusLabel:'Opening edition',s:'Put the fundamentals into practice: manage context, brief the work, shape the output, evaluate it and save what works.',inside:'13 hands-on chapters, exercises, tool cards and a minimum viable AI system.',depth:'Practical companion · hands-on textbook',img:B+'textbook-working-with-ai-101.png',c:'#2457e6'},
+   {id:'briefing-101',t:'Briefing 101',listed:false,topics:['prompting','getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
+   {id:'setup-101',t:'Setup 101',listed:false,topics:['getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-setup-101.png',c:'#1597a7'},
+   {id:'accounts-101',t:'Accounts 101',listed:false,topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
  {name:'THE TOOLS',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
   books:[
@@ -752,7 +813,8 @@ const SECTIONS=[
   ]},
  {name:'REFERENCE',cap:'Use this shelf for a specific answer, a safety rule, or a reliable way to check what the AI told you.',mcap:'Sourced answers and checking guides.',
   books:[
-   {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research'],status:'hold',statusLabel:'Source re-verification',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
+   {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research','privacy-safety'],status:'ready',statusLabel:'Opening edition',s:'Dated, sourced answers about jobs, data centres, privacy, productivity and learning—without pretending uncertainty has disappeared.',inside:'Fifteen consequential questions with confidence labels, sources and recheck triggers.',depth:'Living reference · source checked 23 August 2026',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
+   {id:'ai-dictionary',t:'The AI Dictionary',topics:['basics','getting-started','choosing-tools'],status:'ready',statusLabel:'Opening edition',s:'Look up a term in plain English, then jump to the chapter that owns the full explanation.',inside:'179 deduplicated definitions linked to AI Fundamentals and Working with AI.',depth:'Derived reference · 179 maintained terms',img:B+'book-ai-dictionary.png',c:'#1597a7'},
    {id:'how-to-check',t:"How to Check AI's Work",topics:['checking-research'],status:'hold',statusLabel:'Local review ready · observed newcomer check still required',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
    {id:'what-not-to-paste',t:'What Not to Paste',topics:['privacy-safety'],status:'preview',statusLabel:'Lands EP 7',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
    {id:'prompt-cookbook',t:'The Prompt Cookbook',topics:['prompting'],status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
@@ -760,10 +822,14 @@ const SECTIONS=[
 ];
 const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_START */
-{}
+{"ai-dictionary":{"sourcePath":"/content/library-books/rendered/ai-dictionary.html","contentVersion":"ai-dictionary-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"a1d2b803d9bcda33c6e7fc279f6ae85f7a34785ab891b5339aeb9f38139e38b5"},"ai-fundamentals-101":{"sourcePath":"/content/library-books/rendered/ai-fundamentals-101.html","contentVersion":"ai-fundamentals-101-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"3c61d0125ca43b10464017308547e7f2ba93e7128d11b3ad88152a604a126b76"},"straight-answers":{"sourcePath":"/content/library-books/rendered/straight-answers.html","contentVersion":"straight-answers-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"5226313a05dc54cc56419c2d3e8067b8bfd3cbc4f73cb3e367d1dfed0c455d8d"},"working-with-ai-101":{"sourcePath":"/content/library-books/rendered/working-with-ai-101.html","contentVersion":"working-with-ai-101-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"3ad12c56db9220b63e53361388d98ccfcbc355f1739aaa7c86a48cfb564b20ab"}}
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
 const LOCAL_REVIEW_BOOK_RECORDS=Object.freeze({
+ 'ai-fundamentals-101':Object.freeze({sourcePath:'/content/library-books/rendered/ai-fundamentals-101.html',contentVersion:'ai-fundamentals-101-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'3c61d0125ca43b10464017308547e7f2ba93e7128d11b3ad88152a604a126b76'}),
+ 'working-with-ai-101':Object.freeze({sourcePath:'/content/library-books/rendered/working-with-ai-101.html',contentVersion:'working-with-ai-101-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'3ad12c56db9220b63e53361388d98ccfcbc355f1739aaa7c86a48cfb564b20ab'}),
+ 'straight-answers':Object.freeze({sourcePath:'/content/library-books/rendered/straight-answers.html',contentVersion:'straight-answers-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'5226313a05dc54cc56419c2d3e8067b8bfd3cbc4f73cb3e367d1dfed0c455d8d'}),
+ 'ai-dictionary':Object.freeze({sourcePath:'/content/library-books/rendered/ai-dictionary.html',contentVersion:'ai-dictionary-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'a1d2b803d9bcda33c6e7fc279f6ae85f7a34785ab891b5339aeb9f38139e38b5'}),
  'briefing-101':Object.freeze({sourcePath:'/content/library-books/rendered/briefing-101.html',contentVersion:'briefing-101-2026-08-06.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'b9c58ceb6067f1dcf044d1d1e49de9967ddcfe9370910bcc059fc7a51d76f95e'}),
  'how-to-check':Object.freeze({sourcePath:'/content/library-books/rendered/verification-rulebook.html',contentVersion:'sha256-6f9898d4ec3f0151e7aa171132e78b9227d76f65a18b1abc5f725c81577b7274',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'19cf0fc41ac79ca34f595bbc1956c8410513421adb9ae0a7e8e060bffb78753c'})
 });
@@ -775,7 +841,7 @@ const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
 SECTIONS.forEach(Object.freeze);
 Object.freeze(SECTIONS);
 function exactAdmittedBookRecord(id){
- const localReviewHost=(location.hostname==='127.0.0.1'||location.hostname==='localhost')&&new URLSearchParams(location.search).get('local-review')==='1';
+ const localReviewHost=location.hostname==='127.0.0.1'||location.hostname==='localhost';
  const record=localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:ADMITTED_BOOK_RECORDS[id];
  if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
  const source=record.sourcePath;
@@ -1049,17 +1115,18 @@ const JEEVES_ANSWERS=[
     title:'AI predicts what should come next from patterns it learned during training.',
     answer:'During training, the system studies many examples and adjusts a large set of numerical settings so it becomes better at predicting the next useful piece of an answer. When you ask a question, it builds a response one piece at a time from those learned patterns. That is why it can explain and draft convincingly, but can also produce an answer that sounds right without being true.',
     links:[
-      {label:'Open AI Fundamentals 101',book:'ai-fundamentals-101',heading:'Chapter 1: What "AI" Actually Means (and What It Doesn\'t)'},
+      {label:'Open AI Fundamentals 101',book:'ai-fundamentals-101',heading:'Chapter 1 — The complete AI system'},
       {label:"See how to check AI's work",book:'how-to-check',heading:'Ask for receipts'}
     ]
   },
   {
     id:'ai-and-jobs',
     match:q=>/\b(will|could|can)\b.*\bai\b.*\b(job|work|career)\b|\bai\b.*\b(take|replace|steal)\b.*\b(job|work)\b/.test(q),
-    title:'The honest answer is: we do not have that coverage ready yet.',
-    answer:'A trustworthy answer changes by role, task, country and evidence date. The Library’s Jobs &amp; Work answer is still being re-verified, so Miss Jeeves will not pretend it is ready. Start with what the different kinds of AI actually do; the dedicated sourced answer will appear when its evidence is current and checked.',
+    title:'Not wholesale. The measured change is concentrated—and the forecast is still unsettled.',
+    answer:'Stanford’s August 2026 update found a 19% relative employment shortfall for workers aged 22–25 in the most AI-exposed occupations, concentrated in reduced hiring rather than a broad firing wave. That is descriptive, not proof that AI caused the whole change. Your useful question is which tasks in your role are exposed, which require judgment, and where new work is appearing.',
     links:[
-      {label:'Learn what AGI claims actually mean',book:'ai-fundamentals-101',heading:'Chapter 20: AGI, ASI, and the Frontier'}
+      {label:'Open the sourced Jobs & Work answers',book:'straight-answers',heading:'Jobs & Work'},
+      {label:'Learn what AGI claims actually mean',book:'ai-fundamentals-101',heading:'AGI: a disputed definition'}
     ]
   },
   {
@@ -1069,7 +1136,7 @@ const JEEVES_ANSWERS=[
     answer:'Start with the task. Use an all-rounder for everyday drafting and thinking, a source-led research tool when the answer must come with evidence, and the assistant built into your work suite when the job lives inside those apps. Then give two tools the same real task and keep the one whose output you can actually use and verify.',
     links:[
       {label:"Open Who's Who in AI",book:'whos-who',heading:'Which one for which job'},
-      {label:'Learn how products, models and tools differ',book:'ai-fundamentals-101',heading:'Chapter 10: Wrappers, Harnesses, and the Stack'}
+      {label:'Learn how products, models and tools differ',book:'ai-fundamentals-101',heading:'AI system, product, model and tool'}
     ]
   },
   {
@@ -1107,7 +1174,7 @@ const JEEVES_ANSWERS=[
     title:'Generative AI creates new content from learned patterns.',
     answer:'You give it an instruction and it produces text, images, audio, video or code by predicting a fitting result from patterns learned during training. It is not simply looking up a stored answer, so fluent output can still be wrong and needs checking.',
     links:[
-      {label:'Open the Generative AI glossary entry',url:'/learn/glossary.html',sourceId:'concept-generative'}
+      {label:'Open the AI Dictionary',book:'ai-dictionary',heading:'Generative AI'}
     ]
   }
 ];
@@ -1256,12 +1323,15 @@ function renderShelfCopy(b,txt,toc,fallback){
   txt.innerHTML=fallback||b.body||'<p>This book is still being written.</p>';
   const headings=[...txt.querySelectorAll('h1,h2,h3')];
   assignBookSectionAnchors(txt);
-  const entries=headings.filter(h=>!h.closest('.receipts')&&(h.tagName==='H1'||h.tagName==='H2'));
+  const entries=headings.filter(h=>!h.closest('.receipts'));
   if(entries.length){
-    setBookToc(toc,entries.map(h=>`<a href="#${h.id}">${h.textContent.trim()}</a>`).join(''));
+    setBookToc(toc,bookTocHtml(entries));
   }else{
     setBookToc(toc,(b.toc||[]).map(x=>`<span>${x}</span>`).join(''));
   }
+}
+function bookTocHtml(headings){
+ return headings.map(h=>`<a href="#${h.id}" data-level="${h.tagName.slice(1)}">${h.textContent.trim()}</a>`).join('');
 }
 function setBookToc(toc,html){
  toc.innerHTML=html;
@@ -1282,7 +1352,22 @@ function bindBookTocListeners(toc){
   target.focus({preventScroll:true});
   document.getElementById('mobile-toc').open=false;
   target.scrollIntoView({behavior:motionBehavior(),block:'start'});
+  updateReaderPosition(sectionId);
  }));
+}
+function updateReaderPosition(sectionId){
+ const txt=document.getElementById('rtxt');
+ const headings=[...txt.querySelectorAll('h1[id],h2[id],h3[id]')].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
+ let current=sectionId?document.getElementById(sectionId):null;
+ if(!current){
+  const txtTop=txt.getBoundingClientRect().top;
+  current=headings.filter(h=>h.getBoundingClientRect().top<=txtTop+96).at(-1)||null;
+ }
+ activeReaderSectionId=current?.id||null;
+ const label=document.getElementById('reader-current-section');
+ if(label)label.textContent=current?.textContent.trim()||'Start of book';
+ document.querySelectorAll('#rtoc a[aria-current],#rtoc-mobile a[aria-current]').forEach(item=>item.removeAttribute('aria-current'));
+ if(current)document.querySelectorAll(`#rtoc a[href="#${current.id}"],#rtoc-mobile a[href="#${current.id}"]`).forEach(item=>item.setAttribute('aria-current','location'));
 }
 function sectionAnchorSlug(value){
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
@@ -1298,24 +1383,34 @@ function assignBookSectionAnchors(txt){
     heading.id=slug+(occurrence>1?'-'+occurrence:'');
   });
 }
-function decoratePuffySections(b,id,txt){
-  const termEntries=[...txt.querySelectorAll('.term')];
-  const targets=(termEntries.length?termEntries:[...txt.querySelectorAll('h2')])
-    .filter(target=>!target.closest('.receipts,.vr-metadata,.vr-sources'));
-  targets.forEach(target=>{
-    const heading=target.matches('h1,h2,h3')?target:target.querySelector('h3');
-    const sectionTitle=heading?heading.textContent.trim():b.t;
-    const sectionId=heading?.id||'book-section-'+sectionAnchorSlug(sectionTitle);
-    target.setAttribute('data-puffy-id','library-'+id+'-section-'+sectionId);
-    target.setAttribute('data-puffy-book-id',id);
-    target.setAttribute('data-puffy-section-id',sectionId);
-    target.setAttribute('data-puffy-content-version',admittedBook(id)?.record.contentVersion||'legacy-unversioned');
-    target.setAttribute('data-puffy-title',sectionTitle);
-    target.setAttribute('data-puffy-kind','section');
-    target.setAttribute('data-puffy-action-label','Save place');
-    target.setAttribute('data-puffy-summary',b.t+' · SUNNYVAiLE LIBRAiRY');
-    target.setAttribute('data-puffy-url','/library.html#'+id+'::'+encodeURIComponent('@'+sectionId));
-  });
+function decorateReaderSaveIcons(id,txt){
+ txt.querySelectorAll('.reader-inline-save').forEach(button=>button.remove());
+ const chapterSelector=id==='straight-answers'?'h2[data-source-block]':'h2[data-source-block^="chapter-"]';
+ const chapters=[...txt.querySelectorAll(chapterSelector)];
+ const excluded='.callout,.working-panel,.key-terms-reference,.receipts,.vr-metadata,.vr-sources';
+ const sections=[...txt.querySelectorAll('h2[id],h3[id]')].filter(heading=>
+  !chapters.includes(heading)&&!heading.matches('h2[data-source-block^="part-"]')&&!heading.closest(excluded));
+ [...chapters.map(heading=>({heading,scope:'chapter'})),...sections.map(heading=>({heading,scope:'section'}))].forEach(({heading,scope})=>{
+  const button=document.createElement('button');
+  button.type='button';button.className='reader-inline-save';button.dataset.readerSave=scope;button.dataset.readerSaveTarget=heading.id;
+  button.setAttribute('aria-label',`Save this ${scope}, ${heading.textContent.trim()}, with one of your 10 Puffy Stickers`);
+  button.title=`Save ${scope} with a Puffy Sticker`;button.setAttribute('aria-hidden','false');button.innerHTML='<img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">';
+  heading.appendChild(button);
+ });
+}
+function saveReaderScope(scope,anchor,targetId=''){
+ const b=ALL[activeReaderBookId],publication=admittedBook(activeReaderBookId);
+ if(!b||!publication||!window.svPuffyChoose)return;
+ const heading=scope==='book'?null:document.getElementById(targetId);
+ if(scope!=='book'&&!heading)return;
+ const sectionId=heading?.id||'';
+ const title=heading?.textContent.trim()||b.t;
+ window.svPuffyChoose(anchor,{
+  id:scope==='book'?'library-book-'+activeReaderBookId:'library-'+activeReaderBookId+'-section-'+sectionId,
+  bookId:activeReaderBookId,sectionId,contentVersion:publication.record.contentVersion,title,
+  summary:b.t+' · SUNNYVAiLE LIBRAiRY',
+  url:'/library.html#'+activeReaderBookId+(sectionId?'::'+encodeURIComponent('@'+sectionId):'')
+ });
 }
 function findBookHeading(txt,headingReference){
   if(!headingReference)return null;
@@ -1404,7 +1499,7 @@ function hydrateVerificationRulebook(txt){
 const READER_ACCENTS={
   'vocab-101':'#245ed1','ai-fundamentals-101':'#7038c9','briefing-101':'#d83f86',
   'setup-101':'#1597a7','accounts-101':'#e45e55','whos-who':'#245ed1',
-  'straight-answers':'#6539a8','how-to-check':'#245ed1'
+  'working-with-ai-101':'#2457e6','straight-answers':'#6539a8','ai-dictionary':'#1597a7','how-to-check':'#245ed1'
 };
 let readerReturnFocus=null;
 let readerLoadToken=0;
@@ -1488,21 +1583,15 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   readerTitle.textContent=b.t;
   const oldPuffyRow=readerTitle.nextElementSibling;
   if(oldPuffyRow&&oldPuffyRow.classList.contains('puffy-save-row'))oldPuffyRow.remove();
-  readerTitle.removeAttribute('data-puffy-wired');
-  readerTitle.setAttribute('data-puffy-id','library-book-'+id);
-  readerTitle.setAttribute('data-puffy-title',b.t);
-  readerTitle.setAttribute('data-puffy-book-id',id);
-  readerTitle.setAttribute('data-puffy-section-id','');
-  readerTitle.setAttribute('data-puffy-content-version',publication.record.contentVersion);
-  readerTitle.setAttribute('data-puffy-kind','book');
-  readerTitle.setAttribute('data-puffy-action-label','Save this book');
-  readerTitle.setAttribute('data-puffy-summary','Saved book · SUNNYVAiLE LIBRAiRY');
-  readerTitle.setAttribute('data-puffy-url','/library.html#'+id);
+  [...readerTitle.attributes].filter(attribute=>attribute.name.startsWith('data-puffy-')).forEach(attribute=>readerTitle.removeAttribute(attribute.name));
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
   document.getElementById('mobile-toc').open=false;
   if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; setBookToc(toc,'');
-    fetch(publication.source,{credentials:'same-origin',redirect:'error',cache:'no-store'}).then(async r=>{
-      if(!r.ok||r.url!==new URL(publication.source,location.origin).href)throw new Error('not found');
+    fetch(publication.source,{credentials:'same-origin',redirect:'follow',cache:'no-store'}).then(async r=>{
+      const requestedUrl=new URL(publication.source,location.origin);
+      const canonicalUrl=new URL(requestedUrl.href);
+      if(canonicalUrl.pathname.endsWith('.html'))canonicalUrl.pathname=canonicalUrl.pathname.slice(0,-5);
+      if(!r.ok||![requestedUrl.href,canonicalUrl.href].includes(r.url))throw new Error('not found');
       const bytes=await r.arrayBuffer();
       if(await sha256Hex(bytes)!==publication.record.artifactSha256)throw new Error('artifact mismatch');
       return new TextDecoder().decode(bytes);
@@ -1517,12 +1606,13 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       txt.innerHTML = sourceMain ? sourceMain.innerHTML : pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       if(id==='how-to-check')txt.querySelectorAll('.vr-hero h1,.vr-hero .vr-eyebrow').forEach(node=>node.remove());
       assignBookSectionAnchors(txt);
-      decoratePuffySections(b,id,txt);
-      const tocSelector=id==='vocab-101'?'.term h3':id==='straight-answers'?'h2,h3':'h2';
-      setBookToc(toc,[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources')).map(h=>`<a href="#${h.id}">${h.textContent.trim()}</a>`).join(''));
+      decorateReaderSaveIcons(id,txt);
+      const tocSelector=id==='vocab-101'?'.term h3':'h1,h2,h3';
+      const tocHeadings=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
+      setBookToc(toc,bookTocHtml(tocHeadings));
       if(id==='how-to-check')hydrateVerificationRulebook(txt);
-      if(window.svPuffyScan)window.svPuffyScan();
       await settleBookSection(txt,headingNeedle);
+      updateReaderPosition();
     }).catch((error)=>{
       if(loadToken!==readerLoadToken)return;
       txt.dataset.readerLoadError=String(error&&error.message||error||'unknown');
@@ -1548,6 +1638,19 @@ function closeBook(){
 }
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
 document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash)activeReaderSectionId=decodeURIComponent(link.hash.slice(1));});
+document.getElementById('rtxt').addEventListener('scroll',()=>requestAnimationFrame(()=>updateReaderPosition()),{passive:true});
+document.getElementById('reader-top').addEventListener('click',()=>{
+ const txt=document.getElementById('rtxt');
+ document.getElementById('mobile-toc').open=false;
+ txt.scrollTo({top:0,behavior:motionBehavior()});
+ updateReaderPosition(null);
+ txt.focus({preventScroll:true});
+});
+document.querySelector('[data-reader-save="book"]').addEventListener('click',event=>saveReaderScope('book',event.currentTarget));
+document.getElementById('rtxt').addEventListener('click',event=>{
+ const button=event.target.closest('.reader-inline-save');
+ if(button)saveReaderScope(button.dataset.readerSave,button,button.dataset.readerSaveTarget);
+});
 addEventListener('keydown',e=>{
  const reader=document.getElementById('reader');
  if(!reader.classList.contains('on'))return;

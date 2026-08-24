@@ -1,0 +1,36 @@
+{
+  "schema_version": "library-correction-propagations.v1",
+  "authority": "LOCAL_ACCEPTED_TERMINAL_STATE_ONLY_NO_ADMISSION_AUTHORITY",
+  "propagations": [
+    {
+      "schema_version": "library-correction-contract.v1",
+      "correction_id": "correction-build-freshness-fixture",
+      "record_version": 3,
+      "version_id": "correction-build-freshness-fixture:v3",
+      "state": "demoted",
+      "generated_at": "2026-08-03T12:03:00.000Z",
+      "admission_compiler": {
+        "book_id": "how-to-check",
+        "required_action": "demote-to-hold",
+        "required_correction_state": "correction-required",
+        "content_version": "rulebook-v1",
+        "requires_independent_readmission": true
+      },
+      "site_index": {
+        "book_id": "how-to-check",
+        "claim_id": "VR-C001",
+        "action": "suppress-until-current-admission"
+      },
+      "miss_jeeves": {
+        "book_id": "how-to-check",
+        "claim_id": "VR-C001",
+        "action": "suppress-until-current-admission"
+      },
+      "puffy_recheck": {
+        "book_id": "how-to-check",
+        "action": "recheck-admission-on-reopen",
+        "preserve_unavailable_marker": true
+      }
+    }
+  ]
+}

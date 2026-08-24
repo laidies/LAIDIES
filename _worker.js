@@ -1,6 +1,18 @@
 const MAX_QUERY_LENGTH = 240;
 const AI_MODEL = '@cf/google/gemma-4-26b-a4b-it';
-const LIBRARY_ENTRY_ALLOWLIST = new Set([]);
+const LIBRARY_ENTRY_ALLOWLIST = new Set([
+  'book-ai-fundamentals-101',
+  'book-working-with-ai-101',
+  'ref-straight-answers',
+  'book-ai-dictionary',
+  'concept-generative',
+  'concept-prompt',
+  'concept-hallucination',
+  'concept-model',
+  'concept-context',
+  'concept-token',
+  'concept-agent'
+]);
 const STOPWORDS = new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','important','in','is','it','me','my','of','on','or','should','so','take','the','to','use','what','which','why','will','with','you']);
 const TOPIC_RULES = [
   ['compute-chips-gpus', /\b(chip|chips|gpu|gpus|cpu|cpus|accelerator|accelerators|semiconductor|semiconductors|compute|data[ -]?centre|data[ -]?center)\b/i],
@@ -411,6 +423,15 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === '/api/miss-jeeves') return missJeeves(request, env);
     if (url.pathname === '/api/library-corrections' || url.pathname === '/api/library-corrections/status') return libraryCorrections(request, env);
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    if (!url.pathname.startsWith('/content/library-books/rendered/')) return response;
+    const headers = new Headers(response.headers);
+    const cacheControl = headers.get('cache-control');
+    headers.set('cache-control', cacheControl ? `${cacheControl}, no-transform` : 'no-transform');
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers
+    });
   }
 };

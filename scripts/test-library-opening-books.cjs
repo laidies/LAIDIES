@@ -8,10 +8,10 @@ const root = process.cwd();
 const playwrightRoot = process.env.PLAYWRIGHT_CORE_PATH || path.resolve(root, ".ds-sync/node_modules/playwright-core");
 const mime = { ".html":"text/html; charset=utf-8", ".js":"text/javascript; charset=utf-8", ".json":"application/json; charset=utf-8", ".png":"image/png", ".jpg":"image/jpeg" };
 const books = [
-  ["concepts-101", "Concepts 101", "Follow one request through the system."],
-  ["briefing-101", "Briefing 101", "Brief in five parts"],
-  ["setup-101", "Setup 101", "Put the right context in the right place."],
-  ["accounts-101", "Accounts 101", "Know the account before you paste."]
+  ["ai-fundamentals-101", "AI Fundamentals 101", "What \"AI\" Actually Means"],
+  ["working-with-ai-101", "Working with AI 101", "From Knowing to Doing"],
+  ["straight-answers", "Straight Answers About AI", "Jobs & Work"],
+  ["ai-dictionary", "The AI Dictionary", "Read the full explanation"]
 ];
 
 const server = http.createServer((request, response) => {
@@ -32,6 +32,7 @@ const server = http.createServer((request, response) => {
   const origin = `http://127.0.0.1:${server.address().port}`;
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const failures = [];
   try {
     for (const [id, title, requiredText] of books) {
@@ -62,6 +63,44 @@ const server = http.createServer((request, response) => {
         failures.push(`${id}: admitted book did not open as its full structured artifact ${JSON.stringify({ ...reader, text: reader.text.slice(0, 180) })}`);
       }
     }
+    for (const width of [1280, 390, 320]) {
+      await page.setViewportSize({ width, height: width > 560 ? 900 : 844 });
+      for (const [id, title] of books) {
+        await page.goto(`${origin}/library.html?reader-test=${width}-${id}#${id}`, { waitUntil: "domcontentloaded" });
+        try {
+          await page.waitForFunction(expected => document.getElementById("reader").classList.contains("on") && document.getElementById("rt").textContent === expected && document.querySelectorAll("#rtoc-mobile a").length > 3, title);
+        } catch (error) {
+          const state = await page.evaluate(() => ({
+            hash: location.hash,
+            readerOpen: document.getElementById("reader")?.classList.contains("on"),
+            title: document.getElementById("rt")?.textContent,
+            mobileLinks: document.querySelectorAll("#rtoc-mobile a").length,
+            loadText: document.getElementById("rtxt")?.innerText.slice(0, 180)
+          }));
+          failures.push(`${id}@${width}: reader did not reach navigable open state ${JSON.stringify(state)}`);
+          continue;
+        }
+        const navigation = await page.locator("#reader").evaluate(node => ({
+          pageWidth: document.documentElement.scrollWidth,
+          viewportWidth: innerWidth,
+          textWidth: node.querySelector("#rtxt").scrollWidth,
+          textClientWidth: node.querySelector("#rtxt").clientWidth,
+          chapters: node.querySelectorAll('#rtoc-mobile a[data-level="2"]').length,
+          sections: node.querySelectorAll('#rtoc-mobile a[data-level="3"]').length,
+          topVisible: node.querySelector("#reader-top").getBoundingClientRect().height >= 44
+        }));
+        if (navigation.pageWidth !== navigation.viewportWidth || navigation.textWidth !== navigation.textClientWidth || !navigation.chapters || !navigation.sections || !navigation.topVisible) {
+          failures.push(`${id}@${width}: persistent chapter-and-section navigation is incomplete or overflows ${JSON.stringify(navigation)}`);
+          continue;
+        }
+        await page.locator("#mobile-toc summary").click();
+        const lastLink = page.locator("#rtoc-mobile a").last();
+        await lastLink.click();
+        await page.waitForFunction(() => !document.getElementById("mobile-toc").open && document.getElementById("reader-current-section").textContent.trim() !== "Start of book" && document.getElementById("rtxt").scrollTop > 20);
+        await page.locator("#reader-top").click();
+        await page.waitForFunction(() => document.getElementById("rtxt").scrollTop < 2);
+      }
+    }
   } finally {
     await browser.close();
     server.close();
@@ -70,7 +109,7 @@ const server = http.createServer((request, response) => {
     console.error(`LIBRARY OPENING BOOKS FAIL\n- ${failures.join("\n- ")}`);
     process.exit(1);
   }
-  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")}`);
+  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · persistent_navigation=4x3_viewports`);
 })().catch(error => {
   console.error(`LIBRARY OPENING BOOKS FAIL: ${error.stack || error}`);
   server.close();

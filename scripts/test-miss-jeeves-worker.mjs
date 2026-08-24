@@ -37,6 +37,10 @@ async function ask(query, env = envWith(), placement = 'library') {
 const staticResponse = await worker.fetch(new Request('https://laidies.ai/library.html'), envWith());
 assert.equal(await staticResponse.text(), 'STATIC', 'non-API requests must continue to Pages static assets');
 
+const renderedBookResponse = await worker.fetch(new Request('https://laidies.ai/content/library-books/rendered/ai-fundamentals-101.html'), envWith());
+assert.equal(await renderedBookResponse.text(), 'STATIC', 'rendered books must continue to Pages static assets');
+assert.match(renderedBookResponse.headers.get('cache-control') || '', /(?:^|,\s*)no-transform(?:,|$)/, 'rendered books must prevent provider HTML rewriting');
+
 const wrongMethod = await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves'), envWith());
 assert.equal(wrongMethod.status, 405, 'API must reject non-POST requests');
 
@@ -146,16 +150,16 @@ const relatedAi = {
   }
 };
 const related = await (await ask('How will context windows change legal work?', envWith(index.entries, relatedAi))).json();
-assert.equal(related.status, 'not_covered', 'held Library candidates cannot become related results through model-selected IDs');
-assert.deepEqual(related.results, []);
+assert.equal(related.status, 'related', 'admitted Library books may provide clearly labelled related coverage');
+assert.ok(related.results.some(result => result.id === 'book-ai-fundamentals-101'));
 
 const chipsWithoutAi = await (await ask('Why are chips so important to AI?')).json();
 assert.equal(chipsWithoutAi.status, 'not_covered', 'deterministic fallback must not pretend generic AI material covers chips');
 
 const tokenWithoutAi = await (await ask('What is a token?')).json();
-assert.notEqual(tokenWithoutAi.coverage, 'exact', 'held token material must not appear as exact current coverage');
+assert.equal(tokenWithoutAi.coverage, 'exact', 'the admitted Dictionary token entry must provide exact current coverage');
 assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('concepts-101')));
-assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('ai-fundamentals-101')));
+assert.ok(tokenWithoutAi.results.some(result => result.id === 'concept-token' && result.url.startsWith('/library.html#ai-dictionary')));
 
 const restoredRejectedConcepts = structuredClone(index.entries);
 restoredRejectedConcepts.push({
@@ -171,4 +175,4 @@ invalidIndexEnv.ASSETS.fetch = async () => Response.json({ _meta: {}, entries: {
 const unavailable = await (await ask('women in AI', invalidIndexEnv)).json();
 assert.equal(unavailable.status, 'unavailable');
 
-console.log('MISS JEEVES WORKER PASS static_forward=1 arbitrary_retrieval=1 retired_routes_denied=1 grounded_ai=1 unavailable_state=1 privacy_safe_signal=1 controlled_gap_topic=1 raw_question_leak_calibration=1');
+console.log('MISS JEEVES WORKER PASS static_forward=1 rendered_book_no_transform=1 arbitrary_retrieval=1 retired_routes_denied=1 grounded_ai=1 unavailable_state=1 privacy_safe_signal=1 controlled_gap_topic=1 raw_question_leak_calibration=1');

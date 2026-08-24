@@ -24,6 +24,17 @@ const compiledMatch = page.match(
 );
 if (!compiledMatch) throw new Error("compiled Library admission is not parseable");
 const admitted = JSON.parse(compiledMatch[1]);
+const localReviewMatch = page.match(
+  /const LOCAL_REVIEW_BOOK_RECORDS=Object\.freeze\(\{([\s\S]*?)\n\}\);/
+);
+if (!localReviewMatch) throw new Error("local-review Library admission is not parseable");
+let localReviewBody = localReviewMatch[1];
+if (process.env.LIBRARY_CONTRACT_CALIBRATION === "stale-local-review") {
+  localReviewBody = localReviewBody.replace(
+    /(artifactSha256:')[a-f0-9]{64}(')/,
+    `$1${"0".repeat(64)}$2`
+  );
+}
 if (process.env.LIBRARY_CONTRACT_CALIBRATION === "unauthorized-admission") {
   admitted["unauthorized-fixture"] = {
     sourcePath: "/content/library-books/rendered/briefing-101.html",
@@ -34,16 +45,16 @@ if (process.env.LIBRARY_CONTRACT_CALIBRATION === "unauthorized-admission") {
   };
 }
 const ids = new Set();
-const allowed = new Set(["available", "preview", "hold", "not-published"]);
+const allowed = new Set(["ready", "preview", "hold", "not-published"]);
 
-if (books.length !== 15) throw new Error(`expected 15 books, found ${books.length}`);
+if (books.length !== 17) throw new Error(`expected 17 books, found ${books.length}`);
 for (const book of books) {
   if (!book.id || ids.has(book.id)) throw new Error(`duplicate/missing book id ${book.id}`);
   ids.add(book.id);
   if (!allowed.has(book.status)) throw new Error(`${book.id} has invalid status`);
   if (!book.statusLabel) throw new Error(`${book.id} lacks a visible status label`);
-  if (book.status === "available" && !admitted[book.id]) {
-    throw new Error(`${book.id} is available without compiled admission`);
+  if (book.status === "ready" && !admitted[book.id]) {
+    throw new Error(`${book.id} is ready without compiled admission`);
   }
 }
 
@@ -53,10 +64,10 @@ const counts = Object.fromEntries(
     books.filter((book) => book.status === status).length
   ])
 );
-if (counts.hold !== 8 || counts.preview !== 7 || counts.available !== 0) {
+if (counts.hold !== 6 || counts.preview !== 7 || counts.ready !== 4) {
   throw new Error(`unexpected truthful catalogue state ${JSON.stringify(counts)}`);
 }
-const expectedAdmitted = [];
+const expectedAdmitted = ["ai-dictionary", "ai-fundamentals-101", "straight-answers", "working-with-ai-101"];
 if (JSON.stringify(Object.keys(admitted).sort()) !== JSON.stringify(expectedAdmitted)) {
   throw new Error(`unexpected compiled Library admission ${JSON.stringify(Object.keys(admitted))}`);
 }
@@ -65,6 +76,13 @@ for (const [id, record] of Object.entries(admitted)) {
   if (!fs.existsSync(target)) throw new Error(`${id} admitted source is missing`);
   const actual = crypto.createHash("sha256").update(fs.readFileSync(target)).digest("hex");
   if (actual !== record.artifactSha256) throw new Error(`${id} admitted source hash is stale`);
+  const escapedId = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const localHash = localReviewBody.match(
+    new RegExp(`'${escapedId}':Object\\.freeze\\(\\{[^}]*artifactSha256:'([a-f0-9]{64})'`)
+  )?.[1];
+  if (localHash !== record.artifactSha256) {
+    throw new Error(`${id} local-review source hash is stale`);
+  }
 }
 
 for (const contract of [
@@ -73,7 +91,8 @@ for (const contract of [
   "function admittedBook(id)",
   "url.origin!==location.origin",
   "url.pathname!==source",
-  "credentials:'same-origin',redirect:'error'",
+  "credentials:'same-origin',redirect:'follow'",
+  "![requestedUrl.href,canonicalUrl.href].includes(r.url)",
   "if(!publication)",
   "data-library-status",
   "short shelf description is not a substitute",
@@ -136,5 +155,5 @@ if (puffies.includes("var a = document.createElement('a');")) {
 }
 
 console.log(
-  `LIBRAiRY CONTRACT PASS · books=${books.length} · hold=${counts.hold} · preview=${counts.preview} · available=${counts.available} · admitted=${Object.keys(admitted).length} · Puffy write/read truth`
+  `LIBRAiRY CONTRACT PASS · books=${books.length} · hold=${counts.hold} · preview=${counts.preview} · ready=${counts.ready} · admitted=${Object.keys(admitted).length} · Puffy write/read truth`
 );

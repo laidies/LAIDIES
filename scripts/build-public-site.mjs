@@ -372,6 +372,22 @@ for (const entry of [
   }
 }
 
+// These checksum-bound files are intentionally retained in the public artifact
+// even though no current entrypoint references them. The Library art remains
+// part of the current public asset surface, while the continuation scripts stay
+// inert: retaining their bytes does not mount or advertise the held feature.
+// Keeping the list here makes a source build reproduce the deployed artifact
+// instead of silently deleting public paths during an unrelated release.
+for (const entry of [
+  'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',
+  'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',
+  'assets/library/episode-01-pop-comic-bg-v1.png',
+  'content/site/resident-continuation-bootstrap-v1.js',
+  'content/site/resident-continuation-v1.js',
+]) {
+  enqueue(entry, 'preserved current-production public path');
+}
+
 // These assets are selected at runtime from data or constructed paths, so a
 // static reference crawl cannot discover them. The checksum-bound manifest is
 // the complete enumerated build source: directory membership is never public

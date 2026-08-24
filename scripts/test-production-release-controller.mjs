@@ -56,8 +56,10 @@ function assertWorkflowApiVerificationIsComplete(source) {
       !source.includes('"${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}"') ||
       !source.includes('method_not_allowed') ||
       !source.includes('book-concepts-101') ||
-      !source.includes('ai-fundamentals-101')) {
-    throw new Error('release verification must prove the exact public API handler and held-book denial');
+      !source.includes('book-ai-fundamentals-101') ||
+      !source.includes('book-ai-dictionary') ||
+      !source.includes('concept-token')) {
+    throw new Error('release verification must prove the exact public API handler, four-book routes and rejected-book denial');
   }
 }
 
@@ -103,7 +105,7 @@ assert.throws(
 assert.doesNotThrow(() => assertWorkflowApiVerificationIsComplete(workflow));
 assert.throws(
   () => assertWorkflowApiVerificationIsComplete(workflow.replace('verify_api_origin "$deployment_url" immutable', ':')),
-  /public API handler and held-book denial/,
+  /public API handler, four-book routes and rejected-book denial/,
   'missing immutable API verification must fail calibration',
 );
 assert.doesNotThrow(() => assertWorkflowRedirectVerificationIsSafe(workflow));
@@ -147,6 +149,7 @@ assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
 assert.match(workflow, /new-id\+branch\+exact-byte-verification/);
 assert.match(workflow, /conflicting provider commit metadata/);
 assert.match(workflow, /for attempt in \$\(seq 1 10\)/);
+assert.match(workflow, /--retry 20 --retry-delay 5 --retry-max-time 120 --retry-all-errors/);
 assert.match(workflow, /if\(matches\.length===0\) process\.exit\(2\);/);
 assert.match(workflow, /\/pages\/projects\/\$PROJECT_NAME\/deployments\?page=1&per_page=15/);
 assert.doesNotMatch(workflow, /pages deployment list/);
@@ -157,4 +160,4 @@ assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow, new-identity provider verification and exact Sunday scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow, new-identity provider verification and exact four-book scope guard bound');

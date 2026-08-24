@@ -28,21 +28,12 @@ if (!successor || successor.status !== 'pending-successor' || successor.artifact
 if (/id:'concepts-101'/.test(library) || !/id:'ai-fundamentals-101'/.test(library)) {
   throw new Error('Library catalogue still exposes the rejected Concepts identity');
 }
-
-if (!/name:'THE 101s'/.test(library)) {
-  throw new Error('The canonical shelf name THE 101s is missing');
-}
-if (!/id:'vocab-101'[\s\S]{0,120}listed:false/.test(library)) {
-  throw new Error('Legacy Vocab catalogue record is not fail-closed');
-}
-if (/section\.books\.filter\(book=>book\.listed!==false\)/.test(library) === false) {
-  throw new Error('Catalogue render does not exclude unlisted legacy books');
-}
+if (!/name:'THE 101s'/.test(library)) throw new Error('The canonical shelf name THE 101s is missing');
+if (!/id:'vocab-101'[\s\S]{0,120}listed:false/.test(library)) throw new Error('Legacy Vocab catalogue record is not fail-closed');
+if (!/section\.books\.filter\(book=>book\.listed!==false\)/.test(library)) throw new Error('Catalogue render does not exclude unlisted legacy books');
 if (!/status: superseded-source/.test(vocabSource) ||
     !/Vocab 101 was a book[\s\S]*The 101s[\s\S]*never a shelf/.test(vocabSource)) {
   throw new Error('Vocab migration source does not record the book/shelf boundary');
 }
 
-console.log(
-  `LIBRARY VOCAB/CONCEPTS RETIREMENT GUARD PASS shelf=THE_101s vocab_listed=false concepts_sha=${conceptsSha} successor=pending`
-);
+console.log(`LIBRARY VOCAB/CONCEPTS RETIREMENT GUARD PASS shelf=THE_101s vocab_listed=false concepts_sha=${conceptsSha} successor=pending`);

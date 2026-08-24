@@ -40,7 +40,7 @@ jobs:
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
       ARTIFACT_DIR: /tmp/laidies-candidate-site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
-      RELEASE_SCOPE_PATH: operations/release-control/sunday-production-scope-20260821.json
+      RELEASE_SCOPE_PATH: operations/release-control/library-four-book-production-scope-20260823.json
     steps:
       - uses: actions/checkout@v4
         with:
@@ -73,7 +73,8 @@ jobs:
             .github/workflows/production-release.yml \
             operations/release-control/public-entrypoints.json \
             operations/release-control/newsstand-production-scope.json \
-            operations/release-control/sunday-production-scope-20260821.json \
+            operations/assets/active-asset-registry.json \
+            operations/release-control/library-four-book-production-scope-20260823.json \
             scripts/build-public-site.mjs \
             scripts/lib/active-asset-admission.mjs \
             scripts/compile-library-admission.mjs \
@@ -115,7 +116,7 @@ jobs:
           npm run test:production-release-controller
           node scripts/test-newsstand-release-scope.mjs
           node scripts/test-sunday-release-scope.mjs
-      - name: Run exact Sunday correction checks
+      - name: Run exact production release checks
         shell: bash
         run: |
           set -euo pipefail
@@ -160,7 +161,7 @@ jobs:
             "$RECEIPT_DIR/base-artifact-manifest.json" \
             "$RECEIPT_DIR/artifact-manifest.json" \
             "$RELEASE_SCOPE_PATH" \
-            "$RECEIPT_DIR/sunday-scope-receipt.json"
+            "$RECEIPT_DIR/production-scope-receipt.json"
           cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"
       - name: Bind exact artifact and approval
         shell: bash
@@ -233,7 +234,7 @@ jobs:
             --project-name "$PROJECT_NAME" \
             --branch "$PRODUCTION_BRANCH" \
             --commit-hash "$SOURCE_COMMIT" \
-            --commit-message "Exact admitted Sunday correction release $SOURCE_COMMIT" \
+            --commit-message "Exact admitted four-book LIBRAiRY release $SOURCE_COMMIT" \
             --commit-dirty=false
           deployment_visible=false
           for attempt in $(seq 1 10); do
@@ -300,13 +301,13 @@ jobs:
           while IFS= read -r artifact_path; do
             expected="$(jq -r --arg path "$artifact_path" '.files[] | select(.path == $path) | .sha256' "$RECEIPT_DIR/artifact-manifest.json")"
             [[ "$expected" =~ ^[a-f0-9]{64}$ ]]
-            curl --fail --silent --show-error --retry 8 --retry-all-errors \
+            curl --fail --silent --show-error --retry 20 --retry-delay 5 --retry-max-time 120 --retry-all-errors \
               --location --proto-redir '=https' --max-redirs 3 \
               --output "$RUNNER_TEMP/immutable.bin" --write-out '%{url_effective}' \
               "${deployment_url}${artifact_path}?release=${SOURCE_COMMIT}" > "$RUNNER_TEMP/immutable.final-url"
             validate_effective_url "$deployment_url" "$artifact_path" "$(cat "$RUNNER_TEMP/immutable.final-url")"
             test "$(sha256sum "$RUNNER_TEMP/immutable.bin" | cut -d' ' -f1)" = "$expected"
-            curl --fail --silent --show-error --retry 12 --retry-all-errors \
+            curl --fail --silent --show-error --retry 20 --retry-delay 5 --retry-max-time 120 --retry-all-errors \
               --location --proto-redir '=https' --max-redirs 3 \
               -H 'Cache-Control: no-cache' \
               --output "$RUNNER_TEMP/custom-domain.bin" --write-out '%{url_effective}' \
@@ -331,7 +332,7 @@ jobs:
             local label="$2"
             local result_file="$RUNNER_TEMP/${label}-miss-jeeves-result.txt"
             local body_file="$RUNNER_TEMP/${label}-miss-jeeves.json"
-            curl --silent --show-error --retry 8 --retry-all-errors \
+            curl --fail-with-body --silent --show-error --retry 20 --retry-delay 5 --retry-max-time 120 --retry-all-errors \
               --location --proto-redir '=https' --max-redirs 3 \
               -H 'content-type: application/json' -H 'accept: application/json' \
               --data '{"query":"What is a token?","placement":"library"}' \
@@ -339,10 +340,12 @@ jobs:
               "${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}" > "$result_file"
             test "$(sed -n '1p' "$result_file")" = 200
             validate_effective_url "$base_url" "api/miss-jeeves" "$(sed -n '2p' "$result_file")"
-            jq -e '(.status == "ok" or .status == "related" or .status == "not_covered") and
-              ((.results // []) | all(.[];
-                (.id != "book-concepts-101" and .id != "concepts-101" and .id != "ai-fundamentals-101") and
-                (((.url // "") | startswith("/library.html")) | not)))' "$body_file" >/dev/null
+            jq -e '(.status == "ok" or .status == "related") and
+              ((.results // []) | length > 0) and
+              ((.results // []) | any(.[];
+                (.id == "book-ai-fundamentals-101" or .id == "book-ai-dictionary" or .id == "concept-token") and
+                ((.url // "") | startswith("/library.html")))) and
+              ((.results // []) | all(.[]; .id != "book-concepts-101" and .id != "concepts-101"))' "$body_file" >/dev/null
             curl --silent --show-error --location --proto-redir '=https' --max-redirs 3 \
               --output "$body_file" --write-out '%{http_code}\n%{url_effective}' \
               "${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}" > "$result_file"

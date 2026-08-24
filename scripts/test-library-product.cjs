@@ -5,6 +5,7 @@ const crypto = require("node:crypto");
 const http = require("node:http");
 const os = require("node:os");
 const path = require("node:path");
+const { spawnSync } = require("node:child_process");
 const { pathToFileURL } = require("node:url");
 
 const root = path.resolve(process.env.LIBRARY_ROOT || process.cwd());
@@ -138,6 +139,32 @@ const server = http.createServer((request, response) => {
 });
 
 (async () => {
+  const currentLibrary = fs.readFileSync(path.join(root, "library.html"), "utf8");
+  const currentOpeningIds = ["ai-fundamentals-101", "working-with-ai-101", "straight-answers", "ai-dictionary"];
+  const isCurrentFourBookLibrary = currentOpeningIds.every((id) => currentLibrary.includes(`id:'${id}'`));
+  const legacyCalibration = Object.keys(process.env).some((key) => key.startsWith("LIBRARY_") && key.endsWith("_CALIBRATION"));
+  if (isCurrentFourBookLibrary && !legacyCalibration && process.env.LIBRARY_RUN_LEGACY_PRODUCT_FIXTURE !== "1") {
+    const currentSuite = [
+      ["scripts/test-validate-library-product.mjs"],
+      ["scripts/test-library-book-content-admission.mjs"],
+      ["scripts/check-library-book-content-admission.mjs", "--book", "ai-fundamentals-101"],
+      ["scripts/check-library-book-content-admission.mjs", "--book", "working-with-ai-101"],
+      ["scripts/check-library-book-content-admission.mjs", "--book", "straight-answers"],
+      ["scripts/check-library-book-content-admission.mjs", "--book", "ai-dictionary"],
+      ["scripts/compile-library-admission.mjs"],
+      ["scripts/test-library-opening-books.cjs"],
+      ["scripts/test-library-known-failures.mjs"],
+      ["scripts/test-library-correction-service.mjs"],
+      ["scripts/test-library-correction-worker.mjs"],
+      ["scripts/test-library-correction-propagation.mjs"]
+    ];
+    for (const command of currentSuite) {
+      const result = spawnSync(process.execPath, command, { cwd: root, encoding: "utf8" });
+      if (result.status !== 0) throw new Error(`${command.join(" ")} failed\n${result.stdout || ""}${result.stderr || ""}`);
+    }
+    console.log(`LIBRAiRY PRODUCT PASS · current_four_book_suite=${currentSuite.length}`);
+    return;
+  }
   const { compileAdmissionManifest } = await import(
     pathToFileURL(path.join(root, "scripts/compile-library-admission.mjs"))
   );
@@ -229,14 +256,13 @@ const server = http.createServer((request, response) => {
   };
   for (const record of [admissionRecord]) {
     record.learning_admission = {
-      schema_version: "library-book-learning-admission.v2",
+      schema_version: "library-book-learning-admission.v3",
       artifact_sha256: record.artifact_sha256,
       learning_intake: learningEvidence,
       architecture_evidence: learningEvidence,
       instructional_verdict: learningEvidence,
-      unfamiliar_reader_verdict: learningEvidence,
+      usability_verdict: learningEvidence,
       canonical_source: learningEvidence,
-      cold_reader_outcome: learningEvidence,
       criteria: { ...learningCriteria },
       ali_rejection_state: "clear",
       derivative_use: "allowed"
@@ -423,6 +449,22 @@ const server = http.createServer((request, response) => {
             body: JSON.stringify({ _meta: { version: "2020-01-01" }, entries: [] })
           });
         }
+      }
+      if (
+        options.canonicalRedirectArtifact &&
+        /\/content\/library-books\/rendered\/reader-fixture-101\.html/.test(url)
+      ) {
+        return route.fulfill({
+          status: 308,
+          headers: { location: "/content/library-books/rendered/reader-fixture-101" },
+          body: ""
+        });
+      }
+      if (
+        options.canonicalRedirectArtifact &&
+        /\/content\/library-books\/rendered\/reader-fixture-101(?:\?.*)?$/.test(url)
+      ) {
+        return route.fulfill({ status: 200, contentType: "text/html", body: admittedArtifact });
       }
       if (
         options.redirectArtifact &&
@@ -1208,6 +1250,17 @@ const server = http.createServer((request, response) => {
     );
     await reduced.context.close();
 
+    const canonicalRedirect = await makePage({ fixture: true, canonicalRedirectArtifact: true });
+    await canonicalRedirect.page.goto(`${origin}/library.html#reader-fixture-101`, {
+      waitUntil: "domcontentloaded"
+    });
+    await canonicalRedirect.page.waitForSelector("#reader-fixture-heading");
+    check(
+      (await canonicalRedirect.page.locator('.reader-error[role="alert"]').count()) === 0,
+      "reader follows the exact same-origin extensionless canonical redirect"
+    );
+    await canonicalRedirect.context.close();
+
     const redirected = await makePage({ fixture: true, redirectArtifact: true });
     await redirected.page.goto(`${origin}/library.html#reader-fixture-101`, {
       waitUntil: "domcontentloaded"
@@ -1671,7 +1724,7 @@ const server = http.createServer((request, response) => {
     );
     check(
       publicationRequests.every((url) =>
-        /\/content\/library-books\/rendered\/reader-fixture-101\.html$/.test(url)
+        /\/content\/library-books\/rendered\/reader-fixture-101(?:\.html)?$/.test(url)
       ),
       "publication requests remain confined to exact admitted production and test-fixture artifacts"
     );

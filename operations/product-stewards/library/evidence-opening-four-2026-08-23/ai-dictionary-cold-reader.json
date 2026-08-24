@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "library-book-cold-reader-review.v1",
+  "artifactSha256": "a1d2b803d9bcda33c6e7fc279f6ae85f7a34785ab891b5339aeb9f38139e38b5",
+  "reviewMode": "ARTIFACT_FIRST_COLD",
+  "reviewer": "role-distinct independent cold reader with foreground delivery reconciliation",
+  "reviewedAt": "2026-08-23T13:00:00-07:00",
+  "makerReceiptsOpenedAfterColdRead": true,
+  "reverseBrief": {"readerJob":"Find a plain-language term quickly and continue to its maintained explanation.","centralMentalModel":"The Dictionary routes to owner books rather than competing with them.","practicalPayoff":"Resolve jargon in seconds and continue into the relevant foundation or practice chapter.","readingMode":"Alphabetical lookup reference."},
+  "readerTasks": [
+    {"kind":"LOOKUP","prompt":"What is RAG?","observedResponse":"Returned retrieve relevant documents, inject into context and generate a grounded response, with deeper routes.","expectedEvidence":"Term meaning and next step.","artifactLocator":"#letter-r #term-rag","verdict":"PASS"},
+    {"kind":"EXPLAIN_BACK","prompt":"What distinguishes an agent from MCP and A2A?","observedResponse":"Separated an acting multi-step system from agent-to-tool and agent-to-agent connection standards.","expectedEvidence":"Three distinct concepts.","artifactLocator":"#letter-a #term-agent #term-a2a-agent-to-agent","verdict":"PASS"},
+    {"kind":"UNSEEN_TRANSFER","prompt":"How do I make a delegated task checkable before it starts?","observedResponse":"Discovered definition of done and delegation brief, then routed to Working with AI.","expectedEvidence":"Discovers a practical concept from a new task.","artifactLocator":"#letter-d #term-definition-of-done #term-delegation-brief","verdict":"PASS"},
+    {"kind":"DIAGNOSIS","prompt":"Why can a long chat lose the thread?","observedResponse":"Separated context, context budget, compaction and lost in the middle.","expectedEvidence":"Specific diagnosis rather than vague memory label.","artifactLocator":"#letter-c","verdict":"PASS"}
+  ],
+  "nonCompensableVetoes":{"openingOrientation":"PASS","promiseFidelity":"PASS","connectedProgression":"PASS","lookupAndRecovery":"PASS","unseenTransfer":"PASS","analogyIntegrity":"PASS","audienceExamples":"PASS","misconceptionResistance":"PASS","materialAccuracy":"PASS","continuousRenderedReadability":"PASS","laidiesVoice":"PASS"},
+  "participantEvidencePaths": ["operations/product-stewards/library/evidence-opening-four-2026-08-23/ai-dictionary-participant-observation.md"],
+  "verdict": "ADMISSION_CANDIDATE",
+  "limitations": ["Definitions inherit the owner books' freshness triggers."]
+}

@@ -584,14 +584,14 @@
     var row = document.createElement('div');
     row.className = 'puffy-save-row';
     row.appendChild(b);
-    if (el.classList.contains('term')) el.appendChild(row);
+    if (el.getAttribute('data-puffy-placement') === 'inline') el.appendChild(b);
+    else if (el.classList.contains('term')) el.appendChild(row);
     else el.insertAdjacentElement('afterend', row);
     el.setAttribute('data-puffy-wired', 'true');
   }
 
   function initReader() {
     var targets = document.querySelectorAll('[data-puffy-title]');
-    if (!targets.length) return;
     if (cssDone) {                       // rescan: styles already in, just wire new targets
       targets.forEach(wireTarget);
       return;
@@ -841,11 +841,23 @@
   // Public rescan — for pages that reveal savable sections after load
   // (the LIBRAiRY opens books in place, so their sections arrive late).
   window.svPuffyScan = function () { initReader(); initPouch(); initBoard(); };
+  window.svPuffyChoose = function (anchor, metadata) {
+    if (!anchor || !metadata || !metadata.id) return;
+    anchor.setAttribute('data-puffy-picker-opener', 'true');
+    var target = document.createElement('span');
+    target.setAttribute('data-puffy-book-id', metadata.bookId || '');
+    target.setAttribute('data-puffy-section-id', metadata.sectionId || '');
+    target.setAttribute('data-puffy-content-version', metadata.contentVersion || LEGACY_CONTENT_VERSION);
+    target.setAttribute('data-puffy-title', metadata.title || 'Saved place');
+    target.setAttribute('data-puffy-summary', metadata.summary || 'SUNNYVAiLE LIBRAiRY');
+    target.setAttribute('data-puffy-url', metadata.url || location.pathname + location.hash);
+    openPicker(anchor, target, metadata.id, function () {});
+  };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
   document.addEventListener('click', function (ev) {
     if (!activePicker) return;
-    if (activePicker.contains(ev.target) || ev.target.closest('.puffy-btn')) return;
+    if (activePicker.contains(ev.target) || ev.target.closest('.puffy-btn,[data-puffy-picker-opener]')) return;
     closePicker();
   });
   document.addEventListener('keydown', function (ev) {

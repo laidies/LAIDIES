@@ -83,3 +83,27 @@ Ali's separate artifact-specific verdict.
 No workflow was dispatched. No Pages artifact was uploaded or deployed. The
 existing public site was not replaced or judged. No spend, purchase,
 subscription or Library visitor/content edit occurred.
+
+## 2026-08-23 runtime verification correction
+
+Cloudflare Pages executes `_worker.js` as edge runtime code and does not expose
+it as a visitor-downloadable file. It remains part of the exact artifact and
+change scope, but it must not appear in `verificationPaths`. The production
+scope checker now rejects runtime-only paths in that fetch list and its
+calibration proves the known-bad configuration fails.
+
+New immutable deployment hostnames can return transient 404s while Cloudflare
+propagates the just-uploaded files. Visitor-byte and API verification therefore
+retry failed responses for up to 120 seconds before issuing a release failure;
+the expected hashes, routes and response bodies are unchanged.
+
+Cloudflare Email Address Obfuscation can also rewrite HTML and inject a decode
+script on the custom domain. Rendered-book responses therefore carry
+`Cache-Control: no-transform`, which Cloudflare documents as disabling that
+rewrite. This is route-scoped to the books; the custom-domain verifier continues
+to require their exact reviewed hashes rather than normalizing provider changes.
+
+Cloudflare's canonical static routing redirects `.html` book requests to the
+same path without the extension. The reader may follow only that exact
+same-origin canonical form (or the original URL) before checking the admitted
+artifact hash and content version. Any other redirect remains a hard failure.
