@@ -42,10 +42,28 @@ async function run() {
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /site-system-v3$/, "visual successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
+    assert.match(await page.locator(".lum-tab--saints .lum-tab__image").getAttribute("src"), /luminairy-saints-wing-door-v2-no-heart\.png$/, "the Saints entrance must not restore the rejected literal heart motif");
     assert.deepEqual(await imageFailuresFor(page, "#lumNaveImage, .lum-tab__image"), [], "nave and wing-door artwork must decode");
+    const siteSystem = await page.evaluate(() => {
+      const root = getComputedStyle(document.documentElement);
+      const hero = getComputedStyle(document.querySelector(".lum-hero__copy"));
+      const search = getComputedStyle(document.querySelector("#lumSearch"));
+      const orientation = getComputedStyle(document.querySelector(".lum-orientation"));
+      return {
+        displayFont: root.getPropertyValue("--lum-display"),
+        heroRadius: parseFloat(hero.borderRadius),
+        searchRadius: parseFloat(search.borderRadius),
+        orientationBackground: orientation.backgroundImage
+      };
+    });
+    assert.match(siteSystem.displayFont, /Jost/i, "LUMINAiRY structural display type must use the shared Jost system");
+    assert.ok(siteSystem.heroRadius >= 10, `hero interface panel needs the shared rounded grammar, got ${siteSystem.heroRadius}px`);
+    assert.ok(siteSystem.searchRadius >= 10, `search control needs the shared rounded grammar, got ${siteSystem.searchRadius}px`);
+    assert.notEqual(siteSystem.orientationBackground, "none", "major non-image surfaces must use the current gradient system");
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
     assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
     const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
@@ -100,6 +118,8 @@ async function run() {
     await mavenTab.press("ArrowRight");
     assert.equal(await page.getByRole("tab", { name: /TRAiLBLAZERS/ }).getAttribute("aria-selected"), "true", "ArrowRight must activate the next tab");
     assert.equal(await page.locator(".lum-card").count(), 7, "Trailblazer wing must render 7 cards");
+    assert.equal(await page.locator("#lumPlaylist").isVisible(), false, "Saint playlist control must be absent outside the Saints wing");
+    assert.equal(await page.locator("#lumAudioStatus").isVisible(), false, "Saint playback status must clear when leaving the Saints wing");
     assert.deepEqual(await imageFailures(page), [], "all Trailblazer images must decode");
     assert.ok(await page.locator(".lum-card__link").count() >= 7, "every Trailblazer needs a work/source link");
     assert.match(await page.locator("#lumWingKicker").textContent(), /golden amber/i);

@@ -292,7 +292,9 @@
   function setWing(wing, options) {
     if (!validWing(wing)) return;
     const shouldFocus = options && options.focus;
+    const leavingSaints = state.wing === "saints" && wing !== "saints";
     state.wing = wing;
+    if (leavingSaints) stopAudio();
     state.query = "";
     search.value = "";
     document.querySelectorAll("[role=tab][data-wing]").forEach((tab) => {
