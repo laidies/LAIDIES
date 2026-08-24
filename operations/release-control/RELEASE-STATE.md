@@ -114,7 +114,23 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-23 — four-book LIBRAiRY
+## Current production release record — 2026-08-23 — LIBRAiRY experience successor
+
+| Field | Current value |
+|---|---|
+| Deployed source | `aa9870e122863b55b0b78e56edca7506a239b64a` |
+| Artifact identity | `19026eddc3f6f27c1e39964e9f0b192ea66a6a914533388878116a41713697e5` |
+| Curated build | 572 copied files / 427.68 MiB; manifest 574 files / 448,524,643 bytes |
+| Exact public scope | 6 changes / 0 removals / 22 checksum-preserved production paths |
+| Release path | GitHub exact-artifact workflow run `32686228488`; controller PR `#88`, merged controller `b983844ca539bdc633cd6c00e4a6fb75efcab582`, calibrated source/base/scope/artifact/approval bindings all passed |
+| Cloudflare deployment | `d564e993-76f7-44b0-845a-ca4ae74bbc33` |
+| Immutable URL | `https://d564e993.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Controller completed `2026-08-24T03:29:05Z`. The live `library.html` SHA-256 is exactly `509b5cbbd2af80d3f1c119d1361fb2d4be96340e2278b282ca4e518e3dc443da`, matching the artifact. Separate live-browser proof opened every cover through its information panel to AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary; confirmed Contents, whole-book saves and compact Report issue controls; followed Miss Jeeves to `/library.html#ai-dictionary::%40term-token`; and passed four-cover/topic-control geometry with zero horizontal overflow at 390 and 320 px. Homepage, Visitor's Centre, Resident Card and KSVL routes returned their canonical live surfaces. |
+| Exact scope | `operations/release-control/library-experience-successor-production-scope-20260823.json` |
+| Rollback target | immediate prior Library deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` from source `e31f6629f79403a8c1f9ed319956bdd490542c28` |
+
+## Superseded production release record — 2026-08-23 — four-book LIBRAiRY
 
 | Field | Current value |
 |---|---|
