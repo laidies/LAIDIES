@@ -37,10 +37,8 @@ export function inspectLibraryBookCandidate({ source, sourceBytes, sourcePath, r
   require(meta(rendered, "laidies:renderer-version") === RENDERER_VERSION, "renderer version metadata is missing or stale");
   require(meta(rendered, "laidies:content-version") === source?.contentVersion, "content version metadata is missing or stale");
 
-  const nav = rendered.match(/<nav\s+class="book-contents"[^>]*aria-label="Contents"[^>]*>([\s\S]*?)<\/nav>/i)?.[1] || "";
-  const links = [...nav.matchAll(/href="#([a-z0-9-]+)"/g)].map(match => match[1]);
   const governed = [source?.intro, ...(Array.isArray(source?.chapters) ? source.chapters : [])].filter(Boolean).map(section => section.id);
-  require(links.length === governed.length && JSON.stringify(links) === JSON.stringify(governed), "visible contents route does not match the authored reading order");
+  require(!/<nav\s+class="book-contents"|<h2>Contents<\/h2>/i.test(rendered), "rendered book repeats a visible Contents page that belongs in persistent reader navigation");
   for (const id of governed) require((rendered.match(new RegExp(`\\sid="${id}"`, "g")) || []).length === 1, `section ${id} must have one exact destination`);
 
   const phraseCounts = ["Where it stops:", "In real life."].map(phrase => [phrase, rendered.split(phrase).length - 1]);

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-export const RENDERER_VERSION = "library-book-renderer.v1";
+export const RENDERER_VERSION = "library-book-renderer.v2";
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 
 function escapeAttribute(value) {
@@ -42,9 +42,8 @@ export function renderLibraryBookSource(source, canonicalPath, sourceBytes = Buf
   if (errors.length) throw new Error(errors.join("; "));
   const sourceSha = sha256(sourceBytes);
   const sections = [source.intro, ...source.chapters];
-  const nav = sections.map(section => `<li><a href="#${escapeAttribute(section.id)}">${section.navLabel}</a></li>`).join("");
   const body = sections.map((section, index) => `${index ? `<h2 id="${escapeAttribute(section.id)}" data-source-block="${escapeAttribute(section.id)}">${section.title}</h2>` : `<section id="${escapeAttribute(section.id)}" data-source-block="${escapeAttribute(section.id)}"><h2>${section.title}</h2>`}${section.bodyHtml}${index ? "" : "</section>"}`).join("\n\n");
-  return `<meta name="laidies:content-version" content="${escapeAttribute(source.contentVersion)}">\n<meta name="laidies:canonical-source" content="/${escapeAttribute(canonicalPath)}">\n<meta name="laidies:canonical-source-sha256" content="${sourceSha}">\n<meta name="laidies:renderer-version" content="${RENDERER_VERSION}">\n<div class="gr-page" data-book-id="${escapeAttribute(source.bookId)}">\n${source.eyebrow ? `<p class="eyebrow">${source.eyebrow}</p>\n` : ""}<h1>${source.displayTitle}</h1>\n<p class="lede">${source.lede}</p>\n<nav class="book-contents" aria-label="Contents"><h2>Contents</h2><ol>${nav}</ol></nav>\n\n${body}\n</div>\n`;
+  return `<meta name="laidies:content-version" content="${escapeAttribute(source.contentVersion)}">\n<meta name="laidies:canonical-source" content="/${escapeAttribute(canonicalPath)}">\n<meta name="laidies:canonical-source-sha256" content="${sourceSha}">\n<meta name="laidies:renderer-version" content="${RENDERER_VERSION}">\n<div class="gr-page" data-book-id="${escapeAttribute(source.bookId)}">\n${source.eyebrow ? `<p class="eyebrow">${source.eyebrow}</p>\n` : ""}<h1>${source.displayTitle}</h1>\n<p class="lede">${source.lede}</p>\n${body}\n</div>\n`;
 }
 
 const invoked = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-BOOK-VISUAL-PLACEMENT-20260824
-- **Status:** DEPLOYED / PUBLICLY VERIFIED
+- **Task ID:** LIBRARY-BOOK-MOBILE-INDEX-PREFACE-20260824
+- **Status:** BUILDING / LOCAL VERIFIED / NOT YET DEPLOYED
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-24 America/Vancouver
-- **Goal:** Move each admitted teaching image out of the book/chapter opening and into the exact section whose idea it depicts, without changing the approved image bytes or teaching prose.
-- **Acceptance:** AI Fundamentals chapter 1 opens with its objectives and key terms; its automation-versus-AI image follows the explanation in section 1.1; its combined inbox-routes image follows the introduction to section 1.4; Working with AI introduces its loop before displaying the loop image; no teaching images are adjacent; all four books and persistent desktop/mobile navigation still work; the exact successor is deployed and verified at both public origins.
-- **Current step:** Complete. Source/render/admission checks pass; the calibrated guard rejects the old stacked layout; all four books and persistent navigation pass locally at 1280, 390 and 320 pixels. Exact artifact `943b13e1ccf761b536ecab5a42da97f15e22998c12659b5f64363a8558303d54` is production deployment `849687b6-c36a-4c04-9533-ca53bab99d63`. Both public origins matched all 22 verification paths byte-for-byte, the two changed books passed eight live desktop/mobile placement journeys with decoded images, no adjacent figures or overflow, and Miss Jeeves health remained fully operational.
-- **Next action:** Ordinary Library editorial work only. Future teaching images must name and pass an exact contextual insertion anchor before admission.
+- **Goal:** Remove the redundant in-body Contents page, replace the 258-link flat mobile index with chapter/group-first navigation and restore AI Fundamentals' accepted purpose-led preface.
+- **Acceptance:** The book title and body Contents are absent from the index; only actual chapters have chapter numbers; every subtitle is nested under and reachable from its owner chapter/group; the Top control remains persistent; AI Fundamentals opens with the purpose-led preface; all four books open and navigate without horizontal overflow at 1280, 390 and 320 pixels; calibrated guards reject the old duplicate; exact successor is committed, deployed and verified at both public origins.
+- **Current step:** Local implementation and exact-source/admission rebinding complete. The old live 390px reader measured 258 flat links and a 10,389px menu; the successor removes the body duplicate and groups subtitles. Four-book admission and the complete 4×3 viewport reading/navigation matrix pass locally. Not deployed or publicly verified yet.
+- **Next action:** Run the changed-surface release checks, commit exact owned paths, deploy, and repeat the chapter/subtitle/preface journeys at the immutable deployment and `laidies.ai`.
 
 ## Boundaries
 

@@ -47,8 +47,8 @@ const reviewsFor = candidate => {
 const inspect = (candidate = rendered, candidateSource = source, reviews = reviewsFor(candidate), rejectedArtifacts = []) => inspectLibraryBookCandidate({ source: candidateSource, sourceBytes, sourcePath, rendered: candidate, ...reviews, rejectedArtifacts });
 assert.deepEqual(inspect(), [], "valid proportional fixture must pass");
 
-const noContents = rendered.replace(/<nav class="book-contents"[\s\S]*?<\/nav>/, "");
-assert.match(inspect(noContents).join("\n"), /contents route/, "missing contents must fail");
+const duplicateContents = rendered.replace('<p class="lede">', '<nav class="book-contents" aria-label="Contents"><h2>Contents</h2></nav>\n<p class="lede">');
+assert.match(inspect(duplicateContents).join("\n"), /repeats a visible Contents page/, "duplicate in-body Contents must fail");
 
 const linkWall = rendered.replace("</div>\n", `<p>${Array.from({length: 12}, (_, i) => `<a href="#parts">${i}</a>`).join(" ")}</p></div>\n`);
 assert.match(inspect(linkWall).join("\n"), /link wall/, "dense index wall must fail");

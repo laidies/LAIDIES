@@ -116,7 +116,7 @@ function makeDictionary(fundamentalsTerms, workingTerms) {
   const registry = [...byKey.values()].sort((a, b) => a.label.localeCompare(b.label)).map(term => ({
     term_id: slug(term.label), canonical_label: term.label, aliases: [], plain_definition: term.definition,
     scope_or_limit: "Plain-language teaching definition. Follow the linked chapter for its mechanism, examples and limits.",
-    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-24.2" : "working-with-ai-101-2026-08-24.2",
+    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-24.3" : "working-with-ai-101-2026-08-24.2",
     owner_section_anchor: term.ownerAnchor,
     practical_anchor: term.practicalAnchor ? { book_id: "working-with-ai-101", section_anchor: term.practicalAnchor } : null,
     source_claim_ids: [`TERM-${slug(term.label).toUpperCase()}`],
@@ -201,9 +201,19 @@ function emit(source, sourcePath, renderedPath) {
 
 const fundamentalsPath = "content/library-books/sources/ai-fundamentals-101.source.json";
 const fundamentals = JSON.parse(read(fundamentalsPath));
-fundamentals.contentVersion = "ai-fundamentals-101-2026-08-24.2";
+fundamentals.contentVersion = "ai-fundamentals-101-2026-08-24.3";
 fundamentals.freshness.reviewedThrough = "2026-08-23";
 fundamentals.freshness.nextTrigger = "Weekly currentness scan, immediate source-change signal and before each public edition";
+const fundamentalsPreface = splitTopLevel(read("content/library-books/sources/ai-fundamentals-101.preface.md"))[0];
+fundamentals.intro = {
+  id: "preface-why-this-book-matters",
+  title: fundamentalsPreface.title,
+  navLabel: "Preface",
+  bodyHtml: renderMarkdown(fundamentalsPreface.markdown)
+};
+if (!fundamentals.sourceReferences.includes("content/library-books/sources/ai-fundamentals-101.preface.md")) {
+  fundamentals.sourceReferences.unshift("content/library-books/sources/ai-fundamentals-101.preface.md");
+}
 
 const workingMarkdown = read("content/library-books/sources/working-with-ai-101.manuscript.md");
 const working = sourceFromTopLevelMarkdown({
