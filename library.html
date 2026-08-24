@@ -59,7 +59,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv::before{content:none}
 .jv::after{content:none}
 .jv>*{position:relative;z-index:1}
-.jv-head{grid-column:1;grid-row:1/3;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
+.jv-head{grid-column:1;grid-row:1/4;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
 .jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:2px solid #65e3ee;border-radius:999px;
   color:#07142f;background:#65e3ee;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .jv-head .h{font-family:'Jost',system-ui,sans-serif;font-size:clamp(42px,4vw,58px);font-weight:800;color:#fff;line-height:1.02}
@@ -71,7 +71,9 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#260d2b;
   min-height:44px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .jv-form button:hover{filter:brightness(1.05)}
-.jv-chips{grid-column:2;grid-row:2;display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.jv-privacy{grid-column:2;grid-row:2;margin:0;color:#dce7ff;font-size:12px;line-height:1.45}
+.jv-privacy a{color:#fff;text-underline-offset:3px}
+.jv-chips{grid-column:2;grid-row:3;display:flex;flex-wrap:wrap;gap:7px;margin:0}
 .jv-chips b{font-size:13px;letter-spacing:.04em;color:#fff;align-self:center;margin-right:2px;font-weight:800}
 .jv-chip{border:1.5px solid #9f94ff;background:rgba(7,20,47,.58);color:#fff;border-radius:20px;padding:7px 13px;font:inherit;font-size:14px;font-weight:650;cursor:pointer}
 .jv-chip{min-height:44px}
@@ -121,6 +123,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
 .jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
 .jv-none{display:block;margin:0;padding:12px 14px;background:#fff;color:var(--midnight);font-size:14px;font-weight:700;line-height:1.5;border-left:5px solid var(--cyan)}
+.jv-request{display:grid;gap:10px;margin-top:10px;padding:14px 16px;background:#eefbfc;color:#07142f;border:2px solid #18c6d8;border-radius:10px}
+.jv-request p{margin:0;line-height:1.5}.jv-request-consent{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45}.jv-request-consent input{width:18px;height:18px;margin-top:1px;flex:0 0 auto}
+.jv-request-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.jv-request button{min-height:44px;border:2px solid #07142f;background:#07142f;color:#fff;padding:10px 14px;font:800 13px/1 Jost,sans-serif;cursor:pointer}.jv-request button:disabled{opacity:.55;cursor:not-allowed}.jv-request-status{font-weight:700;font-size:13px}.jv-request-status[data-state="error"]{color:#8f2e67}.jv-request-status[data-state="accepted"]{color:#0b6c65}
 .jv-error{padding:14px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
 .jv-error p{margin:0 0 10px}.jv-error button{border:2px solid #07142f;background:#fff;color:#07142f;padding:9px 13px;font:800 11px/1 Jost,sans-serif;cursor:pointer}
 .mobile-catalogue{display:none}
@@ -748,6 +753,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
     </form>
+    <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
     <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
       <b>Common questions:</b>
       <button class="jv-chip" type="button">Which AI should I use?</button>
@@ -1085,7 +1091,15 @@ function renderJeevesService(payload,query){
     renderJeevesServiceError(query);return;
   }
   if(payload.status==='not_covered'){
-    box.innerHTML=`<p class="jv-none" role="status">${escapeJeevesText(payload.answer)}</p>`;return;
+    const topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+    box.innerHTML=`<div class="jv-none" role="status">${escapeJeevesText(payload.answer)}</div>
+      <form class="jv-request" id="jv-topic-request" data-topic-id="${escapeJeevesText(topicId)}">
+        <p><strong>Want LAiDIES to cover this?</strong> Send the question to the editorial queue. Ordinary Miss Jeeves searches are not saved; this request is saved only after you agree.</p>
+        <label class="jv-request-consent"><input type="checkbox" id="jv-request-consent" required> <span>I want to send this question for editorial review, and I confirm it contains no personal, confidential or account information.</span></label>
+        <div class="jv-request-controls"><button type="submit" id="jv-request-submit">Ask LAiDIES to cover this</button><span class="jv-request-status" id="jv-request-status" role="status" aria-live="polite"></span></div>
+      </form>`;
+    document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
+    return;
   }
   if(!['ok','related'].includes(payload.status)||!Array.isArray(payload.results)){
     renderJeevesServiceError(query);return;
@@ -1096,20 +1110,41 @@ function renderJeevesService(payload,query){
     return destination?{...entry,destination}:null;
   }).filter(Boolean);
   const links=results.map(entry=>entry.destination.kind==='book'
-    ? `<button type="button" class="jv-card" data-open-book="${escapeJeevesText(entry.destination.bookId)}" data-open-heading="${escapeJeevesText(entry.destination.heading||'')}">
+    ? `<button type="button" class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" data-open-book="${escapeJeevesText(entry.destination.bookId)}" data-open-heading="${escapeJeevesText(entry.destination.heading||'')}">
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></button>`
-    : `<a class="jv-card" href="${escapeJeevesText(entry.destination.url)}">
+    : `<a class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" href="${escapeJeevesText(entry.destination.url)}">
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
+  box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
     <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
     <p>${escapeJeevesText(payload.answer)}</p>
     ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
   </article>`;
+}
+function newJeevesRequestKey(){
+ return `mjr-browser-${Date.now()}-${crypto.getRandomValues(new Uint32Array(2)).join('-')}`;
+}
+async function submitJeevesTopicRequest(event,query){
+ event.preventDefault();
+ const form=event.currentTarget,consent=document.getElementById('jv-request-consent'),button=document.getElementById('jv-request-submit'),status=document.getElementById('jv-request-status');
+ if(!consent.checked){status.dataset.state='error';status.textContent='Please confirm before sending.';return;}
+ button.disabled=true;status.dataset.state='';status.textContent='Sending your request…';
+ const key=form.dataset.idempotencyKey||(form.dataset.idempotencyKey=newJeevesRequestKey());
+ try{
+  const response=await fetch('/api/miss-jeeves/topic-request',{method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',headers:{'content-type':'application/json','accept':'application/json','idempotency-key':key},body:JSON.stringify({question:query,topic_id:form.dataset.topicId||'other',placement:jeevesPlacement,consent:true})});
+  const payload=await response.json();
+  if(!response.ok||payload.status!=='accepted')throw new Error(payload.error||'request_failed');
+  localStorage.setItem('laidies_miss_jeeves_last_receipt',JSON.stringify({receipt_id:payload.receipt_id,status_reference:payload.status_reference,created_at:payload.created_at}));
+  status.dataset.state='accepted';status.textContent='Sent. Miss Jeeves gave you a private receipt on this device; the editorial team can now review the gap.';
+  consent.disabled=true;button.hidden=true;
+ }catch(error){
+  status.dataset.state='error';status.textContent=error.message==='private_content_prohibited'?'Please remove private or confidential information before sending.':'Nothing was lost here; try again.';button.disabled=false;
+ }
 }
 function renderJeevesServiceError(query){
  const box=document.getElementById('jv-results');
@@ -1135,6 +1170,9 @@ async function askMissJeeves(value){
     });
     const payload=await response.json();
     if(requestId!==jeevesServiceRequest)return;
+    if(response.status===400&&payload.error==='private_content_prohibited'){
+      box.innerHTML=`<p class="jv-none" role="alert">${escapeJeevesText(payload.answer||'Please remove private or confidential information before asking.')}</p>`;return;
+    }
     if(!response.ok&&response.status!==503)throw new Error('Miss Jeeves service failed');
     renderJeevesService(payload,query);
   }catch(error){
@@ -1146,6 +1184,8 @@ document.querySelector('.jv-form').addEventListener('submit',event=>{
  askMissJeeves(document.getElementById('jv-q').value);
 });
 document.getElementById('jv-results').addEventListener('click',event=>{
+ const result=event.target.closest('[data-result-id]');
+ if(result)fetch('/api/miss-jeeves/result-open',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({result_id:result.dataset.resultId,topic_id:event.currentTarget.dataset.topicId||'other',placement:jeevesPlacement})}).catch(()=>{});
  const control=event.target.closest('[data-open-book]');
  if(!control)return;
  openBook(control.dataset.openBook,control.dataset.openHeading||'');

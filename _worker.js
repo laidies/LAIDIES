@@ -1,4 +1,5 @@
 const MAX_QUERY_LENGTH = 240;
+const MAX_TOPIC_REQUEST_LENGTH = 500;
 const AI_MODEL = '@cf/google/gemma-4-26b-a4b-it';
 const ADMITTED_LIBRARY_PARENTS = new Set(['ai-fundamentals-101','working-with-ai-101','straight-answers','ai-dictionary']);
 const LEARNER_JOBS = new Set(['understand','see-explained','current','practise','step-by-step','planned','trusted']);
@@ -18,6 +19,15 @@ const TOPIC_RULES = [
   ['ai-concepts', /\b(ai|artificial intelligence|machine learning|llm|llms|model|models|training|prediction)\b/i]
 ];
 const TOPIC_IDS = new Set([...TOPIC_RULES.map(([id]) => id), 'other']);
+const SAFE_EVENT_ID = /^[a-z0-9][a-z0-9._:-]{0,159}$/i;
+const PRIVATE_CONTENT_PATTERNS = [
+  /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
+  /\b(?:\+?1[ .-]?)?(?:\(?\d{3}\)?[ .-]?)\d{3}[ .-]?\d{4}\b/,
+  /\b\d{3}[ -]?\d{2}[ -]?\d{4}\b/,
+  /\b(?:\d[ -]*?){13,19}\b/,
+  /\b(?:api[_ -]?key|access[_ -]?token|secret|password|passcode)\s*[:=]\s*\S+/i,
+  /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/
+];
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -36,6 +46,10 @@ function normalize(value) {
 
 function tokens(value) {
   return normalize(value).split(/\s+/).map(token => token.replace(/[^a-z0-9-]/g, '')).filter(token => token.length > 1 && !STOPWORDS.has(token));
+}
+
+function containsPrivateContent(value) {
+  return PRIVATE_CONTENT_PATTERNS.some(pattern => pattern.test(String(value || '')));
 }
 
 function classifyTopic(query, matches = []) {
@@ -217,6 +231,19 @@ function writeQuestionSignal(env, { placement, outcome, topicId = 'other', match
   }
 }
 
+function writeResultOpenSignal(env, { placement, topicId = 'other', resultId }) {
+  const binding = env.MISS_JEEVES_SIGNALS;
+  if (!binding || typeof binding.writeDataPoint !== 'function') return;
+  try {
+    binding.writeDataPoint({
+      blobs: ['miss_jeeves_result_open', 'v1', placement, TOPIC_IDS.has(topicId) ? topicId : 'other', resultId, 'healthy'],
+      doubles: [1]
+    });
+  } catch {
+    // Measurement must never break navigation.
+  }
+}
+
 function parseAiJson(response) {
   const value = response?.response || response?.result?.response || response?.choices?.[0]?.message?.content;
   if (typeof value !== 'string' || !value.trim()) throw new Error('AI returned no answer');
@@ -291,6 +318,9 @@ async function missJeeves(request, env) {
     return json({ status: 'error', error: 'invalid_json' }, 400);
   }
   if (!query || query.length > MAX_QUERY_LENGTH) return json({ status: 'error', error: 'invalid_query' }, 400);
+  if (containsPrivateContent(query)) {
+    return json({ status: 'error', error: 'private_content_prohibited', answer: 'Please remove personal, confidential or account information before asking Miss Jeeves.', results: [] }, 400);
+  }
 
   let entries;
   try {
@@ -311,6 +341,7 @@ async function missJeeves(request, env) {
     return json({
       status: 'not_covered',
       mode: reasoned ? 'grounded-ai' : 'retrieval',
+      topic_id: reasoned?.topicId || classifyTopic(query),
       answer: reasoned?.answer || 'LAiDIES does not cover that clearly enough yet. Miss Jeeves will not invent an answer. Try another phrase or browse the current shelves.',
       results: []
     });
@@ -328,7 +359,110 @@ async function missJeeves(request, env) {
     topicId: reasoned?.topicId || classifyTopic(query, matches),
     matches
   });
-  return json({ status: coverage === 'exact' ? 'ok' : 'related', coverage, ...generated, results: matches.map(publicResult) });
+  return json({ status: coverage === 'exact' ? 'ok' : 'related', coverage, topic_id: reasoned?.topicId || classifyTopic(query, matches), ...generated, results: matches.map(publicResult) });
+}
+
+function missJeevesDb(env) {
+  const db = env.MISS_JEEVES_DB || env.LIBRARY_CORRECTIONS_DB;
+  return db && typeof db.prepare === 'function' ? db : null;
+}
+
+function unavailableTopicRequest() {
+  return json({ status: 'unavailable', error: 'topic_request_service_unavailable', message: 'Miss Jeeves cannot file this request yet. Your wording remains in this browser so you can retry.' }, 503);
+}
+
+function normalizeTopicRequest(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error('invalid_body');
+  const allowed = new Set(['question', 'topic_id', 'placement', 'consent']);
+  if (Object.keys(input).some(key => !allowed.has(key))) throw new Error('unknown_field');
+  if (input.consent !== true) throw new Error('consent_required');
+  const question = String(input.question || '').trim().replace(/\s+/g, ' ');
+  if (!question || question.length > MAX_TOPIC_REQUEST_LENGTH) throw new Error('invalid_question');
+  if (containsPrivateContent(question)) throw new Error('private_content_prohibited');
+  return {
+    question,
+    topic_id: TOPIC_IDS.has(input.topic_id) ? input.topic_id : classifyTopic(question),
+    placement: input.placement === 'homepage' ? 'homepage' : 'library'
+  };
+}
+
+async function enforceTopicRequestRateLimit(request, env) {
+  if (!env.MISS_JEEVES_TOPIC_LIMITER || typeof env.MISS_JEEVES_TOPIC_LIMITER.limit !== 'function') return true;
+  const networkKey = String(request.headers.get('cf-connecting-ip') || 'unidentified');
+  const key = await sha256Text(`miss-jeeves-topic-request:${networkKey}`);
+  try { return Boolean((await env.MISS_JEEVES_TOPIC_LIMITER.limit({ key })).success); }
+  catch { return false; }
+}
+
+async function missJeevesTopicRequestSubmit(request, env) {
+  const db = missJeevesDb(env);
+  if (!db || typeof env.MISS_JEEVES_DIGEST_KEY !== 'string' || env.MISS_JEEVES_DIGEST_KEY.length < 32) return unavailableTopicRequest();
+  if (!String(request.headers.get('content-type') || '').toLowerCase().includes('application/json')) return json({ status: 'error', error: 'content_type_required' }, 415);
+  const idempotencyKey = String(request.headers.get('idempotency-key') || '');
+  if (!SAFE_EVENT_ID.test(idempotencyKey)) return json({ status: 'error', error: 'idempotency_key_required' }, 400);
+  if (!(await enforceTopicRequestRateLimit(request, env))) return json({ status: 'error', error: 'rate_limited', message: 'That is too many requests at once. Please wait a minute and try again.' }, 429);
+  let normalized;
+  try { normalized = normalizeTopicRequest(await request.json()); }
+  catch (error) { return json({ status: 'error', error: error.message || 'invalid_submission' }, 400); }
+  const canonicalQuestion = normalize(normalized.question);
+  const requestDigest = await hmacSha256Text(canonicalQuestion, env.MISS_JEEVES_DIGEST_KEY);
+  const prior = await db.prepare('SELECT request_id, receipt_id, request_digest, topic_id, created_at FROM miss_jeeves_topic_request_events WHERE idempotency_key = ?1').bind(idempotencyKey).first();
+  if (prior) {
+    if (prior.request_digest !== requestDigest) return json({ status: 'error', error: 'idempotency_conflict' }, 409);
+    return json({ status: 'accepted', request_id: prior.request_id, receipt_id: prior.receipt_id, topic_id: prior.topic_id, state: 'submitted', created_at: prior.created_at, replayed: true, status_reference: `/api/miss-jeeves/topic-request/status?receipt=${encodeURIComponent(prior.receipt_id)}` });
+  }
+  const requestId = `mjr_${crypto.randomUUID().replaceAll('-', '')}`;
+  const receiptId = `mjs_${crypto.randomUUID().replaceAll('-', '')}`;
+  const statusEventId = `mje_${crypto.randomUUID().replaceAll('-', '')}`;
+  const now = new Date().toISOString();
+  const expires = new Date(Date.now() + 30 * 86400000).toISOString();
+  try {
+    await db.batch([
+      db.prepare('INSERT INTO miss_jeeves_topic_request_events (request_id, receipt_id, idempotency_key, request_digest, topic_id, placement, created_at) VALUES (?1,?2,?3,?4,?5,?6,?7)').bind(requestId, receiptId, idempotencyKey, requestDigest, normalized.topic_id, normalized.placement, now),
+      db.prepare('INSERT INTO miss_jeeves_topic_request_payload_vault (request_id, question, expires_at) VALUES (?1,?2,?3)').bind(requestId, normalized.question, expires),
+      db.prepare('INSERT INTO miss_jeeves_topic_request_status_events (status_event_id, request_id, state, reason_code, created_at) VALUES (?1,?2,\'submitted\',NULL,?3)').bind(statusEventId, requestId, now),
+      db.prepare('INSERT INTO miss_jeeves_topic_request_aggregates (request_digest, topic_id, request_count, first_seen_at, last_seen_at, latest_request_id) VALUES (?1,?2,1,?3,?3,?4) ON CONFLICT(request_digest) DO UPDATE SET request_count=request_count+1,last_seen_at=excluded.last_seen_at,latest_request_id=excluded.latest_request_id').bind(requestDigest, normalized.topic_id, now, requestId),
+      db.prepare('DELETE FROM miss_jeeves_topic_request_payload_vault WHERE expires_at < ?1').bind(now)
+    ]);
+  } catch { return unavailableTopicRequest(); }
+  return json({ status: 'accepted', request_id: requestId, receipt_id: receiptId, topic_id: normalized.topic_id, state: 'submitted', created_at: now, status_reference: `/api/miss-jeeves/topic-request/status?receipt=${encodeURIComponent(receiptId)}` }, 201);
+}
+
+async function missJeevesTopicRequestStatus(request, env) {
+  const db = missJeevesDb(env);
+  if (!db) return unavailableTopicRequest();
+  const receipt = new URL(request.url).searchParams.get('receipt') || '';
+  if (!SAFE_EVENT_ID.test(receipt)) return json({ status: 'error', error: 'invalid_status_reference' }, 400);
+  const row = await db.prepare("SELECT e.receipt_id, e.topic_id, e.created_at, s.state, s.created_at AS updated_at FROM miss_jeeves_topic_request_events e JOIN miss_jeeves_topic_request_status_events s ON s.request_id=e.request_id WHERE e.receipt_id=?1 ORDER BY s.created_at DESC LIMIT 1").bind(receipt).first();
+  if (!row) return json({ status: 'error', error: 'not_found' }, 404);
+  return json({ status: 'ok', receipt_id: row.receipt_id, topic_id: row.topic_id, state: row.state, created_at: row.created_at, updated_at: row.updated_at });
+}
+
+async function missJeevesTopicRequest(request, env) {
+  if (request.method === 'POST') return missJeevesTopicRequestSubmit(request, env);
+  if (request.method === 'GET') return missJeevesTopicRequestStatus(request, env);
+  return json({ status: 'error', error: 'method_not_allowed' }, 405);
+}
+
+async function missJeevesResultOpen(request, env) {
+  if (request.method !== 'POST') return json({ status: 'error', error: 'method_not_allowed' }, 405);
+  if (!String(request.headers.get('content-type') || '').toLowerCase().includes('application/json')) return json({ status: 'error', error: 'content_type_required' }, 415);
+  let body;
+  try { body = await request.json(); } catch { return json({ status: 'error', error: 'invalid_json' }, 400); }
+  const resultId = String(body?.result_id || '');
+  if (!SAFE_EVENT_ID.test(resultId)) return json({ status: 'error', error: 'invalid_result_id' }, 400);
+  const placement = body?.placement === 'homepage' ? 'homepage' : 'library';
+  const topicId = TOPIC_IDS.has(body?.topic_id) ? body.topic_id : 'other';
+  writeResultOpenSignal(env, { placement, topicId, resultId });
+  return json({ status: 'recorded' }, 202);
+}
+
+async function missJeevesHealth(request, env) {
+  if (request.method !== 'GET') return json({ status: 'error', error: 'method_not_allowed' }, 405);
+  let catalogue = 'unavailable';
+  try { await loadIndex(request, env); catalogue = 'healthy'; } catch { catalogue = 'unavailable'; }
+  const requests = missJeevesDb(env) ? 'healthy' : 'unavailable';
+  return json({ status: catalogue === 'healthy' ? 'ok' : 'degraded', service: 'miss-jeeves', version: '2', catalogue, topic_requests: requests, grounded_ai: env.AI ? 'available' : 'fallback', aggregate_measurement: env.MISS_JEEVES_SIGNALS ? 'available' : 'off' }, catalogue === 'healthy' ? 200 : 503);
 }
 
 const CORRECTION_ID = /^[a-z0-9][a-z0-9._:-]{0,95}$/i;
@@ -339,6 +473,13 @@ const CORRECTION_PROHIBITED = new Set(['email','name','resident_card_id','accoun
 async function sha256Text(value) {
   const bytes = new TextEncoder().encode(value);
   const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
+async function hmacSha256Text(value, secret) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const digest = await crypto.subtle.sign('HMAC', key, encoder.encode(value));
   return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
@@ -388,7 +529,8 @@ function unavailableCorrection() {
 }
 
 async function libraryCorrectionSubmit(request, env) {
-  if (!env.LIBRARY_CORRECTIONS_DB || typeof env.LIBRARY_CORRECTIONS_DB.prepare !== 'function') return unavailableCorrection();
+  const db = missJeevesDb(env);
+  if (!db) return unavailableCorrection();
   if (!String(request.headers.get('content-type') || '').toLowerCase().includes('application/json')) return json({ status: 'error', error: 'content_type_required' }, 415);
   const idempotencyKey = String(request.headers.get('idempotency-key') || '');
   if (!CORRECTION_ID.test(idempotencyKey)) return json({ status: 'error', error: 'idempotency_key_required' }, 400);
@@ -396,7 +538,7 @@ async function libraryCorrectionSubmit(request, env) {
   try { normalized = normalizeCorrection(await request.json()); }
   catch (error) { return json({ status: 'error', error: error.message || 'invalid_submission' }, 400); }
   const requestDigest = await sha256Text(JSON.stringify(normalized));
-  const prior = await env.LIBRARY_CORRECTIONS_DB.prepare('SELECT correction_id, receipt_id, created_at, request_digest FROM library_correction_events WHERE idempotency_key = ?1').bind(idempotencyKey).first();
+  const prior = await db.prepare('SELECT correction_id, receipt_id, created_at, request_digest FROM library_correction_events WHERE idempotency_key = ?1').bind(idempotencyKey).first();
   if (prior) {
     if (prior.request_digest !== requestDigest) return json({ status: 'error', error: 'idempotency_conflict' }, 409);
     return json({ status: 'accepted', correction_id: prior.correction_id, receipt_id: prior.receipt_id, created_at: prior.created_at, state: 'submitted', replayed: true, status_reference: `/api/library-corrections/status?receipt=${encodeURIComponent(prior.receipt_id)}` });
@@ -406,20 +548,21 @@ async function libraryCorrectionSubmit(request, env) {
   const now = new Date().toISOString();
   const expires = new Date(Date.now() + 30 * 86400000).toISOString();
   try {
-    await env.LIBRARY_CORRECTIONS_DB.batch([
-      env.LIBRARY_CORRECTIONS_DB.prepare('INSERT INTO library_correction_events (correction_id, receipt_id, idempotency_key, request_digest, book_id, section_id, claim_id, source_id, content_version, category, state, record_version, created_at, updated_at) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,\'submitted\',1,?11,?11)').bind(correctionIdValue, receiptId, idempotencyKey, requestDigest, normalized.book_id, normalized.section_id, normalized.claim_id, normalized.source_id, normalized.content_version, normalized.category, now),
-      env.LIBRARY_CORRECTIONS_DB.prepare('INSERT INTO library_correction_payload_vault (correction_id, finding, evidence_url, expires_at) VALUES (?1,?2,?3,?4)').bind(correctionIdValue, normalized.finding, normalized.evidence_url, expires)
+    await db.batch([
+      db.prepare('INSERT INTO library_correction_events (correction_id, receipt_id, idempotency_key, request_digest, book_id, section_id, claim_id, source_id, content_version, category, state, record_version, created_at, updated_at) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,\'submitted\',1,?11,?11)').bind(correctionIdValue, receiptId, idempotencyKey, requestDigest, normalized.book_id, normalized.section_id, normalized.claim_id, normalized.source_id, normalized.content_version, normalized.category, now),
+      db.prepare('INSERT INTO library_correction_payload_vault (correction_id, finding, evidence_url, expires_at) VALUES (?1,?2,?3,?4)').bind(correctionIdValue, normalized.finding, normalized.evidence_url, expires)
     ]);
   } catch { return unavailableCorrection(); }
   return json({ status: 'accepted', correction_id: correctionIdValue, receipt_id: receiptId, created_at: now, state: 'submitted', status_reference: `/api/library-corrections/status?receipt=${encodeURIComponent(receiptId)}` }, 201);
 }
 
 async function libraryCorrectionStatus(request, env) {
-  if (!env.LIBRARY_CORRECTIONS_DB || typeof env.LIBRARY_CORRECTIONS_DB.prepare !== 'function') return unavailableCorrection();
+  const db = missJeevesDb(env);
+  if (!db) return unavailableCorrection();
   const url = new URL(request.url);
   const receipt = url.searchParams.get('receipt') || '';
   if (!CORRECTION_ID.test(receipt)) return json({ status: 'error', error: 'invalid_status_reference' }, 400);
-  const row = await env.LIBRARY_CORRECTIONS_DB.prepare('SELECT receipt_id, state, created_at, updated_at FROM library_correction_events WHERE receipt_id = ?1').bind(receipt).first();
+  const row = await db.prepare('SELECT receipt_id, state, created_at, updated_at FROM library_correction_events WHERE receipt_id = ?1').bind(receipt).first();
   if (!row) return json({ status: 'error', error: 'not_found' }, 404);
   return json({ status: 'ok', receipt_id: row.receipt_id, state: row.state, created_at: row.created_at, updated_at: row.updated_at });
 }
@@ -434,6 +577,9 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/miss-jeeves') return missJeeves(request, env);
+    if (url.pathname === '/api/miss-jeeves/topic-request' || url.pathname === '/api/miss-jeeves/topic-request/status') return missJeevesTopicRequest(request, env);
+    if (url.pathname === '/api/miss-jeeves/result-open') return missJeevesResultOpen(request, env);
+    if (url.pathname === '/api/miss-jeeves/health') return missJeevesHealth(request, env);
     if (url.pathname === '/api/library-corrections' || url.pathname === '/api/library-corrections/status') return libraryCorrections(request, env);
     const response = await env.ASSETS.fetch(request);
     if (!url.pathname.startsWith('/content/library-books/rendered/')) return response;

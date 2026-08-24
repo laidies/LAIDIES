@@ -44,6 +44,9 @@ assert.match(renderedBookResponse.headers.get('cache-control') || '', /(?:^|,\s*
 const wrongMethod = await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves'), envWith());
 assert.equal(wrongMethod.status, 405, 'API must reject non-POST requests');
 
+const privateSearch = await ask('My password: secret-1234');
+assert.equal(privateSearch.status, 400, 'private-content calibration fixture must be rejected before retrieval or AI');
+
 const women = await (await ask('Where can I learn about women in AI?')).json();
 assert.equal(women.status, 'ok');
 assert.equal(women.mode, 'retrieval');
@@ -171,6 +174,7 @@ const commonQuestions = [
 for (const [question, expectedFirstId] of commonQuestions) {
   const result = await (await ask(question)).json();
   assert.equal(result.coverage, 'exact', `${question} must have exact governed coverage`);
+  assert.match(result.topic_id, /^[a-z0-9-]+$/, `${question} must expose only a controlled topic ID`);
   assert.equal(result.results[0]?.id, expectedFirstId, `${question} must lead with its intended book section`);
 }
 
