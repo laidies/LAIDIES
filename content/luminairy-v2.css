@@ -204,14 +204,14 @@ input:focus-visible,
 }
 
 .lum-orientation {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(28px, 5vw, 72px);
-  align-items: center;
   padding-block: clamp(44px, 6vw, 74px);
   color: var(--lum-white);
   background: linear-gradient(135deg, #cf438f 0%, var(--lum-purple) 58%, #4b5fb4 100%);
   border-bottom: 5px solid var(--lum-teal);
+}
+
+.lum-orientation > div {
+  max-width: 1080px;
 }
 
 .lum-orientation h2,
@@ -239,41 +239,6 @@ input:focus-visible,
   color: rgba(255, 255, 255, 0.86);
   font-size: 1.05rem;
   line-height: 1.65;
-}
-
-.lum-counts {
-  display: flex;
-  margin: 0;
-  background: var(--lum-white);
-  color: var(--lum-ink);
-  border: 2px solid var(--lum-ink);
-  border-radius: 14px;
-  box-shadow: 8px 8px 0 var(--lum-teal);
-  overflow: hidden;
-}
-
-.lum-counts div {
-  min-width: 120px;
-  padding: 18px 20px;
-  text-align: center;
-  border-left: 1px solid var(--lum-line);
-}
-
-.lum-counts div:first-child { border-left: 0; }
-
-.lum-counts dt {
-  font-family: var(--lum-display);
-  color: var(--lum-ink);
-  font-size: 2.1rem;
-  line-height: 1;
-}
-
-.lum-counts dd {
-  margin: 6px 0 0;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .lum-local {
@@ -755,7 +720,6 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(145d
   body:has(.lum-hero) .svgh-quick,
   body:has(.lum-hero) .svgh-ksvl { display: none !important; }
   .lum-hero { min-height: 700px; }
-  .lum-orientation,
   .lum-local { grid-template-columns: 1fr; }
   .lum-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -768,9 +732,6 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(145d
   .lum-hero h1 { font-size: clamp(3rem, 15vw, 4.7rem); }
   .lum-hero__lead { margin-top: 18px; font-size: 1.18rem; }
   .lum-hero__body { font-size: 0.95rem; }
-  .lum-orientation { align-items: stretch; }
-  .lum-counts { width: 100%; }
-  .lum-counts div { min-width: 0; flex: 1; padding-inline: 10px; }
   .lum-local { grid-template-columns: minmax(0, 1fr); }
   .lum-local__picks { grid-template-columns: 1fr; }
   .lum-local__picks div { min-height: 92px; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.3); }
@@ -793,8 +754,6 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(145d
 
 @media (max-width: 420px) {
   .lum-hero { min-height: 700px; }
-  .lum-counts { display: grid; grid-template-columns: repeat(3, 1fr); }
-  .lum-counts dd { font-size: 0.58rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
