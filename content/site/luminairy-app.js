@@ -285,7 +285,8 @@
     const fragment = document.createDocumentFragment();
     profiles.forEach((profile) => fragment.appendChild(makeCard(profile)));
     grid.replaceChildren(fragment);
-    resultStatus.textContent = profiles.length + " of " + state.data[state.wing].length + " profiles shown" + (query ? " for “" + state.query.trim() + "”." : ".");
+    const itemNoun = state.wing === "saints" ? "cards" : "profiles";
+    resultStatus.textContent = profiles.length + " of " + state.data[state.wing].length + " " + itemNoun + " shown" + (query ? " for “" + state.query.trim() + "”." : ".");
     updateSongButtons();
   }
 
@@ -322,6 +323,52 @@
       setWing(wing);
       requestAnimationFrame(() => document.getElementById("profile-" + hash)?.scrollIntoView({ block: "center" }));
     }
+  }
+
+  function showLoadFailure() {
+    playlistButton.hidden = true;
+    resultStatus.textContent = "We couldn’t open the LUMINAiRY just now.";
+    resultStatus.classList.add("is-error");
+
+    const retryState = document.createElement("div");
+    retryState.className = "lum-retry-state";
+    retryState.appendChild(textElement("p", "", "Nothing has been changed. Try again when you’re ready."));
+    const retry = textElement("button", "lum-retry", "Try again");
+    retry.type = "button";
+    retry.addEventListener("click", () => loadProfiles(0));
+    retryState.appendChild(retry);
+    grid.replaceChildren(retryState);
+  }
+
+  function loadProfiles(attempt) {
+    playlistButton.hidden = true;
+    resultStatus.textContent = attempt ? "Trying once more…" : "Opening the LUMINAiRY…";
+    resultStatus.classList.remove("is-error");
+    grid.replaceChildren();
+
+    fetch("/content/luminairy-profiles.json", { credentials: "same-origin", cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("profile request returned " + response.status);
+        return response.json();
+      })
+      .then((data) => {
+        if (!Array.isArray(data.saints) || !Array.isArray(data.mavens) || !Array.isArray(data.trailblazers)) throw new Error("profile file shape is invalid");
+        if (!window.LAIDIES_LUMINAIRY_CLAIM_GATE?.admit) throw new Error("editorial admission gate is unavailable");
+        return window.LAIDIES_LUMINAIRY_CLAIM_GATE.admit(data);
+      })
+      .then((data) => {
+        state.data = data;
+        readPicks();
+        applyHash();
+        render();
+      })
+      .catch(() => {
+        if (attempt === 0) {
+          window.setTimeout(() => loadProfiles(1), 250);
+          return;
+        }
+        showLoadFailure();
+      });
   }
 
   document.querySelectorAll("[role=tab][data-wing]").forEach((tab) => {
@@ -381,26 +428,5 @@
   });
   window.addEventListener("hashchange", applyHash);
 
-  fetch("/content/luminairy-profiles.json", { credentials: "same-origin" })
-    .then((response) => {
-      if (!response.ok) throw new Error("profile request returned " + response.status);
-      return response.json();
-    })
-    .then((data) => {
-      if (!Array.isArray(data.saints) || !Array.isArray(data.mavens) || !Array.isArray(data.trailblazers)) throw new Error("profile file shape is invalid");
-      if (!window.LAIDIES_LUMINAIRY_CLAIM_GATE?.admit) throw new Error("editorial admission gate is unavailable");
-      return window.LAIDIES_LUMINAIRY_CLAIM_GATE.admit(data);
-    })
-    .then((data) => {
-      state.data = data;
-      readPicks();
-      applyHash();
-      render();
-    })
-    .catch(() => {
-      playlistButton.hidden = true;
-      resultStatus.textContent = "The profile archive could not load. No names, roles, or sources are being invented as a fallback; please retry this page.";
-      resultStatus.classList.add("is-error");
-      grid.replaceChildren();
-    });
+  loadProfiles(0);
 })();

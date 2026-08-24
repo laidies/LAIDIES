@@ -42,12 +42,16 @@ async function run() {
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.doesNotMatch(await page.locator('meta[name="description"]').getAttribute("content"), /43 illustrated guides/i, "page metadata must not collapse the three wings into an all-guides label");
     assert.equal(await page.locator(".lum-hero__lead").count(), 0, "the three distinct wings must not be collapsed into a false all-guides umbrella");
     assert.equal(await page.locator(".lum-hero__status").count(), 0, "internal archive and production status must not appear in the visitor hero");
-    assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one guide from each wing.", "local-votive heading must give the actual action without defensive hedging");
+    assert.equal((await page.locator("#orientationTitle").textContent()).trim(), "Choose a wing.", "orientation must name the actual choice without calling every subject a guide");
+    assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one from each wing.", "local-votive heading must give the actual action without mislabelling every subject as a guide");
+    assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
+    assert.match(await page.locator(".lum-tab--saints .lum-tab__copy").textContent(), /13 cards/i, "the Saints door count must use the canonical card noun");
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /honest-hero$/, "honest hero successor must load its matching cache-busted stylesheet");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /site-system-v3$/, "visual successor must load its matching cache-busted interaction script");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /load-recovery-v1$/, "load-recovery successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /retry-v1$/, "retry successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -72,6 +76,7 @@ async function run() {
     assert.ok(siteSystem.searchRadius >= 10, `search control needs the shared rounded grammar, got ${siteSystem.searchRadius}px`);
     assert.notEqual(siteSystem.orientationBackground, "none", "major non-image surfaces must use the current gradient system");
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
+    assert.match(await page.locator("#lumResultStatus").textContent(), /13 of 13 cards shown/i, "Saint result count must use the canonical card noun");
     assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
     const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
     assert.equal(await carrieCard.locator(".lum-card__song").count(), 0, "deferred Carrie audio must not render a broken play control");
@@ -159,8 +164,27 @@ async function run() {
     assert.equal(await blockedPage.locator(".lum-card__pick:disabled").count(), 13, "storage failure must disable dishonest save controls");
     await blockedContext.close();
 
+    const transientFailureContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    const transientFailurePage = await transientFailureContext.newPage();
+    let profileRequestCount = 0;
+    await transientFailurePage.route("**/content/luminairy-profiles.json", (route) => {
+      profileRequestCount += 1;
+      if (profileRequestCount === 1) return route.fulfill({ status: 503, body: "temporary local-server restart" });
+      return route.continue();
+    });
+    await transientFailurePage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await transientFailurePage.locator(".lum-card").first().waitFor({ timeout: 5000 });
+    assert.equal(profileRequestCount, 2, "a transient profile-data failure must retry once automatically");
+    assert.equal(await transientFailurePage.locator("#lumResultStatus.is-error").count(), 0, "a successful retry must clear the failure state");
+    await transientFailureContext.close();
+
     const claimFailureContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
     const claimFailurePage = await claimFailureContext.newPage();
+    let persistentProfileRequestCount = 0;
+    await claimFailurePage.route("**/content/luminairy-profiles.json", (route) => {
+      persistentProfileRequestCount += 1;
+      return route.continue();
+    });
     await claimFailurePage.route("**/content/luminairy-claims.json", (route) => route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -169,7 +193,13 @@ async function run() {
     await claimFailurePage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
     await claimFailurePage.locator("#lumResultStatus.is-error").waitFor();
     assert.equal(await claimFailurePage.locator(".lum-card").count(), 0, "failed editorial admission must render no profiles");
-    assert.match(await claimFailurePage.locator("#lumResultStatus").textContent(), /could not load/i);
+    assert.match(await claimFailurePage.locator("#lumResultStatus").textContent(), /couldn.t open the luminairy/i, "failure copy must be useful visitor language rather than production diagnostics");
+    assert.equal(await claimFailurePage.getByRole("button", { name: "Try again" }).count(), 1, "a persistent load failure must offer an in-page retry");
+    assert.doesNotMatch(await claimFailurePage.locator("body").textContent(), /no names, roles, or sources are being invented/i, "the visitor failure state must not expose internal fail-closed language");
+    assert.equal(persistentProfileRequestCount, 2, "a persistent failure must stop after one automatic retry");
+    await claimFailurePage.getByRole("button", { name: "Try again" }).click();
+    await claimFailurePage.getByRole("button", { name: "Try again" }).waitFor();
+    assert.equal(persistentProfileRequestCount, 4, "manual retry must perform one bounded retry cycle");
     await claimFailureContext.close();
 
     const noWebCryptoContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
