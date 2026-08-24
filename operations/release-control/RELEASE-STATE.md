@@ -113,7 +113,23 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-24 — Library navigation and Fundamentals preface
+## Current production release record — 2026-08-24 — AI Fundamentals chapter-opening sequence
+
+| Field | Current value |
+|---|---|
+| Deployed source | `757cef9d9cbf87d0eeaee6d348374701e1a8434d` |
+| Artifact identity | `433b52f6620f85895508f751d8356e114a0a59ae8f73b2870e85d98e2afd49e4` |
+| Curated build | 574 copied public files / 432.11 MiB; manifest 576 files / 453,163,511 bytes |
+| Exact public scope | 5 changed artifact records, including generated build report / 0 additions / 0 removals; 4 changed visitor files verified at 2 origins |
+| Release path | Authenticated Wrangler exact-artifact deployment on production branch `homepage-redesign` |
+| Cloudflare deployment | `d0db552e-2d41-46ca-a214-da1a1f7a6961` |
+| Immutable URL | `https://d0db552e.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Both origins matched all four changed visitor files. Every live AI Fundamentals chapter follows title → first numbered teaching section → objectives → key terms → second numbered section. Desktop and 390px checks passed all 20 chapters with zero horizontal overflow. Miss Jeeves retained 652 governed records and all 20 whole-chapter routes; service health remained fully configured. |
+| Exact scope | `operations/release-control/ai-fundamentals-chapter-opening-production-scope-20260824.json` |
+| Rollback target | deployment `5f736529-ea5f-4c87-b8e7-4b4ea65bb52e` from source `367a554f4c5fcd33d83be1cb12099c74167929cd` |
+
+## Superseded production release record — 2026-08-24 — Library navigation and Fundamentals preface
 
 | Field | Current value |
 |---|---|

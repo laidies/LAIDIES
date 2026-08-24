@@ -52,7 +52,7 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Release boundary
 
-Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23, then directly corrected opening-book image placement, the duplicate Contents page, flat mobile index and missing purpose-led AI Fundamentals preface on 2026-08-24. The accepted production successor is source `367a554f4c5fcd33d83be1cb12099c74167929cd`, artifact `89115d62a60ae275b3c7920bb8c679f7d3779ec0ec7ed952dd065d17cfc4cc01` and deployment `5f736529-ea5f-4c87-b8e7-4b4ea65bb52e`; both public origins matched all seven changed visitor files and the live mobile/desktop reader contract. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
+Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23, then directly corrected opening-book image placement, the duplicate Contents page, flat mobile index, missing purpose-led AI Fundamentals preface and chapter-opening panel order on 2026-08-24. The accepted production successor is source `757cef9d9cbf87d0eeaee6d348374701e1a8434d`, artifact `433b52f6620f85895508f751d8356e114a0a59ae8f73b2870e85d98e2afd49e4` and deployment `d0db552e-2d41-46ca-a214-da1a1f7a6961`; both public origins matched all changed visitor files and the live mobile/desktop reader contract. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
 
 ## Prohibited active inputs
 

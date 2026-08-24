@@ -14729,6 +14729,17 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why approving the right picture did not mean it appeared at the right moment—and why the same “do not retype authority” rule applies to deployment hashes.
 - **Publication status:** PRODUCTION LIBRARY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
 
+## BTB-483 — Orientation panels work better after the chapter earns attention
+
+- **Date:** 2026-08-24
+- **Area:** AI Fundamentals 101 chapter architecture and Miss Jeeves indexing.
+- **Failure:** Every chapter opened title → objective panel → key-terms panel → teaching prose. The information was useful, but two large utility panels created a repetitive barrier before the chapter had established its question or hook. Moving them exposed a second dependency: the Miss Jeeves compiler had been using panel copy as the excerpt beneath each chapter heading, so the first candidate silently dropped all 20 whole-chapter routes.
+- **Root cause:** The original manuscript treated learning administration as pre-reading content, and the search compiler assumed every heading had prose before the next heading. Neither system represented the intended teaching rhythm directly.
+- **Prevention rule:** AI Fundamentals chapters begin with section `.1`; unchanged objectives and key terms close that opening section before `.2`. Admission rejects the premature-panel arrangement. The Miss Jeeves compiler must retain a chapter route when the next heading owns its opening prose, and its backend test requires all 20 chapter IDs.
+- **Durable correction:** All 20 live chapters now follow title → first numbered teaching section → objectives → key terms → second numbered section. The four-book 4×3 viewport suite, direct live desktop/390px checks and both public origins pass with zero overflow. Miss Jeeves retains 652 records and all 20 Fundamentals chapter routes. Deployment `d0db552e-2d41-46ca-a214-da1a1f7a6961` is publicly verified.
+- **Possible Behind the Build angle:** Why moving two boxes improved a textbook—and briefly broke search in a way the page itself could not reveal.
+- **Publication status:** PRODUCTION LIBRARY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
 ## BTB-482 — A persistent Contents button can still hide a ten-thousand-pixel link wall
 
 - **Date:** 2026-08-24
