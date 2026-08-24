@@ -46,6 +46,10 @@ export function validateLibraryKnownFailures(source) {
     errors.push('masthead no longer preserves Miss Jeeves full-frame with the approved light-blue wall asset');
   }
   if (!readableMastheadTitle) errors.push('established Library masthead title treatment is missing');
+  const compactIntro = /\/\*\s*COMPACT_LIBRARY_INTRO_CONTRACT\s*\*\//.test(source)
+    && /@media\(max-width:900px\)\s*\{[\s\S]*?\.library-intro\s*\{[^}]*grid-template-columns\s*:\s*minmax\(250px,\.82fr\)\s+minmax\(0,1\.18fr\)[^}]*gap\s*:\s*28px[^}]*padding\s*:\s*22px\s+32px[^}]*\}/is.test(source)
+    && /@media\(max-width:700px\)\s*\{[\s\S]*?\.library-intro\s*\{[^}]*grid-template-columns\s*:\s*1fr[^}]*gap\s*:\s*12px[^}]*padding\s*:\s*20px[^}]*\}/is.test(source);
+  if (!compactIntro) errors.push('compact Library introduction contract is missing');
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));
   const majorText = majorCss.join('\n').toLowerCase();

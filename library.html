@@ -641,8 +641,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
 
 /* MASTHEAD_FULL_FRAME_CONTRACT */
+/* COMPACT_LIBRARY_INTRO_CONTRACT */
 /* OWNER_CORRECTED_LIBRARY_SURFACE: Ali's supplied wide crop and brighter wall
    treatment shorten the masthead; four standalone covers replace the rejected case. */
+.library-intro{padding:28px clamp(24px,4vw,64px);gap:clamp(24px,4vw,56px)}
 .arrival-visual{height:auto;min-height:0;aspect-ratio:1746/901;background:var(--cyan)}
 .arrival-visual>img{object-fit:contain;object-position:center center}
 .jv{background-image:linear-gradient(120deg,rgba(239,77,156,.88) 0%,rgba(113,55,214,.86) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center;background-size:cover}
@@ -695,7 +697,16 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .topic-link{flex:0 1 auto}
 }
 @media(max-width:900px){
-  .library-intro{grid-template-columns:1fr}
+  .library-intro{grid-template-columns:minmax(250px,.82fr) minmax(0,1.18fr);gap:28px;padding:22px 32px}
+  .titleblock .eyebrow{margin-bottom:7px;font-size:11px}
+  .titleblock h1{font-size:clamp(46px,6vw,54px)}
+  .library-intro .lede{font-size:clamp(17px,2.2vw,20px);line-height:1.25}
+  .library-intro .lede small{margin-top:7px;font-size:14px;line-height:1.35}
+}
+@media(max-width:700px){
+  .library-intro{grid-template-columns:1fr;gap:12px;padding:20px}
+  .titleblock h1{font-size:clamp(34px,11vw,42px)}
+  .library-intro .lede{font-size:16px}
 }
 @media(max-width:420px){.bk{flex-basis:120px;width:120px}}
 @media(prefers-reduced-motion:reduce){
