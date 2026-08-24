@@ -10,10 +10,10 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `b5195bf5-6784-4404-80ae-67a6040a05d1`, deployed source `ff91842d5040aecd50fb2453d1065c6d82d53d60`, artifact identity `0d5a2c1e3d30bc45d4f6bb326fb9c796f68cf1fe349f9aaa3bb208db7e0bc4c8`, immutable URL `https://b5195bf5.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The latest scope changed exactly three public artifacts and preserved 15 production paths; all 17 fetchable verification paths matched at both origins. LIBRAiRY and Visitor’s Centre no longer request blocked internal proof runtimes, and the Visitor trailer ticket matches the Screening Room's held rebuild state. |
-| Current recovery lane | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Branch `release/functional-library-reconcile-20260823` at `ff91842d5040aecd50fb2453d1065c6d82d53d60` is the exact current public source. It retains the reconciled functional and four-book Library baseline without selecting the Homepage visual direction. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `883a5ee6-8982-4b5f-8cde-9ef82cc22708`, deployed source `15aeb478c9270fabc249add259ae5841f14330ca`, artifact identity `3437ba56e9c776099206b17973cefe061625f73995a7b40cb55613919bf6965c`, immutable URL `https://883a5ee6.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The latest scope changed exactly four public artifacts and preserved 17 production paths; all 20 fetchable verification paths matched at both origins. Chick Flicks and the readable illustrated Trailer issue no longer promise held Trailer listening, and the mobile handoff passed at both origins. |
+| Current recovery lane | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Branch `release/functional-library-reconcile-20260823` at `15aeb478c9270fabc249add259ae5841f14330ca` is the exact current public source. It retains the reconciled functional and four-book Library baseline without selecting the Homepage visual direction. |
 | Difference from production | `PUSHED DIRECTIONS NOT DEPLOYED` | The accepted functional site and four-book LIBRAiRY are current production. Homepage corrected-8 and the separate Visitor’s Centre visual direction remain review artifacts behind Ali’s exact visible choice and production integration; current Daily freshness and account-backed lifecycle work remain held. |
-| Current working tree | `CLEAN / RELEASE AND EVIDENCE COMMITTED` | Exact release bytes are committed and pushed at `ff91842d5040aecd50fb2453d1065c6d82d53d60`. The Visitor browser test refreshed two existing current-state evidence PNGs; they were inspected, committed separately from the public artifact and remained outside the release scope. The iCloud source checkout was not cleaned, reset, stashed or used for release assembly. |
+| Current working tree | `CLEAN / RELEASE AND RECORDS COMMITTED` | Exact public release bytes are committed and pushed at `15aeb478c9270fabc249add259ae5841f14330ca`; durable state records are committed separately and remain outside the deployed artifact. The iCloud source checkout was not cleaned, reset, stashed or used for release assembly. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 opening-day candidates | `BUILT LOCALLY / OWNER WATCH REQUIRED / HOLD` | Current exact candidates are Trailer v8 `1be8c4f1…a1332e`, Episode 01 v27 `50311e89…0f135a`, Episode 02 v20 `2b8bd0c3…a358cc`, Episode 03 v15 `6a7f2381…735b75`, and Episode 04 v10 `9fc40d96…57bfb`. The checksum-bound launch gate, playback package, portable package and review inbox agree on all five. No current candidate is accepted, released or bound publicly. The older Episode 04 v8 object remains publicly reachable only as historical deployment evidence and is not the opening-day source. |
@@ -39,6 +39,11 @@ is recorded here.
   production Worker correctly refuses to serve. The Visitor trailer ticket now
   opens the Screening Room only to check its current held rebuild state; it no
   longer promises an available illustrated trailer.
+- Chick Flicks now offers the readable illustrated Trailer issue and names the
+  audio hold instead of advertising an unavailable listen-along. The Trailer
+  issue starts its readable tour in-page and contains no route that promises
+  held audio. Episodes 01–04 retain their separate valid cover-only audio
+  editions.
 - DJ SunnyV’s Booth now consumes the admitted KSVL catalogue by exact registry
   ID and delegates every audio action to the canonical KSVL deck. The former
   hard-coded seven-track `Audio()` owner, direct music paths and mini-player
@@ -130,17 +135,17 @@ is recorded here.
 
 | Field | Current value |
 |---|---|
-| Deployed source | `ff91842d5040aecd50fb2453d1065c6d82d53d60` |
-| Artifact identity | `0d5a2c1e3d30bc45d4f6bb326fb9c796f68cf1fe349f9aaa3bb208db7e0bc4c8` |
-| Curated build | 576 copied files / 429.24 MiB; manifest 578 files / 450,155,714 bytes |
-| Exact public scope | 3 modifications / 0 additions / 0 removals / 15 protected production paths |
-| Release path | Authenticated Wrangler 4.105.0 exact-artifact deployment; no GitHub run was used |
-| Cloudflare deployment | `b5195bf5-6784-4404-80ae-67a6040a05d1` |
-| Immutable URL | `https://b5195bf5.laidies-sunnyvaile.pages.dev/` |
+| Deployed source | `15aeb478c9270fabc249add259ae5841f14330ca` |
+| Artifact identity | `3437ba56e9c776099206b17973cefe061625f73995a7b40cb55613919bf6965c` |
+| Curated build | 576 copied files / 429.24 MiB; manifest 578 files / 450,155,772 bytes |
+| Exact public scope | 4 modifications / 0 additions / 0 removals / 17 protected production paths |
+| Release path | Authenticated Wrangler 4.119.0 exact-artifact deployment; no GitHub run was used |
+| Cloudflare deployment | `883a5ee6-8982-4b5f-8cde-9ef82cc22708` |
+| Immutable URL | `https://883a5ee6.laidies-sunnyvaile.pages.dev/` |
 | Custom domain | `https://laidies.ai/` |
-| Public verification | completed `2026-08-24T00:56:50Z`; three calibrated defects failed before the clean Visitor and Library suites passed, and a false base-commit binding failed before the exact scope passed. All 17 fetchable changed/protected paths matched the curated artifact at both origins (34 exact responses). Direct content checks confirmed both internal proof runtimes and the old trailer promise are absent, while the held trailer wording is present. `_worker.js` is artifact-bound and behavior-tested but is not directly fetchable. |
-| Exact scope | `operations/release-control/public-proof-trailer-truth-production-scope-20260823.json` |
-| Rollback deployment | `3c64e0ca-d054-4d53-909b-b90bf2d419b5` (immediately prior reconciled functional and four-book Library production). |
+| Public verification | completed `2026-08-24T01:33:08Z`; a deliberately injected false `/watch.html?ep=trailer` entrance failed before the corrected contract, exact-artifact 26-journey browser suite and false base binding calibration passed. All 20 fetchable changed/protected paths matched at both origins (40 exact responses), and the live mobile journey passed at both origins. The wider legacy source contracts remain unavailable in this sparse checkout because tracked VHS/caption media files are not materialized; this did not affect the exact artifact or changed journey. `_worker.js` is artifact-bound but is not directly fetchable. |
+| Exact scope | `operations/release-control/chick-flicks-trailer-entrance-truth-production-scope-20260823.json` |
+| Rollback deployment | `b5195bf5-6784-4404-80ae-67a6040a05d1` (immediately prior accepted proof/trailer-status production). |
 
 The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `2284b17a-1f5f-46bd-8fce-d384af1a814e` and
@@ -153,8 +158,10 @@ The intermediate deployments `d67ca3d5-b6f7-4bfa-adaf-7f48c79987b6`,
 `840943b3-fbc7-4049-a0d7-0d12fba688af`, the rejected cache-stale deployment
 `5dc6ae37-715a-4795-b07a-7764b1f01576`, the superseded four-book deployment
 `5becb7eb-38d0-4a21-b691-ee61b847eb00`, and the rejected HTML-transform deployment
-`828cd9e7-400d-4a45-a62b-ecc86679642c`, and reconciled predecessor
-`3c64e0ca-d054-4d53-909b-b90bf2d419b5` are superseded, not current. The current
+`828cd9e7-400d-4a45-a62b-ecc86679642c`, reconciled predecessor
+`3c64e0ca-d054-4d53-909b-b90bf2d419b5`, prior accepted release
+`b5195bf5-6784-4404-80ae-67a6040a05d1`, and the provenance-replaced identical-byte
+deployment `c7dc0690-1191-4199-b79e-1399028af4fe` are superseded, not current. The current
 deployment used the exact scoped artifact from the isolated checkout; two
 refreshed browser-test evidence PNGs were committed separately and remained outside that artifact. The release
 scope, artifact manifest, pushed source and public bytes are independently bound above.

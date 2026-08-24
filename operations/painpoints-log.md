@@ -14760,3 +14760,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Source `ff91842d5040aecd50fb2453d1065c6d82d53d60` removes both proof runtimes and changes the Visitor ticket to `Check trailer status` with the Screening Room’s exact held wording. The calibrated bad fixtures failed; the Visitor 76-check browser suite, four-book LIBRAiRY suite and Miss Jeeves worker passed. Exact artifact `0d5a2c1e3d30bc45d4f6bb326fb9c796f68cf1fe349f9aaa3bb208db7e0bc4c8` is live as deployment `b5195bf5-6784-4404-80ae-67a6040a05d1`; all 17 fetchable changed/protected paths matched at both origins.
 - **Possible Behind the Build angle:** Why a stylesheet that “just 404s” is evidence that prototype code escaped into production—and how a truthful link can still make a false promise.
 - **Publication status:** PRODUCTION FUNCTIONAL/TRUTH CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-485 — A truthful held player cannot rescue a false entrance beside it
+
+- **Date:** 2026-08-23
+- **Area:** Chick Flicks, illustrated Trailer issue and exact release provenance.
+- **Failure:** Chick Flicks rendered the Trailer player's correct held-audio status beside copy promising an immediate listen-along, while the readable Trailer issue repeated three links to that unavailable listening route. The first deployment carried the right bytes but the wrong expanded source SHA in its Cloudflare metadata.
+- **Root cause:** The product check treated the receiver's held state and the promoter's link as separate facts instead of one promise boundary. The release command also accepted a manually expanded hash without comparing it to `git rev-parse HEAD`.
+- **Prevention rule:** Every public promoter must agree with the receiver's current availability state; a truthful held component does not compensate for a contradictory CTA beside it. Regression calibration injects the false route before the clean check. Release commands receive the exact machine-read commit SHA, never a manually completed prefix, and provenance is verified before the deployment is recorded.
+- **Durable correction:** Source `15aeb478c9270fabc249add259ae5841f14330ca` routes first-time visitors to the readable illustrated Trailer issue, exposes the audio hold, starts the issue in-page and preserves the valid Episode 01–04 audio editions. The exact artifact passed 26 browser journeys and a four-change calibrated scope. Artifact `3437ba56e9c776099206b17973cefe061625f73995a7b40cb55613919bf6965c` is live as deployment `883a5ee6-8982-4b5f-8cde-9ef82cc22708`; 20 paths matched at both origins and the live mobile handoff passed twice. The identical-byte deployment with incorrect full-SHA metadata was immediately superseded.
+- **Possible Behind the Build angle:** How a perfectly honest disabled player sat next to a button promising the exact thing it said was unavailable.
+- **Publication status:** PRODUCTION FUNCTIONAL/TRUTH CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
