@@ -6,7 +6,7 @@
 - Candidate: `operations/design-explorations/current/homepage/owner-reference-synthesis-20260823/index.html`, SHA-256 `725c6b74f6df7195233cdfdeb5ce9122a479888a12e366040eb4a26aaae83a9b`.
 - Method image: `assets/homepage/laidies-method-workspace-v1.png`, SHA-256 `d90b6b71e223f92315b5e99db4d25e0cc7c136fbfc6b536df86dc17b3483c382`.
 - Routed brief: `operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md`, SHA-256 `1fbf947136bcd51e95feaad33c121a8bf48fb6b80cc62eedf91d628a5ef355cc`.
-- State: internal successor repair. Not owner-approved, integrated, deployed or publicly verified.
+- State: admitted for Ali review. Not owner-approved, integrated, deployed or publicly verified.
 
 ## Corrected-12 evidence
 
@@ -59,4 +59,14 @@ The previous `ADMIT` is invalidated. It is not evidence for this successor.
   held.
 - No deployment or public verification was performed.
 
-final result: maker-inspected successor ready for independent review; not yet admitted for owner review
+## Independent pixel review
+
+- Verdict: `ADMIT` for owner review.
+- Reviewer: `homepage_asset_match`, role `visual_experience`.
+- Candidate SHA-256: `725c6b74f6df7195233cdfdeb5ce9122a479888a12e366040eb4a26aaae83a9b`.
+- Evidence: `evidence/independent-current-verdict.json`, SHA-256 `dec526eb8d634f182acddef3b5e3265835f2b05d0478050a23e98e537e7a450c`.
+- Visible regressions: `0`. Locked-decision violations: `0`. Review issues: `0`.
+- Scope: exact static pixels only; interaction and the full arrival sequence require
+  their separate functional checks.
+
+final result: passed exact owner-review admission; not owner-approved, integrated or deployed

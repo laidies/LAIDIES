@@ -294,7 +294,8 @@ export function validateProgram({ root = process.cwd(), manifestPath = DEFAULT_M
       if (page.locked_copy_source !== 'index.html' || !(page.locked_copy_fragments || []).length) errors.push('homepage: locked incumbent copy required');
       else {
         const source = fs.readFileSync(path.join(root, page.locked_copy_source), 'utf8');
-        for (const fragment of page.locked_copy_fragments) if (!source.includes(fragment)) errors.push(`homepage: locked copy missing: ${fragment}`);
+        const visibleSource = source.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+        for (const fragment of page.locked_copy_fragments) if (!visibleSource.includes(fragment.replace(/\s+/g, ' '))) errors.push(`homepage: locked copy missing: ${fragment}`);
       }
     }
 
