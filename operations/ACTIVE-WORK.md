@@ -1064,3 +1064,24 @@ objective; every open lane keeps its own checkpoint.
 - **Truth boundary:** exact technical reports or original papers may support bounded claims; institutional summaries are leads; course/product pages are comparators; interviews remain attributed commentary. No Wharton source automatically becomes canon or creates a new LAiDIES artifact.
 - **Next trigger:** an existing admitted learning job needs an exact Wharton item; the owner verifies its model/task/population/date, underlying evidence, access, accessibility, licence and currentness before use.
 - **Authority:** no content, concept map, class, book, episode, Study Pack, quiz, game, tool, NewsStand story, external subscription, route, deployment, publication, spend or public-release state changed.
+### 2026-08-24 Trailer and Episodes 1–4 media recovery checkpoint
+
+- **Current state:** `0/5 WATCH-READY / TRAILER V8 REJECTED / EPISODES 1–4 FULL RE-AUDIT REQUIRED`.
+- **Ali's binding corrections:** reject glamour-cartoon/painterly/mottled people;
+  wardrobe discontinuity; random people/cars; impossible anatomy, electronics
+  or spatial structures; wet-looking pavement/sidewalks; CSS or generic overlay
+  motion; visible loop seams; shaky/jerky camera movement; bad transitions; and
+  motion/timing that does not perform the narration. Animation uses controlled
+  approved-image frames with only genuine moving parts changed. Smooth
+  Ken Burns-style framing is allowed but cannot substitute for scene motion.
+- **Evidence correction:** the prior strongest-available visual labels for
+  Episodes 2–4 explicitly lacked a complete continuous sound-on watch and are
+  invalid as quality evidence. Ali reports unresolved visual, timing and
+  animation problems across Trailer and Episodes 1–4.
+- **Exact recovery authority:**
+  `operations/product-stewards/episode-experience/episode-media-recovery-ledger-2026-08-24.md`.
+- **Next action:** rebuild and admit one representative Trailer opening sequence,
+  complete one consolidated Trailer successor, then audit Episodes 1–4 in
+  release order and repair only exact failed occurrences.
+- **Truth boundary:** all five exact exports remain held. No Watch binding,
+  deployment, publication or public verification was performed.

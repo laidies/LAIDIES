@@ -87,7 +87,7 @@ for (const id of ids) {
   const record = admission.programmes[id];
   assert.ok(record, `${id}: admission record missing`);
   assert.equal(record.admissionStatus, "hold", `${id}: must remain held`);
-  assert.equal(record.humanReviewStatus, "pending", `${id}: human full-title review must remain pending`);
+  assert.equal(record.humanReviewStatus, id === "trailer" ? "hold" : "pending", `${id}: human full-title review status is stale`);
   assert.equal(sha256(record.reviewFilm), record.reviewFilmSha256, `${id}: review-film hash mismatch`);
   assert.equal(sha256(record.reviewEvidence), record.reviewEvidenceSha256, `${id}: review-evidence hash mismatch`);
   assert.equal(sha256(record.occurrenceAuthority), record.occurrenceAuthoritySha256, `${id}: occurrence-authority hash mismatch`);
@@ -96,7 +96,12 @@ for (const id of ids) {
     ?? occurrenceAuthority.placement_count
     ?? occurrenceAuthority.occurrences?.length;
   assert.equal(record.expectedOccurrenceCount, authoritativeOccurrenceCount, `${id}: expected occurrence count differs from authority`);
-  assert.ok(record.holds.some((hold) => /human full-title unmuted 1x review pending/i.test(hold)), `${id}: explicit human-review hold missing`);
+  if (id === "trailer") {
+    assert.ok(record.holds.some((hold) => /Ali's completed full-title review rejected/i.test(hold)), `${id}: completed owner rejection missing`);
+  } else {
+    assert.ok(record.holds.some((hold) => /human full-title unmuted 1x review pending/i.test(hold)), `${id}: explicit human-review hold missing`);
+    assert.ok(record.holds.some((hold) => /fresh ten-failure occurrence audit/i.test(hold)), `${id}: current visual-quality re-audit hold missing`);
+  }
   assert.equal(record.cueSheetSha256, derived.editions[id]
     ? derived.editions[id].sourceCueSha256
     : sha256(cuePath), `${id}: source cue authority hash mismatch`);
