@@ -114,7 +114,53 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-23
+## Current production release record — 2026-08-23 — LIBRAiRY owner-rejection rollback
+
+| Field | Current value |
+|---|---|
+| Deployed source | `e31f6629f79403a8c1f9ed319956bdd490542c28` |
+| Artifact identity | `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7` |
+| Release path | Exact rerun of previously successful GitHub release event `32677901263`; original source, workflow, scope, artifact and approval bindings passed |
+| Cloudflare deployment | `739b7fef-52ab-4301-bcb5-1263c4a5fa8b` |
+| Immutable URL | `https://739b7fef.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Controller completed `2026-08-24T03:48:40Z`. Live `library.html` SHA-256 `dd94d7c9edce725beaf3178e168e182be5a9baedb1b01ecbb58158457e50bdd5` exactly matches the rollback artifact. The rejected successor is not current production. |
+| Reason | Ali rejected the successor's changed/cropped masthead, removed locked backgrounds, black inset, bookshelf treatment and incorrect “Browse all four books” copy. |
+| Next release boundary | The restored baseline remains incomplete against the new browse brief. No successor deploys without Ali's direct visual approval of the exact candidate. |
+
+## Rejected and rolled-back production record — 2026-08-23 — LIBRAiRY experience successor
+
+| Field | Current value |
+|---|---|
+| Deployed source | `aa9870e122863b55b0b78e56edca7506a239b64a` |
+| Artifact identity | `19026eddc3f6f27c1e39964e9f0b192ea66a6a914533388878116a41713697e5` |
+| Curated build | 572 copied files / 427.68 MiB; manifest 574 files / 448,524,643 bytes |
+| Exact public scope | 6 changes / 0 removals / 22 checksum-preserved production paths |
+| Release path | GitHub exact-artifact workflow run `32686228488`; controller PR `#88`, merged controller `b983844ca539bdc633cd6c00e4a6fb75efcab582`, calibrated source/base/scope/artifact/approval bindings all passed |
+| Cloudflare deployment | `d564e993-76f7-44b0-845a-ca4ae74bbc33` |
+| Immutable URL | `https://d564e993.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Controller completed `2026-08-24T03:29:05Z`. The live `library.html` SHA-256 is exactly `509b5cbbd2af80d3f1c119d1361fb2d4be96340e2278b282ca4e518e3dc443da`, matching the artifact. Separate live-browser proof opened every cover through its information panel to AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary; confirmed Contents, whole-book saves and compact Report issue controls; followed Miss Jeeves to `/library.html#ai-dictionary::%40term-token`; and passed four-cover/topic-control geometry with zero horizontal overflow at 390 and 320 px. Homepage, Visitor's Centre, Resident Card and KSVL routes returned their canonical live surfaces. |
+| Exact scope | `operations/release-control/library-experience-successor-production-scope-20260823.json` |
+| Rollback target | immediate prior Library deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` from source `e31f6629f79403a8c1f9ed319956bdd490542c28` |
+
+## Superseded production release record — 2026-08-23 — four-book LIBRAiRY
+
+| Field | Current value |
+|---|---|
+| Deployed source | `e31f6629f79403a8c1f9ed319956bdd490542c28` |
+| Artifact identity | `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7` |
+| Curated build | 571 copied files / 426.75 MiB; manifest 573 files / 447,551,984 bytes |
+| Exact public scope | 24 Library/runtime changes / 0 removals / 22 checksum-preserved production paths / 45 fetchable verification paths |
+| Release path | GitHub exact-artifact workflow run `32677901263`; calibrated controller, source, base, scope, artifact and approval bindings all passed |
+| Cloudflare deployment | `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` |
+| Immutable URL | `https://6e7ffa1a.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | completed `2026-08-24T00:58:20Z`; immutable and custom-domain bytes matched the exact artifact. Live browser verification then opened AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary with no reader error, confirmed Contents and whole-book/section saves on every book plus chapter saves where chapters exist, confirmed compact mobile Contents/Top navigation, and rechecked Homepage, Visitor’s Centre, Resident Card and canonical KSVL/DJ Booth surfaces. |
+| Exact scope | `operations/release-control/library-four-book-production-scope-20260823.json` |
+| Rollback targets | immediate prior Library deployment `5becb7eb-38d0-4a21-b691-ee61b847eb00` is superseded because it used the older source line; safe pre-Library production baseline is `5a16a1a7-ed3f-4349-bc1c-ea680101ea20` from source `6edea2ac5fd9110900cd66b7f52cd162cc6fdbaa` |
+
+## Superseded production release record — 2026-08-23
 
 | Field | Current value |
 |---|---|

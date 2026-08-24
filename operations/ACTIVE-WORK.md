@@ -4,22 +4,22 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-FOUR-BOOK-PUBLICATION-20260823
-- **Status:** BUILDING
+- **Task ID:** LIBRARY-EXPERIENCE-REPAIR-20260823
+- **Status:** BUILDING — OWNER-CORRECTED CANDIDATE LOCAL / NOT DEPLOYED
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
-- **Updated:** 2026-08-23 America/Vancouver
-- **Goal:** Publish AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary as the four opening LIBRAiRY books.
-- **Acceptance:** The exact four rendered books and selected accepted visuals pass source/artifact admission, current factual and usability review, responsive navigation, accessible Save Book/Chapter/Section journeys, Miss Jeeves discovery, a zero-removal production scope, protected release control, immutable deployment verification and custom-domain verification at `laidies.ai`.
-- **Current step:** All four books passed the calibrated content, reader and responsive-browser gates and were deployed once. The post-deployment ancestry check found that release source was based on `e044ca89…`, while the actual immediately preceding production source was the newer `6edea2ac…`; the release therefore remained held despite passing book checks. The later production line and four-book line are now reconciled without discarding either. Exact artifact comparison against `6edea2ac…` reports 24 Library/runtime changes, zero removals and 22 critical production paths checksum-preserved. The rebound candidate identity is `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7`.
-- **Next action:** Run the changed-surface and restored-journey checks, commit and push the reconciled merge, bind the exact controller SHA, deploy artifact `68e7b2a1…`, then verify all four books and the preserved Visitor Centre, Resident Card, Homepage and KSVL journeys at `laidies.ai`.
+- **Updated:** 2026-08-23 America/Vancouver (rollback publicly verified 2026-08-24T03:48:40Z)
+- **Goal:** Repair the public LIBRAiRY experience around the four opening books without changing the approved masthead or backgrounds, and finish the authoritative Miss Jeeves service honestly.
+- **Acceptance:** The masthead/background markup remains byte-identical to the restored production baseline; the heading is exactly “Browse all books”; exactly four large individual covers appear with no shelf/case/wall/category boxes; cover → information → Open works on desktop/mobile; Miss Jeeves retrieves only current governed material and its operational gaps remain visibly unclaimed; Ali directly approves the exact candidate before deployment.
+- **Current step:** The owner-corrected candidate is local in `/tmp/laidies-library-owner-corrected-20260823`. It preserves the locked masthead/Miss Jeeves markup byte-for-byte (SHA-256 `07ce0d9e4068b0ec0d31bfbeeedf6f7425be5ed124cfccd2a466bdfab4d32ade`), shows exactly the four opening covers in a 4-up desktop/2×2 mobile grid with no shelf/case DOM, and preserves cover → information → Open. `scripts/test-library-opening-books.cjs` and the 12-part current Library product suite pass. The governed Miss Jeeves compiler and worker were recovered without the rejected page: 652 bound records compile and the worker suite passes, but production analytics, explicit topic intake/editorial queue, answer management, monitoring and exact public runtime proof remain open.
+- **Next action:** Commit and push the exact owner-corrected candidate, then present its rendered desktop/mobile proof for Ali's direct approval. Do not deploy before that approval. After page approval, complete or explicitly scope the remaining Miss Jeeves operational backend and reverify the exact public service.
 
 ## Boundaries
 
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This blueprint task made no source-checkout writes.
-- Recovery lane: `/tmp/laidies-library-release.AEjqSu`
-- Deployed starting commit: `e044ca899dfea867ba10f770cc99a0b8e32c100a`
-- Branch: `release/library-four-books-20260823`
+- Production source worktree: `/tmp/laidies-library-owner-corrected-20260823`
+- Deployed source commit: `e31f6629f79403a8c1f9ed319956bdd490542c28`
+- Source branch: `design/library-owner-corrected-20260823`
 - No reset, clean, deletion of source work, unrelated provider mutation, or
   spend is authorized. Ali authorized incremental live deployment on 2026-08-22;
   release still requires exact-commit deployment and public-origin verification.

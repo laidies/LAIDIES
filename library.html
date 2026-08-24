@@ -640,6 +640,24 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
 .empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
 
+/* OWNER_CORRECTED_OPENING_BOOK_GRID: four large individual covers replace the
+   rejected shelf/case display. The approved masthead above is intentionally untouched. */
+.shelf-captions{display:none!important}
+.shelf-guide .eyebrow{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
+.shelf-guide-heading>p{background:var(--cream);box-shadow:7px 7px 0 var(--pink)}
+.shelf-guide .libroom{grid-column:1/-1;width:100%;overflow:visible;background:transparent}
+.shelf-guide .unit{display:block}
+.book-cover-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:clamp(20px,3vw,42px);align-items:end;width:100%;padding:clamp(14px,2vw,24px) 0}
+.book-cover-grid .bk{position:relative;width:100%;max-width:none;height:clamp(300px,34vw,470px);display:flex;align-items:flex-end;justify-content:center;padding:0;border:0;border-radius:0;background:transparent;filter:drop-shadow(0 14px 10px rgba(49,20,54,.32))}
+.book-cover-grid .bk img{width:100%;height:100%;object-fit:contain;transform:none}
+.book-cover-grid .bk:hover,.book-cover-grid .bk:focus-visible{transform:translateY(-7px) scale(1.025);outline:4px solid var(--cream);outline-offset:5px}
+.book-cover-grid .empty-bay{position:static;grid-column:1/-1}
+.shelf-guide .checkout-preview{grid-column:1/-1;width:100%;margin:0}
+.shelf-guide .checkout-copy h2{font-family:'Jost',system-ui,sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;line-height:1.05;color:var(--ink);-webkit-text-stroke:0;text-shadow:none}
+.topic-link:hover,.topic-link:focus-visible,.topic-link[aria-pressed="true"]{border-color:var(--cyan);background:var(--pink)}
+.catalogue-closet{box-shadow:5px 5px 0 var(--pink)}
+.catalogue-closet:hover,.catalogue-closet:focus-visible{outline-color:var(--cyan)}
+
 @media(max-width:700px){
   .jv{display:block}.jv-head{margin-bottom:18px}.jv-head .h{font-size:38px}.jv-form{display:grid;grid-template-columns:1fr auto}
   .shelf-guide{display:block}.shelf-guide-heading{display:block}.shelf-guide-heading>p{margin-top:18px}.shelf-captions{grid-template-columns:1fr;margin-top:24px}.shelf-caption-art{min-height:190px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:24px}
@@ -657,6 +675,15 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .shelf-unit.is-compact .brow{left:3%;right:3%;height:35%;min-height:105px}.shelf-unit.is-compact .brow--1{bottom:65%}.shelf-unit.is-compact .brow--2{bottom:5%}
   .brow[data-book-count="2"]>.bk:first-child{justify-self:start}.brow[data-book-count="2"]>.bk:last-child{justify-self:end}
   .bk{flex-basis:clamp(120px,34vw,150px);width:clamp(120px,34vw,150px);max-width:150px}.shelf-unit.is-compact .bk{flex-basis:82px;width:82px;max-width:82px}.bk img{transform:translateY(-4%)}
+}
+@media(max-width:900px){
+  .book-cover-grid{grid-template-columns:repeat(2,minmax(130px,1fr));gap:24px 18px}
+  .book-cover-grid .bk{height:clamp(230px,58vw,390px)}
+}
+@media(max-width:700px){
+  .shelf-guide .libroom{margin-top:24px}
+  .topic-links{flex-wrap:wrap;overflow:visible}
+  .topic-link{flex:0 1 auto}
 }
 @media(max-width:900px){
   .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(360px,72vw,620px)}
@@ -715,10 +742,23 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   <section class="shelf-guide" aria-labelledby="shelf-guide-title">
     <div class="shelf-guide-heading">
       <div class="eyebrow">Browse the Library</div>
-      <h2 id="shelf-guide-title">Browse the shelves</h2>
-      <p>Start with the kind of help you need. Then choose a cover to see exactly what is inside.</p>
+      <h2 id="shelf-guide-title">Browse all books</h2>
+      <p>Choose a cover to see what the book contains, then open it when you are ready.</p>
     </div>
-    <div class="shelf-captions" id="shelf-captions" aria-label="What each Library shelf contains"></div>
+    <section class="libroom" aria-label="Browse all books in the SUNNYVAiLE LIBRAiRY">
+      <div class="unit" id="wallcase"></div>
+    </section>
+    <section class="checkout-preview is-empty" id="book-preview" aria-live="polite" aria-labelledby="book-preview-title">
+      <div class="checkout-cover"><img id="book-preview-cover" src="" alt=""></div>
+      <div class="checkout-copy">
+        <div class="checkout-kicker">About this book</div>
+        <h2 id="book-preview-title" tabindex="-1">Choose a book.</h2>
+        <p id="book-preview-summary">Its cover preview will tell you what it contains and whether it is ready before you open it.</p>
+        <p id="book-preview-inside" class="checkout-inside"></p>
+        <div class="checkout-meta" id="book-preview-meta"></div>
+      </div>
+      <div class="checkout-action"><button type="button" id="book-preview-back" class="checkout-back">Back to the books</button><button type="button" id="book-preview-read" hidden>Open this book</button><small id="book-preview-status"></small></div>
+    </section>
     <div class="catalogue-controls" aria-label="Find a book in the Library">
       <label class="catalogue-control">Search titles and topics
         <input id="catalogue-search" type="search" placeholder="e.g. privacy, prompts or ChatGPT" autocomplete="off">
@@ -740,20 +780,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <p class="catalogue-result" id="catalogue-result" role="status" aria-live="polite"></p>
     </div>
     <p class="library-status sr-only" id="library-status" role="status" aria-live="polite"></p>
-  </section>
-  <section class="libroom" aria-label="Browse the SUNNYVAiLE LIBRAiRY shelves">
-    <div class="unit" id="wallcase"></div>
-  </section>
-  <section class="checkout-preview is-empty" id="book-preview" aria-live="polite" aria-labelledby="book-preview-title">
-    <div class="checkout-cover"><img id="book-preview-cover" src="" alt=""></div>
-    <div class="checkout-copy">
-      <div class="checkout-kicker">At the checkout desk</div>
-      <h2 id="book-preview-title" tabindex="-1">Choose a book from the shelves.</h2>
-      <p id="book-preview-summary">Its cover preview will tell you what it contains and whether it is ready before you open it.</p>
-      <p id="book-preview-inside" class="checkout-inside"></p>
-      <div class="checkout-meta" id="book-preview-meta"></div>
-    </div>
-    <div class="checkout-action"><button type="button" id="book-preview-back" class="checkout-back">Back to the shelf</button><button type="button" id="book-preview-read" hidden>Open this book</button><small id="book-preview-status"></small></div>
   </section>
 
   </div>
@@ -909,33 +935,15 @@ const TOPIC_LABELS=Object.freeze({
 });
 const esc=value=>String(value??'').replace(/[&<>"]/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[character]));
 const shelfBook=book=>`<button class="bk${bookIsAvailable(book)?'':' soon'}" type="button" data-book-id="${esc(book.id)}" data-preview-book="${esc(book.id)}" data-library-status="${esc(book.status)}" data-visible-scale="160" aria-label="Preview ${esc(book.t)}. ${esc(bookVisitorStatus(book))}"><img src="${esc(book.img)}" alt="${esc(book.t)} cover"><span class="sr-only">${esc(bookVisitorStatus(book))}</span></button>`;
+const OPENING_BOOK_IDS=new Set(['ai-fundamentals-101','working-with-ai-101','straight-answers','ai-dictionary']);
 function renderShelf(){
- const collectionSelect=document.getElementById('catalogue-collection');
- if(collectionSelect){
-  const selected=catalogueFilter.collection;
-  collectionSelect.replaceChildren(new Option('All shelves','all'),...SECTIONS.map((section,index)=>new Option(section.name,index)));
-  collectionSelect.value=[...collectionSelect.options].some(option=>option.value===selected)?selected:'all';
-  catalogueFilter.collection=collectionSelect.value;
- }
- let matchCount=0;
- const visibleSectionIndexes=catalogueFilter.collection==='all'
-  ?SECTIONS.map((section,index)=>index)
-  :[Number(catalogueFilter.collection)].filter(index=>Number.isInteger(index)&&SECTIONS[index]);
- const rooms=visibleSectionIndexes.map(sectionIndex=>{
-  const section=SECTIONS[sectionIndex];
-  const visible=section.books.filter(book=>book.listed!==false).filter(book=>catalogueBookMatches(book,sectionIndex));
-  matchCount+=visible.length;
-  const titleId=`shelf-title-${sectionIndex}`;
-  const rows=shelfSplit(visible,sectionIndex).map((books,rowIndex)=>`<div class="brow brow--${rowIndex+1}" data-book-count="${books.length}">${books.map(shelfBook).join('')}</div>`).join('');
-  const empty=visible.length?'':'<p class="empty-bay">No matching books on this shelf.</p>';
-  const compactClass=visible.length>0&&visible.length<=4?' is-compact':'';
-  const compactRoomClass=compactClass?' is-compact-room':'';
-  return `<div class="library-room-unit${compactRoomClass}" id="library-shelf-${sectionIndex}" tabindex="-1" data-collection-room="${sectionIndex}"><div class="shelf-unit${compactClass}" aria-label="${esc(section.name)} physical collection case"><section class="department" data-collection="${sectionIndex}" aria-labelledby="${titleId}"><h2 class="sr-only" id="${titleId}">${esc(section.name)}</h2><div class="bay"><div class="ledge"><span class="shelf-live-sign">${esc(section.name)}</span></div><p class="mobile-shelf-caption"><b>${esc(section.name)}</b>${esc(section.mcap||section.cap)}<span class="reel-cue">Choose a cover to preview.</span></p>${rows}${empty}</div></section></div></div>`;
- });
+ const visible=SECTIONS.flatMap((section,sectionIndex)=>section.books.map(book=>({book,sectionIndex})))
+  .filter(({book})=>book.listed!==false&&bookIsAvailable(book)&&OPENING_BOOK_IDS.has(book.id))
+  .filter(({book,sectionIndex})=>catalogueBookMatches(book,sectionIndex))
+  .map(({book})=>book);
+ const matchCount=visible.length;
  const wallcase=document.getElementById('wallcase');
- wallcase.innerHTML=rooms.join('');
- document.querySelector('.libroom')?.classList.toggle('has-multiple-units',rooms.length>1);
- document.getElementById('shelf-captions').innerHTML=SECTIONS.map((section,sectionIndex)=>`<a class="shelf-caption" href="#library-shelf-${sectionIndex}" data-shelf-jump="${sectionIndex}"><div class="shelf-caption-copy"><b>${esc(section.name)}</b>${esc(section.cap)}<span class="shelf-caption-jump">Go to this shelf ↓</span></div></a>`).join('');
+ wallcase.innerHTML=`<div class="book-cover-grid" id="library-books-all" tabindex="-1">${visible.map(shelfBook).join('')}${visible.length?'':'<p class="empty-bay">No books match. Try another title or topic.</p>'}</div>`;
  const result=document.getElementById('catalogue-result');
  /* CATALOGUE_QUIET_DEFAULT_CONTRACT: counts are useful only after a visitor filters. */
  const catalogueHasActiveFilter=Boolean(catalogueFilter.q||catalogueFilter.topic!=='all'||catalogueFilter.collection!=='all'||catalogueFilter.status!=='all');
@@ -945,7 +953,7 @@ function resetBookPreview(returnToShelf=false){
  const preview=document.getElementById('book-preview');preview.classList.add('is-empty');
  delete preview.dataset.bookId;
  document.querySelector('.libroom')?.after(preview);
- document.getElementById('book-preview-title').textContent='Choose a book from the shelves.';
+ document.getElementById('book-preview-title').textContent='Choose a book.';
  document.getElementById('book-preview-summary').textContent='Its cover preview will tell you what it contains and whether it is ready before you open it.';
  document.getElementById('book-preview-inside').textContent='';
  const returnTarget=previewReturnFocus;
@@ -957,24 +965,6 @@ function resetBookPreview(returnToShelf=false){
 }
 document.getElementById('book-preview-back')?.addEventListener('click',()=>resetBookPreview(true));
 renderShelf();
-document.getElementById('shelf-captions')?.addEventListener('click',event=>{
- const jump=event.target.closest('[data-shelf-jump]');
- if(!jump)return;
- event.preventDefault();
- const sectionIndex=Number(jump.dataset.shelfJump);
- if(!Number.isInteger(sectionIndex)||!SECTIONS[sectionIndex])return;
- const search=document.getElementById('catalogue-search');if(search)search.value='';
- const collection=document.getElementById('catalogue-collection');if(collection)collection.value='all';
- const status=document.getElementById('catalogue-status');if(status)status.value='all';
- catalogueFilter.q='';catalogueFilter.collection='all';catalogueFilter.topic='all';catalogueFilter.status='all';
- document.querySelectorAll('.topic-link').forEach(link=>link.setAttribute('aria-pressed',String(link.dataset.topic==='all')));
- resetBookPreview();renderShelf();
- const target=document.getElementById(`library-shelf-${sectionIndex}`);
- if(!target)return;
- history.replaceState(null,'',`#library-shelf-${sectionIndex}`);
- target.scrollIntoView({behavior:motionBehavior(),block:'start'});
- target.focus({preventScroll:true});
-});
 compactShelfMedia.addEventListener?.('change',event=>{
  if(event.matches===compactShelfLayout)return;
  const preview=document.getElementById('book-preview');
@@ -1008,10 +998,7 @@ function previewBook(id,trigger=null){
  const section=SECTIONS.find(item=>item.books.includes(book));
  const preview=document.getElementById('book-preview');
  preview.dataset.bookId=id;
- const selectedBook=document.querySelector(`.bk[data-book-id="${id}"]`);
- const selectedRoom=selectedBook?.closest('.library-room-unit');
- if(selectedRoom)selectedRoom.after(preview);
- else document.querySelector('.libroom')?.after(preview);
+ document.querySelector('.libroom')?.after(preview);
  preview.classList.remove('is-empty');
  const cover=document.getElementById('book-preview-cover');cover.src=book.img;cover.alt=`${book.t} cover`;
  document.getElementById('book-preview-title').textContent=book.t;
@@ -1023,7 +1010,7 @@ function previewBook(id,trigger=null){
  const inside=book.inside||(book.topics||[]).map(topic=>topicLabels[topic]||topic).join(', ');
  document.getElementById('book-preview-inside').innerHTML=`<b>Inside this book:</b> ${inside||'Coverage details are still being prepared.'}`;
  const depth=book.depth||(section?.name==='REFERENCE'?'Sourced deep-dive reference':section?.name==='THE TOOLS'?'Quick practical guide':'Plain-English foundation');
- document.getElementById('book-preview-meta').innerHTML=`<span><b>Shelf:</b> ${section?.name||'Library'}</span><span><b>Depth:</b> ${depth}</span><span><b>Availability:</b> ${bookVisitorStatus(book)}</span>`;
+ document.getElementById('book-preview-meta').innerHTML=`<span><b>Collection:</b> ${section?.name||'Library'}</span><span><b>Depth:</b> ${depth}</span><span><b>Availability:</b> ${bookVisitorStatus(book)}</span>`;
  const read=document.getElementById('book-preview-read'),status=document.getElementById('book-preview-status'),action=read.closest('.checkout-action');
  action.hidden=false;
  if(bookIsAvailable(book)){

@@ -1,8 +1,8 @@
 # Miss Jeeves subproduct dossier
 
-**Status:** **SPECIFIED FROM ALI LIVE WALKTHROUGH / NEW BACKEND VERIFIED
-LOCALLY / PUBLIC BACKEND BROKEN**
-**As of:** 2026-08-22
+**Status:** **GOVERNED RETRIEVAL BACKEND VERIFIED LOCALLY / COMPLETE
+OPERATIONAL BACKEND NOT BUILT / PUBLIC STATE REQUIRES REVERIFICATION**
+**As of:** 2026-08-23
 
 ## Product job
 
@@ -59,31 +59,40 @@ destination supports it.
 
 - `library.html` accepts a question and the Homepage hands one to
   `/library.html#miss-jeeves?q=...`.
-- Seven browser-embedded curated answers bypass the backend. They are not
-  uniformly source/date bound and must be compiled into the governed retrieval
-  system or retired; they cannot remain a parallel answer authority.
-- The candidate `_worker.js` implements `POST /api/miss-jeeves`, loads the
-  static site index plus published Daily stories and available Study Packs,
-  supports optional grounded Cloudflare Workers AI synthesis and falls back to
-  deterministic retrieval.
-- The candidate backend rejects held/retired Library routes, has a controlled
-  unavailable state and emits only bounded aggregate topic/outcome signals when
-  an optional binding exists. `scripts/test-miss-jeeves-worker.mjs` passes.
-- The public endpoint returned empty HTTP 405 on 2026-08-22. The newer Worker is
-  therefore **not publicly installed**, regardless of its local PASS.
-- `content/site/site-index.json` has 26 records and only the fields `id`,
-  `title`, `url`, `type`, `section`, `status`, `summary`, `topics` and
-  `aliases`. It has no exact excerpt/section graph, learner-job field, source
-  evidence, freshness owner, roadmap record, class record, external source or
-  trusted-voice record.
-- `LIBRARY_ENTRY_ALLOWLIST` in `_worker.js` is empty. No Library book or exact
-  book section can be returned by the backend today.
+- The governed compiler `scripts/build-miss-jeeves-index.mjs` produces
+  `content/site/miss-jeeves-index.json` from the four admitted opening books
+  and current site index. The current local artifact contains 652 records with
+  exact book/section routes, learner-job metadata, review date, content version
+  and source artifact hash where the record belongs to a book.
+- `_worker.js` implements `POST /api/miss-jeeves`, loads that governed index
+  plus published Daily stories and available Study Packs, supports optional
+  grounded Cloudflare Workers AI synthesis and falls back to deterministic
+  retrieval. It rejects held/retired or unbound Library routes and returns a
+  controlled unavailable state.
+- `scripts/test-miss-jeeves-worker.mjs` passes the static-forward,
+  rendered-book, arbitrary-retrieval, retired-route, grounded-AI, unavailable,
+  privacy-safe aggregate signal, controlled-gap-topic and raw-query-leak
+  cases. This is local implementation evidence, not public or operational
+  proof.
+- The optional aggregate signal path writes only controlled topic, outcome and
+  source IDs when `MISS_JEEVES_SIGNALS` exists. The approved measurement
+  contract deliberately leaves that production binding off until disclosure,
+  retention and ownership are resolved. There is no operating report delivery.
+- The explicit unknown-question/topic-request intake, deduplication, editorial
+  queue, answer/content-gap management surface, owner workflow and monitoring
+  are **not built**. Miss Jeeves therefore does not yet have the complete
+  backend required to learn from unanswered visitor questions and manage the
+  response lifecycle.
+- Public runtime truth must be reverified against the exact candidate after
+  Ali approves the Library page. A prior deploy or HTTP success is not evidence
+  that this isolated current backend is installed.
 - The candidate AI path uses Cloudflare Workers AI model
   `@cf/google/gemma-4-26b-a4b-it`. Repository config does not prove that the
   production Pages project has an `AI` binding; Pages bindings are dashboard
   configuration and require explicit deployment/runtime evidence.
-- Results currently appear as one inline answer plus an undifferentiated card
-  list. They do not provide the grouped learning-path surface Ali described.
+- The API now returns learner-job and whole-book metadata, but the current page
+  still needs exact rendered verification that every grouped learning route is
+  understandable and useful on desktop and mobile.
 
 ## Required governed retrieval record
 
