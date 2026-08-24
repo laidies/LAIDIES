@@ -10,8 +10,8 @@
 - **Updated:** 2026-08-24 America/Vancouver
 - **Goal:** Implement Ali's selected pop-zine textbook reader direction across all four opening Library books without changing admitted prose, semantic meaning or book functions.
 - **Acceptance:** The white long-form reading surface, editorial hierarchy and approved Rewind/computer motif frame match the selected visual; semantic boxes retain their actual manuscript jobs; desktop and mobile Contents collapse to one compact toolbar control and open an overlay drawer; Save uses the teal floppy Puffy and opens the visitor's ten selected stickers; all four books remain navigable, readable and overflow-free at 1280, 390 and 320px; the exact successor is visually compared to the approved target before any public release.
-- **Current step:** The local implementation is complete and design QA passed. The reader uses the selected pop-zine shell, exact approved Puffy assets, compact overlay Contents and the ten-sticker Save interaction without changing admitted book artifacts.
-- **Next action:** Ali reviews the exact local browser candidate. Public release remains separate and requires approval of this implemented candidate.
+- **Current step:** The rejected flattened candidate has been superseded locally. The current implementation restores the exact angled-paper, split-title, comic-frame, Preface-burst and right-card composition from `exec-6ffbe44e-7d11-4ae4-8884-546946b2a867.png`, uses truthful card jobs and the approved Puffy mix, and preserves the admitted book prose. Direct same-viewport comparison and the four-book 1280/390/320 suite passed; mobile Contents closes after navigation and Puffy Save opens the resident picker.
+- **Next action:** Ali reviews this exact local successor. Public release remains separate and is not authorized by the local implementation or automated passes.
 
 ## Boundaries
 

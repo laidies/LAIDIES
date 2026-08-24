@@ -807,6 +807,101 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .book .txt h2{font-size:19px}
   .book .txt h2[data-source-block^="chapter-"]{margin-left:-6px;margin-right:-6px;padding:14px 10px}
 }
+
+/* Exact selected pop-zine composition. The bitmap supplies the angled paper,
+   halftone and comic edge art; all words and controls remain live HTML. */
+#reader.on{padding:10px;background:rgba(5,9,29,.94)}
+.book{width:min(1488px,calc(100dvw - 20px));height:min(1057px,calc(100dvh - 20px));max-height:none;padding:0;overflow:hidden;
+  border:0;border-radius:0;background:#fdfcfb url('/assets/library-reader/pop-zine-frame-v1.png') center/100% 100% no-repeat;
+  box-shadow:0 28px 90px rgba(2,8,28,.58)}
+.reader-pop-frame{position:absolute;inset:0;z-index:1;display:block;width:auto;overflow:hidden;border:0;background:none;pointer-events:none}
+.reader-pop-frame::before{content:none}
+.reader-motif{filter:drop-shadow(3px 5px 0 rgba(55,32,105,.18))}
+.reader-motif-cursor{top:3.5%;left:2.1%;width:5.3%}
+.reader-motif-lightning{top:23%;left:1.8%;width:4.3%}
+.reader-motif-star{top:45%;left:5.1%;right:auto;bottom:auto;width:3.2%}
+.reader-motif-cassette{top:51%;left:-.6%;width:12.5%}
+.reader-motif-computer{left:1.1%;bottom:3%;width:10.5%}
+.reader-motif-star-right{right:1.1%;bottom:17%;width:5.5%}
+.reader-motif-star-right-small{right:4.4%;bottom:31%;width:2.9%}
+.book>.band,.book>.body,.book>.correction-desk{position:relative;z-index:3}
+.book>.band{z-index:20}
+.book .band{position:relative;display:flex;min-height:220px;padding:45px 72px 20px 198px;align-items:flex-start;gap:24px;
+  border:0;background:transparent;color:#0f1744}
+.book .band>div:first-child{display:block;min-width:0;flex:1 1 auto}
+.book .band .m{display:none}
+.book .band .t{display:flex;width:auto;max-width:none;margin:0;padding:0;align-items:flex-end;gap:12px;border:0;color:#11163f;
+  font-family:'Jost',system-ui,sans-serif;font-size:clamp(36px,5.3vw,82px);font-weight:950;line-height:.84;letter-spacing:-.065em;text-shadow:none;white-space:nowrap}
+.reader-title-lead{font-size:1.34em;line-height:.72;letter-spacing:-.09em}
+.reader-title-name{position:relative;padding:0 5px 13px 0;font-family:'Playfair Display',Georgia,serif;font-size:.78em;font-weight:800;letter-spacing:-.045em}
+.reader-title-name::after{content:"";position:absolute;left:-4%;right:0;bottom:1px;height:5px;background:#ed4a9e;transform:rotate(-4deg)}
+.reader-title-number{padding-bottom:2px;color:#6f3ac9;font-family:'Playfair Display',Georgia,serif;font-size:.82em;font-weight:800;letter-spacing:-.04em}
+.reader-actions{display:flex;flex:0 0 auto;margin-top:37px;align-items:center;justify-content:flex-end;gap:8px}
+.reader-save-book,.reader-top,.book .band button:not(.puffy-btn){min-height:44px;margin:0;padding:8px 11px;border:0;background:transparent;color:#11183b;
+  box-shadow:none;font:850 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:none}
+.reader-save-book{gap:0;width:48px;padding:4px;border:2px solid #372080;border-radius:10px;background:#fff;box-shadow:4px 4px 0 #18c6d8}
+.reader-save-book img{width:35px;height:35px}.reader-save-book span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.reader-top{min-width:70px;border-left:1px solid #bfc3d3;border-right:1px solid #bfc3d3;text-transform:uppercase}
+.book .band #reader-close{padding:11px 16px;border:2px solid #18c6d8;border-radius:9px;background:#fff;box-shadow:none}
+.book .band #reader-report{padding:11px 5px;color:#303858;font-size:11px}
+.reader-contents{position:absolute;left:111px;top:226px;z-index:15;margin:0}
+.reader-contents>summary{display:flex;width:55px;height:166px;min-height:0;padding:13px 9px;align-items:center;justify-content:center;border:2px solid #6b42bf;border-radius:9px;
+  background:#fff;color:#6b42bf;box-shadow:4px 4px 0 rgba(107,66,191,.16);writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+.reader-contents>summary::before,.reader-contents>summary::after{content:none}.reader-contents-label{font-weight:950}
+.reader-contents nav{position:fixed;left:max(84px,calc((100dvw - min(1488px,calc(100dvw - 20px)))/2 + 176px));right:auto;top:max(90px,calc((100dvh - min(1057px,calc(100dvh - 20px)))/2 + 216px));
+  width:min(500px,calc(100dvw - 220px));max-height:min(70vh,690px);padding:13px;border:3px solid #6b42bf;border-radius:8px;background:#fff;box-shadow:10px 10px 0 rgba(16,24,66,.24);writing-mode:horizontal-tb}
+.book .body{display:block;min-height:0;overflow:hidden;background:transparent}
+.book .toc{display:none!important}
+.book .txt{height:calc(min(1057px,calc(100dvh - 20px)) - 220px);padding:10px 116px 80px 236px;overflow:auto;background:transparent;color:#1b2345;
+  font-size:17px;line-height:1.68;scroll-padding-top:20px}
+.book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
+.book .txt section[data-source-block="preface-why-this-book-matters"]{position:relative;max-width:1130px;margin:0 auto}
+.book .txt .reader-preface-heading{position:relative;width:calc(100% - 320px);min-height:152px;margin:0 0 24px;padding:19px 0 25px 158px;border:0;color:#11183b;
+  font:950 clamp(31px,3.05vw,47px)/1.09 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:uppercase}
+.book .txt .reader-preface-heading::before{content:"01";position:absolute;left:0;top:3px;display:grid;width:128px;height:128px;place-items:center;
+  background:url('/assets/library-reader/preface-burst-v1.png') center/contain no-repeat;color:#fff;font:800 43px/1 'Playfair Display',Georgia,serif;letter-spacing:-.04em}
+.book .txt .reader-preface-heading::after{content:"";position:absolute;left:142px;right:0;bottom:4px;width:auto;height:5px;background:#18c6d8;transform:rotate(-.5deg)}
+.book .txt .reader-preface-heading>.reader-inline-save{display:none}
+.reader-preface-kicker,.reader-preface-title{display:block}
+.book .txt .reader-preface-intro{max-width:740px;margin-right:330px}
+.reader-preface-aside{position:absolute;right:0;top:4px;display:grid;width:285px;gap:24px}
+.reader-preface-card{margin:0;padding:22px 22px 23px;border:3px solid;border-radius:18px;background:rgba(255,255,255,.86);color:#151c44;box-shadow:none}
+.reader-preface-card b{display:block;margin-bottom:13px;font:950 12px/1.2 'Jost',system-ui,sans-serif;letter-spacing:.12em}
+.reader-preface-card p{margin:0;font-size:18px;line-height:1.5}
+.reader-preface-card-why{border-color:#18bdd5;background:rgba(238,253,255,.88)}.reader-preface-card-why b{color:#0aaec4}
+.reader-preface-card-job{border-color:#7040d0;background:rgba(247,243,255,.9)}.reader-preface-card-job b{color:#7040d0}
+.book .txt section[data-source-block="preface-why-this-book-matters"]>h2:not(.reader-preface-heading){clear:both;margin-top:45px}
+
+@media(max-width:1050px){
+ .book .band{padding-left:150px;padding-right:35px}.book .band .t{font-size:clamp(34px,5.9vw,60px)}
+ .reader-contents{left:73px}.book .txt{padding-left:155px;padding-right:72px}
+ .book .txt .reader-preface-heading{width:calc(100% - 275px);padding-left:125px;font-size:31px}
+ .book .txt .reader-preface-heading::before{width:102px;height:102px;font-size:34px}
+ .book .txt .reader-preface-heading::after{left:115px}.reader-preface-aside{width:245px}
+ .book .txt .reader-preface-intro{margin-right:275px}.reader-preface-card p{font-size:16px}
+}
+@media(max-width:760px){
+ #reader.on{padding:0}.book{width:100dvw;height:100dvh;max-height:none;background:#fff}
+ .reader-pop-frame{display:none}
+ .book .band{min-height:150px;padding:16px 14px 12px;gap:9px;background:#fbf9ff;border-bottom:4px solid #18c6d8;flex-direction:column}
+ .book .band .t{font-size:clamp(30px,10vw,48px);gap:6px}.reader-title-name{padding-bottom:8px}.reader-title-name::after{height:4px}
+ .reader-actions{width:100%;margin-top:5px;justify-content:flex-start;gap:3px}
+ .reader-contents{position:relative;left:auto;top:auto;order:0}
+ .reader-contents>summary{width:auto;height:44px;padding:8px 10px;writing-mode:horizontal-tb;transform:none;letter-spacing:.03em;text-transform:none}
+ .reader-contents nav{left:10px;right:10px;top:142px;width:auto;max-height:calc(100dvh - 155px);transform:none}
+ .reader-top{min-width:55px;padding:7px}.book .band #reader-close{margin-left:auto;padding:9px 10px}.book .band #reader-report{display:none}
+ .book .txt{height:calc(100dvh - 150px);padding:24px 18px 44px;font-size:16px;line-height:1.65}
+ .book .txt .reader-preface-heading{width:100%;min-height:92px;margin-bottom:20px;padding:9px 0 16px 85px;font-size:clamp(25px,7.8vw,34px)}
+ .book .txt .reader-preface-heading::before{width:72px;height:72px;font-size:25px}.book .txt .reader-preface-heading::after{left:78px;height:4px}
+ .book .txt .reader-preface-intro{max-width:none;margin-right:0}
+ .reader-preface-aside{position:static;width:auto;margin:24px 0 32px;gap:14px}.reader-preface-card{padding:17px 18px;border-radius:13px}.reader-preface-card p{font-size:16px}
+}
+@media(max-width:420px){
+ .book .band{min-height:138px}.book .band .t{font-size:30px}.reader-title-number{font-size:.76em}
+ .reader-save-book{width:42px;height:42px}.reader-save-book img{width:31px;height:31px}.book .band #reader-close{font-size:9px}
+ .reader-contents nav{top:130px}.book .txt{height:calc(100dvh - 138px);padding:20px 15px 40px}
+ .book .txt .reader-preface-heading{padding-left:72px;font-size:24px}.book .txt .reader-preface-heading::before{width:61px;height:61px;font-size:21px}.book .txt .reader-preface-heading::after{left:68px}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
@@ -912,6 +1007,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <img class="reader-motif reader-motif-cassette" src="/assets/puffies/usable-25-images/64-black-pink-cassette.png" alt="">
       <img class="reader-motif reader-motif-computer" src="/assets/puffies/usable-25/06-retro-computer-heart.png" alt="">
       <img class="reader-motif reader-motif-star" src="/assets/puffies/puffy-star-pink.png" alt="">
+      <img class="reader-motif reader-motif-star-right" src="/assets/puffies/usable-25-images/55-purple-pink-sparkle-star.png" alt="">
+      <img class="reader-motif reader-motif-star-right-small" src="/assets/puffies/puffy-star-pink.png" alt="">
     </div>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
       <div class="reader-actions">
@@ -1399,6 +1496,41 @@ function assignBookSectionAnchors(txt){
     heading.id=slug+(occurrence>1?'-'+occurrence:'');
   });
 }
+function renderReaderTitle(id,title){
+ const target=document.getElementById('rt');
+ target.replaceChildren();
+ if(id==='ai-fundamentals-101'){
+  const lead=document.createElement('span'),name=document.createElement('span'),number=document.createElement('span');
+  lead.className='reader-title-lead';lead.textContent='AI';
+  name.className='reader-title-name';name.textContent='Fundamentals';
+  number.className='reader-title-number';number.textContent='101';
+  target.append(lead,document.createTextNode(' '),name,document.createTextNode(' '),number);
+  return;
+ }
+ target.textContent=title;
+}
+function decorateReaderOpening(id,txt){
+ txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());
+ txt.querySelectorAll('.reader-preface-intro').forEach(node=>node.classList.remove('reader-preface-intro'));
+ if(id!=='ai-fundamentals-101')return;
+ const preface=[...txt.querySelectorAll('section')].find(section=>section.dataset.sourceBlock==='preface-why-this-book-matters');
+ if(!preface)return;
+ const heading=[...preface.children].find(node=>node.matches?.('h2')&&node.textContent.trim().toLowerCase().startsWith('preface'));
+ if(!heading)return;
+ heading.classList.add('reader-preface-heading');
+ heading.replaceChildren();
+ const kicker=document.createElement('span'),title=document.createElement('span');
+ kicker.className='reader-preface-kicker';kicker.textContent='Preface —';
+ title.className='reader-preface-title';title.textContent='Why This Book Matters';
+ heading.append(kicker,title);
+ let lastIntro=heading;
+ for(let node=heading.nextElementSibling;node&&!node.matches('h2');node=node.nextElementSibling){
+  node.classList.add('reader-preface-intro');lastIntro=node;
+ }
+ const aside=document.createElement('div');aside.className='reader-preface-aside';
+ aside.innerHTML='<aside class="reader-preface-card reader-preface-card-why"><b>WHY THIS MATTERS</b><p>AI is already changing how people work, create, find information and make decisions.</p></aside><aside class="reader-preface-card reader-preface-card-job"><b>WHAT THIS BOOK DOES</b><p>Follow the whole AI system in plain English, learn what each part does and know which question to ask when something uses the label AI.</p></aside>';
+ lastIntro.insertAdjacentElement('afterend',aside);
+}
 function decorateReaderSaveIcons(id,txt){
  txt.querySelectorAll('.reader-inline-save').forEach(button=>button.remove());
  const chapterSelector=id==='straight-answers'?'h2[data-source-block]':'h2[data-source-block^="chapter-"]';
@@ -1593,10 +1725,11 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   activeReaderBookId=id;activeReaderSectionId=headingNeedle||null;correctionIdempotencyKey=null;correctionStatusReference=null;
   document.getElementById('correction-form').reset();document.getElementById('correction-desk').hidden=true;document.getElementById('correction-check').hidden=true;document.getElementById('correction-submit').disabled=false;document.getElementById('correction-submit').textContent='Send this correction';setCorrectionStatus('','idle');
   document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
+  document.querySelector('.book').dataset.bookId=id;
   document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
   document.getElementById('rm').textContent=b.s||'';
   const readerTitle=document.getElementById('rt');
-  readerTitle.textContent=b.t;
+  renderReaderTitle(id,b.t);
   const oldPuffyRow=readerTitle.nextElementSibling;
   if(oldPuffyRow&&oldPuffyRow.classList.contains('puffy-save-row'))oldPuffyRow.remove();
   [...readerTitle.attributes].filter(attribute=>attribute.name.startsWith('data-puffy-')).forEach(attribute=>readerTitle.removeAttribute(attribute.name));
@@ -1622,6 +1755,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       txt.innerHTML = sourceMain ? sourceMain.innerHTML : pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       if(id==='how-to-check')txt.querySelectorAll('.vr-hero h1,.vr-hero .vr-eyebrow').forEach(node=>node.remove());
       assignBookSectionAnchors(txt);
+      decorateReaderOpening(id,txt);
       decorateReaderSaveIcons(id,txt);
       const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
       const tocHeadings=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
@@ -1653,7 +1787,7 @@ function closeBook(){
   if(readerReturnFocus&&typeof readerReturnFocus.focus==='function')readerReturnFocus.focus();
 }
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
-document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash)activeReaderSectionId=decodeURIComponent(link.hash.slice(1));});
+document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash){activeReaderSectionId=decodeURIComponent(link.hash.slice(1));setTimeout(()=>{document.getElementById('mobile-toc').open=false;},0);}});
 document.getElementById('mobile-toc').addEventListener('toggle',event=>{
  if(!event.currentTarget.open)return;
  const nav=document.getElementById('rtoc-mobile');
