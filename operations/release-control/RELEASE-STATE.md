@@ -113,7 +113,23 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-23 — owner-corrected LIBRAiRY and Miss Jeeves
+## Current production release record — 2026-08-24 — contextual Library teaching visuals
+
+| Field | Current value |
+|---|---|
+| Deployed source | `ae174bb8f00388df583e33a09594dfbe5630b9f2` |
+| Artifact identity | `943b13e1ccf761b536ecab5a42da97f15e22998c12659b5f64363a8558303d54` |
+| Curated build | 574 copied public files / 432.11 MiB; manifest 576 files / 453,162,972 bytes |
+| Exact public scope | 7 exact modifications / 0 removals / 15 checksum-preserved production paths / 22 fetchable verification paths |
+| Release path | Authenticated Wrangler exact-artifact deployment on production branch `homepage-redesign` |
+| Cloudflare deployment | `849687b6-c36a-4c04-9533-ca53bab99d63` |
+| Immutable URL | `https://849687b6.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Both origins matched all 22 verification paths. AI Fundamentals and Working with AI passed eight live journeys across 1280px and 390px: images decoded, each followed its exact explanatory copy, no adjacent figures, no chapter/introduction opening figure and no horizontal overflow. Miss Jeeves health remained catalogue/D1 healthy with Workers AI configured and aggregate measurement available. |
+| Exact scope | `operations/release-control/library-book-visual-placement-production-scope-20260824.json` |
+| Rollback target | deployment `9849b3b4-2a41-48d9-9362-0b1d262744cb` from source `3359a4b89c44d5b51387210f13e04bb43fc24e36` |
+
+## Superseded production release record — 2026-08-23 — owner-corrected LIBRAiRY and Miss Jeeves
 
 | Field | Current value |
 |---|---|

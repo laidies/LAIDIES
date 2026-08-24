@@ -49,7 +49,7 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Release boundary
 
-Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23. Current production is source `3359a4b89c44d5b51387210f13e04bb43fc24e36`, artifact `8a759d5ce35b12f683514671b552c088e23ee3a63b403376efaf5f6a3b0d986e` and deployment `9849b3b4-2a41-48d9-9362-0b1d262744cb`; the immutable deployment and `laidies.ai` passed exact-byte, live-service and controlled aggregate-delivery verification on 2026-08-24 UTC. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
+Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23, then directly corrected opening-book image placement on 2026-08-24. Current production is source `ae174bb8f00388df583e33a09594dfbe5630b9f2`, artifact `943b13e1ccf761b536ecab5a42da97f15e22998c12659b5f64363a8558303d54` and deployment `849687b6-c36a-4c04-9533-ca53bab99d63`; the immutable deployment and `laidies.ai` passed 44 exact-byte checks, eight live desktop/mobile placement journeys and Miss Jeeves health verification on 2026-08-24 UTC. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
 
 ## Prohibited active inputs
 
