@@ -5,6 +5,7 @@
 Control Room governs shared-system order. Ali receives one decision at a time.
 
 ## P0 — current Episode 5 critical path
+
 **Opening-media launch reconciliation — NOW, parallel and non-colliding**
 
 - Ali reports unresolved visual, timing and animation failures across Episodes
@@ -20,6 +21,7 @@ Control Room governs shared-system order. Ali receives one decision at a time.
   `episode-media-recovery-ledger-2026-08-24.md`.
 - Evidence:
   `control-room-handoff-opening-media-human-review-reconciliation-2026-08-05.md`.
+
 1. **EPX-010 — Complete the top-level ownership rebind.**
    - Owner: Control Room.
    - Result: `episode-experience` becomes portfolio-level with
