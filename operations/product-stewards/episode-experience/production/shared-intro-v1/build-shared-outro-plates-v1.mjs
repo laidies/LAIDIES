@@ -4,6 +4,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 
+throw new Error(
+  "REJECTED OUTRO V1 BUILDER: it recreates painterly sources and the boxed CSS-style frame/title treatment. Use build-shared-outro-plates-v2.mjs.",
+);
+
 const require = createRequire(import.meta.url);
 const sharp = require("sharp");
 const root = process.cwd();
