@@ -25,6 +25,9 @@ This compact packet contains only current page-wide overrides, routing, active a
 - Miss Jeeves gives a short current evidence-bound answer and grouped exact learning routes; she states no coverage honestly. Suggested questions must resolve. Browser-hardcoded answers are not a second authority.
 - Miss Jeeves displays a compact row of genuinely common example questions. “How do I write a better prompt?” and other prompt-first shortcuts are rejected. Every visible example must be tested against a governed exact route; selecting it submits the question through the same backend as typed input. Examples never carry browser-hardcoded answers or a client-side fallback index.
 - Topic demand separates “we have it but people cannot find it” from “we need coverage.” Passive records use controlled IDs only; explicit requests alone may store disclosed visitor text. Popularity never creates a promise or publication.
+- The public Miss Jeeves answer path uses the governed catalogue first, then Cloudflare Workers AI only to interpret and summarize those supplied records. The production model is `@cf/meta/llama-3.1-8b-instruct-fp8-fast` in structured-JSON mode; any provider, format or capacity failure falls back to deterministic retrieval instead of breaking the answer or inventing from model memory.
+- A visitor may explicitly consent to submit an uncovered topic. That separate path issues a public receipt and status reference, stores the elected wording in the encrypted D1 payload vault for 30 days, retains only an HMAC-keyed duplicate digest and controlled topic/placement metadata outside the vault, and supports editorial `reviewing`, `planned`, `answered` or `declined` states. It never creates a public promise or publication automatically.
+- Passive Miss Jeeves outcome/result-open collection remains off until the production Analytics Engine binding can be deployed and verified. The endpoint returns `measurement_off` truthfully; raw questions are never a passive signal.
 - Puffy saves preserve whole-book versus exact-section scope. The first save attempt owns the Resident Card explanation; My Closet remains in the Sorority House.
 - Mobile explanation precedes what it explains; controls, covers and text remain readable without horizontal overflow. Desktop and mobile require real browser inspection.
 
@@ -45,7 +48,7 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Release boundary
 
-Ali reviews and directly approves the exact visible page candidate after maker function/accessibility/responsive checks. An internal maker or independent `ADMIT` verdict cannot substitute for Ali's visual approval and cannot authorize deployment. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication; release requires Ali's exact-candidate approval, exact build, deployment and custom-domain verification.
+Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23. Current production is source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c` and deployment `136bbe5a-e974-4225-80f2-70da06b9541a`; the immutable deployment and `laidies.ai` passed exact-byte and live-service verification on 2026-08-24 UTC. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
 
 ## Prohibited active inputs
 

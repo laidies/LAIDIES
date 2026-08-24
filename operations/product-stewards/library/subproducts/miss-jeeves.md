@@ -1,8 +1,8 @@
 # Miss Jeeves subproduct dossier
 
-**Status:** **GOVERNED RETRIEVAL BACKEND VERIFIED LOCALLY / COMPLETE
-OPERATIONAL BACKEND NOT BUILT / PUBLIC STATE REQUIRES REVERIFICATION**
-**As of:** 2026-08-23
+**Status:** **OPERATIONAL BACKEND DEPLOYED / PUBLICLY VERIFIED / PASSIVE
+AGGREGATE COLLECTION OFF**
+**As of:** 2026-08-24 UTC
 
 ## Product job
 
@@ -58,43 +58,49 @@ destination supports it.
 ## Current implementation truth
 
 - `library.html` accepts a question and the Homepage hands one to
-  `/library.html#miss-jeeves?q=...`. The Library shows no canned question chips
-  and contains no browser-hardcoded answer table or client-side fallback index;
-  the visitor's own question goes through the governed service.
+  `/library.html#miss-jeeves?q=...`. Four owner-approved common questions use
+  the same backend as typed input and are bound to exact intended sections.
+  There is no browser-hardcoded answer table or client-side fallback index.
 - The governed compiler `scripts/build-miss-jeeves-index.mjs` produces
   `content/site/miss-jeeves-index.json` from the four admitted opening books
   and current site index. The current local artifact contains 652 records with
   exact book/section routes, learner-job metadata, review date, content version
   and source artifact hash where the record belongs to a book.
 - `_worker.js` implements `POST /api/miss-jeeves`, loads that governed index
-  plus published Daily stories and available Study Packs, supports optional
-  grounded Cloudflare Workers AI synthesis and falls back to deterministic
-  retrieval. It rejects held/retired or unbound Library routes and returns a
-  controlled unavailable state.
+  plus published Daily stories and available Study Packs, uses the bound
+  Cloudflare Workers AI model `@cf/meta/llama-3.1-8b-instruct-fp8-fast` for
+  structured interpretation of supplied catalogue records, and falls back to
+  deterministic retrieval on any model/provider/format failure. It rejects
+  held/retired or unbound Library routes and returns a controlled unavailable
+  state.
 - `scripts/test-miss-jeeves-worker.mjs` passes the static-forward,
   rendered-book, arbitrary-retrieval, retired-route, grounded-AI, unavailable,
   privacy-safe aggregate signal, controlled-gap-topic and raw-query-leak
-  cases. This is local implementation evidence, not public or operational
-  proof.
+  cases. Live tests at both public origins additionally returned
+  `mode=grounded-ai`, exact coverage and the designed first section for all four
+  published common questions.
 - The optional aggregate signal path writes only controlled topic, outcome and
-  source IDs when `MISS_JEEVES_SIGNALS` exists. The approved measurement
-  contract deliberately leaves that production binding off until disclosure,
-  retention and ownership are resolved. There is no operating report delivery.
-- The explicit unknown-question/topic-request intake, deduplication, editorial
-  queue, answer/content-gap management surface, owner workflow and monitoring
-  are **not built**. Miss Jeeves therefore does not yet have the complete
-  backend required to learn from unanswered visitor questions and manage the
-  response lifecycle.
-- Public runtime truth must be reverified against the exact candidate after
-  Ali approves the Library page. A prior deploy or HTTP success is not evidence
-  that this isolated current backend is installed.
-- The candidate AI path uses Cloudflare Workers AI model
-  `@cf/google/gemma-4-26b-a4b-it`. Repository config does not prove that the
-  production Pages project has an `AI` binding; Pages bindings are dashboard
-  configuration and require explicit deployment/runtime evidence.
-- The API now returns learner-job and whole-book metadata, but the current page
-  still needs exact rendered verification that every grouped learning route is
-  understandable and useful on desktop and mobile.
+  source IDs when `MISS_JEEVES_SIGNALS` exists. Public disclosure and the
+  fail-closed result-open endpoint are deployed, but the production Analytics
+  Engine binding is still off because Pages continued to reject it after the
+  account feature and exact dataset were enabled. Live calls return
+  `measurement_off`; there is no passive collection or operating report.
+- `POST /api/miss-jeeves/topic-request` is the explicit consent-only content-gap
+  intake. D1 stores a public receipt/status lifecycle, controlled metadata,
+  HMAC-keyed deduplication and a 30-day free-text payload vault. The editorial
+  CLI lists/shows requests and records `reviewing`, `planned`, `answered` or
+  `declined`. Private-content fixtures are rejected before storage, and a
+  D1-backed identity-free global minute budget supplies abuse protection because
+  Pages does not accept the Workers rate-limit binding.
+- Production health is public at `/api/miss-jeeves/health`. The final release
+  is source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact
+  `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c`
+  and deployment `136bbe5a-e974-4225-80f2-70da06b9541a`; all 17 fetchable
+  release paths matched at the immutable deployment and `laidies.ai`.
+- Cloudflare's current Workers AI terms say customer content is not used to
+  train models or improve Cloudflare or third-party services without explicit
+  consent. The public service still blocks apparent passwords, email addresses
+  and other private content before retrieval or model invocation.
 
 ## Required governed retrieval record
 
@@ -135,8 +141,9 @@ status/type/date boundaries, but a vector score is not admission or truth.
 
 - Do not send raw questions, answers, inferred needs or reading history to
   Plausible, Clarity or the aggregate signal store.
-- The answer service necessarily processes the submitted question; disclose
-  that plainly and define provider retention/configuration before release.
+- The answer service necessarily processes the submitted question in memory;
+  the public Privacy page discloses Cloudflare processing and the no-training
+  boundary.
 - Never request passwords, account data, confidential work or sensitive
   personal details. Provide a local clear/reset control.
 - If the governed index or synthesis fails, retain the question, show a useful
@@ -174,13 +181,15 @@ draft, release or notification.
 
 ## Acceptance
 
-The exact build must pass a calibrated query suite covering exact, ambiguous,
+The exact build passes a calibrated query suite covering exact, ambiguous,
 related, planned, external, stale, held, demoted, typo, zero-result, provider
 failure, passive-signal privacy, explicit-request consent/PII/abuse and
-deduplication cases. Independent review judges answer usefulness,
+deduplication cases. Independent review still judges answer usefulness,
 factual/source fidelity, route relevance, distinction among learning jobs,
-LAiDIES voice, keyboard/mobile/assistive behavior and visible design. Local
-tests do not prove the AI binding, deployment or public endpoint.
+LAiDIES voice, keyboard/mobile/assistive behavior and visible design. Production
+AI binding, D1 lifecycle, privacy rejection, deterministic fallback, exact
+public bytes and both public origins are verified; passive aggregate delivery
+remains off and unverified.
 
 Build authority:
 `BUILD-PACKET-MISS-JEEVES-REFERENCE-TOOL-2026-08-22.md`.

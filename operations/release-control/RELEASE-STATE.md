@@ -1,6 +1,6 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-23
+**Updated:** 2026-08-24 UTC
 **Release owner:** LAIDIES-24H-PUBLIC-RECOVERY-20260822 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
@@ -10,9 +10,9 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages production deployment `840943b3-fbc7-4049-a0d7-0d12fba688af`, deployed source `750c062a27150bda6cbe5443ab16068f34e4e0aa`, artifact identity `820a4c19480cbe14a532807f92f2710f6804c361facb1d8d75bf210a5da31d2e`, immutable URL `https://840943b3.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`; three exact public modifications and 13 protected production paths were verified on 2026-08-23. MAiKEOVER now validates the device-local handle through the shared Resident Card contract and renders it with text-only DOM APIs; the public Card query boundary, single intended email/magic-link desk, canonical KSVL Booth, prior public language, Card/Closet and shared-entry truth remain checksum-preserved. |
-| Current recovery lane | `PUSHED / BUILDING` | Branch `codex/context-reset-20260818` contains the compact authority reset, fourteen public Homepage/shared-entry/sitewide functional increments and the admitted Homepage, LIBRAiRY and Visitor's Centre directions. The bounded functional corrections are public; the three visual directions are not production pages and are not deployed. |
-| Difference from production | `LOCAL/PUSHED DIRECTIONS NOT DEPLOYED` | Production includes the canonical mobile header on Homepage and shared-header pages, direct mobile LIBRAiRY access, 44px Menu access with Sign in/Join inside it, canonical header mounts on LIBRAiRY and Watch, all five exact activity receivers, the real 44px town map, truthful signed-out Resident Card and Wednesday Postcard handoffs, the separately verified MAiKEOVER/NewsStand receivers, the canonical KSVL-backed DJ Booth, and the fail-closed public Card query boundary. Homepage, LIBRAiRY and Visitor's Centre visual directions remain behind Ali's exact visible choice and production integration. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages deployment `136bbe5a-e974-4225-80f2-70da06b9541a`, deployed source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact identity `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c`, immutable URL `https://136bbe5a.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The owner-corrected four-book LIBRAiRY and operational Miss Jeeves backend are public; all 17 fetchable scope paths matched at both origins and the live grounded/D1/privacy lifecycle passed on 2026-08-24 UTC. |
+| Current recovery lane | `LIBRAiRY COMPLETE / OTHER DIRECTIONS SEPARATE` | Branch `design/library-owner-corrected-20260823` is the current deployed Library source. Homepage and Visitor's Centre directions remain separate review candidates and are not promoted by this Library release. |
+| Difference from production | `PASSIVE MISS JEEVES MEASUREMENT OFF` | The D1 and Workers AI bindings are active. The Analytics Engine account feature and exact dataset exist, but Pages still rejects the binding; public health and result-open truthfully report measurement off. No aggregate-demand claim is authorized. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
@@ -41,10 +41,9 @@ is recorded here.
   pause, seek, repeat, media-error, retry and one-audio cases passed before
   release; the exact public journey then passed at both origins and at
   1440/390/320 without changing the Booth’s room art or layout.
-- Homepage, LIBRAiRY and Visitor's Centre directions are pushed review
-  candidates only. None may be described as deployed until Ali chooses it, the
-  selected bytes are integrated into the production path, a scoped release is
-  deployed, and both origins pass public verification.
+- The owner-corrected LIBRAiRY direction and four opening books are deployed and
+  publicly verified. Homepage and Visitor's Centre directions remain separate
+  review candidates and are not selected or deployed by this release.
 - Trailer and Episodes 01–04 opening-day masters remain `HOLD`; the historical
   Episode 04 deployment receipt does not make the current master admitted.
 - The August 23 Homepage functional increments are public: five formerly dead
@@ -114,7 +113,24 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-23 — LIBRAiRY owner-rejection rollback
+## Current production release record — 2026-08-23 — owner-corrected LIBRAiRY and Miss Jeeves
+
+| Field | Current value |
+|---|---|
+| Deployed source | `e2b6f1a172893ff28609d474b3fec846f2d99ca6` |
+| Artifact identity | `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c` |
+| Curated build | 574 copied public files / 432.11 MiB; manifest 576 files / 453,163,058 bytes |
+| Exact public scope | 2 runtime/build-report successor changes / 0 removals / 16 checksum-preserved production paths / 17 fetchable verification paths |
+| Release path | Authenticated Wrangler exact-artifact deployment on production branch `homepage-redesign` |
+| Cloudflare deployment | `136bbe5a-e974-4225-80f2-70da06b9541a` |
+| Immutable URL | `https://136bbe5a.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | completed `2026-08-24T06:00:24Z`; all 17 fetchable paths matched the candidate at both origins. Health reported catalogue/D1 healthy, Workers AI configured and aggregate measurement off. Four published common questions returned grounded exact coverage with the designed first section. Private search/request and no-consent fixtures returned 400 without adding D1 rows. One labelled explicit request returned 201, replayed across the custom domain without duplication, exposed public status and was editorially declined as `release_test`. Result-open returned 202 `measurement_off` at both origins. |
+| Bound services | D1 `laidies-library-corrections` (`cd7fbb14-fdc6-4a86-893d-e60c4195400e`), `MISS_JEEVES_DIGEST_KEY`, Workers AI binding; Analytics Engine binding held/off |
+| Exact scope | `operations/release-control/miss-jeeves-operational-backend-production-scope-20260823.json` |
+| Rollback target | deployment `cdc01266-96b8-42cb-aed7-9c0bd0aeaa17` from source `cdbbe2717f0c0e6561c6b50c7df416bde54e1ead` |
+
+## Superseded production release record — 2026-08-23 — LIBRAiRY owner-rejection rollback
 
 | Field | Current value |
 |---|---|

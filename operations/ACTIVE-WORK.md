@@ -5,24 +5,24 @@
 ## Current task
 
 - **Task ID:** LIBRARY-EXPERIENCE-REPAIR-20260823
-- **Status:** PUSHED — OWNER-CORRECTED CANDIDATE AWAITING ALI REVIEW / NOT DEPLOYED
+- **Status:** DEPLOYED / PUBLICLY VERIFIED — PASSIVE MEASUREMENT OFF
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
-- **Updated:** 2026-08-23 America/Vancouver (rollback publicly verified 2026-08-24T03:48:40Z)
+- **Updated:** 2026-08-23 America/Vancouver (successor publicly verified 2026-08-24T06:00:24Z)
 - **Goal:** Repair the public LIBRAiRY experience around the four opening books, use Ali's supplied wide masthead composition at a shorter height with a bright in-palette wall treatment, restore the pop-art section backgrounds, and finish the authoritative Miss Jeeves service honestly.
-- **Acceptance:** The masthead preserves Miss Jeeves, the computers, staircase/shelves, desk and useful carpet detail without a black inset; the heading is exactly “Browse all books”; exactly four prominent individual covers appear in one desktop/compact row with no shelf/case/wall/category boxes; cover → information → Open works on desktop/mobile; Miss Jeeves retrieves only current governed material and its operational gaps remain visibly unclaimed; Ali directly approves the exact candidate before deployment.
-- **Current step:** Candidate `487d1181ddf322b4934c33456c3e5b2405838577` was owner-rejected because its fixed-height `cover` treatment cut off Miss Jeeves's head, its generated walls were hot neon magenta, and a later title-colour override made the Library title unreadable. Pushed successor `701c2f6310a74fe383adfb7f2722e997b4d91dbd` preserves the full-frame light-blue Ask Miss Jeeves masthead repair and exact preceding Library title treatment, and compacts the oversized 877px orientation panel into a side-by-side title/copy row with 22px vertical padding that stacks only below 700px. The pop-art backgrounds, one-row four-book browse and governed common Miss Jeeves questions remain intact. This successor is not owner-approved or deployed; production analytics, explicit topic intake/editorial queue, answer management, monitoring and exact public runtime proof remain open.
-- **Next action:** Present the exact candidate for Ali's direct visual approval. Do not deploy before that approval. After page approval, complete or explicitly scope the remaining Miss Jeeves operational backend and reverify the exact public service.
+- **Acceptance:** The masthead preserves Miss Jeeves, the computers, staircase/shelves, desk and useful carpet detail without a black inset; the heading is exactly “Browse all books”; exactly four prominent individual covers appear in one desktop/compact row with no shelf/case/wall/category boxes; cover → information → Open works on desktop/mobile; Miss Jeeves retrieves only current governed material, accepts explicit consent-based topic requests with receipts/status and remains truthful when passive measurement is off.
+- **Current step:** Production source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`, artifact `3e0578d2fc592e7aa63e34858aeae744f181806dd9aa1196b355c07150bd5b4c` and Cloudflare deployment `136bbe5a-e974-4225-80f2-70da06b9541a` are public. Both origins passed 17/17 exact fetchable-byte checks, healthy catalogue/D1 service, all four grounded common-question routes, private-content and no-consent rejection, one-request idempotent topic-request submit/replay/status/editorial-decline lifecycle, and fail-closed `measurement_off` result-open behavior. The D1 database, AI binding and keyed digest secret are active. Analytics Engine collection is not active: the account feature and exact dataset exist, but Pages still rejects the binding.
+- **Next action:** Keep passive demand claims at `UNKNOWN` while measurement is off. A later provider-integration task may retry the exact `MISS_JEEVES_SIGNALS` Pages binding and must prove delivery before changing that status; it does not block the truthful current Library or Miss Jeeves service.
 
 ## Boundaries
 
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This blueprint task made no source-checkout writes.
 - Production source worktree: `/tmp/laidies-library-owner-corrected-20260823`
-- Deployed source commit: `e31f6629f79403a8c1f9ed319956bdd490542c28`
+- Deployed source commit: `e2b6f1a172893ff28609d474b3fec846f2d99ca6`
 - Source branch: `design/library-owner-corrected-20260823`
 - No reset, clean, deletion of source work, unrelated provider mutation, or
-  spend is authorized. Ali authorized incremental live deployment on 2026-08-22;
-  release still requires exact-commit deployment and public-origin verification.
+  spend was performed. Ali authorized the live Library and Miss Jeeves release;
+  exact-commit deployment and public-origin verification are complete.
 
 ## History
 

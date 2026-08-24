@@ -1,6 +1,6 @@
 # Miss Jeeves privacy-safe measurement contract
 
-**Status:** local contract implemented; live collection not connected
+**Status:** endpoints deployed and publicly verified; live aggregate collection off
 **Owner boundary:** Library owns the visitor interaction; Platform owns transport,
 retention, access and source health; Audience interprets aggregates; content and
 building owners decide what to change.
@@ -33,12 +33,12 @@ This is the submission denominator.
 - `result_count`
 - `source_health`
 
-### `miss_jeeves_result_opened` — specified, not implemented
+### `miss_jeeves_result_open` — deployed; sink remains off
 
 One record when a visitor opens a recommended result. It may include only the
 same schema, placement, outcome and topic fields plus one admitted `source_id`
-and its controlled destination type. The exact event belongs to the approved
-Homepage/Library control, so it must not be attached to the rejected page.
+and its controlled destination type. The deployed endpoint returns
+`measurement_off` and writes nothing while `MISS_JEEVES_SIGNALS` is unbound.
 
 ## Data that is prohibited
 
@@ -50,9 +50,11 @@ URLs, analytics, logs, session replay, error reporting or model-training stores.
 
 The same-origin answer service necessarily processes the question in memory to
 produce the response. It must use `POST`, `no-store`, a bounded length and no
-request-body logging. The optional grounded model receives only the question and
-the current admitted catalogue; provider retention/training terms must be
-verified before that binding is enabled publicly.
+request-body logging. The grounded model receives only the question and current
+admitted catalogue. Cloudflare states that Workers AI customer content is not
+used to train models or improve Cloudflare or third-party services without
+explicit consent. The service rejects apparent private content before the model
+call.
 
 ## Retention and access
 
@@ -88,3 +90,18 @@ Before collection is enabled:
 5. Public-origin testing proves answers continue working when measurement fails.
 
 Until then, `MISS_JEEVES_SIGNALS` remains unbound and collection is off.
+
+## Current production evidence — 2026-08-24 UTC
+
+- The Library and Privacy page, health route, answer route and result-open route
+  are deployed at source `e2b6f1a172893ff28609d474b3fec846f2d99ca6`.
+- Both the immutable deployment and `laidies.ai` report
+  `aggregate_measurement: off`; result-open returns HTTP 202 with
+  `measurement_off`.
+- The Cloudflare account feature and dataset
+  `laidies_miss_jeeves_signals_v1` were created, but Pages still rejected the
+  Analytics Engine binding. No aggregate record is claimed until a successor
+  deployment accepts the binding and a delivery query is verified.
+- Consent-based topic requests are a separate D1 workflow, not passive
+  measurement. One labelled release fixture passed submit, cross-origin replay,
+  receipt/status and editorial decline with exactly one stored request.
