@@ -21,7 +21,12 @@ const episodeIndex = JSON.parse(fs.readFileSync(episodePath, "utf8"));
 const evidenceLedger = JSON.parse(fs.readFileSync(evidencePath, "utf8"));
 const asOfArg = process.argv.find((arg) => arg.startsWith("--as-of="));
 const asOf = asOfArg ? asOfArg.slice("--as-of=".length) :
-  new Date().toISOString().slice(0, 10);
+  new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Vancouver",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(new Date());
 const statuses = new Set(["available", "held", "planned", "unavailable"]);
 const standardRequiredIds = [
   "study_sheet", "try_on", "cheat_sheet", "trading_cards"
