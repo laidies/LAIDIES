@@ -42,12 +42,15 @@ async function run() {
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /site-system-v4-luminous$/, "luminous-door successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /site-system-v3$/, "visual successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
     assert.match(await page.locator(".lum-tab--saints .lum-tab__image").getAttribute("src"), /luminairy-saints-wing-door-v2-no-heart\.png$/, "the Saints entrance must not restore the rejected literal heart motif");
     assert.deepEqual(await imageFailuresFor(page, "#lumNaveImage, .lum-tab__image"), [], "nave and wing-door artwork must decode");
+    const inactiveDoorFilters = await page.locator('.lum-tab[aria-selected="false"] .lum-tab__image').evaluateAll((images) => images.map((image) => getComputedStyle(image).filter));
+    assert.ok(inactiveDoorFilters.every((filter) => !/brightness\(0\./.test(filter) && !/saturate\(0\./.test(filter)), `unselected wing art must stay luminous, got ${inactiveDoorFilters.join(" | ")}`);
     const siteSystem = await page.evaluate(() => {
       const root = getComputedStyle(document.documentElement);
       const hero = getComputedStyle(document.querySelector(".lum-hero__copy"));

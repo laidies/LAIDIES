@@ -412,6 +412,7 @@ input:focus-visible,
   height: 100%;
   display: block;
   object-fit: cover;
+  filter: saturate(1.08) brightness(1.12);
   transition: transform 260ms ease, filter 180ms ease;
 }
 
@@ -454,8 +455,8 @@ input:focus-visible,
   transform: translateY(-5px);
 }
 
-.lum-tab[aria-selected="false"] .lum-tab__image { filter: saturate(0.72) brightness(0.72); }
-.lum-tab:hover .lum-tab__image { filter: none; transform: scale(1.025); }
+.lum-tab[aria-selected="false"] .lum-tab__image { filter: saturate(1.08) brightness(1.12); }
+.lum-tab:hover .lum-tab__image { filter: saturate(1.12) brightness(1.16); transform: scale(1.025); }
 
 .lum-panel {
   padding: clamp(28px, 5vw, 68px);
