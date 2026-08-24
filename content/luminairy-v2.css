@@ -127,20 +127,9 @@ input:focus-visible,
   color: var(--lum-pink);
 }
 
-.lum-hero__lead {
-  max-width: 650px;
-  margin: 24px 0 12px;
-  font-family: var(--lum-serif);
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--lum-white);
-}
-
 .lum-hero__body {
   max-width: 680px;
-  margin: 0;
+  margin: 24px 0 0;
   color: rgba(255, 255, 255, 0.88);
   font-size: 1rem;
   line-height: 1.58;
@@ -167,28 +156,6 @@ input:focus-visible,
 
 .lum-hero__action:hover,
 .lum-closet-door:hover { color: var(--lum-white); background: var(--lum-purple); border-color: var(--lum-teal); }
-
-.lum-hero__status {
-  display: grid;
-  gap: 4px;
-  margin-top: 22px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(25, 211, 209, 0.48);
-}
-
-.lum-hero__status span {
-  color: #9ff6f4;
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.lum-hero__status strong {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.86rem;
-  line-height: 1.4;
-}
 
 .lum-error {
   padding: 28px max(24px, calc((100vw - 1320px) / 2));
@@ -730,7 +697,6 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(145d
   .lum-hero__media img { object-position: 52% center; }
   .lum-hero__copy { padding: 24px 20px; backdrop-filter: blur(4px); }
   .lum-hero h1 { font-size: clamp(3rem, 15vw, 4.7rem); }
-  .lum-hero__lead { margin-top: 18px; font-size: 1.18rem; }
   .lum-hero__body { font-size: 0.95rem; }
   .lum-local { grid-template-columns: minmax(0, 1fr); }
   .lum-local__picks { grid-template-columns: 1fr; }

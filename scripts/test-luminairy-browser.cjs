@@ -42,9 +42,11 @@ async function run() {
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.equal(await page.locator(".lum-hero__lead").count(), 0, "the three distinct wings must not be collapsed into a false all-guides umbrella");
+    assert.equal(await page.locator(".lum-hero__status").count(), 0, "internal archive and production status must not appear in the visitor hero");
     assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one guide from each wing.", "local-votive heading must give the actual action without defensive hedging");
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /no-count-strip$/, "count-strip successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /honest-hero$/, "honest hero successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /site-system-v3$/, "visual successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
