@@ -379,9 +379,12 @@ for (const entry of [
 // Keeping the list here makes a source build reproduce the deployed artifact
 // instead of silently deleting public paths during an unrelated release.
 for (const entry of [
+  'assets/sunnyvaile-streets/civic-square-midday.webp',
+  'assets/sunnyvaile-streets/schoolhouse-road-morning.webp',
   'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',
   'assets/library/episode-01-pop-comic-bg-v1.png',
+  'content/site/homepage.js',
   'content/site/resident-continuation-bootstrap-v1.js',
   'content/site/resident-continuation-v1.js',
 ]) {
