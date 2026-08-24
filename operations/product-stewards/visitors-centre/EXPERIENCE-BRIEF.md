@@ -12,8 +12,11 @@ is not production authority.
 ## Product job
 
 The Visitor’s Centre is SUNNYVAiLE’s complete tourist-information centre. It
-explains what the learning world is, why it is a town, what every content format
-and building does, and how to go directly to the right place.
+introduces the town, explains why LAiDIES uses a town to organize the site,
+shows what every content format and building does, and helps a visitor go
+directly to the right place. It is orientation and navigation—not a destination
+for learning AI concepts. AI learning belongs to the LIBRAiRY and LUMINAiRY,
+with SUNNYVAiLE High joining when its learning experience is admitted.
 
 The explanation order is locked:
 

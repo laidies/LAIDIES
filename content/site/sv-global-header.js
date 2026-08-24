@@ -34,8 +34,10 @@
   var SIGNIN_HREF = '/resident-card.html#rcAccountTitle';
   var QUICK_LINKS = [
     { label: 'Latest Episode', href: '/chick-flicks.html' },
-    { label: 'Look it up', href: '/library.html' },
-    { label: 'Explore SUNNYVAiLE', href: '/visitors-centre.html' }
+    { label: 'Start learning', href: '/#method' },
+    { label: 'LIBRAiRY', href: '/library.html' },
+    { label: 'Activities', href: '/#activities' },
+    { label: 'Explore SUNNYVAiLE', href: '/#town' }
   ];
   // Icons come from the shared gold kit (sv-gold-icons.js) — no emoji in
   // interface chrome (Ali, 2026-07-05).
@@ -80,10 +82,10 @@
     + '.svgh-ksvl .onair-dot { width: 8px; height: 8px; border-radius: 50%; background: #e0455f; box-shadow: 0 0 0 0 rgba(224,69,95,0.55); animation: svgh-pulse 1.8s ease-out infinite; }'
     + '@keyframes svgh-pulse { 0% { box-shadow: 0 0 0 0 rgba(224,69,95,0.5); } 70% { box-shadow: 0 0 0 7px rgba(224,69,95,0); } 100% { box-shadow: 0 0 0 0 rgba(224,69,95,0); } }'
     + '@media (prefers-reduced-motion: reduce) { .svgh-ksvl .onair-dot { animation: none; } }'
-    + ':where(.sv-header .brand) { position: relative; display: inline-block; font-weight: 800; font-size: 20px; letter-spacing: 0.035em; color: #2b1622; text-decoration: none; white-space: nowrap; line-height: 1; }'
-    + '.sv-header .brand .lac { color: #57b6c0; }'
-    + '.sv-header .brand .logo-iw { position: relative; }'
-    + '.sv-header .brand .logo-tit { position: absolute; left: 46%; bottom: 0.905em; transform: translateX(-50%); width: 0.17em; height: 0.17em; border-radius: 0.045em; background: currentColor; color: #e982ab; pointer-events: none; }'
+    + ':where(.sv-header .brand, .site-header .brand) { position: relative; display: inline-block; font: 800 20px/1 "Jost", system-ui, sans-serif; letter-spacing: 0.035em; color: #2b1622; text-decoration: none; white-space: nowrap; }'
+    + ':is(.sv-header, .site-header) .brand .lac { color: #57b6c0; }'
+    + ':is(.sv-header, .site-header) .brand .logo-iw { position: relative; }'
+    + ':is(.sv-header, .site-header) .brand .logo-tit { position: absolute; left: 46%; bottom: 0.905em; transform: translateX(-50%); width: 0.17em; height: 0.17em; border-radius: 0.045em; background: currentColor; color: #e982ab; pointer-events: none; }'
     + ':where(.sv-header nav) { display: flex; align-items: center; gap: 18px; }'
     + ':where(.sv-header nav a) { color: #4b2148; text-decoration: none; font-size: 14px; font-weight: 600; }'
     + '.svgh-left { display: flex; align-items: center; gap: 10px; }'
@@ -131,6 +133,7 @@
     + '.svgh-nav { display: flex; align-items: center; }'
     + 'body:is(.class-v2,.quiz-v2) .svgh-nav { flex-wrap: wrap; justify-content: flex-end; }'
     + '.svgh-nav a { text-decoration: none; }'
+    + '.svgh-jointail { margin-left: 0.24em; }'
     + '.svgh-library-mobile { display: none; }'
     + '.site-header .svgh-nav { gap: 22px; }'
     + '.site-header .svgh-nav a { color: var(--plum, #4b2148); font-family: "Jost", sans-serif; font-size: 14px; font-weight: 600; }'
