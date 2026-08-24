@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-FOUR-BOOK-PUBLICATION-20260823
-- **Status:** PUBLICLY VERIFIED
+- **Task ID:** LIBRARY-EXPERIENCE-REPAIR-20260823
+- **Status:** BUILDING
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-23 America/Vancouver
-- **Goal:** Publish AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary as the four opening LIBRAiRY books.
-- **Acceptance:** The exact four rendered books and selected accepted visuals pass source/artifact admission, current factual and usability review, responsive navigation, accessible Save Book/Chapter/Section journeys, Miss Jeeves discovery, a zero-removal production scope, protected release control, immutable deployment verification and custom-domain verification at `laidies.ai`.
-- **Current step:** `PUBLICLY VERIFIED`. AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary are live at `https://laidies.ai/library`. The final release source is `e31f6629f79403a8c1f9ed319956bdd490542c28`, artifact identity `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7`, Cloudflare deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` and immutable URL `https://6e7ffa1a.laidies-sunnyvaile.pages.dev/`. Exact comparison against actual prior-production source `6edea2ac…` passed with 24 Library/runtime changes, zero removals, 22 checksum-preserved production paths and 45 fetchable live checks. Final custom-domain browser verification opened all four exact titles with Contents and Book/Chapter/Section Puffy saves, verified the compact mobile Contents/Top navigation, and rechecked Homepage, Visitor’s Centre, Resident Card and KSVL/DJ Booth surfaces without application errors.
-- **Next action:** No release action remains for this task. Future content corrections or additional visuals are additive successor editions and must preserve these four public routes.
+- **Goal:** Repair the public LIBRAiRY experience around the four opening books: a shorter stronger arrival, one grounded All Books shelf, discreet correct reader controls, and the full authoritative Miss Jeeves search journey shared with the Homepage.
+- **Acceptance:** The four current public books and routes remain intact; one All Books shelf shows all four at launch with no empty category rooms; the masthead is materially shorter and preserves the approved carpet; Miss Jeeves understands ordinary-language questions, gives a bounded evidence-backed answer and grouped exact routes from one governed source; Homepage and Library converge on that service; desktop/mobile, keyboard, failure/retry and exact live-origin checks pass.
+- **Current step:** The successor is implemented in isolated worktree `/tmp/laidies-library-page-20260823`, branch `design/library-page-structural-20260823`. Exact browser proof passes at 1440/390/320 with one four-book shelf, cover → book information → Open this book, compact reader controls, contextual Report an issue and grouped Miss Jeeves results. Independent exact-pixel review initially held mobile header evidence, preview text, Miss Jeeves routes and topic controls; the repaired successor resolves each and is `ADMIT` with zero visible blockers. The governed Miss Jeeves index contains 652 records bound to the four admitted books and current site records. Exact release comparison against deployed source `e31f6629…` is candidate artifact `19026eddc3f6f27c1e39964e9f0b192ea66a6a914533388878116a41713697e5`: six public changes, zero removals and 22 production paths checksum-preserved.
+- **Next action:** Commit and push the owned paths, bind the merged controller commit, deploy candidate artifact `19026edd…`, then verify the custom-domain Library, four book readers, Miss Jeeves API and preserved routes.
 
 ## Boundaries
 

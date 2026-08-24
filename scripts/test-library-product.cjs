@@ -153,7 +153,8 @@ const server = http.createServer((request, response) => {
       ["scripts/check-library-book-content-admission.mjs", "--book", "ai-dictionary"],
       ["scripts/compile-library-admission.mjs"],
       ["scripts/test-library-opening-books.cjs"],
-      ["scripts/test-library-known-failures.mjs"],
+      ["scripts/test-library-launch-surface.mjs"],
+      ["scripts/test-library-launch-browser.cjs"],
       ["scripts/test-library-correction-service.mjs"],
       ["scripts/test-library-correction-worker.mjs"],
       ["scripts/test-library-correction-propagation.mjs"]

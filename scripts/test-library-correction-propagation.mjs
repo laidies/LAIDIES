@@ -184,7 +184,7 @@ const admissionLookupIndex = openBookSource.indexOf("const publication=admittedB
 const admissionGuardIndex = openBookSource.indexOf("if(!publication)");
 check(admissionLookupIndex >= 0 && admissionGuardIndex > admissionLookupIndex,
   "reader rechecks compiled admission before opening");
-check(/function safeIndexDestination\(entry\)[\s\S]{0,220}admittedBook\(bookId\)/.test(librarySource),
+check(/function safeIndexDestination\(entry\)[\s\S]{0,420}admittedBook\(id\)/.test(librarySource),
   "site index and Miss Jeeves suppress a corrected book through compiled admission");
 check(/Reopen ['"]?\s*\+\s*p\.title\s*\+\s*['"] in the Library, where publication status is checked again/.test(puffySource),
   "Puffy reopen truth promises a current Library admission recheck");

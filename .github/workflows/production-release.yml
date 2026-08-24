@@ -40,7 +40,7 @@ jobs:
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
       ARTIFACT_DIR: /tmp/laidies-candidate-site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
-      RELEASE_SCOPE_PATH: operations/release-control/library-four-book-production-scope-20260823.json
+      RELEASE_SCOPE_PATH: operations/release-control/library-experience-successor-production-scope-20260823.json
     steps:
       - uses: actions/checkout@v4
         with:
@@ -74,7 +74,7 @@ jobs:
             operations/release-control/public-entrypoints.json \
             operations/release-control/newsstand-production-scope.json \
             operations/assets/active-asset-registry.json \
-            operations/release-control/library-four-book-production-scope-20260823.json \
+            operations/release-control/library-experience-successor-production-scope-20260823.json \
             scripts/build-public-site.mjs \
             scripts/lib/active-asset-admission.mjs \
             scripts/compile-library-admission.mjs \
@@ -96,6 +96,9 @@ jobs:
             scripts/test-blend-snap-browser.mjs \
             scripts/test-homepage-held-assets-browser.mjs \
             scripts/test-library-product.cjs \
+            scripts/build-miss-jeeves-index.mjs \
+            scripts/test-library-launch-surface.mjs \
+            scripts/test-library-launch-browser.cjs \
             scripts/test-miss-jeeves-worker.mjs \
             scripts/test-production-release-controller.mjs \
             package.json \
@@ -134,6 +137,8 @@ jobs:
             exit 1
           fi
           node scripts/test-homepage-held-assets-browser.mjs
+          node scripts/build-miss-jeeves-index.mjs
+          git diff --exit-code -- content/site/miss-jeeves-index.json
           node scripts/test-library-product.cjs
           node scripts/test-miss-jeeves-worker.mjs
           npm run test:daily-private-pipeline
@@ -343,8 +348,10 @@ jobs:
             jq -e '(.status == "ok" or .status == "related") and
               ((.results // []) | length > 0) and
               ((.results // []) | any(.[];
-                (.id == "book-ai-fundamentals-101" or .id == "book-ai-dictionary" or .id == "concept-token") and
-                ((.url // "") | startswith("/library.html")))) and
+                .id == "book-section-ai-dictionary-term-token" and
+                .parentId == "ai-dictionary" and
+                .url == "/library.html#ai-dictionary::%40term-token" and
+                .wholeUrl == "/library.html#ai-dictionary")) and
               ((.results // []) | all(.[]; .id != "book-concepts-101" and .id != "concepts-101"))' "$body_file" >/dev/null
             curl --silent --show-error --location --proto-redir '=https' --max-redirs 3 \
               --output "$body_file" --write-out '%{http_code}\n%{url_effective}' \

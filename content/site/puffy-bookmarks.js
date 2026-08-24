@@ -550,7 +550,7 @@
     var actionLabel = el.getAttribute('data-puffy-action-label') || 'Save this ' + kind + ' with a Puffy Sticker';
     btn.innerHTML =
       '<span class="puffy-button-art" aria-hidden="true">' +
-        '<img src="/assets/puffies/usable-25-images/75-pink-teal-magic-wand.png" alt="">' +
+        '<img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">' +
       '</span><span class="puffy-button-label">' + actionLabel + '</span>';
     function paint() {
       var placedItem = find(load(), id);
@@ -564,7 +564,7 @@
         art.innerHTML = '<img class="puffy-chosen" src="' + stickerUrl(placedItem.sticker) + '" alt="">';
         label.textContent = 'Saved to My Closet';
       } else {
-        art.innerHTML = '<img src="/assets/puffies/usable-25-images/75-pink-teal-magic-wand.png" alt="">';
+        art.innerHTML = '<img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">';
         label.textContent = actionLabel;
       }
     }

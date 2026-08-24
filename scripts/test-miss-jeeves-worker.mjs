@@ -6,7 +6,7 @@ import path from 'node:path';
 import worker from '../_worker.js';
 
 const root = path.resolve(import.meta.dirname, '..');
-const index = JSON.parse(fs.readFileSync(path.join(root, 'content/site/site-index.json'), 'utf8'));
+const index = JSON.parse(fs.readFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), 'utf8'));
 const dailyIssues = JSON.parse(fs.readFileSync(path.join(root, 'content/newsstand-daily-issues.json'), 'utf8'));
 const studyPacks = JSON.parse(fs.readFileSync(path.join(root, 'content/blend-snap-weekly-packs.json'), 'utf8'));
 const calls = [];
@@ -16,7 +16,7 @@ function envWith(entries = index.entries, ai = null, signalSink = null) {
       async fetch(request) {
         const url = new URL(request.url);
         calls.push(url.pathname);
-        if (url.pathname === '/content/site/site-index.json') return Response.json({ _meta: index._meta, entries });
+        if (url.pathname === '/content/site/miss-jeeves-index.json') return Response.json({ _meta: index._meta, entries });
         if (url.pathname === '/content/newsstand-daily-issues.json') return Response.json(dailyIssues);
         if (url.pathname === '/content/blend-snap-weekly-packs.json') return Response.json(studyPacks);
         return new Response('STATIC', { status: 200 });
@@ -75,7 +75,7 @@ heldDailyStory.status = 'draft';
 const heldDailyEnv = envWith();
 heldDailyEnv.ASSETS.fetch = async request => {
   const url = new URL(request.url);
-  if (url.pathname === '/content/site/site-index.json') return Response.json(index);
+  if (url.pathname === '/content/site/miss-jeeves-index.json') return Response.json(index);
   if (url.pathname === '/content/newsstand-daily-issues.json') return Response.json(heldDaily);
   return new Response('STATIC');
 };
@@ -145,21 +145,22 @@ const relatedAi = {
       coverage: 'related',
       answer: 'The catalogue covers context windows but not their specific effect on legal work.',
       topic_label: 'context windows',
-      source_ids: ['concept-context', 'book-ai-fundamentals-101']
+      source_ids: ['book-section-ai-fundamentals-101-ch-4-4-4-context-windows-the-systems-working-memory']
     }) };
   }
 };
 const related = await (await ask('How will context windows change legal work?', envWith(index.entries, relatedAi))).json();
 assert.equal(related.status, 'related', 'admitted Library books may provide clearly labelled related coverage');
-assert.ok(related.results.some(result => result.id === 'book-ai-fundamentals-101'));
+assert.ok(related.results.some(result => result.parentId === 'ai-fundamentals-101'));
 
 const chipsWithoutAi = await (await ask('Why are chips so important to AI?')).json();
-assert.equal(chipsWithoutAi.status, 'not_covered', 'deterministic fallback must not pretend generic AI material covers chips');
+assert.equal(chipsWithoutAi.status, 'ok', 'an exact admitted chip section must answer the direct chip question');
+assert.ok(chipsWithoutAi.results.some(result => result.parentId === 'ai-fundamentals-101' && /chip/i.test(result.title)));
 
 const tokenWithoutAi = await (await ask('What is a token?')).json();
 assert.equal(tokenWithoutAi.coverage, 'exact', 'the admitted Dictionary token entry must provide exact current coverage');
 assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('concepts-101')));
-assert.ok(tokenWithoutAi.results.some(result => result.id === 'concept-token' && result.url.startsWith('/library.html#ai-dictionary')));
+assert.ok(tokenWithoutAi.results.some(result => result.id === 'book-section-ai-dictionary-term-token' && result.url.startsWith('/library.html#ai-dictionary')));
 
 const restoredRejectedConcepts = structuredClone(index.entries);
 restoredRejectedConcepts.push({

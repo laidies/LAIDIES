@@ -1,18 +1,7 @@
 const MAX_QUERY_LENGTH = 240;
 const AI_MODEL = '@cf/google/gemma-4-26b-a4b-it';
-const LIBRARY_ENTRY_ALLOWLIST = new Set([
-  'book-ai-fundamentals-101',
-  'book-working-with-ai-101',
-  'ref-straight-answers',
-  'book-ai-dictionary',
-  'concept-generative',
-  'concept-prompt',
-  'concept-hallucination',
-  'concept-model',
-  'concept-context',
-  'concept-token',
-  'concept-agent'
-]);
+const ADMITTED_LIBRARY_PARENTS = new Set(['ai-fundamentals-101','working-with-ai-101','straight-answers','ai-dictionary']);
+const LEARNER_JOBS = new Set(['understand','see-explained','current','practise','step-by-step','planned','trusted']);
 const STOPWORDS = new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','important','in','is','it','me','my','of','on','or','should','so','take','the','to','use','what','which','why','will','with','you']);
 const TOPIC_RULES = [
   ['compute-chips-gpus', /\b(chip|chips|gpu|gpus|cpu|cpus|accelerator|accelerators|semiconductor|semiconductors|compute|data[ -]?centre|data[ -]?center)\b/i],
@@ -50,6 +39,8 @@ function tokens(value) {
 }
 
 function classifyTopic(query, matches = []) {
+  const direct = TOPIC_RULES.find(([, pattern]) => pattern.test(query));
+  if (direct) return direct[0];
   const evidence = `${query} ${matches.slice(0, 4).flatMap(match => [match.entry?.title, ...(match.entry?.topics || [])]).join(' ')}`;
   return TOPIC_RULES.find(([, pattern]) => pattern.test(evidence))?.[0] || 'other';
 }
@@ -57,10 +48,11 @@ function classifyTopic(query, matches = []) {
 function safeEntry(entry) {
   if (!entry || entry.status !== 'live' || typeof entry.url !== 'string' || !entry.url.startsWith('/') || entry.url.startsWith('//')) return false;
   if (entry.url.startsWith('/grimoire/')) return false;
+  if (!LEARNER_JOBS.has(entry.learnerJob)) return false;
   if (entry.url.startsWith('/library.html')) {
     let libraryUrl;
     try { libraryUrl = new URL(entry.url, 'https://laidies.invalid'); } catch { return false; }
-    if (!LIBRARY_ENTRY_ALLOWLIST.has(entry.id)) return false;
+    if (!ADMITTED_LIBRARY_PARENTS.has(entry.parentId) || !/^[a-f0-9]{64}$/.test(entry.artifactSha256 || '') || typeof entry.reviewedAt !== 'string') return false;
   }
   return typeof entry.id === 'string' && typeof entry.title === 'string' && typeof entry.summary === 'string' && Array.isArray(entry.topics) && Array.isArray(entry.aliases);
 }
@@ -68,7 +60,7 @@ function safeEntry(entry) {
 function retrieve(query, entries) {
   const normalized = normalize(query);
   const queryTokens = tokens(normalized);
-  return entries.filter(safeEntry).map(entry => {
+  const ranked = entries.filter(safeEntry).map(entry => {
     const title = entry.title.toLowerCase();
     const aliases = entry.aliases.map(alias => String(alias).toLowerCase());
     const topics = entry.topics.map(topic => String(topic).toLowerCase());
@@ -79,7 +71,7 @@ function retrieve(query, entries) {
     let score = 0;
     for (const alias of aliases) {
       if (alias === normalized) score += 12;
-      else if (alias.includes(normalized) || normalized.includes(alias)) score += 6;
+      else if (alias.length >= 4 && normalized.length >= 4 && (alias.includes(normalized) || normalized.includes(alias))) score += 6;
     }
     if (title.includes(normalized)) score += 6;
     for (const token of queryTokens) {
@@ -88,25 +80,37 @@ function retrieve(query, entries) {
       else if (searchableTokens.has(token)) score += 1;
     }
     return { entry, score };
-  }).filter(result => result.score > 0).sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title)).slice(0, 6);
+  }).filter(result => result.score > 0).sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title));
+  const selected = [];
+  for (const job of ['understand','see-explained','current','practise','step-by-step','planned','trusted']) {
+    const match = ranked.find(result => result.entry.learnerJob === job);
+    if (match) selected.push(match);
+  }
+  for (const result of ranked) {
+    if (!selected.includes(result)) selected.push(result);
+    if (selected.length >= 12) break;
+  }
+  return selected;
 }
 
 function hasExactCatalogueMatch(query, matches) {
   const normalized = normalize(query);
+  const canonical = tokens(normalized).join(' ');
   if (/\b(where|find|show)\b/.test(normalized) && matches.length) return true;
   return matches.some(({ entry }) =>
     normalize(entry.title) === normalized ||
-    entry.aliases.some(alias => normalize(alias) === normalized) ||
-    entry.topics.some(topic => normalize(topic) === normalized)
+    tokens(entry.title).join(' ') === canonical ||
+    entry.aliases.some(alias => normalize(alias) === normalized || tokens(alias).join(' ') === canonical) ||
+    entry.topics.some(topic => normalize(topic) === normalized || tokens(topic).join(' ') === canonical)
   );
 }
 
 async function loadIndex(request, env) {
-  const indexUrl = new URL('/content/site/site-index.json', request.url);
+  const indexUrl = new URL('/content/site/miss-jeeves-index.json', request.url);
   const response = await env.ASSETS.fetch(new Request(indexUrl, { headers: { accept: 'application/json' } }));
   if (!response.ok) throw new Error('index unavailable');
   const data = await response.json();
-  if (!data?._meta || !Array.isArray(data.entries)) throw new Error('index invalid');
+  if (data?._meta?.schema !== 'laidies-miss-jeeves-index.v1' || !Array.isArray(data.entries)) throw new Error('index invalid');
   let dailyEntries = [];
   let studyPackEntries = [];
   try {
@@ -140,6 +144,7 @@ function publishedDailyEntries(data) {
       title: story.headline,
       url: `/newsstand.html#${story.slug}`,
       type: 'daily',
+      learnerJob: 'current',
       section: 'NewsStand · The Daily',
       status: 'live',
       summary: String(story.laidies_read || story.cocktail_party || story.the_story || '').slice(0, 1200),
@@ -167,6 +172,7 @@ function availableStudyPackEntries(data, catalogueEntries) {
       title: `Episode ${number} Study Pack`,
       url: `/blend-snap.html?episode=${Number(pack.episodeNumber)}#the-study-pack`,
       type: 'study-pack',
+      learnerJob: 'practise',
       section: 'Blend & Snap',
       status: 'live',
       summary: `Practise and keep Episode ${number} · ${episode.title}. Ready now: ${ready.map(component => component.label).join(', ')}.`,
@@ -181,11 +187,14 @@ function publicResult(result) {
   const { entry } = result;
   return {
     id: entry.id,
+    ...(entry.parentId ? { parentId: entry.parentId } : {}),
     title: entry.title,
     url: entry.url,
     type: entry.type,
     section: entry.section,
     summary: entry.summary,
+    learnerJob: entry.learnerJob,
+    ...(entry.wholeUrl ? { wholeUrl: entry.wholeUrl } : {}),
     topics: entry.topics.slice(0, 8),
     ...(entry.episodeId ? { episodeId: entry.episodeId } : {}),
     ...(entry.publishedAt ? { publishedAt: entry.publishedAt } : {}),
@@ -218,14 +227,17 @@ function parseAiJson(response) {
 async function reasonAcrossCatalogue(query, entries, env) {
   const safeEntries = entries.filter(safeEntry);
   if (!env.AI || !safeEntries.length) return null;
-  const sources = safeEntries.map(entry => ({
+  const candidates = retrieve(query, safeEntries).slice(0, 18);
+  if (!candidates.length) return null;
+  const sources = candidates.map(({entry}) => ({
     id: entry.id,
     title: entry.title,
     summary: entry.summary,
     topics: entry.topics,
     aliases: entry.aliases,
     section: entry.section,
-    url: entry.url
+    url: entry.url,
+    learner_job: entry.learnerJob
   }));
   const response = await env.AI.run(AI_MODEL, {
     messages: [
@@ -245,7 +257,7 @@ async function reasonAcrossCatalogue(query, entries, env) {
   if (!['exact', 'related', 'none'].includes(parsed?.coverage) || typeof parsed?.answer !== 'string' || !Array.isArray(parsed?.source_ids)) {
     throw new Error('AI returned invalid result');
   }
-  const byId = new Map(safeEntries.map(entry => [entry.id, entry]));
+  const byId = new Map(candidates.map(({entry}) => [entry.id, entry]));
   const selected = [...new Set(parsed.source_ids)].map(id => byId.get(id)).filter(Boolean).slice(0, 4);
   const topicId = TOPIC_IDS.has(parsed.topic_id) ? parsed.topic_id : classifyTopic(query, selected.map(entry => ({ entry })));
   if (parsed.coverage === 'none' || !selected.length) {

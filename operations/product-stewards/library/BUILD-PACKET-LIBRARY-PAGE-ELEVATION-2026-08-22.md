@@ -1,10 +1,11 @@
 # LIBRAiRY page elevation — build packet
 
-**Status:** SPECIFIED FROM ALI LIVE WALKTHROUGH / IMPLEMENTATION NOT STARTED
+**Status:** UPDATED FROM ALI LIVE WALKTHROUGH / IMPLEMENTATION ACTIVE
 **Date:** 2026-08-22
 **Visitor surface:** `/library.html`
-**Release truth:** current local candidate is HOLD; public page is a different,
-older artifact; zero opening books are admitted.
+**Release truth:** the four opening books are publicly verified; this successor
+page repair is local and remains HOLD until exact visual/product admission and
+public-origin verification.
 
 ## Visitor problem
 
@@ -12,20 +13,19 @@ The Library's component ideas are nearly right, but the visible page does not
 feel like one authored physical building. The arrival image is recognizably
 1990s but visually dull beside the electric page; the Reference Desk and Browse
 sections repeat the same weight; the shelf rooms appear stacked and floating;
-books do not convincingly sit on physical rails; search feels cramped; and the
+books do not convincingly sit on physical rails; three collection rooms make a
+four-book launch feel sparse; search feels cramped; and the
 live page has no visible shared navigation. That visual and navigational break
 makes a useful Library feel assembled rather than inhabited.
 
 ## Preserve — this is what good already looks like
 
 - Bright, bold, colourful 1990s pop-art energy.
-- Distinct colours for Reference Desk, Browse and the three collections.
-- A visitor can clearly recognize **101s**, **Tools** and **Reference**, with a
-  plain explanation of what each contains.
+- Distinct semantic colours for Reference Desk, Browse and teaching boxes.
 - The entry concept feels like opening the door and seeing the building inside.
 - Selecting a cover reveals subject, contents, depth, currentness and
   availability before any separate Open action.
-- All current books remain visible; the design can grow without pagination or
+- All four launch books remain visible; the design can grow without pagination or
   shrinking covers into thumbnails.
 
 ## Repair — exact acceptance conditions
@@ -42,8 +42,9 @@ makes a useful Library feel assembled rather than inhabited.
 
 ### 2. One connected arrival
 
-- Retain the current interior's credible 1990s details: carpet, public
-  computers, metal stacks and the reference-desk setting.
+- Retain the carpet. The current image's other elements are not protected and
+  may be recropped, reworked or replaced.
+- Reduce the masthead's vertical footprint materially at desktop and mobile.
 - Elevate colour, depth, lighting, crop and/or environmental storytelling so
   the interior belongs to the electric page rather than reading as a detached,
   dull image panel.
@@ -59,18 +60,21 @@ makes a useful Library feel assembled rather than inhabited.
   book/section, Episodes, NewsStand, reinforcement, High, planned content and
   governed external sources. The complete behavior lives in
   `subproducts/miss-jeeves.md` and its dedicated build packet.
-- **Browse the Library shelves:** explore physical collections and books by
+- **Browse the books:** explore the current books by
   subject, title and need.
 - Visitor copy must not call the experience a generic catalogue. “Catalogue”
   remains acceptable only for internal publication/search data.
 - Reference Desk and Browse may share the Library's pop-art material family,
   but their compositions must have visibly different weight and direction.
 
-### 4. Grounded physical shelves
+### 4. One grounded launch shelf
 
-- Recompose the 101s, Tools and Reference rooms so they read as connected
-  spaces inside one Library, not three unrelated full-width panels.
-- Every room has a convincing wall/case/floor relationship and visible ground
+- Render one **All Books** shelf containing the four admitted opening books.
+  Do not show 101s, Tools or Reference as separate shelf choices at launch;
+  retain those values only as metadata for search and Miss Jeeves.
+- The current shelf artwork is rejected and not protected. Rebuild its visible
+  case, wall, rail and floor relationship rather than merely rearranging it.
+- The shelf has a convincing wall/case/floor relationship and visible ground
   plane.
 - Every complete cover sits wholly inside a shelf opening, visibly meets its
   rail and stays behind the case frame/sign layer.
@@ -128,11 +132,11 @@ book spotlights, hand-inked replacement room or CSS teaching diagrams.
 ## Dependency-ordered build
 
 1. Mount and test the shared header journey independently.
-2. Reconcile the two entry jobs and integrate the ratified Miss Jeeves results
+2. Reconcile the **Ask Miss Jeeves** and **Browse the books** entry jobs and integrate the ratified Miss Jeeves results
    architecture without turning Browse into a generic catalogue.
 3. Prove the highest-risk visual mechanism with one representative connected
-   arrival-to-shelf composition using approved objects and live UI.
-4. Produce the full desktop/mobile room and shelf composition only after that
+   arrival-to-one-shelf composition using approved objects and live UI.
+4. Produce the full desktop/mobile masthead and one-shelf composition only after that
    representative proof clears internal Brand/UX red-team review.
 5. Repair the search/control layout and preserve the selected-book interaction.
 6. Update prompt/context teaching only through current source-bound content

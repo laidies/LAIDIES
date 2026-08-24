@@ -106,7 +106,7 @@
         refInput.focus();
         return;
       }
-      window.location.href = '/library.html#miss-jeeves?q=' + encodeURIComponent(query.slice(0, 240));
+      window.location.href = '/library.html#miss-jeeves?q=' + encodeURIComponent(query.slice(0, 240)) + '&from=homepage';
     });
   }
 
