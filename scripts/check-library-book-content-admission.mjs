@@ -41,6 +41,17 @@ export function inspectLibraryBookCandidate({ source, sourceBytes, sourcePath, r
   require(!/<nav\s+class="book-contents"|<h2>Contents<\/h2>/i.test(rendered), "rendered book repeats a visible Contents page that belongs in persistent reader navigation");
   for (const id of governed) require((rendered.match(new RegExp(`\\sid="${id}"`, "g")) || []).length === 1, `section ${id} must have one exact destination`);
 
+  for (const chapter of source?.chapters || []) {
+    if (!chapter.bodyHtml.includes('class="callout callout-objective"')) continue;
+    const objectiveIndex = chapter.bodyHtml.indexOf('class="callout callout-objective"');
+    const keyTermsIndex = chapter.bodyHtml.indexOf("Key Terms Introduced in This Chapter");
+    const numberedSections = [...chapter.bodyHtml.matchAll(/<h3[^>]*>\d+\.\d+\s+[—-]/gi)].map(match => match.index);
+    require(numberedSections.length >= 2, `${chapter.id} needs at least two numbered sections around its orientation block`);
+    require(numberedSections[0] < objectiveIndex, `${chapter.id} must begin with its opening teaching section before the objective box`);
+    require(objectiveIndex < keyTermsIndex, `${chapter.id} must keep objectives before its key-terms table`);
+    require(keyTermsIndex < numberedSections[1], `${chapter.id} must finish its opening section with objectives and key terms before the next section`);
+  }
+
   const phraseCounts = ["Where it stops:", "In real life."].map(phrase => [phrase, rendered.split(phrase).length - 1]);
   for (const [phrase, count] of phraseCounts) require(count <= Math.max(4, governed.length), `repeated mini-template dominates the book: ${phrase} x${count}`);
   const denseParagraph = [...rendered.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].some(match => (match[1].match(/href="#/g) || []).length >= 12);

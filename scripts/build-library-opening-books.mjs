@@ -105,6 +105,22 @@ function extractWorkingTerms(markdown, source) {
   return terms;
 }
 
+function placeFundamentalsOrientationAfterOpeningSection(source) {
+  const openingUtility = /^(\s*<aside class="callout callout-objective">[\s\S]*?<\/aside>\s*<h3[^>]*>Key Terms Introduced in This Chapter<\/h3>\s*<div class="table-scroll">[\s\S]*?<\/table><\/div>\s*(?:<p><em>[\s\S]*?<\/em><\/p>\s*)?)/i;
+  for (const chapter of source.chapters) {
+    const objectiveIndex = chapter.bodyHtml.indexOf('class="callout callout-objective"');
+    const firstSectionIndex = chapter.bodyHtml.search(/<h3[^>]*>\d+\.1\s+[—-]/i);
+    if (objectiveIndex > firstSectionIndex && firstSectionIndex >= 0) continue;
+    const utility = chapter.bodyHtml.match(openingUtility);
+    if (!utility) throw new Error(`${chapter.id}: opening objective and key-terms block is missing or malformed`);
+    const chapterText = chapter.bodyHtml.slice(utility[0].length);
+    const sectionHeadings = [...chapterText.matchAll(/<h3\b/g)];
+    if (sectionHeadings.length < 2) throw new Error(`${chapter.id}: cannot place orientation after its opening section`);
+    const insertionIndex = sectionHeadings[1].index;
+    chapter.bodyHtml = `${chapterText.slice(0, insertionIndex)}${utility[0]}${chapterText.slice(insertionIndex)}`;
+  }
+}
+
 function makeDictionary(fundamentalsTerms, workingTerms) {
   const byKey = new Map();
   for (const term of fundamentalsTerms) byKey.set(term.label.toLowerCase(), { ...term, practicalAnchor: null });
@@ -116,7 +132,7 @@ function makeDictionary(fundamentalsTerms, workingTerms) {
   const registry = [...byKey.values()].sort((a, b) => a.label.localeCompare(b.label)).map(term => ({
     term_id: slug(term.label), canonical_label: term.label, aliases: [], plain_definition: term.definition,
     scope_or_limit: "Plain-language teaching definition. Follow the linked chapter for its mechanism, examples and limits.",
-    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-24.3" : "working-with-ai-101-2026-08-24.2",
+    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-24.4" : "working-with-ai-101-2026-08-24.2",
     owner_section_anchor: term.ownerAnchor,
     practical_anchor: term.practicalAnchor ? { book_id: "working-with-ai-101", section_anchor: term.practicalAnchor } : null,
     source_claim_ids: [`TERM-${slug(term.label).toUpperCase()}`],
@@ -201,7 +217,7 @@ function emit(source, sourcePath, renderedPath) {
 
 const fundamentalsPath = "content/library-books/sources/ai-fundamentals-101.source.json";
 const fundamentals = JSON.parse(read(fundamentalsPath));
-fundamentals.contentVersion = "ai-fundamentals-101-2026-08-24.3";
+fundamentals.contentVersion = "ai-fundamentals-101-2026-08-24.4";
 fundamentals.freshness.reviewedThrough = "2026-08-23";
 fundamentals.freshness.nextTrigger = "Weekly currentness scan, immediate source-change signal and before each public edition";
 const fundamentalsPreface = splitTopLevel(read("content/library-books/sources/ai-fundamentals-101.preface.md"))[0];
@@ -243,6 +259,7 @@ const working = sourceFromTopLevelMarkdown({
   ]
 });
 const straight = makeStraightAnswers(read("content/library-books/straight-answers.md"));
+placeFundamentalsOrientationAfterOpeningSection(fundamentals);
 addLaunchVisuals(fundamentals, working);
 addWorkingPanelSemantics(working);
 const dictionary = makeDictionary(extractFundamentalsTerms(fundamentals), extractWorkingTerms(workingMarkdown, working));

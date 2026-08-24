@@ -19,7 +19,7 @@ const source = {
   lede: "This short fixture teaches one connected idea, then lets the reader use it in a different case.",
   intro: { id: "introduction", title: "Introduction", navLabel: "Start here", bodyHtml: "<p>An AI product is the whole service you use. A model is one component inside it.</p>" },
   chapters: [
-    { id: "parts", title: "Chapter 1 — The parts", navLabel: "The parts and their jobs", bodyHtml: "<p>The product assembles instructions and context, then calls a model. Tools and retrieval belong to the surrounding system.</p>" },
+    { id: "parts", title: "Chapter 1 — The parts", navLabel: "The parts and their jobs", bodyHtml: "<h3 id=\"parts-1\">1.1 — Start with the job</h3><p>The product assembles instructions and context, then calls a model. Tools and retrieval belong to the surrounding system.</p><aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p><ul><li>Separate a model from its product.</li></ul></aside><h3>Key Terms Introduced in This Chapter</h3><div class=\"table-scroll\"><table><tbody><tr><td><strong>Model</strong></td><td>One component inside the product.</td></tr></tbody></table></div><h3 id=\"parts-2\">1.2 — Follow the system</h3><p>Now trace what happens around that model.</p>" },
     { id: "decision", title: "Chapter 2 — The decision", navLabel: "Check before you act", bodyHtml: "<p>The output is a proposal. Evidence and human authority determine whether it should be used.</p>" }
   ],
   sourceReferences: ["https://example.com/fixture"],
@@ -50,6 +50,17 @@ assert.deepEqual(inspect(), [], "valid proportional fixture must pass");
 const duplicateContents = rendered.replace('<p class="lede">', '<nav class="book-contents" aria-label="Contents"><h2>Contents</h2></nav>\n<p class="lede">');
 assert.match(inspect(duplicateContents).join("\n"), /repeats a visible Contents page/, "duplicate in-body Contents must fail");
 
+const prematureOrientationSource = structuredClone(source);
+const properBody = prematureOrientationSource.chapters[0].bodyHtml;
+const utilityStart = properBody.indexOf('<aside class="callout callout-objective">');
+const continuationStart = properBody.indexOf('<h3 id="parts-2">');
+const prematureUtility = properBody.slice(utilityStart, continuationStart);
+prematureOrientationSource.chapters[0].bodyHtml = prematureUtility + properBody.slice(0, utilityStart) + properBody.slice(continuationStart);
+const prematureOrientationBytes = Buffer.from(JSON.stringify(prematureOrientationSource, null, 2) + "\n");
+const prematureOrientationRendered = renderLibraryBookSource(prematureOrientationSource, sourcePath, prematureOrientationBytes);
+const prematureOrientationErrors = inspectLibraryBookCandidate({ source: prematureOrientationSource, sourceBytes: prematureOrientationBytes, sourcePath, rendered: prematureOrientationRendered, ...reviewsFor(prematureOrientationRendered) });
+assert.match(prematureOrientationErrors.join("\n"), /must begin with its opening teaching section/, "chapter-title/objective/key-terms wall must fail");
+
 const linkWall = rendered.replace("</div>\n", `<p>${Array.from({length: 12}, (_, i) => `<a href="#parts">${i}</a>`).join(" ")}</p></div>\n`);
 assert.match(inspect(linkWall).join("\n"), /link wall/, "dense index wall must fail");
 
@@ -74,4 +85,4 @@ const rejectedErrors = inspectLibraryBookCandidate({ source: JSON.parse(fs.readF
 assert.match(rejectedErrors.join("\n"), /exact artifact is directly rejected/, "Ali-rejected exact artifact must fail unaided");
 assert.match(rejectedErrors.join("\n"), /repeated mini-template|link wall/, "known failure family must fail without relying only on its hash");
 
-console.log("LIBRARY BOOK CONTENT ADMISSION CALIBRATION PASS · valid=1 rejected=7 exact_ali_rejection=1 stale_usability=1 undisclosed_simulation=1 false_human_claim=1");
+console.log("LIBRARY BOOK CONTENT ADMISSION CALIBRATION PASS · valid=1 rejected=8 premature_orientation=1 exact_ali_rejection=1 stale_usability=1 undisclosed_simulation=1 false_human_claim=1");

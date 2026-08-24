@@ -52,8 +52,8 @@ Throughout the book, you'll see coloured callout boxes. Here's what each one sig
 
 ## Other Things You'll Find in Every Chapter
 
-- **Learning objectives** at the top (what you'll be able to do after reading)
-- **Key terms table** (every new concept, defined in plain English)
+- **Learning objectives** after the opening section has established why the chapter matters (what you'll be able to do after reading)
+- **Key terms table** beside those objectives (every new concept, defined in plain English)
 - **“Try This”** exercises (ways to apply what you've learned without needing any technical tools)
 - **“What's Next”** bridge (the question this chapter leaves you with, answered by the next)
 - **System diagram** (a cumulative visual showing how the whole system is building up, chapter by chapter)

@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-BOOK-MOBILE-INDEX-PREFACE-20260824
-- **Status:** COMPLETE / DEPLOYED / PUBLICLY VERIFIED
+- **Task ID:** AI-FUNDAMENTALS-CHAPTER-OPENING-SEQUENCE-20260824
+- **Status:** BUILDING / VERIFIED LOCALLY / NOT YET DEPLOYED
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-24 America/Vancouver
-- **Goal:** Remove the redundant in-body Contents page, replace the 258-link flat mobile index with chapter/group-first navigation and restore AI Fundamentals' accepted purpose-led preface.
-- **Acceptance:** The book title and body Contents are absent from the index; only actual chapters have chapter numbers; every subtitle is nested under and reachable from its owner chapter/group; the Top control remains persistent; AI Fundamentals opens with the purpose-led preface; all four books open and navigate without horizontal overflow at 1280, 390 and 320 pixels; calibrated guards reject the old duplicate; exact successor is committed, deployed and verified at both public origins.
-- **Current step:** Complete. Source `367a554f4c5fcd33d83be1cb12099c74167929cd`, artifact `89115d62a60ae275b3c7920bb8c679f7d3779ec0ec7ed952dd065d17cfc4cc01` and deployment `5f736529-ea5f-4c87-b8e7-4b4ea65bb52e` are public. Both origins match all seven changed visitor files byte-for-byte. The live 390px reader has 21 collapsed groups instead of the old 258-link/10,389px wall, shows only chapter keys 01–20, excludes the title and duplicate Contents, includes the restored preface and returns to Top.
-- **Next action:** None for this correction. Continue the separate four-book editorial/currentness programme without reopening the settled reader-navigation contract.
+- **Goal:** Let every AI Fundamentals chapter establish its teaching hook before presenting the objectives and key-terms panels.
+- **Acceptance:** All 20 chapter titles are followed immediately by their first numbered teaching section; the unchanged objective and key-terms panels close that opening section before section `.2`; no prose, term, anchor or visual is lost; the order passes at 1280, 390 and 320 pixels; the known-bad title → two panels → prose arrangement fails calibration; the exact successor is committed, deployed and publicly verified.
+- **Current step:** The sequence is corrected locally in all 20 chapters. The build/admission guard rejects the old premature-orientation arrangement. Four-book admission, the 4×3 viewport reader matrix and a direct 390px browser inspection pass with zero overflow. A stale local-review hash correctly failed the first run and was rebound before the passing run.
+- **Next action:** Commit the exact candidate, build the curated public artifact, compare it to production, deploy the bounded change and repeat exact-byte plus live sequence checks at both origins.
 
 ## Boundaries
 

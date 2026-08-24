@@ -69,7 +69,13 @@ for (const book of available) {
     if (!heading || heading.length < 3 || /^contents$/i.test(heading)) continue;
     const start = match.index + match[0].length;
     const end = headings[index + 1]?.index ?? html.length;
-    const excerpt = sentence(html.slice(start, end));
+    let excerpt = sentence(html.slice(start, end));
+    const headingAttributes = `${match[2]} ${match[4]}`;
+    if (!excerpt && match[1] === '2' && /data-source-block="chapter-\d+"/i.test(headingAttributes) && headings[index + 1]) {
+      const openingStart = headings[index + 1].index + headings[index + 1][0].length;
+      const openingEnd = headings[index + 2]?.index ?? html.length;
+      excerpt = sentence(html.slice(openingStart, openingEnd));
+    }
     if (!excerpt) continue;
     const sourceAnchor = match[3];
     const occurrence = (anchorOccurrences.get(sourceAnchor) || 0) + 1;

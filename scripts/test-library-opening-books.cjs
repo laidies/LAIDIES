@@ -93,9 +93,21 @@ const server = http.createServer((request, response) => {
           chapterKeys: [...node.querySelectorAll('#rtoc-mobile .toc-key')].map(key => key.textContent.trim()),
           duplicateContents: [...node.querySelectorAll('#rtxt h2')].some(heading => heading.textContent.trim() === 'Contents'),
           titleInToc: [...node.querySelectorAll('#rtoc-mobile .toc-title')].some(label => label.textContent.trim() === document.getElementById('rt').textContent.trim()),
-          topVisible: node.querySelector("#reader-top").getBoundingClientRect().height >= 44
+          topVisible: node.querySelector("#reader-top").getBoundingClientRect().height >= 44,
+          orientationOrder: document.getElementById("rt").textContent.trim() === "AI Fundamentals 101" ? Array.from({ length: 20 }, (_, index) => {
+            const chapter = index + 1;
+            const html = node.querySelector("#rtxt").innerHTML;
+            const start = html.indexOf(`data-source-block="chapter-${chapter}"`);
+            const next = chapter < 20 ? html.indexOf(`data-source-block="chapter-${chapter + 1}"`, start) : html.length;
+            const block = html.slice(start, next);
+            const firstSection = block.search(new RegExp(`<h3[^>]*>${chapter}\\.1\\s+[—-]`, "i"));
+            const objective = block.indexOf('class="callout callout-objective"');
+            const keyTerms = block.indexOf("Key Terms Introduced in This Chapter");
+            const secondSection = block.search(new RegExp(`<h3[^>]*>${chapter}\\.2\\s+[—-]`, "i"));
+            return firstSection >= 0 && firstSection < objective && objective < keyTerms && keyTerms < secondSection;
+          }) : []
         }));
-        if (navigation.pageWidth !== navigation.viewportWidth || navigation.textWidth !== navigation.textClientWidth || navigation.groups < 4 || !navigation.sections || navigation.duplicateContents || navigation.titleInToc || navigation.chapterKeys.length !== expectedChapterKeys || navigation.chapterKeys.some(key => !/^\d{2}$/.test(key)) || !navigation.topVisible) {
+        if (navigation.pageWidth !== navigation.viewportWidth || navigation.textWidth !== navigation.textClientWidth || navigation.groups < 4 || !navigation.sections || navigation.duplicateContents || navigation.titleInToc || navigation.chapterKeys.length !== expectedChapterKeys || navigation.chapterKeys.some(key => !/^\d{2}$/.test(key)) || !navigation.topVisible || (id === "ai-fundamentals-101" && (navigation.orientationOrder.length !== 20 || navigation.orientationOrder.includes(false)))) {
           failures.push(`${id}@${width}: persistent chapter-and-section navigation is incomplete or overflows ${JSON.stringify(navigation)}`);
           continue;
         }

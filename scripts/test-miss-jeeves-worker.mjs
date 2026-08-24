@@ -7,6 +7,9 @@ import worker from '../_worker.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const index = JSON.parse(fs.readFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), 'utf8'));
+for (let chapter = 1; chapter <= 20; chapter += 1) {
+  assert.ok(index.entries.some(entry => entry.id === `book-section-ai-fundamentals-101-chapter-${chapter}`), `AI Fundamentals chapter ${chapter} must remain directly retrievable after chapter-opening layout changes`);
+}
 const dailyIssues = JSON.parse(fs.readFileSync(path.join(root, 'content/newsstand-daily-issues.json'), 'utf8'));
 const studyPacks = JSON.parse(fs.readFileSync(path.join(root, 'content/blend-snap-weekly-packs.json'), 'utf8'));
 const calls = [];
