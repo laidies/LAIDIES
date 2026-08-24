@@ -3,11 +3,17 @@
   "project": "laidies-sunnyvaile",
   "productionBranch": "homepage-redesign",
   "publicUrl": "https://laidies.ai/",
-  "releasePurpose": "Forward-reconcile the exact live four-book LIBRAiRY release with the last accepted functional site baseline and restore the truthful Visitor Centre to Post Office rack handoff without deploying the unapproved Homepage redesign.",
+  "releasePurpose": "Forward-reconcile the exact live four-book LIBRAiRY release with the last accepted functional site baseline, restore the truthful Visitor Centre to Post Office rack handoff, and prevent custom-domain HTML rewriting without deploying the unapproved Homepage redesign.",
   "baseCommit": "889d55375a947d42875a421df120bf4f9dd89210",
   "baseArtifactIdentitySha256": "a11a8ee2715d80d4a6556a634ccd8e439fb00ed2bde4602d2b04aaf1849819cb",
-  "candidateArtifactIdentitySha256": "5cf92017fb1c4e229262a721cca1785898805315ff2ded43740e6e222827ae7c",
+  "candidateArtifactIdentitySha256": "e647e079c52c6791663c05d6bbc235284ca05a237a5d020fb6c2d7946e65745a",
   "allowedChanges": [
+    {
+      "path": "_worker.js",
+      "operation": "MODIFY",
+      "baseSha256": "bc03a044744feddbdbc0026bc7936789f9fa9c11468d7117fd4a9cb29c9300a0",
+      "candidateSha256": "0bb06ac8eb464fa8e25429f3d11a2d8d11eff75a95fa65d37e4dbb6c50fc54e1"
+    },
     {
       "path": "blend-snap.html",
       "operation": "MODIFY",
@@ -30,7 +36,7 @@
       "path": "build-report.json",
       "operation": "MODIFY",
       "baseSha256": "852db52c4e9976e31ab7563732749fa56dcbcdbb8f580db37ea3611da7b72912",
-      "candidateSha256": "8d945b6c7213c207b0f7dcb197ee9c483ebf072a763b04bcc3a21bd8477b2958"
+      "candidateSha256": "500f5ba9cbb2a3a5ad42c414e2261b8c47036cdffc057862b0e774d567cd7ea5"
     },
     {
       "path": "chick-flicks.html",
@@ -485,10 +491,6 @@
   ],
   "removedPaths": [],
   "preservedPaths": [
-    {
-      "path": "_worker.js",
-      "sha256": "bc03a044744feddbdbc0026bc7936789f9fa9c11468d7117fd4a9cb29c9300a0"
-    },
     {
       "path": "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png",
       "sha256": "51d484e0c1e78ffe2c5559bf7ecaa32fcd0797be969d90a07cbc4ae7297edb4e"
