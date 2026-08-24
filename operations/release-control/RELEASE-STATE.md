@@ -113,7 +113,23 @@ is recorded here.
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
 
-## Current production release record — 2026-08-24 — contextual Library teaching visuals
+## Current production release record — 2026-08-24 — Library navigation and Fundamentals preface
+
+| Field | Current value |
+|---|---|
+| Deployed source | `367a554f4c5fcd33d83be1cb12099c74167929cd` |
+| Artifact identity | `89115d62a60ae275b3c7920bb8c679f7d3779ec0ec7ed952dd065d17cfc4cc01` |
+| Curated build | 574 copied public files / 432.11 MiB; manifest 576 files / 453,164,134 bytes |
+| Exact public scope | 8 changed artifact records, including generated build report / 0 additions / 0 removals; 7 changed visitor files verified at 2 origins |
+| Release path | Authenticated Wrangler exact-artifact deployment on production branch `homepage-redesign` |
+| Cloudflare deployment | `5f736529-ea5f-4c87-b8e7-4b4ea65bb52e` |
+| Immutable URL | `https://5f736529.laidies-sunnyvaile.pages.dev/` |
+| Custom domain | `https://laidies.ai/` |
+| Public verification | Both origins matched all seven changed visitor files. The live 390×844 reader has 21 chapter/front-matter groups, chapter keys 01–20 only, no numbered title, no duplicate body Contents and the restored purpose-led preface. The collapsed navigation is 1,154px rather than the old 10,389px flat list; the persistent Top control returned the reader to zero. Desktop exposes the same 01–20 chapter sequence and unnumbered preface. Miss Jeeves health remained fully configured and healthy. |
+| Exact scope | `operations/release-control/library-book-navigation-preface-production-scope-20260824.json` |
+| Rollback target | deployment `849687b6-c36a-4c04-9533-ca53bab99d63` from source `ae174bb8f00388df583e33a09594dfbe5630b9f2` |
+
+## Superseded production release record — 2026-08-24 — contextual Library teaching visuals
 
 | Field | Current value |
 |---|---|
