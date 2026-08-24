@@ -125,6 +125,9 @@ const grounded = await (await ask('women in AI', envWith(index.entries, ai))).js
 assert.equal(grounded.mode, 'grounded-ai');
 assert.equal(aiPayload.model, '@cf/google/gemma-4-26b-a4b-it');
 assert.ok(aiPayload.payload.messages[0].content.includes('use only the supplied'));
+assert.equal(aiPayload.payload.max_completion_tokens, 650, 'reasoning model must have enough output budget to return its JSON answer');
+assert.equal(aiPayload.payload.reasoning_effort, 'low', 'catalogue routing should use bounded reasoning effort');
+assert.equal('max_tokens' in aiPayload.payload, false, 'deprecated max_tokens must not cap the reasoning model before its answer');
 assert.deepEqual(grounded.results.map(result => result.id), ['ep-04']);
 assert.ok(!JSON.stringify(aiPayload).includes('BUTTONDOWN'));
 

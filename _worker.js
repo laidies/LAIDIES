@@ -254,7 +254,7 @@ function parseAiJson(response) {
 async function reasonAcrossCatalogue(query, entries, env) {
   const safeEntries = entries.filter(safeEntry);
   if (!env.AI || !safeEntries.length) return null;
-  const candidates = retrieve(query, safeEntries).slice(0, 18);
+  const candidates = retrieve(query, safeEntries).slice(0, 12);
   if (!candidates.length) return null;
   const sources = candidates.map(({entry}) => ({
     id: entry.id,
@@ -277,7 +277,8 @@ async function reasonAcrossCatalogue(query, entries, env) {
         content: JSON.stringify({ question: query, sources })
       }
     ],
-    max_tokens: 240,
+    max_completion_tokens: 650,
+    reasoning_effort: 'low',
     temperature: 0.1
   });
   const parsed = parseAiJson(response);
@@ -472,7 +473,7 @@ async function missJeevesHealth(request, env) {
   let catalogue = 'unavailable';
   try { await loadIndex(request, env); catalogue = 'healthy'; } catch { catalogue = 'unavailable'; }
   const requests = missJeevesDb(env) ? 'healthy' : 'unavailable';
-  return json({ status: catalogue === 'healthy' ? 'ok' : 'degraded', service: 'miss-jeeves', version: '2', catalogue, topic_requests: requests, grounded_ai: env.AI ? 'available' : 'fallback', aggregate_measurement: env.MISS_JEEVES_SIGNALS ? 'available' : 'off' }, catalogue === 'healthy' ? 200 : 503);
+  return json({ status: catalogue === 'healthy' ? 'ok' : 'degraded', service: 'miss-jeeves', version: '2', catalogue, topic_requests: requests, grounded_ai: env.AI ? 'configured' : 'fallback', aggregate_measurement: env.MISS_JEEVES_SIGNALS ? 'available' : 'off' }, catalogue === 'healthy' ? 200 : 503);
 }
 
 const CORRECTION_ID = /^[a-z0-9][a-z0-9._:-]{0,95}$/i;
