@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-FOUR-BOOK-PUBLICATION-20260823
-- **Status:** PUBLICLY VERIFIED
+- **Task ID:** LIBRARY-PAGE-WALKTHROUGH-20260823
+- **Status:** BUILDING — LOCAL CANDIDATE / OWNER REVIEW NOT YET REQUESTED
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-23 America/Vancouver
-- **Goal:** Publish AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary as the four opening LIBRAiRY books.
-- **Acceptance:** The exact four rendered books and selected accepted visuals pass source/artifact admission, current factual and usability review, responsive navigation, accessible Save Book/Chapter/Section journeys, Miss Jeeves discovery, a zero-removal production scope, protected release control, immutable deployment verification and custom-domain verification at `laidies.ai`.
-- **Current step:** `PUBLICLY VERIFIED`. AI Fundamentals 101, Working with AI 101, Straight Answers About AI and The AI Dictionary are live at `https://laidies.ai/library`. The final release source is `e31f6629f79403a8c1f9ed319956bdd490542c28`, artifact identity `68e7b2a1ecd821ed5268ca8f90b38e279ac6132bb77e868e3d64890893e8e6d7`, Cloudflare deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd` and immutable URL `https://6e7ffa1a.laidies-sunnyvaile.pages.dev/`. Exact comparison against actual prior-production source `6edea2ac…` passed with 24 Library/runtime changes, zero removals, 22 checksum-preserved production paths and 45 fetchable live checks. Final custom-domain browser verification opened all four exact titles with Contents and Book/Chapter/Section Puffy saves, verified the compact mobile Contents/Top navigation, and rechecked Homepage, Visitor’s Centre, Resident Card and KSVL/DJ Booth surfaces without application errors.
-- **Next action:** No release action remains for this task. Future content corrections or additional visuals are additive successor editions and must preserve these four public routes.
+- **Goal:** Implement Ali's complete 2026-08-22 Library-page walkthrough without regressing the four publicly available books.
+- **Acceptance:** The page keeps the physical Library interior and four admitted books; elevates the masthead; separates Ask Miss Jeeves from browsing; uses distinct role-based teaching colours with no yellow or dark-on-dark text; keeps grounded readable shelves and generous search; mounts visible town navigation; and provides compact Report an issue plus floppy-disk Save Book/Chapter/Section controls that open the visitor's ten Puffy choices. Desktop and 390/320 responsive journeys must pass before owner review. Deployment requires Ali's exact-candidate approval and separate release verification.
+- **Current step:** Local candidate on branch `design/library-page-walkthrough-20260823` from production-docs base `5d36c52d46dbfa5eb03379976d82aa8ec93383f7`. The current 14-check four-book product suite passes, including 1280/390/320 reader navigation and overflow checks; the new calibrated presentation guard passes 11 reject fixtures. Maker browser inspection passed the 1440 masthead, Reference Desk, browse/search and grounded 101s shelf. The in-app browser's security service then stopped granting access to the local origin, so a fresh 390/320 visual screenshot remains unverified even though the automated responsive journeys passed. Existing product-steward validation remains red on four pre-existing learning-inventory/work-order items outside this page change.
+- **Next action:** Complete the fresh 390/320 maker visual check when the browser security service accepts the local origin, bind the exact commit and screenshots, then present that exact candidate to Ali. Do not deploy before her ruling.
 
 ## Boundaries
 

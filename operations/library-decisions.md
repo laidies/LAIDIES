@@ -25,6 +25,10 @@ This compact packet contains only current page-wide overrides, routing, active a
 - Topic demand separates “we have it but people cannot find it” from “we need coverage.” Passive records use controlled IDs only; explicit requests alone may store disclosed visitor text. Popularity never creates a promise or publication.
 - Puffy saves preserve whole-book versus exact-section scope. The first save attempt owns the Resident Card explanation; My Closet remains in the Sorority House.
 - Mobile explanation precedes what it explains; controls, covers and text remain readable without horizontal overflow. Desktop and mobile require real browser inspection.
+- On the Library page, yellow is excluded from the visitor-facing palette. Use the established pink, cyan, cobalt, purple, coral and mint with ink outlines, soft interior shading and readable text; do not collapse the page or its teaching boxes into one purple/blue treatment.
+- Book teaching callouts use distinct colours by semantic job, supported by headings and bold outlines so colour is never the only cue. Light fills use dark ink; saturated dark fills use cream or white text. Dark text on dark colour is prohibited.
+- Library saves use a discreet floppy-disk control and the exact scopes **Save Book**, **Save Chapter** and **Save Section**. Selecting it opens the visitor's ten Puffy Sticker choices. The magic wand is not a save icon.
+- **Report an issue** is a small secondary reader action. It opens the correction form and automatically attaches the exact book, content version and current section when available; it must not compete visually with reading or navigation controls.
 
 ## Route by task
 

@@ -153,6 +153,8 @@ const server = http.createServer((request, response) => {
       ["scripts/check-library-book-content-admission.mjs", "--book", "ai-dictionary"],
       ["scripts/compile-library-admission.mjs"],
       ["scripts/test-library-opening-books.cjs"],
+      ["scripts/test-library-page-presentation.mjs"],
+      ["scripts/check-library-page-presentation.mjs"],
       ["scripts/test-library-known-failures.mjs"],
       ["scripts/test-library-correction-service.mjs"],
       ["scripts/test-library-correction-worker.mjs"],
@@ -1190,8 +1192,8 @@ const server = http.createServer((request, response) => {
     await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
     await reader.page.waitForSelector(".book .band .puffy-btn");
     check(
-      (await reader.page.locator(".book .band .puffy-btn").innerText()).toLowerCase().includes("save this book") &&
-        (await reader.page.locator(".book .term .puffy-btn").first().innerText()).toLowerCase().includes("save place"),
+      (await reader.page.locator(".book .band .puffy-btn").innerText()).toLowerCase().includes("save book") &&
+        (await reader.page.locator(".book .term .puffy-btn").first().innerText()).toLowerCase().includes("save section"),
       "reader distinguishes whole-book and exact-section Puffy actions"
     );
     const wholeBookSaveLabel = (await reader.page.locator(".book .band .puffy-btn").getAttribute("aria-label")).toLowerCase();
