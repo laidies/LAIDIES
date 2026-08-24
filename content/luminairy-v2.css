@@ -563,8 +563,9 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(180d
 
 .lum-card__link,
 .lum-card__song,
+.lum-card__song-status,
 .lum-card__pick {
-  min-height: 42px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -588,6 +589,14 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(180d
 }
 
 .lum-card__song.is-playing { color: var(--lum-white); background: var(--lum-plum); }
+
+.lum-card__song-status {
+  margin: 0;
+  color: rgba(16, 22, 49, 0.72);
+  background: #f6f3ef;
+  border-color: rgba(16, 22, 49, 0.28);
+  cursor: default;
+}
 
 .lum-card__pick {
   flex: 1 1 100%;
@@ -707,5 +716,6 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(180d
   .lum-panel,
   .lum-card__link,
   .lum-card__song,
+  .lum-card__song-status,
   .lum-card__pick { border: 2px solid CanvasText; }
 }

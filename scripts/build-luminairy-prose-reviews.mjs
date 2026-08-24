@@ -172,7 +172,7 @@ const producer = receipt({
   reviewerId: "luminairy-producer-self-review",
   role: "producer",
   modelFamily: "gpt-5.6-sol",
-  reviewedAt: "2026-08-23T19:58:00-07:00",
+  reviewedAt: "2026-08-23T20:36:00-07:00",
   independent: false
 });
 const independent = receipt({
@@ -181,7 +181,7 @@ const independent = receipt({
   reviewerId: "luminairy-independent-review",
   role: "independent semantic and visual reviewer",
   modelFamily: "gpt-5.4",
-  reviewedAt: "2026-08-23T20:05:00-07:00",
+  reviewedAt: "2026-08-23T20:40:00-07:00",
   independent: true
 });
 

@@ -165,19 +165,26 @@ Do it ALL... like BET!
 ---
 
 ## Carrie Bradshaw — PATRON SAiNT of Staying Current
-**Band:** The Refreshes *(proposed)*
-**Status:** LYRICS LOCKED — audio render owed (`saint-carrie-bradshaw-staying-current.mp3`).
+**Band:** The Refreshes *(rejected with this candidate)*
+**Status:** REJECTED BY ALI — DO NOT GENERATE. Carrie audio is deferred until
+after the rest of LUMINAiRY is complete. The final file remains owed at
+`saint-carrie-bradshaw-staying-current.mp3`.
+**Known-bad defects:** textbook copy forced into a song; over-explained and
+rhythmically clumsy; phrases no person would enjoy singing; borrowed Carrie
+catchphrases substituted for character; the bridge explained the lesson instead
+of being music. A successor starts from a new musical/comedic engine rather
+than polishing this candidate.
 **AI truth:** a polished answer can be stale. Check when the underlying fact was
 true, whether the model used a live source, and what changed before acting.
 Staying current notices the change; Cher and Dionne's trendsetting lesson is
 about creating the useful pattern other people choose to follow.
 
-**Style (Suno):**
+**Rejected style prompt — preserve only as negative evidence:**
 ```
 glossy late-1990s to early-2000s city pop, chic disco pulse, bright piano, walking bass, clipped rhythm guitar, warm strings, witty conversational female lead, sophisticated magazine-column energy, strutting rather than frantic, 116 BPM, memorable call-and-response hook, clean studio recording, no crowd or applause
 ```
 
-**Lyrics (FINAL — 2026-08-23):**
+**Rejected lyrics — preserve only as negative evidence:**
 ```
 [Intro]
 (typewriter click, bright piano)
@@ -948,6 +955,7 @@ so nothing is a lost drive away from gone:
 - **Cher Horowitz + Dionne Davenport** (Trendsetting / The Trendsetters) — use
   the existing Cher solo track temporarily; a duo-specific version remains a
   future improvement, not a blocker.
-- **Carrie Bradshaw** (Staying Current / The Columnist) — lyrics/style locked in
-  this songbook; audio render remains owed.
+- **Carrie Bradshaw** (Staying Current / The Columnist) — first lyrics/style
+  rejected by Ali on 2026-08-23; do not generate them. Audio is explicitly
+  deferred until after the rest of LUMINAiRY, and the final song remains owed.
 - SHIPPED ✅: Deloris · Bette · The Golden Girls (Betty White idea → collective Golden Girls saint)

@@ -95,7 +95,10 @@ Oprah Winfrey, Jessica Fletcher and Jennifer Lopez are removed from the roster.
 Trendsetting creates the useful pattern other people want to follow; Staying
 Current notices and verifies what changed. Every Saint card has a song. Cher's
 existing solo song may temporarily serve the Cher + Dionne duo card; Carrie
-requires the new Staying Current song.
+requires a new Staying Current song, explicitly deferred until after the rest
+of the page is complete. Until then her card says the song is coming later, the
+playlist truthfully includes only the 12 available tracks, and the full release
+gate remains on hold.
 
 ### Visual and information contract
 

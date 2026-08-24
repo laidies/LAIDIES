@@ -115,6 +115,14 @@
     return anchor;
   }
 
+  function hasPlayableSong(profile) {
+    return Boolean(profile && profile.song && profile.songStatus !== "deferred");
+  }
+
+  function playableSaintSongs() {
+    return state.data ? state.data.saints.filter(hasPlayableSong) : [];
+  }
+
   function updateSongButtons() {
     document.querySelectorAll("[data-song-id]").forEach((button) => {
       const playing = button.getAttribute("data-song-id") === state.activeSongId && !audio.paused;
@@ -125,7 +133,10 @@
     });
     playlistButton.classList.toggle("is-playing", state.playlist);
     playlistButton.setAttribute("aria-pressed", state.playlist ? "true" : "false");
-    playlistButton.querySelector("span:last-child").textContent = state.playlist ? "Stop the songs" : "Play all 13 songs";
+    const songCount = playableSaintSongs().length;
+    playlistButton.querySelector("span:last-child").textContent = state.playlist
+      ? "Stop the songs"
+      : "Play all " + songCount + " available songs";
   }
 
   function showAudioStatus(message, isError) {
@@ -152,7 +163,7 @@
   }
 
   function playProfileSong(profile, fromPlaylist) {
-    if (!profile || !profile.song) return;
+    if (!hasPlayableSong(profile)) return;
     if (!fromPlaylist && state.activeSongId === profile.id && !audio.paused) {
       audio.pause();
       state.activeSongId = "";
@@ -177,7 +188,7 @@
   }
 
   function playPlaylistIndex(index) {
-    const songs = state.data.saints.filter((profile) => profile.song);
+    const songs = playableSaintSongs();
     if (!state.playlist || index >= songs.length) {
       stopAudio();
       return;
@@ -223,7 +234,7 @@
       if (anchor) actions.appendChild(anchor);
     });
 
-    if (profile.song) {
+    if (hasPlayableSong(profile)) {
       const song = document.createElement("button");
       song.type = "button";
       song.className = "lum-card__song";
@@ -233,6 +244,10 @@
       song.append(textElement("span", "", "♪"), textElement("span", "", profile.songLabel));
       song.addEventListener("click", () => playProfileSong(profile, false));
       actions.appendChild(song);
+    } else if (profile.songStatus === "deferred") {
+      const songStatus = textElement("p", "lum-card__song-status", "♪ Song coming later");
+      songStatus.id = "song-status-" + profile.id;
+      actions.appendChild(songStatus);
     }
 
     const pick = document.createElement("button");

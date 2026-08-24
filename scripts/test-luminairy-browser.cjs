@@ -33,7 +33,26 @@ async function run() {
     await page.locator(".lum-card").first().waitFor();
     assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
-    assert.equal(await page.locator(".lum-card__song").count(), 13, "every Saint must expose a song control");
+    assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
+    const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
+    assert.equal(await carrieCard.locator(".lum-card__song").count(), 0, "deferred Carrie audio must not render a broken play control");
+    assert.match(await carrieCard.locator(".lum-card__song-status").textContent(), /song coming later/i, "Carrie needs an honest visible deferred-song status");
+    assert.match(await page.locator("#lumPlaylist").textContent(), /play all 12 available songs/i, "playlist count must exclude deferred audio");
+    await page.locator("#lumAudio").evaluate((element) => {
+      element.play = () => Promise.resolve();
+    });
+    await page.locator("#lumPlaylist").click();
+    const playlistPaths = await page.locator("#lumAudio").evaluate(async (element) => {
+      const paths = [];
+      for (let index = 0; index < 12; index += 1) {
+        paths.push(new URL(element.src).pathname);
+        element.dispatchEvent(new Event("ended"));
+        await Promise.resolve();
+      }
+      return paths;
+    });
+    assert.equal(new Set(playlistPaths).size, 12, "playlist must traverse each available Saint song once");
+    assert.equal(playlistPaths.includes("/content/music/saint-carrie-bradshaw-staying-current.mp3"), false, "playlist must never request deferred Carrie audio");
     assert.deepEqual(await imageFailures(page), [], "all Saint images must decode");
     assert.equal(await page.locator("text=Oprah Winfrey").count(), 0);
     assert.equal(await page.locator("text=Jessica Fletcher").count(), 0);
@@ -133,7 +152,7 @@ async function run() {
 
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cards, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, and mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cards, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, and mobile overflow");
   } finally {
     await browser.close();
   }

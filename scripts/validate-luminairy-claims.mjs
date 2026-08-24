@@ -76,6 +76,7 @@ for (const wing of Object.keys(expected)) {
     if (wing === "saints") {
       if (!profile.song || !profile.songLabel) errors.push(`Saint song assignment missing ${profile.id}`);
       else if (!fs.existsSync(localPath(profile.song))) errors.push(`missing Saint song bytes ${profile.song}`);
+      if (profile.songStatus === "deferred") errors.push(`deferred Saint song remains ${profile.id}`);
     } else {
       if (!Array.isArray(profile.links) || profile.links.length < 1) errors.push(`work/source link missing ${key}`);
       for (const link of profile.links || []) if (!/^https:\/\//.test(link.url || "")) errors.push(`non-HTTPS external link ${key}`);
