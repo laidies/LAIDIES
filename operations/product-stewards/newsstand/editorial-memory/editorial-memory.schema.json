@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/operations/newsstand/editorial-memory.schema.json",
+  "title": "NewsStand private research archive and editorial opportunity bank",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "owner", "updatedAt", "sourceReceipts", "opportunities", "storyWatches", "bigPictureThreads"],
+  "properties": {
+    "schemaVersion": { "const": "newsstand-editorial-memory-v1" },
+    "owner": { "const": "newsstand-editorial-memory" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "sourceReceipts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sourceReceipt" }
+    },
+    "opportunities": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/opportunity" }
+    },
+    "storyWatches": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/storyWatch" }
+    },
+    "bigPictureThreads": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/bigPictureThread" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9._-]{2,}$" },
+    "stringList": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "sourceReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "sourceType", "publishedAt", "accessedAt", "accessState", "authority", "claimsState", "correctionState", "urls", "localPaths", "themes", "concepts", "notes"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 3 },
+        "sourceType": { "enum": ["official", "primary-document", "academic", "independent", "practitioner", "developer", "social", "newsletter", "podcast", "internal"] },
+        "publishedAt": { "type": ["string", "null"], "format": "date-time" },
+        "accessedAt": { "type": "string", "format": "date-time" },
+        "accessState": { "enum": ["accessible", "partial", "inaccessible", "removed"] },
+        "authority": { "enum": ["factual-primary", "independent-context", "attributed-analysis", "discovery-only", "internal-canon"] },
+        "claimsState": { "enum": ["verified", "partially-verified", "unverified", "not-applicable"] },
+        "correctionState": { "enum": ["clear", "corrected", "retracted", "watch"] },
+        "urls": { "$ref": "#/$defs/stringList" },
+        "localPaths": { "$ref": "#/$defs/stringList" },
+        "themes": { "$ref": "#/$defs/stringList" },
+        "concepts": { "$ref": "#/$defs/stringList" },
+        "notes": { "type": "string" }
+      }
+    },
+    "destination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "proposedJob", "status"],
+      "properties": {
+        "name": { "enum": ["breaking", "daily", "weekly", "big-picture", "paige", "career-work-life", "concept-of-the-week", "mme-claio", "behind-the-build", "around-town", "crossword", "ai-fundamentals", "ai-dictionary", "working-with-ai", "library", "episode", "class", "game", "tool", "internal-practice"] },
+        "proposedJob": { "type": "string", "minLength": 10 },
+        "status": { "enum": ["candidate", "accepted", "used", "declined", "watch"] }
+      }
+    },
+    "practiceCurrency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checkedAt", "recheckTrigger"],
+      "properties": {
+        "status": { "enum": ["current", "current_with_conditions", "legacy_in_named_circumstances", "superseded", "watch", "unverified", "not-applicable"] },
+        "checkedAt": { "type": ["string", "null"], "format": "date-time" },
+        "recheckTrigger": { "type": "string", "minLength": 3 }
+      }
+    },
+    "opportunity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sourceReceiptIds", "title", "readerValue", "facts", "attributedInterpretation", "laidiesInference", "destinations", "themes", "concepts", "practiceCurrency", "status", "notUsedReason", "nextTrigger", "uses", "owner", "lastReviewedAt"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "sourceReceiptIds": { "$ref": "#/$defs/stringList" },
+        "title": { "type": "string", "minLength": 3 },
+        "readerValue": { "type": "string", "minLength": 10 },
+        "facts": { "type": "string" },
+        "attributedInterpretation": { "type": "string" },
+        "laidiesInference": { "type": "string" },
+        "destinations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/destination" } },
+        "themes": { "$ref": "#/$defs/stringList" },
+        "concepts": { "$ref": "#/$defs/stringList" },
+        "practiceCurrency": { "$ref": "#/$defs/practiceCurrency" },
+        "status": { "enum": ["new", "triaged", "ready_for_assignment", "held", "watch", "used", "partially_used", "superseded", "rejected", "archived"] },
+        "notUsedReason": { "type": ["string", "null"] },
+        "nextTrigger": { "type": "string", "minLength": 3 },
+        "uses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["destination", "contentId", "usedAt"],
+            "properties": {
+              "destination": { "type": "string", "minLength": 2 },
+              "contentId": { "type": "string", "minLength": 2 },
+              "usedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "owner": { "type": "string", "minLength": 3 },
+        "lastReviewedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "storyWatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["storyId", "status", "lastReviewedAt", "laterSourceReceiptIds", "assessment", "nextTrigger"],
+      "properties": {
+        "storyId": { "type": "string", "minLength": 3 },
+        "status": { "enum": ["open", "quiet", "successor-published", "closed"] },
+        "lastReviewedAt": { "type": "string", "format": "date-time" },
+        "laterSourceReceiptIds": { "$ref": "#/$defs/stringList" },
+        "assessment": { "enum": ["no_material_change", "strengthens", "narrows", "complicates", "contradicts", "corrects", "new_branch", "not-yet-assessed"] },
+        "nextTrigger": { "type": "string", "minLength": 3 }
+      }
+    },
+    "bigPictureThread": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "themes", "concepts", "articleIds", "evidenceSourceReceiptIds", "status", "lastReviewedAt", "nextTrigger"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 3 },
+        "themes": { "$ref": "#/$defs/stringList" },
+        "concepts": { "$ref": "#/$defs/stringList" },
+        "articleIds": { "$ref": "#/$defs/stringList" },
+        "evidenceSourceReceiptIds": { "$ref": "#/$defs/stringList" },
+        "status": { "enum": ["active", "watch", "closed", "superseded"] },
+        "lastReviewedAt": { "type": "string", "format": "date-time" },
+        "nextTrigger": { "type": "string", "minLength": 3 }
+      }
+    }
+  }
+}

@@ -1,9 +1,12 @@
 {
   "schema_version": 3,
   "agent_id": "aidb-intelligence-desk",
-  "status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED",
-  "as_of": "2026-08-08",
+  "status": "ACTIVE_WEBSITE_FIRST_CURRENT_EDITION_AND_DAILY_RADAR_RECOVERED",
+  "as_of": "2026-08-25",
   "source": {
+    "current_website": "https://www.aidailybrief.ai/",
+    "recent_website": "https://www.aidailybrief.ai/recent",
+    "archive_website": "https://www.aidailybrief.ai/archive",
     "discovery": "https://aidailybrief.ai/agent.json",
     "newsletter_fallback": "https://aidailybrief.beehiiv.com/",
     "ethan_mollick_feed": "https://www.oneusefulthing.org/feed",
@@ -14,7 +17,20 @@
   "source_cursors": {
     "aidb": {
       "processed_through": "2026-08-07",
-      "processed_items": 32
+      "processed_items": 32,
+        "recent_out_of_order_editions_recovered": [
+          "2026-08-14",
+          "2026-08-16",
+          "2026-08-17",
+          "2026-08-18",
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-23"
+      ],
+        "website_checked_at": "2026-08-25T07:00:07.139-07:00",
+        "website_display_date": "2026-08-25",
+      "latest_full_edition_date_seen": "2026-08-23",
+        "gap_status": "BACKFILL_REQUIRED_2026-08-08_THROUGH_2026-08-13_AND_2026-08-19"
     },
     "ethan_mollick_one_useful_thing": {
       "latest_seen_published_at": "2026-07-23T18:05:24.000Z",
@@ -28,10 +44,10 @@
   "backfill_start": "2026-07-01",
   "backfill_record": "backfill-2026-07-01-to-2026-07-26.md",
   "last_initialization_run": "2026-07-27T10:15:16-07:00",
-  "last_live_run": "2026-08-08T08:46:10-07:00",
-  "last_run_result": "AIDB_NEW_ONE_EDITION_MERGED_EXISTING_SCIENCE_ROUTE_MOLLICK_QUIET_NO_NEW_HANDOFF_OR_OPERATIONS_CHANGE",
+  "last_live_run": "2026-08-25T07:00:07.139-07:00",
+  "last_run_result": "NO_NEW_AIDB_FULL_EDITION_THREE_ARCHIVE_ITEMS_REVIEWED_ONE_NORMALIZED_NVIDIA_AGENT_INFRASTRUCTURE_WATCH_NO_PUBLIC_STORY",
   "last_source_generated": "2026-08-08T15:34:30.863Z",
-  "last_output": "daily/2026-08-08.md",
+  "last_output": "daily/2026-08-25.md",
   "latest_synthesis": "syntheses/2026-07-01-to-2026-07-27-useful-patterns.md",
   "latest_handoff": "handoffs/2026-08-03-practitioner-signal-radar-acceptance.md",
   "latest_site_refresh_handoff": "handoffs/site-refresh/2026-08-06-straight-answers-data-centres.md",
@@ -47,9 +63,9 @@
       "acceptance_receipt": "handoffs/2026-08-03-practitioner-signal-radar-acceptance.md",
       "candidate_roster": "sources/practitioner-source-roster.json",
       "pilot_results": "sources/practitioner-signal-pilot-results.json",
-      "candidate_roster_limit": 20,
+      "candidate_roster_limit": 35,
       "pilot_signal_limit": 5,
-      "pilot_result": "13_CANDIDATES_4_SIGNALS_3_USEFUL_OWNER_RULINGS",
+      "pilot_result": "31_SOURCES_4_SIGNALS_3_USEFUL_OWNER_RULINGS",
       "recurring_expansion": "ADMITTED_2026_08_08_EXISTING_AUTOMATION_PROMOTED_AND_PILOT_SOURCES_ONLY"
     },
     "new_model_new_manners": {
@@ -81,7 +97,7 @@
     "automation_id": "laidies-aidb-intelligence-desk-daily",
     "automation_status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED"
   },
-  "next_action": "On the next scheduled recurrence, process AIDB and Mollick first, then inspect only due PROMOTED or PILOT roster sources; keep CANDIDATE sources on-trigger or due-roster-review only. Resolve material named references to exact originals, verify consequential claims against current provider or primary evidence, route one distinct reader job to its best owner, inspect due site freshness rows, and report actionable, watch, quiet, duplicate or source-unavailable truthfully.",
+  "next_action": "Every day, open the AIDB website homepage, recent page and archive first; record the website check date separately from the latest full edition date. Compare agent.json only as a secondary discovery feed because it can lag. Continue the bounded Aug 8-19 gap backfill without moving processed_through past an unprocessed date. Then inspect Mollick and only due PROMOTED or PILOT roster sources. Resolve material named references to exact originals, verify consequential claims against current provider or primary evidence, route one distinct reader job to its best owner, and report actionable, watch, quiet, duplicate or source-unavailable truthfully.",
   "publication_authority": false,
   "infrastructure_change_authority": false
 }
