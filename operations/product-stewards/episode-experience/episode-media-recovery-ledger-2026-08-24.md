@@ -104,10 +104,14 @@ The raw sequence has a zero seam; the decoded MP4 passes the calibrated loop
 checker and its decoded speed curve no longer contains the integer-crop
 hold/jump pattern found in two rejected builders.
 
-This does **not** admit the art or motion. The Mac was locked when the exact MP4
-was opened for the required normal-speed continuous maker watch, no independent
-visual admission has happened, the historical base-generation prompt is not
-preserved exactly, and the proof was built as an internal mechanism test rather
-than the required Canva animation/CapCut assembly. It therefore remains
-`INTERNAL_MECHANISM_PROOF_HOLD_VISUAL_REVIEW` and is ineligible for an episode,
-Watch, deployment or public use.
+The exact MP4 was watched continuously at normal speed in QuickTime on
+2026-08-25. The controlled writing sequence, fractional camera move and return
+remain useful motion-engineering evidence, but the maker visual review
+**rejected the source art**: Heroine's face is softer and smoother than the
+locked master and reads as glamour-rendered rather than the required hard-edged
+adult graphic-novel construction. No independent visual admission was requested
+after that objective maker rejection. The historical base-generation prompt is
+also not preserved exactly, and the proof was built outside the required Canva
+animation/CapCut assembly path. Its status is therefore
+`INTERNAL_MECHANISM_ONLY_VISUAL_SOURCE_REJECTED`; it is ineligible for an
+episode, Watch, deployment or public use.

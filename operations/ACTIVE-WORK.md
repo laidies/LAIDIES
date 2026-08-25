@@ -1085,3 +1085,23 @@ objective; every open lane keeps its own checkpoint.
   release order and repair only exact failed occurrences.
 - **Truth boundary:** all five exact exports remain held. No Watch binding,
   deployment, publication or public verification was performed.
+
+### 2026-08-25 episode motion-proof and reusable-outro checkpoint
+
+- **Current state:** `0/5 WATCH-READY / EPISODE 1 MOTION METHOD RETAINED / SOURCE ART REJECTED / SHARED OUTRO 3 OF 5 SOURCES BOUND`.
+- **Exact Episode 1 proof verdict:** the exact four-second export at SHA-256
+  `0c4049f8a80b6e90730ce8d8c032c6a51b7c403dbd0a8de5068d0213ec9e5f16`
+  was watched continuously at normal speed in QuickTime. Its controlled
+  writing sequence and smooth fractional camera return are useful engineering
+  evidence, but its Heroine pixels fail the locked people style: her face is
+  too soft, smooth and glamour-rendered. The packet is retained only as an
+  internal motion mechanism and may not enter an episode.
+- **Reusable outro source truth:** Civic Square, Blend & Snap and Town Park are
+  bound to exact canonical daytime, vehicle-free source bytes. KSVL and
+  LUMINAiRY remain deliberately empty because the canonical available heroes
+  violate the dry-daytime/no-vehicle gate. No rejected alternative was promoted.
+- **Next action:** build one bounded Blend & Snap sign-light motion plate from
+  the canonical still, changing only existing practical-light pixels; inspect
+  the exact continuous result before any Canva animation or reviewer cycle.
+- **Truth boundary:** this checkpoint authorizes no intro/outro export, episode
+  assembly, Watch binding, deployment, publication or public verification.
