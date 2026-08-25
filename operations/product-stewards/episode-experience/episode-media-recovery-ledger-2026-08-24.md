@@ -115,3 +115,23 @@ also not preserved exactly, and the proof was built outside the required Canva
 animation/CapCut assembly path. Its status is therefore
 `INTERNAL_MECHANISM_ONLY_VISUAL_SOURCE_REJECTED`; it is ineligible for an
 episode, Watch, deployment or public use.
+
+## First reusable-outro motion pilot
+
+The canonical Blend & Snap source now has one bounded local motion candidate at
+`operations/video-qa/shared-outro-blend-snap-light-proof-v1/manifest.json`.
+Three controlled stills preserve every pixel outside the existing practical-
+light masks byte-for-byte. The one-shot proof settles those lights during the
+first 1.8 seconds and makes one smooth cosine-eased 2% push toward the existing
+building sign. It introduces no people, cars, weather, generated lettering or
+new objects, and it is not misclassified as a loop.
+
+The pixel guard was calibrated by a rejected first implementation that changed
+74.9955% of the frame and 1,100,190 pixels outside the permitted mask. The
+corrected successor changes 4.3575% of pixels and zero outside the mask. Its
+exact first and final pixels pass maker inspection, but QuickTime repeatedly
+routed continuous playback into picture-in-picture and the Mac locked before a
+Finder Quick Look retry. Canva design discovery then stopped on an expired OAuth
+grant. The candidate therefore remains
+`INTERNAL_MOTION_CANDIDATE_HOLD_OBSERVABLE_CONTINUOUS_WATCH_AND_CANVA`; it has no
+outro, episode, Watch, deployment or public authority.

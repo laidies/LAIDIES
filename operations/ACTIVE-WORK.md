@@ -1100,8 +1100,21 @@ objective; every open lane keeps its own checkpoint.
   bound to exact canonical daytime, vehicle-free source bytes. KSVL and
   LUMINAiRY remain deliberately empty because the canonical available heroes
   violate the dry-daytime/no-vehicle gate. No rejected alternative was promoted.
-- **Next action:** build one bounded Blend & Snap sign-light motion plate from
-  the canonical still, changing only existing practical-light pixels; inspect
-  the exact continuous result before any Canva animation or reviewer cycle.
+- **Completed bounded successor:** the Blend & Snap local motion pilot is bound
+  by commits `d3ef1737` and `c094b9ea`. Its calibrated pixel guard rejects the
+  original whole-frame colour-space drift; the successor changes 4.3575% of the
+  frame and zero pixels outside existing practical-light masks. It adds one
+  smooth 2% sign-directed camera push without inventing content or calling the
+  one-way move a loop.
+- **Current hold:** exact first/final pixels pass maker inspection, but
+  QuickTime repeatedly diverted the continuous watch into picture-in-picture.
+  The Mac locked before the Finder Quick Look retry, and the Canva connection
+  requires reauthentication. No continuous visual PASS or Canva animation is
+  claimed.
+- **Next trigger:** when the Mac is unlocked and Canva is reauthenticated,
+  watch the exact SHA `582edeb61bc2db4b089fe8527497e75b5009830f20031a5c8c8e97069c4b1878`
+  continuously in the visible local viewer. If it passes, reproduce the same
+  controlled-light settle and 2% push in Canva, export beside the source, then
+  require independent exact-artifact visual admission before CapCut assembly.
 - **Truth boundary:** this checkpoint authorizes no intro/outro export, episode
   assembly, Watch binding, deployment, publication or public verification.
