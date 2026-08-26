@@ -1083,8 +1083,9 @@ This is a local visual and functional admission of the successor in `/tmp/laidie
 
 1. Baseline P1: frame ended after the opening raster; title and reference composition were too small/wrong; Contents was vertical; open Contents and save states were oversized with heavy outlines.
 2. Rejected repair: commit `9d452153edf9dc56423b02b318ca38582e9d9ba4` replaced the entire approved frame with a new AI-tech illustration. Ali rejected that wholesale change.
-3. Corrected repair: restored the exact selected frame, derived a continuation strip only from its own pixels, restored the separate approved computer/Rewind motifs, kept Contents horizontal and repaired the mobile index from a 54-pixel sliver to a usable full-width overlay.
-4. Post-fix comparison: source/implementation evidence shows the selected composition retained with only the approved motif and control changes. Desktop later-section scroll, 390×844 mobile, Contents open/close, Puffy prompt open/close and zero console errors were inspected.
+3. Rejected repair: continued patching the same visual layer; Ali rejected it as the same failed design.
+4. Fresh rebuild: disabled that inline layer and rebuilt from the approved 1487 × 1058 design in `assets/library-reader/approved-pop-zine-reader-v1.css`, with a new `book--approved-pop-zine` surface and measured title, toolbar, Preface, prose and card geometry.
+5. Post-rebuild comparison: source/implementation evidence shows the selected composition retained with only the approved motif, label and control changes. Desktop later-section scroll, 390×844 mobile, wrapped Contents open/close, compact Puffy prompt open/close and zero console errors were inspected.
 
 **Follow-up Polish**
 

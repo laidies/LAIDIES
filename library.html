@@ -808,6 +808,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .book .txt h2[data-source-block^="chapter-"]{margin-left:-6px;margin-right:-6px;padding:14px 10px}
 }
 
+@media (max-width: 0px) {
+/* REJECTED READER VISUAL LAYER — retained only as history; never rendered. */
 /* Exact selected pop-zine composition. The bitmap supplies the angled paper,
    halftone and comic edge art; all words and controls remain live HTML. */
 #reader.on{padding:0;place-items:start center;background:rgba(5,9,29,.94)}
@@ -895,14 +897,14 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
  .book .band #reader-report{padding:9px 3px;font-size:9px}
  .reader-contents{left:5.1vw;top:14.1vw}.reader-contents>summary{width:auto;height:40px;padding:8px 12px;font-size:10px}
  .reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);width:min(340px,calc(100dvw - 90px))}
- .book .txt{padding:.672vw 7.796vw 3.763vw 15.86vw;font-size:15.5px;line-height:1.58}
+ .book .txt{padding:.672vw 7.796vw 3.763vw 15.86vw;font-size:1.277vw;line-height:1.62}
  .book .txt .reader-preface-heading{width:calc(100% - 19.15vw);min-height:10.215vw;margin-bottom:1.613vw;padding:1.277vw 0 1.68vw 10.618vw;font-size:3.05vw;line-height:1.09;letter-spacing:.015em}
  .book .txt .reader-preface-heading::before{width:8.602vw;height:8.602vw;font-size:2.89vw}
  .book .txt .reader-preface-heading::after{left:10.618vw;bottom:-.336vw;height:2.352vw}
  .reader-preface-divider{left:7.93vw;top:0;width:1.68vw;height:9.41vw}
  .reader-preface-aside{width:19.15vw;gap:1.613vw}.reader-preface-card{padding:1.478vw;border-width:2px;border-radius:14px}
  .reader-preface-card-why{min-height:14.65vw}.reader-preface-card-job{min-height:26.21vw}
- .reader-preface-card-label{gap:3px;margin-bottom:6px}.reader-preface-card-label img{width:34px;height:35px}.reader-preface-card b{font-size:9px}.reader-preface-card p{font-size:13.5px;line-height:1.4}
+ .reader-preface-card-label{gap:.336vw;margin-bottom:.672vw}.reader-preface-card-label img{width:3.495vw;height:3.696vw}.reader-preface-card b{font-size:.806vw}.reader-preface-card p{font-size:1.21vw;line-height:1.5}
  .book .txt .reader-preface-intro{max-width:none;margin-right:22.174vw}
 }
 @media(max-width:820px){
@@ -938,10 +940,12 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
  .reader-contents nav{top:130px}.book .txt{height:calc(100dvh - 138px);padding:20px 15px 40px}
  .book .txt .reader-preface-heading{padding-left:72px;font-size:24px}.book .txt .reader-preface-heading::before{width:61px;height:61px;font-size:21px}.book .txt .reader-preface-heading::after{left:68px}
 }
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/library-reader/approved-pop-zine-reader-v1.css">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -1036,7 +1040,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 </main>
 
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
-  <div class="book">
+  <div class="book book--approved-pop-zine">
     <div class="reader-pop-frame" aria-hidden="true">
       <img class="reader-motif reader-motif-cursor" src="/assets/puffies/usable-25-images/62-holographic-cursor-arrow.png" alt="">
       <img class="reader-motif reader-motif-lightning" src="/assets/puffies/puffy-lightning-bolt-teal.png" alt="">
