@@ -201,7 +201,14 @@
 .book--approved-pop-zine .reader-toc-group > summary { white-space: normal; overflow-wrap: anywhere; }
 .book--approved-pop-zine .reader-contents nav a { padding: 7px 8px; font-size: 11.5px; }
 
-.book--approved-pop-zine .body { display: block; min-height: 0; overflow: hidden; background: transparent; }
+.book--approved-pop-zine .body {
+  position: relative;
+  display: block;
+  height: calc(100dvh - min(245px, 16.465vw));
+  min-height: 0;
+  overflow: hidden;
+  background: transparent;
+}
 .book--approved-pop-zine .toc { display: none !important; }
 .book--approved-pop-zine .txt {
   height: 100%;
@@ -213,6 +220,53 @@
   line-height: 1.62;
   scroll-padding-top: 20px;
 }
+.book--approved-pop-zine .reader-spreads { min-height: 100%; }
+.book--approved-pop-zine .reader-spread {
+  position: relative;
+  width: 100%;
+  max-width: 1130px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding-bottom: 46px;
+}
+.book--approved-pop-zine .reader-spread[hidden] { display: none !important; }
+.book--approved-pop-zine .reader-spread h1[tabindex='-1']:focus,
+.book--approved-pop-zine .reader-spread h2[tabindex='-1']:focus,
+.book--approved-pop-zine .reader-spread h3[tabindex='-1']:focus { outline: 0; }
+.book--approved-pop-zine .reader-spread-nav {
+  position: absolute;
+  right: min(70px, 4.7vw);
+  bottom: 18px;
+  z-index: 14;
+  display: flex;
+  min-height: 38px;
+  padding: 4px;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(85, 57, 149, .34);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 8px 22px rgba(17, 24, 59, .14);
+}
+.book--approved-pop-zine .reader-spread-nav[hidden] { display: none; }
+.book--approved-pop-zine .reader-spread-nav button {
+  display: grid;
+  width: 34px;
+  min-width: 34px;
+  height: 30px;
+  min-height: 30px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: #f1ecfb;
+  color: #4f2da0;
+  box-shadow: none;
+  font: 900 18px/1 'Jost', system-ui, sans-serif;
+}
+.book--approved-pop-zine .reader-spread-nav button:disabled { opacity: .32; cursor: default; }
+.book--approved-pop-zine .reader-spread-status { min-width: 54px; color: #3d3860; font: 800 10px/1 'Jost', system-ui, sans-serif; text-align: center; }
 .book--approved-pop-zine .txt > .eyebrow:first-child,
 .book--approved-pop-zine .txt > h1:nth-child(2),
 .book--approved-pop-zine .txt > .lede:nth-child(3) { display: none; }
@@ -334,7 +388,10 @@
   .book--approved-pop-zine .reader-top { min-width: 55px; padding: 7px; }
   .book--approved-pop-zine .band #reader-close { margin-left: auto; padding: 9px 10px; }
   .book--approved-pop-zine .band #reader-report { display: none; }
-  .book--approved-pop-zine .txt { height: calc(100dvh - 150px); padding: 24px 18px 44px; font-size: 16px; line-height: 1.65; }
+  .book--approved-pop-zine .body { height: calc(100dvh - 150px); }
+  .book--approved-pop-zine .txt { height: 100%; padding: 24px 18px 72px; font-size: 16px; line-height: 1.65; }
+  .book--approved-pop-zine .reader-spread { min-height: 100%; padding-bottom: 58px; }
+  .book--approved-pop-zine .reader-spread-nav { right: 12px; bottom: 10px; }
   .book--approved-pop-zine .txt .reader-preface-heading { width: 100%; min-height: 92px; margin-bottom: 20px; padding: 9px 0 16px 85px; font-size: clamp(25px, 7.8vw, 34px); }
   .book--approved-pop-zine .txt .reader-preface-heading::before { width: 72px; height: 72px; font-size: 25px; }
   .book--approved-pop-zine .txt .reader-preface-heading::after { bottom: -2px; left: 78px; height: 20px; }
@@ -353,7 +410,8 @@
   .book--approved-pop-zine .reader-title-number { font-size: .82em; }
   .book--approved-pop-zine .reader-save-book { width: 42px; height: 42px; }
   .book--approved-pop-zine .reader-save-book img { width: 31px; height: 31px; }
-  .book--approved-pop-zine .txt { height: calc(100dvh - 138px); padding: 20px 15px 40px; }
+  .book--approved-pop-zine .body { height: calc(100dvh - 138px); }
+  .book--approved-pop-zine .txt { height: 100%; padding: 20px 15px 72px; }
   .book--approved-pop-zine .txt .reader-preface-heading { padding-left: 72px; font-size: 24px; }
   .book--approved-pop-zine .txt .reader-preface-heading::before { width: 61px; height: 61px; font-size: 21px; }
   .book--approved-pop-zine .txt .reader-preface-heading::after { left: 68px; }

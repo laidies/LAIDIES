@@ -57,11 +57,13 @@ const server = http.createServer((request, response) => {
       const reader = await page.locator("#reader").evaluate((node, expected) => ({
         open: node.classList.contains("on"),
         title: document.getElementById("rt").textContent,
-        text: document.getElementById("rtxt").innerText,
+        text: document.getElementById("rtxt").textContent,
+        spreadCount: document.querySelectorAll("#rtxt .reader-spread").length,
+        visibleSpreadCount: document.querySelectorAll("#rtxt .reader-spread.is-active:not([hidden])").length,
         toc: [...document.querySelectorAll("#rtoc a")].map(link => link.textContent.trim()),
         loadFailure: /This book did not load/.test(document.getElementById("rtxt").textContent)
       }), requiredText);
-      if (!reader.open || reader.title !== title || reader.loadFailure || !reader.text.toLowerCase().includes(requiredText.toLowerCase()) || reader.toc.length < 4) {
+      if (!reader.open || reader.title !== title || reader.loadFailure || !reader.text.toLowerCase().includes(requiredText.toLowerCase()) || reader.toc.length < 4 || reader.spreadCount < 2 || reader.visibleSpreadCount !== 1) {
         failures.push(`${id}: admitted book did not open as its full structured artifact ${JSON.stringify({ ...reader, text: reader.text.slice(0, 180) })}`);
       }
     }
@@ -116,9 +118,16 @@ const server = http.createServer((request, response) => {
         if (await lastGroup.evaluate(node => node.tagName === 'DETAILS' && !node.open)) await lastGroup.locator(':scope > summary').click();
         const lastLink = lastGroup.locator("a").last();
         await lastLink.click();
-        await page.waitForFunction(() => !document.getElementById("mobile-toc").open && document.getElementById("reader-current-section").textContent.trim() !== "Start of book" && document.getElementById("rtxt").scrollTop > 20);
+        await page.waitForFunction(() => {
+          const active = document.querySelector("#rtxt .reader-spread.is-active:not([hidden])");
+          return !document.getElementById("mobile-toc").open &&
+            document.getElementById("reader-current-section").textContent.trim() !== "Start of book" &&
+            Number(active?.dataset.spreadIndex) > 0 &&
+            document.querySelectorAll("#rtxt .reader-spread.is-active:not([hidden])").length === 1 &&
+            document.getElementById("rtxt").scrollTop < 2;
+        });
         await page.locator("#reader-top").click();
-        await page.waitForFunction(() => document.getElementById("rtxt").scrollTop < 2);
+        await page.waitForFunction(() => Number(document.querySelector("#rtxt .reader-spread.is-active:not([hidden])")?.dataset.spreadIndex) === 0 && document.getElementById("rtxt").scrollTop < 2);
       }
     }
   } finally {

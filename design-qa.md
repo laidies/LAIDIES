@@ -1,5 +1,45 @@
 # Design QA — room-first building rebuilds
 
+## AI Fundamentals discrete spread reader — 2026-08-26
+
+### Comparison target and evidence
+
+- Source visual truth: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/codex-clipboard-af5fd039-2de6-4b9b-9e5e-5cafdfff8f89.png`.
+- Source pixels: 1487 × 1058 RGB. The comparison uses the same 1487 × 1058 CSS viewport at density 1.
+- Browser-rendered implementation: `operations/product-stewards/library/evidence-reader-spreads-2026-08-26/ai-fundamentals-opening-1487x1058-v2.png`.
+- Same-size side-by-side comparison: `operations/product-stewards/library/evidence-reader-spreads-2026-08-26/approved-vs-spread-reader-1487x1058-v2.png` (source left; implementation right).
+- Mobile implementation: `operations/product-stewards/library/evidence-reader-spreads-2026-08-26/ai-fundamentals-opening-mobile-390x844-v2.png`, 390 × 844 CSS pixels at density 1.
+- State: AI Fundamentals opening spread, Contents closed, first spread active.
+- Focused-region comparison was not needed: at 1487 × 1058 the title, preface heading, controls, copy and both side notes are legible in the normalized full-view comparison. Mobile was captured separately because it uses an intentionally reflowed layout.
+
+### Findings and comparison history
+
+1. P1 — the predecessor retained one continuous manuscript column, so the next authored section appeared immediately below the preface and the experience still read as the rejected decorated webpage.
+   - Fix: rebuilt the reader around one active authored spread at a time. Previous/next controls change spreads; Contents opens any chapter or subtitle section directly; Top returns to the first spread.
+   - Post-fix evidence: the opening viewport ends with the preface and exactly one of 220 generated section spreads is visible. The next control opens `1. From “ARGH, WTF?” to “Ah. That’s why.”` rather than scrolling the book.
+2. P1 — programmatic section focus inherited the old reader's large tinted focus panel, producing the same giant outlined-box defect Ali had rejected.
+   - Fix: headings no longer receive `aria-current`; that state remains on the corresponding Contents link. Programmatic heading focus remains available without changing the page composition.
+   - Post-fix evidence: the v2 desktop comparison has no rectangle around the preface heading and the mobile preface has no tinted panel.
+3. P2 — the first mobile spread inherited generic heading padding, placing the `01` burst over the preface title.
+   - Fix: removing the conflicting heading state restores the source-derived burst, divider spacing and three-line mobile title treatment.
+   - Post-fix evidence: the 390 × 844 v2 capture keeps the burst left of the title and the cyan brush below it.
+
+### Required fidelity surfaces
+
+- Fonts and typography: Jost/Playfair hierarchy, weight, line height and title overprint follow the source. Mobile reflows the title rather than shrinking it below a readable size.
+- Spacing and layout rhythm: desktop uses the source's angled white page, left illustrated edge, large quiet reading centre, right note rail and aligned preface heading. The page-by-page footer is compact and does not create a new content panel.
+- Colours and tokens: white, midnight, lavender, violet and cyan match the source family. No yellow or all-purple semantic wash was introduced.
+- Image quality and asset fidelity: the supplied source-derived frame, brush and burst rasters remain sharp. The intentionally approved AI/computer Puffy replacements are the cursor, teal lightning, cassette, retro computer, floppy and sparkle stickers.
+- Copy and content: the current user-authored preface remains intact. Intentional source-mock corrections are `WHY THIS MATTERS`, `WHAT THIS BOOK DOES`, the horizontal Contents control and the real Puffy save control.
+
+### Interaction and responsive verification
+
+- Previous, next, Top and chapter/section Contents jumps were exercised in the in-app browser.
+- The mobile Contents overlay opens at 390 × 844, exposes all 20 chapter groups and their subtitle links, closes after a destination is chosen and leaves only one spread visible.
+- Automated full-reader navigation passed for all four opening books at 1280, 390 and 320 pixels. Browser console errors: none.
+
+Final result: passed
+
 Date: 2026-07-23  
 Pages: `post-office.html`, `visitors-centre.html`, `blend-snap.html`,
 `newsstand.html`, `chick-flicks.html`, `maikeover.html`, `luminairy.html`,

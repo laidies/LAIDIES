@@ -1071,7 +1071,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
+    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div><nav class="reader-spread-nav" id="reader-spread-nav" aria-label="Page navigation" hidden><button id="reader-spread-prev" type="button" aria-label="Previous section">←</button><span id="reader-spread-status" aria-live="polite"></span><button id="reader-spread-next" type="button" aria-label="Next section">→</button></nav></div>
   </div>
 </div>
 
@@ -1504,7 +1504,7 @@ function bindBookTocListeners(toc){
   target.setAttribute('tabindex','-1');
   target.focus({preventScroll:true});
   document.getElementById('mobile-toc').open=false;
-  target.scrollIntoView({behavior:motionBehavior(),block:'start'});
+  showReaderSpreadForTarget(target,{focusTarget:true});
   updateReaderPosition(sectionId);
  }));
 }
@@ -1513,14 +1513,91 @@ function updateReaderPosition(sectionId){
  const headings=[...txt.querySelectorAll('h1[id],h2[id],h3[id]')].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
  let current=sectionId?document.getElementById(sectionId):null;
  if(!current){
-  const txtTop=txt.getBoundingClientRect().top;
-  current=headings.filter(h=>h.getBoundingClientRect().top<=txtTop+96).at(-1)||null;
+  const activeSpread=txt.querySelector('.reader-spread.is-active');
+  current=activeSpread?.querySelector('h1[id],h2[id],h3[id]')||null;
  }
  activeReaderSectionId=current?.id||null;
  const label=document.getElementById('reader-current-section');
  if(label)label.textContent=current?.textContent.trim()||'Start of book';
  document.querySelectorAll('#rtoc a[aria-current],#rtoc-mobile a[aria-current]').forEach(item=>item.removeAttribute('aria-current'));
  if(current)document.querySelectorAll(`#rtoc a[href="#${current.id}"],#rtoc-mobile a[href="#${current.id}"]`).forEach(item=>item.setAttribute('aria-current','location'));
+}
+let activeReaderSpreadIndex=0;
+function readerSpreads(){return [...document.querySelectorAll('#rtxt .reader-spread')];}
+function createReaderSpread(sourceBlock=''){
+ const spread=document.createElement('section');
+ spread.className='reader-spread';
+ if(sourceBlock)spread.dataset.sourceBlock=sourceBlock;
+ return spread;
+}
+function buildReaderSpreads(id,txt){
+ const existing=txt.querySelector('.reader-spreads');
+ if(existing)return;
+ const root=document.createElement('div');root.className='reader-spreads';
+ let current=null;
+ const finish=()=>{if(current&&current.children.length){root.appendChild(current);}current=null;};
+ const start=sourceBlock=>{finish();current=createReaderSpread(sourceBlock);};
+ const addNodes=(nodes,sourceBlock='')=>{
+  nodes.forEach(node=>{
+   if(node.matches?.('.eyebrow:first-child')||node.matches?.('h1')&&node.textContent.trim()===ALL[id]?.t||node.matches?.('.lede'))return;
+   const isHeading=node.matches?.('h2,h3');
+   if(isHeading){
+    const isChapter=node.matches('h2[data-source-block^="chapter-"]');
+    const hasBody=current&&[...current.children].some(child=>!child.matches('h2,h3'));
+    const hasSameLevel=current&&current.querySelector(node.tagName.toLowerCase());
+    if(!current||isChapter||hasBody||hasSameLevel)start(node.dataset.sourceBlock||sourceBlock);
+    current.appendChild(node);
+    return;
+   }
+   if(!current)current=createReaderSpread(sourceBlock);
+   current.appendChild(node);
+  });
+ };
+ [...txt.children].forEach(node=>{
+  if(node.matches?.('.eyebrow:first-child')||node.matches?.('h1')&&node.textContent.trim()===ALL[id]?.t||node.matches?.('.lede'))return;
+  if(node.matches?.('section')){finish();addNodes([...node.children],node.dataset.sourceBlock||'');finish();}
+  else addNodes([node],node.dataset.sourceBlock||'');
+ });
+ finish();
+ [...root.children].forEach((spread,index)=>{
+  spread.dataset.spreadIndex=String(index);
+  const heading=spread.querySelector('h1,h2,h3');
+  spread.dataset.spreadTitle=heading?.textContent.trim()||`Page ${index+1}`;
+  spread.hidden=index!==0;
+  spread.classList.toggle('is-active',index===0);
+ });
+ txt.replaceChildren(root);
+ activeReaderSpreadIndex=0;
+ const controls=document.getElementById('reader-spread-nav');
+ controls.hidden=root.children.length<2;
+ showReaderSpread(0,{replaceHash:false});
+}
+function showReaderSpread(index,{focusTarget=false,target=null,replaceHash=false}={}){
+ const spreads=readerSpreads();
+ if(!spreads.length)return;
+ const next=Math.max(0,Math.min(Number(index)||0,spreads.length-1));
+ spreads.forEach((spread,spreadIndex)=>{
+  const active=spreadIndex===next;
+  spread.hidden=!active;spread.classList.toggle('is-active',active);
+  spread.setAttribute('aria-hidden',String(!active));
+ });
+ activeReaderSpreadIndex=next;
+ const txt=document.getElementById('rtxt');txt.scrollTo({top:0,behavior:'auto'});
+ const previous=document.getElementById('reader-spread-prev'),following=document.getElementById('reader-spread-next');
+ previous.disabled=next===0;following.disabled=next===spreads.length-1;
+ const active=spreads[next],status=document.getElementById('reader-spread-status');
+ status.textContent=`${next+1} / ${spreads.length}`;
+ previous.title=next?`Previous: ${spreads[next-1].dataset.spreadTitle}`:'Start of book';
+ following.title=next<spreads.length-1?`Next: ${spreads[next+1].dataset.spreadTitle}`:'End of book';
+ const heading=target||active.querySelector('h1[id],h2[id],h3[id]');
+ if(focusTarget&&heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}
+ if(replaceHash&&activeReaderBookId&&heading?.id)history.replaceState(null,'','#'+activeReaderBookId+'::'+encodeURIComponent('@'+heading.id));
+ updateReaderPosition(heading?.id||null);
+}
+function showReaderSpreadForTarget(target,options={}){
+ const spread=target?.closest('.reader-spread');
+ if(!spread)return;
+ showReaderSpread(Number(spread.dataset.spreadIndex),{...options,target});
 }
 function sectionAnchorSlug(value){
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
@@ -1615,17 +1692,16 @@ function scrollBookTo(headingNeedle){
   if(!headingNeedle)return;
   const txt=document.getElementById('rtxt');
   const heading=findBookHeading(txt,headingNeedle);
-  if(heading)heading.scrollIntoView({block:'start'});
+  if(heading)showReaderSpreadForTarget(heading,{focusTarget:false});
 }
 function motionBehavior(){
  return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
 }
 function focusBookSection(txt,headingNeedle){
-  txt.querySelectorAll('[aria-current="location"]').forEach(el=>el.removeAttribute('aria-current'));
   if(!headingNeedle)return;
   const heading=findBookHeading(txt,headingNeedle);
   if(!heading)return;
-  heading.setAttribute('aria-current','location');
+  showReaderSpreadForTarget(heading,{focusTarget:false});
   heading.setAttribute('tabindex','-1');
   heading.focus({preventScroll:true});
 }
@@ -1798,6 +1874,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       assignBookSectionAnchors(txt);
       decorateReaderOpening(id,txt);
       decorateReaderSaveIcons(id,txt);
+      buildReaderSpreads(id,txt);
       const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
       const tocHeadings=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
       setBookToc(toc,bookTocGroups(tocHeadings));
@@ -1836,14 +1913,12 @@ document.getElementById('mobile-toc').addEventListener('toggle',event=>{
  nav.querySelectorAll('details.reader-toc-group').forEach(group=>{group.open=group===current?.closest('details.reader-toc-group');});
  (current?.closest('details.reader-toc-group')||current)?.scrollIntoView({block:'nearest'});
 });
-document.getElementById('rtxt').addEventListener('scroll',()=>requestAnimationFrame(()=>updateReaderPosition()),{passive:true});
 document.getElementById('reader-top').addEventListener('click',()=>{
- const txt=document.getElementById('rtxt');
  document.getElementById('mobile-toc').open=false;
- txt.scrollTo({top:0,behavior:motionBehavior()});
- updateReaderPosition(null);
- txt.focus({preventScroll:true});
+ showReaderSpread(0,{focusTarget:true,replaceHash:true});
 });
+document.getElementById('reader-spread-prev').addEventListener('click',()=>showReaderSpread(activeReaderSpreadIndex-1,{focusTarget:true,replaceHash:true}));
+document.getElementById('reader-spread-next').addEventListener('click',()=>showReaderSpread(activeReaderSpreadIndex+1,{focusTarget:true,replaceHash:true}));
 document.querySelector('[data-reader-save="book"]').addEventListener('click',event=>saveReaderScope('book',event.currentTarget));
 document.getElementById('rtxt').addEventListener('click',event=>{
  const button=event.target.closest('.reader-inline-save');
