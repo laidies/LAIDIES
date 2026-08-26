@@ -1058,12 +1058,12 @@ This is a local visual and functional admission of the successor in `/tmp/laidie
 
 **Findings**
 
-- No actionable P0/P1/P2 findings remain. The user-rejected predecessor ended its raster frame after one poster-height screen, undersized and recomposed the title at the 1033px desktop state, used a vertical Contents tab after Ali asked for horizontal, and opened oversized thick-outlined Contents and save panels. The corrected implementation keeps a viewport-height raster frame around the independently scrolling text, restores the measured title and Preface geometry, uses the approved AI/computer sticker mix, and reduces both open panels to light thin-edged overlays.
+- No actionable P0/P1/P2 findings remain in the current candidate. The immediately preceding candidate was rejected because it solved the frame-height problem by substituting an unauthorized lavender AI-tech illustration for the selected composition. The correction restores the exact approved pop-zine raster, extends only its own halftone edge treatment behind the scrolling text, restores the separate approved AI/computer Puffy layer and keeps both open panels compact and thin-edged.
 
 **Comparison target**
 
 - Source visual truth: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/codex-clipboard-206a7bc2-d83b-43df-bcf9-e17fd23ba848.png`
-- Source pixels: 1487 × 1058. Normalized to 1033 × 735 for the same-width opening-region comparison.
+- Source pixels: 1488 × 1057. Normalized to 1033 pixels wide for the same-width opening-region comparison.
 - Browser-rendered implementation: `/tmp/laidies-library-owner-corrected-20260823/evidence-ai-fundamentals-reader-desktop.png`
 - Implementation pixels/CSS viewport: 1033 × 994 at device density 1.
 - Mobile implementation: `/tmp/laidies-library-owner-corrected-20260823/evidence-ai-fundamentals-reader-mobile.png`, 390 × 844.
@@ -1074,16 +1074,17 @@ This is a local visual and functional admission of the successor in `/tmp/laidie
 
 - Fonts and typography: the split Jost/Playfair `AI Fundamentals 101` hierarchy, uppercase Preface heading, body measure, card labels and section titles are visually aligned with the selected reference. Mobile uses the same title grammar at a readable compact scale.
 - Spacing and layout rhythm: title, toolbar, burst/divider/brush heading, prose column and two-card right rail follow the source proportions at desktop. The intentional supersession is a horizontal rather than vertical Contents tab. The reading pane scrolls inside a fixed full-height frame, so the art no longer ends above later sections.
-- Colors and visual tokens: near-black navy, saturated purple, cyan and pink remain the approved reader accents. The white/lavender AI-tech raster frame has sufficient dark-text contrast; no yellow or dark-on-dark treatment was introduced.
-- Image quality and asset fidelity: the frame is a real 1536 × 1024 raster asset, not CSS art. Its computer, chip, network, floppy, cursor, star and lightning imagery implements Ali's approved replacement of the oversized mouth and some generic motifs. The existing raster burst, brush marks and icons remain sharp.
+- Colors and visual tokens: near-black navy, saturated purple, cyan and pink remain the approved reader accents. The exact warm-white/lavender pop-zine raster has sufficient dark-text contrast; no yellow or dark-on-dark treatment was introduced.
+- Image quality and asset fidelity: `pop-zine-frame-v1.png` is the actual 1488 × 1057 approved raster. `pop-zine-edge-continuation-v1.png` is cropped from that exact source rather than invented as a replacement. Computer, cursor, cassette, lightning and stars remain separate real Puffy assets; the burst, brush marks and icons remain real raster details.
 - Copy and content: book prose is unchanged. The two semantic cards retain the corrected labels `WHY THIS MATTERS` and `WHAT THIS BOOK DOES`; the rejected `Natural Question` misuse was not restored.
 - Interaction/accessibility: Contents is keyboard-operable and minimizable, the open index is 360px maximum width with a 1px edge and scroll limit, the save prompt is 380px maximum with 1px controls, and the mobile controls remain at least 40–44px. Browser console error check returned none.
 
 **Comparison history**
 
 1. Baseline P1: frame ended after the opening raster; title and reference composition were too small/wrong; Contents was vertical; open Contents and save states were oversized with heavy outlines.
-2. Repair: replaced the one-screen poster background with the approved full-height AI-tech edge frame, restored width-derived title/content geometry, made Contents horizontal, and reduced both overlays.
-3. Post-fix comparison: same-input source/implementation evidence shows the selected composition retained with the approved AI/computer motif change. Desktop later-section scroll, 390×844 mobile, Contents open/close, Puffy prompt open/close and zero console errors were inspected.
+2. Rejected repair: commit `9d452153edf9dc56423b02b318ca38582e9d9ba4` replaced the entire approved frame with a new AI-tech illustration. Ali rejected that wholesale change.
+3. Corrected repair: restored the exact selected frame, derived a continuation strip only from its own pixels, restored the separate approved computer/Rewind motifs, kept Contents horizontal and repaired the mobile index from a 54-pixel sliver to a usable full-width overlay.
+4. Post-fix comparison: source/implementation evidence shows the selected composition retained with only the approved motif and control changes. Desktop later-section scroll, 390×844 mobile, Contents open/close, Puffy prompt open/close and zero console errors were inspected.
 
 **Follow-up Polish**
 
