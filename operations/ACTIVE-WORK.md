@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIBRARY-BOOK-READER-POP-ZINE-REDESIGN-20260824
-- **Status:** READY FOR OWNER REVIEW
+- **Status:** READY FOR OWNER REVIEW — LOCAL ONLY
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-26 America/Vancouver
 - **Goal:** Implement Ali's selected pop-zine textbook reader direction across all four opening Library books without changing admitted prose, semantic meaning or book functions.
 - **Acceptance:** The white long-form reading surface, editorial hierarchy and approved Rewind/computer motif frame match the selected visual; semantic boxes retain their actual manuscript jobs; desktop and mobile Contents collapse to one compact toolbar control and open an overlay drawer; Save uses the teal floppy Puffy and opens the visitor's ten selected stickers; all four books remain navigable, readable and overflow-free at 1280, 390 and 320px; the exact successor is visually compared to the approved target before any public release.
-- **Current step:** Ali rejected commit `0e8ac115` after six repeated reviews because it still loaded `approved-pop-zine-reader-v1.css` and therefore presented the same rejected visual surface despite the discrete-spread behaviour underneath. That commit is not a visual successor. The current internal candidate removes that stylesheet from the page, uses the new `book--reference-zine` surface and `assets/library-reader/ai-fundamentals-reference-reader-v2.css`, and rebuilds the measured desktop and mobile compositions directly from the approved 1487 × 1058 reference. It retains only the useful behaviour: one active authored section, Previous/Next, direct chapter/subtitle Contents navigation, Top and scoped Puffy saves. Same-size comparison evidence is under `operations/product-stewards/library/evidence-reader-reference-v2-20260826/`; owner approval remains pending.
-- **Next action:** Ali reviews this exact local successor. Public release remains separate and is not authorized by the local implementation or automated passes.
+- **Current step:** Ali rejected commits `0e8ac115` and `9ce041c0`; both still reconstructed the selected page through CSS and reproduced the wrong title, a pink stroke through the lettering and a frame that visibly ended. The new internal successor uses one continuous 1488 × 2200 raster page artwork derived from the exact approved pixels. The `AI Fundamentals 101` title, pink underline, Preface burst/divider/rule, lavender frame and approved computer/Rewind Puffies are baked into the page art; live CSS only positions that finished artwork, the accessible manuscript and controls. Desktop, later-section and 390 × 844 mobile evidence is under `operations/product-stewards/library/evidence-reader-raster-v3-20260826/`. The discrete-spread behaviour remains intact.
+- **Next action:** Ali reviews this exact local raster successor. Public release remains separate and is not authorized by the local implementation, local browser evidence or automated checks.
 
 ## Boundaries
 

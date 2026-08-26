@@ -945,7 +945,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-reference-reader-v2.css">
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-raster-reader-v3.css">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -1041,15 +1041,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book book--reference-zine">
-    <div class="reader-pop-frame" aria-hidden="true">
-      <img class="reader-motif reader-motif-cursor" src="/assets/puffies/usable-25-images/62-holographic-cursor-arrow.png" alt="">
-      <img class="reader-motif reader-motif-lightning" src="/assets/puffies/puffy-lightning-bolt-teal.png" alt="">
-      <img class="reader-motif reader-motif-cassette" src="/assets/puffies/usable-25-images/64-black-pink-cassette.png" alt="">
-      <img class="reader-motif reader-motif-computer" src="/assets/puffies/usable-25/06-retro-computer-heart.png" alt="">
-      <img class="reader-motif reader-motif-star" src="/assets/puffies/puffy-star-pink.png" alt="">
-      <img class="reader-motif reader-motif-star-right" src="/assets/puffies/usable-25-images/55-purple-pink-sparkle-star.png" alt="">
-      <img class="reader-motif reader-motif-star-right-small" src="/assets/puffies/puffy-star-pink.png" alt="">
-    </div>
+    <picture class="reader-pop-frame" aria-hidden="true">
+      <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-opening-art-mobile-v3.png">
+      <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-opening-art-v3.png" alt="">
+    </picture>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
       <div class="reader-actions">
         <details class="reader-contents" id="mobile-toc"><summary><span class="reader-contents-label">Contents</span><span class="reader-current-section sr-only" id="reader-current-section">Start of book</span></summary><nav id="rtoc-mobile" aria-label="All chapters and sections"></nav></details>
@@ -1582,6 +1577,7 @@ function showReaderSpread(index,{focusTarget=false,target=null,replaceHash=false
   spread.setAttribute('aria-hidden',String(!active));
  });
  activeReaderSpreadIndex=next;
+ updateReaderPageArt(spreads[next]);
  const txt=document.getElementById('rtxt');txt.scrollTo({top:0,behavior:'auto'});
  const previous=document.getElementById('reader-spread-prev'),following=document.getElementById('reader-spread-next');
  previous.disabled=next===0;following.disabled=next===spreads.length-1;
@@ -1615,16 +1611,26 @@ function assignBookSectionAnchors(txt){
 }
 function renderReaderTitle(id,title){
  const target=document.getElementById('rt');
+ const book=target.closest('.book');
+ book?.classList.toggle('book--ai-fundamentals-art',id==='ai-fundamentals-101');
  target.replaceChildren();
  if(id==='ai-fundamentals-101'){
-  const lead=document.createElement('span'),name=document.createElement('span'),number=document.createElement('span');
-  lead.className='reader-title-lead';lead.textContent='AI';
-  name.className='reader-title-name';name.textContent='Fundamentals';
-  number.className='reader-title-number';number.textContent='101';
-  target.append(lead,document.createTextNode(' '),name,document.createTextNode(' '),number);
+  target.textContent='AI Fundamentals 101';
   return;
  }
  target.textContent=title;
+}
+function updateReaderPageArt(spread){
+ const book=document.querySelector('#reader .book');
+ const image=document.getElementById('reader-page-art');
+ const mobile=document.getElementById('reader-page-art-mobile');
+ if(!book||!image||!mobile)return;
+ const fundamentals=activeReaderBookId==='ai-fundamentals-101';
+ const opening=fundamentals&&Boolean(spread?.querySelector('.reader-preface-heading'));
+ book.classList.toggle('book--ai-fundamentals-art',fundamentals);
+ book.classList.toggle('is-opening-art',opening);
+ image.src=opening?'/assets/library-reader/ai-fundamentals-opening-art-v3.png':fundamentals?'/assets/library-reader/ai-fundamentals-page-art-v3.png':'/assets/library-reader/library-book-page-art-v3.png';
+ mobile.srcset=opening?'/assets/library-reader/ai-fundamentals-opening-art-mobile-v3.png':fundamentals?'/assets/library-reader/ai-fundamentals-page-art-mobile-v3.png':'/assets/library-reader/library-book-page-art-mobile-v3.png';
 }
 function decorateReaderOpening(id,txt){
  txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());

@@ -1,0 +1,476 @@
+/*
+ * AI Fundamentals raster reader v3.
+ * The approved title, brush strokes, burst, divider, frame and Puffy motifs
+ * are one raster page artwork. CSS only positions the finished artwork and
+ * live, accessible reading controls/content.
+ */
+
+#reader.on {
+  padding: 0;
+  place-items: start center;
+  overflow: hidden;
+  background: #07102f;
+}
+
+#reader .book--reference-zine {
+  --ink: #11183b;
+  --violet: #7040d0;
+  --cyan: #18bdd5;
+  position: relative;
+  width: min(1487px, 100dvw);
+  max-width: 1487px;
+  height: 100dvh;
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #fffdfb;
+  box-shadow: 0 28px 90px rgba(2, 8, 28, .58);
+  color: var(--ink);
+}
+
+.book--reference-zine .reader-pop-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: auto;
+  overflow: hidden;
+  border: 0;
+  background: none;
+  pointer-events: none;
+}
+.book--reference-zine .reader-page-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.book--reference-zine .reader-pop-frame::before { content: none; }
+.book--reference-zine .reader-motif { filter: drop-shadow(3px 5px 0 rgba(55, 32, 105, .18)); }
+.book--reference-zine .reader-motif-cursor { top: 3.5%; left: 2.1%; width: 5.3%; }
+.book--reference-zine .reader-motif-lightning { top: 23%; left: 1.8%; width: 4.3%; }
+.book--reference-zine .reader-motif-star { top: 45%; right: auto; bottom: auto; left: 5.1%; width: 3.2%; }
+.book--reference-zine .reader-motif-cassette { top: 51%; left: -.6%; width: 12.5%; }
+.book--reference-zine .reader-motif-computer { bottom: 3%; left: 1.1%; width: 10.5%; }
+.book--reference-zine .reader-motif-star-right { right: 1.1%; bottom: 17%; width: 5.5%; }
+.book--reference-zine .reader-motif-star-right-small { right: 4.4%; bottom: 31%; width: 2.9%; }
+
+.book--reference-zine > .band,
+.book--reference-zine > .body,
+.book--reference-zine > .correction-desk { position: relative; z-index: 3; }
+.book--reference-zine > .band { z-index: 20; }
+
+.book--reference-zine .band {
+  display: flex;
+  min-height: 245px;
+  padding: 66px 72px 20px 198px;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 24px;
+  border: 0;
+  background: transparent;
+  color: #0f1744;
+}
+.book--reference-zine .band > div:first-child { width: auto; min-width: 0; flex: 1 1 auto; }
+.book--reference-zine .band .m { display: none; }
+.book--reference-zine .band .t {
+  display: flex;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  align-items: flex-end;
+  gap: 12px;
+  border: 0;
+  color: #11163f;
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 92px;
+  font-weight: 950;
+  line-height: .84;
+  letter-spacing: -.065em;
+  text-shadow: none;
+  white-space: nowrap;
+}
+.book--reference-zine .band .t:not(:has(.reader-title-lead)) { font-size: 48px; letter-spacing: -.035em; }
+.book--reference-zine .reader-title-lead { font-size: 1.22em; line-height: .78; letter-spacing: -.09em; transform: none; }
+.book--reference-zine .reader-title-name {
+  position: relative;
+  padding: 0 5px 13px 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: .68em;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+.book--reference-zine .reader-title-name::after {
+  content: none;
+}
+.book--reference-zine .reader-title-number {
+  padding-bottom: 2px;
+  color: #6f3ac9;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1em;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+.book--reference-zine .reader-actions {
+  display: flex;
+  width: 490px;
+  flex: 0 0 490px;
+  flex-wrap: nowrap;
+  margin: 55px 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.book--reference-zine .reader-actions > * { flex: 0 0 auto; white-space: nowrap; }
+.book--reference-zine .reader-save-book,
+.book--reference-zine .reader-top,
+.book--reference-zine .band button:not(.puffy-btn) {
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 11px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+  font: 850 11px/1.1 'Jost', system-ui, sans-serif;
+  letter-spacing: .015em;
+  text-transform: none;
+}
+.book--reference-zine .reader-save-book {
+  width: 48px;
+  padding: 4px;
+  gap: 0;
+  border: 2px solid #372080;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 4px 4px 0 #18c6d8;
+}
+.book--reference-zine .reader-save-book img { width: 35px; height: 35px; }
+.book--reference-zine .reader-save-book span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.book--reference-zine .reader-top { min-width: 70px; border-right: 1px solid #bfc3d3; border-left: 1px solid #bfc3d3; text-transform: uppercase; }
+.book--reference-zine .band #reader-close { padding: 11px 16px; border: 2px solid #18c6d8; border-radius: 9px; background: #fff; }
+.book--reference-zine .band #reader-report { padding: 11px 5px; color: #303858; font-size: 11px; }
+
+.book--reference-zine .reader-contents { position: absolute; top: 210px; left: 76px; z-index: 25; margin: 0; }
+.book--reference-zine .reader-contents > summary {
+  display: flex;
+  width: auto;
+  min-height: 42px;
+  padding: 9px 14px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #6b42bf;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .97);
+  color: #5e36b2;
+  box-shadow: 0 6px 18px rgba(31, 25, 71, .12);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  writing-mode: horizontal-tb;
+  transform: none;
+}
+.book--reference-zine .reader-contents > summary::before,
+.book--reference-zine .reader-contents > summary::after { content: none; }
+.book--reference-zine .reader-contents-label { font-weight: 950; }
+.book--reference-zine .reader-contents nav {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: min(360px, calc(100dvw - 100px));
+  max-height: min(58vh, 520px);
+  padding: 8px;
+  border: 1px solid #a894d2;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .99);
+  box-shadow: 0 18px 45px rgba(16, 24, 66, .2);
+  overflow-x: hidden;
+  writing-mode: horizontal-tb;
+}
+.book--reference-zine .reader-contents:not([open]) nav { display: none; }
+.book--reference-zine .reader-contents nav a,
+.book--reference-zine .reader-toc-group > summary { white-space: normal; overflow-wrap: anywhere; }
+.book--reference-zine .reader-contents nav a { padding: 7px 8px; font-size: 11.5px; }
+
+.book--reference-zine .body {
+  position: relative;
+  display: block;
+  height: calc(100dvh - 245px);
+  min-height: 0;
+  overflow: hidden;
+  background: transparent;
+}
+.book--reference-zine .toc { display: none !important; }
+.book--reference-zine .txt {
+  height: 100%;
+  padding: 10px 116px 80px 236px;
+  overflow: auto;
+  background: rgba(255, 255, 255, .08);
+  color: #1b2345;
+  font-size: 19px;
+  line-height: 1.62;
+  scroll-padding-top: 20px;
+}
+.book--reference-zine .reader-spreads { min-height: 100%; }
+.book--reference-zine .reader-spread {
+  position: relative;
+  width: 100%;
+  max-width: 1130px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+.book--reference-zine .reader-spread[hidden] { display: none !important; }
+.book--reference-zine .reader-spread h1[tabindex='-1']:focus,
+.book--reference-zine .reader-spread h2[tabindex='-1']:focus,
+.book--reference-zine .reader-spread h3[tabindex='-1']:focus { outline: 0; }
+.book--reference-zine .reader-spread-nav {
+  position: absolute;
+  right: 70px;
+  bottom: 18px;
+  z-index: 14;
+  display: flex;
+  min-height: 38px;
+  padding: 4px;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(85, 57, 149, .34);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 8px 22px rgba(17, 24, 59, .14);
+}
+.book--reference-zine .reader-spread-nav[hidden] { display: none; }
+.book--reference-zine .reader-spread-nav button {
+  display: grid;
+  width: 34px;
+  min-width: 34px;
+  height: 30px;
+  min-height: 30px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: #f1ecfb;
+  color: #4f2da0;
+  box-shadow: none;
+  font: 900 18px/1 'Jost', system-ui, sans-serif;
+}
+.book--reference-zine .reader-spread-nav button:disabled { opacity: .32; cursor: default; }
+.book--reference-zine .reader-spread-status { min-width: 54px; color: #3d3860; font: 800 10px/1 'Jost', system-ui, sans-serif; text-align: center; }
+
+.book--reference-zine .txt > .eyebrow:first-child,
+.book--reference-zine .txt > h1:nth-child(2),
+.book--reference-zine .txt > .lede:nth-child(3) { display: none; }
+.book--reference-zine .txt section[data-source-block='preface-why-this-book-matters'] { position: relative; max-width: 1130px; margin: 0 auto; }
+.book--reference-zine .txt .reader-preface-heading {
+  position: relative;
+  width: calc(100% - 285px);
+  min-height: 152px;
+  margin: 0 0 24px;
+  padding: 19px 0 25px 158px;
+  border: 0;
+  color: var(--ink);
+  font: 950 47px/1.09 'Jost', system-ui, sans-serif;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+}
+.book--reference-zine .txt .reader-preface-heading::before {
+  content: none;
+}
+.book--reference-zine .txt .reader-preface-heading > .reader-inline-save { display: none; }
+.book--reference-zine .txt .reader-preface-heading::after {
+  content: none;
+}
+.book--reference-zine .reader-preface-divider {
+  display: none;
+}
+.book--reference-zine .reader-preface-kicker,
+.book--reference-zine .reader-preface-title { display: block; }
+.book--reference-zine .txt .reader-preface-intro { max-width: 700px; margin-right: 330px; }
+.book--reference-zine .reader-preface-aside {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: grid;
+  width: 285px;
+  gap: 24px;
+}
+.book--reference-zine .reader-preface-card {
+  margin: 0;
+  padding: 22px;
+  border: 3px solid;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .88);
+  color: #151c44;
+  box-shadow: none;
+}
+.book--reference-zine .reader-preface-card-label { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+.book--reference-zine .reader-preface-card-label img { width: 52px; height: 55px; object-fit: contain; }
+.book--reference-zine .reader-preface-card b { display: block; margin: 0; font: 950 12px/1.2 'Jost', system-ui, sans-serif; letter-spacing: .12em; }
+.book--reference-zine .reader-preface-card p { margin: 0; font-size: 18px; line-height: 1.5; }
+.book--reference-zine .reader-preface-card-why { min-height: 218px; border-color: var(--cyan); background: rgba(238, 253, 255, .9); }
+.book--reference-zine .reader-preface-card-why b { color: #0aaec4; }
+.book--reference-zine .reader-preface-card-job { min-height: 390px; border-color: var(--violet); background: rgba(247, 243, 255, .92); }
+.book--reference-zine .reader-preface-card-job b { color: var(--violet); }
+.book--reference-zine .txt section[data-source-block='preface-why-this-book-matters'] > h2:not(.reader-preface-heading) { clear: both; margin-top: 45px; }
+
+#reader.on ~ .puffy-picker {
+  width: min(360px, calc(100dvw - 24px)) !important;
+  padding: 12px !important;
+  border: 1px solid #9d8bc6 !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, .99) !important;
+  box-shadow: 0 18px 45px rgba(11, 20, 52, .24) !important;
+}
+#reader.on ~ .puffy-picker .puffy-picker-head { margin-bottom: 8px; padding-bottom: 8px; }
+#reader.on ~ .puffy-picker .puffy-picker-head b { font-size: 15px; }
+#reader.on ~ .puffy-picker .puffy-picker-head span { font-size: 10.5px; line-height: 1.35; }
+#reader.on ~ .puffy-picker .puffy-card-required-actions { gap: 8px; }
+#reader.on ~ .puffy-picker .puffy-card-required-actions a,
+#reader.on ~ .puffy-picker .puffy-card-required-actions button {
+  min-height: 36px !important;
+  padding: 7px 10px !important;
+  border: 1px solid #7a689e !important;
+  border-radius: 8px !important;
+  background: #f7f3ff !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+  font-size: 11px !important;
+  letter-spacing: .01em !important;
+  text-transform: none !important;
+}
+#reader.on ~ .puffy-picker .puffy-card-required-actions a { border-color: #5e36b2 !important; background: #5e36b2 !important; color: #fff !important; }
+
+/* Medium desktop: preserve the approved hierarchy without shrinking the page into a poster. */
+@media (min-width: 821px) and (max-width: 1199px) {
+  #reader .book--reference-zine { background: #fffdfb; }
+  .book--reference-zine .reader-motif-cursor { width: 54px; }
+  .book--reference-zine .reader-motif-lightning { width: 42px; }
+  .book--reference-zine .reader-motif-cassette { width: 105px; }
+  .book--reference-zine .reader-motif-computer { width: 92px; }
+  .book--reference-zine .reader-motif-star { left: 48px; width: 28px; }
+  .book--reference-zine .reader-motif-star-right { width: 45px; }
+  .book--reference-zine .reader-motif-star-right-small { width: 25px; }
+  .book--reference-zine .band { min-height: 184px; padding: 34px 26px 16px 120px; }
+  .book--reference-zine .band .t { font-size: 61px; gap: 8px; }
+  .book--reference-zine .band .t:not(:has(.reader-title-lead)) { font-size: 40px; }
+  .book--reference-zine .reader-title-name { padding-bottom: 10px; }
+  .book--reference-zine .reader-title-name::after { height: 25px; }
+  .book--reference-zine .reader-actions { position: absolute; right: 26px; bottom: 16px; width: 390px; flex-basis: auto; margin: 0; }
+  .book--reference-zine .reader-contents { position: fixed; top: 145px; left: 32px; }
+  .book--reference-zine .body { height: calc(100dvh - 184px); }
+  .book--reference-zine .txt { padding: 14px 34px 76px 128px; font-size: 17px; line-height: 1.58; }
+  .book--reference-zine .reader-spread { max-width: none; }
+  .book--reference-zine .txt .reader-preface-heading { width: calc(100% - 224px); min-height: 112px; padding: 11px 0 20px 112px; font-size: 32px; }
+  .book--reference-zine .txt .reader-preface-heading::before { width: 92px; height: 92px; font-size: 31px; }
+  .book--reference-zine .txt .reader-preface-heading::after { left: 112px; width: calc(100% - 112px); height: 24px; }
+  .book--reference-zine .reader-preface-divider { left: 86px; width: 18px; height: 102px; }
+  .book--reference-zine .txt .reader-preface-intro { max-width: none; margin-right: 248px; }
+  .book--reference-zine .reader-preface-aside { width: 220px; gap: 16px; }
+  .book--reference-zine .reader-preface-card { padding: 16px; border-width: 2px; border-radius: 15px; }
+  .book--reference-zine .reader-preface-card-label img { width: 38px; height: 40px; }
+  .book--reference-zine .reader-preface-card b { font-size: 10px; }
+  .book--reference-zine .reader-preface-card p { font-size: 15px; line-height: 1.45; }
+  .book--reference-zine .reader-preface-card-why { min-height: 168px; }
+  .book--reference-zine .reader-preface-card-job { min-height: 280px; }
+  .book--reference-zine .reader-spread-nav { right: 28px; }
+}
+
+/* Mobile keeps the same visual vocabulary, with the controls and contents always reachable. */
+@media (max-width: 820px) {
+  #reader.on { place-items: center; background: #fff; }
+  #reader .book--reference-zine {
+    width: 100dvw;
+    height: 100dvh;
+    max-width: none;
+    background: #fffdfb;
+    box-shadow: none;
+  }
+  .book--reference-zine .reader-pop-frame { display: block; }
+  .book--reference-zine .band { min-height: 142px; padding: 14px 12px 10px 46px; flex-direction: column; gap: 8px; border-bottom: 3px solid var(--cyan); background: rgba(255, 253, 251, .95); }
+  .book--reference-zine .band .t { font-size: clamp(32px, 9.4vw, 43px); gap: 6px; }
+  .book--reference-zine .band .t:not(:has(.reader-title-lead)) { font-size: 25px; line-height: 1; white-space: normal; }
+  .book--reference-zine .reader-title-name { padding-bottom: 7px; font-size: .8em; }
+  .book--reference-zine .reader-title-name::after { bottom: -4px; height: 19px; }
+  .book--reference-zine .reader-title-number { font-size: .82em; }
+  .book--reference-zine .reader-actions { width: 100%; flex: 0 0 auto; margin: 2px 0 0; justify-content: flex-start; gap: 3px; }
+  .book--reference-zine .reader-save-book { width: 40px; height: 40px; min-height: 40px; }
+  .book--reference-zine .reader-save-book img { width: 29px; height: 29px; }
+  .book--reference-zine .reader-top { min-width: 52px; padding: 7px 6px; }
+  .book--reference-zine .band #reader-close { margin-left: auto; padding: 8px 9px; }
+  .book--reference-zine .band #reader-report { display: none; }
+  .book--reference-zine .reader-contents { position: relative; top: auto; left: auto; order: 0; }
+  .book--reference-zine .reader-contents > summary { min-height: 40px; padding: 7px 9px; letter-spacing: .03em; text-transform: none; }
+  .book--reference-zine .reader-contents nav { position: fixed; top: 82px; right: 10px; left: 10px; width: auto; max-height: calc(100dvh - 94px); }
+  .book--reference-zine .body { height: calc(100dvh - 142px); }
+  .book--reference-zine .txt { height: 100%; padding: 20px 16px 70px 48px; font-size: 16px; line-height: 1.62; }
+  .book--reference-zine .reader-spread { min-height: 100%; padding-bottom: 58px; }
+  .book--reference-zine .reader-spread-nav { right: 10px; bottom: 9px; }
+  .book--reference-zine .txt .reader-preface-heading { width: 100%; min-height: 88px; margin-bottom: 20px; padding: 8px 0 16px 76px; font-size: clamp(24px, 7.2vw, 32px); }
+  .book--reference-zine .txt .reader-preface-heading::before { width: 64px; height: 64px; font-size: 22px; }
+  .book--reference-zine .txt .reader-preface-heading::after { bottom: -2px; left: 72px; width: calc(100% - 72px); height: 19px; }
+  .book--reference-zine .reader-preface-divider { display: none; }
+  .book--reference-zine .txt .reader-preface-intro { max-width: none; margin-right: 0; }
+  .book--reference-zine .reader-preface-aside { position: static; width: auto; margin: 22px 0 30px; gap: 12px; }
+  .book--reference-zine .reader-preface-card { min-height: 0; padding: 15px 16px; border-width: 2px; border-radius: 13px; }
+  .book--reference-zine .reader-preface-card-label img { width: 38px; height: 40px; }
+  .book--reference-zine .reader-preface-card b { font-size: 10px; }
+  .book--reference-zine .reader-preface-card p { font-size: 16px; }
+}
+
+/* AI Fundamentals uses the exact approved raster pixels. The live title and
+   preface heading remain in the accessibility tree and retain their measured
+   layout boxes, but they do not repaint the artwork. */
+.book--ai-fundamentals-art .band .t { opacity: 0; }
+.book--ai-fundamentals-art .reader-title-name::after,
+.book--ai-fundamentals-art .reader-preface-heading::before,
+.book--ai-fundamentals-art .reader-preface-heading::after,
+.book--ai-fundamentals-art .reader-preface-divider { content: none; background: none; }
+.book--ai-fundamentals-art.is-opening-art .reader-preface-heading { opacity: 0; }
+
+@media (max-width: 820px) {
+  .book--ai-fundamentals-art .band {
+    min-height: 150px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .book--ai-fundamentals-art .band > div:first-child { position: absolute; }
+  .book--ai-fundamentals-art .reader-actions {
+    position: absolute;
+    top: 91px;
+    right: 12px;
+    left: 42px;
+    width: auto;
+    margin: 0;
+  }
+  .book--ai-fundamentals-art .body { height: calc(100dvh - 150px); }
+}
+
+@media (max-width: 420px) {
+  .book--ai-fundamentals-art .band { min-height: 150px; padding: 0; }
+  .book--ai-fundamentals-art .body { height: calc(100dvh - 150px); }
+}
+
+@media (max-width: 420px) {
+  .book--reference-zine .band { min-height: 136px; padding-left: 42px; }
+  .book--reference-zine .band .t { font-size: 32px; }
+  .book--reference-zine .body { height: calc(100dvh - 136px); }
+  .book--reference-zine .txt { padding: 18px 14px 70px 43px; }
+  .book--reference-zine .txt .reader-preface-heading { padding-left: 68px; font-size: 23px; }
+  .book--reference-zine .txt .reader-preface-heading::before { width: 57px; height: 57px; font-size: 20px; }
+  .book--reference-zine .txt .reader-preface-heading::after { left: 64px; width: calc(100% - 64px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book--reference-zine *,
+  .book--reference-zine *::before,
+  .book--reference-zine *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

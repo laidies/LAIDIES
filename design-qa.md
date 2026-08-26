@@ -1,6 +1,33 @@
 # Design QA — room-first building rebuilds
 
-## AI Fundamentals approved-reference rebuild v2 — 2026-08-26
+## AI Fundamentals raster-page rebuild v3 — 2026-08-26
+
+### Exact source and candidate
+
+- Source authority: `/Users/alisoneakin/.codex/generated_images/01a02f80-da71-7c03-9874-ffff309f2e40/exec-6ffbe44e-7d11-4ae4-8884-546946b2a867.png`, 1487 × 1058.
+- Raster artwork: `assets/library-reader/ai-fundamentals-opening-art-v3.png`, 1488 × 2200, plus `ai-fundamentals-page-art-v3.png` and 390 × 1200 mobile companions.
+- Candidate desktop: `operations/product-stewards/library/evidence-reader-raster-v3-20260826/candidate-desktop-final.png`.
+- Same-size source/candidate comparison: `operations/product-stewards/library/evidence-reader-raster-v3-20260826/reference-candidate-desktop-final.png`.
+- Candidate mobile: `operations/product-stewards/library/evidence-reader-raster-v3-20260826/candidate-mobile-final-v2.png`.
+- Later-section continuity: `operations/product-stewards/library/evidence-reader-raster-v3-20260826/candidate-desktop-next-section-final.png`.
+
+### Visible corrections
+
+1. The title and pink underline are the approved raster pixels; no live type or pseudo-element redraws them. The underline sits behind/below the word instead of crossing it.
+2. The frame is one continuous tall raster. It remains visible at the bottom of the 1487 × 1058 opening viewport, on the next authored spread and through the 390 × 844 mobile viewport.
+3. The Preface burst, divider and cyan rule are also approved raster pixels. The manuscript, truthful card labels, horizontal Contents, Puffy save, Top, Back and Report issue remain live and accessible.
+4. Mobile uses a separate source-derived 390 × 1200 raster so the title is readable, the controls sit below it and the frame does not crop or stop.
+
+### Verification boundary
+
+- Local visual/browser verification completed at 1487 × 1058 and 390 × 844.
+- Later-section navigation loaded the generic continuous raster without repeating the opening Preface art.
+- Inline script syntax and `validate-library-product.mjs` passed.
+- The browser suites did not run because this isolated worktree's `.ds-sync/node_modules/playwright-core/index.mjs` dependency is missing. This is a test-environment failure, not a passing result.
+
+Final result: HOLD — local raster successor ready for Ali's direct visual decision; not deployed.
+
+## AI Fundamentals approved-reference rebuild v2 — 2026-08-26 (INVALIDATED BY ALI)
 
 ### Exact source and candidate
 
@@ -32,7 +59,7 @@
 - All four opening books loaded through their real admitted artifacts at the actual app width with one active spread, zero document overflow and no book-load error (220, 207, 16 and 24 spreads respectively).
 - The book-load error is absent.
 
-Final result: passed
+Final result: rejected — Ali found that the CSS reconstruction still had the wrong title treatment, put the pink stroke through the text and visibly ended the illustrated page.
 
 Release status: HOLD — maker fidelity gate passed; Ali's direct exact-candidate approval is still required.
 
