@@ -1,6 +1,42 @@
 # Design QA — room-first building rebuilds
 
-## AI Fundamentals discrete spread reader — 2026-08-26
+## AI Fundamentals approved-reference rebuild v2 — 2026-08-26
+
+### Exact source and candidate
+
+- Source authority supplied by Ali: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/codex-clipboard-af5fd039-2de6-4b9b-9e5e-5cafdfff8f89.png`, persisted for review as `operations/product-stewards/library/evidence-reader-reference-v2-20260826/approved-reference-1487x1058.png`, 1487 × 1058.
+- Candidate desktop: `operations/product-stewards/library/evidence-reader-reference-v2-20260826/ai-fundamentals-reference-v2-desktop-1487x1058.png`, 1487 × 1058.
+- Same-size comparison: `operations/product-stewards/library/evidence-reader-reference-v2-20260826/approved-left-v2-right-1487x1058.png`, source left and candidate right.
+- Candidate mobile: `operations/product-stewards/library/evidence-reader-reference-v2-20260826/ai-fundamentals-reference-v2-mobile-390x844.png`, 390 × 844.
+- Mobile Contents: `operations/product-stewards/library/evidence-reader-reference-v2-20260826/ai-fundamentals-reference-v2-mobile-contents-390x844.png`, 390 × 844.
+
+### Blocking comparison
+
+1. P1 fixed — `0e8ac115` still loaded `approved-pop-zine-reader-v1.css`, so its visual surface was the same candidate Ali had repeatedly rejected. The page now loads a new stylesheet and a distinct reader class; the rejected file is not imported.
+2. P1 fixed — the old medium-desktop rules shrank all typography and geometry by viewport width, making the approved spread look like a miniature poster in the actual Codex window. The 821–1199px composition now keeps readable type, a two-line title block, the right editorial rail and the horizontal Contents control without overlaying the heading.
+3. P1 fixed — the first v2 render inherited a generic 56px `h2::after` width and collapsed the cyan brush rule. The candidate now gives the source-derived brush an explicit measured width at every breakpoint.
+4. P2 fixed — Contents navigation changed the active spread but left the old deep link in the URL. Chapter and subtitle jumps now update the exact section hash.
+
+### Intentional differences from the source image
+
+- Contents is horizontal and compact, per Ali's correction.
+- The two card labels describe their real jobs: `WHY THIS MATTERS` and `WHAT THIS BOOK DOES`; the rejected `NATURAL QUESTION` and generic `KEY CONCEPT` labels are not restored.
+- The mouth has been replaced by approved Rewind/computer Puffy imagery while the cassette, lightning and small stars retain the selected visual vocabulary.
+- The current owner-authored preface replaces the shorter mock text. Previous/Next is a small functional control outside the editorial hierarchy.
+
+### Verification
+
+- Desktop source and candidate were compared at the same 1487 × 1058 viewport and state.
+- At 390 × 844, document width equals viewport width, one of 220 spreads is visible and the Contents summary uses `horizontal-tb`.
+- Mobile Contents exposes 20 chapter groups; opening Chapter 1 closes the overlay, activates spread 12 only and updates the hash to `#ai-fundamentals-101::%40chapter-1`.
+- All four opening books loaded through their real admitted artifacts at the actual app width with one active spread, zero document overflow and no book-load error (220, 207, 16 and 24 spreads respectively).
+- The book-load error is absent.
+
+Final result: passed
+
+Release status: HOLD — maker fidelity gate passed; Ali's direct exact-candidate approval is still required.
+
+## AI Fundamentals discrete spread reader — 2026-08-26 (INVALIDATED BY ALI)
 
 ### Comparison target and evidence
 
@@ -38,7 +74,7 @@
 - The mobile Contents overlay opens at 390 × 844, exposes all 20 chapter groups and their subtitle links, closes after a destination is chosen and leaves only one spread visible.
 - Automated full-reader navigation passed for all four opening books at 1280, 390 and 320 pixels. Browser console errors: none.
 
-Final result: passed
+Final result: rejected — `0e8ac115` preserved the same failed visual surface and may not be used as design authority.
 
 Date: 2026-07-23  
 Pages: `post-office.html`, `visitors-centre.html`, `blend-snap.html`,

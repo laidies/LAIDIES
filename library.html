@@ -945,7 +945,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/library-reader/approved-pop-zine-reader-v1.css">
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-reference-reader-v2.css">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -1040,7 +1040,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 </main>
 
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
-  <div class="book book--approved-pop-zine">
+  <div class="book book--reference-zine">
     <div class="reader-pop-frame" aria-hidden="true">
       <img class="reader-motif reader-motif-cursor" src="/assets/puffies/usable-25-images/62-holographic-cursor-arrow.png" alt="">
       <img class="reader-motif reader-motif-lightning" src="/assets/puffies/puffy-lightning-bolt-teal.png" alt="">
@@ -1504,7 +1504,7 @@ function bindBookTocListeners(toc){
   target.setAttribute('tabindex','-1');
   target.focus({preventScroll:true});
   document.getElementById('mobile-toc').open=false;
-  showReaderSpreadForTarget(target,{focusTarget:true});
+  showReaderSpreadForTarget(target,{focusTarget:true,replaceHash:true});
   updateReaderPosition(sectionId);
  }));
 }
