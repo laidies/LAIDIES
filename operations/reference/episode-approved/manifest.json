@@ -120,22 +120,6 @@
       "approval": "IDENTITY_REFERENCE_ONLY"
     },
     {
-      "id": "SUNNYVAILE_DAY_COLORSETTER",
-      "role": "location_and_daytime_palette",
-      "scope": "SUNNYVAiLE streets and outdoor episode environments",
-      "path": "assets/episodes/ep-04/pixel/ep04-daytime-colorsetter-sunnyvaile-main-street-v1.png",
-      "sha256": "f50e9f86898106ccab2e2a2debf420ecc206e14dc3d8b60b7fd7c3e224d6b24e",
-      "approval": "LOCKED"
-    },
-    {
-      "id": "SUNNYVAILE_WELCOME_STREET",
-      "role": "location_composition",
-      "scope": "clean SUNNYVAiLE welcome and Main Street landscape framing",
-      "path": "assets/episodes/ep-04/pixel/ep04-open-08-sunnyvaile-welcome-comic-v5-from-user-street-clean-1920.png",
-      "sha256": "672abd2571aa772d45af4cf395adf79f532e9c9de6af48bfbfc6e030eed871af",
-      "approval": "LOCKED"
-    },
-    {
       "id": "GRAMMAR_COMIC_STORYTELLING",
       "role": "category_grammar",
       "scope": "sequential comic storytelling",
@@ -280,6 +264,34 @@
       "approval": "APPROVED_CLEAN_ELECTRIC_V2"
     }
   ],
+  "unavailable_required_references": [
+    {
+      "id": "SUNNYVAILE_CURRENT_DAY_PALETTE",
+      "role": "location_and_daytime_palette",
+      "status": "MISSING_APPROVED_CURRENT_SOURCE",
+      "reason": "The former colour-setter is rejected: obsolete teal/gold/plum scheme, glamour-cartoon person and random cars. Do not infer a replacement palette from another historical town image."
+    },
+    {
+      "id": "SUNNYVAILE_WELCOME_SIGN_V3",
+      "role": "location_composition_and_sign_authority",
+      "status": "MISSING_APPROVED_V3",
+      "reason": "v1 and v2 are rejected as Bridgerton-enamel; the current matte-aluminum Y2K sign brief exists but no approved v3 image exists."
+    }
+  ],
+  "rejected_references": [
+    {
+      "former_id": "SUNNYVAILE_DAY_COLORSETTER",
+      "path": "assets/episodes/ep-04/pixel/ep04-daytime-colorsetter-sunnyvaile-main-street-v1.png",
+      "sha256": "f50e9f86898106ccab2e2a2debf420ecc206e14dc3d8b60b7fd7c3e224d6b24e",
+      "status": "USER_REJECTED_NOT_FOR_EPISODE_PRODUCTION"
+    },
+    {
+      "former_id": "SUNNYVAILE_WELCOME_STREET",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-08-sunnyvaile-welcome-comic-v5-from-user-street-clean-1920.png",
+      "sha256": "672abd2571aa772d45af4cf395adf79f532e9c9de6af48bfbfc6e030eed871af",
+      "status": "USER_REJECTED_NOT_FOR_EPISODE_PRODUCTION"
+    }
+  ],
   "required_cue_bindings": [
     "one or more manifest reference IDs",
     "character-specific identity references where people appear",
@@ -291,6 +303,9 @@
     "glamour cartoon",
     "generic comic style",
     "painterly environment substitution",
+    "historical SUNNYVAiLE sign, masthead or postcard used as current palette authority",
+    "random people or cars",
+    "wet-looking pavement or sidewalks",
     "master style used as character identity",
     "generated text where deterministic editable lettering is possible",
     "copied approved-assets folder that forks authority"

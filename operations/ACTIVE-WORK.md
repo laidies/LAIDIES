@@ -1088,7 +1088,7 @@ objective; every open lane keeps its own checkpoint.
 
 ### 2026-08-25 episode motion-proof and reusable-outro checkpoint
 
-- **Current state:** `0/5 WATCH-READY / EPISODE 1 MOTION METHOD RETAINED / SOURCE ART REJECTED / SHARED OUTRO 2 OF 5 SOURCES BOUND`.
+- **Current state:** `0/5 WATCH-READY / EPISODE 1 MOTION METHOD RETAINED / SOURCE ART REJECTED / SHARED OUTRO 0 OF 5 SOURCES BOUND`.
 - **Exact Episode 1 proof verdict:** the exact four-second export at SHA-256
   `0c4049f8a80b6e90730ce8d8c032c6a51b7c403dbd0a8de5068d0213ec9e5f16`
   was watched continuously at normal speed in QuickTime. Its controlled
@@ -1096,25 +1096,30 @@ objective; every open lane keeps its own checkpoint.
   evidence, but its Heroine pixels fail the locked people style: her face is
   too soft, smooth and glamour-rendered. The packet is retained only as an
   internal motion mechanism and may not enter an episode.
-- **Reusable outro source truth:** Civic Square and Town Park remain bound to
-  exact daytime, vehicle-free source bytes. Blend & Snap, KSVL and LUMINAiRY
-  are deliberately empty. Ali identified the supposed Blend & Snap authority
-  as a longstanding rejected cottage-core storefront in the wrong town
-  colours; the Canva rough also used the wrong SUNNYVAiLE sign and palette.
+- **Reusable outro source truth:** all five visual slots are deliberately empty.
+  Ali rejected the full Canva rough, its wrong SUNNYVAiLE sign and its colour
+  system. Inspection also invalidated the manifest's former daytime colour-setter
+  and welcome-street pointers: they contain obsolete colours, glamour-cartoon
+  rendering and random vehicles. The required matte-aluminum Y2K welcome sign
+  v3 remains unbuilt, so there is no approved current sign or episode town-palette
+  authority to bind the Civic Square or Town Park scenes against.
 - **Invalidated successor:** commits `d3ef1737` and `c094b9ea` proved a bounded
   motion mechanism but built it on rejected source art. The source, its
   byte-identical PNG duplicates, WebP presentation copy, local motion proof,
   full six-frame rough and Canva designs `DAHTOqE5NA4` / `DAHTWBDaonk` were
   removed or moved to recoverable trash. No pixel or motion result from them
   remains eligible.
-- **Current hold:** Blend & Snap has no approved town-style source. Historical
+- **Current hold:** the shared outro has no approved town-style source set.
+  Blend & Snap, the current daytime palette and Welcome sign v3 are all open.
+  Historical
   Episode 1–4 and Trailer cue/config records that named the removed WebP are
   evidence of unresolved visual repair, not release inputs. Current cue sheets
   now leave those occurrences source-empty instead of silently substituting
   another wrong building.
-- **Next trigger:** locate and visually compare the surviving distinct Blend &
-  Snap candidates against current SUNNYVAiLE town authority. Promote none from
-  filenames or stale curation. If none passes, commission one representative
-  current-town still and admit it before any animation resumes.
+- **Next trigger:** establish one exact current SUNNYVAiLE palette authority and
+  produce/admit the already-briefed Welcome sign v3 as the representative still.
+  Only then compare or commission the building sources. Promote none from
+  filenames, historical postcards, mastheads or stale curation; no animation
+  resumes until the representative still passes visual admission.
 - **Truth boundary:** this checkpoint authorizes no intro/outro export, episode
   assembly, Watch binding, deployment, publication or public verification.

@@ -256,14 +256,16 @@ applied.
   through `epstyle-scene-05.png`
 - Environment notes:
   `operations/reference/episode-style-popart/README.md`
-- Production SUNNYVAiLE colour setters:
-  `assets/episodes/ep-04/pixel/ep04-daytime-colorsetter-sunnyvaile-main-street-v1.png`
-  and
-  `assets/episodes/ep-04/pixel/ep04-open-08-sunnyvaile-welcome-comic-v5-from-user-street-clean-1920.png`
+- Production SUNNYVAiLE colour/sign authority is currently **OPEN**. The former
+  daytime colour-setter and welcome-street image are user-rejected and cannot be
+  used as palette, sign, composition or location authority. The required welcome
+  sign v3 remains unbuilt; see `operations/sunnyvaile-building-image-briefs.md`.
 
-The landscape references define depth, architecture, scene density, lighting,
-and a lived-in town. They do not authorise flat-vector people. Any person placed
-inside a landscape must still match the master people style.
+The category landscape references define depth, architecture, scene density,
+lighting, and a lived-in town; they do not establish the current SUNNYVAiLE
+palette or approve a particular town source. They do not authorise flat-vector
+people. Any person placed inside a landscape must still match the master people
+style.
 
 ## 5. Text-production rule
 

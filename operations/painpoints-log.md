@@ -14486,3 +14486,11 @@ be used to pretend that a scene with required internal motion is animated.
   provenance without visible approval only makes a mistake easier to repeat.
 - **Publication status:** REJECTED SOURCE REMOVED / REPLACEMENT OPEN / NO WATCH,
   EXPORT, DEPLOYMENT OR PUBLIC VERIFICATION.
+
+**Ali correction, 2026-08-25:** The source-authority failure was broader than
+Blend & Snap. Pixel inspection showed that the manifest's supposed SUNNYVAiLE
+daytime colour-setter and welcome-street anchors also violated already-known
+rules: obsolete colours, glamour-cartoon rendering, random vehicles and the
+wrong sign language. Both pointers are now rejected, the active Episode 04 cue
+is source-empty and the shared outro is honestly 0/5 until a current palette
+authority and Welcome sign v3 are admitted.
