@@ -1,13 +1,17 @@
 # Codex reference set — town map regeneration (2026-07-05)
 
-SCOPE: REFERENCE MATERIAL ONLY. Read these for style + building identity.
-Do not edit, move, or overwrite anything in this folder or anywhere else.
-Deliver new generations to assets/re-rolls-20260705/ only.
+SCOPE: HISTORICAL REFERENCE MATERIAL ONLY. Folder membership is not current
+visual approval. A file is eligible for production only when a current positive
+decision and the episode-approved pointer manifest bind its exact path and
+checksum. Ali's later rejection always overrides this historical folder label.
 
-- building-heroes/  — the 17 approved y2k-v3 building renders (canonical
-  look, signage, and colors for every SUNNYVAiLE building)
-- approved-scenes/  — the 5 street scenes Ali approved 2026-07-05. These
-  are the ONLY approved scenes. Anything in assets/sunnyvaile-streets/
+- building-heroes/  — historical July 2026 building-reference set, not blanket
+  approval. The former Blend & Snap member was deleted on 2026-08-25 because
+  it was longstanding rejected cottage-core artwork in the wrong town colours.
+  Every surviving building requires exact current adjudication before use.
+- approved-scenes/  — the 5 street scenes Ali approved 2026-07-05. They remain
+  historical positive evidence but require current destination-specific binding
+  before production. Anything in assets/sunnyvaile-streets/
   NOT copied here (main-street-golden, main-street-dusk, town-edge-sunset,
   _raw-generated, _superseded) is wrong-order or unapproved — never
   reference those.

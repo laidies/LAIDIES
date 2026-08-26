@@ -39,7 +39,7 @@ This is the working checklist. Each row = one location in town. Use the status f
 | **No. 5** | The BRONZE AiGE | `bronze-aige.html` | ✅ | ✅ | ✅ | Dedicated page built. THE LAiDIES house band debuting "Wednesday in SUNNYVAiLE" wired. Main Character Spritz cocktail credited to Ryan C at CHAR No.5. `05-bronze-aige.png` exists. **Crowd image** Ali shared inline — filepath TBD. |
 | **No. 6** | Mme CLAi-O's Shop | `games/madame-claio.html` | ✅ | ✅ | ✅ | Hero image wired (`06-mme-claios-shop.png`). |
 | **No. 7** | The Chick Flicks | `net-flicks.html` (filename retiring) | 🟡 | ✅ | ✅ | Page fully rebranded to "The Chick Flicks" 2026-06-30 (title, h1, nav, footer, "Why?" section). **File rename `net-flicks.html` → `chick-flicks.html` still in flight (Codex).** Hrefs still point at `/net-flicks.html`. Storefront image `07-the-chick-flicks.png` exists. |
-| **No. 8** | The Blend & Snap | `blend-snap.html` | ✅ | ✅ | ✅ | Built. Cross-links to SUNNYVAiLE High for pop quiz, Chick Flicks for episode. `08-blend-and-snap.png` exists. |
+| **No. 8** | The Blend & Snap | `blend-snap.html` | ✅ | ✅ | ❌ | Built route. Cross-links to SUNNYVAiLE High for pop quiz and Chick Flicks for episode. The former `08-blend-and-snap` cottage-core storefront was user-rejected and deleted on 2026-08-25; a current town-style building hero remains open. |
 | **No. 9** | MAiKEOVER on MAiN | `maikeover.html` | ✅ | ✅ | ✅ | **Updated 2026-06-30 for dual role** — issue card (new members) + view card (returning, weekly check-in). Wednesday-tour stop 6 breadcrumb added. "See My Card" CTA placeholder ready for membership build. Hero image `09-maikeover-on-maine.png` wired. |
 
 ---

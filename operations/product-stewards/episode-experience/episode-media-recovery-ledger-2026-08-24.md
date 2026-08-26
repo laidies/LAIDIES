@@ -116,22 +116,19 @@ animation/CapCut assembly path. Its status is therefore
 `INTERNAL_MECHANISM_ONLY_VISUAL_SOURCE_REJECTED`; it is ineligible for an
 episode, Watch, deployment or public use.
 
-## First reusable-outro motion pilot
+## Invalidated reusable-outro motion pilot
 
-The canonical Blend & Snap source now has one bounded local motion candidate at
-`operations/video-qa/shared-outro-blend-snap-light-proof-v1/manifest.json`.
-Three controlled stills preserve every pixel outside the existing practical-
-light masks byte-for-byte. The one-shot proof settles those lights during the
-first 1.8 seconds and makes one smooth cosine-eased 2% push toward the existing
-building sign. It introduces no people, cars, weather, generated lettering or
-new objects, and it is not misclassified as a loop.
+Ali identified the claimed Blend & Snap authority as a longstanding rejected
+cottage-core storefront in the wrong SUNNYVAiLE colours. The Canva rough also
+used the wrong SUNNYVAiLE sign and wrong palette; all six frames are rejected.
+The source SHA-256 was
+`64d11ed0d571d764c5b7013fb96731cea42d11d79bce445841d4ce69ac9b0400`.
 
-The pixel guard was calibrated by a rejected first implementation that changed
-74.9955% of the frame and 1,100,190 pixels outside the permitted mask. The
-corrected successor changes 4.3575% of pixels and zero outside the mask. Its
-exact first and final pixels pass maker inspection, but QuickTime repeatedly
-routed continuous playback into picture-in-picture and the Mac locked before a
-Finder Quick Look retry. Canva design discovery then stopped on an expired OAuth
-grant. The candidate therefore remains
-`INTERNAL_MOTION_CANDIDATE_HOLD_OBSERVABLE_CONTINUOUS_WATCH_AND_CANVA`; it has no
-outro, episode, Watch, deployment or public authority.
+The local light-settle candidate demonstrated a controlled-frame mechanism but
+cannot retain any visual authority because its ancestor source is rejected.
+The source family, WebP presentation copy, motion proof and Canva designs
+`DAHTOqE5NA4` / `DAHTWBDaonk` were deleted or moved to recoverable trash on
+2026-08-25. `OUTRO_BLEND_SNAP_02` is source-empty and held. Historical cue and
+production records that still name the deleted WebP are retained only as
+failure evidence and require deliberate shot replacement before any Watch,
+export, deployment or public use.

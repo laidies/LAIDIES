@@ -1088,7 +1088,7 @@ objective; every open lane keeps its own checkpoint.
 
 ### 2026-08-25 episode motion-proof and reusable-outro checkpoint
 
-- **Current state:** `0/5 WATCH-READY / EPISODE 1 MOTION METHOD RETAINED / SOURCE ART REJECTED / SHARED OUTRO 3 OF 5 SOURCES BOUND`.
+- **Current state:** `0/5 WATCH-READY / EPISODE 1 MOTION METHOD RETAINED / SOURCE ART REJECTED / SHARED OUTRO 2 OF 5 SOURCES BOUND`.
 - **Exact Episode 1 proof verdict:** the exact four-second export at SHA-256
   `0c4049f8a80b6e90730ce8d8c032c6a51b7c403dbd0a8de5068d0213ec9e5f16`
   was watched continuously at normal speed in QuickTime. Its controlled
@@ -1096,25 +1096,25 @@ objective; every open lane keeps its own checkpoint.
   evidence, but its Heroine pixels fail the locked people style: her face is
   too soft, smooth and glamour-rendered. The packet is retained only as an
   internal motion mechanism and may not enter an episode.
-- **Reusable outro source truth:** Civic Square, Blend & Snap and Town Park are
-  bound to exact canonical daytime, vehicle-free source bytes. KSVL and
-  LUMINAiRY remain deliberately empty because the canonical available heroes
-  violate the dry-daytime/no-vehicle gate. No rejected alternative was promoted.
-- **Completed bounded successor:** the Blend & Snap local motion pilot is bound
-  by commits `d3ef1737` and `c094b9ea`. Its calibrated pixel guard rejects the
-  original whole-frame colour-space drift; the successor changes 4.3575% of the
-  frame and zero pixels outside existing practical-light masks. It adds one
-  smooth 2% sign-directed camera push without inventing content or calling the
-  one-way move a loop.
-- **Current hold:** exact first/final pixels pass maker inspection, but
-  QuickTime repeatedly diverted the continuous watch into picture-in-picture.
-  The Mac locked before the Finder Quick Look retry, and the Canva connection
-  requires reauthentication. No continuous visual PASS or Canva animation is
-  claimed.
-- **Next trigger:** when the Mac is unlocked and Canva is reauthenticated,
-  watch the exact SHA `582edeb61bc2db4b089fe8527497e75b5009830f20031a5c8c8e97069c4b1878`
-  continuously in the visible local viewer. If it passes, reproduce the same
-  controlled-light settle and 2% push in Canva, export beside the source, then
-  require independent exact-artifact visual admission before CapCut assembly.
+- **Reusable outro source truth:** Civic Square and Town Park remain bound to
+  exact daytime, vehicle-free source bytes. Blend & Snap, KSVL and LUMINAiRY
+  are deliberately empty. Ali identified the supposed Blend & Snap authority
+  as a longstanding rejected cottage-core storefront in the wrong town
+  colours; the Canva rough also used the wrong SUNNYVAiLE sign and palette.
+- **Invalidated successor:** commits `d3ef1737` and `c094b9ea` proved a bounded
+  motion mechanism but built it on rejected source art. The source, its
+  byte-identical PNG duplicates, WebP presentation copy, local motion proof,
+  full six-frame rough and Canva designs `DAHTOqE5NA4` / `DAHTWBDaonk` were
+  removed or moved to recoverable trash. No pixel or motion result from them
+  remains eligible.
+- **Current hold:** Blend & Snap has no approved town-style source. Historical
+  Episode 1–4 and Trailer cue/config records that named the removed WebP are
+  evidence of unresolved visual repair, not release inputs. Current cue sheets
+  now leave those occurrences source-empty instead of silently substituting
+  another wrong building.
+- **Next trigger:** locate and visually compare the surviving distinct Blend &
+  Snap candidates against current SUNNYVAiLE town authority. Promote none from
+  filenames or stale curation. If none passes, commission one representative
+  current-town still and admit it before any animation resumes.
 - **Truth boundary:** this checkpoint authorizes no intro/outro export, episode
   assembly, Watch binding, deployment, publication or public verification.

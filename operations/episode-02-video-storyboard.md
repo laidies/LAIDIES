@@ -47,7 +47,7 @@ Times are **estimates against a ~15-min narration** — finalize by aligning to 
 | 19 | 12:05 | Cocktail party — happy hour at the BRONZE AiGE | **REUSE** bronze-aige-interior.jpg | warm **PAN R→L** |
 | 20 | 12:55 | The postcard — Post Office | **REUSE** post-office-lobby.jpg | **PUSH IN** on the postcard |
 | 21 | 13:25 | The try-on — "it all lives at ladies.ai" | **REUSE** 01-welcome-wagon…webp | **PULL OUT** *(opening up)* |
-| 22 | 13:45 | CTA — the Study Pack | **REUSE** 08-blend-and-snap.webp | gentle push in |
+| 22 | 13:45 | CTA — the Study Pack | **SOURCE OPEN** — former Blend & Snap exterior rejected/deleted | no animation until exact replacement is approved |
 | 23 | 14:08 | CTA — the Pop Quiz | **REUSE** 14-sunnyvaile-high.webp | gentle push in |
 | 24 | 14:28 | CTA — this week's Anthem (KSVL 99.9) | **REUSE** 16-ksvl…webp | gentle push in |
 | 25 | 14:48 | CTA — make it official (MAiKEOVER) | **REUSE** 09-maikeover…webp | gentle push in |

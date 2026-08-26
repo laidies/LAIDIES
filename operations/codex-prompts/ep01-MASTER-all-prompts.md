@@ -111,7 +111,7 @@
 
 **SETTING refs (composition only — re-render in comic register, do not copy the old art style):**
 - Corporate office / conference room: `assets/video/episode-01-full-scene-replacements-v1/ep01-miranda-office-full-scene-v1.png`
-- Blend & Snap exterior: `assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.png`
+- Blend & Snap exterior: **OPEN — do not use** the deleted cottage-core `assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.png`; it had the wrong SUNNYVAiLE colours and no longer has visual authority.
 - Blend & Snap interior (✅ NEW canonical, Ali 2026-07-19): `assets/town-characters/scenes/jojo-scene.png` — magenta tile walls, Memphis geometric wall art, glass pastry/donut case, espresso machine + rows of teal/magenta/cream heart mugs, speckled navy counter with magenta edge, Town Hall clock tower + jacaranda blooms through the window. **Supersedes the old `blend-snap-cafe.jpg`.** JoJo (barista) is in this ref → take the ROOM; render the HEROINE as the subject, JoJo optional/background. Corkboard detail `assets/sunnyvaile-interiors/blend-snap-corkboard.png`.
 - SUNNYVAiLE Main Street establishing: `assets/sunnyvaile-streets/main-street-golden.png`
 
@@ -276,7 +276,7 @@
 ## SCENE: S16-blend-snap-arrival
 **File:** `ep01-blend-snap-arrival-comic.png`
 **Format:** ESTABLISHING / aspect-to-aspect (arrival in SUNNYVAiLE). **Static hold, 1 image** (opus: gentle ambient).
-**Prompt:** Warm wide establishing of the Blend & Snap café exterior on a sunny Sunday, SUNNYVAiLE Main Street; the heroine (SUNNYVAiLE Carrie-tutu look) walking in with her laptop. Brightest, most saturated palette of the episode (present/town = brightest). Setting refs: `08-blend-and-snap.png` + `main-street-golden.png`. Face ref: heroine kit. Style ref: Timnit set.
+**SOURCE HOLD:** The former `08-blend-and-snap.png` exterior is deleted, rejected cottage-core artwork in the wrong SUNNYVAiLE colours. Do not render or animate this scene until an exact current-town exterior receives positive approval. The narrative job remains a sunny Sunday arrival with the Episode 1 SUNNYVAiLE heroine outfit.
 
 ## SCENE: S17-blend-snap-win
 **File:** `ep01-blend-snap-win-comic.png`

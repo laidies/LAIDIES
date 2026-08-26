@@ -14457,3 +14457,32 @@ camera movement are also mandatory. Ken Burns-style pans and zooms are allowed
 when they serve the shot, but shaking, jerking, snapping, stutter, aimless
 drift, poor cropping and transition discontinuity fail. Camera movement cannot
 be used to pretend that a scene with required internal motion is animated.
+
+## BTB-485 — A folder called approved can still contain rejected art
+
+- **Date:** 2026-08-25
+- **Area:** Weekly Episode shared-outro source curation and Canva production.
+- **Failure:** A longstanding rejected cottage-core Blend & Snap storefront was
+  promoted as canonical because it lived under `building-heroes`, carried an
+  old `correct` curation label and had a checksum binding. Motion work then made
+  the wrong source more polished. The associated Canva rough also used the
+  wrong SUNNYVAiLE sign and wrong town colours across all six frames.
+- **Root cause:** The producer treated storage location, filename, stale
+  curation metadata and hash identity as approval evidence. None of them proved
+  that Ali had positively accepted the visible town style.
+- **Prevention rule:** A checksum proves which bytes were used, not that the
+  bytes are approved. Visitor-facing town art requires a current positive
+  visual decision bound to the exact image. Rejection of an ancestor source
+  automatically invalidates and removes every derivative, motion proof and
+  assembly that consumes it; no polishing or checker result can rescue it.
+- **Durable correction:** The source SHA
+  `64d11ed0d571d764c5b7013fb96731cea42d11d79bce445841d4ce69ac9b0400`,
+  the entire direct raw/rendered-sign/light-pixel/cache/PNG/WebP building family,
+  the local motion proof, the full rough sequence
+  and Canva designs `DAHTOqE5NA4` / `DAHTWBDaonk` were deleted or trashed. The
+  curation entry now says rejected, the shared-outro slot is empty, current cue
+  occurrences are source-empty, and D-2026-08-25-129 binds the rejection.
+- **Possible Behind the Build angle:** We checksum-bound the wrong café—and why
+  provenance without visible approval only makes a mistake easier to repeat.
+- **Publication status:** REJECTED SOURCE REMOVED / REPLACEMENT OPEN / NO WATCH,
+  EXPORT, DEPLOYMENT OR PUBLIC VERIFICATION.

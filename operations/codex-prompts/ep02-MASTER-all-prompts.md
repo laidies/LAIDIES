@@ -86,7 +86,7 @@ historical flashbacks), so keep it vibrant throughout; only the corporate desk r
   heart mugs, speckled navy counter w/ magenta edge, Town Hall clock tower + jacaranda through the window.
   **Supersedes the old `blend-snap-cafe.jpg`.** JoJo (barista) is in this ref → take the ROOM; the HEROINE is the
   subject in café scenes, JoJo optional/background. Corkboard detail `assets/sunnyvaile-interiors/blend-snap-corkboard.png`.
-  Exterior = `assets/sunnyvaile-buildings/08-blend-and-snap.png`.
+  Exterior = **OPEN / HOLD**. The former `assets/sunnyvaile-buildings/08-blend-and-snap.png` was user-rejected and deleted as cottage-core artwork in the wrong SUNNYVAiLE colours. Do not substitute another exterior without exact positive approval.
 - **LIBRAiRY (town library) reading room** = `assets/building-interiors/library-reading-room.jpg`
   (live on `library.html`). Exterior = `assets/sunnyvaile-buildings/03-town-library.png`.
 - **Post Office** exterior = `assets/sunnyvaile-buildings/13-laidies-post-office.png`; lobby interior =
