@@ -1121,5 +1121,11 @@ objective; every open lane keeps its own checkpoint.
   Only then compare or commission the building sources. Promote none from
   filenames, historical postcards, mastheads or stale curation; no animation
   resumes until the representative still passes visual admission.
+- **Representative sign candidate:** exact lettered PNG
+  `assets/episodes/shared/intro-v1/candidates/sunnyvaile-welcome-sign-v3-lettered-candidate-v1.png`
+  at SHA-256 `156da9913c921a29b87774a8f9b8a97c5a5668e6ab264e407c566d8384c85ad3`
+  is a source-bound user-verdict candidate only. Its wording is a deterministic
+  layer over a text-free plate; it has not been promoted into the approved
+  manifest, an episode cue, Canva animation or CapCut assembly.
 - **Truth boundary:** this checkpoint authorizes no intro/outro export, episode
   assembly, Watch binding, deployment, publication or public verification.
