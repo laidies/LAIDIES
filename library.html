@@ -812,9 +812,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
    halftone and comic edge art; all words and controls remain live HTML. */
 #reader.on{padding:0;place-items:start center;background:rgba(5,9,29,.94)}
 .book{width:min(1488px,100dvw);max-width:1488px;height:100dvh;aspect-ratio:auto;max-height:none;padding:0;overflow:hidden;
-  border:0;border-radius:0;background:#fdfcfb url('/assets/library-reader/pop-zine-frame-v1.png') center top/100% auto no-repeat;
+  border:0;border-radius:0;background:#fdfcfb url('/assets/library-reader/ai-tech-edge-frame-lavender-v1.png') center/cover no-repeat;
   box-shadow:0 28px 90px rgba(2,8,28,.58)}
-.reader-pop-frame{position:absolute;inset:0;z-index:1;display:block;width:auto;overflow:hidden;border:0;background:none;pointer-events:none}
+.reader-pop-frame{display:none}
 .reader-pop-frame::before{content:none}
 .reader-motif{filter:drop-shadow(3px 5px 0 rgba(55,32,105,.18))}
 .reader-motif-cursor{top:3.5%;left:2.1%;width:5.3%}
@@ -831,11 +831,11 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .band>div:first-child{display:block;min-width:0;flex:1 1 auto}
 .book .band .m{display:none}
 .book .band .t{display:flex;width:auto;max-width:none;margin:0;padding:0;align-items:flex-end;gap:12px;border:0;color:#11163f;
-  font-family:'Jost',system-ui,sans-serif;font-size:clamp(36px,5.3vw,82px);font-weight:950;line-height:.84;letter-spacing:-.065em;text-shadow:none;white-space:nowrap}
-.reader-title-lead{font-size:1.22em;line-height:.78;letter-spacing:-.09em;transform:translateY(clamp(0px,calc((1488px - 100vw)*.1),24px))}
-.reader-title-name{position:relative;padding:0 5px 13px 0;font-family:'Playfair Display',Georgia,serif;font-size:.8em;font-weight:800;letter-spacing:-.045em}
+  font-family:'Jost',system-ui,sans-serif;font-size:clamp(52px,6.18vw,92px);font-weight:950;line-height:.84;letter-spacing:-.065em;text-shadow:none;white-space:nowrap}
+.reader-title-lead{font-size:1.22em;line-height:.78;letter-spacing:-.09em;transform:none}
+.reader-title-name{position:relative;padding:0 5px 13px 0;font-family:'Playfair Display',Georgia,serif;font-size:.68em;font-weight:800;letter-spacing:-.045em}
 .reader-title-name::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-8px;height:35px;background:url('/assets/library-reader/title-pink-brush-v1.png') center/100% 100% no-repeat}
-.reader-title-number{padding-bottom:2px;color:#6f3ac9;font-family:'Playfair Display',Georgia,serif;font-size:.88em;font-weight:800;letter-spacing:-.04em}
+.reader-title-number{padding-bottom:2px;color:#6f3ac9;font-family:'Playfair Display',Georgia,serif;font-size:1em;font-weight:800;letter-spacing:-.04em}
 .reader-actions{display:flex;flex:0 0 clamp(390px,32.93vw,490px);margin-top:clamp(38px,3.696vw,55px);align-items:center;justify-content:space-between;gap:8px}
 .reader-save-book,.reader-top,.book .band button:not(.puffy-btn){min-height:44px;margin:0;padding:8px 11px;border:0;background:transparent;color:#11183b;
   box-shadow:none;font:850 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:none}
@@ -844,15 +844,19 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .reader-top{min-width:70px;border-left:1px solid #bfc3d3;border-right:1px solid #bfc3d3;text-transform:uppercase}
 .book .band #reader-close{padding:11px 16px;border:2px solid #18c6d8;border-radius:9px;background:#fff;box-shadow:none}
 .book .band #reader-report{padding:11px 5px;color:#303858;font-size:11px}
-.reader-contents{position:absolute;left:clamp(78px,7.46vw,111px);top:clamp(184px,17.473vw,260px);z-index:15;margin:0}
-.reader-contents>summary{display:flex;width:clamp(48px,3.696vw,55px);height:clamp(132px,12.366vw,184px);min-height:0;padding:13px 9px;align-items:center;justify-content:center;border:2px solid #6b42bf;border-radius:9px;
-  background:#fff;color:#6b42bf;box-shadow:4px 4px 0 rgba(107,66,191,.16);writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+.reader-contents{position:absolute;left:clamp(55px,5.1vw,76px);top:clamp(150px,14.1vw,210px);z-index:15;margin:0}
+.reader-contents>summary{display:flex;width:auto;height:42px;min-height:42px;padding:9px 14px;align-items:center;justify-content:center;border:1px solid #6b42bf;border-radius:10px;
+  background:rgba(255,255,255,.96);color:#5e36b2;box-shadow:0 6px 18px rgba(31,25,71,.12);writing-mode:horizontal-tb;transform:none;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .reader-contents>summary::before,.reader-contents>summary::after{content:none}.reader-contents-label{font-weight:950}
-.reader-contents nav{position:fixed;left:max(84px,calc((100dvw - min(1488px,calc(100dvw - 20px)))/2 + 176px));right:auto;top:max(90px,calc((100dvh - min(1057px,calc(100dvh - 20px)))/2 + 216px));
-  width:min(500px,calc(100dvw - 220px));max-height:min(70vh,690px);padding:13px;border:3px solid #6b42bf;border-radius:8px;background:#fff;box-shadow:10px 10px 0 rgba(16,24,66,.24);writing-mode:horizontal-tb}
+.reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);
+  width:min(360px,calc(100dvw - 100px));max-height:min(58vh,520px);padding:8px;border:1px solid #a894d2;border-radius:12px;background:rgba(255,255,255,.985);box-shadow:0 18px 45px rgba(16,24,66,.2);writing-mode:horizontal-tb}
+.reader-contents nav a{padding:7px 8px;font-size:11.5px}
+.reader-toc-group>summary{min-height:38px;padding:8px;font-size:11.5px}
+.reader-toc-children{padding-left:21px}.reader-toc-children a{font-size:11px}
+.reader-contents nav a[aria-current="location"]{background:#f0ebfb;border-left:3px solid #18c6d8;outline:0}
 .book .body{display:block;flex:1 1 auto;min-height:0;overflow:hidden;background:transparent}
 .book .toc{display:none!important}
-.book .txt{height:100%;padding:10px clamp(82px,7.796vw,116px) 80px clamp(167px,15.86vw,236px);overflow:auto;background:transparent;color:#1b2345;
+.book .txt{height:100%;padding:10px clamp(82px,7.796vw,116px) 80px clamp(167px,15.86vw,236px);overflow:auto;background:rgba(255,255,255,.08);color:#1b2345;
   font-size:clamp(16px,1.277vw,19px);line-height:1.62;scroll-padding-top:20px}
 .book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
 .book .txt section[data-source-block="preface-why-this-book-matters"]{position:relative;max-width:1130px;margin:0 auto}
@@ -876,21 +880,19 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt section[data-source-block="preface-why-this-book-matters"]>h2:not(.reader-preface-heading){clear:both;margin-top:45px}
 
 @media(min-width:821px) and (max-width:1050px){
- .book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;background-position:center top;background-size:100% auto;background-repeat:no-repeat}
- .reader-motif-lightning{top:143px}.reader-motif-star{top:280px}.reader-motif-cassette{top:318px}
- .reader-motif-computer{top:515px;bottom:auto}.reader-motif-star-right{top:430px;bottom:auto}.reader-motif-star-right-small{top:395px;bottom:auto}
- .book .band{min-height:150px;padding:27px 40px 12px 120px;align-items:flex-start;flex-direction:row;gap:18px}
- .book .band .t{flex:0 0 auto;font-size:46px;gap:6px}
+ .book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;background-position:center;background-size:cover;background-repeat:no-repeat}
+ .book .band{min-height:168px;padding:32px 30px 12px 138px;align-items:flex-start;flex-direction:row;gap:18px}
+ .book .band .t{flex:0 0 auto;font-size:clamp(52px,6.18vw,65px);gap:20px}
  .reader-title-lead{transform:none}
- .reader-title-name{padding-bottom:9px}.reader-title-name::after{bottom:-5px;height:25px}
- .reader-actions{flex:0 0 300px;margin:16px 0 0 auto;justify-content:space-between;gap:3px}
+ .reader-title-name{padding-bottom:9px}.reader-title-name::after{left:5%;right:-2%;bottom:-5px;height:25px}
+ .reader-actions{flex:0 0 345px;margin:16px 0 0 auto;justify-content:space-between;gap:3px}
  .reader-save-book{width:43px;height:43px;padding:3px}.reader-save-book img{width:31px;height:31px}
  .reader-top{min-width:52px;padding:7px 6px;font-size:9px}
  .book .band #reader-close{padding:9px 10px;font-size:9px}
  .book .band #reader-report{padding:9px 3px;font-size:9px}
- .reader-contents{left:65px;top:153px}.reader-contents>summary{width:43px;height:132px;padding:10px 7px;font-size:10px}
- .reader-contents nav{position:absolute;left:52px;right:auto;top:0;width:min(430px,calc(100dvw - 150px))}
- .book .txt{padding:0 76px 54px 147px;font-size:15.5px;line-height:1.58}
+ .reader-contents{left:70px;top:150px}.reader-contents>summary{width:auto;height:40px;padding:8px 12px;font-size:10px}
+ .reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);width:min(340px,calc(100dvw - 90px))}
+ .book .txt{padding:0 110px 54px 170px;font-size:15.5px;line-height:1.58}
  .book .txt .reader-preface-heading{width:calc(100% - 170px);min-height:94px;margin-bottom:16px;padding:11px 0 17px 84px;font-size:28px;line-height:1.03;letter-spacing:0}
  .book .txt .reader-preface-heading::before{width:75px;height:75px;font-size:27px}
  .book .txt .reader-preface-heading::after{left:84px;bottom:-2px;height:23px}
@@ -904,7 +906,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
  #reader.on{padding:0;place-items:center}.book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;max-height:none;background:#fff}
  .reader-pop-frame{display:none}
  .book .band{min-height:150px;padding:16px 14px 12px;gap:9px;background:#fbf9ff;border-bottom:4px solid #18c6d8;flex-direction:column}
- .book .band .t{font-size:clamp(30px,10vw,48px);gap:6px}.reader-title-lead{transform:none}.reader-title-name{padding-bottom:8px}.reader-title-name::after{bottom:-5px;height:22px}
+ .book .band .t{font-size:clamp(34px,10vw,48px);gap:7px}.reader-title-lead{transform:none}.reader-title-name{padding-bottom:8px;font-size:.82em}.reader-title-name::after{bottom:-5px;height:22px}
  .reader-actions{width:100%;flex:0 0 auto;margin-top:5px;justify-content:flex-start;gap:3px}
  .reader-contents{position:relative;left:auto;top:auto;order:0}
  .reader-contents>summary{width:auto;height:44px;padding:8px 10px;writing-mode:horizontal-tb;transform:none;letter-spacing:.03em;text-transform:none}
@@ -917,8 +919,18 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
  .book .txt .reader-preface-intro{max-width:none;margin-right:0}
  .reader-preface-aside{position:static;width:auto;margin:24px 0 32px;gap:14px}.reader-preface-card{padding:17px 18px;border-radius:13px}.reader-preface-card p{font-size:16px}
 }
+
+/* Reader overlays stay useful without becoming giant outlined boxes. */
+#reader.on~.puffy-picker{width:min(380px,calc(100dvw - 24px))!important;padding:14px!important;border:1px solid #9d8bc6!important;border-radius:13px!important;background:rgba(255,255,255,.985)!important;box-shadow:0 18px 45px rgba(11,20,52,.24)!important}
+#reader.on~.puffy-picker .puffy-picker-head{margin-bottom:8px;padding-bottom:8px}
+#reader.on~.puffy-picker .puffy-picker-head b{font-size:15px}
+#reader.on~.puffy-picker .puffy-picker-head span{font-size:10.5px;line-height:1.35}
+#reader.on~.puffy-picker .puffy-card-required-actions{gap:8px}
+#reader.on~.puffy-picker .puffy-card-required-actions a,#reader.on~.puffy-picker .puffy-card-required-actions button{min-height:38px!important;padding:8px 11px!important;border:1px solid #7a689e!important;border-radius:9px!important;background:#f7f3ff!important;color:#11183b!important;box-shadow:none!important;font-size:11px!important;letter-spacing:.01em!important;text-transform:none!important}
+#reader.on~.puffy-picker .puffy-card-required-actions a{border-color:#5e36b2!important;background:#5e36b2!important;color:#fff!important}
+#reader.on~.puffy-picker .puffy-card-required-actions a:focus-visible,#reader.on~.puffy-picker .puffy-card-required-actions button:focus-visible{outline:2px solid #18c6d8!important;outline-offset:2px!important}
 @media(max-width:420px){
- .book .band{min-height:138px}.book .band .t{font-size:30px}.reader-title-number{font-size:.76em}
+ .book .band{min-height:138px}.book .band .t{font-size:34px}.reader-title-number{font-size:.82em}
  .reader-save-book{width:42px;height:42px}.reader-save-book img{width:31px;height:31px}.book .band #reader-close{font-size:9px}
  .reader-contents nav{top:130px}.book .txt{height:calc(100dvh - 138px);padding:20px 15px 40px}
  .book .txt .reader-preface-heading{padding-left:72px;font-size:24px}.book .txt .reader-preface-heading::before{width:61px;height:61px;font-size:21px}.book .txt .reader-preface-heading::after{left:68px}
