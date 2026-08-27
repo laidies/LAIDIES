@@ -30,3 +30,21 @@ Prompt:
 Saved project asset:
 
 - `assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v5.png`
+
+## Mobile collision correction
+
+The first mobile frame's lower-right burst entered the protected live-text area because the tall raster remains fixed behind the internally scrolling manuscript. Built-in ImageGen edited the frame rather than recreating the visual in CSS.
+
+Prompt:
+
+> Use case: precise-object-edit. Asset type: mobile continuous book-page perimeter frame. Remove the entire large purple-and-cyan comic burst and its halftone spray from the lower-right corner so it can never enter the live reading area. Reconstruct that lower-right area as the same uninterrupted warm white paper as the surrounding page. Preserve the image dimensions and all pixels except the lower-right burst/halftone removal and seamless warm-white repair. Keep the lavender upper-left diagonal edge and the subtle upper-right halftone exactly as they are. Keep the full centre and the entire lower half quiet, clean warm white with no objects, shapes, borders, stickers, marks, shadows, seams or decoration. No text, logos or new artwork; no visible patch edge, tiling or colour shift.
+
+Saved project asset:
+
+- `assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png`
+
+The same collision pattern existed in the shared mobile frame used by Working with AI 101, Straight Answers About AI and The AI Dictionary. A second ImageGen edit removed its right-side burst and horizontal strip seams while preserving the far-left perimeter artwork.
+
+Saved project asset:
+
+- `assets/library-reader/library-book-page-art-mobile-v4.png`
