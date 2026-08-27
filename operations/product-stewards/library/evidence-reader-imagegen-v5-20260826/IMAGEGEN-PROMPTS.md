@@ -48,3 +48,16 @@ The same collision pattern existed in the shared mobile frame used by Working wi
 Saved project asset:
 
 - `assets/library-reader/library-book-page-art-mobile-v4.png`
+
+The desktop sweep then exposed the same fixed-frame problem at wider widths. Built-in ImageGen removed the lower-right burst and nearby right-side stars from AI Fundamentals while preserving its left-side computer/AI collage and top-edge halftone. A separate desktop edit removed the right-side burst and strip seams from the shared companion-book frame while preserving its left perimeter.
+
+Desktop correction prompts:
+
+> AI Fundamentals: Remove the entire large purple-and-cyan comic burst, its halftone spray and the two nearby stars from the lower-right corner. Reconstruct the lower-right and right edge as seamless warm white paper. Preserve the 1487 × 1058 dimensions, all left-edge artwork, the lavender upper-left plane, upper-right halftone, cursor, floppy, chip, computer and small left-side stars. No right-side decoration, text, logos, seams, strips, tiling or colour shift.
+
+> Shared frame: Remove the entire purple-and-cyan comic burst and halftone spray from the right side, and remove every horizontal strip boundary, band and layered seam. Reconstruct the full centre and right side as uninterrupted warm white paper. Preserve the portrait proportions, lavender upper-left plane, small upper-left burst and continuous lavender halftone along the far-left edge. No right-side artwork, text, logos, new decoration, seams, strips, tiling or colour shift.
+
+Saved project assets:
+
+- `assets/library-reader/ai-fundamentals-frame-imagegen-v6.png`
+- `assets/library-reader/library-book-page-art-v4.png`
