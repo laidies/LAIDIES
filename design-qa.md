@@ -1229,3 +1229,38 @@ final result: passed
 - Local only. No deploy or public verification was performed.
 
 final result: passed — local implementation comparison; Ali's visual approval and any release remain separate.
+
+## 2026-08-26 — Continuous reader and unified header correction
+
+**Why the preceding interaction verdict is invalid**
+
+- Ali explicitly rejected the turn-the-page model. `Previous`, `Next`, `1 / 220`, hidden spread wrappers and one-subtitle-at-a-time rendering were not requested and contradicted the continuous-book requirement.
+- Ali also rejected the scattered header: the title cropped, Contents floated separately and the controls read as unrelated pieces.
+
+**Exact target and candidate evidence**
+
+- Approved composition: `/Users/alisoneakin/.codex/generated_images/01a02f80-da71-7c03-9874-ffff309f2e40/exec-6ffbe44e-7d11-4ae4-8884-546946b2a867.png`.
+- Same-viewport comparison: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/approved-vs-continuous-reader-1487x1058.png`.
+- Desktop candidate: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/continuous-reader-desktop-1487x1058.png`.
+- Mobile candidate: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/continuous-reader-mobile-390x844.png`.
+- Mobile Contents overlay: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/continuous-reader-mobile-contents-open-390x844.png`.
+
+**Visible comparison verdict**
+
+- The ImageGen-authored lavender/white frame, split title, Preface burst/divider/rule, white reading area and two semantic cards remain intact.
+- The complete title is visible. Contents, Puffy Save, Top, Back and Report issue now share one aligned header row on desktop and one compact second row on mobile. Contents is horizontal and uses a thin light overlay rather than an oversized heavy box.
+- The manuscript starts directly beneath the Preface hierarchy and continues through the next section in the same scroll. No page counter or arrow controls remain.
+- At 390 × 844 the title and toolbar fit the viewport with zero horizontal overflow; the manuscript remains inside the protected white area.
+
+**Interaction and objective checks**
+
+- Desktop rendered `0` `.reader-spread` wrappers and `0` `.reader-spread-nav` controls. The continuous reading pane measured 204,265px of scrollable content in an 868px viewport.
+- A desktop Contents selection jumped directly to `Ready?` at scroll position 5,258 and closed the overlay. Top returned the reading pane to `0` and restored the book-only hash.
+- On mobile, a nested Contents selection jumped directly to `ch-5-key-terms` at scroll position 125,912 and closed the overlay. Top returned to `0`.
+- Browser console: zero errors.
+- `LIBRARY_CONTRACT_CALIBRATION=page-turn-reader node scripts/validate-library-product.mjs` rejected the deliberately reintroduced `reader-spread-nav` fixture.
+- `node scripts/validate-library-product.mjs`: pass.
+- Inline JavaScript compilation: pass.
+- `git diff --check`: pass.
+
+final result: passed — continuous local reader, responsive header and direct navigation verified; owner approval and public release remain separate.

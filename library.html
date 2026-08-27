@@ -1040,7 +1040,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 </main>
 
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
-  <div class="book book--reference-zine">
+  <div class="book book--reference-zine" tabindex="-1">
     <picture class="reader-pop-frame" aria-hidden="true">
       <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v5.png?v=5f">
       <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-frame-imagegen-v5.png" alt="">
@@ -1066,7 +1066,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div><nav class="reader-spread-nav" id="reader-spread-nav" aria-label="Page navigation" hidden><button id="reader-spread-prev" type="button" aria-label="Previous section">←</button><span id="reader-spread-status" aria-live="polite"></span><button id="reader-spread-next" type="button" aria-label="Next section">→</button></nav></div>
+    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
   </div>
 </div>
 
@@ -1499,8 +1499,7 @@ function bindBookTocListeners(toc){
   target.setAttribute('tabindex','-1');
   target.focus({preventScroll:true});
   document.getElementById('mobile-toc').open=false;
-  showReaderSpreadForTarget(target,{focusTarget:true,replaceHash:true});
-  updateReaderPosition(sectionId);
+  scrollReaderToTarget(target,{replaceHash:true});
  }));
 }
 function updateReaderPosition(sectionId){
@@ -1508,8 +1507,8 @@ function updateReaderPosition(sectionId){
  const headings=[...txt.querySelectorAll('h1[id],h2[id],h3[id]')].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
  let current=sectionId?document.getElementById(sectionId):null;
  if(!current){
-  const activeSpread=txt.querySelector('.reader-spread.is-active');
-  current=activeSpread?.querySelector('h1[id],h2[id],h3[id]')||null;
+  const txtTop=txt.getBoundingClientRect().top+28;
+  current=[...headings].reverse().find(heading=>heading.getBoundingClientRect().top<=txtTop)||headings[0]||null;
  }
  activeReaderSectionId=current?.id||null;
  const label=document.getElementById('reader-current-section');
@@ -1517,83 +1516,13 @@ function updateReaderPosition(sectionId){
  document.querySelectorAll('#rtoc a[aria-current],#rtoc-mobile a[aria-current]').forEach(item=>item.removeAttribute('aria-current'));
  if(current)document.querySelectorAll(`#rtoc a[href="#${current.id}"],#rtoc-mobile a[href="#${current.id}"]`).forEach(item=>item.setAttribute('aria-current','location'));
 }
-let activeReaderSpreadIndex=0;
-function readerSpreads(){return [...document.querySelectorAll('#rtxt .reader-spread')];}
-function createReaderSpread(sourceBlock=''){
- const spread=document.createElement('section');
- spread.className='reader-spread';
- if(sourceBlock)spread.dataset.sourceBlock=sourceBlock;
- return spread;
-}
-function buildReaderSpreads(id,txt){
- const existing=txt.querySelector('.reader-spreads');
- if(existing)return;
- const root=document.createElement('div');root.className='reader-spreads';
- let current=null;
- const finish=()=>{if(current&&current.children.length){root.appendChild(current);}current=null;};
- const start=sourceBlock=>{finish();current=createReaderSpread(sourceBlock);};
- const addNodes=(nodes,sourceBlock='')=>{
-  nodes.forEach(node=>{
-   if(node.matches?.('.eyebrow:first-child')||node.matches?.('h1')&&node.textContent.trim()===ALL[id]?.t||node.matches?.('.lede'))return;
-   const isHeading=node.matches?.('h2,h3');
-   if(isHeading){
-    const isChapter=node.matches('h2[data-source-block^="chapter-"]');
-    const hasBody=current&&[...current.children].some(child=>!child.matches('h2,h3'));
-    const hasSameLevel=current&&current.querySelector(node.tagName.toLowerCase());
-    if(!current||isChapter||hasBody||hasSameLevel)start(node.dataset.sourceBlock||sourceBlock);
-    current.appendChild(node);
-    return;
-   }
-   if(!current)current=createReaderSpread(sourceBlock);
-   current.appendChild(node);
-  });
- };
- [...txt.children].forEach(node=>{
-  if(node.matches?.('.eyebrow:first-child')||node.matches?.('h1')&&node.textContent.trim()===ALL[id]?.t||node.matches?.('.lede'))return;
-  if(node.matches?.('section')){finish();addNodes([...node.children],node.dataset.sourceBlock||'');finish();}
-  else addNodes([node],node.dataset.sourceBlock||'');
- });
- finish();
- [...root.children].forEach((spread,index)=>{
-  spread.dataset.spreadIndex=String(index);
-  const heading=spread.querySelector('h1,h2,h3');
-  spread.dataset.spreadTitle=heading?.textContent.trim()||`Page ${index+1}`;
-  spread.hidden=index!==0;
-  spread.classList.toggle('is-active',index===0);
- });
- txt.replaceChildren(root);
- activeReaderSpreadIndex=0;
- const controls=document.getElementById('reader-spread-nav');
- controls.hidden=root.children.length<2;
- showReaderSpread(0,{replaceHash:false});
-}
-function showReaderSpread(index,{focusTarget=false,target=null,replaceHash=false}={}){
- const spreads=readerSpreads();
- if(!spreads.length)return;
- const next=Math.max(0,Math.min(Number(index)||0,spreads.length-1));
- spreads.forEach((spread,spreadIndex)=>{
-  const active=spreadIndex===next;
-  spread.hidden=!active;spread.classList.toggle('is-active',active);
-  spread.setAttribute('aria-hidden',String(!active));
- });
- activeReaderSpreadIndex=next;
- updateReaderPageArt(spreads[next]);
- const txt=document.getElementById('rtxt');txt.scrollTo({top:0,behavior:'auto'});
- const previous=document.getElementById('reader-spread-prev'),following=document.getElementById('reader-spread-next');
- previous.disabled=next===0;following.disabled=next===spreads.length-1;
- const active=spreads[next],status=document.getElementById('reader-spread-status');
- status.textContent=`${next+1} / ${spreads.length}`;
- previous.title=next?`Previous: ${spreads[next-1].dataset.spreadTitle}`:'Start of book';
- following.title=next<spreads.length-1?`Next: ${spreads[next+1].dataset.spreadTitle}`:'End of book';
- const heading=target||active.querySelector('h1[id],h2[id],h3[id]');
- if(focusTarget&&heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}
- if(replaceHash&&activeReaderBookId&&heading?.id)history.replaceState(null,'','#'+activeReaderBookId+'::'+encodeURIComponent('@'+heading.id));
- updateReaderPosition(heading?.id||null);
-}
-function showReaderSpreadForTarget(target,options={}){
- const spread=target?.closest('.reader-spread');
- if(!spread)return;
- showReaderSpread(Number(spread.dataset.spreadIndex),{...options,target});
+function scrollReaderToTarget(target,{replaceHash=false}={}){
+ const txt=document.getElementById('rtxt');
+ if(!target||!txt.contains(target))return;
+ const targetTop=txt.scrollTop+target.getBoundingClientRect().top-txt.getBoundingClientRect().top-18;
+ txt.scrollTo({top:Math.max(0,targetTop),behavior:'auto'});
+ if(replaceHash&&activeReaderBookId&&target.id)history.replaceState(null,'','#'+activeReaderBookId+'::'+encodeURIComponent('@'+target.id));
+ updateReaderPosition(target.id||null);
 }
 function sectionAnchorSlug(value){
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
@@ -1704,7 +1633,7 @@ function scrollBookTo(headingNeedle){
   if(!headingNeedle)return;
   const txt=document.getElementById('rtxt');
   const heading=findBookHeading(txt,headingNeedle);
-  if(heading)showReaderSpreadForTarget(heading,{focusTarget:false});
+  if(heading)scrollReaderToTarget(heading);
 }
 function motionBehavior(){
  return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
@@ -1713,7 +1642,7 @@ function focusBookSection(txt,headingNeedle){
   if(!headingNeedle)return;
   const heading=findBookHeading(txt,headingNeedle);
   if(!heading)return;
-  showReaderSpreadForTarget(heading,{focusTarget:false});
+  scrollReaderToTarget(heading);
   heading.setAttribute('tabindex','-1');
   heading.focus({preventScroll:true});
 }
@@ -1886,7 +1815,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       assignBookSectionAnchors(txt);
       decorateReaderOpening(id,txt);
       decorateReaderSaveIcons(id,txt);
-      buildReaderSpreads(id,txt);
+      updateReaderPageArt(txt);
       const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
       const tocHeadings=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
       setBookToc(toc,bookTocGroups(tocHeadings));
@@ -1905,7 +1834,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   document.getElementById('reader').classList.add('on');
   document.getElementById('reader').setAttribute('aria-hidden','false');
   document.body.classList.add('reader-open');
-  document.getElementById('reader-close').focus();
+  document.querySelector('#reader .book').focus({preventScroll:true});
   history.replaceState(null,'','#'+id+(headingNeedle?'::'+encodeURIComponent(headingNeedle):''));}
 function closeBook(){
   readerLoadToken++;
@@ -1927,15 +1856,23 @@ document.getElementById('mobile-toc').addEventListener('toggle',event=>{
 });
 document.getElementById('reader-top').addEventListener('click',()=>{
  document.getElementById('mobile-toc').open=false;
- showReaderSpread(0,{focusTarget:true,replaceHash:true});
+ const txt=document.getElementById('rtxt');
+ txt.scrollTo({top:0,behavior:'auto'});
+ const first=txt.querySelector('h1[id],h2[id],h3[id]');
+ if(first){first.setAttribute('tabindex','-1');first.focus({preventScroll:true});}
+ if(activeReaderBookId)history.replaceState(null,'','#'+activeReaderBookId);
+ updateReaderPosition(first?.id||null);
 });
-document.getElementById('reader-spread-prev').addEventListener('click',()=>showReaderSpread(activeReaderSpreadIndex-1,{focusTarget:true,replaceHash:true}));
-document.getElementById('reader-spread-next').addEventListener('click',()=>showReaderSpread(activeReaderSpreadIndex+1,{focusTarget:true,replaceHash:true}));
 document.querySelector('[data-reader-save="book"]').addEventListener('click',event=>saveReaderScope('book',event.currentTarget));
 document.getElementById('rtxt').addEventListener('click',event=>{
  const button=event.target.closest('.reader-inline-save');
  if(button)saveReaderScope(button.dataset.readerSave,button,button.dataset.readerSaveTarget);
 });
+let readerScrollFrame=0;
+document.getElementById('rtxt').addEventListener('scroll',()=>{
+ cancelAnimationFrame(readerScrollFrame);
+ readerScrollFrame=requestAnimationFrame(()=>updateReaderPosition());
+},{passive:true});
 addEventListener('keydown',e=>{
  const reader=document.getElementById('reader');
  if(!reader.classList.contains('on'))return;

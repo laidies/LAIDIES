@@ -7,7 +7,10 @@ import crypto from "node:crypto";
 const root = path.resolve(process.env.LIBRARY_ROOT || process.cwd());
 const read = (relative) =>
   fs.readFileSync(path.join(root, relative), "utf8");
-const page = read("library.html");
+let page = read("library.html");
+if (process.env.LIBRARY_CONTRACT_CALIBRATION === "page-turn-reader") {
+  page += '<nav class="reader-spread-nav">1 / 220</nav>';
+}
 const puffies = read("content/site/puffy-bookmarks.js");
 const card = read("laidies-card.html");
 
@@ -114,6 +117,27 @@ if (
 }
 if (page.includes("window.LAIDIES_LIBRARY_CATALOGUE")) {
   throw new Error("live catalogue authority must remain private");
+}
+for (const rejectedReaderPattern of [
+  "reader-spread-nav",
+  "reader-spreads",
+  "buildReaderSpreads(",
+  "showReaderSpread(",
+  "Previous section",
+  "Next section"
+]) {
+  if (page.includes(rejectedReaderPattern)) {
+    throw new Error(`turn-the-page reader returned: ${rejectedReaderPattern}`);
+  }
+}
+for (const continuousReaderContract of [
+  "function scrollReaderToTarget(target",
+  "document.getElementById('rtxt').addEventListener('scroll'",
+  "txt.scrollTo({top:0,behavior:'auto'})"
+]) {
+  if (!page.includes(continuousReaderContract)) {
+    throw new Error(`missing continuous-reader contract: ${continuousReaderContract}`);
+  }
 }
 
 for (const contract of [
