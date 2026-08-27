@@ -1264,3 +1264,27 @@ final result: passed — local implementation comparison; Ali's visual approval 
 - `git diff --check`: pass.
 
 final result: passed — continuous local reader, responsive header and direct navigation verified; owner approval and public release remain separate.
+
+## 2026-08-26 — Readable non-overlapping Contents correction
+
+**Rejected predecessor**
+
+- Contents opened as an absolutely positioned dropdown over the manuscript. Its links were 11–12px, the hierarchy was cramped and the panel obscured the text beneath it.
+
+**Corrected evidence**
+
+- Desktop open state: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/contents-readable-desktop-1487x1058.png`.
+- Mobile open state: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/contents-readable-mobile-390x844.png`.
+
+**Visible and interaction verdict**
+
+- Opening Contents now replaces the white reading area with a dedicated index view. The manuscript is not visible underneath and therefore cannot be covered.
+- The index heading is 18px on desktop and 17px on mobile. Group summaries and every destination link are 16px with 1.35–1.4 line height, visible chapter numbering and nested subtitle indentation.
+- The header control changes from `Contents` to `Close contents`. The persistent title, Save, Top and Back controls remain available.
+- At 390 × 844 the panel and book both measured exactly 390px wide with no horizontal overflow.
+- Selecting `3. From “Whatever” to “RSVP: Yes. I have notes.”` closed Contents, restored the manuscript and jumped to scroll position 3,599.5 with the exact section hash. Reopening and closing Contents preserved that reading position.
+- Browser console: zero errors.
+- The calibrated `contents-overlay` mutation reintroduced an absolutely positioned 11px panel and the validator rejected it with `Contents must occupy the reading area, not overlay it`.
+- `node scripts/validate-library-product.mjs`, inline JavaScript compilation and `git diff --check`: pass.
+
+final result: passed — readable non-overlapping Contents view verified locally at desktop and mobile widths; owner approval and public release remain separate.

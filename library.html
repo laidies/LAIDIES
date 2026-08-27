@@ -1047,7 +1047,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     </picture>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
       <div class="reader-actions">
-        <details class="reader-contents" id="mobile-toc"><summary><span class="reader-contents-label">Contents</span><span class="reader-current-section sr-only" id="reader-current-section">Start of book</span></summary><nav id="rtoc-mobile" aria-label="All chapters and sections"></nav></details>
+        <details class="reader-contents" id="mobile-toc"><summary><span class="reader-contents-label">Contents</span><span class="reader-current-section sr-only" id="reader-current-section">Start of book</span></summary></details>
         <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt=""><span>Save</span></button>
         <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
         <button id="reader-close" type="button">← Back to the shelf</button>
@@ -1066,7 +1066,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
+    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><nav class="reader-contents-panel" id="rtoc-mobile" aria-label="All chapters and sections" tabindex="-1"></nav><div class="txt" id="rtxt"></div></div>
   </div>
 </div>
 
@@ -1482,11 +1482,21 @@ function mobileBookTocHtml(groups){
 }
 function setBookToc(toc,groupsOrHtml){
  const structured=Array.isArray(groupsOrHtml);
- toc.innerHTML=structured?desktopBookTocHtml(groupsOrHtml):groupsOrHtml;
+ const desktopHtml=structured?desktopBookTocHtml(groupsOrHtml):groupsOrHtml;
+ const mobileHtml=structured?mobileBookTocHtml(groupsOrHtml):groupsOrHtml;
+ toc.innerHTML=desktopHtml;
  const mobile=document.getElementById('rtoc-mobile');
- if(mobile)mobile.innerHTML=structured?mobileBookTocHtml(groupsOrHtml):groupsOrHtml;
+ if(mobile)mobile.innerHTML=mobileHtml?`<h2 class="reader-contents-heading">Contents · Quick index</h2>${mobileHtml}`:'';
  bindBookTocListeners(toc);
  if(mobile)bindBookTocListeners(mobile);
+}
+function setReaderContentsOpen(open){
+ const details=document.getElementById('mobile-toc');
+ const book=details.closest('.book');
+ const label=details.querySelector('.reader-contents-label');
+ details.open=Boolean(open);
+ book?.classList.toggle('contents-open',Boolean(open));
+ if(label)label.textContent=open?'Close contents':'Contents';
 }
 function bindBookTocListeners(toc){
  toc.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
@@ -1498,7 +1508,7 @@ function bindBookTocListeners(toc){
   document.querySelectorAll(`#rtoc a[href="#${sectionId}"],#rtoc-mobile a[href="#${sectionId}"]`).forEach(item=>item.setAttribute('aria-current','location'));
   target.setAttribute('tabindex','-1');
   target.focus({preventScroll:true});
-  document.getElementById('mobile-toc').open=false;
+  setReaderContentsOpen(false);
   scrollReaderToTarget(target,{replaceHash:true});
  }));
 }
@@ -1792,7 +1802,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   if(oldPuffyRow&&oldPuffyRow.classList.contains('puffy-save-row'))oldPuffyRow.remove();
   [...readerTitle.attributes].filter(attribute=>attribute.name.startsWith('data-puffy-')).forEach(attribute=>readerTitle.removeAttribute(attribute.name));
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
-  document.getElementById('mobile-toc').open=false;
+  setReaderContentsOpen(false);
   if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; setBookToc(toc,'');
     fetch(publication.source,{credentials:'same-origin',redirect:'follow',cache:'no-store'}).then(async r=>{
       const requestedUrl=new URL(publication.source,location.origin);
@@ -1846,16 +1856,24 @@ function closeBook(){
   if(readerReturnFocus&&typeof readerReturnFocus.focus==='function')readerReturnFocus.focus();
 }
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
-document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash){activeReaderSectionId=decodeURIComponent(link.hash.slice(1));setTimeout(()=>{document.getElementById('mobile-toc').open=false;},0);}});
+document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash){activeReaderSectionId=decodeURIComponent(link.hash.slice(1));setTimeout(()=>setReaderContentsOpen(false),0);}});
 document.getElementById('mobile-toc').addEventListener('toggle',event=>{
- if(!event.currentTarget.open)return;
+ const open=event.currentTarget.open;
+ const book=event.currentTarget.closest('.book');
+ const label=event.currentTarget.querySelector('.reader-contents-label');
+ book?.classList.toggle('contents-open',open);
+ if(label)label.textContent=open?'Close contents':'Contents';
+ if(!open)return;
  const nav=document.getElementById('rtoc-mobile');
+ nav.focus({preventScroll:true});
  const current=activeReaderSectionId?nav.querySelector(`a[href="#${activeReaderSectionId}"]`):null;
  nav.querySelectorAll('details.reader-toc-group').forEach(group=>{group.open=group===current?.closest('details.reader-toc-group');});
- (current?.closest('details.reader-toc-group')||current)?.scrollIntoView({block:'nearest'});
+ requestAnimationFrame(()=>{
+  (current?.closest('details.reader-toc-group')||current||nav.querySelector('a,summary'))?.scrollIntoView({block:'nearest'});
+ });
 });
 document.getElementById('reader-top').addEventListener('click',()=>{
- document.getElementById('mobile-toc').open=false;
+ setReaderContentsOpen(false);
  const txt=document.getElementById('rtxt');
  txt.scrollTo({top:0,behavior:'auto'});
  const first=txt.querySelector('h1[id],h2[id],h3[id]');
@@ -1876,7 +1894,10 @@ document.getElementById('rtxt').addEventListener('scroll',()=>{
 addEventListener('keydown',e=>{
  const reader=document.getElementById('reader');
  if(!reader.classList.contains('on'))return;
- if(e.key==='Escape'){closeBook();return;}
+ if(e.key==='Escape'){
+  if(document.getElementById('mobile-toc').open){setReaderContentsOpen(false);return;}
+  closeBook();return;
+ }
  if(e.key!=='Tab')return;
  const focusable=[...reader.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden&&el.getClientRects().length);
  if(!focusable.length)return;

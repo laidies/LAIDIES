@@ -190,24 +190,55 @@
 .book--reference-zine .reader-contents > summary::before,
 .book--reference-zine .reader-contents > summary::after { content: none; }
 .book--reference-zine .reader-contents-label { font-weight: 950; }
-.book--reference-zine .reader-contents nav {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  width: min(360px, calc(100dvw - 100px));
-  max-height: min(58vh, 520px);
-  padding: 8px;
-  border: 1px solid #a894d2;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, .99);
-  box-shadow: 0 18px 45px rgba(16, 24, 66, .2);
-  overflow-x: hidden;
-  writing-mode: horizontal-tb;
+.book--reference-zine .reader-contents > summary:hover { background: #f5f1ff; outline: 0; }
+.book--reference-zine .reader-contents > summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.book--reference-zine .reader-contents-panel {
+  display: none;
+  height: 100%;
+  padding: 30px 116px 70px 236px;
+  overflow: auto;
+  background: rgba(255, 255, 255, .94);
+  color: var(--ink);
+  scroll-padding-top: 24px;
 }
-.book--reference-zine .reader-contents:not([open]) nav { display: none; }
-.book--reference-zine .reader-contents nav a,
+.book--reference-zine.contents-open .reader-contents-panel { display: block; }
+.book--reference-zine.contents-open .txt { display: none; }
+.book--reference-zine .reader-contents-heading {
+  max-width: 920px;
+  margin: 0 auto 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--cyan);
+  color: #28345a;
+  font: 900 18px/1.2 'Jost', system-ui, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.book--reference-zine .reader-contents-panel:focus { outline: 0; }
+.book--reference-zine .reader-contents-panel > * { max-width: 920px; margin-right: auto; margin-left: auto; }
+.book--reference-zine .reader-contents-panel a,
 .book--reference-zine .reader-toc-group > summary { white-space: normal; overflow-wrap: anywhere; }
-.book--reference-zine .reader-contents nav a { padding: 7px 8px; font-size: 11.5px; }
+.book--reference-zine .reader-contents-panel a {
+  display: flex;
+  gap: 12px;
+  padding: 11px 12px;
+  color: #263654;
+  text-decoration: none;
+  font: 700 16px/1.38 'Jost', system-ui, sans-serif;
+}
+.book--reference-zine .reader-contents-panel .reader-toc-group { border-top: 1px solid #d8d2e8; }
+.book--reference-zine .reader-contents-panel .reader-toc-group:first-child { border-top: 0; }
+.book--reference-zine .reader-contents-panel .reader-toc-group > summary {
+  min-height: 48px;
+  padding: 12px;
+  color: #263654;
+  font: 850 16px/1.35 'Jost', system-ui, sans-serif;
+}
+.book--reference-zine .reader-contents-panel .toc-key { flex-basis: 32px; font-size: 14px; }
+.book--reference-zine .reader-contents-panel .reader-toc-children { padding: 0 0 12px 38px; }
+.book--reference-zine .reader-contents-panel .reader-toc-children a { border-left: 2px solid #d8d2e8; font-size: 16px; line-height: 1.4; }
+.book--reference-zine .reader-contents-panel a:hover,
+.book--reference-zine .reader-contents-panel a:focus-visible,
+.book--reference-zine .reader-contents-panel a[aria-current='location'] { background: #f0ebfb; color: var(--ink); outline: 2px solid var(--cyan); outline-offset: -2px; }
 
 .book--reference-zine .body {
   position: relative;
@@ -395,8 +426,13 @@
   .book--reference-zine .band #reader-report { display: none; }
   .book--reference-zine .reader-contents { position: relative; inset: auto; order: 0; }
   .book--reference-zine .reader-contents > summary { min-height: 40px; padding: 7px 9px; letter-spacing: .03em; text-transform: none; }
-  .book--reference-zine .reader-contents nav { position: fixed; top: 126px; right: 10px; left: 10px; width: auto; max-height: calc(100dvh - 138px); }
   .book--reference-zine .body { height: calc(100dvh - 126px); }
+  .book--reference-zine .reader-contents-panel { padding: 22px 18px 48px 48px; background: rgba(255, 255, 255, .97); }
+  .book--reference-zine .reader-contents-heading { margin-bottom: 12px; font-size: 17px; }
+  .book--reference-zine .reader-contents-panel a,
+  .book--reference-zine .reader-contents-panel .reader-toc-group > summary { font-size: 16px; }
+  .book--reference-zine .reader-contents-panel .reader-toc-children { padding-left: 28px; }
+  .book--reference-zine .reader-contents-panel .reader-toc-children a { font-size: 16px; }
   .book--reference-zine .txt { height: 100%; padding: 20px 16px 70px 48px; font-size: 16px; line-height: 1.62; }
   .book--reference-zine .txt .reader-preface-heading { width: 100%; min-height: 78px; margin-bottom: 5px; padding: 5px 0 9px 76px; font-size: clamp(24px, 7.2vw, 32px); }
   .book--reference-zine .txt .reader-preface-heading::before { width: 64px; height: 64px; font-size: 22px; }

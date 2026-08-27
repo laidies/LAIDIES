@@ -13,6 +13,10 @@ if (process.env.LIBRARY_CONTRACT_CALIBRATION === "page-turn-reader") {
 }
 const puffies = read("content/site/puffy-bookmarks.js");
 const card = read("laidies-card.html");
+let readerCss = read("assets/library-reader/ai-fundamentals-imagegen-reader-v5.css");
+if (process.env.LIBRARY_CONTRACT_CALIBRATION === "contents-overlay") {
+  readerCss += ".book--reference-zine .reader-contents-panel { position:absolute; font-size:11px; }";
+}
 
 const match = page.match(
   /const SECTIONS=(\[[\s\S]*?\]);\nconst ADMITTED_BOOK_(?:SOURCES|RECORDS)=/
@@ -138,6 +142,23 @@ for (const continuousReaderContract of [
   if (!page.includes(continuousReaderContract)) {
     throw new Error(`missing continuous-reader contract: ${continuousReaderContract}`);
   }
+}
+for (const contentsContract of [
+  'nav class="reader-contents-panel"',
+  "function setReaderContentsOpen(open)",
+  "book?.classList.toggle('contents-open'",
+  ".book--reference-zine.contents-open .reader-contents-panel { display: block; }",
+  ".book--reference-zine.contents-open .txt { display: none; }",
+  "font: 700 16px/1.38",
+  ".reader-toc-children a { border-left: 2px solid #d8d2e8; font-size: 16px;"
+]) {
+  if (!page.includes(contentsContract) && !readerCss.includes(contentsContract)) {
+    throw new Error(`missing readable Contents contract: ${contentsContract}`);
+  }
+}
+if ([...readerCss.matchAll(/\.book--reference-zine \.reader-contents-panel\s*\{([^}]*)\}/g)]
+  .some(([, rules]) => /position\s*:\s*(?:absolute|fixed)/.test(rules))) {
+  throw new Error("Contents must occupy the reading area, not overlay it");
 }
 
 for (const contract of [
