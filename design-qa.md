@@ -1,6 +1,6 @@
 # Design QA — room-first building rebuilds
 
-## AI Fundamentals raster-page rebuild v3 — 2026-08-26
+## AI Fundamentals raster-page rebuild v3 — 2026-08-26 (INVALIDATED BY ALI)
 
 ### Exact source and candidate
 
@@ -25,7 +25,7 @@
 - Inline script syntax and `validate-library-product.mjs` passed.
 - The browser suites did not run because this isolated worktree's `.ds-sync/node_modules/playwright-core/index.mjs` dependency is missing. This is a test-environment failure, not a passing result.
 
-Final result: HOLD — local raster successor ready for Ali's direct visual decision; not deployed.
+Final result: rejected — Ali found visible horizontal seams in the repeated lavender continuation strips, a pasted duplicate lower-right burst, incorrect vertical rhythm and an undersized title. Commit `c73560ff` is not implementation authority and was not deployed.
 
 ## AI Fundamentals approved-reference rebuild v2 — 2026-08-26 (INVALIDATED BY ALI)
 
@@ -1195,3 +1195,37 @@ This is a local visual and functional admission of the successor in `/tmp/laidie
 - None required for this correction. Public deployment remains a separate release decision.
 
 final result: passed
+
+## 2026-08-26 — ImageGen seamless-frame successor
+
+**Why the prior result is invalid**
+
+- Ali directly rejected commit `c73560ff`. Its supposed continuous page was assembled from repeated 220-pixel raster strips, which created visible horizontal seams in the lavender edge, and it pasted a duplicate lower-right burst into the continuation. The prior `final result: passed` does not apply to that rejected artifact.
+
+**Exact target and candidate**
+
+- Approved visual authority: `/Users/alisoneakin/.codex/generated_images/01a02f80-da71-7c03-9874-ffff309f2e40/exec-6ffbe44e-7d11-4ae4-8884-546946b2a867.png`.
+- ImageGen desktop frame: `assets/library-reader/ai-fundamentals-frame-imagegen-v5.png`, 1486 × 1058.
+- ImageGen mobile frame: `assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v5.png`, 853 × 1844.
+- Same-size source/candidate comparison: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/approved-vs-candidate-1487x1058.png`.
+- Browser evidence: `desktop-preface-1487x1058.png`, `mobile-preface-390x844.png`, `compact-later-section-877x679.png`, `compact-contents-open-877x679.png` and `compact-save-open-877x679.png` in that same evidence directory.
+
+**Visible comparison verdict**
+
+- The desktop and mobile backgrounds are now single continuous ImageGen illustrations. No horizontal band, repeated strip or second pasted burst is visible.
+- The split `AI Fundamentals 101` lockup is again large and follows the approved Jost/Playfair hierarchy. The pink raster brush sits below the word rather than crossing its letters.
+- The title-to-Preface separation is larger, while the Preface-to-first-paragraph gap is substantially smaller. At 1487 × 1058 the first paragraph begins directly below the cyan rule; at 390 × 844 the heading no longer leaves an oversized blank block.
+- The cyan and violet semantic cards keep their truthful labels and distinct jobs, but use thinner two-pixel borders, smaller padding and shorter minimum heights. Contents and the signed-out Puffy prompt remain compact light overlays rather than large heavy boxes.
+- The mobile-specific ImageGen frame has a protected quiet centre; the first generated mobile attempt was rejected internally because its computer stickers sat behind the body copy and is not used.
+- The next-spread browser check showed `2 / 220` and the same continuous frame behind section `1. From “ARGH, WTF?” to “Ah. That’s why.”`; the book is not one giant page and the background does not end after the Preface.
+- `Working with AI 101` still loads its own generic page art and title; the AI Fundamentals split-title DOM is not retained across books.
+
+**Checks**
+
+- `node scripts/validate-library-product.mjs`: pass (`LIBRAiRY CONTRACT PASS · books=17 · hold=6 · preview=7 · ready=4 · admitted=4 · Puffy write/read truth`).
+- Inline JavaScript compilation: pass.
+- `git diff --check`: pass after removing one trailing space.
+- The automated Playwright file suite remains unavailable in this checkout because its recorded Playwright dependency is missing. Browser evidence above was captured through the in-app browser instead; this is not a claim that the unavailable suite ran.
+- Local only. No deploy or public verification was performed.
+
+final result: passed — local implementation comparison; Ali's visual approval and any release remain separate.

@@ -945,7 +945,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-raster-reader-v3.css">
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -1042,8 +1042,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book book--reference-zine">
     <picture class="reader-pop-frame" aria-hidden="true">
-      <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-opening-art-mobile-v3.png">
-      <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-opening-art-v3.png" alt="">
+      <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v5.png?v=5f">
+      <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-frame-imagegen-v5.png" alt="">
     </picture>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
       <div class="reader-actions">
@@ -1614,8 +1614,14 @@ function renderReaderTitle(id,title){
  const book=target.closest('.book');
  book?.classList.toggle('book--ai-fundamentals-art',id==='ai-fundamentals-101');
  target.replaceChildren();
+ target.removeAttribute('aria-label');
  if(id==='ai-fundamentals-101'){
-  target.textContent='AI Fundamentals 101';
+  target.setAttribute('aria-label','AI Fundamentals 101');
+  const lead=document.createElement('span');lead.className='reader-title-lead';lead.textContent='AI';
+  const name=document.createElement('span');name.className='reader-title-name';name.append(document.createTextNode('Fundamentals'));
+  const brush=document.createElement('img');brush.className='reader-title-brush';brush.src='/assets/library-reader/title-pink-brush-v1.png';brush.alt='';brush.setAttribute('aria-hidden','true');name.append(brush);
+  const number=document.createElement('span');number.className='reader-title-number';number.textContent='101';
+  target.append(lead,name,number);
   return;
  }
  target.textContent=title;
@@ -1629,8 +1635,8 @@ function updateReaderPageArt(spread){
  const opening=fundamentals&&Boolean(spread?.querySelector('.reader-preface-heading'));
  book.classList.toggle('book--ai-fundamentals-art',fundamentals);
  book.classList.toggle('is-opening-art',opening);
- image.src=opening?'/assets/library-reader/ai-fundamentals-opening-art-v3.png':fundamentals?'/assets/library-reader/ai-fundamentals-page-art-v3.png':'/assets/library-reader/library-book-page-art-v3.png';
- mobile.srcset=opening?'/assets/library-reader/ai-fundamentals-opening-art-mobile-v3.png':fundamentals?'/assets/library-reader/ai-fundamentals-page-art-mobile-v3.png':'/assets/library-reader/library-book-page-art-mobile-v3.png';
+ image.src=fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v5.png':'/assets/library-reader/library-book-page-art-v3.png';
+ mobile.srcset=fundamentals?'/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v5.png?v=5f':'/assets/library-reader/library-book-page-art-mobile-v3.png';
 }
 function decorateReaderOpening(id,txt){
  txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());
