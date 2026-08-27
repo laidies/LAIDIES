@@ -1,0 +1,39 @@
+{
+  "schema": "laidies.production-scope.v2",
+  "project": "laidies-sunnyvaile",
+  "productionBranch": "homepage-redesign",
+  "publicUrl": "https://laidies.ai/",
+  "releasePurpose": "Place the exact approved Episode 04 cover inside the live Homepage LUMINAiRY feature, preserve the incumbent Homepage, and correct the feature to MAiVENS and TRAiLBLAZERS only.",
+  "baseCommit": "e7fc827018aa937c5ae06bc72be0ba56a6616213",
+  "baseArtifactIdentitySha256": "efe5cc550385c5be3dc8d112141b1e0ee5f99ef3fa387862a71bdfebbbe6c922",
+  "candidateArtifactIdentitySha256": "8225f92df20fa5bfc20ace930fc425241bd8b5f5611b899a8ababab78e19da23",
+  "allowedChanges": [
+    {
+      "path": "build-report.json",
+      "operation": "MODIFY",
+      "baseSha256": "e2e22d02692bad6cab130593fecae39b67c63b5c4a26ed358619bcfe14106245",
+      "candidateSha256": "4084f8451e83afcf68d0cadb188067da55003341b7baf52360520a62a1ea2c26"
+    },
+    {
+      "path": "index.html",
+      "operation": "MODIFY",
+      "baseSha256": "569adca21fd2a9850491e7d607018a2d7dcba59582f6398713817d94d8067fce",
+      "candidateSha256": "add88cac9fb76149577ab97906887c8d76e19f8959676b095d0b0c63b674d6c7"
+    }
+  ],
+  "preservedPaths": [
+    {"path":"assets/sunnyvaile-streets/main-street-dusk.webp","sha256":"4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b"},
+    {"path":"assets/final_map/sunnyvaile-town-map-final-v5.webp","sha256":"d9b3404df907fddef31b6092f14cd9fba55e48115aeaa5ec564a60b691a917b0"},
+    {"path":"content/site/sv-global-header.js","sha256":"4f8af546d71600a6c4844a04b278230c22b9462012da9db82eac208b76df138f"},
+    {"path":"luminairy.html","sha256":"7d594f3897b9f1da111802d5d4d863ea23339ea38f494524887f8bb37c5ef5b2"},
+    {"path":"issues/issue-04.html","sha256":"4b60e042b921c181cf7b03d3784aaa2a57494487cf994f624581559ed76dc4f5"},
+    {"path":"assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png","sha256":"63fdfefdd8db6ab9f42b04b60b2178ca2f38f2a67fad43a170f98ff176180f45"}
+  ],
+  "verificationPaths": [
+    "index.html",
+    "assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png",
+    "luminairy.html",
+    "issues/issue-04.html"
+  ],
+  "removedPaths": []
+}
