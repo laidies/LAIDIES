@@ -118,7 +118,18 @@ html{scroll-padding-top:96px}
 .spot-body>p{margin:0 0 18px;max-width:44ch;color:#fffdfb;line-height:1.55}
 .spot-cta{font-weight:800;color:#fffdfb;border-left:3px solid var(--teal);padding-left:12px}
 .spot-cta small{display:block;font-weight:600;color:#fffdfb;margin-top:2px}
-@media (max-width:860px){.spot,.spot:nth-child(2){grid-template-columns:1fr;height:auto}.spot img,.spot:nth-child(2) img{order:-1;height:240px}}
+.spot.spot-luminairy{grid-template-columns:.9fr 1.1fr}
+.spot-luminairy img,.spot-luminairy .spot-body{min-width:0}
+.spot-luminairy img{object-position:center;object-fit:cover;background:#09162f}
+.spot-wings{display:grid;gap:10px;width:100%;margin:2px 0 18px}
+.spot-wings p{display:grid;grid-template-columns:minmax(110px,.45fr) 1fr;gap:14px;margin:0;padding-top:10px;border-top:1px solid rgba(255,253,251,.28);line-height:1.35;color:#fffdfb}
+.spot-wings b{color:#62d9e8;letter-spacing:.06em}
+.spot-actions{display:flex;flex-wrap:wrap;gap:10px}
+.spot-actions a{display:inline-flex;align-items:center;min-height:44px;padding:10px 15px;border:2px solid #fffdfb;border-radius:999px;color:#fffdfb;text-decoration:none;font-weight:800;line-height:1.15}
+.spot-actions a:first-child{background:#d92f87}
+.spot-actions a:last-child{background:#087f97}
+.spot-actions a:hover,.spot-actions a:focus-visible{background:#fffdfb;color:#09162f}
+@media (max-width:860px){.spot,.spot:nth-child(2){grid-template-columns:1fr;height:auto}.spot img,.spot:nth-child(2) img{order:-1;height:240px}.spot-luminairy img{height:auto;aspect-ratio:16/9;object-fit:contain}.spot-wings p{grid-template-columns:1fr;gap:2px}}
 /* manifesto */
 .manifesto{display:grid;grid-template-columns:1.05fr 1fr;background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);color:var(--cream);align-items:stretch}
 .manifesto-copy{padding:72px clamp(28px,7vw,100px);display:flex;flex-direction:column;justify-content:center}
@@ -657,7 +668,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 
     <section class="spotlights" id="radio" aria-label="KSVL and the LUMINAiRY">
       <a class="spot" href="/radio.html"><img loading="lazy" decoding="async" src="/assets/building-interiors/ksvl-booth.jpg" alt="Inside the KSVL 99.9 radio booth"><div class="spot-body"><p class="spot-eyebrow">KSVL 99.9</p><h2>The town&rsquo;s original soundtrack.</h2><p>Hear LAiDIES original songs inspired by the lessons, characters and stories of SUNNYVAiLE.</p><span class="spot-cta">Listen to KSVL →</span></div></a>
-      <a class="spot" href="/luminairy.html"><img loading="lazy" decoding="async" src="/assets/sunnyvaile-streets/lantern-hill-evening.webp" alt="The LUMINAiRY glowing on Lantern Hill"><div class="spot-body"><p class="spot-eyebrow">Lantern Hill · The LUMINA<span class="keep-i">i</span>RY</p><h2>Meet the women behind AI.</h2><p>Patron Saints light up the lessons. MAiVENS built computing and AI. Trailblazers are shaping it now. The decisions about AI are being made right now—in the products we use, the workplaces we run, the industries we built. LAiDIES exists so those decisions don't get made without us.</p><span class="spot-cta">Visit the LUMINAiRY →</span></div></a>
+      <article class="spot spot-luminairy"><img loading="lazy" decoding="async" src="/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png" alt="The Founding Mothers — Episode Four: It Was Women All Along"><div class="spot-body"><p class="spot-eyebrow">Inside the LUMINA<span class="keep-i">i</span>RY</p><h2>Meet the women behind AI.</h2><div class="spot-wings"><p><b>MAiVENS</b><span>Built the foundations of computing and AI.</span></p><p><b>TRAiLBLAZERS</b><span>Are building, applying and shaping AI now.</span></p></div><div class="spot-actions"><a href="/luminairy.html">Meet the MAiVENS and TRAiLBLAZERS →</a><a href="/issues/issue-04.html">Episode 04: It Was Women All Along →</a></div></div></article>
     </section>
 
     <section id="reference" class="reference">

@@ -67,6 +67,7 @@ proper domain source before building from it.
 | Trading cards | `operations/trading-card-economy-locked.md` |
 | Image naming | `operations/image-naming-standard.md` |
 | Cloudflare URLs | `operations/cloudflare-pretty-url-rule.md` |
+| Homepage | `operations/homepage-decisions-20260827.md` |
 
 ## Historical packet
 

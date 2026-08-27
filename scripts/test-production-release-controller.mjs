@@ -56,10 +56,10 @@ function assertWorkflowApiVerificationIsComplete(source) {
       !source.includes('"${base_url}api/miss-jeeves?release=${SOURCE_COMMIT}"') ||
       !source.includes('method_not_allowed') ||
       !source.includes('book-concepts-101') ||
-      !source.includes('book-ai-fundamentals-101') ||
-      !source.includes('book-ai-dictionary') ||
-      !source.includes('concept-token')) {
-    throw new Error('release verification must prove the exact public API handler, four-book routes and rejected-book denial');
+      !source.includes('book-section-ai-dictionary-term-token') ||
+      !source.includes('.parentId == "ai-dictionary"') ||
+      !source.includes('.wholeUrl == "/library.html#ai-dictionary"')) {
+    throw new Error('release verification must prove the exact public API handler, Dictionary term route and rejected-book denial');
   }
 }
 
@@ -105,7 +105,7 @@ assert.throws(
 assert.doesNotThrow(() => assertWorkflowApiVerificationIsComplete(workflow));
 assert.throws(
   () => assertWorkflowApiVerificationIsComplete(workflow.replace('verify_api_origin "$deployment_url" immutable', ':')),
-  /public API handler, four-book routes and rejected-book denial/,
+  /public API handler, Dictionary term route and rejected-book denial/,
   'missing immutable API verification must fail calibration',
 );
 assert.doesNotThrow(() => assertWorkflowRedirectVerificationIsSafe(workflow));

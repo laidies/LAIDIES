@@ -113,7 +113,7 @@ const targets = [
 ];
 const recoveredHomepage = [
   ["dream-phone", "/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp"],
-  ["luminairy-spot", "/assets/sunnyvaile-streets/lantern-hill-evening.webp"],
+  ["luminairy-spot", "/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png"],
   ["civic-square", "/assets/sunnyvaile-streets/civic-square-midday.webp"],
   ["schoolhouse-road", "/assets/sunnyvaile-streets/schoolhouse-road-morning.webp"],
   ["lantern-hill", "/assets/sunnyvaile-streets/lantern-hill-evening.webp"]
@@ -142,8 +142,16 @@ if (process.env.CALIBRATE_VISUAL_FAILURE === "1") {
 const visualSource = process.env.CALIBRATE_REJECTED_JEEVES_FAILURE === "1"
   ? `${source}\n<img src="/assets/library/jeeves-scene.webp" alt="calibration">`
   : source;
+const luminairyHomepageSource = process.env.CALIBRATE_HOMEPAGE_LUMINAIRY_FAILURE === "1"
+  ? source.replace("/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png", "/assets/sunnyvaile-streets/lantern-hill-evening.webp")
+  : source;
 check(targets.every((asset) => !visualSource.includes(asset)), "a rejected or still-held source path remains in index.html");
 check(recoveredHomepage.every(([, asset]) => source.includes(asset)), "a required recovered Homepage source path is missing");
+check(luminairyHomepageSource.includes('class="spot spot-luminairy"') &&
+  luminairyHomepageSource.includes('/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png') &&
+  luminairyHomepageSource.includes('Meet the MAiVENS and TRAiLBLAZERS →') &&
+  luminairyHomepageSource.includes('Episode 04: It Was Women All Along →'),
+  "Homepage LUMINAiRY feature lost the approved Episode 04 cover or either exact destination");
 check(source.includes('id="lookup"') && source.includes('Search the LIBRAiRY'), "Miss Jeeves search surface changed");
 check((libraryNavigationSource.match(/data-library-entry="primary" href="\/library\.html">LIBRAiRY<\/a>/g) || []).length === 2 &&
   libraryNavigationSource.includes('data-library-entry="reference" href="/library.html">Visit the LIBRAiRY') &&
@@ -230,6 +238,20 @@ try {
           `${width}px recovered image did not decode: ${id}`);
       }
     }
+    const luminairyFeature = page.locator(".spot-luminairy");
+    check(await luminairyFeature.count() === 1 && !(await luminairyFeature.textContent()).includes("Patron Saints"),
+      `${width}px LUMINAiRY feature is missing or incorrectly groups Patron Saints with women behind AI`);
+    check(await luminairyFeature.locator('a[href="/luminairy.html"]').count() === 1 &&
+      await luminairyFeature.locator('a[href="/issues/issue-04.html"]').count() === 1,
+      `${width}px LUMINAiRY feature lost one of its two exact destinations`);
+    check(await luminairyFeature.evaluate((feature) => {
+      const rect = feature.getBoundingClientRect();
+      const image = feature.querySelector("img");
+      const links = [...feature.querySelectorAll("a")];
+      return rect.right <= window.innerWidth && feature.scrollWidth <= feature.clientWidth + 1 &&
+        image?.complete && image.naturalWidth === 1920 && image.naturalHeight === 1080 &&
+        links.every((link) => link.scrollWidth <= link.clientWidth + 1 && link.getBoundingClientRect().height >= 44);
+    }), `${width}px LUMINAiRY cover, destinations or panel geometry do not fit`);
     check(await page.locator('img[src="/assets/library/jeeves-scene.webp"]').count() === 0,
       `${width}px rejected Miss Jeeves image returned`);
     check(await page.locator("#lookup").count() === 1 && await page.getByRole("button", {name:"Search the LIBRAiRY"}).count() === 1,
