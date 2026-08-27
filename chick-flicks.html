@@ -4,651 +4,152 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Chick Flicks · LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="Browse released and forthcoming LAiDIES episodes at The Chick Flicks, then open a verified issue or illustrated listen-along.">
+    <meta name="description" content="Choose a LAiDIES episode, then read the full story or listen to the narrated edition.">
     <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
-    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260724-room-v2">
+    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260827-direct-episodes-v1">
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-    <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+    <script defer src="/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-    <script>
-      window.plausible = window.plausible || function () {
-        (plausible.q = plausible.q || []).push(arguments);
-      };
-      plausible.init = plausible.init || function (options) {
-        plausible.o = options || {};
-      };
-      plausible.init();
-    </script>
-    <link rel="canonical" href="https://laidies.ai/chick-flicks" />
-  <meta property="og:url" content="https://laidies.ai/chick-flicks" />
-</head>
+    <link rel="canonical" href="https://laidies.ai/chick-flicks">
+    <meta property="og:url" content="https://laidies.ai/chick-flicks">
+  </head>
   <body class="chick-flicks-page">
     <header class="sv-header"></header>
-
     <main class="cf-page">
-      <section class="cf-wall" aria-label="The Chick Flicks New Releases rental wall">
-        <div class="cf-wall__scene">
-          <p class="cf-held-visual cf-wall__held" role="status">New Releases wall visual held · browse the live VHS shelf below.</p>
-          <div class="cf-wall__bay" id="cfWallBay" aria-label="Available episode tapes"></div>
-          <p class="cf-wall__empty" id="cfWallEmpty" hidden>No released tapes in this aisle yet.</p>
-          <div class="cf-mobile-shelf" id="cfMobileShelf" aria-label="Available episode tapes on mobile"></div>
-          <section class="cf-rental" id="cfRental" aria-labelledby="cf-rental-title" aria-live="polite" aria-atomic="true" tabindex="-1">
-            <div class="cf-rental__object">
-              <p class="cf-held-visual cf-rental__held">Rental-card visual held · tape details remain available.</p>
-              <p class="cf-rental__episode" id="cfRentalEpisode">No tape selected</p>
-            </div>
-            <div class="cf-rental__copy">
-              <p class="cf-kicker">The rental card · preview before opening</p>
-              <h2 id="cf-rental-title">Choose a tape from the wall.</h2>
-              <p id="cfRentalCopy">Its episode description will appear here before you open anything.</p>
-              <p class="cf-rental__lesson"><strong>Inside:</strong> <span id="cfRentalLesson">The episode’s practical lesson will appear here.</span></p>
-              <p class="cf-rental__format" id="cfRentalFormat">Select a tape to see its availability and what happens next.</p>
-              <p class="cf-rental__due" id="cfRentalDue">Return by Friday · spiritually</p>
-              <div class="cf-rental__actions">
-                <a id="cfTakeHome" href="/issues/issue-04.html" hidden>Take the tape home · open the full episode issue</a>
-                <button id="cfFavourite" type="button" hidden>Save as favourite on this device</button>
-              </div>
-              <p class="cf-rental__member" id="cfMemberStatus">No favourite tape saved on this device.</p>
-            </div>
-          </section>
+      <section class="cf-hero" aria-labelledby="cf-title">
+        <img class="cf-hero__image" src="/assets/sunnyvaile-masthead-chick-flicks.png" alt="The Chick Flicks video store in SUNNYVAiLE" width="1536" height="1024">
+        <div class="cf-hero__shade" aria-hidden="true"></div>
+        <div class="cf-hero__copy">
+          <p class="cf-eyebrow">The Chick Flicks · No. 3 MAiN Street</p>
+          <h1 id="cf-title">Choose an episode.</h1>
+          <p class="cf-hero__lead">Read the full story or listen to the narrated edition. Start at Episode 01, jump to the latest, or choose the lesson you need.</p>
+          <div class="cf-hero__actions">
+            <a class="cf-button cf-button--pink" href="#episodes">See all episodes</a>
+            <a class="cf-button cf-button--cyan" href="/issues/issue-01.html">Start with Episode 01</a>
+          </div>
         </div>
       </section>
 
-      <section class="cf-state" aria-labelledby="cf-title">
-        <div class="cf-state__inner">
-          <p class="cf-address">The Chick Flicks · No. 3 MAiN · Keeper: Becky</p>
-          <div>
-            <h1 id="cf-title" tabindex="-1" aria-live="polite">Checking the tape manifest…</h1>
-            <p id="cf-state-copy">Released tapes open their full issue. Forthcoming tapes stay clearly labelled on the shelf.</p>
-          </div>
-          <div class="cf-state__actions">
-            <button type="button" data-rent-latest disabled>Rent the latest released tape</button>
-            <button type="button" data-retry-catalogue hidden>Retry the tape manifest</button>
-          </div>
+      <section class="cf-intro" aria-labelledby="cf-how-title">
+        <div>
+          <p class="cf-eyebrow">One story. One practical AI idea.</p>
+          <h2 id="cf-how-title">Pick what you want to learn.</h2>
         </div>
-        <aside id="cfReturnVisit" class="cf-return-visit" hidden aria-labelledby="cf-return-title">
+        <p>Each episode uses the Rewind Era to explain AI in plain English, then connects the story to something you can use. Read and Listen open the same episode in the format you prefer.</p>
+      </section>
+
+      <section class="cf-episodes" id="episodes" aria-labelledby="cf-episodes-title">
+        <div class="cf-section-head">
           <div>
-            <p class="cf-return-visit__eyebrow">Your last rental · on this device</p>
-            <h2 id="cf-return-title">Welcome back to the counter.</h2>
-            <p id="cfReturnCopy"></p>
+            <p class="cf-eyebrow">Season 01 · Episodes 01–04 available now</p>
+            <h2 id="cf-episodes-title">What do you want to understand?</h2>
           </div>
-          <div class="cf-return-visit__actions">
-            <button id="cfContinueRental" type="button">Continue with this tape</button>
-            <button id="cfClearRental" type="button">Clear and start over</button>
+          <p><strong>New here?</strong> Begin with Episode 01. The stories build on one another, but every episode has its own practical lesson.</p>
+        </div>
+
+        <div class="cf-episode-grid">
+          <article class="cf-episode cf-episode--pink">
+            <a class="cf-episode__art" href="/issues/issue-01.html" aria-label="Read Episode 01: On Wednesdays We Do AI">
+              <img src="/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png" alt="Episode 01: On Wednesdays We Do AI" width="1920" height="1080" loading="eager">
+            </a>
+            <div class="cf-episode__body">
+              <div class="cf-episode__meta"><span>Episode 01</span><span>Start here</span></div>
+              <h3>On Wednesdays We Do AI</h3>
+              <p class="cf-episode__hook">The one where she stops feeling behind and opens the tab anyway.</p>
+              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> What AI is and how to have a first safe interaction with the major tools.</p>
+              <div class="cf-episode__actions">
+                <a class="cf-button cf-button--dark" href="/issues/issue-01.html">Read Episode 01</a>
+                <a class="cf-button cf-button--outline" href="/watch.html?ep=01&amp;mode=listen">Listen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="cf-episode cf-episode--orange">
+            <a class="cf-episode__art" href="/issues/issue-02.html" aria-label="Read Episode 02: Tell Me What You Want">
+              <img src="/assets/episodes/ep-02/comic/ep02-title-card-comic-v2.png" alt="Episode 02: Tell Me What You Want" width="1920" height="1080" loading="lazy">
+            </a>
+            <div class="cf-episode__body">
+              <div class="cf-episode__meta"><span>Episode 02</span><span>Prompting</span></div>
+              <h3>Tell Me What You Want</h3>
+              <p class="cf-episode__hook">The one where a vague ask gets garbage back—and the brief changes everything.</p>
+              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> How to write specific, context-rich prompts that produce usable work output.</p>
+              <div class="cf-episode__actions">
+                <a class="cf-button cf-button--dark" href="/issues/issue-02.html">Read Episode 02</a>
+                <a class="cf-button cf-button--outline" href="/watch.html?ep=02&amp;mode=listen">Listen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="cf-episode cf-episode--blue">
+            <a class="cf-episode__art" href="/issues/issue-03.html" aria-label="Read Episode 03: The Burn Book Problem">
+              <img src="/assets/episodes/ep-03/comic/ep03-title-card-comic-v2.png" alt="Episode 03: The Burn Book Problem" width="1920" height="1080" loading="lazy">
+            </a>
+            <div class="cf-episode__body">
+              <div class="cf-episode__meta"><span>Episode 03</span><span>Verification</span></div>
+              <h3>The Burn Book Problem</h3>
+              <p class="cf-episode__hook">The one where AI sounds completely certain—and she catches what it got wrong.</p>
+              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> How to check, challenge, source, and contain AI output before your name goes on it.</p>
+              <div class="cf-episode__actions">
+                <a class="cf-button cf-button--dark" href="/issues/issue-03.html">Read Episode 03</a>
+                <a class="cf-button cf-button--outline" href="/watch.html?ep=03&amp;mode=listen">Listen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="cf-episode cf-episode--green">
+            <a class="cf-episode__art" href="/issues/issue-04.html" aria-label="Read Episode 04: The Founding Mothers">
+              <img src="/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png" alt="Episode 04: The Founding Mothers" width="1920" height="1080" loading="lazy">
+              <span class="cf-latest">Latest episode</span>
+            </a>
+            <div class="cf-episode__body">
+              <div class="cf-episode__meta"><span>Episode 04</span><span>Women in AI</span></div>
+              <h3>The Founding Mothers</h3>
+              <p class="cf-episode__hook">The one where she goes looking for AI’s origin story—and finds out it was women all along.</p>
+              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> How women shaped the ideas, machines, and methods that made today’s AI possible.</p>
+              <div class="cf-episode__actions">
+                <a class="cf-button cf-button--dark" href="/issues/issue-04.html">Read Episode 04</a>
+                <a class="cf-button cf-button--outline" href="/watch.html?ep=04&amp;mode=listen">Listen</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="cf-coming" aria-label="Next episode coming soon">
+          <div class="cf-coming__number">05</div>
+          <div>
+            <p class="cf-eyebrow">Next episode</p>
+            <h2>Coming soon to The Chick Flicks.</h2>
+            <p>Episode 05 will appear here when it is ready to read and listen to.</p>
           </div>
+          <span class="cf-coming__sticker">Coming soon</span>
         </aside>
       </section>
 
-      <nav class="cf-aisles" aria-label="Browse the rental-store aisles">
-        <p>Browse the same wall by aisle</p>
-        <div class="cf-aisles__track" id="cfAisles">
-          <button type="button" class="is-active" data-aisle="all">All tapes</button>
-          <button type="button" data-aisle="prompting">Prompting</button>
-          <button type="button" data-aisle="style">Style &amp; voice</button>
-          <button type="button" data-aisle="everyday">Everyday</button>
-          <button type="button" data-aisle="ethics">Ethics</button>
-          <button type="button" data-aisle="history">History</button>
-          <button type="button" data-aisle="creative">Creative</button>
-          <button type="button" data-aisle="unfiled">Unfiled</button>
+      <section class="cf-new-here" aria-labelledby="cf-new-title">
+        <div>
+          <p class="cf-eyebrow">Not sure where to begin?</p>
+          <h2 id="cf-new-title">Start at the beginning.</h2>
+          <p>Episode 01 introduces the learning story and gives you a first safe way into AI. You can read it, listen to it, and continue when you’re ready.</p>
         </div>
-        <p class="cf-aisles__status" id="cfAisleStatus" role="status" aria-live="polite">Checking the Season 1 tape manifest…</p>
-      </nav>
-
-      <section class="cf-counter" aria-labelledby="cf-rules-title">
-        <div class="cf-counter__rules">
-          <p class="cf-kicker">House rules · est. 1999</p>
-          <h2 id="cf-rules-title">Be kind. Please. Rewind.</h2>
-          <ol>
-            <li>The latest verified release gets the front-wall sticker.</li>
-            <li>Nothing is paywalled here, and no tape is ever late.</li>
-            <li>Released tapes open the full episode; dimmed tapes tell the truth about what is still coming.</li>
-          </ol>
+        <div class="cf-new-here__actions">
+          <a class="cf-button cf-button--pink" href="/issues/issue-01.html">Read Episode 01</a>
+          <a class="cf-button cf-button--cyan" href="/watch.html?ep=01&amp;mode=listen">Listen to Episode 01</a>
         </div>
-        <div class="cf-counter__route">
-          <p class="cf-kicker">After the credits</p>
-          <a href="/blend-snap.html"><strong>Pick up the Study Pack</strong><span>Next door at The Blend &amp; Snap →</span></a>
-          <a href="/sunnyvaile-high.html"><strong>Take the Pop Quiz</strong><span>Walk over to SUNNYVAiLE High →</span></a>
-          <a href="/post-office.html"><strong>Request the Wednesday newsletter</strong><span>Continue to the Post Office request desk →</span></a>
-        </div>
-      </section>
-
-      <section class="cf-trailer" aria-labelledby="cf-trailer-title">
-        <div class="cf-trailer__copy">
-          <p class="cf-kicker">First time in the store?</p>
-          <h2 id="cf-trailer-title">Start with the trailer listen-along.</h2>
-          <p>Hear the illustrated, captioned introduction to the town in the Screening Room. Then come back and pull Episode 01 from the wall.</p>
-          <a href="/watch.html?ep=trailer">Open the illustrated trailer listen-along →</a>
-          <a href="/issues/issue-trailer.html">Read the illustrated trailer issue →</a>
-        </div>
-        <div class="cf-trailer__player" data-sv-trailer-player></div>
       </section>
     </main>
 
     <footer class="cf-footer">© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks · MAiN Street No. 3</footer>
-
-    <script>
-      (function () {
-        "use strict";
-
-        var IMAGE_ROOT = "/assets/sunnyvaile-interiors/episode-vhs-boxes/";
-        var TOPIC_AISLES = {
-          prompting: [1, 2, 4, 5],
-          style: [2, 3],
-          everyday: [1, 4, 5],
-          ethics: [3],
-          history: [4],
-          creative: []
-        };
-        var AISLE_COPY = {
-          all: "Season 1",
-          prompting: "Prompting",
-          style: "Style & voice",
-          everyday: "Everyday use",
-          ethics: "Ethics",
-          history: "History",
-          creative: "Creative",
-          unfiled: "Unfiled"
-        };
-        // Five seconds bounds both the manifest and each destination check.
-        // The test-only override is set before this script executes.
-        var configuredTimeout = Number(window.__CHICK_FLICKS_FETCH_TIMEOUT_MS);
-        var FETCH_TIMEOUT_MS = Number.isFinite(configuredTimeout) && configuredTimeout > 0 ?
-          configuredTimeout : 5000;
-        var episodes = [];
-        var latest = null;
-        var selected = null;
-        var activeAisle = "all";
-        var wallBay = document.getElementById("cfWallBay");
-        var mobileShelf = document.getElementById("cfMobileShelf");
-        var wallEmpty = document.getElementById("cfWallEmpty");
-        var takeHome = document.getElementById("cfTakeHome");
-        var favourite = document.getElementById("cfFavourite");
-        var returnVisit = document.getElementById("cfReturnVisit");
-        var returnCopy = document.getElementById("cfReturnCopy");
-        var continueRental = document.getElementById("cfContinueRental");
-        var clearRental = document.getElementById("cfClearRental");
-        var lastRental = null;
-
-        function getLocal(key) {
-          try { return localStorage.getItem(key) || ""; } catch (error) { return null; }
-        }
-
-        function setLocal(key, value) {
-          try { localStorage.setItem(key, value); return true; } catch (error) { return false; }
-        }
-
-        function removeLocal(key) {
-          try { localStorage.removeItem(key); return true; } catch (error) { return false; }
-        }
-
-        function escapeHTML(value) {
-          var node = document.createElement("div");
-          node.textContent = String(value == null ? "" : value);
-          return node.innerHTML;
-        }
-
-        function episodeNumber(number) {
-          return String(number).padStart(2, "0");
-        }
-
-        function safeIssueUrl(value) {
-          if (!value || typeof value !== "string") return "";
-          try {
-            var parsed = new URL(value, window.location.origin);
-            if (parsed.origin !== window.location.origin || !/^https?:$/.test(parsed.protocol)) return "";
-            if (!/^\/issues\/[^/]+\.html$/.test(parsed.pathname)) return "";
-            return parsed.pathname + parsed.search + parsed.hash;
-          } catch (error) {
-            return "";
-          }
-        }
-
-        function releaseState(episode) {
-          if (episode._available) return "released";
-          if (episode.status === "published") return "unavailable";
-          if (episode.status === "draft") return "forthcoming";
-          return "unavailable";
-        }
-
-        function tapeMarkup(episode) {
-          var number = episodeNumber(episode.number);
-          var state = releaseState(episode);
-          var released = state === "released";
-          var tag = latest && episode.number === latest.number ? '<span class="cf-tape__new">Latest</span>' : "";
-          var stateLabel = state === "forthcoming" ? "coming soon" :
-            episode.status === "published" ? "temporarily unavailable" : "unavailable";
-          var label = released ? "Preview Episode " + number + " — " + episode.title + ", available now" :
-            "Episode " + number + " — " + episode.title + ", " + stateLabel;
-          return [
-            '<button class="cf-tape', released ? "" : " is-coming", '" type="button" data-episode="', number,
-              '" data-release-state="', state, '"',
-              ' aria-label="', escapeHTML(label), '">',
-              tag,
-              '<img src="', IMAGE_ROOT, "ep-", number, '.webp" alt="" width="554" height="720">',
-              '<span class="cf-tape__fallback" hidden aria-hidden="true">EP ', number,
-                '<small>Cover unavailable</small></span>',
-              '<span class="cf-tape__label">EP ', number, released ? " · preview" :
-                state === "forthcoming" ? " · coming soon" : " · unavailable", "</span>",
-            "</button>"
-          ].join("");
-        }
-
-        function visibleEpisodes() {
-          if (activeAisle === "all") return episodes.slice();
-          var numbers = activeAisle === "unfiled" ?
-            episodes.filter(function (episode) {
-              return !Object.keys(TOPIC_AISLES).some(function (aisle) {
-                return TOPIC_AISLES[aisle].indexOf(episode.number) !== -1;
-              });
-            }).map(function (episode) { return episode.number; }) :
-            (TOPIC_AISLES[activeAisle] || []);
-          return numbers.map(function (number) {
-            return episodes.filter(function (episode) { return episode.number === number; })[0];
-          }).filter(Boolean);
-        }
-
-        function renderWall() {
-          var list = visibleEpisodes();
-          var html = list.map(tapeMarkup).join("");
-          wallBay.innerHTML = html;
-          mobileShelf.innerHTML = html ||
-            '<p class="cf-mobile-empty">No released tapes in this aisle yet.</p>';
-          mobileShelf.classList.toggle("is-empty", list.length === 0);
-          wallEmpty.hidden = list.length > 0;
-          document.getElementById("cfAisleStatus").textContent = list.length ?
-            AISLE_COPY[activeAisle] + " · " +
-              list.filter(function (episode) { return releaseState(episode) === "released"; }).length +
-              " available · " +
-              list.filter(function (episode) { return releaseState(episode) === "forthcoming"; }).length +
-              " coming soon · " +
-              list.filter(function (episode) { return releaseState(episode) === "unavailable"; }).length +
-              " unavailable" :
-            AISLE_COPY[activeAisle] + " · no tapes filed in this aisle";
-
-          Array.prototype.forEach.call(document.querySelectorAll(".cf-tape img"), function (image) {
-            image.addEventListener("error", function () {
-              var button = image.closest(".cf-tape");
-              var fallback = button && button.querySelector(".cf-tape__fallback");
-              if (!button || !fallback) return;
-              button.classList.add("is-image-missing");
-              fallback.hidden = false;
-            });
-          });
-
-          Array.prototype.forEach.call(document.querySelectorAll(".cf-tape"), function (button) {
-            function episodeForButton() {
-              var number = Number(button.getAttribute("data-episode"));
-              return episodes.filter(function (item) { return item.number === number; })[0];
-            }
-            button.addEventListener("focus", function () {
-              var episode = episodeForButton();
-              if (episode) previewEpisode(episode, false);
-            });
-            button.addEventListener("mouseenter", function () {
-              var episode = episodeForButton();
-              if (episode) previewEpisode(episode, false);
-            });
-            button.addEventListener("click", function () {
-              var number = Number(button.getAttribute("data-episode"));
-              var episode = episodeForButton();
-              if (!episode) return;
-              previewEpisode(episode, true);
-            });
-          });
-        }
-
-        function updateMemberStatus(message) {
-          var saved = getLocal("laidies_favorite_episode");
-          var status = document.getElementById("cfMemberStatus");
-          var episode = episodes.filter(function (item) {
-            return episodeNumber(item.number) === saved;
-          })[0];
-          if (message) {
-            status.textContent = message;
-          } else if (saved === null) {
-            status.textContent = "Favourite storage is unavailable in this browser.";
-          } else {
-            status.textContent = episode ?
-              "Favourite on this device: EP " + episodeNumber(episode.number) + " · " + episode.title + "." :
-              saved ? "A favourite saved on this device is no longer in the catalogue." :
-                "No favourite tape saved on this device.";
-          }
-          if (selected) {
-            favourite.textContent = saved === episodeNumber(selected.number) ?
-              "Remove favourite from this device" : "Save as favourite on this device";
-            favourite.classList.toggle("is-saved", saved === episodeNumber(selected.number));
-          }
-        }
-
-        function scrollBehavior() {
-          return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ?
-            "auto" : "smooth";
-        }
-
-        function revealRental() {
-          var rental = document.getElementById("cfRental");
-          var selectedTape = Array.prototype.filter.call(document.querySelectorAll(".cf-tape.is-selected"), function (button) {
-            var rect = button.getBoundingClientRect();
-            return rect.width > 0 && rect.height > 0;
-          })[0];
-          var decision = takeHome.hidden ? document.getElementById("cfRentalFormat") : takeHome;
-          var inViewport = function (element) {
-            if (!element) return false;
-            var rect = element.getBoundingClientRect();
-            return rect.top >= 0 && rect.bottom <= window.innerHeight;
-          };
-          if (!inViewport(selectedTape) || !inViewport(decision)) {
-            rental.scrollIntoView({ behavior: scrollBehavior(), block: "nearest" });
-          }
-          window.requestAnimationFrame(function () {
-            try { rental.focus({ preventScroll: true }); } catch (error) { rental.focus(); }
-          });
-        }
-
-        function nextFriday() {
-          var date = new Date();
-          var distance = (5 - date.getDay() + 7) % 7 || 7;
-          date.setDate(date.getDate() + distance);
-          return date.toLocaleDateString("en-CA", { month: "long", day: "numeric" });
-        }
-
-        function previewValue(value, fallback) {
-          return typeof value === "string" && value.trim() ? value.trim() : fallback;
-        }
-
-        function markSelectedTape(number) {
-          Array.prototype.forEach.call(document.querySelectorAll(".cf-tape"), function (button) {
-            var matches = button.getAttribute("data-episode") === number;
-            button.classList.toggle("is-selected", matches);
-            if (matches) button.setAttribute("aria-current", "true");
-            else button.removeAttribute("aria-current");
-          });
-        }
-
-        function previewEpisode(episode, moveFocus) {
-          selected = episode;
-          var number = episodeNumber(episode.number);
-          var state = releaseState(episode);
-          var forthcoming = state === "forthcoming";
-          var publishedButUnavailable = episode.status === "published" && state === "unavailable";
-          markSelectedTape(number);
-          document.getElementById("cfRentalEpisode").textContent =
-            "EP " + number + " · " + episode.title + " · " +
-            (state === "released" ? "available now" :
-              forthcoming ? "coming soon" :
-                publishedButUnavailable ? "temporarily unavailable" : "unavailable");
-          document.getElementById("cf-rental-title").textContent = episode.title;
-          document.getElementById("cfRentalCopy").textContent =
-            previewValue(episode.oneLineDescription, "No episode description is available yet.");
-          document.getElementById("cfRentalLesson").textContent =
-            previewValue(episode.lesson, "No practical lesson has been listed yet.");
-          document.getElementById("cfRentalFormat").textContent =
-            state === "released" ?
-              "Available now · Take the tape home opens the full episode issue." :
-              forthcoming ?
-                "Coming soon · This tape cannot open an issue until the episode is released." :
-                publishedButUnavailable ?
-                  "Temporarily unavailable · Its issue destination could not be verified, so no rental link is offered." :
-                  "Unavailable · The manifest does not promise a future release or an issue destination for this tape.";
-          document.getElementById("cfRentalDue").textContent =
-            state === "released" ? "Stamped return date · " + nextFriday() : "No rental stamp while this tape is unavailable";
-          takeHome.hidden = state !== "released";
-          favourite.hidden = state !== "released";
-          if (state === "released") {
-            takeHome.href = episode._safeIssueUrl;
-            takeHome.textContent = "Take the tape home · open the full episode issue";
-            takeHome.setAttribute("aria-label", "Take Episode " + number + " home — open the full episode issue");
-          }
-          updateMemberStatus();
-          if (moveFocus) revealRental();
-        }
-
-        function selectEpisode(episode) {
-          previewEpisode(episode, true);
-        }
-
-        function validatedLastRental() {
-          var stored = getLocal("laidies_cf_last_rental");
-          if (stored === null || !/^\d{2}$/.test(stored)) {
-            if (stored) removeLocal("laidies_cf_last_rental");
-            return null;
-          }
-          var episode = episodes.filter(function (item) {
-            return episodeNumber(item.number) === stored;
-          })[0];
-          if (!episode || !episode._available) {
-            removeLocal("laidies_cf_last_rental");
-            return null;
-          }
-          return episode;
-        }
-
-        function paintReturnVisit() {
-          lastRental = validatedLastRental();
-          if (!lastRental) {
-            returnVisit.hidden = true;
-            returnCopy.textContent = "";
-            return;
-          }
-          returnCopy.textContent =
-            "EP " + episodeNumber(lastRental.number) + " · " + lastRental.title +
-            " was the last tape taken home on this device.";
-          returnVisit.hidden = false;
-        }
-
-        function clearLastRental() {
-          if (!removeLocal("laidies_cf_last_rental")) {
-            returnCopy.textContent =
-              "This browser would not let the store clear the device-only rental.";
-            focusElement(clearRental);
-            return false;
-          }
-          lastRental = null;
-          returnVisit.hidden = true;
-          returnCopy.textContent = "";
-          setArrivalState();
-          focusElement(document.querySelector("[data-rent-latest]"));
-          return true;
-        }
-
-        function setArrivalState() {
-          var title = document.getElementById("cf-title");
-          var copy = document.getElementById("cf-state-copy");
-          var latestButton = document.querySelector("[data-rent-latest]");
-          if (!latest) {
-            title.textContent = "No released tapes are available.";
-            copy.textContent =
-              "The manifest loaded, but no published issue destination could be verified. Try the catalogue again later.";
-            latestButton.disabled = true;
-            return;
-          }
-          title.textContent = "EP " + episodeNumber(latest.number) + " is the latest released tape.";
-          latestButton.disabled = false;
-          if (lastRental) {
-            copy.textContent =
-              "Last rented on this device: EP " + episodeNumber(lastRental.number) +
-              " · " + lastRental.title + ". Latest released: " + latest.title + ".";
-          } else {
-            copy.textContent = latest.title +
-              " is the latest released tape in the manifest. New in town? Start with EP 01.";
-          }
-        }
-
-        takeHome.addEventListener("click", function () {
-          if (!selected) return;
-          setLocal("laidies_cf_last_rental", episodeNumber(selected.number));
-        });
-
-        favourite.addEventListener("click", function () {
-          if (!selected) return;
-          var number = episodeNumber(selected.number);
-          var saved = getLocal("laidies_favorite_episode");
-          var changed = saved === number ? removeLocal("laidies_favorite_episode") :
-            setLocal("laidies_favorite_episode", number);
-          updateMemberStatus(changed ? "" :
-            "This browser could not change your device-only favourite.");
-        });
-
-        continueRental.addEventListener("click", function () {
-          var current = validatedLastRental();
-          if (!current) {
-            paintReturnVisit();
-            setArrivalState();
-            focusElement(document.querySelector("[data-rent-latest]"));
-            return;
-          }
-          selectEpisode(current);
-        });
-
-        clearRental.addEventListener("click", clearLastRental);
-
-        document.getElementById("cfAisles").addEventListener("click", function (event) {
-          var button = event.target.closest("[data-aisle]");
-          if (!button) return;
-          activeAisle = button.getAttribute("data-aisle");
-          Array.prototype.forEach.call(document.querySelectorAll("[data-aisle]"), function (item) {
-            item.classList.toggle("is-active", item === button);
-          });
-          renderWall();
-          document.querySelector(".cf-wall").scrollIntoView({ behavior: scrollBehavior(), block: "start" });
-        });
-
-        function validateEpisodes(data) {
-          if (!data || !Array.isArray(data.episodes)) {
-            throw new Error("Episode index has no episode list");
-          }
-          var seen = {};
-          var valid = data.episodes.map(function (raw) {
-            if (!raw || !Number.isInteger(raw.number) || raw.number < 1 ||
-                !String(raw.title || "").trim()) {
-              throw new Error("Episode index contains an invalid record");
-            }
-            if (seen[raw.number]) throw new Error("Episode index contains a duplicate number");
-            seen[raw.number] = true;
-            var episode = Object.assign({}, raw);
-            episode.title = String(raw.title).trim();
-            episode._safeIssueUrl = safeIssueUrl(raw.issueUrl);
-            episode._available = false;
-            return episode;
-          });
-          if (!valid.length) throw new Error("Episode index is empty");
-          return valid.sort(function (a, b) { return a.number - b.number; });
-        }
-
-        function fetchWithTimeout(url, options) {
-          var controller = new AbortController();
-          var timeout = window.setTimeout(function () {
-            controller.abort();
-          }, FETCH_TIMEOUT_MS);
-          var requestOptions = Object.assign({}, options, { signal: controller.signal });
-          return fetch(url, requestOptions).finally(function () {
-            window.clearTimeout(timeout);
-          });
-        }
-
-        function verifyDestinations(list) {
-          return Promise.all(list.map(function (episode) {
-            if (episode.status !== "published" || !episode._safeIssueUrl) return episode;
-            return fetchWithTimeout(episode._safeIssueUrl, { method: "HEAD", cache: "no-store" })
-              .then(function (response) {
-                episode._available = response.ok;
-                return episode;
-              })
-              .catch(function (error) {
-                if (error && error.name === "AbortError") throw error;
-                episode._available = false;
-                return episode;
-              });
-          }));
-        }
-
-        function focusElement(element) {
-          window.requestAnimationFrame(function () {
-            if (!element) return;
-            try { element.focus({ preventScroll: true }); } catch (error) { element.focus(); }
-          });
-        }
-
-        function renderCatalogueFailure(focusRecovery) {
-          episodes = [];
-          latest = null;
-          selected = null;
-          wallBay.innerHTML = "";
-          mobileShelf.innerHTML =
-            '<p class="cf-mobile-empty">The tape manifest is temporarily behind the counter.</p>';
-          mobileShelf.classList.add("is-empty");
-          wallEmpty.hidden = false;
-          wallEmpty.textContent = "The tape manifest is temporarily behind the counter.";
-          document.getElementById("cf-title").textContent =
-            "The catalogue is temporarily unavailable.";
-          document.getElementById("cf-state-copy").textContent =
-            "No tape is being presented as released until the manifest and its issue destinations can be checked.";
-          document.getElementById("cfAisleStatus").textContent =
-            "Catalogue unavailable · retry the tape manifest";
-          document.querySelector("[data-rent-latest]").disabled = true;
-          lastRental = null;
-          returnVisit.hidden = true;
-          var retry = document.querySelector("[data-retry-catalogue]");
-          retry.hidden = false;
-          if (focusRecovery) focusElement(retry);
-        }
-
-        function loadCatalogue(focusRecovery) {
-          var retry = document.querySelector("[data-retry-catalogue]");
-          var latestButton = document.querySelector("[data-rent-latest]");
-          var title = document.getElementById("cf-title");
-          retry.hidden = true;
-          latestButton.disabled = true;
-          title.textContent = "Checking the tape manifest…";
-          document.getElementById("cfAisleStatus").textContent =
-            "Checking the Season 1 tape manifest…";
-          if (focusRecovery) focusElement(title);
-          return fetchWithTimeout("/content/episode-index.json", { cache: "no-store" })
-            .then(function (response) {
-              if (!response.ok) throw new Error("Episode index unavailable");
-              return response.json();
-            })
-            .then(function (data) {
-              return verifyDestinations(validateEpisodes(data));
-            })
-            .then(function (verifiedEpisodes) {
-              episodes = verifiedEpisodes;
-              latest = episodes.filter(function (episode) {
-                return episode._available;
-              }).pop() || null;
-              renderWall();
-              paintReturnVisit();
-              setArrivalState();
-              updateMemberStatus();
-              if (focusRecovery) focusElement(latest ? latestButton : title);
-            })
-            .catch(function () {
-              renderCatalogueFailure(focusRecovery);
-            });
-        }
-
-        document.querySelector("[data-retry-catalogue]").addEventListener("click", function () {
-          loadCatalogue(true);
-        });
-        loadCatalogue(false);
-
-        document.querySelector("[data-rent-latest]").addEventListener("click", function () {
-          if (latest) selectEpisode(latest);
-        });
-      })();
-    </script>
     <script src="/content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
     <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
-    <script defer src="/content/site/sv-trailer-player.js?v=20260707-1"></script>
+    <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
   </body>
 </html>

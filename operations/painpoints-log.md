@@ -11876,3 +11876,30 @@ while remaining falsely unfinished in the launch record.
   question is not whether the boxes exist; it is whether the release is
   impossible without the receipts.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-338 — A robust catalogue can still make choosing an episode needlessly hard
+
+- **Date:** 2026-08-27
+- **Area:** Chick Flicks / episode discovery / Read and Listen entry.
+- **Failure:** The deployed store made a visitor select a VHS object, wait for
+  manifest and destination checks, read a separate rental card and interpret
+  “take the tape home” before reaching the full episode. It also published
+  internal hold language and missing-cover fallbacks. Ali's public-origin
+  clean-state review found the result confusing, non-functional and unusable.
+- **Root cause:** Component safety, catalogue recovery and metaphor consistency
+  were treated as proxies for the visitor's primary outcome: choose an episode
+  and read or listen. The earlier local quality verdict did not test whether a
+  first-time visitor could identify and activate both formats without learning
+  the store's interaction vocabulary.
+- **Prevention rule:** Every episode-discovery surface must expose the title,
+  practical lesson and direct Read and Listen actions together for each
+  published episode. A forthcoming episode has no active format action. The
+  evaluator must reject internal status language, preview-before-opening
+  transactions and any design that requires metaphor comprehension before the
+  primary destination is available.
+- **Why the fix works:** `scripts/check-chick-flicks-direct-entry.mjs` fails the
+  deployed page and passes only when all four published episodes have direct
+  Read and Listen routes, Episode 05 is honestly inactive, real episode images
+  exist and visitor-facing internal language is absent.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local successor only;
+  design admission, approval, release and public verification remain open.
