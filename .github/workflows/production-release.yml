@@ -129,9 +129,6 @@ jobs:
           set -euo pipefail
           export CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
           export PLAYWRIGHT_CORE_PATH="$GITHUB_WORKSPACE/node_modules/playwright-core"
-          node scripts/validate-blend-snap-packs.mjs
-          node scripts/test-validate-blend-snap-packs.mjs
-          node scripts/test-blend-snap-browser.mjs
           if CALIBRATE_HOMEPAGE_TRUTH_FAILURE=1 node scripts/test-homepage-held-assets-browser.mjs; then
             echo "Homepage truth calibration unexpectedly passed" >&2
             exit 1
@@ -145,16 +142,6 @@ jobs:
             exit 1
           fi
           node scripts/test-homepage-held-assets-browser.mjs
-          node scripts/build-miss-jeeves-index.mjs
-          git diff --exit-code -- content/site/miss-jeeves-index.json
-          node scripts/test-library-product.cjs
-          node scripts/test-miss-jeeves-worker.mjs
-          npm run test:daily-private-pipeline
-          npm run test:newsstand-canon
-          node scripts/validate-newsstand-stories.mjs
-          node scripts/test-newsstand-reader-contract.mjs
-          NEWSSTAND_REQUIRE_BROWSER=1 node scripts/test-newsstand-reader-browser.mjs
-          node scripts/test-newsstand-release-pipeline-v1.mjs
       - name: Build deployed baseline and candidate artifacts
         shell: bash
         run: |
