@@ -1,5 +1,41 @@
 # Design QA — room-first building rebuilds
 
+## AI Fundamentals section-heading format repair — 2026-08-28
+
+### Comparison target and evidence
+
+- Source visual truth: `operations/product-stewards/library/evidence-reader-reference-v2-20260826/approved-reference-1487x1058.png`, 1487 × 1058 pixels. It establishes the wide horizontal display-heading hierarchy and separate compact controls.
+- Browser-rendered implementation: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/heading-format-restored-desktop.png`, 1074 × 917 CSS pixels at density 1.
+- Same-input comparison: `operations/product-stewards/library/evidence-reader-imagegen-v5-20260826/heading-format-approved-vs-restored.png`, 1400 × 760 pixels; approved source left, repaired continuous-reader section right.
+- State: AI Fundamentals 101 at `1. From “ARGH, WTF?” to “Ah. That’s why.”`, Contents closed.
+- Focused evidence is the full 1074 × 917 rendered viewport because it shows the complete heading, Save control, first section body and the following heading; a smaller crop would hide the blank-space regression this repair must reject.
+
+### Findings and comparison history
+
+1. P0 — the predecessor made each decorated section heading a two-column grid. The `::before` decoration occupied the 860px track, forcing the title into the 44px Save track. The affected heading was 597px tall and rendered one or two characters per line beside a large blank area.
+   - Fix: restored the heading's normal block formatting context, reserved a 56px right inset and positioned the 44px Save control inside that reserved space. The text wrapper remains a block with `overflow-wrap:anywhere` for genuinely narrow headings.
+   - Post-fix evidence: at 1074px the exact heading is 912px wide and 73px tall; its text track is 856px wide, the Save control is separate, and the following section begins normally.
+2. P1 — the previous automated check could pass a non-overlapping but unusably collapsed heading.
+   - Fix: the responsive sweep now rejects non-block heading display and desktop long-title tracks below 120px in addition to text/control intersections and document overflow.
+   - Post-fix evidence: AI Fundamentals, Working with AI, Straight Answers and the AI Dictionary report zero failures and zero horizontal overflow at 1280px and 390px.
+
+### Required fidelity surfaces
+
+- Fonts and typography: the existing Jost display/body hierarchy is unchanged; section headings remain horizontal and retain their authored weight, capitalization and cyan rule.
+- Spacing and layout rhythm: the title uses the full reading column, the 56px action inset is bounded, and the next section follows without the predecessor's blank vertical gulf.
+- Colours and visual tokens: unchanged; midnight copy, lavender frame, cyan rule and white reading surface retain the approved palette.
+- Image quality and asset fidelity: the ImageGen frame is unchanged. The tracked teal floppy Puffy loads at its intrinsic 512px source resolution and is scaled only inside the compact Save control.
+- Copy and content: no manuscript text changed. The exact `From “ARGH, WTF?” to “Ah. That’s why.”` heading and following prose are intact.
+
+### Interaction and responsive verification
+
+- The repaired section was opened through its deep link in the in-app browser.
+- The four-book heading sweep ran at 1280 × 900 and 390 × 844. Every heading stayed block-formatted; measured intersections, collapsed long-title tracks and horizontal overflow were all zero.
+- The Save control remains a distinct 44 × 44 target and its image loaded (`naturalWidth = 512`).
+- Browser console errors in the final repaired state: zero.
+
+Final result: passed
+
 ## AI Fundamentals raster-page rebuild v3 — 2026-08-26 (INVALIDATED BY ALI)
 
 ### Exact source and candidate

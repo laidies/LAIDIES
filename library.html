@@ -455,10 +455,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .band .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 12px 7px 9px;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;box-shadow:4px 4px 0 #18c6d8;font-size:13px;line-height:1.2;letter-spacing:.035em}
 .book .band .puffy-save-row .puffy-btn:hover,.book .band .puffy-save-row .puffy-btn:focus-visible{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
 .book .puffy-button-art{display:none}
-.reader-save-heading{display:grid!important;grid-template-columns:minmax(0,1fr) 44px;column-gap:8px;align-items:start;padding-right:0!important;min-height:44px}
-.reader-save-heading-text{min-width:0;overflow-wrap:anywhere}
-.reader-save-heading::after{grid-column:1/-1}
-.reader-inline-save{position:static;float:none;display:inline-grid;place-items:center;width:44px;height:44px;margin:0;border:0;background:transparent;color:#07142f;cursor:pointer;transform:none}
+.reader-save-heading{position:relative;display:block!important;box-sizing:border-box;padding-right:56px!important;min-height:44px;overflow-wrap:anywhere}
+.reader-save-heading-text{display:block;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.reader-inline-save{position:absolute;top:0;right:0;float:none;display:inline-grid;place-items:center;width:44px;height:44px;margin:0;border:0;background:transparent;color:#07142f;cursor:pointer;transform:none}
 .reader-inline-save img{display:block;width:28px;height:28px;padding:3px;object-fit:contain;border:1px solid color-mix(in srgb,var(--accent) 55%,#07142f);border-radius:3px;background:#fff;box-shadow:2px 2px 0 #18c6d8}
 .reader-inline-save:hover img,.reader-inline-save:focus-visible img{background:#eef3ff;outline:2px solid #18c6d8;outline-offset:2px}
 .book .txt h2[data-source-block^="chapter-"]>.reader-inline-save{margin-top:0}
