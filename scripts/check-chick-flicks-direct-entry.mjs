@@ -28,6 +28,15 @@ for (const number of ['01', '02', '03', '04']) {
   if (!(source.match(listen) || []).length) errors.push(`Episode ${number} has no direct Listen route`);
 }
 
+const trailerRoutes = source.match(/href=["']\/watch\.html\?ep=trailer["']/g) || [];
+if (trailerRoutes.length !== 1) errors.push('The page must expose exactly one direct trailer route');
+if (!/The illustrated, captioned introduction explains the town, the learning story and how each episode works\./.test(source)) {
+  errors.push('The trailer does not explain its orientation job');
+}
+const trailerImage = 'assets/media/opening-day-covers-v1/trailer/trailer-site.jpg';
+if (!source.includes(`src="/${trailerImage}"`)) errors.push('The page does not use the real trailer cover');
+if (!fs.existsSync(path.join(root, trailerImage))) errors.push(`Missing trailer image: ${trailerImage}`);
+
 if (!/Episode 05 will appear here when it is ready to read and listen to\./.test(source)) {
   errors.push('Episode 05 does not have a clear inactive coming-soon state');
 }
@@ -38,10 +47,13 @@ if ((source.match(/<article class=["']cf-episode\s/g) || []).length !== 4) {
   errors.push('The page must expose exactly four published episode cards');
 }
 
-const imagePaths = [...source.matchAll(/<img[^>]+src=["'](\/assets\/episodes\/[^"']+)["']/g)]
+const expectedCoverPaths = ['01', '02', '03', '04']
+  .map(number => `assets/media/opening-day-covers-v1/${number}/${number}-site.jpg`);
+const imagePaths = [...source.matchAll(/<img[^>]+src=["'](\/assets\/media\/opening-day-covers-v1\/(?:0[1-4])\/(?:0[1-4])-site\.jpg)["']/g)]
   .map(match => match[1].slice(1));
-if (imagePaths.length !== 4) errors.push('Each published episode must have one real episode image');
-for (const imagePath of imagePaths) {
+if (imagePaths.length !== 4) errors.push('Each published episode must use one Opening Day site cover');
+for (const imagePath of expectedCoverPaths) {
+  if (!imagePaths.includes(imagePath)) errors.push(`Episode cover is not wired: ${imagePath}`);
   if (!fs.existsSync(path.join(root, imagePath))) errors.push(`Missing episode image: ${imagePath}`);
 }
 
@@ -55,5 +67,6 @@ console.log('CHICK FLICKS DIRECT ENTRY PASS');
 console.log('published_episode_cards=4');
 console.log('direct_read_routes=4');
 console.log('direct_listen_routes=4');
+console.log('direct_trailer_routes=1');
 console.log('episode_05=COMING_SOON_NO_ACTION');
 console.log('visitor_facing_internal_language=0');
