@@ -1,7 +1,7 @@
 {
   "schemaVersion": "source-archive-review-state-v1",
   "owner": "aidb-intelligence-desk-with-newsstand",
-  "updatedAt": "2026-08-27T14:02:01.123Z",
+  "updatedAt": "2026-08-28T14:01:47.061Z",
   "maxArchiveItemsPerRun": 3,
   "rollingWindowDays": 60,
   "currentMaterialAlwaysFirst": true,
@@ -46,12 +46,12 @@
       "sourceId": "SRC-OPENAI-COOKBOOK",
       "identity": "OpenAI Cookbook",
       "strategy": "ROLLING_60_DAYS_THEN_STOP",
-      "status": "NOT_STARTED",
-      "newestReviewedId": null,
-      "oldestReviewedId": null,
-      "itemsReviewed": 0,
-      "lastAttemptAt": null,
-      "nextTrigger": "Process the next bounded archive item after due current-source work.",
+      "status": "IN_PROGRESS",
+      "newestReviewedId": "https://developers.openai.com/cookbook/examples/multimodal/transparent-image-assets-for-campaigns-and-presentations",
+      "oldestReviewedId": "https://developers.openai.com/cookbook/examples/partners/aws/controlled_agentic_commerce_with_agentcore_payments/controlled_agentic_commerce",
+      "itemsReviewed": 3,
+      "lastAttemptAt": "2026-08-28T14:01:47.061Z",
+      "nextTrigger": "Review the next newest accessible OpenAI Cookbook item inside the rolling 60-day window after due current-source work; deduplicate against current NewsStand and internal-practice opportunities.",
       "blocker": null
     },
     {

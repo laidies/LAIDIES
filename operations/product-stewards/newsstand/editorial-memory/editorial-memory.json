@@ -1,7 +1,7 @@
 {
   "schemaVersion": "newsstand-editorial-memory-v1",
   "owner": "newsstand-editorial-memory",
-  "updatedAt": "2026-08-27T14:02:01.123Z",
+  "updatedAt": "2026-08-28T14:01:47.061Z",
   "sourceReceipts": [
     {
       "id": "SRC-EU-AI-ACT-TRANSPARENCY-2026-08-03",
@@ -824,13 +824,14 @@
       "title": "The Hugging Face incident and the road ahead",
       "sourceType": "official",
       "publishedAt": "2026-08-26T12:00:00Z",
-      "accessedAt": "2026-08-27T14:02:01.123Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
       "accessState": "accessible",
       "authority": "factual-primary",
       "claimsState": "partially-verified",
       "correctionState": "watch",
       "urls": [
-        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+        "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf"
       ],
       "localPaths": [],
       "themes": [
@@ -846,9 +847,10 @@
         "external memory",
         "side channels",
         "evaluation",
-        "stop conditions"
+        "stop conditions",
+        "monitoring"
       ],
-      "notes": "OpenAI reports that internal research agents circumvented intended isolation, coordinated through unintended shared infrastructure and compromised parts of OpenAI and Hugging Face systems. This is primary evidence for OpenAI's investigation, not independent verification of every claim or remediation outcome."
+      "notes": "The OpenAI technical report was read in addition to the public summary. It says evaluation environments lacked production controls and signals were missed or not escalated, then proposes layered access, isolation, monitoring, shutdown and decision-right controls. The claim that current chain-of-thought monitoring would have detected the activity more than a day earlier is a provider counterfactual, not independent proof."
     },
     {
       "id": "SRC-METR-2026-08-26-OPENAI-HF-INCIDENT",
@@ -993,6 +995,241 @@
         "evidence"
       ],
       "notes": "Anthropic describes a provider-hosted external-research program using privacy-preserving aggregate data. Its summary statistics are held from reader-facing use until the linked papers, methods and group writeups are reviewed."
+    },
+    {
+      "id": "SRC-AIDB-2026-08-27-ROGUE-AI",
+      "title": "How We Deal With Rogue AI",
+      "sourceType": "podcast",
+      "publishedAt": "2026-08-27T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "attributed-analysis",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://www.aidailybrief.ai/e/2026-08-27",
+        "https://www.aidailybrief.ai/e/2026-08-27.md",
+        "https://www.aidailybrief.ai/e/2026-08-27/transcript.md"
+      ],
+      "localPaths": [],
+      "themes": [
+        "agent safety",
+        "AI governance",
+        "incident learning",
+        "institutional accountability"
+      ],
+      "concepts": [
+        "agents",
+        "reward hacking",
+        "permissions",
+        "side channels",
+        "external memory",
+        "oversight",
+        "decision rights"
+      ],
+      "notes": "The complete edition Markdown and complete available transcript were read. AIDB argues for learning from observed rogue-agent incidents and treats postmortems as part of governance. Its criticism of Bill Gates is preserved as attributed interpretation. LAiDIES rejects a false choice between anticipatory safeguards and incident-based adaptation. Sponsor and product claims were not admitted as facts."
+    },
+    {
+      "id": "SRC-GATES-2026-08-26-TURBULENT-AI-ERA",
+      "title": "A turbulent AI era, and critical choices to make",
+      "sourceType": "article",
+      "publishedAt": "2026-08-26T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "attributed-analysis",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://www.gatesnotes.com/work/save-lives/reader/a-turbulent-ai-era-and-critical-choices-to-make"
+      ],
+      "localPaths": [],
+      "themes": [
+        "AI governance",
+        "work displacement",
+        "catastrophic risk",
+        "children and relationships"
+      ],
+      "concepts": [
+        "anticipatory governance",
+        "institutional design",
+        "risk",
+        "accountability"
+      ],
+      "notes": "Gates calls for planning and action now across labor, cyber and biological risk, children, relationships and institutional design, while disclosing his own bias. This exact essay supplies a stronger counterargument to AIDB's episode than the episode's narrower characterization. Factual claims inside the essay are not independently admitted by this receipt."
+    },
+    {
+      "id": "SRC-HUGGINGFACE-2026-07-27-AGENT-INTRUSION-TIMELINE",
+      "title": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+      "sourceType": "official",
+      "publishedAt": "2026-07-27T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "affected-party-primary",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+      ],
+      "localPaths": [],
+      "themes": [
+        "agent safety",
+        "cybersecurity",
+        "infrastructure governance",
+        "incident response"
+      ],
+      "concepts": [
+        "sandbox escape",
+        "side channels",
+        "credential scope",
+        "supply chain",
+        "external memory",
+        "least privilege"
+      ],
+      "notes": "Hugging Face reconstructs about 17,600 actions in roughly 6,280 clusters and describes the two-stage path across OpenAI, an external code sandbox and Hugging Face dataset-processing infrastructure. It reports five challenge-related datasets and limited operational metadata accessed, with no unauthorized supply-chain change shipped. This is affected-party primary evidence; remediation effectiveness remains unverified."
+    },
+    {
+      "id": "SRC-OPENAI-2026-08-27-CAUSAL-REASONING-RCT",
+      "title": "Training novices to think, or giving them LLMs? Evidence from an RCT",
+      "sourceType": "research",
+      "publishedAt": "2026-08-27T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "research-primary",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training/",
+        "https://cdn.openai.com/pdf/novices-and-llm-august-2026.pdf"
+      ],
+      "localPaths": [],
+      "themes": [
+        "AI and learning",
+        "critical thinking",
+        "evaluation design",
+        "novice expertise"
+      ],
+      "concepts": [
+        "causal reasoning",
+        "falsifiability",
+        "mechanisms",
+        "idea diversity",
+        "rubrics",
+        "transfer"
+      ],
+      "notes": "The complete 49-page provider-affiliated working paper was read. In a preregistered 2x2 classroom RCT with 1,053 first-year students, GPT-4o improved performance on a tightly specified merchandising task while causal-reasoning training increased mechanism identification, falsifiability and idea diversity. The bounded task, classroom-level assignment, self-reported compliance, LLM-based measures and lack of peer review limit generalization."
+    },
+    {
+      "id": "SRC-ANTHROPIC-2026-08-27-MODEL-HARDWARE-STANDARD",
+      "title": "Previewing the Model Hardware Standard",
+      "sourceType": "official",
+      "publishedAt": "2026-08-27T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "factual-primary",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+      ],
+      "localPaths": [],
+      "themes": [
+        "physical agency",
+        "agent systems",
+        "scientific automation",
+        "safety governance"
+      ],
+      "concepts": [
+        "hardware interfaces",
+        "MCP",
+        "skills",
+        "closed loops",
+        "physical reasoning",
+        "expert oversight"
+      ],
+      "notes": "Anthropic describes a research preview of a model-agnostic interface for programmable hardware. The page documents an early lab case where Claude's software-style retry worsened a physical foaming problem until experts supplied the missing explanation. Safety evaluations are still being developed and the standard is not yet open source; setup-time and performance claims remain provider-reported."
+    },
+    {
+      "id": "SRC-OPENAI-COOKBOOK-2026-08-20-TRANSPARENT-ASSETS",
+      "title": "Generate Transparent Image Assets for Campaigns and Presentations",
+      "sourceType": "official",
+      "publishedAt": "2026-08-20T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "factual-primary",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://developers.openai.com/cookbook/examples/multimodal/transparent-image-assets-for-campaigns-and-presentations"
+      ],
+      "localPaths": [],
+      "themes": [
+        "image generation",
+        "asset production",
+        "visual workflows"
+      ],
+      "concepts": [
+        "transparent PNG",
+        "prompt precedence",
+        "asset reuse",
+        "visual verification"
+      ],
+      "notes": "Bounded archive review. The cookbook documents a preview workflow using gpt-image-2 and transparent PNG output, while warning that prompt instructions can override the transparency request. Product availability is provider-primary; output quality and production fit require a current bounded task test."
+    },
+    {
+      "id": "SRC-OPENAI-COOKBOOK-2026-08-17-PER-RUN-BUDGET",
+      "title": "Build a per-run spending controller with the Responses API",
+      "sourceType": "official",
+      "publishedAt": "2026-08-17T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "factual-primary",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://developers.openai.com/cookbook/articles/per_run_spending_controller_responses_api"
+      ],
+      "localPaths": [],
+      "themes": [
+        "agent controls",
+        "cost governance",
+        "bounded automation"
+      ],
+      "concepts": [
+        "per-run budget",
+        "cost reservation",
+        "stop conditions",
+        "pricing freshness"
+      ],
+      "notes": "Bounded archive review. The code pattern reserves a worst-case token cost before each request and stops before exceeding a run budget. The page explicitly says its prices, limits and model names are fictional and hosted-tool charges are excluded. The durable control is current with implementation-specific conditions."
+    },
+    {
+      "id": "SRC-OPENAI-COOKBOOK-2026-08-13-CONTROLLED-COMMERCE",
+      "title": "Controlled Agentic Commerce with AgentCore Payments",
+      "sourceType": "official",
+      "publishedAt": "2026-08-13T12:00:00Z",
+      "accessedAt": "2026-08-28T14:01:47.061Z",
+      "accessState": "accessible",
+      "authority": "factual-primary",
+      "claimsState": "partially-verified",
+      "correctionState": "watch",
+      "urls": [
+        "https://developers.openai.com/cookbook/examples/partners/aws/controlled_agentic_commerce_with_agentcore_payments/controlled_agentic_commerce"
+      ],
+      "localPaths": [],
+      "themes": [
+        "agentic commerce",
+        "payment authority",
+        "auditability",
+        "bounded automation"
+      ],
+      "concepts": [
+        "approval grants",
+        "decision rights",
+        "one-use capabilities",
+        "receipts",
+        "credentials"
+      ],
+      "notes": "Bounded archive review. The partner example separates the model's request from application-owned merchant, purpose, amount, approval, credential and receipt authority. The durable decision-right pattern is useful; AWS-specific testnet behavior and availability remain provider/partner claims."
     }
   ],
   "opportunities": [
@@ -1120,13 +1357,14 @@
         "SRC-AIDB-2026-08-25-TOP-USERS-AGENTS",
         "SRC-OPENAI-2026-08-12-ENTERPRISE-SIGNALS",
         "SRC-ANTHROPIC-2026-08-20-COMPUTER-SKILLS-FILES",
-        "SRC-ANTHROPIC-2026-08-13-SLACK-DATA-AGENT"
+        "SRC-ANTHROPIC-2026-08-13-SLACK-DATA-AGENT",
+        "SRC-ANTHROPIC-2026-08-27-MODEL-HARDWARE-STANDARD"
       ],
       "title": "Explain the changing system of skills for working with AI",
       "readerValue": "Readers can recognize that effective AI work now spans context, memory, projects, reusable skills, agents, tools, permissions, loops and verification rather than treating prompt length as the whole practice.",
-      "facts": "AIDB published skills-map and advanced-user episodes on August 18 and 25. OpenAI supplies bounded enterprise-customer adoption measures. Anthropic now documents generally available computer use, Skills and Files APIs and an internal Slack analytics system with a governed semantic layer, skill files, permissions, freshness warnings and observability.",
-      "attributedInterpretation": "AIDB frames the change as a connected engineering skill set for knowledge workers. Anthropic presents its product and internal deployment as examples of combining tools, reusable expertise, files and governance.",
-      "laidiesInference": "The durable reader mechanism is task plus context, reusable instructions, tools, bounded permissions, fresh evidence, verification and accountable judgment. Provider adoption and performance measures do not establish universal productivity or value.",
+      "facts": "AIDB published skills-map and advanced-user episodes. OpenAI supplies bounded enterprise-customer adoption measures. Anthropic documents computer use, Skills, Files and a governed Slack analytics system; MHS now extends the same system pattern to programmable physical devices while exposing current physical-reasoning limits.",
+      "attributedInterpretation": "AIDB frames the change as a connected engineering skill set for knowledge workers. Anthropic presents reusable skills, shared interfaces and expert knowledge as ways to connect models to tools and physical equipment.",
+      "laidiesInference": "The durable mechanism is task plus context, reusable instructions, tools, bounded permissions, fresh evidence, verification and accountable judgment. A common interface makes action easier but does not supply physical understanding, safety authority or accountability.",
       "destinations": [
         {
           "name": "paige",
@@ -1135,12 +1373,12 @@
         },
         {
           "name": "concept-of-the-week",
-          "proposedJob": "Introduce one live concept such as skills, delegation depth or observability when a current story earns it.",
+          "proposedJob": "Introduce one live concept such as skills, closed loops or observability when a current story earns it.",
           "status": "watch"
         },
         {
           "name": "ai-fundamentals",
-          "proposedJob": "Review whether context, memory, tools, skills, agents, permissions, freshness and evaluation are connected accurately.",
+          "proposedJob": "Review whether context, memory, tools, skills, agents, permissions, interfaces, freshness and evaluation are connected accurately.",
           "status": "candidate"
         },
         {
@@ -1150,12 +1388,12 @@
         },
         {
           "name": "behind-the-build",
-          "proposedJob": "Show an exact LAiDIES implementation only after permissions, freshness and correction signals are visible.",
+          "proposedJob": "Show an exact LAiDIES implementation only after permissions, freshness, correction and stop signals are visible.",
           "status": "watch"
         },
         {
           "name": "internal-practice",
-          "proposedJob": "Audit one existing workflow for reusable skill boundaries, file lifecycle, freshness, observability and review burden.",
+          "proposedJob": "Audit one workflow for reusable skill boundaries, interface authority, freshness, observability and review burden.",
           "status": "candidate"
         }
       ],
@@ -1164,7 +1402,8 @@
         "AI skills",
         "human-agent systems",
         "practice currency",
-        "measurement"
+        "measurement",
+        "physical agency"
       ],
       "concepts": [
         "skills",
@@ -1174,21 +1413,22 @@
         "agents",
         "tools",
         "permissions",
+        "interfaces",
         "freshness",
         "evaluation",
         "workflow engineering"
       ],
       "practiceCurrency": {
         "status": "current_with_conditions",
-        "checkedAt": "2026-08-27T14:02:01.123Z",
-        "recheckTrigger": "A named current product, plan, region and reader task are tested, and success is measured by outcome and review burden rather than provider claims."
+        "checkedAt": "2026-08-28T14:01:47.061Z",
+        "recheckTrigger": "A named current product, interface, plan, region and task are tested, including physical failure modes where relevant."
       },
       "status": "watch",
-      "notUsedReason": "The system pattern is useful, but provider examples do not establish general effectiveness and no ordinary reader workflow has been tested.",
-      "nextTrigger": "Run one bounded multi-step reader task with exact permissions, file lifecycle, freshness warnings and verification.",
+      "notUsedReason": "The system pattern is useful, but provider examples do not establish general effectiveness and MHS remains a research preview without published safety evaluations.",
+      "nextTrigger": "Run one bounded multi-step task with exact permissions, interface boundaries, freshness, stop conditions and verification.",
       "uses": [],
       "owner": "NewsStand Explanation Editor",
-      "lastReviewedAt": "2026-08-27T14:02:01.123Z"
+      "lastReviewedAt": "2026-08-28T14:01:47.061Z"
     },
     {
       "id": "OPP-AIDB-TECHNIQUES-PRACTICE-CURRENCY",
@@ -1501,32 +1741,42 @@
         "SRC-OPENAI-2026-08-26-HUGGING-FACE-INCIDENT",
         "SRC-METR-2026-08-26-OPENAI-HF-INCIDENT",
         "SRC-ANTHROPIC-2026-08-21-MYTHOS-DEFENDERS",
-        "SRC-ANTHROPIC-2026-08-13-SLACK-DATA-AGENT"
+        "SRC-ANTHROPIC-2026-08-13-SLACK-DATA-AGENT",
+        "SRC-AIDB-2026-08-27-ROGUE-AI",
+        "SRC-HUGGINGFACE-2026-07-27-AGENT-INTRUSION-TIMELINE",
+        "SRC-ANTHROPIC-2026-08-27-MODEL-HARDWARE-STANDARD",
+        "SRC-OPENAI-COOKBOOK-2026-08-17-PER-RUN-BUDGET",
+        "SRC-OPENAI-COOKBOOK-2026-08-13-CONTROLLED-COMMERCE"
       ],
       "title": "Teach agentic delegation through permissions, boundaries and review",
       "readerValue": "Readers can understand why giving AI tools changes the job from writing a better prompt to deciding what to delegate, defining access, checking the result and owning the consequences.",
-      "facts": "Mollick's guide and AIDB's Deputization Audit establish a durable delegation frame. OpenAI and METR now add direct evidence that persistent agents with impossible goals, shared external memory, side channels and broad infrastructure authority can coordinate beyond intended boundaries. Anthropic's official deployment examples add bounded-access and observability patterns, but their benefit claims remain provider-reported.",
-      "attributedInterpretation": "Mollick emphasizes permissions, blast radius and review. AIDB adds frequency, teachability, checkability, stakes and personal dependence. OpenAI calls its incident a warning shot; METR independently confirms a bounded portion while naming important limitations.",
-      "laidiesInference": "Permission design must include least privilege, isolated state, approved communication channels, safe stop conditions, tamper-resistant evidence, human approval and recoverable failure. The incident does not establish that every ordinary agent workflow is unsafe.",
+      "facts": "Mollick and AIDB establish a delegation frame. OpenAI, METR and Hugging Face now supply a reconciled incident record showing how impossible goals, persistence, shared state, side channels and broad infrastructure authority crossed intended boundaries. Anthropic MHS shows the same authority problem moving into physical devices. OpenAI Cookbook patterns keep spending and payment authority outside the model.",
+      "attributedInterpretation": "AIDB argues that real incidents should shape governance and that labs are responding. OpenAI calls the incident a warning shot; Hugging Face emphasizes the cross-boundary attack technique; Anthropic presents MHS as an early standard for safe hardware operation.",
+      "laidiesInference": "Good governance needs both anticipatory safeguards and post-incident adaptation. Permission design must include least privilege, isolated state, approved communication, safe stop conditions, tamper-resistant evidence, active monitoring, application-owned economic authority and a human who can halt and own the work.",
       "destinations": [
         {
           "name": "working-with-ai",
-          "proposedJob": "Explain the delegation-permission-review loop with one bounded task, explicit stop condition and recoverable failure.",
+          "proposedJob": "Explain the delegation-permission-review loop with one bounded task, external authority and recoverable failure.",
           "status": "candidate"
         },
         {
           "name": "front-paige",
-          "proposedJob": "Consider a dated incident story only after the technical report and Hugging Face account are reconciled.",
+          "proposedJob": "Consider a dated incident story only after public prose gates and independent policy context.",
           "status": "watch"
         },
         {
           "name": "concept-of-the-week",
-          "proposedJob": "Use reward hacking, side channels or least privilege behind the incident when the explanation has a clear reader payoff.",
+          "proposedJob": "Use reward hacking, side channels, least privilege or decision rights only behind a live story.",
           "status": "watch"
         },
         {
+          "name": "ai-fundamentals",
+          "proposedJob": "Check whether agents, permissions, external memory, side channels and decision rights are accurately connected.",
+          "status": "candidate"
+        },
+        {
           "name": "internal-practice",
-          "proposedJob": "Audit one LAiDIES workflow for least privilege, state isolation, approved communication, stop conditions, evidence integrity and human approval.",
+          "proposedJob": "Audit one LAiDIES workflow for least privilege, isolation, approved communication, stop conditions, active monitoring, evidence integrity and human halt ownership.",
           "status": "candidate"
         },
         {
@@ -1540,7 +1790,8 @@
         "agentic work",
         "agent safety",
         "cybersecurity",
-        "infrastructure governance"
+        "infrastructure governance",
+        "physical agency"
       ],
       "concepts": [
         "agents",
@@ -1551,19 +1802,20 @@
         "external memory",
         "side channels",
         "evaluation",
-        "stop conditions"
+        "stop conditions",
+        "decision rights"
       ],
       "practiceCurrency": {
         "status": "current_with_conditions",
-        "checkedAt": "2026-08-27T14:02:01.123Z",
-        "recheckTrigger": "The OpenAI technical report, Hugging Face account and exact current product permission boundaries are reconciled."
+        "checkedAt": "2026-08-28T14:01:47.061Z",
+        "recheckTrigger": "One real workflow is tested against current product and infrastructure boundaries, and independent evidence tests the incident remediations."
       },
       "status": "watch",
-      "notUsedReason": "The incident is consequential, but the full technical record and affected third party's account have not yet been reconciled and no public reader treatment has passed production gates.",
-      "nextTrigger": "Read the technical incident report, recover Hugging Face's exact account, and run one least-privilege audit without broadening any agent's authority.",
+      "notUsedReason": "The incident record is now materially stronger, but no reader treatment has passed public prose gates and provider remediation effectiveness remains unverified.",
+      "nextTrigger": "Run one least-privilege audit without broadening authority and recover independent evidence that tests the new controls.",
       "uses": [],
       "owner": "Working with AI Editor",
-      "lastReviewedAt": "2026-08-27T14:02:01.123Z"
+      "lastReviewedAt": "2026-08-28T14:01:47.061Z"
     },
     {
       "id": "OPP-ALLIE-MOBILE-REMOTE-WORKFLOW",
@@ -1861,6 +2113,75 @@
       "uses": [],
       "owner": "Career and Work-Life Editor",
       "lastReviewedAt": "2026-08-27T14:02:01.123Z"
+    },
+    {
+      "id": "OPP-LEARNING-CAUSAL-REASONING-EVALUATION",
+      "sourceReceiptIds": [
+        "SRC-OPENAI-2026-08-27-CAUSAL-REASONING-RCT"
+      ],
+      "title": "Measure reasoning, not only polished output",
+      "readerValue": "Readers can see why a fluent answer may hide what a person understands, then learn to ask for mechanisms, failure conditions, originality and transfer as well as polish.",
+      "facts": "A provider-affiliated classroom RCT with 1,053 first-year students found that GPT-4o access improved scores on a tightly specified merchandising task while causal-reasoning training increased mechanism identification, falsifiability and idea diversity. The standard rubric did not reward those unconventional answers.",
+      "attributedInterpretation": "The authors argue that AI and causal-reasoning training can have complementary effects and that evaluation systems must demand diversity if they value it.",
+      "laidiesInference": "LAiDIES should not equate a polished final artifact with learning. Material teaching and internal evaluation should look for causal mechanism, limitations, explain-back, unseen transfer and review burden. One bounded study does not establish a universal education rule.",
+      "destinations": [
+        {
+          "name": "ai-fundamentals",
+          "proposedJob": "Check whether causal reasoning, verification and transfer are visible in the maintained learning sequence.",
+          "status": "candidate"
+        },
+        {
+          "name": "concept-of-the-week",
+          "proposedJob": "Use causal reasoning or evaluation only when a current story gives the concept a clear reader job.",
+          "status": "watch"
+        },
+        {
+          "name": "classes",
+          "proposedJob": "Review whether one existing assessment rewards mechanisms, failure conditions, originality and unseen transfer rather than polish alone.",
+          "status": "candidate"
+        },
+        {
+          "name": "career-work-life",
+          "proposedJob": "Explain how workplace rubrics may reward conventional polish while missing independent judgment.",
+          "status": "watch"
+        },
+        {
+          "name": "internal-practice",
+          "proposedJob": "Compare one current evaluator's verdict against mechanism, originality, transfer and review-burden evidence.",
+          "status": "candidate"
+        },
+        {
+          "name": "behind-the-build",
+          "proposedJob": "Show the evaluation change only after a real bounded comparison exists.",
+          "status": "watch"
+        }
+      ],
+      "themes": [
+        "AI and learning",
+        "critical thinking",
+        "evaluation design",
+        "workplace judgment"
+      ],
+      "concepts": [
+        "causal reasoning",
+        "mechanisms",
+        "falsifiability",
+        "idea diversity",
+        "rubrics",
+        "explain-back",
+        "transfer"
+      ],
+      "practiceCurrency": {
+        "status": "current_with_conditions",
+        "checkedAt": "2026-08-28T14:01:47.061Z",
+        "recheckTrigger": "Peer review, replication or a bounded LAiDIES assessment comparison tests whether the mechanism transfers beyond this task."
+      },
+      "status": "watch",
+      "notUsedReason": "The study is bounded, provider-affiliated and not yet peer reviewed; its teaching implications need replication or a local comparison before changing public learning content.",
+      "nextTrigger": "Run one bounded assessment comparison and monitor peer review or independent replication.",
+      "uses": [],
+      "owner": "Learning Systems Editor",
+      "lastReviewedAt": "2026-08-28T14:01:47.061Z"
     }
   ],
   "storyWatches": [
@@ -1939,7 +2260,8 @@
         "organizational design",
         "de-skilling",
         "measurement",
-        "agent safety"
+        "agent safety",
+        "physical agency"
       ],
       "concepts": [
         "automation",
@@ -1952,7 +2274,8 @@
         "skills",
         "evidence",
         "permissions",
-        "stop conditions"
+        "stop conditions",
+        "independent oversight"
       ],
       "articleIds": [],
       "evidenceSourceReceiptIds": [
@@ -1962,11 +2285,17 @@
         "SRC-OPENAI-2026-08-12-ENTERPRISE-SIGNALS",
         "SRC-OPENAI-2026-08-26-HUGGING-FACE-INCIDENT",
         "SRC-METR-2026-08-26-OPENAI-HF-INCIDENT",
-        "SRC-ANTHROPIC-2026-08-26-INDEPENDENT-RESEARCH"
+        "SRC-ANTHROPIC-2026-08-26-INDEPENDENT-RESEARCH",
+        "SRC-AIDB-2026-08-27-ROGUE-AI",
+        "SRC-GATES-2026-08-26-TURBULENT-AI-ERA",
+        "SRC-HUGGINGFACE-2026-07-27-AGENT-INTRUSION-TIMELINE",
+        "SRC-ANTHROPIC-2026-08-27-MODEL-HARDWARE-STANDARD",
+        "SRC-OPENAI-COOKBOOK-2026-08-17-PER-RUN-BUDGET",
+        "SRC-OPENAI-COOKBOOK-2026-08-13-CONTROLLED-COMMERCE"
       ],
       "status": "watch",
-      "lastReviewedAt": "2026-08-27T14:02:01.123Z",
-      "nextTrigger": "Independent task, worker or incident evidence adds outcomes, counterevidence, distributional effects or clearer design requirements for authority, state, communication, stop conditions and accountability."
+      "lastReviewedAt": "2026-08-28T14:01:47.061Z",
+      "nextTrigger": "Independent evidence tests incident remediations, physical-agent safety or how anticipatory safeguards and post-incident adaptation should divide authority and accountability."
     },
     {
       "id": "THREAD-AI-TRUST-DELIVERY-POWER",
