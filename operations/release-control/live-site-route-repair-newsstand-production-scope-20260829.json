@@ -1,0 +1,67 @@
+{
+  "releaseId": "LIVE-SITE-ROUTE-REPAIR-NEWSSTAND-20260829",
+  "status": "DEPLOYED_AND_PUBLICLY_VERIFIED",
+  "project": "laidies-sunnyvaile",
+  "productionBranch": "homepage-redesign",
+  "sourceBranch": "codex/live-site-recovery-20260828",
+  "sourceCommit": "63df78c36fcd5dfbf8349666f4588dbd75ad28fc",
+  "deploymentId": "fdfbbee8-14ad-43dc-b2c2-62e652139cc9",
+  "immutableOrigin": "https://fdfbbee8.laidies-sunnyvaile.pages.dev/",
+  "customOrigin": "https://laidies.ai/",
+  "artifactPath": "/Users/alisoneakin/Projects/laidies-live-site-repair-artifact-20260829",
+  "artifactFileCount": 589,
+  "artifactIdentitySha256": "11dd6069e0a34a65734937ecf6bb810f993509e2d60382b79e05f1a32e2da505",
+  "baseDeploymentId": "cb5eed79-5df8-444f-9cb6-85a73cb46915",
+  "rollbackDeploymentId": "cb5eed79-5df8-444f-9cb6-85a73cb46915",
+  "publicDelta": {
+    "sharedRepair": [
+      "content/site/sv-back-nav.js",
+      "all 85 public HTML context-navigation cache bindings"
+    ],
+    "newsstand": [
+      "newsstand.html",
+      "newsstand-crossword.html",
+      "content/newsstand.css",
+      "content/newsstand-v12.css",
+      "content/newsstand-stories.js",
+      "content/newsstand-reader-contract.js",
+      "content/newsstand-current-issue.js",
+      "content/newsstand-daily-issues.json",
+      "content/newsstand-public-feed.json",
+      "content/newsstand-archive-index.json",
+      "content/newsstand-archive.schema.json",
+      "content/newsstand.schema.json",
+      "content/site/newsstand-catchup-v1.js",
+      "assets/newsstand/editorial/data-centre-community-agency-2026-08-23.png",
+      "assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png"
+    ],
+    "removedFromArtifactOnly": [
+      "logo-preview.html"
+    ]
+  },
+  "withheld": [
+    "stale August 23 OpenAI secondary brief",
+    "unadmitted service desks",
+    "held LUMINAiRY overlay",
+    "account-backed Resident Card continuation"
+  ],
+  "publicVerification": {
+    "routeCount": 84,
+    "viewports": ["390x844", "1200x814"],
+    "failures": 0,
+    "exactByteParity": true,
+    "latestProductionSourceVerified": "63df78c",
+    "journeys": [
+      "MAiKEOVER Backdrop and Finish are not covered; Finish exposes Save my card",
+      "Resident Card direct route renders one email desk without overflow",
+      "Library guidance and Episode 02-04 listen controls own their hit-test points",
+      "NewsStand Front PAiGE story opens with body, Put the paper back and four source links",
+      "Chick Flicks reaches scrollTop 1000 and Watch episode strip reaches scrollLeft 300",
+      "KSVL responds with Now listening to Welcome to SUNNYVAiLE"
+    ]
+  },
+  "notes": [
+    "The first post-fix deployment exposed stale cached NewsStand runtime assets because changed files retained old query identities; the successor advanced every changed identity.",
+    "A concurrent later production upload briefly superseded the final artifact; the release controller detected the newer deployment and reasserted this exact artifact as the latest production deployment."
+  ]
+}

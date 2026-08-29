@@ -5,23 +5,23 @@
 ## Current task
 
 - **Task ID:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828
-- **Status:** BUILDING / PARTIAL PUBLIC RECOVERY
+- **Status:** DEPLOYED / PUBLICLY VERIFIED FOR ROUTE-REPAIR SCOPE
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
-- **Updated:** 2026-08-28 America/Vancouver
-- **Goal:** Recover the intended visitor-facing site after a narrow product branch replaced production with stale whole-site snapshots.
-- **Acceptance:** The four-book LIBRAiRY, KSVL playback, the newer Chick Flicks page and physical episode scrolling are publicly verified without regressing unrelated routes; LUMINAiRY and NewsStand are either restored from release-eligible exact artifacts or remain explicitly held with their literal blockers; the release process prevents another narrow-branch whole-site rollback.
-- **Current step:** Deployment `cb5eed79-5df8-444f-9cb6-85a73cb46915` preserves the recovered four-book LIBRAiRY and renewed 29-track KSVL catalogue, keeps the newer Chick Flicks page, and adds direct Watch routes plus the newest recoverable Episode 01–04 videos as explicitly `available-in-progress`. All four film-host objects match their full expected hashes; the live browser binds their exact URLs and durations, attaches captions, advances Episode 04 unmuted, and shows zero 390px overflow. Quality admission remains `hold`, the Trailer remains unavailable, and the current videos are labelled as improving. The 43-profile LUMINAiRY overlay remains pushed but excluded from the exact deployment artifact; NewsStand v12 remains held because it imports private preview data and its current articles have no formal public admission.
-- **Next action:** Continue the live-site recovery with the already-open LUMINAiRY decision and a separate current NewsStand publication repair; continue episode visual improvements without withdrawing the now-public current Episode 01–04 videos.
+- **Updated:** 2026-08-29 America/Vancouver
+- **Goal:** Repair every reproducible visitor-facing route defect on phone and laptop without rolling back the recovered Library, radio, episode or other protected public surfaces.
+- **Acceptance:** All 84 public routes render without blank output or horizontal overflow at 390x844 and 1200x814; MAiKEOVER/Resident Card, Library guidance and Episode listen controls receive their own mobile hit-test points; Chick Flicks and Watch physically scroll; the later one-newspaper NewsStand and its bounded current story are public; exact immutable/custom bytes and the latest production deployment agree.
+- **Current step:** Deployment `fdfbbee8-14ad-43dc-b2c2-62e652139cc9` from source `63df78c36fcd5dfbf8349666f4588dbd75ad28fc` is the latest production deployment. Both public origins match the 589-file artifact identity `11dd6069e0a34a65734937ecf6bb810f993509e2d60382b79e05f1a32e2da505`. The full 84-route phone and laptop matrices have zero failures. The mobile return rail is in document flow and border-boxed; MAiKEOVER Finish exposes the 48px Save control; the Resident Card remains device-local; Chick Flicks scrolls to 1000px and Watch's episode strip to 300px. The later NewsStand opens its August 23 Front PAiGE story with four sources; the stale OpenAI brief and unadmitted service desks remain withheld.
+- **Next action:** Continue the held LUMINAiRY decision separately and improve the publicly available-in-progress episode videos without withdrawing them. Monitor production ordering so an older concurrent artifact cannot silently supersede this exact release.
 
 ## Boundaries
 
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This task made no source-checkout writes.
 - Production source worktree: `/Users/alisoneakin/Projects/laidies-live-site-recovery-20260828`
-- Current production source binding: `2ad3aa76` (the deployed artifact is an exact four-path overlay, not the full branch tree)
-- Current production deployment: `cb5eed79-5df8-444f-9cb6-85a73cb46915`
+- Current production source binding: `63df78c36fcd5dfbf8349666f4588dbd75ad28fc`
+- Current production deployment: `fdfbbee8-14ad-43dc-b2c2-62e652139cc9`
 - Source branch: `codex/live-site-recovery-20260828`
-- No reset, clean, deletion of source work, unrelated provider mutation, or spend was performed. The iCloud checkout remained untouched. LUMINAiRY source `8bd12a4f` is pushed but not deployed; NewsStand is not integrated. A transient unrelated merge state appeared while the episode follow-up was being committed; an isolated Git index kept those unrelated bytes out of both episode commits.
+- No reset, clean, deletion of source work or unrelated provider mutation was performed. The iCloud checkout remained untouched. The stray `logo-preview.html` route was removed only from the deployment artifact; its source remains recoverable. LUMINAiRY source `8bd12a4f` remains pushed but excluded from this release.
 
 ## History
 
