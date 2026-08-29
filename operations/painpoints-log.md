@@ -14783,3 +14783,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Ali supplied the longer authored draft, then caught and corrected the third transformation before closure: it is exactly From “Whatever” to “RSVP: Yes. I have notes.” `ai-fundamentals-101-2026-08-24.6` preserves the existing reading guidance, omits the unavailable three-mode promise and links Karen Spärck Jones's line to the British Computer Society interview. The exact preface guard rejects the known-bad substitute; admission, Miss Jeeves and the four-book 1280/390/320 reader suite pass. Source `e7fc827018aa937c5ae06bc72be0ba56a6616213`, artifact `efe5cc550385c5be3dc8d112141b1e0ee5f99ef3fa387862a71bdfebbbe6c922` and deployment `c3cde9a0-b530-4e9f-bfd2-7dcc3c48a6d2` are bound; all five changed visitor files matched both origins and the live desktop/390px reader passed with no overflow.
 - **Possible Behind the Build angle:** Why “accepted copy” and “the author's copy” turned out to be two different things.
 - **Publication status:** PRODUCTION LIBRARY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
+
+## BTB-487 — A deep freshness review can correctly produce no new release
+
+- **Date:** 2026-08-29
+- **Area:** Four live LIBRAiRY books / AIDB freshness research / release control.
+- **Failure risk:** Treating every recent episode, memorable label or product launch as material that must be inserted into an evergreen book would duplicate mechanisms already taught, import volatile claims without their primary evidence and invalidate exact-artifact reviews without improving the reader outcome.
+- **Root cause:** Freshness work is easily mistaken for a quota to change copy. A secondary source can make a topic feel newly important even when the maintained explanation and its recheck boundary remain correct.
+- **Prevention rule:** Screen the full requested source window, read the long features most likely to change the maintained material, then compare mechanisms and conclusions before drafting. A public edit is earned only by changed primary evidence, a genuinely missing mechanism or an owner-approved editorial improvement. `NO_PUBLIC_DELTA` is a complete release decision, not unfinished work.
+- **Durable correction:** The 2026-06-30 through 2026-08-28 AIDB window was checked against all four live manuscripts. All 51 editions were screened and 20 relevant long features read. The comparison found useful labels but no missing durable teaching or source-backed conclusion change, so the verified `8f369f4c` production release was preserved rather than replaced with a no-op successor.
+- **Possible Behind the Build angle:** Why reading two months of AI news led us to publish nothing—and made the books more trustworthy.
+- **Publication status:** INTERNAL FRESHNESS DECISION / NO PUBLIC DELTA.
