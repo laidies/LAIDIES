@@ -1,5 +1,27 @@
 # Screening Room construction — 2026-07-24
 
+## Current episode videos may be public while improvement continues — 2026-08-28
+
+Ali's direct ruling is that having the newest existing Episode 01–04 videos
+available is better than showing no video while animation and continuity work
+continues. This does not admit those videos as final-quality masters.
+
+- `admissionStatus` remains the quality/admission truth and stays `hold` until
+  its existing review requirements pass.
+- `publicPlaybackStatus: available-in-progress` is the separate visitor-access
+  truth for Episodes 01–04. It requires a checksum-bound HTTPS film, duration,
+  poster and complete captions.
+- The Watch UI must say that the current video is available and improvements
+  are ongoing. It must not expose internal gate language or call the video
+  final, complete, accepted or admitted.
+- Chick Flicks exposes direct Read, Listen and Watch routes for every published
+  episode.
+- The Trailer is outside this ruling and remains unavailable until a separate
+  exact decision or valid release state permits it.
+- The original local masters remain immutable. A necessary web-delivery encode
+  is recorded as a derivative with its own checksum and must preserve the
+  source edition's full content and timing.
+
 ## Source truth
 
 `watch.html` already had a working full-film player, cue-sheet fallback,

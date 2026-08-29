@@ -19,8 +19,8 @@ const derived = JSON.parse(read("content/episodes/screening-room-derived-edition
 const isArtifact = exists("build-report.json");
 
 assert.doesNotMatch(page, /var EPISODE_FILMS/);
-assert.match(page, /Motion-film editions are not approved for the public Screening Room/);
-assert.match(page, /A motion-film edition is not approved for public screening/);
+assert.match(page, /current illustrated video/i);
+assert.match(page, /Improvements are ongoing/);
 assert.doesNotMatch(page, /final motion films are completing their continuity check/i);
 assert.match(page, /Illustrated listen-alongs/);
 assert.match(page, /e\.target\.closest\('input, textarea, select, button, a, \[contenteditable="true"\]'\)/);
@@ -49,6 +49,7 @@ assert.match(page, /Listen-along start/);
 assert.match(page, /cover-only audio edition/i);
 assert.match(page, /screening-room-admission\.json/);
 assert.match(page, /admission\.admissionStatus === 'admitted'/);
+assert.match(page, /admission\.publicPlaybackStatus === 'available-in-progress'/);
 assert.match(page, /admission\.filmPublicUrl/);
 assert.match(page, /admission\.posterPublicUrl/);
 assert.match(page, /admission\.holds\.length === 0/);
@@ -67,9 +68,13 @@ assert.match(page, /configureMediaSession\(tape, __ep\)/);
 assert.match(page, /configureMediaSession\(v, ep\)/);
 assert.equal(admission.schemaVersion, 2);
 const admittedRule = admissionSchema.$defs.programme.allOf[0].then;
+const publicPlaybackRule = admissionSchema.$defs.programme.allOf[1].then;
 assert.deepEqual(admittedRule.properties.holds, { maxItems: 0 });
 assert.deepEqual(admittedRule.properties.captionCoverage, { const: "complete" });
 assert.deepEqual(admittedRule.required, [
+  "filmPublicUrl", "filmSha256", "filmDurationSeconds", "posterPublicUrl", "posterSha256"
+]);
+assert.deepEqual(publicPlaybackRule.required, [
   "filmPublicUrl", "filmSha256", "filmDurationSeconds", "posterPublicUrl", "posterSha256"
 ]);
 assert.equal(derived.schemaVersion, 1);
@@ -87,6 +92,16 @@ for (const id of ids) {
   const record = admission.programmes[id];
   assert.ok(record, `${id}: admission record missing`);
   assert.equal(record.admissionStatus, "hold", `${id}: must remain held`);
+  assert.equal(
+    record.publicPlaybackStatus,
+    id === "trailer" ? "unavailable" : "available-in-progress",
+    `${id}: public playback state differs from the owner ruling`
+  );
+  if (id !== "trailer") {
+    assert.match(record.filmPublicUrl, /^https:\/\/films\.laidies\.ai\/episodes\//, `${id}: public film URL is not on the film host`);
+    assert.match(record.filmSha256, /^[a-f0-9]{64}$/, `${id}: public film checksum missing`);
+    assert.ok(record.filmDurationSeconds > 0, `${id}: public film duration missing`);
+  }
   assert.equal(record.humanReviewStatus, "pending", `${id}: human full-title review must remain pending`);
   assert.equal(sha256(record.reviewFilm), record.reviewFilmSha256, `${id}: review-film hash mismatch`);
   assert.equal(sha256(record.reviewEvidence), record.reviewEvidenceSha256, `${id}: review-evidence hash mismatch`);
@@ -172,10 +187,10 @@ assert.deepEqual(
   "Episode 02 semantic-onset clock differs from the authoritative VTT audit"
 );
 
-console.log(failures.length ? "SCREENING ROOM REPAIR CONTRACT FAIL" : "SCREENING ROOM REPAIR CONTRACT PASS — TITLES HOLD");
+console.log(failures.length ? "SCREENING ROOM REPAIR CONTRACT FAIL" : "SCREENING ROOM REPAIR CONTRACT PASS — CURRENT VIDEOS AVAILABLE, QUALITY HOLDS PRESERVED");
 console.log(`programmes=${ids.length}`);
 console.log(`published_episodes=${published.length}`);
-console.log(`motion_films=0`);
+console.log(`public_current_videos=4`);
 for (const warning of warnings) console.log(`HOLD: ${warning}`);
 for (const failure of failures) console.error(`FAIL: ${failure}`);
 if (failures.length) process.exit(1);

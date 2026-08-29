@@ -23,9 +23,12 @@ for (const phrase of forbidden) {
 for (const number of ['01', '02', '03', '04']) {
   const read = new RegExp(`href=["']/issues/issue-${number}\\.html["']`, 'g');
   const listen = new RegExp(`href=["']/watch\\.html\\?ep=${number}(?:&amp;|&)mode=listen["']`, 'g');
+  const watch = new RegExp(`href=["']/watch\\.html\\?ep=${number}(?:&amp;|&)mode=watch["']`, 'g');
   if (!(source.match(read) || []).length) errors.push(`Episode ${number} has no direct Read route`);
   if ((source.match(listen) || []).length !== 1 && number !== '01') errors.push(`Episode ${number} does not have exactly one direct Listen route`);
   if (!(source.match(listen) || []).length) errors.push(`Episode ${number} has no direct Listen route`);
+  if ((source.match(watch) || []).length !== 1 && number !== '01') errors.push(`Episode ${number} does not have exactly one direct Watch route`);
+  if (!(source.match(watch) || []).length) errors.push(`Episode ${number} has no direct Watch route`);
 }
 
 const trailerRoutes = source.match(/href=["']\/watch\.html\?ep=trailer["']/g) || [];
@@ -67,6 +70,7 @@ console.log('CHICK FLICKS DIRECT ENTRY PASS');
 console.log('published_episode_cards=4');
 console.log('direct_read_routes=4');
 console.log('direct_listen_routes=4');
+console.log('direct_watch_routes=4');
 console.log('direct_trailer_routes=1');
 console.log('episode_05=COMING_SOON_NO_ACTION');
 console.log('visitor_facing_internal_language=0');

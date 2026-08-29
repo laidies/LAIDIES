@@ -42,7 +42,7 @@
     "programme": {
       "type": "object",
       "required": [
-        "admissionStatus", "cueSheet", "cueSheetSha256", "audio", "audioSha256",
+        "admissionStatus", "publicPlaybackStatus", "cueSheet", "cueSheetSha256", "audio", "audioSha256",
         "audioDurationSeconds", "captions", "captionsSha256", "captionEndSeconds",
         "captionCoverage", "reviewFilm", "reviewFilmSha256", "reviewFilmDurationSeconds",
         "reviewEvidence", "reviewEvidenceSha256", "humanReviewStatus",
@@ -51,6 +51,7 @@
       ],
       "properties": {
         "admissionStatus": { "enum": ["hold", "admitted"] },
+        "publicPlaybackStatus": { "enum": ["unavailable", "available-in-progress", "released"] },
         "filmPublicUrl": { "type": "string", "pattern": "^https://" },
         "filmSha256": { "pattern": "^[a-f0-9]{64}$" },
         "filmDurationSeconds": { "type": "number", "exclusiveMinimum": 0 },
@@ -92,6 +93,18 @@
             "properties": {
               "captionCoverage": { "const": "complete" },
               "holds": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "publicPlaybackStatus": { "enum": ["available-in-progress", "released"] } } },
+          "then": {
+            "required": [
+              "filmPublicUrl", "filmSha256", "filmDurationSeconds",
+              "posterPublicUrl", "posterSha256"
+            ],
+            "properties": {
+              "captionCoverage": { "const": "complete" }
             }
           }
         }

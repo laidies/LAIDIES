@@ -22,7 +22,7 @@ export function projectScreeningRoomAdmissionForPublic(source) {
     for (const field of INTERNAL_REVIEW_FIELDS) delete programme[field];
     if (id === 'trailer') {
       for (const field of HELD_PUBLIC_PLAYBACK_FIELDS) delete programme[field];
-      programme.publicPlaybackStatus = 'temporarily-unavailable';
+      programme.publicPlaybackStatus = 'unavailable';
     }
   }
   return `${JSON.stringify(admission, null, 2)}\n`;

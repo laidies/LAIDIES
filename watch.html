@@ -305,7 +305,7 @@
       <a href="/chick-flicks.html"><span>Return the tape</span><b>The Chick Flicks</b></a>
       <a href="/issues/issue-01.html" id="screeningArticleLink"><span>Read the issue</span><b>Open the full story</b></a>
       <a href="/handbook.html"><span>Take it with you</span><b>The LA<span class="ai">i</span>DIES Handbook</b></a>
-      <p class="scr-note" id="scrNote">Start the illustrated listen-along when you are ready. Motion-film editions are not approved for the public Screening Room.</p>
+      <p class="scr-note" id="scrNote">Choose Watch or Listen when the programme is ready.</p>
     </section>
   </main>
 
@@ -353,7 +353,7 @@
     var formatWatch = document.getElementById('formatWatch');
     var formatStatus = document.getElementById('formatStatus');
 
-    function setFormatNavigation(visualsReleased) {
+    function setFormatNavigation(playbackState) {
       var key = episodeKey(ep);
       var label = ep === 'trailer' ? 'the Trailer' : 'Episode ' + key;
       var readUrl = ep === 'trailer'
@@ -364,18 +364,22 @@
       formatRead.removeAttribute('aria-current');
       formatListen.href = '/watch.html?ep=' + encodeURIComponent(key) + '&mode=listen';
       formatListen.setAttribute('aria-current', 'page');
-      if (visualsReleased) {
+      if (playbackState !== 'unavailable') {
         var watchLink = document.createElement('a');
         watchLink.className = formatWatch.className;
         watchLink.id = 'formatWatch';
         watchLink.href = '/watch.html?ep=' + encodeURIComponent(key) + '&mode=watch';
-        watchLink.innerHTML = '<span>Watch</span><small>Complete visual edition</small>';
+        watchLink.innerHTML = playbackState === 'available-in-progress'
+          ? '<span>Watch</span><small>Current video · improving</small>'
+          : '<span>Watch</span><small>Complete visual edition</small>';
         formatWatch.replaceWith(watchLink);
         formatWatch = watchLink;
         if (requestedFormat === 'watch') {
           formatListen.removeAttribute('aria-current');
           formatWatch.setAttribute('aria-current', 'page');
-          formatStatus.textContent = 'You’re watching ' + label + '.';
+          formatStatus.textContent = playbackState === 'available-in-progress'
+            ? 'You’re watching the current ' + label + ' video. Improvements are ongoing.'
+            : 'You’re watching ' + label + '.';
         } else {
           formatStatus.textContent = 'You’re listening to ' + label + '. Watch is also available.';
         }
@@ -388,11 +392,11 @@
           : 'You’re listening to ' + label + '. Visual edition not admitted yet.';
       }
     }
-    setFormatNavigation(false);
+    setFormatNavigation('unavailable');
 
-    // Film URLs come only from the checksum-bound admission registry after a
-    // complete occurrence set is admitted. Review files on the studio drive
-    // are never embedded as public release URLs.
+    // Film URLs come only from the checksum-bound registry. A current video may
+    // be public while its separate quality-admission work remains open; the UI
+    // names that state plainly instead of mislabelling it as a final release.
     // Read-along captions. Timed against the narration audio, which runs the same
     // length as the film (20:22.40 for Ep4), so the VTT drops on with no offset.
     // Ep1/Ep2 captions are forced-aligned to those episodes' own narration audio
@@ -417,7 +421,8 @@
     };
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(admission) {
-      return admission && admission.admissionStatus === 'admitted'
+      return admission && (admission.admissionStatus === 'admitted'
+        || admission.publicPlaybackStatus === 'available-in-progress')
         ? admission.filmPublicUrl || null
         : null;
     }
@@ -539,7 +544,7 @@
     }
     var scrNote = document.getElementById('scrNote');
     if (scrNote && narratedOnly) {
-      scrNote.textContent = 'This page currently offers a held narrated edition. A motion-film edition is not approved for public screening.';
+      scrNote.textContent = 'Checking the current video and narrated edition.';
     }
     // The MAiVENS speak in their own voices; the Heroine and the Announcer narrate.
     // Testimony is set apart typographically, the way a pull-quote would be.
@@ -1070,7 +1075,7 @@
       screeningIntro.textContent = 'The trailer is being rebuilt before it returns to the public Screening Room.';
       screeningMeta.textContent = 'Trailer playback temporarily unavailable';
       screeningArticleLink.href = '/issues/issue-trailer.html';
-      setFormatNavigation(false);
+      setFormatNavigation('unavailable');
       failPlayer('release', 'Trailer playback is temporarily unavailable. Read the illustrated tour while the new cut is checked.');
       return;
     }
@@ -1085,7 +1090,7 @@
         var admission = payloads[1] && payloads[1].programmes
           ? payloads[1].programmes[episodeKey(ep)]
           : null;
-        var visualsReleased = admission
+        var fullyAdmitted = admission
           && admission.admissionStatus === 'admitted'
           && admission.captionCoverage === 'complete'
           && Array.isArray(admission.holds)
@@ -1097,8 +1102,17 @@
           && isAdmissionSha(admission.posterSha256)
           && Array.isArray(admission.occurrences)
           && admission.occurrences.length === admission.expectedOccurrenceCount;
-        setFormatNavigation(visualsReleased);
-        if (!visualsReleased) {
+        var availableInProgress = admission
+          && admission.publicPlaybackStatus === 'available-in-progress'
+          && admission.captionCoverage === 'complete'
+          && isAdmittedMediaUrl(admission.filmPublicUrl)
+          && isAdmissionSha(admission.filmSha256)
+          && Number(admission.filmDurationSeconds) > 0
+          && isAdmittedMediaUrl(admission.posterPublicUrl)
+          && isAdmissionSha(admission.posterSha256);
+        var visualsAvailable = fullyAdmitted || availableInProgress;
+        setFormatNavigation(availableInProgress ? 'available-in-progress' : (fullyAdmitted ? 'released' : 'unavailable'));
+        if (!visualsAvailable) {
           data = Object.assign({}, data, {
             edition: { kind: 'cover-only-audio' },
             cues: [{
@@ -1123,15 +1137,17 @@
           document.title = 'Episode ' + data.episode
             + (titleText ? ' · ' + titleText : '') + ' · The Screening Room · SUNNYVAiLE';
         }
-        if (data.edition && data.edition.kind === 'cover-only-audio') {
+        if (visualsAvailable) {
+          coverOnlyEdition = false;
+          if (admission.posterPublicUrl) HELD_VISUAL_COVERS[episodeKey(ep)] = admission.posterPublicUrl;
+          scrNote.textContent = availableInProgress
+            ? 'Watch the current illustrated video. We’re continuing to improve its animation and visual continuity.'
+            : 'Watch the complete illustrated film, or use the player controls to listen on the go.';
+        } else if (data.edition && data.edition.kind === 'cover-only-audio') {
           coverOnlyEdition = true;
           screeningMeta.textContent = 'Cover-only audio edition · static cover · read-along captions';
           screeningIntro.textContent = 'The narration and read-along captions continue while one static episode cover remains on screen.';
           scrNote.textContent = 'This is a held cover-only audio edition. It is not an illustrated motion film or a narration-specific visual sequence.';
-        } else if (visualsReleased) {
-          coverOnlyEdition = false;
-          if (admission.posterPublicUrl) HELD_VISUAL_COVERS[episodeKey(ep)] = admission.posterPublicUrl;
-          scrNote.textContent = 'Watch the complete illustrated film, or use the player controls to listen on the go.';
         }
 
         // build the broadcast: title bumper -> narration -> end bumper
@@ -1177,7 +1193,7 @@
         });
 
         var __ep = (typeof epNum !== 'undefined' ? epNum : (new URLSearchParams(location.search).get('ep') || '01'));
-        var __film = visualsReleased ? filmFor(admission) : null;
+        var __film = visualsAvailable ? filmFor(admission) : null;
 
         if (__film) {
           var __video = mountFilm(__film, __ep, admission.posterPublicUrl);

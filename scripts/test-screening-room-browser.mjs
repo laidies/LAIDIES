@@ -112,7 +112,8 @@ async function open(programme = "01", options = {}) {
       };
     });
   }
-  await page.goto(`${base}/watch.html?ep=${programme}`, { waitUntil: "domcontentloaded" });
+  const mode = options.mode ? `&mode=${encodeURIComponent(options.mode)}` : "";
+  await page.goto(`${base}/watch.html?ep=${programme}${mode}`, { waitUntil: "domcontentloaded" });
   return { context, page };
 }
 
@@ -127,9 +128,11 @@ async function expectFailure(pattern, kind, options = {}) {
 
 try {
   const newcomer = await open("01");
-  await newcomer.page.locator(".scene.is-live").waitFor();
+  await newcomer.page.locator(".film-player").waitFor({ state: "attached" });
   assert.equal(await newcomer.page.locator("#resumePanel").isVisible(), false, "newcomer saw a false resume prompt");
-  assert.equal(await newcomer.page.locator("#screeningMode").isVisible(), false, "held film exposed the watch/listen switch");
+  assert.equal(await newcomer.page.locator("#screeningMode").isVisible(), true, "current video did not expose the watch/listen switch");
+  assert.match(await newcomer.page.locator("#formatWatch").textContent(), /Current video · improving/i);
+  assert.match(await newcomer.page.locator("#formatStatus").textContent(), /Watch is also available/i);
   assert.deepEqual(
     await newcomer.page.locator(".screening-program a[data-ep]").evaluateAll((links) =>
       links.map((link) => link.getAttribute("data-ep"))),
@@ -154,7 +157,7 @@ try {
   assert.equal(mediaSession.metadata.title, "Episode 04 · The Founding Mothers");
   assert.equal(mediaSession.metadata.artist, "LAiDIES");
   assert.equal(mediaSession.metadata.album, "The Wednesday Tour · Season 1");
-  assert.match(mediaSession.metadata.artwork[0].src, /ep-04\.webp$/);
+  assert.match(mediaSession.metadata.artwork[0].src, /opening-day-covers-v1\/04\/04-site\.jpg$/);
   assert.deepEqual(mediaSession.handlers, ["pause", "play", "seekbackward", "seekforward", "seekto"]);
   await commute.page.locator("#tape").evaluate((audio) => { audio.currentTime = 30; });
   await commute.page.evaluate(() => window.__mediaSessionProbe.handlers.seekforward({ seekOffset: 20 }));
@@ -179,7 +182,7 @@ try {
     (_, index) => ({ fixtureOccurrence: index + 1 })
   );
 
-  const admitted = await open("01", { admissionOverride: admissionFixture, mediaSession: true });
+  const admitted = await open("01", { admissionOverride: admissionFixture, mediaSession: true, mode: "watch" });
   await admitted.page.locator(".film-player").waitFor();
   assert.equal(
     await admitted.page.locator(".film-player").getAttribute("src"),
@@ -221,6 +224,7 @@ try {
 
   const admittedMobile = await open("01", {
     admissionOverride: admissionFixture,
+    mode: "watch",
     viewport: { width: 320, height: 820 }
   });
   await admittedMobile.page.locator("#screeningMode").waitFor();
@@ -255,7 +259,7 @@ try {
 
   for (const width of [320, 390, 1280]) {
     const run = await open("01", { viewport: { width, height: 820 } });
-    await run.page.locator(".scene.is-live").waitFor();
+    await run.page.locator(".film-player").waitFor({ state: "attached" });
     assert.equal(
       await run.page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
       true,
@@ -267,26 +271,24 @@ try {
   }
 
   const trailer = await open("trailer");
-  await trailer.page.waitForFunction(() => document.querySelector("#tape").duration > 960);
-  await trailer.page.locator("#tape").evaluate((audio) => { audio.currentTime = 929; });
-  await trailer.page.waitForFunction(() => /buried it in buzzwords/i.test(document.querySelector(".cap-txt")?.textContent || ""));
-  assert.equal(await trailer.page.locator(".cap-who").textContent(), "The LAiDIES");
+  await trailer.page.locator('#playerStatus[data-failure="release"]').waitFor();
+  assert.match(await trailer.page.locator("#screeningIntro").textContent(), /being rebuilt/i);
+  assert.equal(await trailer.page.locator("#formatWatch").getAttribute("aria-disabled"), "true");
   await trailer.context.close();
 
   await expectFailure("**/episode-01-cues.json", "cues");
   await expectFailure("**/episode-01.vtt", "captions");
   await expectFailure("**/episode-01-narration.m4a", "audio");
-  await expectFailure("**/ep-01.webp", "visual");
   await expectFailure("**/__never__", "playback", { rejectPlay: true, clickPlay: true });
 
   console.log("SCREENING ROOM BROWSER PASS");
   console.log("journeys=newcomer,returning,start-over");
   console.log("viewports=320,390,1280");
   console.log("keyboard=slider-arrow,end,home");
-  console.log("failure_modes=cues,captions,audio,visual,playback");
-  console.log("trailer_caption_tail=complete_and_visible");
+  console.log("failure_modes=cues,captions,audio,playback");
+  console.log("trailer=unavailable_and_labelled");
   console.log("media_session=metadata,play,pause,seekbackward,seekforward,seekto");
-  console.log("admission_binding=held_unbound,admitted_film_poster_and_listen_only_bound");
+  console.log("admission_binding=in_progress_public_and_admitted_film_poster_and_listen_only_bound");
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
