@@ -1,11 +1,6 @@
 /**
  * SUNNYVAiLE NewsStand — canonical public publication dataset
- *
- * Schema: /content/newsstand.schema.json
- * Public editions: breaking | daily | weekly | big-picture
- *
- * A private radar or candidate never publishes directly to this object.
- * The reader fails closed when this object is absent, malformed, held or stale.
+ * Published records only. Private review overlays do not run in production.
  */
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
@@ -68,10 +63,10 @@ window.NEWSSTAND_DATA = {
       "job": "Ongoing sourced analysis that follows consequential AI themes over time.",
       "status": "current",
       "publishedAt": "2026-08-24T17:00:00Z",
-      "updatedAt": "2026-08-24T17:00:00Z",
-      "lastCheckedAt": "2026-08-24T17:00:00Z",
+      "updatedAt": "2026-08-29T17:00:00Z",
+      "lastCheckedAt": "2026-08-29T17:00:00Z",
       "maxAgeHours": 336,
-      "note": "The data-centre argument is really about the deal."
+      "note": "The current Big Picture article."
     }
   },
   "stories": [
@@ -331,11 +326,11 @@ window.NEWSSTAND_DATA = {
       "edition": "big-picture",
       "status": "published",
       "publishedAt": "2026-08-24T17:00:00Z",
-      "updatedAt": "2026-08-24T17:00:00Z",
-      "lastCheckedAt": "2026-08-24T17:00:00Z",
+      "updatedAt": "2026-08-29T17:00:00Z",
+      "lastCheckedAt": "2026-08-29T17:00:00Z",
       "sourceApproval": {
         "status": "approved",
-        "record": "newsstand:source-approval:big-picture-data-centre-deal-2026-08-24"
+        "record": "newsstand:source-approval:data-centre-deal-preview"
       },
       "correction": null,
       "correctionHistory": [],
@@ -344,37 +339,252 @@ window.NEWSSTAND_DATA = {
       "successorStoryIds": [],
       "relationshipType": null,
       "bigPicture": {
-        "originallyPublishedAt": "2026-08-24T17:00:00Z",
-        "lastMeaningfullyUpdatedAt": "2026-08-24T17:00:00Z",
-        "sourcesLastCheckedAt": "2026-08-24T17:00:00Z",
+        "originallyPublishedAt": "2026-08-24",
+        "lastMeaningfullyUpdatedAt": "2026-08-29",
+        "sourcesLastCheckedAt": "2026-08-29",
         "changeLog": [
           {
-            "date": "2026-08-24",
-            "note": "Initial candidate analysis of the public bargain around data-centre development."
+            "changedAt": "2026-08-24",
+            "summary": "Initial analysis of the public bargain around data-centre development."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Replaced the rejected draft. The new article tests the claims driving the backlash, adds the corrected 1,000-fold water example, removes unsupported language about water and proximity, and distinguishes local facts from national fears and political interpretation."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Replaced the generic final line with Ali’s approved Star Trek–Skynet contrast, explicitly framed as a possibility rather than a forecast and ordered so the social explanation belongs unmistakably to Star Trek."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Added Ali’s requested case for AI-enabled scientific and medical discovery, with an explicit boundary against promising a cure or breakthrough."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Replaced the fragment opening the generative-AI section with a complete transition that distinguishes the building’s continuing purpose from the changes in equipment, power density and scale."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Connected the cloud-walls image directly to protest graffiti and removed the explanatory sentence that interrupted and misread the joke."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Replaced the opaque corporate-promise comparison with a project-by-project decision test that includes both local burdens and enforceable community benefits."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Restored the five-part structure of Ali’s returned draft: a dedicated data-centre explanation, trust, distortion of environmental and economic claims, the consequences of saying no, and paths forward."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Retitled the article, added reader-facing subheadings throughout, made NDAs and transparency a central argument, rebuilt the forward path, and simplified the AIDB attribution to an article-inspiration credit."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Corrected the causal account of the backlash using named AI-industry warnings, added the missing benefits-communication problem, separated observed job effects from layoff claims, and restored labour’s jobs-and-conditions argument."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Added the approved adult graphic-novel illustration to the article and corrected the graffiti placement so it remains visible at desktop and mobile sizes."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Rebuilt the graffiti edit from the clean original to remove the hidden remnant, restore the complete GET LOST lettering and isolate the larger spray-painted mark on the left wall."
+          },
+          {
+            "changedAt": "2026-08-25",
+            "summary": "Revised the protest crowd to represent the backlash as racially, generationally and socially broad rather than assigning it to one demographic or subculture."
+          },
+          {
+            "changedAt": "2026-08-29",
+            "summary": "Rebuilt the analysis from Ali’s Claude-edited manuscript, preserving its stronger thesis, short version, fact-check sequence and better-bargain conclusion while removing or narrowing claims that outran the reviewed evidence."
+          },
+          {
+            "changedAt": "2026-08-29",
+            "summary": "Moved the short version behind a collapsed ‘The Article in 30 Seconds’ disclosure so the article opens with its argument, and restored Ali’s exact graffiti sentence."
           }
         ],
         "previousVersions": []
       },
       "thread": "data-centre-public-bargain",
-      "thread_subtitle": "Who receives the benefits of compute, who carries the local burden and what makes the bargain enforceable.",
+      "thread_subtitle": "Data centres are not new. What changed was AI: bigger facilities, lower trust and a flood of alarming claims that are hard to compare.",
       "thread_entry": "Current Big Picture analysis",
-      "headline": "The data-centre argument is really about the deal.",
-      "the_story": "AI feels weightless when it appears as a sentence on a screen. The infrastructure behind it is not. A data centre needs land, a grid connection, cooling, equipment, roads, permits and people. Its services can benefit users far beyond the host community, while electricity, water, noise, infrastructure and land effects are concentrated where the facility is built. The cleanest evidence does not support either easy slogan: it does not show that every data centre will raise everyone’s utility bill or drain a community’s water, and it does not show that every project pays for itself through jobs, taxes and innovation. Outcomes depend on the project’s load, tariff, cooling system, water source, infrastructure financing, incentives, monitoring and enforceable conditions.",
-      "laidies_read": "The International Energy Agency reported that global data-centre electricity use rose 17% in 2025 and projects total use will double by 2030 while AI-focused use triples. Those are global projections, not local forecasts. The IEA also says power used per AI task is falling, showing how efficiency per task and total demand can move in opposite directions. A state that refuses data centres may still use compute hosted elsewhere, while another community supplies the land, water and power. That does not mean any community owes the industry a permit. It means a serious decision must account for where both benefits and burdens travel.",
-      "what_this_means": "The useful question is: what is this project asking the public to supply, who pays for new capacity, what benefits are guaranteed, who can inspect the numbers, and what remedy exists if the forecast is wrong? FERC is examining tariff and connection rules for large loads. Pennsylvania now conditions environmental review on binding GRID commitments and local approval, removes data-centre proposals from its Fast Track program, and prohibits nondisclosure agreements. St. Louis attached cooling, water-rate, efficiency, workforce and enforcement conditions to one permit. These actions do not prove a fair outcome; they show how the proposed bargain can become visible and enforceable.",
-      "cocktail_party": "“The data-centre debate is not a referendum on whether AI is good or bad. It is a negotiation over who supplies the land, water and power—and what the host community is guaranteed in return.”",
-      "watch_fors": [
-        "Measured project-level electricity, water, jobs and ratepayer outcomes rather than forecasts alone.",
-        "Whether tariff, disclosure, community-benefit and enforcement conditions work in practice."
+      "headline": "Why data centres became a public villain—and what a better bargain would look like",
+      "front_summary": "Until very recently, most people had no reason to think about data centres. We called their work ‘the cloud,’ which made the whole arrangement sound pleasantly weightless. Then the generative-AI boom arrived, and the cloud acquired walls. The question is not whether every project is good or bad, but what the public can verify and require in return.",
+      "front_read": "Which fears survive checking—and what should a community require before saying yes?",
+      "front_examination": [
+        "A frightening number can be accurate, wrong by a factor of 1,000 or simply meaningless without its denominator. Those are not minor differences.",
+        "The useful question is not whether data centres are good or bad. It is whether a particular project works for the place being asked to host it."
       ],
-      "closing_note": "Stopping every project would not make demand for compute disappear. Approving every project on a promise would not make local costs fair. The practical middle is a visible, measurable and enforceable deal that a community has enough information and authority to accept or refuse.",
-      "class_notes": "AI Fundamentals connections: compute infrastructure, externalities, governance, efficiency and decision rights. Update this Big Picture when major demand forecasts, tariffs, permit rules or measured project outcomes change.",
+      "heroVisual": {
+        "src": "/assets/newsstand/big-picture-data-centre-backlash-hero-v4.png",
+        "alt": "A racially and generationally diverse crowd of protesters outside a graffiti-covered data centre, including signs demanding progress but never wanting it.",
+        "credit": "LAiDIES · The Big Picture"
+      },
+      "quick_read_label": "The Article in 30 Seconds",
+      "quick_read": "<p>Data centres have been around for decades. What is new is the intensity of the opposition. Three surveys published in 2026 put local opposition between 61 and 75 percent, and the two with earlier comparison points found it rising. In Gallup's polling, opposition to a local AI data centre reached 71 percent—above the highest opposition Gallup has recorded for a nuclear plant in its 25-year trend.</p><p>When the same voters were shown the same proposed building, opposition was nine points lower when it was described as serving streaming and search rather than AI. The AI label clearly changed the response.</p><p>Several frightening claims do not survive checking. The \"1,000 times the town's water\" figure came from a units error and was corrected. Noise complaints appear at a minority of Virginia's operating sites, not all of them. Household bills can rise as a power system expands, but whether a particular project shifts its connection costs to households depends on the rules and contract.</p><p>Other concerns are concrete. Federal regulators report that the average data centre entering service grew from about 25 megawatts in 2020 to almost 80 megawatts in 2025. Companies have also announced large clean-energy investments, including nuclear projects expected between 2027 and the mid-2030s. Demand growth is already under way, so the source of the power used before those projects arrive matters.</p><p>The conflict is also about who decides. Communities are often handed a choice between a company's promises and an opponent's worst case after the important terms have already been negotiated, sometimes under non-disclosure agreements they never saw.</p><p>Instead of asking \"data centres: yes or no?\", ask what this project would do in this place, what it would cost and which terms the public can enforce. Those terms are often the least visible part of the proposal.</p>",
+      "examination_intro": "",
+      "examination_sections": [
+        {
+          "title": "Why does everyone suddenly think data centres are bad?",
+          "body": "<p>Until very recently, most people had no reason to think about data centres. We called their work 'the cloud,' which made the whole arrangement sound pleasantly weightless. Photos disappeared into it. Bank records lived there. So did hospital systems, government services, streaming libraries and almost every other part of modern life that depends on the internet.</p><p>Then the generative-AI boom arrived, and the cloud acquired walls.</p><p>Suddenly, everyone seemed eager to cover those walls in protest graffiti: warnings, obscenities and, inevitably, the timeless doodle that transcends cultures, languages and centuries—the phallus.</p><p>Data centres have existed for decades. Yet in 2026 they have become an election issue, a neighbourhood fight and, in some corners of the internet, proof that AI is coming for the taps, the power grid, the family home and civilization itself.</p><p>The backlash is carrying several arguments at once: distrust of Big Tech, fear about jobs and safety, anger over secret negotiations, and alarming claims about water and electricity that often travel farther than their corrections.</p><p>There is also a practical problem. Communities are often asked to judge a project after its most important terms have already been negotiated. They hear the company's promises and the opponent's worst-case scenario, but may not be allowed to read the agreement their own government signed.</p><p>We need to separate two questions. What would this project actually cost and provide? And if the trade-off looks worthwhile, what should the company have to disclose, pay for and guarantee before anyone approves it? The debate usually stops at the first question. The second is where a community can negotiate rather than simply react.</p>"
+        },
+        {
+          "title": "What changed when AI arrived?",
+          "body": "<p>First, what does a data centre actually do?</p><p>The short answer is almost everything we do online. Data centres hold rows of computers that store information, run software and move data across networks. Your email, payroll system, video call, bank transaction and online grocery order all have to be processed on a machine somewhere. \"The cloud\" is a convenient name for using computers you do not own and cannot see. Those computers still need a building, electricity, cooling and a connection to the outside world.</p><p>Generative AI did not invent any of this. An \"AI data centre\" is not a fundamentally different kind of building. It can host AI training, the months-long process of building the model in the first place. Or inference, the industry's word for the everyday work of answering your questions. Or ordinary cloud services. Or all three at once.</p><p>What happens inside the facility affects how much power and cooling it needs. A major training run can concentrate very high demand over weeks or months. Inference—the everyday work of producing answers—creates ongoing demand that rises and falls with use. Many facilities do both, alongside ordinary cloud work. The mix affects the power profile, cooling needs and how much work could be rescheduled or reduced when the grid is strained, so a community needs the actual workload and operating plan rather than the label \"AI data centre.\"</p><p>Large training systems use dense clusters of specialised chips connected at high speed. Keeping those chips close together reduces communication delays, but it also concentrates electricity use and heat. At high densities, facilities may need liquid cooling or other equipment beyond conventional air cooling, plus a much larger grid connection.</p><p>That helps explain the local concern: newer facilities can be much larger and ask far more of the power system around them.</p><h4>Why does the AI label change the reaction?</h4><p>In June, a poll for Puck described the same facility to the same group of 1,012 likely voters in two different ways. Told it was a data centre built to power artificial intelligence, 62 percent opposed it and 27 percent supported it. Told it was a data centre built to power digital services such as searches and video streaming, opposition fell to 53 percent and support rose to 35 percent.</p><p>Nothing changed but what the building was said to be for. Opposition was nine points lower and support eight points higher when the description emphasized searches and streaming rather than AI. That is a meaningful difference within one sample, though it does not tell us which beliefs about AI produced it.</p><p>The poll does not make the building irrelevant. It shows that the same building becomes less acceptable when voters associate it with AI.</p><p>The broader polling confirms the scale of the problem without explaining it. Gallup, in a March survey published in May, found 71 percent of Americans opposed an AI data centre in their area, including 48 percent strongly opposed. The University of Pennsylvania's Annenberg Public Policy Center found opposition to a local data centre rising from 49 percent in February and March to 61 percent in June and July. An August Heatmap Pro poll conducted by Embold Research found 75 percent of registered voters opposed one near their home, up from 42 percent a year earlier.</p><p>Gallup asked the same people about nuclear plants, which is a useful yardstick. Fifty-three percent oppose a reactor in their area, and in the quarter century Gallup has been asking, that figure has never gone above 63 percent. Data centres are at 71. Within Gallup's own wording and trend, opposition to the local AI data-centre question was higher than opposition to a local nuclear plant has ever been.</p><p>The figures are not interchangeable, since the questions, samples and timing all differ and Gallup had never asked its question before. But both surveys that repeated themselves found opposition climbing steeply.</p><p>Gallup also asked opponents why. About half mentioned excessive use of resources, with water and energy each named by 18 percent. Roughly a sixth mentioned pollution including noise, about a fifth mentioned quality-of-life impacts, and a similar share cited economic consequences such as higher utility bills. People are not objecting for one reason. They are worried about resources, noise, household costs and quality of life.</p><h4>What makes one project a local issue?</h4><p>The first is size. Federal regulators reported that the average data centre entering service grew from about 25 megawatts in 2020 to almost 80 megawatts in 2025. FERC generally describes demand above 20 megawatts as a large load. A new facility can therefore be one of the largest customers a local utility has ever connected, and some proposed campuses are larger still.</p><p>The second is distance. Virginia's 2024 legislative review examined eight localities containing 93 percent of the state's data centres and found that 29 percent of operating properties were within 200 feet of residentially zoned property, measured property line to property line. That does not mean a server building sits 200 feet from a front door. It does show that older zoning rules sometimes treated data centres as office-like uses, or placed industrial and residential land beside each other, before local governments understood the scale and constant noise some facilities could bring.</p><p>Anyone who spent the nineties building cities in SimCity already understands the planning problem. A city needs infrastructure and a tax base. It also needs rules about where industrial uses belong and what they owe their neighbours.</p><p>Size and location do not settle the decision, but they tell a community exactly what to examine in the site plan and utility agreement.</p><p>Scale makes the project local. The AI label brings a different set of fears into the room—fears the industry helped create.</p>"
+        },
+        {
+          "title": "How did the building inherit every fear about AI?",
+          "body": "<p>The developer does not walk into the meeting alone.</p><p>Big Tech arrives carrying fifteen years of baggage: personal data collected without meaningful consent, social platforms that rewarded outrage, local news hollowed out by advertising shifts, enormous market power and leaders who often appear to operate beyond ordinary consequences. A data centre is not a social-media feed. It is still being proposed by institutions many people already distrust.</p><p>Then the AI industry wrote the villain's dialogue itself.</p><p>These were not rumours invented by protesters. In 2025, Dario Amodei warned that AI could eliminate half of entry-level white-collar jobs and push unemployment to between 10 and 20 percent within one to five years. Two years before that, Amodei, Sam Altman and Demis Hassabis were among the signatories to a statement saying that reducing the risk of human extinction from AI should be treated as a global priority alongside pandemics and nuclear war.</p><p>The warnings were meant to force serious preparation. The public heard a simple message: more powerful AI could mean lost jobs or catastrophe. When the same industry then asks for a huge new building, people connect the two.</p><p>Y2K is a useful warning about warnings. The planes stayed up and the banks opened, partly because people had spent years fixing the problem. What many people remember is only that catastrophe was predicted and did not happen. AI companies risk the same outcome if they talk about disaster without explaining the safeguards or the benefits.</p><p>The industry did a much poorer job explaining what ordinary people might gain. \"Productivity\" sounds attractive in a boardroom. To a worker who has watched colleagues disappear, it can sound like more work for the same pay, or a more polished excuse for the next round of cuts. Scientific discovery, better public services, new businesses and more useful work make a far stronger case. But most of those gains are still possibilities, while the proposed building and its demands are immediate and visible from the highway.</p><h4>Did AI actually take the jobs?</h4><p>Not yet, and it matters here, because the fear is doing a lot of work in this debate that the evidence does not support.</p><p>A 2026 International Labour Organization review found large-scale displacement remained limited, alongside real but uneven productivity gains and emerging pressure on some entry-level opportunities. Stanford researchers likewise found no evidence of widespread economy-wide displacement, though they did identify a growing employment gap for younger workers in some highly exposed occupations. All of that is real and worth watching, and all of it is a long way from the sudden disappearance of work the loudest warnings forecast.</p><p>AI can also become a convenient explanation for layoffs whose causes are less flattering to management. Forrester uses the term \"AI washing\" for companies that blame job cuts on AI without evidence of comparable automation, obscuring explanations such as pandemic-era over-hiring, weaker demand, spending choices or an attempt to reassure investors. AI has displaced some work. But when a company blames a round of layoffs on AI, it should show what was actually automated instead of asking everyone to accept the explanation on faith.</p><p>The positions taken by the IBEW and AFL-CIO reflect that tension. The International Brotherhood of Electrical Workers opposed proposed New England moratoriums on the grounds that they would eliminate union job opportunities, and the AFL-CIO's 2026 resolution supports continued data-centre growth while demanding union labour, protection against shifting energy and water costs onto households, fair taxes, environmental standards, transparent agreements and community investment.</p><p>Their support is conditional. They want the construction work, but they are also demanding protections for households, workers and host communities.</p><h4>How did the backlash become politically useful?</h4><p>Public opinion and politics now feed each other.</p><p>As opposition rose, data centres became useful campaign material. A candidate could point at an unpopular proposal, accuse an opponent of siding with Big Tech and earn a headline. That coverage gave the issue more attention, which gave other candidates a reason to move before they became the next target.</p><p>The sequence is easy to see but hard to prove. News coverage did not invent worries about electricity, water or secrecy, and no poll can tell us whether a particular voter changed her mind after a particular headline.</p><p>Once opposition can win votes, improving a weak proposal is less useful to a candidate than condemning the whole category. The debate then shifts away from whether a particular proposal can be improved. Condemning the category becomes easier than negotiating a better project.</p><p>Those fears then arrive in a process already short on trust: many communities cannot see the terms they are being asked to accept.</p>"
+        },
+        {
+          "title": "What happens when nobody can see the deal?",
+          "body": "<p>Everyone is arguing about the terms. The trouble is that many of them are not allowed to see them.</p><p>Some local governments and developers have used non-disclosure agreements while negotiating data-centre projects. Microsoft announced in March that it would stop using broad NDAs with local governments and work to end existing ones, keeping narrow exceptions for genuine trade secrets. Residents should not have to guess which terms their own government agreed to on their behalf.</p><p>Microsoft's change still leaves a wider question for every developer and local government. A narrow trade secret may justify a limited redaction. The expected and maximum power demand, the water source, the cooling plan, the public incentives, the grid costs, the permanent jobs and the community obligations are not private details when a public body is being asked to approve a project or help pay for it.</p><p>Closed negotiations turn an engineering question into a trust question. If residents cannot see any of it, they are left to choose which storyteller they distrust least. The company says the project will be efficient and transformative. The opponents say it will empty the reservoir and double the electricity bill.</p><p>Nobody has shown the public the worksheet.</p><h4>Why do corrections fail?</h4><p>Gallup found in June that only 20 percent of Americans had a great deal or quite a lot of confidence in large technology companies, a new low in its series. Corrections, in other words, are arriving in a country that does not trust the messenger, and a company can publish an entirely accurate one only to discover that what the public hears is public relations.</p><p>The Puck poll shows what that does to a correction. Respondents were told that a widely repeated water claim had come from a mathematical error, and that the author had since fixed it. Twenty-seven percent found the explanation convincing. Fifty-two percent did not.</p><p>Set that against the industry's other arguments in the same poll. Claims about local tax revenue convinced 42 percent. Claims about high-paying jobs convinced 36 percent. The correction—the one claim known to be true—was the least persuasive thing anyone said.</p><p>The poll cannot explain why each respondent stayed sceptical. Another polished message is unlikely to repair this relationship.</p><p>Published agreements and measured results might. So which concerns hold up when we examine the evidence?</p>"
+        },
+        {
+          "title": "Which concerns hold up—and which do not?",
+          "body": "<p>\"Data centres are bad for the environment\" is not a finding. It is a bundle of separate claims about water, electricity, emissions, noise and land, and they do not all hold up the same way. The evidence does not give us one answer. Some popular claims are wrong. Some describe real problems at certain sites but not others. Other costs depend on who must reduce them or pay for them.</p><p>Each claim needs to be checked against the evidence for a particular type of facility and site. Then an approval can address the risks that remain.</p><p><strong>Before comparing water claims:</strong> check whether each figure is measured use, a modelled estimate or the maximum allowed under a permit. Check whether it is an average or a peak. For water, check whether it describes withdrawal or consumption. The first example shows why those labels matter.</p><h4>The 1,000-times water claim was wrong</h4><p>In the first edition of Karen Hao's <em>Empire of AI</em>, a proposed Google data centre in Cerrillos, Chile, was described as potentially using more than 1,000 times as much water as the town's residents. A reader, Andy Masley, checked the government table behind the comparison. Its figures appeared to be labelled in litres when they were actually cubic metres. Because one cubic metre contains 1,000 litres, the error made the residents' water use look 1,000 times smaller than it really was. Hao investigated, accepted the correction and changed the book.</p><p>The project may still have raised a legitimate local water question. But the comparison used to describe that question was wrong by a factor of 1,000. The project figure was also a permitted maximum for a facility that had not opened, not a meter reading from an operating building. Maximums matter because a water system has to plan for them, but they cannot honestly be presented as water already being consumed.</p><h4>So when is water a real concern?</h4><p>When the facts about a particular site show pressure on a particular supply. The useful questions are not \"how thirsty is AI?\" but: which cooling system will this facility use? What is its expected demand, and its maximum? Is the water withdrawn and returned, or consumed through evaporation? Is it drinking water, reclaimed water, surface water or groundwater? How much is available locally during the hottest, driest weeks of the year?</p><p>Cooling choices can create a water-and-electricity trade-off. Evaporative systems can reduce the electricity needed for cooling while consuming more water; air-cooled or closed-loop designs can reduce on-site water use while requiring more electricity in some conditions. The size of that trade-off depends on the facility and climate.</p><p>Neither cooling method is automatically better. The sensible choice depends on the local water supply, climate and power system. A promise such as \"water positive\" cannot be evaluated without the cooling design, the expected and peak power draw, and the local grid mix.</p><p>The agreement can specify the water source, set limits during drought, require public reporting of measured use and state what happens if the operator exceeds the limit. The power figures belong beside the water figures so the trade-off remains visible.</p><h4>The bottle-of-water-per-query problem</h4><p>You have almost certainly seen the viral version: every question you ask an AI drinks a bottle of water, so consider your conscience before asking it to write your out-of-office reply.</p><p>Per-query figures are usually modelled rather than measured, and they can vary enormously with the model, facility, cooling design, electricity source and local climate. A single number repeated by many outlets is not automatically corroborated if they all lead back to the same estimate.</p><p>This way of describing the issue puts the reader's conscience at the centre and the facility's design at the edge. Whether intended or not, that can distract from the decisions that determine most water use: cooling design, water source, drought rules and monitoring.</p><p>Guilt is a poor substitute for a permit condition.</p><h4>Will a data centre raise household electricity bills?</h4><p>It can, but it is not automatic and it is not one simple mechanism.</p><p>A large new connection can require generation, substations or transmission. Virginia's legislative auditors found that data centres were paying their allocated cost of service under the rates they examined. The same review warned that rapid demand growth could still raise system costs for everyone, and that customers could be left with stranded infrastructure if forecast demand never appears.</p><p>Paying today's allocated bill does not guarantee that other customers will avoid future system costs. Regulators decide how connection costs, new generation, transmission and the risk of a delayed or abandoned project are allocated. In June 2026, FERC ordered all six regional grid operators under its authority to justify or rewrite their rules for connecting large loads, including protections for existing customers.</p><p>The developer can be required to fund project-specific connections and upgrades, pay meaningful minimum charges, disclose duplicate applications and cover stranded costs if the project arrives late, uses less power than promised or never opens.</p><h4>Could a data centre make the grid less reliable?</h4><p>A very large new load can increase the challenge of keeping supply and demand balanced, especially during extreme peaks. Existing utility reviews, connection studies and reliability rules are intended to prevent a project from simply attaching where the system cannot serve it. Those processes reduce risk; they do not erase the need for new generation and transmission.</p><p>Some operators can agree to reduce or shift computing work when the grid is stressed. Google, for example, says it has incorporated one gigawatt of demand-response capacity into long-term U.S. energy contracts. That is a company-reported program, not proof that every facility is flexible.</p><p>The agreement should state whether the load is firm or can be curtailed, what happens during an emergency and what performance the operator has actually committed to. Without those terms, nobody should promise residents that the facility will always step aside first.</p><h4>Where is the power actually coming from?</h4><p>A data centre's climate impact depends heavily on what generates its electricity and whether that generation is new or simply diverted from somebody else. The place to look is the contracts, and the companies have been busy.</p><p>Microsoft signed a 20-year agreement with Constellation to support the restart of the 835-megawatt Crane Clean Energy Center, formerly Three Mile Island Unit 1. Constellation now expects the restart in 2027, and the Department of Energy closed a one-billion-dollar loan for the project in 2025.</p><p>Meta announced agreements with Vistra, TerraPower and Oklo covering up to 6.6 gigawatts of new and existing nuclear power by 2035. Amazon says its Talen arrangement provides access to up to 1.9 gigawatts from an existing Pennsylvania plant and that it is also investing in X-energy and exploring a project with Dominion. Google's announced agreements include up to 500 megawatts from Kairos reactors and more than 600 megawatts from the planned restart of Iowa's Duane Arnold plant.</p><p>These are more substantial than buying an unconnected certificate and declaring the problem solved. Long contracts and direct investment can keep existing plants open, restart retired plants or help new projects raise capital. They are still company announcements about projects with regulatory, construction and delivery risk—not measured outcomes.</p><p>For years, a common approach was to buy enough renewable power over twelve months to match annual consumption. That does not mean a facility drew carbon-free electricity in every hour. Some companies are now also pursuing firm power, hourly matching and demand response.</p><p>When a company promises clean power, check whether the matching is annual or hourly and whether the agreement adds generation rather than reallocating what already exists.</p><p>The dates are the problem. Constellation expects Crane in 2027. Google's Duane Arnold restart is targeted for 2029. Meta says the Oklo campus may begin in 2030 and TerraPower delivery could start in 2032. Demand growth is already under way.</p><p>Until new generation arrives, a grid-connected facility uses the regional mix available at each hour. Some proposed campuses also include dedicated gas generation; a July 2026 Department of Energy selection at the Savannah River Site, for example, pairs a proposed one-gigawatt data centre with roughly two gigawatts of on-site generation described as natural gas bridging to nuclear.</p><p>The clean-energy deals may be substantial, but the power used before they arrive belongs in the same public accounting.</p><p>If a project proposes its own generation, that equipment is part of the project and should be permitted and monitored with it. For clean-power claims, require the operator to state whether matching is annual or hourly and whether the agreement adds capacity.</p><h4>What has actually been documented near homes?</h4><p>Virginia's 2024 review found that data-centre noise is low-frequency, not loud enough to damage hearing and rarely loud enough to violate ordinary noise ordinances, but some residents report that its constancy affects their wellbeing. A large majority of the state's data centres had generated no complaints, owing to location or design.</p><p>Virginia found complaints at a minority of sites. That is enough to justify enforceable noise rules, but not enough to claim that every data centre creates the same problem. A sound you cannot stop noticing is not made acceptable by being quiet.</p><p>Virginia's auditors found that backup generators were used mainly for maintenance testing and occasional short outages. They accounted for less than four percent of Northern Virginia's nitrogen-oxide emissions and 0.1 percent or less of its carbon monoxide and particulates. Those figures describe backup equipment at grid-connected facilities. They do not describe a project that uses combustion as its primary on-site supply.</p><p>Fairfax County requires a data-centre building to sit at least 200 feet from an adjoining residential property line, with generators 300 feet away unless the building stands between them and the homes, plus noise studies before and after construction. Add measured limits, restricted testing hours and monitoring so the promise can be checked after the facility opens.</p><h4>What about property values and appearance?</h4><p>Sixty percent of respondents in the Puck poll said it was definitely or probably true that data centres reduce nearby property values. Virginia's auditors found no evidence of a decline in sale prices or in how quickly homes sold, while warning that Northern Virginia's tight housing market may be masking an effect.</p><p>A 2025 George Mason University research note analysed 2023 Northern Virginia sales and found no evidence that proximity to a data centre reduced sale prices after controlling for several property and location characteristics. Its model produced a small association in the other direction.</p><p>The study does not establish that data centres raise property values either. It covered one year in one region, could not measure every property characteristic and reported an average that may conceal effects at particular sites. The available evidence has not demonstrated the broad price decline many people assume.</p><p>Appearance is a different matter. A windowless industrial building, power equipment and transmission lines change a view whether or not an economist can attach a dollar loss to it.</p><p>Fairfax requires screening or enclosure of equipment, variation in entrances and façades, visual mitigation and minimum distances. A community can decide what must be hidden, landscaped, moved back or redesigned before approval. It does not need to invent a property-value statistic to insist on a building that fits its site.</p><h4>Are the jobs and tax benefits real?</h4><p>Both can be real, and both are also easy to present misleadingly.</p><p>Construction jobs may last years; the permanent workforce is much smaller. Those two figures should never be added together. Tax revenue may be substantial, but it depends on the jurisdiction's rules, exemptions and how much equipment stays taxable as it depreciates.</p><p>There are real examples. Loudoun County says data centres provide more than a third of its General Fund. A Washington State workgroup found the industry had become a major taxpayer in Quincy, where the city invested in schools, streets, water systems, a medical centre, city hall and a fire station.</p><p>A new project will not automatically reproduce those results. The examples show what communities can negotiate and later measure.</p><p>The agreement should separate construction employment from permanent employment. Name the tax revenue and, where possible, dedicate it to named services. Attach local or union hiring commitments, training and clawbacks—money the company must repay if the promised investment or employment does not arrive.</p><h4>Why does the frightening version travel faster?</h4><p>The water error shows how distortion spreads without anyone conspiring. \"One building uses the water of 1,000 towns\" fits in a headline. The correction requires units, permit language and a paragraph explaining what was actually measured, which is why it never travels as far.</p><p>Companies can distort too, announcing a large jobs number without separating temporary from permanent, or advertising a community benefit that appears nowhere in an enforceable agreement. Foreign governments are known to exploit divisive issues online. I found no public evidence tying this data-centre backlash to one of those campaigns, so it should not be presented as an explanation for the polling. The defence against false claims is the same whoever starts them.</p><p>Publish the documents rather than meeting frightening claims with corporate reassurance.</p>"
+        },
+        {
+          "title": "What does saying no accomplish?",
+          "body": "<p>A ban may stop a particular project. It does not stop that jurisdiction's residents from streaming films, storing photographs, running payroll or asking an AI tool a question. Those services still run somewhere.</p><p>One place can reject the building while its residents keep using the computing power and another place supplies the land and electricity. If the second place has weaker environmental rules or less bargaining power, the ban has relocated the burden rather than reduced it.</p><p>The more useful local question is what else the region needs that grid capacity, water or land for. Grid capacity, water rights and suitable land are limited. If a huge campus uses most of the available capacity, there may be less for new housing, electrification or another local priority. That gives a community a concrete question to ask: what else does the region need this capacity for?</p><p>Refusal has consequences too, although they are less visible at the planning meeting. Compute is used by commercial AI companies, but also by universities, hospitals, manufacturers, public agencies and researchers. The National Science Foundation and the Department of Energy fund shared computing precisely because access to advanced systems shapes who gets to do this work. A commercial campus does not automatically create that public benefit, but it is still wrong to talk as though all computing serves only chatbots and advertising.</p><p>Compute is also part of international competition. The United States and China host much of the world's data-centre electricity demand. If one country makes responsible construction impossible, the work and its benefits will move elsewhere. Geopolitical competition does not settle a local decision or pay a family's electricity bill. A serious decision still has to count the consequences of building, of refusing, and the possibility that a better-designed project would change the answer.</p>"
+        },
+        {
+          "title": "What would a better bargain look like?",
+          "body": "<h4>Plan the grid without overruling communities</h4><p>A town council cannot plan the regional electricity grid, and it should not have to. Federal agencies, regulators and regional grid operators are already dealing with the larger questions: how much new demand may be coming, what generation and transmission will be needed, how large customers connect and who pays when the system must expand. The country also has to decide whether universities, public agencies, researchers and smaller companies will have access to advanced computing.</p><p>That planning should not choose a town and present the data centre as a completed decision. The host community should still decide whether a particular site fits, what the company must disclose and provide, which costs it must carry, and whether the answer is no. Larger institutions should give local officials better information and stronger cost protections, not take away their authority.</p><h4>Set the rules before the project arrives</h4><p>A community does not have to cheer for every proposal or ban the entire industry. It can judge this project, in this place, on these terms.</p><p>The list is practical: expected and maximum power. Who pays for the connection and any new generation. Hourly or annual clean-energy matching, and whether it funds new capacity. Cooling system, water source, normal and peak demand, drought rules. Whether the load can be curtailed when the grid is stressed. Noise limits, setbacks, testing hours. Construction jobs and permanent jobs, counted separately. Tax exemptions. Duplicate interconnection filings. And what happens if the campus opens late, runs far below forecast, or never materialises.</p><p>Some governments are beginning to put these conditions into real permits and grid rules. FERC is examining who pays for large grid connections. Pennsylvania has proposed disclosure and environmental conditions for projects seeking state support. St. Louis attached cooling, water-rate, energy, workforce and enforcement terms to a single permit. These measures are too new to judge by their results, but they replace a vague political fight with specific obligations.</p><h4>Publish the terms—and enforce them</h4><p>A narrow trade secret may justify a limited redaction. Public costs and public obligations do not. If a government signs an agreement on the public's behalf, the public should not discover its terms when the machinery arrives.</p><p>But visibility is only half the job, because a term nobody can enforce is just a press release with a signature on it.</p><p>Air permits, noise ordinances and environmental statutes matter, but they may not give a local government every tool it assumes it has. Virginia's auditors found some localities relying on noise ordinances written for short-term disturbances such as parties and barking dogs, with a maximum civil penalty of five hundred dollars. Some officials were unsure whether they could impose stronger data-centre limits through zoning.</p><p>Existing environmental laws still matter, but they may not cover every promise made during negotiation. Approval conditions can fill that gap with reporting, monitoring and consequences agreed before construction begins.</p><p>Write the enforcement into the agreement, not around it:</p><p><strong>Reporting on a schedule, published.</strong> What the facility actually used, paid and employed, not held in a file for inspection on request. A company keeping its own records is not verification.</p><p><strong>Independent monitoring, paid for by the operator.</strong> Noise, emissions, water. Measured by someone the operator does not employ.</p><p><strong>Consequences that scale with the project.</strong> A five-hundred-dollar fine is decorative. A charge per day of exceedance, set against the value of the facility, is not.</p><p><strong>Money contingent on compliance.</strong> The tax exemption, the abatement, the rate concession, all conditional and revocable. Virginia's auditors pointed straight at this: tie the state's sales tax exemption to conditions like sound modelling before building near homes. Money a company wants is a better lever than a penalty it can absorb.</p><p><strong>A named review point.</strong> A date when the agreement reopens if measured power, water, employment or emissions diverge materially from the forecast.</p><h4>Let communities negotiate a real return</h4><p>Polling commissioned by Americans for Responsible Innovation found 57 percent preferring clear rules that allow responsible projects over an outright moratorium, and 78 percent wanting companies made to pay for the grid upgrades they need. The sponsor has a position and the wording matters, so treat it carefully. The result does not represent every voter, but it is evidence that many people prefer conditions to a blanket stop.</p><p>A community can ask for benefits concrete enough to audit: permanent jobs, upgraded roads and utilities, schools or community facilities, local training, union labour, research access, lower household costs, tax revenue dedicated to named services.</p><p>Keep those separate from the safeguards. A park, a training fund or a school donation can be valuable. It cannot make an unsafe water plan safe, cancel emissions from poorly controlled generators, or turn a household grid cost into a public benefit. Environmental limits, infrastructure costs and community benefits are three different parts of the bargain, and a company should not be permitted to settle one with an announcement about another.</p><h4>Measure what happens after the doors open</h4><p>Journalists and public officials should label every water and electricity figure: measured, modelled or permitted; average or maximum; local or global; withdrawal or consumption. Jobs announcements should separate construction from permanent employment. Every corporate commitment should be treated as a promise until the result is visible.</p><p>Give the public accurate information early enough to judge the project, plus real authority to change the terms or say no.</p>"
+        },
+        {
+          "title": "What future are we choosing?",
+          "body": "<p>Data centres became a public villain because an unfamiliar building absorbed every grievance surrounding AI: distrust of Big Tech, fear about jobs and creativity, anger at deals struck under NDAs, uncertainty about electricity and water, and the persistent sense that somebody else was choosing the future. The evidence is mixed. The water figure that dominated headlines was wrong. Secrecy and some local infrastructure costs are documented. Other costs depend on the facility, the site and the contract.</p><p>Communities do not have to trust a company before approving a project. They need access to the agreement, reliable measurements and consequences when a company misses its commitments.</p><p>Support for AI infrastructure is sometimes treated like climate denial. The comparison does not hold. Human-caused global warming is established by an enormous body of observed evidence. There is no comparable body of empirical evidence establishing that AI will inevitably end human life. AI safety still deserves serious debate. But inevitable human extinction from AI is not supported by the kind of observed evidence that establishes human-caused climate change.</p><p>This is not <em>Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb</em>. We should not stop worrying and learn to love the machine. We should turn legitimate worry into evidence-based rules, transparent terms and results the public can check—not policy written by memes and worst-case analogies.</p><p>The possibilities at stake are larger than faster emails and more entertaining chatbots. AI is already being used to search for promising drug targets, interpret biological data and help researchers decide which experiments are worth running. Advanced computing lets scientists simulate phenomena too large, too small, too dangerous or too fast to observe directly. A cure or breakthrough is never guaranteed. What changes is the range of questions researchers can afford to investigate.</p><p>AI gives us the possibility, not the promise, of building something closer to Star Trek than to Skynet. Star Trek imagined a society where technology does more of the work required for survival, where scarcity has loosened its grip, and where people have greater freedom to pursue knowledge, creativity, care and the contributions that give their lives meaning.</p><p>Whether AI moves us closer to Star Trek or Skynet will be decided through ordinary human choices: who sets the rules, who bears the costs and who gets the benefits.</p>"
+        }
+      ],
+      "examination_conclusion": "",
       "sources": [
+        {
+          "id": "atlantic-ai-water-2026-07-16",
+          "label": "The Atlantic — The Truth About AI’s Water Use",
+          "url": "https://www.theatlantic.com/technology/2026/07/how-much-water-data-centers-use/687934/",
+          "publisherType": "independent-reported-feature",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "karen-hao-water-correction-2025-12-17",
+          "label": "Karen Hao — Empire of AI water-footprint corrections",
+          "url": "https://karendhao.com/20251217/empire-water-changes",
+          "publisherType": "author-primary-correction",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "masley-empire-water-review-2025-11-16",
+          "label": "Andy Masley — Review that identified the Empire of AI water errors",
+          "url": "https://andymasley.com/writing/empire-of-ai-is-wildly-misleading/",
+          "publisherType": "independent-analysis",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-author-correction"
+        },
+        {
+          "id": "uc-water-workload-review-2025",
+          "label": "Resources, Conservation and Recycling — Review of data-centre workload water determinants",
+          "url": "https://escholarship.org/uc/item/1vx545q7",
+          "publisherType": "peer-reviewed-research",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "gallup-data-centre-opposition-2026-05-13",
+          "label": "Gallup — Americans oppose AI data centres in their area",
+          "url": "https://news.gallup.com/poll/709772/americans-oppose-data-centers-area.aspx",
+          "publisherType": "independent-research",
+          "accessedAt": "2026-08-23",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "gallup-institutional-confidence-2026-07-13",
+          "label": "Gallup — Confidence in U.S. institutions remains near an all-time low",
+          "url": "https://news.gallup.com/poll/712436/confidence-institutions-remains-near-time-low.aspx",
+          "publisherType": "independent-research",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "cbs-yougov-general-data-centre-poll-2026-06-24",
+          "label": "CBS News and YouGov — General data-centre opinion poll",
+          "url": "https://assets1.cbsnewsstatic.com/hub/cms/prod_cms_alt/file/2026/06/24/dea50268-e35c-45cc-be45-cdffa0232363/cbsnews_20260604_data_cntrs.pdf",
+          "publisherType": "nationally-representative-poll-primary-report",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "annenberg-local-data-centre-opposition-2026-08-11",
+          "label": "Annenberg Public Policy Center — Opposition to local data centres rises",
+          "url": "https://www.annenbergpublicpolicycenter.org/opposition-to-local-data-centers-rises-sharply-annenberg-survey-finds/",
+          "publisherType": "university-primary-research",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "heatmap-embold-data-centre-opposition-2026-08-19",
+          "label": "Heatmap Pro and Embold Research — Local data-centre opposition tracking",
+          "url": "https://heatmap.news/daily/data-center-opposition-poll-collapse",
+          "publisherType": "commissioned-polling-primary-report",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-sample-caveat"
+        },
+        {
+          "id": "puck-likely-voter-data-centre-poll-2026-06",
+          "label": "Puck — June 2026 likely-voter omnibus topline",
+          "url": "https://puck.news/wp-content/uploads/2026/06/June-2026-Voter-Omnibus-Topline-Puck.pdf",
+          "publisherType": "publisher-commissioned-poll-primary-topline",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-sample-and-wording-caveat"
+        },
+        {
+          "id": "ari-morning-consult-data-centres-2026-07",
+          "label": "Morning Consult polling commissioned by Americans for Responsible Innovation — Data Center National Polling",
+          "url": "https://ari.us/wp-content/uploads/2026/07/26.07.22-Data-Center-National-Polling.pdf",
+          "publisherType": "advocacy-commissioned-research",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-sponsor-caveat"
+        },
+        {
+          "id": "aidb-data-centre-backlash-2026-08-21",
+          "label": "The AI Daily Brief — Why Everyone Suddenly Hates AI Data Centers",
+          "url": "https://www.aidailybrief.ai/e/2026-08-21",
+          "publisherType": "attributed-editorial-analysis",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "interpretation-only"
+        },
+        {
+          "id": "microsoft-end-data-centre-ndas-2026-03",
+          "label": "Microsoft — Decision to end NDAs with local governments",
+          "url": "https://local.microsoft.com/blog/putting-communities-first-our-decision-to-end-ndas-with-local-governments/",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-as-company-policy"
+        },
+        {
+          "id": "new-york-hyperscale-pause-2026-07-14",
+          "label": "New York State — One-year pause on new hyperscale data-centre permits",
+          "url": "https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "openai-ports-pike-community-commitments-2026-08-17",
+          "label": "OpenAI — PORTS-Pike community and infrastructure commitments",
+          "url": "https://openai.com/index/openai-joins-ports-pike-project/",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-as-company-commitment"
+        },
         {
           "id": "iea-data-centre-electricity-2026-04-16",
           "label": "IEA — Data centre electricity use surged in 2025",
           "url": "https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions",
-          "publisherType": "primary-document",
+          "publisherType": "intergovernmental-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
         },
@@ -382,15 +592,39 @@ window.NEWSSTAND_DATA = {
           "id": "ferc-large-load-action-2026-06-18",
           "label": "FERC — Large-load integration action",
           "url": "https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration",
-          "publisherType": "regulator",
+          "publisherType": "government-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
+        },
+        {
+          "id": "ferc-state-of-market-data-centre-scale-2026",
+          "label": "FERC — 2025 State of the Markets: data-centre size and large-load growth",
+          "url": "https://www.ferc.gov/sites/default/files/2026-03/26_State-of-the-Market_0324_1430.pdf",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "jlarc-virginia-residential-impacts-2024",
+          "label": "Virginia JLARC — Data Centers in Virginia: local residential impacts",
+          "url": "https://jlarc.virginia.gov/pdfs/reports/Rpt598.pdf",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-current-evidence"
+        },
+        {
+          "id": "fairfax-data-centre-zoning-2024",
+          "label": "Fairfax County — Adopted data-centre siting and design rules",
+          "url": "https://www.fairfaxcounty.gov/planning-development/zoning-ordinance/amendments/recently-adopted",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-current-rule"
         },
         {
           "id": "pennsylvania-grid-standards-2026-05-27",
           "label": "Pennsylvania — GRID standards",
           "url": "https://www.pa.gov/governor/newsroom/2026-press-releases/gov-shapiro-releases-full-grid-standards-to-protect-pennsylvania",
-          "publisherType": "regulator",
+          "publisherType": "government-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
         },
@@ -398,7 +632,7 @@ window.NEWSSTAND_DATA = {
           "id": "pennsylvania-data-centre-order-2026-08-18",
           "label": "Pennsylvania — Executive Order 2026-05 announcement",
           "url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen",
-          "publisherType": "regulator",
+          "publisherType": "government-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
         },
@@ -406,7 +640,7 @@ window.NEWSSTAND_DATA = {
           "id": "st-louis-armory-permit-2026-04-21",
           "label": "City of St. Louis — Armory data-centre permit conditions",
           "url": "https://www.stlouis-mo.gov/government/departments/mayor/news/data-center-permit-approved.cfm",
-          "publisherType": "regulator",
+          "publisherType": "government-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
         },
@@ -414,7 +648,7 @@ window.NEWSSTAND_DATA = {
           "id": "nsf-ai-infrastructure-hubs-2026-08-04",
           "label": "NSF — State and Regional AI Infrastructure Hubs",
           "url": "https://www.nsf.gov/news/new-nsf-state-regional-ai-infrastructure-hubs-will-power-ai",
-          "publisherType": "regulator",
+          "publisherType": "government-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
         },
@@ -422,12 +656,243 @@ window.NEWSSTAND_DATA = {
           "id": "doe-scidac-2026-01-28",
           "label": "U.S. Department of Energy — SciDAC advanced computing",
           "url": "https://www.energy.gov/science/articles/accelerating-scientific-discovery-through-advanced-computing",
-          "publisherType": "regulator",
+          "publisherType": "government-primary",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"
+        },
+        {
+          "id": "pubmed-ai-drug-discovery-review-2026-07-30",
+          "label": "PubMed — Can artificial intelligence meaningfully shorten drug-discovery timelines?",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42530294/",
+          "publisherType": "peer-reviewed-review",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-validation-caveat"
+        },
+        {
+          "id": "iea-energy-ai-nexus-2025",
+          "label": "IEA — Understanding the energy and AI nexus",
+          "url": "https://www.iea.org/reports/energy-and-ai/understanding-the-energy-ai-nexus",
+          "publisherType": "intergovernmental-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "iea-energy-ai-executive-summary-2025",
+          "label": "IEA — Energy and AI executive summary",
+          "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+          "publisherType": "intergovernmental-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "gmu-nova-home-sales-2025",
+          "label": "George Mason University — Data Centers and 2023 Home Sales in Northern Virginia",
+          "url": "https://cra.gmu.edu/wp-content/uploads/2025/08/NoVa_DataCenters.pdf",
+          "publisherType": "university-research-note",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-with-observational-limit"
+        },
+        {
+          "id": "constellation-crane-q2-2026",
+          "label": "Constellation — Second-quarter 2026 Crane restart update",
+          "url": "https://investors.constellationenergy.com/news-releases/news-release-details/constellation-reports-second-quarter-2026-results",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-company-status"
+        },
+        {
+          "id": "doe-crane-loan-2025",
+          "label": "U.S. Department of Energy — Crane restart loan closing",
+          "url": "https://www.energy.gov/articles/energy-department-closes-loan-restart-nuclear-power-plant-pennsylvania",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "meta-nuclear-agreements-2026",
+          "label": "Meta — Nuclear agreements with Vistra, TerraPower and Oklo",
+          "url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-company-announcement"
+        },
+        {
+          "id": "amazon-nuclear-portfolio-2026",
+          "label": "Amazon — Nuclear-energy portfolio for data centres",
+          "url": "https://preview.prod.sustainability.aboutamazon.com/stories/how-amazon-is-powering-the-next-era-of-carbon-free-energy",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-company-announcement"
+        },
+        {
+          "id": "google-kairos-nuclear-2024",
+          "label": "Google — Kairos advanced-nuclear agreement",
+          "url": "https://blog.google/company-news/outreach-and-initiatives/sustainability/google-kairos-power-nuclear-energy-agreement/",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-company-announcement"
+        },
+        {
+          "id": "google-nextera-duane-arnold-2025",
+          "label": "Google — Duane Arnold nuclear restart collaboration",
+          "url": "https://blog.google/feed/infrastructureduane-arnold-nuclear-plant-iowa/",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-company-announcement"
+        },
+        {
+          "id": "google-demand-response-2026",
+          "label": "Google — One-gigawatt demand-response milestone",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/demand-response-data-center-milestone/",
+          "publisherType": "company-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-company-reported-program"
+        },
+        {
+          "id": "doe-savannah-ai-energy-selection-2026",
+          "label": "U.S. Department of Energy — Savannah River AI data-centre and energy selection",
+          "url": "https://www.energy.gov/nnsa/articles/nnsa-selects-amentum-ai-data-center-and-energy-project-savannah-river-site",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-29",
+          "approvalStatus": "reviewed-as-proposed-project"
+        },
+        {
+          "id": "ilo-genai-jobs-review-2026",
+          "label": "International Labour Organization — GenAI, jobs, productivity and work organization",
+          "url": "https://www.ilo.org/publications/impact-genai-jobs-productivity-and-work-organization-review-empirical",
+          "publisherType": "intergovernmental-research",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "aflcio-data-centre-jobs-resolution-2026",
+          "label": "AFL-CIO — Good union jobs and responsible data-centre growth",
+          "url": "https://aflcio.org/resolutions/resolution-7-we-want-good-jobs-today-and-tomorrow",
+          "publisherType": "labour-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-as-labour-position"
+        },
+        {
+          "id": "ibew-new-england-data-centre-moratoriums-2026",
+          "label": "IBEW — No to New England data-centre moratoriums, yes to union jobs",
+          "url": "https://ibewgov.org/new-england-no-to-data-center-moratoriums-yes-to-union-jobs-toolkit/",
+          "publisherType": "labour-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-as-labour-position"
+        },
+        {
+          "id": "axios-amodei-white-collar-warning-2025",
+          "label": "Axios — Dario Amodei’s warning about entry-level white-collar work",
+          "url": "https://www.axios.com/2025/05/28/ai-jobs-white-collar-unemployment-anthropic",
+          "publisherType": "independent-reported-interview",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-as-forecast-not-outcome"
+        },
+        {
+          "id": "cais-extinction-risk-statement-2023",
+          "label": "Center for AI Safety — Statement on AI extinction risk and signatories",
+          "url": "https://safe.ai/work/statement-on-ai-extinction-risk",
+          "publisherType": "primary-statement",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-as-risk-position"
+        },
+        {
+          "id": "stanford-ai-employment-effects-2026",
+          "label": "Stanford Digital Economy Lab — Six facts about AI’s recent employment effects",
+          "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+          "publisherType": "independent-research",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-causal-caveats"
+        },
+        {
+          "id": "stanford-ai-jobs-hype-reality-2026",
+          "label": "Stanford SIEPR — What is really happening to jobs?",
+          "url": "https://siepr.stanford.edu/publications/policy-brief/what-really-happening-jobs-separating-ai-hype-reality",
+          "publisherType": "independent-policy-brief",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "nyt-ai-washing-layoffs-2026",
+          "label": "The New York Times — Did AI take your job, or was your employer AI-washing?",
+          "url": "https://www.nytimes.com/2026/02/01/business/layoffs-ai-washing.html",
+          "publisherType": "independent-reported-feature",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-forrester-attribution"
+        },
+        {
+          "id": "aidb-benefits-promises-2026-08-17",
+          "label": "The AI Daily Brief — AI companies still haven’t delivered on their biggest promises",
+          "url": "https://www.aidailybrief.ai/e/2026-08-17",
+          "publisherType": "attributed-editorial-analysis",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "interpretation-only"
+        },
+        {
+          "id": "aidb-unemployment-narrative-2026-07-24",
+          "label": "The AI Daily Brief — Why AI hasn’t increased unemployment, according to Anthropic",
+          "url": "https://www.aidailybrief.ai/e/2026-07-24",
+          "publisherType": "attributed-editorial-analysis",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "interpretation-only"
+        },
+        {
+          "id": "aidb-ai-washing-2026-08-04",
+          "label": "The AI Daily Brief — Why AI washing won’t work much longer",
+          "url": "https://www.aidailybrief.ai/e/2026-08-04",
+          "publisherType": "attributed-editorial-analysis",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "interpretation-only"
+        },
+        {
+          "id": "cisa-foreign-influence-guidance",
+          "label": "CISA — Mitigating foreign influence operations",
+          "url": "https://www.cisa.gov/sites/default/files/2022-11/cisa_insight_mitigating_foreign_influence_508.pdf",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-for-general-playbook-only"
+        },
+        {
+          "id": "cisa-election-influence-tactics-2024",
+          "label": "CISA, FBI and ODNI — Foreign malign influence tactics",
+          "url": "https://www.cisa.gov/sites/default/files/2024-04/Securing_Election_Infrastructure_Against_the_Tactics_of_Foreign_Malign_Influence_Operations_2024FINAL_508c.pdf",
+          "publisherType": "government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-for-russia-china-tactics-not-data-centre-attribution"
+        },
+        {
+          "id": "loudoun-data-centre-revenue-2026",
+          "label": "Loudoun County — FY 2026 Budget Story",
+          "url": "https://prcsinfo.loudoun.gov/view/599219896/8-9/",
+          "publisherType": "local-government-primary",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "washington-dor-data-centre-findings-2025",
+          "label": "Washington Department of Revenue workgroup — preliminary data-centre findings",
+          "url": "https://www.dor.wa.gov/sites/default/files/2025-09/AdoptedTabledFindingsPostJul28Mtg.pdf",
+          "publisherType": "government-preliminary-findings",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-with-preliminary-caveat"
+        },
+        {
+          "id": "ipcc-ar6-synthesis-summary",
+          "label": "IPCC — AR6 Synthesis Report summary for policymakers",
+          "url": "https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/",
+          "publisherType": "intergovernmental-scientific-assessment",
+          "accessedAt": "2026-08-25",
+          "approvalStatus": "reviewed-for-climate-attribution"
         }
       ],
-      "aidb_credit": "AIDB’s agency-and-control frame was treated as attributed interpretation only; the factual analysis is bound to independently checked primary records.",
+      "aidb_credit": "Article Inspiration: AI Daily Brief’s August 21 episode, “Why Everyone Suddenly Hates AI Data Centers.”",
+      "categories": [
+        "Data Centres",
+        "Politics",
+        "Finance and Economy",
+        "Trends and Insights",
+        "Clickbait and Misleading Headlines"
+      ],
       "themes": [
         "data centres",
         "community agency",

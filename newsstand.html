@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="./content/newsstand.css?v=20260824-reference-layout-1">
+    <link rel="stylesheet" href="./content/newsstand.css?v=20260829-big-picture-release-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -199,8 +199,8 @@
 
       <section class="ns-reader" id="paper-counter" aria-labelledby="ns-reader-title" hidden>
         <div class="ns-reader__rail">
-          <p class="ns-kicker">The full article</p>
-          <button class="ns-return" id="ns-return" type="button">Put the paper back</button>
+          <p class="ns-kicker">Reading now</p>
+          <button class="ns-return" id="ns-return" type="button">&larr; Back to the paper</button>
         </div>
         <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="weekly">
           <header class="ns-unfolded-paper__masthead">
@@ -273,7 +273,7 @@
     </footer>
 
     <script src="./content/newsstand-reader-contract.js?v=20260823-newsstand-v1"></script>
-    <script src="./content/newsstand-stories.js?v=20260823-reader-copy-v3"></script>
+    <script src="./content/newsstand-stories.js?v=20260829-big-picture-release-1"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
@@ -608,6 +608,8 @@
         function closeReaderForHistory(view) {
           var returningEdition = selectedEdition;
           selectedEdition = null;
+          reader.classList.remove("ns-reader--story");
+          document.body.classList.remove("ns-story-open");
           reader.hidden = true;
           rack.innerHTML = "";
           empty.hidden = true;
@@ -803,15 +805,50 @@
             return "<li><strong>" + escapeHTML(formatDate(change.changedAt)) + "</strong> · " + escapeHTML(change.summary) + "</li>";
           }).join("");
           return [
-            '<section class="ns-big-picture-history">',
-              "<h3>How this Big Picture has changed</h3>",
-              '<dl class="ns-big-picture-dates">',
-                "<div><dt>Originally published</dt><dd>" + escapeHTML(formatDate(history.originallyPublishedAt)) + "</dd></div>",
-                "<div><dt>Last meaningfully updated</dt><dd>" + escapeHTML(formatDate(history.lastMeaningfullyUpdatedAt)) + "</dd></div>",
-                "<div><dt>Sources last checked</dt><dd>" + escapeHTML(formatDate(history.sourcesLastCheckedAt)) + "</dd></div>",
-              "</dl>",
-              changes ? "<h4>What changed</h4><ol>" + changes + "</ol>" : "",
-            "</section>"
+            '<details class="ns-big-picture-history">',
+              "<summary>Update history</summary>",
+              '<p>Originally published ' + escapeHTML(formatDate(history.originallyPublishedAt)) +
+                " · Last meaningfully updated " + escapeHTML(formatDate(history.lastMeaningfullyUpdatedAt)) +
+                " · Sources checked " + escapeHTML(formatDate(history.sourcesLastCheckedAt)) + "</p>",
+              changes ? "<ol>" + changes + "</ol>" : "",
+            "</details>"
+          ].join("");
+        }
+
+        function renderExamination(story) {
+          var sections = story.examination_sections || [];
+          if (!sections.length) return "";
+          return [
+            '<div class="ns-examination">',
+              sections.map(function (section) {
+                return [
+                  '<section class="ns-examination__section">',
+                    '<h3>', escapeHTML(section.title), '</h3>',
+                    '<div class="ns-examination__copy">', section.body, '</div>',
+                  '</section>'
+                ].join("");
+              }).join(""),
+            '</div>'
+          ].join("");
+        }
+
+        function renderQuickRead(story) {
+          if (!story.quick_read) return "";
+          return [
+            '<details class="ns-article__quick-read">',
+              '<summary>', escapeHTML(story.quick_read_label || "The Article in 30 Seconds"), '</summary>',
+              '<div class="ns-article__quick-read-copy">', story.quick_read, '</div>',
+            '</details>'
+          ].join("");
+        }
+
+        function renderArticleHero(story) {
+          if (!story.heroVisual || !story.heroVisual.src) return "";
+          return [
+            '<figure class="ns-article__hero">',
+              '<img src="' + escapeAttribute(story.heroVisual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(story.heroVisual.alt || "") + '">',
+              story.heroVisual.credit ? '<figcaption>' + escapeHTML(story.heroVisual.credit) + '</figcaption>' : "",
+            '</figure>'
           ].join("");
         }
 
@@ -858,6 +895,31 @@
               return '<a href="' + escapeHTML(source.url) + '" target="_blank" rel="noopener">' +
                 escapeHTML(source.label) + escapeHTML(flag) + "</a>";
             }).join(" · ");
+          }
+
+          if (isBigPicture && story.examination_sections && story.examination_sections.length) {
+            return [
+              '<article class="ns-article ns-article--big-picture">',
+                '<header class="ns-article__head">',
+                  '<p class="ns-article__edition">The Big Picture</p>',
+                  '<h2 id="ns-story-title" tabindex="-1">', escapeHTML(story.headline), "</h2>",
+                  story.thread_subtitle ? '<p class="ns-article__deck">' + escapeHTML(story.thread_subtitle) + "</p>" : "",
+                  '<p class="ns-article__date">Published ', escapeHTML(formatDate(story.publishedAt)),
+                    " · Updated and checked ", escapeHTML(formatDate(story.updatedAt)), "</p>",
+                '</header>',
+                renderCorrectionHistory(story),
+                renderStoryLineage(story),
+                renderArticleHero(story),
+                renderQuickRead(story),
+                renderExamination(story),
+                '<footer class="ns-article__sources">',
+                  sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
+                  story.aidb_credit ? '<p class="ns-article__inspiration">' + escapeHTML(story.aidb_credit) + "</p>" : "",
+                  story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
+                '</footer>',
+                renderBigPictureHistory(story),
+              '</article>'
+            ].join("");
           }
 
           return [
@@ -916,7 +978,10 @@
         }
 
         function showReader(options) {
+          var storyMode = Boolean(options.story);
           reader.hidden = false;
+          reader.classList.toggle("ns-reader--story", storyMode);
+          document.body.classList.toggle("ns-story-open", storyMode);
           empty.hidden = true;
           rack.innerHTML = options.html || "";
           setReaderHeader(options.mode, options.list || []);
@@ -924,12 +989,14 @@
           empty.hidden = Boolean(options.html);
           if (options.invoker) lastInvoker = options.invoker;
           setSelectedControls(options.mode);
-          if (options.scroll !== false) {
+          if (storyMode) {
+            reader.scrollTop = 0;
+          } else if (options.scroll !== false) {
             reader.scrollIntoView({ behavior: motionBehavior(), block: "start" });
           }
           if (options.focus !== false) {
             focusAfterPaint(options.html
-              ? document.getElementById("ns-reader-title")
+              ? storyMode ? document.getElementById("ns-story-title") : document.getElementById("ns-reader-title")
               : empty);
           }
         }
@@ -1161,7 +1228,8 @@
             list: [story],
             html: decision.canExpose ? renderArticle(story) : renderAccessNotice(decision),
             scroll: scroll !== false,
-            invoker: invoker
+            invoker: invoker,
+            story: decision.canExpose
           });
           if (decision.canExpose) {
             var publicationView = {
@@ -1327,7 +1395,7 @@
                 leadDesk.disabled = false;
                 leadDesk.setAttribute("aria-disabled", "false");
               }
-              if (control && leadDesk) control.setAttribute("data-lead-slug", lead.slug);
+              if (control) control.setAttribute("data-lead-slug", lead.slug);
               var promise = node.closest(".ns-front-desk--lead") && node.closest(".ns-front-desk--lead").querySelector(".ns-front-paige-promise");
               if (promise) promise.hidden = true;
               if (leadVisual && leadVisualImage && lead.heroVisual) {
@@ -1343,25 +1411,26 @@
               }
               var columnPromise = control && control.querySelector(".ns-front-column-promise");
               if (columnPromise) columnPromise.hidden = true;
-              var secondaryRead = leadDesk
+              var secondaryRead = lead.front_read || (leadDesk
                 ? firstSentence(lead.laidies_read || lead.what_this_means || "")
                 : edition === "weekly"
                   ? firstSentence(lead.laidies_read || lead.what_this_means || "")
                   : edition === "big-picture"
                     ? firstSentence(lead.what_this_means || lead.laidies_read || "")
-                    : "";
-              var primaryRead = leadDesk
+                    : "");
+              var primaryRead = lead.front_summary || (leadDesk
                 ? firstSentence(lead.the_story || lead.laidies_read)
                 : edition === "weekly" || edition === "big-picture"
                   ? firstSentence(lead.the_story || lead.laidies_read)
-                  : firstSentence(lead.laidies_read || lead.the_story);
+                  : firstSentence(lead.laidies_read || lead.the_story));
               node.innerHTML = [
-                '<span class="ns-publication__count">',
-                  leadDesk ? "Feature story" :
-                    edition === "big-picture" ? "Living analysis" :
-                    edition === "weekly" ? "Wednesday to Wednesday" :
-                    visible.length + (visible.length === 1 ? " story" : " stories"),
-                  "</span>",
+                edition === "big-picture" ? "" : [
+                  '<span class="ns-publication__count">',
+                    leadDesk ? "Feature story" :
+                      edition === "weekly" ? "Wednesday to Wednesday" :
+                      visible.length + (visible.length === 1 ? " story" : " stories"),
+                    "</span>"
+                ].join(""),
                 '<span class="ns-publication__headline">', escapeHTML(lead.headline), "</span>",
                 '<span class="ns-publication__teaser">', escapeHTML(primaryRead), "</span>",
                 secondaryRead ? '<span class="ns-publication__read"><b>' +
@@ -1573,6 +1642,12 @@
         });
         Array.prototype.forEach.call(document.querySelectorAll("[data-open-edition]"), function (button) {
           button.addEventListener("click", function () {
+            var leadSlug = button.getAttribute("data-lead-slug");
+            if (leadSlug) {
+              lastInvoker = button;
+              location.hash = leadSlug;
+              return;
+            }
             var archivedSlug = button.getAttribute("data-archive-slug");
             if (archivedSlug) {
               lastInvoker = button;
