@@ -1,858 +1,260 @@
 #!/usr/bin/env node
-
-const crypto = require("node:crypto");
-const fs = require("node:fs");
-const http = require("node:http");
+const assert = require("node:assert/strict");
 const path = require("node:path");
-const { pathToFileURL } = require("node:url");
 
-const root = path.resolve(process.env.LUMINAIRY_ROOT || process.cwd());
-const playwrightRoot =
-  process.env.PLAYWRIGHT_CORE_PATH ||
-  path.resolve(process.cwd(), ".ds-sync/node_modules/playwright-core");
-const registrySource = JSON.parse(
-  fs.readFileSync(path.join(root, "content/luminairy-claims.json"), "utf8")
-);
-const receiptManifestSource = JSON.parse(
-  fs.readFileSync(
-    path.join(root, "content/luminairy-editorial-receipts.json"),
-    "utf8"
-  )
-);
-const mime = {
-  ".html": "text/html; charset=utf-8",
-  ".js": "text/javascript; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".jpg": "image/jpeg",
-  ".png": "image/png",
-  ".webp": "image/webp",
-  ".mp3": "audio/mpeg"
-};
+const playwrightPath = process.env.PLAYWRIGHT_CORE_PATH;
+if (!playwrightPath) throw new Error("PLAYWRIGHT_CORE_PATH is required");
+const { chromium } = require(playwrightPath);
 
-function normalizeText(value) {
-  return String(value || "").normalize("NFKC").replace(/\s+/g, " ").trim();
-}
+const origin = process.env.LUMINAIRY_ORIGIN || "http://127.0.0.1:4173";
 
-function sha256(value) {
-  return crypto.createHash("sha256").update(String(value)).digest("hex");
-}
-
-function admissionPayload(record) {
-  const evidence = record.evidence || {};
-  return JSON.stringify({
-    product: record.product,
-    claimId: record.claimId,
-    personId: record.personId,
-    wing: record.wing,
-    claimKind: record.claimKind,
-    status: record.status,
-    scope: normalizeText(record.scope),
-    selector: record.selector,
-    contentSelector: record.contentSelector,
-    claimText: normalizeText(record.claimText),
-    claimTextSha256: record.claimTextSha256,
-    sourceUrl: evidence.sourceUrl,
-    sourceType: evidence.sourceType,
-    sourceTitle: normalizeText(evidence.sourceTitle),
-    sourcePublisher: normalizeText(evidence.sourcePublisher),
-    evidenceExcerpt: normalizeText(evidence.evidenceExcerpt),
-    evidenceExcerptSha256: evidence.evidenceExcerptSha256,
-    supportsClaimId: evidence.supportsClaimId,
-    supportsClaimTextSha256: evidence.supportsClaimTextSha256,
-    verifiedOn: record.verifiedOn,
-    recheckOn: record.recheckOn,
-    correctionOwner: record.correctionOwner
+async function imageFailures(page) {
+  return page.locator(".lum-card__portrait img").evaluateAll(async (images) => {
+    images.forEach((image) => { image.loading = "eager"; });
+    await Promise.all(images.map((image) => image.decode().catch(() => null)));
+    return images
+      .filter((image) => !image.complete || image.naturalWidth < 100)
+      .map((image) => image.getAttribute("src"));
   });
 }
 
-function validAdmissionFixture() {
-  const registry = structuredClone(registrySource);
-  const manifest = structuredClone(receiptManifestSource);
-  const index = registry.records.findIndex(
-    (record) => record.personId === "hannah-fry"
-  );
-  const claimText =
-    "Hannah Fry joined Cambridge as Professor of the Public Understanding of Mathematics.";
-  const evidenceExcerpt = claimText;
-  const record = {
-    ...registry.records[index],
-    product: "luminairy",
-    personId: "hannah-fry",
-    wing: "mavens",
-    claimKind: "historical-appointment",
-    status: "admitted",
-    scope: "past-tense-appointment-announcement-only",
-    contentSelector: ".stop-desc",
-    claimText,
-    claimTextSha256: sha256(claimText),
-    verifiedOn: "2026-07-25",
-    recheckOn: "2027-07-25",
-    evidence: {
-      sourceUrl:
-        "https://www.cam.ac.uk/research/news/hannah-fry-joins-cambridge-as-professor-of-the-public-understanding-of-mathematics",
-      sourceType: "official",
-      sourceTitle:
-        "Hannah Fry joins Cambridge as Professor of the Public Understanding of Mathematics",
-      sourcePublisher: "University of Cambridge",
-      evidenceExcerpt,
-      evidenceExcerptSha256: sha256(evidenceExcerpt),
-      supportsClaimId: "maven-hannah-fry-profile",
-      supportsClaimTextSha256: sha256(claimText)
-    }
-  };
-  record.admissionBindingSha256 = sha256(admissionPayload(record));
-  registry.records[index] = record;
-  manifest.receipts = [
-    {
-      schemaVersion: 1,
-      receiptId: "synthetic-hannah-appointment-r2",
-      keyId: "luminairy-editorial-offline-r2-20260726",
-      product: "luminairy",
-      claimId: "maven-hannah-fry-profile",
-      personId: "hannah-fry",
-      wing: "mavens",
-      claimKind: "historical-appointment",
-      status: "admitted",
-      scope: "past-tense-appointment-announcement-only",
-      selector: '[data-maven-slug="hannah-fry"]',
-      contentSelector: ".stop-desc",
-      claimTextSha256:
-        "2d4ec43b71c68247e8b7ddd6efec65cabfc0ff8a4cb9651e01073425564a2a5a",
-      sourceUrl:
-        "https://www.cam.ac.uk/research/news/hannah-fry-joins-cambridge-as-professor-of-the-public-understanding-of-mathematics",
-      sourceType: "official",
-      sourceTitle:
-        "Hannah Fry joins Cambridge as Professor of the Public Understanding of Mathematics",
-      sourcePublisher: "University of Cambridge",
-      evidenceExcerptSha256:
-        "2d4ec43b71c68247e8b7ddd6efec65cabfc0ff8a4cb9651e01073425564a2a5a",
-      supportsClaimId: "maven-hannah-fry-profile",
-      supportsClaimTextSha256:
-        "2d4ec43b71c68247e8b7ddd6efec65cabfc0ff8a4cb9651e01073425564a2a5a",
-      verifiedOn: "2026-07-25",
-      recheckOn: "2027-07-25",
-      correctionOwner: "saints-mavens-trailblazers-editorial",
-      admissionBindingSha256:
-        "7870538836d54a8dcf81f6ca6c049226b0f275d4ccec387b0f351a3c875feb40",
-      supportDecision: "exact-atomic-claim-supported-for-test-only",
-      reviewerRole: "synthetic-independent-accuracy-review-fixture",
-      reviewedOn: "2026-07-26",
-      signature:
-        "bgUqXZSR6qTQBxbobVko75999wOKUcVwpPatb483jHhumBM11BAtGxjLzHOt6RXuj0xX2ircyOa/OgpoR/ustQ=="
-    }
-  ];
-  return { registry, manifest };
+async function imageFailuresFor(page, selector) {
+  return page.locator(selector).evaluateAll(async (images) => {
+    images.forEach((image) => { image.loading = "eager"; });
+    await Promise.all(images.map((image) => image.decode().catch(() => null)));
+    return images
+      .filter((image) => !image.complete || image.naturalWidth < 100)
+      .map((image) => image.getAttribute("src"));
+  });
 }
 
-const server = http.createServer((request, response) => {
-  const pathname = decodeURIComponent(
-    new URL(request.url, "http://127.0.0.1").pathname
-  );
-  const relative =
-    pathname === "/" ? "luminairy.html" : pathname.replace(/^\/+/, "");
-  const target = path.resolve(root, relative);
-  if (
-    !target.startsWith(root + path.sep) ||
-    !fs.existsSync(target) ||
-    fs.statSync(target).isDirectory()
-  ) {
-    response.writeHead(404).end("not found");
-    return;
-  }
-  response.writeHead(200, {
-    "content-type": mime[path.extname(target)] || "application/octet-stream"
-  });
-  fs.createReadStream(target).pipe(response);
-});
-
-(async () => {
-  const { chromium } = await import(
-    pathToFileURL(path.join(playwrightRoot, "index.mjs"))
-  );
-  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-  const origin = `http://127.0.0.1:${server.address().port}`;
+async function run() {
   const browser = await chromium.launch({
-    executablePath:
-      process.env.CHROME_PATH ||
-      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    headless: true
+    headless: true,
+    executablePath: process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
   });
-  const failures = [];
-  const checks = [];
-  const externalAttempts = [];
-  const runtimeErrors = [];
-
-  function check(value, label) {
-    checks.push(label);
-    if (!value) failures.push(label);
-  }
-
-  async function pageFor(options = {}) {
-    const context = await browser.newContext({
-      viewport: options.viewport || { width: 1280, height: 900 },
-      reducedMotion: options.reducedMotion || "no-preference",
-      javaScriptEnabled: options.javaScriptEnabled !== false
-    });
-    if (options.init) await context.addInitScript(options.init);
-    const page = await context.newPage();
-    page.on("pageerror", (error) => runtimeErrors.push(error.message));
-    page.setDefaultTimeout(5000);
-    await page.route("**/*", async (route) => {
-      const url = route.request().url();
-      const pathname = new URL(url).pathname;
-      if (
-        pathname === "/content/site/luminairy-claim-gate.js" &&
-        options.gate === "abort"
-      ) {
-        return route.abort();
-      }
-      if (
-        pathname === "/content/luminairy-claims.json" &&
-        options.registry === "abort"
-      ) {
-        return route.abort();
-      }
-      if (
-        pathname === "/content/luminairy-claims.json" &&
-        options.registry
-      ) {
-        return route.fulfill({
-          status: 200,
-          contentType: "application/json",
-          body: JSON.stringify(options.registry)
-        });
-      }
-      if (
-        pathname === "/content/luminairy-editorial-receipts.json" &&
-        options.manifest === "abort"
-      ) {
-        return route.abort();
-      }
-      if (
-        pathname === "/content/luminairy-editorial-receipts.json" &&
-        options.manifest
-      ) {
-        return route.fulfill({
-          status: 200,
-          contentType: "application/json",
-          body: JSON.stringify(options.manifest)
-        });
-      }
-      if (url.startsWith(origin)) return route.continue();
-      externalAttempts.push(url);
-      return route.abort();
-    });
-    return { context, page };
-  }
-
-  async function waitClaims(page, state = "loaded") {
-    try {
-      await page.waitForFunction(
-        (expected) =>
-          document.documentElement.dataset.luminairyClaims === expected,
-        state
-      );
-    } catch (error) {
-      const actual = await page.evaluate(
-        () => document.documentElement.dataset.luminairyClaims || "unset"
-      );
-      throw new Error(
-        `claim gate expected ${state}, observed ${actual}; runtime errors: ${
-          runtimeErrors.join(" | ") || "none"
-        }; ${error.message}`
-      );
-    }
-  }
-
-  async function waitModalFocusReady(page) {
-    await page.waitForFunction(
-      () =>
-        document.querySelector("#mavenModal")?.dataset.focusState === "ready" &&
-        document.activeElement?.matches(
-          "#mavenModal button[data-mvbio-close]"
-        )
-    );
-  }
-
   try {
-    const baseline = await pageFor({
-      viewport: { width: 390, height: 844 },
-      reducedMotion: "reduce"
-    });
-    await baseline.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    await waitClaims(baseline.page);
-    check(
-      (await baseline.page.locator("[data-editorial-status=held]").count()) ===
-        46,
-      "all 46 legacy records remain held"
-    );
-    check(
-      (await baseline.page.locator(".foundress-card").count()) === 4,
-      "all four Foundress cards are covered"
-    );
-    await baseline.page
-      .locator('.wing-door[aria-controls="wing-mavens"]')
-      .click();
-    await baseline.page
-      .locator('[data-maven-chamber-button="foundresses"]')
-      .click();
-    for (const slug of [
-      "ada-lovelace",
-      "grace-hopper",
-      "hedy-lamarr",
-      "karen-sparck-jones"
-    ]) {
-      const card = baseline.page.locator(
-        `[data-foundress-slug="${slug}"]`
-      );
-      check(
-        (await card.locator(".foundress-name").isVisible()) &&
-          (await card.locator("img").isVisible()) &&
-          (await card.locator(".lum-claim-hold").isVisible()),
-        `${slug} exposes identity, art and explicit hold`
-      );
-      check(
-        (await card.locator(
-          ".foundress-years:visible, .foundress-title:visible, .foundress-desc:visible"
-        ).count()) === 0,
-        `${slug} exposes no held date, title or biography`
-      );
-      await card.click();
-      check(
-        await baseline.page.locator("#mavenModal").isHidden(),
-        `${slug} held card cannot open a modal`
-      );
-    }
-    check(
-      !(await baseline.page
-        .locator('meta[name="description"]')
-        .getAttribute("content")).match(
-        /leading in AI|pioneers who got here first/i
-      ),
-      "metadata makes no unsupported current or priority claim"
-    );
-    check(
-      !(await baseline.page.locator(".wing-doors").innerText()).match(
-        /leading in AI right now|shipping frontier/i
-      ),
-      "wing doors make no unsupported current claim"
-    );
-    check(
-      (await baseline.page
-        .locator('.wing-door[aria-controls="wing-mavens"]')
-        .getAttribute("aria-expanded")) === "true" &&
-        (await baseline.page.locator("#wing-mavens").isVisible()),
-      "native MAiVENS door opens and exposes state"
-    );
-    await baseline.page
-      .locator('.wing-door[aria-controls="wing-builders"]')
-      .click();
-    check(
-      (await baseline.page.locator("#wing-builders").isVisible()) &&
-        (await baseline.page.locator("#wing-mavens").isHidden()),
-      "one-wing-at-a-time behavior remains"
-    );
-    check(
-      (await baseline.page.evaluate(
-        () =>
-          document.documentElement.scrollWidth -
-          document.documentElement.clientWidth
-      )) <= 1,
-      "baseline has no 390px horizontal overflow"
-    );
-    check(
-      await baseline.page.evaluate(
-        () => {
-          const duration = getComputedStyle(
-            document.querySelector(".wing-door")
-          ).transitionDuration;
-          return duration.endsWith("ms")
-            ? parseFloat(duration) <= 0.01
-            : parseFloat(duration) <= 0.00001;
-        }
-      ),
-      "reduced motion remains bounded"
-    );
-    await baseline.context.close();
+    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+    const page = await context.newPage();
+    const consoleErrors = [];
+    page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
 
-    const heldDeepLink = await pageFor();
-    await heldDeepLink.page.goto(
-      `${origin}/luminairy.html?meet=ada-lovelace#mavens`,
-      { waitUntil: "domcontentloaded" }
-    );
-    await waitClaims(heldDeepLink.page);
-    await heldDeepLink.page.waitForTimeout(30);
-    check(
-      await heldDeepLink.page.locator("#mavenModal").isHidden(),
-      "held Foundress deep link cannot open a modal"
-    );
-    await heldDeepLink.context.close();
-
-    for (const [label, mutate] of [
-      [
-        "fully rehashed unrelated evidence",
-        (record, receipt) => {
-          const unrelated = "An unrelated claim with unrelated evidence.";
-          record.claimText = unrelated;
-          record.claimTextSha256 = sha256(unrelated);
-          record.evidence.sourceUrl = "https://example.invalid/unrelated";
-          record.evidence.sourceTitle = "Unrelated evidence";
-          record.evidence.sourcePublisher = "Unrelated publisher";
-          record.evidence.evidenceExcerpt = unrelated;
-          record.evidence.evidenceExcerptSha256 = sha256(unrelated);
-          record.evidence.supportsClaimTextSha256 = record.claimTextSha256;
-          Object.assign(receipt, {
-            claimTextSha256: record.claimTextSha256,
-            sourceUrl: record.evidence.sourceUrl,
-            sourceTitle: record.evidence.sourceTitle,
-            sourcePublisher: record.evidence.sourcePublisher,
-            evidenceExcerptSha256: record.evidence.evidenceExcerptSha256,
-            supportsClaimTextSha256: record.claimTextSha256
-          });
-        }
-      ],
-      [
-        "person identity mutation",
-        (record, receipt) =>
-          Object.assign(record, { personId: "not-hannah-fry" }) &&
-          Object.assign(receipt, { personId: record.personId })
-      ],
-      [
-        "wing identity mutation",
-        (record, receipt) =>
-          Object.assign(record, { wing: "trailblazers" }) &&
-          Object.assign(receipt, { wing: record.wing })
-      ],
-      [
-        "claim-kind identity mutation",
-        (record, receipt) =>
-          Object.assign(record, { claimKind: "current-leadership" }) &&
-          Object.assign(receipt, { claimKind: record.claimKind })
-      ],
-      [
-        "status identity mutation",
-        (record, receipt) =>
-          Object.assign(record, { status: "corrected" }) &&
-          Object.assign(receipt, { status: record.status })
-      ],
-      [
-        "scope identity mutation",
-        (record, receipt) =>
-          Object.assign(record, { scope: "general-biography" }) &&
-          Object.assign(receipt, { scope: record.scope })
-      ]
-    ]) {
-      const hostileFixture = validAdmissionFixture();
-      const hostileRecord = hostileFixture.registry.records.find(
-        (record) => record.claimId === "maven-hannah-fry-profile"
-      );
-      const hostileReceipt = hostileFixture.manifest.receipts[0];
-      mutate(hostileRecord, hostileReceipt);
-      hostileRecord.admissionBindingSha256 = sha256(
-        admissionPayload(hostileRecord)
-      );
-      hostileReceipt.admissionBindingSha256 =
-        hostileRecord.admissionBindingSha256;
-      const hostile = await pageFor({
-        registry: hostileFixture.registry,
-        manifest: hostileFixture.manifest
-      });
-      await hostile.page.goto(`${origin}/luminairy.html`, {
-        waitUntil: "domcontentloaded"
-      });
-      await waitClaims(hostile.page, "failed");
-      check(
-        (await hostile.page.locator("[data-editorial-status=held]").count()) ===
-          46 &&
-          (await hostile.page.locator(".maven-meet:not(:disabled)").count()) ===
-            0,
-        `${label} cannot admit or enable a profile`
-      );
-      await hostile.context.close();
-    }
-
-    const validFixture = validAdmissionFixture();
-    const validRegistry = validFixture.registry;
-    const admitted = await pageFor({
-      registry: validRegistry,
-      manifest: validFixture.manifest,
-      viewport: { width: 320, height: 740 }
+    await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
+    await page.locator(".lum-card").first().waitFor();
+    assert.equal(await page.title(), "The LUMINAiRY · LAiDIES · SUNNYVAiLE");
+    assert.doesNotMatch(await page.locator('meta[name="description"]').getAttribute("content"), /43 illustrated guides/i, "page metadata must not collapse the three wings into an all-guides label");
+    assert.equal(await page.locator(".lum-hero__lead").count(), 0, "the three distinct wings must not be collapsed into a false all-guides umbrella");
+    assert.equal(await page.locator(".lum-hero__status").count(), 0, "internal archive and production status must not appear in the visitor hero");
+    assert.equal(await page.locator(".lum-orientation").count(), 0, "a second defensive orientation band must not return after the hero explains the room");
+    const heroIntroduction = (await page.locator(".lum-hero__body").textContent()).trim();
+    assert.match(heroIntroduction, /The LUMINAiRY is where LAiDIES brings together cultural touchstones, computing history, and present-day practitioners/i, "the hero must first explain what the LUMINAiRY is");
+    assert.match(heroIntroduction, /make AI easier to understand, question, and use/i, "the hero must explain why the LUMINAiRY exists");
+    assert.match(heroIntroduction, /PATRON SAiNTS.+memorable working habits.+MAiVENS.+history and ideas behind computing.+TRAiLBLAZERS.+people shaping AI now/is, "the hero must distinguish the useful job of all three wings");
+    assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose one from each wing.", "local-votive heading must give the actual action without mislabelling every subject as a guide");
+    assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
+    assert.match(await page.locator(".lum-tab--saints .lum-tab__copy").textContent(), /13 cards/i, "the Saints door count must use the canonical card noun");
+    assert.equal(await page.locator(".lum-panel .lum-search").count(), 1, "the active-wing filter must live inside the wing it filters");
+    assert.equal(await page.locator(".lum-archive__head .lum-search").count(), 0, "a wing-scoped filter must not appear above all three wing doors like a global search");
+    assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search PATRON SAiNT cards", "the search label must name its active scope");
+    assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
+    assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
+    assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /purpose-first-v1$/, "purpose-first successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted interaction script");
+    assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
+    assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
+    assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
+    assert.match(await page.locator(".lum-tab--saints .lum-tab__image").getAttribute("src"), /luminairy-saints-wing-door-v2-no-heart\.png$/, "the Saints entrance must not restore the rejected literal heart motif");
+    assert.deepEqual(await imageFailuresFor(page, "#lumNaveImage, .lum-tab__image"), [], "nave and wing-door artwork must decode");
+    const inactiveDoorFilters = await page.locator('.lum-tab[aria-selected="false"] .lum-tab__image').evaluateAll((images) => images.map((image) => getComputedStyle(image).filter));
+    assert.ok(inactiveDoorFilters.every((filter) => !/brightness\(0\./.test(filter) && !/saturate\(0\./.test(filter)), `unselected wing art must stay luminous, got ${inactiveDoorFilters.join(" | ")}`);
+    const siteSystem = await page.evaluate(() => {
+      const root = getComputedStyle(document.documentElement);
+      const hero = getComputedStyle(document.querySelector(".lum-hero__copy"));
+      const search = getComputedStyle(document.querySelector("#lumSearch"));
+      return {
+        displayFont: root.getPropertyValue("--lum-display"),
+        heroRadius: parseFloat(hero.borderRadius),
+        searchRadius: parseFloat(search.borderRadius)
+      };
     });
-    await admitted.page.goto(`${origin}/luminairy.html#mavens`, {
-      waitUntil: "domcontentloaded"
+    assert.match(siteSystem.displayFont, /Jost/i, "LUMINAiRY structural display type must use the shared Jost system");
+    assert.ok(siteSystem.heroRadius >= 10, `hero interface panel needs the shared rounded grammar, got ${siteSystem.heroRadius}px`);
+    assert.ok(siteSystem.searchRadius >= 10, `search control needs the shared rounded grammar, got ${siteSystem.searchRadius}px`);
+    assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
+    assert.match(await page.locator("#lumResultStatus").textContent(), /13 of 13 cards shown/i, "Saint result count must use the canonical card noun");
+    const saintFinalRowOffset = await page.evaluate(() => {
+      const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();
+      const cardBox = document.querySelector(".lum-card:last-child").getBoundingClientRect();
+      return Math.abs((gridBox.left + gridBox.width / 2) - (cardBox.left + cardBox.width / 2));
     });
-    await waitClaims(admitted.page);
-    const hannah = admitted.page.locator('[data-maven-slug="hannah-fry"]');
-    const opener = hannah.locator(".maven-meet");
-    check(
-      (await hannah.getAttribute("data-editorial-status")) === "admitted" &&
-        (await hannah.locator(".stop-desc").isVisible()) &&
-        !(await opener.isDisabled()),
-      "valid hypothetical atomic admission renders and enables its opener"
-    );
-    check(
-      (await admitted.page.locator("[data-editorial-status=held]").count()) ===
-        45,
-      "valid admission leaves every unrelated legacy record held"
-    );
-    await opener.click();
-    await admitted.page.locator("#mavenModal").waitFor({ state: "visible" });
-    await waitModalFocusReady(admitted.page);
-    check(
-      await admitted.page.evaluate(
-        () => document.activeElement?.matches("[data-mvbio-close]")
-      ),
-      "modal moves focus to its native close control"
-    );
-    check(
-      (await admitted.page.locator("#mvbioDid").innerText()) ===
-        "Hannah Fry joined Cambridge as Professor of the Public Understanding of Mathematics." &&
-        (await admitted.page.locator("#mvbioSource").getAttribute("href")) ===
-          validRegistry.records.find(
-            (record) => record.personId === "hannah-fry"
-          ).evidence.sourceUrl,
-      "modal renders only the exact admitted claim and evidence source"
-    );
-    await admitted.page.keyboard.press("Shift+Tab");
-    check(
-      await admitted.page.evaluate(
-        () => document.activeElement?.id === "mvbioSource"
-      ),
-      "modal wraps backward focus"
-    );
-    await admitted.page.keyboard.press("Tab");
-    check(
-      await admitted.page.evaluate(
-        () => document.activeElement?.matches("[data-mvbio-close]")
-      ),
-      "modal wraps forward focus"
-    );
-    await admitted.page.keyboard.press("Escape");
-    check(
-      (await admitted.page.locator("#mavenModal").isHidden()) &&
-        (await opener.evaluate((node) => document.activeElement === node)),
-      "Escape closes and returns focus to the exact opener"
-    );
-    await opener.click();
-    await waitModalFocusReady(admitted.page);
-    await admitted.page.locator(".mvbio-backdrop").click({
-      position: { x: 4, y: 4 }
+    assert.ok(saintFinalRowOffset <= 1, `a single final card must be centered instead of leaving a right-side end-cap, got ${saintFinalRowOffset}px`);
+    assert.equal(await page.getByRole("link", { name: "Corrections", exact: true }).getAttribute("href"), "/town-hall.html#town-hall-feedback", "the trust route belongs in one quiet footer link");
+    assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
+    const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
+    assert.equal(await carrieCard.locator(".lum-card__song").count(), 0, "deferred Carrie audio must not render a broken play control");
+    assert.match(await carrieCard.locator(".lum-card__song-status").textContent(), /song coming later/i, "Carrie needs an honest visible deferred-song status");
+    assert.match(await page.locator("#lumPlaylist").textContent(), /play all 12 available songs/i, "playlist count must exclude deferred audio");
+    await page.locator("#lumAudio").evaluate((element) => {
+      element.play = () => Promise.resolve();
     });
-    check(
-      (await admitted.page.locator("#mavenModal").isHidden()) &&
-        (await opener.evaluate((node) => document.activeElement === node)),
-      "backdrop closes and returns focus"
-    );
-    await opener.click();
-    await waitModalFocusReady(admitted.page);
-    await admitted.page.locator(".mvbio-x").click();
-    check(
-      (await admitted.page.locator("#mavenModal").isHidden()) &&
-        (await opener.evaluate((node) => document.activeElement === node)),
-      "close button closes and returns focus"
-    );
-    check(
-      (await admitted.page.evaluate(
-        () =>
-          document.documentElement.scrollWidth -
-          document.documentElement.clientWidth
-      )) <= 1,
-      "admitted modal journey has no 320px horizontal overflow"
-    );
-    await admitted.context.close();
-
-    const admittedDeepLink = await pageFor({
-      registry: validRegistry,
-      manifest: validFixture.manifest
-    });
-    await admittedDeepLink.page.goto(
-      `${origin}/luminairy.html?meet=hannah-fry#mavens`,
-      { waitUntil: "domcontentloaded" }
-    );
-    await waitClaims(admittedDeepLink.page);
-    await admittedDeepLink.page.locator("#mavenModal").waitFor({
-      state: "visible"
-    });
-    await waitModalFocusReady(admittedDeepLink.page);
-    check(
-      await admittedDeepLink.page.evaluate(
-        () => document.activeElement?.matches("[data-mvbio-close]")
-      ),
-      "valid admitted deep link opens operably with focus inside"
-    );
-    await admittedDeepLink.context.close();
-
-    const admittedDesktop = await pageFor({
-      registry: validRegistry,
-      manifest: validFixture.manifest,
-      viewport: { width: 1280, height: 900 }
-    });
-    await admittedDesktop.page.goto(`${origin}/luminairy.html#mavens`, {
-      waitUntil: "domcontentloaded"
-    });
-    await waitClaims(admittedDesktop.page);
-    const desktopOpener = admittedDesktop.page.locator(
-      '[data-maven-slug="hannah-fry"] .maven-meet'
-    );
-    await desktopOpener.click();
-    await waitModalFocusReady(admittedDesktop.page);
-    check(
-      await admittedDesktop.page.evaluate(
-        () => document.activeElement?.matches("button[data-mvbio-close]")
-      ),
-      "desktop modal forces focus inside"
-    );
-    await admittedDesktop.page.keyboard.press("Shift+Tab");
-    check(
-      await admittedDesktop.page.evaluate(
-        () => document.activeElement?.id === "mvbioSource"
-      ),
-      "desktop modal wraps backward to its final focusable control"
-    );
-    await admittedDesktop.page.keyboard.press("Tab");
-    check(
-      await admittedDesktop.page.evaluate(
-        () => document.activeElement?.matches("button[data-mvbio-close]")
-      ),
-      "desktop modal wraps forward to its first focusable control"
-    );
-    await admittedDesktop.page.keyboard.press("Escape");
-    check(
-      (await admittedDesktop.page.locator("#mavenModal").isHidden()) &&
-        (await desktopOpener.evaluate(
-          (node) => document.activeElement === node
-        )),
-      "desktop Escape closes and returns exact opener focus"
-    );
-    await desktopOpener.click();
-    await waitModalFocusReady(admittedDesktop.page);
-    await admittedDesktop.page.locator(".mvbio-x").click();
-    check(
-      (await admittedDesktop.page.locator("#mavenModal").isHidden()) &&
-        (await desktopOpener.evaluate(
-          (node) => document.activeElement === node
-        )),
-      "desktop close button returns focus to the exact opener"
-    );
-    await admittedDesktop.context.close();
-
-    const normalStorage = await pageFor();
-    await normalStorage.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    await waitClaims(normalStorage.page);
-    await normalStorage.page
-      .locator('.wing-door[aria-controls="wing-saints"]')
-      .click();
-    const normalPicker = normalStorage.page
-      .locator('[data-saint-slug="cher-horowitz"] .coven-pick');
-    await normalPicker.click();
-    check(
-      (await normalStorage.page.evaluate(() =>
-        localStorage.getItem("laidies_saint")
-      )) === "cher-horowitz",
-      "normal local selection is read-verified"
-    );
-    await normalPicker.click();
-    check(
-      (await normalStorage.page.evaluate(() =>
-        localStorage.getItem("laidies_saint")
-      )) === null,
-      "normal local clear is read-verified"
-    );
-    await normalStorage.context.close();
-
-    const deniedSet = await pageFor({
-      init: () => {
-        const original = Storage.prototype.setItem;
-        Storage.prototype.setItem = function (key, value) {
-          if (key === "laidies_saint") {
-            throw new DOMException("Synthetic denial", "QuotaExceededError");
-          }
-          return original.call(this, key, value);
-        };
+    await page.locator("#lumPlaylist").click();
+    const playlistPaths = await page.locator("#lumAudio").evaluate(async (element) => {
+      const paths = [];
+      for (let index = 0; index < 12; index += 1) {
+        paths.push(new URL(element.src).pathname);
+        element.dispatchEvent(new Event("ended"));
+        await Promise.resolve();
       }
+      return paths;
     });
-    await deniedSet.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    await waitClaims(deniedSet.page);
-    await deniedSet.page
-      .locator('.wing-door[aria-controls="wing-saints"]')
-      .click();
-    await deniedSet.page
-      .locator('[data-saint-slug="cher-horowitz"] .coven-pick')
-      .click();
-    check(
-      (await deniedSet.page.locator("#lumStorageStatus").isVisible()) &&
-        (await deniedSet.page.locator("#lumStorageStatus").innerText()).includes(
-          "was not changed"
-        ) &&
-        (await deniedSet.page.locator(".coven-pick:not(:disabled)").count()) ===
-          0 &&
-        (await deniedSet.page.evaluate(() =>
-          localStorage.getItem("laidies_saint")
-        )) === null,
-      "denied write persists live failure, disables controls and claims no selection"
-    );
-    await deniedSet.context.close();
+    assert.equal(new Set(playlistPaths).size, 12, "playlist must traverse each available Saint song once");
+    assert.equal(playlistPaths.includes("/content/music/saint-carrie-bradshaw-staying-current.mp3"), false, "playlist must never request deferred Carrie audio");
+    assert.deepEqual(await imageFailures(page), [], "all Saint images must decode");
+    assert.equal(await page.locator("text=Oprah Winfrey").count(), 0);
+    assert.equal(await page.locator("text=Jessica Fletcher").count(), 0);
+    assert.equal(await page.locator("text=Jennifer Lopez").count(), 0);
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Bette Midler" }).getByText(/images, audio, files, data, code/i).waitFor());
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Cher Horowitz" }).locator(".lum-card__role").getByText(/Trendsetting/i).waitFor());
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Regina George" }).locator(".lum-card__role").getByText(/ANTI-SAINT/i).waitFor());
 
-    const deniedClear = await pageFor({
-      init: () => {
-        localStorage.setItem("laidies_saint", "cher-horowitz");
-        const original = Storage.prototype.removeItem;
-        Storage.prototype.removeItem = function (key) {
-          if (key === "laidies_saint") {
-            throw new DOMException("Synthetic denial", "SecurityError");
-          }
-          return original.call(this, key);
-        };
-      }
-    });
-    await deniedClear.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    await waitClaims(deniedClear.page);
-    await deniedClear.page
-      .locator('.wing-door[aria-controls="wing-saints"]')
-      .click();
-    await deniedClear.page
-      .locator('[data-saint-slug="cher-horowitz"] .coven-pick')
-      .click();
-    check(
-      (await deniedClear.page.locator("#lumStorageStatus").isVisible()) &&
-        (await deniedClear.page.evaluate(() =>
-          localStorage.getItem("laidies_saint")
-        )) === "cher-horowitz" &&
-        (await deniedClear.page.locator(".coven-pick:not(:disabled)").count()) ===
-          0,
-      "denied clear preserves prior selection and disables false recovery"
-    );
-    await deniedClear.context.close();
+    const firstSaint = page.locator(".lum-card").first();
+    const firstSaintName = (await firstSaint.locator(".lum-card__name").textContent()).trim();
+    await firstSaint.locator(".lum-card__pick").click();
+    assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), firstSaintName);
+    await page.reload({ waitUntil: "networkidle" });
+    await page.locator(".lum-card").first().waitFor();
+    assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), firstSaintName, "local pick must survive reload");
+    await page.locator(".lum-card").first().locator(".lum-card__pick").click();
+    assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), "No candle lit");
 
-    const deniedRead = await pageFor({
-      init: () => {
-        const original = Storage.prototype.getItem;
-        Storage.prototype.getItem = function (key) {
-          if (/^laidies_(saint|maven|builder|mavens_collected)$/.test(key)) {
-            throw new DOMException("Synthetic denial", "SecurityError");
-          }
-          return original.call(this, key);
-        };
-      }
-    });
-    await deniedRead.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    await waitClaims(deniedRead.page);
-    check(
-      (await deniedRead.page.locator("#lumStorageStatus").isVisible()) &&
-        (await deniedRead.page.locator(".coven-pick:not(:disabled)").count()) ===
-          0,
-      "storage loss is persistent-live and disables selection/clear controls"
-    );
-    await deniedRead.context.close();
+    await page.getByRole("tab", { name: /MAiVENS/ }).click();
+    assert.equal(await page.locator(".lum-card").count(), 23, "Maven wing must render 23 cards");
+    assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search MAiVEN profiles", "the filter scope must update with the active wing");
+    assert.deepEqual(await imageFailures(page), [], "all Maven images must decode");
+    assert.ok(await page.locator(".lum-card__link").count() >= 23, "every Maven needs a source/work link");
+    assert.match(await page.locator("#lumWingKicker").textContent(), /dark sapphire/i);
 
-    const noJavaScript = await pageFor({ javaScriptEnabled: false });
-    await noJavaScript.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    check(
-      (await noJavaScript.page.locator("#lumStaticHoldTitle").isVisible()) &&
-        (await noJavaScript.page
-          .locator('[data-lum-claim-block]:visible')
-          .count()) === 0 &&
-        (await noJavaScript.page.locator(".stop-desc:visible").count()) === 0 &&
-        (await noJavaScript.page
-          .locator(
-            ".foundress-years:visible, .foundress-title:visible, .foundress-desc:visible"
-          )
-          .count()) === 0 &&
-        (await noJavaScript.page.locator("#mavenModal").isHidden()) &&
-        (await noJavaScript.page.locator(".maven-meet:not(:disabled)").count()) ===
-          0,
-      "disabled JavaScript exposes only the native hold, never profile/context claims"
-    );
-    check(
-      (await noJavaScript.page.locator(".lum-static-hold a").count()) >= 2,
-      "disabled JavaScript retains native home and correction navigation"
-    );
-    await noJavaScript.context.close();
+    await page.locator("#lumSearch").fill("privacy");
+    assert.ok(await page.locator(".lum-card").count() >= 2, "search should find more than one privacy-related Maven");
+    await page.locator("#lumSearch").fill("");
 
-    const missingGate = await pageFor({ gate: "abort" });
-    await missingGate.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
+    const mavenTab = page.getByRole("tab", { name: /MAiVENS/ });
+    await mavenTab.focus();
+    await mavenTab.press("ArrowRight");
+    assert.equal(await page.getByRole("tab", { name: /TRAiLBLAZERS/ }).getAttribute("aria-selected"), "true", "ArrowRight must activate the next tab");
+    assert.equal(await page.locator("#lumSearch").inputValue(), "", "changing wings must clear a wing-scoped query");
+    assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search TRAiLBLAZER profiles", "keyboard wing changes must update the filter scope");
+    assert.equal(await page.locator(".lum-card").count(), 7, "Trailblazer wing must render 7 cards");
+    const trailFinalRowOffset = await page.evaluate(() => {
+      const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();
+      const cardBox = document.querySelector(".lum-card:last-child").getBoundingClientRect();
+      return Math.abs((gridBox.left + gridBox.width / 2) - (cardBox.left + cardBox.width / 2));
     });
-    await missingGate.page.waitForTimeout(100);
-    check(
-      (await missingGate.page
-        .locator('[data-lum-claim-block]:visible')
-        .count()) === 0 &&
-        (await missingGate.page.locator(".stop-desc:visible").count()) === 0 &&
-        (await missingGate.page
-          .locator(
-            ".foundress-years:visible, .foundress-title:visible, .foundress-desc:visible"
-          )
-          .count()) === 0 &&
-        (await missingGate.page.locator("#mavenModal").isHidden()) &&
-        (await missingGate.page.locator(".maven-meet:not(:disabled)").count()) ===
-          0,
-      "missing claim gate fails closed from static HTML/CSS without unsafe flash"
-    );
-    await missingGate.context.close();
+    assert.ok(trailFinalRowOffset <= 1, `the final Trailblazer must be centered instead of leaving a right-side end-cap, got ${trailFinalRowOffset}px`);
+    assert.equal(await page.locator("#lumPlaylist").isVisible(), false, "Saint playlist control must be absent outside the Saints wing");
+    assert.equal(await page.locator("#lumAudioStatus").isVisible(), false, "Saint playback status must clear when leaving the Saints wing");
+    assert.deepEqual(await imageFailures(page), [], "all Trailblazer images must decode");
+    assert.ok(await page.locator(".lum-card__link").count() >= 7, "every Trailblazer needs a work/source link");
+    assert.match(await page.locator("#lumWingKicker").textContent(), /golden amber/i);
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Allie K. Miller" }).getByRole("link", { name: /Official work/ }).waitFor());
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Fidji Simo" }).getByText(/part-time adviser as of July 2026/i).waitFor());
 
-    const outage = await pageFor({ registry: "abort" });
-    await outage.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
+    const badRel = await page.locator('.lum-card__link[target="_blank"]').evaluateAll((links) => links
+      .filter((link) => !(link.rel.includes("noopener") && link.rel.includes("noreferrer"))).length);
+    assert.equal(badRel, 0, "external links need noopener noreferrer");
+    assert.equal(await page.locator(".lum-card__portrait img[alt='']").count(), 0, "profile images need alt text");
+
+    await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
+    await page.route("**/content/music/saint-cher-horowitz.mp3", (route) => route.fulfill({ status: 404, body: "missing" }));
+    await page.locator(".lum-card").first().locator(".lum-card__song").click();
+    await page.locator("#lumAudioStatus.is-error").waitFor();
+    assert.match(await page.locator("#lumAudioStatus").textContent(), /could not/i, "audio failure must be visible");
+    await page.setViewportSize({ width: 900, height: 800 });
+    const compactDesktopOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    assert.ok(compactDesktopOverflow <= 1, `compact desktop horizontal overflow must be <=1px, got ${compactDesktopOverflow}px`);
+    await context.close();
+
+    const blockedContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    await blockedContext.addInitScript(() => {
+      Object.defineProperty(window, "localStorage", { get() { throw new DOMException("blocked", "SecurityError"); } });
     });
-    await waitClaims(outage.page, "failed");
-    check(
-      (await outage.page.locator("[data-editorial-status=held]").count()) ===
-        46 &&
-        (await outage.page.locator("#mavenModal").isHidden()),
-      "registry outage fails every claim and modal closed"
-    );
-    await outage.context.close();
+    const blockedPage = await blockedContext.newPage();
+    await blockedPage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await blockedPage.locator(".lum-card").first().waitFor();
+    assert.match(await blockedPage.locator("#lumLocalStatus").textContent(), /blocked local storage/i);
+    assert.equal(await blockedPage.locator(".lum-card__pick:disabled").count(), 13, "storage failure must disable dishonest save controls");
+    await blockedContext.close();
 
-    const receiptOutage = await pageFor({ manifest: "abort" });
-    await receiptOutage.page.goto(`${origin}/luminairy.html`, {
-      waitUntil: "domcontentloaded"
+    const transientFailureContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    const transientFailurePage = await transientFailureContext.newPage();
+    let profileRequestCount = 0;
+    await transientFailurePage.route("**/content/luminairy-profiles.json", (route) => {
+      profileRequestCount += 1;
+      if (profileRequestCount === 1) return route.fulfill({ status: 503, body: "temporary local-server restart" });
+      return route.continue();
     });
-    await waitClaims(receiptOutage.page, "failed");
-    check(
-      (await receiptOutage.page.locator("[data-editorial-status=held]").count()) ===
-        46 &&
-        (await receiptOutage.page.locator("#mavenModal").isHidden()),
-      "trusted receipt outage fails every claim and modal closed"
-    );
-    await receiptOutage.context.close();
+    await transientFailurePage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await transientFailurePage.locator(".lum-card").first().waitFor({ timeout: 5000 });
+    assert.equal(profileRequestCount, 2, "a transient profile-data failure must retry once automatically");
+    assert.equal(await transientFailurePage.locator("#lumResultStatus.is-error").count(), 0, "a successful retry must clear the failure state");
+    await transientFailureContext.close();
 
-    check(
-      externalAttempts.every(
-        (url) =>
-          !/luminairy-claims\.json/.test(url) &&
-          !/luminairy-editorial-receipts\.json/.test(url) &&
-          !url.startsWith("https://example.invalid")
-      ),
-      "fixtures make no external evidence request"
-    );
+    const claimFailureContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    const claimFailurePage = await claimFailureContext.newPage();
+    let persistentProfileRequestCount = 0;
+    await claimFailurePage.route("**/content/luminairy-profiles.json", (route) => {
+      persistentProfileRequestCount += 1;
+      return route.continue();
+    });
+    await claimFailurePage.route("**/content/luminairy-claims.json", (route) => route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ schemaVersion: 4, product: "luminairy", admissionPolicy: "fail-closed", records: [] })
+    }));
+    await claimFailurePage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await claimFailurePage.locator("#lumResultStatus.is-error").waitFor();
+    assert.equal(await claimFailurePage.locator(".lum-card").count(), 0, "failed editorial admission must render no profiles");
+    assert.match(await claimFailurePage.locator("#lumResultStatus").textContent(), /couldn.t open the luminairy/i, "failure copy must be useful visitor language rather than production diagnostics");
+    assert.equal(await claimFailurePage.getByRole("button", { name: "Try again" }).count(), 1, "a persistent load failure must offer an in-page retry");
+    assert.doesNotMatch(await claimFailurePage.locator("body").textContent(), /no names, roles, or sources are being invented/i, "the visitor failure state must not expose internal fail-closed language");
+    assert.equal(persistentProfileRequestCount, 2, "a persistent failure must stop after one automatic retry");
+    await claimFailurePage.getByRole("button", { name: "Try again" }).click();
+    await claimFailurePage.getByRole("button", { name: "Try again" }).waitFor();
+    assert.equal(persistentProfileRequestCount, 4, "manual retry must perform one bounded retry cycle");
+    await claimFailureContext.close();
+
+    const noWebCryptoContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    await noWebCryptoContext.addInitScript(() => {
+      Object.defineProperty(window, "crypto", { value: undefined, configurable: true });
+      Object.defineProperty(window, "TextEncoder", { value: undefined, configurable: true });
+    });
+    const noWebCryptoPage = await noWebCryptoContext.newPage();
+    await noWebCryptoPage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await noWebCryptoPage.locator(".lum-card").first().waitFor();
+    assert.equal(await noWebCryptoPage.locator(".lum-card").count(), 13, "pure-JS signed admission fallback must work without Web Crypto/TextEncoder");
+    assert.equal(await noWebCryptoPage.locator("html").getAttribute("data-luminairy-claims"), "admitted");
+    await noWebCryptoContext.close();
+
+    const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
+    const mobilePage = await mobileContext.newPage();
+    await mobilePage.goto(origin + "/luminairy.html#trailblazers", { waitUntil: "networkidle" });
+    await mobilePage.locator(".lum-card").first().waitFor();
+    const overflow = await mobilePage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    assert.ok(overflow <= 1, `mobile horizontal overflow must be <=1px, got ${overflow}px`);
+    assert.equal(await mobilePage.locator(".lum-card").count(), 7);
+    assert.equal(await mobilePage.locator(".lum-tabs").evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length), 1, "mobile tabs must stack");
+    await mobileContext.close();
+
+    const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
+    assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
+    console.log("LUMINAiRY browser PASS: 13/23/7 cards, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, compact-desktop overflow, and mobile overflow");
   } finally {
     await browser.close();
-    await new Promise((resolve) => server.close(resolve));
   }
+}
 
-  if (failures.length) {
-    console.error("LUMINAiRY BROWSER FAIL");
-    failures.forEach((failure) => console.error(`- ${failure}`));
-    process.exit(1);
-  }
-  console.log("LUMINAiRY BROWSER PASS");
-  console.log(`checks=${checks.length}`);
-  console.log(`external_requests_blocked=${externalAttempts.length}`);
-})().catch((error) => {
-  console.error("LUMINAiRY BROWSER FAIL:", error.stack || error.message);
-  process.exitCode = 1;
+run().catch((error) => {
+  console.error(error.stack || error);
+  process.exit(1);
 });

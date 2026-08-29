@@ -1,84 +1,91 @@
 (function () {
   "use strict";
 
-  var registryUrl = "/content/luminairy-claims.json";
-  var receiptManifestUrl = "/content/luminairy-editorial-receipts.json";
-  var heldMessage =
-    "Editorial review in progress. This profile’s claims are not published yet.";
-  var claimNodes = [
-    ".stop-desc",
-    ".saint-back-rule",
-    ".saint-back-devotion",
-    ".saint-back-meta",
-    ".foundress-years",
-    ".foundress-title",
-    ".foundress-desc"
-  ].join(", ");
-  var trustedKeys = {
-    "luminairy-editorial-offline-r2-20260726": {
-      kty: "EC",
-      crv: "P-256",
-      x: "aQwXrFw77FawK8rM5eAavmf21XtdjmkmNUWe3b457rI",
-      y: "VNTv9rNlAfMw8Oc4fDz9ulkZopZUZj8t_027RHs4AwA"
-    }
+  const claimsUrl = "/content/luminairy-claims.json";
+  const receiptsUrl = "/content/luminairy-editorial-receipts.json";
+  const trustedKeyId = "luminairy-editorial-offline-r3-20260823";
+  const trustedKey = {
+    kty: "EC",
+    crv: "P-256",
+    x: "Sx-f3-ZiCYm-OOzoxfbsZjLgx6GW1AEff0gWB-C8r6Q",
+    y: "X_qk0_B9K2GKckhIM8WS6_NJB-6HXRlO0T1YappGRv4"
   };
 
-  window.LAIDIES_LUMINAIRY_ADMISSIONS = Object.create(null);
-
-  function slug(value) {
-    return String(value || "")
-      .normalize("NFKD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-  }
-
-  function normalizeText(value) {
+  function normalize(value) {
     return String(value || "").normalize("NFKC").replace(/\s+/g, " ").trim();
   }
 
-  function sha256(value) {
-    if (!window.crypto || !window.crypto.subtle || typeof TextEncoder === "undefined") {
-      return Promise.reject(new Error("sha256 unavailable"));
-    }
-    return window.crypto.subtle
-      .digest("SHA-256", new TextEncoder().encode(String(value)))
-      .then(function (buffer) {
-        return Array.from(new Uint8Array(buffer))
-          .map(function (byte) {
-            return byte.toString(16).padStart(2, "0");
-          })
-          .join("");
-      });
+  function bytesFromBase64(value) {
+    try {
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+      const clean = String(value || "").replace(/[^A-Za-z0-9+/]/g, "");
+      const bytes = [];
+      let buffer = 0;
+      let bits = 0;
+      for (const character of clean) {
+        buffer = (buffer << 6) | alphabet.indexOf(character);
+        bits += 6;
+        if (bits >= 8) {
+          bits -= 8;
+          bytes.push((buffer >> bits) & 255);
+        }
+      }
+      return new Uint8Array(bytes);
+    } catch (_) { return null; }
   }
 
-  function admissionPayload(record) {
-    var evidence = record.evidence || {};
-    return JSON.stringify({
-      product: record.product,
-      claimId: record.claimId,
-      personId: record.personId,
-      wing: record.wing,
-      claimKind: record.claimKind,
-      status: record.status,
-      scope: normalizeText(record.scope),
-      selector: record.selector,
-      contentSelector: record.contentSelector,
-      claimText: normalizeText(record.claimText),
-      claimTextSha256: record.claimTextSha256,
-      sourceUrl: evidence.sourceUrl,
-      sourceType: evidence.sourceType,
-      sourceTitle: normalizeText(evidence.sourceTitle),
-      sourcePublisher: normalizeText(evidence.sourcePublisher),
-      evidenceExcerpt: normalizeText(evidence.evidenceExcerpt),
-      evidenceExcerptSha256: evidence.evidenceExcerptSha256,
-      supportsClaimId: evidence.supportsClaimId,
-      supportsClaimTextSha256: evidence.supportsClaimTextSha256,
-      verifiedOn: record.verifiedOn,
-      recheckOn: record.recheckOn,
-      correctionOwner: record.correctionOwner
-    });
+  function hex(buffer) {
+    return Array.from(new Uint8Array(buffer), (byte) => byte.toString(16).padStart(2, "0")).join("");
+  }
+
+  function utf8(value) {
+    const encoded = unescape(encodeURIComponent(String(value)));
+    return Uint8Array.from(encoded, (character) => character.charCodeAt(0));
+  }
+
+  function sha256Bytes(value) {
+    const input = Array.from(utf8(value));
+    const bitLength = input.length * 8;
+    input.push(128);
+    while (input.length % 64 !== 56) input.push(0);
+    for (let shift = 56; shift >= 0; shift -= 8) input.push(Math.floor(bitLength / (2 ** shift)) & 255);
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const k = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+    const rotate = (number, amount) => (number >>> amount) | (number << (32 - amount));
+    for (let offset = 0; offset < input.length; offset += 64) {
+      const w = new Array(64);
+      for (let index = 0; index < 16; index += 1) {
+        const base = offset + index * 4;
+        w[index] = ((input[base] << 24) | (input[base + 1] << 16) | (input[base + 2] << 8) | input[base + 3]) >>> 0;
+      }
+      for (let index = 16; index < 64; index += 1) {
+        const s0 = rotate(w[index - 15], 7) ^ rotate(w[index - 15], 18) ^ (w[index - 15] >>> 3);
+        const s1 = rotate(w[index - 2], 17) ^ rotate(w[index - 2], 19) ^ (w[index - 2] >>> 10);
+        w[index] = (w[index - 16] + s0 + w[index - 7] + s1) >>> 0;
+      }
+      let [a,b,c,d,e,f,g,hh] = h;
+      for (let index = 0; index < 64; index += 1) {
+        const s1 = rotate(e, 6) ^ rotate(e, 11) ^ rotate(e, 25);
+        const choose = (e & f) ^ (~e & g);
+        const t1 = (hh + s1 + choose + k[index] + w[index]) >>> 0;
+        const s0 = rotate(a, 2) ^ rotate(a, 13) ^ rotate(a, 22);
+        const majority = (a & b) ^ (a & c) ^ (b & c);
+        const t2 = (s0 + majority) >>> 0;
+        hh = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
+      }
+      h[0]=(h[0]+a)>>>0; h[1]=(h[1]+b)>>>0; h[2]=(h[2]+c)>>>0; h[3]=(h[3]+d)>>>0;
+      h[4]=(h[4]+e)>>>0; h[5]=(h[5]+f)>>>0; h[6]=(h[6]+g)>>>0; h[7]=(h[7]+hh)>>>0;
+    }
+    return Uint8Array.from(h.flatMap((number) => [number >>> 24, number >>> 16 & 255, number >>> 8 & 255, number & 255]));
+  }
+
+  function sha256(value) {
+    if (window.crypto?.subtle && typeof TextEncoder !== "undefined") return window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(String(value))).then(hex);
+    return Promise.resolve(hex(sha256Bytes(value)));
+  }
+
+  function profilePayload(wing, profile) {
+    return JSON.stringify({ wing, profile });
   }
 
   function receiptPayload(receipt) {
@@ -88,468 +95,135 @@
       keyId: receipt.keyId,
       product: receipt.product,
       claimId: receipt.claimId,
-      personId: receipt.personId,
       wing: receipt.wing,
-      claimKind: receipt.claimKind,
-      status: receipt.status,
-      scope: normalizeText(receipt.scope),
-      selector: receipt.selector,
-      contentSelector: receipt.contentSelector,
-      claimTextSha256: receipt.claimTextSha256,
-      sourceUrl: receipt.sourceUrl,
-      sourceType: receipt.sourceType,
-      sourceTitle: normalizeText(receipt.sourceTitle),
-      sourcePublisher: normalizeText(receipt.sourcePublisher),
-      evidenceExcerptSha256: receipt.evidenceExcerptSha256,
-      supportsClaimId: receipt.supportsClaimId,
-      supportsClaimTextSha256: receipt.supportsClaimTextSha256,
+      profileId: receipt.profileId,
+      profileSha256: receipt.profileSha256,
+      sourcePacketSha256: receipt.sourcePacketSha256,
       verifiedOn: receipt.verifiedOn,
       recheckOn: receipt.recheckOn,
-      correctionOwner: receipt.correctionOwner,
-      admissionBindingSha256: receipt.admissionBindingSha256,
-      supportDecision: receipt.supportDecision,
+      reviewedOn: receipt.reviewedOn,
       reviewerRole: receipt.reviewerRole,
-      reviewedOn: receipt.reviewedOn
+      supportDecision: receipt.supportDecision
     });
-  }
-
-  function prepareSaintIds() {
-    document.querySelectorAll(".stop--saint").forEach(function (card) {
-      var name = card.querySelector(".stop-name");
-      if (name) card.setAttribute("data-saint-id", slug(name.textContent));
-    });
-  }
-
-  function ensureHold(card, reason) {
-    var existing = card.querySelector(".lum-claim-hold");
-    if (!existing) {
-      existing = document.createElement("p");
-      existing.className = "lum-claim-hold";
-      card.appendChild(existing);
-    }
-    existing.hidden = false;
-    existing.textContent = reason || heldMessage;
-  }
-
-  function holdCard(card, reason) {
-    card.setAttribute("data-editorial-status", "held");
-    card.removeAttribute("data-admitted-claim-id");
-    card.querySelectorAll(claimNodes).forEach(function (node) {
-      node.hidden = true;
-    });
-    var foundressLock = card.querySelector(".foundress-lock");
-    if (foundressLock) foundressLock.hidden = false;
-    card.querySelectorAll(".maven-meet, .foundress-meet").forEach(function (button) {
-      button.disabled = true;
-      button.textContent = "Profile in review";
-      button.setAttribute("aria-describedby", "lumResearchStatus");
-    });
-    ensureHold(card, reason);
-  }
-
-  function holdContext(block) {
-    block.hidden = true;
-    block.setAttribute("data-editorial-status", "held");
-  }
-
-  function failClosed(message) {
-    window.LAIDIES_LUMINAIRY_ADMISSIONS = Object.create(null);
-    var foundressCase = document.getElementById("foundressCase");
-    if (foundressCase) foundressCase.classList.remove("is-unlocked");
-    document
-      .querySelectorAll(".stop--saint, .stop--maven, .stop--builder, .foundress-card")
-      .forEach(function (card) {
-        holdCard(card, message);
-      });
-    document.querySelectorAll("[data-lum-claim-block]").forEach(holdContext);
-    var modal = document.getElementById("mavenModal");
-    if (modal) {
-      modal.hidden = true;
-      modal.setAttribute("aria-hidden", "true");
-    }
   }
 
   function strictDate(value) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))) return false;
-    var parts = value.split("-").map(Number);
-    var date = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
-    return (
-      date.getUTCFullYear() === parts[0] &&
-      date.getUTCMonth() === parts[1] - 1 &&
-      date.getUTCDate() === parts[2]
-    );
+    const date = new Date(value + "T00:00:00Z");
+    return !Number.isNaN(date.valueOf()) && date.toISOString().slice(0, 10) === value;
   }
 
-  function validAdmissionShape(record, today) {
-    var evidence = record.evidence || {};
-    return (
-      record.product === "luminairy" &&
-      Boolean(record.personId) &&
-      ["saints", "mavens", "trailblazers"].includes(record.wing) &&
-      Boolean(record.claimKind) &&
-      record.status === "admitted" &&
-      Boolean(normalizeText(record.scope)) &&
-      typeof record.contentSelector === "string" &&
-      Boolean(record.contentSelector) &&
-      Boolean(normalizeText(record.claimText)) &&
-      /^[a-f0-9]{64}$/.test(record.claimTextSha256 || "") &&
-      strictDate(record.verifiedOn) &&
-      record.verifiedOn <= today &&
-      strictDate(record.recheckOn) &&
-      record.recheckOn >= today &&
-      /^https:\/\//.test(evidence.sourceUrl || "") &&
-      ["official", "primary", "institutional", "peer-reviewed"].includes(
-        evidence.sourceType
-      ) &&
-      Boolean(normalizeText(evidence.sourceTitle)) &&
-      Boolean(normalizeText(evidence.sourcePublisher)) &&
-      Boolean(normalizeText(evidence.evidenceExcerpt)) &&
-      /^[a-f0-9]{64}$/.test(evidence.evidenceExcerptSha256 || "") &&
-      evidence.supportsClaimId === record.claimId &&
-      evidence.supportsClaimTextSha256 === record.claimTextSha256 &&
-      /^[a-f0-9]{64}$/.test(record.admissionBindingSha256 || "")
-    );
-  }
-
-  function validRegistry(data) {
-    if (!data || data.schemaVersion !== 3 || data.admissionPolicy !== "fail-closed") {
-      return false;
-    }
-    if (
-      data.product !== "luminairy" ||
-      data.claimBinding !==
-        "exact-identity-context-selector-text-source-evidence-envelope-plus-offline-signed-receipt" ||
-      data.receiptManifest !== receiptManifestUrl ||
-      !strictDate(data.generatedOn) ||
-      !Array.isArray(data.records)
-    ) {
-      return false;
-    }
-    var today = new Date().toISOString().slice(0, 10);
-    if (data.generatedOn > today) return false;
-    var ids = new Set();
-    var people = new Set();
-    return data.records.every(function (record) {
-      if (
-        !record.claimId ||
-        ids.has(record.claimId) ||
-        !record.selector ||
-        !record.wing ||
-        !record.claimKind
-      ) {
-        return false;
-      }
-      ids.add(record.claimId);
-      if (record.personId) {
-        if (people.has(record.personId)) return false;
-        people.add(record.personId);
-      } else if (record.claimKind !== "context-block") {
-        return false;
-      }
-      if (!["admitted", "held", "corrected", "retired"].includes(record.status)) {
-        return false;
-      }
-      return record.status !== "admitted" || validAdmissionShape(record, today);
-    });
-  }
-
-  function base64Bytes(value) {
-    try {
-      return Uint8Array.from(atob(value), function (character) {
-        return character.charCodeAt(0);
+  function profileMap(data) {
+    const map = new Map();
+    ["saints", "mavens", "trailblazers"].forEach((wing) => {
+      if (!Array.isArray(data[wing])) throw new Error("profile wing missing");
+      data[wing].forEach((profile) => {
+        const key = wing + ":" + profile.id;
+        if (!profile.id || map.has(key)) throw new Error("profile identity invalid");
+        map.set(key, { wing, profile });
       });
-    } catch (_) {
-      return null;
-    }
+    });
+    if (data.saints.length !== 13 || data.mavens.length !== 23 || data.trailblazers.length !== 7) throw new Error("profile roster count mismatch");
+    return map;
   }
 
-  function validReceiptShape(receipt, today) {
-    return (
-      receipt &&
-      receipt.schemaVersion === 1 &&
-      Boolean(receipt.receiptId) &&
-      Boolean(trustedKeys[receipt.keyId]) &&
-      receipt.product === "luminairy" &&
-      receipt.status === "admitted" &&
-      Boolean(receipt.claimId) &&
-      Boolean(receipt.personId) &&
-      Boolean(receipt.wing) &&
-      Boolean(receipt.claimKind) &&
-      Boolean(normalizeText(receipt.scope)) &&
-      /^[a-f0-9]{64}$/.test(receipt.claimTextSha256 || "") &&
-      /^[a-f0-9]{64}$/.test(receipt.evidenceExcerptSha256 || "") &&
-      /^[a-f0-9]{64}$/.test(receipt.admissionBindingSha256 || "") &&
-      [
-        "exact-atomic-claim-supported",
-        "exact-atomic-claim-supported-for-test-only"
-      ].includes(receipt.supportDecision) &&
-      Boolean(receipt.reviewerRole) &&
-      strictDate(receipt.reviewedOn) &&
-      receipt.reviewedOn <= today &&
-      Boolean(base64Bytes(receipt.signature))
-    );
+  function bigIntFromBytes(bytes) {
+    return BigInt("0x" + Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join(""));
   }
 
-  function receiptMatchesRecord(receipt, record) {
-    var evidence = record.evidence || {};
-    return (
-      receipt.product === record.product &&
-      receipt.claimId === record.claimId &&
-      receipt.personId === record.personId &&
-      receipt.wing === record.wing &&
-      receipt.claimKind === record.claimKind &&
-      receipt.status === record.status &&
-      normalizeText(receipt.scope) === normalizeText(record.scope) &&
-      receipt.selector === record.selector &&
-      receipt.contentSelector === record.contentSelector &&
-      receipt.claimTextSha256 === record.claimTextSha256 &&
-      receipt.sourceUrl === evidence.sourceUrl &&
-      receipt.sourceType === evidence.sourceType &&
-      normalizeText(receipt.sourceTitle) === normalizeText(evidence.sourceTitle) &&
-      normalizeText(receipt.sourcePublisher) ===
-        normalizeText(evidence.sourcePublisher) &&
-      receipt.evidenceExcerptSha256 === evidence.evidenceExcerptSha256 &&
-      receipt.supportsClaimId === evidence.supportsClaimId &&
-      receipt.supportsClaimTextSha256 === evidence.supportsClaimTextSha256 &&
-      receipt.verifiedOn === record.verifiedOn &&
-      receipt.recheckOn === record.recheckOn &&
-      receipt.correctionOwner === record.correctionOwner &&
-      receipt.admissionBindingSha256 === record.admissionBindingSha256
-    );
+  function decodeBase64Url(value) {
+    return bytesFromBase64(String(value).replace(/-/g, "+").replace(/_/g, "/"));
   }
 
-  function verifyReceiptSignature(receipt) {
-    var signature = base64Bytes(receipt.signature);
-    if (!signature) return Promise.resolve(false);
-    return window.crypto.subtle
-      .importKey(
-        "jwk",
-        trustedKeys[receipt.keyId],
-        { name: "ECDSA", namedCurve: "P-256" },
-        false,
-        ["verify"]
-      )
-      .then(function (key) {
-        return window.crypto.subtle.verify(
-          { name: "ECDSA", hash: "SHA-256" },
-          key,
-          signature,
-          new TextEncoder().encode(receiptPayload(receipt))
-        );
-      });
-  }
-
-  function verifyAuthority(data, manifest) {
-    var today = new Date().toISOString().slice(0, 10);
-    if (
-      !manifest ||
-      manifest.schemaVersion !== 1 ||
-      manifest.product !== "luminairy" ||
-      manifest.authorityModel !== "offline-p256-signed-editorial-receipts" ||
-      !strictDate(manifest.generatedOn) ||
-      manifest.generatedOn > today ||
-      !Array.isArray(manifest.receipts)
-    ) {
-      return Promise.reject(new Error("receipt manifest invalid"));
-    }
-    var records = new Map(
-      data.records.map(function (record) {
-        return [record.claimId, record];
-      })
-    );
-    var receiptIds = new Set();
-    var receiptClaims = new Set();
-    for (var index = 0; index < manifest.receipts.length; index += 1) {
-      var receipt = manifest.receipts[index];
-      var record = records.get(receipt.claimId);
-      if (
-        !validReceiptShape(receipt, today) ||
-        receiptIds.has(receipt.receiptId) ||
-        receiptClaims.has(receipt.claimId) ||
-        !record ||
-        record.status !== "admitted" ||
-        !receiptMatchesRecord(receipt, record)
-      ) {
-        return Promise.reject(new Error("editorial receipt mismatch"));
+  function verifySignatureWithoutWebCrypto(receipt, signature) {
+    if (typeof BigInt === "undefined" || signature.length !== 64) return false;
+    const p = BigInt("0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
+    const n = BigInt("0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551");
+    const a = p - 3n;
+    const G = {
+      x: BigInt("0x6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296"),
+      y: BigInt("0x4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5")
+    };
+    const mod = (value, divisor) => ((value % divisor) + divisor) % divisor;
+    const inverse = (value, divisor) => {
+      let low = mod(value, divisor), high = divisor, x = 1n, y = 0n;
+      while (low > 1n) {
+        const quotient = high / low;
+        [low, high] = [high - quotient * low, low];
+        [x, y] = [y - quotient * x, x];
       }
-      receiptIds.add(receipt.receiptId);
-      receiptClaims.add(receipt.claimId);
-    }
-    var admitted = data.records.filter(function (record) {
-      return record.status === "admitted";
-    });
-    if (
-      admitted.length !== manifest.receipts.length ||
-      admitted.some(function (record) {
-        return !receiptClaims.has(record.claimId);
-      })
-    ) {
-      return Promise.reject(new Error("admission lacks trusted receipt"));
-    }
-    return Promise.all(manifest.receipts.map(verifyReceiptSignature)).then(
-      function (results) {
-        if (results.some(function (valid) { return !valid; })) {
-          throw new Error("editorial receipt signature invalid");
-        }
+      return mod(x, divisor);
+    };
+    const add = (left, right) => {
+      if (!left) return right;
+      if (!right) return left;
+      if (left.x === right.x && mod(left.y + right.y, p) === 0n) return null;
+      const slope = left.x === right.x && left.y === right.y
+        ? mod((3n * left.x * left.x + a) * inverse(2n * left.y, p), p)
+        : mod((right.y - left.y) * inverse(right.x - left.x, p), p);
+      const x = mod(slope * slope - left.x - right.x, p);
+      return { x, y: mod(slope * (left.x - x) - left.y, p) };
+    };
+    const multiply = (scalar, point) => {
+      let result = null;
+      let addend = point;
+      for (let value = scalar; value > 0n; value >>= 1n) {
+        if (value & 1n) result = add(result, addend);
+        addend = add(addend, addend);
       }
-    );
+      return result;
+    };
+    const r = bigIntFromBytes(signature.slice(0, 32));
+    const s = bigIntFromBytes(signature.slice(32));
+    if (r <= 0n || r >= n || s <= 0n || s >= n) return false;
+    const digest = bigIntFromBytes(sha256Bytes(receiptPayload(receipt)));
+    const w = inverse(s, n);
+    const Q = { x: bigIntFromBytes(decodeBase64Url(trustedKey.x)), y: bigIntFromBytes(decodeBase64Url(trustedKey.y)) };
+    const point = add(multiply(mod(digest * w, n), G), multiply(mod(r * w, n), Q));
+    return Boolean(point && mod(point.x, n) === r);
   }
 
-  function cardIdentity(card) {
-    return (
-      card.getAttribute("data-saint-id") ||
-      card.getAttribute("data-maven-slug") ||
-      card.getAttribute("data-foundress-slug") ||
-      card.getAttribute("data-builder-slug") ||
-      ""
-    );
+  async function verifySignature(receipt) {
+    const signature = bytesFromBase64(receipt.signature);
+    if (!signature) return false;
+    if (!window.crypto?.subtle || typeof TextEncoder === "undefined") return verifySignatureWithoutWebCrypto(receipt, signature);
+    const key = await window.crypto.subtle.importKey("jwk", trustedKey, { name: "ECDSA", namedCurve: "P-256" }, false, ["verify"]);
+    return window.crypto.subtle.verify({ name: "ECDSA", hash: "SHA-256" }, key, signature, new TextEncoder().encode(receiptPayload(receipt)));
   }
 
-  function cardWing(card) {
-    if (card.classList.contains("stop--saint")) return "saints";
-    if (
-      card.classList.contains("stop--maven") ||
-      card.classList.contains("foundress-card")
-    ) {
-      return "mavens";
+  async function admit(data) {
+    const [claimsResponse, receiptsResponse] = await Promise.all([
+      fetch(claimsUrl, { credentials: "same-origin", cache: "no-store" }),
+      fetch(receiptsUrl, { credentials: "same-origin", cache: "no-store" })
+    ]);
+    if (!claimsResponse.ok || !receiptsResponse.ok) throw new Error("editorial admission files unavailable");
+    const [claims, receipts] = await Promise.all([claimsResponse.json(), receiptsResponse.json()]);
+    const profiles = profileMap(data);
+    const today = new Date().toISOString().slice(0, 10);
+    if (claims.schemaVersion !== 4 || claims.product !== "luminairy" || claims.admissionPolicy !== "fail-closed" || claims.receiptManifest !== receiptsUrl || !Array.isArray(claims.records)) throw new Error("claim manifest invalid");
+    if (receipts.schemaVersion !== 2 || receipts.product !== "luminairy" || receipts.authorityModel !== "offline-p256-signed-profile-receipts" || !Array.isArray(receipts.receipts)) throw new Error("receipt manifest invalid");
+    if (claims.records.length !== profiles.size || receipts.receipts.length !== profiles.size) throw new Error("admission coverage mismatch");
+
+    const records = new Map();
+    for (const record of claims.records) {
+      const key = record.wing + ":" + record.profileId;
+      const entry = profiles.get(key);
+      if (!entry || records.has(record.claimId) || record.claimId !== key.replace(":", "-") || record.status !== "admitted") throw new Error("claim identity mismatch");
+      if (!strictDate(record.verifiedOn) || !strictDate(record.recheckOn) || record.verifiedOn > today || record.recheckOn < today) throw new Error("claim date invalid");
+      if (await sha256(profilePayload(entry.wing, entry.profile)) !== record.profileSha256) throw new Error("profile bytes do not match admission");
+      records.set(record.claimId, record);
     }
-    if (card.classList.contains("stop--builder")) return "trailblazers";
-    return "";
-  }
 
-  function verifyAdmission(record) {
-    var cards = document.querySelectorAll(record.selector);
-    if (cards.length !== 1) return Promise.reject(new Error("claim selector mismatch"));
-    var card = cards[0];
-    if (
-      cardIdentity(card) !== record.personId ||
-      cardWing(card) !== record.wing
-    ) {
-      return Promise.reject(new Error("claim identity/context mismatch"));
+    const seen = new Set();
+    for (const receipt of receipts.receipts) {
+      const record = records.get(receipt.claimId);
+      if (!record || seen.has(receipt.claimId) || receipt.keyId !== trustedKeyId || receipt.product !== "luminairy" || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.wing !== record.wing || receipt.profileId !== record.profileId || receipt.verifiedOn !== record.verifiedOn || receipt.recheckOn !== record.recheckOn || receipt.supportDecision !== "exact-profile-reviewed-and-supported" || !normalize(receipt.reviewerRole) || !strictDate(receipt.reviewedOn) || receipt.reviewedOn > today || !(await verifySignature(receipt))) throw new Error("trusted editorial receipt invalid");
+      seen.add(receipt.claimId);
     }
-    var nodes;
-    try {
-      nodes = card.querySelectorAll(record.contentSelector);
-    } catch (_) {
-      return Promise.reject(new Error("content selector invalid"));
-    }
-    if (nodes.length !== 1) return Promise.reject(new Error("atomic content mismatch"));
-    var renderedText = normalizeText(nodes[0].textContent);
-    if (renderedText !== normalizeText(record.claimText)) {
-      return Promise.reject(new Error("claim text mismatch"));
-    }
-    return Promise.all([
-      sha256(renderedText),
-      sha256(normalizeText(record.evidence.evidenceExcerpt)),
-      sha256(admissionPayload(record))
-    ]).then(function (hashes) {
-      if (
-        hashes[0] !== record.claimTextSha256 ||
-        hashes[1] !== record.evidence.evidenceExcerptSha256 ||
-        hashes[2] !== record.admissionBindingSha256
-      ) {
-        throw new Error("claim/evidence binding mismatch");
-      }
-      return { card: card, content: nodes[0] };
-    });
+    if (seen.size !== profiles.size) throw new Error("trusted admission incomplete");
+    document.documentElement.dataset.luminairyClaims = "admitted";
+    return data;
   }
 
-  function admitCard(record, verified) {
-    var card = verified.card;
-    card.setAttribute("data-editorial-status", "admitted");
-    card.setAttribute("data-admitted-claim-id", record.claimId);
-    card.querySelectorAll(claimNodes).forEach(function (node) {
-      node.hidden = node !== verified.content;
-    });
-    var foundressLock = card.querySelector(".foundress-lock");
-    if (foundressLock) foundressLock.hidden = true;
-    var hold = card.querySelector(".lum-claim-hold");
-    if (hold) hold.hidden = true;
-    var opener = card.querySelector(".maven-meet");
-    if (!opener && card.classList.contains("foundress-card")) {
-      opener = document.createElement("button");
-      opener.type = "button";
-      opener.className = "maven-meet foundress-meet";
-      opener.dataset.lumProfileOpen = record.personId || "";
-      card.appendChild(opener);
-    }
-    if (opener) {
-      opener.disabled = false;
-      opener.removeAttribute("aria-describedby");
-      opener.textContent = "Open researched profile";
-    }
-    window.LAIDIES_LUMINAIRY_ADMISSIONS[record.personId] = record;
-  }
-
-  function applyRegistry(data) {
-    var covered = new Set();
-    var admittedRecords = data.records.filter(function (record) {
-      return record.status === "admitted";
-    });
-    return Promise.all(admittedRecords.map(verifyAdmission)).then(function (verified) {
-      var admissions = new Map();
-      admittedRecords.forEach(function (record, index) {
-        admissions.set(record.claimId, verified[index]);
-      });
-      data.records.forEach(function (record) {
-        document.querySelectorAll(record.selector).forEach(function (card) {
-          covered.add(card);
-          if (record.status === "admitted") {
-            admitCard(record, admissions.get(record.claimId));
-          } else if (record.claimKind === "context-block") {
-            holdContext(card);
-          } else {
-            holdCard(card, heldMessage);
-          }
-        });
-      });
-      document
-        .querySelectorAll(".stop--saint, .stop--maven, .stop--builder, .foundress-card")
-        .forEach(function (card) {
-          if (!covered.has(card)) {
-            holdCard(card, "Editorial record missing. This content is held.");
-          }
-        });
-      document.querySelectorAll("[data-lum-claim-block]").forEach(function (block) {
-        if (!covered.has(block)) holdContext(block);
-      });
-      document.documentElement.setAttribute("data-luminairy-claims", "loaded");
-      window.dispatchEvent(new CustomEvent("luminairy:claims-ready"));
-    });
-  }
-
-  function fetchJson(url) {
-    return fetch(url, { credentials: "same-origin", cache: "no-store" }).then(
-      function (response) {
-        if (!response.ok) throw new Error("editorial data unavailable");
-        return response.json();
-      }
-    );
-  }
-
-  function init() {
-    prepareSaintIds();
-    failClosed("Research authority is loading. Profile claims remain held.");
-    Promise.all([fetchJson(registryUrl), fetchJson(receiptManifestUrl)])
-      .then(function (results) {
-        var data = results[0];
-        var manifest = results[1];
-        if (!validRegistry(data)) throw new Error("registry invalid");
-        return verifyAuthority(data, manifest).then(function () {
-          return applyRegistry(data);
-        });
-      })
-      .catch(function () {
-        failClosed(
-          "Research authority could not be verified. Profile claims remain held."
-        );
-        document.documentElement.setAttribute("data-luminairy-claims", "failed");
-      });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  window.LAIDIES_LUMINAIRY_CLAIM_GATE = { admit };
 })();
