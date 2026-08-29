@@ -166,6 +166,12 @@ try {
   assert.ok(await commute.page.locator("#tape").evaluate((audio) => Math.abs(audio.currentTime - 40) < 0.5));
   await commute.context.close();
 
+  const inProgress = await open("01", { mode: "watch" });
+  await inProgress.page.locator(".film-player").waitFor();
+  assert.match(await inProgress.page.locator("#screeningMeta").textContent(), /improvements ongoing/i);
+  assert.match(await inProgress.page.locator("#scrNote").textContent(), /current illustrated video/i);
+  await inProgress.context.close();
+
   const admissionFixture = JSON.parse(
     fs.readFileSync(path.join(root, "content/episodes/screening-room-admission.json"), "utf8")
   );

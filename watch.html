@@ -787,8 +787,14 @@
         theatre.classList.add('is-film');
         playerMode = 'watch';
         configureMediaSession(video, ep);
-        screeningMeta.textContent = 'Complete illustrated film · captions available';
-        scrNote.textContent = 'Watch the complete illustrated film, or choose Listen only for background and lock-screen playback.';
+        var inProgress = admission.admissionStatus !== 'admitted'
+          && admission.publicPlaybackStatus === 'available-in-progress';
+        screeningMeta.textContent = inProgress
+          ? 'Current illustrated video · improvements ongoing · captions available'
+          : 'Complete illustrated film · captions available';
+        scrNote.textContent = inProgress
+          ? 'Watch the current illustrated video while we continue improving its animation and visual continuity, or choose Listen only.'
+          : 'Watch the complete illustrated film, or choose Listen only for background and lock-screen playback.';
         setPressed('watch');
         if (continuePlaying) video.play().catch(function () {});
       }
