@@ -1,28 +1,170 @@
+# Preface — Why This Book Matters
+
+Alright, LAiDIES: listen—or should we say, read?—up. This book is important.
+
+We created *AI Fundamentals 101* because there should be one place that explains the fundamental concepts of AI, how they connect and what has to happen before you can type something into an AI application and receive an answer.
+
+That means the models and software, but also the chips, computing power, data centres, energy, infrastructure, people and decisions behind them. It means explaining the buzzwords that appear in headlines—tokens, training data, frontier models, compute, agents, guardrails and sandboxes—and, more importantly, what they mean when you use an AI tool and why you should care.
+
+But this is not a standard textbook or a collection of definitions you could simply look up online.
+
+No, no. LAiDIES would never do that to you.
+
+This is not a “florals for spring” situation. We can—and we will—do better.
+
+So why is it important for you, a woman of distinction—or a friend to womankind; everyone is welcome here—to understand this without first acquiring a PhD in computer science?
+
+We’re so glad you asked.
+
+## 1. From “ARGH, WTF?” to “Ah. That’s why.”
+
+AI is already changing how people work, create, find information and make decisions. It is also unusually accessible: you can open an application, type a request and ask it to help you produce almost anything from a meeting summary to a website.
+
+But accessible does not mean self-explanatory.
+
+Think about electricity. You do not need to understand the electrical grid before you turn on a lamp. You flick a switch and—bam—light. For most people, most of the time, electricity is effectively plug and play.
+
+Generative AI is different. The person using it helps shape what happens next. What you ask, what context you provide, what the system can see, which tools it can use and how you evaluate its answer can all change the result.
+
+Without some understanding of how the system works, it is easy to receive something completely different from what you intended, become frustrated and conclude: “I don’t understand the hype. This thing sucks.”
+
+We do not want you walking away from a useful technology because nobody explained what was happening.
+
+This book will help you recognise why an AI tool has gone off track—and what you can do about it. The goal is to move from:
+
+**“Why can’t this thing follow one basic instruction?”**
+
+to:
+
+**“Oh. I see what happened. I know what to change.”**
+
+In other words: from **“ARGH, WTF?”** to **“Ah. That’s why.”**
+
+## 2. From “OMG, the end is nigh!” to “Ugh, as if.”
+
+AI is not a passing fad. It is also not magic, salvation or Skynet arriving on Tuesday.
+
+The field moves extraordinarily quickly, and everyone wants a piece of the attention surrounding it. Every day brings new announcements, forecasts, warnings, demonstrations and supposed life-changing hacks.
+
+Some are carefully researched. Others belong beside the celebrity psychics at the supermarket checkout.
+
+Not every headline, content creator, company announcement or AI commentator is equally reliable. A benchmark result is not automatically proof that a profession is about to disappear. An impressive demonstration is not necessarily a dependable product. A viral “three prompts that will change your life” video may be describing something useful—or something you already know how to do wearing a new hat.
+
+You cannot cut through that noise by memorising a list of approved opinions. You need enough of the fundamentals to ask:
+
+- What part of the AI system is this actually about?
+- What evidence supports the claim?
+- What does the demonstration leave out?
+- Does this affect the AI tool I use?
+- What would have to be true for this prediction to happen?
+
+LAiDIES will continue investigating important stories in the NewsStand. But eventually, you should be able to look at the latest breathless headline and decide for yourself whether it deserves your attention—or merely an **“Ugh, as if.”**
+
+## 3. From “Whatever” to “RSVP: Yes. I have notes.”
+
+Once you understand how AI works, you can do more than use it better or identify nonsense. You can participate meaningfully in decisions about what happens next.
+
+AI raises real questions about work, education, public services, copyright, energy, privacy, security, competition and who gets to make consequential choices. It also presents real opportunities. Neither the benefits nor the risks should be waved away.
+
+What guardrails do we need? Who should control powerful models? Who gets access to computing power? When should an automated decision require a human review or a right of appeal? What does a new data centre mean for the community in which it is built? How should work and the economy change if AI becomes capable of doing substantially more?
+
+These debates are already happening—in workplaces, governments, schools, city halls and homes. You deserve the knowledge required to participate in them.
+
+As computer scientist Karen Spärck Jones put it, “[computing is too important to be left to men](https://www.bcs.org/articles-opinion-and-research/computings-too-important-to-be-left-to-men/).”
+
+Ditto for AI.
+
+And it is not only a question of who is allowed into the room. The loudest voices are often the people most willing to make claims they do not understand. That includes your fictional Aunt Linda, who insists the new data centre killed her friend’s cat.
+
+No, Aunt Linda. The cat was 20.
+
+But, in fairness to Aunt Linda, nobody ever explained how a data centre works, what its genuine effects might be or how to distinguish those effects from a coincidence. Once you understand the system, you can move the conversation away from panic or dismissal and towards the actual benefits, costs and choices.
+
+That matters, because refusing to engage does not stop decisions from being made. It only means they will be made without you.
+
+## What we want this book to change
+
+By the end of *AI Fundamentals 101*, you should be better able to:
+
+- get useful results from the AI tools you choose to use;
+- understand what AI headlines and product claims are actually describing;
+- recognise where a problem, risk or limitation sits within the larger system;
+- ask better questions before accepting somebody else’s prediction; and
+- help shape how AI is used in your workplace, community and society.
+
+This is a living book. The underlying concepts are relatively stable; the products, companies, examples and capabilities around them change quickly. Those details will remain under review and will be updated as the field changes.
+
+You do not need to become an AI engineer.
+
+You need enough of the map that nobody can wave a glossy demonstration, a terrifying headline or a billion-dollar forecast at you and call the argument finished.
+
+Here is what that looks like in practice, and it is worth saying at the start rather than the end. This book is not going to tell you whether AGI is coming, or whether AI will take your job, or whether the whole thing is a bubble. Nobody can honestly tell you that. What it will do is give you the questions. So that when somebody says *"AGI by 2027"* — or *"AI uses ten times the energy of a search"*, or *"the courts have decided this"* — you can ask the two that matter:
+
+**Whose definition? Based on what evidence?**
+
+Most confident claims about AI do not survive those two questions. That is not cynicism. It is the difference between following the conversation and being pushed around by it.
+
+So, let’s get to it.
+
+## How This Book Works
+
+This book teaches you the entire AI ecosystem — from “what is AI, actually?” to the chips it runs on, the buildings those chips live in, and the people who build all of it. By the end, you'll be able to read an AI headline, locate the part of the system it is describing, evaluate the claim and ask a better next question.
+
+**Who this book is for:** You're smart and curious. You don't have a computer science background. You're tired of feeling like everyone else understands this and you missed the memo. (They don't. You didn't.)
+
+**What you won't need:** A maths degree. Programming experience. Prior knowledge of any of this.
+
+**What you will need:** Willingness to follow the thread. Each chapter exists because the previous one made you ask a question. If you read them in order, each answer builds on the last. If you need one answer now, the chapter-and-section index stays with you while you read.
+
+## Three Principles This Book Follows
+
+**1. Follow one moment deeper.** Each chapter exists because the previous one made you ask a natural question. Chapter 1 explains what AI is → you ask “but how does it learn?” → Chapter 3 (data) and Chapter 5 (training) answer that. The whole book is one continuous thread pulled through.
+
+**2. Always locate you in the picture.** For every concept, you'll know: is this something happening behind the scenes that I'll never touch? Or is this something I interact with directly? Both matter — but for different reasons.
+
+**3. Teach the task, not the category.** Every concept is anchored to something the system is being asked to *do.* Not “here are five types of neural networks” — instead, “the system is trying to tell cats from dogs in photos, and here's what it does.”
+
+## What the Boxes Mean
+
+Throughout the book, you'll see coloured callout boxes. Here's what each one signals:
+
+📌 **Key concept pinned.** The one thing in this section you most need to retain. If you're skimming, read these.
+
+⏸️ **Your natural question.** “Wait, but...” — we anticipated the question you're about to ask and we're answering it right here.
+
+💡 **Insight.** An implication or connection that isn't obvious but matters.
+
+🏆 **Landmark Moment.** A real historical moment that made this concept matter. Three parts: what happened, what concept it demonstrated, and why it mattered.
+
+📰 **Big Picture.** A pointer to a deeper investigative piece on the social, ethical, or economic implications. The textbook teaches how things work; Big Picture pieces explore what that means.
+
+⏳ **Then / Now.** Something that used to be true and isn't any more — what changed, why it changed, and how to spot the out-of-date version when you meet it somewhere else. AI moves fast enough that a lot of confident writing about it is quietly describing 2023. These boxes are practice at noticing.
+
+🔍 **Concept in Practice.** Something you've already noticed in real life — AI streaming word by word, products getting worse after updates, the same model behaving differently in different apps — now explained mechanically with what you've just learned.
+
+## Other Things You'll Find in Every Chapter
+
+- **Learning objectives** after the opening section has established why the chapter matters (what you'll be able to do after reading)
+- **Key terms table** beside those objectives (every new concept, defined in plain English)
+- **“Try This”** exercises (ways to apply what you've learned without needing any technical tools)
+- **“What's Next”** bridge (the question this chapter leaves you with, answered by the next)
+- **System diagram** (a cumulative visual showing how the whole system is building up, chapter by chapter)
+- **Quick reference glossary** at the bottom (for flipping back to later)
+
+## A Note on Time
+
+AI moves fast. This book is regularly updated — model names, benchmark scores, costs, and company details are checked and refreshed as things change. The concepts themselves (how training works, what tokens are, why GPUs matter, how agents loop) are stable fundamentals that won't shift underneath you. But the specifics? Those stay under review.
+
+## Ready?
+
+Chapter 1 starts with a spam filter. Trust the process.
+
+---
+
 # Chapter 1: What "AI" Actually Means (and What It Doesn't)
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain the difference between ordinary software and AI in one sentence
-> - Identify which parts of products you already use are AI and which aren't
-> - Spot when "powered by AI" is real and when it's marketing
-> - Use a single question to cut through any AI claim you encounter
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Algorithm** | A set of instructions a machine follows — like a recipe |
-| **Automation** | Software that follows rules a human wrote in advance |
-| **Artificial Intelligence (AI)** | A system that figured out its own rules by learning from examples |
-| **Training data** | The pile of examples a system learns from |
-| **Labelling** | Humans marking examples as "this" or "not this" so the machine can learn the difference |
-
-*(You'll see these bolded the first time they appear in the text.)*
-
----
 
 ## 1.1 — The Spam Filter That Gave Away the Secret
 
@@ -143,15 +285,12 @@ In real life, you don't encounter "AI" and "not AI" as separate things. You enco
 
 ---
 
-## 1.5 — Chapter Summary
 
-| What you learned | The key idea |
-| --- | --- |
-| The core distinction | Automation = a person wrote the rules. AI = the machine figured out rules from examples. |
-| Not AI | Calculators, thermostats, email filters you set, sort buttons — anything following instructions a human wrote |
-| AI | Face grouping, Discover Weekly, modern spam filters — systems that learned patterns from data |
-| Real products use both | Gmail, Spotify, smart thermostats all have automation AND AI working side by side |
-| The one question | "Did a person write the rules, or did the machine figure them out from examples?" |
+## The System So Far
+
+![The AI system as understood by the end of chapter 1 — this chapter's addition highlighted](systemmap/system-after-ch01.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -183,46 +322,30 @@ In real life, you don't encounter "AI" and "not AI" as separate things. You enco
 
 ---
 
-## 1.7 — What's Next
-
-You now know the seam between ordinary software and AI. In the next chapter, we'll meet the *family* — because "AI" isn't one thing. It's a set of nested layers, each built on the one before, and the products you use sit at different levels. Understanding which level does what is how you'll start making sense of the headlines.
+That swap — a person writing the rules, versus a person supplying the examples — is the seam between the software you've used your whole life and the stuff now getting called AI. Which leaves the obvious question. If the machine works out its own rules, *how?* And is the thing sorting your junk mail really doing the same job as the thing that writes your emails?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Algorithm** — A set of step-by-step instructions a machine follows. **Automation** — Software that does exactly what a human told it to do. The human writes the rules. **Artificial Intelligence (AI)** — A system that worked out its own rules by learning from examples (training data). The human supplies the examples, not the rules. **Training data** — The collection of labelled examples a system learns from. **Labelling** — Humans marking examples ("this is spam / this isn't," "same face / different face") so the machine can learn the difference.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Algorithm** | A set of step-by-step instructions a machine follows. |
+| **Automation** | Software that does exactly what a human told it to do. The human writes the rules. |
+| **Artificial Intelligence (AI)** | A system that worked out its own rules by learning from examples (training data). The human supplies the examples, not the rules. |
+| **Training data** | The collection of labelled examples a system learns from. |
+| **Labelling** | Humans marking examples ("this is spam / this isn't," "same face / different face") so the machine can learn the difference. |
 
 
 ---
-
-<!-- END OF FILE: chapter-1-draft-full.md -->
 
 
 # Chapter 2: The AI Family (and Why 2022 Felt Like an Explosion)
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain the difference between machine learning, deep learning, and generative AI
-> - Identify which layer a product is working at (and why it matters)
-> - Understand why AI seemed to "arrive" in 2022 when it had actually been working for years
-> - Describe what agentic AI is and how it differs from AI that just answers questions
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Machine learning** | The broad category: a system that learned patterns from data (everything from Chapter 1) |
-| **Deep learning** | Machine learning that can handle complex, messy things — images, speech, language — not just neat rows of numbers |
-| **Neural network** | The internal structure that makes deep learning work — named after the brain, but it's just maths. We'll look inside one in Chapter 5 |
-| **Generative AI** | AI that creates new things (text, images, code, audio) rather than just sorting or recognising |
-| **Agentic AI** | AI that doesn't just generate — it acts. It can use tools, remember things, plan steps, and work toward a goal |
-| **Transformer** | The breakthrough design (2017) that made modern generative AI possible — better at understanding language |
-
----
 
 ## 2.1 — Everything in Chapter 1 Has a Name
 
@@ -364,15 +487,15 @@ Almost every AI system you've heard of since — ChatGPT, Claude, Gemini — is 
 
 > 🏆 **Landmark Moment: AlphaGo's Move 37 (March 2016)** In between the transformer breakthrough and ChatGPT's launch, one event proved what deep learning could really do. Google DeepMind built a system called AlphaGo to play Go — an ancient board game with more possible positions than there are atoms in the universe. Human experts said AI wouldn't beat a top player for another decade. AlphaGo beat Lee Sedol, one of the greatest Go players alive, 4 games to 1 in a televised match in Seoul. But the moment everyone remembers is Move 37 in Game 2: AlphaGo placed a stone in a position no human player would consider. Commentators thought it was a mistake. Lee Sedol left the room for fifteen minutes. AlphaGo won the game. The system had found a winning strategy that 3,000 years of human players had never discovered — DeepMind calculated the probability of a human making that move at roughly 1 in 10,000. This wasn't just a machine matching human ability. It was a machine finding something humans had missed entirely.
 
-**November 2022: ChatGPT.** OpenAI (a company in San Francisco) released ChatGPT to the public. You could type a question and get a full, coherent, often impressively good written response. Within two months, over 100 million people were using it — the fastest-growing product launch in history at that point.
+**November 2022: ChatGPT.** OpenAI (a company in San Francisco) released ChatGPT to the public. You could type a question and get a full, coherent, often impressively good written response. Within two months, by one widely-cited UBS estimate, over 100 million people were using it — the fastest-growing product launch in history at that point. (OpenAI never published a figure, and the estimate drew scepticism even then. It stuck anyway, which is its own small lesson about how AI numbers travel.)
 
 And suddenly AI was everywhere. Every company rushing to add it. Every headline about it. Every person you know asking "have you tried ChatGPT?"
 
-**But that timeline makes something clear:** it didn't come from nowhere. The data had been building for twenty years. The computing power had
+**But that timeline makes something clear:** it didn't come from nowhere. The data had been building for twenty years. The computing power had been quietly compounding in the background, paid for by gamers who wanted better graphics. The architecture had been sitting in a 2017 research paper that almost nobody outside the field had read. November 2022 was not an invention. It was the moment three slow things finished arriving at once — and somebody put a chat box on the front of it.
 
 The AI was already there — in your spam filter, in your photo albums, in your playlists. What changed was: it became visible. It started *talking back.*
 
-> 📰 **The wider question:** "The Winters — Why AI 'Failed' Twice Before Getting It Right." The broken promises, the funding cuts, and the people who kept working through the quiet decades anyway.
+> 📰 ***The Big Picture**** investigates: "The Winters — Why AI 'Failed' Twice Before Getting It Right." The broken promises, the funding cuts, and the people who kept working through the quiet decades anyway.* → *Big Picture article coming soon.*
 
 ---
 
@@ -434,45 +557,12 @@ This is the newest and fastest-moving layer of AI. We'll spend a full chapter on
 
 ---
 
-## 2.5 — Variations Within the Family: Size, Openness, and Thinking
 
-You now have the four-layer framework. But within generative AI specifically, there are variations you'll keep seeing in the news — and they represent genuinely different trade-offs that affect what you can do with them. Think of this section as a quick field guide you can come back to. You've probably noticed that AI news throws around terms like "open-source model," "foundation model," "small language model," "reasoning model" — as if you're already supposed to know what these mean. Here's what they actually are:
+## The System So Far
 
-**Foundation models** — what makes something "foundational"?
+![The AI system as understood by the end of chapter 2 — this chapter's addition highlighted](systemmap/system-after-ch02.svg)
 
-When OpenAI built GPT-4, they didn't build it for one task. They trained it broadly — on massive, diverse data — so it could be *adapted* to many different tasks afterward. GPT-4, Claude, Gemini, Llama — these are all foundation models. The word "foundation" means: this is the base that many products and applications are built on top of. The same foundation model might power a customer support bot, a coding assistant, and a creative writing tool — each adapted through different system prompts, fine-tuning, or RAG (all of which you'll learn in Chapter 9).
-
-**Small language models** — why smaller is sometimes better
-
-Not every task needs a trillion-parameter model. A model with 3–7 billion parameters can be fast enough to run on a phone, cheap enough to call millions of times per day, and good enough for focused tasks (summarisation, classification, simple Q&A). These are **small language models** — often distilled from larger ones (Chapter 9). The trade-off is straightforward: less capable at complex reasoning, but faster, cheaper, and deployable on devices without an internet connection.
-
-**Open-weight vs closed models** — what you actually get
-
-When Meta releases Llama as "open-weight," it means: you can download the trained weights (the file of numbers from Chapter 5), run the model on your own hardware, fine-tune it for your purposes, and inspect what's inside. You don't get the training data, the training code, or the RLHF preference data — but you get the finished model.
-
-When OpenAI offers GPT-4 as a "closed" model, you can only access it through their API. You send input, you get output. You can't see the weights, can't run it locally, can't modify it, can't inspect its internals. You rent access; you don't own the thing.
-
-Why this matters: open-weight models give you control (you can run them privately, modify them, deploy them anywhere) but require technical expertise and hardware. Closed models are easier to use (just call the API) but you depend entirely on the provider — their pricing, their policies, their availability, their decisions about what the model will and won't do.
-
-**Reasoning/thinking models** — what "thinking out loud" does
-
-In 2024–2025, a new variation emerged: models that *think before responding.* OpenAI's o1, Claude's "extended thinking," and similar systems pause before answering, working through the problem step by step in a hidden reasoning trace. You wait longer — maybe 10–30 seconds instead of 2 — but the answer to complex problems (maths, logic, multi-step planning, coding) is substantially better.
-
-What's happening mechanically: the model generates a chain of reasoning tokens *before* producing its final answer. Those reasoning tokens aren't shown to you (or are shown collapsed), but they function like scratch paper — the model works through the problem, catches its own errors, considers alternatives, and then produces a more considered response. It's doing extra internal work before answering (which takes longer and costs more) in exchange for better accuracy on hard problems.
-
-The trade-off: slower and more expensive per request, but dramatically better on tasks that require genuine multi-step reasoning. For simple tasks ("what's the weather?"), thinking models are overkill. For complex tasks ("find the bug in this 500-line function"), the extra thinking time pays off.
-
----
-
-## 2.6 — Chapter Summary
-
-| What you learned | The key idea |
-| --- | --- |
-| Machine learning | The official name for "learned from data" — it's been around since the 1950s |
-| The layers | Simple ML (structured data) → deep learning (complex inputs) → generative AI (creates new things) → agentic AI (takes actions) |
-| The timeline | AI has been building for 60+ years. Data + computing power + the transformer (2017) converged. ChatGPT (2022) made it visible. |
-| Why it felt sudden | The AI was already working quietly for years. What changed was it became something you could *see and interact with directly.* |
-| Agentic AI | AI that acts, not just answers — tools + memory + a planning loop |
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -513,55 +603,32 @@ If you can do both without looking back — you've got this chapter.
 
 ---
 
-## 2.8 — What's Next
-
-You now know the family — machine learning, deep learning, generative AI, agentic AI — and you know that all of them learned from data.
-
-But what data? Where does it come from? Who collects it, who prepares it, and who does the unglamorous work of labelling millions of examples so machines can learn from them? Because the single most important rule in all of AI turns out to be uncomfortably simple: what comes out is only as good as what went in.
-
-That's Chapter 3.
+Every layer of that family learned the same way: from data. Which raises the question almost nobody asks until they've seen the family tree laid out. What data, exactly? Somebody had to go and collect it. And somebody had to sit down and mark up millions of examples by hand so the machine had something to learn from. Who?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Machine Learning (ML)** — Any system that learns patterns from data instead of following human-written rules. The dominant approach to AI since the 2000s. Coined 1959. **Deep Learning** — Machine learning that can handle complex, unstructured inputs (images, audio, language) using neural networks with many layers. **Neural Network** — The internal structure that powers deep learning. We'll look inside one in Chapter 5. **Generative AI** — AI that creates new content (text, images, code, audio) rather than just classifying or recognising existing content. The layer that became visible in 2022. **Agentic AI** — AI that acts toward goals using tools, memory, and a planning loop. Doesn't just answer — does things. **Transformer** — The neural network design (published 2017, Google) that made modern generative AI possible. Better at understanding relationships between words in language. **GPU** — A type of computer chip (originally for video games) that turned out to be ideal for training AI — because it can do thousands of calculations at the same time.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Machine Learning (ML)** | Any system that learns patterns from data instead of following human-written rules. The dominant approach to AI since the 2000s. Coined 1959. |
+| **Deep Learning** | Machine learning that can handle complex, unstructured inputs (images, audio, language) using neural networks with many layers. |
+| **Neural Network** | The internal structure that powers deep learning. We'll look inside one in Chapter 5. |
+| **Generative AI** | AI that creates new content (text, images, code, audio) rather than just classifying or recognising existing content. The layer that became visible in 2022. |
+| **Agentic AI** | AI that acts toward goals using tools, memory, and a planning loop. Doesn't just answer — does things. |
+| **Transformer** | The neural network design (published 2017, Google) that made modern generative AI possible. Better at understanding relationships between words in language. |
+| **GPU** | A type of computer chip (originally for video games) that turned out to be ideal for training AI — because it can do thousands of calculations at the same time. |
 
 
 ---
-
-<!-- END OF FILE: chapter-2-draft.md -->
 
 
 # Chapter 3: Data — Everything Starts Here
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain where AI training data comes from and why it matters
-> - Understand what "labelling" is and who actually does it (real people, real work)
-> - Describe why biased data leads to biased AI — and spot where that bias enters
-> - Explain what "garbage in, garbage out" means in practice
-> - Understand what synthetic data is and why it's both useful and risky
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Training data** | The examples a system learns from — the textbook it studies before it can do the job |
-| **Labelling / annotation** | Humans marking examples with the right answer ("this is spam," "this is a cat," "this response is better than that one") so the system can learn what "correct" looks like |
-| **Supervised learning** | Learning from labelled examples — the system gets both the question and the correct answer |
-| **Unsupervised learning** | Learning from unlabelled data — the system finds patterns on its own without being told the "right" answer |
-| **Bias (in AI)** | When the training data over- or under-represents certain groups, perspectives, or scenarios — causing the system to produce skewed results |
-| **Synthetic data** | Training data generated by AI rather than collected from the real world |
-| **Data flywheel** | When using a product generates more data, which improves the product, which attracts more users, which generates more data... |
-| **Web crawl** | An automated process that visits web pages, follows links, and downloads text — the way most internet training data is collected |
-| **Common Crawl** | A nonprofit that has crawled and archived over 9.5 petabytes of web data since 2008, freely available — the single biggest source of training data for AI |
-| **Model collapse** | When AI trains on AI-generated data across multiple generations, progressively losing diversity and accuracy until the output becomes bland and narrow |
-
----
 
 ## 3.1 — The Textbook Comes Before the Test
 
@@ -622,7 +689,7 @@ Saying "trained on the internet" sounds simple. In practice, collecting training
 
 **Step 1: Crawling.** A program called a **web crawler** (or spider) visits web pages automatically, following links from one page to the next, downloading the text as it goes. It's the same technology Google uses to build its search index — except instead of building search results, you're building a training set.
 
-The single biggest source of crawled data for AI is a nonprofit called **Common Crawl.** Since 2008, they've been running web crawlers continuously, archiving what they find, and making the entire archive freely available. As of now, their archive is over 9.5 petabytes — that's roughly equivalent to 10 billion books' worth of text, or billions of web pages. Every major AI company — OpenAI, Google, Anthropic, Meta, Amazon — has used Common Crawl data for training.
+The single biggest source of crawled data for AI is a nonprofit called **Common Crawl.** Since 2008, they've been running web crawlers continuously, archiving what they find, and making the entire archive freely available. As of 2023 their archive was over 9.5 petabytes and has kept growing since — that's roughly equivalent to 10 billion books' worth of text, or billions of web pages. Every major AI company — OpenAI, Google, Anthropic, Meta, Amazon — has used Common Crawl data for training.
 
 A Mozilla Foundation report called it "training data for the price of a sandwich" — because Common Crawl gives it away free. The cost of actually building a large language model is in the compute, not the data collection.
 
@@ -645,7 +712,7 @@ Common Crawl is the biggest free source, but not the only route. Companies build
 
 > ⏸️ **Wait — they just took the whole internet?** More or less. Common Crawl's position is that they're archiving publicly available web pages, similar to how the Internet Archive (the Wayback Machine) does. AI companies' position is that training on publicly available text is transformative use, similar to how Google indexes the web for search. Not everyone agrees. Authors, artists, news organisations, and content creators have filed lawsuits arguing that using their work as training data without permission or payment is copyright infringement. These cases are still working through courts as of 2026. The outcome will shape who gets to build AI and from what.
 
-> 📰 **The wider question:** "They Trained It on Everything — Who Gave Permission?" The copyright wars, the lawsuits, and the question of whether your words on the internet belong to you or to the next AI model.
+> 📰 ***The Big Picture**** investigates: "They Trained It on Everything — Who Gave Permission?" The copyright wars, the lawsuits, and the question of whether your words on the internet belong to you or to the next AI model.* → *Big Picture article coming soon.*
 
 ---
 
@@ -671,7 +738,7 @@ It's a global industry. Companies like Scale AI, Surge AI, and others employ ten
 
 This work is often invisible. When people say "AI learned to do X," the hidden story is almost always: "thousands of people spent months marking examples so the system could learn." The human labour is baked into every AI system you use.
 
-> 📰 **The wider question:** "The Invisible Workforce — Who Labels the Internet?" The people behind the data, the gig economy of AI annotation, and what happens when the humans training AI are underpaid, unseen, and shaping how machines understand the world.
+> 📰 ***The Big Picture**** investigates: "The Invisible Workforce — Who Labels the Internet?" The people behind the data, the gig economy of AI annotation, and what happens when the humans training AI are underpaid, unseen, and shaping how machines understand the world.* → *Big Picture article coming soon.*
 
 ---
 
@@ -703,6 +770,11 @@ In practice, most modern AI systems use a combination — a phase of unsupervise
 
 ---
 
+
+
+![Two ways to learn from a pile of data](diagrams/supervised-unsupervised.svg)
+
+*Two ways to learn from a pile of data. The difference that matters for you is the last line: unsupervised learning hands back a pattern, and a human still has to decide what it means.*
 ## 3.5 — Garbage In, Garbage Out (And the Subtle Version)
 
 You've probably heard the phrase "garbage in, garbage out." In AI, it means: if the training data is bad, the system will be bad. But "bad" is more nuanced than it sounds.
@@ -719,6 +791,16 @@ Imagine you're building a hiring tool. You want it to look at job applications a
 
 Here's the problem: if your company, for whatever reason, historically hired mostly men for engineering roles, then the training data shows a pattern: successful candidates tend to be men. The system learns that pattern. It's not "being sexist" — it has no concept of gender or fairness. It just found the pattern in the data: historically, the people who got hired and stayed had certain characteristics, and gender was correlated with those outcomes.
 
+> ⏳ **Then / Now: the Amazon hiring tool**
+>
+> **Then:** This became *the* example of AI discriminating against women, and it is still cited that way constantly — in articles, in talks, in policy documents.
+>
+> **Now:** The story is true and the lesson below is real, but the tool was built in 2014, shut down by early 2017, and Reuters — who broke it — reported that recruiters "never relied solely on those rankings." It shares no technology with anything running today, and no woman is known to have lost a job to it.
+>
+> **What changed:** Nothing about the tool. What changed is that it kept being cited for eight years as though it described current systems, while the actual evidence moved on. Recent studies of AI resume screening disagree with each other, and the two largest find models mildly favouring women — while the finding that shows up consistently across all of them is that Black men are disadvantaged.
+>
+> **How to spot the stale version:** When an example is nearly a decade old and still being used as present-tense proof, that usually means it was the last really clean story anyone had. Ask what the evidence looks like *now*, and notice if nobody can tell you.
+
 This actually happened. In 2018, Amazon discovered that an internal hiring tool they'd been developing was systematically downgrading applications from women. It had learned the bias in the historical data. They scrapped the project.
 
 **Where bias enters:**
@@ -733,7 +815,17 @@ When an AI system makes a decision that affects you — whether a loan gets appr
 
 This isn't a solvable-in-one-step problem. It's an ongoing challenge the entire field is working on. But now you know *where* it enters: the data.
 
-> 📰 **The wider question:** "Bias by Default — When AI Learns the Wrong Lesson." From Amazon's hiring tool to facial recognition failures, the real-world consequences when training data carries the past's prejudices into the future's decisions.
+> ⏳ **Then / Now: the Apple Card**
+>
+> **Then (2019):** A viral thread claimed the Apple Card gave a man twenty times the credit limit of his wife with better credit. It went everywhere, and became a standard example of algorithmic sex discrimination.
+>
+> **Now:** New York's financial regulator investigated, ran the numbers across nearly 400,000 applicants, and concluded that women and men with equivalent credit characteristics got similar outcomes. It found no evidence of discrimination.
+>
+> **What changed:** Nothing was hidden or reversed. The regulator simply had the data and the anecdote didn't. The same report *did* criticise the system — for opacity, for relying on credit scoring that reflects historical inequality, and for having no real appeal process. Those criticisms are less quotable and considerably more useful.
+>
+> **How to spot the stale version:** A viral claim travels years further than the investigation that follows it. If you can remember the accusation and not the finding, that is worth noticing — it is almost never because the finding didn't happen.
+
+> 📰 ***The Big Picture**** investigates: "Bias by Default — When AI Learns the Wrong Lesson." From Amazon's hiring tool to facial recognition failures, the real-world consequences when training data carries the past's prejudices into the future's decisions.* → *Big Picture article coming soon.*
 
 ---
 
@@ -776,7 +868,7 @@ The internet is already filling up with AI-generated content. Blog posts, articl
 
 > 📌 **Model Collapse — The Short Version** When AI trains on AI-generated data across multiple generations, it progressively loses diversity and accuracy. Rare patterns disappear first. Eventually, the system becomes a flattened, generic version of itself. Mixing real and synthetic data helps — going fully synthetic doesn't work.
 
-> 📰 **The wider question:** "The Ouroboros Problem — What Happens When AI Eats Its Own Tail?" How the internet is filling with AI-generated content, and what that means for the next generation of AI systems.
+> 📰 ***The Big Picture**** investigates: "The Ouroboros Problem — What Happens When AI Eats Its Own Tail?" How the internet is filling with AI-generated content, and what that means for the next generation of AI systems.* → *Big Picture article coming soon.*
 
 ---
 
@@ -799,20 +891,12 @@ This is why companies like Google, Meta, and Spotify have such a head start in A
 
 ---
 
-## 3.8 — Chapter Summary
 
-| What you learned | The key idea |
-| --- | --- |
-| Training data | The examples a system learns from. It can only learn what's in the data. |
-| Where it comes from | The internet (text), labelled images, user behaviour, code repositories, books. |
-| How companies get it | Web crawling (Common Crawl = 9.5+ petabytes, free), licensing private data, scraping, or using their own users' behaviour. |
-| Labelling | Real humans mark examples with correct answers — massive invisible workforce |
-| Supervised vs unsupervised | Supervised = learns from labelled examples. Unsupervised = finds patterns in unlabelled data. Most systems use both. |
-| Bias | Data reflects the world's existing inequalities. The system learns those patterns without knowing they're unfair. |
-| Garbage in, garbage out | Bad or biased data → bad or biased system. And "bad" is often subtle, not obvious. |
-| Synthetic data | AI-generated data used to train more AI. Useful for privacy, cost, and rare scenarios. |
-| Model collapse | AI training on AI-generated data across generations → progressive loss of diversity. Mixing real data in prevents it. |
-| Data flywheel | More users → more data → better system → more users. Why early leaders are hard to catch. |
+## The System So Far
+
+![The AI system as understood by the end of chapter 3 — this chapter's addition highlighted](systemmap/system-after-ch03.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -838,57 +922,45 @@ There's no single right answer — but if you can think through this, you unders
 
 ---
 
-## 3.10 — What's Next
-
-You now know where AI's knowledge comes from: data. Real-world data, collected and labelled by people, reflecting the world as it is — with all its strengths and flaws.
-
-But how does a system actually *learn* from that data? You've been told "it finds patterns" — but what does that look like inside? How does it go from "here's a pile of examples" to "I can now recognise faces / write emails / predict the future"?
-
-That's Chapter 4: Tokens — how a machine actually *reads* the data before it can learn from it. Before training can even begin, the data has to be translated into a form the machine can process. That process is more important (and more interesting) than it sounds.
+So the knowledge comes from data — gathered by people, labelled by people, carrying the world's shape and every one of its dents. But "the machine finds patterns in it" is a sentence, not an explanation. What is actually going on in there?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Training data** — The examples a system learns from. All AI starts here. **Labelling (annotation)** — Humans marking examples with correct answers so the system can learn what "right" looks like. **Web crawl** — An automated process that visits web pages, follows links, and downloads text at scale. How most internet training data is collected. **Common Crawl** — A nonprofit that has been archiving the web since 2008. Over 9.5 petabytes of freely available data. The single biggest source of training text for AI. **Supervised learning** — Learning from labelled examples (the system gets questions AND answers). **Unsupervised learning** — Learning from unlabelled data (the system finds patterns without being told what to look for). **Bias** — When training data over- or under-represents certain groups or perspectives, causing the system to produce skewed results. Enters through the data, not through the system "deciding" to be unfair. **Garbage in, garbage out** — If the data is bad or biased, the system learns bad or biased patterns. **Synthetic data** — Artificially generated data used for training. Useful for privacy, cost, and rare scenarios. **Model collapse** — When AI trains on AI-generated data across multiple generations, progressively losing diversity and accuracy. The rare and unusual disappear first; the output becomes bland and narrow. Avoidable by mixing in real human-produced data. **Data flywheel** — A self-reinforcing cycle: more users → more data → better product → more users. **RLHF (Reinforcement Learning from Human Feedback)** — A technique where humans judge AI outputs ("this response is better than that one") and that feedback shapes the system's behaviour. Covered fully in Chapter 9.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Training data** | The examples a system learns from. All AI starts here. |
+| **Labelling (annotation)** | Humans marking examples with correct answers so the system can learn what "right" looks like. |
+| **Web crawl** | An automated process that visits web pages, follows links, and downloads text at scale. How most internet training data is collected. |
+| **Common Crawl** | A nonprofit that has been archiving the web since 2008. Over 9.5 petabytes of freely available data. The single biggest source of training text for AI. |
+| **Supervised learning** | Learning from labelled examples (the system gets questions AND answers). |
+| **Unsupervised learning** | Learning from unlabelled data (the system finds patterns without being told what to look for). |
+| **Bias** | When training data over- or under-represents certain groups or perspectives, causing the system to produce skewed results. Enters through the data, not through the system "deciding" to be unfair. |
+| **Garbage in, garbage out** | If the data is bad or biased, the system learns bad or biased patterns. |
+| **Synthetic data** | Artificially generated data used for training. Useful for privacy, cost, and rare scenarios. |
+| **Model collapse** | When AI trains on AI-generated data across multiple generations, progressively losing diversity and accuracy. The rare and unusual disappear first; the output becomes bland and narrow. Avoidable by mixing in real human-produced data. |
+| **Data flywheel** | A self-reinforcing cycle: more users → more data → better product → more users. |
+| **RLHF (Reinforcement Learning from Human Feedback)** | A technique where humans judge AI outputs ("this response is better than that one") and that feedback shapes the system's behaviour. Covered fully in Chapter 9. |
 
 
 ---
-
-<!-- END OF FILE: chapter-3-draft.md -->
 
 
 # Chapter 4: Tokens — How the Machine Reads
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what a token is and why AI doesn't read words the way you do
-> - Understand why everything in AI is measured in tokens (cost, limits, speed)
-> - Describe how text, images, and audio all get chopped into tokens before processing
-> - Explain what a "context window" is and why conversations have a length limit
-> - Understand why token limits matter to you as a user — and how they affect what AI can do
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Token** | A chunk of text the system processes as a single unit — not a word, not a letter, something in between |
-| **Tokenisation** | The process of chopping input (text, images, audio) into tokens before the system can work with it |
-| **Vocabulary** | The set of all tokens a system knows — its dictionary of chunks |
-| **Context window** | The maximum number of tokens a system can "see" at once — its working memory for a single conversation |
-| **Input tokens** | The tokens in what you send (your question, your document, the conversation history) |
-| **Output tokens** | The tokens the system generates in response |
-
----
 
 ## 4.1 — The Problem: Machines Don't Read
 
-Ask an AI "how many r's are in the word strawberry?" and it will confidently tell you two. The answer is three. Try it yourself — this isn't a rare glitch. As of 2026, even frontier models get this wrong more often than they get it right.
+For about two years, if you asked an AI how many r's were in the word "strawberry," it would tell you — pleasantly, immediately, with total confidence — that there were two. The answer is three. It became the internet's favourite way to humiliate a machine that could otherwise pass the bar exam.
 
-Why would a system that can write poetry, explain quantum physics, and pass the bar exam fail at something a six-year-old can do?
+Most current models get it right now. But *how* they got there is the interesting part, and it isn't what you'd expect: they didn't learn to read letters. They learned to work around the fact that they can't. The blindness underneath is still exactly where it was.
+
+So the question the strawberry made famous is still the right question. Why would a system that can write poetry, explain quantum physics, and pass the bar exam struggle with something a six-year-old can do?
 
 The answer is in how the machine reads — or rather, how it *doesn't* read. Because a machine can't read English. It can't read any language. It doesn't see words, and it definitely doesn't see individual letters. What it works with is numbers — sequences of numbers. Every piece of maths inside the system operates on numbers, and your text has to become numbers before anything can happen.
 
@@ -896,7 +968,17 @@ The way text becomes numbers: it gets chopped into **chunks** — not words, not
 
 This sounds like a minor technical detail. It isn't. Tokens are the fundamental unit of *everything* in AI: how the system reads, how it thinks, how fast it responds, how much it costs, and how much it can hold in its head at once. Understanding tokens is understanding the currency the entire system runs on.
 
-And that strawberry question? The model never sees the individual letters. It sees `straw` + `berry` (or similar chunks) — and from those chunks, it has no way to inspect which letters appear inside. That's not a bug in its intelligence. It's a direct consequence of how this chopping works. Let's look at it.
+And that strawberry question? The model never sees the individual letters. It sees something like `str` + `aw` + `berry` — and from those chunks, it has no way to inspect which letters are printed inside. > ⏳ **Then / Now: the strawberry**
+>
+> **Then (2022–2024):** Ask any model how many r's were in "strawberry" and it said two, with total confidence. It became the internet's favourite way to make a machine that could pass the bar exam look foolish.
+>
+> **Now:** Most current models get it right.
+>
+> **What actually changed:** Not tokenisation. The blindness described in this chapter is still exactly where it was — the model still cannot see inside a tile. What changed is that reasoning models learned to work *around* it, spelling the word out one letter at a time before counting. They built a ladder over the wall rather than removing the wall.
+>
+> **How to spot the stale version:** An article written in 2024 will present this as a permanent limit of AI. It was a permanent limit of *tokenisation*, and tokenisation hasn't gone anywhere. When you meet a claim that AI "can't do X," the useful question is whether the underlying constraint has changed, or whether somebody has built something on top of it. The two look identical from outside and age completely differently.
+
+That's not a bug in its intelligence. It's a direct consequence of how this chopping works. Let's look at it.
 
 ---
 
@@ -955,10 +1037,15 @@ The result: common English words are typically one token each. Less common words
 
 > ⏸️ **Why does this matter to you?** Because the system "thinks" in tokens, not words. When it generates a response, it's producing one token at a time — not one word at a time. When it hits a limit, it's a *token* limit, not a word limit. When you're charged for using an AI, you're charged per *token*, not per word. The system's entire economy runs on these chunks.
 
-> 🔍 **Concept in Practice: Why AI can't count the r's in "strawberry"** You may have seen this: ask an AI "how many r's are in strawberry?" and it confidently answers "2." The answer is 3. Why does it get this wrong? Because the model never sees individual letters. It sees *tokens* — and "strawberry" likely gets split into chunks like `str` + `aw` + `berry`. The system processes those chunks as units. It has no way to examine individual characters inside a token, the same way you can't easily count the number of times a specific thread appears in a woven fabric just by looking at the overall pattern. That's tokenisation in action: the model is extraordinarily good at language — grammar, meaning, reasoning, style — because it operates at the chunk level. But tasks that require character-level inspection (counting specific letters, reversing words letter by letter, checking spelling character by character) are structurally hard for it. Not a bug in the intelligence — a direct consequence of how the input gets chopped up before the model ever sees it.
+> 🔍 **Concept in Practice: Why AI can't count the r's in "strawberry"** You may have seen this: ask an AI "how many r's are in strawberry?" and it confidently answers "2." The answer is 3. Why does it get this wrong? Because the model never sees individual letters. It sees *tokens* — and "strawberry" likely gets split into chunks like `str` + `aw` + `berry`. The system processes those chunks as units. Go back to the Scrabble tiles. You are holding a tile with `berry` printed on it, and you are being asked how many r's are on the board. You can see the tile. You cannot see inside it. That's tokenisation in action: the model is extraordinarily good at language — grammar, meaning, reasoning, style — because it operates at the chunk level. But tasks that require character-level inspection (counting specific letters, reversing words letter by letter, checking spelling character by character) are structurally hard for it. Not a bug in the intelligence — a direct consequence of how the input gets chopped up before the model ever sees it.
 
 ---
 
+
+
+![Why it can't count the r's](diagrams/tokens-strawberry.svg)
+
+*Why it can't count the r's. It can see the tiles on the table; it cannot read what is printed inside one.*
 ## 4.4 — Context Windows: The System's Working Memory
 
 Here's where tokens become something you feel directly as a user.
@@ -972,7 +1059,7 @@ Every AI system has a **context window** — the maximum number of tokens it can
 | Older models (2023) | 4,000–8,000 tokens | A few pages of text |
 | GPT-4 (2023) | 128,000 tokens | A short novel (~96,000 words) |
 | Current frontier models (2026) | 1,000,000 tokens | ~750,000 words — roughly 1,500 pages |
-| Gemini 3.1 Pro | 10,000,000 tokens | ~7.5 million words — an entire bookshelf |
+| Largest advertised windows (2026) | up to 10,000,000 tokens | Claimed by some open-weight models. Whether a model can *use* ten million tokens well is a separate question from whether it will accept them — and mostly unproven |
 
 Context windows have grown roughly 1,000x in five years. In 2022, a system could barely hold a long essay in memory. Now, frontier models can hold the equivalent of multiple books at once.
 
@@ -992,19 +1079,31 @@ Now you can understand something that's probably happened to you: you're deep in
 
 What's happening: everything in the conversation — every message you've sent and every response it gave — is being stored as tokens inside the context window. Each new exchange adds more tokens to the pile. Eventually, the pile hits the limit.
 
-When that happens, the system has to make a choice:
+Older systems handled this bluntly: they dropped the oldest messages, or simply refused and told you to start again. Current ones mostly do something quieter and, in a way, more troubling — they **compact**. The earlier part of the conversation gets silently compressed into a summary to make room, and you are not told. Detail goes. The gist survives. Nothing on screen changes.
 
-- **Drop the oldest messages** — the beginning of the conversation falls out of memory. The system literally can't see what you discussed earlier.
-- **Summarise** — compress the earlier conversation into fewer tokens, losing detail but preserving the gist.
-- **Stop** — tell you the conversation is too long and ask you to start a new one.
+So the failure you actually experience is rarely "this conversation is too long." It is the AI confidently referring to something you said forty messages ago, slightly wrong. It isn't getting dumber and it isn't running out of room in the way a full inbox runs out of room. It is working from a summary of you.
 
-This is why long conversations can feel like the system is losing the thread. It isn't getting dumber — it's running out of room.
+There is a second, subtler effect worth knowing, because it has been measured repeatedly: models pay more attention to the *beginning* and *end* of what they can see than to the middle. Researchers call it **lost in the middle**. Something buried in the centre of a long conversation is not gone, but it is quietly weighted less than the same sentence would be at either end.
+
+*Working with AI 101 covers what to do about both — the handover, and where to put the thing you most need it to notice.*
+
+> ⏳ **Then / Now: what happens when the window fills**
+>
+> **Then (through about 2023):** You hit the limit and the system told you. It dropped the oldest messages, or refused outright and asked you to start again. Unpleasant, but honest.
+>
+> **Now:** It compacts, silently. The early conversation is summarised to make room and nothing on your screen changes.
+>
+> **What changed:** Providers found that people preferred a conversation that quietly got worse to one that visibly stopped. That is a product decision, not a technical advance.
+>
+> **How to spot the stale version:** Advice written before this shift tells you to watch for a length warning. There often isn't one. The failure didn't become rarer — it became quieter, which for you is worse. This is a good general pattern to hold on to: when a system's failure gets less visible, that is not the same as the system getting better.
 
 **Practical example:** If you paste a 50-page document into a conversation and then ask questions about it, the document is taking up tokens inside the context window. The larger the document, the fewer tokens are left for the conversation itself. Everything competes for space inside the same window.
 
 ---
 
 ## 4.6 — Tokens and Cost: Why You're Charged by the Chunk
+
+Here is where the Scrabble tiles stop being a teaching device and start being an invoice.
 
 If you've ever looked at AI pricing, you've seen numbers like "$3 per million input tokens" or "$15 per million output tokens." Now you know what that means.
 
@@ -1021,7 +1120,7 @@ Reading your message (input) is one pass — the system processes all your token
 | Model tier | Input cost (per million tokens) | Output cost (per million tokens) |
 | --- | --- | --- |
 | Budget models (Haiku, GPT Mini, Flash) | $0.20 – $1 | $1 – $5 |
-| Mid-range (Sonnet, GPT-4o) | $2 – $5 | $10 – $15 |
+| Mid-range (Sonnet-class) | $2 – $5 | $10 – $15 |
 | Frontier (Opus, GPT-5.6, Fable) | $5 – $10 | $25 – $50 |
 
 For most personal use on a subscription ($20/month), you don't think about tokens directly — the subscription absorbs the cost. But for businesses running AI at scale (thousands of queries per hour), token costs are a major line item. And for developers building AI products, choosing a cheaper model vs a better-but-expensive one is a constant trade-off.
@@ -1068,21 +1167,7 @@ This is why:
 
 Audio tokenisation depends on which system you're using, because there are two fundamentally different approaches:
 
-**Approach 1: Transcribe first (most common)**
-
-The audio hits a separate speech-to-text model (like Whisper) that converts your voice into text. That text then gets tokenised normally — subword chunks, just like anything you type. The language model never "hears" your voice. It reads a transcription.
-
-Token cost: same as text (because by the time the language model sees it, it IS text).
-
-This is how most voice assistants still work — Siri, Google Assistant, Alexa. Your voice → text → model → text → spoken back to you.
-
-**Approach 2: Native audio tokens (newer, what GPT-4o uses)**
-
-The audio itself is chopped into tiny time slices and encoded directly as tokens — without being converted to text first. The language model processes these audio tokens alongside text tokens in the same sequence. It actually "hears" your tone, pace, hesitation, emphasis.
-
-Token cost: 1 token per 100ms of input audio (so 10 seconds of speech ≈ 100 audio tokens). Output audio costs more: 1 token per 50ms. That's more than text but far less than video.
-
-This is why GPT-4o's voice mode felt so different from Siri — the model is processing your actual audio, not a transcription. It can hear you laugh, hear you hesitate, hear your emphasis. And it can generate audio with appropriate tone, not just read text aloud in a flat voice.
+Audio can be handled two ways, and the difference is worth knowing because you can hear it. Either the sound is transcribed to text first and the model reads the transcript — which is how most older voice assistants work — or the audio is chopped directly into tokens and the model listens to it. Chapter 6 covers why the second one sounds so different.
 
 ### The unifying principle
 
@@ -1102,16 +1187,12 @@ Then everything downstream (the learning, the generating, the reasoning) works o
 
 ---
 
-## 4.8 — Chapter Summary
 
-| What you learned | The key idea |
-| --- | --- |
-| Tokens | The fundamental unit of everything in AI — a chunk of text (or a patch of image, or a slice of audio) that the system processes as one piece. |
-| Tokenisation (BPE) | The process of building a vocabulary by merging common character pairs. Common words = one token. Rare words = split into pieces. |
-| Context window | The system's working memory — how many tokens it can "see" at once. Currently up to 1M–10M tokens for frontier models. |
-| Why conversations have limits | The entire conversation history lives inside the context window. When it fills up, old messages get dropped. |
-| Cost = tokens | You're charged per token processed. Output tokens cost more than input because they're generated sequentially. |
-| Images and audio | Same principle — chopped into patches (images) or frames (audio) before processing. Everything becomes a sequence of tokens. |
+## The System So Far
+
+![The AI system as understood by the end of chapter 4 — this chapter's addition highlighted](systemmap/system-after-ch04.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -1125,59 +1206,33 @@ Now think about a long conversation you've had with an AI system (ChatGPT, Claud
 
 ---
 
-## 4.10 — What's Next
-
-You now know how data gets into the system: collected (Chapter 3), then chopped into tokens (this chapter). The system has its atoms — its fundamental units to work with.
-
-But having tokens isn't knowing anything. The system still needs to *learn* from those tokens — to find patterns, to understand that "playing" and "played" are related, that "bank" means different things in different sentences, that the order of words changes the meaning entirely.
-
-That's Chapter 5: Training — how a system goes from "here's a sequence of tokens" to "I understand what these mean and can produce more of them." The maths that turns tokens into knowledge.
+Tokens are the atoms. The system finally has something it can work with. But having atoms is not the same as knowing anything — you can hand someone every tile in the Scrabble box and they still can't spell. So what turns tiles into ability?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Token** — A chunk the system processes as one unit. In English text, roughly ¾ of a word. The system's atom. **Tokenisation** — Chopping input into tokens. Text → subword chunks. Images → patches. Audio → frames. **Byte Pair Encoding (BPE)** — The most common method for building a token vocabulary. Starts from individual characters, repeatedly merges the most common adjacent pairs until the vocabulary reaches its target size. **Vocabulary** — The full set of tokens a system knows (typically 50,000–100,000 for text models). **Context window** — The maximum tokens the system can hold at once. Its working memory for one conversation. Everything — your messages, its responses, any documents, system instructions — must fit inside. **Input tokens** — What you send. Processed in one pass. **Output tokens** — What the system generates. Produced sequentially, one at a time. More expensive because of this. **Lost in the middle** — The finding that models pay less attention to information in the middle of a long context window than to information at the beginning or end.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Token** | A chunk the system processes as one unit. In English text, roughly ¾ of a word. The system's atom. |
+| **Tokenisation** | Chopping input into tokens. Text → subword chunks. Images → patches. Audio → frames. |
+| **Byte Pair Encoding (BPE)** | The most common method for building a token vocabulary. Starts from individual characters, repeatedly merges the most common adjacent pairs until the vocabulary reaches its target size. |
+| **Vocabulary** | The full set of tokens a system knows (typically 50,000–100,000 for text models). |
+| **Context window** | The maximum tokens the system can hold at once. Its working memory for one conversation. Everything — your messages, its responses, any documents, system instructions — must fit inside. |
+| **Input tokens** | What you send. Processed in one pass. |
+| **Output tokens** | What the system generates. Produced sequentially, one at a time. More expensive because of this. |
+| **Lost in the middle** | The finding that models pay less attention to information in the middle of a long context window than to information at the beginning or end. |
 
 
 ---
-
-<!-- END OF FILE: chapter-4-draft.md -->
 
 
 # Chapter 5: Training — How a Model Gets Built
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what happens during training (the guess-check-adjust loop)
-> - Describe what a neural network actually is — in plain terms, not metaphors
-> - Understand what "weights" and "parameters" are and why model size is measured in billions of them
-> - Explain why the transformer architecture (2017) made everything after it possible
-> - Understand what "attention" does and why it matters
-> - Describe what a trained model actually IS when it's finished (a file of numbers)
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Model** | The finished product of training — architecture + learned weights. The thing that takes input and produces output. |
-| **Architecture** | The design of the network — how layers are arranged, how many, what type. The blueprint. |
-| **Neural network** | Layers of simple maths operations that transform input into output — each layer adjusts the signal slightly |
-| **Weights (parameters)** | The numbers inside the network that get adjusted during training — what the model "knows" lives in these numbers |
-| **Training loop** | The repeating cycle: guess → measure how wrong → adjust → guess again. Millions of times. |
-| **Loss function** | The measurement of "how wrong was that guess?" — the score the system is trying to minimise |
-| **Gradient descent** | The method for adjusting weights in the right direction — like rolling downhill toward the lowest error |
-| **Backpropagation** | The technique that figures out which specific weights caused the error, so they can be fixed |
-| **Transformer** | The architecture (2017) that made modern AI possible — processes all tokens in parallel and uses attention |
-| **Attention** | The mechanism that lets the system figure out which parts of the input are relevant to which other parts |
-| **Pre-training** | The big, expensive first pass where the model learns general patterns from massive data |
-| **Scaling laws** | The finding that bigger models + more data + more compute = predictably better performance |
-| **Knowledge cutoff** | The date at which training data was locked — the model doesn't know anything that happened after this point |
-
----
 
 ## 5.1 — First: What IS a Model?
 
@@ -1238,6 +1293,11 @@ The core loop is always the same (guess → measure error → adjust → repeat)
 
 ---
 
+
+
+![The whole of training, and the three lines underneath it are the point: a trained model is only where the knobs ended up](diagrams/training-loop.svg)
+
+*The whole of training, and the three lines underneath it are the point: a trained model is only where the knobs ended up. No understanding is installed at any step.*
 ## 5.3 — Neural Networks: What's Actually Inside
 
 The system that makes those guesses isn't magic. It's a specific structure called a **neural network.** What it actually is — no hand-waving.
@@ -1305,7 +1365,7 @@ Each person in the chain is a **layer.** Each layer takes what it received, adju
 | GPT-3 (2020) | 175 billion | ~350 GB |
 | GPT-4 (2023) | ~1.8 trillion (estimated) | ~3.6 TB |
 | Largest open models (2026) | 2.8 trillion | ~5.6 TB |
-| Current frontier (2026): GPT-5.6, Claude Opus 5, Gemini 3.5 | Undisclosed (estimated 2T+) | Undisclosed |
+| Current frontier (2026): GPT-5.6, Claude Opus 5, Gemini 3.1 Pro | Undisclosed (estimated 2T+) | Undisclosed |
 
 That's it. A trained model isn't a database of facts. It isn't storing articles or remembering conversations. It's a file of numbers — weights — that encode patterns extracted from training data. When the system produces a correct answer, it's because those patterns, applied to your input tokens, happen to generate the right output.
 
@@ -1386,8 +1446,17 @@ What does "it" refer to? The animal or the street? You know immediately — "it"
 
 **Attention** lets each token "ask" every other token: "how relevant are you to me?" The system calculates a relevance score between every pair of tokens. "It" gives a high attention score to "animal" and a low attention score to "street" — because the patterns in the training data showed that tired things are usually living things.
 
-This happens at every layer, for every token, simultaneously. The result: the system builds a rich understanding of which parts of the input relate to which other parts — grammar, meaning, logic, reference — all encoded in the attention patterns.
+But the score isn't the point. The score is a recipe, and the next step is where the actual work happens: the model *mixes the other words into this one, in exactly those proportions.* Most of what it knows about "animal" gets folded into its working picture of "it." Almost nothing from "street" does.
 
+Picture a room where every word in your sentence is talking at once, and the model has a volume knob for each of them. For the word "it," it turns "animal" up and "street" almost all the way down, then listens to the blend. By the time that's done, "it" is no longer a vague little pronoun sitting on its own. It is carrying "animal" around inside it.
+
+That's the whole trick, and it's worth sitting with for a second, because everything else in this chapter rests on it. A word arrives meaning almost nothing on its own. It leaves saturated with the specific other words that give it meaning *in this sentence.* Do that at every layer, for every token, all at once, and you end up with a system that has worked out which parts of your input belong to which — grammar, meaning, logic, reference — without anyone ever having written down a rule about pronouns.
+
+
+
+![Attention is a blend, not a ranking](diagrams/attention.svg)
+
+*Attention is a blend, not a ranking. The score decides how loudly each word gets mixed into this one — which is how 'it' leaves the layer carrying 'animal'.*
 **Why this matters practically:**
 
 Attention is why these systems can:
@@ -1411,7 +1480,7 @@ During pre-training, the model is shown an enormous amount of data (trillions of
 
 - **GPT-3 (2020):** Estimated $4.6 million in compute (with some estimates up to $12 million including all costs).
 - **GPT-4 (2023):** Estimated $78–100+ million (OpenAI's CEO confirmed "more than $100 million").
-- **Current frontier models (2025–26, e.g. GPT-5.x, Claude Opus 5, Gemini 3.5):** Estimated $200 million–$1 billion+. Big Tech companies are collectively spending over $300 billion annually on AI-related capital expenditures as of 2025 (IDC).
+- **Current frontier models (2025–26, e.g. GPT-5.x, Claude Opus 5, Gemini 3.1 Pro):** Estimated $200 million–$1 billion+. Big Tech companies are collectively spending over $300 billion annually on AI-related capital expenditures as of 2025 (IDC).
 
 This is why only a handful of companies can build frontier models from scratch. The hardware cost alone — thousands of specialised chips running for months — is a barrier that most organisations can't clear.
 
@@ -1433,7 +1502,7 @@ These **scaling laws** became the roadmap for the entire industry. They said: if
 | 2019 | GPT-2 | 1.5 billion |
 | 2020 | GPT-3 | 175 billion |
 | 2023 | GPT-4 | ~1.8 trillion (estimated; unconfirmed) |
-| 2025–26 | GPT-5.x, Claude Opus 5, Gemini 3.5 | Undisclosed (companies stopped publishing exact counts) |
+| 2025–26 | GPT-5.x, Claude Opus 5, Gemini 3.1 Pro | Undisclosed (companies stopped publishing exact counts) |
 
 From GPT-1 to GPT-4: roughly 10x more parameters per generation, meaningfully better each time. After GPT-4, the major labs stopped disclosing exact parameter counts — but the models kept getting better, using a mix of scale, better data, and new training techniques.
 
@@ -1441,13 +1510,23 @@ From GPT-1 to GPT-4: roughly 10x more parameters per generation, meaningfully be
 
 In late 2024, reports suggested that scaling was reaching diminishing returns — that making models bigger wasn't producing the same gains anymore. By 2026, the picture is more nuanced: raw scaling still works, but the industry has found other routes to improvement too (better training data, reasoning techniques, more efficient architectures). The pure "just make it bigger" era may be giving way to a "make it smarter about how it thinks" era. Both approaches continue in parallel.
 
+> ⏳ **Then / Now: "bigger models are better models"**
+>
+> **Then (2020–2022):** Parameter count was the headline number. Every launch led with it, and the race was to build the biggest thing.
+>
+> **Now:** Most labs have stopped publishing parameter counts altogether.
+>
+> **What changed:** The Chinchilla result below — the discovery that most of those giant models were badly under-fed, and a smaller model trained on far more data beats a bigger under-trained one at the same cost. Size stopped being the interesting variable.
+>
+> **How to spot the stale version:** Any article that compares two models by parameter count alone is reasoning with a 2021 mental model. It's also why "trillion-parameter" reads as impressive and means almost nothing on its own — as the next chapters show, a model can have a trillion parameters and only switch a fraction of them on.
+
 **The Chinchilla insight (2022):** DeepMind showed that many large models were *under-trained* — they had too many parameters for the amount of data they'd seen. Think of it like a textbook with too few practice problems for the difficulty level — the student (model) has capacity to learn more but wasn't given enough examples. A smaller model trained on much more data could outperform a larger under-trained one at the same compute cost. This shifted the industry toward training models on more tokens, not just making them bigger.
 
 ---
 
 > 🏆 **Landmark Moment: GPT-3 and "Few-Shot Learning" (May 2020)** When OpenAI released GPT-3, they showed something unexpected. The model could perform tasks nobody had explicitly trained it for — just by seeing a few examples written in the prompt. Show it three examples of English-to-French translation inside your message, and it would translate the fourth. Show it three question-answer pairs, and it would answer the fourth in the same style. The paper was titled "Language Models are Few-Shot Learners." It proved that scale alone could produce emergent abilities — capabilities that appear without being directly taught. This was the birth of "prompting" as a technique: you could program the model by writing examples in plain English, no code required.
 
-**What's honestly uncertain here:** Scaling laws have held remarkably well from 2018 to 2026 — every time researchers made models bigger with more data, capabilities improved predictably. But nobody has a complete theory for *why* this works, or for how long it will continue. Is there a ceiling? Will transformers plateau at some capability level and need a fundamentally different architecture to go further? Some researchers (notably Yann LeCun at Meta) believe we've nearly exhausted what this approach can do. Others point to continued improvements and say the ceiling hasn't appeared yet. Both camps have evidence. As of August 2026, scaling is still working — but whether it will still be working in 2028 is a genuinely open question, not a settled one.
+**What's honestly uncertain here:** Scaling laws have held remarkably well from 2018 to 2026 — every time researchers made models bigger with more data, capabilities improved predictably. But nobody has a complete theory for *why* this works, or for how long it will continue. Is there a ceiling? Will transformers plateau at some capability level and need a fundamentally different architecture to go further? Some researchers — notably Yann LeCun, who left Meta in late 2025 to build an alternative — believe we've nearly exhausted what this approach can do. Others point to continued improvements and say the ceiling hasn't appeared yet. Both camps have evidence. As of August 2026, scaling is still working — but whether it will still be working in 2028 is a genuinely open question, not a settled one.
 
 ---
 
@@ -1485,21 +1564,12 @@ This is the same principle: the model only works with what's in its context wind
 
 ---
 
-## 5.11 — Chapter Summary
 
-| What you learned | The key idea |
-| --- | --- |
-| The training loop | Guess → measure error → adjust weights → repeat. Billions of times. |
-| Neural networks | Layers of maths. Each layer transforms the signal. Stack enough layers and it can learn complex patterns. |
-| Weights/parameters | The numbers that get adjusted during training. What the model "knows" lives here. |
-| Loss function | "How wrong was that guess?" — the score training tries to minimise. |
-| Backpropagation | Traces error backwards through layers to figure out which weights need fixing. |
-| Gradient descent | Adjusts weights in the direction that reduces error. Tiny steps, billions of times. |
-| Transformers (2017) | Process all tokens in parallel. Every token can attend to every other token. Made everything after possible. |
-| Attention | "Which parts of this input are relevant to which other parts?" — the mechanism that captures relationships. |
-| Pre-training | The big expensive first pass. Trillions of tokens. Costs $50M–$1B+ for frontier models. |
-| Scaling laws | Bigger + more data + more compute = predictably better. But the industry is now finding other routes too. |
-| A trained model | A file of numbers (frozen weights). Patterns encoded as parameters. Tokens in, tokens out. |
+## The System So Far
+
+![The AI system as understood by the end of chapter 5 — this chapter's addition highlighted](systemmap/system-after-ch05.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -1520,57 +1590,37 @@ All from predicting the next token. That's the magic — and it's also the limit
 
 ---
 
-## 5.13 — What's Next
-
-You now know how a model gets built: data → tokens → training loop → frozen weights. The system has been trained. It's a file of numbers that can predict the next token with remarkable accuracy.
-
-But we've been talking mostly about text — predicting the next word. What about when you upload a photo? What about when you type a description and get an image back? What about when you talk to it?
-
-Chapter 6 takes you through exactly how AI handles each type of input and output — how it "sees" images, how it generates pictures from text (and why it's called "diffusion"), how it hears your voice, and why modern multimodal models feel so different from the stitched-together systems that came before.
+That's a trained model: a very large file of numbers, and nothing else at all. Which works neatly enough for guessing the next word. But you can also hand one a photograph, or talk to it out loud, or ask it to make you a picture — and none of that is words. So what on earth happens to a photograph?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Model** — The finished product of training: architecture + learned weights. What you interact with when you use GPT-5.6, Claude Opus 5, or Gemini 3.5. **Neural network** — Layers of mathematical operations that transform input to output. Each layer applies weights, adds bias, and passes the result forward. **Weights / Parameters** — The numbers inside the network. Adjusted during training. Frozen after. A model's "knowledge" lives in these values. Frontier models have trillions of them. **Training loop** — Predict → measure error (loss) → trace error back through layers (backpropagation) → adjust weights in the right direction (gradient descent) → repeat. **Loss function** — Measures how wrong a guess was. Training minimises this number across billions of examples. **Gradient descent** — Adjusts weights by taking small steps "downhill" toward lower error. **Backpropagation** — Traces error backwards through the network to calculate which weights need the most adjustment. **Transformer** — The architecture (2017) that processes all tokens in parallel using attention. Powers every major AI system today. Paper: "Attention Is All You Need." **Attention** — The mechanism that calculates relevance between every pair of tokens. "Which words matter to which other words?" — what lets the system understand context, reference, and meaning. **Pre-training** — The massive, expensive first phase of training where the model learns general patterns from trillions of tokens. Costs $200M–$1B+ for frontier models as of 2026. **Scaling laws** — The empirical finding that model performance improves predictably with more parameters, more data, and more compute. **Chinchilla scaling (2022)** — DeepMind's finding that many models were under-trained. Smaller models trained on more data can match larger under-trained ones. Shifted industry toward data efficiency.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Model** | The finished product of training: architecture + learned weights. What you interact with when you use GPT-5.6, Claude Opus 5, or Gemini 3.1 Pro. |
+| **Neural network** | Layers of mathematical operations that transform input to output. Each layer applies weights, adds a small offset confusingly also called *bias*, and passes the result forward. (Nothing to do with bias in the Chapter 3 sense of social skew learned from data — same word, entirely different meaning, and the collision is the field's fault rather than yours.) |
+| **Weights / Parameters** | The numbers inside the network. Adjusted during training. Frozen after. A model's "knowledge" lives in these values. Frontier models have trillions of them. |
+| **Training loop** | Predict → measure error (loss) → trace error back through layers (backpropagation) → adjust weights in the right direction (gradient descent) → repeat. |
+| **Loss function** | Measures how wrong a guess was. Training minimises this number across billions of examples. |
+| **Gradient descent** | Adjusts weights by taking small steps "downhill" toward lower error. |
+| **Backpropagation** | Traces error backwards through the network to calculate which weights need the most adjustment. |
+| **Transformer** | The architecture (2017) that processes all tokens in parallel using attention. Powers every major AI system today. Paper: "Attention Is All You Need." |
+| **Attention** | The mechanism that calculates relevance between every pair of tokens. "Which words matter to which other words?" — what lets the system understand context, reference, and meaning. |
+| **Pre-training** | The massive, expensive first phase of training where the model learns general patterns from trillions of tokens. Costs $200M–$1B+ for frontier models as of 2026. |
+| **Scaling laws** | The empirical finding that model performance improves predictably with more parameters, more data, and more compute. |
+| **Chinchilla scaling (2022)** | DeepMind's finding that many models were under-trained. Smaller models trained on more data can match larger under-trained ones. Shifted industry toward data efficiency. |
 
 
 ---
-
-<!-- END OF FILE: chapter-5-draft.md -->
 
 
 # Chapter 6: How AI Sees, Hears, and Creates
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what actually happens when you upload a photo to an AI and ask "what's in this?"
-> - Describe how text-to-image generation works (diffusion), step by step
-> - Explain the difference between generating a new image, editing an existing one, and inpainting
-> - Describe the three different voice pipelines (and why some feel so much better than others)
-> - Understand how video generation and analysis work
-> - Explain why native multimodal models feel different from "three models stitched together"
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain meaning |
-| --- | --- |
-| **Vision encoder** | A neural network that converts image patches into numbers a language model can read |
-| **Diffusion model** | A model that generates images by starting from noise and gradually removing it |
-| **Forward diffusion** | The training process of adding noise to an image until it's pure static |
-| **Reverse diffusion / denoising** | The generation process of starting from noise and sculpting it into an image |
-| **Cross-attention** | The mechanism that connects your text prompt to the image being generated — how words steer pixels |
-| **Inpainting** | Editing only a specific region of an image while leaving the rest untouched |
-| **img2img (image-to-image)** | Generating a new image using an existing image as the starting point instead of pure noise |
-| **ASR (automatic speech recognition)** | Converting spoken audio into text |
-| **TTS (text-to-speech)** | Converting text into spoken audio |
-| **Native audio** | Processing voice directly as audio tokens, without converting to text first |
-| **Multimodal** | A model that handles multiple types of input/output (text, images, audio, video) in one system |
-
----
 
 ## 6.1 — The Central Question
 
@@ -1614,7 +1664,7 @@ But the results can be surprisingly good because the training data was enormous.
 
 > 🔍 **Concept in Practice: Why AI sometimes gets image details wrong**
 >
-> When you ask "how many people are in this photo?" and the model says 4 when there are 5, it's not because it "miscounted." It doesn't count. It doesn't look at individual people and tally them. It processes patch tokens through statistical patterns, and those patterns are better at identifying *what's in an image* than *precisely how many of something there are*. Counting requires exact spatial reasoning across patches — which is harder than recognising objects. This is also why models sometimes hallucinate objects that aren't there, or miss small details in a corner of the image — some patches carry less informational weight than others.
+> When you ask "how many people are in this photo?" and the model says 4 when there are 5, it's not because it "miscounted." It doesn't count. It doesn't look at individual people and tally them. It processes patch tokens through statistical patterns, and those patterns are better at identifying *what's in an image* than *precisely how many of something there are*. Counting requires exact spatial reasoning across patches — which is harder than recognising objects. This is also why models sometimes **hallucinate** objects that aren't there — that word is going to come up a lot, and it just means the system stating something with complete confidence that simply isn't so. Not lying, and not a glitch: the same machinery that produces true sentences produces plausible ones, and nothing inside it can tell which is which. Chapter 11 gets into why that's structural rather than fixable. Same reason it might miss small details in a corner of the image — some patches carry less informational weight than others.
 
 ---
 
@@ -1668,6 +1718,11 @@ Each step, the model looks at the current (noisy) state and asks: "What would th
 
 **This is why image generation sometimes produces weird intermediate stages if you watch it live** — you see the image go from blurry blobs to sharp details. That's the denoising steps running in sequence.
 
+
+
+![Training learns what ruining a picture looks like; generating runs the same process backwards](diagrams/diffusion.svg)
+
+*Training learns what ruining a picture looks like; generating runs the same process backwards. The symmetry between the two rows is the whole mechanism.*
 ### How your words steer the pixels (cross-attention)
 
 Here's the piece that connects text and image: **cross-attention.**
@@ -1688,7 +1743,6 @@ This is why:
 > 🔍 **Concept in Practice: Why AI-generated images sometimes have weird hands**
 >
 > Hands are spatially complex — five fingers in specific positions relative to each other, foreshortening, overlapping. The model denoises pixel regions based on statistical patterns from training data, and hands appeared in wildly different configurations across millions of images. The noise-removal process sometimes "averages" between multiple plausible finger positions, producing something that looks like six fingers or oddly bent joints. This has improved dramatically with newer models (larger training sets, better architecture), but it's a signature failure mode because it requires precise spatial coordination across multiple patches — which is harder for cross-attention to guide than broad concepts like "a person standing."
-
 
 
 **What's honestly not understood about diffusion:**
@@ -1800,6 +1854,16 @@ What this means mechanically:
 
 > 🔍 **Concept in Practice: Why talking to Siri feels different from talking to ChatGPT voice mode**
 >
+> ⏳ **Then / Now: "voice assistants don't understand women"**
+>
+> **Then:** A widely repeated claim, traceable to work from 2007 and a much-shared 2016 blog post.
+>
+> **Now:** Peer-reviewed measurement in 2024 found women generally had *lower* error rates than men across most conditions.
+>
+> **What changed:** Training data, mostly — early speech systems were built on corpora heavily weighted toward male voices, and that got fixed. The gap closed and in several settings reversed.
+>
+> **How to spot the stale version:** Here is the part worth carrying: the disparity didn't disappear, it *moved*. Speech recognition still fails badly — one widely used model scores 81.6% word-error on African American English against 24.3% on standard American English. That is a far bigger number than anything in the gender literature and gets a fraction of the attention. When you hear that a fairness problem was solved, ask which one, and who is on the other side of the gap now.
+
 > Siri is Pipeline 1 — three models passing notes. There's a noticeable pause after you speak (transcription), another pause while it thinks (generation), and the voice that comes back sounds "read aloud" rather than "spoken naturally." ChatGPT voice mode (GPT-4o) is Pipeline 2 — native audio processing. The response starts before you've even fully stopped talking, the tone matches the conversation, and it can handle overlapping speech, laughter, and emphasis. It's not smarter — it's architecturally different.
 
 ### Pipeline 3: Voice Cloning and Text-to-Speech Generation
@@ -1859,22 +1923,16 @@ Native multimodal models can do things chained systems can't:
 - Process your voice, understand your words, AND notice your emotional tone — all in one pass
 - Seamlessly switch between input/output types without losing context
 
-This is the direction all frontier models are heading. GPT-4o, Claude, and Gemini are all natively multimodal in 2026 — they were trained on mixed streams of text, images, and audio together, not retrofitted with separate modules.
+This is the direction frontier models are heading, though not all of them are equally far along it and the marketing tends to blur the difference. "Natively multimodal" should mean trained on mixed streams of text, images and audio together rather than retrofitted with separate modules bolted on — and for vision that is now broadly true across the frontier. For audio it varies by model and by product, and it is worth checking rather than assuming.
 
 ---
 
-## 6.8 — Chapter Summary
 
-| What you wanted to know | The answer |
-| --- | --- |
-| How does AI "see" a photo? | Image gets chopped into patches → vision encoder converts patches to tokens → tokens enter the same context window as text |
-| How does typing words produce a picture? | Diffusion: start from pure noise, remove noise step by step, guided by your text description via cross-attention. Not "creating from nothing" — sculpting randomness into structure |
-| How does image editing work? | Same process but starting from your image (partially noised) instead of pure noise. Less noise = less change |
-| How does inpainting work? | Mask a region, noise only that region, denoise just the mask guided by surrounding context |
-| How does it hear me (Pipeline 1)? | Transcribe to text → language model reads text → text-to-speech reads response. Three separate models. |
-| How does it hear me (Pipeline 2)? | Audio tokenised directly → model processes audio tokens natively → generates audio tokens directly. One model, end-to-end. |
-| How does video generation work? | Diffusion in 3D — denoising across width, height, AND time simultaneously |
-| What's "native multimodal"? | One model trained on all types at once, vs separate specialists stitched together |
+## The System So Far
+
+![The AI system as understood by the end of chapter 6 — this chapter's addition highlighted](systemmap/system-after-ch06.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -1892,52 +1950,37 @@ This is the direction all frontier models are heading. GPT-4o, Claude, and Gemin
 
 ---
 
-## 6.10 — What's Next
-
-You now understand how AI processes and generates different types of content — text, images, audio, video. You know what happens mechanically when you upload a photo, generate an image, talk to an AI, or ask it to edit something.
-
-But all of this — the vision encoder, the diffusion process, the voice pipeline, the language model — is doing work in the background every time you press send. That work takes time, costs money, and uses computational resources. Some requests are fast and cheap. Others are slow and expensive.
-
-Chapter 7 takes you inside what happens the moment you actually press send — the process called **inference** — and explains why some responses stream in instantly while others take 30 seconds, why companies charge by the token, and why inference (not training) is where most of the money is being spent.
+Seeing, drawing, listening, speaking — and all of it happening inside a model that was trained once and then frozen. Which leaves the question you have probably been sitting on since Chapter 5. What actually happens in the second and a half after you press send?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Vision encoder** — Chops an image into patches and converts each patch into numbers a language model can read. How AI "sees." **Diffusion model** — Generates images by starting from random noise and gradually removing it, guided by your text prompt. **Forward diffusion** — The training process: take a real image and progressively add noise until it's pure static. The model learns to reverse this. **Reverse diffusion (denoising)** — The generation process: start from noise and sculpt it step by step into a coherent image. More steps = more detail. **Cross-attention** — The mechanism connecting your text prompt to the image generation process. At each denoising step, the model checks which words are relevant to which region of the image. How words steer pixels. **Inpainting** — Editing only a masked region of an image while leaving the rest untouched. The model generates new content for the masked area that blends with the surroundings. **img2img** — Using an existing image as the starting point instead of pure noise. Lower strength = closer to original; higher strength = more creative freedom. **ASR (automatic speech recognition)** — Converting spoken audio into text. The first step in Pipeline 1 (traditional voice systems). **TTS (text-to-speech)** — Converting text into spoken audio. The last step in Pipeline 1. **Native audio tokens** — Processing voice directly as audio tokens without converting to text first. How Pipeline 2 works (GPT-4o, modern voice modes). Enables interruption, tone matching, and natural conversation. **Multimodal** — A model trained on multiple types of input/output (text, images, audio, video) together, not retrofitted with separate modules. The direction all frontier models are heading. **Pipeline 1 vs Pipeline 2** — Pipeline 1: three separate models (speech-to-text → language model → text-to-speech). Pipeline 2: one model processing audio natively. Pipeline 2 is why modern AI voice feels like talking to a person rather than dictating to a machine.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
+
+| Term | Plain English |
+| --- | --- |
+| **Vision encoder** | Chops an image into patches and converts each patch into numbers a language model can read. How AI "sees." |
+| **Diffusion model** | Generates images by starting from random noise and gradually removing it, guided by your text prompt. |
+| **Forward diffusion** | The training process: take a real image and progressively add noise until it's pure static. The model learns to reverse this. |
+| **Reverse diffusion (denoising)** | The generation process: start from noise and sculpt it step by step into a coherent image. More steps = more detail. |
+| **Cross-attention** | The mechanism connecting your text prompt to the image generation process. At each denoising step, the model checks which words are relevant to which region of the image. How words steer pixels. |
+| **Inpainting** | Editing only a masked region of an image while leaving the rest untouched. The model generates new content for the masked area that blends with the surroundings. |
+| **img2img** | Using an existing image as the starting point instead of pure noise. Lower strength = closer to original; higher strength = more creative freedom. |
+| **ASR (automatic speech recognition)** | Converting spoken audio into text. The first step in Pipeline 1 (traditional voice systems). |
+| **TTS (text-to-speech)** | Converting text into spoken audio. The last step in Pipeline 1. |
+| **Native audio tokens** | Processing voice directly as audio tokens without converting to text first. How Pipeline 2 works (GPT-4o, modern voice modes). Enables interruption, tone matching, and natural conversation. |
+| **Multimodal** | A model trained on multiple types of input/output (text, images, audio, video) together, not retrofitted with separate modules. The direction all frontier models are heading. |
+| **Pipeline 1 vs Pipeline 2** | Pipeline 1: three separate models (speech-to-text → language model → text-to-speech). Pipeline 2: one model processing audio natively. Pipeline 2 is why modern AI voice feels like talking to a person rather than dictating to a machine. |
 
 
 ---
-
-<!-- END OF FILE: chapter-6-draft.md -->
 
 
 # Chapter 7: Inference — When You Actually Ask It Something
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain the difference between training (building the model) and inference (using it)
-> - Describe what actually happens — step by step — when you press "send" on a message
-> - Understand why the same prompt can give different answers each time
-> - Explain why some responses are fast and others are slow
-> - Understand why inference (not training) is where most of the money goes at scale
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Inference** | Using a trained model to generate output — applying the learned patterns to new input. The "job" after "school." |
-| **Prefill** | The first phase of inference: processing your entire input at once to build an understanding of it |
-| **Decode** | The second phase: generating output tokens one at a time, each dependent on the one before it |
-| **Temperature** | A setting that controls randomness — low temperature = predictable/safe answers, high = creative/surprising |
-| **Top-k / Top-p** | Filters that narrow down which tokens the system can pick from at each step |
-| **Latency** | How long you wait for a response — the time between pressing "send" and seeing the first word appear |
-| **Throughput** | How many requests a system can handle at once — serving millions of users simultaneously |
-| **Batching** | Processing multiple users' requests together for efficiency |
-
----
 
 ## 7.1 — Training Was School. This Is the Job.
 
@@ -1995,7 +2038,11 @@ Now the model starts producing output. The key: **it generates one token at a ti
 
 The process at each step:
 
-1. The model calculates a probability for *every token in its vocabulary* (~100,000 options).
+1. The model calculates a probability for *every token in its vocabulary* — around a hundred thousand options, scored all at once.
+
+   This step is worth slowing down for, because almost everything that follows depends on it. The model does not pick a next word. It produces a **spread**: a number against every word it knows, saying how likely each one is here. `the` might score 0.31, `a` 0.12, `photosynthesis` effectively zero. Nothing has been chosen yet — what exists at this instant is a landscape of possibilities with the plausible ones raised up.
+
+   *Then* something draws from that spread. Which is why the same question twice gives two different answers, why a setting called temperature can make it wilder or safer, and — this is the important one — why it can produce something false with exactly the same confidence as something true. A high score means *this fits the pattern*, never *this is correct*. There is nothing in the spread that tracks truth.
 2. It applies temperature and sampling settings (more on this in a moment) to narrow the choices.
 3. It picks one token.
 4. That token gets appended to the sequence.
@@ -2011,6 +2058,11 @@ This continues until the model produces a stop signal (a special token that mean
 
 ---
 
+
+
+![Reading happens all at once; writing happens one chunk at a time, each one re-reading everything before it](diagrams/reading-writing.svg)
+
+*Reading happens all at once; writing happens one chunk at a time, each one re-reading everything before it. This is why a long document delays the first word, and why a long answer costs more than a long question.*
 ## 7.3 — Why the Same Prompt Gives Different Answers
 
 Ask the same question twice and you'll often get different responses. Not just different words — sometimes genuinely different content, structure, or reasoning paths. Why?
@@ -2042,20 +2094,17 @@ In practice, you rarely control these yourself — the application (ChatGPT, Cla
 
 You've probably noticed: sometimes an AI responds almost instantly, other times there's a noticeable delay. What determines the speed?
 
-**What makes inference faster:**
+It is a kitchen during service, and every part of the wait has a kitchen equivalent.
 
-- **Shorter input** — less to process in the prefill phase
-- **Shorter output** — fewer tokens to generate one-by-one in the decode phase
-- **Smaller model** — fewer parameters to run the maths through
-- **Better hardware** — faster chips process tokens more quickly
-- **Cached context** — if the system instructions haven't changed since last time, the KV cache can be reused
+**Reading the order takes time.** A long document is a table of twelve who all want to discuss the wine. Nothing can start until the order is taken, which is why pasting in a fifty-page PDF buys you a pause before the first word appears.
 
-**What makes inference slower:**
+**Cooking takes longer than reading.** A two-thousand-word essay is two thousand separate decisions made in sequence, each one after the last. A yes-or-no answer is a slice of toast. This is the part people find counter-intuitive: asking a huge question is cheap, and asking for a huge *answer* is not.
 
-- **Long conversation history** — everything in the context window gets processed every time
-- **Long output** — a 2,000-word essay takes longer to generate than a yes/no answer because it's 2,000 sequential token predictions
-- **Large model** — more parameters = more computation per token
-- **High traffic** — when millions of people are using the system simultaneously, requests queue up
+**A bigger kitchen is a slower kitchen, per plate.** More parameters means more work for every single token. The frontier models are the ones with the enormous brigade and the tasting menu; the small fast ones are a very good chip shop, and a great deal of what you want is chips.
+
+**And you are not the only table.** When millions of people order at once, you queue — which is why the same question can feel instant at seven in the morning and sluggish at nine.
+
+One thing has no kitchen equivalent, and it is the reason repeat questions feel quicker: the system keeps notes on what it has already read. If the standing instructions haven't changed since your last message, it doesn't read them again. Somebody prepped the mise en place before you sat down.
 
 **Latency** is what you feel as a user — the time between pressing send and seeing the first token appear. For current frontier models, this is typically 0.5–2 seconds for the first token, then 30–100 tokens per second streaming after that.
 
@@ -2116,32 +2165,12 @@ The entire process takes 1–30 seconds depending on response length. No weights
 
 ---
 
-## 7.8 — The System Picture So Far
 
-What we've built up across the first six chapters:
+## The System So Far
 
-```
-[Data sources] → [Collection & Labelling] → [Tokenisation] → [Training Loop] → [Trained Model (frozen weights)]
-                                                                                         ↓
-                                                                              ──── INFERENCE ────
-                                                                                         ↓
-[Your message] → [Tokenisation] → [Context Window assembly] → [Prefill (parallel)] → [Decode (sequential, token by token)] → [Response streamed to you]
+![The AI system as understood by the end of chapter 7 — this chapter's addition highlighted](systemmap/system-after-ch07.svg)
 
-```
-
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1 | The difference between automation (human wrote rules) and AI (machine learned from examples) |
-| 2 | The AI family: ML → Deep Learning → Generative AI → Agentic AI |
-| 3 | Where training data comes from, who labels it, how bias enters, what synthetic data is |
-| 4 | Tokens — how text/images/audio get chopped into chunks the system can process. Why everything is measured in tokens. |
-| 5 | Training — the guess-check-adjust loop, neural networks, transformers, attention, what a model actually IS (a file of frozen numbers) |
-| 6 | Multimodal — how AI sees images, generates pictures (diffusion), hears voice, and makes video |
-| 7 | Inference — what happens when you actually use the model. Prefill → decode → streaming. Why answers vary. Why it costs money. |
-
-**Where you are in the picture:** You now understand the complete pipeline from raw data to a response appearing on your screen. Next, we'll look at how the raw trained model gets refined into something actually *helpful* — that's fine-tuning and RLHF.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -2155,54 +2184,45 @@ Now try this: ask the same question twice. Notice the responses are different �
 
 ---
 
-## 7.10 — What's Next
-
-The model can now generate responses. But a raw pre-trained model — one that's only been through the training described in Chapter 5 — isn't actually pleasant to use. It might produce toxic content, because toxic content was in the training data. It might not follow your instructions, because "follow the user's instructions" wasn't its training task. It might ramble, or refuse to answer, or respond in a format you didn't want.
-
-Chapter 8 zooms in on something you might have already wondered: if the model has no memory between conversations, how does it seem to know things? Context windows, embeddings, vector databases, and RAG — the system that gives a model access to knowledge beyond its frozen training weights.
+That's the whole journey of one request. But notice what never happened anywhere in it: the model didn't look anything up, and it didn't recognise you. It started from nothing, the way it starts from nothing every single time. So how does a thing that remembers nothing manage to hold a conversation?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Inference** — Using the trained model. Applying frozen weights to new input. No learning happens. "Training is school. Inference is the job." **Prefill** — Phase 1: the model reads your entire input in one parallel pass, building an internal representation and KV cache. **Decode** — Phase 2: the model generates output tokens one at a time, sequentially. This is why output costs more than input. **Temperature** — Controls randomness. Low = predictable (always picks the most likely token). High = creative/surprising (willing to pick less likely tokens). Doesn't change what the model knows — just how it samples from what it knows. **Top-k** — Only consider the k most probable next tokens. Everything else gets zero chance. **Top-p (nucleus sampling)** — Only consider tokens whose cumulative probability reaches p. Adapts to confidence: when the model is sure, fewer options; when uncertain, more. **Latency** — Time from pressing send to seeing the first word. Determined by input size, model size, hardware speed, and traffic. **Throughput** — How many requests the system handles simultaneously. Determined by hardware, batching, and system design. **Batching** — Grouping multiple users' requests to process simultaneously on the same hardware. Increases throughput. **KV cache** — "Scratch notes" the model keeps about each token during prefill, so it doesn't have to re-read the entire input when generating each new output token.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Inference** | Using the trained model. Applying frozen weights to new input. No learning happens. "Training is school. Inference is the job." |
+| **Prefill** | Phase 1: the model reads your entire input in one parallel pass, building an internal representation and KV cache. |
+| **Decode** | Phase 2: the model generates output tokens one at a time, sequentially. This is why output costs more than input. |
+| **Temperature** | Controls randomness. Low = predictable (always picks the most likely token). High = creative/surprising (willing to pick less likely tokens). Doesn't change what the model knows — just how it samples from what it knows. |
+| **Top-k** | Only consider the k most probable next tokens. Everything else gets zero chance. |
+| **Top-p (nucleus sampling)** | Only consider tokens whose cumulative probability reaches p. Adapts to confidence: when the model is sure, fewer options; when uncertain, more. |
+| **Latency** | Time from pressing send to seeing the first word. Determined by input size, model size, hardware speed, and traffic. |
+| **Throughput** | How many requests the system handles simultaneously. Determined by hardware, batching, and system design. |
+| **Batching** | Grouping multiple users' requests to process simultaneously on the same hardware. Increases throughput. |
+| **KV cache** | "Scratch notes" the model keeps about each token during prefill, so it doesn't have to re-read the entire input when generating each new output token. |
 
 
 ---
-
-<!-- END OF FILE: chapter-7-draft.md -->
 
 
 # Chapter 8: Context, Memory, and What the Model Can See
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain why AI has no memory by default — and what "memory" actually means when companies claim to offer it
-> - Describe the difference between knowledge (frozen in weights) and context (provided live each time)
-> - Explain what embeddings are and how they let machines measure "similarity"
-> - Understand how RAG (Retrieval-Augmented Generation) gives a model access to information it wasn't trained on
-> - Describe why "the model knows things" is misleading — and what's actually happening
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Context** | Everything the model can "see" right now — your message, the conversation history, system instructions, retrieved documents. All in one window. |
-| **Memory (in AI)** | Not actual memory — information stored externally and re-injected into the context window each time. The model itself remembers nothing. |
-| **Embedding** | A list of numbers that represents the *meaning* of a piece of text — arranged so that similar meanings sit near each other |
-| **Vector** | A list of numbers. An embedding is a specific type of vector that encodes meaning. |
-| **Vector database** | A specialised database that stores embeddings and lets you search by similarity — "find me things similar to this" |
-| **RAG (Retrieval-Augmented Generation)** | A system that retrieves relevant documents, injects them into the context window, and lets the model generate a response grounded in that information |
-| **Semantic search** | Searching by meaning rather than by exact keywords — "find documents about the same *concept*, even if they use different words" |
-
----
 
 ## 8.1 — The Model Remembers Nothing
 
-Let's start with something that surprises most people: **the model has no memory.**
+Let's start with something that surprises most people: **the model has no memory.** None. Not a poor one, not a short one — none at all.
+
+Picture someone who wakes up every morning having forgotten everything, but who has trained themselves to write everything important on a single sheet of paper and keep it in their pocket. Every morning they wake, reach into the pocket, read the sheet, and carry on as if nothing happened. To anyone watching, it looks exactly like memory. They know your name. They remember what you agreed yesterday.
+
+But nothing is being *remembered*. Something is being **re-read**, from a sheet somebody had to write and somebody has to keep updating — and if a line falls off the bottom of the page to make room, it is simply gone, and they will never know it was there.
+
+That sheet of paper is the context window. Everything in this chapter is about who writes on it, what gets left off, and what happens when it fills up.
 
 When you have a conversation with ChatGPT or Claude, it *feels* like the system remembers what you said earlier. You mention your name at the start, and it uses your name later. You describe a problem in message 1, and it references it in message 10. It seems like it's remembering.
 
@@ -2236,6 +2256,11 @@ This distinction — training knowledge vs contextual information — is fundame
 
 ---
 
+
+
+![The two places an answer can come from](diagrams/two-sources.svg)
+
+*The two places an answer can come from. One you cannot touch; one you write yourself — and when they disagree, the model does not tell you.*
 ## 8.3 — What "Memory" Actually Means (When Companies Say It)
 
 In 2024–2026, many AI products launched "memory" features — ChatGPT's Memory, Claude's memory, and others. What are these actually doing?
@@ -2298,7 +2323,7 @@ This is how machines do "similarity" — not by understanding meaning the way yo
 
 Once you can turn text into embeddings, you need somewhere to store them and search through them. That's a **vector database.**
 
-A vector database stores thousands or millions of text chunks (documents, paragraphs, notes, previous conversations), each one converted to an embedding. When you ask a question, your question also gets embedded, and the database finds the stored chunks whose embeddings are *closest* to your question's embedding.
+A vector database stores thousands or millions of text chunks — and note this is a different, bigger sense of "chunk" than Chapter 4's tokens: here we mean whole passages, documents, paragraphs, notes, previous conversations. Each one gets converted to an embedding. When you ask a question, your question also gets embedded, and the database finds the stored chunks whose embeddings are *closest* to your question's embedding.
 
 This is **semantic search** — searching by meaning rather than keywords. You don't need to use the exact same words as the stored document. You just need to ask about the same *concept*, and the embedding similarity will find the relevant information.
 
@@ -2379,6 +2404,11 @@ This is also how AI systems stay current despite their knowledge cutoff. A RAG s
 
 ---
 
+
+
+![Retrieval, drawn](diagrams/rag.svg)
+
+*Retrieval, drawn. Nothing is retrained — the material is pasted in beside your question where you cannot see it, which is why a grounded answer can cite a source and an ungrounded one can only sound like it could.*
 ## 8.7 — Why "The Model Knows Things" Is Misleading
 
 You now have the full picture to understand why this phrase is misleading:
@@ -2391,7 +2421,7 @@ But:
 - It can't verify what it's saying. It has no mechanism for checking its output against reality.
 - It doesn't "know" in the way you know. You can introspect ("am I sure about this?"). The model can't — it just generates with whatever confidence the patterns produce.
 
-When the model is wrong — when it "halluccinates" a fact, invents a citation, or confidently states something false — it's not lying. It's producing the most probable token sequence given its patterns, and those patterns happen to generate something that isn't true. There's no internal flag that says "I'm making this up."
+When the model is wrong — when it **hallucinates** a fact, invents a citation, or confidently states something false — it's not lying. It's producing the most probable token sequence given its patterns, and those patterns happen to generate something that isn't true. There's no internal flag that says "I'm making this up."
 
 ---
 
@@ -2399,39 +2429,12 @@ When the model is wrong — when it "halluccinates" a fact, invents a citation, 
 
 ---
 
-## 8.8 — The System Picture So Far
 
-```
-[Data] → [Tokenisation] → [Training] → [Trained Model (frozen weights)]
-                                                    ↓
-                                         ──── INFERENCE ────
-                                                    ↓
-                                        [Context Window Assembly]
-                                          /        |        \
-                        [System Instructions]  [Your Message]  [Conversation History]
-                                          \        |        /
-                                   + [Retrieved Documents via RAG]
-                                   + [Memory facts re-injected]
-                                   + [Tool results (search, etc.)]
-                                                    ↓
-                                    [Prefill → Decode → Response]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 8 — this chapter's addition highlighted](systemmap/system-after-ch08.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1 | Automation (rules) vs AI (learned from examples) |
-| 2 | The AI family: ML → Deep Learning → GenAI → Agentic |
-| 3 | Training data: where it comes from, labelling, bias, synthetic data |
-| 4 | Tokens: how input gets chopped into processable chunks |
-| 5 | Training: the loop, neural networks, transformers, attention, what a model IS |
-| 6 | Multimodal: how AI sees images, generates pictures (diffusion), hears voice |
-| 7 | Inference: what happens when you press send (prefill → decode → streaming) |
-| 8 | Context & memory: the model is stateless. Everything it "knows" in the moment comes from weights OR context. Memory = external retrieval injected back in. RAG = how specific/current info gets to the model. |
-
-**Where you are:** You now understand the full journey — from raw data all the way through to a response appearing on your screen, including how the model gets access to information beyond its training. Next: how the raw model gets shaped into something actually *helpful.*
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -2450,54 +2453,33 @@ A keyword search for "cancel subscription" wouldn't find the second one (no matc
 
 ---
 
-## 8.10 — What's Next
-
-You now know that the model is stateless and that all "knowledge" comes from either frozen weights or live context. You know how embeddings and vector databases let systems find relevant information. You know how RAG injects that information into the model's view.
-
-But a raw pre-trained model — even with great context — still isn't great to use. It might be rude, unhelpful, or produce harmful content. It doesn't know how to follow instructions reliably. It doesn't know what "be helpful" means.
-
-Chapter 9 takes us to fine-tuning and RLHF: the process of taking a model that can generate text and teaching it to be *helpful, harmless, and honest* — to follow instructions, to refuse harmful requests, and to admit when it doesn't know something.
+Frozen weights and a live context window. Those are the only two places an answer can come from, and now you can tell which is which. Fine — until the weights are wrong for what you need. What can anyone actually do about that, short of building a model from scratch?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Context window** — Everything the model can see for this specific request. Conversation history + system instructions + retrieved documents + your message. Hard size limit (1M+ tokens for frontier models, 2026). **Stateless** — The model itself remembers nothing between requests. Each inference is independent. "Memory" is external systems re-injecting information. **Embedding** — A list of numbers (vector) that represents the meaning of text. Similar meanings → similar numbers → close in vector space. **Vector database** — Stores embeddings. Enables semantic search: "find stored text whose meaning is closest to this query." **RAG (Retrieval-Augmented Generation)** — Retrieve relevant documents → inject into context → model generates a response grounded in those documents. How AI answers questions about your specific/current data. **Semantic search** — Searching by meaning, not keywords. Powered by embedding similarity. "Cancel subscription" and "stop monthly payments" match because their embeddings are close. **Hallucination** — When the model generates something false with confidence. Happens because it produces the most probable token sequence from patterns, with no mechanism to verify truth. Not lying — pattern-completing without a truth-check. **Memory (in AI products)** — External storage of facts about you, retrieved and injected into context each session. The model doesn't remember — the application layer does the remembering and re-feeding.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Context window** | Everything the model can see for this specific request. Conversation history + system instructions + retrieved documents + your message. Hard size limit (1M+ tokens for frontier models, 2026). |
+| **Stateless** | The model itself remembers nothing between requests. Each inference is independent. "Memory" is external systems re-injecting information. |
+| **Embedding** | A list of numbers (vector) that represents the meaning of text. Similar meanings → similar numbers → close in vector space. |
+| **Vector database** | Stores embeddings. Enables semantic search: "find stored text whose meaning is closest to this query." |
+| **RAG (Retrieval-Augmented Generation)** | Retrieve relevant documents → inject into context → model generates a response grounded in those documents. How AI answers questions about your specific/current data. |
+| **Semantic search** | Searching by meaning, not keywords. Powered by embedding similarity. "Cancel subscription" and "stop monthly payments" match because their embeddings are close. |
+| **Hallucination** | When the model generates something false with confidence. Happens because it produces the most probable token sequence from patterns, with no mechanism to verify truth. Not lying — pattern-completing without a truth-check. |
+| **Memory (in AI products)** | External storage of facts about you, retrieved and injected into context each session. The model doesn't remember — the application layer does the remembering and re-feeding. |
 
 
 ---
-
-<!-- END OF FILE: chapter-8-draft.md -->
 
 
 # Chapter 9: Making It Smarter — The Customisation Spectrum
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Describe the full spectrum of ways to customise an AI system — from free and fast to expensive and powerful
-> - Explain when you'd use prompting vs RAG vs fine-tuning vs full training
-> - Understand how RLHF and DPO shape a model's behaviour after pre-training
-> - Explain what distillation, quantisation, and mixture of experts do and why they matter
-> - Use a decision framework: "Given what I need, which approach makes sense?"
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Prompting** | Phrasing your input carefully to get the output you want — the cheapest, fastest customisation |
-| **Few-shot prompting** | Including examples of what you want directly in your prompt — "here are 3 examples, now do the 4th" |
-| **Fine-tuning** | Additional training on a smaller, specific dataset — adjusting the model's weights for a particular domain or behaviour |
-| **RLHF** | Reinforcement Learning from Human Feedback — humans rate outputs ("A is better than B"), and those ratings shape the model's behaviour |
-| **DPO** | Direct Preference Optimization — a simpler alternative to RLHF that skips the reward model step |
-| **Constitutional AI** | Anthropic's approach: giving the model a written set of principles and having it judge its own outputs against them |
-| **Distillation** | Training a small, fast model to mimic a large, powerful one |
-| **Quantisation** | Compressing a model's numbers (e.g. from 16-bit to 4-bit) so it runs on less hardware |
-| **Mixture of Experts (MoE)** | A model architecture where only a small fraction of parameters activate for any given token — big capacity, lower compute |
-
----
 
 ## 9.1 — The Spectrum: Cheapest to Most Expensive
 
@@ -2525,6 +2507,11 @@ The 2026 rule of thumb: **prompt first, retrieve for knowledge, fine-tune for be
 
 ---
 
+
+
+![Five ways to make it better, cheapest first](diagrams/customisation-spectrum.svg)
+
+*Five ways to make it better, cheapest first. Almost every 'we need to train our own model' conversation is solved two steps up from the bottom.*
 ## 9.2 — Prompting and Few-Shot (Levels 1–2)
 
 Try this: ask an AI system to summarise a long document. You'll get a summary. Now ask the same system the same question, but this time add: "Summarise this in exactly 3 bullet points, each under 15 words, focusing only on financial implications." You'll get a dramatically different — and likely more useful — response.
@@ -2571,7 +2558,7 @@ The difference: prompting is like telling someone "please speak French" every ti
 
 **When you'd use it:**
 
-- You need a consistent output format across thousands of responses (e.g. always respond in JSON, always use a specific medical terminology style) and prompting isn't reliable enough
+- You need a consistent output format across thousands of responses (e.g. always respond in JSON — a plain-text way of writing labelled information so a program can read it, all curly brackets and colons; you'll see it whenever an AI talks to another piece of software, and you never have to write it yourself — always use a specific medical terminology style) and prompting isn't reliable enough
 - You need the model to adopt a domain-specific tone or vocabulary permanently — not "when reminded" but as its natural voice
 - You want faster inference (because the behaviour is baked in, you don't need long prompts explaining what to do every time — which also saves money on input tokens)
 - You have proprietary examples of exactly how you want the model to respond — hundreds or thousands of input→output pairs that demonstrate the behaviour
@@ -2627,6 +2614,40 @@ This approach is called **RLAIF (Reinforcement Learning from AI Feedback)** — 
 
 ---
 
+
+## Variations Within the Family: Size, Openness, and Thinking
+
+Now that you have the vocabulary — parameters, weights, fine-tuning, RAG, system prompts — the model landscape stops being an alphabet soup and starts being a set of choices somebody made.
+
+You now have the four-layer framework. But within generative AI specifically, there are variations you'll keep seeing in the news — and they represent genuinely different trade-offs that affect what you can do with them. Think of this section as a quick field guide you can come back to. You've probably noticed that AI news throws around terms like "open-source model," "foundation model," "small language model," "reasoning model" — as if you're already supposed to know what these mean. Here's what they actually are:
+
+**Foundation models** — what makes something "foundational"?
+
+When OpenAI built GPT-4, they didn't build it for one task. They trained it broadly — on massive, diverse data — so it could be *adapted* to many different tasks afterward. GPT-4, Claude, Gemini, Llama — these are all foundation models. The word "foundation" means: this is the base that many products and applications are built on top of. The same foundation model might power a customer support bot, a coding assistant, and a creative writing tool — each adapted through different system prompts, fine-tuning, or RAG (all of which you'll learn in Chapter 9).
+
+**Small language models** — why smaller is sometimes better
+
+Not every task needs a trillion-parameter model. A model with 3–7 billion parameters can be fast enough to run on a phone, cheap enough to call millions of times per day, and good enough for focused tasks (summarisation, classification, simple Q&A). These are **small language models** — often distilled from larger ones (Chapter 9). The trade-off is straightforward: less capable at complex reasoning, but faster, cheaper, and deployable on devices without an internet connection.
+
+**Open-weight vs closed models** — what you actually get
+
+When Meta releases Llama as "open-weight," it means: you can download the trained weights (the file of numbers from Chapter 5), run the model on your own hardware, fine-tune it for your purposes, and inspect what's inside. You don't get the training data, the training code, or the RLHF preference data — but you get the finished model.
+
+When OpenAI offers GPT-4 as a "closed" model, you can only access it through their API. You send input, you get output. You can't see the weights, can't run it locally, can't modify it, can't inspect its internals. You rent access; you don't own the thing.
+
+Why this matters: open-weight models give you control (you can run them privately, modify them, deploy them anywhere) but require technical expertise and hardware. Closed models are easier to use (just call the API) but you depend entirely on the provider — their pricing, their policies, their availability, their decisions about what the model will and won't do.
+
+**Reasoning/thinking models** — what "thinking out loud" does
+
+In 2024–2025, a new variation emerged: models that *think before responding.* OpenAI's o1, Claude's "extended thinking," and similar systems pause before answering, working through the problem step by step in a hidden reasoning trace. You wait longer — maybe 10–30 seconds instead of 2 — but the answer to complex problems (maths, logic, multi-step planning, coding) is substantially better.
+
+What's happening mechanically: the model generates a chain of reasoning tokens *before* producing its final answer. Those reasoning tokens aren't shown to you (or are shown collapsed), but they function like scratch paper — the model works through the problem, catches its own errors, considers alternatives, and then produces a more considered response. It's doing extra internal work before answering (which takes longer and costs more) in exchange for better accuracy on hard problems.
+
+The trade-off: slower and more expensive per request, but dramatically better on tasks that require genuine multi-step reasoning. For simple tasks ("what's the weather?"), thinking models are overkill. For complex tasks ("find the bug in this 500-line function"), the extra thinking time pays off.
+
+---
+
+
 ## 9.7 — Making Models Smaller and Faster
 
 Not every improvement is about making models bigger. Several techniques make models smaller, cheaper, and faster to run:
@@ -2658,9 +2679,9 @@ A model with 70 billion parameters stored in 16-bit takes ~140 GB of memory. Qua
 
 ### Mixture of Experts (MoE)
 
-*The concept below is what matters — the mechanical details are optional depth.*
+This is the one that explains a thing you have probably wondered about: how a model can be advertised as having a trillion parameters and still answer you in two seconds without bankrupting the company running it.
 
-**What it does:** Instead of running every token through all parameters, MoE divides the model into "experts" — specialised sub-networks. For each token, a router decides which experts to activate (typically 2 out of 8, or similar). The rest stay dormant.
+**What it does:** Instead of pushing every chunk of text through the whole model, MoE divides it into "experts" — specialised sub-sections. For each chunk, a router picks which two or three to switch on. The rest stay dark.
 
 **How it actually works — step by step:**
 
@@ -2675,7 +2696,9 @@ That's MoE. Here's the mechanism:
 5. The outputs are **weighted and combined** (Expert 3 contributed 57%, Expert 7 contributed 43% — proportional to their router scores).
 6. That blended result moves to the next layer. The other 6 experts never fired.
 
-**The maths that matters:** If a model has 8 experts per layer and activates 2, only 25% of the parameters do work on any given token. The model can have 1.8 trillion total parameters but run at the speed and cost of a ~220-billion-parameter dense model — because that's roughly how many parameters actually fire per token.
+**The maths that matters:** If a model has 8 experts per layer and switches on 2, only a quarter of the *expert* sections do any work for a given chunk of text. (Not a quarter of the whole model — the attention layers still run for everything, every time. The headline percentages you see quoted move around depending on which parts are being counted, which is worth knowing when you meet one.)
+
+The payoff is that a model can hold an enormous amount and still run at the speed and cost of a much smaller one. A *dense* model — the ordinary kind, where every part switches on for every chunk — has no such shortcut. Everything in it works on everything, all the time.
 
 **Why it matters:** You get the *capacity* of a huge model (trillions of total parameters) with the *cost* of a much smaller one (because only a fraction activates per token). GPT-4 (2023) reportedly used this architecture — according to widely-cited leaks (never officially confirmed by OpenAI), it had ~1.8 trillion total parameters across 16 experts, activating 2 per token (~220 billion active per token, or about 12.5% of total capacity). Most frontier models in 2026 use some form of MoE.
 
@@ -2711,42 +2734,12 @@ Here's how to think about which approach to use, based on what you're trying to 
 
 ---
 
-## 9.9 — The System Picture So Far
 
-```
-[Data] → [Tokenisation] → [PRE-TRAINING] → [Base Model]
-                                                  ↓
-                                         [RLHF / DPO / Constitutional AI] → shapes behaviour
-                                                  ↓
-                                         [Fine-tuning] → domain-specific behaviour (optional)
-                                                  ↓
-                                         [Distillation / Quantisation] → smaller/faster versions
-                                                  ↓
-                                         [Deployed Model] ← now ready to use
-                                                  ↓
-                              ──── INFERENCE (every request) ────
-                                                  ↓
-                    [System Prompt] + [RAG-retrieved docs] + [User Message] + [Conversation History]
-                                                  ↓
-                                    [Context Window → Prefill → Decode → Response]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 9 — this chapter's addition highlighted](systemmap/system-after-ch09.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1 | Automation (rules) vs AI (learned from examples) |
-| 2 | The AI family: ML → Deep Learning → GenAI → Agentic |
-| 3 | Training data: sources, labelling, bias, synthetic data |
-| 4 | Tokens: how input gets chopped. Why everything is measured in tokens. |
-| 5 | Training: the loop, neural networks, transformers, attention, what a model IS |
-| 6 | Multimodal: how AI sees images, generates pictures, hears voice, makes video |
-| 7 | Inference: what happens when you press send (prefill → decode → streaming) |
-| 8 | Context & memory: the model is stateless. RAG retrieves knowledge. Embeddings enable similarity search. |
-| 9 | Customisation: the spectrum from prompting → RAG → fine-tuning → RLHF → full training. Plus distillation, quantisation, MoE for making models smaller/faster. |
-
-**Where you are:** You now understand how a model gets built, refined, compressed, and deployed — the complete journey from raw data to a usable product. Next: what surrounds the model in a real product.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -2764,55 +2757,38 @@ There's no single right answer — it depends on volume, cost sensitivity, and h
 
 ---
 
-## 9.11 — What's Next
-
-You now understand all the ways a model can be customised, from quick prompting tricks to full retraining. But in the real world, nobody hands you a raw model. What you actually interact with — ChatGPT, Claude, a company's AI assistant — is a *system* built around a model: a user interface, system instructions, guardrails, tools, memory, routing logic, and more.
-
-Chapter 10 takes you to the full stack: wrappers, harnesses, and everything that turns a model into a product you actually use.
+That's the full spectrum, from writing a better sentence to spending millions retraining. But here's the thing: nobody has ever handed you a raw model. What you type into is a product, with a surprising amount of machinery sitting between you and those weights — and almost none of it is visible.
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Prompting / Few-shot** — The lightest customisation: phrasing your input carefully or including examples. Free, instant, no weight changes. **RAG** — Retrieves knowledge into context. Changes what the model can see, not how it behaves. Best for: "it needs to know about my data." **Fine-tuning** — Additional training on a specific dataset. Changes the weights. Best for: consistent behaviour changes (format, tone, domain patterns). **RLHF** — Humans rate pairs of outputs, a reward model is trained from those ratings, then the main model is optimised to produce responses the reward model scores highly. How models become "helpful." **DPO** — Direct Preference Optimization. Simpler than RLHF — adjusts weights directly from preference pairs, no separate reward model needed. **Constitutional AI** — Anthropic's approach. A written set of principles (the "constitution"). The model judges its own outputs against those principles. RLAIF (RL from AI Feedback). **Distillation** — Training a small model to mimic a large one. How phone-sized AI gets made. **Quantisation** — Reducing the precision of numbers in the model (16-bit → 4-bit). Uses less memory, runs faster, slight quality trade-off. **Mixture of Experts (MoE)** — Model divided into specialist sub-networks. Only a fraction activate per token. Gets the capacity of a huge model at the cost of a smaller one. Dominant architecture for frontier models as of 2026.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Prompting / Few-shot** | The lightest customisation: phrasing your input carefully or including examples. Free, instant, no weight changes. |
+| **RAG** | Retrieves knowledge into context. Changes what the model can see, not how it behaves. Best for: "it needs to know about my data." |
+| **Fine-tuning** | Additional training on a specific dataset. Changes the weights. Best for: consistent behaviour changes (format, tone, domain patterns). |
+| **RLHF** | Humans rate pairs of outputs, a reward model is trained from those ratings, then the main model is optimised to produce responses the reward model scores highly. How models become "helpful." |
+| **DPO** | Direct Preference Optimization. Simpler than RLHF — adjusts weights directly from preference pairs, no separate reward model needed. |
+| **Constitutional AI** | Anthropic's approach. A written set of principles (the "constitution"). The model judges its own outputs against those principles. RLAIF (RL from AI Feedback). |
+| **Distillation** | Training a small model to mimic a large one. How phone-sized AI gets made. |
+| **Quantisation** | Reducing the precision of numbers in the model (16-bit → 4-bit). Uses less memory, runs faster, slight quality trade-off. |
+| **Mixture of Experts (MoE)** | Model divided into specialist sub-networks. Only a fraction activate per token. Gets the capacity of a huge model at the cost of a smaller one. Dominant architecture for frontier models as of 2026. |
 
 
 ---
-
-<!-- END OF FILE: chapter-9-draft.md -->
 
 
 # Chapter 10: Wrappers, Harnesses, and the Stack
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain why you never interact with a "raw model" — you interact with a system built around one
-> - Identify the layers of the AI stack: model, wrapper, harness, tools, guardrails, memory
-> - Understand what an API is and why it matters (how applications "call" a model)
-> - Describe what orchestration does — coordinating multiple steps or models in sequence
-> - Explain what a router does — choosing which model handles which request
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Wrapper** | The user-facing layer — the interface you actually see and type into (ChatGPT's chat window, Claude's interface, a company's AI assistant) |
-| **Harness** | The operating layer around the model — manages context assembly, tool access, memory, quality gates, and the control loop |
-| **API (Application Programming Interface)** | A way for one piece of software to call another. How applications send prompts to models and receive responses. |
-| **Endpoint** | A specific URL where you send requests to use a model via API — like an address for the model's "office" |
-| **Orchestration** | Coordinating multiple steps, tools, or models in sequence to complete a task |
-| **Router** | A system that decides which model handles which request — sending simple questions to cheap/fast models and complex ones to expensive/powerful ones |
-| **System prompt** | Hidden instructions loaded before your message — tells the model who it is, how to behave, what tools it has |
-| **Guardrails** | Filters and rules that check the model's output before it reaches you — blocking harmful, off-topic, or policy-violating content |
-
----
 
 ## 10.1 — You've Never Used a Raw Model
 
-In January 2023, OpenAI had an outage. ChatGPT went down for about four hours. During those same four hours, hundreds of other products — customer support bots, writing assistants, code tools, apps you'd never associate with OpenAI — also broke. Completely unrelated companies, different brands, different interfaces. All dead at the same time.
+Every so often one of the big model providers has an outage, and something revealing happens. ChatGPT goes down — and so do hundreds of products that have nothing visibly to do with OpenAI. Customer support bots. Writing assistants. Code tools. Somebody's recipe app. Completely unrelated companies, different brands, different interfaces, all dark at the same moment, and a lot of people discovering for the first time that the thing they were paying for was a paint job.
 
 Why? Because they were all using the same model underneath. Their products looked different, behaved differently, had different names — but they all called the same API, powered by the same weights on the same servers. The model was one shared engine. Everything else — the interface you saw, the personality you interacted with, the tools it could use, the safety rules it followed — was built *around* that engine.
 
@@ -2965,6 +2941,11 @@ A system prompt might say:
 
 ---
 
+
+
+![One context window, and the proportions are the argument](diagrams/context-window.svg)
+
+*One context window, and the proportions are the argument. Everything above your message was put there by someone else, or by an earlier you.*
 ## 10.5 — Orchestration: When One Call Isn't Enough
 
 Simple requests — "What's the capital of France?" — require one model call. But most real AI features involve multiple steps:
@@ -3012,68 +2993,31 @@ Some products let you choose the model yourself (selecting between options in a 
 
 ## 10.7 — The Full Product (Putting It Together)
 
-When you open Claude and type a question, here's what actually happens:
+You have now met every layer separately. Chapter 7 walked the request from your keystroke to the response; this chapter added what surrounds it. Put together, when you open Claude and type a question:
 
 1. **Wrapper** receives your message (the chat interface)
 2. **Input guardrails** scan your message for policy violations
-3. **Harness** assembles the context window:- Loads the system prompt
-
-- Retrieves relevant memory facts about you
-- Includes the conversation history
-- Determines if tools are needed
-- Injects the current date/time
-
-1. **Router** picks the appropriate model (if the product uses routing)
-2. **Model** runs inference (prefill → decode → generates tokens)
-3. **Output guardrails** check the response before delivery
-4. **Wrapper** streams the response to your screen
+3. **Harness** assembles the context window:
+   - Loads the system prompt
+   - Retrieves relevant memory facts about you
+   - Includes the conversation history
+   - Determines if tools are needed
+   - Injects the current date/time
+4. **Router** picks the appropriate model (if the product uses routing)
+5. **Model** runs inference (prefill → decode → generates tokens)
+6. **Output guardrails** check the response before delivery
+7. **Wrapper** streams the response to your screen
 
 All of that happens in 1–5 seconds. Seven layers deep, multiple systems coordinating — and you just see words appearing in a chat box.
 
 ---
 
-## 10.8 — The System Picture So Far
 
-```
-                              ┌─── THE FULL PRODUCT STACK ───┐
-                              │                              │
-YOU → [Wrapper/UI] → [Input Guardrails] → [Harness/Orchestration] → [Router]
-                                                    │                    ↓
-                                          ┌─────────┼──────────┐   [Model Selection]
-                                          │         │          │        ↓
-                                     [Memory]  [RAG/Docs]  [Tools]  [MODEL]
-                                          │         │          │        ↓
-                                          └─────────┼──────────┘   [Generation]
-                                                    │                    ↓
-                                          [Output Guardrails] ← ─ ─ ─ ─ ┘
-                                                    ↓
-                                             [Response to YOU]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 10 — this chapter's addition highlighted](systemmap/system-after-ch10.svg)
 
-**Underneath all of this:**
-
-```
-[GPU Hardware] → [Inference Servers] → [Load Balancing] → [Monitoring & Billing]
-
-```
-
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1 | Automation vs AI |
-| 2 | ML → Deep Learning → GenAI → Agentic |
-| 3 | Training data: sources, labelling, bias |
-| 4 | Tokens: how input gets chopped |
-| 5 | Training: the loop, neural networks, transformers, what a model IS |
-| 6 | Multimodal: how AI sees images, generates pictures (diffusion), hears voice |
-| 7 | Inference: prefill → decode → streaming |
-| 8 | Context & memory: stateless model, RAG, embeddings |
-| 9 | Customisation: prompting → RAG → fine-tuning → RLHF. Distillation, quantisation, MoE. |
-| 10 | The stack: wrapper, harness, API, system prompt, guardrails, orchestration, router. You never use a raw model — you use a system. |
-
-**Where you are:** You now understand both the model AND the system built around it. Next: how that system is kept safe and trustworthy.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -3090,50 +3034,33 @@ YOU → [Wrapper/UI] → [Input Guardrails] → [Harness/Orchestration] → [Rou
 
 ---
 
-## 10.10 — What's Next
-
-You now understand the full system: model + everything around it. But how do you keep that system safe? How do you prevent it from generating harmful content, following adversarial instructions, or confidently producing false information?
-
-Chapter 11 takes us to guardrails, safety, and trust — the ongoing challenge of controlling what a language-generating system actually produces.
+Seven layers deep, several systems talking to each other, and what you see is a chat box. Which raises something those layers are quietly working on the whole time, in the background, on your behalf. What is stopping it from saying something appalling?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Wrapper** — The user-facing interface layer. What you see, type into, and receive responses from. **Harness** — The operating layer around the model. Assembles context, manages tools, runs the control loop, applies quality gates. Increasingly recognised (2026) as an engineering discipline in its own right. **API** — How applications send prompts to models and receive responses. Billed per token. **Endpoint** — The specific URL where API requests go. Like the model's office address. **System prompt** — Hidden instructions loaded before your message. Shapes the model's personality, rules, and available tools. **Orchestration** — Coordinating multiple steps, tools, or model calls in sequence. Most real AI products are orchestrated multi-step systems. **Router** — Chooses which model handles each request. Sends simple tasks to cheap models, complex tasks to powerful ones. Saves 70-90% on inference costs. **Guardrails** — Filters checking input and output for safety, policy compliance, and quality. Applied on both sides of the model.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Wrapper** | The user-facing interface layer. What you see, type into, and receive responses from. |
+| **Harness** | The software around the model that does all the work you never see — deciding what goes into the context window, in what order, and whether any tools need calling before the model ever runs. If the wrapper is what you look at, the harness is what is actually thinking about your request |
+| **API** | How applications send prompts to models and receive responses. Billed per token. |
+| **Endpoint** | The specific URL where API requests go. Like the model's office address. |
+| **System prompt** | Hidden instructions loaded before your message. Shapes the model's personality, rules, and available tools. |
+| **Orchestration** | Coordinating multiple steps, tools, or model calls in sequence. Most real AI products are orchestrated multi-step systems. |
+| **Router** | Chooses which model handles each request. Sends simple tasks to cheap models, complex tasks to powerful ones. Saves 70-90% on inference costs. |
+| **Guardrails** | Filters checking input and output for safety, policy compliance, and quality. Applied on both sides of the model. |
 
 
 ---
-
-<!-- END OF FILE: chapter-10-draft.md -->
 
 
 # Chapter 11: Guardrails, Safety, and Trust
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what guardrails are and how they work (input + output filtering)
-> - Understand what alignment means and why it's the deeper challenge behind safety
-> - Describe what jailbreaking is, why it works, and why it's an ongoing arms race
-> - Explain mechanically why hallucination happens (not a mystery — a consequence of how generation works)
-> - Describe what red-teaming is and why companies do it
-> - Use a trust framework: when to trust AI output and when not to
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Guardrails** | Runtime safety systems that check inputs and outputs against policies — blocking harmful, off-topic, or non-compliant content before it reaches you |
-| **Alignment** | The deeper problem: making the model's goals and behaviour match what humans actually want — not just blocking bad outputs, but shaping the model itself |
-| **Jailbreaking** | Techniques that trick the model into bypassing its safety training — getting it to produce content it was trained to refuse |
-| **Hallucination** | The model generating confident-sounding output that isn't true — a structural consequence of predicting probable tokens, not retrieving verified facts |
-| **Red-teaming** | Deliberately attacking your own AI system (before bad actors do) to find vulnerabilities, safety failures, and edge cases |
-| **Content filter** | A classifier (often itself an AI model) that scans text for policy violations — violence, hate speech, PII, etc. |
-
----
 
 ## 11.1 — The Problem: A Machine That Generates Language Can Generate Any Language
 
@@ -3242,7 +3169,7 @@ You've now seen how guardrails work mechanically. But there's a question the mec
 
 This isn't a technical problem with a technical solution. It's a governance problem — and as of 2026, it's being solved by small teams at private companies, mostly without public input or oversight. Whether that's acceptable is one of the central questions of AI policy.
 
-> 📰 **The wider question:** "Who Wrote the Rules Your AI Follows?" The philosophy of AI content policy — whose values get encoded, whose don't, and whether this can ever be done fairly.
+> 📰 ***The Big Picture*** *investigates: "Who Wrote the Rules Your AI Follows?" The philosophy of AI content policy — whose values get encoded, whose don't, and whether this can ever be done fairly.* → *Big Picture article coming soon.*
 
 ---
 
@@ -3385,32 +3312,12 @@ Not all AI outputs deserve equal trust. Here's a practical framework:
 
 ---
 
-## 11.9 — The System Picture So Far
 
-```
-                    ┌─── SAFETY LAYERS ───┐
-                    │                     │
-[Your Input] → [Input Guardrails] → [Aligned Model (RLHF'd)] → [Output Guardrails] → [Response]
-                    │                     │                          │
-                    │              [System Prompt:                   │
-                    │               safety rules,                   │
-                    │               refusal patterns]               │
-                    │                     │                          │
-                    └─── RED-TEAMING (adversarial testing, ongoing) ─┘
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 11 — this chapter's addition highlighted](systemmap/system-after-ch11.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–4 | Foundations: what AI is, the family, data, tokens |
-| 5–6 | How models get built (training) and used (inference) |
-| 7–8 | Context, memory, RAG, the customisation spectrum |
-| 9 | The full stack: wrapper, harness, API, orchestration, router |
-| 10 | Safety: guardrails (runtime filters), alignment (shaping the model), jailbreaking (the arms race), hallucination (why it makes things up), red-teaming (breaking it on purpose), and the trust framework (when to verify) |
-
-**Where you are:** You now understand both the capability AND the limitations of AI systems, including why they fail and what's being done about it. Next: how do you know if a model is actually good? That's testing and evaluation.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -3424,50 +3331,31 @@ Not all AI outputs deserve equal trust. Here's a practical framework:
 
 ---
 
-## 11.11 — What's Next
-
-You know the system is imperfect — it hallucinates, it can be tricked, its safety is layered rather than absolute. But how do you systematically *measure* how good a model is? How do you compare models? How do you know if an update made things better or worse?
-
-Chapter 12 takes us to testing and evaluation: benchmarks, evals, and the surprisingly hard problem of measuring the quality of something that generates language.
+Safety turns out to be layered rather than absolute — filters that miss things, training that can be talked around, and a machine that invents facts with perfect confidence. Which leaves an awkward question. If it's imperfect in all of those ways at once, how would anybody *measure* whether one model is better than another?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Guardrails** — Runtime systems that filter inputs and outputs. Don't change the model; control what goes in and comes out. Defence in depth: input guards + system constraints + alignment + output guards + human review. **Alignment** — Making the model's behaviour match human intent through training (RLHF, Constitutional AI). The proactive complement to reactive guardrails. **Jailbreaking** — Tricking a model into bypassing safety. Works because alignment is pattern-trained, not absolute. An ongoing arms race with no final solution. **Hallucination** — Generating confident falsehoods. Happens because the model predicts probable tokens, not verified facts. Most likely for specific details, niche topics, and citation-format requests. **Red-teaming** — Adversarial testing by specialised teams. Find the breaks before attackers do. Standard practice for all major model releases (2025–26). **Trust framework** — Not all AI outputs deserve equal trust. High trust: widely-known facts, summaries of provided documents, creative tasks. Low trust: specific statistics, recent events, high-stakes professional advice. Rule: use as starting point, verify when accuracy matters.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Guardrails** | Runtime systems that filter inputs and outputs. Don't change the model; control what goes in and comes out. Defence in depth: input guards + system constraints + alignment + output guards + human review. |
+| **Alignment** | Making the model's behaviour match human intent through training (RLHF, Constitutional AI). The proactive complement to reactive guardrails. |
+| **Jailbreaking** | Tricking a model into bypassing safety. Works because alignment is pattern-trained, not absolute. An ongoing arms race with no final solution. |
+| **Hallucination** | Generating confident falsehoods. Happens because the model predicts probable tokens, not verified facts. Most likely for specific details, niche topics, and citation-format requests. |
+| **Red-teaming** | Adversarial testing by specialised teams. Find the breaks before attackers do. Standard practice for all major model releases (2025–26). |
+| **Trust framework** | Not all AI outputs deserve equal trust. High trust: widely-known facts, summaries of provided documents, creative tasks. Low trust: specific statistics, recent events, high-stakes professional advice. Rule: use as starting point, verify when accuracy matters. |
 
 
 ---
-
-<!-- END OF FILE: chapter-11-draft.md -->
 
 
 # Chapter 12: Testing and Evaluation
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what benchmarks are, how they work, and why they exist
-> - Understand why benchmarks are useful but flawed — and what those flaws are
-> - Describe the difference between automated evaluation and human evaluation
-> - Explain what "evals" are in practice and why companies run them constantly
-> - Understand why evaluating generative AI is harder than evaluating traditional software
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Benchmark** | A standardised test given to every model in the same way — a fixed set of questions with known correct answers, used to compare models |
-| **MMLU** | A benchmark testing knowledge across 57 academic subjects (like a multi-subject exam) |
-| **SWE-bench** | A benchmark testing coding ability — gives the model real GitHub issues and checks if its code actually passes the tests |
-| **Chatbot Arena** | A human-evaluation platform where users chat with two anonymous models and vote for the better response |
-| **Evals** | Custom evaluation tests a company builds for its specific use case — "does our model get THIS right?" |
-| **Regression testing** | Checking whether an update broke something that previously worked |
-| **Contamination** | When a model's training data accidentally includes the benchmark questions — making scores meaningless |
-
----
 
 ## 12.1 — The Problem: How Do You Measure "Good"?
 
@@ -3500,11 +3388,11 @@ A benchmark is a fixed set of questions or tasks, given to every model under ide
 | **GSM8K** | Maths word problems | Grade-school maths, tested for step-by-step reasoning |
 | **Humanity's Last Exam** | The hardest possible questions across all domains | Designed to be nearly impossible for current models |
 
-**How models compare (July 2026):** Claude Fable 5 currently leads the most benchmarks (MMLU-Pro 91.5%, SWE-bench Verified 95.0%, Chatbot Arena 1509 Elo). But no single model wins everything — different models have different strengths.
+**How models compare:** as of mid-2026, Claude Fable 5 leads on a number of benchmarks — including SWE-bench Verified at 95.0% — and sits at or near the top of the Chatbot Arena leaderboard. But no single model wins everything, the ordering changes every few weeks, and any specific number printed in a book is a number that will be wrong by the time you read it. Treat the leaderboards as weather, not climate.
 
 > ⏸️ **"But what does a benchmark test actually look like? What's it doing?"** Here's a real example from MMLU (Massive Multitask Language Understanding). The model gets a multiple-choice question:
 > ```
-> Question: What is the embryological origin of the hy__(anatomy)__?
+> Question: What is the embryological origin of the hyoid bone?
 > A) First pharyngeal arch
 > B) Second pharyngeal arch
 > C) Third pharyngeal arch
@@ -3619,38 +3507,24 @@ Each dimension can be scored separately. Different applications weight different
 
 ---
 
-## 12.7 — The System Picture So Far
 
-```
-                         ┌─── EVALUATION LAYER ───┐
-                         │                        │
-                    [Benchmarks]  [Human Eval]  [Custom Evals]
-                         │              │            │
-                         └──────── measure ─────────┘
-                                       ↓
-[Data → Training → Model → RLHF → Fine-tuning → Deployment → Stack → Guardrails]
-                                       ↑
-                              [Regression Testing]
-                              (did the update break anything?)
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 12 — this chapter's addition highlighted](systemmap/system-after-ch12.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–5 | How AI works: from data through training to the trained model |
-| 6 | Multimodal: how AI sees images, generates pictures, hears voice |
-| 7 | Inference: what happens when you press send |
-| 8 | Context, memory, embeddings, RAG |
-| 9 | The customisation spectrum: prompting → RAG → fine-tuning → RLHF |
-| 10 | The full product stack (wrapper, harness, API, orchestration) |
-| 11 | Safety: guardrails, alignment, jailbreaking, hallucination, red-teaming |
-| 12 | Evaluation: benchmarks (standardised but flawed), human eval (reliable but expensive), custom evals (specific but requires investment), and why measuring "good" is fundamentally hard for generative AI |
-
-**Where you are:** You can now evaluate AI claims critically — when someone says "our model is the best," you know to ask: on which benchmark? For which task? As measured how?
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
+
+> ⏳ **Then / Now: what a benchmark score tells you**
+>
+> **Then:** MMLU was *the* number. A model's score on it was the headline, and a few points of difference was news.
+>
+> **Now:** Frontier models all score in the high eighties and above. The test stopped discriminating between them, which is what people mean when they say a benchmark has **saturated**.
+>
+> **What changed:** The models got better than the exam. And because benchmark questions leak into training data over time, a high score increasingly measures exposure rather than ability.
+>
+> **How to spot the stale version:** A press release leading with a benchmark score is telling you something much weaker than it sounds. The honest questions are: is this benchmark still discriminating, when was it built, and could the answers have ended up in the training data? All three are getting harder to answer, which is why the industry keeps having to invent new exams.
 
 ## 12.8 — Try This
 
@@ -3665,49 +3539,33 @@ Each dimension can be scored separately. Different applications weight different
 
 ---
 
-## 12.9 — What's Next
-
-You now know how models are measured. But there's a specific testing challenge that becomes critical when AI systems start *taking actions* in the real world — not just generating text, but sending emails, running code, making purchases.
-
-Chapter 13 covers sandboxing: giving AI a safe space to try things where mistakes don't have real consequences.
+Benchmarks, evals, human judgement — imperfect instruments, every one of them. And they get sharply more serious the moment an AI stops writing text and starts doing things: sending the email, running the code, spending the money. What do you do when a mistake can't be taken back?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Benchmark** — A standardised test for AI. Fixed questions, automatic scoring, comparable across models. Useful but limited: contamination, saturation, gaming, narrow scope. **MMLU** — Multi-subject knowledge test (57 topics). Becoming saturated — frontier models all score 85%+. **SWE-bench** — Coding benchmark using real GitHub issues. Tests whether generated code actually passes the repository's own test suite. **Chatbot Arena** — Human preference evaluation. Users vote between two anonymous model responses. Produces Elo rankings. Harder to game than automated benchmarks. **Evals** — Custom tests for specific use cases and behaviours. Built by the team deploying the AI. The most relevant evaluation for real products. **Regression testing** — Did the update break something? Run the same tests before and after any change. **LLM-as-judge** — Using a separate AI model to evaluate outputs. Faster and cheaper than human evaluation but introduces its own biases. **Contamination** — Benchmark questions appearing in training data. Makes scores unreliable. An increasing problem as datasets grow.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Benchmark** | A standardised test for AI. Fixed questions, automatic scoring, comparable across models. Useful but limited: contamination, saturation, gaming, narrow scope. |
+| **MMLU** | Multi-subject knowledge test (57 topics). Becoming saturated — frontier models all score 85%+. |
+| **SWE-bench** | Coding benchmark using real GitHub issues. Tests whether generated code actually passes the repository's own test suite. |
+| **Chatbot Arena** | Human preference evaluation. Users vote between two anonymous model responses. Produces Elo rankings. Harder to game than automated benchmarks. |
+| **Evals** | Custom tests for specific use cases and behaviours. Built by the team deploying the AI. The most relevant evaluation for real products. |
+| **Regression testing** | Did the update break something? Run the same tests before and after any change. |
+| **LLM-as-judge** | Using a separate AI model to evaluate outputs. Faster and cheaper than human evaluation but introduces its own biases. |
+| **Contamination** | Benchmark questions appearing in training data. Makes scores unreliable. An increasing problem as datasets grow. |
 
 
 ---
-
-<!-- END OF FILE: chapter-12-draft.md -->
 
 
 # Chapter 13: Sandboxing
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what a sandbox is and why it matters (especially as AI starts taking actions)
-> - Describe the difference between AI that talks and AI that acts — and why the stakes are different
-> - Understand the trust/autonomy spectrum: from fully sandboxed to fully autonomous
-> - Explain what "human-in-the-loop" means and when it's used
-> - Understand why sandboxing is one of the hottest topics in AI safety right now (2026)
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Sandbox** | An isolated environment where actions have no real consequences — a safe practice space |
-| **Human-in-the-loop** | The system pauses before acting and asks a human for approval — a safety checkpoint |
-| **Autonomy spectrum** | The range from "fully sandboxed" (can't affect anything real) to "fully autonomous" (acts without asking) |
-| **Code execution sandbox** | A contained environment where AI can write and run code without affecting your real files or system |
-| **Tool-use sandbox** | A test environment where an agent can "try" actions (like sending an email) without them actually sending |
-| **Irreversibility** | Whether an action can be undone. Irreversible actions (sending a payment, deleting data) need the most protection. |
-
----
 
 ## 13.1 — Why Sandboxing Matters Now
 
@@ -3764,10 +3622,12 @@ Not every action needs a sandbox. The question is always: **what's the cost of g
 
 | Level | What it means | Example | When to use |
 | --- | --- | --- | --- |
-| **Fully sandboxed** | Can't affect anything real. All actions are simulated. | Code runs in a container, email is drafted but not sent | New/untested systems, high-stakes domains |
-| **Human-in-the-loop** | System proposes actions, human approves each one | "I'd like to send this email. OK?" → you click approve | Most production agent systems (2026) |
+| **1 — Fully sandboxed** | Can't affect anything real. All actions are simulated. | Code runs in a container, email is drafted but not sent | New/untested systems, high-stakes domains |
+| **2 — Human-in-the-loop** | System proposes actions, human approves each one | "I'd like to send this email. OK?" → you click approve | Most production agent systems (2026) |
+| **3 — Supervised autonomy** | System acts on its own for low-risk tasks, asks for high-risk ones | Auto-files emails, but asks before sending a reply | Mature systems with clear risk boundaries |
+| **4 — Fully autonomous** | System acts without asking | An agent that books flights, sends messages, and modifies schedules independently | Very limited current use; high trust required |
 
-> 🔍 **Concept in Practice: What human-in-the-loop actually looks like, mechanically**
+> 🔍 **Concept in Practice: What human-in-the-loop (level 2) actually looks like, mechanically**
 >
 > You ask your AI assistant: "Reply to Sarah's email and tell her Thursday works."
 >
@@ -3780,8 +3640,6 @@ Not every action needs a sandbox. The question is always: **what's the cost of g
 > 7. NOW the harness executes the actual API call. The email leaves your outbox.
 >
 > The sandbox here is temporal — the action existed in a "proposed but not yet real" state. The gate between "proposed" and "real" is your click. That click is the entire safety mechanism.
-| **Supervised autonomy** | System acts on its own for low-risk tasks, asks for high-risk ones | Auto-files emails, but asks before sending a reply | Mature systems with clear risk boundaries |
-| **Fully autonomous** | System acts without asking | An agent that books flights, sends messages, and modifies schedules independently | Very limited current use; high trust required |
 
 **Where the industry is (2026):** Most production AI agent systems operate at level 2 (human-in-the-loop) or level 3 (supervised autonomy with guardrails on irreversible actions). Fully autonomous agents exist but are limited to low-stakes tasks or environments with strong rollback capabilities.
 
@@ -3807,6 +3665,11 @@ This maps to how most AI products work today: they'll happily draft, organise, a
 
 ---
 
+
+
+![The only question that matters before letting it act — and it needs no technical knowledge at all, which is why it is the one worth carrying to every tool you will ever be handed](diagrams/reversibility.svg)
+
+*The only question that matters before letting it act — and it needs no technical knowledge at all, which is why it is the one worth carrying to every tool you will ever be handed.*
 ## 13.5 — Why This Is a Hot Topic (2026)
 
 As models get more capable, the temptation to give them more autonomy grows. A system that can reliably book flights, manage your calendar, write and send emails, and research topics is incredibly useful — if it works. But "if it works" is doing a lot of heavy lifting.
@@ -3822,36 +3685,12 @@ The sandbox isn't going away. What's evolving is *where the sandbox boundaries s
 
 ---
 
-## 13.6 — The System Picture So Far
 
-```
-                    ┌─── ACTION & SAFETY ───┐
-                    │                       │
-[Agent proposes action] → [Sandbox / Simulation]
-                              ↓ (if safe)
-                    [Human-in-the-loop approval]
-                              ↓ (if approved)
-                    [Action executes in real world]
-                              ↓
-                    [Monitoring: did it work as expected?]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 13 — this chapter's addition highlighted](systemmap/system-after-ch13.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–5 | How AI works: data → tokens → training → model |
-| 6 | How AI sees, hears, and creates (multimodal, diffusion, voice) |
-| 7 | Inference: when you actually use the model |
-| 8 | Context, memory, and what the model can see |
-| 9 | Customisation: from prompting to full pre-training |
-| 10 | The product stack: wrappers, harnesses, APIs |
-| 11 | Safety: guardrails, alignment, hallucination |
-| 12 | Evaluation: benchmarks, human eval, custom evals |
-| 13 | Sandboxing: when AI acts (not just talks), you need safe practice spaces. The autonomy spectrum runs from fully sandboxed to fully autonomous. Irreversibility is the key factor in deciding how much autonomy to grant. |
-
-**Where you are:** You now understand the full safety picture — from shaping behaviour (alignment) to filtering outputs (guardrails) to testing adversarially (red-teaming) to containing actions (sandboxing). Next: the agents themselves.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -3863,51 +3702,30 @@ The sandbox isn't going away. What's evolving is *where the sandbox boundaries s
 
 ---
 
-## 13.8 — What's Next
-
-You now understand why agents need safety boundaries. But what exactly *is* an agent? How does a system go from answering questions to actually doing things? What gives it the ability to plan, use tools, and work toward goals?
-
-Chapter 14 takes us to agents: AI that acts — the architecture, the planning loop, the tools, and what makes an agent fundamentally different from a chatbot.
+Whether something can be undone turns out to be the whole question, and a sandbox is one answer to it. But we've now spent a chapter circling something without ever defining it. A system that acts, looks at what happened, and acts again — what *is* that, and how does it work?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Sandbox** — An isolated environment where actions can't escape to the real world. A safe practice space for AI systems that take actions. **Human-in-the-loop** — System pauses before acting and requires human approval. The default for most production agent systems (2026). **Autonomy spectrum** — Fully sandboxed → human-in-the-loop → supervised autonomy → fully autonomous. Most current systems sit at levels 2–3. **Irreversibility** — The key factor in deciding autonomy. If an action can't be undone (send, delete, purchase), it needs more oversight than one that can (draft, move, organise). **Code execution sandbox** — AI can write and run code in a container that can't access your real system. Used by ChatGPT's Code Interpreter, Claude, and others.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Sandbox** | An isolated environment where actions can't escape to the real world. A safe practice space for AI systems that take actions. |
+| **Human-in-the-loop** | System pauses before acting and requires human approval. The default for most production agent systems (2026). |
+| **Autonomy spectrum** | Fully sandboxed → human-in-the-loop → supervised autonomy → fully autonomous. Most current systems sit at levels 2–3. |
+| **Irreversibility** | The key factor in deciding autonomy. If an action can't be undone (send, delete, purchase), it needs more oversight than one that can (draft, move, organise). |
+| **Code execution sandbox** | AI can write and run code in a container that can't access your real system. Used by ChatGPT's Code Interpreter, Claude, and others. |
 
 
 ---
-
-<!-- END OF FILE: chapter-13-draft.md -->
 
 
 # Chapter 14: Agents — AI That Acts
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain what makes an agent different from a chatbot (tools + memory + a planning loop)
-> - Describe the agent loop: perceive → reason → act → observe → repeat
-> - Understand how "tool calling" works — how a model triggers real actions
-> - Explain what MCP (Model Context Protocol) is and why it standardises how agents connect to tools
-> - Describe the difference between single agents and multi-agent systems
-> - Understand where agents are now (2026) — what they can reliably do, and where they still struggle
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Agent** | An AI system that doesn't just generate text — it takes actions, uses tools, maintains state, and works toward goals over multiple steps |
-| **Tool calling** | When a model generates structured output that triggers a real action (search the web, send an email, run code) |
-| **Agent loop** | The repeating cycle: perceive → reason → plan → act → observe → decide whether to continue or stop |
-| **Planning** | Breaking a complex goal into smaller steps the agent can execute one at a time |
-| **Multi-agent system** | Multiple agents working together — collaborating, specialising, or handing tasks between each other |
-| **MCP (Model Context Protocol)** | An open standard (Anthropic, 2024) that standardises how agents discover and use tools — the "USB-C for AI tools" |
-| **A2A (Agent-to-Agent)** | A protocol for agents communicating with other agents (distinct from MCP, which connects agents to tools) |
-
----
 
 ## 14.1 — What Makes an Agent Different From a Chatbot
 
@@ -3975,6 +3793,11 @@ That's one loop — but a complex task might involve 5, 10, or 50 loops before i
 
 ---
 
+
+
+![The closing arrow is the entire difference between a chatbot and an agent — and it is also why an agent can be wrong three times before you see anything at all](diagrams/agent-loop.svg)
+
+*The closing arrow is the entire difference between a chatbot and an agent — and it is also why an agent can be wrong three times before you see anything at all.*
 ## 14.3 — Tool Calling: How a Model "Does Things"
 
 The model itself can't search the web, send emails, or book flights. It can only generate text. So how does it "use tools"?
@@ -4110,46 +3933,12 @@ Each of these follows the same fundamental loop — perceive, reason, act, obser
 
 ---
 
-## 14.8 — The System Picture So Far
 
-```
-                         ┌─── AGENT ARCHITECTURE ───┐
-                         │                          │
-                    [GOAL from user]                 │
-                         ↓                          │
-                    [AGENT LOOP]                     │
-                    ┌───────────┐                    │
-                    │ Perceive  │                    │
-                    │ Reason    │ ←── [Context Window: system prompt,     │
-                    │ Plan      │      history, tool results, memory]     │
-                    │ Act       │ ──→ [Tool Calls via MCP]               │
-                    │ Observe   │ ←── [Tool Results]                     │
-                    │ Decide    │                    │
-                    └───────────┘                    │
-                         ↓                          │
-              (loop until done or stuck)            │
-                         ↓                          │
-                    [Final Response / Completed Action]
-                         │                          │
-                         └──────────────────────────┘
+## The System So Far
 
-Connected via MCP:  [Search] [Email] [Calendar] [Code Exec] [Files] [Database] [APIs]
+![The AI system as understood by the end of chapter 14 — this chapter's addition highlighted](systemmap/system-after-ch14.svg)
 
-```
-
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–5 | How AI works: data → tokens → training → model |
-| 6 | Multimodal: how AI sees, hears, and creates |
-| 7 | Inference: what happens when you press send |
-| 8–9 | Context, memory, RAG, customisation spectrum |
-| 10 | The product stack |
-| 11–13 | Safety, evaluation, sandboxing |
-| 13 | Agents: AI that acts. The loop (perceive → reason → act → observe → repeat). Tool calling (model generates structured text, harness executes). MCP (standard for connecting tools). Multi-agent systems. |
-
-**Where you are:** You understand both chatbots (generate text) and agents (take actions via loops and tools). Next: how the engineering disciplines evolved to support all of this.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -4163,48 +3952,32 @@ Connected via MCP:  [Search] [Email] [Calendar] [Code Exec] [Files] [Database] [
 
 ---
 
-## 14.10 — What's Next
-
-You now understand what agents are, how they work, and what they can do. But the people building, managing, and improving these systems need specific skills — and those skills have evolved rapidly. In 18 months, the craft went from "prompt engineering" to "context engineering" to "loop engineering" to "graph engineering."
-
-Chapter 15 takes you through that evolution: what each discipline means, how it builds on the last, and what these people actually do day-to-day.
+That loop is the entire difference between a chatbot and an agent. Somebody has to design what goes into it, though. And that job has been renamed three times in about as many years, which tells you a good deal about how new it still is.
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Agent** — AI that acts, not just talks. Has tools + a loop + state. Takes goals, breaks them into steps, executes, evaluates, iterates. **Agent loop** — Perceive → Reason → Plan → Act → Observe → Decide → repeat until done. The fundamental architecture every agent shares. **Tool calling** — Model generates structured text (e.g. JSON function calls). The harness intercepts and executes the actual action. Model itself doesn't "do" anything — it writes instructions. **MCP (Model Context Protocol)** — Open standard for connecting agents to tools. Introduced by Anthropic in 2024, now industry-wide. The "USB-C for AI tools." **A2A (Agent-to-Agent)** — Protocol for agents communicating with other agents. Handles discovery, handoffs, shared context. **Planning** — Decomposing complex goals into steps. Can be explicit (write a plan) or implicit (decide next action each loop). **Multi-agent system** — Multiple specialised agents (researcher, writer, reviewer, coordinator) working together on a task.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Agent** | AI that acts, not just talks. Has tools + a loop + state. Takes goals, breaks them into steps, executes, evaluates, iterates. |
+| **Agent loop** | Perceive → Reason → Plan → Act → Observe → Decide → repeat until done. The fundamental architecture every agent shares. |
+| **Tool calling** | Model generates structured text (e.g. JSON function calls). The harness intercepts and executes the actual action. Model itself doesn't "do" anything — it writes instructions. |
+| **MCP (Model Context Protocol)** | Open standard for connecting agents to tools. Introduced by Anthropic in 2024, now industry-wide. The "USB-C for AI tools." |
+| **A2A (Agent-to-Agent)** | Protocol for agents communicating with other agents. Handles discovery, handoffs, shared context. |
+| **Planning** | Decomposing complex goals into steps. Can be explicit (write a plan) or implicit (decide next action each loop). |
+| **Multi-agent system** | Multiple specialised agents (researcher, writer, reviewer, coordinator) working together on a task. |
 
 
 ---
-
-<!-- END OF FILE: chapter-14-draft.md -->
 
 
 # Chapter 15: From Prompting to Graph Engineering — How the Craft Evolved
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Trace the evolution of AI engineering: prompt → context → loop → graph (2023–2026)
-> - Explain what each discipline actually means and what practitioners do day-to-day
-> - Understand why each is a "zoom-out" from the last
-> - Evaluate AI products more critically — when one works better than another, these layers are usually why
-> - Read AI articles from any period (2023–2026) without getting confused by shifting terminology
-> - Know where the field is today and what's likely next
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Prompt engineering** | The craft of phrasing instructions to get good output from a model — how you ask (2023) |
-| **Context engineering** | Designing everything the model can see when it responds — documents, memories, tools, instructions. Prompt is a subset. (mid-2025) |
-| **Loop engineering** | Designing the execution cycle an agent runs in — triggers, stopping conditions, iteration limits, feedback mechanisms (June 2026) |
-| **Graph engineering** | Wiring multiple agents/loops into an orchestrated system — nodes, edges, parallel branches, handoffs (July 2026) |
-
----
 
 ## 15.1 — The Same Job Got Renamed Four Times
 
@@ -4381,7 +4154,7 @@ Loop engineering is designing *that cycle*: How many steps is it allowed? What i
 
 **The scope:** Not one message, not one context window — the entire iterative cycle an agent runs over a task.
 
-**Coined by:** Addy Osmani (Google), June 2026, in a widely-shared post that articulated the distinction: "Context engineering is what it knows. Loop engineering is what it does with what it knows, over time."
+**Where it came from:** the term surfaced in mid-2026 out of the coding-agent world. Boris Cherny at Anthropic put the shift bluntly — "I don't prompt Claude anymore. I write loops that prompt Claude" — and Addy Osmani at Google gave it its clearest statement in June 2026: "Loop engineering is replacing yourself as the person who prompts the agent. You design the system that does it instead." Credit for the coinage is genuinely contested, which is what you'd expect from a term this new.
 
 ---
 
@@ -4439,6 +4212,16 @@ The user never saw the failure, the retry, the parallel calls, or the quorum log
 
 ---
 
+> ⏳ **Then / Now: what this job is called**
+>
+> **Then (2023):** "Prompt engineer." A real job, advertised at real money, and treated in the press as the safe new career.
+>
+> **Now:** Context engineering, then loop engineering, then graph engineering — three renamings in about as many years.
+>
+> **What changed:** As models got better at interpreting a sloppy instruction, the scarce skill moved outward. First the sentence mattered most, then everything the model could see, then the cycle it runs in, then how several of them connect.
+>
+> **How to spot the stale version:** Here the renaming itself is the information. When a field relabels a job every year, the work is real and its boundaries are not settled. Be careful with anyone selling certification in a term that is eight weeks old — including the two at the end of that list, which may not survive.
+
 ## 15.6 — The Through-Line: Each Is a Zoom-Out
 
 | Discipline | What you're designing | The question you're answering |
@@ -4490,41 +4273,12 @@ Stripped of hype, what work at each level looks like:
 
 ---
 
-## 15.8 — The System Picture So Far
 
-```
-┌─── ENGINEERING DISCIPLINES ─────────────────────────────────────────┐
-│                                                                      │
-│  GRAPH ENGINEERING ─── designs the multi-agent system               │
-│       │                                                             │
-│       └── LOOP ENGINEERING ─── designs each agent's execution cycle │
-│              │                                                      │
-│              └── CONTEXT ENGINEERING ─── designs what each agent sees│
-│                     │                                               │
-│                     └── PROMPT ENGINEERING ─── writes the actual    │
-│                                                instructions         │
-│                                                                      │
-└─── Applied to: ─────────────────────────────────────────────────────┘
-                   ↓
-     [Full Stack: Model + Harness + Tools + Memory + Guardrails]
-                   ↓
-     [Hardware: GPUs + Data Centres + Networking]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 15 — this chapter's addition highlighted](systemmap/system-after-ch15.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–5 | How AI works: data → tokens → training → model |
-| 6–7 | Multimodal and inference |
-| 8–9 | Context, memory, RAG, customisation |
-| 10 | The product stack |
-| 11–13 | Safety, evaluation, sandboxing |
-| 14 | Agents: the loop, tools, MCP, multi-agent systems |
-| 15 | The engineering disciplines: prompt → context → loop → graph. Each is a zoom-out. The field is 3 years old and the scope has expanded 4x. |
-
-**Where you are:** You now understand both the technology AND the human craft of working with it. Next: the physical machines underneath.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -4536,48 +4290,29 @@ Most people are prompt engineers without knowing it. Now you have the vocabulary
 
 ---
 
-## 15.10 — What's Next
-
-You understand the software and the skills. But all of this runs on physical hardware — chips that cost tens of thousands of dollars each, in data centres that consume the electricity of small cities. Chapter 16 takes us to the physical machine: GPUs, compute, and why AI is expensive.
+So that's the craft, and the people who practise it. Every bit of it runs on physical objects — chips that cost more than a car, sitting in buildings you could drive past without noticing. Which raises a question worth asking before we go inside one. Why can't a normal computer do this?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Prompt engineering (2023)** — How you phrase the instruction. The foundation. Still essential, but now understood as one piece of a larger system. **Context engineering (mid-2025)** — Everything the model can see: documents, memories, system instructions, tools, conversation history. Prompt engineering is a subset. The biggest determinant of output quality. **Loop engineering (June 2026)** — The execution cycle an agent runs in. Triggers, stopping conditions, feedback, iteration caps, budgets. Not what it sees — how it iterates. **Graph engineering (July 2026)** — Multiple agents/loops wired into an orchestrated system. Nodes, edges, shared state, parallel branches, handoffs. **The through-line:** How you ask → What it knows → The loop it runs in → The multi-agent graph it's part of. Each is a zoom-out from the last.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Prompt engineering (2023)** | How you phrase the instruction. The foundation. Still essential, but now understood as one piece of a larger system. |
+| **Context engineering (mid-2025)** | Everything the model can see: documents, memories, system instructions, tools, conversation history. Prompt engineering is a subset. The biggest determinant of output quality. |
+| **Loop engineering (June 2026)** | The execution cycle an agent runs in. Triggers, stopping conditions, feedback, iteration caps, budgets. Not what it sees — how it iterates. |
+| **Graph engineering (July 2026)** | Multiple agents/loops wired into an orchestrated system. Nodes, edges, shared state, parallel branches, handoffs. **The through-line:** How you ask → What it knows → The loop it runs in → The multi-agent graph it's part of. Each is a zoom-out from the last. |
 
 
 ---
-
-<!-- END OF FILE: chapter-15-draft.md -->
 
 
 # Chapter 16: Chips, Compute, and Why AI Is Expensive
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Explain why AI needs specialised chips (not regular computer processors)
-> - Describe the difference between CPUs, GPUs, and TPUs — and why GPUs dominate AI
-> - Understand why NVIDIA controls ~80% of the AI chip market and what "CUDA lock-in" means
-> - Explain what makes AI compute so expensive (and what's changing)
-> - Understand the concept of "parallel processing" and why it matters for AI
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **CPU (Central Processing Unit)** | The general-purpose brain of a computer — good at doing many different things, one at a time, very fast |
-| **GPU (Graphics Processing Unit)** | Originally designed for rendering graphics; turns out to be perfect for AI because it does thousands of simple calculations simultaneously |
-| **TPU (Tensor Processing Unit)** | Google's custom chip, built from scratch specifically for AI workloads — not general-purpose at all |
-| **Parallel processing** | Doing thousands of calculations at the same time instead of one after another |
-| **CUDA** | NVIDIA's programming framework for GPUs — the reason developers are locked into NVIDIA's ecosystem |
-| **VRAM** | The memory on a GPU chip — determines how large a model you can run |
-| **FLOPS** | Floating-point operations per second — a measure of raw processing power |
-
----
 
 ## 16.1 — Why Regular Computers Can't Do This
 
@@ -4624,8 +4359,6 @@ A CPU handles calculations like a single brilliant mathematician working one pro
 
 ---
 
----
-
 ## 16.2 — GPUs: The Accidental AI Chip
 
 GPUs were designed for video games. Rendering a 3D scene means calculating the colour and brightness of millions of pixels simultaneously — the same "thousands of simple parallel calculations" pattern that AI training requires. When researchers in the early 2010s realised that the maths of training neural networks looked almost identical to the maths of rendering graphics, GPUs became the default hardware for AI.
@@ -4640,11 +4373,11 @@ In January 2023, NVIDIA was a well-known but not spectacular company — market 
 
 What happened wasn't that NVIDIA suddenly got better. What happened was that everyone else suddenly needed what NVIDIA had been building for 17 years.
 
-**NVIDIA controls approximately 80% of the AI chip market** (2026). Their data centre GPU revenue hit $62.3 billion in a single quarter. One company, making one category of product, accounting for most of the physical infrastructure that modern AI runs on. How?
+**Analysts put NVIDIA at roughly 80% of the AI chip market** (2026 — nobody publishes a definitive figure, and the estimates have been drifting downward as Google and Amazon scale their own silicon). Their data centre revenue hit $75.2 billion in a single quarter in May 2026. One company, making one category of product, accounting for most of the physical infrastructure that modern AI runs on. How?
 
 **1. They started 17 years early.** In 2006, NVIDIA released CUDA — a programming language that lets developers talk directly to NVIDIA's chips. At the time, this seemed niche. But over the next 17 years, every major AI research lab built their tools, tutorials, code examples, and workflows on CUDA. By the time AI exploded in 2022, switching away from NVIDIA meant rewriting a decade of code. The moat isn't the chip — it's the software ecosystem built on top of it. This is called "CUDA lock-in," and it's one of the strongest competitive advantages in technology.
 
-**2. Each generation leapfrogs the last.** The B200 (Blackwell architecture, 2024) delivers approximately 2.2× the training speed of the previous H100. The upcoming Vera Rubin architecture (2027) promises another leap. Every time a competitor starts to close the gap, NVIDIA releases a new generation and re-opens it.
+**2. Each generation leapfrogs the last.** The B200 (Blackwell architecture, 2024) delivers approximately 2.2× the training speed of the previous H100. The Vera Rubin architecture went into full production in May 2026, and NVIDIA claims another large step for agent workloads specifically. Every time a competitor starts to close the gap, NVIDIA releases a new generation and re-opens it.
 
 **3. They sell the whole stack, not just chips.** NVIDIA doesn't just make GPUs — they sell the networking that connects thousands of GPUs together (NVLink), the software libraries that make them fast (cuDNN, TensorRT), and complete data centre solutions. Competing with NVIDIA means competing on chips AND networking AND software AND developer tools AND customer relationships, simultaneously. Nobody has managed all four.
 
@@ -4678,12 +4411,12 @@ NVIDIA isn't the only option — and the alternatives are growing:
 - Used to train Amazon's own models
 - Available via AWS (Amazon Web Services) at lower cost than equivalent GPU instances
 - Designed to break NVIDIA dependency for Amazon's infrastructure
-- Latest generation: Trainium2 (2025)
+- Latest generation: Trainium3, generally available since December 2025
 
 **AMD:**
 
 - Makes GPUs that compete with NVIDIA (MI300 series)
-- Gaining market share but still far behind (~10-15%)
+- Gaining fast — AMD's data centre revenue more than doubled year on year in 2026 — but still in the single digits of the AI accelerator market
 - Advantage: often cheaper than equivalent NVIDIA hardware
 
 **The pattern:** Every major cloud company (Google, Amazon, Microsoft) is designing custom AI chips to reduce dependence on NVIDIA. But NVIDIA's ecosystem advantage (CUDA, 17 years of software) keeps them dominant for now.
@@ -4726,7 +4459,9 @@ Training a frontier model costs hundreds of millions of dollars in compute alone
 
 The part that's easy to miss: **in 2026, the industry spends more on inference than training.**
 
-Training happens once. Inference happens every time anyone uses the model — billions of
+Training happens once. Inference happens every time anyone uses the model — billions of times a day, for as long as the model stays in service. Training is the mortgage. Inference is the electricity bill, and it never stops arriving.
+
+Gartner's August 2026 forecast put cloud spending on inference at $23.3 billion for the year against $19 billion on training. That is one slice of AI spending — public-cloud infrastructure, not the whole industry — but it is the slice where you can see the line cross. Somewhere in 2026, the bill for *using* these things quietly overtook the bill for *building* them.
 
 This is why model efficiency matters so much: techniques like quantisation (Chapter 9 — reducing precision from 16-bit to 4-bit), smaller specialised models, and better hardware for inference all reduce the cost of serving every request.
 
@@ -4736,39 +4471,19 @@ This is why model efficiency matters so much: techniques like quantisation (Chap
 
 ---
 
-## 16.7 — The System Picture So Far
 
-```
-┌─── THE PHYSICAL LAYER ────────────────────────────────────┐
-│                                                           │
-│  [CPU] → general tasks, orchestration, serving            │
-│  [GPU] → training and inference (NVIDIA dominates)        │
-│  [TPU/Custom] → purpose-built AI chips (Google, Amazon)   │
-│                                                           │
-│  Connected by: NVLink, InfiniBand (high-speed networking) │
-│  Powered by: megawatts of electricity                     │
-│  Cooled by: liquid cooling systems                        │
-│                                                           │
-└─── Runs everything above: ────────────────────────────────┘
-                    ↓
-     [Training] [Inference] [Fine-tuning] [RAG]
-                    ↓
-     [The full software stack from Chapters 5–14]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 16 — this chapter's addition highlighted](systemmap/system-after-ch16.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–9 | AI end-to-end: data → training → inference → stack |
-| 10–12 | Safety, evaluation, sandboxing |
-| 13–14 | Agents, engineering disciplines |
-| 15 | The physical layer: GPUs for parallel processing, NVIDIA's dominance via CUDA lock-in, custom silicon from Google/Amazon, why training costs hundreds of millions, and why inference is now the bigger expense |
-
-**Where you are:** You can now explain not just how AI works in software, but what physical machines it runs on and why it's expensive.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
+
+
+![Training is the mortgage](diagrams/cost-crossover.svg)
+
+*Training is the mortgage; inference is the electricity bill. This is what your subscription is paying for, and why it is probably sold at a loss.*
 
 ## 16.8 — Try This
 
@@ -4778,48 +4493,32 @@ This is why model efficiency matters so much: techniques like quantisation (Chap
 
 ---
 
-## 16.9 — What's Next
-
-These chips don't run on your desk. They live in data centres — enormous facilities consuming the electricity of small cities, filled with tens of thousands of GPUs networked together, cooled by sophisticated systems. Chapter 17 takes you inside those buildings.
+Those chips don't sit on anybody's desk. They live in buildings that have addresses, drawing real power off a real grid and turning it into real heat that has to go somewhere. It seems worth going inside one and looking.
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **CPU** — General-purpose processor. Good at many things sequentially. Not efficient for AI's parallel workload. **GPU** — Massively parallel processor (thousands of simple cores). Originally for graphics, now the default AI chip. NVIDIA dominates (~80% market share). **TPU** — Google's purpose-built AI chip. Optimised specifically for tensor (matrix) operations. More efficient than GPUs for Google's specific workloads. **CUDA** — NVIDIA's software ecosystem (released 2006). 17 years of developer tools, libraries, and frameworks built on it. The real source of NVIDIA's lock-in — switching means rewriting code, not just swapping chips. **VRAM** — Memory on the GPU chip. Determines how large a model you can load. H100: 80GB, H200: 141GB. When a model doesn't fit, you split across multiple GPUs. **Parallel processing** — Doing thousands of calculations simultaneously. Why GPUs beat CPUs for AI: neural network maths is mostly independent operations that don't need to wait for each other. **Inference > Training (2026)** — The industry now spends more on serving models ($23.3B) than training them ($19B). Training happens once; inference happens billions of times per day.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **CPU** | General-purpose processor. Good at many things sequentially. Not efficient for AI's parallel workload. |
+| **GPU** | Massively parallel processor (thousands of simple cores). Originally for graphics, now the default AI chip. NVIDIA dominates (~80% market share). |
+| **TPU** | Google's purpose-built AI chip. Optimised specifically for tensor (matrix) operations. More efficient than GPUs for Google's specific workloads. |
+| **CUDA** | NVIDIA's software ecosystem (released 2006). 17 years of developer tools, libraries, and frameworks built on it. The real source of NVIDIA's lock-in — switching means rewriting code, not just swapping chips. |
+| **VRAM** | Memory on the GPU chip. Determines how large a model you can load. H100: 80GB, H200: 141GB. When a model doesn't fit, you split across multiple GPUs. |
+| **Parallel processing** | Doing thousands of calculations simultaneously. Why GPUs beat CPUs for AI: neural network maths is mostly independent operations that don't need to wait for each other. |
+| **Inference > Training (2026)** | The industry now spends more on serving models ($23.3B) than training them ($19B). Training happens once; inference happens billions of times per day. |
 
 
 ---
-
-<!-- END OF FILE: chapter-16-draft.md -->
 
 
 # Chapter 17: Data Centres and Energy
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Describe what an AI data centre actually looks like and how it's structured
-> - Explain the scale of energy consumption (and why it's growing so fast)
-> - Understand the relationship between AI growth and electricity demand
-> - Explain cooling, water usage, and the physical challenges of running AI at scale
-> - Understand the current energy mix powering AI and what's changing (nuclear, renewables, gas)
-> - Place the environmental cost of AI in perspective without editorialising in either direction
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Data centre** | A building (or campus of buildings) filled with servers — the physical home of cloud computing and AI |
-| **Hyperscaler** | A company that operates data centres at massive scale: Amazon (AWS), Microsoft (Azure), Google (GCP), Meta |
-| **PUE (Power Usage Effectiveness)** | How efficiently a data centre uses electricity. 1.0 = perfect (all power goes to computing). The industry average is ~1.55 (meaning 55% of electricity goes to cooling and overhead). Best-in-class hyperscalers achieve 1.1–1.2. |
-| **Liquid cooling** | Using liquid (not air) to cool chips — increasingly necessary as AI chips generate more heat than air cooling can handle |
-| **TWh (Terawatt-hour)** | A unit of energy. Global data centres used ~485 TWh in 2025 — about 1.5% of all electricity generated worldwide |
-| **Colocation** | Renting space in someone else's data centre rather than building your own |
-
----
 
 ## 17.1 — What's Actually Inside
 
@@ -4853,7 +4552,7 @@ A data centre is a large building — or a campus of buildings — filled with r
 > 7. **Tokens stream back.** Each generated token is immediately packetised and sent back through the same route — data centre → fibre → ISP → your router → your screen. You see words appearing one by one. **Elapsed: 1–3 seconds for the full response.**
 > 8. **Cleanup.** The KV cache (Chapter 7) is held briefly in case you respond immediately, then released. The GPU's memory is freed for the next user's request.
 >
-> **Total energy consumed by your one question:** approximately 0.001–0.01 kWh — enough to power a LED lightbulb for 3–30 minutes. Multiply by billions of queries per day, and you understand Chapter 17's energy numbers.
+> **Total energy consumed by your one question:** Google measured the median text prompt to its own Gemini apps at 0.24 watt-hours in May 2025 — about nine seconds of an LED bulb. That is one company, measuring one product, under its own accounting rules, and it is the best-measured figure anyone has published. It is also far smaller than most people guess. A long document, a generated image, a reasoning model chewing through a hard problem, or an agent making fifteen tool calls are all orders of magnitude above it. Multiply the small number by billions of queries a day, though, and you arrive at Chapter 17's energy numbers.
 >
 > Every AI response you've ever received was generated by actual hardware, in an actual building, consuming actual energy, generating actual heat that had to be physically removed.
 
@@ -4861,7 +4560,9 @@ A data centre is a large building — or a campus of buildings — filled with r
 
 ## 17.2 — The Energy Numbers
 
-Here's a way to feel the scale: data centres used approximately **485 TWh of electricity globally in 2025.** That's enough to power roughly 45 million average US homes for a year — more than the entire country of France uses. It's about 1.5% of all electricity generated on Earth — from a category of building that most people have never seen or thought about.
+*A note on where these live.* The numbers below are here to give you a sense of scale, and they are correct as of writing. But they move, they are contested, and half of what you will read about them in the press is wrong in specific, traceable ways. **Straight Answers About AI** carries the maintained version — with sources, confidence labels and dates on every figure — and it is the one to trust if the two ever disagree. This chapter owns the *mechanism*: what the building is, what it does with the power, and why.
+
+Here's a way to feel the scale: data centres used approximately **485 TWh of electricity globally in 2025.** That's enough to power roughly 45 million average US homes for a year — more than the entire country of France uses. It's about 1.6% of all electricity generated on Earth — from a category of building that most people have never seen or thought about. (You'll often see 1.5% quoted. That's the IEA's figure for 2024, when the total was 415 TWh. The percentage moved when the volume did.)
 
 And that's the number *before* AI agents became mainstream.
 
@@ -4872,9 +4573,23 @@ And that's the number *before* AI agents became mainstream.
 | 2025 | ~485 TWh | More than France |
 | 2030 (low estimate) | ~600 TWh | More than Germany |
 | 2030 (IEA central projection) | ~945 TWh | Approaching Japan |
-| US alone, 2030 | 400–600 TWh | Would require dozens of new power plants |
+| US alone, 2030 | ~649 TWh (LBNL reference case, range 578–782) | Would be ~11.8% of all US electricity |
 
-**Why it's growing this fast:** A single AI inference query uses approximately 10× more electricity than a standard web search. Ask Google a question — a few servers look up an index and return results. Ask ChatGPT a question — thousands of GPU cores run billions of calculations to generate each word. And usage is skyrocketing: more people using AI, more complex tasks (agents that make 15 tool calls use 15× more compute than a simple Q&A), and larger models.
+**Why it's growing this fast:** Not because each question is enormous — and this is worth pausing on, because you have almost certainly read otherwise.
+
+You may have seen the line that an AI query uses ten times the electricity of a web search. It is one of the most repeated statistics in the field and it does not survive contact with its own sources. Trace it back and you land on a Google estimate of search energy published in **2009**, bolted to an offhand remark by an Alphabet executive in 2023, run through some very generous assumptions about how long an answer is. Independent measurement has since caught up: current estimates put a typical text prompt at roughly *parity* with a web search, not ten times it.
+
+So the growth isn't coming from the size of each question. It's coming from the number of them, and from what we've started asking them to do — more people, far more often, and increasingly agents that make fifteen tool calls where a chatbot made one. That last shift matters more than model size. Fifteen calls is fifteen times the compute, and nobody notices they've asked for it.
+
+> ⏳ **Then / Now: "an AI query uses ten times a web search"**
+>
+> **Then:** This was everywhere — news articles, conference slides, policy submissions, probably a LinkedIn post you scrolled past this week.
+>
+> **Now:** Independent measurement puts a typical text prompt at roughly the same energy as a web search.
+>
+> **What changed:** Partly efficiency, which improved by more than thirty-fold in a single year. But mostly the original claim was never measured. Trace it back and you land on a Google estimate of *search* energy published in **2009**, bolted to an offhand remark by an executive in 2023, run through generous assumptions about how long an answer is.
+>
+> **How to spot the stale version:** This one is still in circulation and still being repeated sincerely by people who are not trying to mislead you. That's the lesson. A statistic can be widely quoted, honestly believed and have almost nothing behind it. Three questions dissolve most of them: who measured this, when, and what exactly did they count?
 
 **The paradox (IEA, April 2026):** "Power consumption per AI task is declining rapidly, with efficiency improving at a rate unprecedented in energy history. However, more people are using AI, and energy-intensive uses — such as AI agents — are on the rise." In other words: each query is getting cheaper, but the total number of queries is growing far faster than the efficiency gains. It's like cars getting better fuel economy while total miles driven triples — you still burn more fuel.
 
@@ -4896,16 +4611,18 @@ Chips generate heat. The more powerful the chip, the more heat. An H100 GPU cons
 
 **Current energy mix powering data centres globally (IEA):**
 
-- Renewables (wind, solar, hydro): ~27%
+- Coal: ~30% — still the single largest source, which surprises almost everyone
+- Renewables (wind, solar, hydro): ~27% — and the fastest-growing, on track to meet nearly half of all *additional* demand to 2030
 - Natural gas: ~26%
 - Nuclear: ~15%
-- Coal and other: remaining
+
+Two things are true at once here, and the order matters. The largest single thing keeping the world's data centres running today is coal. The largest single thing being *added* to keep them running tomorrow is renewables.
 
 **What's changing (2025–2026):**
 
 Every major hyperscaler has announced plans to power AI data centres with cleaner energy:
 
-- **Nuclear:** Multiple companies have signed deals to restart or build nuclear plants specifically for data centres. Microsoft signed a deal to restart Three Mile Island's Unit 1 reactor. Amazon purchased a nuclear-powered data centre campus. Small Modular Reactors (SMRs) are being developed specifically for data centre power.
+- **Nuclear:** Multiple companies have signed deals to restart or build nuclear plants specifically for data centres. Constellation Energy is restarting Three Mile Island's Unit 1 reactor — the site of the most serious nuclear accident in American history — on a twenty-year agreement to sell the power to Microsoft. A chatbot company reopening Three Mile Island is one of the strangest sentences of the decade, and it is a real one. Amazon purchased a nuclear-powered data centre campus. Small Modular Reactors (SMRs) are being developed specifically for data centre power.
 - **Renewables:** Massive solar and wind farm contracts. Google claims to run on 100% renewable energy (via matching — they buy enough renewables to offset usage, though not all at the same hour).
 - **Natural gas:** Still heavily used, especially for new capacity that needs to come online quickly (gas plants are faster to build than nuclear or large-scale renewables).
 
@@ -4934,41 +4651,12 @@ Data centres cluster in specific locations for specific reasons:
 
 ---
 
-## 17.6 — The System Picture So Far
 
-```
-┌─── THE PHYSICAL INFRASTRUCTURE ────────────────────────────┐
-│                                                            │
-│  [Electricity Source] → [Grid/Substation] → [Data Centre] │
-│  (nuclear, gas,          (often dedicated      (the        │
-│   solar, wind,            power lines)          building)  │
-│   hydro)                                                   │
-│                                                            │
-│  Inside the Data Centre:                                   │
-│  [Cooling] + [Networking] + [GPU Racks] + [Storage]        │
-│       ↓            ↓             ↓            ↓            │
-│  7-30% of       connects      the actual    training data, │
-│  total power    thousands     compute       model weights   │
-│                 of GPUs                                     │
-│                                                            │
-└─── Serves: ────────────────────────────────────────────────┘
-                    ↓
-     [All AI workloads: training, inference, fine-tuning]
-                    ↓
-     [Every AI product you use]
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 17 — this chapter's addition highlighted](systemmap/system-after-ch17.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–9 | How AI works: software, from data to product |
-| 10–14 | Safety, evaluation, sandboxing, agents, engineering disciplines |
-| 15 | The chips: GPUs, why parallel processing matters, NVIDIA dominance |
-| 16 | The buildings: data centres, energy consumption (~1.5% of global electricity, rising fast), cooling challenges, the geography of where AI physically lives, and the tension between growth and sustainability |
-
-**Where you are:** You can now trace the full chain from "I asked ChatGPT a question" all the way down to "a GPU in a data centre in Oregon consumed electricity generated by a hydroelectric dam on the Columbia River."
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -4980,48 +4668,31 @@ Data centres cluster in specific locations for specific reasons:
 
 ---
 
-## 17.8 — What's Next
-
-Chips don't appear from nowhere. GPUs are among the most complex objects humans manufacture — requiring rare materials, specialised factories, and a global network of suppliers. Chapter 18 covers the AI supply chain: who makes what, where it comes from, and what happens when it breaks.
+A building full of chips, drinking electricity and breathing out heat. Which leaves the question of where the chips themselves come from — and the answer runs through a startlingly small number of factories, in a startlingly small number of places, making what is arguably the most difficult object humans know how to manufacture.
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Data centre** — A building filled with servers. The physical home of AI. Hyperscale centres contain 50,000–100,000+ GPUs. **Energy consumption** — ~485 TWh globally (2025), approximately 1.5% of world electricity. Projected to nearly double by 2030. **PUE** — Power Usage Effectiveness. 1.0 = all power goes to computing. Industry average ~1.55. Hyperscalers achieve 1.1–1.2. **Cooling** — Air cooling (traditional, increasingly insufficient for AI density) or liquid cooling (the standard for new AI facilities). Uses 7–30% of total power. **Water** — Cooling towers evaporate millions of litres daily. A growing constraint and community concern. **The paradox** — Each AI query gets more energy-efficient. But total queries grow faster than efficiency improves. Net energy consumption rises.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Data centre** | A building filled with servers. The physical home of AI. Hyperscale centres contain 50,000–100,000+ GPUs. |
+| **Energy consumption** | ~485 TWh globally (2025), approximately 1.6% of world electricity, up 17% year on year. IEA central projection is ~945 TWh by 2030, just under 3%. |
+| **PUE** | Power Usage Effectiveness. Total power in, divided by power reaching a chip. 1.0 would be perfect. Industry average ~1.54, meaning about a third of a building's electricity goes to overhead. Hyperscalers reach 1.1–1.2; Google's fleet averages 1.09. |
+| **Cooling** | Air cooling (traditional, increasingly insufficient for AI density) or liquid cooling (the standard for new AI facilities). Uses 7–30% of total power. |
+| **Water** | Cooling towers evaporate millions of litres daily. A growing constraint and community concern. |
+| **The paradox** | Each AI query gets more energy-efficient. But total queries grow faster than efficiency improves. Net energy consumption rises. |
 
 
 ---
-
-<!-- END OF FILE: chapter-17-draft.md -->
 
 
 # Chapter 18: The Supply Chain
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Trace the journey of an AI chip from raw materials to data centre
-> - Explain why TSMC (one company in Taiwan) manufactures over 90% of the world's most advanced chips
-> - Understand the geopolitical significance of the AI supply chain
-> - Describe the major chokepoints and why disruption would be catastrophic
-> - Explain why countries are investing billions to build domestic chip manufacturing
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **TSMC (Taiwan Semiconductor Manufacturing Company)** | The company that manufactures most of the world's advanced chips — including NVIDIA's GPUs. Controls ~70% of global foundry revenue and 90%+ of leading-edge production |
-| **Foundry** | A factory that manufactures chips designed by other companies. TSMC doesn't design chips — it builds them for NVIDIA, Apple, AMD, and others |
-| **Fabrication plant (fab)** | The physical factory where chips are manufactured. Costs $10–20 billion to build |
-| **Node (e.g., 3nm, 5nm)** | A measure of chip manufacturing precision. Smaller = more transistors = faster, more efficient. Leading edge in 2026: 3nm, with 2nm coming |
-| **Lithography (EUV)** | The process of etching chip patterns using extreme ultraviolet light. Only one company makes these machines: ASML (Netherlands) |
-| **Export controls** | Government restrictions on selling advanced technology to specific countries — the US restricts AI chip sales to China |
-| **HBM (High Bandwidth Memory)** | Specialised memory stacked on top of GPUs — essential for AI, manufactured primarily in South Korea (Samsung, SK Hynix) |
-
----
 
 ## 18.1 — The Most Complex Object Humans Make
 
@@ -5034,7 +4705,7 @@ No single company, and no single country, can make one alone. The supply chain s
 1. **Raw silicon** — purified from sand (quartz) to 99.9999999% purity. Mostly from China, Russia, Brazil.
 2. **Silicon wafers** — sliced into thin discs at wafer manufacturers (Japan, Germany, US).
 3. **Chip design** — NVIDIA designs the chip architecture (California, US). This is intellectual property — the "blueprint."
-4. **Lithography machines** — ASML (Netherlands) builds the EUV machines that print the chip patterns. Only ASML can do this. Each machine costs ~$350 million.
+4. **Lithography machines** — ASML (Netherlands) builds the EUV machines that print the chip patterns. Only ASML can do this. Each machine costs around $200 million.
 5. **Manufacturing (fabrication)** — TSMC (Taiwan) prints the design onto silicon wafers using ASML's machines. This is where the physical chip gets made.
 6. **Memory** — HBM (High Bandwidth Memory) is manufactured and stacked by Samsung and SK Hynix (South Korea).
 7. **Packaging** — The chip die is assembled with memory into a complete package. Advanced packaging is itself a bottleneck (TSMC, Taiwan + some in the US).
@@ -5047,11 +4718,11 @@ No single company, and no single country, can make one alone. The supply chain s
 
 ## 18.2 — TSMC: The Single Most Important Factory
 
-TSMC controls approximately **70% of global foundry revenue** and over **90% of the world's most advanced chip production** (3nm and 5nm nodes). They manufacture chips for NVIDIA, Apple, AMD, Qualcomm, and dozens of other companies.
+TSMC takes roughly **three-quarters of all foundry revenue** — 72–73% through 2026 — and makes over **90% of the world's leading-edge logic chips**, meaning the handful of nodes right at the front of the industry. That second figure depends entirely on where you draw the line: broaden "advanced" to include memory and TSMC's share falls sharply. At the true leading edge, it is effectively the only volume supplier there is. They manufacture chips for NVIDIA, Apple, AMD, Qualcomm, and dozens of other companies.
 
 **Why one company?** Chip manufacturing at leading-edge nodes is extraordinarily difficult and extraordinarily expensive:
 
-- A single fab costs $10–20 billion to build
+- A single leading-edge fab costs $20–30 billion to build
 - It takes 3–5 years to build and bring online
 - The manufacturing process involves thousands of precise steps
 - Yield (the percentage of chips that work correctly) takes years to optimise
@@ -5067,11 +4738,11 @@ TSMC controls approximately **70% of global foundry revenue** and over **90% of 
 >
 > **Yield** is the proof. When TSMC opens a new process node, their initial yield might be 30% — meaning 70% of chips come out broken. Over 12–18 months, through thousands of micro-adjustments (tweaking temperatures by fractions of a degree, adjusting chemical concentrations by parts-per-million, realigning lithography masks by nanometres), they push yield above 90%. That optimisation process is not transferable. It's learned by doing, on that specific equipment, in that specific facility.
 >
-> This is why Intel — a company with decades of chip manufacturing experience and enormous resources — has struggled to match TSMC's leading-edge production. And why TSMC's Arizona expansion, within its planned $165 billion total US investment, cannot instantly reproduce decades of Taiwan-based manufacturing expertise.
+> This is why Intel — a company with decades of chip manufacturing experience and unlimited budget — has struggled to match TSMC's leading-edge production. And why TSMC's Arizona buildout — now a $165 billion commitment, the largest single foreign direct investment in US history — took years to reach the yields Taiwan was already getting.
 >
 > You can copy a recipe. You can't copy 30 years of hands learning how the dough feels.
 
-**The concentration risk:** TSMC operates almost entirely from one island — Taiwan — located 160 km (100 miles) from mainland China. Bloomberg Economics estimates a full Taiwan conflict could cost approximately $10 trillion in first-year global economic impact.
+**The concentration risk:** TSMC operates almost entirely from one island — Taiwan — located 126 km (78 miles) from mainland China at the strait's narrowest point. Bloomberg Economics modelled a US–China war over Taiwan in February 2026 at $10.6 trillion — 9.6% of global GDP — in the first year alone. That is larger than COVID-19. It is larger than 2008.
 
 ---
 
@@ -5085,14 +4756,14 @@ A laser fires 50,000 times per second at tiny droplets of molten tin — each dr
 
 Each machine:
 
-- Costs approximately $350 million
-- Weighs over 150 tonnes (~165,000 kg / 364,000 lbs)
+- Costs approximately $200 million (the newer High-NA generation, only now entering volume use, runs over $400 million)
+- Weighs over 150 tonnes (~150,000 kg / 330,000 lbs)
 - Contains 100,000+ components from 5,000+ suppliers across dozens of countries
 - Is shipped in 40+ freight containers
 - Takes months to install and calibrate on-site
 - Requires its own dedicated team of ASML engineers to maintain
 
-No other company in the world can build these machines. Not because nobody's tried — Samsung, Intel, Canon, Nikon all attempted EUV lithography. ASML spent 20 years and tens of billions of dollars getting it to work. Everyone else gave up. ASML has a complete monopoly on EUV lithography — which is required for any chip at 7nm or below (i.e., all modern AI chips).
+No other company in the world can build these machines. Not because nobody's tried — Canon and Nikon, who between them once dominated lithography, both went after EUV and both gave up. ASML spent 20 years and tens of billions of dollars getting it to work. Everyone else gave up. ASML has a complete monopoly on EUV lithography — which is effectively required at 5nm and below, and used from 7nm onward. (7nm itself can be done without EUV, with enough patience and multiple passes. That's precisely why the export-control story in the next section is messier than a clean cutoff.)
 
 Every AI response you've ever received — every ChatGPT answer, every Claude conversation, every Midjourney image — was generated on hardware that could only exist because of machines built by this one company in Veldhoven, Netherlands.
 
@@ -5119,9 +4790,22 @@ Since 2022, the United States has imposed escalating export controls preventing 
 
 **What's restricted:**
 
-- NVIDIA cannot sell its most advanced GPUs (H100, B200) to China
-- ASML cannot sell EUV lithography machines to China
+- NVIDIA cannot sell its top-end Blackwell GPUs (B200, GB200) to China
+- H200-class chips became exportable on a case-by-case licence in January 2026, under conditions — the sale mustn't reduce supply to US customers, the buyer needs export-compliance procedures, and the product must pass independent US testing
+- ASML cannot sell EUV lithography machines to China, and never has
 - Software tools used to design chips are restricted
+
+This list is the single most perishable thing in this book. It has changed materially at least five times since 2022 and will have changed again by the time you read it. The durable point is not which chip is banned this month — it's that chips are now an instrument of foreign policy, and that the map of who can buy what is redrawn roughly every six months.
+
+> ⏳ **Then / Now: which chips can go where**
+>
+> **Then (2022–2025):** A broad prohibition. The most advanced AI chips could not be sold into China at all.
+>
+> **Now:** Top-end Blackwell chips remain barred, while H200-class chips became exportable under case-by-case licences in January 2026, with conditions attached.
+>
+> **What changed:** Politics, not technology. The rules have moved materially at least five times since 2022.
+>
+> **How to spot the stale version:** Almost every article you find on this will be describing the rules as they stood on its publication date, usually without saying so. Check the date before you check the argument. The durable fact underneath all the churn — the one worth carrying — is simply that chips are now an instrument of foreign policy, and the map gets redrawn about twice a year.
 
 **China's response:**
 
@@ -5141,49 +4825,22 @@ Since 2022, the United States has imposed escalating export controls preventing 
 
 Governments and companies are spending enormous sums to reduce concentration risk:
 
-- **US CHIPS Act (2022):** $52 billion in subsidies to build domestic chip manufacturing. TSMC says its planned total US investment is $165 billion, including expanded Arizona manufacturing and research facilities. Intel is expanding US manufacturing.
+- **US CHIPS Act (2022):** $52.7 billion in total, of which $39 billion is direct manufacturing incentives and the rest is R&D and workforce funding. TSMC is building fabs in Arizona ($165 billion committed as of March 2025 — five fabs, two packaging plants and an R&D centre). Intel is expanding US manufacturing.
 - **EU Chips Act:** €43 billion to double Europe's global chip production share.
 - **Japan:** Attracting TSMC to build a fab in Kumamoto.
 - **India:** Investing in chip packaging and assembly facilities.
-- **Taiwan's $250 billion deal (2026):** Guaranteed credit for Taiwanese chip companies to expand US production capacity.
+- **The US–Taiwan chips deal (January 2026):** roughly $500 billion in total — $250 billion of direct investment by Taiwanese semiconductor and tech companies into US facilities, plus a further $250 billion in credit guarantees.
 
-**The reality check:** Even with these investments, leading-edge manufacturing outside Taiwan will remain limited for years. TSMC's Arizona fab is expected to produce chips by 2025-2026, but at smaller scale and (initially) lower yield than Taiwan operations. You cannot replicate 30 years of manufacturing expertise with money alone.
+**The reality check:** Even with these investments, leading-edge manufacturing outside Taiwan will remain limited for years. TSMC's first Arizona fab has been in high-volume production since late 2024, and TSMC says its yields there now match Taiwan's — though since no one publishes yield data, that claim can't be independently checked. What Arizona still doesn't have is scale, or the leading edge. You cannot replicate 30 years of manufacturing expertise with money alone; you can, apparently, replicate rather more of it than sceptics expected, rather more slowly than optimists promised.
 
 ---
 
-## 18.7 — The System Picture So Far
 
-```
-┌─── THE GLOBAL SUPPLY CHAIN ──────────────────────────────────────────┐
-│                                                                      │
-│  [Raw Materials]      → China, Russia, Brazil (silicon, rare earths) │
-│  [Wafer Production]   → Japan, Germany                               │
-│  [Chip DESIGN]        → NVIDIA, AMD, Apple (USA)                     │
-│  [Lithography Machines] → ASML (Netherlands) ← only supplier        │
-│  [Chip MANUFACTURING] → TSMC (Taiwan) ← 90% of advanced chips       │
-│  [Memory (HBM)]       → Samsung, SK Hynix (South Korea)             │
-│  [Packaging]          → Taiwan, some US                              │
-│  [Server Assembly]    → Various (global)                             │
-│  [Data Centres]       → Hyperscalers (Ch 17)                         │
-│                                                                      │
-│  GEOPOLITICAL LAYER: US export controls ↔ China mineral controls     │
-│  DIVERSIFICATION: CHIPS Act, EU Chips Act, Japan/India investments   │
-│                                                                      │
-└──────────────────────────────────────────────────────────────────────┘
+## The System So Far
 
-```
+![The AI system as understood by the end of chapter 18 — this chapter's addition highlighted](systemmap/system-after-ch18.svg)
 
-**Your Learning So Far:**
-
-| Chapter | What you learned |
-| --- | --- |
-| 1–9 | How AI works in software |
-| 10–14 | Safety, evaluation, agents, engineering disciplines |
-| 15 | The chips: GPUs, NVIDIA dominance |
-| 16 | The buildings: data centres, energy |
-| 17 | The supply chain: TSMC makes 90% of advanced chips, ASML makes 100% of the machines, four chokepoints, export controls fragmenting the global system, massive investments to diversify |
-
-**Where you are:** You can now trace the full physical chain from raw silicon in the ground to the AI model answering your question — and you understand why it's geopolitically fragile.
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -5195,54 +4852,36 @@ Governments and companies are spending enormous sums to reduce concentration ris
 
 ---
 
-## 18.9 — What's Next
-
-We've traced the full physical stack: chips → data centres → supply chain. But who actually builds, operates, and improves all of this? What are the job titles? What do people in the AI industry actually do day-to-day?
-
-Chapter 19 covers the people: the roles, the titles, and what each one means.
+Sand to silicon to a rack in Oregon, answering your question. But every step of that chain is people — designing it, building it, running it, and deciding what it should do. So who are they?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **TSMC** — Taiwan Semiconductor Manufacturing Company. Makes ~90% of the world's most advanced chips. Designs by NVIDIA, Apple, AMD are manufactured here. Single largest concentration point in the supply chain. **ASML** — Dutch company with a complete monopoly on EUV lithography machines. Without ASML machines, no one can manufacture advanced chips. Machines cost ~$350M each. **Foundry** — A factory that makes chips designed by other companies. TSMC is the world's largest foundry. It doesn't design chips — it manufactures other companies' designs. **Node (3nm, 5nm)** — Manufacturing precision. Smaller nodes = more transistors = faster, more efficient chips. Leading edge (2026): 3nm, with 2nm coming. **Export controls** — US restrictions preventing sale of advanced AI chips and manufacturing equipment to China. China retaliates with mineral export controls. The supply chain is fragmenting. **HBM** — High Bandwidth Memory. Specialised memory stacked on GPUs, essential for AI. Made by Samsung and SK Hynix in South Korea. **CHIPS Act** — $52B US government subsidy to build domestic chip manufacturing. Part of a global race to reduce dependence on Taiwan.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **TSMC** | Taiwan Semiconductor Manufacturing Company. Makes ~90% of the world's most advanced chips. Designs by NVIDIA, Apple, AMD are manufactured here. Single largest concentration point in the supply chain. |
+| **ASML** | Dutch company with a complete monopoly on EUV lithography machines. Without ASML machines, no one can manufacture advanced chips. Machines cost around $200M each ($400M+ for the newest generation). |
+| **Foundry** | A factory that makes chips designed by other companies. TSMC is the world's largest foundry. It doesn't design chips — it manufactures other companies' designs. |
+| **Node (3nm, 5nm)** | The finest detail the factory can print. Smaller = more transistors = faster, more efficient chips. Leading edge (2026): 2nm, in volume production since late 2025. |
+| **Export controls** | US restrictions preventing sale of advanced AI chips and manufacturing equipment to China. China retaliates with mineral export controls. The supply chain is fragmenting. |
+| **HBM** | High Bandwidth Memory. Specialised memory stacked on GPUs, essential for AI. Made by Samsung and SK Hynix in South Korea. |
+| **CHIPS Act** | $52.7B US government package, including $39B in direct manufacturing incentives. Part of a global race to reduce dependence on Taiwan. |
 
 
 ---
-
-<!-- END OF FILE: chapter-18-draft.md -->
 
 
 # Chapter 19: The People — Who Builds All of This
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Name the major job titles in the AI industry and explain what each one actually does
-> - Distinguish between roles that build AI systems, roles that deploy them, and roles that govern them
-> - Understand how job titles have evolved (and why some are confusing)
-> - Know what skills each role requires — and which roles are new (didn't exist before 2020)
-> - Read AI job postings and company org charts without confusion
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **Research scientist** | Invents new techniques and architectures. Publishes papers. Works at the frontier of what's possible. |
-| **Machine learning engineer** | Takes research and builds it into working systems that run at scale. The bridge between research and production. |
-| **Data scientist** | Analyses data to find patterns and insights. Builds models for specific business questions. |
-| **Data engineer** | Builds and maintains the pipelines that collect, clean, and deliver data. The plumbing. |
-| **MLOps engineer** | Keeps ML systems running in production — deployment, monitoring, scaling, versioning. |
-| **AI/ML product manager** | Decides what to build and why. Translates between business needs and technical capabilities. |
-| **Prompt/context engineer** | Designs the instructions, context, and workflows that make AI systems work well for specific tasks. |
-
----
 
 ## 19.1 — The Roles
 
-A job listing goes up in 2024: "Prompt Engineer — $250K–$350K." Requires: no specific degree. No coding experience necessary. "Ability to write clearly and think systematically." That's it.
+A job listing goes up in March 2023: "Prompt Engineer and Librarian — $250,000–$335,000." Requires: no specific degree. No coding experience necessary. "Ability to write clearly and think systematically." That's it.
 
 Two years later, the same role at the same company is called "AI Systems Architect" and now requires understanding of RAG pipelines, evaluation design, and multi-agent orchestration. Same desk. The job grew that fast.
 
@@ -5355,7 +4994,7 @@ The AI industry has more job titles than it probably needs — and they change f
 >
 > **Step 1: Product Manager** decides the feature is worth building. Writes a spec: "User uploads a PDF, gets a 3-paragraph summary in 10 seconds. Must work for documents up to 50 pages. Must not hallucinate facts not in the document."
 >
-> **Step 2: ML Engineer** chooses the model (Claude 3.5 Sonnet — fast enough for 10-second latency, good at summarisation), designs the serving architecture (how the PDF gets chunked if it's too long for the context window), and builds the inference pipeline.
+> **Step 2: ML Engineer** chooses the model (something mid-tier and fast — the summary has to land inside ten seconds, and the frontier model would be both slower and far more expensive than this job needs), designs the serving architecture (how the PDF gets chunked if it's too long for the context window), and builds the inference pipeline.
 >
 > **Step 3: Data Engineer** builds the pipeline that converts uploaded PDFs into text the model can process — handling OCR for scanned documents, stripping formatting, chunking pages.
 >
@@ -5439,12 +5078,20 @@ A few patterns that help decode job titles and company structures:
 
 | Chapter | What you learned |
 | --- | --- |
-| 1–9 | How AI works in software |
-| 10–14 | Safety, evaluation, agents, engineering disciplines |
-| 15–17 | The physical infrastructure: chips, data centres, supply chain |
-| 18 | The people: research scientists invent, ML engineers build, data engineers plumb, MLOps keeps it running, product managers decide what to build, AI engineers design the workflows, governance keeps it safe — and behind it all, a global workforce of data labellers makes the training data possible |
+| 1–10 | How AI works in software |
+| 11–15 | Safety, evaluation, agents, engineering disciplines |
+| 16–18 | The physical infrastructure: chips, data centres, supply chain |
+| 19 | The people: research scientists invent, ML engineers build, data engineers plumb, MLOps keeps it running, product managers decide what to build, AI engineers design the workflows, governance keeps it safe — and behind it all, a global workforce of data labellers makes the training data possible |
 
 **Where you are:** You now understand the full picture — technology, infrastructure, AND the human ecosystem. One chapter remains: what comes next.
+
+---
+
+## The System So Far
+
+![The AI system as understood by the end of chapter 19 — this chapter's addition highlighted](systemmap/system-after-ch19.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
 
 ---
 
@@ -5456,47 +5103,33 @@ A few patterns that help decode job titles and company structures:
 
 ---
 
-## 19.7 — What's Next
-
-You've learned everything about how AI works today — the technology, the infrastructure, and the people. The final chapter looks forward: what might come next. What is AGI? What is ASI? What's hype and what's real? And what does the reader need to understand about a future that even the experts disagree on?
+That is the whole picture as it stands: the technology, the infrastructure, and the humans holding it together. Which leaves only the part nobody actually knows. What happens next?
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **Research scientist** — Invents new AI techniques. Publishes papers. PhD-level. Works at the frontier. **Machine learning engineer** — Builds research into production systems. The bridge between "it works in a lab" and "it works for millions of users." **Data scientist** — Analyses data for business insights. Builds predictive models for specific questions. **Data engineer** — Builds data pipelines. Gets data from where it's created to where it's needed, reliably and at scale. **MLOps** — Keeps ML systems running. Deployment, monitoring, versioning, retraining. "DevOps for ML." **AI/context engineer** — Designs system prompts, RAG pipelines, evaluation suites, agent workflows. The fastest-evolving role. Barely existed before 2023. **AI product manager** — Decides what to build and why. Must understand AI's unique constraints (non-determinism, hallucination, evaluation difficulty). **Data labellers** — The global workforce that tags, rates, and annotates the training data that makes AI possible. Often invisible in the industry narrative.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **Research scientist** | Invents new AI techniques. Publishes papers. PhD-level. Works at the frontier. |
+| **Machine learning engineer** | Builds research into production systems. The bridge between "it works in a lab" and "it works for millions of users." |
+| **Data scientist** | Analyses data for business insights. Builds predictive models for specific questions. |
+| **Data engineer** | Builds data pipelines. Gets data from where it's created to where it's needed, reliably and at scale. |
+| **MLOps** | Keeps ML systems running. Deployment, monitoring, versioning, retraining. "DevOps for ML." |
+| **AI/context engineer** | Designs system prompts, RAG pipelines, evaluation suites, agent workflows. The fastest-evolving role. Barely existed before 2023. |
+| **AI product manager** | Decides what to build and why. Must understand AI's unique constraints (non-determinism, hallucination, evaluation difficulty). |
+| **Data labellers** | The global workforce that tags, rates, and annotates the training data that makes AI possible. Often invisible in the industry narrative. |
 
 
 ---
-
-<!-- END OF FILE: chapter-19-draft.md -->
 
 
 # Chapter 20: AGI, ASI, and the Frontier
 
 ---
 
-> **By the end of this chapter, you will be able to:**
-> - Define AGI and ASI — what they mean and where the definitions disagree
-> - Understand why experts disagree so profoundly on timelines (months vs decades)
-> - Explain why this disagreement isn't just academic — it drives real decisions about safety, regulation, and investment
-> - Separate the hype from what's actually known
-> - Hold multiple possibilities in mind without needing to pick a side
-
----
-
-## Key Terms Introduced in This Chapter
-
-| Term | Plain English |
-| --- | --- |
-| **AGI (Artificial General Intelligence)** | An AI system that can perform any intellectual task a human can — not just one specialised skill, but the full range of reasoning, learning, and problem-solving across all domains |
-| **ASI (Artificial Superintelligence)** | A hypothetical AI that significantly exceeds the best human intelligence in every domain — science, strategy, creativity, social skills |
-| **Narrow AI / ANI** | What we have today. AI that's excellent at specific tasks but can't generalise. A chess AI can't write poetry. A language model can't play chess at superhuman levels (without tools). |
-| **Alignment** | The problem of ensuring a highly capable AI system actually does what humans want and intend |
-| **Scaling hypothesis** | The idea that current architectures (transformers) will reach AGI if we simply make them bigger with more data and compute |
-| **Emergence** | Capabilities that appear unexpectedly as models get larger — abilities no one programmed in |
-
----
 
 ## 20.1 — What Is AGI? (And Why No One Agrees)
 
@@ -5510,12 +5143,22 @@ But what exactly counts? Does it need a body? Emotions? Social intelligence? Doe
 
 **Different definitions from different people (2025–2026):**
 
-- **OpenAI–Microsoft contractual process:** OpenAI may declare AGI, with that declaration verified by an independent expert panel. Their public agreement does not publish a simple capability threshold, which is another reminder that organisations operationalise the term differently.
+- **OpenAI's former operational definition:** a system generating $100 billion in profits. Yes, really — for a while the most consequential definition of AGI in the industry was an accounting threshold in a contract with Microsoft, because crossing it triggered a clause. It was replaced by an independent expert panel in late 2025 and effectively written out altogether in 2026. Nothing tells you more about how unsettled this word is than the fact that the definition everyone argued about turned out to be a term sheet, and then stopped existing.
 - **Sam Altman (OpenAI CEO):** AGI could be reached "in the next four or five years" (stated 2024)
 - **Dario Amodei (Anthropic CEO):** "Human-level AI" in two to three years. Prefers the term "powerful AI" over "AGI" because AGI is overhyped
 - **Demis Hassabis (Google DeepMind CEO):** Possibly a decade away
 - **Jensen Huang (NVIDIA CEO, March 2026):** "We've achieved AGI" — but his definition is narrower than most
-- **Yann LeCun (Meta Chief AI Scientist):** Current approaches (LLMs) won't get us there. Fundamentally new architectures needed. Decades away.
+- **Yann LeCun (formerly Meta's Chief AI Scientist; left in November 2025 to found his own lab):** Current approaches (LLMs) won't get us there. Fundamentally new architectures needed. Decades away.
+
+> ⏳ **Then / Now: how OpenAI defined AGI**
+>
+> **Then:** A number in a contract. Reaching AGI meant generating $100 billion in profits, because that was the threshold triggering a clause in the agreement with Microsoft.
+>
+> **Now:** Replaced by an independent expert panel in late 2025, and effectively written out altogether in 2026.
+>
+> **What changed:** The commercial arrangement the definition sat inside got renegotiated. Nothing about the technology moved.
+>
+> **How to spot the stale version:** This is the most useful one on the list. For two years the most-quoted definition of the most important word in the field turned out to be a term sheet — and then it simply stopped existing. When a definition can be renegotiated, it was doing commercial work rather than technical work, and you should read every confident claim built on top of it accordingly.
 
 There are as many estimates of when AGI will arrive as there are people working in the field. And to complicate matters further, there is disagreement on what AGI even *is.* This isn't unusual — it's what you'd expect for a concept that's never existed before.
 
@@ -5574,23 +5217,13 @@ Nobody knows. This is genuine uncertainty, not evasion. The smartest people in t
 
 ## 20.4 — The Two Big Camps (2026)
 
-The AI community is broadly split on timelines:
+People who work on this full time disagree about it, sharply, and the disagreement is not really about evidence. Both camps are looking at the same models. They differ on what those models are evidence *of*.
 
-**Camp 1: "Sooner than you think" (months to years)**
+**One camp says the road is already under us.** Scaling has worked for eight years and shows no sign of stopping; capabilities nobody designed keep appearing as models get bigger; and the architecture we have — transformers, plus more compute, better data and the ability to use tools — may simply be enough if you keep going. On this view AGI-level performance is a matter of continuing, not of inventing, and it could arrive somewhere between 2027 and 2030. Sam Altman and Dario Amodei argue versions of this, as do many people at their companies. It is worth noticing that they also have the most to gain from it being believed, which does not make them wrong but is worth holding.
 
-- Current scaling is working. Models are getting more capable with more compute.
-- Emergent capabilities keep appearing unexpectedly as models scale.
-- We're on a trajectory that could reach AGI-level performance by 2027–2030.
-- The architecture doesn't need to be fundamentally different — transformers + scale + better data + tools might be enough.
-- Key voices: Altman, Amodei, many at OpenAI and Anthropic
+**The other camp says we are climbing the wrong hill very impressively.** A language model predicts text; it has no body, no contact with the world, no way to test a belief against reality, and no real capacity for causal reasoning or planning. What looks like understanding is very sophisticated pattern-completion, and the gap between the two is not a matter of scale — it is a matter of kind. On this view we need architectures nobody has built yet, and the honest timeline is decades. Yann LeCun makes this case most forcefully, and a great many academic researchers agree with him.
 
-**Camp 2: "Fundamentally new approaches needed" (decade+)**
-
-- LLMs are impressive but they don't truly "understand" — they predict tokens.
-- Current systems lack grounding, embodiment, causal reasoning, and true planning.
-- What looks like intelligence is sophisticated pattern matching, not general intelligence.
-- We need new architectures, not just bigger versions of current ones.
-- Key voices: LeCun, Hassabis (partially), many academic researchers
+Both positions have been held by serious people for years, and both have been embarrassed by events at least once. That is roughly what you would expect for a question about a thing that has never existed.
 
 > ⏸️ **"But what does 'emergence' actually look like? Can you show me?"**
 >
@@ -5647,7 +5280,7 @@ Amidst the disagreement, some things are genuinely known:
 2. **Capabilities are growing fast.** Models in 2026 can do things that seemed impossible in 2022. The trajectory is steep.
 3. **Nobody knows the ceiling.** We don't know whether current architectures will plateau or keep improving. We don't know what's needed for genuine understanding vs sophisticated pattern matching.
 4. **The alignment problem is real regardless of timelines.** Even if AGI is decades away, increasingly capable narrow AI raises alignment and safety questions that matter now.
-5. **The economic impact is already happening.** You don't need AGI for AI to transform industries. Narrow AI is already changing how people work, what jobs exist, and what's possible.
+5. **Something is already happening to work — though what, exactly, is contested.** You don't need AGI for AI to change industries; the narrow kind is already in everything. But be careful with the confident version of this claim in either direction. The measured effects so far are real, uneven, and argued over — *Straight Answers About AI* walks through what the evidence actually supports, and where it runs out.
 
 ---
 
@@ -5723,6 +5356,14 @@ You've now traced the entire AI ecosystem:
 
 ---
 
+## The System So Far
+
+![The AI system as understood by the end of chapter 20 — this chapter's addition highlighted](systemmap/system-after-ch20.svg)
+
+*Everything you've met so far, and where this chapter's piece sits in it. The part in colour is what you just learned.*
+
+---
+
 ## 20.8 — Try This (Final)
 
 **Read the debate.** Look up recent articles about AGI timelines. For each prediction you find, ask:
@@ -5732,7 +5373,7 @@ You've now traced the entire AI ecosystem:
 - What's their incentive? (CEOs of AI companies have commercial incentives to hype; critics may have incentives to downplay.)
 - Does their prediction survive Chapter 20's framework?
 
-**Apply what you've learned.** Read any AI news story and identify which chapters of this book it touches. A story about "NVIDIA's new chip" touches Chapter 16 (hardware), 17 (supply chain), and likely 16 (energy). A story about "AI hallucinating in court" touches 10 (safety), 11 (evaluation), and 7 (context/memory). You now have the vocabulary and framework to understand any AI story you encounter.
+**Apply what you've learned.** Read any AI news story and identify which chapters of this book it touches. A story about "NVIDIA's new chip" touches Chapter 16 (the chips themselves), 18 (who can actually manufacture it), and 17 (what it will cost to run). A story about "AI hallucinating in court" touches 11 (safety and why hallucination happens), 12 (how anyone would have caught it), and 8 (context and memory — what the model could actually see). You now have the vocabulary and framework to understand any AI story you encounter.
 
 ---
 
@@ -5753,11 +5394,18 @@ Welcome to the conversation. You belong here.
 
 ---
 
-> 📖 **Key Terms — Quick Reference** **AGI (Artificial General Intelligence)** — AI that matches human intelligence across all domains. Not yet achieved. Timelines contested: some say 2–5 years, others say decades, others say current approaches can't get there. **ASI (Artificial Superintelligence)** — AI that vastly exceeds human intelligence in every domain. Hypothetical. Would represent a fundamentally new situation for humanity. **Narrow AI / ANI** — What exists today. Excellent at specific tasks, cannot generalise. All current AI systems are narrow. **Alignment** — Ensuring powerful AI systems do what humans actually want. Becomes more critical as systems become more capable. **Emergence** — Capabilities that appear unexpectedly as models scale. Abilities no one explicitly trained for. Nobody knows when or if AGI will arrive. The smartest people in the field disagree profoundly. What's known: capabilities are growing fast, current AI is narrow but powerful, and the impacts — economic, social, political — are already real regardless of the AGI question.
+## Key Terms From This Chapter
 
+*Everything new in this chapter, defined now that you've met it.*
 
+| Term | Plain English |
+| --- | --- |
+| **AGI (Artificial General Intelligence)** | AI that matches human intelligence across all domains. Not yet achieved. Timelines contested: some say 2–5 years, others say decades, others say current approaches can't get there. |
+| **ASI (Artificial Superintelligence)** | AI that vastly exceeds human intelligence in every domain. Hypothetical. Would represent a fundamentally new situation for humanity. |
+| **Narrow AI / ANI** | What exists today. Excellent at specific tasks, cannot generalise. All current AI systems are narrow. |
+| **Alignment** | Ensuring powerful AI systems do what humans actually want. Becomes more critical as systems become more capable. |
+| **Emergence** | Capabilities that appear unexpectedly as models scale. Abilities no one explicitly trained for. Nobody knows when or if AGI will arrive. The smartest people in the field disagree profoundly. What's known: capabilities are growing fast, current AI is narrow but powerful, and the impacts — economic, social, political — are already real regardless of the AGI question. |
 
 
 ---
 
-<!-- END OF FILE: chapter-20-draft.md -->

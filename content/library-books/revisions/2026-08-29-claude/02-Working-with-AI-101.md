@@ -245,20 +245,9 @@ Write down the disappointing task, the one variable you changed and what happene
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** The same request works yesterday and fails today. What should you inspect before rewriting the prompt?
-
-**Answer:** Inspect the model or mode, the active context, available tools, attached material and acceptance conditions. The visible sentence is only one part of the system.
-
-</div>
-</details>
-
 ## What's Next →
 
-Chapter 2 starts the every-time loop: deciding what the AI needs for this task, what will distract it, and how to turn the result into a brief it can actually execute.
+Chapter 5 puts you inside the system: what the AI actually "sees" when you press send, why long conversations degrade, and what it means to shape the full context instead of just the message. It's where you start taking control of Variable 1.
 
 
 ================================================================================
@@ -444,7 +433,7 @@ This technique is called **few-shot prompting**: showing the model one or more e
 ### When examples work better than instructions:
 
 - **Format consistency.** You want the output to look a specific way (your newsletter style, your meeting note format, your email structure). Show one.
-- **Style and voice.** You want it to sound like you or your brand. Show 2-3 pieces of your real writing (Chapter 6 covers how to make this persistent; here it's task-specific).
+- **Style and voice.** You want it to sound like you or your brand. Show 2-3 pieces of your real writing (Chapter 6 covered this for persistent instructions; here it's task-specific).
 - **Classification or categorisation.** You need it to sort things into buckets? Show it a few already-sorted items.
 - **Any time "you'll know it when you see it" but you struggle to describe it.** If you can't explain what makes a good version good, show a good version.
 
@@ -544,17 +533,6 @@ Save the successful brief as **Brief 1 of 3**. Keep the outcome, audience, sourc
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** Your brief is detailed but the output is generic. What is the likeliest missing ingredient?
-
-**Answer:** Useful source material or concrete context. More instructions cannot substitute for the information needed to do the job.
-
-</div>
-</details>
-
 ## What's Next →
 
 You now know how to give the AI what it needs for a task without drowning it. But even with perfect context, the output might still sound wrong: too generic, too corporate, too agreeable, too hedging. That's not a context problem. That's an output behaviour problem. Chapter 3 teaches you how to control what comes back: matching your voice, eliminating filler, stopping the AI from agreeing with everything you say, and knowing when to stop iterating.
@@ -617,7 +595,7 @@ When you know what you think and you tell the AI your position, it's no longer g
 
 ## 3.2 Making It Sound Like You
 
-Chapter 6 will teach you how to set up persistent voice instructions using your own writing examples. That handles the baseline across all conversations.
+Chapter 6 taught you how to set up persistent voice instructions using your own writing examples. That handles the baseline across all conversations.
 
 For task-specific voice matching, the same principle applies in miniature: show, don't describe.
 
@@ -632,7 +610,7 @@ For task-specific voice matching, the same principle applies in miniature: show,
 **If the output comes back sounding generic despite your instructions:**
 
 The problem is almost always one of two things:
-1. Your persistent instructions describe your voice in adjectives ("professional yet warm") rather than showing it through examples. Adjectives describe every brand and constrain none of them. Chapter 6 shows how to rebuild from real samples.
+1. Your persistent instructions describe your voice in adjectives ("professional yet warm") rather than showing it through examples. Adjectives describe every brand and constrain none of them. Go back to Chapter 6 and rebuild from real samples.
 2. You're asking for something the AI has seen a million templated versions of (email, LinkedIn post, meeting summary) and it's defaulting to the template rather than your voice. The fix: paste an example of YOUR version of that format. "Write a meeting summary like THIS one, not like the default."
 
 ---
@@ -649,7 +627,7 @@ A working ban list for 2026 might include:
 
 **Filler phrases:** "It's worth noting that," "In today's rapidly evolving landscape," "At its core," "Let's dive in," "I'd be happy to help"
 
-You can paste a ban list into your persistent instructions (covered in Chapter 6) or include it in a task-specific request. Both work.
+You can paste a ban list into your persistent instructions (Chapter 6) or include it in a task-specific request. Both work.
 
 **But here's the limit:** A ban list removes symptoms. It doesn't add your voice. Output without banned words but also without your perspective is still generic. It's just generic in a less detectable way. The ban list cleans; the voice examples (Section 5.2) and the genuine opinion (Section 5.1) are what actually make the output yours.
 
@@ -759,17 +737,6 @@ If you answered "anyone could have written it," "multiple filler sentences," "va
 Save only the output rule that improved the comparison. A rule that did not change the result does not earn permanent space in your instructions.
 
 ---
-
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** The answer contains the right ideas in an unusable shape. What should you change?
-
-**Answer:** Specify the output structure, audience, length, constraints and acceptance test—not the underlying task.
-
-</div>
-</details>
 
 ## What's Next →
 
@@ -960,20 +927,9 @@ Record your **restart rule**: after three precise attempts with shrinking gains�
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** After several corrections the chat is confused. Continue patching or restart?
-
-**Answer:** Restart with a clean, consolidated brief when the conversation contains contradictory history or the desired result can no longer be stated cleanly.
-
-</div>
-</details>
-
 ## What's Next →
 
-You now have the full set of every-time skills: how to give a task (Chapter 2), how to control what comes back (Chapter 3), and how to refine without breaking things (this chapter). Chapter 5 now goes inside the system: what the AI actually sees, why long conversations degrade and how to manage the context that shapes every answer.
+You now have the full set of every-time skills: how to give a task (Chapter 2), how to control what comes back (Chapter 3), and how to refine without breaking things (this chapter). The next section of the book changes gears: instead of how to work with AI, it's about WHICH AI to work with. Chapter 7 introduces the tool selection framework: models, apps, and harnesses, and how to match the right tool to the right job.
 
 
 ================================================================================
@@ -1055,6 +1011,9 @@ The AI reads all five layers together and generates a response based on the *who
 ---
 
 
+![What is actually in the window when you press send](diagrams/context-window.svg)
+
+*What is actually in the window when you press send. Your message is the smallest thing in the room.*
 ## 5.3 Why Long Conversations Go Wrong
 
 Every message adds to the stack. Twenty messages in, the stack contains your twenty messages plus twenty AI responses. Forty exchanges deep, eighty pieces of text all sitting there. And every time you send something new, the AI re-reads the *entire stack* before responding.
@@ -1229,7 +1188,7 @@ This also works as a **diagnostic for compaction**. If the AI can't accurately r
 
 Find a conversation you've been working in for a while. One where you've been at it for ten or more messages, or where you've drifted across multiple topics.
 
-Try the structured handover prompt from Section 5.6. Read what it gives you.
+Try the structured handover prompt from Section 2.6. Read what it gives you.
 
 Then ask yourself:
 - Is it accurate? Does it match what actually happened?
@@ -1246,17 +1205,6 @@ Notice the difference. You didn't re-explain from scratch. You didn't lose anyth
 Save the handover under a name you will recognise. Add one line at the top: **Start a fresh session when…** Complete that sentence with the quality signal you observed.
 
 ---
-
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** A long chat contains the needed fact. Does that guarantee the model will use it?
-
-**Answer:** No. Presence in the context is capacity, not reliable attention. Restate critical facts and use a clean handover when needed.
-
-</div>
-</details>
 
 ## What's Next →
 
@@ -1518,7 +1466,7 @@ But the heavy lifting of "what needs updating?" can be the AI's job.
 
 Pick the method that matches where you are:
 
-**If you have writing samples:** Gather a few examples of your real writing (emails, messages, anything that sounds like you). Paste them in with the prompt from Method 1 in Section 6.3. Review the draft it produces. Edit anything that's off. Save your master copy.
+**If you have writing samples:** Gather a few examples of your real writing (emails, messages, anything that sounds like you). Paste them in with the prompt from Method 1 in Section 3.3. Review the draft it produces. Edit anything that's off. Save your master copy.
 
 **If your tool already has file access:** Upload a few recent documents you've produced and use the prompt from Method 2. Let it observe before it asks.
 
@@ -1534,20 +1482,9 @@ Save the tested profile as **My AI Baseline**, with the date and the tool/accoun
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** Where should a stable preference and a changing project fact live?
-
-**Answer:** Put the stable preference in persistent instructions or a reusable profile; put the changing fact in the current project brief or source material.
-
-</div>
-</details>
-
 ## What's Next →
 
-You now have a clean way to carry your baseline into a fresh conversation. Chapter 7 shifts from setup to selection: choosing the model, app or agent mode that fits the actual job instead of treating every AI surface as interchangeable.
+Your instructions tell the AI who you are and how to behave. But when you sit down with a specific task (whether that's a work deliverable, planning a trip, or figuring out a tricky situation), you need to give it the right information for THAT task: files, references, examples, constraints. Chapter 2 teaches you how to provide task-specific context without overwhelming it, and introduces the principle of "just enough."
 
 
 ================================================================================
@@ -1731,17 +1668,6 @@ Create a one-row **tool card**: task, tool/mode tested, plan/date, what it did b
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** Should you choose a model by leaderboard rank alone?
-
-**Answer:** No. Test the actual task for quality, speed, cost, data controls and required tools.
-
-</div>
-</details>
-
 ## What's Next →
 
 Now you know how to pick the right tool and mode. But even with the right tool in the right mode, you can still ask it to do something it's fundamentally bad at. Chapter 8 maps what AI is genuinely good at, what it's genuinely bad at, and how to tell the difference before you waste time finding out the hard way.
@@ -1798,6 +1724,9 @@ That research is from 2023. What's changed since?
 ---
 
 
+![The frontier is a coastline, not a line](diagrams/jagged-frontier.svg)
+
+*The frontier is a coastline, not a line. You cannot predict from difficulty which side of it a task falls on — which is why the advice is to test your own tasks rather than reason about capability in general.*
 ## 8.2 What AI Is Genuinely Good At
 
 Tasks where current AI tools can often provide useful, reviewable work (August 2026):
@@ -1975,17 +1904,6 @@ Mark one recurring task **Do myself**, **Collaborate** or **Delegate**, and add 
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** A model handled a difficult analysis. Can you assume it will handle a simple counting task?
-
-**Answer:** No. Capability is jagged. Test the specific task and define how failure will be detected.
-
-</div>
-</details>
-
 ## What's Next →
 
 Chapters 7 and 8 taught you which tool for which job and what AI is genuinely good at. The next section goes a level deeper: what happens when AI can reach beyond the chat window and actually DO things in the world (search the web, read your files, connect to other apps) and what changes when you give it true autonomy to work without you directing each step.
@@ -2151,17 +2069,6 @@ Save a **claim-and-source card**: claim, exact source, supporting passage, date,
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** An AI can access email and files. What changes besides convenience?
-
-**Answer:** Its authority and blast radius increase. Limit permissions, scope, tools and confirmation points before use.
-
-</div>
-</details>
-
 ## What's Next →
 
 When AI can reach beyond the chat — search, read files, run code, connect to apps — it becomes dramatically more capable. But it's still waiting for you to direct each step. Chapter 10 introduces what happens when you give it a goal and let it work autonomously: your first AI agent.
@@ -2320,17 +2227,6 @@ Write one authority line for the pilot: **You may… / You must ask before… / 
 If you're staring at that blankly, here is the question that fills it in, and it needs no technical knowledge at all: **can this be undone?** Drafting an email, summarising a file, suggesting an edit, running a search — all reversible, all fine to let it do alone. Sending the email, making the payment, deleting the folder, posting it publicly — not reversible, so those go on the "ask me first" side. Not *how clever is the model*. *What happens if it's wrong, and can I take it back?* (*Fundamentals* Chapter 13 lays this out as a spectrum if you want the longer version.) Do not schedule or connect more access until the manual run earns it.
 
 ---
-
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** What is the safest first recurring agent task?
-
-**Answer:** A low-risk, read-only task with a narrow source set, a visible output, an easy stop condition and no authority to send, buy, delete or publish.
-
-</div>
-</details>
 
 ## What's Next →
 
@@ -2494,17 +2390,6 @@ Save the three checks and the result. Correct samples are encouraging evidence, 
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** When is a fluent answer not good enough?
-
-**Answer:** Whenever the consequence of error matters. Verify the claims, calculations, citations and fit against an explicit acceptance test.
-
-</div>
-</details>
-
 ## What's Next →
 
 Evaluation tells you whether output is good AFTER you receive it. But what if you could write the brief in a way that makes good output more likely in the first place? Chapter 12 teaches the delegation skill: writing briefs for autonomous work, defining "done" before the work begins, and treating AI management as the same discipline as people management.
@@ -2659,20 +2544,9 @@ Save the upgraded brief as **Brief 2 of 3** and highlight its definition of done
 
 ---
 
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** What must be explicit before an AI may act for you?
-
-**Answer:** The goal, allowed information, available tools, spending or publishing authority, confirmation points, stop conditions and evidence it must return.
-
-</div>
-</details>
-
 ## What's Next →
 
-You now have the full toolkit: how to give tasks (Ch 2), how to control output (Ch 3), how to iterate (Ch 4), how to choose tools (Ch 7–8), how to use agents (Ch 10), how to evaluate (Ch 11), and how to delegate (this chapter). The final chapter brings it all together into a system that sticks — repeatable workflows, habits that last, and staying current without making AI a second job.
+You now have the full toolkit: how to give tasks (Ch 4), how to control output (Ch 5), how to iterate (Ch 6), how to choose tools (Ch 7-8), how to use agents (Ch 10), how to evaluate (Ch 11), and how to delegate (this chapter). The final chapter brings it all together into a system that sticks — repeatable workflows, habits that last, and staying current without making AI a second job.
 
 
 ================================================================================
@@ -2785,7 +2659,7 @@ AI tools change every few months. New models, new features, new modes, new names
 
 **Revisit your persistent instructions quarterly.** Your setup is not a set-and-forget. Your work changes. Your preferences refine. Every few months, ask the AI to review its own instructions and flag what seems outdated. Ten minutes. Done for another quarter.
 
-**The frameworks in this book are structural.** Models will change. Mode names will change. The three layers (Ch 7), the jagged frontier (Ch 8), the brief structure (Ch 2/12), the evaluation framework (Ch 11) — these are thinking tools that survive any specific product update.
+**The frameworks in this book are structural.** Models will change. Mode names will change. The three layers (Ch 7), the jagged frontier (Ch 8), the brief structure (Ch 4/12), the evaluation framework (Ch 11) — these are thinking tools that survive any specific product update.
 
 ---
 
@@ -2900,13 +2774,13 @@ Your blueprint is **Brief 3 of 3**. Here is everything this book asked you to ma
 | From | The piece | Where it came from |
 | --- | --- | --- |
 | Ch 1 | Your fresh-start test result | *Try This: The Fresh Start Test* |
-| Ch 5 | Your "start a fresh session when…" line | *The Handover* |
-| Ch 6 | Your baseline profile | *Build Your Profile* |
-| Ch 6 | Three comparison outputs, before and after | *Build Your Profile* |
-| Ch 2 | Your **Allowed-Information Check** | *The 60-Second Brief* |
-| Ch 2 | Brief 1 of 3 | *The 60-Second Brief* |
-| Ch 3 | Your ban list and one output rule | *The Slop Audit* |
-| Ch 4 | Your restart rule | *The Precision Correction* |
+| Ch 2 | Your "start a fresh session when…" line | *The Handover* |
+| Ch 3 | Your baseline profile | *Build Your Profile* |
+| Ch 3 | Three comparison outputs, before and after | *Build Your Profile* |
+| Ch 4 | Your **Allowed-Information Check** | *The 60-Second Brief* |
+| Ch 4 | Brief 1 of 3 | *The 60-Second Brief* |
+| Ch 5 | Your ban list and one output rule | *The Slop Audit* |
+| Ch 6 | Your restart rule | *The Precision Correction* |
 | Ch 7 | Your tool card | *The Tool Audit* |
 | Ch 8 | Your task-mode label | *One Week, Three Modes* |
 | Ch 10 | Your authority line + Brief 2 of 3 | *Your First Delegation* |
@@ -2914,14 +2788,3 @@ Your blueprint is **Brief 3 of 3**. Here is everything this book asked you to ma
 | Ch 13 | Your diagnostic test + Brief 3 of 3 | *Your System Blueprint* |
 
 Thirteen pieces. Most people finish with eight or nine, and that is a working system — but you should know which ones you skipped rather than discover it later.
-<details class="answer-reveal">
-<summary>Check your understanding</summary>
-<div class="answer-body">
-
-**Question:** What makes a successful AI workflow reusable rather than merely repeatable by memory?
-
-**Answer:** A saved brief, permitted source set, acceptance checks, decision rule, named owner and trigger for review when inputs or tools change.
-
-</div>
-</details>
-

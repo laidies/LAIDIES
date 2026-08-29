@@ -24,6 +24,11 @@ const source = {
   ],
   sourceReferences: ["https://example.com/fixture"],
   correctionRoute: "Report a problem to the Library owner.",
+  edition: {
+    reviewedOn: "2026-08-29",
+    summary: "Reviewed for current structure, sources, and reader use.",
+    changeHistory: "Added the visible edition record required of every maintained book."
+  },
   freshness: { reviewedThrough: "2026-08-07", nextTrigger: "source or mechanism change", owner: "Library" }
 };
 const sourcePath = "content/library-books/fixture-book.source.json";

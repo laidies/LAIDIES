@@ -53,17 +53,25 @@ const server = http.createServer((request, response) => {
         continue;
       }
       await page.locator("#book-preview-read").click();
-      await page.waitForFunction(expected => document.getElementById("reader").classList.contains("on") && document.getElementById("rt").textContent === expected && !/Pulling it off the shelf/.test(document.getElementById("rtxt").textContent), title);
+      await page.waitForFunction(expected => document.getElementById("reader").classList.contains("on") && (document.getElementById("rt").getAttribute("aria-label") || document.getElementById("rt").textContent) === expected && !/Pulling it off the shelf/.test(document.getElementById("rtxt").textContent), title);
+      if (process.env.LIBRARY_TEST_INJECT_PAGE_TURN === "1") {
+        await page.locator("#rtxt").evaluate(node => {
+          const wrapper = document.createElement("section");
+          wrapper.className = "reader-spread is-active";
+          while (node.firstChild) wrapper.append(node.firstChild);
+          node.append(wrapper);
+        });
+      }
       const reader = await page.locator("#reader").evaluate((node, expected) => ({
         open: node.classList.contains("on"),
-        title: document.getElementById("rt").textContent,
+        title: document.getElementById("rt").getAttribute("aria-label") || document.getElementById("rt").textContent,
         text: document.getElementById("rtxt").textContent,
-        spreadCount: document.querySelectorAll("#rtxt .reader-spread").length,
-        visibleSpreadCount: document.querySelectorAll("#rtxt .reader-spread.is-active:not([hidden])").length,
+        legacyPageTurnCount: document.querySelectorAll("#rtxt .reader-spread").length,
+        sectionCount: document.querySelectorAll("#rtxt h2[id],#rtxt h3[id]").length,
         toc: [...document.querySelectorAll("#rtoc a")].map(link => link.textContent.trim()),
         loadFailure: /This book did not load/.test(document.getElementById("rtxt").textContent)
       }), requiredText);
-      if (!reader.open || reader.title !== title || reader.loadFailure || !reader.text.toLowerCase().includes(requiredText.toLowerCase()) || reader.toc.length < 4 || reader.spreadCount < 2 || reader.visibleSpreadCount !== 1) {
+      if (!reader.open || reader.title !== title || reader.loadFailure || !reader.text.toLowerCase().includes(requiredText.toLowerCase()) || reader.toc.length < 4 || reader.sectionCount < 4 || reader.legacyPageTurnCount !== 0) {
         failures.push(`${id}: admitted book did not open as its full structured artifact ${JSON.stringify({ ...reader, text: reader.text.slice(0, 180) })}`);
       }
     }
@@ -73,12 +81,12 @@ const server = http.createServer((request, response) => {
         console.log(`LIBRARY OPENING BOOKS CHECK reader=${id} viewport=${width}`);
         await page.goto(`${origin}/library.html?reader-test=${width}-${id}#${id}`, { waitUntil: "domcontentloaded" });
         try {
-          await page.waitForFunction(expected => document.getElementById("reader").classList.contains("on") && document.getElementById("rt").textContent === expected && document.querySelectorAll("#rtoc-mobile > .reader-toc-group").length > 3, title);
+          await page.waitForFunction(expected => document.getElementById("reader").classList.contains("on") && (document.getElementById("rt").getAttribute("aria-label") || document.getElementById("rt").textContent) === expected && document.querySelectorAll("#rtoc-mobile > .reader-toc-group").length > 3, title);
         } catch (error) {
           const state = await page.evaluate(() => ({
             hash: location.hash,
             readerOpen: document.getElementById("reader")?.classList.contains("on"),
-            title: document.getElementById("rt")?.textContent,
+            title: document.getElementById("rt")?.getAttribute("aria-label") || document.getElementById("rt")?.textContent,
             mobileGroups: document.querySelectorAll("#rtoc-mobile > .reader-toc-group").length,
             loadText: document.getElementById("rtxt")?.innerText.slice(0, 180)
           }));
@@ -96,16 +104,15 @@ const server = http.createServer((request, response) => {
           duplicateContents: [...node.querySelectorAll('#rtxt h2')].some(heading => heading.textContent.trim() === 'Contents'),
           titleInToc: [...node.querySelectorAll('#rtoc-mobile .toc-title')].some(label => label.textContent.trim() === document.getElementById('rt').textContent.trim()),
           topVisible: node.querySelector("#reader-top").getBoundingClientRect().height >= 44,
-          orientationOrder: document.getElementById("rt").textContent.trim() === "AI Fundamentals 101" ? Array.from({ length: 20 }, (_, index) => {
+          orientationOrder: (document.getElementById("rt").getAttribute("aria-label") || document.getElementById("rt").textContent.trim()) === "AI Fundamentals 101" ? Array.from({ length: 20 }, (_, index) => {
             const chapter = index + 1;
-            const html = node.querySelector("#rtxt").innerHTML;
-            const start = html.indexOf(`data-source-block="chapter-${chapter}"`);
-            const next = chapter < 20 ? html.indexOf(`data-source-block="chapter-${chapter + 1}"`, start) : html.length;
-            const block = html.slice(start, next);
-            const firstSection = block.search(new RegExp(`<h3[^>]*>${chapter}\\.1\\s+[—-]`, "i"));
-            const objective = block.indexOf('class="callout callout-objective"');
-            const keyTerms = block.indexOf("Key Terms Introduced in This Chapter");
-            const secondSection = block.search(new RegExp(`<h3[^>]*>${chapter}\\.2\\s+[—-]`, "i"));
+            const heading = node.querySelector(`#rtxt [data-source-block="chapter-${chapter}"]`);
+            const block = [];
+            for (let sibling = heading?.nextElementSibling; sibling && !sibling.matches('h2[data-source-block]'); sibling = sibling.nextElementSibling) block.push(sibling);
+            const firstSection = block.findIndex(element => element.matches('h3') && new RegExp(`^${chapter}\\.1\\s+[—-]`, 'i').test(element.innerText.trim()));
+            const objective = block.findIndex(element => element.matches('.callout.callout-objective'));
+            const keyTerms = block.findIndex(element => element.matches('h3') && /Key Terms Introduced in This Chapter/i.test(element.innerText));
+            const secondSection = block.findIndex(element => element.matches('h3') && new RegExp(`^${chapter}\\.2\\s+[—-]`, 'i').test(element.innerText.trim()));
             return firstSection >= 0 && firstSection < objective && objective < keyTerms && keyTerms < secondSection;
           }) : []
         }));
@@ -119,15 +126,13 @@ const server = http.createServer((request, response) => {
         const lastLink = lastGroup.locator("a").last();
         await lastLink.click();
         await page.waitForFunction(() => {
-          const active = document.querySelector("#rtxt .reader-spread.is-active:not([hidden])");
           return !document.getElementById("mobile-toc").open &&
             document.getElementById("reader-current-section").textContent.trim() !== "Start of book" &&
-            Number(active?.dataset.spreadIndex) > 0 &&
-            document.querySelectorAll("#rtxt .reader-spread.is-active:not([hidden])").length === 1 &&
-            document.getElementById("rtxt").scrollTop < 2;
+            document.getElementById("rtxt").scrollTop > 0 &&
+            document.querySelectorAll("#rtxt .reader-spread").length === 0;
         });
         await page.locator("#reader-top").click();
-        await page.waitForFunction(() => Number(document.querySelector("#rtxt .reader-spread.is-active:not([hidden])")?.dataset.spreadIndex) === 0 && document.getElementById("rtxt").scrollTop < 2);
+        await page.waitForFunction(() => document.querySelectorAll("#rtxt .reader-spread").length === 0 && document.getElementById("rtxt").scrollTop < 2);
       }
     }
   } finally {
@@ -138,7 +143,7 @@ const server = http.createServer((request, response) => {
     console.error(`LIBRARY OPENING BOOKS FAIL\n- ${failures.join("\n- ")}`);
     process.exit(1);
   }
-  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · persistent_navigation=4x3_viewports`);
+  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · continuous_scroll=true · persistent_navigation=4x3_viewports`);
 })().catch(error => {
   console.error(`LIBRARY OPENING BOOKS FAIL: ${error.stack || error}`);
   server.close();

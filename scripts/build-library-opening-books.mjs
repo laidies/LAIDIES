@@ -15,7 +15,7 @@ const writeJson = (relative, value) => fs.writeFileSync(path.join(root, relative
 const slug = value => String(value).toLowerCase().replace(/[“”"']/g, "").replace(/[—–]/g, "-").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "section";
 const plain = value => String(value).replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ").trim();
 
-function renderMarkdown(markdown) {
+function renderMarkdown(markdown, { idPrefix = "", depthShift = 0 } = {}) {
   const counts = new Map();
   const renderer = new marked.Renderer();
   renderer.heading = ({ tokens, depth }) => {
@@ -23,7 +23,9 @@ function renderMarkdown(markdown) {
     const base = slug(plain(text));
     const count = counts.get(base) || 0;
     counts.set(base, count + 1);
-    return `<h${depth} id="${count ? `${base}-${count + 1}` : base}">${text}</h${depth}>\n`;
+    const outputDepth = Math.min(6, depth + depthShift);
+    const id = `${idPrefix}${count ? `${base}-${count + 1}` : base}`;
+    return `<h${outputDepth} id="${id}">${text}</h${outputDepth}>\n`;
   };
   return marked.parse(markdown, { renderer, gfm: true });
 }
@@ -37,22 +39,24 @@ function splitTopLevel(markdown) {
   }));
 }
 
-function sourceFromTopLevelMarkdown({ markdown, bookId, contentVersion, displayTitle, eyebrow, readerJob, lede, sourceReferences }) {
+function sourceFromTopLevelMarkdown({ markdown, bookId, contentVersion, displayTitle, eyebrow, readerJob, lede, sourceReferences, edition }) {
   const blocks = splitTopLevel(markdown);
   if (blocks[0]?.title === displayTitle) blocks.shift();
   const sections = blocks.map((block, index) => ({
     id: slug(block.title.replace(/^Introduction:\s*/i, "introduction-").replace(/^Chapter\s+(\d+):.*/i, "chapter-$1")),
     title: block.title,
     navLabel: block.title.replace(/^Chapter\s+\d+:\s*/i, "").replace(/^Part\s+[IVX]+:\s*/i, "Part: "),
-    bodyHtml: renderMarkdown(block.markdown)
+    bodyHtml: renderMarkdown(block.markdown, bookId === "working-with-ai-101"
+      ? { idPrefix: `${slug(block.title)}-`, depthShift: 1 }
+      : {})
   }));
   const introIndex = Math.max(0, sections.findIndex(section => /^Introduction/i.test(section.title)));
   const intro = sections.splice(introIndex, 1)[0];
   return {
     schemaVersion: "library-book-source.v1", bookId, contentVersion, displayTitle, eyebrow, readerJob, lede,
-    intro, chapters: sections, sourceReferences,
+    intro, chapters: sections, sourceReferences, edition,
     correctionRoute: "Report a correction at the Library correction desk without including private or confidential material.",
-    freshness: { reviewedThrough: "2026-08-23", nextTrigger: "Before any public revision and whenever a named product, policy, statistic or source changes", owner: "LAiDIES Library with AI research accuracy" }
+    freshness: { reviewedThrough: "2026-08-29", nextTrigger: "Before any public revision and whenever a named product, policy, statistic or source changes", owner: "LAiDIES Library with AI research accuracy" }
   };
 }
 
@@ -69,14 +73,15 @@ function makeStraightAnswers(markdown) {
   }));
   const urls = [...new Set([...markdown.matchAll(/\[[^\]]+\]\((https?:\/\/[^)]+)\)/g)].map(match => match[1]))];
   return {
-    schemaVersion: "library-book-source.v1", bookId: "straight-answers", contentVersion: "straight-answers-2026-08-23.1",
+    schemaVersion: "library-book-source.v1", bookId: "straight-answers", contentVersion: "straight-answers-2026-08-29.1",
     displayTitle: "Straight Answers About AI", eyebrow: "REFERENCE · SUNNYVAiLE LIBRAiRY",
     readerJob: "Answer consequential everyday questions about AI with dated evidence, honest uncertainty and a practical next question.",
     lede: "Real questions about jobs, the environment, privacy, the economy and learning—answered with receipts and explicit limits.",
     intro: { id: "start-here", title: "How to use these answers", navLabel: "Start here", bodyHtml: renderMarkdown(introMarkdown) },
+    edition: { reviewedOn: "29 August 2026", summary: "All 15 launch questions were independently source-reviewed for this edition.", changeHistory: "Revised the answers throughout; clarified privacy and electricity-study claims; added the direct source for the water-use figures." },
     chapters, sourceReferences: urls,
     correctionRoute: "Report a correction at the Library correction desk without including private or confidential material.",
-    freshness: { reviewedThrough: "2026-08-23", nextTrigger: "Recheck each answer when its named dataset, report or policy changes and before each public edition", owner: "LAiDIES Library with independent source review" }
+    freshness: { reviewedThrough: "2026-08-29", nextTrigger: "Recheck each answer when its named dataset, report or policy changes and before each public edition", owner: "LAiDIES Library with independent source review" }
   };
 }
 
@@ -121,7 +126,7 @@ function placeFundamentalsOrientationAfterOpeningSection(source) {
   }
 }
 
-function makeDictionary(fundamentalsTerms, workingTerms) {
+function makeDictionary(fundamentalsTerms, workingTerms, ownerVersions) {
   const byKey = new Map();
   for (const term of fundamentalsTerms) byKey.set(term.label.toLowerCase(), { ...term, practicalAnchor: null });
   for (const term of workingTerms) {
@@ -132,7 +137,7 @@ function makeDictionary(fundamentalsTerms, workingTerms) {
   const registry = [...byKey.values()].sort((a, b) => a.label.localeCompare(b.label)).map(term => ({
     term_id: slug(term.label), canonical_label: term.label, aliases: [], plain_definition: term.definition,
     scope_or_limit: "Plain-language teaching definition. Follow the linked chapter for its mechanism, examples and limits.",
-    owner_book_id: term.ownerBookId, owner_content_version: term.ownerBookId === "ai-fundamentals-101" ? "ai-fundamentals-101-2026-08-24.6" : "working-with-ai-101-2026-08-24.2",
+    owner_book_id: term.ownerBookId, owner_content_version: ownerVersions[term.ownerBookId],
     owner_section_anchor: term.ownerAnchor,
     practical_anchor: term.practicalAnchor ? { book_id: "working-with-ai-101", section_anchor: term.practicalAnchor } : null,
     source_claim_ids: [`TERM-${slug(term.label).toUpperCase()}`],
@@ -153,15 +158,16 @@ function makeDictionary(fundamentalsTerms, workingTerms) {
     }).join("\n")
   }));
   const source = {
-    schemaVersion: "library-book-source.v1", bookId: "ai-dictionary", contentVersion: "ai-dictionary-2026-08-23.1",
+    schemaVersion: "library-book-source.v1", bookId: "ai-dictionary", contentVersion: "ai-dictionary-2026-08-29.1",
     displayTitle: "The AI Dictionary", eyebrow: "REFERENCE · SUNNYVAiLE LIBRAiRY",
     readerJob: "Find a plain-language AI term quickly, then continue into the maintained teaching chapter that owns its full meaning.",
     lede: `${registry.length} definitions from AI Fundamentals 101 and Working with AI 101, with a direct route to every fuller explanation.`,
     intro: { id: "how-this-dictionary-works", title: "How this dictionary works", navLabel: "Start here", bodyHtml: "<p>This is a front door, not a competing source of truth. AI Fundamentals 101 owns foundational definitions; Working with AI 101 owns additional practice terms. Every entry sends you to the maintained explanation, examples and limits.</p><p>Use the contents to jump by letter. If a term also has a practical chapter, you will see a second route.</p>" },
     chapters: sections,
+    edition: { reviewedOn: "29 August 2026", summary: "Rebuilt from the exact current owner-book definitions.", changeHistory: `Regenerated all ${registry.length} entries and their owner-book and practical routes from the admitted AI Fundamentals 101 and Working with AI 101 sources.` },
     sourceReferences: ["content/library-books/sources/ai-fundamentals-101.source.json", "content/library-books/sources/working-with-ai-101.source.json"],
     correctionRoute: "Report a correction at the Library correction desk. Dictionary corrections must be resolved in the owner book first.",
-    freshness: { reviewedThrough: "2026-08-23", nextTrigger: "Automatic rebuild after any owner definition or section-anchor change", owner: "LAiDIES Library derived-term registry" }
+    freshness: { reviewedThrough: "2026-08-29", nextTrigger: "Automatic rebuild after any owner definition or section-anchor change", owner: "LAiDIES Library derived-term registry" }
   };
   return { registry, source };
 }
@@ -197,11 +203,11 @@ function addLaunchVisuals(fundamentals, working) {
 function addWorkingPanelSemantics(working) {
   for (const section of [working.intro, ...working.chapters]) {
     section.bodyHtml = section.bodyHtml
-      .replace(/(<h2[^>]*>Learning Objectives<\/h2>)([\s\S]*?)(?=<h2[^>]*>Key Terms<\/h2>)/gi, '<section class="working-panel working-objectives">$1$2</section>')
-      .replace(/(<h2[^>]*>Key Terms<\/h2>)([\s\S]*?)(?=<h2)/gi, '<section class="working-panel working-key-terms">$1$2</section>')
-      .replace(/(<h2[^>]*>Try This:[\s\S]*?<\/h2>)([\s\S]*?)(?=<h3[^>]*>(?:Add to|Complete) Your Working With AI Kit<\/h3>)/gi, '<section class="working-panel working-practice">$1$2</section>')
-      .replace(/(<h3[^>]*>(?:Add to|Complete) Your Working With AI Kit<\/h3>)([\s\S]*?)(?=<h2[^>]*>What&#39;s Next →<\/h2>)/gi, '<section class="working-panel working-kit">$1$2</section>')
-      .replace(/(<h2[^>]*>What&#39;s Next →<\/h2>)([\s\S]*?)$/gi, '<section class="working-panel working-next">$1$2</section>')
+      .replace(/(<h3[^>]*>Learning Objectives<\/h3>)([\s\S]*?)(?=<h3[^>]*>Key Terms<\/h3>)/gi, '<section class="working-panel working-objectives">$1$2</section>')
+      .replace(/(<h3[^>]*>Key Terms<\/h3>)([\s\S]*?)(?=<h3)/gi, '<section class="working-panel working-key-terms">$1$2</section>')
+      .replace(/(<h3[^>]*>Try This:[\s\S]*?<\/h3>)([\s\S]*?)(?=<h4[^>]*>(?:Add to|Complete) Your Working With AI Kit<\/h4>)/gi, '<section class="working-panel working-practice">$1$2</section>')
+      .replace(/(<h4[^>]*>(?:Add to|Complete) Your Working With AI Kit<\/h4>)([\s\S]*?)(?=<h3[^>]*>What&#39;s Next →<\/h3>)/gi, '<section class="working-panel working-kit">$1$2</section>')
+      .replace(/(<h3[^>]*>What&#39;s Next →<\/h3>)([\s\S]*?)$/gi, '<section class="working-panel working-next">$1$2</section>')
       .replace(/<blockquote>/g, '<blockquote class="working-principle">')
       .replace(/<pre>/g, '<pre class="working-prompt-card">');
   }
@@ -217,8 +223,8 @@ function emit(source, sourcePath, renderedPath) {
 
 const fundamentalsPath = "content/library-books/sources/ai-fundamentals-101.source.json";
 const fundamentals = JSON.parse(read(fundamentalsPath));
-fundamentals.contentVersion = "ai-fundamentals-101-2026-08-24.6";
-fundamentals.freshness.reviewedThrough = "2026-08-23";
+fundamentals.contentVersion = "ai-fundamentals-101-2026-08-29.1";
+fundamentals.freshness.reviewedThrough = "2026-08-29";
 fundamentals.freshness.nextTrigger = "Weekly currentness scan, immediate source-change signal and before each public edition";
 const fundamentalsPreface = splitTopLevel(read("content/library-books/sources/ai-fundamentals-101.preface.md"))[0];
 fundamentals.intro = {
@@ -233,16 +239,20 @@ if (!fundamentals.sourceReferences.includes("content/library-books/sources/ai-fu
 
 const workingMarkdown = read("content/library-books/sources/working-with-ai-101.manuscript.md");
 const working = sourceFromTopLevelMarkdown({
-  markdown: workingMarkdown, bookId: "working-with-ai-101", contentVersion: "working-with-ai-101-2026-08-24.2", displayTitle: "Working with AI 101", eyebrow: "THE 101s · SUNNYVAiLE LIBRAiRY",
+  markdown: workingMarkdown, bookId: "working-with-ai-101", contentVersion: "working-with-ai-101-2026-08-29.1", displayTitle: "Working with AI 101", eyebrow: "THE 101s · SUNNYVAiLE LIBRAiRY",
   readerJob: "Turn the connected concepts from AI Fundamentals 101 into a practical, repeatable way to work with AI while retaining judgment.",
   lede: "A hands-on companion for managing context, briefing work, controlling output, choosing modes, evaluating results and building repeatable workflows.",
+  edition: { reviewedOn: "29 August 2026", summary: "The complete practical companion was reviewed against current provider behaviour and the LAiDIES working-loop contract.", changeHistory: "Integrated the revised manuscript; repaired chapter and section routes; removed two unavailable visual references; added a mechanism-specific check to every chapter." },
   sourceReferences: [
     "content/library-books/sources/working-with-ai-101.manuscript.md",
     "operations/product-stewards/library/working-with-ai-101/CLAIM-SOURCE-PACKET-2026-08-23.md",
     "https://openai.com/index/chatgpt-memory-dreaming/",
-    "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+    "https://help.openai.com/en/articles/20001275/",
     "https://help.openai.com/en/articles/8983130-how-does-chatgpt-use-my-data",
+    "https://help.openai.com/en/articles/10306912",
     "https://www.anthropic.com/news/claude-opus-5",
+    "https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude",
+    "https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/",
     "https://metr.org/time-horizons/",
     "https://media-publications.bcg.com/BCG-BHI-GenAI-Experimental-Findings.pdf",
     "https://marketing.wharton.upenn.edu/profile/shawsd/",
@@ -262,10 +272,14 @@ const straight = makeStraightAnswers(read("content/library-books/straight-answer
 placeFundamentalsOrientationAfterOpeningSection(fundamentals);
 addLaunchVisuals(fundamentals, working);
 addWorkingPanelSemantics(working);
-const dictionary = makeDictionary(extractFundamentalsTerms(fundamentals), extractWorkingTerms(workingMarkdown, working));
+const dictionary = makeDictionary(
+  extractFundamentalsTerms(fundamentals),
+  extractWorkingTerms(workingMarkdown, working),
+  { [fundamentals.bookId]: fundamentals.contentVersion, [working.bookId]: working.contentVersion }
+);
 
 emit(fundamentals, fundamentalsPath, "content/library-books/rendered/ai-fundamentals-101.html");
 emit(working, "content/library-books/sources/working-with-ai-101.source.json", "content/library-books/rendered/working-with-ai-101.html");
 emit(straight, "content/library-books/sources/straight-answers.source.json", "content/library-books/rendered/straight-answers.html");
-writeJson("content/library-books/ai-dictionary.term-registry.json", { schema_version: "laidies-ai-dictionary-term-registry.v1", generated_at: "2026-08-23", authority: "DERIVED_FROM_ADMITTED_OWNER_BOOKS", terms: dictionary.registry });
+writeJson("content/library-books/ai-dictionary.term-registry.json", { schema_version: "laidies-ai-dictionary-term-registry.v1", generated_at: "2026-08-29", authority: "DERIVED_FROM_OWNER_BOOKS_PENDING_ADMISSION", terms: dictionary.registry });
 emit(dictionary.source, "content/library-books/sources/ai-dictionary.source.json", "content/library-books/rendered/ai-dictionary.html");

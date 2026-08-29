@@ -478,7 +478,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book{position:relative;width:min(1420px,calc(100dvw - 28px));max-height:calc(100dvh - 28px);padding-left:116px;
   border:2px solid #6b42bf;border-radius:4px;background:#eee8ff;box-shadow:0 34px 90px rgba(2,8,28,.62)}
 .reader-pop-frame{position:absolute;inset:0 auto 0 0;z-index:0;width:116px;overflow:hidden;background:#e8e0fa;border-right:2px solid #6b42bf;pointer-events:none}
-.reader-pop-frame::before{content:"";position:absolute;inset:0;background-image:url('/assets/puffies/puffy-star-pink.png');background-size:34px;background-repeat:repeat;opacity:.08}
+.reader-pop-frame::before{content:"";position:absolute;inset:0;opacity:.08}
 .reader-motif{position:absolute;z-index:1;display:block;width:auto;height:auto;object-fit:contain;filter:drop-shadow(2px 4px 0 rgba(59,36,114,.2))}
 .reader-motif-cursor{top:18px;left:15px;width:70px}.reader-motif-lightning{top:142px;left:19px;width:61px}
 .reader-motif-cassette{top:286px;left:-8px;width:126px}.reader-motif-computer{bottom:18px;left:2px;width:108px}.reader-motif-star{right:9px;bottom:168px;width:36px}
@@ -817,9 +817,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 #reader.on{padding:0;place-items:start center;background:rgba(5,9,29,.94)}
 .book{width:min(1488px,100dvw);max-width:1488px;height:100dvh;aspect-ratio:auto;max-height:none;padding:0;overflow:hidden;
   border:0;border-radius:0;background-color:#fdfcfb;
-  background-image:url('/assets/library-reader/pop-zine-frame-v1.png'),url('/assets/library-reader/pop-zine-edge-continuation-v1.png');
-  background-position:center top,center min(1057px,71.035vw);
-  background-size:100% auto,100% auto;background-repeat:no-repeat,repeat-y;
   box-shadow:0 28px 90px rgba(2,8,28,.58)}
 .reader-pop-frame{position:absolute;inset:0;z-index:1;display:block;width:auto;overflow:hidden;border:0;background:none;pointer-events:none}
 .reader-pop-frame::before{content:none}
@@ -1108,7 +1105,7 @@ const SECTIONS=[
 ];
 const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_START */
-{"ai-dictionary":{"sourcePath":"/content/library-books/rendered/ai-dictionary.html","contentVersion":"ai-dictionary-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"0ec283612e30ae8cb86ab2978089f941e31fbbb021aea47ecfe3a0f6f57896ec"},"ai-fundamentals-101":{"sourcePath":"/content/library-books/rendered/ai-fundamentals-101.html","contentVersion":"ai-fundamentals-101-2026-08-24.6","admissionVersion":"opening-set-2026-08-24.4","correctionState":"clear","artifactSha256":"921aa20a3699402ef573e35a7fd89002ef86504798c2c524e4764cc15c81832c"},"straight-answers":{"sourcePath":"/content/library-books/rendered/straight-answers.html","contentVersion":"straight-answers-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"3c32da26cebf6257ed9114f4e3847b8f888a330deea515d2ef85eb363d54172c"},"working-with-ai-101":{"sourcePath":"/content/library-books/rendered/working-with-ai-101.html","contentVersion":"working-with-ai-101-2026-08-24.2","admissionVersion":"opening-set-2026-08-24.2","correctionState":"clear","artifactSha256":"0a57a3e31622836ac990362bf30b273406f60df5b3584f37d8161d79ace72736"}}
+{"ai-dictionary":{"sourcePath":"/content/library-books/rendered/ai-dictionary.html","contentVersion":"ai-dictionary-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"43820ca8610a39e02c179eff7b1f2d65bd9eb876e94024c8439c80dedc3a3144"},"ai-fundamentals-101":{"sourcePath":"/content/library-books/rendered/ai-fundamentals-101.html","contentVersion":"ai-fundamentals-101-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"},"straight-answers":{"sourcePath":"/content/library-books/rendered/straight-answers.html","contentVersion":"straight-answers-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"7ba998a551128a6adeb67233cbbdb70a0cd7dd7e59519b8dca060796ad822b9b"},"working-with-ai-101":{"sourcePath":"/content/library-books/rendered/working-with-ai-101.html","contentVersion":"working-with-ai-101-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"}}
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
 const LOCAL_REVIEW_BOOK_RECORDS=Object.freeze({
@@ -1128,7 +1125,7 @@ SECTIONS.forEach(Object.freeze);
 Object.freeze(SECTIONS);
 function exactAdmittedBookRecord(id){
  const localReviewHost=location.hostname==='127.0.0.1'||location.hostname==='localhost';
- const record=localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:ADMITTED_BOOK_RECORDS[id];
+ const record=ADMITTED_BOOK_RECORDS[id]||(localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:null);
  if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
  const source=record.sourcePath;
  if(typeof source!=='string'||!/^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(source))return null;

@@ -1,7 +1,7 @@
 ---
 title: Straight Answers About AI
 source: content/library-books/straight-answers.md
-reviewed: 2026-08-29
+reviewed: 2026-08-23
 ---
 
 *The SUNNYVAiLE LIBRAiRY · Reference shelf*
@@ -109,6 +109,104 @@ Probably not — and if you're genuinely good at what you do, AI is more likely 
 
 *Verified June 2026. Recheck when the expert-vs-novice studies mature.*
 
+## Bias & Fairness
+
+### "Is AI biased against women?"
+
+*Confidence: Mixed evidence*
+
+Yes, in a few carefully measured places. No, in several others. Reversed, in a surprising number. And the most famous examples — the ones in every headline — turn out to be the weakest evidence on the whole subject. If you want the mechanism behind all this, the next answer takes it apart. This one is just what has actually been found.
+
+**What's solid** — Three findings survive scrutiny. The best-evidenced is about medicine, and it is about *how you write*. In a 2025 study presented at ACM FAccT, four models were given real patient messages, then the same messages with typos, extra spaces, hedging ("I think maybe") or dramatic phrasing added. The clinical content was identical. The models became 7–9% more likely to say manage it at home, made about 7% more errors for female patients, and were likelier to recommend self-management for them — and the gap persisted when every gender marker was stripped from the text. Follow-up work found human clinicians were *not* affected by the same changes, which makes this an artefact of the machine rather than a reflection of the clinic.
+
+Second: an LSE study in *BMC Medical Informatics* ran 617 real English adult social care assessments through Google's Gemma with the genders swapped, and found identical needs described in less serious language for women. "Unable" appeared 373 times for men against 276 for women; "complex," 167 against 105. The same task given to Llama 3 produced no difference at all — so this is a fact about one model, not about AI.
+
+Third, and oldest: NIST tested 189 face recognition algorithms and found false positives two to five times higher for women — though that was 2019, race effects were larger, and the most accurate algorithms showed almost none.
+
+One number worth holding carefully. A peer-reviewed systematic review of 24 studies of demographic bias in medical AI found that of the 16 that looked for gender bias, 15 detected it — 93.7%. That sounds decisive and isn't quite: studies that go looking and find nothing tend not to get published, and only 8 of the 24 met every quality criterion. Read it as "nearly everyone who went looking found something," not as a rate.
+
+**On how it talks to you** — This is the part most people mean, and the honest version is smaller and stranger than the headlines. OpenAI's own peer-reviewed study of millions of real ChatGPT conversations found female-associated names got simpler, more layman-friendly phrasing 53% of the time against a 50% no-difference baseline — a real effect, and a tiny one — while finding *no* significant difference in accuracy or clarity. A 2026 paper in the *Journal of Business Ethics* found lower recommended investment amounts for female-coded **names**, with the effect largely vanishing when gender was simply stated outright. Which is the most practically useful finding on this page: what moved the answer was the name, not the woman.
+
+**The honest counter-evidence** — It would be easy to stop there, so: the two most direct tests of "AI minimises women's pain" came back null. A peer-reviewed study in *PAIN* ran 480 cases through GPT-4 and Gemini and found no difference in opioid recommendations by sex. A 2026 systematic review of cardiac imaging AI found performance broadly similar between men and women, with the one clear disparity running *against* men. And the two largest medical bias studies to date — 1.7 million and 3.4 million model outputs, both in *Nature* journals — found substantial effects for race, income, housing status and LGBTQIA+ identity, and reported no sex effect at all.
+
+**Where it's contested** — Hiring, which is where most people assume it is settled. It is not: one good audit found male names preferred in 51.9% of tests against 11.1% for female names, while the largest study yet — some 361,000 résumés — found women scored slightly *higher* than identical men. They are measuring different things, and the next answer says which. What every one of these studies agrees on is that Black men are disadvantaged. That is the finding that replicates.
+
+**What's unknown** — Whether any of it reaches a real woman's life. No study has ever linked a deployed model's measured bias to an actual outcome for an actual person — every result on this page is fictitious résumés and hypothetical patients. Worse, benchmark scores turn out not to predict application harm at all: a 2024 ICML paper found that picking the least-biased model by benchmark score identifies the least-biased model in realistic use only as often as flipping a coin.
+
+**What it depends on** — Which system, and which decision. Image generators are the best illustration going. A 2026 audit in *New Media & Society* found the prompt "person" produced 73.4% women, and "warm person" 71.4% — and "**competent person**" produced 23.4%. Stable Diffusion returned zero women for a competent person. That is not underrepresentation so much as reassignment. Speech recognition, meanwhile, has genuinely reversed: women now show lower error rates than men, and the live disparity there is dialect, at a scale that dwarfs everything else here — one Whisper model scored 81.6% word error on African American English against 24.3% on Standard American English. And "better for women" is not "fixed": a peer-reviewed FAccT 2025 study found the same safety training *amplified* harms toward transgender and nonbinary people in most models tested.
+
+**The myths to drop** — Four, in rough order of how often you will meet them.
+
+*"Amazon's AI rejected women's CVs."* Built in 2014, shut down by early 2017, never used as the sole basis for a decision — Reuters, which broke the story, said so in the original piece. It shares no technology with anything running now. The certified AI-hiring class action currently in US courts is about **age**.
+
+*"The Apple Card gave women lower limits."* New York's financial regulator investigated across nearly 400,000 applicants and found women and men with equivalent credit characteristics had similar outcomes.
+
+*"AI tells women to ask for $120,000 less."* This comes from a single unreplicated preprint, and the figures attached to it in the press — $400,000 for men, $280,000 for women, from a model the study never tested — do not appear in the paper. The same paper's two other experiments found nothing, and one ran *pro*-female. A critic who re-ran it allowing the model to explain itself, rather than forcing a bare dollar figure, got higher recommendations for women.
+
+*"Man is to computer programmer as woman is to homemaker."* The most-quoted sentence in this entire subject, and substantially an artefact of the code. A 2020 paper in *Computational Linguistics* showed the standard analogy routine explicitly forbids returning any of the input words — so the model was structurally prevented from answering "computer programmer." Remove that rule and it answers "computer programmer." The embeddings really did carry gender bias; this particular demonstration just wasn't showing it.
+
+> **The receipts** — Two, and the first is the one likeliest to change an outcome. **Write to a medical AI flatly**, and to any patient portal that might be summarised by one. Name the symptom, how long, how severe, what changed. Cut the hedges — "I might be overreacting," "probably nothing," "sorry to bother you" — cut the vivid adjectives, proofread it. Those are precisely the features the FAccT study showed push the recommendation toward *manage it at home*, and precisely the features women are trained to include when describing pain. It also works on human doctors. **Second: if you are asking for a number — a salary, a valuation, an offer — state what you want considered and ask for the reasoning.** What keeps recurring is that models respond to cues nobody told them to use, and that naming the thing plainly, or asking for the working, tends to dissolve the effect. A forced bare figure is where the strange answers live.
+
+**Sources**
+
+- [Gourabathina et al., ACM FAccT 2025 — via MIT News](https://news.mit.edu/2025/llms-factor-unrelated-information-when-recommending-medical-treatments-0623)
+- [Rickman — gender bias in LLMs in long-term care, BMC Med Inform Decis Mak 2025](https://link.springer.com/article/10.1186/s12911-025-03118-0)
+- [Omar et al. — systematic review, bias in medical LLMs](https://link.springer.com/article/10.1186/s12939-025-02419-0)
+- [OpenAI — First-Person Fairness in Chatbots (ICLR 2025)](https://arxiv.org/abs/2410.19803)
+- [Wang & Gu — gender and racial bias in LLM investment advice, Journal of Business Ethics 2026](https://link.springer.com/article/10.1007/s10551-026-06251-6)
+- [Young, Einchen & Succi — no sex or race differences in LLM opioid recommendations, PAIN 2024](https://www.eurekalert.org/news-releases/1057638)
+- [Mudrik et al. — sex-related performance in cardiac imaging AI, J Imaging Inform Med 2026](https://link.springer.com/article/10.1007/s10278-026-02173-x)
+- [Omar et al. — sociodemographic biases in medical decision making, Nature Medicine 2025](https://www.nature.com/articles/s41591-025-03626-6)
+- [Wilson & Caliskan — resume retrieval audit, AIES 2024](https://arxiv.org/abs/2407.20371)
+- [PNAS Nexus — LLM resume screening at scale](https://academic.oup.com/pnasnexus/article/4/3/pgaf089/8071848)
+- [Lum et al. — Bias in Language Models: Beyond Trick Tests, ICML 2024](https://arxiv.org/html/2402.12649v3)
+- [Weinmann, Messingschlager & Appel — gender bias in text-to-image AI, New Media & Society 2026](https://journals.sagepub.com/doi/full/10.1177/14614448261435197)
+- [Ovalle et al. — persistence of gender-exclusive harms in aligned models, FAccT 2025](https://dl.acm.org/doi/10.1145/3715275.3732196)
+- [EMNLP 2024 — gender and dialect in speech recognition](https://aclanthology.org/2024.findings-emnlp.890.pdf)
+- [Sorokovikova et al. — Surface Fairness, Deep Bias (the salary preprint)](https://arxiv.org/abs/2506.10491)
+- [Nissim, van Noord & van der Goot — Fair Is Better than Sensational, Computational Linguistics 2020](https://aclanthology.org/2020.cl-2.7/)
+- [NIST IR 8280 — Face Recognition Vendor Test, demographic effects (2019)](https://pages.nist.gov/frvt/reports/demographics/nistir_8280.pdf)
+- [NIST — current FRTE demographic differentials](https://pages.nist.gov/frvt/html/frvt_demographics.html)
+- [NYDFS — Report on the Apple Card investigation](https://www.dfs.ny.gov/reports_and_publications/202103_report_apple_card_investigation)
+
+*Verified August 2026. Recheck when a frontier model card publishes gender-disaggregated evaluations, when the FAccT phrasing study or the LSE social-care study is replicated, or when the salary-advice preprint reaches peer review.*
+
+### "Didn't AI learn our bias from a biased world?"
+
+*Confidence: Mixed evidence*
+
+Partly, yes — and this is the best question anyone asks about AI and gender, because the intuition behind it is correct about the raw material, out of date about the finished product, and pointing at something real that sits one layer beneath where everybody is looking.
+
+**Why the instinct is right** — A model learns language from text that people wrote, and people wrote a world. That is not a metaphor; it has been measured. In 2017 a team publishing in *Science* found that a model's sense of how "male" or "female" a job word *feels* tracked real US employment statistics at a correlation of 0.90 — very nearly a straight line. The input is lopsided too: male pronouns outnumbered female ones roughly two to one in American books as of 2008, down from four and a half to one in the early sixties, and fewer than one in five English Wikipedia biographies is about a woman. Skewed material in, skewed associations out. This is among the better-replicated findings in the field.
+
+**Why it stops being right** — Between that raw material and the box you type into sits an enormous amount of deliberate corrective work, and the evidence that it does something is strong. You can see it cleanest by comparing two kinds of system doing the same job. A 2024 audit of *retrieval* models — the raw kind, which get almost no safety training — found male-sounding names preferred in 51.9% of tests and female-sounding names in 11.1%. Exactly the bias everyone expects. Run the identical task through the post-trained assistants people actually use and it flips: the largest study yet, roughly 361,000 résumés across five model families, found women scored *higher* than identical men. A June 2026 audit using current models found the same direction. Anthropic's own testing found positive discrimination toward women and negative discrimination against people over sixty. Same substrate underneath; opposite result once the corrective layer is on.
+
+That is why the two hiring studies in the previous answer disagree. They are not measuring the same thing. One is measuring the raw material, the other the product.
+
+**Why that isn't the reassurance it sounds like** — Because suppression is not removal, and there is now good evidence for the difference. The cleanest demonstration is a 2024 *Nature* paper: human-feedback training significantly reduced models' *overt* prejudiced statements while leaving *covertly* triggered prejudice statistically unchanged. It studied dialect rather than gender, so read it as the mechanism rather than the finding.
+
+The gender version exists too, and it is unsettling in a specific way. A 2025 *PNAS* study found GPT-4 answering "not enough information" on 98% of the standard explicit bias tests — a perfect score, essentially — while quietly forming associations that predicted its actual decisions. Asked to sort children into subjects, it put five of seven girls into humanities and five of seven boys into STEM. And a 2025 analysis of open-ended storytelling found models generating *female* characters for 58 of 100 occupations, more women than the real labour market contains, while still ranking those occupations by stereotype rather than by reality.
+
+More women, same shape. That is the thing to actually watch for. The surface has been rebalanced, and a rebalanced surface is extremely good at hiding whether anything underneath moved.
+
+**What's unknown** — The first link in the chain has never been observed directly. Nobody has published a gender audit of any frontier model's actual training data — not GPT's, not Claude's, not Gemini's. The corpus numbers above come from books, Wikipedia and parliamentary transcripts, which are proxies, not the thing itself. So "the training data is skewed against women" is inferred from what the models do, and from corpora that resemble what they were probably fed. It is a reasonable inference. It is not a measurement.
+
+> **The receipt** — When you read a claim that a model is biased, ask which model, and ask whether it was tested raw or as shipped. Those two answers explain most of the apparent contradictions in this entire field, including the ones on this page. And when a study reports that a model *said* the unbiased thing, notice that saying and doing were measured separately for a reason.
+
+**Sources**
+
+- [Caliskan, Bryson & Narayanan — Semantics derived automatically from language corpora contain human-like biases, Science 2017](https://www.science.org/doi/10.1126/science.aal4230)
+- [Twenge, Campbell & Gentile — Male and female pronoun use in U.S. books, Sex Roles 2012](https://link.springer.com/article/10.1007/s11199-012-0194-7)
+- [Wikipedia — WikiProject Women in Red, biography gender statistics](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Women_in_Red)
+- [Wilson & Caliskan — resume retrieval audit, AIES 2024](https://arxiv.org/abs/2407.20371)
+- [PNAS Nexus — LLM resume screening at scale](https://academic.oup.com/pnasnexus/article/4/3/pgaf089/8071848)
+- [Tamkin et al. — Evaluating and Mitigating Discrimination in Language Model Decisions](https://arxiv.org/abs/2312.03689)
+- [Hofmann et al. — AI generates covertly racist decisions based on dialect, Nature 2024](https://www.nature.com/articles/s41586-024-07856-5)
+- [Bai et al. — Explicitly unbiased large language models still form biased associations, PNAS 2025](https://www.pnas.org/doi/10.1073/pnas.2416228122)
+- [Chen et al. — measuring gender bias through open-ended storytelling](https://arxiv.org/html/2503.15904v3)
+
+*Verified August 2026. Recheck when any lab publishes a demographic audit of its pretraining corpus, or when the covert-bias finding is retested on a 2026-generation reasoning model.*
+
 ## Environment
 
 ### "How much water does AI actually use?"
@@ -134,7 +232,6 @@ There is no single honest number per question. National shares can look small wh
 - [Li et al. — "Making AI Less Thirsty" (arXiv 2023 / Communications of the ACM 2024)](https://arxiv.org/abs/2304.03271)
 - [Privette et al. — AGU Advances (2026)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2025AV002140)
 - [USGS — Estimated Use of Water in the United States](https://www.usgs.gov/mission-areas/water-resources/science/water-use-united-states)
-- [ITIF — How Much Water Do Data Centers Use?](https://itif.org/publications/2026/02/09/how-much-water-do-data-centers-use/)
 - [Google — Measuring the environmental impact of delivering AI at Google scale](https://services.google.com/fh/files/misc/measuring_the_environmental_impact_of_delivering_ai_at_google_scale.pdf)
 - [S&P Global — water stress in data centres](https://www.spglobal.com/sustainable1/en/insights/special-editorial/beneath-the-surface-water-stress-in-data-centers)
 
@@ -201,7 +298,9 @@ The viral numbers often confuse wholesale-market metrics with a household bill. 
 
 **What's solid** — PJM's independent market monitor estimated that data-centre demand alone increased the cost of the 2025/26 capacity auction — the yearly market where the grid pays generators to guarantee they can meet peak demand — by $9.332 billion, or 174.3%. That was not a 174% increase in consumer prices. Residential prices have also risen in several high-load states, but data centres are not the only cause.
 
-**Where it's contested** — Whether that pressure actually lands on ordinary residents is genuinely disputed. Funding is relevant context: E3's December 2025 report was funded by Amazon, Charles River Associates' February 2026 report was commissioned by the Edison Electric Institute, and E3's May 2026 whitepaper was funded by the Data Center Coalition. Those disclosures do not make the findings false, but they are reasons to read the methods and assumptions closely. EPRI's June 2026 causal analysis reports that rates fell slightly in the locations it studied; that result should be weighed alongside the PJM market monitor's estimate and Lawrence Berkeley National Laboratory's work rather than treated as a universal answer. The evidence does not yet support one nationwide conclusion.
+**Where it's contested** — Whether that pressure actually lands on ordinary residents is genuinely disputed, and this is a place where checking who paid for the research does real work. The three most-cited studies finding no meaningful residential impact are all industry-funded and disclose it: E3's December 2025 report was funded by Amazon, Charles River Associates' February 2026 report was commissioned by the Edison Electric Institute (the investor-owned utilities' trade body), and E3's May 2026 whitepaper was funded by the Data Center Coalition. A fourth is the strongest of them methodologically — EPRI's June 2026 causal analysis, which finds rates actually fell slightly — but two of its three authors work for EPRI, a utility-funded institute, and the paper carries no funding disclosure at all.
+
+That is enough to keep those studies off this page's backbone. It is not enough to dismiss them, and it would be dishonest to imply the two sides are mirror images: the leading "bills went up" figure comes from Monitoring Analytics, PJM's federally designated independent market monitor, with supporting work from Lawrence Berkeley National Laboratory. That is not advocacy research.
 
 **What's unknown** — How much of the wholesale increase actually reaches a residential bill, and over what timeframe. Wholesale capacity costs are 30–50% of a residential bill and pass through slowly and unevenly by utility. The EIA forecasts residential prices rising ~5% in 2026 but does not attribute that to data centres.
 
@@ -260,7 +359,7 @@ Not just extraction. A data centre can bring a community real money — sometime
 
 Maybe — and paying for a consumer plan does not by itself answer the question. Consumer and business products use different rules, and the exact product and setting matter.
 
-**What's solid** — Anthropic says consumer users choose whether new or resumed chats may be used for model improvement, while its commercial products are excluded by default. Retention rules vary by setting and purpose, so the current policy—not a remembered number—is the evidence. Google says saved activity from personal Gemini use may be reviewed by humans and used to improve its services; qualifying Workspace editions are not used to train generative AI outside the customer's domain without permission. OpenAI says API inputs and outputs are not used to train its models by default. For ChatGPT personal plans, check the current Data Controls in the exact account rather than inferring the answer from price.
+**What's solid** — Anthropic says consumer users choose whether new or resumed chats may be used for model improvement; enabling that setting can extend retention to five years, while commercial products are excluded. Google says saved activity from personal Gemini use may be reviewed by humans and used to improve its services; qualifying Workspace editions are not used to train generative AI outside the customer's domain without permission. OpenAI says API inputs and outputs are not used to train its models by default. For ChatGPT personal plans, check the current Data Controls in the exact account rather than inferring the answer from price.
 
 **Where it's contested** — Opting out is not a force field. Feedback, safety review, retention and deletion exceptions vary by provider, product and setting, so the current policy is the evidence—not a remembered default.
 
@@ -277,7 +376,7 @@ Maybe — and paying for a consumer plan does not by itself answer the question.
 - [Anthropic — "Updates to Consumer Terms and Privacy Policy" (Aug 2025)](https://www.anthropic.com/news/updates-to-our-consumer-terms)
 - [Anthropic — Privacy Policy (June 2026)](https://www.anthropic.com/legal/privacy)
 - [Anthropic — Is my data used for model training?](https://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-training)
-- [OpenAI — API data policy](https://developers.openai.com/api/docs/guides/your-data)
+- [OpenAI — API data policy](https://platform.openai.com/docs/models/default-usage-policies-by-endpoint)
 - [Google — Gemini Apps & your data](https://support.google.com/gemini/answer/13594961)
 - [Google — Workspace generative AI protections](https://support.google.com/a/answer/14130944)
 
@@ -337,6 +436,43 @@ Sometimes what looks like a mistake is the AI finding something true that we sim
 - [Nobel Prize in Chemistry 2024 — AlphaFold (Hassabis, Jumper, Baker)](https://www.nobelprize.org/prizes/chemistry/2024/summary/)
 
 *Verified June 2026. Rarely needs rechecking — these are stable historical examples.*
+
+## Creative Work
+
+### "Is AI art theft? What about copyright?"
+
+*Confidence: Largely unknown*
+
+Legally, this is not decided — and almost everyone on both sides talks as though it is. "Theft" is not a legal category here at all. The questions courts are actually answering are narrower: was a copy made, was it fair use, was the material obtained lawfully, is the output substantially similar.
+
+**What's solid** — As of August 2026, **not one US appeals court has ruled on whether AI training is fair use.** Every US decision quoted in public argument is a district court decision binding nobody beyond its own case. Two of them found the training itself transformative; they disagree with each other about whether *how you got the files* matters separately. In Germany, the Munich courts went the other way on comparable facts, holding that lyrics embedded in model parameters are a reproduction — that is on appeal. What is genuinely settled in the US: a work needs a human author. The Supreme Court declined to review that in March 2026. Prompts alone do not make you an author, but AI-*assisted* work with real human contribution is registrable, and registrations have been granted.
+
+**Where it's contested** — Whether outputs infringe, and whether "market dilution" — the argument that flooding a market with cheap imitations harms the original even when no single output is a copy — can actually be proven. One judge has endorsed the theory. No plaintiff has yet carried it with evidence.
+
+**What's unknown** — How this ends. The first appellate word, in a case that is not even about generative AI, was argued in June 2026 and remains undecided. The visual artists' case against Stability and Midjourney has a trial date of April 2027 and no merits ruling yet. And nobody has reliable data on what share of AI developers honour "do not train" registrations.
+
+**What it depends on** — Where you are. Fair use does not exist in the EU, the UK, Germany or Japan. In the EU a machine-readable rights reservation is legally operative and providers face fines up to 3% of worldwide turnover for ignoring the obligation to respect it. In the US there is no equivalent right — a "Do Not Train" tag has whatever force a company chooses to give it. Japan permits training broadly but explicitly excludes fine-tuning on one artist's work to replicate their output.
+
+**The myth to drop** — Two, one from each side. "The $1.5 billion Anthropic settlement proves training is infringement" — it does not; that settlement was about downloading pirated books, the same judge held the training itself was fair use, and the settlement releases nothing about outputs. And from the other direction: "the courts have decided this, training is fair use" — one of the two judges who ruled that way wrote in his own opinion that it "does not stand for the proposition that Meta's use of copyrighted materials to train its language models is lawful."
+
+> **The receipt** — If you make things for a living, register your copyrights with the US Copyright Office, promptly, ideally within three months of publication. It is the only step in this whole landscape whose legal effect is certain rather than contested. Under 17 U.S.C. § 412, unregistered US works cannot support statutory damages or attorney's fees, and registration is a precondition to suing at all. This is not theory: the Anthropic settlement paid about $3,000 per work **only** on works with a timely registration. Unregistered books that were provably in the pirated dataset got nothing. Everything else on offer — opt-outs, image-poisoning tools, robots.txt — is voluntary, jurisdiction-limited, or has already been defeated in a peer-reviewed paper. Registration is the one that turns a grievance into a claim.
+
+*This describes what statutes and courts have said. It is not legal advice, and anyone acting on it should check current Copyright Office procedure.*
+
+**Sources**
+
+- [Cleary Gottlieb — open questions in US generative AI copyright litigation](https://www.clearygottlieb.com/news-and-insights/publication-listing/the-open-questions-in-us-generative-ai-copyright-litigation)
+- [Kadrey v. Meta, full opinion (Doc. 598)](https://law.justia.com/cases/federal/district-courts/california/candce/3:2023cv03417/415175/598/)
+- [Goodwin — Bartz v. Anthropic fair use decision](https://www.goodwinlaw.com/en/insights/publications/2025/06/alerts-practices-aiml-district-court-issues-ai-fair-use-decision)
+- [Authors Guild — final approval of the Anthropic settlement](https://authorsguild.org/news/court-grants-final-approval-anthropic-copyright-settlement/)
+- [US Copyright Office — Part 2: Copyrightability](https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf)
+- [17 U.S.C. § 412](https://www.copyright.gov/title17/92chap4.html#412)
+- [Reed Smith — GEMA v. Suno, Munich](https://www.reedsmith.com/our-insights/blogs/viewpoints/102nfis/gema-notches-a-second-transatlantic-ai-copyright-win-in-germany/)
+- [Latham & Watkins — Getty v. Stability AI (UK)](https://www.lw.com/en/insights/getty-images-v-stability-ai-english-high-court-rejects-secondary-copyright-claim)
+- [USENIX Security '25 — LightShed defeats Glaze and Nightshade](https://www.usenix.org/conference/usenixsecurity25/presentation/foerster)
+- [Sobel — Elements of Style, Harvard JOLT](https://jolt.law.harvard.edu/assets/articlePDFs/v38/2-Sobel.pdf)
+
+*Verified August 2026. Recheck when the Third Circuit rules in Thomson Reuters v. Ross, or when the Andersen trial begins in April 2027 — whichever comes first.*
 
 ## Economy
 
@@ -403,6 +539,40 @@ Right now the money is piled in two places: the companies selling the shovels, a
 
 *Verified June 2026. Recheck quarterly for the sector figures and annually for the macro productivity data.*
 
+### "Is this an AI bubble — and what happens to me if it pops?"
+
+*Confidence: Contested*
+
+The defensible read is that this is a real buildout with bubble dynamics in specific places — and that the risk sits at the leveraged edges rather than at the cash-generating centre. Anyone selling you "obvious bubble" or "obviously fine" with confidence is selling you something.
+
+**What's solid** — The spending is real and enormous: the four largest US hyperscalers have guided to roughly $720–760 billion of capital spending in 2026. Alphabet's free cash flow went *negative* in the second quarter of 2026 — minus $5.9 billion — despite $39 billion of operating cash flow, because it spent $44.9 billion on capex in three months. The financing has shifted: incremental debt went from 9% of hyperscaler capex in 2024 to 32% by mid-2026. And the concern is mainstream, not fringe. The Bank for International Settlements wrote in June 2026 that these commitments are "outpacing earnings and free cash flow," warned of "circular financing" whose terms are "typically poorly disclosed," and compared the moment to canal mania, railway mania and the dot-com boom.
+
+**Where it's contested** — Whether the capacity gets used profitably. The strongest counter-argument is not rhetorical: it is that the capacity is sold before it is built. Google Cloud grew 82% with a $514 billion backlog. Amazon's CEO said publicly they "won't have enough capacity to meet all the demand" in 2026 or 2027. Those are hard to square with a demand illusion. The bear case says the depreciation schedules are wrong and today's chips will be worthless sooner than the accounts assume. Nobody can settle it, because there is no public data on how long GPUs actually stay in productive service.
+
+**What's unknown** — Timing, and whether AI produces the economy-wide productivity gains that would ultimately justify any of it. The Federal Reserve stated in July 2026 that there is "no established consensus for how AI investment can be identified in aggregate statistics." Nobody has ever reliably called the top of a technology capital cycle.
+
+**What it depends on** — Where in the stack you look. The best analysis we found separates the layers: chipmakers and cloud leaders look like a buildout with fundamental support; data centres and power look like a boom with uncertain returns; venture-backed applications carry the highest bubble risk. The leveraged edge is where the 1999 resemblance is sharpest — one AI cloud provider posted a $626 million quarterly loss against $640 million of net interest expense, on $35 billion of debt. That is the profile of a 1999 telecom carrier.
+
+**The myth to drop** — "They're spending $700 billion a year and only earning $50 billion, so it's obviously a bubble." That compares a multi-year asset purchase to a single year of income, which is a category error, and it lets people feel certain in both directions — bears declare the case closed, bulls dismiss the whole argument once they spot the mistake. The real fight is narrower and harder: depreciation schedules, utilisation and residual value. Runner-up myth, and the most abused statistic in the whole debate: "MIT found 95% of AI pilots fail." That was a non-peer-reviewed preprint measuring whether pilots had yet produced measurable profit impact — not whether they failed.
+
+> **The receipt** — Look up the top ten holdings in whatever fund your pension or retirement account is actually in, and their combined weight. It takes ten minutes on the fund factsheet. Most people who believe they own "the whole market" own a fund with 26% (MSCI World) to 36% (S&P 500) in ten companies, eight of them levered to the same thesis — and MSCI World has 72% of its value in one country. That number is not a decision. It is the input to every decision, including the decision to do nothing, and almost nobody knows theirs. One thing worth knowing if it does correct: when the fibre boom collapsed, the cable stayed in the ground and is carrying this sentence to you. The assets survived. The shareholders did not.
+
+*Nothing here is investment advice, and we are deliberately making no prediction about whether or when a correction happens.*
+
+**Sources**
+
+- [BIS Annual Economic Report 2026, Chapter I](https://www.bis.org/publ/arpdf/ar2026e1.htm)
+- [IMF Global Financial Stability Report, April 2026](https://www.imf.org/-/media/files/publications/gfsr/2026/april/english/ch1.pdf)
+- [Bank of England Financial Stability Report, July 2026](https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026)
+- [Federal Reserve — the AI buildout and the economy](https://www.federalreserve.gov/econres/notes/feds-notes/the-ai-buildout-and-the-economy-publicly-available-data-to-assess-ais-impact-20260717.html)
+- [Alphabet Q2 2026 earnings release](https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/2026q2-alphabet-earnings-release.pdf)
+- [FactSet — hyperscalers tap external financing](https://insight.factset.com/hyperscalers-tap-external-financing-as-ai-capex-outruns-cash-flow)
+- [Wang & Chen — Boom, Bubble, or Buildout?](https://arxiv.org/html/2606.01575v1)
+- [MSCI World index factsheet](https://www.msci.com/documents/10199/255599/msci-world-index.pdf)
+- [Brookings — new evidence on data centre employment effects](https://www.brookings.edu/articles/new-evidence-on-data-center-employment-effects/)
+
+*Verified August 2026. Recheck on each hyperscaler earnings season, and when the IMF and BIS publish their next stability reports.*
+
 ## Learning & Skills
 
 ### "Is AI making us dumber?"
@@ -456,3 +626,40 @@ Four things — and "learn to code" isn't necessarily one of them. The ability t
 - [WEF — Skills Outlook](https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/)
 
 *Verified June 2026. Recheck when the next WEF Future of Jobs report lands.*
+
+### "Should my kid be using AI for schoolwork?"
+
+*Confidence: Mixed evidence*
+
+The evidence supports neither headline. It supports something narrower and far more useful: **the same tool produces opposite effects depending on whether it withholds the answer — and the harm only shows up on work done without it.**
+
+**What's solid** — The best school study randomised about 1,000 students across roughly 50 classes. Students with ordinary ChatGPT scored 48% better on practice problems — and then **17% worse** on an exam taken without it. Students given a tutor-style version, prompted to give hints and refuse to reveal answers, showed no exam harm at all. Note carefully what that second group did *not* show: a learning gain. Its exam result was statistically indistinguishable from zero. A separate randomised study of 1,222 people found the same direction — brief AI help improved immediate performance, then reduced later unaided performance and made people give up sooner, with effects appearing after about ten minutes.
+
+**Where it's contested** — Whether AI tutoring produces real gains. The flagship positive study is two lessons with Harvard undergraduates, short-term test only, no retention data. The most-cited meta-analysis behind "AI helps learning" was **retracted in April 2026** after a critic noted that 33 of its 51 studies had fewer than 35 students. In the one head-to-head test we found, AI hints did not beat a conventional worked-answer workbook.
+
+**What's unknown** — Almost everything long-term. No study in this literature runs beyond about seven weeks. There is nothing on months or years of use, and essentially nothing on primary-age children with general-purpose chatbots. The first large international dataset — PISA's "Learning in the Digital World" — has not landed yet.
+
+**What it depends on** — Whether an adult is in the loop. This is the most under-reported pattern in the whole literature: **every study that found a benefit had a teacher or tutor supervising.** The Nigeria trial that produced real gains had a teacher circulating and pre-written prompts. The UK trial had human tutors vetting every AI output before a student saw it. The scenario people picture — child alone with a chatbot — has never been shown to work, and the two largest trials closest to it both found harm.
+
+**The myth to drop** — "AI is a personalised tutor for every child." That claim has the widest gap on this page between how confidently it is asserted and what supports it. The runner-up, from the opposite direction: "AI detectors can prove your child cheated." They cannot. The best 2026 evaluation found three of four leading tools detected **0%** of fully AI-generated text, and 13% of teachers report having seen a student accused where it could not be proven or was later disproven. If your child is accused on a detector percentage, that number is not evidence.
+
+> **The receipt** — Ask your child to explain the work to you out loud, with the screen closed. This is not a platitude about talking to your kids; it is the household version of the one methodological insight that resolves this entire literature. Performance *with* AI available tells you nothing. Performance *without* it tells you everything — those students looked 48% better during practice and were 17% worse on the exam. A two-minute unaided explanation is a free at-home post-test, it works at any age, it needs no detection software, and it quietly turns AI from an answer machine into something the child has to metabolise, because they know the explanation is coming. Second best: make the household question "did it give you the answer, or make you work for it?" rather than "did you use AI?" The first tracks the variable that predicts outcomes. The second doesn't — and 85% of nine-to-seventeen-year-olds are using it for schoolwork anyway.
+
+**Sources**
+
+- [Bastani et al. — Generative AI Can Harm Learning](https://static1.squarespace.com/static/64398599b0c21f1705fb8fb3/t/66c7e970ae81b81a53295abc/1724377456931/ssrn-4895486+(4).pdf)
+- [Liu et al. — AI assistance reduces persistence and hurts independent performance](https://arxiv.org/abs/2604.04721)
+- [Bauer et al., Educational Psychology Review — what counts as learning](https://link.springer.com/article/10.1007/s10648-025-10020-8)
+- [Retraction of the most-cited ChatGPT learning meta-analysis](https://www.nature.com/articles/s41599-025-04787-y)
+- [World Bank — Nigeria AI tutoring RCT](https://openknowledge.worldbank.org/bitstreams/cd9cca5b-2ffd-4be1-8313-0f4d2ed6ef4f/download)
+- [LearnLM UK classroom trial](https://arxiv.org/html/2512.23633v1)
+- [Common Sense Media — AI use by tweens and teens, 2026](https://www.commonsensemedia.org/sites/default/files/research/report/2026-ai-use-by-tweens-and-teens-1.pdf)
+- [IJEI 2026 — reliability of AI detection tools](https://link.springer.com/article/10.1007/s40979-026-00226-w)
+- [Vanderbilt — why we disabled Turnitin's AI detector](https://www.vanderbilt.edu/brightspace/2023/08/16/guidance-on-ai-detection-and-why-were-disabling-turnitins-ai-detector/)
+- [UK Department for Education — generative AI in education](https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education/generative-artificial-intelligence-ai-in-education)
+
+*Verified August 2026. Recheck when PISA 2025 "Learning in the Digital World" results publish in September 2026, and when the FTC's 6(b) chatbot inquiry reports.*
+
+**About this page:** Straight Answers About AI is a living reference, not a news feed. Answers update when the data changes — not on a schedule. Every source is linked so you can verify for yourself. That's the whole point.
+
+Have a question we should add? [Tell us in the Community](https://laidies.ai/community.html).

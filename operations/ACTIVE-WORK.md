@@ -4,6 +4,21 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-FOUR-BOOK-CLAUDE-REVISION-INTEGRATION-20260829
+- **Status:** RELEASE CANDIDATE — LOCAL VERIFIED
+- **Owner:** Codex foreground; Ali owns public release and final editorial taste
+- **Updated:** 2026-08-29 America/Vancouver
+- **Goal:** Integrate Ali's four Claude-revised opening-book manuscripts without losing approved prose, source qualifications, canonical term ownership, stable reader anchors or the accepted continuous-reader design.
+- **Acceptance:** AI Fundamentals and Working with AI retain a complete, source-bound causal teaching sequence; every changed consequential claim is verified or explicitly held; Working with AI's reordered chapters have correct internal references; Straight Answers retains its 15 admitted questions with current source/freshness dispositions; the Dictionary is regenerated from owner-book definitions with valid exact routes; all four render, navigate, save and reopen without overflow at desktop and 390/320 mobile widths; the exact committed build is deployed and verified at public laidies.ai URLs.
+- **Current step:** The four supplied Claude revisions are preserved intact, then merged through the maintained book sources rather than wholesale replacement. AI Fundamentals and Working with AI passed independent exact-artifact teaching review; Straight Answers passed with exactly 15 admitted questions; the Dictionary regenerated 179 exact owner definitions and routes. Admission, calibrated content rejection, Miss Jeeves, issue reporting, preview-to-open and continuous-reader checks pass across all four books at 1280, 390 and 320px. The curated public artifact contains 9 intended additions, 11 intended modifications and zero removals against deployed source `e7fc827018aa937c5ae06bc72be0ba56a6616213`.
+- **Next action:** Commit and push the exact candidate, deploy that artifact through Cloudflare Pages, then verify all four live readers and backend health at the immutable and custom-domain URLs.
+
+### Preserved predecessor
+
+The prior `LIBRARY-BOOK-READER-POP-ZINE-REDESIGN-20260824` task remains locally committed at `fe976404` and is the visual/interaction baseline for this content integration. Its accepted continuous scrolling, non-overlay Contents view, Puffy save controls and repaired section-heading geometry are locked against regression.
+
+## Previous current task
+
 - **Task ID:** LIBRARY-BOOK-READER-POP-ZINE-REDESIGN-20260824
 - **Status:** READY FOR OWNER REVIEW — LOCAL ONLY
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
