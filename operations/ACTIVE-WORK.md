@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIBRARY-FOUR-BOOK-CLAUDE-REVISION-INTEGRATION-20260829
-- **Status:** RELEASE CANDIDATE — LOCAL VERIFIED
+- **Status:** DEPLOYED / PUBLICLY VERIFIED
 - **Owner:** Codex foreground; Ali owns public release and final editorial taste
 - **Updated:** 2026-08-29 America/Vancouver
 - **Goal:** Integrate Ali's four Claude-revised opening-book manuscripts without losing approved prose, source qualifications, canonical term ownership, stable reader anchors or the accepted continuous-reader design.
 - **Acceptance:** AI Fundamentals and Working with AI retain a complete, source-bound causal teaching sequence; every changed consequential claim is verified or explicitly held; Working with AI's reordered chapters have correct internal references; Straight Answers retains its 15 admitted questions with current source/freshness dispositions; the Dictionary is regenerated from owner-book definitions with valid exact routes; all four render, navigate, save and reopen without overflow at desktop and 390/320 mobile widths; the exact committed build is deployed and verified at public laidies.ai URLs.
-- **Current step:** The four supplied Claude revisions are preserved intact, then merged through the maintained book sources rather than wholesale replacement. AI Fundamentals and Working with AI passed independent exact-artifact teaching review; Straight Answers passed with exactly 15 admitted questions; the Dictionary regenerated 179 exact owner definitions and routes. Admission, calibrated content rejection, Miss Jeeves, issue reporting, preview-to-open and continuous-reader checks pass across all four books at 1280, 390 and 320px. The curated public artifact contains 9 intended additions, 11 intended modifications and zero removals against deployed source `e7fc827018aa937c5ae06bc72be0ba56a6616213`.
-- **Next action:** Commit and push the exact candidate, deploy that artifact through Cloudflare Pages, then verify all four live readers and backend health at the immutable and custom-domain URLs.
+- **Current step:** The four supplied Claude revisions are preserved intact, then merged through the maintained book sources rather than wholesale replacement. AI Fundamentals and Working with AI passed independent exact-artifact teaching review; Straight Answers passed with exactly 15 admitted questions; the Dictionary regenerated 179 exact owner definitions and routes. The exact combined artifact was rebased onto the current Homepage and NewsStand production bytes, retained the verified Visitor's Centre repair, and was deployed as Cloudflare Pages deployment `8f369f4c-5408-41d8-b5a9-d83eb0438d02`. All four books open at the ordinary `laidies.ai/library` route with the approved ImageGen continuous reader, grouped navigation, zero page-turn wrappers, no load failure and no horizontal overflow at 1280 and 390px; the pre-deploy artifact also passed at 320px. Twenty critical Homepage, NewsStand, Visitor's Centre, Library, source, render and reader-asset paths matched at both public origins. Miss Jeeves health reports catalogue and topic requests healthy, grounded AI configured, and aggregate measurement available.
+- **Next action:** No release action remains for this four-book task. Future manuscript updates must repeat the controlled merge, research, admission and current-head overlay rather than overwrite the maintained books.
 
 ### Preserved predecessor
 
@@ -33,7 +33,8 @@ The prior `LIBRARY-BOOK-READER-POP-ZINE-REDESIGN-20260824` task remains locally 
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This task made no source-checkout writes.
 - Production repair worktree: `/Users/alisoneakin/Projects/laidies-library-heading-fix-20260828`
-- Current production baseline: `e7fc827018aa937c5ae06bc72be0ba56a6616213`
+- Current production deployment: `8f369f4c-5408-41d8-b5a9-d83eb0438d02`; mixed artifact identity `a5b631039dd023a15c46833005414806cc1c6e75cfe2bd7f36b78b72a164e809`.
+- Release source commit: `3a23cbacd6ae43ac713532b314dac6a7fd05d006`; production base source `daf9f3fca4ab733698b08cff01718d47346634c2`.
 - Source branch: `codex/library-heading-format-fix-20260828`, based on `design/library-owner-corrected-20260823` at `9f2c356c`.
 - No reset, clean, deletion of source work, unrelated provider mutation, or
   spend was performed. The first identical upload was tagged with a mistyped

@@ -1,7 +1,7 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-24 UTC
-**Release owner:** LAIDIES-24H-PUBLIC-RECOVERY-20260822 foreground release lane
+**Updated:** 2026-08-29 UTC
+**Release owner:** LIBRARY-FOUR-BOOK-CLAUDE-REVISION-INTEGRATION-20260829 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
@@ -10,8 +10,8 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages deployment `c3cde9a0-b530-4e9f-bfd2-7dcc3c48a6d2`, deployed source `e7fc827018aa937c5ae06bc72be0ba56a6616213`, artifact identity `efe5cc550385c5be3dc8d112141b1e0ee5f99ef3fa387862a71bdfebbbe6c922`, immutable URL `https://c3cde9a0.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The four-book LIBRAiRY, operational Miss Jeeves backend and Ali-corrected AI Fundamentals preface are public. All five changed visitor files matched at both origins; the exact third transformation appeared at desktop and 390px mobile widths with no horizontal overflow on 2026-08-24 UTC. |
-| Current recovery lane | `LIBRAiRY COMPLETE / OTHER DIRECTIONS SEPARATE` | Branch `design/library-owner-corrected-20260823` is the current deployed Library source. Homepage and Visitor's Centre directions remain separate review candidates and are not promoted by this Library release. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages deployment `8f369f4c-5408-41d8-b5a9-d83eb0438d02`, release source `3a23cbacd6ae43ac713532b314dac6a7fd05d006`, mixed artifact identity `a5b631039dd023a15c46833005414806cc1c6e75cfe2bd7f36b78b72a164e809`, immutable URL `https://8f369f4c.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The artifact preserves the exact Homepage/NewsStand production base `263eee422fdbe750c4f4ab04d5e24379d12a52083dc7ce6b521cbb80f2767262`, restores the verified Visitor's Centre byte and publishes the four researched Library revisions plus their approved reader assets. All 20 critical paths matched at both origins. The ordinary Library route rendered the approved ImageGen reader; all four books passed at desktop and 390px mobile with no load failure, page-turn wrapper or horizontal overflow. Miss Jeeves health passed at the custom domain. |
+| Current recovery lane | `FOUR REVISED BOOKS COMPLETE / HOMEPAGE, NEWSSTAND AND VISITOR REPAIRS PRESERVED` | Branch `codex/library-heading-format-fix-20260828` contains the controlled manuscript integration. The public artifact is intentionally mixed: current Homepage and NewsStand bytes remain unchanged, the Visitor's Centre repair is reconciled explicitly, and only the exact Library delta is overlaid. |
 | Difference from production | `NO KNOWN MISS JEEVES BACKEND GAP` | D1, Workers AI, keyed digest and Analytics Engine bindings are active. The controlled result-open record was returned by the Analytics Engine SQL API with no raw question or identity. Reporting and editorial judgment remain operating work, not missing backend. |
 | Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |

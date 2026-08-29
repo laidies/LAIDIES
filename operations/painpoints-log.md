@@ -14740,6 +14740,17 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How a redesign can use every right colour and still be the wrong design.
 - **Publication status:** LOCAL OWNER-REVIEW CANDIDATE / NOT DEPLOYED.
 
+## BTB-486 — A correct deployment can be wrong on the custom domain five minutes later
+
+- **Date:** 2026-08-29
+- **Area:** Cloudflare Pages production coordination across Homepage, NewsStand, Visitor's Centre and LIBRAiRY.
+- **Failure:** The verified four-book artifact deployed correctly to its immutable URL, but two independent production lanes deployed whole-site artifacts afterward. Each later upload preserved its own feature and silently restored older Library or Visitor's Centre bytes on `laidies.ai`. Immutable and query-busted checks passed while the ordinary custom-domain Library route visibly showed the rejected purple-banner reader.
+- **Root cause:** Cloudflare Pages production is last-writer-wins, while active tasks treated deployment authority as local to their feature. Each artifact was internally coherent but none incorporated every newer production delta. Verification checked the release artifact without first proving that it was still the production head and that the ordinary custom-domain route served the same bytes.
+- **Prevention rule:** Before any whole-site release, obtain a short production deployment lease from every active release lane. Read the current production head immediately before assembly and again immediately before upload; build from that exact deploy-input, overlay every later verified delta, and prove the sorted change set. After upload, confirm the deployment is still first in the production list, compare ordinary no-query custom-domain and immutable bytes, and inspect the real visitor route in a fresh browser. A superseded immutable deployment is evidence, not a live release.
+- **Durable correction:** Deployment `8f369f4c-5408-41d8-b5a9-d83eb0438d02` was built from the exact latest NewsStand artifact, which already preserved the selected Homepage, then explicitly overlaid the verified Visitor's Centre and four-book Library deltas. Twenty critical paths matched at both origins; a fresh ordinary `laidies.ai/library#ai-fundamentals-101` tab rendered the approved ImageGen reader, and all four books passed desktop/mobile navigation without overflow or page-turn behavior.
+- **Possible Behind the Build angle:** How three individually successful deployments kept undoing one another—and why “deployed” is not the same as “still live.”
+- **Publication status:** PRODUCTION RELEASE COORDINATION REPAIR / DEPLOYED AND PUBLICLY VERIFIED.
+
 ## BTB-483 — Orientation panels work better after the chapter earns attention
 
 - **Date:** 2026-08-24
