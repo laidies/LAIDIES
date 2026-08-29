@@ -5,13 +5,13 @@
 ## Current task
 
 - **Task ID:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828
-- **Status:** DEPLOYED · PUBLICLY VERIFIED FOR RECOVERY SCOPE
+- **Status:** BUILDING · BACKEND AND RUNTIME-DEPENDENCY GAP RECOVERY
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
 - **Updated:** 2026-08-29 America/Vancouver
 - **Goal:** Repair every reproducible visitor-facing route defect on phone and laptop without rolling back the recovered Library, radio, episode or other protected public surfaces.
 - **Acceptance:** All 84 public routes render without blank output or horizontal overflow at 390x844 and 1200x814; MAiKEOVER/Resident Card, Library guidance and Episode listen controls receive their own mobile hit-test points; Chick Flicks and Watch physically scroll; the later one-newspaper NewsStand and its bounded current story are public; exact immutable/custom bytes and the latest production deployment agree.
-- **Current step:** Recovery is public in Cloudflare deployment `cd1f9fe5-f905-4d2b-b3a5-66a15c238d7e` from source `6f7b1e2ab7871b2ac4ffc6400d0b3f747229fc70`. Resident continuation, the 43-profile LUMINAiRY, the women-focused Front PAiGE, the data-centre Big Picture and the latest admitted service desks pass at the custom domain. A live audit also caught and repaired direct raw-book overflow: direct manuscript URLs now open the responsive LIBRAiRY reader, while fetch requests retain exact admitted bytes. The obsolete logo preview redirects home.
-- **Next action:** A fresh signed-in two-device Resident session remains the one unperformed visitor proof; run it when an authenticated test account/session is available. Continue editorial and episode quality improvements separately from this recovery.
+- **Current step:** The protected recovery deployment remains the public baseline. Continued low-concurrency audit found no repeat of the twelve earlier route timeouts, but found four unconditional private design-proof dependencies on LIBRAiRY and Visitor’s Centre; all four are live 404s and are being removed with a fail-closed public-build guard. Backend tracing also found the configured Supabase project hostname is NXDOMAIN, which blocks the Resident sign-in, account-backed Card and cross-device continuation service even though the browser contracts and migrations are present.
+- **Next action:** Ship and publicly verify the bounded runtime-dependency repair without changing either page design. Recover the correct existing Supabase project binding from provider authority; both available browser profiles are signed out, so do not guess a replacement project or claim Resident backend restoration until provider access and a controlled two-device session exist.
 
 ## Boundaries
 

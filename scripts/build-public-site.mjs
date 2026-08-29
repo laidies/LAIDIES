@@ -236,6 +236,13 @@ function visitorHtmlEntries() {
 }
 
 function extractLocalReferences(source, relative) {
+  if (relative === 'content/luminairy-profiles.json') {
+    const publicDependencyData = JSON.parse(source);
+    for (const profile of publicDependencyData.saints || []) {
+      if (profile.songStatus === 'deferred') delete profile.song;
+    }
+    source = JSON.stringify(publicDependencyData);
+  }
   const references = new Set();
   const add = (value) => {
     if (
@@ -357,7 +364,23 @@ function copyFile(relative) {
 }
 
 fs.mkdirSync(output, { recursive: true });
-for (const entry of visitorHtmlEntries()) enqueue(entry);
+const visitorEntries = visitorHtmlEntries();
+for (const entry of visitorEntries) {
+  const source = fs.readFileSync(path.join(root, entry), 'utf8');
+  for (const match of source.matchAll(/<(?:audio|img|link|script|source|video)\b[^>]*\b(?:href|src)\s*=\s*(["'])(\/operations\/[^"']+)\1/gi)) {
+    const internalPath = match[2].replace(/^\/+/, '');
+    const key = `${internalPath}\0reference from ${entry}`;
+    if (!prohibitedSourceKeys.has(key)) {
+      prohibitedSourceKeys.add(key);
+      prohibitedSourceReferences.push({
+        path: internalPath,
+        requiredBy: `reference from ${entry}`,
+        reasons: ['visitor entry pages cannot load private operations files'],
+      });
+    }
+  }
+  enqueue(entry);
+}
 for (const entry of [
   '_worker.js',
   '404.html',
