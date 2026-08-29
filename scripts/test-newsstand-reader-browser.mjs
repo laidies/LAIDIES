@@ -153,7 +153,7 @@ try {
     desktop.close();
     process.exitCode = 0;
   } else {
-    check(await value(desktop, "({contract:typeof window.NewsstandContract,data:!!window.NEWSSTAND_DATA,contractScript:Array.from(document.scripts).find((item)=>item.src.includes('newsstand-reader-contract'))?.src||null})"), { contract: "object", data: true, contractScript: siteOrigin + "/content/newsstand-reader-contract.js?v=20260823-newsstand-v1" }, "reader contract and canonical dataset load before interaction");
+    check(await value(desktop, "({contract:typeof window.NewsstandContract,data:!!window.NEWSSTAND_DATA,contractScript:Array.from(document.scripts).find((item)=>item.src.includes('newsstand-reader-contract'))?.src||null})"), { contract: "object", data: true, contractScript: siteOrigin + "/content/newsstand-reader-contract.js?v=20260829-owner-release-v1" }, "reader contract and canonical dataset load before interaction");
     check(await value(desktop, "window.NewsstandContract.validate(window.NEWSSTAND_DATA)"), [], "canonical browser dataset satisfies the reader contract");
     check(await value(desktop, "document.querySelectorAll('.ns-publication').length"), 1, "one complete Daily control");
     check(await value(desktop, "['breaking','weekly','big-picture'].every((edition)=>document.querySelector('[data-status-for=\"'+edition+'\"]')&&document.querySelector('[data-contents-for=\"'+edition+'\"]'))"), true, "three editorial columns inside one paper");
