@@ -12,18 +12,39 @@ function sha256(file) {
   return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 }
 
+function activeAssetRecords(entries) {
+  return entries.flatMap((entry) => {
+    if (entry.status !== "ACTIVE" || typeof entry.path !== "string") return [];
+    if (!Array.isArray(entry.members)) return [entry];
+    return entry.members
+      .filter((member) => typeof member.path === "string")
+      .map((member) => ({
+        ...member,
+        path: path.posix.join(entry.path, member.path),
+        role: entry.role,
+      }));
+  });
+}
+
 function referencedActiveAssets(entries, publicText) {
-  return entries.filter((entry) =>
-    entry.status === "ACTIVE" &&
-    typeof entry.path === "string" &&
-    publicText.includes(entry.path)
-  );
+  return activeAssetRecords(entries).filter((entry) => publicText.includes(entry.path));
 }
 
 if (calibrate) {
-  const fixture = [{ status: "ACTIVE", path: "assets/known-bad-missing.png", sha256: "0".repeat(64) }];
-  const referenced = referencedActiveAssets(fixture, '<img src="/assets/known-bad-missing.png">');
-  if (referenced.length !== 1) {
+  const fixture = [
+    { status: "ACTIVE", path: "assets/known-bad-missing.png", sha256: "0".repeat(64) },
+    {
+      status: "ACTIVE",
+      role: "known-bad-group",
+      path: "assets/group",
+      members: [{ path: "known-bad-member.png", sha256: "0".repeat(64) }],
+    },
+  ];
+  const referenced = referencedActiveAssets(
+    fixture,
+    '<img src="/assets/known-bad-missing.png"><img src="/assets/group/known-bad-member.png">',
+  );
+  if (referenced.length !== 2 || !referenced.some((entry) => entry.path === "assets/group/known-bad-member.png")) {
     console.error("PUBLIC ARTIFACT ACTIVE ASSET CALIBRATION FAIL known-bad reference accepted");
     process.exit(1);
   }
@@ -59,7 +80,10 @@ if (!fs.statSync(artifactRoot, { throwIfNoEntry: false })?.isDirectory()) {
 }
 walk(artifactRoot);
 
-const referenced = referencedActiveAssets(registry.entries || [], publicSources.join("\n"));
+const referenced = referencedActiveAssets(
+  [...(registry.entries || []), ...(registry.dynamic_families || [])],
+  publicSources.join("\n"),
+);
 const failures = [];
 for (const entry of referenced) {
   const absolute = path.join(artifactRoot, entry.path);
