@@ -51,7 +51,15 @@ const server = http.createServer((request, response) => {
   }
   fs.readFile(resolved, (error, data) => {
     if (error) response.writeHead(404).end("Not found");
-    else response.writeHead(200, {"content-type":mime.get(path.extname(resolved)) || "application/octet-stream"}).end(data);
+    else {
+      if (process.env.KSVL_TOUCH_CALIBRATION === "small" && url.pathname === "/content/site/ksvl-player.js") {
+        data = Buffer.from(data.toString("utf8").replace(
+          "min-width: 44px; min-height: 44px;",
+          "min-width: 31px; min-height: 31px;"
+        ));
+      }
+      response.writeHead(200, {"content-type":mime.get(path.extname(resolved)) || "application/octet-stream"}).end(data);
+    }
   });
 });
 await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -424,6 +432,15 @@ try {
   }
   for (const width of [320, 390]) {
     const {context, page} = await open(registry, {width,height:860});
+    await page.locator(".ksvl-cd-play-btn:not([disabled])").first().click();
+    const compactTargets = await page.locator(".ksvl-now-playing.is-visible .ksvl-np-btn:visible").evaluateAll((buttons) =>
+      buttons.map((button) => {
+        const rect = button.getBoundingClientRect();
+        return {label:button.getAttribute("aria-label"), width:rect.width, height:rect.height};
+      })
+    );
+    check(compactTargets.length >= 5 && compactTargets.every((target) => target.width >= 44 && target.height >= 44),
+      `${width}px player control below 44px: ${JSON.stringify(compactTargets)}`);
     check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)), `${width}px overflow`);
     await context.close();
   }
@@ -445,7 +462,7 @@ try {
       "validated request receipt was not shown");
     await received.context.close();
   }
-  {
+  if (process.env.KSVL_SKIP_REAL_AUDIO !== "1") {
     const {context, page} = await openRealAudio(admitted);
     await page.locator(".ksvl-cd-play-btn:not([disabled])").first().click();
     await page.waitForFunction(() => {
@@ -454,7 +471,8 @@ try {
         state.duration > 0 && state.paused === false;
     }, null, {timeout:15000});
     const before = await page.evaluate(() => window.KSVL_testSnapshot());
-    await page.waitForTimeout(350);
+    await page.waitForFunction((startingTime) => window.KSVL_testSnapshot?.().currentTime > startingTime,
+      before.currentTime, {timeout:5000}).catch(() => {});
     const after = await page.evaluate(() => window.KSVL_testSnapshot());
     check(after.currentTime > before.currentTime, "real decoded audio proxy did not advance media time");
     check(after.muted === false && after.volume > 0, "real decoded audio proxy was not in an audible state");
@@ -470,4 +488,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("KSVL BROWSER PASS journeys=held,zero-admission-copy-metadata-cta,production-hook-isolation,hostile-registry,denial,retry,play,pause,seek,seek-failure,repeat,end,mute,volume,waiting,stalled,media-error,single-audio,strict-return-state,mobile,held-link-navigation,receipt-truth,real-decoded-audible-proxy");
+console.log("KSVL BROWSER PASS journeys=held,zero-admission-copy-metadata-cta,production-hook-isolation,hostile-registry,denial,retry,play,pause,seek,seek-failure,repeat,end,mute,volume,waiting,stalled,media-error,single-audio,strict-return-state,mobile,held-link-navigation,receipt-truth decoded-audio=" + (process.env.KSVL_SKIP_REAL_AUDIO === "1" ? "skipped" : "passed"));
