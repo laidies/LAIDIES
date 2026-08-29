@@ -1,5 +1,12 @@
 # Active work
 
+## 2026-08-29 production successor
+
+- Production deployment `089d7483-6643-40a6-88fb-0e07cdb95f58` uses pushed source `25d2b0c7864a8d5838925aaed91033429010bb9c` and exact 670-file artifact `/tmp/laidies-held-art-successor.jpAhxV`, manifest `/tmp/laidies-held-art-successor.jpAhxV.manifest.json`, identity `eb4c6f4e747eda5bb35b0e677fcc495c354433162efce836ef93e7c058fa63b8`.
+- It preserves the coordinated recovered baseline, adds 44px minimum controls for Blend Snap retry, Card flipping and Bronze AiGE stations, and stops requesting unapproved Closet vessel art or presenting hidden postcard previews as broken images.
+- A corrected full-scroll audit rendered all 83 routes at 390x844 and 1200x814: 166/166 had no blank output, overflow, page errors or private runtime requests. The remaining same-origin 404s are the explicitly held Chat Room digest and Trading Cards catalogue JSON feeds.
+- Resident account-backed and cross-device restoration remains blocked on recovery of the real Supabase provider project; no replacement was guessed or created.
+
 <!-- context-authority: operations/context-authority.json -->
 
 ## Current task

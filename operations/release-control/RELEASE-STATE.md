@@ -8,6 +8,8 @@ is recorded here.
 
 ## Current truth
 
+> **Current production head:** `089d7483-6643-40a6-88fb-0e07cdb95f58`, source `25d2b0c7864a8d5838925aaed91033429010bb9c`, exact artifact `/tmp/laidies-held-art-successor.jpAhxV`, manifest `/tmp/laidies-held-art-successor.jpAhxV.manifest.json`, 670 files, identity `eb4c6f4e747eda5bb35b0e677fcc495c354433162efce836ef93e7c058fa63b8`. The 83-route, two-viewport full-scroll audit found zero core failures in 166 journeys. Card and Post Office custom bytes match exactly; Cloudflare rewrites Postcard's literal `mailto:` on the custom domain, while immutable bytes match and the repaired hidden-image rule is present publicly.
+
 | Layer | State | Evidence |
 |---|---|---|
 | Production site | `DEPLOYED / PUBLICLY VERIFIED FOR COORDINATED RECOVERY SCOPE` | Cloudflare Pages deployment `b63d429c-5ede-45dc-868a-9492d35ffa00`, pushed source `eb45de78eba56f78c9982233038fe6431e542b91`, exact 670-file artifact `/tmp/laidies-fairy-dream-successor.DNityc`, manifest `/tmp/laidies-fairy-dream-successor.manifest.json`, identity `ae8d12093aab05fe1185383a7e2a0a930c6752a2bc86f7619770c4dd19a43257`, immutable URL `https://b63d429c.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. It preserves the governed NewsStand/Library/Homepage/Visitor's Centre/KSVL baseline while restoring admitted runtime assets and removing public Library dependencies on private `/operations/` files. Final live mobile checks show zero overflow and zero broken loaded images across Homepage, Chick Flicks, FAiRY, Dream Phone and all three LUMINAiRY wings; the Dream Phone beta opens its one admitted round and FAiRY's six repaired portrait controls select correctly. |
