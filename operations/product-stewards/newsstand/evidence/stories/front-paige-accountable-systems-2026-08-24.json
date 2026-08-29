@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "front-paige-accountable-systems-2026-08-24",
+  "edition": "daily",
+  "candidateStatus": "approved-existing-owner-released-story-with-bounded-inference",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-08-29T20:00:00Z",
+  "nextRecheckAt": "2026-09-05",
+  "recheckDisposition": "CORE_MEASURED_CLAIMS_SUPPORTED_EDITORIAL_INFERENCE_IDENTIFIED",
+  "sources": [
+    {"id": "linkedin-ai-talent-divide-2026-08-18", "url": "https://news.linkedin.com/2026/new-linkedin-research-finds-women-account-for-just-26-percent-of-ai-hires-as-ai-jobs-surge", "type": "primary-document", "accessedAt": "2026-08-29"},
+    {"id": "census-ai-use-at-work-2026-08-11", "url": "https://www.census.gov/library/stories/2026/08/ai-use-at-work.html", "type": "regulator", "accessedAt": "2026-08-29"},
+    {"id": "laidies-episode-04-canon", "url": "https://laidies.ai/issues/issue-04.html", "type": "primary-document", "accessedAt": "2026-08-29"}
+  ],
+  "claims": [
+    {"id": "FRONT-C01", "claim": "LinkedIn reported women accounted for 26 percent of U.S. AI hires in 2025 and held 13 percent of C-suite AI leadership roles across the 27 countries studied.", "sourceIds": ["linkedin-ai-talent-divide-2026-08-18"], "risk": "high"},
+    {"id": "FRONT-C02", "claim": "Census reported that among workplace AI users, 30 percent of men and 17 percent of women used it every day in the previous week.", "sourceIds": ["census-ai-use-at-work-2026-08-11"], "risk": "high"},
+    {"id": "FRONT-C03", "claim": "Repeated practice can create workflow knowledge and decision-making opportunity.", "sourceIds": ["linkedin-ai-talent-divide-2026-08-18", "census-ai-use-at-work-2026-08-11"], "risk": "medium", "classification": "editorial inference; not a measured causal result"},
+    {"id": "FRONT-C04", "claim": "Women helped build the field described in Episode 4.", "sourceIds": ["laidies-episode-04-canon"], "risk": "medium"}
+  ],
+  "independentReview": "Read-only primary-source audit by a role-distinct source-review lane on 2026-08-29; owner release is preserved from the admitted 2026-08-24 Daily issue.",
+  "requiredReview": ["keep the two measures distinct", "do not restate career-compounding inference as a measured causal finding"],
+  "publicAuthority": "PRESERVE_EXISTING_OWNER_RELEASE"
+}

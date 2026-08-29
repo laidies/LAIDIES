@@ -30,8 +30,7 @@ window.NEWSSTAND_DATA = {
       "issue": {
         "status": "complete",
         "storyIds": [
-          "front-paige-accountable-systems-2026-08-24",
-          "openai-frontier-training-pause-2026-08-18"
+          "front-paige-accountable-systems-2026-08-24"
         ],
         "serviceRecordIds": [
           "DAILY-2026-08-24-PAIGE-OUTLINE-FIRST",
@@ -164,12 +163,12 @@ window.NEWSSTAND_DATA = {
       "id": "openai-frontier-training-pause-2026-08-18",
       "slug": "openai-frontier-training-pause-2026-08-18",
       "edition": "daily",
-      "status": "published",
+      "status": "hold",
       "publishedAt": "2026-08-24T16:30:00Z",
       "updatedAt": "2026-08-24T16:30:00Z",
       "lastCheckedAt": "2026-08-24T16:30:00Z",
       "sourceApproval": {
-        "status": "approved",
+        "status": "independent-review-required",
         "record": "newsstand:source-approval:openai-frontier-training-pause-2026-08-18"
       },
       "correction": null,
@@ -227,12 +226,12 @@ window.NEWSSTAND_DATA = {
       "id": "weekly-accountable-systems-2026-08-24",
       "slug": "weekly-accountable-systems-2026-08-24",
       "edition": "weekly",
-      "status": "published",
+      "status": "hold",
       "publishedAt": "2026-08-24T17:00:00Z",
       "updatedAt": "2026-08-24T17:00:00Z",
       "lastCheckedAt": "2026-08-24T17:00:00Z",
       "sourceApproval": {
-        "status": "approved",
+        "status": "independent-review-required",
         "record": "newsstand:source-approval:weekly-accountable-systems-2026-08-24"
       },
       "correction": null,
@@ -406,22 +405,6 @@ window.NEWSSTAND_DATA = {
           "id": "st-louis-armory-permit-2026-04-21",
           "label": "City of St. Louis — Armory data-centre permit conditions",
           "url": "https://www.stlouis-mo.gov/government/departments/mayor/news/data-center-permit-approved.cfm",
-          "publisherType": "regulator",
-          "accessedAt": "2026-08-24",
-          "approvalStatus": "reviewed"
-        },
-        {
-          "id": "nsf-ai-infrastructure-hubs-2026-08-04",
-          "label": "NSF — State and Regional AI Infrastructure Hubs",
-          "url": "https://www.nsf.gov/news/new-nsf-state-regional-ai-infrastructure-hubs-will-power-ai",
-          "publisherType": "regulator",
-          "accessedAt": "2026-08-24",
-          "approvalStatus": "reviewed"
-        },
-        {
-          "id": "doe-scidac-2026-01-28",
-          "label": "U.S. Department of Energy — SciDAC advanced computing",
-          "url": "https://www.energy.gov/science/articles/accelerating-scientific-discovery-through-advanced-computing",
           "publisherType": "regulator",
           "accessedAt": "2026-08-24",
           "approvalStatus": "reviewed"

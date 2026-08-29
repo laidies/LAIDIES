@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "openai-frontier-training-pause-2026-08-18",
+  "edition": "daily",
+  "candidateStatus": "hold-independent-review-required",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-08-29T20:00:00Z",
+  "nextRecheckAt": "2026-08-30",
+  "recheckDisposition": "HOLD_REPORT_STATUS_FALSE_AND_INDEPENDENT_CONTEXT_MISSING_FROM_PUBLIC_STORY",
+  "sources": [
+    {
+      "id": "openai-cyber-capabilities-pacing-2026-08-18",
+      "url": "https://openai.com/index/pacing-model-development-cyber-capabilities/",
+      "type": "vendor",
+      "accessedAt": "2026-08-29"
+    }
+  ],
+  "claims": [
+    {
+      "id": "OAI-PAUSE-C01",
+      "claim": "OpenAI said it paused reinforcement-learning training and continued to hold its largest planned run while strengthening containment.",
+      "sourceIds": ["openai-cyber-capabilities-pacing-2026-08-18"],
+      "risk": "high",
+      "classification": "vendor-attributed claim"
+    },
+    {
+      "id": "OAI-PAUSE-C02",
+      "claim": "The public story's statement that the promised technical report had not been published became false when OpenAI and METR published incident reports on 26 August 2026.",
+      "sourceIds": ["openai-cyber-capabilities-pacing-2026-08-18"],
+      "risk": "high",
+      "classification": "hold reason; successor must add the August 26 primary and independent reports before review"
+    }
+  ],
+  "requiredReview": [
+    "add OpenAI's August 26 incident report",
+    "add METR's independent August 26 investigation",
+    "remove or qualify unsupported training-failure counterfactual",
+    "update report-status and watch-for language",
+    "independent factual and comprehension review"
+  ],
+  "publicAuthority": "HOLD_NO_PUBLIC_BODY_EXPOSURE"
+}

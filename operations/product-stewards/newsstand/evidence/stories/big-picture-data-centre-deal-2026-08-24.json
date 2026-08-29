@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "big-picture-data-centre-deal-2026-08-24",
+  "edition": "big-picture",
+  "candidateStatus": "approved-existing-public-analysis-with-bounded-editorial-position",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-08-29T20:00:00Z",
+  "nextRecheckAt": "2026-09-05",
+  "recheckDisposition": "CORE_PRIMARY_RECORD_CLAIMS_SUPPORTED_UNUSED_SOURCES_REMOVED",
+  "sources": [
+    {"id": "iea-data-centre-electricity-2026-04-16", "url": "https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions", "type": "primary-document", "accessedAt": "2026-08-29"},
+    {"id": "ferc-large-load-action-2026-06-18", "url": "https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration", "type": "regulator", "accessedAt": "2026-08-29"},
+    {"id": "pennsylvania-grid-standards-2026-05-27", "url": "https://www.pa.gov/governor/newsroom/2026-press-releases/gov-shapiro-releases-full-grid-standards-to-protect-pennsylvania", "type": "regulator", "accessedAt": "2026-08-29"},
+    {"id": "pennsylvania-data-centre-order-2026-08-18", "url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen", "type": "regulator", "accessedAt": "2026-08-29"},
+    {"id": "st-louis-armory-permit-2026-04-21", "url": "https://www.stlouis-mo.gov/government/departments/mayor/news/data-center-permit-approved.cfm", "type": "regulator", "accessedAt": "2026-08-29"}
+  ],
+  "claims": [
+    {"id": "BIG-C01", "claim": "The IEA reported global data-centre electricity use rose 17 percent in 2025 and projected total use to double by 2030 while AI-focused use triples.", "sourceIds": ["iea-data-centre-electricity-2026-04-16"], "risk": "high"},
+    {"id": "BIG-C02", "claim": "FERC launched action addressing tariff and connection rules for large loads.", "sourceIds": ["ferc-large-load-action-2026-06-18"], "risk": "high"},
+    {"id": "BIG-C03", "claim": "Pennsylvania records describe GRID commitments, local approval, Fast Track treatment, and nondisclosure restrictions for data-centre proposals.", "sourceIds": ["pennsylvania-grid-standards-2026-05-27", "pennsylvania-data-centre-order-2026-08-18"], "risk": "high"},
+    {"id": "BIG-C04", "claim": "St. Louis attached cooling, water-rate, efficiency, workforce, and enforcement conditions to the cited permit.", "sourceIds": ["st-louis-armory-permit-2026-04-21"], "risk": "high"},
+    {"id": "BIG-C05", "claim": "A visible, measurable, enforceable public bargain is the article's editorial position, not a measured universal outcome.", "sourceIds": ["ferc-large-load-action-2026-06-18", "pennsylvania-grid-standards-2026-05-27", "st-louis-armory-permit-2026-04-21"], "risk": "medium", "classification": "editorial synthesis"}
+  ],
+  "independentReview": "Read-only primary-source audit by a role-distinct source-review lane on 2026-08-29.",
+  "requiredReview": ["keep global projections distinct from local forecasts", "keep the closing recommendation identifiable as editorial synthesis"],
+  "publicAuthority": "PRESERVE_EXISTING_PUBLIC_ANALYSIS"
+}

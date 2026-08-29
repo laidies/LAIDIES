@@ -408,8 +408,14 @@
     return columns && columns.emptyStates && columns.emptyStates[type] || fallback;
   }
 
+  function currentCanonicalStory(snapshot) {
+    if (!snapshot || !snapshot.id) return snapshot;
+    var canonical = sourceStories.find(function (story) { return story.id === snapshot.id; });
+    return canonical ? JSON.parse(JSON.stringify(canonical)) : JSON.parse(JSON.stringify(snapshot));
+  }
+
   function currentDailyStories(date, issue) {
-    if (issue && Array.isArray(issue.stories)) return JSON.parse(JSON.stringify(issue.stories));
+    if (issue && Array.isArray(issue.stories)) return issue.stories.map(currentCanonicalStory);
     var publication = data.publications && data.publications.daily;
     var issueIds = publication && publication.issue && Array.isArray(publication.issue.storyIds)
       ? publication.issue.storyIds
@@ -658,7 +664,7 @@
     var dailyDate = currentDailyDate();
     if (!contract || !data || !data.publications) return [];
     var admittedDailyStories = (dailyIssues && dailyIssues.issues || []).flatMap(function (issue) {
-      return JSON.parse(JSON.stringify(issue.stories || []));
+      return (issue.stories || []).map(currentCanonicalStory);
     });
     var archiveStories = sourceStories.filter(function (story) { return story.edition !== "daily"; }).concat(admittedDailyStories);
     var storyItems = archiveStories.filter(function (story) {
