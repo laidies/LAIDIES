@@ -127,7 +127,7 @@ try {
         fields: {
           displayName: "Ali",
           cardBg: "pinklilac",
-          cardAvatarUrl: "/assets/brand/laidies-logo-square-pearl-512-v1.png"
+          cardAvatarUrl: "/assets/town-characters/avatars/fairy-godmother-avatar-v1.png"
         }
       },
       handle: "local_ali"
@@ -182,7 +182,7 @@ try {
       fields: {
         displayName: "Safe Ali",
         cardBg: "classic",
-        cardAvatarUrl: "/assets/brand/laidies-logo-square-pearl-512-v1.png"
+        cardAvatarUrl: "/assets/town-characters/avatars/fairy-godmother-avatar-v1.png"
       }
     };
     const { context, page } = await openFixture({ card: validCard }, "/laidies-card.html");
@@ -193,7 +193,7 @@ try {
     check(await page.locator("#cardAvatar img").count() === 1, "canonical packaged avatar renders in the Closet");
     check(
       await page.locator("#cardAvatar img").getAttribute("src") ===
-        "/assets/brand/laidies-logo-square-pearl-512-v1.png",
+        "/assets/town-characters/avatars/fairy-godmother-avatar-v1.png",
       "Closet avatar keeps the exact canonical path"
     );
     check(await page.locator("#cardAvatar img[onerror]").count() === 0, "DOM-created avatar has no executable attribute");
