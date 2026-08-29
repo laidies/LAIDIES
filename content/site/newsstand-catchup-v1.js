@@ -3,7 +3,14 @@
 
   var STORAGE_KEY = "laidies_newsstand_seen_v1";
   var DAY_MS = 86400000;
-  var DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+  var LEGACY_DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+  var CURRENT_DAILY_DESK_TYPES = ["paige_tip", "career_life", "concept_week", "mme_claio", "behind_build", "around_town", "crossword", "song", "did_you_know", "town_note", "curiosity"];
+  function dailyDeskTypesForDate(date) {
+    return String(date || "") >= "2026-08-23" ? CURRENT_DAILY_DESK_TYPES : LEGACY_DAILY_DESK_TYPES;
+  }
+  function dailyDeskLabel(type) {
+    return type === "promptoscope" ? "historical Promptoscope" : String(type || "service").replace(/_/g, " ");
+  }
   var HASH = /^[a-f0-9]{64}$/;
   var data = JSON.parse(JSON.stringify(global.NEWSSTAND_DATA || { publications: {}, stories: [] }));
   var sourceStories = JSON.parse(JSON.stringify(data.stories || []));
@@ -13,9 +20,7 @@
   var dailyIssues = null;
   var dailyIssuesLoaded = false;
   var columnsLoaded = false;
-  var currentVisitAt = new Date().toISOString();
-  var currentVisitKey = "visit:" + currentVisitAt;
-  var previousVisit = latestPreviousVisit(readState());
+  var previousPublicationView = latestPublicationView(readState());
   var sharedDailyHandled = false;
 
   function text(value) {
@@ -42,7 +47,7 @@
   }
 
   function emptyState() {
-    return { lastVisit: null, seen: {} };
+    return { lastPublication: null };
   }
 
   function readState() {
@@ -50,19 +55,18 @@
       var value = JSON.parse(global.localStorage.getItem(STORAGE_KEY) || "null");
       if (!value || typeof value !== "object" || Array.isArray(value)) return emptyState();
       var result = emptyState();
-      if (value.lastVisit && validTimestamp(value.lastVisit.updated_at)) {
-        result.lastVisit = { updated_at: value.lastVisit.updated_at };
+      if (value.lastPublication && validTimestamp(value.lastPublication.viewed_at)) {
+        result.lastPublication = {
+          viewed_at: value.lastPublication.viewed_at
+        };
       }
-      if (value.seen && typeof value.seen === "object" && !Array.isArray(value.seen)) {
-        Object.keys(value.seen).slice(0, 300).forEach(function (key) {
-          if (/^(story|daily|service|visit):[A-Za-z0-9._:-]{1,140}$/.test(key) &&
-              validTimestamp(value.seen[key] && value.seen[key].updated_at)) {
-            result.seen[key] = { updated_at: value.seen[key].updated_at };
-          }
-        });
+      var sanitized = JSON.stringify(result);
+      if (global.localStorage.getItem(STORAGE_KEY) !== sanitized) {
+        global.localStorage.setItem(STORAGE_KEY, sanitized);
       }
       return result;
     } catch (_) {
+      try { global.localStorage.setItem(STORAGE_KEY, JSON.stringify(emptyState())); } catch (_) {}
       return emptyState();
     }
   }
@@ -74,36 +78,20 @@
     } catch (_) {}
   }
 
-  function markSeen(key) {
+  function markSeen(key, publicationAt) {
+    if (!/^(story|daily):[A-Za-z0-9._:-]{1,140}$/.test(String(key || "")) ||
+        !validTimestamp(publicationAt)) return;
     var state = readState();
-    state.seen[key] = { updated_at: new Date().toISOString() };
+    var viewedAt = new Date().toISOString();
+    state.lastPublication = { viewed_at: viewedAt };
     writeState(state);
   }
 
-  function latestPreviousVisit(state) {
-    var candidates = [];
-    if (state && state.lastVisit && validTimestamp(state.lastVisit.updated_at) &&
-        state.lastVisit.updated_at < currentVisitAt) {
-      candidates.push(state.lastVisit.updated_at);
-    }
-    Object.keys(state && state.seen || {}).forEach(function (key) {
-      if (key.indexOf("visit:") !== 0 || key === currentVisitKey) return;
-      var timestamp = key.slice(6);
-      if (validTimestamp(timestamp) && timestamp < currentVisitAt) candidates.push(timestamp);
-    });
-    return candidates.sort().pop() || "";
-  }
-
-  function beginVisit() {
-    var state = readState();
-    state.seen[currentVisitKey] = { updated_at: currentVisitAt };
-    writeState(state);
-  }
-
-  function sealVisit() {
-    var state = readState();
-    state.lastVisit = { updated_at: currentVisitAt };
-    writeState(state);
+  function latestPublicationView(state) {
+    return state && state.lastPublication &&
+      validTimestamp(state.lastPublication.viewed_at)
+      ? state.lastPublication.viewed_at
+      : "";
   }
 
   function dateOnly(value) {
@@ -128,7 +116,8 @@
       return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate || "") &&
         item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now();
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
-    return latest ? latest.editionDate : currentDailyDate();
+    var publicationDate = currentDailyDate();
+    return latest && latest.editionDate > publicationDate ? latest.editionDate : publicationDate;
   }
 
   function syncCatchupAvailability() {
@@ -166,11 +155,6 @@
       (data.publications.daily.editionDate || data.publications.daily.publishedAt)) || editorialDateOnly(new Date());
   }
 
-  function validEditorialReceiptPath(value, editionDate) {
-    return value === "operations/agents/aidb-intelligence-desk/daily/" + editionDate + ".md" ||
-      value === "operations/product-stewards/newsstand/editorial-intake/" + editionDate + ".md";
-  }
-
   function canonicalJson(value) {
     if (value === null || typeof value !== "object") return JSON.stringify(value);
     if (Array.isArray(value)) return "[" + value.map(canonicalJson).join(",") + "]";
@@ -204,9 +188,7 @@
   }
 
   async function validDailyIssueStore(value) {
-    if (!global.NEWSSTAND_DATA || global.NEWSSTAND_DATA.datasetStatus !== "published" || !contract ||
-        contract.datasetState(global.NEWSSTAND_DATA, new Date().toISOString()).state !== "ready" ||
-        !value || value.schemaVersion !== "daily-issues-v1" || value.owner !== "newsstand-daily" || !Array.isArray(value.issues)) return false;
+    if (!value || value.schemaVersion !== "daily-issues-v1" || value.owner !== "newsstand-daily" || !Array.isArray(value.issues)) return false;
     var dates = new Set();
     for (var issueIndex = 0; issueIndex < value.issues.length; issueIndex += 1) {
       var issue = value.issues[issueIndex];
@@ -214,9 +196,9 @@
           issue.editorialTimeZone !== "America/Vancouver" || issue.status !== "complete" ||
           ["quiet", "candidates_pending_review"].indexOf(issue.disposition) === -1 ||
           !Array.isArray(issue.storyIds) || !Array.isArray(issue.stories) || !Array.isArray(issue.serviceRecordIds) || !Array.isArray(issue.desks) ||
-          issue.desks.length !== DAILY_DESK_TYPES.length || !HASH.test(issue.envelopeSha256 || "") ||
+          issue.desks.length !== dailyDeskTypesForDate(issue.editionDate).length || !HASH.test(issue.envelopeSha256 || "") ||
           !issue.sourceIdentity || ![issue.sourceIdentity.radarSha256, issue.sourceIdentity.storiesSha256, issue.sourceIdentity.columnsSha256].every(function (hash) { return HASH.test(hash || ""); }) ||
-          !validEditorialReceiptPath(issue.sourceIdentity.radarPath, issue.editionDate) ||
+          issue.sourceIdentity.radarPath !== "operations/agents/aidb-intelligence-desk/daily/" + issue.editionDate + ".md" ||
           issue.sourceIdentity.storiesPath !== "content/newsstand-stories.js" ||
           issue.sourceIdentity.columnsPath !== "content/daily-edition-columns.json" ||
           !issue.admission || ["ACCEPT_LOCAL_CANONICAL_WRITE", "ACCEPT_LOCAL_CANONICAL_SUCCESSOR"].indexOf(issue.admission.decision) === -1 ||
@@ -225,10 +207,11 @@
           !validTimestamp(issue.admission.reviewedAt) || Date.parse(issue.admission.reviewedAt) > Date.now() + 300000 ||
           Date.parse(issue.admission.reviewedAt) < Date.parse(issue.editionDate + "T00:00:00Z")) return false;
       dates.add(issue.editionDate);
+      var allowedDeskTypes = dailyDeskTypesForDate(issue.editionDate);
       var types = new Set();
       var readyIds = [];
       var desksValid = issue.desks.every(function (desk) {
-        if (!desk || DAILY_DESK_TYPES.indexOf(desk.type) === -1 || types.has(desk.type)) return false;
+        if (!desk || allowedDeskTypes.indexOf(desk.type) === -1 || types.has(desk.type)) return false;
         types.add(desk.type);
         if (desk.state === "ready") {
           if (!desk.recordId || !desk.headline || !desk.summary || !(desk.destination === null || typeof desk.destination === "string")) return false;
@@ -241,14 +224,9 @@
           readyIds.join("\n") !== issue.serviceRecordIds.join("\n")) return false;
       if (issue.stories.map(function (story) { return story && story.id; }).join("\n") !== issue.storyIds.join("\n")) return false;
       if (issue.stories.some(function (snapshot) {
-        return !snapshot || snapshot.edition !== "daily" || dateOnly(snapshot.publishedAt) !== issue.editionDate ||
-          ["published", "corrected"].indexOf(snapshot.status) === -1 || !snapshot.sourceApproval ||
-          snapshot.sourceApproval.status !== "approved" || typeof snapshot.sourceApproval.record !== "string" ||
-          snapshot.sourceApproval.record.indexOf("/operations/product-stewards/newsstand/evidence/stories/") !== 0 ||
-          !snapshot.headline || !snapshot.the_story || !snapshot.laidies_read || !snapshot.what_this_means ||
-          !Array.isArray(snapshot.sources) || !snapshot.sources.length || snapshot.sources.some(function (source) {
-            return !source || !source.id || !source.label || !source.url || source.approvalStatus !== "reviewed";
-          });
+        return !snapshot || typeof snapshot.id !== "string" || snapshot.edition !== "daily" ||
+          dateOnly(snapshot.publishedAt) !== issue.editionDate ||
+          ["published", "corrected"].indexOf(snapshot.status) === -1;
       })) return false;
       if (issue.disposition === "quiet" && (issue.storyIds.length || readyIds.length)) return false;
       if (issue.disposition === "candidates_pending_review" && !issue.storyIds.length && !readyIds.length) return false;
@@ -267,6 +245,8 @@
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
     var publication = data.publications && data.publications.daily;
     if (!issue || !publication) return;
+    var publicationDate = dateOnly(publication.editionDate || publication.publishedAt);
+    if (publicationDate && issue.editionDate < publicationDate) return;
     publication.editionDate = issue.editionDate;
     publication.issue = {
       status: "complete",
@@ -283,27 +263,27 @@
       data.lastCheckedAt = publication.lastCheckedAt;
     }
     publication.note = issue.disposition === "quiet"
-      ? "This complete edition is quiet: no consequential report or admitted service item was filed for this date."
+      ? "There is no new edition for this date."
       : publication.note;
     syncCatchupAvailability();
   }
 
   function publicationStatusCopy(state, publication) {
-    if (state === "current") return "Current · checked " + formatDate(publication.editionDate || publication.lastCheckedAt);
-    if (state === "archive") return "Latest complete edition · " + formatDate(publication.editionDate || publication.publishedAt);
-    if (state === "quiet") return "Quiet · checked " + formatDate(publication.lastCheckedAt);
+    if (state === "current") return "Published " + formatDate(publication.editionDate || publication.publishedAt);
+    if (state === "archive") return "From the archive · " + formatDate(publication.editionDate || publication.publishedAt);
+    if (state === "quiet") return "No update";
     if (state === "hold") return "Not published";
-    if (state === "stale") return "Check overdue · not current";
+    if (state === "stale") return "From the archive · " + formatDate(publication.editionDate || publication.publishedAt);
     return "Unavailable";
   }
 
   function compactPublicationStatusCopy(state, publication) {
     var date = formatCompactDate(publication.editionDate || publication.publishedAt || publication.lastCheckedAt);
     if (state === "current") return "Current · " + date;
-    if (state === "archive") return "Latest · " + date;
-    if (state === "quiet") return "Quiet · " + date;
+    if (state === "archive") return "Archive · " + date;
+    if (state === "quiet") return "No update";
     if (state === "hold") return "Not published";
-    if (state === "stale") return "Update needed";
+    if (state === "stale") return "Archive · " + date;
     return "Unavailable";
   }
 
@@ -323,11 +303,12 @@
       status.setAttribute("data-state", dailyState);
     });
     if (action) {
-      action.textContent = dailyState === "current" ? "Pull this paper · Opens here" :
-        dailyState === "archive" ? "Pull this paper · Latest edition" :
-        dailyState === "quiet" ? "Check this paper · No issue today" :
+      action.textContent = dailyState === "current" ? "Read the story →" :
+        dailyState === "archive" ? "Open the latest edition →" :
+        dailyState === "quiet" ? "No issue today" :
         dailyState === "hold" ? "Check this paper · Not published" :
-        dailyState === "stale" ? "Check this paper · Source update needed" :
+        dailyState === "stale" && latestStoredDailyIssue() ? "Open archive · " + formatCompactDate(latestStoredDailyIssue().editionDate) :
+        dailyState === "stale" ? "Open the archive" :
         "Check this paper · Unavailable";
     }
     if (indexAction) {
@@ -335,12 +316,12 @@
         dailyState === "archive" ? "Open latest" :
         dailyState === "quiet" ? "No issue today" :
         dailyState === "hold" ? "Not published" :
-        dailyState === "stale" ? "Update needed" :
+        dailyState === "stale" ? "Archive" :
         "Unavailable";
     }
 
-    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Big Picture" };
-    var order = ["breaking", "daily", "weekly", "tribune"];
+    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", "big-picture": "The Big Picture" };
+    var order = ["breaking", "daily", "weekly", "big-picture"];
     var dataset = contract.datasetState(data, now);
     var current = order.filter(function (edition) {
       return data.publications[edition] &&
@@ -354,22 +335,30 @@
     if (current.length) {
       title.textContent = current.map(function (edition) { return labels[edition]; }).join(" and ") +
         (current.length === 1 ? " is current." : " are current.");
-      detail.textContent = "Last desk check: " + formatDate(data.lastCheckedAt) +
-        ". If there is nothing new worth printing, Paige leaves the rack quiet." +
-        (dataset.staleEditions && dataset.staleEditions.length ? " One or more checks are overdue." : "") +
-        (dataset.unavailableEditions && dataset.unavailableEditions.length ? " One or more records are unavailable." : "");
+      detail.textContent = "Published " + formatDate(data.lastCheckedAt) + ".";
       system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");
     } else {
       title.textContent = "A clear day at the NewsStand.";
-      detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+      detail.textContent = "There is no new edition today. Browse earlier editions in the archive.";
       system.textContent = "No current publication.";
     }
     if (current.length === 1) {
-      primary.textContent = "Pull " + labels[current[0]].replace(/^The /, "the ");
+      primary.textContent = current[0] === "daily" ? "Open today’s paper" : "Open " + labels[current[0]].replace(/^The /, "the ");
       primary.setAttribute("data-pull", current[0]);
     } else {
       primary.textContent = "Choose a paper";
       primary.removeAttribute("data-pull");
+    }
+  }
+
+  function refreshDailyBackIssueAction() {
+    var issue = latestStoredDailyIssue();
+    var publication = data.publications && data.publications.daily;
+    var action = document.querySelector('.ns-publication[data-edition="daily"] .ns-publication__action');
+    if (!issue || !publication || !action) return;
+    var state = contract.effectivePublicationState(publication, new Date().toISOString());
+    if (["stale", "quiet", "archive"].indexOf(state) !== -1) {
+      action.textContent = "Read the story →";
     }
   }
 
@@ -384,15 +373,6 @@
           return ["APPROVED", "PUBLISHED"].indexOf(record.status) !== -1 &&
             record.publicEligibility === "ELIGIBLE" && record.freshness &&
             record.freshness.expiresAt >= today;
-        })
-      : [];
-  }
-
-  function archivedDerivatives() {
-    return derivatives && Array.isArray(derivatives.records)
-      ? derivatives.records.filter(function (record) {
-          return record.status === "EXPIRED" && record.publicEligibility === "INELIGIBLE" &&
-            record.freshness && record.freshness.lastCheckedAt && record.freshness.expiresAt;
         })
       : [];
   }
@@ -419,8 +399,18 @@
   }
 
   function currentDailyStories(date, issue) {
-    if (!issue || !Array.isArray(issue.stories)) return [];
-    return JSON.parse(JSON.stringify(issue.stories));
+    if (issue && Array.isArray(issue.stories)) return JSON.parse(JSON.stringify(issue.stories));
+    var publication = data.publications && data.publications.daily;
+    var issueIds = publication && publication.issue && Array.isArray(publication.issue.storyIds)
+      ? publication.issue.storyIds
+      : [];
+    return issueIds.map(function (id) {
+      return sourceStories.find(function (story) {
+        return story.id === id && dateOnly(story.publishedAt) === date;
+      });
+    }).filter(Boolean).map(function (story) {
+      return JSON.parse(JSON.stringify(story));
+    });
   }
 
   function canRenderDaily() {
@@ -436,6 +426,13 @@
       : null;
   }
 
+  function latestStoredDailyIssue() {
+    return dailyIssues && Array.isArray(dailyIssues.issues)
+      ? dailyIssues.issues.filter(function (issue) { return issue && issue.status === "complete"; })
+        .sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0] || null
+      : null;
+  }
+
   function dailyDeskValue(issue, date, type) {
     if (issue) return issue.desks.find(function (desk) { return desk.type === type; }) || null;
     return columnFor(date, type) || null;
@@ -447,16 +444,25 @@
     var issue = storedDailyIssue(date);
     var today = issue ? issue.desks.filter(function (desk) { return desk.state === "ready"; }) :
       eligibleColumns().filter(function (record) { return record.editionDate === date; });
+    var stories = currentDailyStories(date, issue);
     var tip = dailyDeskValue(issue, date, "paige_tip");
     var node = document.querySelector('[data-contents-for="daily"]');
     if (!node) return;
-    node.setAttribute("data-story-count", "0");
+    node.setAttribute("data-story-count", String(stories.length));
     node.setAttribute("data-service-count", String(today.length));
+    if (stories.length) {
+      node.innerHTML = [
+        '<span class="ns-publication__count">', stories.length, stories.length === 1 ? ' story' : ' stories', '</span>',
+        '<span class="ns-publication__headline">', escapeHTML(stories[0].headline), '</span>',
+        '<span class="ns-publication__teaser">', escapeHTML(sentence(stories[0].laidies_read || stories[0].the_story)), '</span>'
+      ].join("");
+      return;
+    }
     node.innerHTML = [
-      '<span class="ns-publication__count">Complete dated edition</span>',
-      '<span class="ns-publication__headline">', escapeHTML(tip && tip.state !== "empty" ? tip.headline : "Quiet edition"), '</span>',
+      '<span class="ns-publication__count">The Daily · ', escapeHTML(formatDate(date)), '</span>',
+      '<span class="ns-publication__headline">', escapeHTML(tip && tip.state !== "empty" ? tip.headline : "No new Daily today"), '</span>',
       '<span class="ns-publication__teaser">', escapeHTML(tip && tip.state !== "empty" ? sentence(tip.body || tip.summary) :
-        "No consequential report or service item cleared for " + formatDate(date) + "."), '</span>'
+        "No new story or column was published for " + formatDate(date) + "."), '</span>'
     ].join("");
   }
 
@@ -464,7 +470,7 @@
     return [
       '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '">',
         '<p class="ns-daily-desk__label">', escapeHTML(label), '</p>',
-        '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? "Filed in this edition" : "Desk update"), '</p>',
+        '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? "In this edition" : "No item today"), '</p>',
         '<h3>', escapeHTML(headline), '</h3>',
         '<p>', escapeHTML(body), '</p>',
         route ? '<a href="' + escapeHTML(route) + '">Go deeper →</a>' : '',
@@ -481,56 +487,71 @@
     var date = requestedDate || currentDailyDate();
     var canonicalIssue = archivedIssue || storedDailyIssue(date);
     var quietIssue = canonicalIssue && canonicalIssue.disposition === "quiet";
+    var currentDeskEra = String(date || "") >= "2026-08-23";
     var tip = dailyDeskValue(canonicalIssue, date, "paige_tip");
-    var promptoscope = dailyDeskValue(canonicalIssue, date, "promptoscope");
+    var concept = dailyDeskValue(canonicalIssue, date, "concept_week");
+    var historicalPromptoscope = dailyDeskValue(canonicalIssue, date, "promptoscope");
     var career = dailyDeskValue(canonicalIssue, date, "career_life");
     var reading = dailyDeskValue(canonicalIssue, date, "mme_claio");
+    var behindBuild = dailyDeskValue(canonicalIssue, date, "behind_build");
+    var aroundTown = dailyDeskValue(canonicalIssue, date, "around_town");
+    var legacyFiction = dailyDeskValue(canonicalIssue, date, "fiction");
+    var crossword = dailyDeskValue(canonicalIssue, date, "crossword");
     var song = dailyDeskValue(canonicalIssue, date, "song");
     var fact = dailyDeskValue(canonicalIssue, date, "did_you_know");
     var townNote = dailyDeskValue(canonicalIssue, date, "town_note");
     var curiosity = dailyDeskValue(canonicalIssue, date, "curiosity");
-    var fiction = dailyDeskValue(canonicalIssue, date, "fiction");
     var dailyStories = currentDailyStories(date, canonicalIssue);
     var lead = dailyStories[0];
     var html = [
       '<article class="ns-daily-issue" data-daily-date="', escapeHTML(date), '">',
         '<header class="ns-daily-issue__head">',
           '<p>The Daily · ', escapeHTML(formatDate(date)), '</p>',
-          '<h2>Your complete SUNNYVA<span class="ns-brand-i">i</span>LE paper.</h2>',
-          '<p>Reporting, practical help and town desks are labelled separately. An empty desk is honest; it is never filled with invented material.</p>',
+          '<h2>The SUNNYVA<span class="ns-brand-i">i</span>LE Daily.</h2>',
+          '<p>News, practical help and life around town for ', escapeHTML(formatDate(date)), '.</p>',
         '</header>',
         '<section class="ns-daily-news">',
-          '<p class="ns-daily-desk__label">Evidence desk · sourced reporting</p>',
-          '<h3>', escapeHTML(lead ? lead.headline : quietIssue ? "No consequential report was filed." : "The evidence desk has no admitted lead yet."), '</h3>',
+          '<p class="ns-daily-desk__label">Today&rsquo;s lead story</p>',
+          '<h3>', escapeHTML(lead ? lead.headline : quietIssue ? "No new lead story today." : "No lead story is available yet."), '</h3>',
           '<p>', escapeHTML(lead ? sentence(lead.the_story) : quietIssue ?
-            "The evidence desk closed this edition without a qualified lead. Nothing was carried forward to fill the paper." :
-            "This edition’s sourced reporting remains at its accuracy gate. The service desks still publish; no story is invented to fill this space."), '</p>',
+            "There was no new lead story for this edition." :
+            "No lead story was published in this edition."), '</p>',
           lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
         '</section>',
         quietIssue
-          ? '<details class="ns-daily-quiet-desks"><summary>All nine service desks were checked. Open the desk-by-desk record.</summary><div class="ns-daily-service-grid">'
+          ? '<details class="ns-daily-quiet-desks"><summary>See today&rsquo;s columns.</summary><div class="ns-daily-service-grid">'
           : '<div class="ns-daily-service-grid">',
           dailyDesk("Paige’s practical tip", tip && tip.state !== "empty" ? "ready" : "empty",
-            tip && tip.state !== "empty" ? tip.headline : "Tip check in progress.", tip && tip.state !== "empty" ? tip.summary : tip && tip.emptyState || columnEmpty("paige_tip", "Paige is checking this edition’s tip against the receipts."),
+            tip && tip.state !== "empty" ? tip.headline : "No practical tip today.", tip && tip.state !== "empty" ? tip.summary : "Paige did not publish a practical tip in this edition.",
             tip && tip.state !== "empty" ? tip.destination : ""),
-          dailyDesk("Promptoscope", promptoscope && promptoscope.state !== "empty" ? "ready" : "empty",
-            promptoscope && promptoscope.state !== "empty" ? promptoscope.headline : "Recalibrating.",
-            promptoscope && promptoscope.state !== "empty" ? promptoscope.summary : promptoscope && promptoscope.emptyState || columnEmpty("promptoscope", "The Promptoscope is recalibrating."),
-            promptoscope && promptoscope.state !== "empty" ? promptoscope.destination : ""),
-          dailyDesk("Work + life", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "The useful move is being checked.",
-            career && career.state !== "empty" ? career.summary : career && career.emptyState || columnEmpty("career_life", "No career or life item has cleared review."), career && career.state !== "empty" ? career.destination : ""),
-          dailyDesk("Mme CLAi-O’s reading", reading && reading.state !== "empty" ? "ready" : "empty", reading && reading.state !== "empty" ? reading.headline : "The card is face down.",
-            reading && reading.state !== "empty" ? reading.summary : reading && reading.emptyState || columnEmpty("mme_claio", "No dated reading has cleared review."), reading && reading.state !== "empty" ? reading.destination : ""),
-          dailyDesk("Song of the Day", song && song.state !== "empty" ? "ready" : "empty", song && song.state !== "empty" ? song.headline : "The request line is checking the release.",
-            song && song.state !== "empty" ? song.summary : song && song.emptyState || columnEmpty("song", "No exact song release has cleared review."), song && song.state !== "empty" ? song.destination : ""),
-          dailyDesk("Did you know?", fact && fact.state !== "empty" ? "ready" : "empty", fact && fact.state !== "empty" ? fact.headline : "The fact desk is checking its source.",
-            fact && fact.state !== "empty" ? fact.summary : fact && fact.emptyState || columnEmpty("did_you_know", "No verified fact is filed in this edition."), fact && fact.state !== "empty" ? fact.destination : ""),
-          dailyDesk("Town notes", townNote && townNote.state !== "empty" ? "ready" : "empty", townNote && townNote.state !== "empty" ? townNote.headline : "The noticeboard is clear.",
-            townNote && townNote.state !== "empty" ? townNote.summary : townNote && townNote.emptyState || columnEmpty("town_note", "No dated town notice is filed in this edition."), townNote && townNote.state !== "empty" ? townNote.destination : ""),
-          dailyDesk("Try this today", curiosity && curiosity.state !== "empty" ? "ready" : "empty", curiosity && curiosity.state !== "empty" ? curiosity.headline : "The curiosity desk is still checking the move.",
-            curiosity && curiosity.state !== "empty" ? curiosity.summary : curiosity && curiosity.emptyState || columnEmpty("curiosity", "No concrete curiosity or mutual-support action is filed in this edition."), curiosity && curiosity.state !== "empty" ? curiosity.destination : ""),
-          dailyDesk("SUNNYVAiLE desk · fictional", fiction && fiction.state !== "empty" ? "ready" : "empty", fiction && fiction.state !== "empty" ? fiction.headline : "No town filler filed.",
-            fiction && fiction.state !== "empty" ? fiction.summary : fiction && fiction.emptyState || columnEmpty("fiction", "No canon-reviewed fictional town item is filed in this edition."), fiction && fiction.state !== "empty" ? fiction.destination : "") ,
+          historicalPromptoscope ? dailyDesk("Promptoscope · archived column", historicalPromptoscope.state !== "empty" ? "ready" : "empty",
+            historicalPromptoscope.state !== "empty" ? historicalPromptoscope.headline : "No Promptoscope in this edition.",
+            historicalPromptoscope.state !== "empty" ? historicalPromptoscope.summary : "This archived edition did not include a Promptoscope.",
+            historicalPromptoscope.state !== "empty" ? historicalPromptoscope.destination : "") :
+          dailyDesk("Concept of the Week", concept && concept.state !== "empty" ? "ready" : "empty",
+            concept && concept.state !== "empty" ? concept.headline : "No Concept of the Week.",
+            concept && concept.state !== "empty" ? concept.summary : "This edition did not include a Concept of the Week.",
+            concept && concept.state !== "empty" ? concept.destination : ""),
+          dailyDesk("Work + life", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "No Work + Life column today.",
+            career && career.state !== "empty" ? career.summary : "This edition did not include a Work + Life column.", career && career.state !== "empty" ? career.destination : ""),
+          dailyDesk("Mme CLAi-O’s reading", reading && reading.state !== "empty" ? "ready" : "empty", reading && reading.state !== "empty" ? reading.headline : "No daily reading today.",
+            reading && reading.state !== "empty" ? reading.summary : "Mme CLAi-O did not publish a reading in this edition.", reading && reading.state !== "empty" ? reading.destination : ""),
+          currentDeskEra ? dailyDesk("Behind the Build", behindBuild && behindBuild.state !== "empty" ? "ready" : "empty", behindBuild && behindBuild.state !== "empty" ? behindBuild.headline : "No Behind the Build today.",
+            behindBuild && behindBuild.state !== "empty" ? behindBuild.summary : "This edition did not include a Behind the Build column.", behindBuild && behindBuild.state !== "empty" ? behindBuild.destination : "") : "",
+          currentDeskEra ? dailyDesk("Around Town · fictional town news", aroundTown && aroundTown.state !== "empty" ? "ready" : "empty", aroundTown && aroundTown.state !== "empty" ? aroundTown.headline : "No Around Town story today.",
+            aroundTown && aroundTown.state !== "empty" ? aroundTown.summary : "This edition did not include a fictional Around Town story.", aroundTown && aroundTown.state !== "empty" ? aroundTown.destination : "") : "",
+          currentDeskEra ? dailyDesk("Daily crossword", crossword && crossword.state !== "empty" ? "ready" : "empty", crossword && crossword.state !== "empty" ? crossword.headline : "No crossword today.",
+            crossword && crossword.state !== "empty" ? crossword.summary : "This edition did not include a crossword.", crossword && crossword.state !== "empty" ? crossword.destination : "") : "",
+          dailyDesk("Song of the Day", song && song.state !== "empty" ? "ready" : "empty", song && song.state !== "empty" ? song.headline : "No Song of the Day.",
+            song && song.state !== "empty" ? song.summary : "This edition did not include a Song of the Day.", song && song.state !== "empty" ? song.destination : ""),
+          dailyDesk("Did you know?", fact && fact.state !== "empty" ? "ready" : "empty", fact && fact.state !== "empty" ? fact.headline : "No Did You Know today.",
+            fact && fact.state !== "empty" ? fact.summary : "This edition did not include a Did You Know item.", fact && fact.state !== "empty" ? fact.destination : ""),
+          dailyDesk("Town notes", townNote && townNote.state !== "empty" ? "ready" : "empty", townNote && townNote.state !== "empty" ? townNote.headline : "No town notes today.",
+            townNote && townNote.state !== "empty" ? townNote.summary : "There were no town notes in this edition.", townNote && townNote.state !== "empty" ? townNote.destination : ""),
+          dailyDesk("Try this today", curiosity && curiosity.state !== "empty" ? "ready" : "empty", curiosity && curiosity.state !== "empty" ? curiosity.headline : "No activity today.",
+            curiosity && curiosity.state !== "empty" ? curiosity.summary : "This edition did not include a Try This Today activity.", curiosity && curiosity.state !== "empty" ? curiosity.destination : ""),
+          currentDeskEra ? "" : dailyDesk("SUNNYVAiLE desk · archived fictional column", legacyFiction && legacyFiction.state !== "empty" ? "ready" : "empty", legacyFiction && legacyFiction.state !== "empty" ? legacyFiction.headline : "No fictional town story.",
+            legacyFiction && legacyFiction.state !== "empty" ? legacyFiction.summary : "This archived edition did not include a fictional town story.", legacyFiction && legacyFiction.state !== "empty" ? legacyFiction.destination : ""),
         quietIssue ? '</div></details>' : '</div>',
         '<footer class="ns-daily-issue__foot">',
           '<button type="button" id="ns-share-daily">Share this Daily</button>',
@@ -540,6 +561,10 @@
     ].join("");
     reader.hidden = false;
     rack.innerHTML = html;
+    if (currentDeskEra && !canonicalIssue) {
+      var unadmittedDeskGrid = rack.querySelector(".ns-daily-service-grid");
+      if (unadmittedDeskGrid) unadmittedDeskGrid.hidden = true;
+    }
     empty.hidden = true;
     document.getElementById("ns-reader-edition").textContent = "The Daily";
     document.getElementById("ns-reader-title").textContent = "Inside this paper.";
@@ -550,7 +575,10 @@
       paper.classList.toggle("is-selected", selected);
       paper.setAttribute("aria-pressed", String(selected));
     });
-    markSeen("daily:" + date);
+    var dailyPublicationAt = canonicalIssue && canonicalIssue.admission && canonicalIssue.admission.reviewedAt ||
+      data.publications && data.publications.daily && data.publications.daily.publishedAt ||
+      date + "T12:00:00Z";
+    markSeen("daily:" + date, dailyPublicationAt);
     reader.scrollIntoView({ behavior: "smooth", block: "start" });
     document.getElementById("ns-reader-title").focus({ preventScroll: true });
   }
@@ -575,7 +603,7 @@
   function catchupItems(since) {
     var now = new Date().toISOString();
     var dailyDate = currentDailyDate();
-    if (!contract || !data || contract.datasetState(data, now).state !== "ready") return [];
+    if (!contract || !data || !data.publications) return [];
     var admittedDailyStories = (dailyIssues && dailyIssues.issues || []).flatMap(function (issue) {
       return JSON.parse(JSON.stringify(issue.stories || []));
     });
@@ -611,9 +639,9 @@
           key: "story:" + story.id,
           date: dateOnly(story.publishedAt),
           kind: "The " + story.edition.charAt(0).toUpperCase() + story.edition.slice(1),
-          headline: "An archived item needs a new source check.",
-          state: "Archive · source check overdue",
-          points: [decision.reason],
+          headline: story.headline,
+          state: "From the archive",
+          points: ["Preserved with its original publication and source dates."],
           route: "",
           canOpen: false,
           actionLabel: ""
@@ -627,7 +655,7 @@
         state: storyState === "corrected" ? "Archive · corrected" : "Archive",
         points: [sentence(story.the_story), sentence(story.what_this_means)].filter(Boolean),
         route: "#" + story.slug,
-        canOpen: pubState !== "stale",
+        canOpen: Boolean(decision.canExpose),
         actionLabel: "Read the full story"
       };
     });
@@ -638,9 +666,9 @@
         return {
           key: "service:" + desk.recordId,
           date: issue.editionDate,
-          kind: "The Daily · " + desk.type.replace(/_/g, " "),
+          kind: "The Daily · " + dailyDeskLabel(desk.type),
           headline: desk.headline,
-          state: "Filed",
+          state: "Published",
           points: [desk.summary],
           route: desk.destination && desk.destination.charAt(0) === "/" ? desk.destination : "",
           canOpen: Boolean(desk.destination && desk.destination.charAt(0) === "/"),
@@ -654,9 +682,9 @@
       return {
         key: "service:" + record.id,
         date: record.editionDate,
-        kind: "The Daily · " + record.type.replace(/_/g, " "),
+        kind: "The Daily · " + dailyDeskLabel(record.type),
         headline: record.headline,
-        state: "Filed",
+        state: "Published",
         points: [record.summary],
         route: record.destination && record.destination.charAt(0) === "/" ? record.destination : "",
         canOpen: Boolean(record.destination && record.destination.charAt(0) === "/"),
@@ -665,15 +693,15 @@
     });
     var serviceItems = canonicalServiceItems.concat(legacyColumns);
     var admittedSourceIds = new Set(serviceItems.map(function (item) { return item.key.replace(/^service:/, ""); }));
-    eligibleDerivatives().concat(archivedDerivatives()).filter(function (record) {
+    eligibleDerivatives().filter(function (record) {
       return record.date >= since && record.date !== dailyDate && !storedDailyIssue(record.date) && !admittedSourceIds.has(record.id);
     }).forEach(function (record) {
       serviceItems.push({
         key: "service:" + record.id,
         date: record.date,
-        kind: record.type === "paige_tip" ? "The Daily · Paige’s tip" : "The Daily · Promptoscope",
+        kind: record.type === "paige_tip" ? "The Daily · Paige’s tip" : "The Daily · historical Promptoscope",
         headline: record.headline,
-        state: record.status === "EXPIRED" ? "Archive · source check overdue" : "Filed",
+        state: "Published",
         points: [record.body],
         route: record.canonicalPath && record.canonicalPath.charAt(0) === "/" ? record.canonicalPath : "",
         canOpen: Boolean(record.canonicalPath && record.canonicalPath.charAt(0) === "/"),
@@ -696,18 +724,15 @@
       input.value = since;
     }
     var now = new Date().toISOString();
-    var dataset = contract && data ? contract.datasetState(data, now) : { state: "load-failure" };
-    if (dataset.state !== "ready") {
-      target.innerHTML = '<p class="ns-catchup__empty">Catch Me Up is unavailable until the publication record is current. No held or unverified item is shown.</p>';
-      return;
-    }
     var items = catchupItems(since);
-    var daily = canRenderDaily() ? [
+    var latestBackIssue = latestStoredDailyIssue();
+    var dailyDate = canRenderDaily() ? currentDailyDate() : latestBackIssue && latestBackIssue.editionDate;
+    var daily = dailyDate ? [
       '<article class="ns-catchup-lead" data-catchup-role="daily">',
-        '<p class="ns-catchup-item__kind">Start here · The Daily</p>',
-        '<h3>Latest complete SUNNYVA<span class="ns-brand-i">i</span>LE paper.</h3>',
-        '<p>Sourced reporting and every governed service desk for ', escapeHTML(formatDate(currentDailyDate())), '.</p>',
-        '<button type="button" data-open-daily>Open the Daily</button>',
+        '<p class="ns-catchup-item__kind">Start here · ', canRenderDaily() ? 'The Daily' : 'Latest archive edition', '</p>',
+        '<h3>', canRenderDaily() ? 'Today\'s' : 'Most recent', ' SUNNYVA<span class="ns-brand-i">i</span>LE Daily.</h3>',
+        '<p>Stories and columns published for ', escapeHTML(formatDate(dailyDate)), '. ', canRenderDaily() ? '' : 'This edition is from the archive.', '</p>',
+        '<button type="button" data-open-daily data-daily-date="', escapeHTML(dailyDate), '">Open the Daily</button>',
       '</article>'
     ].join("") : "";
     var weeklyPublication = data.publications && data.publications.weekly;
@@ -731,7 +756,7 @@
       '</article>'
     ].join("");
     var history = items.length ? '<p class="ns-catchup__count">' + items.length +
-      (items.length === 1 ? " older item" : " older items") + " filed on or after " + escapeHTML(formatDate(since)) +
+      (items.length === 1 ? " older result" : " older results") + " since " + escapeHTML(formatDate(since)) +
       '.</p><div class="ns-catchup__timeline" data-catchup-role="history">' + items.map(function (item) {
         return [
           '<details class="ns-catchup-item">',
@@ -748,7 +773,7 @@
             '</div>',
           '</details>'
         ].join("");
-      }).join("") + "</div>" : '<div class="ns-catchup__timeline" data-catchup-role="history"><p class="ns-catchup__empty">No older eligible item was filed on or after ' +
+      }).join("") + "</div>" : '<div class="ns-catchup__timeline" data-catchup-role="history"><p class="ns-catchup__empty">No other stories or columns were published after ' +
         escapeHTML(formatDate(since)) + '.</p></div>';
     target.innerHTML = daily + weekly + history;
   }
@@ -759,8 +784,7 @@
     if (!input || !run) return;
     var fallback = new Date(Date.now() - 7 * DAY_MS);
     syncCatchupAvailability();
-    input.value = editorialDateOnly(previousVisit || fallback);
-    var visitSealed = false;
+    input.value = editorialDateOnly(previousPublicationView || fallback);
     input.addEventListener("input", function () { input.setAttribute("data-user-edited", "true"); });
     input.addEventListener("change", function () { input.setAttribute("data-user-edited", "true"); });
     run.addEventListener("click", renderCatchup);
@@ -786,19 +810,27 @@
         return;
       }
       var daily = event.target.closest('[data-edition="daily"]');
-      if (daily && canRenderDaily()) {
+      if (daily && daily.classList.contains("ns-front-desk--lead") &&
+        (daily.getAttribute("data-lead-slug") || daily.getAttribute("data-archive-slug"))) {
+        return;
+      }
+      var latestBackIssue = latestStoredDailyIssue();
+      if (daily && (canRenderDaily() || latestBackIssue)) {
         event.preventDefault();
         event.stopImmediatePropagation();
-        renderDaily();
+        renderDaily(canRenderDaily() ? undefined : latestBackIssue.editionDate);
         return;
       }
       if (event.target.closest("[data-open-daily]") && canRenderDaily()) {
         event.preventDefault();
-        renderDaily();
+        renderDaily(event.target.closest("[data-open-daily]").getAttribute("data-daily-date") || undefined);
         return;
       }
-      var story = event.target.closest('.ns-front-story[href^="#"]');
-      if (story) markSeen("story:" + story.getAttribute("href").slice(1));
+      if (event.target.closest("[data-open-daily]") && latestStoredDailyIssue()) {
+        event.preventDefault();
+        renderDaily(event.target.closest("[data-open-daily]").getAttribute("data-daily-date") || latestStoredDailyIssue().editionDate);
+        return;
+      }
     }, true);
     document.addEventListener("click", function (event) {
       if (!event.target.closest("#ns-share-daily")) return;
@@ -806,7 +838,7 @@
       url.hash = "";
       url.searchParams.set("daily", currentDailyDate());
       var status = document.getElementById("ns-share-daily-status");
-      var payload = { title: "The Daily · LAiDIES", text: "The latest complete SUNNYVAiLE Daily", url: url.href };
+      var payload = { title: "The Daily · LAiDIES", text: "The latest SUNNYVAiLE Daily", url: url.href };
       if (navigator.share) {
         navigator.share(payload).then(function () { status.textContent = "Share sheet opened."; })
           .catch(function () { status.textContent = "Share cancelled."; });
@@ -826,14 +858,12 @@
       .then(async function (value) {
         if (!await validDailyIssueStore(value)) throw new Error("daily-issues-invalid");
         dailyIssues = value;
-        applyLatestDailyIssue();
         global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
-          detail: {
-            stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }),
-            publication: JSON.parse(JSON.stringify(data.publications && data.publications.daily || null))
-          }
+          detail: { stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }) }
         }));
+        applyLatestDailyIssue();
         refreshPublicationChrome();
+        refreshDailyBackIssueAction();
         updateDailyPaper();
         renderCatchup();
       })
@@ -844,19 +874,19 @@
       .then(function (value) { columns = value; updateDailyPaper(); renderCatchup(); })
       .catch(function () { columns = null; updateDailyPaper(); renderCatchup(); })
       .finally(function () { columnsLoaded = true; maybeOpenSharedDailyRequest(); });
-    function reconcileVisit() {
-      previousVisit = latestPreviousVisit(readState());
-      if (previousVisit && input.getAttribute("data-user-edited") !== "true") {
-        input.value = editorialDateOnly(previousVisit);
-      }
-      if (!visitSealed) {
-        visitSealed = true;
-        sealVisit();
+    function recordPublicationView(event) {
+      var detail = event && event.detail || {};
+      markSeen(detail.key, detail.publicationAt);
+      previousPublicationView = latestPublicationView(readState());
+      if (previousPublicationView && input.getAttribute("data-user-edited") !== "true") {
+        input.value = editorialDateOnly(previousPublicationView);
       }
     }
-    global.addEventListener("laidies:continuation-change", reconcileVisit);
-    global.addEventListener("laidies:continuation-unavailable", reconcileVisit, { once: true });
-    beginVisit();
+    global.addEventListener("newsstand:publication-viewed", recordPublicationView);
+    (global.__newsstandPublicationViewQueue || []).splice(0).forEach(function (detail) {
+      recordPublicationView({ detail: detail });
+    });
+    global.__newsstandPublicationViewReady = true;
   }
 
   if (document.readyState === "loading") {

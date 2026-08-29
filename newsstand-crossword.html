@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The SUNNYVAiLE Crossword · NewsStand</title>
+    <meta name="description" content="An accessible SUNNYVAiLE crossword about current AI concepts and the town.">
+    <link rel="canonical" href="https://laidies.ai/newsstand-crossword">
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+    <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
+    <style>
+      :root { --ink:#251b35; --paper:#fff9e8; --purple:#6c3fc5; --pink:#ed4f91; --yellow:#ffd850; --green:#207a62; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:linear-gradient(145deg,#f7ddf0,#dfd6ff 48%,#bfeaf0); color:var(--ink); font-family:Jost,sans-serif; }
+      .cw-main { min-height:100vh; padding:96px 18px 56px; }
+      .cw-paper { width:min(1040px,100%); margin:auto; background:var(--paper); border:4px solid var(--ink); box-shadow:12px 14px 0 rgba(37,27,53,.22); }
+      .cw-head { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; padding:28px; border-bottom:5px double var(--ink); }
+      .cw-kicker { margin:0 0 4px; color:var(--purple); font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+      h1 { margin:0; font:clamp(2.2rem,7vw,5.4rem)/.92 Anton,sans-serif; text-transform:uppercase; }
+      .cw-date { margin:0; font-weight:700; text-align:right; }
+      .cw-intro { margin:10px 0 0; max-width:68ch; font-size:1.05rem; }
+      .cw-workspace { display:grid; grid-template-columns:minmax(315px,1fr) minmax(280px,.8fr); gap:30px; padding:28px; }
+      .cw-grid-wrap { overflow:auto; padding:4px; }
+      .cw-grid { display:grid; grid-template-columns:repeat(15,minmax(28px,42px)); width:max-content; border:3px solid var(--ink); background:var(--ink); gap:1px; }
+      .cw-cell { position:relative; width:clamp(28px,4.1vw,42px); aspect-ratio:1; background:#fff; }
+      .cw-cell.is-block { background:var(--ink); }
+      .cw-cell.is-word { background:#fff3a8; }
+      .cw-cell.is-active { background:#ffd566; }
+      .cw-cell.is-correct { background:#cdeedb; }
+      .cw-cell.is-incorrect { background:#ffd5df; }
+      .cw-number { position:absolute; z-index:2; top:1px; left:3px; font-size:.58rem; font-weight:800; pointer-events:none; }
+      .cw-cell input { width:100%; height:100%; border:0; background:transparent; text-align:center; font:800 clamp(.85rem,2vw,1.2rem)/1 Jost,sans-serif; text-transform:uppercase; color:var(--ink); caret-color:var(--pink); }
+      .cw-cell input:focus-visible { outline:3px solid var(--pink); outline-offset:-3px; }
+      .cw-clues { display:grid; grid-template-columns:1fr 1fr; gap:22px; align-content:start; }
+      .cw-clues h2 { margin:0 0 10px; padding-bottom:5px; border-bottom:3px solid var(--purple); font:1.35rem Anton,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+      .cw-clue { display:block; width:100%; margin:0 0 8px; padding:8px 9px; border:0; border-radius:8px; background:transparent; color:inherit; font:500 .95rem/1.35 Jost,sans-serif; text-align:left; cursor:pointer; }
+      .cw-clue:hover,.cw-clue:focus-visible,.cw-clue.is-active { background:#eee5ff; outline:0; }
+      .cw-clue strong { color:var(--purple); }
+      .cw-controls { display:flex; flex-wrap:wrap; gap:10px; padding:0 28px 28px; }
+      .cw-controls button,.cw-back { min-height:44px; padding:10px 16px; border:2px solid var(--ink); background:#fff; color:var(--ink); box-shadow:3px 3px 0 var(--ink); font:800 .92rem Jost,sans-serif; cursor:pointer; text-decoration:none; }
+      .cw-controls button:first-child { background:var(--yellow); }
+      .cw-controls button:focus-visible,.cw-back:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
+      .cw-status { flex:1 1 100%; min-height:24px; margin:4px 0 0; font-weight:700; }
+      .cw-note { padding:18px 28px; border-top:2px solid var(--ink); background:#f0eaff; }
+      .cw-note p { margin:.3rem 0; }
+      @media (max-width:760px) {
+        .cw-main { padding:78px 10px 30px; }
+        .cw-head,.cw-workspace { grid-template-columns:1fr; }
+        .cw-date { text-align:left; }
+        .cw-clues { grid-template-columns:1fr; }
+        .cw-grid { grid-template-columns:repeat(15,30px); }
+        .cw-cell { width:30px; }
+      }
+      @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; } }
+    </style>
+    <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
+  </head>
+  <body>
+    <a class="sv-skip-link" href="#crossword-main">Skip to crossword</a>
+    <header class="topbar">
+      <a class="logo" href="/" aria-label="LAiDIES home">LAiDIES</a>
+      <nav class="topbar__nav" aria-label="Primary"><a href="/newsstand.html">NewsStand</a><a href="/library.html">LIBRAiRY</a><a href="/visitors-centre.html">Explore SUNNYVAiLE</a></nav>
+      <button class="topbar__menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </header>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="/newsstand.html">NewsStand</a><a href="/library.html">LIBRAiRY</a><a href="/visitors-centre.html">Explore SUNNYVAiLE</a></nav>
+    <main class="cw-main" id="crossword-main">
+      <article class="cw-paper">
+        <header class="cw-head">
+          <div>
+            <p class="cw-kicker">NewsStand puzzle desk · prototype successor</p>
+            <h1>The SUNNYVAiLE Crossword</h1>
+            <p class="cw-intro">Ten connected words from the town and the way AI work is changing. A clue teaches recognition; the deeper explanation still belongs in AI Fundamentals and the rest of LAiDIES.</p>
+          </div>
+          <p class="cw-date">Saturday<br>August 23, 2026</p>
+        </header>
+        <div class="cw-workspace">
+          <div class="cw-grid-wrap" aria-label="Crossword grid. Use arrow keys to move between cells and Space to switch direction at an intersection.">
+            <div class="cw-grid" id="cw-grid" role="grid" aria-rowcount="15" aria-colcount="15"></div>
+          </div>
+          <section class="cw-clues" aria-label="Crossword clues">
+            <div><h2>Across</h2><div id="cw-across"></div></div>
+            <div><h2>Down</h2><div id="cw-down"></div></div>
+          </section>
+        </div>
+        <div class="cw-controls">
+          <button type="button" id="cw-check">Check my work</button>
+          <button type="button" id="cw-reveal">Reveal puzzle</button>
+          <button type="button" id="cw-clear">Clear</button>
+          <a class="cw-back" href="/newsstand.html">Back to the paper</a>
+          <p class="cw-status" id="cw-status" role="status" aria-live="polite"></p>
+        </div>
+        <footer class="cw-note">
+          <p><strong>Currentness note:</strong> The grid teaches concepts, not universal product settings. Features such as memory, projects and tools vary by product, plan and date.</p>
+          <p>Progress is saved only in this browser. Revealing the puzzle is always optional.</p>
+        </footer>
+      </article>
+    </main>
+    <script>
+      (function () {
+        "use strict";
+        var SIZE=15, KEY="laidies_newsstand_crossword_2026-08-23_v1";
+        var words=[
+          {id:"tools",answer:"TOOLS",row:1,col:8,dir:"down",number:1,clue:"Capabilities an AI system can call to do something beyond generating text, such as search, calculate or act."},
+          {id:"claio",answer:"CLAIO",row:2,col:4,dir:"across",number:2,clue:"Mme ___, whose NewsStand reading is reflection—not prediction."},
+          {id:"memory",answer:"MEMORY",row:4,col:5,dir:"down",number:3,clue:"Information retained for later use. What is saved, where and for how long depends on the system."},
+          {id:"agents",answer:"AGENTS",row:5,col:3,dir:"across",number:4,clue:"AI systems that pursue a goal through steps and may use tools; autonomy and permissions still need boundaries."},
+          {id:"projects",answer:"PROJECTS",row:7,col:3,dir:"across",number:5,clue:"Organized workspaces that keep one outcome, its material and its history together instead of starting from zero."},
+          {id:"paige",answer:"PAIGE",row:7,col:3,dir:"down",number:5,clue:"The SUNNYVAiLE NewsStand keeper who checks the receipts before a story reaches the rack."},
+          {id:"context",answer:"CONTEXT",row:7,col:8,dir:"down",number:6,clue:"The relevant information available for the work—not merely a longer request."},
+          {id:"skills",answer:"SKILLS",row:7,col:10,dir:"down",number:7,clue:"Reusable know-how and instructions that help a person or agent perform a recurring job."},
+          {id:"graph",answer:"GRAPH",row:7,col:13,dir:"down",number:8,clue:"A map of connected things and relationships; useful when the connections matter as much as the items."},
+          {id:"loops",answer:"LOOPS",row:10,col:10,dir:"across",number:9,clue:"Repeated observe, act and check cycles—the part that makes a workflow improve or catch its own miss."}
+        ];
+        var cells={},active=words[0],grid=document.getElementById("cw-grid");
+        words.forEach(function(word){for(var i=0;i<word.answer.length;i+=1){var r=word.row+(word.dir==="down"?i:0),c=word.col+(word.dir==="across"?i:0),k=r+"-"+c;if(!cells[k])cells[k]={row:r,col:c,letter:word.answer[i],words:[]};cells[k].words.push(word);}});
+        var starts={};words.forEach(function(w){starts[w.row+"-"+w.col]=w.number;});
+        for(var r=0;r<SIZE;r+=1){for(var c=0;c<SIZE;c+=1){var key=r+"-"+c,cell=cells[key],box=document.createElement("div");box.className="cw-cell"+(cell?"":" is-block");box.setAttribute("role","gridcell");if(cell){cell.box=box;if(starts[key]){var n=document.createElement("span");n.className="cw-number";n.textContent=starts[key];box.appendChild(n);}var input=document.createElement("input");input.maxLength=1;input.autocomplete="off";input.spellcheck=false;input.inputMode="text";input.dataset.key=key;input.setAttribute("aria-label",cell.words.map(function(w){return w.number+" "+w.dir;}).join(" and ")+", row "+(r+1)+", column "+(c+1));box.appendChild(input);cell.input=input;input.addEventListener("focus",function(){var here=cells[this.dataset.key];if(here.words.indexOf(active)===-1)active=here.words[0];paint();});input.addEventListener("input",function(){this.value=this.value.replace(/[^a-z]/gi,"").toUpperCase();save();if(this.value)move(1);});input.addEventListener("keydown",keyMove);}grid.appendChild(box);}}
+        function list(direction,id){var host=document.getElementById(id);words.filter(function(w){return w.dir===direction;}).forEach(function(w){var b=document.createElement("button");b.type="button";b.className="cw-clue";b.dataset.word=w.id;b.innerHTML="<strong>"+w.number+".</strong> "+w.clue+" ("+w.answer.length+")";b.addEventListener("click",function(){active=w;cells[w.row+"-"+w.col].input.focus();paint();});host.appendChild(b);});}list("across","cw-across");list("down","cw-down");
+        function activeCells(){var result=[];for(var i=0;i<active.answer.length;i+=1)result.push(cells[(active.row+(active.dir==="down"?i:0))+"-"+(active.col+(active.dir==="across"?i:0))]);return result;}
+        function paint(){Object.keys(cells).forEach(function(k){cells[k].box.classList.remove("is-word","is-active");});activeCells().forEach(function(c){c.box.classList.add("is-word");});var focused=document.activeElement&&cells[document.activeElement.dataset&&document.activeElement.dataset.key];if(focused)focused.box.classList.add("is-active");document.querySelectorAll(".cw-clue").forEach(function(b){b.classList.toggle("is-active",b.dataset.word===active.id);});}
+        function move(delta){var sequence=activeCells(),current=cells[document.activeElement.dataset.key],i=sequence.indexOf(current),next=sequence[i+delta];if(next)next.input.focus();}
+        function keyMove(event){var cell=cells[this.dataset.key];if(event.key===" "&&cell.words.length>1){event.preventDefault();active=cell.words[(cell.words.indexOf(active)+1)%cell.words.length];paint();return;}if(event.key==="Backspace"&&!this.value){event.preventDefault();move(-1);return;}var map={ArrowRight:[0,1],ArrowLeft:[0,-1],ArrowDown:[1,0],ArrowUp:[-1,0]},step=map[event.key];if(step){event.preventDefault();var target=cells[(cell.row+step[0])+"-"+(cell.col+step[1])];if(target)target.input.focus();}}
+        function save(){try{var value={};Object.keys(cells).forEach(function(k){if(cells[k].input.value)value[k]=cells[k].input.value;});localStorage.setItem(KEY,JSON.stringify(value));}catch(_){}}
+        function restore(){try{var value=JSON.parse(localStorage.getItem(KEY)||"{}");Object.keys(value).forEach(function(k){if(cells[k])cells[k].input.value=String(value[k]).slice(0,1).toUpperCase();});}catch(_){}}
+        document.getElementById("cw-check").addEventListener("click",function(){var filled=0,correct=0,total=Object.keys(cells).length;Object.keys(cells).forEach(function(k){var c=cells[k],v=c.input.value;c.box.classList.remove("is-correct","is-incorrect");if(v){filled+=1;if(v===c.letter){correct+=1;c.box.classList.add("is-correct");}else c.box.classList.add("is-incorrect");}});document.getElementById("cw-status").textContent=filled===0?"Add a few letters first.":correct===total?"Complete. Ten connected ideas, one very tidy grid.":correct+" of "+total+" filled cells are correct.";});
+        document.getElementById("cw-reveal").addEventListener("click",function(){Object.keys(cells).forEach(function(k){cells[k].input.value=cells[k].letter;cells[k].box.classList.add("is-correct");cells[k].box.classList.remove("is-incorrect");});save();document.getElementById("cw-status").textContent="Puzzle revealed. The useful part is recognizing how the words connect.";});
+        document.getElementById("cw-clear").addEventListener("click",function(){Object.keys(cells).forEach(function(k){cells[k].input.value="";cells[k].box.classList.remove("is-correct","is-incorrect");});try{localStorage.removeItem(KEY);}catch(_){}document.getElementById("cw-status").textContent="Puzzle cleared.";cells[active.row+"-"+active.col].input.focus();});
+        restore();paint();
+      }());
+    </script>
+  </body>
+</html>

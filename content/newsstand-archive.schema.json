@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/content/newsstand-archive.schema.json",
+  "title": "Complete public NewsStand archive index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "items"],
+  "properties": {
+    "schemaVersion": { "const": "newsstand-archive-v1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "$defs": {
+    "stringList": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "edition", "desk", "editionDate", "publishedAt", "headline", "summary", "themes", "concepts", "status", "slug", "correction", "correctionHistory", "retraction", "predecessorStoryIds", "successorStoryIds", "relationshipType", "bigPicture"],
+      "properties": {
+        "id": { "type": "string", "minLength": 3 },
+        "kind": { "enum": ["story", "service"] },
+        "edition": { "enum": ["breaking", "daily", "weekly", "big-picture"] },
+        "desk": { "type": ["string", "null"] },
+        "editionDate": { "type": "string", "format": "date" },
+        "publishedAt": { "type": ["string", "null"], "format": "date-time" },
+        "headline": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string" },
+        "themes": { "$ref": "#/$defs/stringList" },
+        "concepts": { "$ref": "#/$defs/stringList" },
+        "status": { "enum": ["published", "corrected", "retracted"] },
+        "slug": { "type": ["string", "null"] },
+        "correction": { "type": ["object", "null"] },
+        "correctionHistory": { "type": "array", "items": { "type": "object" } },
+        "retraction": { "type": ["object", "null"] },
+        "predecessorStoryIds": { "$ref": "#/$defs/stringList" },
+        "successorStoryIds": { "$ref": "#/$defs/stringList" },
+        "relationshipType": { "type": ["string", "null"] },
+        "bigPicture": { "type": ["object", "null"] }
+      }
+    }
+  }
+}

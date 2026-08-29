@@ -3,7 +3,7 @@
     "id": "ready-current",
     "mutation": "none",
     "expectedDatasetState": "ready",
-    "expectedTribuneState": "current"
+    "expectedBigPictureState": "current"
   },
   {
     "id": "no-data",
@@ -21,34 +21,34 @@
     "id": "stale",
     "mutation": "stale-publications",
     "expectedDatasetState": "stale",
-    "expectedTribuneState": "stale",
-    "expectedTribuneAccess": "stale",
-    "expectedTribuneExposed": false,
-    "expectedSearchExposed": false
+    "expectedBigPictureState": "stale",
+    "expectedBigPictureAccess": "archive",
+    "expectedBigPictureExposed": true,
+    "expectedSearchExposed": true
   },
   {
     "id": "dataset-hold",
     "mutation": "dataset-hold",
     "expectedDatasetState": "hold",
-    "expectedTribuneAccess": "hold",
-    "expectedTribuneExposed": false,
+    "expectedBigPictureAccess": "hold",
+    "expectedBigPictureExposed": false,
     "expectedSearchExposed": false
   },
   {
     "id": "publication-unavailable",
     "mutation": "publication-unavailable",
     "expectedDatasetState": "unavailable",
-    "expectedTribuneState": "unavailable",
-    "expectedTribuneAccess": "unavailable",
-    "expectedTribuneExposed": false
+    "expectedBigPictureState": "unavailable",
+    "expectedBigPictureAccess": "unavailable",
+    "expectedBigPictureExposed": false
   },
   {
     "id": "mixed-current-and-stale",
     "mutation": "mixed-current-and-stale",
     "expectedDatasetState": "ready",
-    "expectedTribuneState": "stale",
-    "expectedTribuneAccess": "stale",
-    "expectedTribuneExposed": false
+    "expectedBigPictureState": "stale",
+    "expectedBigPictureAccess": "archive",
+    "expectedBigPictureExposed": true
   },
   {
     "id": "story-hold",
@@ -59,14 +59,14 @@
     "id": "story-corrected",
     "mutation": "story-corrected",
     "expectedStoryState": "corrected",
-    "expectedTribuneAccess": "corrected",
-    "expectedTribuneExposed": true
+    "expectedBigPictureAccess": "corrected",
+    "expectedBigPictureExposed": true
   },
   {
     "id": "story-retracted",
     "mutation": "story-retracted",
     "expectedStoryState": "retracted",
-    "expectedTribuneAccess": "retracted",
-    "expectedTribuneExposed": false
+    "expectedBigPictureAccess": "retracted",
+    "expectedBigPictureExposed": false
   }
 ]

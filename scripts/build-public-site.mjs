@@ -143,6 +143,7 @@ if (sha256(contextNavBytes) !== CONTEXT_NAV_SOURCE_SHA256) {
 function isVisitorHtmlName(name) {
   return (
     name.endsWith('.html')
+    && name !== 'logo-preview.html'
     && !name.startsWith('_')
     && !name.startsWith('preview')
     && !name.startsWith('design-comp')

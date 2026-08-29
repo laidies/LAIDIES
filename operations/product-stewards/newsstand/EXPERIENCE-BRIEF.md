@@ -8,10 +8,10 @@ ROOM APPROVAL PENDING
 
 This brief recovers the NewsStand from locked editorial decisions, approved
 building intent and exact current source. Current code is evidence, not
-automatic design authority. Older TODAY/WEDNESDAY naming and the instruction to
-clone one Library structure literally are superseded by the exact four
-mastheads and the portfolio ruling that the room/object principle is not a
-template. `LOCKED LEDGER` `ALI CONFIRMED`
+automatic design authority. Older TODAY/WEDNESDAY naming, the four-competing-
+paper model and the instruction to clone one Library structure literally are
+superseded by the one-newspaper decision and the portfolio ruling that the
+room/object principle is not a template. `LOCKED LEDGER` `ALI CONFIRMED`
 
 ## Stable promise and user outcome
 
@@ -19,9 +19,10 @@ The NewsStand helps a visitor answer **what changed, what evidence supports it,
 what it means and what—if anything—she should do differently** without treating
 volume, virality or a publishing calendar as importance. `LOCKED LEDGER`
 
-It contains exactly four distinct recurring publications: **The Breaking**,
-**The Daily**, **The Weekly** and **The Tribune**. The internal edition keys are
-exactly `breaking`, `daily`, `weekly` and `tribune`. `LOCKED LEDGER`
+Its one newspaper contains four editorial jobs: **The Breaking**, **The
+Daily**, **The Weekly** and **The Big Picture**. **The Tribune is retired.** The
+active internal keys are `breaking`, `daily`, `weekly` and `big-picture`.
+`LOCKED LEDGER`
 
 - **The Breaking** is a rare qualified interruption when waiting would
   materially disadvantage the reader; a qualifying model release may count
@@ -32,8 +33,9 @@ exactly `breaking`, `daily`, `weekly` and `tribune`. `LOCKED LEDGER`
 - **The Weekly** is a durable synthesis that connects the week's evidence; it
   is not a bundle of Daily cards or the retired WEDNESDAY masthead.
   `LOCKED LEDGER`
-- **The Tribune** is a sourced, visibly labelled argument that separates
-  evidence, inference and position. `LOCKED LEDGER`
+- **The Big Picture** is ongoing, sourced analysis of consequential AI threads.
+  It separates evidence, inference and position, shows the latest admitted
+  analysis and links to the complete Big Picture archive. `LOCKED LEDGER`
 
 A clear day, quiet paper, editorial hold, overdue check, correction or
 retraction is a valid and visible result. No paper exists to fill space.
@@ -87,10 +89,10 @@ browse/read/current/archive experience within the later sitewide style ruling.
 
 ## Complete owned product tree
 
-- `/newsstand.html`: building arrival, Paige, the four-paper rack, desk state,
+- `/newsstand.html`: building arrival, Paige, the one-paper reader, desk state,
   reader, direct hash routes, Back/Forward recovery, archive search and the
   stand's audio control. `CURRENT IMPLEMENTATION OBSERVED`
-- **The Breaking**, **The Daily**, **The Weekly** and **The Tribune**:
+- **The Breaking**, **The Daily**, **The Weekly** and **The Big Picture**:
   publication-specific reader jobs, quiet/hold/freshness rules and editorial
   handoff contracts. `LOCKED LEDGER`
 - `content/newsstand.schema.json`, `content/newsstand-stories.js` and
@@ -117,8 +119,8 @@ absorb them. `APPROVED BRIEF/ARTIFACT`
 | Object/component | Discoverability and action | State/result/next step | Provenance |
 |---|---|---|---|
 | Paige and room | Establish the place and editorial standard before selection | Visitor understands this is a source-checking desk, not a feed | `APPROVED BRIEF/ARTIFACT` |
-| Four publication controls | All four jobs and dated states visible before opening | Opens exactly one paper or an honest quiet/hold/stale/unavailable notice | `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED` |
-| Physical paper objects | Obvious live controls composited with the room, never invisible hotspots | Pull paper in place; current source only has Weekly and Tribune props, so complete four-paper treatment is unresolved | `APPROVED BRIEF/ARTIFACT` `CURRENT IMPLEMENTATION OBSERVED` |
+| Four editorial-job controls | All four jobs and dated states visible within one newspaper | Opens the relevant section or an honest quiet/hold/stale/unavailable notice | `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED` |
+| Physical newspaper | One obvious live paper control composited with the room, never an invisible hotspot | Pull one complete newspaper in place and move among its four jobs | `APPROVED BRIEF/ARTIFACT` `CURRENT IMPLEMENTATION OBSERVED` |
 | Paige's state board | Dated global and per-paper state in the arrival flow | Current, clear, quiet, hold, stale, unavailable or no-data result; no visit timestamp masquerades as freshness | `LOCKED LEDGER` |
 | Front-story card/headline | Visible edition, published date, checked date and source status | Opens the eligible full story at `#slug`; held/stale/retracted bodies remain blocked | `CURRENT IMPLEMENTATION OBSERVED` |
 | Full paper/article | Structured explanation, source links, uncertainty/correction context | Reader understands the event, evidence, consequence, limits and useful next route | `LOCKED LEDGER` |
@@ -147,20 +149,19 @@ credit. `LOCKED LEDGER`
 Health, medical, privacy, safety, legal, financial and other hard-hold work
 cannot become visible solely from interested-party evidence. `LOCKED LEDGER`
 
-The exact local dataset observed during recovery records Breaking `quiet`
-(`maxAgeHours: 24`), Daily `quiet` (`36`), Weekly `hold` (`192`) and Tribune
-`current` (`336`), with all four last checked at
-`2026-07-25T19:30:00Z`. Those stored values are inputs to a time-relative
-runtime decision, not a new 2026-07-26 freshness verification.
+The active local dataset uses the four current keys and a time-relative access
+gate. The latest publicly admitted Daily remains historical; the August 23
+review envelope is private, carries zero admitted stories/desks and awaits
+role-distinct admission. A page visit never renews publication freshness.
 `CURRENT IMPLEMENTATION OBSERVED`
 
-The held Health Weekly and approved-source-evidence Tribune have adjacent
-private evidence manifests. Neither manifest proves a deployed or currently
-publicly verified story. `CURRENT IMPLEMENTATION OBSERVED`
+Historical held Weekly and Big Picture predecessor evidence remain private.
+Neither a manifest nor a local render proves a deployed or currently publicly
+verified story. `CURRENT IMPLEMENTATION OBSERVED`
 
-Legacy TODAY/WEDNESDAY product identity, painted placeholder mastheads,
-candidate Paige/rack art and the old `hot-goss-feed.json` are not admitted
-four-publication authority. `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED`
+Legacy TODAY/WEDNESDAY/Tribune product identity, painted placeholder mastheads,
+candidate Paige/rack art and the old `hot-goss-feed.json` are not active
+one-newspaper authority. `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED`
 
 ## Journeys
 
@@ -195,21 +196,6 @@ The Breaking and current The Daily visibility; The Breaking collapses on a
 clear day. Exact production composition remains unimplemented.
 `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED`
 
-The NewsStand also owns the complete public `What is new in SUNNYVAiLE` change
-list linked from the Homepage. This is a cross-town service desk, not a fifth
-publication and not editorial permission to collapse the four paper jobs. Its
-records come only from verified public releases and identify the changed
-chapter, book, episode, feature or other visitor-facing route with its public
-date and destination. The Homepage consumes a concise projection; the
-NewsStand exposes the complete list.
-
-Personalized `since your last visit` filtering requires an account-backed
-last-seen boundary plus the complete versioned change inventory. Neither is
-currently proved. Until both pass end to end, the NewsStand shows public recent
-changes and a truthful sign-in invitation without implying that a browser
-timestamp, Resident Card or token proves what the visitor has seen.
-`ALI CONFIRMED` `BUILD REQUIRED`
-
 NewsStand applies current evidence; the Library owns durable reference, High
 owns sequenced instruction/assessment, Episodes own narrative teaching and
 FAiRY owns bounded personal help. A story may hand to those products but may
@@ -232,11 +218,6 @@ brief, and a failed/unavailable desk must not earn “caught up” by implicatio
 - **Reader continuity:** browser `history.state` only for the bounded tested
   paper/search/hash restoration; no account or cross-device store.
   `CURRENT IMPLEMENTATION OBSERVED`
-- **Cross-town change continuity:** a public release-derived change store and
-  an account-backed last-seen producer/store/consumer contract are both
-  missing. Public recent changes may be shown once the release-derived store is
-  proved; personalized filtering remains held until Identity and Platform pass
-  the full lifecycle. `BUILD REQUIRED`
 - **Editorial admission/freshness:** canonical dataset plus centralized
   `accessDecision`; immutable source receipts, independent authority and a
   canonical write transaction are missing. `CURRENT IMPLEMENTATION OBSERVED`

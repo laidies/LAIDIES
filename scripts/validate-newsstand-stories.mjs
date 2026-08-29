@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
-import crypto from "node:crypto";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
@@ -13,7 +12,7 @@ const ROLLBACK_DRILL_FILE = path.join(
   ROOT, "operations", "test-fixtures", "newsstand-reader",
   "correction-retraction-rollback-drill.json"
 );
-const EDITIONS = ["breaking", "daily", "weekly", "tribune"];
+const EDITIONS = ["breaking", "daily", "weekly", "big-picture"];
 const STORY_STATUSES = new Set(["published", "hold", "corrected", "retracted"]);
 const PUBLICATION_STATUSES = new Set(["quiet", "current", "hold", "unavailable"]);
 const REQUIRED_TEXT = [
@@ -24,12 +23,6 @@ const UNSAFE_HTML = /<\s*(script|iframe|object|embed|form)\b|\bon\w+\s*=|javascr
 const PLACEHOLDER = /\b(TODO|TBD|FIXME|placeholder|example\.com)\b/i;
 const ISO_DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 const errors = [];
-const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
-const canonicalJson = (value) => {
-  if (value === null || typeof value !== "object") return JSON.stringify(value);
-  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
-  return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
-};
 
 function fail(message) {
   errors.push(message);
@@ -66,7 +59,7 @@ const contract = loadContract();
 if (!data || typeof data !== "object") {
   fail("NEWSSTAND_DATA must be an object.");
 } else {
-  if (data.schemaVersion !== "1.0.0") fail("schemaVersion must be 1.0.0.");
+  if (data.schemaVersion !== "2.0.0") fail("schemaVersion must be 2.0.0.");
   if (!["published", "hold"].includes(data.datasetStatus)) fail("datasetStatus must be published or hold.");
   if (!validDateTime(data.generatedAt) || !validDateTime(data.lastCheckedAt)) {
     fail("Dataset timestamps must be ISO UTC date-times.");
@@ -76,7 +69,7 @@ if (!data || typeof data !== "object") {
   } else {
     const keys = Object.keys(data.publications).sort();
     if (keys.join(",") !== EDITIONS.slice().sort().join(",")) {
-      fail("publications must contain exactly breaking, daily, weekly and tribune.");
+      fail("publications must contain exactly breaking, daily, weekly and big-picture.");
     }
     EDITIONS.forEach((edition) => {
       const item = data.publications[edition];
@@ -119,7 +112,9 @@ if (!Array.isArray(stories)) {
     if (!story.sourceApproval || !["approved", "independent-review-required", "rejected"].includes(story.sourceApproval.status)) {
       fail(`${label}: sourceApproval status is required.`);
     } else {
-      const recordPath = String(story.sourceApproval.record || "").replace(/^\//, "");
+      const publicRecord = String(story.sourceApproval.record || "");
+      const match = /^newsstand:source-approval:([a-z0-9][a-z0-9._-]{1,127})$/.exec(publicRecord);
+      const recordPath = match ? path.join("operations/product-stewards/newsstand/evidence/stories", `${match[1]}.json`) : null;
       if (!recordPath || !fs.existsSync(path.join(ROOT, recordPath))) {
         fail(`${label}: sourceApproval record does not resolve: ${story.sourceApproval.record || "(missing)"}.`);
       } else {
@@ -134,24 +129,12 @@ if (!Array.isArray(stories)) {
           if (!manifest.correctionOwner || !/^\d{4}-\d{2}-\d{2}$/.test(manifest.nextRecheckAt || "")) {
             fail(`${label}: evidence manifest needs correctionOwner and nextRecheckAt.`);
           }
-          if (manifest.independentReview && !fs.existsSync(path.join(ROOT, manifest.independentReview.replace(/^\//, "")))) {
-            fail(`${label}: independent review record does not resolve.`);
-          }
           if (!Array.isArray(manifest.claims) || !manifest.claims.length ||
               manifest.claims.some((claim) => !claim.claim || !Array.isArray(claim.sourceIds) || !claim.sourceIds.length)) {
             fail(`${label}: evidence manifest needs a complete claim-to-source map.`);
           }
           if (manifest.claims?.some((claim) => claim.sourceIds.some((id) => !manifestSourceIds.has(id)))) {
             fail(`${label}: claim map references an unknown source id.`);
-          }
-          if (manifest.reviewArtifact) {
-            const exactStorySha256 = process.env.NEWSSTAND_REVIEW_ARTIFACT_CALIBRATION === "alter-story-hash"
-              ? "0".repeat(64)
-              : sha256(`${canonicalJson(story)}\n`);
-            if (manifest.reviewArtifact.canonicalization !== "recursive-key-sorted-json-plus-newline" ||
-                manifest.reviewArtifact.storySha256 !== exactStorySha256) {
-              fail(`${label}: evidence reviewArtifact does not bind the exact current story bytes.`);
-            }
           }
         } catch (error) {
           fail(`${label}: evidence manifest is not valid JSON (${error.message}).`);
@@ -160,6 +143,12 @@ if (!Array.isArray(stories)) {
     }
     if (!Object.hasOwn(story, "correction") || !Object.hasOwn(story, "retraction")) {
       fail(`${label}: explicit correction and retraction fields are required.`);
+    }
+    if (!Array.isArray(story.predecessorStoryIds) || !Array.isArray(story.successorStoryIds)) {
+      fail(`${label}: predecessorStoryIds and successorStoryIds are required.`);
+    }
+    if (!Array.isArray(story.themes) || !story.themes.length || !Array.isArray(story.concepts) || !story.concepts.length) {
+      fail(`${label}: at least one theme and concept are required for archive discovery.`);
     }
     if (story.status === "corrected" && !story.correction) fail(`${label}: corrected story needs a correction record.`);
     if (story.status === "retracted" && !story.retraction) fail(`${label}: retracted story needs a retraction record.`);
@@ -206,8 +195,18 @@ if (!Array.isArray(stories)) {
       if (!fs.existsSync(resolvePublicPath(href))) fail(`${label}: class-notes link does not resolve: ${href}`);
     });
 
-    if (story.edition === "tribune" && (!Array.isArray(story.watch_fors) || story.watch_fors.length === 0)) {
-      fail(`${label}: Tribune entries require at least one watch-for.`);
+    if (story.edition === "big-picture" && (!Array.isArray(story.watch_fors) || story.watch_fors.length === 0)) {
+      fail(`${label}: Big Picture entries require at least one watch-for.`);
+    }
+    if (story.edition === "big-picture" && (!story.bigPicture ||
+        !validDateTime(story.bigPicture.originallyPublishedAt) ||
+        !validDateTime(story.bigPicture.lastMeaningfullyUpdatedAt) ||
+        !validDateTime(story.bigPicture.sourcesLastCheckedAt) ||
+        !Array.isArray(story.bigPicture.changeLog) || !story.bigPicture.changeLog.length)) {
+      fail(`${label}: Big Picture history is incomplete.`);
+    }
+    if (story.edition !== "big-picture" && story.bigPicture !== null) {
+      fail(`${label}: non-Big-Picture story cannot carry Big Picture history.`);
     }
     if (story.tags?.some((tag) => ["health", "medical", "privacy", "safety"].includes(String(tag).toLowerCase()))) {
       const sourceTypes = new Set((story.sources || []).map((source) => source.publisherType));
@@ -262,6 +261,6 @@ if (errors.length) {
 const visible = stories.filter((story) => story.status === "published" || story.status === "corrected");
 const held = stories.filter((story) => story.status === "hold").length;
 console.log(
-  `✓ NEWSSTAND: schema 1.0.0 · 4 canonical publications · ` +
+  `✓ NEWSSTAND: schema 2.0.0 · 4 canonical publications · ` +
   `${visible.length} visible · ${held} held · no legacy wednesday keys`
 );

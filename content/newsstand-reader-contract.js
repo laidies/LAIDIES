@@ -6,7 +6,7 @@
 })(typeof window !== "undefined" ? window : null, function () {
   "use strict";
 
-  var EDITIONS = ["breaking", "daily", "weekly", "tribune"];
+  var EDITIONS = ["breaking", "daily", "weekly", "big-picture"];
   var STORY_STATUSES = ["published", "hold", "corrected", "retracted"];
   var PUBLICATION_STATUSES = ["quiet", "current", "hold", "unavailable"];
 
@@ -17,7 +17,7 @@
   function validate(data) {
     var errors = [];
     if (!data || typeof data !== "object") return ["dataset is missing"];
-    if (data.schemaVersion !== "1.0.0") errors.push("unsupported schemaVersion");
+    if (data.schemaVersion !== "2.0.0") errors.push("unsupported schemaVersion");
     if (!validDate(data.generatedAt) || !validDate(data.lastCheckedAt)) errors.push("dataset timestamps are invalid");
     if (!data.publications || typeof data.publications !== "object") {
       errors.push("publications are missing");
@@ -37,6 +37,11 @@
               /^[a-f0-9]{64}$/.test(String(item.issue.sourceIdentity.radarSha256 || ""));
             if ((!issueItems || !issueItems.length) && !quietIssue) errors.push("daily issue has no admitted story or service item and no governed quiet disposition");
           }
+          if (edition === "weekly" && item.status === "current") {
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(String(item.editionDate || ""))) errors.push("weekly editionDate is invalid");
+            else if (new Date(item.editionDate + "T12:00:00Z").getUTCDay() !== 3) errors.push("weekly editionDate must be a Wednesday");
+            if (!item.editorialTimeZone) errors.push("weekly editorialTimeZone is required");
+          }
         }
       });
     }
@@ -50,23 +55,121 @@
         if (!validDate(story && story.publishedAt) || !validDate(story && story.updatedAt) || !validDate(story && story.lastCheckedAt)) {
           errors.push(label + " timestamps are invalid");
         }
-        if (!story || !story.sourceApproval || !story.sourceApproval.status || !story.sourceApproval.record) {
+        if (!story || !story.sourceApproval || !story.sourceApproval.status ||
+            !/^newsstand:source-approval:[a-z0-9][a-z0-9._-]{1,127}$/.test(String(story.sourceApproval.record || ""))) {
           errors.push(label + " source approval is missing");
         }
         if (!story || !Object.prototype.hasOwnProperty.call(story, "correction") ||
+            !Object.prototype.hasOwnProperty.call(story, "correctionHistory") ||
             !Object.prototype.hasOwnProperty.call(story, "retraction")) {
-          errors.push(label + " correction/retraction fields are missing");
+          errors.push(label + " correction history/retraction fields are missing");
+        }
+        if (!story || !Array.isArray(story.correctionHistory)) {
+          errors.push(label + " correction history is missing");
+        } else {
+          var previousCorrectionTime = null;
+          story.correctionHistory.forEach(function (item) {
+            if (!item || !validDate(item.correctedAt) || !item.summary || !item.owner || !item.successorStoryId ||
+                Object.prototype.hasOwnProperty.call(item, "record") || Object.prototype.hasOwnProperty.call(item, "priorStorySha256")) {
+              errors.push(label + " correction history entry is incomplete");
+            }
+            if (previousCorrectionTime && Date.parse(item.correctedAt) <= Date.parse(previousCorrectionTime)) {
+              errors.push(label + " correction history is not append-only by time");
+            }
+            previousCorrectionTime = item && item.correctedAt;
+          });
+          var latestCorrection = story.correctionHistory[story.correctionHistory.length - 1] || null;
+          if (JSON.stringify(story.correction) !== JSON.stringify(latestCorrection)) {
+            errors.push(label + " latest correction does not match correction history");
+          }
+        }
+        if (!story || !Array.isArray(story.predecessorStoryIds) || !Array.isArray(story.successorStoryIds)) {
+          errors.push(label + " story lineage fields are missing");
+        } else {
+          if (new Set(story.predecessorStoryIds).size !== story.predecessorStoryIds.length) errors.push(label + " predecessor lineage contains duplicates");
+          if (new Set(story.successorStoryIds).size !== story.successorStoryIds.length) errors.push(label + " successor lineage contains duplicates");
+        }
+        if (!story || !Array.isArray(story.themes) || !story.themes.length ||
+            !Array.isArray(story.concepts) || !story.concepts.length) {
+          errors.push(label + " theme/concept metadata is missing");
+        }
+        if (story && story.edition === "big-picture" && (!story.bigPicture ||
+            !validDate(story.bigPicture.originallyPublishedAt) ||
+            !validDate(story.bigPicture.lastMeaningfullyUpdatedAt) ||
+            !validDate(story.bigPicture.sourcesLastCheckedAt) ||
+            !Array.isArray(story.bigPicture.changeLog) || !story.bigPicture.changeLog.length)) {
+          errors.push(label + " Big Picture history is incomplete");
+        }
+        if (story && story.edition === "big-picture" && story.bigPicture) {
+          var versionIds = new Set();
+          var previousVersionTime = null;
+          (story.bigPicture.previousVersions || []).forEach(function (version) {
+            if (!version || !version.versionId || versionIds.has(version.versionId) || !validDate(version.replacedAt) ||
+                Object.prototype.hasOwnProperty.call(version, "record") || Object.prototype.hasOwnProperty.call(version, "priorStorySha256")) {
+              errors.push(label + " Big Picture previous version is invalid or duplicated");
+            }
+            if (previousVersionTime && Date.parse(version.replacedAt) <= Date.parse(previousVersionTime)) {
+              errors.push(label + " Big Picture previous versions are not append-only by time");
+            }
+            if (version && version.versionId) versionIds.add(version.versionId);
+            previousVersionTime = version && version.replacedAt;
+          });
+        }
+        if (story && story.edition !== "big-picture" && story.bigPicture !== null) {
+          errors.push(label + " non-Big-Picture story cannot carry Big Picture history");
         }
         if (story && story.status === "corrected" &&
             (!story.correction || !validDate(story.correction.correctedAt) ||
-             !story.correction.summary || !story.correction.owner || !story.correction.record)) {
+             !story.correction.summary || !story.correction.owner || !story.correction.successorStoryId ||
+             Object.prototype.hasOwnProperty.call(story.correction, "record") ||
+             Object.prototype.hasOwnProperty.call(story.correction, "priorStorySha256"))) {
           errors.push(label + " correction binding is incomplete");
+        }
+        if (story && story.status === "corrected" && (!story.correctionHistory || !story.correctionHistory.length)) {
+          errors.push(label + " corrected story has no correction history");
+        }
+        if (story && story.status !== "corrected" && story.correction !== null) {
+          errors.push(label + " non-corrected story cannot expose a current correction");
         }
         if (story && story.status === "retracted" &&
             (!story.retraction || !validDate(story.retraction.retractedAt) ||
-             !story.retraction.reason || !story.retraction.owner || !story.retraction.record)) {
+             !story.retraction.reason || !story.retraction.owner ||
+             Object.prototype.hasOwnProperty.call(story.retraction, "record"))) {
           errors.push(label + " retraction binding is incomplete");
         }
+        if (story && story.status !== "retracted" && story.retraction !== null) {
+          errors.push(label + " non-retracted story cannot expose a retraction");
+        }
+      });
+      var storiesById = new Map();
+      var storySlugs = new Set();
+      data.stories.forEach(function (story) {
+        if (!story || !story.id) return;
+        if (storiesById.has(story.id)) errors.push(story.id + " story id is duplicated");
+        storiesById.set(story.id, story);
+        if (storySlugs.has(story.slug)) errors.push(story.slug + " story slug is duplicated");
+        storySlugs.add(story.slug);
+      });
+      data.stories.forEach(function (story) {
+        if (!story || !story.id) return;
+        if ((story.predecessorStoryIds || []).includes(story.id) || (story.successorStoryIds || []).includes(story.id)) {
+          errors.push(story.id + " story lineage contains a self-link");
+        }
+        (story.successorStoryIds || []).forEach(function (successorId) {
+          var successor = storiesById.get(successorId);
+          if (!successor || !(successor.predecessorStoryIds || []).includes(story.id)) errors.push(story.id + " successor lineage is not reciprocal: " + successorId);
+        });
+        (story.predecessorStoryIds || []).forEach(function (predecessorId) {
+          var predecessor = storiesById.get(predecessorId);
+          if (!predecessor || !(predecessor.successorStoryIds || []).includes(story.id)) errors.push(story.id + " predecessor lineage is not reciprocal: " + predecessorId);
+        });
+        (story.correctionHistory || []).forEach(function (correction) {
+          var successor = storiesById.get(correction.successorStoryId);
+          if (!successor || ["published", "corrected"].indexOf(successor.status) === -1 || successor.relationshipType !== "corrects" ||
+              !(story.successorStoryIds || []).includes(successor.id) || !(successor.predecessorStoryIds || []).includes(story.id)) {
+            errors.push(story.id + " correction successor is missing or not linked as corrects");
+          }
+        });
       });
     }
     return errors;
@@ -88,16 +191,24 @@
     return [values.year, values.month, values.day].join("-");
   }
 
+  function calendarDayOffset(fromDate, toDate) {
+    return (Date.parse(toDate + "T12:00:00Z") - Date.parse(fromDate + "T12:00:00Z")) / 86400000;
+  }
+
   function effectivePublicationState(publication, now) {
     if (!publication) return "unavailable";
     if (publication.status === "hold" || publication.status === "unavailable" || publication.status === "quiet") {
       return publication.status;
     }
+    if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
     if (publication.edition === "daily" && publication.editionDate &&
-        publication.editionDate < calendarDateInZone(now, publication.editorialTimeZone)) {
+        publication.editionDate !== calendarDateInZone(now, publication.editorialTimeZone)) {
       return "archive";
     }
-    if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
+    if (publication.edition === "weekly" && publication.editionDate) {
+      var weeklyAgeDays = calendarDayOffset(publication.editionDate, calendarDateInZone(now, publication.editorialTimeZone));
+      if (weeklyAgeDays < 0 || weeklyAgeDays >= 7) return "archive";
+    }
     return "current";
   }
 
@@ -130,10 +241,9 @@
       publications[edition] = effectivePublicationState(data.publications[edition], now);
     });
     var current = EDITIONS.filter(function (edition) { return publications[edition] === "current"; });
-    var archived = EDITIONS.filter(function (edition) { return publications[edition] === "archive"; });
     var stale = EDITIONS.filter(function (edition) { return publications[edition] === "stale"; });
     var unavailable = EDITIONS.filter(function (edition) { return publications[edition] === "unavailable"; });
-    var state = current.length || archived.length ? "ready" :
+    var state = current.length ? "ready" :
       stale.length ? "stale" :
       unavailable.length ? "unavailable" :
       "clear";
@@ -142,7 +252,6 @@
       errors: [],
       publications: publications,
       currentEditions: current,
-      archivedEditions: archived,
       staleEditions: stale,
       unavailableEditions: unavailable
     };
@@ -161,6 +270,13 @@
       return { canExpose: false, state: "no-data", reason: "The publication record contains no approved story data." };
     }
     if (!edition) {
+      if (context && (context.scope === "search" || context.scope === "archive")) {
+        return {
+          canExpose: dataset.state !== "load-failure" && dataset.state !== "hold" && dataset.state !== "no-data",
+          state: "archive",
+          reason: ""
+        };
+      }
       return {
         canExpose: dataset.state === "ready" || dataset.state === "clear",
         state: dataset.state,
@@ -194,7 +310,8 @@
         reason: "This story is not published yet."
       };
     }
-    if (publicationState === "stale") {
+    var archiveScope = story && context && ["search", "archive", "hash"].indexOf(context.scope) !== -1;
+    if (publicationState === "stale" && !archiveScope) {
       return {
         canExpose: false,
         state: "stale",
@@ -211,10 +328,7 @@
     if (publicationState === "quiet") {
       return { canExpose: false, state: "quiet", edition: edition, reason: publication.note || "No qualified issue is filed." };
     }
-    var storyMaxAgeHours = publicationState === "archive"
-      ? Math.max(Number(publication.maxAgeHours), 720)
-      : Number(publication.maxAgeHours);
-    if (story && ageHours(story.lastCheckedAt, now) > storyMaxAgeHours) {
+    if (story && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours) && !archiveScope) {
       return {
         canExpose: false,
         state: "stale",
@@ -242,10 +356,13 @@
     if (state === "unavailable") {
       return { canExpose: false, state: "unavailable", edition: edition, reason: "This story record is unavailable." };
     }
+    var archivedByAge = archiveScope && (publicationState === "stale" ||
+      ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours));
     return {
       canExpose: true,
-      state: state,
+      state: archivedByAge && state === "published" ? "archive" : state,
       edition: edition,
+      archive: archiveScope,
       correction: state === "corrected" ? story.correction : null,
       reason: ""
     };

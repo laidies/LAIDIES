@@ -6,19 +6,21 @@
     <title>SUNNYVAiLE NewsStand · LAiDIES</title>
     <meta name="description" content="AI news translated at the SUNNYVAiLE NewsStand through The Breaking, The Daily, The Weekly and The Big Picture.">
     <meta property="og:title" content="SUNNYVAiLE NewsStand · LAiDIES">
-    <meta property="og:description" content="AI news translated through four distinct papers, with no filler when there is no qualified issue.">
+    <meta property="og:description" content="One source-checked AI newspaper: current news, the Wednesday Weekly, Big Picture analysis and useful recurring desks—without filler.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
+    <link rel="alternate" type="application/feed+json" title="LAiDIES NewsStand latest publications" href="./content/newsstand-public-feed.json">
+    <link rel="icon" type="image/svg+xml" href="./approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
-    <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
-    <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="/content/newsstand.css?v=20260805-newsstand-v22">
-    <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
-    <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
-    <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/sunnyvaile-page.css?v=20260715-hero">
+    <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
+    <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
+    <link rel="stylesheet" href="./content/newsstand.css?v=20260823-front-paige-v8">
+    <link rel="stylesheet" href="./content/newsstand-v12.css?v=20260823-editorial-flow-v12-4">
+    <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
+    <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
+    <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>
       window.plausible = window.plausible || function () {
@@ -60,86 +62,98 @@
     </nav>
 
     <main class="ns-page" id="newsstand-main">
-      <section class="ns-room" aria-label="Paige at the SUNNYVAiLE NewsStand">
-        <div class="ns-room__scene">
-          <figure class="ns-paige">
-            <div class="ns-paige__crop">
-              <img src="/assets/town-characters/scenes/paige-scene.png" alt="Paige at the NewsStand beside her source-check board: Ask questions, Check sources, Get the real story.">
+      <section class="ns-room" aria-label="The SUNNYVAiLE NewsStand">
+        <div class="ns-counter-surface" id="newsstand-counter">
+          <header class="ns-v11-brandbar">
+            <figure class="ns-paige ns-v11-paige">
+              <div class="ns-paige__crop">
+                <img src="./assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the SUNNYVAiLE NewsStand counter beside her source-checking board.">
+              </div>
+            </figure>
+            <div class="ns-v11-brandcopy">
+              <p class="ns-v11-location">Paige&rsquo;s NewsStand · MAiN Street No. 2</p>
+              <h1>THE SUNNYVA<span class="ns-brand-i">i</span>LE NEWSSTAND</h1>
+              <p>AI news, explained for your work and life.</p>
             </div>
-          </figure>
-          <section class="ns-state" aria-labelledby="ns-building-title">
-            <div class="ns-state__inner">
-              <p class="ns-address">MAiN Street No. 2 · Keeper: Paige</p>
-              <div class="ns-state__copy">
-                <h1 id="ns-building-title">The SUNNYVA<span class="ns-brand-i">i</span>LE NewsStand.</h1>
-                <h2 id="ns-title">Checking Paige&rsquo;s desk.</h2>
-                <p id="ns-state-detail">Paige is checking today&rsquo;s rack for the latest published stories.</p>
+          </header>
+          <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE Daily front page">
+            <header class="ns-one-paper__masthead">
+              <div class="ns-masthead-flag">
+                <p class="ns-address">The Daily</p>
+                <p class="ns-newsroom-date" id="ns-newsroom-date">Today at the NewsStand</p>
+              </div>
+              <div class="ns-masthead-title">
+                <h2 id="ns-building-title">THE SUNNYVA<span class="ns-brand-i">i</span>LE DAILY</h2>
+                <p>News · Analysis · Practical guidance</p>
+              </div>
+            </header>
+            <section class="ns-state ns-newsroom-bar ns-paper-statusbar" aria-labelledby="ns-title">
+              <div class="ns-newsroom-bar__status">
+                <h2 id="ns-title">Latest edition</h2>
+                <p id="ns-state-detail">Open today&rsquo;s paper or browse earlier editions.</p>
                 <p class="ns-system-status" id="ns-system-status" role="status" aria-live="polite"></p>
               </div>
               <div class="ns-state__actions">
-                <button class="ns-state__primary" type="button">Choose a paper</button>
+                <button class="ns-state__primary" type="button">Browse the archive</button>
                 <button class="ns-catchup-jump" type="button">Catch me up</button>
-                <button class="ns-radio" type="button" data-src="/content/music/sunnyvaile-newsstand.mp3">
-                  Listen to &ldquo;The Newsstand&rdquo;
+              </div>
+            </section>
+            <section class="ns-breaking-strip" aria-label="Breaking desk">
+              <p>Breaking</p>
+              <strong data-status-for="breaking">Checking…</strong>
+              <span data-contents-for="breaking" aria-live="polite"></span>
+            </section>
+            <div class="ns-front-page-grid">
+              <button class="ns-front-desk ns-front-desk--big-picture ns-front-open" type="button" data-open-edition="big-picture">
+                <span class="ns-front-desk__label">The Big Picture</span>
+                <strong class="ns-front-column-promise">Latest analysis</strong>
+                <span class="ns-front-status" data-status-for="big-picture" aria-hidden="true">Checking…</span>
+                <span class="ns-front-contents" data-contents-for="big-picture" aria-live="polite"></span>
+                <span class="ns-front-action">Open Big Picture →</span>
+              </button>
+              <button class="ns-front-desk ns-front-desk--lead ns-publication ns-publication--daily" type="button" data-edition="daily" aria-pressed="false">
+                <span class="ns-front-desk__label">THE FRONT PA<span class="ns-brand-i">i</span>GE</span>
+                <span class="ns-front-paige-image" hidden>
+                  <img alt="">
+                  <small class="ns-front-paige-image__credit"></small>
+                </span>
+                <strong class="ns-front-paige-promise">Today&rsquo;s lead story</strong>
+                <span class="ns-publication__status" data-status-for="daily" aria-hidden="true">Loading the edition…</span>
+                <span class="ns-publication__contents" data-contents-for="daily" aria-live="polite"></span>
+                <span class="ns-publication__action">Read The Daily →</span>
+              </button>
+              <div class="ns-front-page-grid__right">
+                <section class="ns-front-desk ns-front-desk--more-daily">
+                  <span class="ns-front-desk__label">Also in The Daily</span>
+                  <div class="ns-front-secondary" data-secondary-for="daily" aria-live="polite">Checking for additional stories…</div>
+                </section>
+                <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
+                  <span class="ns-front-desk__label">The Weekly</span>
+                  <strong class="ns-front-column-promise">Wednesday to Wednesday</strong>
+                  <span class="ns-front-status" data-status-for="weekly" aria-hidden="true">Checking…</span>
+                  <span class="ns-front-contents" data-contents-for="weekly" aria-live="polite"></span>
+                  <span class="ns-front-action">Open the roundup →</span>
                 </button>
               </div>
             </div>
-          </section>
-        </div>
-        <div class="ns-counter-surface" id="newsstand-counter">
-          <div class="ns-counter-intro">
-            <p class="ns-counter-kicker">Paige&rsquo;s press counter · Four papers, four jobs</p>
-            <h2>Choose the paper that matches what you need.</h2>
-            <p>Each paper tells you what it covers and whether there is a current issue before you pull it. Opening one unfolds its front page at the counter.</p>
+            <section class="ns-feature-desk" aria-labelledby="ns-feature-desk-title">
+              <div class="ns-feature-desk__head">
+                <p class="ns-front-desk__label">Columns</p>
+                <h4 id="ns-feature-desk-title">More from the NewsStand</h4>
+              </div>
+              <ul class="ns-feature-desk__grid">
+                <li data-desk="paige_tip"><strong>Paige&rsquo;s Practical Tip</strong><span>Loading today&rsquo;s tip…</span></li>
+                <li data-desk="career_life"><strong>Career / Work-Life</strong><span>Loading today&rsquo;s column…</span></li>
+                <li data-desk="concept_week"><strong>Concept of the Week</strong><span>Loading this week&rsquo;s concept…</span></li>
+                <li data-desk="mme_claio"><strong>Mme CLA<span class="ns-brand-i">i</span>-O</strong><span>Loading today&rsquo;s reading…</span></li>
+                <li data-desk="behind_build"><strong>Behind the Build</strong><span>Loading the latest report…</span></li>
+                <li data-desk="around_town"><strong>Around Town</strong><span>Loading the town desk…</span></li>
+                <li data-desk="crossword"><strong>Crossword</strong><span>Loading today&rsquo;s puzzle…</span></li>
+                <li data-desk="did_you_know"><strong>Did You Know?</strong><span>Loading today&rsquo;s fact…</span></li>
+              </ul>
+            </section>
           </div>
-          <p class="ns-counter-browse" id="ns-counter-browse">All four papers are shown on Paige&rsquo;s rack.</p>
-          <nav class="ns-paper-index" aria-label="Choose from all four NewsStand papers">
-            <button type="button" data-edition="breaking" aria-pressed="false"><strong>The Breaking</strong><span class="ns-paper-index__job">News as it happens</span><span data-status-for="breaking">Checking…</span><span class="ns-paper-index__action" data-index-action-for="breaking">Checking what opens…</span></button>
-            <button type="button" data-edition="daily" aria-pressed="false"><strong>The Daily</strong><span class="ns-paper-index__job">Dated news, Promptoscope and useful daily desks</span><span data-status-for="daily">Checking…</span><span class="ns-paper-index__action" data-index-action-for="daily">Checking what opens…</span></button>
-            <button type="button" data-edition="weekly" aria-pressed="false"><strong>The Weekly</strong><span class="ns-paper-index__job">The week&rsquo;s bigger picture</span><span data-status-for="weekly">Checking…</span><span class="ns-paper-index__action" data-index-action-for="weekly">Checking what opens…</span></button>
-            <button type="button" data-edition="tribune" aria-pressed="false"><strong>The Big Picture</strong><span class="ns-paper-index__job">The deeper story behind the headlines</span><span data-status-for="tribune">Checking…</span><span class="ns-paper-index__action" data-index-action-for="tribune">Checking what opens…</span></button>
-          </nav>
-          <div class="ns-rack-stage" id="newsstand-rack">
-            <img
-              class="ns-rack-stage__art"
-              src="/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/newsstand-live-four-paper-rack-crop-v1.png"
-              alt=""
-              aria-hidden="true"
-              width="1680"
-              height="625"
-            >
-            <div class="ns-publications" aria-label="The four NewsStand publications" aria-describedby="ns-counter-browse">
-            <button class="ns-publication" type="button" data-edition="breaking" aria-pressed="false">
-              <strong>The Breaking</strong>
-              <span class="ns-publication__job">News as it happens</span>
-              <span class="ns-publication__status" data-status-for="breaking">Checking the desk…</span>
-              <span class="ns-publication__contents" data-contents-for="breaking" aria-live="polite"></span>
-              <span class="ns-publication__action">Checking what opens…</span>
-            </button>
-            <button class="ns-publication" type="button" data-edition="daily" aria-pressed="false">
-              <strong>The Daily</strong>
-              <span class="ns-publication__job">Dated news, Promptoscope and useful daily desks</span>
-              <span class="ns-publication__status" data-status-for="daily">Checking the desk…</span>
-              <span class="ns-publication__contents" data-contents-for="daily" aria-live="polite"></span>
-              <span class="ns-publication__action">Checking what opens…</span>
-            </button>
-            <button class="ns-publication" type="button" data-edition="weekly" aria-pressed="false">
-              <strong>The Weekly</strong>
-              <span class="ns-publication__job">The week&rsquo;s bigger picture</span>
-              <span class="ns-publication__status" data-status-for="weekly">Checking the desk…</span>
-              <span class="ns-publication__contents" data-contents-for="weekly" aria-live="polite"></span>
-              <span class="ns-publication__action">Checking what opens…</span>
-            </button>
-            <button class="ns-publication" type="button" data-edition="tribune" aria-pressed="false">
-              <strong>The Big Picture</strong>
-              <span class="ns-publication__job">The deeper story behind the headlines</span>
-              <span class="ns-publication__status" data-status-for="tribune">Checking the desk…</span>
-              <span class="ns-publication__contents" data-contents-for="tribune" aria-live="polite"></span>
-              <span class="ns-publication__action">Checking what opens…</span>
-            </button>
-            </div>
-          </div>
-          <p class="ns-counter-note">The rack grows by adding issues inside these papers—not by hiding more sections below the counter.</p>
+          <p class="ns-counter-note">Older reporting, Weekly roundups and Big Picture pieces remain in the full archive below.</p>
         </div>
       </section>
 
@@ -158,7 +172,7 @@
           </header>
           <div id="ns-rack" aria-live="polite"></div>
           <div id="ns-empty" class="ns-empty" role="status" tabindex="-1" hidden>
-            Paige is still checking this desk. Nothing has been filed here yet.
+            There is nothing new in this section today.
           </div>
         </article>
       </section>
@@ -167,7 +181,7 @@
         <div class="ns-catchup__intro">
           <p class="ns-kicker">Returning to the counter?</p>
           <h2 id="ns-catchup-title">Catch me up.</h2>
-          <p>Start with the latest complete Daily, check the Weekly, then review the eligible headlines and desk items filed on or after your last visit.</p>
+          <p>Start with the latest Daily, check the Weekly, then review the headlines and columns published since your last visit.</p>
         </div>
         <div class="ns-catchup__controls">
           <label for="ns-catchup-since">Start with</label>
@@ -177,11 +191,11 @@
         <div class="ns-catchup__results" id="ns-catchup-results" aria-live="polite"></div>
       </section>
 
-      <section class="ns-archive" aria-labelledby="ns-archive-title">
+      <section class="ns-archive" id="newsstand-archive" aria-labelledby="ns-archive-title">
         <div class="ns-archive__label">
           <p class="ns-kicker">The crate under the counter</p>
           <h2 id="ns-archive-title">Find a back issue.</h2>
-          <p>Search every filed issue across all four publications. Results open in the same reading space above.</p>
+          <p>Search every published NewsStand item by date, theme or concept. Results open in the same reading space above.</p>
         </div>
         <div class="ns-archive__search">
           <label for="ns-search-input">What are you trying to find?</label>
@@ -190,6 +204,21 @@
             <button id="ns-search-button" type="button">Search the crate</button>
           </div>
           <p class="ns-archive__hint" id="ns-search-hint">Browse all, choose a topic, or search the crate.</p>
+          <div class="ns-archive__filters" aria-label="Filter the NewsStand archive">
+            <label for="ns-archive-from">From date
+              <input id="ns-archive-from" type="date">
+            </label>
+            <label for="ns-archive-to">To date
+              <input id="ns-archive-to" type="date">
+            </label>
+            <label for="ns-archive-theme">Theme
+              <select id="ns-archive-theme"><option value="">All themes</option></select>
+            </label>
+            <label for="ns-archive-concept">Concept
+              <select id="ns-archive-concept"><option value="">All concepts</option></select>
+            </label>
+            <button id="ns-archive-clear" type="button">Clear filters</button>
+          </div>
           <button class="ns-archive__browse-all" id="ns-browse-all" type="button">Browse all back issues</button>
           <div class="ns-topic-browser" id="ns-topic-browser" hidden>
             <p id="ns-topic-title">Browse by topic</p>
@@ -203,8 +232,9 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="/content/newsstand-reader-contract.js?v=20260804-daily-issue-v3"></script>
-    <script src="/content/newsstand-stories.js?v=20260812-backfill-v1"></script>
+    <script src="./content/newsstand-reader-contract.js?v=20260823-newsstand-v1"></script>
+    <script src="./content/newsstand-stories.js?v=20260823-reader-copy-v3"></script>
+    <script src="./content/newsstand-current-issue.js?v=20260829-owner-release-v1"></script>
     <script>
       (function () {
         "use strict";
@@ -213,7 +243,7 @@
           breaking: {
             label: "The Breaking",
             title: "News as it happens.",
-            empty: "No breaking story right now. Enjoy the quiet."
+            empty: "No breaking story."
           },
           daily: {
             label: "The Daily",
@@ -223,12 +253,12 @@
           weekly: {
             label: "The Weekly",
             title: "This week’s front page.",
-            empty: "No Weekly issue is currently filed."
+            empty: "No Weekly roundup is available this week."
           },
-          tribune: {
+          "big-picture": {
             label: "The Big Picture",
-            title: "The argument.",
-            empty: "The Big Picture desk has no deeper story ready yet."
+            title: "The latest living argument.",
+            empty: "No Big Picture analysis is available yet."
           },
           search: {
             label: "Back issues",
@@ -265,7 +295,7 @@
         };
 
         var contract = window.NewsstandContract || {
-          EDITIONS: ["breaking", "daily", "weekly", "tribune"],
+          EDITIONS: ["breaking", "daily", "weekly", "big-picture"],
           datasetState: function () { return { state: "load-failure", errors: ["reader contract did not load"] }; },
           accessDecision: function () { return { canExpose: false, state: "load-failure", reason: "The publication record did not load." }; },
           effectivePublicationState: function () { return "unavailable"; },
@@ -282,17 +312,52 @@
           : JSON.parse(JSON.stringify(data.stories || [])).sort(function (a, b) {
               return String(b.publishedAt).localeCompare(String(a.publishedAt));
             });
+        var archiveIndex = { schemaVersion: "newsstand-archive-v1", items: [] };
+        function reconcileHistoricalDailySnapshot(snapshot) {
+          var canonical = stories.find(function (story) {
+            return story.edition === "daily" && story.id === snapshot.id;
+          });
+          if (!canonical) return snapshot;
+          var canonicalSources = canonical.sources || [];
+          var snapshotSources = snapshot.sources || [];
+          var sameSources = canonicalSources.length === snapshotSources.length && canonicalSources.every(function (source, index) {
+            var prior = snapshotSources[index] || {};
+            return ["id", "label", "url", "publisherType", "accessedAt", "approvalStatus"].every(function (key) {
+              return source[key] === prior[key];
+            });
+          });
+          var samePublishedBytes = ["slug", "publishedAt", "updatedAt", "headline", "the_story", "laidies_read", "what_this_means"].every(function (key) {
+            return canonical[key] === snapshot[key];
+          }) && sameSources;
+          if (!samePublishedBytes) return snapshot;
+          return Object.assign({}, snapshot, {
+            status: canonical.status,
+            sourceApproval: canonical.sourceApproval,
+            correction: canonical.correction || null,
+            correctionHistory: canonical.correctionHistory || [],
+            retraction: canonical.retraction || null,
+            predecessorStoryIds: canonical.predecessorStoryIds || [],
+            successorStoryIds: canonical.successorStoryIds || [],
+            relationshipType: canonical.relationshipType || null,
+            bigPicture: null,
+            themes: canonical.themes || canonical.tags || [],
+            concepts: canonical.concepts || []
+          });
+        }
         window.addEventListener("newsstand:daily-snapshots-admitted", function (event) {
           var daily = event.detail && Array.isArray(event.detail.stories)
             ? JSON.parse(JSON.stringify(event.detail.stories))
             : [];
-          stories = stories.filter(function (story) { return story.edition !== "daily"; }).concat(daily).sort(function (a, b) {
+          daily = daily.map(reconcileHistoricalDailySnapshot);
+          var existingDaily = stories.filter(function (story) { return story.edition === "daily"; });
+          var existingIds = new Set(existingDaily.map(function (story) { return story.id; }));
+          var mergedDaily = existingDaily.concat(daily.filter(function (story) {
+            return !existingIds.has(story.id);
+          }));
+          stories = stories.filter(function (story) { return story.edition !== "daily"; }).concat(mergedDaily).sort(function (a, b) {
             return String(b.publishedAt).localeCompare(String(a.publishedAt));
           });
           data.stories = JSON.parse(JSON.stringify(stories));
-          if (event.detail && event.detail.publication) {
-            data.publications.daily = JSON.parse(JSON.stringify(event.detail.publication));
-          }
         });
         var selectedEdition = null;
         var lastInvoker = null;
@@ -388,7 +453,8 @@
 
         function newestDate(list) {
           return list.reduce(function (latest, story) {
-            return String(story.publishedAt) > latest ? String(story.publishedAt) : latest;
+            var candidate = String(story.editionDate || story.publishedAt || "");
+            return candidate > latest ? candidate : latest;
           }, "");
         }
 
@@ -524,6 +590,102 @@
           ].join(" ").toLowerCase();
         }
 
+        function fallbackArchiveItems() {
+          return eligibleArchiveStories().map(function (story) {
+            return {
+              id: "story:" + story.id,
+              kind: "story",
+              edition: story.edition,
+              desk: null,
+              editionDate: String(story.publishedAt || "").slice(0, 10),
+              publishedAt: story.publishedAt,
+              headline: story.headline,
+              summary: firstSentence(story.laidies_read || story.the_story),
+              themes: story.themes || story.tags || [],
+              concepts: story.concepts || [],
+              status: contract.storyState(story),
+              slug: story.slug
+            };
+          });
+        }
+
+        function completeArchiveItems() {
+          var indexed = archiveIndex.items && archiveIndex.items.length
+            ? archiveIndex.items.slice()
+            : [];
+          var fallback = fallbackArchiveItems();
+          if (!indexed.length) return fallback;
+          if (!window.NEWSSTAND_CURRENT_ISSUE) return indexed;
+          var indexedIds = new Set(indexed.map(function (item) { return item.id; }));
+          return indexed.concat(fallback.filter(function (item) {
+            return !indexedIds.has(item.id);
+          }));
+        }
+
+        function archiveItemSearchText(item) {
+          return [
+            item.headline, item.summary, item.edition, item.desk,
+            item.editionDate, (item.themes || []).join(" "),
+            (item.concepts || []).join(" "), item.status
+          ].join(" ").toLowerCase();
+        }
+
+        function archiveFilterValues() {
+          return {
+            from: document.getElementById("ns-archive-from").value,
+            to: document.getElementById("ns-archive-to").value,
+            theme: document.getElementById("ns-archive-theme").value,
+            concept: document.getElementById("ns-archive-concept").value
+          };
+        }
+
+        function filteredArchiveItems(query) {
+          var filters = archiveFilterValues();
+          return completeArchiveItems().filter(function (item) {
+            if (filters.from && item.editionDate < filters.from) return false;
+            if (filters.to && item.editionDate > filters.to) return false;
+            if (filters.theme && (item.themes || []).indexOf(filters.theme) === -1) return false;
+            if (filters.concept && (item.concepts || []).indexOf(filters.concept) === -1) return false;
+            return !query || archiveItemSearchText(item).indexOf(query) !== -1;
+          });
+        }
+
+        function renderArchiveItem(item) {
+          if (item.kind === "story") {
+            var story = stories.find(function (candidate) { return candidate.id === item.id.replace(/^story:/, ""); });
+            if (story && item.status !== "retracted") return renderFrontStory(story);
+          }
+          var label = item.kind === "service"
+            ? item.desk === "promptoscope"
+              ? "The Daily · historical Promptoscope"
+              : "The Daily · " + String(item.desk || "service").replace(/_/g, " ")
+            : (EDITION[item.edition] ? EDITION[item.edition].label : "NewsStand");
+          var status = item.status === "retracted" ? "Retracted" : item.status === "corrected" ? "Corrected" : "Published";
+          return [
+            '<article class="ns-front-story ns-front-story--archive" data-archive-id="', escapeAttribute(item.id), '">',
+              '<span class="ns-front-story__edition">', escapeHTML(label), "</span>",
+              '<span class="ns-front-story__date">', escapeHTML(formatDate(item.editionDate)), "</span>",
+              "<h3>", escapeHTML(item.headline), "</h3>",
+              item.status === "retracted" ? "<p>The body has been withdrawn. The dated retraction notice remains in the archive.</p>" : "<p>" + escapeHTML(item.summary) + "</p>",
+              '<span class="ns-front-story__status">', escapeHTML(status), "</span>",
+            "</article>"
+          ].join("");
+        }
+
+        function populateArchiveFilters() {
+          var items = completeArchiveItems();
+          var themes = Array.from(new Set(items.flatMap(function (item) { return item.themes || []; }))).sort();
+          var concepts = Array.from(new Set(items.flatMap(function (item) { return item.concepts || []; }))).sort();
+          var theme = document.getElementById("ns-archive-theme");
+          var concept = document.getElementById("ns-archive-concept");
+          theme.innerHTML = '<option value="">All themes</option>' + themes.map(function (value) {
+            return '<option value="' + escapeAttribute(value) + '">' + escapeHTML(value) + "</option>";
+          }).join("");
+          concept.innerHTML = '<option value="">All concepts</option>' + concepts.map(function (value) {
+            return '<option value="' + escapeAttribute(value) + '">' + escapeHTML(value) + "</option>";
+          }).join("");
+        }
+
         function renderFrontStory(story) {
           var edition = story.edition;
           var label = EDITION[edition] ? EDITION[edition].label : "NewsStand";
@@ -553,9 +715,73 @@
           ].join("");
         }
 
+        function renderStoryLineage(story) {
+          function links(ids) {
+            return (ids || []).map(function (id) {
+              var related = stories.find(function (candidate) { return candidate.id === id; });
+              return related
+                ? '<a href="#' + escapeAttribute(related.slug) + '">' + escapeHTML(related.headline) + "</a>"
+                : escapeHTML(id);
+            }).join(" · ");
+          }
+          var earlier = links(story.predecessorStoryIds);
+          var later = links(story.successorStoryIds);
+          if (!earlier && !later) return "";
+          return [
+            '<aside class="ns-story-lineage">',
+              later ? "<p><strong>There is newer reporting.</strong> " + later + "</p>" : "",
+              earlier ? "<p><strong>This follows earlier coverage.</strong> " + earlier + "</p>" : "",
+              story.relationshipType ? "<p><strong>What changed:</strong> " + escapeHTML(story.relationshipType.replace(/-/g, " ")) + ".</p>" : "",
+            "</aside>"
+          ].join("");
+        }
+
+        function renderCorrectionHistory(story) {
+          var history = story.correctionHistory || [];
+          if (!history.length) return "";
+          return '<aside class="ns-story-notice ns-story-notice--corrected"><strong>Correction history</strong><ol>' +
+            history.map(function (item) {
+              var successor = stories.find(function (candidate) { return candidate.id === item.successorStoryId; });
+              var link = successor ? ' <a href="#' + escapeAttribute(successor.slug) + '">Read the corrected story →</a>' : "";
+              return '<li><strong>' + escapeHTML(formatDate(item.correctedAt)) + '</strong><p>' +
+                escapeHTML(item.summary) + link + '</p></li>';
+            }).join("") + '</ol></aside>';
+        }
+
+        function renderBigPictureHistory(story) {
+          var history = story.bigPicture;
+          if (!history) return "";
+          var changes = (history.changeLog || []).map(function (change) {
+            return "<li><strong>" + escapeHTML(formatDate(change.changedAt)) + "</strong> · " + escapeHTML(change.summary) + "</li>";
+          }).join("");
+          return [
+            '<section class="ns-big-picture-history">',
+              "<h3>How this Big Picture has changed</h3>",
+              '<dl class="ns-big-picture-dates">',
+                "<div><dt>Originally published</dt><dd>" + escapeHTML(formatDate(history.originallyPublishedAt)) + "</dd></div>",
+                "<div><dt>Last meaningfully updated</dt><dd>" + escapeHTML(formatDate(history.lastMeaningfullyUpdatedAt)) + "</dd></div>",
+                "<div><dt>Sources last checked</dt><dd>" + escapeHTML(formatDate(history.sourcesLastCheckedAt)) + "</dd></div>",
+              "</dl>",
+              changes ? "<h4>What changed</h4><ol>" + changes + "</ol>" : "",
+            "</section>"
+          ].join("");
+        }
+
+        function renderConceptsAndThemes(story) {
+          var concepts = story.concepts || [];
+          var themes = story.themes || [];
+          if (!concepts.length && !themes.length) return "";
+          return [
+            '<section class="ns-article__taxonomy">',
+              themes.length ? "<p><strong>Themes</strong> " + themes.map(escapeHTML).join(" · ") + "</p>" : "",
+              concepts.length ? "<p><strong>Concepts that explain this</strong> " + concepts.map(escapeHTML).join(" · ") + "</p>" : "",
+            "</section>"
+          ].join("");
+        }
+
         function renderArticle(story) {
           var edition = story.edition;
-          var isTribune = edition === "tribune";
+          var isBigPicture = edition === "big-picture";
           var state = contract.storyState(story);
           if (state === "hold") {
             return '<div class="ns-story-notice ns-story-notice--hold"><strong>Not published yet</strong><p>Paige is still checking this story. It will stay off the rack until it is ready to read.</p></div>';
@@ -566,7 +792,7 @@
               "</p></div>";
           }
           var watch = "";
-          if (isTribune && story.watch_fors && story.watch_fors.length) {
+          if (isBigPicture && story.watch_fors && story.watch_fors.length) {
             watch = [
               '<section class="ns-article__watch">',
                 "<h3>What we’re watching</h3>",
@@ -586,11 +812,6 @@
             }).join(" · ");
           }
 
-          var correction = state === "corrected"
-            ? '<aside class="ns-story-notice ns-story-notice--corrected"><strong>Correction · ' +
-              escapeHTML(formatDate(story.correction.correctedAt)) + "</strong><p>" +
-              escapeHTML(story.correction.summary) + "</p></aside>"
-            : "";
           return [
             '<article class="ns-article">',
               '<header class="ns-article__head">',
@@ -601,14 +822,17 @@
                 "<h2>", escapeHTML(story.headline), "</h2>",
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
               "</header>",
-              correction,
-              articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
+              renderCorrectionHistory(story),
+              renderStoryLineage(story),
+              renderBigPictureHistory(story),
+              articleSection(isBigPicture ? "The Argument" : "The Story", story.the_story),
               articleSection("The LAiDIES Read", story.laidies_read),
               articleSection("What This Means For You", story.what_this_means),
               story.cocktail_party ? '<blockquote class="ns-article__cocktail"><strong>The Cocktail Party Explanation</strong><p>' + story.cocktail_party + "</p></blockquote>" : "",
               watch,
               story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
               story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : "",
+              renderConceptsAndThemes(story),
               '<footer class="ns-article__sources">',
                 sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
                 story.aidb_credit ? "<p><em>" + escapeHTML(story.aidb_credit) + "</em></p>" : "",
@@ -620,15 +844,18 @@
 
         function renderAccessNotice(decision) {
           var label = decision.state === "retracted" ? "Retracted" :
-            decision.state === "stale" ? "Source check overdue" :
-            decision.state === "hold" ? "Not published yet" :
-            decision.state === "quiet" ? "Quiet desk" :
-            decision.state === "no-data" ? "No approved data" :
-            "Publication unavailable";
+            decision.state === "stale" ? "From the archive" :
+            decision.state === "hold" ? "Not published" :
+            decision.state === "quiet" ? "No update" :
+            decision.state === "no-data" ? "No stories available" :
+            "Story unavailable";
           var modifier = decision.state === "retracted" ? " ns-story-notice--retracted" : "";
+          var reason = decision.state === "stale"
+            ? "This story is preserved with its original publication and source dates."
+            : decision.reason;
           return '<div class="ns-story-notice' + modifier + '" data-access-state="' +
             escapeHTML(decision.state) + '"><strong>' + escapeHTML(label) +
-            "</strong><p>" + escapeHTML(decision.reason) + "</p></div>";
+            "</strong><p>" + escapeHTML(reason) + "</p></div>";
         }
 
         function setReaderHeader(mode, list) {
@@ -660,10 +887,10 @@
         }
 
         function stateMessage(edition, state, publication) {
-          if (state === "quiet") return publication.note;
+          if (state === "quiet") return "There is no new story in this section.";
           if (state === "hold") return publication.note || "This issue is not published yet.";
-          if (state === "stale") return "Paige’s dated source check is overdue. This desk is not being presented as current.";
-          if (state === "unavailable") return "This publication record is unavailable. Nothing is being presented as current.";
+          if (state === "stale") return "This edition is preserved in the archive with its original publication date.";
+          if (state === "unavailable") return "This section is temporarily unavailable.";
           return EDITION[edition].empty;
         }
 
@@ -696,7 +923,7 @@
             html: html,
             empty: list.length
               ? ""
-              : "This publication is marked current but has no approved, eligible story. Nothing is exposed.",
+              : "There are no stories available in this section.",
             scroll: shouldScroll !== false,
             focus: viewOptions.focus !== false,
             invoker: invoker
@@ -707,7 +934,8 @@
         function renderSearch(invoker, viewOptions) {
           viewOptions = viewOptions || {};
           var query = searchInput.value.trim().toLowerCase();
-          if (!query) {
+          var filters = archiveFilterValues();
+          if (!query && !filters.from && !filters.to && !filters.theme && !filters.concept) {
             document.getElementById("ns-search-hint").textContent = defaultSearchHint();
             return;
           }
@@ -730,16 +958,13 @@
             if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
             return;
           }
-          var matches = stories.filter(function (story) {
-            return contract.accessDecision(data, story, { scope: "search" }, now).canExpose &&
-              storySearchText(story).indexOf(query) !== -1;
-          });
+          var matches = filteredArchiveItems(query);
           document.getElementById("ns-search-hint").textContent =
             matches.length + (matches.length === 1 ? " back issue found." : " back issues found.");
           showReader({
             mode: "search",
             list: matches,
-            html: matches.map(renderFrontStory).join(""),
+            html: matches.map(renderArchiveItem).join(""),
             scroll: viewOptions.scroll !== false,
             focus: viewOptions.focus !== false,
             invoker: invoker || searchInput
@@ -768,15 +993,13 @@
             if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
             return;
           }
-          var available = stories.filter(function (story) {
-            return contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
-          });
+          var available = filteredArchiveItems("");
           document.getElementById("ns-search-hint").textContent =
             available.length + (available.length === 1 ? " back issue available." : " back issues available.");
           showReader({
             mode: "archive",
             list: available,
-            html: available.map(renderFrontStory).join(""),
+            html: available.map(renderArchiveItem).join(""),
             scroll: viewOptions.scroll !== false,
             focus: viewOptions.focus !== false,
             invoker: invoker || document.getElementById("ns-browse-all")
@@ -794,9 +1017,9 @@
 
         function eligibleTopics() {
           var counts = {};
-          eligibleArchiveStories().forEach(function (story) {
-            (story.tags || []).forEach(function (tag) {
-              var key = String(tag).trim();
+          completeArchiveItems().forEach(function (item) {
+            (item.themes || []).forEach(function (theme) {
+              var key = String(theme).trim();
               if (key) counts[key] = (counts[key] || 0) + 1;
             });
           });
@@ -831,24 +1054,31 @@
           document.getElementById("ns-search-hint").textContent = defaultSearchHint();
         }
 
+        function loadCompleteArchive() {
+          return fetch("/content/newsstand-archive-index.json", { cache: "no-store" })
+            .then(function (response) {
+              if (!response.ok) throw new Error("archive index unavailable");
+              return response.json();
+            })
+            .then(function (value) {
+              if (!value || value.schemaVersion !== "newsstand-archive-v1" || !Array.isArray(value.items)) {
+                throw new Error("archive index is invalid");
+              }
+              archiveIndex = value;
+              populateArchiveFilters();
+              renderTopicButtons();
+              window.dispatchEvent(new CustomEvent("newsstand:archive-ready", { detail: { count: value.items.length } }));
+            })
+            .catch(function () {
+              populateArchiveFilters();
+              renderTopicButtons();
+              document.getElementById("ns-search-hint").textContent = "The archive is temporarily limited. Available stories are shown below.";
+            });
+        }
+
         function renderHash(scroll, invoker) {
           var slug = (location.hash || "").replace(/^#/, "").trim();
           if (!slug) return false;
-          var routeAccess = contract.accessDecision(data, null, { scope: "hash" }, now);
-          if (!routeAccess.canExpose) {
-            selectedEdition = "search";
-            showReader({
-              mode: "search",
-              list: [],
-              html: renderAccessNotice(routeAccess),
-              scroll: scroll !== false,
-              invoker: invoker
-            });
-            document.getElementById("ns-reader-title").textContent =
-              routeAccess.state === "stale" ? "Archived route · check overdue." :
-              routeAccess.state === "hold" ? "Not published yet." : "Story unavailable.";
-            return true;
-          }
           var story = stories.filter(function (item) { return item.slug === slug; })[0];
           if (!story) {
             var missing = { state: "unavailable", reason: "No story record exists at this preserved route." };
@@ -863,7 +1093,7 @@
             document.getElementById("ns-reader-title").textContent = "Story unavailable.";
             return true;
           }
-          var decision = contract.accessDecision(data, story, { scope: "hash" }, now);
+          var decision = contract.accessDecision(data, story, { edition: story.edition, scope: "hash" }, now);
           var previousView = pendingStoryView ||
             (history.state && history.state.nsPreviousView) ||
             null;
@@ -880,9 +1110,21 @@
             scroll: scroll !== false,
             invoker: invoker
           });
+          if (decision.canExpose) {
+            var publicationView = {
+              key: "story:" + story.slug,
+              publicationAt: story.updatedAt || story.publishedAt
+            };
+            if (!window.__newsstandPublicationViewReady) {
+              window.__newsstandPublicationViewQueue = window.__newsstandPublicationViewQueue || [];
+              window.__newsstandPublicationViewQueue.push(publicationView);
+            }
+            window.dispatchEvent(new CustomEvent("newsstand:publication-viewed", { detail: publicationView }));
+          }
           document.getElementById("ns-reader-title").textContent =
             decision.state === "retracted" ? "Retraction notice." :
-            decision.state === "stale" ? "Archived route · check overdue." :
+            decision.state === "stale" ? "From the archive." :
+            decision.state === "archive" ? "Archived story." :
             decision.state === "hold" ? "Not published yet." :
             decision.canExpose ? "Inside the paper." : "Story unavailable.";
           return true;
@@ -914,20 +1156,20 @@
         }
 
         function statusCopy(state, publication) {
-          if (state === "current") return "Current · checked " + formatDate(publication.lastCheckedAt);
-          if (state === "archive") return "Latest complete edition · " + formatDate(publication.editionDate || publication.publishedAt);
-          if (state === "quiet") return "Quiet · checked " + formatDate(publication.lastCheckedAt);
+          if (state === "current") return "Published " + formatDate(publication.editionDate || publication.publishedAt);
+          if (state === "archive") return "From the archive · " + formatDate(publication.editionDate || publication.publishedAt);
+          if (state === "quiet") return "No update";
           if (state === "hold") return "Not published";
-          if (state === "stale") return "Check overdue · not current";
+          if (state === "stale") return "From the archive · " + formatDate(publication.editionDate || publication.publishedAt);
           return "Unavailable";
         }
 
         function compactStatusCopy(state, publication) {
           if (state === "current") return "Current · " + formatCompactDate(publication.lastCheckedAt);
-          if (state === "archive") return "Latest · " + formatCompactDate(publication.editionDate || publication.publishedAt);
-          if (state === "quiet") return "Quiet · " + formatCompactDate(publication.lastCheckedAt);
+          if (state === "archive") return "Archive · " + formatCompactDate(publication.editionDate || publication.publishedAt);
+          if (state === "quiet") return "No update";
           if (state === "hold") return "Not published";
-          if (state === "stale") return "Update needed";
+          if (state === "stale") return "Archive · " + formatCompactDate(publication.editionDate || publication.publishedAt);
           return "Unavailable";
         }
 
@@ -948,9 +1190,9 @@
             if (action) {
               action.textContent = state === "current" ? "Pull this paper · Opens here" :
                 state === "archive" ? "Pull this paper · Latest edition" :
-                state === "quiet" ? "Check this paper · No issue today" :
+                state === "quiet" ? "No issue today" :
                 state === "hold" ? "Check this paper · Not published" :
-                state === "stale" ? "Check this paper · Source update needed" :
+                state === "stale" ? "Open the archive" :
                 "Check this paper · Unavailable";
             }
             var indexAction = document.querySelector('[data-index-action-for="' + edition + '"]');
@@ -959,13 +1201,41 @@
                 state === "archive" ? "Open latest" :
                 state === "quiet" ? "No issue today" :
                 state === "hold" ? "Not published" :
-                state === "stale" ? "Update needed" :
+                state === "stale" ? "Archive" :
                 "Unavailable";
+            }
+            var frontAction = document.querySelector('[data-open-edition="' + edition + '"]');
+            if (frontAction) {
+              var canOpenFront = state === "current" || state === "archive" || state === "stale";
+              frontAction.disabled = !canOpenFront;
+              frontAction.setAttribute("aria-disabled", canOpenFront ? "false" : "true");
             }
           });
         }
 
         function renderPublicationContents() {
+          function admittedArchiveStories(edition) {
+            return stories.filter(function (story) {
+              if (story.edition !== edition) return false;
+              return contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
+            });
+          }
+
+          function storiesForCurrentPublication(edition, publication, state) {
+            var visible = state === "current" || state === "archive"
+              ? contract.visibleStories(data, edition, now)
+              : [];
+            if (edition !== "daily" || state !== "current" || !publication || !publication.issue) {
+              return visible;
+            }
+            var issueIds = Array.isArray(publication.issue.storyIds)
+              ? publication.issue.storyIds
+              : [];
+            return issueIds.map(function (id) {
+              return visible.find(function (story) { return story.id === id; });
+            }).filter(Boolean);
+          }
+
           Array.prototype.forEach.call(document.querySelectorAll("[data-contents-for]"), function (node) {
             var edition = node.getAttribute("data-contents-for");
             var publication = data && data.publications && data.publications[edition];
@@ -977,20 +1247,66 @@
               : dataset.state === "hold"
                 ? "hold"
                 : effectiveState;
-            var eligible = state === "current" || state === "archive"
-              ? contract.visibleStories(data, edition, now)
-              : [];
+            var eligible = storiesForCurrentPublication(edition, publication, state);
+            var archived = eligible.length || state === "current" ? [] : admittedArchiveStories(edition);
+            var visible = eligible.length ? eligible : archived;
 
             node.setAttribute("data-state", state);
-            node.setAttribute("data-story-count", String(eligible.length));
-            if (eligible.length) {
-              var lead = eligible[0];
+            node.setAttribute("data-story-count", String(visible.length));
+            var leadDesk = node.closest(".ns-front-desk--lead");
+            var leadVisual = leadDesk && leadDesk.querySelector(".ns-front-paige-image");
+            var leadVisualImage = leadVisual && leadVisual.querySelector("img");
+            var leadVisualCredit = leadVisual && leadVisual.querySelector(".ns-front-paige-image__credit");
+            if (visible.length) {
+              var lead = visible[0];
+              var isArchiveFallback = !eligible.length;
+              var control = node.closest("[data-edition], [data-open-edition]");
+              if (control && isArchiveFallback) control.setAttribute("data-archive-slug", lead.slug);
+              if (control && leadDesk && !isArchiveFallback) control.setAttribute("data-lead-slug", lead.slug);
+              var promise = node.closest(".ns-front-desk--lead") && node.closest(".ns-front-desk--lead").querySelector(".ns-front-paige-promise");
+              if (promise) promise.hidden = true;
+              if (leadVisual && leadVisualImage && lead.heroVisual) {
+                leadVisualImage.src = lead.heroVisual.src.replace(/^\//, "./");
+                leadVisualImage.alt = lead.heroVisual.alt;
+                if (leadVisualCredit) leadVisualCredit.textContent = lead.heroVisual.credit;
+                leadVisual.hidden = false;
+              } else if (leadVisual && leadVisualImage) {
+                leadVisual.hidden = true;
+                leadVisualImage.removeAttribute("src");
+                leadVisualImage.alt = "";
+                if (leadVisualCredit) leadVisualCredit.textContent = "";
+              }
+              var columnPromise = control && control.querySelector(".ns-front-column-promise");
+              if (columnPromise) columnPromise.hidden = true;
               node.innerHTML = [
-                '<span class="ns-publication__count">', eligible.length,
-                  eligible.length === 1 ? " story" : " stories", "</span>",
+                '<span class="ns-publication__count">',
+                  isArchiveFallback ? "From the archive · " + escapeHTML(formatDate(lead.publishedAt)) : visible.length + (visible.length === 1 ? " story" : " stories"),
+                  "</span>",
                 '<span class="ns-publication__headline">', escapeHTML(lead.headline), "</span>",
                 '<span class="ns-publication__teaser">',
                   escapeHTML(firstSentence(lead.laidies_read || lead.the_story)), "</span>"
+              ].join("");
+              return;
+            }
+
+            if (leadVisual && leadVisualImage) {
+              leadVisual.hidden = true;
+              leadVisualImage.removeAttribute("src");
+              leadVisualImage.alt = "";
+            }
+
+            var trackedBigPicture = edition === "big-picture" && window.NEWSSTAND_CURRENT_ISSUE &&
+              Array.isArray(window.NEWSSTAND_CURRENT_ISSUE.bigPictureOpportunities)
+              ? window.NEWSSTAND_CURRENT_ISSUE.bigPictureOpportunities
+              : [];
+            if (trackedBigPicture.length) {
+              node.innerHTML = [
+                '<span class="ns-big-picture-tracking__eyebrow">No published article yet</span>',
+                '<strong class="ns-big-picture-tracking__title">What we’re tracking</strong>',
+                '<ol class="ns-big-picture-tracking__list">',
+                  trackedBigPicture.map(function (item) { return '<li>' + escapeHTML(item) + '</li>'; }).join(""),
+                '</ol>',
+                '<span class="ns-big-picture-tracking__source">Storylines connected to AI Fundamentals 101</span>'
               ].join("");
               return;
             }
@@ -1000,12 +1316,43 @@
               ? publication.note
               : statusCopy(state, publication || {});
           });
+
+          Array.prototype.forEach.call(document.querySelectorAll("[data-secondary-for]"), function (node) {
+            var edition = node.getAttribute("data-secondary-for");
+            var publication = data && data.publications && data.publications[edition];
+            var state = publication ? contract.effectivePublicationState(publication, now) : "unavailable";
+            var eligible = storiesForCurrentPublication(edition, publication, state).slice(1);
+            if (!eligible.length && state !== "current") eligible = admittedArchiveStories(edition).slice(1);
+
+            if (!eligible.length) {
+              node.textContent = "No additional Daily stories are available in this edition.";
+              return;
+            }
+
+            node.innerHTML = eligible.slice(0, 3).map(function (story) {
+              return [
+                '<article><a class="ns-front-story" href="#', escapeAttribute(story.slug), '"><strong>', escapeHTML(story.headline), '</strong>',
+                '<span>', escapeHTML(formatDate(story.publishedAt)), ' · ',
+                  escapeHTML(firstSentence(story.laidies_read || story.the_story)), '</span>',
+                '<em>Read the story →</em></a></article>'
+              ].join("");
+            }).join("");
+          });
         }
 
         function setArrivalState() {
           renderPublicationStates();
           renderPublicationContents();
           renderTopicButtons();
+          var newsroomDate = document.getElementById("ns-newsroom-date");
+          if (newsroomDate) {
+            var dailyPublication = data && data.publications && data.publications.daily;
+            var dailyDate = dailyPublication && (dailyPublication.editionDate || dailyPublication.publishedAt);
+            var dailyState = dailyPublication ? contract.effectivePublicationState(dailyPublication, now) : "unavailable";
+            newsroomDate.textContent = dailyDate
+              ? (dailyState === "current" ? "" : "Archive · ") + formatDate(dailyDate)
+              : "The Daily";
+          }
           Array.prototype.forEach.call(document.querySelectorAll("[data-fresh-for]"), function (stamp) {
             var edition = stamp.getAttribute("data-fresh-for");
             var publication = data && data.publications && data.publications[edition];
@@ -1024,48 +1371,54 @@
             system.textContent = "Publication data unavailable.";
           } else if (dataset.state === "no-data") {
             title.textContent = "The desk is empty.";
-            detail.textContent = "The record loaded, but no approved stories were filed. Paige will not substitute filler.";
+            detail.textContent = "There are no stories available today. Browse earlier editions in the archive.";
             system.textContent = "No approved story data.";
           } else if (dataset.state === "hold") {
             title.textContent = "Today’s papers are not on the rack yet.";
             detail.textContent = "Paige is still checking the stories. Come back soon.";
             system.textContent = "Nothing new to read yet.";
           } else if (dataset.state === "stale") {
-            title.textContent = "Paige’s check is overdue.";
-            detail.textContent = "The papers are not being presented as current until their sources and status are checked again.";
-            system.textContent = "Publication check overdue.";
+            title.textContent = "Latest available edition";
+            detail.textContent = "Read the August 3 edition or browse the archive.";
+            system.textContent = "Archive edition shown.";
           } else if (dataset.state === "unavailable") {
             title.textContent = "Part of Paige’s desk is unavailable.";
-            detail.textContent = "No dated check is overdue, but at least one publication record is unavailable. Nothing from that desk is exposed.";
-            system.textContent = "Publication record unavailable.";
+            detail.textContent = "One section is temporarily unavailable.";
+            system.textContent = "Section unavailable.";
           } else if (dataset.state === "clear") {
             title.textContent = "A clear day at the NewsStand.";
-            detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+            detail.textContent = "There is no new edition today. Browse earlier editions in the archive.";
             system.textContent = "No current publication.";
           } else {
             current = contract.EDITIONS.filter(function (edition) {
               return contract.effectivePublicationState(data.publications[edition], now) === "current";
             });
             if (current.length) {
-              title.textContent = current.map(function (edition) { return EDITION[edition].label; }).join(" and ") +
-                (current.length === 1 ? " is current." : " are current.");
-              detail.textContent = "Last desk check: " + formatDate(data.lastCheckedAt) +
-                ". If there is nothing new worth printing, Paige leaves the rack quiet." +
-                (dataset.staleEditions && dataset.staleEditions.length ? " One or more checks are overdue." : "") +
-                (dataset.unavailableEditions && dataset.unavailableEditions.length ? " One or more records are unavailable." : "");
-              system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");
+              title.textContent = current.indexOf("breaking") !== -1
+                ? "A Breaking update is on the counter."
+                : current.indexOf("daily") !== -1
+                  ? "The latest edition is ready."
+                  : "The latest columns are ready.";
+              detail.textContent = "Published " + formatDate(data.lastCheckedAt) + ".";
+              system.textContent = "Current newspaper state checked.";
             } else {
               title.textContent = "A clear day at the NewsStand.";
-              detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+              detail.textContent = "There is no new edition today. Browse earlier editions in the archive.";
               system.textContent = "No current publication.";
             }
           }
-          if (current.length === 1) {
-            primary.textContent = "Pull " + EDITION[current[0]].label.replace(/^The /, "the ");
-            primary.setAttribute("data-pull", current[0]);
+          if (current.indexOf("breaking") !== -1) {
+            primary.textContent = "Read the Breaking update";
+            primary.setAttribute("data-pull", "breaking");
+            primary.removeAttribute("data-archive");
+          } else if (current.indexOf("daily") !== -1) {
+            primary.textContent = "Open the latest paper";
+            primary.setAttribute("data-pull", "daily");
+            primary.removeAttribute("data-archive");
           } else {
-            primary.textContent = "Choose a paper";
+            primary.textContent = "Browse the archive";
             primary.removeAttribute("data-pull");
+            primary.setAttribute("data-archive", "true");
           }
         }
 
@@ -1080,7 +1433,8 @@
           activeAudio = null;
         }
 
-        document.querySelector(".ns-radio").addEventListener("click", function () {
+        var radioButton = document.querySelector(".ns-radio");
+        if (radioButton) radioButton.addEventListener("click", function () {
           var button = this;
           if (activeButton === button) {
             stopAudio();
@@ -1098,6 +1452,18 @@
 
         Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
           button.addEventListener("click", function () {
+            var leadSlug = button.getAttribute("data-lead-slug");
+            if (leadSlug && button.classList.contains("ns-front-desk--lead")) {
+              lastInvoker = button;
+              location.hash = leadSlug;
+              return;
+            }
+            var archivedSlug = button.getAttribute("data-archive-slug");
+            if (archivedSlug) {
+              lastInvoker = button;
+              location.hash = archivedSlug;
+              return;
+            }
             pullPaper(button.getAttribute("data-edition"), true, button);
           });
           button.addEventListener("keydown", function (event) {
@@ -1106,10 +1472,26 @@
             button.click();
           });
         });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-open-edition]"), function (button) {
+          button.addEventListener("click", function () {
+            var archivedSlug = button.getAttribute("data-archive-slug");
+            if (archivedSlug) {
+              lastInvoker = button;
+              location.hash = archivedSlug;
+              return;
+            }
+            pullPaper(button.getAttribute("data-open-edition"), true, button);
+          });
+        });
         document.querySelector(".ns-state__primary").addEventListener("click", function () {
           var edition = this.getAttribute("data-pull");
           if (edition) {
             pullPaper(edition, true, this);
+            return;
+          }
+          if (this.getAttribute("data-archive") === "true") {
+            document.querySelector(".ns-archive").scrollIntoView({ behavior: motionBehavior(), block: "start" });
+            focusAfterPaint(document.getElementById("ns-browse-all"));
             return;
           }
           var firstPaper = visiblePublicationControl();
@@ -1159,6 +1541,19 @@
         document.getElementById("ns-browse-all").addEventListener("click", function () {
           renderArchive(this);
         });
+        ["ns-archive-from", "ns-archive-to", "ns-archive-theme", "ns-archive-concept"].forEach(function (id) {
+          document.getElementById(id).addEventListener("change", function () {
+            renderArchive(this);
+          });
+        });
+        document.getElementById("ns-archive-clear").addEventListener("click", function () {
+          document.getElementById("ns-archive-from").value = "";
+          document.getElementById("ns-archive-to").value = "";
+          document.getElementById("ns-archive-theme").value = "";
+          document.getElementById("ns-archive-concept").value = "";
+          searchInput.value = "";
+          renderArchive(this);
+        });
         document.getElementById("ns-topic-buttons").addEventListener("click", function (event) {
           var button = event.target.closest(".ns-topic-button");
           if (!button) return;
@@ -1186,15 +1581,16 @@
         });
 
         setArrivalState();
+        loadCompleteArchive();
         if (location.hash) renderHash(false, null);
         else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>
-    <script src="/content/site/brand-polish.js?v=wm2" defer></script>
-    <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-    <script defer src="/content/site/newsstand-catchup-v1.js?v=20260812-backfill-v1"></script>
-    <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
-    <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+    <script src="./content/site/brand-polish.js?v=wm2" defer></script>
+    <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+    <script defer src="./content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260823-current-issue-v6"></script>
+    <script defer src="./content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+    <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   </body>
 </html>
