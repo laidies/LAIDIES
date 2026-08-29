@@ -335,3 +335,10 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
 > is really about the deal.” The admitted canonical files from rehearsal
 > `e05900cb` and the final rev39 page/runtime bytes govern this recovery. The
 > Crossword remains excluded.
+
+> **CURRENT GOVERNANCE PRECEDENCE — 2026-08-29.** An admitted historical Daily
+> snapshot preserves its original record but may not bypass a newer canonical
+> hold, correction or retraction. Every live consumer resolves a snapshot ID to
+> the current canonical story before applying public access rules; the public
+> feed and archive index exclude held bodies. This rule is calibrated against
+> the known-bad historical-snapshot bypass.
