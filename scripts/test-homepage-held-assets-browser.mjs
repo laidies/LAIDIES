@@ -14,41 +14,24 @@ if (!playwrightRoot) {
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
-const targets = [
-  "/assets/bws-fortune-teller/frame-1-closed.webp",
-  "/assets/games/girl-talk/truth-card-face.webp",
-  "/assets/games/girl-talk/dare-card-face.webp",
-  "/assets/mavens/y2k-stained-glass-v3-finished/ada-lovelace-y2k-stained-glass.png",
-  "/assets/postcards/from-sunnyvaile/pc-chick-flicks.webp",
-  "/assets/postcards/from-sunnyvaile/pc-dial-up.webp",
-  "/assets/postcards/from-sunnyvaile/pc-puffy-binder.webp",
-  "/assets/town-characters/scenes/mme-claio-scene.webp"
-  ,"/assets/sunnyvaile-buildings/web/02-sunnyvaile-newsstand.jpg",
-  "/assets/town-characters/scenes/dj-sunnyv-scene.webp"
-  ,"/assets/sunnyvaile-streets/lantern-hill-evening.webp",
-  "/assets/sunnyvaile-streets/civic-square-midday.webp",
-  "/assets/sunnyvaile-streets/schoolhouse-road-morning.webp"
-];
-const held = [
-  ["dial-up", "Dial-up postcard visual held"],
-  ["ada", "Ada Lovelace portrait visual held"],
-  ["chick-flicks", "Chick Flicks postcard visual held"],
-  ["mme-claio", "Mme CLAi-O visual held"],
-  ["bws", "Businesswomen’s Special visual held"],
-  ["dream-phone", "Dream Phone booth visual held"],
-  ["girl-talk-truth", "Girl Talk Truth visual held"],
-  ["girl-talk-dare", "Girl Talk Dare visual held"],
-  ["puffy-binder", "Puffy binder postcard visual held"],
-  ["newsstand", "NewsStand visual held"],
-  ["dj-sunnyv", "DJ SunnyV studio visual held"],
-  ["luminairy-spot", "LUMINAiRY visual held"],
-  ["civic-square", "Civic Square visual held"],
-  ["schoolhouse-road", "Schoolhouse Road visual held"],
-  ["lantern-hill", "Lantern Hill visual held"]
+const restored = [
+  ["/assets/media/opening-day-covers-v1/trailer/trailer-site.jpg", "The SUNNYVAiLE season trailer cover"],
+  ["/assets/media/opening-day-covers-v1/04/04-site.jpg", "Episode 04: The Founding Mothers"],
+  ["/assets/town-characters/avatars/mme-claio-avatar-v1.png", "Mme CLAi-O"],
+  ["/assets/sunnyvaile-buildings/y2k-v3/05-bronze-aige.webp", "BRONZE AiGE on MAiN Street"],
+  ["/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp", "The Dream Phone booth on MAiN Street"],
+  ["/assets/sunnyvaile-buildings/web/10-delta-lai-nu-sorority-house.jpg", "Delta LAi Nu on Wisteria Lane"],
+  ["/assets/sunnyvaile-buildings/web/02-sunnyvaile-newsstand.jpg", "The SUNNYVAiLE NewsStand"],
+  ["/assets/building-interiors/ksvl-booth.jpg", "Inside the KSVL 99.9 radio booth"],
+  ["/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png", "The Founding Mothers — Episode Four: It Was Women All Along"],
+  ["/assets/sunnyvaile-streets/civic-square-midday.webp", "Civic Square at midday"],
+  ["/assets/sunnyvaile-streets/schoolhouse-road-morning.webp", "Schoolhouse Road in the morning"],
+  ["/assets/sunnyvaile-streets/lantern-hill-evening.webp", "Lantern Hill at evening"],
+  ["/assets/closet/closet-interior-hero-v2-90s-vibrant.png", "The SUNNYVAiLE Closet"]
 ];
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
-check(targets.every((asset) => !source.includes(asset)), "one of the eight target source paths remains in index.html");
+check(restored.every(([asset]) => source.includes(asset)), "a verified restored source path is missing from index.html");
 check(source.includes('/assets/library/jeeves-scene.webp'), "Jeeves reference image was incorrectly removed");
 check(source.includes('id="lookup"') && source.includes('Search the LIBRAiRY'), "Miss Jeeves search surface changed");
 
@@ -75,17 +58,22 @@ try {
     page.on("request", (request) => requests.push(request.url()));
     page.on("pageerror", (error) => failures.push(`${width}px page error: ${error.message}`));
     await page.goto(`${origin}/index.html`, {waitUntil:"domcontentloaded"});
-    await page.waitForSelector("[data-home-held='dial-up']");
-    check(await page.locator("[data-asset-status='held'][data-home-held]").count() === 15,
-      `${width}px does not render exactly fifteen held panels`);
-    for (const [id, label] of held) {
-      const panel = page.locator(`[data-home-held="${id}"]`);
-      check(await panel.count() === 1 && (await panel.textContent()).includes(label),
-        `${width}px held panel is missing or unclear: ${id}`);
-      check(await panel.locator("img").count() === 0, `${width}px held panel still contains an image: ${id}`);
-    }
+    await page.waitForSelector('img[src="/assets/media/opening-day-covers-v1/trailer/trailer-site.jpg"]', {state:"attached"});
+    check(await page.locator("[data-asset-status='held'][data-home-held]").count() === 0,
+      `${width}px still renders a held image panel`);
     check(await page.locator('img[src="/assets/library/jeeves-scene.webp"]').count() === 1,
       `${width}px Jeeves image/search surface was changed`);
+    for (const [src, alt] of restored) {
+      const image = page.locator(`img[src="${src}"][alt="${alt}"]`);
+      check(await image.count() >= 1, `${width}px restored image is missing: ${src}`);
+      await image.evaluateAll((nodes) => nodes.forEach((node) => { node.loading = "eager"; }));
+      await page.waitForFunction((selector) => {
+        const nodes = [...document.querySelectorAll(selector)];
+        return nodes.length > 0 && nodes.every((node) => node.complete && node.naturalWidth > 0 && node.naturalHeight > 0);
+      }, `img[src="${src}"]`);
+      check(await image.evaluateAll((nodes) => nodes.every((node) => node.complete && node.naturalWidth > 0 && node.naturalHeight > 0)),
+        `${width}px restored image did not decode: ${src}`);
+    }
     check(await page.locator("#lookup").count() === 1 && await page.getByRole("button", {name:"Search the LIBRAiRY"}).count() === 1,
       `${width}px Miss Jeeves lookup controls are missing`);
     check(await page.locator("#new-here").count() === 1 &&
@@ -106,8 +94,6 @@ try {
       `${width}px held activity cards lost their fun filter membership`);
     check(!(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
       `${width}px homepage overflows`);
-    check(!requests.some((url) => targets.some((asset) => url.includes(asset))),
-      `${width}px page requested a removed target asset`);
     await context.close();
   }
 } finally {
@@ -120,4 +106,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("HOMEPAGE HELD ASSETS BROWSER PASS panels=15 viewports=1440,390,320 checks=source-absence,jeeves-preservation,held-labels,actions,keyboard-filter,no-overflow,no-image-request");
+console.log("HOMEPAGE IMAGE RESTORATION BROWSER PASS held=0 restored=13 viewports=1440,390,320 checks=source-scope,image-decode,jeeves-preservation,actions,keyboard-filter,no-overflow");
