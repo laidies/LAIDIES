@@ -602,6 +602,10 @@ export default {
     if (url.pathname === '/api/miss-jeeves/result-open') return missJeevesResultOpen(request, env);
     if (url.pathname === '/api/miss-jeeves/health') return missJeevesHealth(request, env);
     if (url.pathname === '/api/library-corrections' || url.pathname === '/api/library-corrections/status') return libraryCorrections(request, env);
+    if (request.headers.get('sec-fetch-dest') === 'document' && url.pathname.startsWith('/content/library-books/rendered/')) {
+      const bookId = url.pathname.slice('/content/library-books/rendered/'.length).replace(/\.html$/, '');
+      if (/^[a-z0-9-]+$/.test(bookId)) return Response.redirect(`${url.origin}/library#${bookId}`, 302);
+    }
     const response = await env.ASSETS.fetch(request);
     if (!url.pathname.startsWith('/content/library-books/rendered/')) return response;
     const headers = new Headers(response.headers);
