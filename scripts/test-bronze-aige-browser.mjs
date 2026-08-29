@@ -828,6 +828,13 @@ try {
   const tabsContext = await contextFor();
   const tabsPage = await tabsContext.newPage();
   await openRoom(tabsPage);
+  const desktopTargetHeights = await tabsPage
+    .locator("[data-bronze-panel]")
+    .evaluateAll((items) => items.map((item) => item.getBoundingClientRect().height));
+  check(
+    desktopTargetHeights.every((height) => height >= 44),
+    "all six desktop stations meet the 44px target floor"
+  );
   await openStation(tabsPage, "bronze-answers");
   const firstTab = tabsPage.locator('.bronze-answer-tabs [role="tab"]').first();
   await firstTab.focus();

@@ -200,6 +200,30 @@ try {
     await context.close();
   }
 
+  {
+    const { context, page } = await openFixture({
+      viewport: { width: 390, height: 844 },
+      card: { version: 1, fields: { displayName: "Mobile Ali" } }
+    }, "/laidies-card.html");
+    await page.waitForFunction(() =>
+      document.getElementById("cardName").textContent === "Mobile Ali"
+    );
+    const frontFlip = page.locator(".card-face--front .card-flip-toggle");
+    const frontBox = await frontFlip.boundingBox();
+    check(frontBox?.width >= 44 && frontBox?.height >= 44, "mobile Card front flip meets the 44px target floor");
+    await frontFlip.click();
+    const backFlip = page.locator(".card-face--back .card-flip-toggle");
+    const backBox = await backFlip.boundingBox();
+    check(backBox?.width >= 44 && backBox?.height >= 44, "mobile Card back flip meets the 44px target floor");
+    await backFlip.click();
+    check(await page.locator(".card-face--front").isVisible(), "mobile Card can flip front, back, and front again");
+    check(
+      !(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
+      "mobile Card flip repair adds no horizontal overflow"
+    );
+    await context.close();
+  }
+
   const judgeExploit = {
     version: 1,
     fields: {

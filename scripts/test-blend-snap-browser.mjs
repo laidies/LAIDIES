@@ -448,6 +448,10 @@ try {
       "bsPackRetry", `${fixture} focuses the meaningful retry control`);
     check(await value(failure, "!document.querySelector('#bsPackRetry').hidden"),
       true, `${fixture} exposes retry`);
+    check(await value(failure, `(() => {
+      const rect=document.querySelector('#bsPackRetry').getBoundingClientRect();
+      return rect.width>=44 && rect.height>=44;
+    })()`), true, `${fixture} retry meets the 44px target floor`);
   }
 
   const retryFailure = await openPage("/blend-snap.html?fixture=manifest-failure");

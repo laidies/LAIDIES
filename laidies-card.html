@@ -252,10 +252,12 @@
     /* Flip toggle button */
     .card-flip-toggle {
       position: absolute; top: 12px; right: 12px; z-index: 10;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 80px; min-height: 44px;
       background: rgba(255, 253, 251, 0.9); border: 1px solid var(--line);
       color: var(--rose); font-family: 'Jost', sans-serif; font-size: 10px;
       font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-      padding: 6px 12px; border-radius: 999px; cursor: pointer;
+      padding: 10px 14px; border-radius: 999px; cursor: pointer;
       backdrop-filter: blur(6px);
       transition: all 0.2s;
     }
