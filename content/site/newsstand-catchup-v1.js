@@ -450,7 +450,10 @@
 
   function renderFrontDesks() {
     if (!dailyIssuesLoaded || !columnsLoaded || global.NEWSSTAND_LOCAL_PREVIEW) return;
-    var issue = storedDailyIssue(editorialToday());
+    // Keep the latest admitted service desks on the counter until a newer
+    // complete edition replaces them. Their dated issue remains the authority;
+    // an empty calendar day must not erase the newest published NewsStand.
+    var issue = storedDailyIssue(editorialToday()) || latestStoredDailyIssue();
     var labels = {
       paige_tip: "Paige’s AI & Productivity Tip",
       career_life: "The Corner Office",
