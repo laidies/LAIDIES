@@ -13,7 +13,7 @@ const chrome = process.env.CHROME_PATH ||
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const script = fs.readFileSync(path.join(root, "content/site/sv-back-nav.js"));
-const shell = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main style="position:relative;min-height:844px"><h1>Fixture</h1><button id="bottom-action" style="position:absolute;right:10px;bottom:12px;width:220px;height:48px">Primary action</button></main><script src="/content/site/sv-back-nav.js"></script></body></html>`;
+const shell = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="padding:18px;box-sizing:border-box"><main style="position:relative;min-height:calc(100vh - 36px)"><h1>Fixture</h1><button id="bottom-action" style="position:absolute;right:10px;bottom:12px;width:220px;height:48px">Primary action</button></main><script src="/content/site/sv-back-nav.js"></script></body></html>`;
 
 const server = http.createServer((request, response) => {
   const pathname = new URL(request.url, "http://127.0.0.1").pathname;
@@ -60,6 +60,8 @@ try {
   });
   assert.equal(centreOwner, "bottom-action",
     "mobile return control must not cover a visitor action");
+  assert.ok(await direct.page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    "mobile rail must not widen a padded host page");
   await direct.context.close();
 
   const internal = await open("/library.html", {

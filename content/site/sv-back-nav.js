@@ -134,6 +134,7 @@
         '  .sv-side-rail{',
         '    position: static;',
         '    width: 100%;',
+        '    box-sizing: border-box;',
         '    margin: 18px auto 0;',
         '    padding: 0 max(10px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));',
         '    transform: none;',
