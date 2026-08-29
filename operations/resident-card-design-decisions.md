@@ -1,6 +1,16 @@
 # Resident Card construction — 2026-07-24
 
-> **CURRENT ACCOUNT BOUNDARY — 2026-08-23.** This update supersedes the
+> **CURRENT ACCOUNT BOUNDARY — 2026-08-29.** The August 23 hold below was a
+> stale regression and is superseded. Account-backed Card claiming,
+> restoration and bounded cross-device continuation were deployed and
+> publicly verified on July 29 from source `28f483e25c021e37e0acd2687abcae26a6d66927`
+> (deployment `9f161385-7486-4207-9afe-8512ea453973`). The shared header must
+> mount the continuation bootstrap. Resident Card must expose claim, restore
+> and pick-up controls while keeping prompts, drafts, messages, discussions,
+> Girl Talk choices and private free-form activity out of the continuation
+> document.
+
+> **SUPERSEDED ACCOUNT BOUNDARY — 2026-08-23.** This update previously superseded the
 > preserved-behaviour statements below where they imply a publicly verified
 > account lifecycle. Resident Card owns the sole private sign-in-link request
 > desk. A request proves neither message delivery nor account creation.

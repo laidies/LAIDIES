@@ -327,3 +327,11 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
   ends of every named handoff.
 - **Portfolio Control Room:** must assign non-overlapping locks before any
   shared-system, live-route, canonical data or deployment change.
+> **CURRENT RELEASE LINEAGE — 2026-08-29.** Ali identified the August 23
+> data-centre Front PAiGE as the wrong intermediate issue. The intended August
+> 24 successor is the rev26 one-newspaper edition: Front PAiGE leads with
+> “The AI opportunity gap is opening now,” about women’s share of AI hiring,
+> leadership and workplace use; Big Picture carries “The data-centre argument
+> is really about the deal.” The admitted canonical files from rehearsal
+> `e05900cb` and the final rev39 page/runtime bytes govern this recovery. The
+> Crossword remains excluded.

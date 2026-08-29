@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="./content/newsstand.css?v=20260829-owner-release-v1">
-    <link rel="stylesheet" href="./content/newsstand-v12.css?v=20260829-owner-release-v1">
+    <link rel="stylesheet" href="./content/newsstand.css?v=20260824-reference-layout-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -104,6 +103,30 @@
               <span data-contents-for="breaking" aria-live="polite"></span>
             </section>
             <div class="ns-front-page-grid">
+              <button class="ns-front-desk ns-front-desk--lead ns-publication ns-publication--daily" type="button" data-edition="daily" aria-pressed="false">
+                <span class="ns-front-desk__label">THE FRONT PA<span class="ns-brand-i">i</span>GE</span>
+                <span class="ns-front-paige-image" hidden>
+                  <img alt="">
+                  <small class="ns-front-paige-image__credit"></small>
+                </span>
+                <strong class="ns-front-paige-promise">The story underneath today&rsquo;s headlines</strong>
+                <span class="ns-publication__status" data-status-for="daily" aria-hidden="true">Loading the edition…</span>
+                <span class="ns-publication__contents" data-contents-for="daily" aria-live="polite"></span>
+                <span class="ns-publication__action">Read the full Front PAiGE →</span>
+              </button>
+              <div class="ns-front-page-grid__right">
+                <section class="ns-front-desk ns-front-desk--more-daily">
+                  <span class="ns-front-desk__label">Today&rsquo;s AI News</span>
+                  <div class="ns-front-secondary" data-secondary-for="daily" aria-live="polite">Checking for additional stories…</div>
+                </section>
+                <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
+                  <span class="ns-front-desk__label">Biggest Stories of the Week</span>
+                  <strong class="ns-front-column-promise">Wednesday to Wednesday</strong>
+                  <span class="ns-front-status" data-status-for="weekly" aria-hidden="true">Checking…</span>
+                  <span class="ns-front-contents" data-contents-for="weekly" aria-live="polite"></span>
+                  <span class="ns-front-action">Open the roundup →</span>
+                </button>
+              </div>
               <button class="ns-front-desk ns-front-desk--big-picture ns-front-open" type="button" data-open-edition="big-picture">
                 <span class="ns-front-desk__label">The Big Picture</span>
                 <strong class="ns-front-column-promise">Latest analysis</strong>
@@ -111,44 +134,61 @@
                 <span class="ns-front-contents" data-contents-for="big-picture" aria-live="polite"></span>
                 <span class="ns-front-action">Open Big Picture →</span>
               </button>
-              <button class="ns-front-desk ns-front-desk--lead ns-publication ns-publication--daily" type="button" data-edition="daily" aria-pressed="false">
-                <span class="ns-front-desk__label">THE FRONT PA<span class="ns-brand-i">i</span>GE</span>
-                <span class="ns-front-paige-image" hidden>
-                  <img alt="">
-                  <small class="ns-front-paige-image__credit"></small>
-                </span>
-                <strong class="ns-front-paige-promise">Today&rsquo;s lead story</strong>
-                <span class="ns-publication__status" data-status-for="daily" aria-hidden="true">Loading the edition…</span>
-                <span class="ns-publication__contents" data-contents-for="daily" aria-live="polite"></span>
-                <span class="ns-publication__action">Read The Daily →</span>
-              </button>
-              <div class="ns-front-page-grid__right">
-                <section class="ns-front-desk ns-front-desk--more-daily">
-                  <span class="ns-front-desk__label">Also in The Daily</span>
-                  <div class="ns-front-secondary" data-secondary-for="daily" aria-live="polite">Checking for additional stories…</div>
-                </section>
-                <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
-                  <span class="ns-front-desk__label">The Weekly</span>
-                  <strong class="ns-front-column-promise">Wednesday to Wednesday</strong>
-                  <span class="ns-front-status" data-status-for="weekly" aria-hidden="true">Checking…</span>
-                  <span class="ns-front-contents" data-contents-for="weekly" aria-live="polite"></span>
-                  <span class="ns-front-action">Open the roundup →</span>
-                </button>
-              </div>
             </div>
+            <article class="ns-miss-jeeves" id="dear-miss-jeeves-time-2026-08-24" aria-labelledby="ns-miss-jeeves-title">
+              <header class="ns-miss-jeeves__head">
+                <p>Advice for your AI age</p>
+                <h3 id="ns-miss-jeeves-title">Dear Miss Jeeves</h3>
+              </header>
+              <div class="ns-miss-jeeves__letter">
+                <p>Dear Miss Jeeves,</p>
+                <p>Why is my AI assistant so strangely bad at knowing what day or time it is?</p>
+                <p class="ns-miss-jeeves__signature">— Temporally Confused in Toronto</p>
+              </div>
+              <div class="ns-miss-jeeves__answer">
+                <p><strong>Dear Temporally Confused,</strong></p>
+                <p>A language model does not experience time passing. It answers from the information the product places in its context. Some AI tools supply the current date, time zone or calendar information; others do not. A long conversation can also carry an older date forward.</p>
+                <p><strong>What to try:</strong> Put the exact date, time zone and deadline directly in the request: “Today is August 24, 2026 in Vancouver. Draft a schedule for Tuesday, August 25.” Then verify any consequential date against your calendar.</p>
+                <p><strong>Why it works:</strong> You replace a hidden or stale assumption with explicit, checkable context. If the answer could make you late, miss a deadline or book the wrong day, let your calendar—not the chatbot—have the final word.</p>
+                <p class="ns-miss-jeeves__signoff">Yours in punctuality,<br><strong>Miss Jeeves</strong></p>
+              </div>
+            </article>
+            <article class="ns-concept-week" id="concept-ai-system" aria-labelledby="ns-concept-week-title">
+              <header class="ns-concept-week__head">
+                <p>Concept of the Week</p>
+                <h3 id="ns-concept-week-title">An AI system is more than its model.</h3>
+                <p class="ns-concept-week__dek">The same model can be careful, reckless, useful or useless depending on everything wrapped around it.</p>
+              </header>
+              <div class="ns-concept-week__body">
+                <section>
+                  <h4>The plain-English version</h4>
+                  <p>The <strong>model</strong> is the part that generates or interprets language, images or other information. The <strong>system</strong> is the model plus the context it receives, the tools and data it can reach, the instructions it follows, the monitoring around it and the people responsible for the result.</p>
+                </section>
+                <section>
+                  <h4>A concrete example</h4>
+                  <p>Put the same language model in a public chatbot and it may only answer from your conversation. Put it inside an HR tool and it may also read policies, search employee records or draft a recommendation. Same underlying model; very different system, stakes and permissions.</p>
+                </section>
+                <section>
+                  <h4>The common confusion</h4>
+                  <p>“The model can do it” does not mean the product has reliable sources, permission to act, a review step or a way to correct a mistake. A fluent demo proves surprisingly little about the whole arrangement.</p>
+                </section>
+                <section>
+                  <h4>Use the concept</h4>
+                  <p>Before trusting workplace AI, ask four questions: <strong>What can it see? What can it do? Who checks it? Who owns the decision?</strong> That quick system map is more useful than memorising another leaderboard.</p>
+                </section>
+              </div>
+            </article>
             <section class="ns-feature-desk" aria-labelledby="ns-feature-desk-title">
               <div class="ns-feature-desk__head">
-                <p class="ns-front-desk__label">Columns</p>
-                <h4 id="ns-feature-desk-title">More from the NewsStand</h4>
+                <p class="ns-front-desk__label">Keep this page</p>
+                <h4 id="ns-feature-desk-title">Useful this week</h4>
               </div>
               <ul class="ns-feature-desk__grid">
-                <li data-desk="paige_tip"><strong>Paige&rsquo;s Practical Tip</strong><span>Loading today&rsquo;s tip…</span></li>
-                <li data-desk="career_life"><strong>Career / Work-Life</strong><span>Loading today&rsquo;s column…</span></li>
+                <li data-desk="paige_tip"><strong>Paige&rsquo;s AI &amp; Productivity Tip</strong><span>Loading today&rsquo;s tip…</span></li>
+                <li data-desk="career_life"><strong>The Corner Office</strong><span>Loading today&rsquo;s column…</span></li>
                 <li data-desk="concept_week"><strong>Concept of the Week</strong><span>Loading this week&rsquo;s concept…</span></li>
                 <li data-desk="mme_claio"><strong>Mme CLA<span class="ns-brand-i">i</span>-O</strong><span>Loading today&rsquo;s reading…</span></li>
-                <li data-desk="behind_build"><strong>Behind the Build</strong><span>Loading the latest report…</span></li>
-                <li data-desk="around_town"><strong>Around Town</strong><span>Loading the town desk…</span></li>
-                <li data-desk="crossword"><strong>Crossword</strong><span>Loading today&rsquo;s puzzle…</span></li>
+                <li data-desk="whats_new_sunnyvaile"><strong>What&rsquo;s New in SUNNYVA<span class="ns-brand-i">i</span>LE</strong><span>Loading the latest opening…</span></li>
                 <li data-desk="did_you_know"><strong>Did You Know?</strong><span>Loading today&rsquo;s fact…</span></li>
               </ul>
             </section>
@@ -159,14 +199,14 @@
 
       <section class="ns-reader" id="paper-counter" aria-labelledby="ns-reader-title" hidden>
         <div class="ns-reader__rail">
-          <p class="ns-kicker">Pulled from the rack</p>
+          <p class="ns-kicker">The full article</p>
           <button class="ns-return" id="ns-return" type="button">Put the paper back</button>
         </div>
         <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="weekly">
           <header class="ns-unfolded-paper__masthead">
             <div>
               <p class="ns-unfolded-paper__edition" id="ns-reader-edition">The Weekly</p>
-              <h2 id="ns-reader-title" tabindex="-1">This week’s front page.</h2>
+              <h2 id="ns-reader-title" tabindex="-1">The full article.</h2>
             </div>
             <p class="ns-unfolded-paper__date" id="ns-reader-date"></p>
           </header>
@@ -232,9 +272,14 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="./content/newsstand-reader-contract.js?v=20260829-owner-release-v1"></script>
-    <script src="./content/newsstand-stories.js?v=20260829-owner-release-v1"></script>
-    <script src="./content/newsstand-current-issue.js?v=20260829-owner-release-v2"></script>
+    <script src="./content/newsstand-reader-contract.js?v=20260823-newsstand-v1"></script>
+    <script src="./content/newsstand-stories.js?v=20260823-reader-copy-v3"></script>
+    <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
+    <script>
+      if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+        document.write('<script src="./operations/product-stewards/newsstand/candidates/front-paige-data-centre-agency-2026-08-23/local-preview-data.js?v=20260824-layout-review-3"><\/script>');
+      }
+    </script>
     <script>
       (function () {
         "use strict";
@@ -307,6 +352,9 @@
         var dataset = contract
           ? contract.datasetState(data, now)
           : { state: "load-failure", errors: ["reader contract did not load"] };
+        if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+          document.documentElement.setAttribute("data-newsstand-preview-state", dataset.state + (dataset.errors && dataset.errors.length ? ": " + dataset.errors.join(" | ") : ""));
+        }
         var stories = dataset.state === "load-failure"
           ? []
           : JSON.parse(JSON.stringify(data.stories || [])).sort(function (a, b) {
@@ -615,7 +663,7 @@
             : [];
           var fallback = fallbackArchiveItems();
           if (!indexed.length) return fallback;
-          if (!window.NEWSSTAND_CURRENT_ISSUE) return indexed;
+          if (!window.NEWSSTAND_LOCAL_PREVIEW) return indexed;
           var indexedIds = new Set(indexed.map(function (item) { return item.id; }));
           return indexed.concat(fallback.filter(function (item) {
             return !indexedIds.has(item.id);
@@ -1081,6 +1129,11 @@
           if (!slug) return false;
           var story = stories.filter(function (item) { return item.slug === slug; })[0];
           if (!story) {
+            var section = document.getElementById(slug);
+            if (section) {
+              if (scroll !== false) section.scrollIntoView({ behavior: motionBehavior(), block: "start" });
+              return false;
+            }
             var missing = { state: "unavailable", reason: "No story record exists at this preserved route." };
             selectedEdition = "search";
             showReader({
@@ -1126,7 +1179,15 @@
             decision.state === "stale" ? "From the archive." :
             decision.state === "archive" ? "Archived story." :
             decision.state === "hold" ? "Not published yet." :
-            decision.canExpose ? "Inside the paper." : "Story unavailable.";
+            decision.canExpose
+              ? story.id.indexOf("front-paige-") === 0
+                ? "THE FRONT PAiGE"
+                : story.edition === "weekly"
+                  ? "BIGGEST STORIES OF THE WEEK"
+                  : story.edition === "big-picture"
+                    ? "THE BIG PICTURE"
+                    : "THE DAILY"
+              : "Story unavailable.";
           return true;
         }
 
@@ -1188,7 +1249,8 @@
             node.setAttribute("data-state", state);
             var action = document.querySelector('.ns-publication[data-edition="' + edition + '"] .ns-publication__action');
             if (action) {
-              action.textContent = state === "current" ? "Pull this paper · Opens here" :
+              action.textContent = state === "current" && edition === "daily" ? "Read the full Front PAiGE →" :
+                state === "current" ? "Pull this paper · Opens here" :
                 state === "archive" ? "Pull this paper · Latest edition" :
                 state === "quiet" ? "No issue today" :
                 state === "hold" ? "Check this paper · Not published" :
@@ -1248,8 +1310,7 @@
                 ? "hold"
                 : effectiveState;
             var eligible = storiesForCurrentPublication(edition, publication, state);
-            var archived = eligible.length || state === "current" ? [] : admittedArchiveStories(edition);
-            var visible = eligible.length ? eligible : archived;
+            var visible = eligible;
 
             node.setAttribute("data-state", state);
             node.setAttribute("data-story-count", String(visible.length));
@@ -1259,10 +1320,12 @@
             var leadVisualCredit = leadVisual && leadVisual.querySelector(".ns-front-paige-image__credit");
             if (visible.length) {
               var lead = visible[0];
-              var isArchiveFallback = !eligible.length;
               var control = node.closest("[data-edition], [data-open-edition]");
-              if (control && isArchiveFallback) control.setAttribute("data-archive-slug", lead.slug);
-              if (control && leadDesk && !isArchiveFallback) control.setAttribute("data-lead-slug", lead.slug);
+              if (leadDesk) {
+                leadDesk.disabled = false;
+                leadDesk.setAttribute("aria-disabled", "false");
+              }
+              if (control && leadDesk) control.setAttribute("data-lead-slug", lead.slug);
               var promise = node.closest(".ns-front-desk--lead") && node.closest(".ns-front-desk--lead").querySelector(".ns-front-paige-promise");
               if (promise) promise.hidden = true;
               if (leadVisual && leadVisualImage && lead.heroVisual) {
@@ -1278,13 +1341,30 @@
               }
               var columnPromise = control && control.querySelector(".ns-front-column-promise");
               if (columnPromise) columnPromise.hidden = true;
+              var secondaryRead = leadDesk
+                ? firstSentence(lead.laidies_read || lead.what_this_means || "")
+                : edition === "weekly"
+                  ? firstSentence(lead.laidies_read || lead.what_this_means || "")
+                  : edition === "big-picture"
+                    ? firstSentence(lead.what_this_means || lead.laidies_read || "")
+                    : "";
+              var primaryRead = leadDesk
+                ? firstSentence(lead.the_story || lead.laidies_read)
+                : edition === "weekly" || edition === "big-picture"
+                  ? firstSentence(lead.the_story || lead.laidies_read)
+                  : firstSentence(lead.laidies_read || lead.the_story);
               node.innerHTML = [
                 '<span class="ns-publication__count">',
-                  isArchiveFallback ? "From the archive · " + escapeHTML(formatDate(lead.publishedAt)) : visible.length + (visible.length === 1 ? " story" : " stories"),
+                  leadDesk ? "Feature story" :
+                    edition === "big-picture" ? "Living analysis" :
+                    edition === "weekly" ? "Wednesday to Wednesday" :
+                    visible.length + (visible.length === 1 ? " story" : " stories"),
                   "</span>",
                 '<span class="ns-publication__headline">', escapeHTML(lead.headline), "</span>",
-                '<span class="ns-publication__teaser">',
-                  escapeHTML(firstSentence(lead.laidies_read || lead.the_story)), "</span>"
+                '<span class="ns-publication__teaser">', escapeHTML(primaryRead), "</span>",
+                secondaryRead ? '<span class="ns-publication__read"><b>' +
+                  (leadDesk ? "The LAiDIES read" : edition === "weekly" ? "The through-line" : "The question underneath it") +
+                  '</b>' + escapeHTML(secondaryRead) + "</span>" : ""
               ].join("");
               return;
             }
@@ -1294,19 +1374,38 @@
               leadVisualImage.removeAttribute("src");
               leadVisualImage.alt = "";
             }
+            if (leadDesk) {
+              leadDesk.disabled = true;
+              leadDesk.setAttribute("aria-disabled", "true");
+              var emptyPromise = leadDesk.querySelector(".ns-front-paige-promise");
+              if (emptyPromise) emptyPromise.textContent = "No current lead story";
+              var emptyAction = leadDesk.querySelector(".ns-publication__action");
+              if (emptyAction) emptyAction.textContent = "Browse the archive below";
+              node.innerHTML = [
+                '<span class="ns-publication__count">No current edition</span>',
+                '<span class="ns-publication__headline">No lead story was published today.</span>',
+                '<span class="ns-publication__teaser">Older reporting remains available in the archive.</span>'
+              ].join("");
+              return;
+            }
 
-            var trackedBigPicture = edition === "big-picture" && window.NEWSSTAND_CURRENT_ISSUE &&
-              Array.isArray(window.NEWSSTAND_CURRENT_ISSUE.bigPictureOpportunities)
-              ? window.NEWSSTAND_CURRENT_ISSUE.bigPictureOpportunities
+            var trackedBigPicture = edition === "big-picture" && window.NEWSSTAND_BIG_PICTURE_TRACKING &&
+              Array.isArray(window.NEWSSTAND_BIG_PICTURE_TRACKING.items)
+              ? window.NEWSSTAND_BIG_PICTURE_TRACKING.items
               : [];
             if (trackedBigPicture.length) {
+              var trackingControl = node.closest("[data-open-edition]");
+              var trackingAction = trackingControl && trackingControl.querySelector(".ns-front-action");
+              if (trackingAction) trackingAction.textContent = "Articles coming soon";
               node.innerHTML = [
                 '<span class="ns-big-picture-tracking__eyebrow">No published article yet</span>',
                 '<strong class="ns-big-picture-tracking__title">What we’re tracking</strong>',
                 '<ol class="ns-big-picture-tracking__list">',
-                  trackedBigPicture.map(function (item) { return '<li>' + escapeHTML(item) + '</li>'; }).join(""),
+                  trackedBigPicture.slice(0, 5).map(function (item) { return '<li>' + escapeHTML(item.question) + '</li>'; }).join(""),
                 '</ol>',
-                '<span class="ns-big-picture-tracking__source">Storylines connected to AI Fundamentals 101</span>'
+                '<span class="ns-big-picture-tracking__source">',
+                  escapeHTML(trackedBigPicture.length + " developing storylines · " + window.NEWSSTAND_BIG_PICTURE_TRACKING.sourceLabel),
+                '</span>'
               ].join("");
               return;
             }
@@ -1322,10 +1421,8 @@
             var publication = data && data.publications && data.publications[edition];
             var state = publication ? contract.effectivePublicationState(publication, now) : "unavailable";
             var eligible = storiesForCurrentPublication(edition, publication, state).slice(1);
-            if (!eligible.length && state !== "current") eligible = admittedArchiveStories(edition).slice(1);
-
             if (!eligible.length) {
-              node.textContent = "No additional Daily stories are available in this edition.";
+              node.textContent = "No additional Daily stories were published today.";
               return;
             }
 
@@ -1589,7 +1686,8 @@
     <script src="./content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="./content/site/ksvl-player.js?v=20260712-22"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260829-owner-release-v1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260824-front-desks-v1"></script>
+    <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   </body>

@@ -11,7 +11,7 @@
   <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
@@ -75,7 +75,7 @@
     <p class="mo-persistence-state" id="moPersistenceState" role="status" aria-live="polite">
       <strong>Local-first card:</strong> saving keeps this card in this browser
       on this device. The Resident Card desk can request a private sign-in link;
-      account-backed Card continuation and cross-device copies remain held.
+      sign in at the Resident Card desk to keep an account-backed copy and continue across supported browsers.
     </p>
 
     <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rose); font-size: 17px; text-align: center; padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 24px 0;">
@@ -379,7 +379,7 @@
       <div class="mo-claim-state" data-state="held" tabindex="-1">
         <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Account release check</p>
         <h3 style="margin:0 0 10px; color:var(--plum);">The guest book is not taking claims yet.</h3>
-        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">You can make and save your Resident Card on this device. The <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a> accepts sign-in-link requests; account-backed Card continuation, handle claims and public Closet links remain held.</p>
+        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">You can make and save your Resident Card on this device. Then use the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a> to keep a private account-backed copy and restore it in another supported browser. Handle claims and public Closet links remain separate.</p>
       </div>
 
       <!-- Loading placeholder -->
@@ -395,7 +395,7 @@
         <p id="mo-claim-result-label" style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
         <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
         <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
-        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved, public or portable. <a id="mo-local-signin" href="/resident-card.html#rcAccountTitle" style="color:var(--rose); font-weight:700; text-decoration:underline;">Request a private sign-in link →</a></p>
+        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved in this browser. It is not reserved or public. <a id="mo-local-signin" href="/resident-card.html#rcAccountTitle" style="color:var(--rose); font-weight:700; text-decoration:underline;">Keep it with my private account →</a></p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
           <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>

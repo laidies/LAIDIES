@@ -14794,3 +14794,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The phone rail now follows page content, uses `border-box`, and a calibrated guard rejects both action coverage and padded-page overflow. All changed NewsStand assets have 2026-08-29 cache identities and the public payload contains only the bounded source-rechecked story. The release controller detected and replaced the intervening stale upload. The final deployment passes 84/84 routes at 390x844 and 1200x814, plus direct MAiKEOVER, Resident Card, Library, Episode, NewsStand, Chick Flicks, Watch and KSVL journeys.
 - **Possible Behind the Build angle:** The button was not broken; another button was sitting invisibly on top of it—and the same release needed a cache fix and a production-race check.
 - **Publication status:** PRODUCTION ROUTE REPAIR / DEPLOYED AND PUBLICLY VERIFIED.
+
+## BTB-488 — A newer hold can be older truth
+
+- **Date:** 2026-08-29
+- **Area:** Resident identity, LUMINAiRY admission, NewsStand editorial lineage and release assembly.
+- **Failure:** Recovery followed later-dated hold language instead of the last publicly verified Resident continuation, rejected the whole LUMINAiRY for one explicitly deferred song, and shipped an intermediate data-centre Front PAiGE even though the successor issue put women and the AI opportunity gap in Front PAiGE and data centres in Big Picture.
+- **Root cause:** The release reconciler ranked document date above outcome evidence and treated a component hold as a product hold. NewsStand recovery stopped at the nearest branch instead of searching the isolated successor worktree and its admission rehearsal.
+- **Prevention rule:** For a regression recovery, trace each visitor capability to its highest durable state in order: public verification record, exact deployment/artifact, admitted successor, then current working copy. A later contradictory hold must explain an actual invalidation before it can demote public truth. Component-level deferred media cannot suppress an otherwise complete product. Search all registered worktrees and admission rehearsals before selecting editorial lineage.
+- **Durable correction:** Resident continuation and its SQL/UI regression tests are restored; the shared header mounts continuation again; LUMINAiRY admits 43 profiles and 12 playable songs while Carrie remains visibly deferred; NewsStand uses the exact rev39 page/runtime and the admitted August 24 canonical issue with the women-focused Front PAiGE and data-centre Big Picture.
+- **Possible Behind the Build angle:** How the newest note sent three finished products backward—and why release recovery needs a family tree, not just a timestamp.
+- **Publication status:** SOURCE RECOVERY VERIFIED / COMBINED RELEASE PENDING.

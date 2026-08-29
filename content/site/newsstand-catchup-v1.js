@@ -4,7 +4,7 @@
   var STORAGE_KEY = "laidies_newsstand_seen_v1";
   var DAY_MS = 86400000;
   var LEGACY_DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
-  var CURRENT_DAILY_DESK_TYPES = ["paige_tip", "career_life", "concept_week", "mme_claio", "behind_build", "around_town", "crossword", "song", "did_you_know", "town_note", "curiosity"];
+  var CURRENT_DAILY_DESK_TYPES = ["paige_tip", "career_life", "concept_week", "mme_claio", "dear_miss_jeeves", "behind_build", "around_town", "whats_new_sunnyvaile", "crossword", "song", "did_you_know", "town_note", "curiosity"];
   function dailyDeskTypesForDate(date) {
     return String(date || "") >= "2026-08-23" ? CURRENT_DAILY_DESK_TYPES : LEGACY_DAILY_DESK_TYPES;
   }
@@ -110,6 +110,10 @@
     return [parts.year, parts.month, parts.day].join("-");
   }
 
+  function editorialToday() {
+    return editorialDateOnly(new Date());
+  }
+
   function availableThroughDate() {
     var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
     var latest = issues.filter(function (item) {
@@ -124,7 +128,12 @@
     var input = document.getElementById("ns-catchup-since");
     if (!input) return;
     input.max = availableThroughDate();
-    if (input.value && input.value > input.max) input.value = input.max;
+    if (previousPublicationView && input.getAttribute("data-user-edited") !== "true") {
+      var previousDate = editorialDateOnly(previousPublicationView);
+      input.value = previousDate > input.max ? input.max : previousDate;
+    } else if (input.value && input.value > input.max) {
+      input.value = input.max;
+    }
   }
 
   function formatDate(value) {
@@ -241,6 +250,7 @@
     var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
     var issue = issues.filter(function (item) {
       return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate) &&
+        item.editionDate === editorialToday() &&
         item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now();
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
     var publication = data.publications && data.publications.daily;
@@ -304,11 +314,11 @@
     });
     if (action) {
       action.textContent = dailyState === "current" ? "Read the story →" :
-        dailyState === "archive" ? "Open the latest edition →" :
+        dailyState === "archive" ? "Browse the archive below" :
         dailyState === "quiet" ? "No issue today" :
         dailyState === "hold" ? "Check this paper · Not published" :
-        dailyState === "stale" && latestStoredDailyIssue() ? "Open archive · " + formatCompactDate(latestStoredDailyIssue().editionDate) :
-        dailyState === "stale" ? "Open the archive" :
+        dailyState === "stale" && latestStoredDailyIssue() ? "Browse archive · " + formatCompactDate(latestStoredDailyIssue().editionDate) :
+        dailyState === "stale" ? "Browse the archive below" :
         "Check this paper · Unavailable";
     }
     if (indexAction) {
@@ -333,7 +343,7 @@
     var primary = document.querySelector(".ns-state__primary");
     if (!title || !detail || !system || !primary) return;
     if (current.length) {
-      title.textContent = current.map(function (edition) { return labels[edition]; }).join(" and ") +
+      title.textContent = new Intl.ListFormat("en", { style: "long", type: "conjunction" }).format(current.map(function (edition) { return labels[edition]; })) +
         (current.length === 1 ? " is current." : " are current.");
       detail.textContent = "Published " + formatDate(data.lastCheckedAt) + ".";
       system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");
@@ -358,7 +368,7 @@
     if (!issue || !publication || !action) return;
     var state = contract.effectivePublicationState(publication, new Date().toISOString());
     if (["stale", "quiet", "archive"].indexOf(state) !== -1) {
-      action.textContent = "Read the story →";
+      action.textContent = "Browse the archive below";
     }
   }
 
@@ -417,7 +427,7 @@
     if (!contract || !data || data.datasetStatus !== "published" || !data.publications || !data.publications.daily) return false;
     var dataset = contract.datasetState(data, new Date().toISOString());
     var state = contract.effectivePublicationState(data.publications.daily, new Date().toISOString());
-    return dataset.state === "ready" && ["current", "archive"].indexOf(state) !== -1;
+    return dataset.state === "ready" && state === "current";
   }
 
   function storedDailyIssue(date) {
@@ -438,7 +448,42 @@
     return columnFor(date, type) || null;
   }
 
+  function renderFrontDesks() {
+    if (!dailyIssuesLoaded || !columnsLoaded || global.NEWSSTAND_LOCAL_PREVIEW) return;
+    var issue = storedDailyIssue(editorialToday());
+    var labels = {
+      paige_tip: "Paige’s AI & Productivity Tip",
+      career_life: "The Corner Office",
+      concept_week: "Concept of the Week",
+      mme_claio: "Mme CLAi-O",
+      dear_miss_jeeves: "Dear Miss Jeeves",
+      behind_build: "Behind the Build",
+      around_town: "Around Town · fictional",
+      whats_new_sunnyvaile: "What’s New in SUNNYVAiLE",
+      crossword: "Crossword",
+      did_you_know: "Did You Know?"
+    };
+    Object.keys(labels).forEach(function (type) {
+      var node = document.querySelector('[data-desk="' + type + '"]');
+      if (!node) return;
+      var desk = issue && issue.desks.find(function (item) { return item.type === type; });
+      var ready = desk && desk.state === "ready";
+      node.setAttribute("data-desk-state", ready ? "ready" : "empty");
+      var label = '<small>' + escapeHTML(labels[type]) + '</small>';
+      if (ready) {
+        var content = label + '<strong>' + escapeHTML(desk.headline) + '</strong><span>' + escapeHTML(desk.summary) + '</span>';
+        node.innerHTML = desk.destination
+          ? '<a href="' + escapeHTML(desk.destination) + '">' + content + '</a>'
+          : content;
+        return;
+      }
+      node.innerHTML = label + '<strong>Not published today</strong><span>' +
+        escapeHTML(desk && desk.emptyState || columnEmpty(type, "No item is available in this desk today.")) + '</span>';
+    });
+  }
+
   function updateDailyPaper() {
+    if (global.NEWSSTAND_LOCAL_PREVIEW) return;
     if (!canRenderDaily()) return;
     var date = currentDailyDate();
     var issue = storedDailyIssue(date);
@@ -448,11 +493,14 @@
     var tip = dailyDeskValue(issue, date, "paige_tip");
     var node = document.querySelector('[data-contents-for="daily"]');
     if (!node) return;
+    var lead = node.closest(".ns-front-desk--lead");
+    var promise = lead && lead.querySelector(".ns-front-paige-promise");
+    if (promise) promise.hidden = true;
     node.setAttribute("data-story-count", String(stories.length));
     node.setAttribute("data-service-count", String(today.length));
     if (stories.length) {
       node.innerHTML = [
-        '<span class="ns-publication__count">', stories.length, stories.length === 1 ? ' story' : ' stories', '</span>',
+        '<span class="ns-publication__count">Feature story</span>',
         '<span class="ns-publication__headline">', escapeHTML(stories[0].headline), '</span>',
         '<span class="ns-publication__teaser">', escapeHTML(sentence(stories[0].laidies_read || stories[0].the_story)), '</span>'
       ].join("");
@@ -493,8 +541,10 @@
     var historicalPromptoscope = dailyDeskValue(canonicalIssue, date, "promptoscope");
     var career = dailyDeskValue(canonicalIssue, date, "career_life");
     var reading = dailyDeskValue(canonicalIssue, date, "mme_claio");
+    var dearMissJeeves = dailyDeskValue(canonicalIssue, date, "dear_miss_jeeves");
     var behindBuild = dailyDeskValue(canonicalIssue, date, "behind_build");
     var aroundTown = dailyDeskValue(canonicalIssue, date, "around_town");
+    var whatsNew = dailyDeskValue(canonicalIssue, date, "whats_new_sunnyvaile");
     var legacyFiction = dailyDeskValue(canonicalIssue, date, "fiction");
     var crossword = dailyDeskValue(canonicalIssue, date, "crossword");
     var song = dailyDeskValue(canonicalIssue, date, "song");
@@ -521,7 +571,7 @@
         quietIssue
           ? '<details class="ns-daily-quiet-desks"><summary>See today&rsquo;s columns.</summary><div class="ns-daily-service-grid">'
           : '<div class="ns-daily-service-grid">',
-          dailyDesk("Paige’s practical tip", tip && tip.state !== "empty" ? "ready" : "empty",
+          dailyDesk("Paige’s AI & Productivity Tip", tip && tip.state !== "empty" ? "ready" : "empty",
             tip && tip.state !== "empty" ? tip.headline : "No practical tip today.", tip && tip.state !== "empty" ? tip.summary : "Paige did not publish a practical tip in this edition.",
             tip && tip.state !== "empty" ? tip.destination : ""),
           historicalPromptoscope ? dailyDesk("Promptoscope · archived column", historicalPromptoscope.state !== "empty" ? "ready" : "empty",
@@ -532,14 +582,18 @@
             concept && concept.state !== "empty" ? concept.headline : "No Concept of the Week.",
             concept && concept.state !== "empty" ? concept.summary : "This edition did not include a Concept of the Week.",
             concept && concept.state !== "empty" ? concept.destination : ""),
-          dailyDesk("Work + life", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "No Work + Life column today.",
+          dailyDesk("The Corner Office", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "No Corner Office column today.",
             career && career.state !== "empty" ? career.summary : "This edition did not include a Work + Life column.", career && career.state !== "empty" ? career.destination : ""),
           dailyDesk("Mme CLAi-O’s reading", reading && reading.state !== "empty" ? "ready" : "empty", reading && reading.state !== "empty" ? reading.headline : "No daily reading today.",
             reading && reading.state !== "empty" ? reading.summary : "Mme CLAi-O did not publish a reading in this edition.", reading && reading.state !== "empty" ? reading.destination : ""),
+          currentDeskEra ? dailyDesk("Dear Miss Jeeves", dearMissJeeves && dearMissJeeves.state !== "empty" ? "ready" : "empty", dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.headline : "No letter at the advice desk today.",
+            dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.summary : "This edition did not include a Dear Miss Jeeves question.", dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.destination : "") : "",
           currentDeskEra ? dailyDesk("Behind the Build", behindBuild && behindBuild.state !== "empty" ? "ready" : "empty", behindBuild && behindBuild.state !== "empty" ? behindBuild.headline : "No Behind the Build today.",
             behindBuild && behindBuild.state !== "empty" ? behindBuild.summary : "This edition did not include a Behind the Build column.", behindBuild && behindBuild.state !== "empty" ? behindBuild.destination : "") : "",
           currentDeskEra ? dailyDesk("Around Town · fictional town news", aroundTown && aroundTown.state !== "empty" ? "ready" : "empty", aroundTown && aroundTown.state !== "empty" ? aroundTown.headline : "No Around Town story today.",
             aroundTown && aroundTown.state !== "empty" ? aroundTown.summary : "This edition did not include a fictional Around Town story.", aroundTown && aroundTown.state !== "empty" ? aroundTown.destination : "") : "",
+          currentDeskEra ? dailyDesk("What’s New in SUNNYVAiLE", whatsNew && whatsNew.state !== "empty" ? "ready" : "empty", whatsNew && whatsNew.state !== "empty" ? whatsNew.headline : "No new opening today.",
+            whatsNew && whatsNew.state !== "empty" ? whatsNew.summary : "This edition did not include a verified new destination.", whatsNew && whatsNew.state !== "empty" ? whatsNew.destination : "") : "",
           currentDeskEra ? dailyDesk("Daily crossword", crossword && crossword.state !== "empty" ? "ready" : "empty", crossword && crossword.state !== "empty" ? crossword.headline : "No crossword today.",
             crossword && crossword.state !== "empty" ? crossword.summary : "This edition did not include a crossword.", crossword && crossword.state !== "empty" ? crossword.destination : "") : "",
           dailyDesk("Song of the Day", song && song.state !== "empty" ? "ready" : "empty", song && song.state !== "empty" ? song.headline : "No Song of the Day.",
@@ -561,10 +615,6 @@
     ].join("");
     reader.hidden = false;
     rack.innerHTML = html;
-    if (currentDeskEra && !canonicalIssue) {
-      var unadmittedDeskGrid = rack.querySelector(".ns-daily-service-grid");
-      if (unadmittedDeskGrid) unadmittedDeskGrid.hidden = true;
-    }
     empty.hidden = true;
     document.getElementById("ns-reader-edition").textContent = "The Daily";
     document.getElementById("ns-reader-title").textContent = "Inside this paper.";
@@ -785,6 +835,7 @@
     var fallback = new Date(Date.now() - 7 * DAY_MS);
     syncCatchupAvailability();
     input.value = editorialDateOnly(previousPublicationView || fallback);
+    syncCatchupAvailability();
     input.addEventListener("input", function () { input.setAttribute("data-user-edited", "true"); });
     input.addEventListener("change", function () { input.setAttribute("data-user-edited", "true"); });
     run.addEventListener("click", renderCatchup);
@@ -862,24 +913,26 @@
           detail: { stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }) }
         }));
         applyLatestDailyIssue();
+        syncCatchupAvailability();
         refreshPublicationChrome();
         refreshDailyBackIssueAction();
         updateDailyPaper();
         renderCatchup();
       })
       .catch(function (error) { global.__newsstandDailyIssueError = String(error && error.message || error); dailyIssues = null; })
-      .finally(function () { dailyIssuesLoaded = true; maybeOpenSharedDailyRequest(); });
+      .finally(function () { dailyIssuesLoaded = true; renderFrontDesks(); maybeOpenSharedDailyRequest(); });
     fetch("/content/daily-edition-columns.json", { credentials: "same-origin" })
       .then(function (response) { if (!response.ok) throw new Error("daily-columns-unavailable"); return response.json(); })
       .then(function (value) { columns = value; updateDailyPaper(); renderCatchup(); })
       .catch(function () { columns = null; updateDailyPaper(); renderCatchup(); })
-      .finally(function () { columnsLoaded = true; maybeOpenSharedDailyRequest(); });
+      .finally(function () { columnsLoaded = true; renderFrontDesks(); maybeOpenSharedDailyRequest(); });
     function recordPublicationView(event) {
       var detail = event && event.detail || {};
       markSeen(detail.key, detail.publicationAt);
       previousPublicationView = latestPublicationView(readState());
       if (previousPublicationView && input.getAttribute("data-user-edited") !== "true") {
         input.value = editorialDateOnly(previousPublicationView);
+        syncCatchupAvailability();
       }
     }
     global.addEventListener("newsstand:publication-viewed", recordPublicationView);
