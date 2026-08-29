@@ -14772,3 +14772,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Recovery deployment `4d53f0a6-9385-4d7f-805e-5cfe27e67c7c` combines the last coherent four-book/KSVL baseline with the newer Chick Flicks paths only. Custom-domain byte parity and live browser checks pass for the Library shelf/book preview, KSVL playback, four direct episode routes and physical mobile scrolling. LUMINAiRY and NewsStand remain separate exact holds rather than being smuggled into the repair.
 - **Possible Behind the Build angle:** How fixing one video-store page accidentally time-travelled the rest of a static website—and why a deployment artifact is not the same thing as a branch.
 - **Publication status:** PARTIAL PRODUCTION RECOVERY / LUMINAiRY AND NEWSSTAND HOLD.
+
+## BTB-486 — A quality hold should not silently mean no visitor can watch anything
+
+- **Date:** 2026-08-28
+- **Area:** Episodes / Screening Room / large-film hosting.
+- **Failure:** Episodes 01–04 had newer complete video assemblies on the studio drive, but the public Screening Room exposed no Watch option because one `hold` state was being used for two different decisions: final-quality admission and whether visitors could see the current work at all. The largest current file also exceeded Wrangler's 300 MiB direct-upload limit.
+- **Root cause:** The runtime contract collapsed quality approval and public availability into one boolean gate, and the media workflow had no recorded delivery-encode path for an otherwise current master above the CLI uploader limit.
+- **Prevention rule:** Track `admissionStatus` and `publicPlaybackStatus` separately. `available-in-progress` requires a checksum-bound HTTPS film, duration, poster and complete captions, plus visitor-facing language that improvement is ongoing; it never clears quality holds. Preserve the source master and give any necessary web-delivery derivative its own checksum and runtime.
+- **Durable correction:** Episodes 01 v27, 03 v15 and 04 v10 are hosted byte-for-byte; Episode 02 uses a full-length 1920×1080 H.264/AAC derivative of v20 because the 638 MiB source exceeds the uploader limit. Full public downloads match all four recorded hashes. Chick Flicks exposes direct Watch links, the live player preserves the in-progress label through Watch/Listen switching, Episode 04 advances unmuted, captions are attached and 390px layouts do not overflow. Trailer remains excluded.
+- **Possible Behind the Build angle:** Why “not final yet” accidentally became “visitors get nothing”—and the one extra status that fixed it without pretending the videos were finished.
+- **Publication status:** EPISODES 01–04 DEPLOYED AND PUBLICLY VERIFIED AS AVAILABLE-IN-PROGRESS / QUALITY HOLDS REMAIN.
