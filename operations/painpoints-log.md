@@ -14761,3 +14761,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Ali supplied the longer authored draft and approved the sharpened exact successor. `ai-fundamentals-101-2026-08-24.5` restores the three transformations, preserves the existing reading guidance, omits the unavailable three-mode promise and links Karen Spärck Jones's line to the British Computer Society interview. The exact preface guard rejects the known-bad substitute; admission, Miss Jeeves and the four-book 1280/390/320 reader suite pass. Deployment and public verification remain required before this entry can be closed as public.
 - **Possible Behind the Build angle:** Why “accepted copy” and “the author's copy” turned out to be two different things.
 - **Publication status:** PRODUCTION LIBRARY CORRECTION / VERIFIED LOCALLY / RELEASE PENDING.
+
+## BTB-485 — A narrow product deployment can silently roll back the whole town
+
+- **Date:** 2026-08-28
+- **Area:** Cloudflare Pages release assembly, Chick Flicks, LIBRAiRY, KSVL, LUMINAiRY and NewsStand.
+- **Failure:** A contained Chick Flicks repair was deployed from a branch whose unrelated site files were older than production. Pages replaced the complete static artifact, so the intended Chick Flicks change arrived together with stale Library, radio, LUMINAiRY and NewsStand snapshots. A separate KSVL catalogue expiry then made the restored player fail closed.
+- **Root cause:** Release work treated a product branch as a partial patch even though Pages deploys one whole artifact. No protected-route manifest compared the candidate against the exact preceding production deployment, and KSVL freshness had no pre-expiry operational trigger.
+- **Prevention rule:** Build every product release by overlaying only its admitted paths onto the exact current production artifact. Before upload, require a sorted per-file manifest showing the intended delta and zero unrelated changes or removals across protected public routes. Reject any narrow-branch whole-tree deployment. KSVL renewal must run before `freshThrough`, and the live smoke test must start decoded audio rather than accept page load or HTTP 200.
+- **Durable correction:** Recovery deployment `4d53f0a6-9385-4d7f-805e-5cfe27e67c7c` combines the last coherent four-book/KSVL baseline with the newer Chick Flicks paths only. Custom-domain byte parity and live browser checks pass for the Library shelf/book preview, KSVL playback, four direct episode routes and physical mobile scrolling. LUMINAiRY and NewsStand remain separate exact holds rather than being smuggled into the repair.
+- **Possible Behind the Build angle:** How fixing one video-store page accidentally time-travelled the rest of a static website—and why a deployment artifact is not the same thing as a branch.
+- **Publication status:** PARTIAL PRODUCTION RECOVERY / LUMINAiRY AND NEWSSTAND HOLD.

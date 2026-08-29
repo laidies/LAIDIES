@@ -1,7 +1,7 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-24 UTC
-**Release owner:** LAIDIES-24H-PUBLIC-RECOVERY-20260822 foreground release lane
+**Updated:** 2026-08-28 UTC
+**Release owner:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
@@ -10,10 +10,10 @@ is recorded here.
 
 | Layer | State | Evidence |
 |---|---|---|
-| Production site | `DEPLOYED / PUBLICLY VERIFIED` | Cloudflare Pages deployment `9849b3b4-2a41-48d9-9362-0b1d262744cb`, deployed source `3359a4b89c44d5b51387210f13e04bb43fc24e36`, artifact identity `8a759d5ce35b12f683514671b552c088e23ee3a63b403376efaf5f6a3b0d986e`, immutable URL `https://9849b3b4.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The owner-corrected four-book LIBRAiRY and operational Miss Jeeves backend are public; all 17 fetchable scope paths matched at both origins and the live grounded/D1/privacy/aggregate lifecycle passed on 2026-08-24 UTC. |
-| Current recovery lane | `LIBRAiRY COMPLETE / OTHER DIRECTIONS SEPARATE` | Branch `design/library-owner-corrected-20260823` is the current deployed Library source. Homepage and Visitor's Centre directions remain separate review candidates and are not promoted by this Library release. |
+| Production site | `DEPLOYED / PUBLICLY VERIFIED FOR RECOVERED SCOPE` | Cloudflare Pages deployment `4d53f0a6-9385-4d7f-805e-5cfe27e67c7c`, deployed source `23ef029ffdd388034d4a9f1d71173d6bc50631bd`, artifact identity `8170b599ed4ea6c1c5b415d8d3525e06f6e0f8cbea4d9e1e2a3dc0977e2b4833`, immutable URL `https://4d53f0a6.laidies-sunnyvaile.pages.dev/`, and custom domain `https://laidies.ai/`. The four-book LIBRAiRY, renewed 29-track KSVL catalogue and newer Chick Flicks direct-entry page are public; custom-domain bytes match the artifact and live browser checks prove Library book preview, decoded KSVL playback, four Read routes, zero mobile overflow and physical scrolling on the shelf and Episode 01 reader. |
+| Current recovery lane | `PARTIAL PUBLIC RECOVERY / TWO RELEASE HOLDS` | Branch `codex/live-site-recovery-20260828` is the recovery source. LUMINAiRY source `8bd12a4f` is pushed but not deployed because the exact full validator rejects the missing deferred Carrie song. NewsStand v12 remains local because its page imports private preview data and its August 23-24 material lacks formal public admission. |
 | Difference from production | `NO KNOWN MISS JEEVES BACKEND GAP` | D1, Workers AI, keyed digest and Analytics Engine bindings are active. The controlled result-open record was returned by the Analytics Engine SQL API with no raw question or identity. Reporting and editorial judgment remain operating work, not missing backend. |
-| Current working tree | `LOCAL / ONE DISCLOSED UNRELATED PATH` | Recovery worktree `/Users/alisoneakin/Projects/laidies-context-reset-20260818` has one pre-existing user-owned modification, `scripts/test-codex-hook-guards.mjs`, which is excluded from scoped commits. Use current `git status` before every commit; do not infer deployment from branch state. |
+| Current working tree | `PUSHED / CLEAN BEFORE THIS RECORD` | Recovery worktree `/Users/alisoneakin/Projects/laidies-live-site-recovery-20260828` uses branch `codex/live-site-recovery-20260828`. Product recovery commits through `8bd12a4f` are pushed. This release record, Active Work update and BTB-485 are the only foreground documentation mutation after that push. |
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 opening-day candidates | `BUILT LOCALLY / OWNER WATCH REQUIRED / HOLD` | Current exact candidates are Trailer v8 `1be8c4f1…a1332e`, Episode 01 v27 `50311e89…0f135a`, Episode 02 v20 `2b8bd0c3…a358cc`, Episode 03 v15 `6a7f2381…735b75`, and Episode 04 v10 `9fc40d96…57bfb`. The checksum-bound launch gate, playback package, portable package and review inbox agree on all five. No current candidate is accepted, released or bound publicly. The older Episode 04 v8 object remains publicly reachable only as historical deployment evidence and is not the opening-day source. |
@@ -112,6 +112,7 @@ is recorded here.
 - The untracked studio/archive material must not be bulk-added to a release
   commit merely to make `git status` look clean.
 - The release artifact, not the entire studio tree, is the deployment unit.
+- A product branch is never itself a partial Pages deployment. Every product repair must be overlaid onto the exact current production artifact, and a sorted manifest comparison must prove zero unintended removals or changes across protected public routes before upload. Deploying a narrow branch's whole static tree is a release failure even when the requested product passes locally.
 
 ## Current production release record — 2026-08-24 — AI Fundamentals chapter-opening sequence
 
