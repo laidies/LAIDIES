@@ -21,7 +21,7 @@
 - Current production source binding: `2ad3aa76` (the deployed artifact is an exact four-path overlay, not the full branch tree)
 - Current production deployment: `cb5eed79-5df8-444f-9cb6-85a73cb46915`
 - Source branch: `codex/live-site-recovery-20260828`
-- No reset, clean, deletion of source work, unrelated provider mutation, or spend was performed. The iCloud checkout remained untouched. LUMINAiRY source `8bd12a4f` is pushed but not deployed; NewsStand is not integrated. Three unrelated paths entered an unresolved merge state during this task (`index.html`, `operations/assets/active-asset-registry.json`, `scripts/test-homepage-held-assets-browser.mjs`); they were neither resolved nor included. Episode follow-up commits used an isolated Git index so those bytes remained untouched.
+- No reset, clean, deletion of source work, unrelated provider mutation, or spend was performed. The iCloud checkout remained untouched. LUMINAiRY source `8bd12a4f` is pushed but not deployed; NewsStand is not integrated. A transient unrelated merge state appeared while the episode follow-up was being committed; an isolated Git index kept those unrelated bytes out of both episode commits.
 
 ## History
 
