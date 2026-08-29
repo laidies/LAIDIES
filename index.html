@@ -129,6 +129,7 @@ html{scroll-padding-top:96px}
 .spot-actions a:first-child{background:#d92f87}
 .spot-actions a:last-child{background:#087f97}
 .spot-actions a:hover,.spot-actions a:focus-visible{background:#fffdfb;color:#09162f}
+.activity-grid .card-duo img:only-child{grid-column:1/-1;aspect-ratio:4/3}
 @media (max-width:860px){.spot,.spot:nth-child(2){grid-template-columns:1fr;height:auto}.spot img,.spot:nth-child(2) img{order:-1;height:240px}.spot-luminairy img{height:auto;aspect-ratio:16/9;object-fit:contain}.spot-wings p{grid-template-columns:1fr;gap:2px}}
 /* manifesto */
 .manifesto{display:grid;grid-template-columns:1.05fr 1fr;background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);color:var(--cream);align-items:stretch}
@@ -566,7 +567,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
           <p>Your brain has been saving <em>Clueless</em>, Carrie Bradshaw, &ldquo;Wannabe,&rdquo; dial-up tones, butterfly clips and roll-on glitter for years. At LAiDIES, that is not useless trivia. It is a head start.</p>
           <p>Every lesson unfolds in SUNNYVAiLE&mdash;a fictional town tuned to the Rewind Era (1990–2010), where sequential stories, accurate pop-culture analogies, practical activities and original songs work together to make AI easier to understand, use and remember.</p>
           <a class="text-link" href="/visitors-centre.html">Visit the Visitor’s Centre &rarr;</a>
-          <figure class="explainer-card"><div class="asset-held-panel" data-asset-status="held" data-home-held="dial-up">Dial-up postcard visual held</div></figure>
+          <figure class="explainer-card"><img loading="lazy" decoding="async" src="/assets/media/opening-day-covers-v1/trailer/trailer-site.jpg" alt="The SUNNYVAiLE season trailer cover"></figure>
           <a class="play-chip chip-anthem" href="/radio.html"><span class="pc-icon" aria-hidden="true">&#9654;</span> Hear the town anthem at KSVL</a>
       </div>
       <h3 class="steps-title">How it all works</h3>
@@ -574,7 +575,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
       <div class="explainer-right">
           <aside class="why-box why-box-lg">
             <p class="eyebrow">Why LA<span class="keep-i">i</span>DIES exists</p>
-            <div class="why-ada asset-held-panel" data-asset-status="held" data-home-held="ada">Ada Lovelace portrait visual held</div>
+            <img loading="lazy" decoding="async" class="why-ada" src="/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png" alt="The Founding Mothers — Episode Four: It Was Women All Along">
             <p class="foundress-caption">Ada Lovelace &middot; Keeper of the First Algorithm</p>
             <div>
               <p>Women have shaped computing from its earliest foundations and helped build the ideas, machines and methods that made modern AI possible.</p>
@@ -611,7 +612,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
       <div class="weekly-layout">
         <div class="weekly-side">
         <article id="new-here" class="feature-card">
-          <div class="asset-held-panel" data-asset-status="held" data-home-held="chick-flicks">Chick Flicks postcard visual held</div>
+          <img loading="lazy" decoding="async" src="/assets/media/opening-day-covers-v1/04/04-site.jpg" alt="Episode 04: The Founding Mothers">
           <div class="fc-state fc-default">
             <span class="tag">Where you are in the season</span>
             <h3>Ep 04 · The Founding Mothers</h3>
@@ -658,11 +659,11 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
       <div class="filter" role="group" aria-label="Filter activities"><button class="active" data-filter="all">Everything</button><button data-filter="help">Work help</button><button data-filter="decide">Help me decide</button><button data-filter="fun">Make me laugh</button><button data-filter="quick">Under 5 min</button></div>
       <div class="activity-grid">
         <article data-tags="help quick" id="help" data-asset-status="held"><div><span class="tag">Prompt and writing help · 3–5 min</span><h3>FAiRY Godmother</h3><p>Bring her a prompt or draft and get help making it clearer, more specific and more useful.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
-        <article data-tags="fun decide quick"><div class="asset-held-panel" data-asset-status="held" data-home-held="mme-claio">Mme CLAi-O visual held</div><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
-        <article data-tags="fun quick"><div class="asset-held-panel" data-asset-status="held" data-home-held="bws">Businesswomen&rsquo;s Special visual held</div><div><span class="tag">Happy hour · cocktail or spirit-free</span><h3>Businesswomen’s Special</h3><p>A social AI ritual with an equal-choice paper fortune teller and a conversation menu for the table.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
+        <article data-tags="fun decide quick"><img loading="lazy" decoding="async" src="/assets/town-characters/avatars/mme-claio-avatar-v1.png" alt="Mme CLAi-O"><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
+        <article data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="/assets/sunnyvaile-buildings/y2k-v3/05-bronze-aige.webp" alt="BRONZE AiGE on MAiN Street"><div><span class="tag">Happy hour · cocktail or spirit-free</span><h3>Businesswomen’s Special</h3><p>A social AI ritual with an equal-choice paper fortune teller and a conversation menu for the table.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
         <article data-tags="help fun"><img loading="lazy" decoding="async" src="/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Call a character or spot the hallucination · 3–5 min</span><h3>Dream Phone</h3><p>Phone a SUNNYVAiLE character for a funny new perspective, or try For Real / As If and investigate an AI claim.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
-        <article data-tags="fun"><div class="card-duo"><div class="asset-held-panel" data-asset-status="held" data-home-held="girl-talk-truth">Girl Talk Truth visual held</div><div class="asset-held-panel" data-asset-status="held" data-home-held="girl-talk-dare">Girl Talk Dare visual held</div></div><div><span class="tag">Private honour-system game · 5–10 min</span><h3>Girl Talk</h3><p>Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; live conversation uses Hyvor&rsquo;s separate sign-in when available.</p><button onclick="location.href='/sorority-house.html'">Visit Delta LAi Nu</button></div></article>
-        <article data-tags="help quick"><div class="asset-held-panel" data-asset-status="held" data-home-held="newsstand">NewsStand visual held</div><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
+        <article data-tags="fun"><div class="card-duo"><img loading="lazy" decoding="async" src="/assets/sunnyvaile-buildings/web/10-delta-lai-nu-sorority-house.jpg" alt="Delta LAi Nu on Wisteria Lane"></div><div><span class="tag">Private honour-system game · 5–10 min</span><h3>Girl Talk</h3><p>Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; live conversation uses Hyvor&rsquo;s separate sign-in when available.</p><button onclick="location.href='/sorority-house.html'">Visit Delta LAi Nu</button></div></article>
+        <article data-tags="help quick"><img loading="lazy" decoding="async" src="/assets/sunnyvaile-buildings/web/02-sunnyvaile-newsstand.jpg" alt="The SUNNYVAiLE NewsStand"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
       </div>
     </section>
 
@@ -740,7 +741,7 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 
 
     <section class="closet" id="collect"><div><p class="eyebrow">Save, collect and continue</p><h2>Your supported saves and keepsakes have one place to live.</h2>
-      <div class="closet-photo asset-held-panel" data-asset-status="held" data-home-held="puffy-binder">Puffy binder postcard visual held</div>
+      <img loading="lazy" decoding="async" class="closet-photo" src="/assets/closet/closet-interior-hero-v2-90s-vibrant.png" alt="The SUNNYVAiLE Closet">
       <p>Your <strong>Resident Card</strong> is your SUNNYVAiLE town ID. Make it at MAiKEOVER on MAiN&mdash;it takes about two minutes and stays in this browser. A private sign-in-link request does not yet make the Card portable.</p>
       <p><strong>Delta LAi Nu</strong>, SUNNYVAiLE&rsquo;s sorority house, is open to explore without a Card. Its room prompts are open to browse; live discussion uses Hyvor&rsquo;s separate sign-in when that service is available. Delta LAi Nu is also home to Girl Talk, our private honour-system SUNNYVAiLE spin on the classic &rsquo;90s truth-or-dare game.</p>
       <p class="closet-aside">It&rsquo;s considerably more fun than joining yet another professional networking group.</p>
@@ -840,5 +841,6 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
     requestAnimationFrame(frame);
   })();
   </script>
+  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-08-29-v3-f3347a06b810"></script>
 </body>
 </html>
