@@ -2,14 +2,16 @@
 
 ## 2026-08-29 production successor
 
+- **Status:** BUILDING — public page recovery advanced; Resident provider recovery and held feed restoration remain open.
 - Production deployment `089d7483-6643-40a6-88fb-0e07cdb95f58` uses pushed source `25d2b0c7864a8d5838925aaed91033429010bb9c` and exact 670-file artifact `/tmp/laidies-held-art-successor.jpAhxV`, manifest `/tmp/laidies-held-art-successor.jpAhxV.manifest.json`, identity `eb4c6f4e747eda5bb35b0e677fcc495c354433162efce836ef93e7c058fa63b8`.
+- Exact release boundary: predecessor `b63d429c-5ede-45dc-868a-9492d35ffa00` to `089d7483` changes six unique paths: `blend-snap.html`, `bronze-aige.html`, `content/bronze-aige-v2.css`, `laidies-card.html`, `post-office.html`, and `postcard.html`. Intermediary production `c73ce7a2-8151-4272-a2f6-61e17905ddba` admitted the four touch-target paths; the immediate `c73ce7a2` to `089d7483` overlay changed three paths because `laidies-card.html` changed in both stages.
 - It preserves the coordinated recovered baseline, adds 44px minimum controls for Blend Snap retry, Card flipping and Bronze AiGE stations, and stops requesting unapproved Closet vessel art or presenting hidden postcard previews as broken images.
 - A corrected full-scroll audit rendered all 83 routes at 390x844 and 1200x814: 166/166 had no blank output, overflow, page errors or private runtime requests. The remaining same-origin 404s are the explicitly held Chat Room digest and Trading Cards catalogue JSON feeds.
 - Resident account-backed and cross-device restoration remains blocked on recovery of the real Supabase provider project; no replacement was guessed or created.
 
 <!-- context-authority: operations/context-authority.json -->
 
-## Current task
+## Predecessor recovery snapshot
 
 - **Task ID:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828
 - **Status:** BUILDING
@@ -25,8 +27,8 @@
 - Source iCloud checkout remains preservation-sensitive and contains extensive
   pre-existing dirty work. This task made no source-checkout writes.
 - Production source worktree: `/Users/alisoneakin/Projects/laidies-live-site-recovery-20260828`
-- Current production source display: `eb45de78eba56f78c9982233038fe6431e542b91` (the deployed artifact was assembled as a controlled overlay on the latest exact production artifact; source changes are calibrated release guards rather than a rebuild from the older tree)
-- Current production deployment: `b63d429c-5ede-45dc-868a-9492d35ffa00`
+- Predecessor production source display: `eb45de78eba56f78c9982233038fe6431e542b91`
+- Predecessor production deployment: `b63d429c-5ede-45dc-868a-9492d35ffa00`
 - Source branch: `codex/live-site-recovery-20260828`
 - No reset, clean, deletion of source work or unrelated provider mutation was performed. The iCloud checkout remained untouched. The stray `logo-preview.html` route is absent from the deployment artifact and redirects home; its source remains recoverable. LUMINAiRY source from `8bd12a4f` is included in this release.
 

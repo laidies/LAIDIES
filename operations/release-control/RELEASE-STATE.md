@@ -8,7 +8,7 @@ is recorded here.
 
 ## Current truth
 
-> **Current production head:** `089d7483-6643-40a6-88fb-0e07cdb95f58`, source `25d2b0c7864a8d5838925aaed91033429010bb9c`, exact artifact `/tmp/laidies-held-art-successor.jpAhxV`, manifest `/tmp/laidies-held-art-successor.jpAhxV.manifest.json`, 670 files, identity `eb4c6f4e747eda5bb35b0e677fcc495c354433162efce836ef93e7c058fa63b8`. The 83-route, two-viewport full-scroll audit found zero core failures in 166 journeys. Card and Post Office custom bytes match exactly; Cloudflare rewrites Postcard's literal `mailto:` on the custom domain, while immutable bytes match and the repaired hidden-image rule is present publicly.
+> **Current production head:** `089d7483-6643-40a6-88fb-0e07cdb95f58`, source `25d2b0c7864a8d5838925aaed91033429010bb9c`, exact artifact `/tmp/laidies-held-art-successor.jpAhxV`, manifest `/tmp/laidies-held-art-successor.jpAhxV.manifest.json`, 670 files, identity `eb4c6f4e747eda5bb35b0e677fcc495c354433162efce836ef93e7c058fa63b8`. Against predecessor `b63d429c`, the exact unique delta is six paths: `blend-snap.html`, `bronze-aige.html`, `content/bronze-aige-v2.css`, `laidies-card.html`, `post-office.html`, and `postcard.html`. Intermediary production `c73ce7a2` contained the four touch-target changes; the immediate `c73ce7a2` to `089d7483` overlay was three paths, with `laidies-card.html` changed in both stages. The 83-route, two-viewport full-scroll audit found zero core failures in 166 journeys. Card and Post Office custom bytes match exactly; Cloudflare rewrites Postcard's literal `mailto:` on the custom domain, while immutable bytes match and the repaired hidden-image rule is present publicly.
 
 | Layer | State | Evidence |
 |---|---|---|
