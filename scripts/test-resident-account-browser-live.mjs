@@ -287,8 +287,12 @@ try {
   console.log("STEP new-memory-restore PASS favourites=3 quiz=1 visits=1 visible-closet=1");
 
   // A new choice on the phone must beat the unchanged stale desktop copy.
+  await secondPage.goto(`${origin}/luminairy.html`, {waitUntil:"domcontentloaded"});
+  await secondPage.getByRole('button',{name:'Light this candle',exact:true}).first().waitFor({state:'visible'});
+  await secondPage.locator('#tab-mavens').click();
+  await secondPage.locator('#lumSearch').fill('Grace Hopper');
+  await secondPage.getByRole('button',{name:'Light this candle',exact:true}).click();
   await secondPage.evaluate(async () => {
-    localStorage.setItem("laidies_maven", "grace-hopper");
     const runtime = await window.LAIDIESResidentAccountRuntime.get();
     await window.LAIDIESResidentContinuationV1.syncWith(runtime);
   });
@@ -297,14 +301,16 @@ try {
   });
   assert.equal(await firstPage.evaluate(() => localStorage.getItem("laidies_maven")), "grace-hopper");
   // Deletion is a saved choice, not permission to resurrect an older pick.
+  await secondPage.getByRole('button',{name:'Candle lit · clear',exact:true}).click();
   await secondPage.evaluate(async () => {
-    localStorage.removeItem("laidies_maven");
     await window.LAIDIESResidentContinuationV1.syncWith(await window.LAIDIESResidentAccountRuntime.get());
   });
   await firstPage.evaluate(async () => {
     await window.LAIDIESResidentContinuationV1.syncWith(await window.LAIDIESResidentAccountRuntime.get());
   });
   assert.equal(await firstPage.evaluate(() => localStorage.getItem("laidies_maven")), null);
+  await secondPage.goto(`${origin}/laidies-card.html`, {waitUntil:"domcontentloaded"});
+  await secondPage.locator('#covenMavenPick').waitFor({state:'visible'});
   assert.match(await secondPage.locator("#covenMavenPick").innerText(), /pick one/i);
   console.log("STEP newer-choice-and-clear PASS stale-desktop=1 same-tab-refresh=1");
   assert.equal(

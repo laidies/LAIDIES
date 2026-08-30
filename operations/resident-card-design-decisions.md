@@ -65,7 +65,14 @@
 
 ## Decision
 
-### 2026-08-30 — complete private Closet memory (BUILDING)
+### 2026-08-30 — complete private Closet memory (bounded PUBLICLY VERIFIED)
+
+Released source `1fa874745025904afa62ee4da3d75ef585cb0c77` as Pages
+`11ada06e-b04f-459b-a32c-8569b9d84fff`. Real custom-domain two-account/browser
+tests prove restoration, actual LUMINAiRY choice/clear, sign-out/reload and
+account isolation. Consumer refresh passes at1280/390/320 on the immutable
+origin. This is Chromium viewport evidence, not native Safari/physical devices.
+Exact release identity and preservation boundary are in `release-control/RELEASE-STATE.md`.
 
 Ali requested the remaining recovery gaps in priority order, starting with
 cross-device memory. Extend the existing private continuation document to the

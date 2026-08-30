@@ -6,7 +6,27 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth — 2026-08-30 KSVL / Closet successor
+## Current truth — 2026-08-30 private Closet memory successor
+
+Production `11ada06e-b04f-459b-a32c-8569b9d84fff`, pushed source
+`1fa874745025904afa62ee4da3d75ef585cb0c77`, immutable
+`https://11ada06e.laidies-sunnyvaile.pages.dev`, custom `https://laidies.ai`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-closet-memory-final.l9pmp8`;
+manifest same path plus `.manifest.json`;673 files,640161427 bytes, identity
+`f150ad915f24ede6783c867b19e62b84b001332d033506558225e2b687e92e35`.
+Exact overlay of931eb0dc:65 changed,608 unchanged,no additions/removals;
+11 runtime/consumer/dependency paths and54 other loader-token-only paths.
+NewsStand changes only its direct bootstrap cache token; all story/data bytes,
+Library books, portraits and KSVL runtime are preserved. All673 input files
+rehash unchanged after release. Public/custom and immutable142 comparisons:
+141 exact, custom Postcard only its verified Cloudflare email-protection transform.
+Real custom-domain two-account/browser restoration, favourite change/clear,
+sign-out/reload and account isolation pass. Immutable consumer suite12/12 at
+1280/390/320 passes. Details and remaining gaps: `operations/ACTIVE-WORK.md`.
+No schema/provider change. Native Safari/physical-device testing remains open.
+Use this exact input for future overlays, never a superseded whole-site artifact.
+
+## Previous truth — 2026-08-30 KSVL / Closet successor (superseded)
 
 Production head is `931eb0dc-ab7e-4744-a0c6-7a8c846802e5`, source
 `5aece9ec448826aa7f3224a854bd5d0357241171`, immutable

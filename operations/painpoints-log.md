@@ -7,6 +7,28 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-08-30 private Closet memory repair
+
+The provider was online, but three favourites, quiz progress and visits were
+omitted from the private continuation allowlist. Reads also restamped unchanged
+state, consumers missed same-tab restore, the Closet lacked15 favourite labels,
+and edits queued during a network request could join an older sync and remain
+unsaved. Repair uses bounded typed records, stable timestamps/clear tombstones,
+captured-session requests, a queued follow-up sync and explicit consumer refresh.
+Aggregate counters preserve maximum, not an invented independent-event total.
+Calibrated contract/browser/cache guards reject the predecessor; a real
+custom-domain two-account/browser test exercises actual LUMINAiRY choice/clear,
+restoration and isolation. All66 static cache edges and bootstrap dependencies
+are guarded, including previously unversioned shared-script loads. Live test
+navigation waits for the needed control, not global network idleness.
+Source `1fa874745025904afa62ee4da3d75ef585cb0c77`, deployment
+`11ada06e-b04f-459b-a32c-8569b9d84fff`; exact unrelated production bytes preserved.
+Prevention: test the whole producer → private save → fresh browser → visible
+consumer → stale-device edit/clear path, and bind all cache edges to the release.
+Possible Behind the Build angle: remembering a choice includes remembering that
+someone changed their mind. Native devices and unrelated collection/reward
+lifecycles remain unverified; no backend replacement or schema change was needed.
+
 ## 2026-08-30 KSVL continuity repair
 
 Saved playback and a visible player were not enough: station/single contexts

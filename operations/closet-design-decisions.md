@@ -43,7 +43,19 @@ Literal Resident Cards and membership cards remain cards because they are the
 actual objects. Generic navigation and text content no longer borrow that
 shape.
 
-## 2026-08-30 self-only recovery
+## 2026-08-30 private memory successor — bounded PUBLICLY VERIFIED
+
+Pages `11ada06e-b04f-459b-a32c-8569b9d84fff` extends the existing private
+continuation backend to three non-Card favourites, quiz progress/bests and
+building visits. It repairs missing favourite labels and same-tab consumer
+refresh. Actual live custom-domain two-browser restoration, choice/clear and
+account isolation pass; consumer refresh passes1280/390/320. Public routes
+remain excluded. Aggregate counts use maximum, not an audited event sum.
+No public handles, rewards, balances, sharing or leaderboard admission is added.
+This supersedes the local-only memory/release status in the historical section
+below. Exact source/input identity is in `release-control/RELEASE-STATE.md`.
+
+## 2026-08-30 self-only recovery (historical; superseded above)
 
 Ali requested recovery of the remaining Closet functionality. The 17 building
 visit cards, Report Card and four Luminary picks retain their existing local

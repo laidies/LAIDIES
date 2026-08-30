@@ -1,6 +1,21 @@
 # Active work
 
-## 2026-08-30 Closet cross-device memory — VERIFIED LOCALLY, release pending
+## 2026-08-30 Closet cross-device memory — DEPLOYED AND PUBLICLY VERIFIED (bounded)
+
+Production `11ada06e-b04f-459b-a32c-8569b9d84fff`, pushed source
+`1fa874745025904afa62ee4da3d75ef585cb0c77`, immutable
+`https://11ada06e.laidies-sunnyvaile.pages.dev`, custom `https://laidies.ai`.
+Live custom-origin two-account/two-browser lifecycle passes: Card, episode,
+Tour, charm and Puffy restoration plus three favourites, quiz bests and visits;
+actual LUMINAiRY buttons change and clear a favourite, a stale browser receives
+both, sign-out survives reload, and account switching clears private progress.
+Exact immutable-origin consumer suite passes12/12 at1280/390/320. Public integrity:
+142 comparisons,141 exact; custom Postcard differs only by the independently
+verified Cloudflare empty-mailto protection/decoder transformation. All673
+deploy-input files rehashed unchanged after deployment. No database schema,
+provider configuration or original resident records were changed. Native Safari
+and physical devices were not tested; visit/attempt totals remain bounded
+max-merged summaries, not an audited independent-event/reward ledger.
 
 Ali authorized prioritized recovery starting with private cross-device memory.
 Current scope and acceptance are in `operations/resident-card-design-decisions.md`
@@ -20,13 +35,20 @@ identity`f150ad915f24ede6783c867b19e62b84b001332d033506558225e2b687e92e35`.
 Exact base remains931eb0dc:65changedpaths,608unchanged,noadditions/removals.
 54 changes are cache-loader-only (including one NewsStand bootstrap token),
 11 are runtime/consumer/dependency paths. NewsStand content/data and all books,
-portraits,KSVL runtime and unrelated bytes remain exact. No release yet.
+portraits,KSVL runtime and unrelated bytes remain exact. This exact input is now
+the required overlay base; the source tree alone is not a whole-site release input.
 Normal commit hook again rejects the unrelated45 missing Episode03 source assets.
 Local links1947/110pages, inline JS295/119pages and rejection-prevention pass.
 The scoped commit bypasses that unrelated hook only; no Episode content changes
 or Episode quality/availability claim are included.
-Two disposable verification accounts are foreground-owned and must be deleted
-after real backend/browser tests; no original resident records may be changed.
+Cleanup verified: task-created Auth IDs `8a66bde0-3571-4c3d-8422-1f9a79bea4ec`
+and `7e3c6e96-4425-4901-bb95-6a980ff7ab60` deleted. Read-only exact-ID counts
+are zero across auth.users, member_profiles, resident_cards,
+resident_identity_mutations, resident_continuations and
+resident_continuation_mutations. Auth returned to the original five IDs,
+unchanged. Both temporary credential files and their empty directory were
+removed; task Dashboard tab closed. These synthetic test records are not
+recoverable; no original resident was deleted or edited.
 Remaining queue: request/community submissions, messaging/referrals, then held
 reward/collection lifecycles subject to their privacy and safety requirements.
 
