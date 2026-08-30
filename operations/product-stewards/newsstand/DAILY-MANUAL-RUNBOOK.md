@@ -13,11 +13,12 @@ backend cron is enabled. The older Control Room dispatcher stays paused.
 Stable implementation checkout:
 `/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
 Branch: `release/newsstand-daily-20260830`. Released source:
-`44fa491c141c0626b9854c4dcac58747b8b30971`. Production seed:
-`7d6d4805-7ae1-4813-b533-7f2fb8a72d47`, artifact
-`/private/tmp/laidies-newsstand-continuity-20260830.gFuhDt`, identity
-`a71b8560e98850e812191da3586dd76d068c65aef48becc5721e8ec9c6f74e9e`.
-Public verification: `operations/product-stewards/newsstand/evidence/continuity-repair-2026-08-30.md`.
+`e6bbbcd6346c62517941393d5512cf7180def640`. Production seed:
+`b2695dc7-c6a5-49a0-a194-6cb3e85124df`, artifact
+`/tmp/laidies-newsstand-bank-successor.grAiqm`, manifest at the same path plus
+`.manifest.json`, identity
+`48cf4656a60bb79f1849549b751205bbf411b433eed2872d2e0633b40000e1d4`.
+Public verification: `operations/product-stewards/newsstand/evidence/service-revision-2026-08-30/public-release.md`.
 These are recovery pointers, not permission to deploy stale bytes: resolve the
 actual provider head and exact immutable artifact anew before every release.
 Use a clean isolated transaction worktree for each future candidate; never
@@ -255,4 +256,7 @@ confirmed production artifact, overlay only admitted NewsStand files and compare
 the complete manifests with `check-newsstand-release-scope.mjs`. Commit the exact
 source before deployment. Verify both immutable and custom origins on desktop
 and mobile; a local check is not a published issue. The August 30 proving run did
-not create a scheduler: Ali updated the existing active heartbeat separately.
+not create a scheduler. The existing active heartbeat was updated through the
+app with Ali's authorization, retaining its daily 07:00 cadence, target task and
+notification policy. Its next wall-clock execution has not yet occurred; local
+next-day tests and this publicly verified cycle do not prove future execution.

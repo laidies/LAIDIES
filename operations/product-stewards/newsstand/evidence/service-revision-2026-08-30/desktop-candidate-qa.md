@@ -28,5 +28,6 @@ The broad repository commit hook exited 1: `FAILURES (45)` for missing
 Episode 3 comic assets in this isolated checkout. Town, local links, inline JS,
 output-path and rejection-prevention checks passed. This reproduces the known
 unrelated baseline failure documented in continuity-repair-2026-08-30.md;
-no episode path is changed by this release. Commit uses --no-verify after the
+no episode path is changed by this release. Commit used a per-command
+`-c core.hooksPath=/dev/null` bypass after the
 scoped passing checks above; the broad hook is not claimed passing.
