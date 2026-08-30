@@ -960,7 +960,7 @@
     <div class="closet-arrival-copy">
       <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
       <h1>The Closet</h1>
-      <span>Your Resident Card is your SUNNYVAiLE town ID.</span>
+      <span>Your Resident Card, Wednesday route, and supported collections in one place.</span>
     </div>
   </div>
 
@@ -1301,7 +1301,7 @@
   <!-- ==============================================
        SECTION 1.5: THIS WEEK'S TOUR (ritual mechanic)
        ============================================== -->
-  <section class="passport-section" id="tourSection" hidden>
+  <section class="passport-section" id="tourSection">
     <p class="passport-section-eyebrow">★ Closet · This Week</p>
     <h2 class="passport-section-title">Your Wednesday Tour</h2>
     <p class="passport-section-lede">The 8-stop ritual — the week's episode, start to finish. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
@@ -1421,7 +1421,7 @@
   <!-- ==============================================
        SECTION 2: PASSPORT VESSELS
        ============================================== -->
-  <section class="passport-section" id="collectionSection" hidden>
+  <section class="passport-section" id="collectionSection">
     <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
     <h2 class="passport-section-title">Your Collections</h2>
 
@@ -2620,7 +2620,7 @@
     if (currentSession) {
       if (persistenceState) {
         persistenceState.textContent =
-          'Controlled account preflight: checking the private Card fixture. Public account-backed Card continuation remains held.';
+          'Controlled account preflight: checking the private Card and supported continuation fixture.';
       }
       var own = await loadOwnProfile();
       if (own) {

@@ -197,6 +197,14 @@ try {
       "Closet avatar keeps the exact canonical path"
     );
     check(await page.locator("#cardAvatar img[onerror]").count() === 0, "DOM-created avatar has no executable attribute");
+    check(await page.locator("#tourSection").isVisible(), "supported Wednesday Tour remains visible in the Closet");
+    check(await page.locator("#collectionSection").isVisible(), "supported Closet collections remain visible");
+    check(await page.locator("#fairyBankSection").isHidden(), "unproved FAiRY balance remains held");
+    check(await page.locator("#leaderboardSection").isHidden(), "unproved leaderboard remains held");
+    await page.screenshot({
+      path: path.join(evidenceDir, "closet-supported-1280.png"),
+      fullPage: true
+    });
     await context.close();
   }
 
@@ -221,6 +229,10 @@ try {
       !(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
       "mobile Card flip repair adds no horizontal overflow"
     );
+    await page.screenshot({
+      path: path.join(evidenceDir, "closet-supported-390.png"),
+      fullPage: true
+    });
     await context.close();
   }
 
