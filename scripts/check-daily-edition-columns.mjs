@@ -5,7 +5,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+const TYPES = [
+  "paige_tip", "promptoscope", "career_life", "concept_week", "mme_claio",
+  "dear_miss_jeeves", "behind_build", "around_town", "whats_new_sunnyvaile",
+  "crossword", "song", "did_you_know", "town_note", "curiosity", "fiction"
+];
 const PUBLIC = new Set(["APPROVED", "PUBLISHED", "CORRECTED"]);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -32,7 +36,7 @@ export function checkDailyEditionColumns(data, { root = ROOT, asOf = calendarDat
     const slot = `${record.editionDate}:${record.type}`;
     if (slots.has(slot)) errors.push(`duplicate Daily slot ${slot}`);
     slots.add(slot);
-    const sourcePath = path.join(root, record.sourcePath || "");
+    const sourcePath = path.join(root, String(record.sourcePath || "").replace(/^\/+/, ""));
     if (!record.sourcePath || !fs.existsSync(sourcePath)) errors.push(`${record.id} sourcePath does not resolve`);
     if (!record.freshness?.lastCheckedAt || !record.freshness?.expiresAt || !record.freshness?.recheckTriggers?.length) errors.push(`${record.id} has incomplete freshness`);
     if (PUBLIC.has(record.status)) {
@@ -40,12 +44,20 @@ export function checkDailyEditionColumns(data, { root = ROOT, asOf = calendarDat
       if (record.freshness.expiresAt < asOf) errors.push(`${record.id} is expired`);
       for (const gate of ["accuracy", "editorial", "voice", "format", "owner"]) {
         if (!record.reviewEvidence?.[gate]) errors.push(`${record.id} is public without ${gate} evidence`);
+        else {
+          const evidencePath = path.join(root, String(record.reviewEvidence[gate]).replace(/^\/+/, ""));
+          if (!fs.existsSync(evidencePath)) errors.push(`${record.id} ${gate} evidence does not resolve`);
+        }
       }
       if (record.type === "mme_claio" && !record.reviewEvidence?.safety) errors.push(`${record.id} Mme CLAi-O selection lacks safety evidence`);
+      if (record.type === "mme_claio" && record.reviewEvidence?.safety) {
+        const safetyPath = path.join(root, String(record.reviewEvidence.safety).replace(/^\/+/, ""));
+        if (!fs.existsSync(safetyPath)) errors.push(`${record.id} safety evidence does not resolve`);
+      }
     } else if (record.publicEligibility === "ELIGIBLE") {
       errors.push(`${record.id} is non-public but ELIGIBLE`);
     }
-    if (record.classification === "fiction" && record.type !== "fiction") errors.push(`${record.id} mislabels fiction`);
+    if (record.classification === "fiction" && !["fiction", "around_town"].includes(record.type)) errors.push(`${record.id} mislabels fiction`);
   }
   const records = data?.records || [];
   const publicRecords = records.filter((record) => PUBLIC.has(record.status)).length;

@@ -336,6 +336,16 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
 > `e05900cb` and the final rev39 page/runtime bytes govern this recovery. The
 > Crossword remains excluded.
 
+> **SERVICE-DESK HOLD — 2026-08-29.** The August 24 service records cannot be
+> treated as admitted merely because the public JSON says `APPROVED`. Every
+> record cites source/review files that are absent from the authoritative
+> checkout and every preserved local worktree searched during recovery. Until
+> those exact receipts are recovered or a new role-distinct admission is
+> completed, the “Useful this week” counter, Daily service grid and corresponding
+> archive entries stay out of the visitor experience. Front PAiGE and Big
+> Picture story admission are separate and remain governed by their own exact
+> records.
+
 > **CURRENT GOVERNANCE PRECEDENCE — 2026-08-29.** An admitted historical Daily
 > snapshot preserves its original record but may not bypass a newer canonical
 > hold, correction or retraction. Every live consumer resolves a snapshot ID to

@@ -12,7 +12,7 @@ const ROOT = path.resolve(process.env.NEWSSTAND_ROOT || path.resolve(path.dirnam
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const CALIBRATE = process.argv.includes("--calibrate");
 const CALIBRATE_RETURNING = process.argv.includes("--calibrate-returning");
-const FIXED_NOW = "2026-08-23T20:00:00-07:00";
+const FIXED_NOW = "2026-08-29T20:00:00-07:00";
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 if (!fs.existsSync(CHROME)) {
@@ -153,46 +153,63 @@ try {
     desktop.close();
     process.exitCode = 0;
   } else {
-    check(await value(desktop, "({contract:typeof window.NewsstandContract,data:!!window.NEWSSTAND_DATA,contractScript:Array.from(document.scripts).find((item)=>item.src.includes('newsstand-reader-contract'))?.src||null})"), { contract: "object", data: true, contractScript: siteOrigin + "/content/newsstand-reader-contract.js?v=20260829-owner-release-v1" }, "reader contract and canonical dataset load before interaction");
+    check(await value(desktop, "({contract:typeof window.NewsstandContract,data:!!window.NEWSSTAND_DATA,contractScript:Array.from(document.scripts).find((item)=>item.src.includes('newsstand-reader-contract'))?.src||null})"), { contract: "object", data: true, contractScript: siteOrigin + "/content/newsstand-reader-contract.js?v=20260823-newsstand-v1" }, "reader contract and canonical dataset load before interaction");
     check(await value(desktop, "window.NewsstandContract.validate(window.NEWSSTAND_DATA)"), [], "canonical browser dataset satisfies the reader contract");
     check(await value(desktop, "document.querySelectorAll('.ns-publication').length"), 1, "one complete Daily control");
     check(await value(desktop, "['breaking','weekly','big-picture'].every((edition)=>document.querySelector('[data-status-for=\"'+edition+'\"]')&&document.querySelector('[data-contents-for=\"'+edition+'\"]'))"), true, "three editorial columns inside one paper");
     check(await value(desktop, "document.querySelector('.ns-front-desk--lead .ns-front-desk__label').innerText.includes('THE FRONT PAiGE')"), true, "Front PAiGE names the Daily lead");
-    check(await value(desktop, "document.querySelector('.ns-front-desk--lead').getBoundingClientRect().width > document.querySelector('.ns-front-desk--big-picture').getBoundingClientRect().width"), true, "Front PAiGE owns the widest desktop column");
+    check(await value(desktop, `(() => {
+      const grid = document.querySelector('.ns-front-page-grid').getBoundingClientRect();
+      const lead = document.querySelector('.ns-front-desk--lead').getBoundingClientRect();
+      const rail = document.querySelector('.ns-front-page-grid__right').getBoundingClientRect();
+      const picture = document.querySelector('.ns-front-desk--big-picture').getBoundingClientRect();
+      return Math.abs(picture.width - grid.width) <= 1 &&
+        picture.top >= Math.max(lead.bottom, rail.bottom) - 1;
+    })()`), true, "Big Picture spans the full desktop grid beneath Front PAiGE and the news rail");
     check(await value(desktop, "document.body.textContent.includes('Wednesday to Wednesday') && document.body.textContent.includes('Latest analysis')"), true, "Weekly and Big Picture jobs visible");
     check(await value(desktop, "!document.body.textContent.includes('The Tribune')"), true, "retired identity absent");
     check(await value(desktop, "document.documentElement.scrollWidth <= window.innerWidth"), true, "desktop has no document overflow");
 
     const currentPreview = await openPage("/newsstand.html");
-    check(await value(currentPreview, "window.NEWSSTAND_DATA.publications.daily.editionDate"), "2026-08-23", "public current-issue source uses the August 23 issue");
+    check(await value(currentPreview, "window.NEWSSTAND_DATA.publications.daily.editionDate"), "2026-08-24", "public current-issue source uses the August 24 issue");
     check(await value(currentPreview, "document.querySelectorAll('[data-secondary-for=daily] article').length"), 0, "stale OpenAI brief is withheld from the Daily rail");
     check(await value(currentPreview, `(() => {
       const lead = document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent;
       const secondary = Array.from(document.querySelectorAll('[data-secondary-for=daily] article strong'), node => node.textContent);
       return new Set([lead].concat(secondary)).size === 1;
     })()`), true, "Front PAiGE appears exactly once");
-    check(await value(currentPreview, "!document.body.textContent.includes('AIDB’s new skills map puts prompts') && document.querySelector('.ns-feature-desk').hidden"), true, "unadmitted service desks stay out of the public issue");
-    check(await value(currentPreview, "document.querySelectorAll('.ns-big-picture-tracking__list li').length"), 7, "Big Picture shows seven AI Fundamentals-linked tracked storylines without presenting them as articles");
-    check(await value(currentPreview, "document.querySelectorAll('[data-desk] a').length === 0 && !document.querySelector('.ns-paper-sections')"), true, "held service desks are absent and redundant section tabs stay removed");
+    check(await value(currentPreview, `(() => {
+      const section = document.querySelector('.ns-feature-desk');
+      return section.hidden && !document.body.textContent.includes('Save the good setup, not just the good answer.') &&
+        !document.body.textContent.includes('Keep receipts for the work AI helps you redesign.') &&
+        !document.body.textContent.includes('The Caboodle.');
+    })()`), true, "service desk stays hidden when its cited approval evidence cannot be resolved");
+    check(await value(currentPreview, `(() => {
+      const card = document.querySelector('.ns-front-desk--big-picture');
+      return card && card.textContent.includes('Why data centres became a public villain') &&
+        !card.textContent.includes('No published article yet') &&
+        !card.querySelector('.ns-big-picture-tracking__list');
+    })()`), true, "Big Picture shows the approved data-centre article instead of the retired coming-soon tracker");
+    check(await value(currentPreview, "document.querySelectorAll('.ns-feature-desk [data-desk][data-desk-state=ready] a').length === 0 && !document.querySelector('.ns-paper-sections')"), true, "held service desks expose no destinations and redundant section tabs stay removed");
     await act(currentPreview, "document.querySelector('.ns-front-desk--lead').click()");
-    check(await value(currentPreview, "!!document.querySelector('.ns-article') && !document.querySelector('.ns-daily-issue') && location.hash === '#front-paige-data-centre-agency-2026-08-23'"), true, "Front PAiGE opens the full story in one action");
+    check(await value(currentPreview, "!!document.querySelector('.ns-article') && !document.querySelector('.ns-daily-issue') && location.hash === '#front-paige-accountable-systems-2026-08-24'"), true, "Front PAiGE opens the full women-and-AI opportunity story in one action");
     currentPreview.close();
 
     await act(desktop, "document.querySelector('#ns-browse-all').click()");
-    check(await value(desktop, "document.querySelector('#ns-search-hint').textContent"), "7 back issues available.", "complete archive opens");
-    check(await value(desktop, "document.querySelectorAll('#paper-counter .ns-front-story').length"), 7, "archive contains every admitted story/service item");
+    check(await value(desktop, "document.querySelector('#ns-search-hint').textContent"), "8 back issues available.", "complete archive opens");
+    check(await value(desktop, "document.querySelectorAll('#paper-counter .ns-front-story').length"), 8, "archive contains every admitted story and excludes held service columns");
     check(await value(desktop, "document.querySelector('#paper-counter').textContent.includes('historical Promptoscope')"), true, "retired desk is explicitly historical");
     await act(desktop, "document.querySelector('#ns-archive-concept').value='context';document.querySelector('#ns-archive-concept').dispatchEvent(new Event('change',{bubbles:true}))");
     check(await value(desktop, "document.querySelectorAll('#paper-counter .ns-front-story').length > 0 && !document.querySelector('#paper-counter').textContent.includes('EUROPE’S AI TRANSPARENCY RULES')"), true, "concept filter changes archive results");
 
     await act(desktop, "document.querySelector('#ns-return').click();document.querySelector('[data-open-daily]').click()");
-    check(await value(desktop, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-23", "latest admitted Daily opens");
+    check(await value(desktop, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-24", "latest admitted Daily opens");
     check(await value(desktop, `(() => {
       const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
       return state && state.lastPublication && state.lastPublication.viewed_at === new Date().toISOString();
     })()`), true, "admitted Daily advances the returning-reader baseline");
-    check(await value(desktop, "document.querySelector('.ns-daily-news h3').textContent.includes('cloud wants to move in next door')"), true, "August 23 Daily contains the reviewed Front PAiGE story");
-    check(await value(desktop, "document.querySelector('.ns-daily-service-grid').hidden"), true, "held service desks stay out of the August 23 Daily");
+    check(await value(desktop, "document.querySelector('.ns-daily-news h3').textContent.includes('AI opportunity gap is opening now')"), true, "August 24 Daily contains the reviewed women-and-AI Front PAiGE story");
+    check(await value(desktop, "document.querySelector('.ns-daily-service-grid').hidden && document.querySelectorAll('.ns-daily-service-grid [data-desk-state=ready]').length === 0"), true, "August 24 Daily withholds every service record whose cited approval evidence is missing");
 
     const direct = await openPage("/newsstand.html#label-is-not-a-truth-detector");
     check(await value(direct, "document.querySelectorAll('.ns-article').length"), 1, "direct Big Picture route opens");
@@ -214,7 +231,7 @@ try {
 
     const returning = await openPage("/newsstand.html");
     for (let attempt = 0; attempt < 40; attempt += 1) {
-      if (await value(returning, "document.querySelector('#ns-catchup-since').max === '2026-08-23'")) break;
+      if (await value(returning, "document.querySelector('#ns-catchup-since').max === '2026-08-24'")) break;
       await sleep(50);
     }
     check(await value(returning, "window.__newsstandDailyIssueError || null"), null, "admitted Daily store loads before returning-reader range calculation");
@@ -225,7 +242,7 @@ try {
         viewedAt: state && state.lastPublication && state.lastPublication.viewed_at,
         now: new Date().toISOString() };
     })()`);
-    check(returningRange, { value: '2026-08-23', max: '2026-08-23', viewedAt: new Date(FIXED_NOW).toISOString(), now: new Date(FIXED_NOW).toISOString() }, "Catch Me Up uses the last successful view but caps the range at the latest admitted issue");
+    check(returningRange, { value: '2026-08-24', max: '2026-08-24', viewedAt: new Date(FIXED_NOW).toISOString(), now: new Date(FIXED_NOW).toISOString() }, "Catch Me Up uses the last successful view but caps the range at the latest admitted issue");
     returning.close();
 
     const clicked = await openPage("/newsstand.html");
@@ -269,7 +286,11 @@ try {
       check(await value(mobile, "document.querySelector('.ns-front-desk--lead').getBoundingClientRect().top < document.querySelector('.ns-front-desk--big-picture').getBoundingClientRect().top"), true, `${width}: Front PAiGE reads first`);
       await act(mobile, "document.querySelector('.ns-publication').focus()"); await pressEnter(mobile);
       check(await value(mobile, "document.querySelector('.ns-article') !== null && document.querySelector('.ns-daily-issue') === null"), true, `${width}: keyboard Front PAiGE opens the story directly`);
-      check(await value(mobile, "document.activeElement.id"), "ns-reader-title", `${width}: focus moves to story heading`);
+      for (let attempt = 0; attempt < 20; attempt += 1) {
+        if (await value(mobile, "document.activeElement.id === 'ns-story-title'")) break;
+        await sleep(50);
+      }
+      check(await value(mobile, "document.activeElement.id"), "ns-story-title", `${width}: focus moves to the actual story heading`);
       mobile.close();
     }
 

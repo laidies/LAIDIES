@@ -28,7 +28,7 @@ const sharedHeaderConsumers = collectHtmlFiles(root)
     !/(?:\.pre-|\.pre\.|-magazine\.html$|-reskin\.html$)/.test(entry.file));
 const calibratedSharedHeaderConsumers = process.env.CALIBRATE_SHARED_HEADER_CACHE_KEY_FAILURE === "1"
   ? sharedHeaderConsumers.map((entry, index) => index === 0
-    ? {...entry, source:entry.source.replace("svgh-760-2026-08-23-v3-5be5e50aeb8e", "svgh-stale-calibration")}
+    ? {...entry, source:entry.source.replace(/sv-global-header\.js\?v=[^"<]+/, "sv-global-header.js?v=svgh-stale-calibration")}
     : entry)
   : sharedHeaderConsumers;
 const headerMountSources = ["library.html", "watch.html"].map((file) => ({
@@ -112,6 +112,15 @@ const targets = [
   "/assets/town-characters/scenes/dj-sunnyv-scene.webp"
 ];
 const recoveredHomepage = [
+  ["dial-up", "/assets/homepage/original-restoration-20260829/sunnyvaile-postcard.webp"],
+  ["ada", "/assets/homepage/original-restoration-20260829/ada-lovelace.png"],
+  ["chick-flicks", "/assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp"],
+  ["mme-claio", "/assets/homepage/original-restoration-20260829/mme-claio-scene.webp"],
+  ["bws", "/assets/homepage/original-restoration-20260829/businesswomens-special.webp"],
+  ["girl-talk-truth", "/assets/homepage/original-restoration-20260829/girl-talk-truth.webp"],
+  ["girl-talk-dare", "/assets/homepage/original-restoration-20260829/girl-talk-dare.webp"],
+  ["puffy-binder", "/assets/homepage/original-restoration-20260829/puffy-binder.webp"],
+  ["newsstand", "/assets/homepage/original-restoration-20260829/newsstand-building.jpg"],
   ["dream-phone", "/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp"],
   ["luminairy-spot", "/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png"],
   ["civic-square", "/assets/sunnyvaile-streets/civic-square-midday.webp"],
@@ -123,17 +132,7 @@ const recoveredRoutes = [
   ["/radio.html", "/assets/building-interiors/ksvl-booth.jpg", ".ksvl-studio-held"],
   ["/maikeover.html", "/assets/building-interiors/maikeover-salon.jpg", ".mo-room-held"]
 ];
-const held = [
-  ["dial-up", "Dial-up postcard visual held"],
-  ["ada", "Ada Lovelace portrait visual held"],
-  ["chick-flicks", "Chick Flicks postcard visual held"],
-  ["mme-claio", "Mme CLAi-O visual held"],
-  ["bws", "Businesswomen’s Special visual held"],
-  ["girl-talk-truth", "Girl Talk Truth visual held"],
-  ["girl-talk-dare", "Girl Talk Dare visual held"],
-  ["puffy-binder", "Puffy binder postcard visual held"],
-  ["newsstand", "NewsStand visual held"],
-];
+const held = [];
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 if (process.env.CALIBRATE_VISUAL_FAILURE === "1") {
@@ -169,7 +168,7 @@ check(globalMobileLibraryShortcutSource.includes('class="svgh-library-mobile" hr
 check(calibratedHeaderMountSources.every((entry) => entry.source.includes('<header class="sv-header"></header>')),
   "a public page loads the shared header controller without mounting the canonical header");
 check(calibratedSharedHeaderConsumers.length === 59 && calibratedSharedHeaderConsumers.every((entry) =>
-  ["svgh-760-2026-08-23-v3-5be5e50aeb8e", "20260823-resident-truth-4f8af546d716"].some((key) =>
+  ["svgh-760-2026-08-23-v3-5be5e50aeb8e", "20260823-resident-truth-4f8af546d716", "20260829-continuation-restore-1"].some((key) =>
     entry.source.includes(`/content/site/sv-global-header.js?v=${key}`)) &&
   !entry.source.includes("svgh-320-2026-08-04-v2-532de5ac8032")),
   "a public shared-header consumer retains the stale cache key");
@@ -217,9 +216,9 @@ try {
     page.on("request", (request) => requests.push(request.url()));
     page.on("pageerror", (error) => failures.push(`${width}px page error: ${error.message}`));
     await page.goto(`${origin}/index.html`, {waitUntil:"domcontentloaded"});
-    await page.waitForSelector("[data-home-held='dial-up']");
-    check(await page.locator("[data-asset-status='held'][data-home-held]").count() === 9,
-      `${width}px does not render exactly nine held panels`);
+    await page.waitForSelector(".hero h1");
+    check(await page.locator("[data-asset-status='held'][data-home-held]").count() === 0,
+      `${width}px still renders a superseded Homepage held panel`);
     for (const [id, label] of held) {
       const panel = page.locator(`[data-home-held="${id}"]`);
       check(await panel.count() === 1 && (await panel.textContent()).includes(label),
@@ -351,8 +350,8 @@ try {
         }
       }
       if (route === "/luminairy.html") {
-        check(await page.locator(".lum-state h2").evaluate((node) => node.scrollWidth <= node.clientWidth + 1),
-          `${route} ${width}px clips the votive-state heading`);
+        check(await page.locator(".lum-hero__copy h1").evaluate((node) => node.scrollWidth <= node.clientWidth + 1),
+          `${route} ${width}px clips the restored LUMINAiRY heading`);
       }
       const sharedMobileLibraryShortcut = page.locator('header a.svgh-library-mobile[href="/library.html"]');
       if (width <= 760) {
@@ -412,4 +411,4 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=9 homepage-recovered=5 route-recovered=3 shared-header-mounts=2 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,direct-mobile-library-shortcut,shared-mobile-library-shortcut,canonical-header-mounts,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,held-labels,actions,keyboard-filter,no-overflow,no-rejected-image-request");
+console.log(`PUBLIC HOMEPAGE TRUTH AND VISUAL ASSET BROWSER PASS homepage-held=${held.length} homepage-recovered=${recoveredHomepage.length} route-recovered=${recoveredRoutes.length} shared-header-mounts=2 viewports=1440,390,320 checks=weekly-truth,subscription-truth,library-navigation,direct-mobile-library-shortcut,shared-mobile-library-shortcut,canonical-header-mounts,activity-receivers,map-focus-return,rejected-source-absence,recovered-image-decode,material-visibility,jeeves-search-preservation,superseded-held-absence,actions,keyboard-filter,no-overflow,no-rejected-image-request`);

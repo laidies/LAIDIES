@@ -450,12 +450,20 @@
   }
 
   function dailyDeskValue(issue, date, type) {
-    if (issue) return issue.desks.find(function (desk) { return desk.type === type; }) || null;
+    if (issue) {
+      var desk = issue.desks.find(function (item) { return item.type === type; }) || null;
+      if (!desk || desk.state !== "ready") return desk;
+      var admittedColumn = columnFor(date, type);
+      return admittedColumn && admittedColumn.id === desk.recordId ? desk : null;
+    }
     return columnFor(date, type) || null;
   }
 
   function renderFrontDesks() {
-    if (!dailyIssuesLoaded || !columnsLoaded || global.NEWSSTAND_LOCAL_PREVIEW) return;
+    var section = document.querySelector(".ns-feature-desk");
+    if (!section) return;
+    section.hidden = true;
+    if (!dailyIssuesLoaded || !columnsLoaded || !dailyIssues || !columns || global.NEWSSTAND_LOCAL_PREVIEW) return;
     // Keep the latest admitted service desks on the counter until a newer
     // complete edition replaces them. Their dated issue remains the authority;
     // an empty calendar day must not erase the newest published NewsStand.
@@ -472,14 +480,17 @@
       crossword: "Crossword",
       did_you_know: "Did You Know?"
     };
+    var admittedCount = 0;
     Object.keys(labels).forEach(function (type) {
       var node = document.querySelector('[data-desk="' + type + '"]');
       if (!node) return;
       var desk = issue && issue.desks.find(function (item) { return item.type === type; });
-      var ready = desk && desk.state === "ready";
+      var admittedColumn = issue && columnFor(issue.editionDate, type);
+      var ready = desk && desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
       node.setAttribute("data-desk-state", ready ? "ready" : "empty");
       var label = '<small>' + escapeHTML(labels[type]) + '</small>';
       if (ready) {
+        admittedCount += 1;
         var content = label + '<strong>' + escapeHTML(desk.headline) + '</strong><span>' + escapeHTML(desk.summary) + '</span>';
         node.innerHTML = desk.destination
           ? '<a href="' + escapeHTML(desk.destination) + '">' + content + '</a>'
@@ -489,6 +500,7 @@
       node.innerHTML = label + '<strong>Not published today</strong><span>' +
         escapeHTML(desk && desk.emptyState || columnEmpty(type, "No item is available in this desk today.")) + '</span>';
     });
+    section.hidden = admittedCount === 0;
   }
 
   function updateDailyPaper() {
@@ -496,7 +508,10 @@
     if (!canRenderDaily()) return;
     var date = currentDailyDate();
     var issue = storedDailyIssue(date);
-    var today = issue ? issue.desks.filter(function (desk) { return desk.state === "ready"; }) :
+    var today = issue ? issue.desks.filter(function (desk) {
+      var admittedColumn = columnFor(date, desk.type);
+      return desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
+    }) :
       eligibleColumns().filter(function (record) { return record.editionDate === date; });
     var stories = currentDailyStories(date, issue);
     var tip = dailyDeskValue(issue, date, "paige_tip");
@@ -560,6 +575,9 @@
     var fact = dailyDeskValue(canonicalIssue, date, "did_you_know");
     var townNote = dailyDeskValue(canonicalIssue, date, "town_note");
     var curiosity = dailyDeskValue(canonicalIssue, date, "curiosity");
+    var hasAdmittedServiceColumns = [tip, concept, historicalPromptoscope, career, reading,
+      dearMissJeeves, behindBuild, aroundTown, whatsNew, legacyFiction, crossword, song,
+      fact, townNote, curiosity].some(function (desk) { return desk && desk.state !== "empty"; });
     var dailyStories = currentDailyStories(date, canonicalIssue);
     var lead = dailyStories[0];
     var html = [
@@ -624,6 +642,8 @@
     ].join("");
     reader.hidden = false;
     rack.innerHTML = html;
+    var serviceGrid = rack.querySelector(".ns-daily-service-grid");
+    if (serviceGrid && !hasAdmittedServiceColumns) serviceGrid.hidden = true;
     empty.hidden = true;
     document.getElementById("ns-reader-edition").textContent = "The Daily";
     document.getElementById("ns-reader-title").textContent = "Inside this paper.";
@@ -721,7 +741,10 @@
     var canonicalServiceItems = (dailyIssues && dailyIssues.issues || []).filter(function (issue) {
       return issue.editionDate >= since && issue.editionDate !== dailyDate;
     }).flatMap(function (issue) {
-      return issue.desks.filter(function (desk) { return desk.state === "ready"; }).map(function (desk) {
+      return issue.desks.filter(function (desk) {
+        var admittedColumn = columnFor(issue.editionDate, desk.type);
+        return desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
+      }).map(function (desk) {
         return {
           key: "service:" + desk.recordId,
           date: issue.editionDate,

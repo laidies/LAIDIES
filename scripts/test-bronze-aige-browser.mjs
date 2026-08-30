@@ -764,7 +764,7 @@ try {
   const audioButton = audioPage.locator('#bzBandBox button[data-src]');
   await audioButton.click();
   await audioPage.waitForFunction(
-    () => document.querySelector("#bzStatus")?.textContent.includes("playing")
+    () => document.querySelector('#bzBandBox button[data-src]')?.getAttribute('aria-pressed') === 'true'
   );
   check(
     (await audioButton.getAttribute("aria-pressed")) === "true",
@@ -820,7 +820,7 @@ try {
   });
   check(
     (await pendingAudioButton.getAttribute("aria-pressed")) === "false" &&
-      (await pendingAudioPage.locator("#bzStatus").innerText()).includes("could not load or play"),
+      (await pendingAudioPage.locator("#bzStatus").innerText()).includes("could not start"),
     "pending audio error clears ownership and remains honest"
   );
   await pendingAudioContext.close();

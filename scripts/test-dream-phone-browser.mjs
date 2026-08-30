@@ -14,7 +14,10 @@ if (!playwrightRoot) {
 
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const evidenceDir = path.join(root, "operations", "product-stewards", "dream-phone", "evidence-2026-07-25");
+const evidenceDir = path.resolve(
+  process.env.DREAM_PHONE_EVIDENCE_DIR ||
+  path.join(root, "operations", "product-stewards", "dream-phone", "evidence-2026-07-25")
+);
 fs.mkdirSync(evidenceDir, { recursive: true });
 
 const mime = new Map([
@@ -66,6 +69,10 @@ try {
   const desktop = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const page = await desktop.newPage();
   await page.goto(`${origin}/games/dream-phone.html`, { waitUntil: "domcontentloaded" });
+  await page.locator("#dpEntry").waitFor({ state: "visible" });
+  check(await page.locator("#dpDoorCall").isVisible() && await page.locator("#dpDoorGame").isVisible(),
+    "new user does not receive both governed Dream Phone doors");
+  await page.locator("#dpDoorCall").click();
   await page.locator("#dpJustCall").waitFor({ state: "visible" });
   check(await page.evaluate(() => document.activeElement?.id === "dpJustCallTitle"), "entering Just Call did not focus its heading");
   check(await page.locator("#dpJustCallBoundary").isVisible(), "new user cannot see Just Call boundary");
@@ -94,6 +101,7 @@ try {
   await page.screenshot({ path: path.join(evidenceDir, "dream-phone-just-call-desktop.png"), fullPage: true });
 
   await page.reload({ waitUntil: "domcontentloaded" });
+  await page.locator("#dpDoorCall").click();
   await page.locator("#dpJustCall").waitFor({ state: "visible" });
   await page.locator("#dpHistBtn").click();
   check((await page.locator("#dpHistoryList").innerText()).includes("No calls yet"), "return/reload did not reset session-only history");
@@ -102,6 +110,7 @@ try {
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const mobilePage = await mobile.newPage();
   await mobilePage.goto(`${origin}/games/dream-phone.html`, { waitUntil: "domcontentloaded" });
+  await mobilePage.locator("#dpDoorCall").click();
   await mobilePage.locator("#dpJustCall").waitFor({ state: "visible" });
   check(!(await hasOverflow(mobilePage)), "mobile booth has horizontal overflow");
   await mobilePage.screenshot({ path: path.join(evidenceDir, "dream-phone-just-call-mobile.png"), fullPage: true });
@@ -110,6 +119,7 @@ try {
   const zoom = await browser.newContext({ viewport: { width: 640, height: 900 } });
   const zoomPage = await zoom.newPage();
   await zoomPage.goto(`${origin}/games/dream-phone.html`, { waitUntil: "domcontentloaded" });
+  await zoomPage.locator("#dpDoorCall").click();
   await zoomPage.locator("#dpJustCall").waitFor({ state: "visible" });
   await zoomPage.evaluate(() => { document.documentElement.style.fontSize = "36px"; });
   check(!(await hasOverflow(zoomPage)), "200%-text booth approximation has horizontal overflow");
@@ -130,6 +140,7 @@ try {
   });
   const storagePage = await storage.newPage();
   await storagePage.goto(`${origin}/games/dream-phone.html`, { waitUntil: "domcontentloaded" });
+  await storagePage.locator("#dpDoorCall").click();
   await storagePage.locator("#dpJustCall").waitFor({ state: "visible" });
   await storagePage.locator("#dpDialField").fill("203");
   await storagePage.locator("#dpDialForm").press("Enter");
