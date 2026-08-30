@@ -30,6 +30,11 @@ const source = {
   correctionRoute: "/api/library-corrections",
   sourceReferences: ["fixture-source"],
   freshness: { reviewedThrough: "2026-08-03", nextTrigger: "Fixture changes", owner: "Library test" },
+  edition: {
+    reviewedOn: "3 August 2026",
+    summary: "Synthetic fixture edition for correction propagation.",
+    changeHistory: "Initial fixture edition."
+  },
   intro: { id: "start-here", title: "Start here", navLabel: "Start here", bodyHtml: "<p>Begin with the exact claim, its source, and the decision that depends on it.</p>" },
   chapters: [
     { id: "check-the-claim", title: "Check the claim", navLabel: "Check the claim", bodyHtml: "<p>Open the source, compare its scope and date, then record what the evidence actually supports.</p>" },

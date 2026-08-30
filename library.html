@@ -212,7 +212,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 /* ── the open book — a designed 90s magazine / textbook spread, themed per book ── */
 #reader{--accent:#7c2f4f;position:fixed!important;inset:0!important;width:100dvw;height:100dvh;max-width:none!important;
-  margin:0!important;transform:none!important;z-index:5000;display:none;overflow:hidden;
+  margin:0!important;transform:none!important;z-index:9999;display:none;overflow:hidden;
   background:rgba(28,14,26,.52);backdrop-filter:blur(3px) saturate(.85)}
 #reader.on{display:grid;place-items:center;padding:26px}
 .reader-open{overflow:hidden}
@@ -352,7 +352,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .reader-contents nav a{display:flex;gap:9px;padding:9px;color:#263654;text-decoration:none;font-size:12.5px;line-height:1.3}
 .reader-toc-group{margin:0;border-top:1px solid #dce5fb}.reader-toc-group:first-child{border-top:0}
 .reader-toc-group>summary{display:flex;align-items:flex-start;gap:9px;min-height:44px;padding:10px 9px;cursor:pointer;list-style:none;color:#263654;font-size:12.5px;font-weight:800;line-height:1.3}
-.reader-toc-group>summary::-webkit-details-marker{display:none}.reader-toc-group>summary::after{content:"+";margin-left:auto;color:var(--accent);font-size:17px;line-height:1}.reader-toc-group[open]>summary::after{content:"−"}
+.reader-toc-group>summary{list-style:disclosure-closed}.reader-toc-group[open]>summary{list-style:disclosure-open}
+.reader-toc-group>summary::-webkit-details-marker{display:inline;color:var(--accent)}.reader-toc-group>summary::after{content:none}
 .reader-toc-children{display:grid;padding:0 0 8px 29px}.reader-toc-children a{border-left:2px solid #dce5fb;color:#4d5875;font-size:12px}.reader-toc-children .reader-toc-start{color:#263654;font-weight:900}
 .reader-contents nav a:hover,.reader-contents nav a:focus-visible,.reader-contents nav a[aria-current="location"]{background:#eef3ff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
 .reader-top{flex:0 0 auto;min-width:78px;border:0;border-left:1px solid #d7dff5;background:#fff;color:#07142f;padding:8px 14px;font:900 11px/1 'Jost',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -451,10 +452,12 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .band .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 12px 7px 9px;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;box-shadow:4px 4px 0 #18c6d8;font-size:13px;line-height:1.2;letter-spacing:.035em}
 .book .band .puffy-save-row .puffy-btn:hover,.book .band .puffy-save-row .puffy-btn:focus-visible{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
 .book .puffy-button-art{display:none}
-.reader-inline-save{float:right;display:inline-grid;place-items:center;width:44px;height:44px;margin:-11px 0 -11px 8px;border:0;background:transparent;color:#07142f;cursor:pointer}
+.reader-save-heading{position:relative;display:block!important;box-sizing:border-box;padding-right:56px!important;min-height:44px;overflow-wrap:anywhere}
+.reader-save-heading-text{display:block;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.reader-inline-save{position:absolute;top:0;right:0;float:none;display:inline-grid;place-items:center;width:44px;height:44px;margin:0;border:0;background:transparent;color:#07142f;cursor:pointer;transform:none}
 .reader-inline-save img{display:block;width:28px;height:28px;padding:3px;object-fit:contain;border:1px solid color-mix(in srgb,var(--accent) 55%,#07142f);border-radius:3px;background:#fff;box-shadow:2px 2px 0 #18c6d8}
 .reader-inline-save:hover img,.reader-inline-save:focus-visible img{background:#eef3ff;outline:2px solid #18c6d8;outline-offset:2px}
-.book .txt h2[data-source-block^="chapter-"]>.reader-inline-save{margin-top:-5px}
+.book .txt h2[data-source-block^="chapter-"]>.reader-inline-save{margin-top:0}
 .book .band #reader-report{min-width:0;background:transparent;color:#fff;border-color:transparent;border-radius:0;padding:10px 5px;box-shadow:none;text-decoration:underline;text-underline-offset:4px;font-size:12px}
 .book .band #reader-report:hover,.book .band #reader-report:focus-visible{background:rgba(255,255,255,.12);box-shadow:none;transform:none}
 .book .txt .puffy-save-row{margin:2px 0 10px;justify-content:flex-end}
@@ -465,6 +468,53 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt tbody tr:nth-child(even){background:#f0f4ff}
 .book .txt::after{content:"SUNNYVAiLE LIBRAiRY · RETURN TO THE SHELF WHEN YOU ARE DONE";height:auto;margin:42px 0 0;padding-top:13px;
   color:#68789a;border-top:1px solid #cbd6ec;background:none;font-size:8px;font-weight:800;letter-spacing:.18em;text-align:center}
+
+/* Ali-selected pop-zine reader: long-form paper first, approved Puffy motifs
+   in the frame, and one compact overlay Contents control at every width. */
+#reader.on{padding:14px}
+.book{position:relative;width:min(1420px,calc(100dvw - 28px));max-height:calc(100dvh - 28px);padding-left:116px;
+  border:2px solid #6b42bf;border-radius:4px;background:#eee8ff;box-shadow:0 34px 90px rgba(2,8,28,.62)}
+.reader-pop-frame{position:absolute;inset:0 auto 0 0;z-index:0;width:116px;overflow:hidden;background:#e8e0fa;border-right:2px solid #6b42bf;pointer-events:none}
+.reader-pop-frame::before{content:"";position:absolute;inset:0;opacity:.08}
+.reader-motif{position:absolute;z-index:1;display:block;width:auto;height:auto;object-fit:contain;filter:drop-shadow(2px 4px 0 rgba(59,36,114,.2))}
+.reader-motif-cursor{top:18px;left:15px;width:70px}.reader-motif-lightning{top:142px;left:19px;width:61px}
+.reader-motif-cassette{top:286px;left:-8px;width:126px}.reader-motif-computer{bottom:18px;left:2px;width:108px}.reader-motif-star{right:9px;bottom:168px;width:36px}
+.book>.band,.book>.correction-desk,.book>.body{position:relative;z-index:2}
+.book>.band{z-index:20}
+.book .band{min-height:134px;padding:27px 30px 25px;background:#fff;color:#101842;border-bottom:4px solid #18c6d8;align-items:center;gap:30px}
+.book .band::before,.book .band::after{content:none}
+.book .band>div:first-child{min-width:280px;flex:1 1 430px;align-self:auto}
+.book .band .m{order:2;margin:7px 0 0;color:#6b42bf;font-size:9px;line-height:1.4;font-weight:900;letter-spacing:.19em;opacity:1}
+.book .band .t{display:inline-block;width:max-content;max-width:100%;padding:0 4px 7px 0;border-bottom:5px solid #ed4a9e;color:#101842;
+  font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4vw,58px);font-weight:800;line-height:.98;letter-spacing:-.035em;text-shadow:none}
+.reader-actions{flex:0 1 650px;gap:7px;align-items:center;justify-content:flex-end}
+.reader-contents{position:relative;flex:0 0 auto;min-width:0}
+.reader-contents>summary{min-height:44px;padding:10px 14px;gap:8px;border:2px solid #6b42bf;border-radius:6px;background:#f4efff;color:#352269;
+  font-size:12px;letter-spacing:.02em;text-transform:none}
+.reader-contents>summary::before,.reader-contents>summary::after{content:none}
+.reader-contents[open]>summary{background:#fff}
+.reader-contents-label{font-weight:900}.reader-contents nav{left:auto;right:0;top:calc(100% + 9px);width:min(470px,calc(100dvw - 54px));max-height:min(68vh,640px);
+  padding:12px;background:#fff;border:3px solid #6b42bf;border-radius:4px;box-shadow:9px 9px 0 rgba(16,24,66,.24)}
+.reader-save-book,.reader-top,.book .band button:not(.puffy-btn){align-self:auto;min-width:44px;min-height:44px;margin:0;padding:8px 11px;border:0;border-radius:0;
+  background:#fff;color:#101842;box-shadow:none;font:900 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.02em;text-transform:none}
+.reader-save-book{display:inline-flex;align-items:center;gap:6px}.reader-save-book img{width:34px;height:34px;margin:0;filter:drop-shadow(1px 2px 0 rgba(23,42,72,.18))}
+.reader-save-book span{font-size:11px}.reader-top{border-left:1px solid #d9d4e8;border-right:1px solid #d9d4e8;text-transform:uppercase;letter-spacing:.06em}
+.book .band #reader-close{padding:10px 14px;border:2px solid #18c6d8;border-radius:6px;background:#fff;white-space:nowrap}
+.book .band #reader-report{min-width:0;margin:0;padding:10px 7px;border:0;border-radius:0;background:transparent;color:#354461;box-shadow:none;text-decoration:none;font-size:11px;white-space:nowrap}
+.book .band button:not(.puffy-btn):hover,.book .band button:not(.puffy-btn):focus-visible,.reader-contents>summary:hover,.reader-contents>summary:focus-visible{
+  background:#f2edff;color:#101842;transform:none;box-shadow:none;outline:3px solid #18c6d8;outline-offset:2px}
+.book .body{display:grid;grid-template-columns:1fr;min-height:0;background:#fff}
+.book .toc{display:none!important}
+.book .txt{padding:38px max(34px,calc((100% - 790px)/2)) 62px;background:#fff;color:#17213b;font-size:16.5px;line-height:1.72}
+.book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
+.book .txt .lede{max-width:790px;margin:0 auto 38px;padding:19px 22px 20px;background:#f0eaff;border:3px solid #101842;border-left:10px solid #6b2cff;border-radius:4px;
+  color:#17213b;font-size:18px;line-height:1.5;box-shadow:none}
+.book .txt .lede::before{color:#6b2cff}
+.book .txt h2{margin:48px 0 12px;padding:0 0 12px;border-bottom:4px solid #18c6d8;color:#101842;font-size:25px;line-height:1.13;letter-spacing:.04em}
+.book .txt h2[data-source-block^="chapter-"]{margin:54px -18px 20px;padding:18px 18px 16px;background:#101842;border-bottom:7px solid #18c6d8;color:#fff}
+.book .txt h3{color:#5b2eb7}.book .txt a{color:#6035ba}
+.book .txt .callout,.book .txt .key-terms-reference,.book .txt .working-panel{border-radius:4px}
+.book .txt .callout>b:first-child{border-radius:2px}
 
 @media(max-width:900px){
   .library-hero{grid-template-columns:1fr;min-height:0}
@@ -715,10 +765,183 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .library-intro .lede{font-size:16px}
 }
 @media(max-width:420px){.bk{flex-basis:120px;width:120px}}
+
+/* Keep the selected reader responsive rules authoritative over the older
+   catalogue breakpoints above. Contents stays a compact overlay, not a
+   persistent sidebar or a second title block. */
+@media(max-width:900px){
+  #reader.on{padding:8px}
+  .book{width:calc(100dvw - 16px);max-height:calc(100dvh - 16px);padding-left:0;border-radius:3px}
+  .reader-pop-frame{display:none}
+  .book .band{min-height:0;padding:20px 20px 16px;align-items:flex-start;flex-direction:column;gap:15px}
+  .book .band>div:first-child{min-width:0;width:100%;flex:0 0 auto}
+  .book .band .m{display:block;margin-top:7px}
+  .book .band .t{padding-bottom:6px;border-bottom-width:4px;font-size:clamp(31px,8vw,43px)}
+  .reader-actions{display:flex;width:100%;flex:0 0 auto;justify-content:flex-start;gap:5px}
+  .book .band button:not(.puffy-btn){align-self:auto;margin-top:0}
+  .reader-contents>summary{padding:9px 10px;gap:8px}
+  .reader-contents>summary::before,.reader-contents>summary::after{content:none}
+  .reader-contents nav{left:0;right:auto;width:min(470px,calc(100dvw - 40px))}
+  .book .body{grid-template-columns:1fr}
+  .book .toc{display:none!important}
+  .book .txt{padding:30px max(24px,calc((100% - 720px)/2)) 48px}
+}
+@media(max-width:560px){
+  #reader.on{padding:0}
+  .book{width:100dvw;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+  .book .band{padding:14px 14px 11px;gap:10px}
+  .book .band .m{display:none}
+  .book .band .t{font-size:29px}
+  .reader-actions{display:grid;grid-template-columns:auto auto auto minmax(0,1fr);gap:3px;width:100%}
+  .reader-contents>summary{padding:9px 10px}
+  .reader-save-book{padding:5px 7px}
+  .reader-save-book img{width:30px;height:30px}
+  .reader-save-book span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .reader-top{min-width:0;padding:8px}
+  .book .band #reader-close{grid-column:4;padding:9px 10px;font-size:10px}
+  .book .band #reader-report{grid-column:1/-1;justify-self:end;padding:4px 3px;font-size:10px}
+  .reader-contents nav{position:fixed;left:10px;right:10px;top:108px;width:auto;max-height:calc(100dvh - 122px)}
+  .book .txt{padding:25px 18px 36px;font-size:16px;line-height:1.68}
+  .book .txt .lede{padding:17px 16px;font-size:16px}
+  .book .txt h2{font-size:19px}
+  .book .txt h2[data-source-block^="chapter-"]{margin-left:-6px;margin-right:-6px;padding:14px 10px}
+}
+
+@media (max-width: 0px) {
+/* REJECTED READER VISUAL LAYER — retained only as history; never rendered. */
+/* Exact selected pop-zine composition. The bitmap supplies the angled paper,
+   halftone and comic edge art; all words and controls remain live HTML. */
+#reader.on{padding:0;place-items:start center;background:rgba(5,9,29,.94)}
+.book{width:min(1488px,100dvw);max-width:1488px;height:100dvh;aspect-ratio:auto;max-height:none;padding:0;overflow:hidden;
+  border:0;border-radius:0;background-color:#fdfcfb;
+  box-shadow:0 28px 90px rgba(2,8,28,.58)}
+.reader-pop-frame{position:absolute;inset:0;z-index:1;display:block;width:auto;overflow:hidden;border:0;background:none;pointer-events:none}
+.reader-pop-frame::before{content:none}
+.reader-motif{filter:drop-shadow(3px 5px 0 rgba(55,32,105,.18))}
+.reader-motif-cursor{top:3.5%;left:2.1%;width:5.3%}
+.reader-motif-lightning{top:23%;left:1.8%;width:4.3%}
+.reader-motif-star{top:45%;left:5.1%;right:auto;bottom:auto;width:3.2%}
+.reader-motif-cassette{top:51%;left:-.6%;width:12.5%}
+.reader-motif-computer{left:1.1%;bottom:3%;width:10.5%}
+.reader-motif-star-right{right:1.1%;bottom:17%;width:5.5%}
+.reader-motif-star-right-small{right:4.4%;bottom:31%;width:2.9%}
+.book>.band,.book>.body,.book>.correction-desk{position:relative;z-index:3}
+.book>.band{z-index:20}
+.book .band{position:relative;display:flex;min-height:clamp(190px,16.465vw,245px);padding:clamp(46px,4.435vw,66px) clamp(52px,4.84vw,72px) 20px clamp(140px,13.306vw,198px);align-items:flex-start;gap:24px;
+  border:0;background:transparent;color:#0f1744}
+.book .band>div:first-child{display:block;min-width:0;flex:1 1 auto}
+.book .band .m{display:none}
+.book .band .t{display:flex;width:auto;max-width:none;margin:0;padding:0;align-items:flex-end;gap:12px;border:0;color:#11163f;
+  font-family:'Jost',system-ui,sans-serif;font-size:clamp(52px,6.18vw,92px);font-weight:950;line-height:.84;letter-spacing:-.065em;text-shadow:none;white-space:nowrap}
+.reader-title-lead{font-size:1.22em;line-height:.78;letter-spacing:-.09em;transform:none}
+.reader-title-name{position:relative;padding:0 5px 13px 0;font-family:'Playfair Display',Georgia,serif;font-size:.68em;font-weight:800;letter-spacing:-.045em}
+.reader-title-name::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-8px;height:35px;background:url('/assets/library-reader/title-pink-brush-v1.png') center/100% 100% no-repeat}
+.reader-title-number{padding-bottom:2px;color:#6f3ac9;font-family:'Playfair Display',Georgia,serif;font-size:1em;font-weight:800;letter-spacing:-.04em}
+.reader-actions{display:flex;flex:0 0 clamp(390px,32.93vw,490px);margin-top:clamp(38px,3.696vw,55px);align-items:center;justify-content:space-between;gap:8px}
+.reader-save-book,.reader-top,.book .band button:not(.puffy-btn){min-height:44px;margin:0;padding:8px 11px;border:0;background:transparent;color:#11183b;
+  box-shadow:none;font:850 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:none}
+.reader-save-book{gap:0;width:48px;padding:4px;border:2px solid #372080;border-radius:10px;background:#fff;box-shadow:4px 4px 0 #18c6d8}
+.reader-save-book img{width:35px;height:35px}.reader-save-book span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.reader-top{min-width:70px;border-left:1px solid #bfc3d3;border-right:1px solid #bfc3d3;text-transform:uppercase}
+.book .band #reader-close{padding:11px 16px;border:2px solid #18c6d8;border-radius:9px;background:#fff;box-shadow:none}
+.book .band #reader-report{padding:11px 5px;color:#303858;font-size:11px}
+.reader-contents{position:absolute;left:clamp(55px,5.1vw,76px);top:clamp(150px,14.1vw,210px);z-index:15;margin:0}
+.reader-contents>summary{display:flex;width:auto;height:42px;min-height:42px;padding:9px 14px;align-items:center;justify-content:center;border:1px solid #6b42bf;border-radius:10px;
+  background:rgba(255,255,255,.96);color:#5e36b2;box-shadow:0 6px 18px rgba(31,25,71,.12);writing-mode:horizontal-tb;transform:none;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.reader-contents>summary::before,.reader-contents>summary::after{content:none}.reader-contents-label{font-weight:950}
+.reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);
+  width:min(360px,calc(100dvw - 100px));max-height:min(58vh,520px);padding:8px;border:1px solid #a894d2;border-radius:12px;background:rgba(255,255,255,.985);box-shadow:0 18px 45px rgba(16,24,66,.2);writing-mode:horizontal-tb}
+.reader-contents nav a{padding:7px 8px;font-size:11.5px}
+.reader-toc-group>summary{min-height:38px;padding:8px;font-size:11.5px}
+.reader-toc-children{padding-left:21px}.reader-toc-children a{font-size:11px}
+.reader-contents nav a[aria-current="location"]{background:#f0ebfb;border-left:3px solid #18c6d8;outline:0}
+.book .body{display:block;flex:1 1 auto;min-height:0;overflow:hidden;background:transparent}
+.book .toc{display:none!important}
+.book .txt{height:100%;padding:10px clamp(82px,7.796vw,116px) 80px clamp(167px,15.86vw,236px);overflow:auto;background:rgba(255,255,255,.08);color:#1b2345;
+  font-size:clamp(16px,1.277vw,19px);line-height:1.62;scroll-padding-top:20px}
+.book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
+.book .txt section[data-source-block="preface-why-this-book-matters"]{position:relative;max-width:1130px;margin:0 auto}
+.book .txt .reader-preface-heading{position:relative;width:calc(100% - clamp(245px,19.15vw,285px));min-height:clamp(108px,10.215vw,152px);margin:0 0 24px;padding:clamp(13px,1.277vw,19px) 0 clamp(18px,1.68vw,25px) clamp(112px,10.618vw,158px);border:0;color:#11183b;
+  font:950 clamp(31px,3.05vw,47px)/1.09 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:uppercase}
+.book .txt .reader-preface-heading::before{content:"01";position:absolute;left:0;top:3px;display:grid;width:clamp(90px,8.602vw,128px);height:clamp(90px,8.602vw,128px);place-items:center;
+  background:url('/assets/library-reader/preface-burst-v1.png') center/contain no-repeat;color:#fff;font:800 43px/1 'Playfair Display',Georgia,serif;letter-spacing:-.04em}
+.book .txt .reader-preface-heading::after{content:"";position:absolute;left:clamp(100px,9.543vw,142px);right:0;bottom:-5px;width:auto;height:35px;background:url('/assets/library-reader/section-cyan-brush-v1.png') center/100% 100% no-repeat}
+.book .txt .reader-preface-heading>.reader-inline-save{display:none}
+.reader-preface-divider{position:absolute;left:clamp(84px,7.93vw,118px);top:0;width:clamp(18px,1.68vw,25px);height:clamp(99px,9.41vw,140px);background:url('/assets/library-reader/preface-divider-v1.png') center/contain no-repeat}
+.reader-preface-kicker,.reader-preface-title{display:block}
+.book .txt .reader-preface-intro{max-width:700px;margin-right:calc(clamp(245px,19.15vw,285px) + clamp(32px,3.024vw,45px))}
+.reader-preface-aside{position:absolute;right:0;top:4px;display:grid;width:clamp(245px,19.15vw,285px);gap:24px}
+.reader-preface-card{margin:0;padding:22px 22px 23px;border:3px solid;border-radius:18px;background:rgba(255,255,255,.86);color:#151c44;box-shadow:none}
+.reader-preface-card-label{display:flex;align-items:center;gap:5px;margin-bottom:10px}.reader-preface-card-label img{width:52px;height:55px;object-fit:contain}
+.reader-preface-card b{display:block;margin:0;font:950 12px/1.2 'Jost',system-ui,sans-serif;letter-spacing:.12em}
+.reader-preface-card p{margin:0;font-size:clamp(15.5px,1.21vw,18px);line-height:1.5}
+.reader-preface-card-why{border-color:#18bdd5;background:rgba(238,253,255,.88)}.reader-preface-card-why b{color:#0aaec4}
+.reader-preface-card-job{border-color:#7040d0;background:rgba(247,243,255,.9)}.reader-preface-card-job b{color:#7040d0}
+.reader-preface-card-why{min-height:218px}.reader-preface-card-job{min-height:390px}
+.book .txt section[data-source-block="preface-why-this-book-matters"]>h2:not(.reader-preface-heading){clear:both;margin-top:45px}
+
+@media(min-width:821px) and (max-width:1050px){
+ .book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;background-position:center top,center 71.035vw;background-size:100% auto,100% auto;background-repeat:no-repeat,repeat-y}
+ .book .band{min-height:16.465vw;padding:4.435vw 4.84vw 1.344vw 13.306vw;align-items:flex-start;flex-direction:row;gap:1.613vw}
+ .book .band .t{flex:0 0 auto;font-size:6.18vw;gap:.806vw}
+ .reader-title-lead{transform:none}
+ .reader-title-name{padding-bottom:9px}.reader-title-name::after{left:5%;right:-2%;bottom:-5px;height:25px}
+ .reader-actions{flex:0 0 32.93vw;margin:3.696vw 0 0 auto;justify-content:space-between;gap:.538vw}
+ .reader-save-book{width:43px;height:43px;padding:3px}.reader-save-book img{width:31px;height:31px}
+ .reader-top{min-width:52px;padding:7px 6px;font-size:9px}
+ .book .band #reader-close{padding:9px 10px;font-size:9px}
+ .book .band #reader-report{padding:9px 3px;font-size:9px}
+ .reader-contents{left:5.1vw;top:14.1vw}.reader-contents>summary{width:auto;height:40px;padding:8px 12px;font-size:10px}
+ .reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);width:min(340px,calc(100dvw - 90px))}
+ .book .txt{padding:.672vw 7.796vw 3.763vw 15.86vw;font-size:1.277vw;line-height:1.62}
+ .book .txt .reader-preface-heading{width:calc(100% - 19.15vw);min-height:10.215vw;margin-bottom:1.613vw;padding:1.277vw 0 1.68vw 10.618vw;font-size:3.05vw;line-height:1.09;letter-spacing:.015em}
+ .book .txt .reader-preface-heading::before{width:8.602vw;height:8.602vw;font-size:2.89vw}
+ .book .txt .reader-preface-heading::after{left:10.618vw;bottom:-.336vw;height:2.352vw}
+ .reader-preface-divider{left:7.93vw;top:0;width:1.68vw;height:9.41vw}
+ .reader-preface-aside{width:19.15vw;gap:1.613vw}.reader-preface-card{padding:1.478vw;border-width:2px;border-radius:14px}
+ .reader-preface-card-why{min-height:14.65vw}.reader-preface-card-job{min-height:26.21vw}
+ .reader-preface-card-label{gap:.336vw;margin-bottom:.672vw}.reader-preface-card-label img{width:3.495vw;height:3.696vw}.reader-preface-card b{font-size:.806vw}.reader-preface-card p{font-size:1.21vw;line-height:1.5}
+ .book .txt .reader-preface-intro{max-width:none;margin-right:22.174vw}
+}
+@media(max-width:820px){
+ #reader.on{padding:0;place-items:center}.book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;max-height:none;background:#fff}
+ .reader-pop-frame{display:none}
+ .book .band{min-height:150px;padding:16px 14px 12px;gap:9px;background:#fbf9ff;border-bottom:4px solid #18c6d8;flex-direction:column}
+ .book .band .t{font-size:clamp(34px,10vw,48px);gap:7px}.reader-title-lead{transform:none}.reader-title-name{padding-bottom:8px;font-size:.82em}.reader-title-name::after{bottom:-5px;height:22px}
+ .reader-actions{width:100%;flex:0 0 auto;margin-top:5px;justify-content:flex-start;gap:3px}
+ .reader-contents{position:relative;left:auto;top:auto;order:0}
+ .reader-contents>summary{width:auto;height:44px;padding:8px 10px;writing-mode:horizontal-tb;transform:none;letter-spacing:.03em;text-transform:none}
+ .reader-contents nav{position:fixed;left:12px;right:12px;top:88px;width:auto;max-height:calc(100dvh - 100px);transform:none}
+ .reader-top{min-width:55px;padding:7px}.book .band #reader-close{margin-left:auto;padding:9px 10px}.book .band #reader-report{display:none}
+ .book .txt{height:calc(100dvh - 150px);padding:24px 18px 44px;font-size:16px;line-height:1.65}
+ .book .txt .reader-preface-heading{width:100%;min-height:92px;margin-bottom:20px;padding:9px 0 16px 85px;font-size:clamp(25px,7.8vw,34px)}
+ .book .txt .reader-preface-heading::before{width:72px;height:72px;font-size:25px}.book .txt .reader-preface-heading::after{left:78px;bottom:-2px;height:20px}
+ .reader-preface-divider{display:none}
+ .book .txt .reader-preface-intro{max-width:none;margin-right:0}
+ .reader-preface-aside{position:static;width:auto;margin:24px 0 32px;gap:14px}.reader-preface-card{padding:17px 18px;border-radius:13px}.reader-preface-card p{font-size:16px}
+}
+
+/* Reader overlays stay useful without becoming giant outlined boxes. */
+#reader.on~.puffy-picker{width:min(380px,calc(100dvw - 24px))!important;padding:14px!important;border:1px solid #9d8bc6!important;border-radius:13px!important;background:rgba(255,255,255,.985)!important;box-shadow:0 18px 45px rgba(11,20,52,.24)!important}
+#reader.on~.puffy-picker .puffy-picker-head{margin-bottom:8px;padding-bottom:8px}
+#reader.on~.puffy-picker .puffy-picker-head b{font-size:15px}
+#reader.on~.puffy-picker .puffy-picker-head span{font-size:10.5px;line-height:1.35}
+#reader.on~.puffy-picker .puffy-card-required-actions{gap:8px}
+#reader.on~.puffy-picker .puffy-card-required-actions a,#reader.on~.puffy-picker .puffy-card-required-actions button{min-height:38px!important;padding:8px 11px!important;border:1px solid #7a689e!important;border-radius:9px!important;background:#f7f3ff!important;color:#11183b!important;box-shadow:none!important;font-size:11px!important;letter-spacing:.01em!important;text-transform:none!important}
+#reader.on~.puffy-picker .puffy-card-required-actions a{border-color:#5e36b2!important;background:#5e36b2!important;color:#fff!important}
+#reader.on~.puffy-picker .puffy-card-required-actions a:focus-visible,#reader.on~.puffy-picker .puffy-card-required-actions button:focus-visible{outline:2px solid #18c6d8!important;outline-offset:2px!important}
+@media(max-width:420px){
+ .book .band{min-height:138px}.book .band .t{font-size:34px}.reader-title-number{font-size:.82em}
+ .reader-save-book{width:42px;height:42px}.reader-save-book img{width:31px;height:31px}.book .band #reader-close{font-size:9px}
+ .reader-contents nav{top:130px}.book .txt{height:calc(100dvh - 138px);padding:20px 15px 40px}
+ .book .txt .reader-preface-heading{padding-left:72px;font-size:24px}.book .txt .reader-preface-heading::before{width:61px;height:61px;font-size:21px}.book .txt .reader-preface-heading::after{left:68px}
+}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -813,9 +1036,19 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 </main>
 
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
-  <div class="book">
+  <div class="book book--reference-zine" tabindex="-1">
+    <picture class="reader-pop-frame" aria-hidden="true">
+      <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png?v=6a">
+      <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a" alt="">
+    </picture>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
-      <div class="reader-actions"><button id="reader-report" type="button" title="Send a correction about this book; its version and your current section are attached automatically">Report an issue</button><button id="reader-close" type="button">← back to the shelf</button></div></div>
+      <div class="reader-actions">
+        <details class="reader-contents" id="mobile-toc"><summary><span class="reader-contents-label">Contents</span><span class="reader-current-section sr-only" id="reader-current-section">Start of book</span></summary></details>
+        <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt=""><span>Save</span></button>
+        <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
+        <button id="reader-close" type="button">← Back to the shelf</button>
+        <button id="reader-report" type="button" title="Send a correction about this book; its version and your current section are attached automatically">Report issue</button>
+      </div></div>
     <section class="correction-desk" id="correction-desk" hidden aria-labelledby="correction-title">
       <form id="correction-form">
         <h3 id="correction-title">Report an issue with this book</h3>
@@ -829,12 +1062,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-    <div class="reader-jumpbar" aria-label="Book navigation">
-      <details class="reader-contents" id="mobile-toc"><summary><span class="reader-current-section" id="reader-current-section">Start of book</span></summary><nav id="rtoc-mobile" aria-label="All chapters and sections"></nav></details>
-      <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">Book</button>
-      <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
-    </div>
-    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
+    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><nav class="reader-contents-panel" id="rtoc-mobile" aria-label="All chapters and sections" tabindex="-1"></nav><div class="txt" id="rtxt"></div></div>
   </div>
 </div>
 
@@ -874,14 +1102,14 @@ const SECTIONS=[
 ];
 const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_START */
-{"ai-dictionary":{"sourcePath":"/content/library-books/rendered/ai-dictionary.html","contentVersion":"ai-dictionary-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"0ec283612e30ae8cb86ab2978089f941e31fbbb021aea47ecfe3a0f6f57896ec"},"ai-fundamentals-101":{"sourcePath":"/content/library-books/rendered/ai-fundamentals-101.html","contentVersion":"ai-fundamentals-101-2026-08-24.6","admissionVersion":"opening-set-2026-08-24.4","correctionState":"clear","artifactSha256":"921aa20a3699402ef573e35a7fd89002ef86504798c2c524e4764cc15c81832c"},"straight-answers":{"sourcePath":"/content/library-books/rendered/straight-answers.html","contentVersion":"straight-answers-2026-08-23.1","admissionVersion":"opening-set-2026-08-23.1","correctionState":"clear","artifactSha256":"3c32da26cebf6257ed9114f4e3847b8f888a330deea515d2ef85eb363d54172c"},"working-with-ai-101":{"sourcePath":"/content/library-books/rendered/working-with-ai-101.html","contentVersion":"working-with-ai-101-2026-08-24.2","admissionVersion":"opening-set-2026-08-24.2","correctionState":"clear","artifactSha256":"0a57a3e31622836ac990362bf30b273406f60df5b3584f37d8161d79ace72736"}}
+{"ai-dictionary":{"sourcePath":"/content/library-books/rendered/ai-dictionary.html","contentVersion":"ai-dictionary-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"43820ca8610a39e02c179eff7b1f2d65bd9eb876e94024c8439c80dedc3a3144"},"ai-fundamentals-101":{"sourcePath":"/content/library-books/rendered/ai-fundamentals-101.html","contentVersion":"ai-fundamentals-101-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"},"straight-answers":{"sourcePath":"/content/library-books/rendered/straight-answers.html","contentVersion":"straight-answers-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"7ba998a551128a6adeb67233cbbdb70a0cd7dd7e59519b8dca060796ad822b9b"},"working-with-ai-101":{"sourcePath":"/content/library-books/rendered/working-with-ai-101.html","contentVersion":"working-with-ai-101-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"}}
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
 const LOCAL_REVIEW_BOOK_RECORDS=Object.freeze({
- 'ai-fundamentals-101':Object.freeze({sourcePath:'/content/library-books/rendered/ai-fundamentals-101.html',contentVersion:'ai-fundamentals-101-2026-08-24.6',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'921aa20a3699402ef573e35a7fd89002ef86504798c2c524e4764cc15c81832c'}),
- 'working-with-ai-101':Object.freeze({sourcePath:'/content/library-books/rendered/working-with-ai-101.html',contentVersion:'working-with-ai-101-2026-08-24.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'0a57a3e31622836ac990362bf30b273406f60df5b3584f37d8161d79ace72736'}),
- 'straight-answers':Object.freeze({sourcePath:'/content/library-books/rendered/straight-answers.html',contentVersion:'straight-answers-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'3c32da26cebf6257ed9114f4e3847b8f888a330deea515d2ef85eb363d54172c'}),
- 'ai-dictionary':Object.freeze({sourcePath:'/content/library-books/rendered/ai-dictionary.html',contentVersion:'ai-dictionary-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'0ec283612e30ae8cb86ab2978089f941e31fbbb021aea47ecfe3a0f6f57896ec'}),
+ 'ai-fundamentals-101':Object.freeze({sourcePath:'/content/library-books/rendered/ai-fundamentals-101.html',contentVersion:'ai-fundamentals-101-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e'}),
+ 'working-with-ai-101':Object.freeze({sourcePath:'/content/library-books/rendered/working-with-ai-101.html',contentVersion:'working-with-ai-101-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c'}),
+ 'straight-answers':Object.freeze({sourcePath:'/content/library-books/rendered/straight-answers.html',contentVersion:'straight-answers-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'7ba998a551128a6adeb67233cbbdb70a0cd7dd7e59519b8dca060796ad822b9b'}),
+ 'ai-dictionary':Object.freeze({sourcePath:'/content/library-books/rendered/ai-dictionary.html',contentVersion:'ai-dictionary-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'43820ca8610a39e02c179eff7b1f2d65bd9eb876e94024c8439c80dedc3a3144'}),
  'briefing-101':Object.freeze({sourcePath:'/content/library-books/rendered/briefing-101.html',contentVersion:'briefing-101-2026-08-06.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'b9c58ceb6067f1dcf044d1d1e49de9967ddcfe9370910bcc059fc7a51d76f95e'}),
  'how-to-check':Object.freeze({sourcePath:'/content/library-books/rendered/verification-rulebook.html',contentVersion:'sha256-6f9898d4ec3f0151e7aa171132e78b9227d76f65a18b1abc5f725c81577b7274',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'19cf0fc41ac79ca34f595bbc1956c8410513421adb9ae0a7e8e060bffb78753c'})
 });
@@ -894,7 +1122,7 @@ SECTIONS.forEach(Object.freeze);
 Object.freeze(SECTIONS);
 function exactAdmittedBookRecord(id){
  const localReviewHost=location.hostname==='127.0.0.1'||location.hostname==='localhost';
- const record=localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:ADMITTED_BOOK_RECORDS[id];
+ const record=ADMITTED_BOOK_RECORDS[id]||(localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:null);
  if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
  const source=record.sourcePath;
  if(typeof source!=='string'||!/^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(source))return null;
@@ -1250,11 +1478,21 @@ function mobileBookTocHtml(groups){
 }
 function setBookToc(toc,groupsOrHtml){
  const structured=Array.isArray(groupsOrHtml);
- toc.innerHTML=structured?desktopBookTocHtml(groupsOrHtml):groupsOrHtml;
+ const desktopHtml=structured?desktopBookTocHtml(groupsOrHtml):groupsOrHtml;
+ const mobileHtml=structured?mobileBookTocHtml(groupsOrHtml):groupsOrHtml;
+ toc.innerHTML=desktopHtml;
  const mobile=document.getElementById('rtoc-mobile');
- if(mobile)mobile.innerHTML=structured?mobileBookTocHtml(groupsOrHtml):groupsOrHtml;
+ if(mobile)mobile.innerHTML=mobileHtml?`<h2 class="reader-contents-heading">Contents · Quick index</h2>${mobileHtml}`:'';
  bindBookTocListeners(toc);
  if(mobile)bindBookTocListeners(mobile);
+}
+function setReaderContentsOpen(open){
+ const details=document.getElementById('mobile-toc');
+ const book=details.closest('.book');
+ const label=details.querySelector('.reader-contents-label');
+ details.open=Boolean(open);
+ book?.classList.toggle('contents-open',Boolean(open));
+ if(label)label.textContent=open?'Close contents':'Contents';
 }
 function bindBookTocListeners(toc){
  toc.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
@@ -1266,9 +1504,8 @@ function bindBookTocListeners(toc){
   document.querySelectorAll(`#rtoc a[href="#${sectionId}"],#rtoc-mobile a[href="#${sectionId}"]`).forEach(item=>item.setAttribute('aria-current','location'));
   target.setAttribute('tabindex','-1');
   target.focus({preventScroll:true});
-  document.getElementById('mobile-toc').open=false;
-  target.scrollIntoView({behavior:motionBehavior(),block:'start'});
-  updateReaderPosition(sectionId);
+  setReaderContentsOpen(false);
+  scrollReaderToTarget(target,{replaceHash:true});
  }));
 }
 function updateReaderPosition(sectionId){
@@ -1276,14 +1513,22 @@ function updateReaderPosition(sectionId){
  const headings=[...txt.querySelectorAll('h1[id],h2[id],h3[id]')].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
  let current=sectionId?document.getElementById(sectionId):null;
  if(!current){
-  const txtTop=txt.getBoundingClientRect().top;
-  current=headings.filter(h=>h.getBoundingClientRect().top<=txtTop+96).at(-1)||null;
+  const txtTop=txt.getBoundingClientRect().top+28;
+  current=[...headings].reverse().find(heading=>heading.getBoundingClientRect().top<=txtTop)||headings[0]||null;
  }
  activeReaderSectionId=current?.id||null;
  const label=document.getElementById('reader-current-section');
  if(label)label.textContent=current?.textContent.trim()||'Start of book';
  document.querySelectorAll('#rtoc a[aria-current],#rtoc-mobile a[aria-current]').forEach(item=>item.removeAttribute('aria-current'));
  if(current)document.querySelectorAll(`#rtoc a[href="#${current.id}"],#rtoc-mobile a[href="#${current.id}"]`).forEach(item=>item.setAttribute('aria-current','location'));
+}
+function scrollReaderToTarget(target,{replaceHash=false}={}){
+ const txt=document.getElementById('rtxt');
+ if(!target||!txt.contains(target))return;
+ const targetTop=txt.scrollTop+target.getBoundingClientRect().top-txt.getBoundingClientRect().top-18;
+ txt.scrollTo({top:Math.max(0,targetTop),behavior:'auto'});
+ if(replaceHash&&activeReaderBookId&&target.id)history.replaceState(null,'','#'+activeReaderBookId+'::'+encodeURIComponent('@'+target.id));
+ updateReaderPosition(target.id||null);
 }
 function sectionAnchorSlug(value){
   return value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
@@ -1299,8 +1544,62 @@ function assignBookSectionAnchors(txt){
     heading.id=slug+(occurrence>1?'-'+occurrence:'');
   });
 }
+function renderReaderTitle(id,title){
+ const target=document.getElementById('rt');
+ const book=target.closest('.book');
+ book?.classList.toggle('book--ai-fundamentals-art',id==='ai-fundamentals-101');
+ target.replaceChildren();
+ target.removeAttribute('aria-label');
+ if(id==='ai-fundamentals-101'){
+  target.setAttribute('aria-label','AI Fundamentals 101');
+  const lead=document.createElement('span');lead.className='reader-title-lead';lead.textContent='AI';
+  const name=document.createElement('span');name.className='reader-title-name';name.append(document.createTextNode('Fundamentals'));
+  const brush=document.createElement('img');brush.className='reader-title-brush';brush.src='/assets/library-reader/title-pink-brush-v1.png';brush.alt='';brush.setAttribute('aria-hidden','true');name.append(brush);
+  const number=document.createElement('span');number.className='reader-title-number';number.textContent='101';
+  target.append(lead,name,number);
+  return;
+ }
+ target.textContent=title;
+}
+function updateReaderPageArt(spread){
+ const book=document.querySelector('#reader .book');
+ const image=document.getElementById('reader-page-art');
+ const mobile=document.getElementById('reader-page-art-mobile');
+ if(!book||!image||!mobile)return;
+ const fundamentals=activeReaderBookId==='ai-fundamentals-101';
+ const opening=fundamentals&&Boolean(spread?.querySelector('.reader-preface-heading'));
+ book.classList.toggle('book--ai-fundamentals-art',fundamentals);
+ book.classList.toggle('is-opening-art',opening);
+ image.src=fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-v4.png?v=4a';
+ mobile.srcset=fundamentals?'/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-mobile-v4.png?v=4a';
+}
+function decorateReaderOpening(id,txt){
+ txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());
+ txt.querySelectorAll('.reader-preface-intro').forEach(node=>node.classList.remove('reader-preface-intro'));
+ if(id!=='ai-fundamentals-101')return;
+ const preface=[...txt.querySelectorAll('section')].find(section=>section.dataset.sourceBlock==='preface-why-this-book-matters');
+ if(!preface)return;
+ const heading=[...preface.children].find(node=>node.matches?.('h2')&&node.textContent.trim().toLowerCase().startsWith('preface'));
+ if(!heading)return;
+ heading.classList.add('reader-preface-heading');
+ heading.replaceChildren();
+ const kicker=document.createElement('span'),title=document.createElement('span');
+ kicker.className='reader-preface-kicker';kicker.textContent='Preface —';
+ title.className='reader-preface-title';title.textContent='Why This Book Matters';
+ const divider=document.createElement('span');divider.className='reader-preface-divider';divider.setAttribute('aria-hidden','true');
+ heading.append(divider,kicker,title);
+ let lastIntro=heading;
+ for(let node=heading.nextElementSibling;node&&!node.matches('h2');node=node.nextElementSibling){
+  node.classList.add('reader-preface-intro');lastIntro=node;
+ }
+ const aside=document.createElement('div');aside.className='reader-preface-aside';
+ aside.innerHTML='<aside class="reader-preface-card reader-preface-card-why"><div class="reader-preface-card-label"><img src="/assets/library-reader/preface-question-icon-v1.png" alt=""><b>WHY THIS MATTERS</b></div><p>AI is already changing how people work, create, find information and make decisions.</p></aside><aside class="reader-preface-card reader-preface-card-job"><div class="reader-preface-card-label"><img src="/assets/library-reader/preface-concept-icon-v1.png" alt=""><b>WHAT THIS BOOK DOES</b></div><p>Follow the whole AI system in plain English, learn what each part does and know which question to ask when something uses the label AI.</p></aside>';
+ lastIntro.insertAdjacentElement('afterend',aside);
+}
 function decorateReaderSaveIcons(id,txt){
- txt.querySelectorAll('.reader-inline-save').forEach(button=>button.remove());
+  txt.querySelectorAll('.reader-inline-save').forEach(button=>button.remove());
+  txt.querySelectorAll('.reader-save-heading-text').forEach(label=>label.replaceWith(...label.childNodes));
+  txt.querySelectorAll('.reader-save-heading').forEach(heading=>heading.classList.remove('reader-save-heading'));
  const chapterSelector=id==='straight-answers'?'h2[data-source-block]':'h2[data-source-block^="chapter-"]';
  const chapters=[...txt.querySelectorAll(chapterSelector)];
  const excluded='.callout,.working-panel,.key-terms-reference,.receipts,.vr-metadata,.vr-sources';
@@ -1311,7 +1610,10 @@ function decorateReaderSaveIcons(id,txt){
   button.type='button';button.className='reader-inline-save';button.dataset.readerSave=scope;button.dataset.readerSaveTarget=heading.id;
   button.setAttribute('aria-label',`Save this ${scope}, ${heading.textContent.trim()}, with one of your 10 Puffy Stickers`);
   button.title=`Save ${scope} with a Puffy Sticker`;button.setAttribute('aria-hidden','false');button.innerHTML='<img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">';
-  heading.appendChild(button);
+  const label=document.createElement('span');label.className='reader-save-heading-text';
+  while(heading.firstChild)label.appendChild(heading.firstChild);
+  heading.classList.add('reader-save-heading');
+  heading.append(label,button);
  });
 }
 function saveReaderScope(scope,anchor,targetId=''){
@@ -1342,17 +1644,16 @@ function scrollBookTo(headingNeedle){
   if(!headingNeedle)return;
   const txt=document.getElementById('rtxt');
   const heading=findBookHeading(txt,headingNeedle);
-  if(heading)heading.scrollIntoView({block:'start'});
+  if(heading)scrollReaderToTarget(heading);
 }
 function motionBehavior(){
  return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
 }
 function focusBookSection(txt,headingNeedle){
-  txt.querySelectorAll('[aria-current="location"]').forEach(el=>el.removeAttribute('aria-current'));
   if(!headingNeedle)return;
   const heading=findBookHeading(txt,headingNeedle);
   if(!heading)return;
-  heading.setAttribute('aria-current','location');
+  scrollReaderToTarget(heading);
   heading.setAttribute('tabindex','-1');
   heading.focus({preventScroll:true});
 }
@@ -1493,15 +1794,16 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   activeReaderBookId=id;activeReaderSectionId=headingNeedle||null;correctionIdempotencyKey=null;correctionStatusReference=null;
   document.getElementById('correction-form').reset();document.getElementById('correction-desk').hidden=true;document.getElementById('correction-check').hidden=true;document.getElementById('correction-submit').disabled=false;document.getElementById('correction-submit').textContent='Send this correction';setCorrectionStatus('','idle');
   document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
+  document.querySelector('.book').dataset.bookId=id;
   document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
   document.getElementById('rm').textContent=b.s||'';
   const readerTitle=document.getElementById('rt');
-  readerTitle.textContent=b.t;
+  renderReaderTitle(id,b.t);
   const oldPuffyRow=readerTitle.nextElementSibling;
   if(oldPuffyRow&&oldPuffyRow.classList.contains('puffy-save-row'))oldPuffyRow.remove();
   [...readerTitle.attributes].filter(attribute=>attribute.name.startsWith('data-puffy-')).forEach(attribute=>readerTitle.removeAttribute(attribute.name));
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
-  document.getElementById('mobile-toc').open=false;
+  setReaderContentsOpen(false);
   if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; setBookToc(toc,'');
     fetch(publication.source,{credentials:'same-origin',redirect:'follow',cache:'no-store'}).then(async r=>{
       const requestedUrl=new URL(publication.source,location.origin);
@@ -1522,7 +1824,9 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       txt.innerHTML = sourceMain ? sourceMain.innerHTML : pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       if(id==='how-to-check')txt.querySelectorAll('.vr-hero h1,.vr-hero .vr-eyebrow').forEach(node=>node.remove());
       assignBookSectionAnchors(txt);
+      decorateReaderOpening(id,txt);
       decorateReaderSaveIcons(id,txt);
+      updateReaderPageArt(txt);
       const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
       const tocHeadings=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
       setBookToc(toc,bookTocGroups(tocHeadings));
@@ -1541,7 +1845,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   document.getElementById('reader').classList.add('on');
   document.getElementById('reader').setAttribute('aria-hidden','false');
   document.body.classList.add('reader-open');
-  document.getElementById('reader-close').focus();
+  document.querySelector('#reader .book').focus({preventScroll:true});
   history.replaceState(null,'','#'+id+(headingNeedle?'::'+encodeURIComponent(headingNeedle):''));}
 function closeBook(){
   readerLoadToken++;
@@ -1553,31 +1857,48 @@ function closeBook(){
   if(readerReturnFocus&&typeof readerReturnFocus.focus==='function')readerReturnFocus.focus();
 }
 document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
-document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash)activeReaderSectionId=decodeURIComponent(link.hash.slice(1));});
+document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash){activeReaderSectionId=decodeURIComponent(link.hash.slice(1));setTimeout(()=>setReaderContentsOpen(false),0);}});
 document.getElementById('mobile-toc').addEventListener('toggle',event=>{
- if(!event.currentTarget.open)return;
+ const open=event.currentTarget.open;
+ const book=event.currentTarget.closest('.book');
+ const label=event.currentTarget.querySelector('.reader-contents-label');
+ book?.classList.toggle('contents-open',open);
+ if(label)label.textContent=open?'Close contents':'Contents';
+ if(!open)return;
  const nav=document.getElementById('rtoc-mobile');
+ nav.focus({preventScroll:true});
  const current=activeReaderSectionId?nav.querySelector(`a[href="#${activeReaderSectionId}"]`):null;
  nav.querySelectorAll('details.reader-toc-group').forEach(group=>{group.open=group===current?.closest('details.reader-toc-group');});
- (current?.closest('details.reader-toc-group')||current)?.scrollIntoView({block:'nearest'});
+ requestAnimationFrame(()=>{
+  (current?.closest('details.reader-toc-group')||current||nav.querySelector('a,summary'))?.scrollIntoView({block:'nearest'});
+ });
 });
-document.getElementById('rtxt').addEventListener('scroll',()=>requestAnimationFrame(()=>updateReaderPosition()),{passive:true});
 document.getElementById('reader-top').addEventListener('click',()=>{
+ setReaderContentsOpen(false);
  const txt=document.getElementById('rtxt');
- document.getElementById('mobile-toc').open=false;
- txt.scrollTo({top:0,behavior:motionBehavior()});
- updateReaderPosition(null);
- txt.focus({preventScroll:true});
+ txt.scrollTo({top:0,behavior:'auto'});
+ const first=txt.querySelector('h1[id],h2[id],h3[id]');
+ if(first){first.setAttribute('tabindex','-1');first.focus({preventScroll:true});}
+ if(activeReaderBookId)history.replaceState(null,'','#'+activeReaderBookId);
+ updateReaderPosition(first?.id||null);
 });
 document.querySelector('[data-reader-save="book"]').addEventListener('click',event=>saveReaderScope('book',event.currentTarget));
 document.getElementById('rtxt').addEventListener('click',event=>{
  const button=event.target.closest('.reader-inline-save');
  if(button)saveReaderScope(button.dataset.readerSave,button,button.dataset.readerSaveTarget);
 });
+let readerScrollFrame=0;
+document.getElementById('rtxt').addEventListener('scroll',()=>{
+ cancelAnimationFrame(readerScrollFrame);
+ readerScrollFrame=requestAnimationFrame(()=>updateReaderPosition());
+},{passive:true});
 addEventListener('keydown',e=>{
  const reader=document.getElementById('reader');
  if(!reader.classList.contains('on'))return;
- if(e.key==='Escape'){closeBook();return;}
+ if(e.key==='Escape'){
+  if(document.getElementById('mobile-toc').open){setReaderContentsOpen(false);return;}
+  closeBook();return;
+ }
  if(e.key!=='Tab')return;
  const focusable=[...reader.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden&&el.getClientRects().length);
  if(!focusable.length)return;
@@ -1635,5 +1956,6 @@ if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHeading);
 </script>
 <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260803-card-required"></script>
+  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
 </body>
 </html>

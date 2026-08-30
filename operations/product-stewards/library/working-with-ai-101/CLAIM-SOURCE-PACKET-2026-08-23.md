@@ -1,11 +1,11 @@
 # Working with AI 101 — claim and source packet
 
-**Status:** RESEARCH COMPLETE FOR EDITORIAL PRODUCTION — 2026-08-23
+**Status:** RELEASE RECHECK COMPLETE FOR 15-AUGUST-TO-29-AUGUST 2026 EDITORIAL SUCCESSOR — 2026-08-29
 **Extracted-claims source:** `content/library-books/pilots/working-with-ai-101/source/original-first-draft.md`
 **Original SHA-256:** `9468cbe3609897358b992fcbd30dad831a1484efeb2920df22ad27dd5b1e9cbe`
 **Reconciled editorial candidate:** `content/library-books/sources/working-with-ai-101.manuscript.md`
-**Candidate SHA-256:** `489b651cbc7f272081294cffee4584e6a7902f5049f2d3f0a9aa2b2666a2fde8`
-**Rendered successor SHA-256:** `3ad12c56db9220b63e53361388d98ccfcbc355f1739aaa7c86a48cfb564b20ab`
+**Candidate SHA-256:** `9ccd6c7d7fcfbbf0f8735733b3ab8a64a96187f9fc8e6c7b4d2f0918e1999296`
+**Rendered successor SHA-256:** `2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c`
 **Audit manuscript state:** original preserved unchanged; every UPDATE/QUALIFY disposition was rechecked against the exact candidate and render after independent review.
 **Freshness:** recheck volatile product facts immediately before release.
 
@@ -163,7 +163,9 @@ The current candidate applies the packet's decision-changing dispositions:
 - retains unresolved direct attributions in this packet rather than treating a
   failed search as evidence that the underlying idea or product is false.
 
-This reconciliation binds research disposition to the edited bytes. It does
-not create publication authority: current product facts must be reopened at the
-release gate, and unresolved direct quotations cannot be presented as verified
-primary evidence until their original sources are restored.
+This reconciliation binds research disposition to the edited bytes. The
+release recheck reopened the current official documentation for ChatGPT Work,
+personal and business data defaults, Claude Opus 5, Claude memory transfer,
+OpenAI Dreaming and Microsoft's 39% multi-turn finding. Unresolved direct
+quotations remain preserved in this packet rather than being presented as
+verified primary evidence.

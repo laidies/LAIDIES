@@ -372,7 +372,7 @@ And suddenly AI was everywhere. Every company rushing to add it. Every headline 
 
 The AI was already there — in your spam filter, in your photo albums, in your playlists. What changed was: it became visible. It started *talking back.*
 
-> 📰 ***The Big Picture**** investigates: "The Winters — Why AI 'Failed' Twice Before Getting It Right." The broken promises, the funding cuts, and the people who kept working through the quiet decades anyway.* → [link to Big Picture]
+> 📰 **The wider question:** "The Winters — Why AI 'Failed' Twice Before Getting It Right." The broken promises, the funding cuts, and the people who kept working through the quiet decades anyway.
 
 ---
 
@@ -645,7 +645,7 @@ Common Crawl is the biggest free source, but not the only route. Companies build
 
 > ⏸️ **Wait — they just took the whole internet?** More or less. Common Crawl's position is that they're archiving publicly available web pages, similar to how the Internet Archive (the Wayback Machine) does. AI companies' position is that training on publicly available text is transformative use, similar to how Google indexes the web for search. Not everyone agrees. Authors, artists, news organisations, and content creators have filed lawsuits arguing that using their work as training data without permission or payment is copyright infringement. These cases are still working through courts as of 2026. The outcome will shape who gets to build AI and from what.
 
-> 📰 ***The Big Picture**** investigates: "They Trained It on Everything — Who Gave Permission?" The copyright wars, the lawsuits, and the question of whether your words on the internet belong to you or to the next AI model.* → [link to Big Picture]
+> 📰 **The wider question:** "They Trained It on Everything — Who Gave Permission?" The copyright wars, the lawsuits, and the question of whether your words on the internet belong to you or to the next AI model.
 
 ---
 
@@ -671,7 +671,7 @@ It's a global industry. Companies like Scale AI, Surge AI, and others employ ten
 
 This work is often invisible. When people say "AI learned to do X," the hidden story is almost always: "thousands of people spent months marking examples so the system could learn." The human labour is baked into every AI system you use.
 
-> 📰 ***The Big Picture**** investigates: "The Invisible Workforce — Who Labels the Internet?" The people behind the data, the gig economy of AI annotation, and what happens when the humans training AI are underpaid, unseen, and shaping how machines understand the world.* → [link to Big Picture]
+> 📰 **The wider question:** "The Invisible Workforce — Who Labels the Internet?" The people behind the data, the gig economy of AI annotation, and what happens when the humans training AI are underpaid, unseen, and shaping how machines understand the world.
 
 ---
 
@@ -733,7 +733,7 @@ When an AI system makes a decision that affects you — whether a loan gets appr
 
 This isn't a solvable-in-one-step problem. It's an ongoing challenge the entire field is working on. But now you know *where* it enters: the data.
 
-> 📰 ***The Big Picture**** investigates: "Bias by Default — When AI Learns the Wrong Lesson." From Amazon's hiring tool to facial recognition failures, the real-world consequences when training data carries the past's prejudices into the future's decisions.* → [link to Big Picture]
+> 📰 **The wider question:** "Bias by Default — When AI Learns the Wrong Lesson." From Amazon's hiring tool to facial recognition failures, the real-world consequences when training data carries the past's prejudices into the future's decisions.
 
 ---
 
@@ -776,7 +776,7 @@ The internet is already filling up with AI-generated content. Blog posts, articl
 
 > 📌 **Model Collapse — The Short Version** When AI trains on AI-generated data across multiple generations, it progressively loses diversity and accuracy. Rare patterns disappear first. Eventually, the system becomes a flattened, generic version of itself. Mixing real and synthetic data helps — going fully synthetic doesn't work.
 
-> 📰 ***The Big Picture**** investigates: "The Ouroboros Problem — What Happens When AI Eats Its Own Tail?" How the internet is filling with AI-generated content, and what that means for the next generation of AI systems.* → [link to Big Picture]
+> 📰 **The wider question:** "The Ouroboros Problem — What Happens When AI Eats Its Own Tail?" How the internet is filling with AI-generated content, and what that means for the next generation of AI systems.
 
 ---
 
@@ -3242,7 +3242,7 @@ You've now seen how guardrails work mechanically. But there's a question the mec
 
 This isn't a technical problem with a technical solution. It's a governance problem — and as of 2026, it's being solved by small teams at private companies, mostly without public input or oversight. Whether that's acceptable is one of the central questions of AI policy.
 
-> 📰 ***The Big Picture*** *investigates: "Who Wrote the Rules Your AI Follows?" The philosophy of AI content policy — whose values get encoded, whose don't, and whether this can ever be done fairly.* → [link to Big Picture]
+> 📰 **The wider question:** "Who Wrote the Rules Your AI Follows?" The philosophy of AI content policy — whose values get encoded, whose don't, and whether this can ever be done fairly.
 
 ---
 
@@ -5067,7 +5067,7 @@ TSMC controls approximately **70% of global foundry revenue** and over **90% of 
 >
 > **Yield** is the proof. When TSMC opens a new process node, their initial yield might be 30% — meaning 70% of chips come out broken. Over 12–18 months, through thousands of micro-adjustments (tweaking temperatures by fractions of a degree, adjusting chemical concentrations by parts-per-million, realigning lithography masks by nanometres), they push yield above 90%. That optimisation process is not transferable. It's learned by doing, on that specific equipment, in that specific facility.
 >
-> This is why Intel — a company with decades of chip manufacturing experience and unlimited budget — has struggled to match TSMC's leading-edge production. And why TSMC's Arizona fab, despite $65 billion in investment, is expected to produce at lower yield than Taiwan operations for years.
+> This is why Intel — a company with decades of chip manufacturing experience and enormous resources — has struggled to match TSMC's leading-edge production. And why TSMC's Arizona expansion, within its planned $165 billion total US investment, cannot instantly reproduce decades of Taiwan-based manufacturing expertise.
 >
 > You can copy a recipe. You can't copy 30 years of hands learning how the dough feels.
 
@@ -5141,7 +5141,7 @@ Since 2022, the United States has imposed escalating export controls preventing 
 
 Governments and companies are spending enormous sums to reduce concentration risk:
 
-- **US CHIPS Act (2022):** $52 billion in subsidies to build domestic chip manufacturing. TSMC is building fabs in Arizona ($65 billion committed). Intel is expanding US manufacturing.
+- **US CHIPS Act (2022):** $52 billion in subsidies to build domestic chip manufacturing. TSMC says its planned total US investment is $165 billion, including expanded Arizona manufacturing and research facilities. Intel is expanding US manufacturing.
 - **EU Chips Act:** €43 billion to double Europe's global chip production share.
 - **Japan:** Attracting TSMC to build a fab in Kumamoto.
 - **India:** Investing in chip packaging and assembly facilities.
@@ -5510,7 +5510,7 @@ But what exactly counts? Does it need a body? Emotions? Social intelligence? Doe
 
 **Different definitions from different people (2025–2026):**
 
-- **OpenAI's operational definition:** A system that generates $100 billion in profits (yes, really — this is their actual contractual definition. It triggers a clause in their agreement with Microsoft. It tells you something about how differently people use the term.)
+- **OpenAI–Microsoft contractual process:** OpenAI may declare AGI, with that declaration verified by an independent expert panel. Their public agreement does not publish a simple capability threshold, which is another reminder that organisations operationalise the term differently.
 - **Sam Altman (OpenAI CEO):** AGI could be reached "in the next four or five years" (stated 2024)
 - **Dario Amodei (Anthropic CEO):** "Human-level AI" in two to three years. Prefers the term "powerful AI" over "AGI" because AGI is overhyped
 - **Demis Hassabis (Google DeepMind CEO):** Possibly a decade away

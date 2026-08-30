@@ -21,6 +21,7 @@ export function validateRenderableSource(source) {
   }
   require(Array.isArray(source?.sourceReferences) && source.sourceReferences.length > 0, "sourceReferences are required");
   require(source?.freshness && source.freshness.reviewedThrough && source.freshness.nextTrigger && source.freshness.owner, "freshness contract is required");
+  require(source?.edition && source.edition.reviewedOn && source.edition.summary && source.edition.changeHistory, "visible edition record is required");
   const sections = [source?.intro, ...(Array.isArray(source?.chapters) ? source.chapters : [])];
   require(Array.isArray(source?.chapters) && source.chapters.length >= 2, "at least two authored chapters are required");
   const ids = [];
@@ -43,7 +44,8 @@ export function renderLibraryBookSource(source, canonicalPath, sourceBytes = Buf
   const sourceSha = sha256(sourceBytes);
   const sections = [source.intro, ...source.chapters];
   const body = sections.map((section, index) => `${index ? `<h2 id="${escapeAttribute(section.id)}" data-source-block="${escapeAttribute(section.id)}">${section.title}</h2>` : `<section id="${escapeAttribute(section.id)}" data-source-block="${escapeAttribute(section.id)}"><h2>${section.title}</h2>`}${section.bodyHtml}${index ? "" : "</section>"}`).join("\n\n");
-  return `<meta name="laidies:content-version" content="${escapeAttribute(source.contentVersion)}">\n<meta name="laidies:canonical-source" content="/${escapeAttribute(canonicalPath)}">\n<meta name="laidies:canonical-source-sha256" content="${sourceSha}">\n<meta name="laidies:renderer-version" content="${RENDERER_VERSION}">\n<div class="gr-page" data-book-id="${escapeAttribute(source.bookId)}">\n${source.eyebrow ? `<p class="eyebrow">${source.eyebrow}</p>\n` : ""}<h1>${source.displayTitle}</h1>\n<p class="lede">${source.lede}</p>\n${body}\n</div>\n`;
+  const edition = `<details class="book-edition-note"><summary>Edition reviewed ${escapeAttribute(source.edition.reviewedOn)}</summary><p>${source.edition.summary}</p><p><strong>What changed:</strong> ${source.edition.changeHistory}</p></details>`;
+  return `<meta name="laidies:content-version" content="${escapeAttribute(source.contentVersion)}">\n<meta name="laidies:canonical-source" content="/${escapeAttribute(canonicalPath)}">\n<meta name="laidies:canonical-source-sha256" content="${sourceSha}">\n<meta name="laidies:renderer-version" content="${RENDERER_VERSION}">\n<div class="gr-page" data-book-id="${escapeAttribute(source.bookId)}">\n${source.eyebrow ? `<p class="eyebrow">${source.eyebrow}</p>\n` : ""}<h1>${source.displayTitle}</h1>\n<p class="lede">${source.lede}</p>\n${edition}\n${body}\n</div>\n`;
 }
 
 const invoked = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

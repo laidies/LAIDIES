@@ -69,11 +69,13 @@ Now to the first problem: why an AI can make you feel like a genius at 9 a.m. an
 
 ---
 
-# Part I: See the System
 
-## The problem, the context and the setup behind every result
+# Part I: Why It's Inconsistent
+
+## The one thing that explains every result you have ever got
 
 ---
+
 
 # Chapter 1: The Inconsistency Problem
 
@@ -193,15 +195,16 @@ Same you. Same tool. Not the same situation at all.
 
 Each chapter of this book takes one of these variables and makes it visible, understandable, and controllable.
 
-**Part II** teaches you to manage everything the AI can see: conversation history, persistent instructions, memory, and how to give it reference material without drowning it.
+**Part II** is the loop you run on every task: briefing the job, shaping what comes back, and revising it without wrecking what was already good. It is the part that changes what you do tomorrow morning, which is why it comes first.
 
-**Part III** teaches you to choose the right tool for the right job: which model type, which mode of use, and which tasks are worth using AI for at all.
+**Part III** covers why long conversations go wrong, and the one-time setup — persistent instructions, memory, projects — that stops the AI meeting you for the first time every day.
 
-**Part IV** teaches you what changes when AI has tools and autonomy: what it means for it to search, read files, run code, and work in a loop instead of just answering once.
+**Part IV** teaches you to choose the right tool for the job: which model, which mode, which effort setting, and which tasks are worth using AI for at all.
 
-**Part V** teaches the human skills that matter more now, not less: evaluating output, writing clear briefs, and delegating effectively.
+**Part V** covers what changes when AI gets tools and autonomy, how to judge whether an output is actually good, and how to delegate with a definition of done.
 
-**Part VI** ties it together: building a repeatable system and using AI responsibly at work.
+**Part VI** ties it together: turning isolated wins into a repeatable system, and using AI responsibly at work.
+
 
 By the end, the randomness disappears. Not because the tools become perfect, but because you can see the full board and adjust the right variable when something isn't working.
 
@@ -242,21 +245,750 @@ Write down the disappointing task, the one variable you changed and what happene
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** The same request works yesterday and fails today. What should you inspect before rewriting the prompt?
+
+**Answer:** Inspect the model or mode, the active context, available tools, attached material and acceptance conditions. The visible sentence is only one part of the system.
+
+</div>
+</details>
+
 ## What's Next →
 
-Chapter 2 puts you inside the system: what the AI actually "sees" when you press send, why long conversations degrade, and what it means to shape the full context instead of just the message. It's where you start taking control of Variable 1.
-
+Chapter 2 starts the every-time loop: deciding what the AI needs for this task, what will distract it, and how to turn the result into a brief it can actually execute.
 
 
 ================================================================================
 
-# Part II: Manage the Context
-
-## What the AI can use, what gets lost and when to start fresh
 
 ---
 
-# Chapter 2: What the AI Actually Sees
+# Part II: The Every-Time Loop
+
+## Brief the task, shape what comes back, revise without wrecking it
+
+---
+
+
+# Chapter 2: Giving It What It Needs (Without Drowning It)
+
+*More information doesn't mean better answers. Here's how to give the AI exactly what it needs and nothing else.*
+
+---
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- Explain why uploading everything "just in case" makes output worse, not better
+- Use a 60-second preparation step that eliminates most bad first drafts
+- Decide when to upload a file, paste a section, show a screenshot, or describe in your own words
+- Provide examples that collapse a hundred possible interpretations into one clear target
+- Write a brief (not a prompt) that a smart but uninformed colleague could execute without asking questions
+- Calibrate your specificity: enough to guide, not so much that you constrain
+
+---
+
+## Key Terms
+
+| Term | Plain-English Definition |
+| --- | --- |
+| **Context budget** | The AI's attention is finite. Everything you put in the conversation competes for that attention. Think of it as a budget: every token you spend on background is a token not available for your actual task. |
+| **Context stuffing** | The antipattern of dumping everything into the conversation "just in case." More context often makes output worse because the AI can't tell what matters and what's noise. |
+| **Few-shot examples** | Showing the AI 2-3 concrete examples of the input-output pattern you want, instead of (or in addition to) describing what you want in words. |
+| **Brief** | A structured description of what you need: the outcome, the audience, the constraints, and what "done" looks like. Not a magic phrase. A specification. |
+| **Multimodal input** | Giving the AI something other than text: images, screenshots, photos, audio, or video. Most major tools now handle all of these. |
+
+---
+
+## 2.1 The Attention Budget
+
+You're planning a trip. You hand your phone to a friend and say "find me a hotel." They're scrolling through 47 open tabs: your banking app, three Reddit threads about sourdough, a half-written text to your ex, a news article from last week, and somewhere in there, a Google Maps search for Barcelona. They could find you a hotel. They might also get distracted by the sourdough.
+
+That's roughly what you're doing when you dump ten documents into an AI conversation and say "help me with this." The AI reads everything you gave it. All of it. And it can't tell which parts you think are important and which are just... still open.
+
+This chapter is about what to give the AI for a specific task, and (just as importantly) what to leave out.
+
+The instinct most people have is: give it everything. Upload all the documents. Paste the full email chain. Attach every reference. Let the AI sort it out. It has a million-token context window, after all.
+
+Here's what's true in August 2026: models have improved dramatically at handling large inputs, and some vendors report very high scores on narrow “needle in a haystack” retrieval tests. That does not prove equally reliable reasoning or semantic retrieval across a million tokens. A full 50-page document can be useful input when the tool supports it, but ask for page or section references and verify important details against the original.
+
+But there's a critical difference between giving it a lot of RELEVANT context and giving it a lot of IRRELEVANT context hoping it'll find the relevant bits. That second thing still makes output worse, even on the most capable 2026 models.
+
+Controlled long-context evaluations show that more input is not automatically more usable input: performance can decline as irrelevant material grows, even while the content still fits inside the advertised window. The model may not warn you that focus has degraded. It can simply produce a vaguer or less accurate answer, which is why selection matters more than impressive capacity numbers.
+
+The practical framing from one 2026 researcher: "Models genuinely have gotten better at self-correction, so a lot of the fussy manual work that once mattered now buys less. But context still shapes results powerfully, and an agent handed a bad context will confidently do the wrong thing no matter how capable it is."
+
+Andrej Karpathy (one of the researchers behind the early AI systems that led to today's tools) put it simply: the AI's context window is like working memory. Your job is to load exactly the right information for each task. Not all the information. Not the most information. The *right* information. That job has gotten easier as models have improved. But it hasn't gone away.
+
+This chapter teaches you how to decide what "right" means for different tasks.
+
+---
+
+## 2.2 Think Before You Type
+
+A useful separator between improvised and repeatable AI work is what happens before you start typing. The 60-second preparation method below is a practical routine to test, not a measured universal optimum.
+
+Most people open a chat, describe what they want, and press send. When the output isn't right, they adjust and try again. The iteration loop becomes the substitute for thinking. Three rounds of "no, try again" later, the conversation is polluted with failed attempts (Chapter 5's context rot), and the fourth attempt is working against all the accumulated noise.
+
+The fix takes one minute. Before you type, answer five questions:
+
+**1. What's the actual deliverable?** Not "I need help with X" but "I need [a specific thing] for [a specific use]." The difference between "help me with this presentation" and "I need 5 slide titles with one-sentence descriptions for an internal quarterly review, audience is senior leadership, focus is what changed since last quarter" is the difference between generic output and usable output.
+
+**2. What does the AI need to know that it can't guess?** The audience. The constraints. Why this matters. What happened before. Any context that's specific to your situation rather than general knowledge. If a smart but uninformed colleague would need to ask you a question before starting, the AI needs that information too. The difference is: the colleague would ask. The AI will just guess.
+
+**3. What do I have that I could show it?** Files, examples, previous versions, reference material, screenshots. Anything the AI could look at directly rather than relying on your description of it.
+
+**4. What would distract it?** Old versions of documents. Tangentially related files. Context from a different project. Information that LOOKS relevant but isn't for THIS specific task. Everything you include that doesn't directly serve the task dilutes what does.
+
+**5. What does "good enough" look like?** Are you going to iterate on this? Is it a first draft you'll refine, or does it need to be right the first time? If it's a draft, say so. If there are specific things that would make you reject it (wrong tone, wrong length, wrong audience), say those up front.
+
+Sixty seconds. Five questions. The output from this preparation is worth more than any amount of prompt-tweaking after the fact.
+
+---
+
+## 2.3 The Brief (Not the Prompt)
+
+The word "prompt" implies a single clever sentence that unlocks the AI's potential. The reality in 2026 is closer to writing a brief: a short, structured description that gives a smart but uninformed executor everything they need to produce what you want.
+
+An agent can sometimes pause or ask for clarification, but you should not depend on that happening at the right moment. If the brief leaves an important blank, the system may make a plausible choice and continue. Name the ambiguity before it becomes an autonomous decision.
+
+A good brief has at most six parts:
+
+**Outcome.** What you want to end up with, described as a result, not a process. "A one-page summary of this report for my CFO" not "read this and tell me what's important."
+
+**Audience.** Who will read/use this output. This changes everything: vocabulary, detail level, what gets emphasised, what gets left out.
+
+**Constraints.** What it must NOT do. Length limits. Things to avoid. Scope boundaries. "Under 300 words. No technical jargon. Don't mention the restructuring."
+
+**Format.** What the output looks like structurally. Bullet points or prose. Sections or one block. Table or narrative. If you don't specify, it'll choose for you (often wrong).
+
+**What good looks like.** If you have an example of the kind of output you want, show it (Section 4.5 covers this in depth). If you don't, describe the quality bar: "The tone of an internal email between peers, not a formal memo to a board."
+
+**What you've already tried (if relevant).** If this isn't your first attempt, tell it what didn't work and why. "I already tried asking for a summary and it was too high-level. I need more operational detail, specifically around timelines and owners."
+
+You don't always need all six. A simple task might only need outcome + constraints. A complex task might need all of them. The test: could a smart colleague you've never worked with execute this brief without asking you a single clarifying question? If yes, the AI can too. If not, what question would they ask? Answer it in the brief.
+
+---
+
+## 2.4 Upload, Paste, or Describe?
+
+Before choosing a format, decide whether the AI is allowed to receive the information at all. Run this **Allowed-Information Check**:
+
+1. **Whose information is it?** Mine, my employer's, a client's, a colleague's or the public's?
+2. **What kind is it?** Public, internal, confidential, personal, regulated or contract-restricted?
+3. **Which rule applies?** Check the current employer/client policy, account type, data controls, retention and connector permissions. Do not infer privacy from price.
+4. **Can I reduce it?** Use a harmless stand-in, remove names, paste only the necessary passage or describe the structure instead.
+5. **Who could act on it?** If tools or connectors are enabled, check read versus write access before continuing.
+
+If you cannot answer the first three questions, stop. Do not upload the material merely to see whether the tool can help.
+
+Once the information is allowed, you have four ways to provide it: upload, paste, describe or show a screenshot. Each is better for different situations:
+
+### Upload the file when:
+
+- The AI needs to work with the ACTUAL content: analyse it, summarise it, extract from it, compare it to something else. In 2026, the models handle full documents well. You don't need to pre-summarise a 50-page report before uploading it. Just upload it.
+- Accuracy about specific details matters (numbers, names, dates, quotes)
+- The document's structure is part of what matters (tables, formatting, sections)
+- You'd say "here, read this" to a colleague
+
+Example: "I've uploaded our Q2 earnings report. Summarise the three biggest changes from Q1 for a non-financial audience. Under 200 words."
+
+### Paste relevant sections when:
+
+- Only part of a long document is relevant to this task
+- The full document would add noise (you need page 12 of a report but everything else is about a different topic)
+- You want the AI to focus on specific passages without getting distracted by the rest
+
+Example: "Here's the specific contract clause I need analysed: [paste clause]. What are the risks to the buyer? Is there anything ambiguous that could be interpreted against us?"
+
+### Describe in your own words when:
+
+- The AI needs to understand your SITUATION, not read a document
+- The relevant information is in your head, spread across conversations and experience
+- You're providing background context ("we're a 50-person fintech in Toronto, series B, selling to credit unions")
+- The information is simple enough that describing it is faster and cleaner than finding and uploading a file
+
+Example: "I'm preparing for a salary negotiation. I've been in this role for 2 years, got promoted 6 months ago but pay hasn't changed. My research says market rate is 15-20% above where I am. I want to ask for 18%. Help me draft talking points."
+
+### Show a screenshot when:
+
+- The visual layout IS the information (a UI, an error message, a design)
+- Describing it in words would take 5x longer and be less precise
+- You're asking "what am I looking at?" or "what's wrong here?"
+- Charts, dashboards, or visual data where spatial relationships matter
+
+Example: [screenshot of a form with an error] "I keep getting this error when I submit. What's wrong?"
+
+**The rule of thumb: use whatever puts the most signal in the least space.** If the AI needs to read a document, give it the document (the models handle this well now). If it only needs three sentences of context from that document, paste those three sentences instead of making it search through 10 pages. If a picture is worth a thousand words, send the picture.
+
+The question isn't "can the AI handle this much?" (in 2026, it usually can). The question is "is everything I'm giving it actually relevant to THIS task?" Relevant volume is fine. Irrelevant volume still hurts.
+
+### Position matters
+
+If you're uploading multiple files, do not rely on order alone. Name the priority source and what role each file plays: “Use the policy as authority; use the notes only as examples.” Position can affect attention in some long-context tests, but products assemble and retrieve files differently.
+
+---
+
+## 2.5 The Power of Examples
+
+Sometimes the most efficient thing you can give the AI isn't instructions. It's one or two examples of what you want.
+
+"Summarise this professionally" can be interpreted a hundred different ways. The AI will pick one. It probably won't be yours. But if you show it two examples of summaries you've written and liked, it collapses those hundred interpretations into one clear target.
+
+This technique is called **few-shot prompting**: showing the model one or more examples of the result you mean. Start with one to three representative examples and test whether they improve your task. There is no universal magic count; the examples earn their place only if they reduce ambiguity.
+
+### When examples work better than instructions:
+
+- **Format consistency.** You want the output to look a specific way (your newsletter style, your meeting note format, your email structure). Show one.
+- **Style and voice.** You want it to sound like you or your brand. Show 2-3 pieces of your real writing (Chapter 6 covers how to make this persistent; here it's task-specific).
+- **Classification or categorisation.** You need it to sort things into buckets? Show it a few already-sorted items.
+- **Any time "you'll know it when you see it" but you struggle to describe it.** If you can't explain what makes a good version good, show a good version.
+
+### How to provide examples:
+
+> "Here are two examples of the format I want:
+>
+> EXAMPLE 1:
+> [paste a real example]
+>
+> EXAMPLE 2:
+> [paste a different real example]
+>
+> Now produce the same for [your actual task]. Match the format, length, and level of detail from my examples."
+
+### How many examples to give:
+
+Start with one to three representative examples and test whether they improve the task. One example can anchor the AI too strongly to a single template; a large pile can consume context without adding useful signal. Pair examples with clear instructions: the examples show the shape, while the instructions clarify what the examples do not make obvious.
+
+### When NOT to use examples:
+
+- When the task is complex reasoning or analysis (examples can constrain the AI's thinking instead of helping it)
+- When your examples are so long that they dominate the context and crowd out the actual task
+- When you only have one example and it might accidentally anchor the AI to an approach you don't want repeated for every case
+
+---
+
+## 2.6 The "Just Enough" Principle
+
+The David Rose move (being pathologically specific about what you want) is powerful. But in 2026 it's one tool, not the whole toolbox.
+
+Specificity exists on a spectrum:
+
+**Too vague:** "Write me a summary." No audience. No length. No format. No focus. The AI produces generic output calibrated for nobody in particular.
+
+**Just right:** "Summarise this for senior leadership. Three bullet points. Focus on what changed and what we recommend. Skip background they already know." Clear outcome, clear audience, clear constraints. The AI has a target.
+
+**Too specific:** A 500-word instruction that prescribes every step, every section, every sentence structure, plus warnings about what not to do, formatting rules, and three paragraphs of context that doesn't affect the output. In 2026, this often produces WORSE output than "just right" because over-instructing constrains capable models rather than helping them.
+
+Where to land on this spectrum depends on the task:
+
+| Task type | Specificity needed | Why |
+|---|---|---|
+| Simple question | Low (just ask) | The AI knows how to answer a question |
+| Draft (first pass) | Medium (outcome + audience + constraints) | Give it direction, not a screenplay |
+| Format-sensitive output | Medium + example | Show the shape, constrain the length |
+| Complex analysis | Medium (goal + constraints + what good looks like) | Let it reason; don't prescribe the process |
+| Creative brainstorming | Low-medium (topic + quantity + how diverse) | Constraint kills creativity |
+| Repetitive/template task | High + example | Consistency requires tight specification |
+
+The test for whether you've given enough: would a smart colleague produce what you need from this brief alone? If they'd ask a question, you haven't given enough. If they'd skim past half your instructions because it's obviously irrelevant, you've given too much.
+
+---
+
+## 2.7 When to Show Instead of Tell (Multimodal Input)
+
+Many major AI products can process images or screenshots; audio and video support varies by product, model, plan, mode and region. If your current tool supports the relevant format, typing may not be the clearest input.
+
+**Screenshots are faster and more accurate than descriptions when:**
+- You're looking at something visual (a UI, a layout, a design, a chart)
+- An error message or state is hard to put into words precisely
+- The spatial arrangement of information matters
+- You'd normally walk over to someone's desk and point at their screen
+
+**Text is better when:**
+- The information is structured data (numbers, names, facts)
+- You need the AI to process, compute, or transform the information
+- You want to quote it exactly (text tokens are processed more reliably than OCR'd text from images)
+- The content could be pasted directly
+
+**Voice/audio input is efficient when:**
+- You're explaining a situation and talking is faster than typing
+- You're on mobile
+- The nuance of HOW something was said matters (tone analysis)
+
+The practical rule: if showing it would be faster and more precise than describing it, show it. If describing or pasting is cleaner and more accurate, do that instead.
+
+---
+
+## Try This: The 60-Second Brief 🧪
+
+Pick something you were about to ask the AI. Before you type, spend 60 seconds:
+
+1. Write down the actual deliverable (what physical thing do you want back?)
+2. Write down who it's for (the audience, even if it's just you)
+3. Write down one thing that would make you reject it (the key constraint)
+4. Check: do you have anything you could upload, paste, or screenshot instead of describing?
+5. Check: do you have an example of what "good" looks like for this task?
+
+Now write your message using what you came up with. Compare the result to what you'd have gotten if you'd just typed your first instinct.
+
+Compare the results against the same definition of done. Keep the routine only if it makes the work better or easier to review.
+
+### Add to Your Working With AI Kit
+
+Save the successful brief as **Brief 1 of 3**. Keep the outcome, audience, source material, constraints and acceptance conditions; remove the one-off details before reuse. Save the five-question **Allowed-Information Check** beside it and run that check before every future paste, upload or connected-tool task.
+
+---
+
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** Your brief is detailed but the output is generic. What is the likeliest missing ingredient?
+
+**Answer:** Useful source material or concrete context. More instructions cannot substitute for the information needed to do the job.
+
+</div>
+</details>
+
+## What's Next →
+
+You now know how to give the AI what it needs for a task without drowning it. But even with perfect context, the output might still sound wrong: too generic, too corporate, too agreeable, too hedging. That's not a context problem. That's an output behaviour problem. Chapter 3 teaches you how to control what comes back: matching your voice, eliminating filler, stopping the AI from agreeing with everything you say, and knowing when to stop iterating.
+
+
+================================================================================
+
+# Chapter 3: Controlling What Comes Back
+
+*The AI produced something. It's wrong in a way you can feel but can't name. This chapter names it.*
+
+---
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- Identify why AI output sounds generic and what's actually causing it
+- Set structural rules that eliminate filler, hedging, and sycophancy
+- Control format and length without over-constraining
+- Get honest pushback from a tool that's trained to agree with you
+- Distinguish between surface fixes (ban lists) and real fixes (voice, opinion, specificity)
+
+---
+
+## Key Terms
+
+| Term | Plain-English Definition |
+| --- | --- |
+| **AI slop** | Output that's technically correct but sounds like it was written by nobody for nobody. Generic, predictable rhythm. No perspective. You can feel it instantly even if you can't articulate why. |
+| **Sycophancy** | The AI's tendency to agree with everything you say, validate your framing, and avoid disagreeing even when you're wrong. A documented, measured property of how these models are trained. |
+| **Hedging** | When the AI refuses to commit to an answer: "It depends," "There are many factors," "This is a complex issue." Sometimes appropriate. Usually a crutch. |
+| **Structural constraint** | A rule that gives the AI something concrete to DO (or not do) rather than a vague prohibition. "Use only information from this document" works. "Don't make things up" doesn't. |
+
+---
+
+## 3.1 Why Everything Sounds the Same
+
+You asked it to write a birthday message for your friend. What came back could have been written for literally anyone's friend. Warm but empty. Enthusiastic in that way nobody actually is. "Here's to an amazing year ahead!" No. Your friend just got out of a terrible job and is finally sleeping through the night again. You wanted that in there somehow. What you got was a greeting card from the internet's average.
+
+Now multiply that across every task: the email that could be from any company, the LinkedIn post that could be from any person, the summary that could be of any meeting. Same rhythm. Same structure. Same nothing.
+
+This is the default output of AI, and there's a mechanical reason for it.
+
+Language models generate the most statistically probable next word given everything that came before. When you give it a task without strong constraints, it produces the internet average: the most common way that sentence would continue across the millions of examples it trained on. That's not a flaw in any specific model. That's what "generate the most likely response" means in practice.
+
+The result is a recognisable voice that belongs to no one. Smooth. Competent. Empty. You've read it a thousand times by now: the confident opening, the three-point structure, the paragraph that restates the question before answering it, the closing that summarises what was just said. No personality. No edge. No opinion.
+
+Andrea Sáez describes the recognizable sameness as a repeated rhythm, structure and landing across prompts (Aug 2026). The practical point is not that every AI draft is identical; it is that an unspecified brief tends to pull toward familiar high-probability patterns.
+
+The surface symptoms change. The words "delve" and "tapestry" and "landscape" have mostly been trained out of newer models. But new patterns replace them constantly. Forbes has published two separate "updated signs of AI writing" lists in 2026 alone, because the tells shift every few months. Maintaining a ban list is chasing symptoms. The actual fix is upstream.
+
+**The real fix is not a word list. It's a perspective.**
+
+"The strongest defence against sounding like AI is having a genuine opinion before you open a prompt. The list cleans up the surface but a perspective you actually hold does the rest." (TheAIMarketer, Mar 2026)
+
+When you know what you think and you tell the AI your position, it's no longer generating the average. It's generating in a direction. That direction is what makes output sound like it came from someone rather than from the statistical middle.
+
+---
+
+## 3.2 Making It Sound Like You
+
+Chapter 6 will teach you how to set up persistent voice instructions using your own writing examples. That handles the baseline across all conversations.
+
+For task-specific voice matching, the same principle applies in miniature: show, don't describe.
+
+**If you have an example of the tone you want:**
+
+> "Match the tone of this example: [paste a paragraph]. My piece should sound like this but cover [your actual topic]."
+
+**If you know what you DON'T want:**
+
+> "Write this in my voice (see my instructions). Specifically: no corporate language, no bullet points unless I ask, no summarising what I just told you back to me."
+
+**If the output comes back sounding generic despite your instructions:**
+
+The problem is almost always one of two things:
+1. Your persistent instructions describe your voice in adjectives ("professional yet warm") rather than showing it through examples. Adjectives describe every brand and constrain none of them. Chapter 6 shows how to rebuild from real samples.
+2. You're asking for something the AI has seen a million templated versions of (email, LinkedIn post, meeting summary) and it's defaulting to the template rather than your voice. The fix: paste an example of YOUR version of that format. "Write a meeting summary like THIS one, not like the default."
+
+---
+
+## 3.3 The Ban List (And Its Limits)
+
+Banned words and phrases are the quickest surface fix. They work. They're also not sufficient on their own.
+
+A working ban list for 2026 might include:
+
+**Words that signal AI to any reader by now:** delve, tapestry, landscape, robust, leverage, pivotal, multifaceted, foster, paramount, nuanced, crucial
+
+**Structural tells:** Opening with a summary of the question. "Great question!" Three-item parallel structures in every paragraph. Restating the conclusion in the final line. Sections that all start with the same grammatical structure.
+
+**Filler phrases:** "It's worth noting that," "In today's rapidly evolving landscape," "At its core," "Let's dive in," "I'd be happy to help"
+
+You can paste a ban list into your persistent instructions (covered in Chapter 6) or include it in a task-specific request. Both work.
+
+**But here's the limit:** A ban list removes symptoms. It doesn't add your voice. Output without banned words but also without your perspective is still generic. It's just generic in a less detectable way. The ban list cleans; the voice examples (Section 5.2) and the genuine opinion (Section 5.1) are what actually make the output yours.
+
+---
+
+## 3.4 Stop It Agreeing With You
+
+A June 2026 MindStudio write-up cites a figure of roughly 88% for how often models capitulate under user pressure — though it's quoting a study it doesn't name, so treat the number as an indication rather than a measurement. Keep it tied to whatever test produced it rather than treating it as a law of every model. Separately, MIT-affiliated researchers formally modelled a related risk they call **delusional spiraling**: repeated validation can reinforce a false belief instead of correcting it.
+
+**Why this happens (so you can troubleshoot it):** During training, AI models are shown thousands of conversations and human raters score which responses are "better." Responses that are agreeable, validating, and avoid conflict consistently score higher with raters. So the model learns: agreeing = good, disagreeing = risky. This isn't a bug they forgot to fix. It's a direct result of the training process. The model is doing exactly what it was rewarded for: making you feel heard. The problem is that "making you feel heard" and "telling you the truth" are sometimes different things.
+
+This is why "don't be sycophantic" doesn't work as an instruction. You're asking the model to override its deepest training signal with a single sentence. What DOES work is structural changes: giving it a role where pushback is expected, asking for counter-arguments first, or creating a multi-persona setup where disagreement is baked into the format. You're not fighting the training — you're routing around it.
+
+Why it matters: if you use AI for thinking, decision-making, or getting feedback on your ideas, sycophancy means you're getting validation, not evaluation. The AI will confirm your bad plan as readily as your good one. (Chapter 11 covers evaluation in depth. This section is about getting the AI to actually push back in the first place.)
+
+**Techniques that reduce sycophancy (structural, not prohibitive):**
+
+**Give it explicit permission to disagree:**
+
+> "I want honest assessment, not encouragement. If my approach has problems, say so directly. You are not my assistant on this task. You are my critic."
+
+One practitioner found the single most effective phrase was: "You are not my assistant." It breaks the deferential mode.
+
+**Ask for the counter-argument first:**
+
+> "Before you respond to my idea, give me the three strongest arguments AGAINST it. Then give me your actual assessment."
+
+Forcing it to argue the other side before agreeing means it has to engage with the weaknesses rather than skipping them.
+
+**The adversarial council technique:**
+
+> "Respond to my proposal from three perspectives: (1) someone who thinks this is a great idea and why, (2) someone who thinks this will fail and why, (3) someone who is neutral and asking the questions I haven't considered."
+
+This produces genuinely different viewpoints rather than one sycophantic response.
+
+**What doesn't work:** Telling it "don't be sycophantic" or "be honest" or "don't just agree with me." These are vague prohibitions. The model processes them as tone suggestions, not as structural constraints. It'll say "I appreciate the pushback" and then agree with you anyway.
+
+---
+
+## 3.5 Format and Length
+
+Two things to know about format and length in 2026:
+
+**First: newer models often pace answers better.** OpenAI launched GPT-5.5 in April 2026 and updated GPT-5.5 Instant in May to make practical help better paced, with fewer unnecessarily long responses. That is useful, not magical. If length matters, specify it; do not assume the model will infer your deadline, page limit or tolerance for throat-clearing.
+
+**Second: when length matters to you, be specific with a number.** "Brief" means nothing. "Short" means nothing. The AI interprets both however it feels at the moment.
+
+What works:
+
+> "Under 150 words."
+> "Three bullet points maximum."
+> "One paragraph."
+> "Two sentences."
+
+What doesn't work:
+
+> "Keep it concise." (Means different things to different models on different days.)
+> "Be brief." (Same problem.)
+> "Not too long." (Completely unenforceable.)
+
+**For format:** State the structure explicitly if it matters.
+
+> "Bullet points, not prose."
+> "A table with columns: [X], [Y], [Z]."
+> "One paragraph per point. No headers."
+> "An email, not a memo. Casual, under 100 words."
+
+**Give permission to be short.** Models have a bias toward thoroughness. They will produce more rather than less unless you tell them otherwise. "Skip anything that doesn't directly answer my question" or "End when you've made the point, don't summarise" both help.
+
+**A note on verbosity:** Model behaviour varies by version, task and setup. Anthropic describes Claude Opus 5 as clearer and more concise than its predecessors, but your own results are what matter. If your tool tends to over-produce, add a tested length preference to your persistent instructions: “Default to short responses unless I ask for detail.”
+
+---
+
+## 3.6 Anti-Hedging
+
+AI hedges because it was trained to be cautious. "It depends," "There are many factors to consider," "This is a complex area with no single right answer" — all of these are technically true for any question and technically useless for any decision.
+
+Some hedging is appropriate. If you ask a medical or legal question, you probably want caveats. But for most work tasks, you want a recommendation. A position. A choice.
+
+**To get a straight answer:**
+
+> "Give me your best recommendation, not a list of options with caveats. If you're genuinely uncertain, say so specifically (what you're uncertain about and why). Otherwise, commit to an answer."
+
+**To kill the "on one hand, on the other hand" structure:**
+
+> "Pick a side. Tell me which option you'd choose if you were making this decision, and why. I can handle disagreement. I can't use a non-answer."
+
+**To stop the preamble-before-the-answer pattern:**
+
+> "Lead with the answer. Reasoning after, if needed. No preamble."
+
+---
+
+## Try This: The Slop Audit 🧪
+
+Take the last three things the AI produced for you. Read them aloud. Ask yourself:
+
+1. Could anyone have written this? Or does it sound specifically like me / my organisation / my situation?
+2. Count the filler phrases. How many sentences could be deleted with no information lost?
+3. Did the AI push back on anything, or did it validate every premise I gave it?
+4. Is the length right? Or did it produce 400 words where 80 would do?
+
+If you answered "anyone could have written it," "multiple filler sentences," "validated everything," and "too long" — try applying one technique from this chapter and run the same task again.
+
+### Add to Your Working With AI Kit
+
+Save only the output rule that improved the comparison. A rule that did not change the result does not earn permanent space in your instructions.
+
+---
+
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** The answer contains the right ideas in an unusable shape. What should you change?
+
+**Answer:** Specify the output structure, audience, length, constraints and acceptance test—not the underlying task.
+
+</div>
+</details>
+
+## What's Next →
+
+You now know how to set the rules for what comes back: voice, length, format, honesty. But even with good rules, you'll often need to refine. The first output won't be perfect. Chapter 4 teaches the skill of iterating without making things worse: how to give feedback the AI can actually use, when to keep going, and when to stop.
+
+
+================================================================================
+
+# Chapter 4: The Art of Iteration
+
+*The first output is rarely the final one. The skill is knowing how to refine without making things worse.*
+
+---
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- Give feedback the AI can act on (specific, proportional, preserving what works)
+- Recognise when iteration is improving things vs making them worse
+- Apply the three-attempt rule to stop before diminishing returns
+- Separate principle from example so the AI doesn't copy literally
+- Decide whether to revise, restart, or just edit it yourself
+
+---
+
+## Key Terms
+
+| Term | Plain-English Definition |
+| --- | --- |
+| **Correction spiral** | When each round of feedback makes the output slightly worse instead of better, but you keep going because it feels like you're almost there. You never get there. |
+| **Sideways move** | An iteration that's different but not clearly better. The AI changed things, but you can't say the new version is an improvement. A sign you've passed the point of useful refinement. |
+| **Degree of change** | How much you want adjusted: a tweak (5-10% different), a rework (50% different), or a complete redo. If you don't specify, the AI guesses, and it usually guesses wrong. |
+
+---
+
+## 4.1 Why Iteration Goes Wrong
+
+Most people iterate with AI the way they'd ask a friend to try again: "make it shorter," "different tone," "not quite." With a friend, shared context fills in the gaps. With AI, those vague requests get interpreted as literally as possible in whatever direction the model finds most statistically probable.
+
+"Make it shorter" could mean: cut 10%. Cut 50%. Remove the examples. Remove the context. Remove the nuance. Keep the structure but compress the language. The AI picks one. It probably picks wrong.
+
+Then you correct the correction. The AI adjusts again, but now it's working from a polluted starting point: the original draft PLUS the failed short version PLUS your latest instruction. Each round adds noise to the conversation (Chapter 5). After a few rounds, the AI is trying to satisfy multiple contradictory signals at once and producing mush.
+
+This is the correction spiral. It's the most common failure mode of iteration, and it's entirely preventable.
+
+---
+
+## 4.2 The Three-Attempt Rule
+
+Academic research on AI repair loops (2026) found a consistent pattern: "the first three to four repair iterations account for most achievable gains, while later iterations contribute only marginal improvements."
+
+Practitioners confirm this independently. Multiple sources report the same observation: fresh sessions outperform heavily corrected ones more often than most people expect.
+
+**The rule:** If you haven't gotten close to what you need in three attempts, the problem isn't your feedback. It's the starting conditions. More iteration in the same conversation won't fix it.
+
+**What to do instead:**
+
+1. Identify what's actually wrong. Is it the direction (the AI misunderstood the task)? Or the execution (right direction, wrong quality)?
+2. If it's direction: start a fresh conversation with a better brief (Chapter 2). Don't keep correcting a misunderstanding. Replace it.
+3. If it's execution: try specifying more precisely what "good" looks like (an example, a format reference, a quality bar).
+4. If neither works after three attempts: the task might not be a good fit for AI. Do it yourself, or use the AI's output as raw material you reshape rather than expecting a finished product.
+
+---
+
+## 4.3 How to Give Feedback That Works
+
+The difference between feedback the AI can use and feedback that starts a correction spiral comes down to three things: specificity, proportion, and preservation.
+
+### Be specific about what to change
+
+| Vague (starts a spiral) | Specific (gets acted on) |
+|---|---|
+| "Make it shorter" | "Cut this to 100 words. Remove the third paragraph entirely." |
+| "Different tone" | "More casual. Use contractions. Shorter sentences. Drop the 'in conclusion' at the end." |
+| "It's not quite right" | "The structure is good. The opening sentence is too formal for this audience. The bullet points in section 2 repeat each other." |
+| "Try again" | "Keep the first two paragraphs. Rewrite the third to focus on cost rather than timeline." |
+
+### Specify the degree of change
+
+The AI doesn't know if you want a tweak or an overhaul unless you say.
+
+> "Light edit only. Change the opening line and fix the tone in paragraph 3. Everything else stays."
+
+vs.
+
+> "Complete rethink. Same topic, same audience, but approach it from a different angle entirely. Don't reuse any of the current structure."
+
+If you don't specify, the AI defaults to a moderate rewrite. That's often not what you wanted in either direction: too much change when you just needed a tweak, or too little when you wanted a fresh take.
+
+### Tell it what to KEEP
+
+This is the most underused technique. Most feedback tells the AI what's wrong. Almost nobody tells it what's right.
+
+> "The second paragraph is exactly what I want. Keep that. The rest needs work."
+
+> "The structure is perfect. Don't reorganise. Just improve the language in each section."
+
+> "Your recommendation is right. The reasoning you gave to support it is too vague. Give me more specific evidence for the same conclusion."
+
+When you only say what's wrong, the AI treats everything as potentially wrong. When you explicitly protect what's working, it can focus its changes on the actual problem.
+
+---
+
+## 4.4 Separating Principle from Example
+
+A specific failure mode: you show the AI an example of what you want, and it copies the example literally instead of extracting the principle behind it.
+
+You paste a sample email and say "like this but for my situation." The AI produces your situation... using the exact sentence structures, transitions, and rhetorical moves from the sample. It cloned the surface instead of learning the pattern.
+
+**The fix: name the principle, then show the example as illustration.**
+
+> "I want the same level of directness as this example (no preamble, recommendation first, reasoning after) but don't copy the structure or phrasing: [paste example]"
+
+> "Match the WARMTH of this message, not the content or format. The principle is: it reads like it was written by a person who knows the recipient personally. [paste example]"
+
+> "This example has the right level of detail. Roughly the same length, same specificity, same ratio of context-to-conclusion. But your content should be completely different: [paste example]"
+
+When you name what you're extracting (directness, warmth, level of detail) the AI can apply the principle without xeroxing the execution.
+
+---
+
+## 4.5 When to Stop
+
+Three signals that more iteration won't help:
+
+**Sideways moves.** Each version is different from the last but not clearly better. You're comparing options that are all "fine" without one being obviously right. This is the point where YOUR judgment needs to pick one, not the AI's ability to generate yet another variant. Choose the best of what you have and edit it yourself.
+
+**Echoing your corrections.** The AI is repeating your feedback language back to you in the output ("As you mentioned, keeping it concise is important...") instead of actually implementing the change. This means it's lost the thread of the original task and is now writing about your instructions rather than following them.
+
+**Shrinking returns on effort.** Your first correction took the output from 40% to 80% of what you needed. Your second took it from 80% to 88%. Your third from 88% to 90%. The next one might take it from 90% to 91% — or it might take it backwards. At some point, the 20 seconds of editing it yourself beats the 3 minutes of crafting another correction and waiting for a response.
+
+**The decision framework (from a 2026 practitioner):** Every output falls into one of three categories:
+
+1. **Use.** It's good enough. Take it.
+2. **Revise.** It needs a light edit. Do the edit yourself rather than another round-trip with the AI.
+3. **Reject.** It's not working. Start fresh (new conversation, better brief) rather than correcting further.
+
+Most people default to "revise by asking the AI again" when they should either use what they have or start over. The middle path of endless iteration is usually the least efficient option.
+
+---
+
+## 4.6 The "Explain Harder" Trap
+
+When output is wrong, the instinct is to add more explanation. More context. More constraints. A longer, more detailed correction. This feels productive. It is usually counterproductive.
+
+Every sentence you add to a correction goes into the context (Chapter 5). If the first three sentences of your correction say "the tone is wrong," and the next seven sentences explain what you mean by wrong, those ten sentences are now sitting in the stack. The AI is reading all ten alongside everything else. The signal ("fix the tone") gets diluted by the explanation.
+
+The counterintuitive fix: say LESS, not more. A short, direct correction with one specific instruction is better than a paragraph explaining what went wrong.
+
+> ❌ "The tone feels off. I think the issue is that you're using very formal language when I need something more conversational. By conversational I mean the way colleagues talk to each other in Slack, not a formal memo. Think about how you'd say this if you were explaining it to a teammate over coffee. Less structured, more flowing, shorter sentences."
+
+> ✅ "Rewrite in a casual Slack tone. Short sentences. Contractions. No formality."
+
+The second version is seven words of instruction. The first is sixty. Both get you to the same place, but the second adds almost nothing to the context while the first adds a paragraph of noise the AI will carry for the rest of the conversation.
+
+---
+
+## 4.7 When to Just Do It Yourself
+
+AI is not always the fastest path. If you can see exactly what needs to change and the change is smaller than explaining the change would be, just make the edit yourself.
+
+Rules of thumb:
+- If the fix is shorter than the instructions to request the fix: edit it yourself.
+- If you've said "almost" three times: take what's close, edit the gaps, move on.
+- If the task requires YOUR judgment specifically (which angle to take, what to emphasise, what to cut): that judgment is faster applied as an edit than described as an instruction.
+
+AI produces raw material. You shape it. That's a collaboration, not a failure. The goal was never to avoid all editing. The goal was to avoid starting from a blank page.
+
+---
+
+## Try This: The Precision Correction 🧪
+
+Find a piece of AI output from a recent session that was close but not right.
+
+Instead of the vague correction you'd normally give, try this structure:
+
+1. Name one thing that's working (the AI should keep this)
+2. Name the specific thing that's wrong (not "it's off" — what specifically)
+3. State the degree of change (light touch? moderate rework? complete redo?)
+4. Give a concrete target for the fix (a number, an example, a specific quality)
+
+Compare the result to what you'd have gotten from "try again" or "make it better."
+
+### Add to Your Working With AI Kit
+
+Record your **restart rule**: after three precise attempts with shrinking gains—or sooner if the context is wrong—start fresh with the accepted requirements and source material.
+
+---
+
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** After several corrections the chat is confused. Continue patching or restart?
+
+**Answer:** Restart with a clean, consolidated brief when the conversation contains contradictory history or the desired result can no longer be stated cleanly.
+
+</div>
+</details>
+
+## What's Next →
+
+You now have the full set of every-time skills: how to give a task (Chapter 2), how to control what comes back (Chapter 3), and how to refine without breaking things (this chapter). Chapter 5 now goes inside the system: what the AI actually sees, why long conversations degrade and how to manage the context that shapes every answer.
+
+
+================================================================================
+
+
+---
+
+# Part III: Make It Stick
+
+## Why long conversations go wrong, and the one-time setup that fixes the rest
+
+---
+
+
+# Chapter 5: What the AI Actually Sees
 
 *Your message is one piece. Here's everything else in the room.*
 
@@ -279,7 +1011,8 @@ By the end of this chapter, you will be able to:
 | Term | Plain-English Definition |
 | --- | --- |
 | **Context** | Everything the AI can see when it responds: your message, the conversation history, attached files, and hidden instructions. All of it, not just your latest message. |
-| **Context window** | The maximum amount of material a model can receive for one response. Think of it as working space with a size limit. Limits vary by model, product, plan and mode; some leading systems advertise up to one million tokens or more. But "can receive" and "can use well" are not the same thing. |
+| **Token** | The unit AI systems actually count in. Text gets chopped into chunks that are usually a bit smaller than a word — roughly four characters, so about 750 words per 1,000 tokens. Every limit you'll hit and every bill you'll pay is measured in these, not in words. (Fundamentals Chapter 4 explains why the chopping happens.) |
+| **Context window** | The working space, with a hard size limit, holding everything the AI can see for one response. *Fundamentals* Chapter 4 covers what it is and why the limit exists; the part that matters here is the gap between the two halves of it — "can receive" and "can use well" are not the same thing, and the difference is where most of this chapter lives. |
 | **Context rot** | The measurable decline in AI output quality as a conversation gets longer. The model starts forgetting instructions, drifting, and contradicting itself. Not a bug. Not your fault. A documented property of how these systems work. |
 | **Context compaction** | What happens when the AI's working memory fills up: the tool silently compresses older messages into a shorter summary to make room. Details get lost without warning. You'll notice it as the AI "forgetting" things you told it earlier. |
 | **System prompt** | Instructions the platform gives the AI before you ever type anything. You didn't write them. You can't see them. They shape every response. |
@@ -287,7 +1020,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 2.1 Your Message Is Not What the AI Is Reading
+## 5.1 Your Message Is Not What the AI Is Reading
 
 When you type a question and press send, it feels like a direct exchange. You said something, it responded.
 
@@ -301,17 +1034,17 @@ This is why the same question, asked in two different situations, can produce co
 
 ---
 
-## 2.2 What's Actually in the Stack
+## 5.2 What's Actually in the Stack
 
 Think of it as five layers. Every time you press send, the AI reads all of them together:
 
 **Layer 1: The platform's instructions.** Before you ever type anything, the tool you're using has already given the AI a set of rules. "Be helpful." "Be concise." "Don't produce harmful content." "Format responses in markdown." These are called system prompts, and every platform has them. You didn't write them. You can't see them. But they're shaping every response.
 
-**Layer 2: Your persistent settings.** If you've set up anything like memory, preferences, or background instructions (we'll teach you how in Chapter 3), those are loaded in next. Things like "I work in marketing at a financial services firm" or "Keep responses under 200 words." These apply to every conversation, whether you remember they're there or not.
+**Layer 2: Your persistent settings.** If you've set up anything like memory, preferences, or background instructions (we'll teach you how in Chapter 6), those are loaded in next. Things like "I work in marketing at a financial services firm" or "Keep responses under 200 words." These apply to every conversation, whether you remember they're there or not.
 
 **Layer 3: The conversation so far.** Every message you've sent *in this chat* and every response the AI gave back. All of it. From message one to right now.
 
-But only *this* conversation. When you open a new chat, it's a blank slate. The AI does not carry anything from your previous conversations unless a specific memory feature is doing that (which is Chapter 3 territory). This is why starting a fresh conversation often produces better results: clean stack, no accumulated noise.
+But only *this* conversation. When you open a new chat, it's a blank slate. The AI does not carry anything from your previous conversations unless a specific memory feature is doing that (which is Chapter 6 territory). This is why starting a fresh conversation often produces better results: clean stack, no accumulated noise.
 
 **Layer 4: Anything you've attached.** Files, images, pasted text, links the AI has fetched. All of it enters the stack and stays there for the rest of the conversation.
 
@@ -321,7 +1054,8 @@ The AI reads all five layers together and generates a response based on the *who
 
 ---
 
-## 2.3 Why Long Conversations Go Wrong
+
+## 5.3 Why Long Conversations Go Wrong
 
 Every message adds to the stack. Twenty messages in, the stack contains your twenty messages plus twenty AI responses. Forty exchanges deep, eighty pieces of text all sitting there. And every time you send something new, the AI re-reads the *entire stack* before responding.
 
@@ -341,7 +1075,7 @@ This is context rot: the measurable, reproducible decline in quality as a conver
 
 ---
 
-## 2.4 The Four Ways Context Fails
+## 5.4 The Four Ways Context Fails
 
 Drew Breunig named four useful failure modes in his O'Reilly Radar article “Working with Contexts.” His forthcoming *Context Engineering Handbook* develops the subject further. Once you can name what may be happening, you can test a repair:
 
@@ -355,11 +1089,11 @@ Drew Breunig named four useful failure modes in his O'Reilly Radar article “Wo
 
 ---
 
-## 2.5 What You Can Do Right Now
+## 5.5 What You Can Do Right Now
 
 None of these require any setup from later chapters. They work in any AI chat, on any platform, right now.
 
-One principle runs through all of them: **less noise in the stack means better output for longer.** Every technique below either prevents unnecessary additions to the context or helps you recover when the conversation has degraded. (Chapter 4 covers how to give tasks well. This section is about keeping the *conversation itself* healthy.)
+One principle runs through all of them: **less noise in the stack means better output for longer.** Every technique below either prevents unnecessary additions to the context or helps you recover when the conversation has degraded. (Chapter 2 covers how to give tasks well. This section is about keeping the *conversation itself* healthy.)
 
 ### Habits That Prevent Context Rot
 
@@ -420,7 +1154,7 @@ This connects directly to context rot: every unnecessary word in your instructio
 
 ---
 
-## 2.6 The Handover: When It's Time for a Fresh Start
+## 5.6 The Handover: When It's Time for a Fresh Start
 
 Sometimes the best move is a new conversation. But never a cold one. Before you leave, ask the AI to package up the current state so you don't lose anything.
 
@@ -469,7 +1203,7 @@ This won't always catch everything. The AI can be confidently wrong about things
 
 ---
 
-## 2.7 Other Prompts for Common Situations
+## 5.7 Other Prompts for Common Situations
 
 **Mid-conversation reset (quality slipping but you don't want to leave):**
 
@@ -495,7 +1229,7 @@ This also works as a **diagnostic for compaction**. If the AI can't accurately r
 
 Find a conversation you've been working in for a while. One where you've been at it for ten or more messages, or where you've drifted across multiple topics.
 
-Try the structured handover prompt from Section 2.6. Read what it gives you.
+Try the structured handover prompt from Section 5.6. Read what it gives you.
 
 Then ask yourself:
 - Is it accurate? Does it match what actually happened?
@@ -513,21 +1247,28 @@ Save the handover under a name you will recognise. Add one line at the top: **St
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** A long chat contains the needed fact. Does that guarantee the model will use it?
+
+**Answer:** No. Presence in the context is capacity, not reliable attention. Restate critical facts and use a clean handover when needed.
+
+</div>
+</details>
+
 ## What's Next →
 
-Everything in this chapter is about managing context *within* individual conversations. But you've probably noticed the catch: if fresh conversations work better, you're starting from zero every time. Retyping your preferences. Re-explaining your situation. Giving the same background over and over. Chapter 3 fixes that. It teaches you how to tell the AI about yourself once, in a place it remembers, so every new conversation starts pre-loaded with who you are and how you want it to work.
-
+Everything in this chapter is about managing context *within* individual conversations. But you've probably noticed the catch: if fresh conversations work better, you're starting from zero every time. Retyping your preferences. Re-explaining your situation. Giving the same background over and over. Chapter 6 fixes that. It teaches you how to tell the AI about yourself once, in a place it remembers, so every new conversation starts pre-loaded with who you are and how you want it to work.
 
 
 ================================================================================
 
-# Part III: Set Your Baseline
-
-## One-time setup for preferences, memory and projects
 
 ---
 
-# Chapter 3: Your AI Doesn't Know You (Yet)
+# Chapter 6: Your AI Doesn't Know You (Yet)
 
 *Persistent instructions, memory, and how to stop starting from zero.*
 
@@ -556,9 +1297,9 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3.1 The Problem
+## 6.1 The Problem
 
-Every new conversation starts empty (Chapter 2). That's good for context quality. It's terrible for everything else.
+Every new conversation starts empty (Chapter 5). That's good for context quality. It's terrible for everything else.
 
 It means every time you open a new chat, the AI has no idea who you are. Not what you do, not where you live, not how you prefer to be spoken to, not what you've told it a hundred times before. So you either repeat yourself constantly, or you accept generic output calibrated for no one in particular.
 
@@ -568,7 +1309,7 @@ The fix: tell it once, in a way that persists.
 
 ---
 
-## 3.2 Two Things That Persist
+## 6.2 Two Things That Persist
 
 **Persistent instructions** are rules you write. You decide what goes in. You control when it changes. The AI reads them at the start of every conversation. Think of it like a standing brief you give a new colleague on their first day.
 
@@ -584,7 +1325,7 @@ Both are useful. Both have different maintenance needs.
 
 ---
 
-## 3.3 Building Your Profile: Show, Don't Describe
+## 6.3 Building Your Profile: Show, Don't Describe
 
 The best way to teach the AI who you are is to show it examples of your actual work. This is faster, more accurate, and produces better results than trying to describe yourself in the abstract.
 
@@ -679,7 +1420,7 @@ A five-minute interview produces a five-minute system. Give it 15-20 minutes and
 
 ---
 
-## 3.4 What Good Instructions Look Like
+## 6.4 What Good Instructions Look Like
 
 However you create them, effective instructions share certain qualities:
 
@@ -712,6 +1453,8 @@ NEVER:
 - Produce bullet points when I ask for prose (or vice versa)
 - Use em dashes or exclamation marks
 
+A caution on that last one, since you are reading a book with rather a lot of them: a ban list is for removing an AI *tell*, not for outlawing punctuation you happen to like. Ban what doesn't sound like you — not what does. The point of the list is your voice, not a house style.
+
 MY VOICE (from examples):
 - Short sentences mixed with longer explanatory ones
 - Informal openings, professional substance
@@ -721,7 +1464,7 @@ MY VOICE (from examples):
 
 ---
 
-## 3.5 Projects: Adding What's Different
+## 6.5 Projects: Adding What's Different
 
 Your account-level instructions are the base layer. They handle who you are and how you want the AI to behave everywhere.
 
@@ -747,9 +1490,9 @@ The base stays the same. Projects just adjust the differences.
 
 ---
 
-## 3.6 How Memory Maintains Itself
+## 6.6 How Memory Maintains Itself
 
-Some memory systems now update themselves, which makes review more important, not less. In OpenAI's internal evaluation chart, factual-recall task success rose from 41.5% for its 2024 system to 82.8% for the 2026 architecture. Those are vendor results, not an independently replicated guarantee for your account. Separately, a 2026 study of 2,050 memory entries from 80 ChatGPT users found that 96% were created without an explicit user request to remember. The study examined the earlier memory system, so do not treat it as a measurement of Dreaming itself. Treat it as a reason to inspect what your assistant has inferred.
+Some memory systems now update themselves, which makes review more important, not less. OpenAI reported factual-recall success of around 83% for the 2026 memory architecture, a large jump on its 2024 system. It did not publish a full benchmark table alongside that claim, and reported baselines vary between accounts of it — so treat this as a vendor result pointing in a direction, not a replicated guarantee for your account. Separately, a 2026 study of 2,050 memory entries from 80 ChatGPT users found that 96% were created without an explicit user request to remember. The study examined the earlier memory system, so do not treat it as a measurement of Dreaming itself. Treat it as a reason to inspect what your assistant has inferred.
 
 **ChatGPT's Dreaming-based memory architecture** launched in its more capable form on June 4, 2026. OpenAI says it can synthesise information from many chats, revise memories as circumstances change and expose a memory summary for review. The exact contents and update timing are product-managed, so use the review controls rather than assuming you know what was retained.
 
@@ -775,7 +1518,7 @@ But the heavy lifting of "what needs updating?" can be the AI's job.
 
 Pick the method that matches where you are:
 
-**If you have writing samples:** Gather a few examples of your real writing (emails, messages, anything that sounds like you). Paste them in with the prompt from Method 1 in Section 3.3. Review the draft it produces. Edit anything that's off. Save your master copy.
+**If you have writing samples:** Gather a few examples of your real writing (emails, messages, anything that sounds like you). Paste them in with the prompt from Method 1 in Section 6.3. Review the draft it produces. Edit anything that's off. Save your master copy.
 
 **If your tool already has file access:** Upload a few recent documents you've produced and use the prompt from Method 2. Let it observe before it asks.
 
@@ -791,700 +1534,33 @@ Save the tested profile as **My AI Baseline**, with the date and the tool/accoun
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** Where should a stable preference and a changing project fact live?
+
+**Answer:** Put the stable preference in persistent instructions or a reusable profile; put the changing fact in the current project brief or source material.
+
+</div>
+</details>
+
 ## What's Next →
 
-Your instructions tell the AI who you are and how to behave. But when you sit down with a specific task (whether that's a work deliverable, planning a trip, or figuring out a tricky situation), you need to give it the right information for THAT task: files, references, examples, constraints. Chapter 4 teaches you how to provide task-specific context without overwhelming it, and introduces the principle of "just enough."
-
+You now have a clean way to carry your baseline into a fresh conversation. Chapter 7 shifts from setup to selection: choosing the model, app or agent mode that fits the actual job instead of treating every AI surface as interchangeable.
 
 
 ================================================================================
 
-# Part IV: Run the Every-Time Loop
-
-## Brief the task, shape the output and revise without wrecking it
 
 ---
 
-# Chapter 4: Giving It What It Needs (Without Drowning It)
+# Part IV: Match the Tool to the Work
 
-*More information doesn't mean better answers. Here's how to give the AI exactly what it needs and nothing else.*
-
----
-
-## Learning Objectives
-
-By the end of this chapter, you will be able to:
-
-- Explain why uploading everything "just in case" makes output worse, not better
-- Use a 60-second preparation step that eliminates most bad first drafts
-- Decide when to upload a file, paste a section, show a screenshot, or describe in your own words
-- Provide examples that collapse a hundred possible interpretations into one clear target
-- Write a brief (not a prompt) that a smart but uninformed colleague could execute without asking questions
-- Calibrate your specificity: enough to guide, not so much that you constrain
+## Which model, which mode, and which tasks are worth it at all
 
 ---
 
-## Key Terms
-
-| Term | Plain-English Definition |
-| --- | --- |
-| **Context budget** | The AI's attention is finite. Everything you put in the conversation competes for that attention. Think of it as a budget: every token you spend on background is a token not available for your actual task. |
-| **Context stuffing** | The antipattern of dumping everything into the conversation "just in case." More context often makes output worse because the AI can't tell what matters and what's noise. |
-| **Few-shot examples** | Showing the AI 2-3 concrete examples of the input-output pattern you want, instead of (or in addition to) describing what you want in words. |
-| **Brief** | A structured description of what you need: the outcome, the audience, the constraints, and what "done" looks like. Not a magic phrase. A specification. |
-| **Multimodal input** | Giving the AI something other than text: images, screenshots, photos, audio, or video. Most major tools now handle all of these. |
-
----
-
-## 4.1 The Attention Budget
-
-You're planning a trip. You hand your phone to a friend and say "find me a hotel." They're scrolling through 47 open tabs: your banking app, three Reddit threads about sourdough, a half-written text to your ex, a news article from last week, and somewhere in there, a Google Maps search for Barcelona. They could find you a hotel. They might also get distracted by the sourdough.
-
-That's roughly what you're doing when you dump ten documents into an AI conversation and say "help me with this." The AI reads everything you gave it. All of it. And it can't tell which parts you think are important and which are just... still open.
-
-This chapter is about what to give the AI for a specific task, and (just as importantly) what to leave out.
-
-The instinct most people have is: give it everything. Upload all the documents. Paste the full email chain. Attach every reference. Let the AI sort it out. It has a million-token context window, after all.
-
-Here's what's true in August 2026: models have improved dramatically at handling large inputs, and some vendors report very high scores on narrow “needle in a haystack” retrieval tests. That does not prove equally reliable reasoning or semantic retrieval across a million tokens. A full 50-page document can be useful input when the tool supports it, but ask for page or section references and verify important details against the original.
-
-But there's a critical difference between giving it a lot of RELEVANT context and giving it a lot of IRRELEVANT context hoping it'll find the relevant bits. That second thing still makes output worse, even on the most capable 2026 models.
-
-Controlled long-context evaluations show that more input is not automatically more usable input: performance can decline as irrelevant material grows, even while the content still fits inside the advertised window. The model may not warn you that focus has degraded. It can simply produce a vaguer or less accurate answer, which is why selection matters more than impressive capacity numbers.
-
-The practical framing from one 2026 researcher: "Models genuinely have gotten better at self-correction, so a lot of the fussy manual work that once mattered now buys less. But context still shapes results powerfully, and an agent handed a bad context will confidently do the wrong thing no matter how capable it is."
-
-Andrej Karpathy (one of the researchers behind the early AI systems that led to today's tools) put it simply: the AI's context window is like working memory. Your job is to load exactly the right information for each task. Not all the information. Not the most information. The *right* information. That job has gotten easier as models have improved. But it hasn't gone away.
-
-This chapter teaches you how to decide what "right" means for different tasks.
-
----
-
-## 4.2 Think Before You Type
-
-A useful separator between improvised and repeatable AI work is what happens before you start typing. The 60-second preparation method below is a practical routine to test, not a measured universal optimum.
-
-Most people open a chat, describe what they want, and press send. When the output isn't right, they adjust and try again. The iteration loop becomes the substitute for thinking. Three rounds of "no, try again" later, the conversation is polluted with failed attempts (Chapter 2's context rot), and the fourth attempt is working against all the accumulated noise.
-
-The fix takes one minute. Before you type, answer five questions:
-
-**1. What's the actual deliverable?** Not "I need help with X" but "I need [a specific thing] for [a specific use]." The difference between "help me with this presentation" and "I need 5 slide titles with one-sentence descriptions for an internal quarterly review, audience is senior leadership, focus is what changed since last quarter" is the difference between generic output and usable output.
-
-**2. What does the AI need to know that it can't guess?** The audience. The constraints. Why this matters. What happened before. Any context that's specific to your situation rather than general knowledge. If a smart but uninformed colleague would need to ask you a question before starting, the AI needs that information too. The difference is: the colleague would ask. The AI will just guess.
-
-**3. What do I have that I could show it?** Files, examples, previous versions, reference material, screenshots. Anything the AI could look at directly rather than relying on your description of it.
-
-**4. What would distract it?** Old versions of documents. Tangentially related files. Context from a different project. Information that LOOKS relevant but isn't for THIS specific task. Everything you include that doesn't directly serve the task dilutes what does.
-
-**5. What does "good enough" look like?** Are you going to iterate on this? Is it a first draft you'll refine, or does it need to be right the first time? If it's a draft, say so. If there are specific things that would make you reject it (wrong tone, wrong length, wrong audience), say those up front.
-
-Sixty seconds. Five questions. The output from this preparation is worth more than any amount of prompt-tweaking after the fact.
-
----
-
-## 4.3 The Brief (Not the Prompt)
-
-The word "prompt" implies a single clever sentence that unlocks the AI's potential. The reality in 2026 is closer to writing a brief: a short, structured description that gives a smart but uninformed executor everything they need to produce what you want.
-
-An agent can sometimes pause or ask for clarification, but you should not depend on that happening at the right moment. If the brief leaves an important blank, the system may make a plausible choice and continue. Name the ambiguity before it becomes an autonomous decision.
-
-A good brief has at most six parts:
-
-**Outcome.** What you want to end up with, described as a result, not a process. "A one-page summary of this report for my CFO" not "read this and tell me what's important."
-
-**Audience.** Who will read/use this output. This changes everything: vocabulary, detail level, what gets emphasised, what gets left out.
-
-**Constraints.** What it must NOT do. Length limits. Things to avoid. Scope boundaries. "Under 300 words. No technical jargon. Don't mention the restructuring."
-
-**Format.** What the output looks like structurally. Bullet points or prose. Sections or one block. Table or narrative. If you don't specify, it'll choose for you (often wrong).
-
-**What good looks like.** If you have an example of the kind of output you want, show it (Section 4.5 covers this in depth). If you don't, describe the quality bar: "The tone of an internal email between peers, not a formal memo to a board."
-
-**What you've already tried (if relevant).** If this isn't your first attempt, tell it what didn't work and why. "I already tried asking for a summary and it was too high-level. I need more operational detail, specifically around timelines and owners."
-
-You don't always need all six. A simple task might only need outcome + constraints. A complex task might need all of them. The test: could a smart colleague you've never worked with execute this brief without asking you a single clarifying question? If yes, the AI can too. If not, what question would they ask? Answer it in the brief.
-
----
-
-## 4.4 Upload, Paste, or Describe?
-
-Before choosing a format, decide whether the AI is allowed to receive the information at all. Run this **Allowed-Information Check**:
-
-1. **Whose information is it?** Mine, my employer's, a client's, a colleague's or the public's?
-2. **What kind is it?** Public, internal, confidential, personal, regulated or contract-restricted?
-3. **Which rule applies?** Check the current employer/client policy, account type, data controls, retention and connector permissions. Do not infer privacy from price.
-4. **Can I reduce it?** Use a harmless stand-in, remove names, paste only the necessary passage or describe the structure instead.
-5. **Who could act on it?** If tools or connectors are enabled, check read versus write access before continuing.
-
-If you cannot answer the first three questions, stop. Do not upload the material merely to see whether the tool can help.
-
-Once the information is allowed, you have four ways to provide it: upload, paste, describe or show a screenshot. Each is better for different situations:
-
-### Upload the file when:
-
-- The AI needs to work with the ACTUAL content: analyse it, summarise it, extract from it, compare it to something else. In 2026, the models handle full documents well. You don't need to pre-summarise a 50-page report before uploading it. Just upload it.
-- Accuracy about specific details matters (numbers, names, dates, quotes)
-- The document's structure is part of what matters (tables, formatting, sections)
-- You'd say "here, read this" to a colleague
-
-Example: "I've uploaded our Q2 earnings report. Summarise the three biggest changes from Q1 for a non-financial audience. Under 200 words."
-
-### Paste relevant sections when:
-
-- Only part of a long document is relevant to this task
-- The full document would add noise (you need page 12 of a report but everything else is about a different topic)
-- You want the AI to focus on specific passages without getting distracted by the rest
-
-Example: "Here's the specific contract clause I need analysed: [paste clause]. What are the risks to the buyer? Is there anything ambiguous that could be interpreted against us?"
-
-### Describe in your own words when:
-
-- The AI needs to understand your SITUATION, not read a document
-- The relevant information is in your head, spread across conversations and experience
-- You're providing background context ("we're a 50-person fintech in Toronto, series B, selling to credit unions")
-- The information is simple enough that describing it is faster and cleaner than finding and uploading a file
-
-Example: "I'm preparing for a salary negotiation. I've been in this role for 2 years, got promoted 6 months ago but pay hasn't changed. My research says market rate is 15-20% above where I am. I want to ask for 18%. Help me draft talking points."
-
-### Show a screenshot when:
-
-- The visual layout IS the information (a UI, an error message, a design)
-- Describing it in words would take 5x longer and be less precise
-- You're asking "what am I looking at?" or "what's wrong here?"
-- Charts, dashboards, or visual data where spatial relationships matter
-
-Example: [screenshot of a form with an error] "I keep getting this error when I submit. What's wrong?"
-
-**The rule of thumb: use whatever puts the most signal in the least space.** If the AI needs to read a document, give it the document (the models handle this well now). If it only needs three sentences of context from that document, paste those three sentences instead of making it search through 10 pages. If a picture is worth a thousand words, send the picture.
-
-The question isn't "can the AI handle this much?" (in 2026, it usually can). The question is "is everything I'm giving it actually relevant to THIS task?" Relevant volume is fine. Irrelevant volume still hurts.
-
-### Position matters
-
-If you're uploading multiple files, do not rely on order alone. Name the priority source and what role each file plays: “Use the policy as authority; use the notes only as examples.” Position can affect attention in some long-context tests, but products assemble and retrieve files differently.
-
----
-
-## 4.5 The Power of Examples
-
-Sometimes the most efficient thing you can give the AI isn't instructions. It's one or two examples of what you want.
-
-"Summarise this professionally" can be interpreted a hundred different ways. The AI will pick one. It probably won't be yours. But if you show it two examples of summaries you've written and liked, it collapses those hundred interpretations into one clear target.
-
-This technique is called **few-shot prompting**: showing the model one or more examples of the result you mean. Start with one to three representative examples and test whether they improve your task. There is no universal magic count; the examples earn their place only if they reduce ambiguity.
-
-### When examples work better than instructions:
-
-- **Format consistency.** You want the output to look a specific way (your newsletter style, your meeting note format, your email structure). Show one.
-- **Style and voice.** You want it to sound like you or your brand. Show 2-3 pieces of your real writing (Chapter 3 covered this for persistent instructions; here it's task-specific).
-- **Classification or categorisation.** You need it to sort things into buckets? Show it a few already-sorted items.
-- **Any time "you'll know it when you see it" but you struggle to describe it.** If you can't explain what makes a good version good, show a good version.
-
-### How to provide examples:
-
-> "Here are two examples of the format I want:
->
-> EXAMPLE 1:
-> [paste a real example]
->
-> EXAMPLE 2:
-> [paste a different real example]
->
-> Now produce the same for [your actual task]. Match the format, length, and level of detail from my examples."
-
-### How many examples to give:
-
-Start with one to three representative examples and test whether they improve the task. One example can anchor the AI too strongly to a single template; a large pile can consume context without adding useful signal. Pair examples with clear instructions: the examples show the shape, while the instructions clarify what the examples do not make obvious.
-
-### When NOT to use examples:
-
-- When the task is complex reasoning or analysis (examples can constrain the AI's thinking instead of helping it)
-- When your examples are so long that they dominate the context and crowd out the actual task
-- When you only have one example and it might accidentally anchor the AI to an approach you don't want repeated for every case
-
----
-
-## 4.6 The "Just Enough" Principle
-
-The David Rose move (being pathologically specific about what you want) is powerful. But in 2026 it's one tool, not the whole toolbox.
-
-Specificity exists on a spectrum:
-
-**Too vague:** "Write me a summary." No audience. No length. No format. No focus. The AI produces generic output calibrated for nobody in particular.
-
-**Just right:** "Summarise this for senior leadership. Three bullet points. Focus on what changed and what we recommend. Skip background they already know." Clear outcome, clear audience, clear constraints. The AI has a target.
-
-**Too specific:** A 500-word instruction that prescribes every step, every section, every sentence structure, plus warnings about what not to do, formatting rules, and three paragraphs of context that doesn't affect the output. In 2026, this often produces WORSE output than "just right" because over-instructing constrains capable models rather than helping them.
-
-Where to land on this spectrum depends on the task:
-
-| Task type | Specificity needed | Why |
-|---|---|---|
-| Simple question | Low (just ask) | The AI knows how to answer a question |
-| Draft (first pass) | Medium (outcome + audience + constraints) | Give it direction, not a screenplay |
-| Format-sensitive output | Medium + example | Show the shape, constrain the length |
-| Complex analysis | Medium (goal + constraints + what good looks like) | Let it reason; don't prescribe the process |
-| Creative brainstorming | Low-medium (topic + quantity + how diverse) | Constraint kills creativity |
-| Repetitive/template task | High + example | Consistency requires tight specification |
-
-The test for whether you've given enough: would a smart colleague produce what you need from this brief alone? If they'd ask a question, you haven't given enough. If they'd skim past half your instructions because it's obviously irrelevant, you've given too much.
-
----
-
-## 4.7 When to Show Instead of Tell (Multimodal Input)
-
-Many major AI products can process images or screenshots; audio and video support varies by product, model, plan, mode and region. If your current tool supports the relevant format, typing may not be the clearest input.
-
-**Screenshots are faster and more accurate than descriptions when:**
-- You're looking at something visual (a UI, a layout, a design, a chart)
-- An error message or state is hard to put into words precisely
-- The spatial arrangement of information matters
-- You'd normally walk over to someone's desk and point at their screen
-
-**Text is better when:**
-- The information is structured data (numbers, names, facts)
-- You need the AI to process, compute, or transform the information
-- You want to quote it exactly (text tokens are processed more reliably than OCR'd text from images)
-- The content could be pasted directly
-
-**Voice/audio input is efficient when:**
-- You're explaining a situation and talking is faster than typing
-- You're on mobile
-- The nuance of HOW something was said matters (tone analysis)
-
-The practical rule: if showing it would be faster and more precise than describing it, show it. If describing or pasting is cleaner and more accurate, do that instead.
-
----
-
-## Try This: The 60-Second Brief 🧪
-
-Pick something you were about to ask the AI. Before you type, spend 60 seconds:
-
-1. Write down the actual deliverable (what physical thing do you want back?)
-2. Write down who it's for (the audience, even if it's just you)
-3. Write down one thing that would make you reject it (the key constraint)
-4. Check: do you have anything you could upload, paste, or screenshot instead of describing?
-5. Check: do you have an example of what "good" looks like for this task?
-
-Now write your message using what you came up with. Compare the result to what you'd have gotten if you'd just typed your first instinct.
-
-Compare the results against the same definition of done. Keep the routine only if it makes the work better or easier to review.
-
-### Add to Your Working With AI Kit
-
-Save the successful brief as **Brief 1 of 3**. Keep the outcome, audience, source material, constraints and acceptance conditions; remove the one-off details before reuse. Save the five-question **Allowed-Information Check** beside it and run that check before every future paste, upload or connected-tool task.
-
----
-
-## What's Next →
-
-You now know how to give the AI what it needs for a task without drowning it. But even with perfect context, the output might still sound wrong: too generic, too corporate, too agreeable, too hedging. That's not a context problem. That's an output behaviour problem. Chapter 5 teaches you how to control what comes back: matching your voice, eliminating filler, stopping the AI from agreeing with everything you say, and knowing when to stop iterating.
-
-
-
-================================================================================
-
-# Chapter 5: Controlling What Comes Back
-
-*The AI produced something. It's wrong in a way you can feel but can't name. This chapter names it.*
-
----
-
-## Learning Objectives
-
-By the end of this chapter, you will be able to:
-
-- Identify why AI output sounds generic and what's actually causing it
-- Set structural rules that eliminate filler, hedging, and sycophancy
-- Control format and length without over-constraining
-- Get honest pushback from a tool that's trained to agree with you
-- Distinguish between surface fixes (ban lists) and real fixes (voice, opinion, specificity)
-
----
-
-## Key Terms
-
-| Term | Plain-English Definition |
-| --- | --- |
-| **AI slop** | Output that's technically correct but sounds like it was written by nobody for nobody. Generic, predictable rhythm. No perspective. You can feel it instantly even if you can't articulate why. |
-| **Sycophancy** | The AI's tendency to agree with everything you say, validate your framing, and avoid disagreeing even when you're wrong. A documented, measured property of how these models are trained. |
-| **Hedging** | When the AI refuses to commit to an answer: "It depends," "There are many factors," "This is a complex issue." Sometimes appropriate. Usually a crutch. |
-| **Structural constraint** | A rule that gives the AI something concrete to DO (or not do) rather than a vague prohibition. "Use only information from this document" works. "Don't make things up" doesn't. |
-
----
-
-## 5.1 Why Everything Sounds the Same
-
-You asked it to write a birthday message for your friend. What came back could have been written for literally anyone's friend. Warm but empty. Enthusiastic in that way nobody actually is. "Here's to an amazing year ahead!" No. Your friend just got out of a terrible job and is finally sleeping through the night again. You wanted that in there somehow. What you got was a greeting card from the internet's average.
-
-Now multiply that across every task: the email that could be from any company, the LinkedIn post that could be from any person, the summary that could be of any meeting. Same rhythm. Same structure. Same nothing.
-
-This is the default output of AI, and there's a mechanical reason for it.
-
-Language models generate the most statistically probable next word given everything that came before. When you give it a task without strong constraints, it produces the internet average: the most common way that sentence would continue across the millions of examples it trained on. That's not a flaw in any specific model. That's what "generate the most likely response" means in practice.
-
-The result is a recognisable voice that belongs to no one. Smooth. Competent. Empty. You've read it a thousand times by now: the confident opening, the three-point structure, the paragraph that restates the question before answering it, the closing that summarises what was just said. No personality. No edge. No opinion.
-
-Andrea Sáez describes the recognizable sameness as a repeated rhythm, structure and landing across prompts (Aug 2026). The practical point is not that every AI draft is identical; it is that an unspecified brief tends to pull toward familiar high-probability patterns.
-
-The surface symptoms change. The words "delve" and "tapestry" and "landscape" have mostly been trained out of newer models. But new patterns replace them constantly. Forbes has published two separate "updated signs of AI writing" lists in 2026 alone, because the tells shift every few months. Maintaining a ban list is chasing symptoms. The actual fix is upstream.
-
-**The real fix is not a word list. It's a perspective.**
-
-"The strongest defence against sounding like AI is having a genuine opinion before you open a prompt. The list cleans up the surface but a perspective you actually hold does the rest." (TheAIMarketer, Mar 2026)
-
-When you know what you think and you tell the AI your position, it's no longer generating the average. It's generating in a direction. That direction is what makes output sound like it came from someone rather than from the statistical middle.
-
----
-
-## 5.2 Making It Sound Like You
-
-Chapter 3 taught you how to set up persistent voice instructions using your own writing examples. That handles the baseline across all conversations.
-
-For task-specific voice matching, the same principle applies in miniature: show, don't describe.
-
-**If you have an example of the tone you want:**
-
-> "Match the tone of this example: [paste a paragraph]. My piece should sound like this but cover [your actual topic]."
-
-**If you know what you DON'T want:**
-
-> "Write this in my voice (see my instructions). Specifically: no corporate language, no bullet points unless I ask, no summarising what I just told you back to me."
-
-**If the output comes back sounding generic despite your instructions:**
-
-The problem is almost always one of two things:
-1. Your persistent instructions describe your voice in adjectives ("professional yet warm") rather than showing it through examples. Adjectives describe every brand and constrain none of them. Go back to Chapter 3 and rebuild from real samples.
-2. You're asking for something the AI has seen a million templated versions of (email, LinkedIn post, meeting summary) and it's defaulting to the template rather than your voice. The fix: paste an example of YOUR version of that format. "Write a meeting summary like THIS one, not like the default."
-
----
-
-## 5.3 The Ban List (And Its Limits)
-
-Banned words and phrases are the quickest surface fix. They work. They're also not sufficient on their own.
-
-A working ban list for 2026 might include:
-
-**Words that signal AI to any reader by now:** delve, tapestry, landscape, robust, leverage, pivotal, multifaceted, foster, paramount, nuanced, crucial
-
-**Structural tells:** Opening with a summary of the question. "Great question!" Three-item parallel structures in every paragraph. Restating the conclusion in the final line. Sections that all start with the same grammatical structure.
-
-**Filler phrases:** "It's worth noting that," "In today's rapidly evolving landscape," "At its core," "Let's dive in," "I'd be happy to help"
-
-You can paste a ban list into your persistent instructions (Chapter 3) or include it in a task-specific request. Both work.
-
-**But here's the limit:** A ban list removes symptoms. It doesn't add your voice. Output without banned words but also without your perspective is still generic. It's just generic in a less detectable way. The ban list cleans; the voice examples (Section 5.2) and the genuine opinion (Section 5.1) are what actually make the output yours.
-
----
-
-## 5.4 Stop It Agreeing With You
-
-A June 2026 MindStudio analysis reported that the models it tested agreed with users roughly 88% of the time and abandoned a correct answer after pushback in 15% of cases. Keep those numbers tied to that test rather than treating them as a law of every model. Separately, MIT-affiliated researchers formally modelled a related risk they call **delusional spiraling**: repeated validation can reinforce a false belief instead of correcting it.
-
-**Why this happens (so you can troubleshoot it):** During training, AI models are shown thousands of conversations and human raters score which responses are "better." Responses that are agreeable, validating, and avoid conflict consistently score higher with raters. So the model learns: agreeing = good, disagreeing = risky. This isn't a bug they forgot to fix. It's a direct result of the training process. The model is doing exactly what it was rewarded for: making you feel heard. The problem is that "making you feel heard" and "telling you the truth" are sometimes different things.
-
-This is why "don't be sycophantic" doesn't work as an instruction. You're asking the model to override its deepest training signal with a single sentence. What DOES work is structural changes: giving it a role where pushback is expected, asking for counter-arguments first, or creating a multi-persona setup where disagreement is baked into the format. You're not fighting the training — you're routing around it.
-
-Why it matters: if you use AI for thinking, decision-making, or getting feedback on your ideas, sycophancy means you're getting validation, not evaluation. The AI will confirm your bad plan as readily as your good one. (Chapter 11 covers evaluation in depth. This section is about getting the AI to actually push back in the first place.)
-
-**Techniques that reduce sycophancy (structural, not prohibitive):**
-
-**Give it explicit permission to disagree:**
-
-> "I want honest assessment, not encouragement. If my approach has problems, say so directly. You are not my assistant on this task. You are my critic."
-
-One practitioner found the single most effective phrase was: "You are not my assistant." It breaks the deferential mode.
-
-**Ask for the counter-argument first:**
-
-> "Before you respond to my idea, give me the three strongest arguments AGAINST it. Then give me your actual assessment."
-
-Forcing it to argue the other side before agreeing means it has to engage with the weaknesses rather than skipping them.
-
-**The adversarial council technique:**
-
-> "Respond to my proposal from three perspectives: (1) someone who thinks this is a great idea and why, (2) someone who thinks this will fail and why, (3) someone who is neutral and asking the questions I haven't considered."
-
-This produces genuinely different viewpoints rather than one sycophantic response.
-
-**What doesn't work:** Telling it "don't be sycophantic" or "be honest" or "don't just agree with me." These are vague prohibitions. The model processes them as tone suggestions, not as structural constraints. It'll say "I appreciate the pushback" and then agree with you anyway.
-
----
-
-## 5.5 Format and Length
-
-Two things to know about format and length in 2026:
-
-**First: newer models often pace answers better.** OpenAI launched GPT-5.5 in April 2026 and updated GPT-5.5 Instant in May to make practical help better paced, with fewer unnecessarily long responses. That is useful, not magical. If length matters, specify it; do not assume the model will infer your deadline, page limit or tolerance for throat-clearing.
-
-**Second: when length matters to you, be specific with a number.** "Brief" means nothing. "Short" means nothing. The AI interprets both however it feels at the moment.
-
-What works:
-
-> "Under 150 words."
-> "Three bullet points maximum."
-> "One paragraph."
-> "Two sentences."
-
-What doesn't work:
-
-> "Keep it concise." (Means different things to different models on different days.)
-> "Be brief." (Same problem.)
-> "Not too long." (Completely unenforceable.)
-
-**For format:** State the structure explicitly if it matters.
-
-> "Bullet points, not prose."
-> "A table with columns: [X], [Y], [Z]."
-> "One paragraph per point. No headers."
-> "An email, not a memo. Casual, under 100 words."
-
-**Give permission to be short.** Models have a bias toward thoroughness. They will produce more rather than less unless you tell them otherwise. "Skip anything that doesn't directly answer my question" or "End when you've made the point, don't summarise" both help.
-
-**A note on verbosity:** Model behaviour varies by version, task and setup. Anthropic describes Claude Opus 5 as clearer and more concise than its predecessors, but your own results are what matter. If your tool tends to over-produce, add a tested length preference to your persistent instructions: “Default to short responses unless I ask for detail.”
-
----
-
-## 5.6 Anti-Hedging
-
-AI hedges because it was trained to be cautious. "It depends," "There are many factors to consider," "This is a complex area with no single right answer" — all of these are technically true for any question and technically useless for any decision.
-
-Some hedging is appropriate. If you ask a medical or legal question, you probably want caveats. But for most work tasks, you want a recommendation. A position. A choice.
-
-**To get a straight answer:**
-
-> "Give me your best recommendation, not a list of options with caveats. If you're genuinely uncertain, say so specifically (what you're uncertain about and why). Otherwise, commit to an answer."
-
-**To kill the "on one hand, on the other hand" structure:**
-
-> "Pick a side. Tell me which option you'd choose if you were making this decision, and why. I can handle disagreement. I can't use a non-answer."
-
-**To stop the preamble-before-the-answer pattern:**
-
-> "Lead with the answer. Reasoning after, if needed. No preamble."
-
----
-
-## Try This: The Slop Audit 🧪
-
-Take the last three things the AI produced for you. Read them aloud. Ask yourself:
-
-1. Could anyone have written this? Or does it sound specifically like me / my organisation / my situation?
-2. Count the filler phrases. How many sentences could be deleted with no information lost?
-3. Did the AI push back on anything, or did it validate every premise I gave it?
-4. Is the length right? Or did it produce 400 words where 80 would do?
-
-If you answered "anyone could have written it," "multiple filler sentences," "validated everything," and "too long" — try applying one technique from this chapter and run the same task again.
-
-### Add to Your Working With AI Kit
-
-Save only the output rule that improved the comparison. A rule that did not change the result does not earn permanent space in your instructions.
-
----
-
-## What's Next →
-
-You now know how to set the rules for what comes back: voice, length, format, honesty. But even with good rules, you'll often need to refine. The first output won't be perfect. Chapter 6 teaches the skill of iterating without making things worse: how to give feedback the AI can actually use, when to keep going, and when to stop.
-
-
-
-================================================================================
-
-# Chapter 6: The Art of Iteration
-
-*The first output is rarely the final one. The skill is knowing how to refine without making things worse.*
-
----
-
-## Learning Objectives
-
-By the end of this chapter, you will be able to:
-
-- Give feedback the AI can act on (specific, proportional, preserving what works)
-- Recognise when iteration is improving things vs making them worse
-- Apply the three-attempt rule to stop before diminishing returns
-- Separate principle from example so the AI doesn't copy literally
-- Decide whether to revise, restart, or just edit it yourself
-
----
-
-## Key Terms
-
-| Term | Plain-English Definition |
-| --- | --- |
-| **Correction spiral** | When each round of feedback makes the output slightly worse instead of better, but you keep going because it feels like you're almost there. You never get there. |
-| **Sideways move** | An iteration that's different but not clearly better. The AI changed things, but you can't say the new version is an improvement. A sign you've passed the point of useful refinement. |
-| **Degree of change** | How much you want adjusted: a tweak (5-10% different), a rework (50% different), or a complete redo. If you don't specify, the AI guesses, and it usually guesses wrong. |
-
----
-
-## 6.1 Why Iteration Goes Wrong
-
-Most people iterate with AI the way they'd ask a friend to try again: "make it shorter," "different tone," "not quite." With a friend, shared context fills in the gaps. With AI, those vague requests get interpreted as literally as possible in whatever direction the model finds most statistically probable.
-
-"Make it shorter" could mean: cut 10%. Cut 50%. Remove the examples. Remove the context. Remove the nuance. Keep the structure but compress the language. The AI picks one. It probably picks wrong.
-
-Then you correct the correction. The AI adjusts again, but now it's working from a polluted starting point: the original draft PLUS the failed short version PLUS your latest instruction. Each round adds noise to the conversation (Chapter 2). After a few rounds, the AI is trying to satisfy multiple contradictory signals at once and producing mush.
-
-This is the correction spiral. It's the most common failure mode of iteration, and it's entirely preventable.
-
----
-
-## 6.2 The Three-Attempt Rule
-
-Academic research on AI repair loops (2026) found a consistent pattern: "the first three to four repair iterations account for most achievable gains, while later iterations contribute only marginal improvements."
-
-Practitioners confirm this independently. Multiple sources report the same observation: fresh sessions outperform heavily corrected ones more often than most people expect.
-
-**The rule:** If you haven't gotten close to what you need in three attempts, the problem isn't your feedback. It's the starting conditions. More iteration in the same conversation won't fix it.
-
-**What to do instead:**
-
-1. Identify what's actually wrong. Is it the direction (the AI misunderstood the task)? Or the execution (right direction, wrong quality)?
-2. If it's direction: start a fresh conversation with a better brief (Chapter 4). Don't keep correcting a misunderstanding. Replace it.
-3. If it's execution: try specifying more precisely what "good" looks like (an example, a format reference, a quality bar).
-4. If neither works after three attempts: the task might not be a good fit for AI. Do it yourself, or use the AI's output as raw material you reshape rather than expecting a finished product.
-
----
-
-## 6.3 How to Give Feedback That Works
-
-The difference between feedback the AI can use and feedback that starts a correction spiral comes down to three things: specificity, proportion, and preservation.
-
-### Be specific about what to change
-
-| Vague (starts a spiral) | Specific (gets acted on) |
-|---|---|
-| "Make it shorter" | "Cut this to 100 words. Remove the third paragraph entirely." |
-| "Different tone" | "More casual. Use contractions. Shorter sentences. Drop the 'in conclusion' at the end." |
-| "It's not quite right" | "The structure is good. The opening sentence is too formal for this audience. The bullet points in section 2 repeat each other." |
-| "Try again" | "Keep the first two paragraphs. Rewrite the third to focus on cost rather than timeline." |
-
-### Specify the degree of change
-
-The AI doesn't know if you want a tweak or an overhaul unless you say.
-
-> "Light edit only. Change the opening line and fix the tone in paragraph 3. Everything else stays."
-
-vs.
-
-> "Complete rethink. Same topic, same audience, but approach it from a different angle entirely. Don't reuse any of the current structure."
-
-If you don't specify, the AI defaults to a moderate rewrite. That's often not what you wanted in either direction: too much change when you just needed a tweak, or too little when you wanted a fresh take.
-
-### Tell it what to KEEP
-
-This is the most underused technique. Most feedback tells the AI what's wrong. Almost nobody tells it what's right.
-
-> "The second paragraph is exactly what I want. Keep that. The rest needs work."
-
-> "The structure is perfect. Don't reorganise. Just improve the language in each section."
-
-> "Your recommendation is right. The reasoning you gave to support it is too vague. Give me more specific evidence for the same conclusion."
-
-When you only say what's wrong, the AI treats everything as potentially wrong. When you explicitly protect what's working, it can focus its changes on the actual problem.
-
----
-
-## 6.4 Separating Principle from Example
-
-A specific failure mode: you show the AI an example of what you want, and it copies the example literally instead of extracting the principle behind it.
-
-You paste a sample email and say "like this but for my situation." The AI produces your situation... using the exact sentence structures, transitions, and rhetorical moves from the sample. It cloned the surface instead of learning the pattern.
-
-**The fix: name the principle, then show the example as illustration.**
-
-> "I want the same level of directness as this example (no preamble, recommendation first, reasoning after) but don't copy the structure or phrasing: [paste example]"
-
-> "Match the WARMTH of this message, not the content or format. The principle is: it reads like it was written by a person who knows the recipient personally. [paste example]"
-
-> "This example has the right level of detail. Roughly the same length, same specificity, same ratio of context-to-conclusion. But your content should be completely different: [paste example]"
-
-When you name what you're extracting (directness, warmth, level of detail) the AI can apply the principle without xeroxing the execution.
-
----
-
-## 6.5 When to Stop
-
-Three signals that more iteration won't help:
-
-**Sideways moves.** Each version is different from the last but not clearly better. You're comparing options that are all "fine" without one being obviously right. This is the point where YOUR judgment needs to pick one, not the AI's ability to generate yet another variant. Choose the best of what you have and edit it yourself.
-
-**Echoing your corrections.** The AI is repeating your feedback language back to you in the output ("As you mentioned, keeping it concise is important...") instead of actually implementing the change. This means it's lost the thread of the original task and is now writing about your instructions rather than following them.
-
-**Shrinking returns on effort.** Your first correction took the output from 40% to 80% of what you needed. Your second took it from 80% to 88%. Your third from 88% to 90%. The next one might take it from 90% to 91% — or it might take it backwards. At some point, the 20 seconds of editing it yourself beats the 3 minutes of crafting another correction and waiting for a response.
-
-**The decision framework (from a 2026 practitioner):** Every output falls into one of three categories:
-
-1. **Use.** It's good enough. Take it.
-2. **Revise.** It needs a light edit. Do the edit yourself rather than another round-trip with the AI.
-3. **Reject.** It's not working. Start fresh (new conversation, better brief) rather than correcting further.
-
-Most people default to "revise by asking the AI again" when they should either use what they have or start over. The middle path of endless iteration is usually the least efficient option.
-
----
-
-## 6.6 The "Explain Harder" Trap
-
-When output is wrong, the instinct is to add more explanation. More context. More constraints. A longer, more detailed correction. This feels productive. It is usually counterproductive.
-
-Every sentence you add to a correction goes into the context (Chapter 2). If the first three sentences of your correction say "the tone is wrong," and the next seven sentences explain what you mean by wrong, those ten sentences are now sitting in the stack. The AI is reading all ten alongside everything else. The signal ("fix the tone") gets diluted by the explanation.
-
-The counterintuitive fix: say LESS, not more. A short, direct correction with one specific instruction is better than a paragraph explaining what went wrong.
-
-> ❌ "The tone feels off. I think the issue is that you're using very formal language when I need something more conversational. By conversational I mean the way colleagues talk to each other in Slack, not a formal memo. Think about how you'd say this if you were explaining it to a teammate over coffee. Less structured, more flowing, shorter sentences."
-
-> ✅ "Rewrite in a casual Slack tone. Short sentences. Contractions. No formality."
-
-The second version is seven words of instruction. The first is sixty. Both get you to the same place, but the second adds almost nothing to the context while the first adds a paragraph of noise the AI will carry for the rest of the conversation.
-
----
-
-## 6.7 When to Just Do It Yourself
-
-AI is not always the fastest path. If you can see exactly what needs to change and the change is smaller than explaining the change would be, just make the edit yourself.
-
-Rules of thumb:
-- If the fix is shorter than the instructions to request the fix: edit it yourself.
-- If you've said "almost" three times: take what's close, edit the gaps, move on.
-- If the task requires YOUR judgment specifically (which angle to take, what to emphasise, what to cut): that judgment is faster applied as an edit than described as an instruction.
-
-AI produces raw material. You shape it. That's a collaboration, not a failure. The goal was never to avoid all editing. The goal was to avoid starting from a blank page.
-
----
-
-## Try This: The Precision Correction 🧪
-
-Find a piece of AI output from a recent session that was close but not right.
-
-Instead of the vague correction you'd normally give, try this structure:
-
-1. Name one thing that's working (the AI should keep this)
-2. Name the specific thing that's wrong (not "it's off" — what specifically)
-3. State the degree of change (light touch? moderate rework? complete redo?)
-4. Give a concrete target for the fix (a number, an example, a specific quality)
-
-Compare the result to what you'd have gotten from "try again" or "make it better."
-
-### Add to Your Working With AI Kit
-
-Record your **restart rule**: after three precise attempts with shrinking gains—or sooner if the context is wrong—start fresh with the accepted requirements and source material.
-
----
-
-## What's Next →
-
-You now have the full set of every-time skills: how to give a task (Chapter 4), how to control what comes back (Chapter 5), and how to refine without breaking things (this chapter). The next section of the book changes gears: instead of how to work with AI, it's about WHICH AI to work with. Chapter 7 introduces the tool selection framework: models, apps, and harnesses, and how to match the right tool to the right job.
-
-
-
-================================================================================
-
-# Part V: Match the Tool to the Work
-
-## Choose the model, mode and task before polishing the prompt
-
----
 
 # Chapter 7: Which AI for Which Job
 
@@ -1510,7 +1586,7 @@ By the end of this chapter, you will be able to:
 | --- | --- |
 | **Model** | The AI engine under the hood. GPT, Claude, Gemini are families of models. New versions ship every few months. You rarely interact with the model directly; you use it through an app. |
 | **App** | The interface you actually use: ChatGPT, Claude.ai, Gemini, Copilot. Each app wraps a model with its own features, memory, file handling, and design choices. |
-| **Harness** | The mode that determines what the AI can DO. A chatbot that answers questions is one harness. An agent that opens your files, runs multi-step tasks, and produces deliverables is a completely different harness, even when the same model powers both. |
+| **Harness** | The software around the model that assembles what it sees and decides what it can reach — *Fundamentals* Chapter 10 opens it up. What you meet as a user is the *mode*: a chatbot that answers questions is one harness; an agent that opens your files, runs multi-step tasks and produces deliverables is a completely different one, even when the same model powers both. Picking the mode is picking the harness. |
 | **Effort level** | A setting (increasingly available in 2026) that controls how much reasoning the AI applies to your request. Low effort = fast, shallow, cheap. High effort = slow, thorough, expensive. You're trading speed for depth. |
 
 ---
@@ -1655,17 +1731,27 @@ Create a one-row **tool card**: task, tool/mode tested, plan/date, what it did b
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** Should you choose a model by leaderboard rank alone?
+
+**Answer:** No. Test the actual task for quality, speed, cost, data controls and required tools.
+
+</div>
+</details>
+
 ## What's Next →
 
 Now you know how to pick the right tool and mode. But even with the right tool in the right mode, you can still ask it to do something it's fundamentally bad at. Chapter 8 maps what AI is genuinely good at, what it's genuinely bad at, and how to tell the difference before you waste time finding out the hard way.
-
 
 
 ================================================================================
 
 # Chapter 8: What AI Is Great At (and What It Isn't)
 
-*AI can ace elite science exams and still fail to count the letters in "strawberry." The frontier is jagged. Learning where it breaks is the skill.*
+*AI can ace an elite science exam and then fall over on something a child finds easy — and you cannot predict which from the outside. The frontier is jagged. Learning where it breaks, for your work, is the skill.*
 
 ---
 
@@ -1711,6 +1797,7 @@ That research is from 2023. What's changed since?
 
 ---
 
+
 ## 8.2 What AI Is Genuinely Good At
 
 Tasks where current AI tools can often provide useful, reviewable work (August 2026):
@@ -1721,7 +1808,7 @@ Tasks where current AI tools can often provide useful, reviewable work (August 2
 - Summarising long documents or conversations
 - Translation between languages
 - Reformatting (turning prose into bullets, tables into narratives, etc.)
-- Brainstorming and option generation (Chapter 4's "ask for options" technique)
+- Brainstorming and option generation (Chapter 2's "ask for options" technique)
 
 **Analysis and pattern recognition:**
 - Analysing data and spotting patterns in structured information
@@ -1888,19 +1975,33 @@ Mark one recurring task **Do myself**, **Collaborate** or **Delegate**, and add 
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** A model handled a difficult analysis. Can you assume it will handle a simple counting task?
+
+**Answer:** No. Capability is jagged. Test the specific task and define how failure will be detected.
+
+</div>
+</details>
+
 ## What's Next →
 
 Chapters 7 and 8 taught you which tool for which job and what AI is genuinely good at. The next section goes a level deeper: what happens when AI can reach beyond the chat window and actually DO things in the world (search the web, read your files, connect to other apps) and what changes when you give it true autonomy to work without you directing each step.
 
 
-
 ================================================================================
 
-# Part VI: Add Tools and Autonomy
-
-## Let AI reach farther without quietly giving it the keys
 
 ---
+
+# Part V: Tools, Autonomy and Judgment
+
+## Let it reach further without quietly handing over the keys
+
+---
+
 
 # Chapter 9: When AI Can Reach Beyond the Chat
 
@@ -1987,7 +2088,7 @@ What it doesn't fix: Connecting an AI to your systems creates access. Make sure 
 
 You know how you have that one folder on your computer with the brand guidelines, the style guide, the pricing sheet, and the templates you use every week? You probably open it at least once a day. A project or knowledge base is that folder, but for your AI. You upload the documents once, and every conversation in that project can draw on them without you re-attaching anything.
 
-This is different from your persistent instructions (Chapter 3). Those tell the AI who you are and how you like to work. Projects tell it what your REFERENCE MATERIAL is: the documents, guidelines, and sources it should consult when the task calls for them.
+This is different from your persistent instructions (Chapter 6). Those tell the AI who you are and how you like to work. Projects tell it what your REFERENCE MATERIAL is: the documents, guidelines, and sources it should consult when the task calls for them.
 
 **When to use a project/knowledge base:**
 - You have reference documents you use repeatedly (style guides, policies, specs, templates)
@@ -1996,7 +2097,7 @@ This is different from your persistent instructions (Chapter 3). Those tell the 
 
 **What goes in vs what doesn't:**
 - PUT IN: Reference material the AI should consult when relevant. Documents it should "know about."
-- DON'T PUT IN: Everything you've ever written. Irrelevant background. Documents from a different project. Chapter 4's "just enough" principle applies here too: more reference material isn't automatically better. Relevant reference material is better.
+- DON'T PUT IN: Everything you've ever written. Irrelevant background. Documents from a different project. Chapter 2's "just enough" principle applies here too: more reference material isn't automatically better. Relevant reference material is better.
 
 ---
 
@@ -2050,10 +2151,20 @@ Save a **claim-and-source card**: claim, exact source, supporting passage, date,
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** An AI can access email and files. What changes besides convenience?
+
+**Answer:** Its authority and blast radius increase. Limit permissions, scope, tools and confirmation points before use.
+
+</div>
+</details>
+
 ## What's Next →
 
 When AI can reach beyond the chat — search, read files, run code, connect to apps — it becomes dramatically more capable. But it's still waiting for you to direct each step. Chapter 10 introduces what happens when you give it a goal and let it work autonomously: your first AI agent.
-
 
 
 ================================================================================
@@ -2107,19 +2218,9 @@ If you've been using Chat mode for everything, you already have agent capability
 
 ## 10.2 When to Use an Agent (vs Stay in Chat)
 
-Not every task needs an agent. Many are better served by a quick conversation.
+You already have this test — it is Chapter 8's three modes wearing different clothes. Collaborating means staying in the chat and steering; delegating means writing a brief and leaving. The only thing Chapter 8 didn't say is that delegation now has a button.
 
-**Stay in Chat when:**
-- You're thinking something through (brainstorming, exploring, processing)
-- The task is fast and simple (one question, one answer)
-- You want to steer in real-time (the direction may change based on what comes back)
-- You need a thinking partner, not an executor
-
-**Use an Agent when:**
-- The task has multiple steps the AI could handle without you directing each one
-- You could write a clear brief (Chapter 4) and walk away while it works
-- The output is a finished deliverable (a document, a spreadsheet, a report)
-- The same task recurs and you're tired of re-doing the same setup each time
+So: stay in chat when you are thinking something through, when it is one question and one answer, or when the direction might change based on what comes back. Reach for an agent when the task has several steps you would otherwise walk it through one at a time, when the output is a finished thing rather than a conversation, and when you have done it enough times to be tired of setting it up again.
 
 The test: "Could I write a brief for this and leave the room?" If yes, that's agent territory. If you'd need to stay and steer, that's chat territory.
 
@@ -2175,7 +2276,7 @@ Examples:
 
 **How to set it up:**
 
-1. **Write the brief** (Chapter 4 format): what's the deliverable, what sources does it need, what does good look like?
+1. **Write the brief** (Chapter 2 format): what's the deliverable, what sources does it need, what does good look like?
 2. **Run it manually first** in agent mode (Work/Cowork). Give it the brief, let it run, review the result.
 3. **Fix what's wrong.** Did it miss something? Include that in the brief. Did it over-produce? Add constraints.
 4. **Run it again** with the improved brief. Get it to a point where the output is consistently useful.
@@ -2206,7 +2307,7 @@ Pick one task you did this week that was:
 - Not deeply creative
 - Something you'll do again next week
 
-Write a brief for it using the Chapter 4 structure (outcome, audience, constraints, format, what good looks like). Open agent mode (Work or Cowork). Paste the brief. Let it run.
+Write a brief for it using the Chapter 2 structure (outcome, audience, constraints, format, what good looks like). Open agent mode (Work or Cowork). Paste the brief. Let it run.
 
 Review what comes back. Fix the brief based on what it got wrong. Run it one more time.
 
@@ -2214,25 +2315,36 @@ If the second output is useful: you have the seed of a recurring system. If it's
 
 ### Add to Your Working With AI Kit
 
-Write one authority line for the pilot: **You may… / You must ask before… / Stop when…** Do not schedule or connect more access until the manual run earns it.
+Write one authority line for the pilot: **You may… / You must ask before… / Stop when…**
+
+If you're staring at that blankly, here is the question that fills it in, and it needs no technical knowledge at all: **can this be undone?** Drafting an email, summarising a file, suggesting an edit, running a search — all reversible, all fine to let it do alone. Sending the email, making the payment, deleting the folder, posting it publicly — not reversible, so those go on the "ask me first" side. Not *how clever is the model*. *What happens if it's wrong, and can I take it back?* (*Fundamentals* Chapter 13 lays this out as a spectrum if you want the longer version.) Do not schedule or connect more access until the manual run earns it.
 
 ---
+
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** What is the safest first recurring agent task?
+
+**Answer:** A low-risk, read-only task with a narrow source set, a visible output, an easy stop condition and no authority to send, buy, delete or publish.
+
+</div>
+</details>
 
 ## What's Next →
 
 You now know how to give an agent a goal and let it work. But how do you know if what it produced is actually good? Agent output looks polished — it always does. The skill of evaluating whether that polished output is RIGHT, and not just fluent-sounding, is what Chapter 11 teaches.
 
 
-
 ================================================================================
 
-# Part VII: Keep the Judgment
-
-## Verify the result and delegate with a definition of done
 
 ---
 
 # Chapter 11: Is This Output Actually Good?
+
+*A note on the word before we start.* **Evaluation** in the industry sense — benchmarks, leaderboards, how labs measure whether one model beats another — is *Fundamentals* Chapter 12, and it is a different activity from this one. What you are about to do is **verification**: judging whether this particular output, in front of you, is fit to send. Same instinct, completely different scale, and the two get muddled constantly. This book uses *verification* throughout.
 
 *AI always sounds confident. Fluent is not the same as correct. This chapter teaches you how to tell the difference.*
 
@@ -2270,7 +2382,7 @@ Every response comes in the same confident, fluent, well-structured package. A c
 
 We call this the wizard problem: the AI speaks with the authority of an expert regardless of whether it actually knows what it's talking about. There is no "I'm less sure about this part" signal built into the output. There's no uncertainty marker. There's no change in tone between "I looked this up and verified it" and "I generated this from statistical patterns and it might be completely wrong."
 
-A loud failure is often easier to catch than a confident, wrong result that looks fine. The lesson travels beyond code review: fluent reassurance is not evidence.
+A loud failure is often easier to catch than a confident, wrong result that looks fine. That's the whole problem in one line: fluent reassurance is not evidence.
 
 This matters because of how humans process confidence. When something is stated clearly, fluently, and without hedging, we default to believing it. Not because we're gullible. Because our entire lives, fluent delivery has correlated with knowledge. People who know things explain them clearly. People who don't know things hesitate and hedge. AI breaks that correlation entirely. It is maximally fluent about things it is maximally wrong about.
 
@@ -2339,7 +2451,7 @@ How to catch: Notice when general statements are applied to your specific case. 
 
 **False balance.** The AI presents multiple viewpoints as equally valid when one is clearly stronger. This can happen when a model avoids committing despite unequal evidence. Sometimes there IS a better answer and the AI hedges rather than committing.
 
-How to catch: If you have domain expertise, notice when the AI is sitting on the fence about something that has a clear answer. Push it: "Which of these is actually more likely?" (Chapter 5's anti-hedging techniques apply here.)
+How to catch: If you have domain expertise, notice when the AI is sitting on the fence about something that has a clear answer. Push it: "Which of these is actually more likely?" (Chapter 3's anti-hedging techniques apply here.)
 
 **Stale information.** The AI states something as current fact that was true at training time but is no longer accurate. Policies change, prices change, people change roles.
 
@@ -2382,10 +2494,20 @@ Save the three checks and the result. Correct samples are encouraging evidence, 
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** When is a fluent answer not good enough?
+
+**Answer:** Whenever the consequence of error matters. Verify the claims, calculations, citations and fit against an explicit acceptance test.
+
+</div>
+</details>
+
 ## What's Next →
 
 Evaluation tells you whether output is good AFTER you receive it. But what if you could write the brief in a way that makes good output more likely in the first place? Chapter 12 teaches the delegation skill: writing briefs for autonomous work, defining "done" before the work begins, and treating AI management as the same discipline as people management.
-
 
 
 ================================================================================
@@ -2434,25 +2556,9 @@ An agent may ask or pause, but do not rely on real-time clarification. If an imp
 
 ## 12.2 The Delegation Brief (Complete Version)
 
-Chapter 4's brief had six parts. For autonomous delegation, add three more:
+Chapter 2's brief had six parts — outcome, audience, constraints, format, what good looks like, and sources. Everything there still applies; go back and reread it if it has gone fuzzy. Delegation adds three more, and these three are the whole difference between asking and delegating. They exist because you will not be in the room when the work happens.
 
-**1. Outcome.** What you want to end up with.
-> "A one-page weekly update for my team lead covering what I completed, what's in progress, and any blockers."
-
-**2. Audience.** Who will see this.
-> "My direct manager. She's technical, prefers concise updates, cares most about blockers."
-
-**3. Constraints.** What it must NOT do.
-> "Under 300 words. No filler. Don't include anything I didn't specifically accomplish this week."
-
-**4. Format.** What the deliverable looks like.
-> "Three sections: Done, In Progress, Blockers. Bullets under each. No prose introduction."
-
-**5. What good looks like.** An example or quality bar.
-> "Here's last week's update that my manager said was good: [paste example]"
-
-**6. Sources.** What the AI should work from.
-> "Use my project notes from this week [attached]. Don't add anything that's not in the notes."
+Running example throughout: *a one-page weekly update for your team lead, under 300 words, covering what's done, what's in progress, and any blockers.*
 
 **7. Success criteria.** How YOU will judge whether it's done well. (NEW for delegation)
 > "I'd accept this if: every bullet is factually accurate based on my notes, the word count is under 300, and my manager wouldn't need to ask a follow-up question to understand the status."
@@ -2553,19 +2659,33 @@ Save the upgraded brief as **Brief 2 of 3** and highlight its definition of done
 
 ---
 
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** What must be explicit before an AI may act for you?
+
+**Answer:** The goal, allowed information, available tools, spending or publishing authority, confirmation points, stop conditions and evidence it must return.
+
+</div>
+</details>
+
 ## What's Next →
 
-You now have the full toolkit: how to give tasks (Ch 4), how to control output (Ch 5), how to iterate (Ch 6), how to choose tools (Ch 7-8), how to use agents (Ch 10), how to evaluate (Ch 11), and how to delegate (this chapter). The final chapter brings it all together into a system that sticks — repeatable workflows, habits that last, and staying current without making AI a second job.
-
+You now have the full toolkit: how to give tasks (Ch 2), how to control output (Ch 3), how to iterate (Ch 4), how to choose tools (Ch 7–8), how to use agents (Ch 10), how to evaluate (Ch 11), and how to delegate (this chapter). The final chapter brings it all together into a system that sticks — repeatable workflows, habits that last, and staying current without making AI a second job.
 
 
 ================================================================================
 
-# Part VIII: Make It Repeatable
+
+---
+
+# Part VI: Make It Repeatable
 
 ## Turn isolated wins into a small system you can maintain
 
 ---
+
 
 # Chapter 13: Building Your System
 
@@ -2619,9 +2739,9 @@ The reusable move is to stop treating every useful result as a one-off prompt. S
 
 You don't need a complex setup. A working AI system has three components:
 
-### 1. Your persistent setup (Chapter 3)
+### 1. Your persistent setup (Chapter 6)
 
-- Persistent instructions that capture your voice and preferences (Cher's closet computer, but for your AI)
+- Persistent instructions that capture your voice and preferences (the closet computer in *Clueless* picked her outfit because it already knew her wardrobe, her rules and her taste — same idea, except you write the rules yourself, once)
 - A project or workspace for each recurring area of work
 - Memory that accumulates over time (check it periodically)
 
@@ -2655,7 +2775,7 @@ AI tools change every few months. New models, new features, new modes, new names
 
 **What actually works:**
 
-**Pick ONE primary tool and learn it deeply.** You'll get more from mastering one platform than superficially knowing five. Depth beats breadth for daily productivity.
+**Learn one tool properly before adding a second.** There is a real effect here and it is not a productivity slogan: the difference between someone who gets good results and someone who doesn't is almost never which platform they picked. It's that one of them knows where the settings are, what the modes do, and how their tool behaves when a conversation gets long — and the other has surface-level familiarity with five.
 
 **Follow ONE trusted source.** Not ten newsletters and five YouTube channels and a Discord. One source that curates what matters. This book's publisher, a researcher you trust, a newsletter that filters signal from noise. The right one source saves you from reading everything.
 
@@ -2665,7 +2785,7 @@ AI tools change every few months. New models, new features, new modes, new names
 
 **Revisit your persistent instructions quarterly.** Your setup is not a set-and-forget. Your work changes. Your preferences refine. Every few months, ask the AI to review its own instructions and flag what seems outdated. Ten minutes. Done for another quarter.
 
-**The frameworks in this book are structural.** Models will change. Mode names will change. The three layers (Ch 7), the jagged frontier (Ch 8), the brief structure (Ch 4/12), the evaluation framework (Ch 11) — these are thinking tools that survive any specific product update.
+**The frameworks in this book are structural.** Models will change. Mode names will change. The three layers (Ch 7), the jagged frontier (Ch 8), the brief structure (Ch 2/12), the evaluation framework (Ch 11) — these are thinking tools that survive any specific product update.
 
 ---
 
@@ -2675,19 +2795,19 @@ You've finished this book. You have all the tools. But AI will still produce bad
 
 **Bad output? Run through this:**
 
-**Is it a context problem? (Chapter 2)**
+**Is it a context problem? (Chapter 5)**
 The conversation has gone on too long. Earlier messages are polluting the stack. Old contradictions are creating mush. The AI "forgot" something you told it.
 → Fix: Start fresh. Handover. Restate constraints.
 
-**Is it a briefing problem? (Chapter 4)**
+**Is it a briefing problem? (Chapter 2)**
 You didn't give it enough information to work with. The brief was vague. It had to guess your audience, your format, or your constraints.
 → Fix: Apply the 60-second prep. Describe the outcome. Show an example.
 
-**Is it an output control problem? (Chapter 5)**
+**Is it an output control problem? (Chapter 3)**
 The content is right but it sounds generic, too long, too hedged, or too agreeable. It validated when it should have pushed back.
 → Fix: Add voice constraints. Specify length with a number. Use anti-sycophancy techniques.
 
-**Is it an iteration problem? (Chapter 6)**
+**Is it an iteration problem? (Chapter 4)**
 You've been going back and forth and it's getting worse, not better. You're in a correction spiral.
 → Fix: Three-attempt rule. Start over with a better brief rather than another round of corrections.
 
@@ -2739,7 +2859,7 @@ You've finished this book. You understand:
 
 **Your immediate next steps:**
 
-1. **If you haven't set up persistent instructions yet (Chapter 3):** Do that first. Everything else works better when the AI starts from your baseline instead of generic.
+1. **If you haven't set up persistent instructions yet (Chapter 6):** Do that first. Everything else works better when the AI starts from your baseline instead of generic.
 
 2. **If you have instructions but no recurring workflows:** Pick one low-risk task from your week and build a delegation brief for it (Chapter 12). Run it manually in an eligible agent mode. Refine it. Schedule only after the result, permissions and review burden have passed your test.
 
@@ -2775,4 +2895,33 @@ Fill this in. Implement the first workflow. Review in a week. That's your system
 
 ### Complete Your Working With AI Kit
 
-Your blueprint is **Brief 3 of 3**. Put it beside your baseline, diagnostic test, tool card, **Allowed-Information Check**, claim-and-source card, restart rule and authority line. If one piece is missing, that is your next action—not a reason to redesign the entire system.
+Your blueprint is **Brief 3 of 3**. Here is everything this book asked you to make, in the order you made it. If a line is blank, that blank is your next action — not a reason to redesign the whole thing.
+
+| From | The piece | Where it came from |
+| --- | --- | --- |
+| Ch 1 | Your fresh-start test result | *Try This: The Fresh Start Test* |
+| Ch 5 | Your "start a fresh session when…" line | *The Handover* |
+| Ch 6 | Your baseline profile | *Build Your Profile* |
+| Ch 6 | Three comparison outputs, before and after | *Build Your Profile* |
+| Ch 2 | Your **Allowed-Information Check** | *The 60-Second Brief* |
+| Ch 2 | Brief 1 of 3 | *The 60-Second Brief* |
+| Ch 3 | Your ban list and one output rule | *The Slop Audit* |
+| Ch 4 | Your restart rule | *The Precision Correction* |
+| Ch 7 | Your tool card | *The Tool Audit* |
+| Ch 8 | Your task-mode label | *One Week, Three Modes* |
+| Ch 10 | Your authority line + Brief 2 of 3 | *Your First Delegation* |
+| Ch 11 | Your three checks and claim-and-source card | *The Verification Spot-Check* |
+| Ch 13 | Your diagnostic test + Brief 3 of 3 | *Your System Blueprint* |
+
+Thirteen pieces. Most people finish with eight or nine, and that is a working system — but you should know which ones you skipped rather than discover it later.
+<details class="answer-reveal">
+<summary>Check your understanding</summary>
+<div class="answer-body">
+
+**Question:** What makes a successful AI workflow reusable rather than merely repeatable by memory?
+
+**Answer:** A saved brief, permitted source set, acceptance checks, decision rule, named owner and trigger for review when inputs or tools change.
+
+</div>
+</details>
+
