@@ -21,6 +21,10 @@ const closetBridge = fs.readFileSync(
   path.join(root, "content", "site", "closet-account-bridge-v1.js"),
   "utf8"
 );
+const puffyRuntime = fs.readFileSync(
+  path.join(root, "content", "site", "puffy-bookmarks.js"),
+  "utf8"
+);
 const contract = fs.readFileSync(
   path.join(root, "content", "site", "resident-card-contract-v1.js"),
   "utf8"
@@ -97,6 +101,8 @@ check(page.includes("resident-account-runtime-v1.js?v=20260829-provider-health-1
   "Resident Card and Closet bind the provider-health runtime cache identity");
 check(house.includes("It is not a Hyvor sign-in or cross-device community identity."), "Sorority House denies local-card identity escalation");
 check(house.includes("Every room is still open to explore."), "local card cannot unlock community rooms");
+check(puffyRuntime.includes("route.replace(/\\.html$/, '')"),
+  "Puffy saves admit Cloudflare extensionless forms of exact public routes");
 for (const relative of puffyConsumers) {
   const consumer = fs.readFileSync(path.join(root, relative), "utf8");
   const contractIndex = consumer.indexOf("resident-card-contract-v1.js");

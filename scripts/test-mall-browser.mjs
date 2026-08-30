@@ -28,7 +28,8 @@ const mime = new Map([
 const server = http.createServer((request, response) => {
   const url = new URL(request.url, "http://127.0.0.1");
   const relative = url.pathname === "/" ? "index.html" : url.pathname.replace(/^\/+/, "");
-  const resolved = path.resolve(root, relative);
+  let resolved = path.resolve(root, relative);
+  if (!path.extname(resolved) && fs.existsSync(`${resolved}.html`)) resolved += ".html";
   if (!resolved.startsWith(`${root}${path.sep}`) || !fs.existsSync(resolved) ||
       fs.statSync(resolved).isDirectory()) {
     response.writeHead(404).end("Not found");
@@ -132,7 +133,7 @@ try {
     console.log(`MALL BROWSER STEP route ${destination.id}`);
   }
 
-  await page.goto(`${origin}/shop.html`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/shop`, { waitUntil: "domcontentloaded" });
   console.log(`MALL BROWSER STEP gift-shop-arrival ${page.url()} ${await page.title()}`);
   await page.locator(".shop-product").waitFor({ state: "attached" });
   await page.waitForTimeout(600);
@@ -181,7 +182,7 @@ try {
     "device-local interest reset did not update the count");
   console.log("MALL BROWSER STEP gift-shop");
 
-  await page.goto(`${origin}/handbook.html`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/handbook`, { waitUntil: "domcontentloaded" });
   await page.locator("#buildings + .puffy-save-row .puffy-btn").click();
   check(await page.locator(".puffy-picker .puffy-option").count() === 10,
     "Handbook valid Resident Card does not open the ten-sticker Puffy picker");

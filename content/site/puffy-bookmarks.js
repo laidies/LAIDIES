@@ -105,7 +105,9 @@
     '/mall/maiybe.html',
     '/mall/mall-kiosk.html',
     '/mall/rollin-with-my-homies.html'
-  ]);
+  ].flatMap(function (route) {
+    return [route, route.replace(/\.html$/, '')];
+  }));
 
   function reportStorageFailure() {
     storageFailed = true;

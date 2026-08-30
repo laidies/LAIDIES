@@ -36,6 +36,9 @@
 > visitor has no Card. The Gift Shop, Handbook, LIBRAiRY and Closet are covered
 > by the Resident contract guard. A Card enables only the device-local Puffy
 > picker and does not imply account, backup, sync, stock, reservation or reward.
+> The exact allowlist admits both source-file (`/shop.html`) and Cloudflare
+> pretty-route (`/shop`) forms; accepting one form does not authorize arbitrary
+> same-origin routes.
 
 > **SUPERSEDED ACCOUNT BOUNDARY — 2026-08-23.** This update previously superseded the
 > preserved-behaviour statements below where they imply a publicly verified
