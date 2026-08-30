@@ -25,10 +25,38 @@
         "status": { "enum": ["CANDIDATE", "HOLD", "APPROVED", "PUBLISHED", "CORRECTED", "RETRACTED", "EXPIRED"] },
         "headline": { "type": "string", "minLength": 1 },
         "summary": { "type": "string", "minLength": 1 },
+        "body": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "question": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["text", "signature"],
+          "properties": {
+            "text": { "type": "string", "minLength": 1 },
+            "signature": { "type": "string", "minLength": 1 }
+          }
+        },
+        "sourceLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "url"],
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" }
+            }
+          }
+        },
         "sourcePath": { "type": "string", "minLength": 1 },
         "sourceId": { "type": "string", "minLength": 1 },
+        "sourceSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "reviewedContentSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "eventDate": { "type": "string", "format": "date" },
+        "availableUntil": { "type": "string", "format": "date" },
+        "bankItemId": { "type": "string", "minLength": 1 },
         "predecessorRecordId": { "type": ["string", "null"] },
         "destination": { "type": ["string", "null"] },
+        "destinationLabel": { "type": "string", "minLength": 1 },
         "owner": { "type": "string", "minLength": 1 },
         "freshness": {
           "type": "object",

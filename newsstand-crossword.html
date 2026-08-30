@@ -71,11 +71,11 @@
       <article class="cw-paper">
         <header class="cw-head">
           <div>
-            <p class="cw-kicker">NewsStand puzzle desk · prototype successor</p>
+            <p class="cw-kicker">NewsStand puzzle desk · Puzzle 01</p>
             <h1>The SUNNYVAiLE Crossword</h1>
             <p class="cw-intro">Ten connected words from the town and the way AI work is changing. A clue teaches recognition; the deeper explanation still belongs in AI Fundamentals and the rest of LAiDIES.</p>
           </div>
-          <p class="cw-date">Saturday<br>August 23, 2026</p>
+          <p class="cw-date">Puzzle 01</p>
         </header>
         <div class="cw-workspace">
           <div class="cw-grid-wrap" aria-label="Crossword grid. Use arrow keys to move between cells and Space to switch direction at an intersection.">
@@ -95,7 +95,7 @@
         </div>
         <footer class="cw-note">
           <p><strong>Currentness note:</strong> The grid teaches concepts, not universal product settings. Features such as memory, projects and tools vary by product, plan and date.</p>
-          <p>Progress is saved only in this browser. Revealing the puzzle is always optional.</p>
+          <p id="cw-storage-status" role="status">Checking whether this browser can save your progress.</p>
         </footer>
       </article>
     </main>
@@ -115,20 +115,25 @@
           {id:"graph",answer:"GRAPH",row:7,col:13,dir:"down",number:8,clue:"A map of connected things and relationships; useful when the connections matter as much as the items."},
           {id:"loops",answer:"LOOPS",row:10,col:10,dir:"across",number:9,clue:"Repeated observe, act and check cycles—the part that makes a workflow improve or catch its own miss."}
         ];
-        var cells={},active=words[0],grid=document.getElementById("cw-grid");
+        var cells={},active=words[0],grid=document.getElementById("cw-grid"),storageAvailable=false;
+        var storageStatus=document.getElementById("cw-storage-status");
+        function updateStorageStatus(){storageStatus.textContent=storageAvailable?"Progress saves in this browser on this device. Revealing the puzzle is always optional.":"This browser cannot save crossword progress. You can still solve, check, reveal and clear this puzzle during this visit.";}
+        try{var probe=KEY+"__storage_probe";localStorage.setItem(probe,"1");localStorage.removeItem(probe);storageAvailable=true;}catch(_){storageAvailable=false;}updateStorageStatus();
         words.forEach(function(word){for(var i=0;i<word.answer.length;i+=1){var r=word.row+(word.dir==="down"?i:0),c=word.col+(word.dir==="across"?i:0),k=r+"-"+c;if(!cells[k])cells[k]={row:r,col:c,letter:word.answer[i],words:[]};cells[k].words.push(word);}});
         var starts={};words.forEach(function(w){starts[w.row+"-"+w.col]=w.number;});
-        for(var r=0;r<SIZE;r+=1){for(var c=0;c<SIZE;c+=1){var key=r+"-"+c,cell=cells[key],box=document.createElement("div");box.className="cw-cell"+(cell?"":" is-block");box.setAttribute("role","gridcell");if(cell){cell.box=box;if(starts[key]){var n=document.createElement("span");n.className="cw-number";n.textContent=starts[key];box.appendChild(n);}var input=document.createElement("input");input.maxLength=1;input.autocomplete="off";input.spellcheck=false;input.inputMode="text";input.dataset.key=key;input.setAttribute("aria-label",cell.words.map(function(w){return w.number+" "+w.dir;}).join(" and ")+", row "+(r+1)+", column "+(c+1));box.appendChild(input);cell.input=input;input.addEventListener("focus",function(){var here=cells[this.dataset.key];if(here.words.indexOf(active)===-1)active=here.words[0];paint();});input.addEventListener("input",function(){this.value=this.value.replace(/[^a-z]/gi,"").toUpperCase();save();if(this.value)move(1);});input.addEventListener("keydown",keyMove);}grid.appendChild(box);}}
+        for(var r=0;r<SIZE;r+=1){for(var c=0;c<SIZE;c+=1){var key=r+"-"+c,cell=cells[key],box=document.createElement("div");box.className="cw-cell"+(cell?"":" is-block");box.setAttribute("role","gridcell");if(cell){cell.box=box;cell.label=cell.words.map(function(w){return w.number+" "+w.dir;}).join(" and ")+", row "+(r+1)+", column "+(c+1);if(starts[key]){var n=document.createElement("span");n.className="cw-number";n.textContent=starts[key];box.appendChild(n);}var input=document.createElement("input");input.maxLength=1;input.autocomplete="off";input.spellcheck=false;input.inputMode="text";input.dataset.key=key;input.setAttribute("aria-label",cell.label);box.appendChild(input);cell.input=input;input.addEventListener("focus",function(){var here=cells[this.dataset.key];if(here.words.indexOf(active)===-1)active=here.words[0];paint();});input.addEventListener("input",function(){this.value=this.value.replace(/[^a-z]/gi,"").toUpperCase();clearCellFeedback(cells[this.dataset.key]);save();if(this.value)move(1);});input.addEventListener("keydown",keyMove);}grid.appendChild(box);}}
         function list(direction,id){var host=document.getElementById(id);words.filter(function(w){return w.dir===direction;}).forEach(function(w){var b=document.createElement("button");b.type="button";b.className="cw-clue";b.dataset.word=w.id;b.innerHTML="<strong>"+w.number+".</strong> "+w.clue+" ("+w.answer.length+")";b.addEventListener("click",function(){active=w;cells[w.row+"-"+w.col].input.focus();paint();});host.appendChild(b);});}list("across","cw-across");list("down","cw-down");
         function activeCells(){var result=[];for(var i=0;i<active.answer.length;i+=1)result.push(cells[(active.row+(active.dir==="down"?i:0))+"-"+(active.col+(active.dir==="across"?i:0))]);return result;}
         function paint(){Object.keys(cells).forEach(function(k){cells[k].box.classList.remove("is-word","is-active");});activeCells().forEach(function(c){c.box.classList.add("is-word");});var focused=document.activeElement&&cells[document.activeElement.dataset&&document.activeElement.dataset.key];if(focused)focused.box.classList.add("is-active");document.querySelectorAll(".cw-clue").forEach(function(b){b.classList.toggle("is-active",b.dataset.word===active.id);});}
         function move(delta){var sequence=activeCells(),current=cells[document.activeElement.dataset.key],i=sequence.indexOf(current),next=sequence[i+delta];if(next)next.input.focus();}
         function keyMove(event){var cell=cells[this.dataset.key];if(event.key===" "&&cell.words.length>1){event.preventDefault();active=cell.words[(cell.words.indexOf(active)+1)%cell.words.length];paint();return;}if(event.key==="Backspace"&&!this.value){event.preventDefault();move(-1);return;}var map={ArrowRight:[0,1],ArrowLeft:[0,-1],ArrowDown:[1,0],ArrowUp:[-1,0]},step=map[event.key];if(step){event.preventDefault();var target=cells[(cell.row+step[0])+"-"+(cell.col+step[1])];if(target)target.input.focus();}}
-        function save(){try{var value={};Object.keys(cells).forEach(function(k){if(cells[k].input.value)value[k]=cells[k].input.value;});localStorage.setItem(KEY,JSON.stringify(value));}catch(_){}}
-        function restore(){try{var value=JSON.parse(localStorage.getItem(KEY)||"{}");Object.keys(value).forEach(function(k){if(cells[k])cells[k].input.value=String(value[k]).slice(0,1).toUpperCase();});}catch(_){}}
-        document.getElementById("cw-check").addEventListener("click",function(){var filled=0,correct=0,total=Object.keys(cells).length;Object.keys(cells).forEach(function(k){var c=cells[k],v=c.input.value;c.box.classList.remove("is-correct","is-incorrect");if(v){filled+=1;if(v===c.letter){correct+=1;c.box.classList.add("is-correct");}else c.box.classList.add("is-incorrect");}});document.getElementById("cw-status").textContent=filled===0?"Add a few letters first.":correct===total?"Complete. Ten connected ideas, one very tidy grid.":correct+" of "+total+" filled cells are correct.";});
-        document.getElementById("cw-reveal").addEventListener("click",function(){Object.keys(cells).forEach(function(k){cells[k].input.value=cells[k].letter;cells[k].box.classList.add("is-correct");cells[k].box.classList.remove("is-incorrect");});save();document.getElementById("cw-status").textContent="Puzzle revealed. The useful part is recognizing how the words connect.";});
-        document.getElementById("cw-clear").addEventListener("click",function(){Object.keys(cells).forEach(function(k){cells[k].input.value="";cells[k].box.classList.remove("is-correct","is-incorrect");});try{localStorage.removeItem(KEY);}catch(_){}document.getElementById("cw-status").textContent="Puzzle cleared.";cells[active.row+"-"+active.col].input.focus();});
+        function save(){if(!storageAvailable)return;try{var value={};Object.keys(cells).forEach(function(k){if(cells[k].input.value)value[k]=cells[k].input.value;});localStorage.setItem(KEY,JSON.stringify(value));}catch(_){storageAvailable=false;updateStorageStatus();}}
+        function restore(){if(!storageAvailable)return;try{var value=JSON.parse(localStorage.getItem(KEY)||"{}");Object.keys(value).forEach(function(k){if(cells[k])cells[k].input.value=String(value[k]).slice(0,1).toUpperCase();});}catch(_){storageAvailable=false;updateStorageStatus();}}
+        function clearCellFeedback(cell){cell.box.classList.remove("is-correct","is-incorrect");cell.input.removeAttribute("aria-invalid");cell.input.setAttribute("aria-label",cell.label);}
+        function setCellFeedback(cell,state){clearCellFeedback(cell);if(state==="correct"){cell.box.classList.add("is-correct");cell.input.setAttribute("aria-label",cell.label+", correct");}else if(state==="incorrect"){cell.box.classList.add("is-incorrect");cell.input.setAttribute("aria-invalid","true");cell.input.setAttribute("aria-label",cell.label+", incorrect");}}
+        document.getElementById("cw-check").addEventListener("click",function(){var filled=0,correct=0,total=Object.keys(cells).length;Object.keys(cells).forEach(function(k){var c=cells[k],v=c.input.value;clearCellFeedback(c);if(v){filled+=1;if(v===c.letter){correct+=1;setCellFeedback(c,"correct");}else setCellFeedback(c,"incorrect");}});document.getElementById("cw-status").textContent=filled===0?"Add a few letters first.":correct===total?"Complete. Ten connected ideas, one very tidy grid.":correct+" of "+total+" filled cells are correct. Incorrect cells are marked for screen-reader users as well as visually.";});
+        document.getElementById("cw-reveal").addEventListener("click",function(){Object.keys(cells).forEach(function(k){var c=cells[k];c.input.value=c.letter;setCellFeedback(c,"correct");});save();document.getElementById("cw-status").textContent="Puzzle revealed. The useful part is recognizing how the words connect.";});
+        document.getElementById("cw-clear").addEventListener("click",function(){Object.keys(cells).forEach(function(k){var c=cells[k];c.input.value="";clearCellFeedback(c);});if(storageAvailable){try{localStorage.removeItem(KEY);}catch(_){storageAvailable=false;updateStorageStatus();}}document.getElementById("cw-status").textContent="Puzzle cleared.";cells[active.row+"-"+active.col].input.focus();});
         restore();paint();
       }());
     </script>

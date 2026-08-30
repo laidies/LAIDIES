@@ -62,6 +62,39 @@ Source/browser/provider access and the local Codex host must be available.
 
 ## 1. Confirm the dated source receipt
 
+### Service-bank candidates (prepare before composing an issue)
+
+The private reserve is `operations/product-stewards/newsstand/candidates/service-bank.json`.
+It is candidate input to the existing column/issue path, not a second publisher.
+Check coverage with:
+
+```sh
+node scripts/prepare-newsstand-service-bank.mjs --date YYYY-MM-DD --check
+```
+
+Use `--output operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/YYYY-MM-DD.json`
+instead of `--check` to prepare a private proposal. This never changes canonical
+columns or grants approval. It chooses unused entries, carries full paragraphs,
+questions, sources and destinations, and reports readiness separately from draft
+coverage. `--item type=bankItemId` selects a particular unused item. What's New
+requires its original event date and a retirement date; an expired announcement
+produces a gap, never a newly dated event.
+
+All 22 seed entries are currently CANDIDATE/INELIGIBLE. Complete the applicable
+exact-content source, voice, format and comprehension reviews before adding an
+admitted dated record to `content/daily-edition-columns.json` and composing the
+issue below. Existing observed-human evidence requirements have not changed.
+Crossword also remains held for native assistive-technology review. Do not
+interpret eight proposed rows as eight admitted sections.
+
+The reader accepts optional `body`, `question`, `sourceLinks` and destination
+labels on admitted records. A front card opens its full column directly;
+crossword opens the puzzle directly. The browser fixture in
+`scripts/test-newsstand-service-reader.mjs --serve` is loopback-only and visibly
+marked unapproved. Its synthetic eligibility must never enter a release.
+
+### Source receipt
+
 For `YYYY-MM-DD`, the authoritative radar input must exist at:
 
 `operations/agents/aidb-intelligence-desk/daily/YYYY-MM-DD.md`

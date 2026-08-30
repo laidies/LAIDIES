@@ -9,7 +9,10 @@
     return String(date || "") >= "2026-08-23" ? CURRENT_DAILY_DESK_TYPES : LEGACY_DAILY_DESK_TYPES;
   }
   function dailyDeskLabel(type) {
-    return type === "promptoscope" ? "historical Promptoscope" : String(type || "service").replace(/_/g, " ");
+    return ({paige_tip: "Paige’s AI & Productivity Tip", career_life: "The Corner Office",
+      concept_week: "Concept of the Week", mme_claio: "Mme CLAi-O", dear_miss_jeeves: "Dear Miss Jeeves",
+      whats_new_sunnyvaile: "What’s New in SUNNYVAiLE", crossword: "Crossword", did_you_know: "Did You Know?",
+      promptoscope: "historical Promptoscope"})[type] || String(type || "service").replace(/_/g, " ");
   }
   var HASH = /^[a-f0-9]{64}$/;
   var data = JSON.parse(JSON.stringify(global.NEWSSTAND_DATA || { publications: {}, stories: [] }));
@@ -22,6 +25,7 @@
   var columnsLoaded = false;
   var previousPublicationView = latestPublicationView(readState());
   var sharedDailyHandled = false;
+  var columnReturnTarget = null;
 
   function text(value) {
     var node = document.createElement("div");
@@ -354,7 +358,15 @@
   }
 
   function maybeOpenSharedDailyRequest() {
-    if (dailyIssuesLoaded && columnsLoaded) openSharedDailyRequest();
+    if (!dailyIssuesLoaded || !columnsLoaded) return;
+    var columnId = new URL(global.location.href).searchParams.get("column");
+    if (columnId) {
+      if (sharedDailyHandled) return;
+      sharedDailyHandled = true;
+      renderColumn(columnId);
+      return;
+    }
+    openSharedDailyRequest();
   }
 
   function eligibleDerivatives() {
@@ -387,6 +399,67 @@
 
   function columnById(id) {
     return eligibleColumns().find(function (record) { return record.id === id; });
+  }
+
+  function readableColumn(id) {
+    var record = columnById(id);
+    if (!record || !Array.isArray(record.body) || !record.body.length ||
+        record.body.some(function (part) { return typeof part !== "string" || !part.trim(); }) ||
+        record.freshness.expiresAt < editorialToday() ||
+        (record.availableUntil && record.availableUntil < editorialToday())) return null;
+    var issue = storedDailyIssue(record.editionDate);
+    return issue && issue.desks.some(function (desk) {
+      return desk.recordId === id && desk.state === "ready" && desk.type === record.type;
+    }) ? record : null;
+  }
+
+  function columnHref(id) {
+    var url = new URL(global.location.href);
+    url.hash = "";
+    url.searchParams.delete("daily");
+    url.searchParams.set("column", id);
+    return url.pathname + url.search;
+  }
+
+  function serviceLink(route) {
+    if (typeof route !== "string" || /[\\\u0000-\u0020]/.test(route)) return "";
+    if (/^\/(?!\/)/.test(route) || /^#[A-Za-z0-9]/.test(route) || /^https:\/\//.test(route)) return route;
+    return "";
+  }
+
+  function columnBodyHTML(record) {
+    var question = record.question;
+    var links = (record.sourceLinks || []).filter(function (link) { return link && serviceLink(link.url); });
+    var destination = serviceLink(record.destination);
+    if (destination && !links.some(function (link) {
+      return new URL(link.url, "https://laidies.ai/").href === new URL(destination, "https://laidies.ai/").href;
+    })) links.unshift({label: record.destinationLabel || "Explore this on LAiDIES", url: destination});
+    return '<article class="ns-service-article" data-column-id="' + escapeHTML(record.id) + '">' +
+      (question ? '<blockquote class="ns-service-question"><p>' + escapeHTML(question.text) +
+        '</p><footer>— ' + escapeHTML(question.signature) + '</footer></blockquote>' : '') +
+      (record.type === "mme_claio" && record.body.indexOf(record.summary) === -1 ? '<p>' + escapeHTML(record.summary) + '</p>' : '') +
+      record.body.map(function (paragraph) { return '<p>' + escapeHTML(paragraph) + '</p>'; }).join("") +
+      (links.length ? '<footer class="ns-service-sources"><h3>Keep reading</h3><ul>' + links.map(function (link) {
+        return '<li><a href="' + escapeHTML(link.url) + '">' + escapeHTML(link.label) + '</a></li>';
+      }).join("") + '</ul></footer>' : '') + '</article>';
+  }
+
+  function renderColumn(id) {
+    var reader = document.getElementById("paper-counter");
+    var rack = document.getElementById("ns-rack");
+    if (!reader || !rack) return false;
+    var record = readableColumn(id);
+    reader.hidden = false;
+    rack.innerHTML = record ? columnBodyHTML(record) :
+      '<article class="ns-service-article"><p>This column is not available. You can return to the paper for the current columns.</p></article>';
+    document.getElementById("ns-empty").hidden = true;
+    document.getElementById("ns-reader-edition").textContent = record ? dailyDeskLabel(record.type) : "NewsStand";
+    document.getElementById("ns-reader-title").textContent = record ? record.headline : "Column unavailable";
+    document.getElementById("ns-reader-date").textContent = record ? formatDate(record.editionDate) : "";
+    document.getElementById("ns-paper-view").setAttribute("data-paper", "service");
+    reader.scrollIntoView({behavior: "smooth", block: "start"});
+    document.getElementById("ns-reader-title").focus({preventScroll: true});
+    return Boolean(record);
   }
 
   function columnEmpty(type, fallback) {
@@ -439,7 +512,7 @@
       var desk = issue.desks.find(function (item) { return item.type === type; }) || null;
       if (!desk || desk.state !== "ready") return desk;
       var admittedColumn = columnById(desk.recordId);
-      return admittedColumn && admittedColumn.id === desk.recordId ? desk : null;
+        return admittedColumn && admittedColumn.id === desk.recordId ? desk : null;
     }
     return columnFor(date, type) || null;
   }
@@ -477,6 +550,15 @@
       if (ready) {
         admittedCount += 1;
         var content = label + '<strong>' + escapeHTML(desk.headline) + '</strong><span>' + escapeHTML(desk.summary) + '</span>';
+        if (type === "crossword" && serviceLink(desk.destination)) {
+          node.innerHTML = '<a href="' + escapeHTML(desk.destination) + '">' + content + '<span class="ns-service-action">Play the crossword →</span></a>';
+          return;
+        }
+        if (readableColumn(desk.recordId)) {
+          node.innerHTML = '<a data-open-column="' + escapeHTML(desk.recordId) + '" href="' +
+            escapeHTML(columnHref(desk.recordId)) + '">' + content + '<span class="ns-service-action">Read the full column →</span></a>';
+          return;
+        }
         node.innerHTML = desk.destination
           ? '<a href="' + escapeHTML(desk.destination) + '">' + content + '</a>'
           : content;
@@ -526,14 +608,16 @@
     ].join("");
   }
 
-  function dailyDesk(label, status, headline, body, route) {
+  function dailyDesk(label, status, headline, body, route, desk) {
+    var record = desk && desk.type !== "crossword" && readableColumn(desk.recordId || desk.id);
     return [
       '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '">',
         '<p class="ns-daily-desk__label">', escapeHTML(label), '</p>',
         '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? "In this edition" : "No item today"), '</p>',
         '<h3>', escapeHTML(headline), '</h3>',
         '<p>', escapeHTML(body), '</p>',
-        route ? '<a href="' + escapeHTML(route) + '">Go deeper →</a>' : '',
+        record ? '<a data-open-column="' + escapeHTML(record.id) + '" href="' + escapeHTML(columnHref(record.id)) + '">Read the full column →</a>' :
+          (route ? '<a href="' + escapeHTML(route) + '">' + (desk && desk.type === "crossword" ? 'Play the crossword →' : 'Go deeper →') + '</a>' : ''),
       '</section>'
     ].join("");
   }
@@ -588,7 +672,7 @@
           : '<div class="ns-daily-service-grid">',
           dailyDesk("Paige’s AI & Productivity Tip", tip && tip.state !== "empty" ? "ready" : "empty",
             tip && tip.state !== "empty" ? tip.headline : "No practical tip today.", tip && tip.state !== "empty" ? tip.summary : "Paige did not publish a practical tip in this edition.",
-            tip && tip.state !== "empty" ? tip.destination : ""),
+            tip && tip.state !== "empty" ? tip.destination : "", tip),
           historicalPromptoscope ? dailyDesk("Promptoscope · archived column", historicalPromptoscope.state !== "empty" ? "ready" : "empty",
             historicalPromptoscope.state !== "empty" ? historicalPromptoscope.headline : "No Promptoscope in this edition.",
             historicalPromptoscope.state !== "empty" ? historicalPromptoscope.summary : "This archived edition did not include a Promptoscope.",
@@ -596,25 +680,25 @@
           dailyDesk("Concept of the Week", concept && concept.state !== "empty" ? "ready" : "empty",
             concept && concept.state !== "empty" ? concept.headline : "No Concept of the Week.",
             concept && concept.state !== "empty" ? concept.summary : "This edition did not include a Concept of the Week.",
-            concept && concept.state !== "empty" ? concept.destination : ""),
+            concept && concept.state !== "empty" ? concept.destination : "", concept),
           dailyDesk("The Corner Office", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "No Corner Office column today.",
-            career && career.state !== "empty" ? career.summary : "This edition did not include a Work + Life column.", career && career.state !== "empty" ? career.destination : ""),
+            career && career.state !== "empty" ? career.summary : "This edition did not include a Work + Life column.", career && career.state !== "empty" ? career.destination : "", career),
           dailyDesk("Mme CLAi-O’s reading", reading && reading.state !== "empty" ? "ready" : "empty", reading && reading.state !== "empty" ? reading.headline : "No daily reading today.",
-            reading && reading.state !== "empty" ? reading.summary : "Mme CLAi-O did not publish a reading in this edition.", reading && reading.state !== "empty" ? reading.destination : ""),
+            reading && reading.state !== "empty" ? reading.summary : "Mme CLAi-O did not publish a reading in this edition.", reading && reading.state !== "empty" ? reading.destination : "", reading),
           currentDeskEra ? dailyDesk("Dear Miss Jeeves", dearMissJeeves && dearMissJeeves.state !== "empty" ? "ready" : "empty", dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.headline : "No letter at the advice desk today.",
-            dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.summary : "This edition did not include a Dear Miss Jeeves question.", dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.destination : "") : "",
+            dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.summary : "This edition did not include a Dear Miss Jeeves question.", dearMissJeeves && dearMissJeeves.state !== "empty" ? dearMissJeeves.destination : "", dearMissJeeves) : "",
           currentDeskEra ? dailyDesk("Behind the Build", behindBuild && behindBuild.state !== "empty" ? "ready" : "empty", behindBuild && behindBuild.state !== "empty" ? behindBuild.headline : "No Behind the Build today.",
             behindBuild && behindBuild.state !== "empty" ? behindBuild.summary : "This edition did not include a Behind the Build column.", behindBuild && behindBuild.state !== "empty" ? behindBuild.destination : "") : "",
           currentDeskEra ? dailyDesk("Around Town · fictional town news", aroundTown && aroundTown.state !== "empty" ? "ready" : "empty", aroundTown && aroundTown.state !== "empty" ? aroundTown.headline : "No Around Town story today.",
             aroundTown && aroundTown.state !== "empty" ? aroundTown.summary : "This edition did not include a fictional Around Town story.", aroundTown && aroundTown.state !== "empty" ? aroundTown.destination : "") : "",
           currentDeskEra ? dailyDesk("What’s New in SUNNYVAiLE", whatsNew && whatsNew.state !== "empty" ? "ready" : "empty", whatsNew && whatsNew.state !== "empty" ? whatsNew.headline : "No new opening today.",
-            whatsNew && whatsNew.state !== "empty" ? whatsNew.summary : "This edition did not include a verified new destination.", whatsNew && whatsNew.state !== "empty" ? whatsNew.destination : "") : "",
+            whatsNew && whatsNew.state !== "empty" ? whatsNew.summary : "This edition did not include a verified new destination.", whatsNew && whatsNew.state !== "empty" ? whatsNew.destination : "", whatsNew) : "",
           currentDeskEra ? dailyDesk("Daily crossword", crossword && crossword.state !== "empty" ? "ready" : "empty", crossword && crossword.state !== "empty" ? crossword.headline : "No crossword today.",
-            crossword && crossword.state !== "empty" ? crossword.summary : "This edition did not include a crossword.", crossword && crossword.state !== "empty" ? crossword.destination : "") : "",
+            crossword && crossword.state !== "empty" ? crossword.summary : "This edition did not include a crossword.", crossword && crossword.state !== "empty" ? crossword.destination : "", crossword) : "",
           dailyDesk("Song of the Day", song && song.state !== "empty" ? "ready" : "empty", song && song.state !== "empty" ? song.headline : "No Song of the Day.",
             song && song.state !== "empty" ? song.summary : "This edition did not include a Song of the Day.", song && song.state !== "empty" ? song.destination : ""),
           dailyDesk("Did you know?", fact && fact.state !== "empty" ? "ready" : "empty", fact && fact.state !== "empty" ? fact.headline : "No Did You Know today.",
-            fact && fact.state !== "empty" ? fact.summary : "This edition did not include a Did You Know item.", fact && fact.state !== "empty" ? fact.destination : ""),
+            fact && fact.state !== "empty" ? fact.summary : "This edition did not include a Did You Know item.", fact && fact.state !== "empty" ? fact.destination : "", fact),
           dailyDesk("Town notes", townNote && townNote.state !== "empty" ? "ready" : "empty", townNote && townNote.state !== "empty" ? townNote.headline : "No town notes today.",
             townNote && townNote.state !== "empty" ? townNote.summary : "There were no town notes in this edition.", townNote && townNote.state !== "empty" ? townNote.destination : ""),
           dailyDesk("Try this today", curiosity && curiosity.state !== "empty" ? "ready" : "empty", curiosity && curiosity.state !== "empty" ? curiosity.headline : "No activity today.",
@@ -740,9 +824,9 @@
           headline: desk.headline,
           state: "Published",
           points: [desk.summary],
-          route: desk.destination && desk.destination.charAt(0) === "/" ? desk.destination : "",
-          canOpen: Boolean(desk.destination && desk.destination.charAt(0) === "/"),
-          actionLabel: "Go deeper"
+          route: readableColumn(desk.recordId) && desk.type !== "crossword" ? columnHref(desk.recordId) : serviceLink(desk.destination),
+          canOpen: Boolean(readableColumn(desk.recordId) || serviceLink(desk.destination)),
+          actionLabel: desk.type === "crossword" ? "Play the crossword" : readableColumn(desk.recordId) ? "Read the full column" : "Go deeper"
         };
       });
     });
@@ -861,7 +945,32 @@
     input.addEventListener("change", function () { input.setAttribute("data-user-edited", "true"); });
     run.addEventListener("click", renderCatchup);
     document.addEventListener("click", function (event) {
+      var columnLink = event.target.closest("[data-open-column]");
+      if (columnLink && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        columnReturnTarget = columnLink;
+        renderColumn(columnLink.getAttribute("data-open-column"));
+        return;
+      }
       var dailyReturn = event.target.closest("#ns-return");
+      if (dailyReturn && document.getElementById("ns-paper-view").getAttribute("data-paper") === "service") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        document.getElementById("paper-counter").hidden = true;
+        document.getElementById("ns-rack").innerHTML = "";
+        var returnTarget = columnReturnTarget && columnReturnTarget.isConnected ? columnReturnTarget :
+          document.querySelector('.ns-publication[data-edition="daily"]');
+        var columnURL = new URL(global.location.href);
+        columnURL.searchParams.delete("column");
+        global.history.replaceState(null, "", columnURL.href);
+        if (returnTarget) {
+          returnTarget.scrollIntoView({behavior: "smooth", block: "center"});
+          returnTarget.focus({preventScroll: true});
+        }
+        columnReturnTarget = null;
+        return;
+      }
       var openDaily = document.querySelector(".ns-daily-issue");
       if (dailyReturn && openDaily) {
         event.preventDefault();
