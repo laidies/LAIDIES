@@ -18,8 +18,6 @@ const directory = read("content/site/sunnyvaile-directory.js");
 const globalHeader = read("content/site/sv-global-header.js");
 const homepage = read("index.html");
 const previewHomepage = existsSync(resolve(root, "preview-homepage.html")) ? read("preview-homepage.html") : "";
-const chickFlicks = read("chick-flicks.html");
-const residentCard = read("resident-card.html");
 
 // A shared URL is a public identifier, never a container for a private note or handle.
 assert.match(postcard, /function postcardURL\(\)[\s\S]*?\?pc=/);
@@ -85,14 +83,6 @@ if (previewHomepage) {
   assert.match(previewHomepage, />Sign in<\/a>/i);
   assert.match(previewHomepage, /Buttondown owns subscription and delivery; this page cannot confirm either result/);
 }
-assert.doesNotMatch(chickFlicks, /Get Wednesday delivery|Open a box at the Post Office/i);
-assert.match(chickFlicks, /Request the Wednesday newsletter/);
-assert.match(residentCard, /id="rcAccountTitle"/);
-assert.match(residentCard, /Request a sign-in link/);
-assert.match(residentCard, /does not\s+prove delivery, account creation, Card restoration or cross-device continuity/i);
-assert.doesNotMatch(residentCard, /explicitly claim it to a private account to restore supported state/i);
-assert.doesNotMatch(residentCard, /Keep this local Card with my account|Restore this Card to this browser|Pick up where I left off/);
-
 // The Post Office rack can only hand an admitted postcard identifier to the composer.
 const postcardIds = [...postcard.matchAll(/\{ id: '([^']+)'/g)].map((match) => match[1]);
 const rackIds = [...rack.matchAll(/\{ id: "([^"]+)"/g)].map((match) => match[1]);

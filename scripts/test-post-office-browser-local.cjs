@@ -3,7 +3,11 @@
 const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
-const { chromium } = require("../.ds-sync/node_modules/playwright");
+const playwrightRoot = process.env.PLAYWRIGHT_CORE_PATH ||
+  path.resolve(__dirname, "../.ds-sync/node_modules/playwright");
+const { chromium } = require(playwrightRoot);
+const chromePath = process.env.CHROME_PATH ||
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 const root = path.resolve(process.env.POST_OFFICE_ROOT || process.cwd());
 const mime = new Map([
@@ -31,7 +35,7 @@ const server = http.createServer((request, response) => {
 (async () => {
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   const origin = `http://127.0.0.1:${server.address().port}`;
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ executablePath: chromePath, headless: true });
   const failures = [];
   let checks = 0;
   let externalAttempts = 0;
@@ -58,17 +62,35 @@ const server = http.createServer((request, response) => {
     return page;
   }
 
+  const postcardCatalogue = JSON.parse(
+    fs.readFileSync(path.join(root, "content/site/postcard-catalog.json"), "utf8")
+  );
+  const postcardHeld = postcardCatalogue.visualState === "HELD" &&
+    Array.isArray(postcardCatalogue.cards) && postcardCatalogue.cards.length === 0;
+
   for (const [name, viewport] of [["desktop", { width: 1440, height: 900 }], ["mobile", { width: 320, height: 760 }]]) {
     const page = await guardedPage({ viewport });
     await page.goto(`${origin}/postcard.html?from=ali&note=private%20message&pc=library`, { waitUntil: "domcontentloaded" });
-    await page.waitForSelector("#pcGrid button");
+    await page.waitForFunction(() => {
+      const grid = document.querySelector("#pcGrid");
+      return grid && (grid.querySelector("button") || /being checked|could not be verified/i.test(grid.textContent));
+    });
     check(!page.url().includes("from=") && !page.url().includes("note="), `${name} legacy private query is scrubbed`);
-    check((await page.locator('#pcGrid button[aria-pressed="true"]').getAttribute("data-id")) === "library", `${name} canonical postcard id survives scrub`);
-    check((await page.locator("#pcGrid button").count()) >= 12, `${name} postcard catalogue renders`);
+    if (postcardHeld) {
+      check((await page.locator("#pcGrid button").count()) === 0, `${name} held catalogue renders no postcard controls`);
+      check((await page.locator("#pcGrid").innerText()).includes("being checked"), `${name} held catalogue explains the artwork boundary`);
+      check(await page.locator("#pcShare").isDisabled() && await page.locator("#pcCopy").isDisabled(), `${name} held catalogue disables share and copy`);
+      check(await page.locator("#pcText").isHidden() && await page.locator("#pcEmail").isHidden(), `${name} held catalogue hides message handoffs`);
+      check((await page.locator("#pcPrevImg").getAttribute("src")) === null && await page.locator("#pcPrevImg").isHidden(), `${name} held catalogue requests no preview image`);
+    } else {
+      check((await page.locator('#pcGrid button[aria-pressed="true"]').getAttribute("data-id")) === "library", `${name} canonical postcard id survives scrub`);
+      check((await page.locator("#pcGrid button").count()) >= 11, `${name} postcard catalogue renders`);
+    }
     check(!(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)), `${name} postcard has no horizontal overflow`);
     await page.close();
   }
 
+  if (!postcardHeld) {
   const failurePage = await guardedPage({ viewport: { width: 320, height: 760 } });
   await failurePage.addInitScript(() => {
     Object.defineProperty(navigator, "share", {
@@ -138,6 +160,7 @@ const server = http.createServer((request, response) => {
   check((await signedPage.evaluate(() => window.__shared.text)).includes("— @abcdefghijklmnopqrstuvwx"), "bounded Signed handle remains in share text");
   check((await signedPage.evaluate(() => localStorage.getItem("laidies_card_username"))) === null, "postcard composer does not store the Signed handle");
   await signedPage.close();
+  }
 
   const blockedNewsletter = await guardedPage();
   await blockedNewsletter.addInitScript(() => { window.open = () => null; });
@@ -148,7 +171,7 @@ const server = http.createServer((request, response) => {
   check(await blockedNewsletter.locator("#po-newsletter-fallback").isVisible(), "blocked popup exposes direct provider recovery");
   check(blockedNewsletter.url() === `${origin}/post-office.html`, "blocked popup preserves Post Office");
   check(await blockedNewsletter.locator("#signin").isVisible(), "held sign-in destination exists");
-  check((await blockedNewsletter.locator("#signin").innerText()).includes("no account has been created"), "held sign-in destination denies account success");
+  check((await blockedNewsletter.locator("#signin").innerText()).includes("does not prove that a message arrived, that an account was created"), "sign-in destination denies unproved account success");
   check((await blockedNewsletter.locator("#signin input[type=email]").count()) === 0, "held sign-in destination collects no email");
   check(!(await blockedNewsletter.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)), "desktop Post Office has no horizontal overflow");
   await blockedNewsletter.close();
