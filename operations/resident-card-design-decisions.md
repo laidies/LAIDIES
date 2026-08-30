@@ -6,7 +6,9 @@
 > Supported episode/Tour/charm/Puffy state restores between isolated laptop/phone-sized
 > browsers, sign-out survives reload, and switching accounts clears prior state.
 > Test users and dependent records were deleted; five original user IDs preserved.
-> Real email-link delivery/callback and physical-device/Safari tests remain unverified.
+> Real email-link delivery/callback, session persistence and sign-out/reload were
+> subsequently verified through the public form and delivered LAiDIES mailbox link.
+> No existing Card was created, claimed or edited. Physical-device/Safari tests remain unverified.
 > No site deployment, schema change, new project or key rotation was needed.
 > This does not admit held public balances, rewards, leaderboards or identity surfaces.
 
