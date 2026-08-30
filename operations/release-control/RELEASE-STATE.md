@@ -8,27 +8,30 @@ is recorded here.
 
 ## Current truth
 
-Current production is `dbc39599-5e48-493c-8513-2eac99d8244f`, deployment source
-`b03bcc649bf7da7f03db7e0eb95e123d4955f15a`, pushed branch
+Current production is `7d6d4805-7ae1-4813-b533-7f2fb8a72d47`, deployment source
+`44fa491c141c0626b9854c4dcac58747b8b30971`, pushed branch
 `release/newsstand-daily-20260830`. Exact artifact:
-`/private/tmp/laidies-newsstand-public-20260830.vR86i3`; manifest
-`/private/tmp/laidies-newsstand-public-20260830.manifest.json`; 672 files;
-identity `fe7bb68733e040a0d9c4a1182922a9ec3f762c6e788abd347c61b49b5e6af612`.
-It overlays exactly ten NewsStand paths onto provider-confirmed predecessor
-`65e2bdaf-1c85-4f0a-a8b7-4f3cce611cd8` and preserves all 662 other files.
+`/private/tmp/laidies-newsstand-continuity-20260830.gFuhDt`; manifest
+`/private/tmp/laidies-newsstand-continuity-20260830.manifest.json`; 672 files;
+identity `a71b8560e98850e812191da3586dd76d068c65aef48becc5721e8ec9c6f74e9e`.
+It overlays exactly four NewsStand paths onto provider-confirmed predecessor
+`dbc39599-5e48-493c-8513-2eac99d8244f` and preserves all 668 other files.
 No Big Picture/story text changes. August 30 has two exactly admitted service
 instances and no newly published ordinary news story. Held content stays held.
 The scoped artifact passes 54 browser checks and independent desktop/mobile
-review. All 28 changed/protected path comparisons match the immutable origin
-`https://dbc39599.laidies-sunnyvaile.pages.dev` and `https://laidies.ai`.
+review. All 26 changed/protected path comparisons match the immutable origin
+`https://7d6d4805.laidies-sunnyvaile.pages.dev` and `https://laidies.ai`.
 Real desktop/mobile NewsStand reading, dated service issue, Catch Me Up, archive
-filters and unchanged Big Picture pass on both origins. The existing Codex
+filters and unchanged Big Picture pass on both origins. Native200% zoom also
+passes nine checks per public origin; tomorrow quiet/service and Weekly continuity
+pass calibrated isolated tests. The existing Codex
 heartbeat is ACTIVE daily07:00 Vancouver, separately updated by Ali; no new
 backend cron or duplicate automation was created. Its implementation entry is
 `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` in stable checkout
 `/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
-Future unattended preflight gaps remain explicit there. Full outcome and checker limits:
-`operations/product-stewards/newsstand/evidence/daily-proving-run-2026-08-30.md`.
+The real new-story editorial branch remains HOLD until exact admission; date,
+Weekly and zoom defects are repaired. Full outcome and checker limits:
+`operations/product-stewards/newsstand/evidence/continuity-repair-2026-08-30.md`.
 
 ## Superseded recovery record
 

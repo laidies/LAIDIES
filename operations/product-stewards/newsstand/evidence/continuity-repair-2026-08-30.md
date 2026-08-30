@@ -1,6 +1,38 @@
 # NewsStand next-cycle and Weekly continuity repair
 
-Status: LOCAL VERIFIED; independent reviewer accepts exact scoped successor.
+Status: PUBLICLY VERIFIED — immutable and custom origins.
+
+Deployed source `44fa491c141c0626b9854c4dcac58747b8b30971`, pushed branch
+`release/newsstand-daily-20260830`. Provider-confirmed deployment
+`7d6d4805-7ae1-4813-b533-7f2fb8a72d47`; immutable origin
+`https://7d6d4805.laidies-sunnyvaile.pages.dev`; custom `https://laidies.ai/newsstand`.
+Rollback is the exact `dbc39599` artifact below. Uploaded four changed assets;
+all other public bytes retained. No additional production release followed it.
+
+At 2026-08-30T16:34:25Z, all 26 exact public SHA-256 comparisons passed
+(13 paths × immutable/custom): page, schema, reader, Catch Up, CSS, canonical
+stories, Daily issue store, service bank, feed, archive, Homepage, Library and
+Resident continuation runtime. `_worker.js` and `_redirects` are preserved in
+the full 672-file artifact manifest; they are not downloadable public-file tests.
+
+Both real public origins: desktop1440/mobile390, original Front date and full
+one-click article, keyboard focus, August30 complete Daily with two services,
+10-item archive, retained Big Picture full article, no page overflow. Mobile
+service load initially sampled before async completion; settled inspection
+confirmed exactly two ready records on both origins. Native browser200% test
+passed nine checks on each real origin, including archive concept filtering.
+Screenshots: immutable
+`/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-zoom-200-1788107649318.png`;
+custom
+`/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-zoom-200-1788107658255.png`.
+Temporary selected-browser viewport overrides reset after verification.
+
+Existing heartbeat updated through the app (not duplicated): ACTIVE daily07:00
+America/Vancouver, same target and notification policy. Binding now points to
+this source, successor, stable checkout and runbook; repaired date/Weekly/zoom
+gaps no longer appear as unresolved. Real new-story admission remains HOLD.
+No separate backend cron enabled. The heartbeat's future wall-clock execution
+itself has not yet occurred; this is a live proving run plus next-date fixtures.
 
 Independent `/root/source_routing_review` rehashed all 672 files in both
 artifacts, confirmed exactly four changes/no additions/deletions, reran the

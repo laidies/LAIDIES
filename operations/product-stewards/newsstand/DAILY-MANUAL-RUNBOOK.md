@@ -12,10 +12,12 @@ backend cron is enabled. The older Control Room dispatcher stays paused.
 
 Stable implementation checkout:
 `/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
-Branch: `release/newsstand-daily-20260830`. Released source: `b03bcc649bf7da7f03db7e0eb95e123d4955f15a`;
-initial public-verification handoff: `9690f8a6`. Production seed:
-`dbc39599-5e48-493c-8513-2eac99d8244f`, artifact identity
-`fe7bb68733e040a0d9c4a1182922a9ec3f762c6e788abd347c61b49b5e6af612`.
+Branch: `release/newsstand-daily-20260830`. Released source:
+`44fa491c141c0626b9854c4dcac58747b8b30971`. Production seed:
+`7d6d4805-7ae1-4813-b533-7f2fb8a72d47`, artifact
+`/private/tmp/laidies-newsstand-continuity-20260830.gFuhDt`, identity
+`a71b8560e98850e812191da3586dd76d068c65aef48becc5721e8ec9c6f74e9e`.
+Public verification: `operations/product-stewards/newsstand/evidence/continuity-repair-2026-08-30.md`.
 These are recovery pointers, not permission to deploy stale bytes: resolve the
 actual provider head and exact immutable artifact anew before every release.
 Use a clean isolated transaction worktree for each future candidate; never
