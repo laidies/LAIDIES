@@ -28,6 +28,12 @@ navigation remains resumable, not seamless; native device behavior stays
 unverified. Behind the Build angle: remembering a song is a data problem;
 keeping one controllable song playing is also an ownership problem.
 
+Live follow-up: the 320px Closet label still forced a 348px page despite passing
+the older 390px Closet checks. The page-scoped correction wraps that label below
+360px; exact-candidate 320px geometry is now 320px wide with a 290px label. The guard must
+cover the narrowest supported width and the label itself, not only the newly
+added player. This is a one-HTML-path successor, not a new whole-site source build.
+
 ## Canonical ID migration — 2026-07-24
 
 This file consolidates both genuine source ledgers without overwriting either

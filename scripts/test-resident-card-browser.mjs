@@ -243,6 +243,25 @@ try {
     await context.close();
   }
 
+  {
+    const { context, page } = await openFixture({
+      viewport: { width: 320, height: 844 },
+      card: { version: 1, fields: { displayName: "Narrow Ali" } }
+    }, "/laidies-card.html");
+    await page.waitForFunction(() =>
+      document.getElementById("cardName").textContent === "Narrow Ali"
+    );
+    const wallet = await page.locator(".closet-page .wallet-label").evaluate((label) => {
+      const rect = label.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, width: rect.width, bodyWidth: document.body.scrollWidth, viewport: innerWidth };
+    });
+    check(
+      wallet.left >= -1 && wallet.right <= wallet.viewport + 1 && wallet.bodyWidth <= wallet.viewport + 1,
+      `320px Town Wallet label or body overflows (${JSON.stringify(wallet)})`
+    );
+    await context.close();
+  }
+
   for (const handle of ["dj-sunnyv", "unknown_resident", "!"]) {
     const { context, page } = await openFixture({
       card: { version: 1, fields: { displayName: "Private Local Resident" } }
