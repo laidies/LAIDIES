@@ -1,6 +1,44 @@
 # Active work
 
-## 2026-08-30 KSVL continuity successor — BUILDING, not yet deployed
+## 2026-08-30 KSVL / Closet — DEPLOYED AND PUBLICLY VERIFIED (bounded)
+
+- Final production: `931eb0dc-ab7e-4744-a0c6-7a8c846802e5`, pushed source
+  `5aece9ec448826aa7f3224a854bd5d0357241171`; KSVL implementation source
+  `a8bff04be6a12889912da04b6e8c78ecb9bdc7fe` (Closet restoration `26e1eeeb`).
+- Exact input: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-successor.8SwHC9`;
+  manifest is that path plus `.manifest.json`. 673 files, 640152495 bytes,
+  identity `4deadce4474583747ccbfe4f4bf39bd0b2083f01761450b925cf0423521456a0`.
+- Release chain: exact NewsStand b2695dc7 → KSVL/Closet `2e1e81c3-8fa4-43b7-89cb-492b47473eca`
+  (67 changed paths: 64 loader-only, runtime, popup guidance, Closet) → final
+  931eb0dc (only `laidies-card.html`, narrow wallet-label correction). All
+  rendered books, seven non-HTML NewsStand release paths and unrelated bytes
+  are preserved. Final rehash: 673/673; 32/32 final custom/immutable comparisons.
+  The preceding wider 162 comparisons had 159 exact matches; the two Start Here
+  results matched their declared Visitor's Centre redirect, and custom Postcard
+  differed only by the verified Cloudflare email-protection transformation.
+- Verification: calibrated continuity suite (old runtime rejected on 12 checks),
+  original decoded-audio/failure suite, catalogue 29/29, distribution/cache,
+  414 active assets, no private runtime dependencies in 90 HTML files, independent
+  implementation review, and 132 route checks (66 HTML ×1280/320): one loader,
+  no legacy duplicate, no page errors. Exact final Resident suite 156/156;
+  predecessor rejects the added 320px label check.
+- Live Chrome: custom and immutable Radio → Library retain active song and
+  advancing progress; custom pretty-URL popup handoff and remote Pause/Next/Stop
+  work. Explicit paused phone navigation restores paused. Deck fits 390/320
+  with all buttons ≥44px. Closet self sections are visible; unavailable public
+  profile shows no private sections. Final custom Closet fits 1280/390/320,
+  immutable 320; corrected narrow label is 290px, page 320px. No physical speaker
+  or native Safari/phone claim. Full-document navigation may briefly interrupt;
+  explicit popout is the uninterrupted option.
+- Still open: KSVL authenticated request lifecycle, sticker offer/Closet consumer,
+  listening-history sync, contextual captions/lesson links, native device and
+  background/lock-screen behavior. No new music, rewards, backend configuration,
+  credentials or resident-data mutation. The known Episode 03 source-asset hook
+  failure remains unrelated and was not waived as a public quality result.
+- Next releases must overlay this exact final input, never the earlier b269 or
+  source-tree whole-site build. NewsStand and publishing tasks receive this handoff.
+
+## Prerelease history — KSVL continuity candidate (superseded above)
 
 Current release base is the independently verified NewsStand successor
 `b2695dc7-c6a5-49a0-a194-6cb3e85124df`, exact input
@@ -26,7 +64,7 @@ Native Safari/physical devices, request lifecycle, sticker-to-Closet delivery,
 account listening history and audio-quality judgment remain unverified/outside
 this continuity repair. No backend, credentials or resident data changed.
 
-## 2026-08-30 remaining Closet recovery and KSVL audit
+## Earlier 2026-08-30 Closet recovery and KSVL audit (superseded above)
 
 - **Closet: VERIFIED LOCALLY, not deployed.** `laidies-card.html` restores the
   existing self-only Wallet (17 building Visit links), Report Card and Your

@@ -1,6 +1,24 @@
 # KSVL functionality and cross-page touchpoint map
 
-## 2026-08-30 continuity repair — LOCAL verification, public gate pending
+## 2026-08-30 public continuity repair — verified bounded release
+
+Production `931eb0dc-ab7e-4744-a0c6-7a8c846802e5` preserves KSVL source
+`a8bff04b` and adds the narrow Closet correction `5aece9ec`. Exact artifact,
+identity, release boundary and live evidence are in the first dated section of
+`operations/ACTIVE-WORK.md`. Both public origins retain the new player bytes.
+Live Radio → Library active playback and same-track progression pass; custom
+popup pretty-route handoff and remote Pause/Next/Stop pass; paused phone
+navigation stays paused. Bottom controls fit 390/320. Independent exact-artifact
+132-route smoke finds one canonical loader, zero legacy loaders and zero page
+errors. The implemented continuity scope is public; the historical local/audit
+sections below remain evidence of predecessor states, not current failures.
+
+Open gaps are unchanged: authenticated requests, sticker-to-Closet collection,
+listening-history account sync, contextual captions/lesson links and native
+Safari/physical-device/background behavior. Ordinary full-page navigation can
+briefly interrupt sound; use the explicit popup for uninterrupted listening.
+
+## Prerelease evidence — local continuity verification (superseded above)
 
 The current repair contract is the dated section of `OPERATING-SPEC.md`.
 It supersedes the historical audit defects below only for tested local bytes.
@@ -25,7 +43,7 @@ authenticated request lifecycle, the contradictory sticker offer and absent
 Closet consumer, contextual teaching/captions, and full-track listening quality.
 No new music, reward or account-sync claim is admitted by this repair.
 
-## 2026-08-30 live continuity audit — defects confirmed, repair not released
+## Predecessor audit — 2026-08-30 defects before the continuity release
 
 Ali requested the full KSVL behaviour audit, specifically music following the
 visitor and an always-controllable bottom player. This section supersedes the

@@ -6,7 +6,27 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth
+## Current truth — 2026-08-30 KSVL / Closet successor
+
+Production head is `931eb0dc-ab7e-4744-a0c6-7a8c846802e5`, source
+`5aece9ec448826aa7f3224a854bd5d0357241171`, immutable
+`https://931eb0dc.laidies-sunnyvaile.pages.dev` and custom `https://laidies.ai`.
+Exact deploy input:
+`/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-successor.8SwHC9`;
+manifest is the same path plus `.manifest.json`. 673 files, 640152495 bytes,
+whole identity `4deadce4474583747ccbfe4f4bf39bd0b2083f01761450b925cf0423521456a0`.
+
+This is a verified exact overlay of NewsStand b2695dc7 through KSVL/Closet
+2e1e81c3, followed by a one-path narrow-label correction. All latest NewsStand
+data, approved Library books and Resident portrait functionality are preserved.
+The KSVL runtime, canonical loader distribution, popup remote controls and
+self-only Closet sections are deployed and publicly verified in the bounded
+journeys listed in `operations/ACTIVE-WORK.md`. No backend/provider/data changes.
+Final integrity: all 673 local files rehashed; 32 custom/immutable comparisons
+exact. Do not deploy an older whole-site artifact. Native device, request-service
+and KSVL sticker/collection gaps remain open; this is not full-site completion.
+
+## Historical recovery truth (superseded release identities)
 
 > **Current production head:** `65e2bdaf-1c85-4f0a-a8b7-4f3cce611cd8`, source `819a5119`, exact artifact `/tmp/laidies-resident-privacy-successor.Bez0zU`, manifest `/tmp/laidies-resident-privacy-successor.Bez0zU.manifest.json`, 672 files, identity `9a373cc303d38c35ad794f2c504912f3ac2e05a27b6bcecec4e1772a3ca86ce5`. It preserves every byte of the complete `53cf6451` Library successor except `content/site/resident-continuation-v1.js`. The admitted continuation client now prevents public Card visits from replacing the private resume target. Exact custom/immutable parity, live phone/laptop Card/Closet and privacy journeys, and a 180-journey custom-domain route sweep pass. The existing provider is online under LAIDIES Pro as of Aug30; live-origin private Card and bounded cross-browser lifecycle passed. No site deployment was performed this turn. Real email delivery, callback, session persistence and sign-out/reload are now verified against the live custom domain; physical-device/Safari testing remains unverified. Scope and cleanup proof are in operations/ACTIVE-WORK.md.
 

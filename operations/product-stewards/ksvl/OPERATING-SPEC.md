@@ -2,6 +2,10 @@
 
 ## Current repair contract — 2026-08-30
 
+Release outcome: this bounded continuity contract is deployed as
+`931eb0dc-ab7e-4744-a0c6-7a8c846802e5`. Current evidence and remaining gaps are
+recorded at the top of `FUNCTIONALITY-MAP.md` and `operations/ACTIVE-WORK.md`.
+
 Ali authorised KSVL repair after the live continuity audit. The exact audit and
 release base are recorded in `FUNCTIONALITY-MAP.md` and `operations/ACTIVE-WORK.md`.
 Current catalogue authority remains the creator-confirmed 29-song registry and
