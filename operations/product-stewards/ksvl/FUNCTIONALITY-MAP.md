@@ -1,5 +1,55 @@
 # KSVL functionality and cross-page touchpoint map
 
+## 2026-08-30 live continuity audit — defects confirmed, repair not released
+
+Ali requested the full KSVL behaviour audit, specifically music following the
+visitor and an always-controllable bottom player. This section supersedes the
+older unverified playback/popup/inclusion claims below; it does not admit held
+programme media, rewards, public identity, or request service lifecycle.
+
+Production was checked as `cdac28a7-05aa-45e7-9574-0be93534f48d`;
+exact input `/tmp/laidies-resident-portraits-successor.sUUusY`, identity
+`cdf13233f16fdc3512fc6273dd861ba8a6c4655d898154733fb509fb1470edb6`.
+The NewsStand lane holds the next deployment. Do not build an older whole-site
+replacement from this audit base after its successor arrives.
+
+| Priority | Result | Evidence and repair boundary |
+|---|---|---|
+| P1 | Main Listen loses station state on navigation | Live Radio Listen showed the bottom deck and advancing seek position; after leaving/returning no deck returned. `startLive()` uses `mixId='live'`, but `saveState()` rejects that context and removes its key. Persist admitted catalogue IDs for this context; do not revive unadmitted jingles/rotation. |
+| P1 | Music does not continue through ordinary navigation | Live Mix → Homepage restored the same track and position **paused**. `playCurrentPart()` explicitly returns paused whenever `state.restoring` is set, irrespective of prior playing state. This change exists in `ad8cd911` dated July 25, not the August 23 rollback. Returning-session no-surprise audio must be distinguished from active visitor-requested cross-page continuation. |
+| P1 | Player absent from important destinations | Library live navigation had no bottom player; exact Library HTML loads neither player. Artifact inventory: 84 HTML files excluding rendered books, 46 modern-only, 2 legacy-only, 7 both, 29 neither (includes obsolete/redirect/error pages; not 29 equivalent visitor defects). Meaningful missing modern consumers include Library, Visitor's Centre, LUMINAiRY, Resident Card, Watch, Episodes, This Week, Postcard and issue pages. Audit route authority before changing retired/redirect pages. |
+| P1 | Pop-out ownership broken at live pretty URL | Ordinary Pop out redirects to `/ksvl-popup`; mode detection only accepts `/ksvl-popup.html`. The popup incorrectly displays another Pop out button. After Resume in the popup and main-page reload/Resume, **both** show Now listening. No cross-window exclusive owner was enforced. Accept actual deployed route forms, then prove one owner and retained controls on other pages. |
+| P1 | Competing legacy runtime remains | Both loaders: `community.html`, `games/dream-phone.html`, `games/fairy-godmother.html`, `games/madame-claio.html`, `games/trading-cards.html`, `privacy.html`, `terms.html`. Legacy-only: `games/girl-talk.html`, `learn/quiz.html`. Legacy and canonical players use different state stores; the former adopts document audio play events. Migrate actual consumers, not just add another script. |
+| P2 | Sticker promises conflict with actual availability | Live Counter says stickers are coming later but also says pick three and take them to the Closet. No save control appeared; source stores only KSVL-local picks, with no Closet consumer. Do not count this as restored collection functionality or account rewards. |
+| P2 | Request lifecycle remains unverified | Live request form is present. No request was submitted in this audit. Source has local draft and authenticated Supabase insert/read paths; no tested return/edit/withdrawal/moderation lifecycle. Neither backend success nor backend rejection was observed. |
+
+Other verified scope: live player Pause/Resume, previous/next, mute, volume,
+shuffle/repeat control state and Stop were exercised. At 390px the deck exposes
+previous, play/pause, next, mute, volume, seek and Stop; shuffle/repeat/pop-out
+are hidden by responsive CSS. Mute survived the tested previous-track change.
+Mix and Bands panels expose registry-derived listings; album artwork is
+explicitly held. Stop followed by navigation left no deck. This is browser
+state/advancing-progress evidence, not a physical speaker or audio-quality review.
+
+Not completed: all 29 songs end-to-end, exact shuffle/end/repeat sequencing,
+offline/storage-denied/error lifecycle, blocked-popup recovery, all keyboard/CD
+face interactions, native Safari/physical phone/background/lock-screen audio,
+authenticated request lifecycle, or a full all-route behavioural regression.
+An attempt to select a full mix after flipping its cover did not prove the
+intended first track; hidden-face controls remain a focused follow-up, not a
+confirmed catalogue-order defect. Intermittent browser-control timeouts were
+not labelled site failures. No KSVL code or backend was changed by this audit.
+
+Repair acceptance: one canonical player across active town routes; supported
+station/mix/album/selected-song context retained; one audio owner across
+windows; explicit Pause/Stop respected; bottom controls accessible wherever
+the visitor navigates; honest handling when a browser blocks playback; no
+account-sync or reward claim. Seamless audio through full document replacement
+needs a persistent audio context (or a verified explicit pop-out), not merely
+a storage key. Decide the smallest supported continuity mechanism before a
+sitewide navigation rewrite. Preserve current content and the next exact
+NewsStand successor; test desktop, 390/320px, and native Safari separately.
+
 **Status:** SPECIFIED — FUNCTIONALITY RECOVERED; LOCK-GATED BUILD REQUIRED  
 **Recovered:** 2026-07-26  
 **Product/building owner:** KSVL champion  

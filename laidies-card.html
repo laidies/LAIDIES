@@ -1061,7 +1061,7 @@
     </div>
 
       <!-- Wallet slots: one membership card per building, 90s-style -->
-      <div class="wallet-slots" id="walletSlots" hidden>
+      <div class="wallet-slots" id="walletSlots">
         <p class="wallet-slots-title">Membership cards</p>
         <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
         <div class="wallet-grid" id="walletGrid"></div>
@@ -1146,7 +1146,7 @@
     .vessel-flash { animation: dashVesselFlash 1.4s ease; }
     @keyframes dashVesselFlash { 0%, 100% { box-shadow: none; } 25% { box-shadow: 0 0 0 3px var(--gold, #c9a227); } }
   </style>
-  <section class="passport-section" id="dashboardSection" hidden>
+  <section class="passport-section" id="dashboardSection">
     <p class="passport-section-eyebrow">★ Closet · At a glance</p>
     <h2 class="passport-section-title" id="dashTitle">Your Report Card</h2>
     <p class="passport-section-lede" id="dashLede">Every collection, counted. Tap a tile to jump straight to the shelf it lives on.</p>
@@ -1266,7 +1266,7 @@
        SECTION 1.25: YOUR COVEN — one favorite per pantheon
        (SAiNT / MAiVEN / TRAiLBLAZER / Town Character. Trip mechanic: pick at LUMINAiRY wings or the character's building.)
        ============================================== -->
-  <section class="passport-section" id="covenSection" hidden>
+  <section class="passport-section" id="covenSection">
     <p class="passport-section-eyebrow">★ Closet · Your Luminaries</p>
     <h2 class="passport-section-title">Your Luminaries</h2>
     <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
@@ -1794,6 +1794,8 @@
     // These vessels render from THIS device's localStorage — on someone
     // else's Closet they'd show the visitor's own data. Hide until synced.
     document.getElementById('walletSlots').hidden = true;
+    document.getElementById('dashboardSection').hidden = true;
+    document.getElementById('covenSection').hidden = true;
     document.getElementById('butterflyJar').hidden = true;
     document.getElementById('tourSection').hidden = true;
     document.getElementById('charmVessel').hidden = true;
@@ -2573,11 +2575,13 @@
 
   async function init() {
     var persistenceState = document.getElementById('closetPersistenceState');
+    // Guard local-only shelves before a public lookup can await the network.
+    if (isPublicMode) applyPublicMode();
     // Fast first paint from local cache (feels alive immediately)
     var cached = readCache();
-    if (readCardEnvelope()) {
+    if (!isPublicMode && readCardEnvelope()) {
       renderProfile(cached);
-    } else {
+    } else if (!isPublicMode) {
       // Coven band hydrates independently — always run so empty slots show correct state
       hydrateCoven();
       renderCharmBracelet();

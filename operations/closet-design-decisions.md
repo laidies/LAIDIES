@@ -43,6 +43,22 @@ Literal Resident Cards and membership cards remain cards because they are the
 actual objects. Generic navigation and text content no longer borrow that
 shape.
 
+## 2026-08-30 self-only recovery
+
+Ali requested recovery of the remaining Closet functionality. The 17 building
+visit cards, Report Card and four Luminary picks retain their existing local
+behaviour and are restored only in the visitor's own Closet. Public-card routes
+hide all three before any awaited lookup and do not first paint the local
+Resident's identity. This does not create cross-device backing for those local
+records or admit public handles, sharing, balances or leaderboards.
+
+Status: VERIFIED LOCALLY; not deployed. The scoped guard rejects the prior
+hidden source, and the Resident browser suite passes 155/155 checks including
+self visibility at desktop/mobile sizes, 17 Visit links, public/invalid/missing
+profile isolation, existing Card behaviour and intentional holds. NewsStand's
+deployment hold remains active; release must overlay the exact successor and
+receive fresh live verification. Native Safari/physical-device testing remains open.
+
 ## Preserved behaviour
 
 - Resident Card front/back flip.
@@ -76,4 +92,3 @@ shape.
 - Seventeen membership cards, nine Report Card counts, eight tour stops,
   Resident Card flip, dashboard jump, editor open/close/focus return, and
   direct building/tour links passed.
-

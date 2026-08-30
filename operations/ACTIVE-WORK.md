@@ -1,5 +1,30 @@
 # Active work
 
+## 2026-08-30 remaining Closet recovery and KSVL audit
+
+- **Closet: VERIFIED LOCALLY, not deployed.** `laidies-card.html` restores the
+  existing self-only Wallet (17 building Visit links), Report Card and Your
+  Luminaries. All three hide before public lookups; local identity no longer
+  first-paints on public routes. Handles/sharing/FAiRY/leaderboards stay held.
+  Calibrated `scripts/test-closet-self-sections.mjs` passes; expanded Resident
+  browser suite passes 155/155. No backend/account mutation.
+- **Commit check:** the existing whole-repository hook again failed on 45
+  missing Episode 03 comic assets (four duration warnings). Town, local links,
+  inline JavaScript and rejection-prevention checks passed. No Episode paths
+  changed; the scoped local-repair commit bypasses only that unrelated hook,
+  not a release gate or a claim that Episode 03 is healthy.
+- **KSVL: live audit, repair still BUILDING.** Exact findings and verification
+  limits are in `operations/product-stewards/ksvl/FUNCTIONALITY-MAP.md` dated
+  section: dropped `live` persistence, unconditional paused restore, missing
+  route loaders, dual legacy/canonical loaders, real pretty-URL popup ownership
+  failure, contradictory sticker promises, unverified request lifecycle.
+  No KSVL implementation changes. Native Safari/physical devices not tested.
+- **Release hold:** NewsStand `01a03456-f2ec-7282-b455-6b488723a4ab` is preparing
+  an eight-path publication overlay on `cdac28a7`; no root deployment. Next:
+  receive its exact verified successor, preserve all unrelated bytes, then
+  admit/verify the one-path Closet overlay. KSVL needs a scoped canonical-player
+  continuity repair, not an old whole-site rollback or speculative backend.
+
 ## 2026-08-30 portrait restoration — DEPLOYED AND PUBLICLY VERIFIED (bounded scope)
 
 - **Final Pages head:** `cdac28a7-05aa-45e7-9574-0be93534f48d`, source `c3845c86`, immutable origin `https://cdac28a7.laidies-sunnyvaile.pages.dev`. Exact deploy-input `/tmp/laidies-resident-portraits-successor.sUUusY`; manifest `/tmp/laidies-resident-portraits-successor.sUUusY.manifest.json`; 673 files, 640110978 bytes, identity `cdf13233f16fdc3512fc6273dd861ba8a6c4655d898154733fb509fb1470edb6`. Postdeploy rehash is identical. Thirteen public paths differ from the exact NewsStand predecessor; one added file, zero removals. Eighteen changed/protected paths match local/custom/immutable bytes (36 comparisons). NewsStand content and every unrelated file are preserved.

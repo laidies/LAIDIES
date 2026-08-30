@@ -199,6 +199,10 @@ try {
     check(await page.locator("#cardAvatar img[onerror]").count() === 0, "DOM-created avatar has no executable attribute");
     check(await page.locator("#tourSection").isVisible(), "supported Wednesday Tour remains visible in the Closet");
     check(await page.locator("#collectionSection").isVisible(), "supported Closet collections remain visible");
+    for (const id of ["walletSlots", "dashboardSection", "covenSection"]) {
+      check(await page.locator(`#${id}`).isVisible(), `desktop self Closet exposes ${id}`);
+    }
+    check(await page.locator("#walletGrid a").count() === 17, "self Closet renders all 17 building visit links");
     check(await page.locator("#fairyBankSection").isHidden(), "unproved FAiRY balance remains held");
     check(await page.locator("#leaderboardSection").isHidden(), "unproved leaderboard remains held");
     await page.screenshot({
@@ -217,6 +221,9 @@ try {
       document.getElementById("cardName").textContent === "Mobile Ali"
     );
     const frontFlip = page.locator(".card-face--front .card-flip-toggle");
+    for (const id of ["walletSlots", "dashboardSection", "covenSection"]) {
+      check(await page.locator(`#${id}`).isVisible(), `mobile self Closet exposes ${id}`);
+    }
     const frontBox = await frontFlip.boundingBox();
     check(frontBox?.width >= 44 && frontBox?.height >= 44, "mobile Card front flip meets the 44px target floor");
     await frontFlip.click();
@@ -233,6 +240,17 @@ try {
       path: path.join(evidenceDir, "closet-supported-390.png"),
       fullPage: true
     });
+    await context.close();
+  }
+
+  for (const handle of ["dj-sunnyv", "unknown_resident", "!"]) {
+    const { context, page } = await openFixture({
+      card: { version: 1, fields: { displayName: "Private Local Resident" } }
+    }, `/laidies-card.html?u=${encodeURIComponent(handle)}`);
+    for (const id of ["walletSlots", "dashboardSection", "covenSection"]) {
+      check(await page.locator(`#${id}`).isHidden(), `public ${handle} never exposes local ${id}`);
+    }
+    check(!(await page.locator("main").innerText()).includes("Private Local Resident"), `public ${handle} does not paint private local identity`);
     await context.close();
   }
 
