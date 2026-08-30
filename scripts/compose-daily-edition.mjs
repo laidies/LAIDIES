@@ -56,7 +56,9 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     if (slots.has(record.type)) reject(`duplicate desk ${record.type}`);
     slots.add(record.type);
   }
-  const eligiblePool = date >= "2026-08-30" ? columnsData.records : sameDateRecords;
+  // Older bank entries remain opportunities, not permission to republish under
+  // a new date. A reused service requires its own exactly admitted dated row.
+  const eligiblePool = sameDateRecords;
   const eligible = eligiblePool.filter((record) => record.editionDate <= date && types.includes(record.type) && PUBLIC.has(record.status) &&
     record.publicEligibility === "ELIGIBLE" && record.freshness && record.freshness.expiresAt >= date)
     .sort((a, b) => String(b.editionDate).localeCompare(String(a.editionDate)));
@@ -68,14 +70,12 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     story.sourceApproval && story.sourceApproval.status === "approved")
     .sort((a, b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))[0] || null;
   const weeklyPublication = storiesData.publications && storiesData.publications.weekly;
-  const weeklyAgeDays = weeklyPublication && weeklyPublication.editionDate
-    ? (Date.parse(`${date}T12:00:00Z`) - Date.parse(`${weeklyPublication.editionDate}T12:00:00Z`)) / 86400000
-    : 99;
-  const weeklyStory = weeklyPublication && weeklyPublication.status === "current" && weeklyAgeDays >= 0 && weeklyAgeDays < 7
-    ? (storiesData.stories || []).filter((story) => story.edition === "weekly" && ["published", "corrected"].includes(story.status) &&
-      story.sourceApproval && story.sourceApproval.status === "approved")
-      .sort((a, b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))[0] || null
-    : null;
+  // Wednesday is a successor-review cadence, not an expiry. Only the explicit
+  // canonical Weekly pointer can carry; a newer candidate is not authority.
+  const weeklyStory = weeklyPublication?.status === "current" && weeklyPublication.editionDate <= date
+    ? (storiesData.stories || []).find((story) => story.id === weeklyPublication.storyId && story.edition === "weekly" &&
+      ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved") || null : null;
+  if (weeklyPublication?.status === "current" && !weeklyStory) reject("current Weekly lacks an admitted non-future canonical story pointer");
   if (quiet && exactStories.length) reject("quiet editorial disposition conflicts with a same-date published story");
 
   const desks = types.map((type) => {

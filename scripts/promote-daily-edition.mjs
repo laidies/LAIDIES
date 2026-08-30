@@ -117,6 +117,12 @@ function validateEnvelope(value) {
       item.sourceApproval && item.sourceApproval.status === "approved");
     if (!weekly) reject("Weekly continuity story is not admitted");
   }
+  const weeklyPublication = storiesContext.window.NEWSSTAND_DATA.publications?.weekly;
+  const currentWeeklyId = weeklyPublication?.status === "current" ? weeklyPublication.storyId : null;
+  if ((value.weeklyStoryId || null) !== (currentWeeklyId || null) ||
+      (weeklyPublication?.status === "current" && (!currentWeeklyId || weeklyPublication.editionDate > value.editionDate))) {
+    reject("Weekly continuity must match the exact current canonical pointer");
+  }
   if (value.disposition === "QUIET" && (value.storyIds.length || readyIds.length)) reject("quiet issue contains publishable material");
   if (value.disposition === "SERVICE_READY" && !readyIds.length) reject("service-ready issue contains no admitted service item");
   if (value.disposition === "CANDIDATES_PENDING_REVIEW" && !value.storyIds.length && !readyIds.length) reject("non-quiet issue contains no admitted material");

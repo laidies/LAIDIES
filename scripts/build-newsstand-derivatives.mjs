@@ -46,12 +46,12 @@ function storyFeedItem(story, currentIds) {
     id: story.id,
     edition: story.edition,
     status: story.status,
-    current: currentIds.has(story.id),
+    current: story.status !== "retracted" && currentIds.has(story.id),
     publishedAt: story.publishedAt,
     updatedAt: story.updatedAt,
     lastCheckedAt: story.lastCheckedAt,
     headline: story.headline,
-    summary: shorten(story.front_summary || story.what_this_means || story.laidies_read || story.the_story),
+    summary: story.status === "retracted" ? "This story has been withdrawn." : shorten(story.front_summary || story.what_this_means || story.laidies_read || story.the_story),
     url: `/newsstand.html#${story.slug}`,
     themes: story.themes || [],
     concepts: story.concepts || [],
@@ -70,7 +70,7 @@ function storyArchiveItem(story) {
     editionDate: String(story.publishedAt).slice(0, 10),
     publishedAt: story.publishedAt,
     headline: story.headline,
-    summary: sentence(story.front_summary || story.laidies_read || story.the_story),
+    summary: story.status === "retracted" ? "This story has been withdrawn." : sentence(story.front_summary || story.laidies_read || story.the_story),
     themes: [...(story.themes || [])].sort(),
     concepts: [...(story.concepts || [])].sort(),
     status: story.status,
@@ -93,7 +93,7 @@ export function buildDerivatives({ storyRaw, columns, issues }) {
   [...(dailyIssue.storyIds || []), dailyIssue.frontPaigeStoryId].filter(Boolean).forEach((id) => currentIds.add(id));
   const weekly = data.publications.weekly;
   if (weekly && weekly.status === "current" && weekly.storyId) currentIds.add(weekly.storyId);
-  const bigPicture = (data.stories || []).filter((story) => story.edition === "big-picture" && eligibleStory(story))
+  const bigPicture = (data.stories || []).filter((story) => story.edition === "big-picture" && story.status !== "retracted" && eligibleStory(story))
     .sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
   if (data.publications["big-picture"]?.status === "current" && bigPicture) currentIds.add(bigPicture.id);
 

@@ -19,12 +19,15 @@ const heldIds = new Set(context.window.NEWSSTAND_DATA.stories.filter((story) => 
 assert.equal(first.feed.archive.some((item) => heldIds.has(item.id)), false, "held stories must not enter the feed");
 assert.equal(first.archive.items.some((item) => item.kind === "story" && heldIds.has(item.id.replace(/^story:/, ""))), false,
   "held stories must not enter the archive");
-assert(first.feed.current.some((item) => item.id === "front-paige-accountable-systems-2026-08-24"),
+const canonical=context.window.NEWSSTAND_DATA;
+assert(first.feed.current.some((item) => item.id === canonical.publications.daily.issue.frontPaigeStoryId),
   "persistent Front PAiGE must remain current without becoming a new dated story");
-assert.equal(first.feed.current.some((item) => item.edition === "weekly"), false, "held Weekly must not become current");
+assert.deepEqual(first.feed.current.filter(item=>item.edition==='weekly').map(item=>item.id),canonical.publications.weekly.status==='current'?[canonical.publications.weekly.storyId]:[], "current Weekly must match its canonical identity");
+const held=JSON.parse(JSON.stringify(canonical)); held.publications.weekly.status='hold';
+assert.equal(buildDerivatives({storyRaw:`window.NEWSSTAND_DATA=${JSON.stringify(held)};`,columns,issues}).feed.current.some(item=>item.edition==='weekly'),false,'explicitly held Weekly cannot be current');
 
 const badIssues = structuredClone(issues);
-badIssues.issues.push({ status: "complete", editionDate: "2026-08-30", admission: { reviewedAt: "2026-08-30T15:30:00Z" }, serviceRecordIds: ["missing-record"] });
+badIssues.issues.push({ status: "complete", editionDate: canonical.publications.daily.editionDate, admission: { reviewedAt: canonical.lastCheckedAt }, serviceRecordIds: ["missing-record"] });
 assert.throws(() => buildDerivatives({ storyRaw, columns, issues: badIssues }), /ineligible service record/,
   "known-bad unadmitted service reference must fail the derivative build");
 console.log(`NEWSSTAND DERIVATIVE TEST PASS deterministic=1 held_feed=0 held_archive=0 front_paige_persistent=1 weekly_held=1 bad_service_rejected=1`);

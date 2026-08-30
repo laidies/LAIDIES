@@ -155,6 +155,13 @@
         storySlugs.add(story.slug);
       });
       var dailyIssue = data.publications && data.publications.daily && data.publications.daily.issue;
+      var weeklyPublication = data.publications && data.publications.weekly;
+      if (weeklyPublication && weeklyPublication.status === "current") {
+        var weeklyStory = storiesById.get(weeklyPublication.storyId);
+        if (!weeklyStory || weeklyStory.edition !== "weekly" || storyState(weeklyStory) === "hold" || storyState(weeklyStory) === "retracted") {
+          errors.push("current Weekly storyId must name an admitted Weekly story");
+        }
+      }
       if (dailyIssue && dailyIssue.frontPaigeStoryId) {
         var frontPaigeStory = storiesById.get(dailyIssue.frontPaigeStoryId);
         if (!frontPaigeStory || frontPaigeStory.edition !== "daily" || !/^front-paige-/.test(frontPaigeStory.id) ||
@@ -216,14 +223,14 @@
     if (publication.status === "hold" || publication.status === "unavailable" || publication.status === "quiet") {
       return publication.status;
     }
+    if (publication.edition === "weekly") {
+      if (!publication.storyId) return "unavailable";
+      return publication.editionDate > calendarDateInZone(now, publication.editorialTimeZone) ? "archive" : "current";
+    }
     if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
     if (publication.edition === "daily" && publication.editionDate &&
         publication.editionDate !== calendarDateInZone(now, publication.editorialTimeZone)) {
       return "archive";
-    }
-    if (publication.edition === "weekly" && publication.editionDate) {
-      var weeklyAgeDays = calendarDayOffset(publication.editionDate, calendarDateInZone(now, publication.editorialTimeZone));
-      if (weeklyAgeDays < 0 || weeklyAgeDays >= 7) return "archive";
     }
     return "current";
   }
@@ -327,6 +334,10 @@
       };
     }
     var archiveScope = story && context && ["search", "archive", "hash", "feature"].indexOf(context.scope) !== -1;
+    var persistentWeekly = story && edition === "weekly" && publicationState === "current" && publication.storyId === story.id;
+    if (edition === "weekly" && !archiveScope && story && !persistentWeekly) {
+      return { canExpose: false, state: "archive", edition: edition, reason: "This is not the current Weekly." };
+    }
     if (publicationState === "stale" && !archiveScope) {
       return {
         canExpose: false,
@@ -344,7 +355,7 @@
     if (publicationState === "quiet") {
       return { canExpose: false, state: "quiet", edition: edition, reason: publication.note || "No qualified issue is filed." };
     }
-    if (story && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours) && !archiveScope) {
+    if (story && !persistentWeekly && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours) && !archiveScope) {
       return {
         canExpose: false,
         state: "stale",
@@ -372,7 +383,7 @@
     if (state === "unavailable") {
       return { canExpose: false, state: "unavailable", edition: edition, reason: "This story record is unavailable." };
     }
-    var archivedByAge = archiveScope && (publicationState === "stale" ||
+    var archivedByAge = archiveScope && !persistentWeekly && (publicationState === "stale" ||
       ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours));
     return {
       canExpose: true,

@@ -808,13 +808,14 @@
     var weeklyPublication = data.publications && data.publications.weekly;
     var weeklyState = contract.effectivePublicationState(weeklyPublication, now);
     var weeklyStory = sourceStories.filter(function (story) {
-      return story.edition === "weekly" && dateOnly(story.publishedAt) >= since &&
+      return story.edition === "weekly" && weeklyState === "current" && story.id === weeklyPublication.storyId &&
         contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
     }).sort(function (a, b) { return String(b.publishedAt).localeCompare(String(a.publishedAt)); })[0];
     var weekly = weeklyStory ? [
       '<article class="ns-catchup-lead" data-catchup-role="weekly">',
         '<p class="ns-catchup-item__kind">Next · The Weekly</p>',
         '<h3>', escapeHTML(weeklyStory.headline), '</h3>',
+        '<p class="ns-catchup-item__kind">Published ', escapeHTML(dateOnly(weeklyStory.publishedAt)), '</p>',
         '<p>', escapeHTML(sentence(weeklyStory.what_this_means || weeklyStory.the_story)), '</p>',
         '<a href="#', escapeHTML(weeklyStory.slug), '">Open the Weekly →</a>',
       '</article>'

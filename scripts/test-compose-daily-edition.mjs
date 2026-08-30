@@ -10,7 +10,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const date = "2026-08-04";
 const radarPath = path.join(ROOT, `operations/agents/aidb-intelligence-desk/daily/${date}.md`);
 const radarRaw = fs.readFileSync(radarPath, "utf8");
-const storiesRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
+// Historical August 4 regression, independent of a later admitted Weekly.
+const storiesRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8") + '\nwindow.NEWSSTAND_DATA.publications.weekly.status="quiet";\n';
 const columnsRaw = fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8");
 
 const first = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw });

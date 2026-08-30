@@ -38,25 +38,23 @@ above identifies the preserved implementation entry, not permission to overwrite
 an admitted same-date envelope. Continue through the independent review and
 projection/release commands below, never straight from composition to deploy.
 
-The August 30 live proving run succeeded, but the next unattended cycle must
-resolve these known preflight gaps rather than bypassing them:
+The date-bound and Weekly-continuity defects are repaired. Current-input tests
+derive the date and membership from canonical data; historical August 4 tests
+isolate Weekly authority. `test-newsstand-next-cycle.mjs` proves tomorrow's
+quiet and exactly admitted service cycles, idempotence, service use after a quiet
+issue, Weekly persistence at 6/7/8/14 days, original dates, held/new successor
+non-substitution, exact successor selection and retraction notices. Its fixtures
+are synthetic and private, never editorial admission. Run its emitted fixture
+through the browser suite with `NEWSSTAND_TEST_FIXTURE_ROOT=<fixture>` and
+`<fixture>/weekly`. The old deployed reader fails the Weekly cutoff test;
+the repaired reader passes. `--zoom-200` uses native Chromium 200% browser zoom,
+not pinch or a device-scale-only substitute (1440 outer / 720 CSS pixels).
 
-1. `test-newsstand-reader-browser.mjs` and `test-publish-daily-edition.mjs` bind
-   August 30 fixtures. Separate immutable regression fixtures from the next
-   candidate's date/membership checks before a later dated issue is admitted.
-2. The latest heartbeat requires the admitted Weekly to stay until an admitted
-   successor; the current composer ages it out after seven days. Reconcile that
-   rule with original-date display and a calibrated Wednesday successor
-   test before any future carried Weekly is published. Today's Weekly is held,
-   so no existing admitted Weekly was removed by this proving run.
-3. The broader heartbeat asks for 200% zoom coverage and separately identified
-   accuracy and beginner/voice review for new ordinary copy. The August 30 run
-   had no ordinary candidate and does not prove those future branches. Obtain
-   those checks/reviews when applicable; never fabricate review observations.
-4. The broad episode hook and legacy Big Picture shape checker remain unrelated
-   known failures. Preserve their disclosure and exact non-NewsStand byte scope;
-   do not describe them as passing. Source/browser/provider access must also be
-   available when the local heartbeat runs.
+Remaining conditional blockers: new ordinary prose still requires separate exact
+accuracy and beginner/voice admissions; that branch has not been proven with a
+real candidate. Hold it rather than invent content. The unrelated broad episode
+hook and legacy Big Picture checker remain known failures, not passing checks.
+Source/browser/provider access and the local Codex host must be available.
 
 ## 1. Confirm the dated source receipt
 
@@ -147,12 +145,14 @@ may replace the current edition in the browser. Feed and archive are determinist
 derivatives of canonical data, admitted issue history and service-bank authority.
 
 The newest admitted Front PAiGE persists under its original publication date;
-it is not inserted into the new Daily's `storyIds`. Current implementation only
-retains Weekly within a seven-day window; that is the known gap above, not the
-intended policy. Required policy: consider a successor on Wednesday and retain
-the admitted Weekly with its real date until an admitted successor exists.
-Missing or held Weekly remains quiet. No ordinary story or Big Picture text is
-written by this projection.
+it is not inserted into the new Daily's `storyIds`. Weekly uses the exact
+`publications.weekly.storyId`, stays until an admitted successor or explicit
+hold/retraction, and retains all original publication/update/check dates.
+Wednesday triggers successor consideration, not expiration. Daily cannot clear
+or replace that pointer. Catch Me Up retains it even when the visit cutoff is
+newer. Missing or held Weekly remains unavailable; no ordinary story or Big
+Picture text is written by projection. Older service-bank rows are opportunities,
+not new-date permission: reuse requires an exactly admitted dated instance.
 
 Do not rerun the promoter after projection: its input checksum deliberately binds
 the pre-projection canonical bytes. Use the projector's `--check` for idempotence.
@@ -162,6 +162,8 @@ the pre-projection canonical bytes. Use the projector's `--check` for idempotenc
 ```sh
 node scripts/test-newsstand-reader-contract.mjs
 node scripts/test-newsstand-reader-browser.mjs
+node scripts/test-newsstand-next-cycle.mjs
+node scripts/test-newsstand-reader-browser.mjs --zoom-200
 ```
 
 The browser suite must exit normally. Check that the current Daily displays the

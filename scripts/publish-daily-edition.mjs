@@ -55,6 +55,12 @@ export function projectDailyIssue({ dataset, issue, columns }) {
     reject("persistent Front PAiGE is missing, held or duplicated");
   }
   if (issue.weeklyStoryId && (!isAdmitted(stories.get(issue.weeklyStoryId)) || stories.get(issue.weeklyStoryId).edition !== "weekly")) reject("Weekly continuity is not admitted");
+  const weekly = dataset.publications.weekly;
+  const currentWeeklyId = weekly?.status === "current" ? weekly.storyId : null;
+  if ((issue.weeklyStoryId || null) !== (currentWeeklyId || null) ||
+      (weekly?.status === "current" && (!currentWeeklyId || weekly.editionDate > issue.editionDate))) {
+    reject("Weekly continuity must preserve the exact current canonical pointer; Daily cannot replace or clear it");
+  }
   for (const id of issue.serviceRecordIds) {
     const record = columns.records.find((item) => item.id === id);
     if (!record || record.editionDate !== issue.editionDate || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
@@ -85,18 +91,8 @@ export function projectDailyIssue({ dataset, issue, columns }) {
     lastCheckedAt: timestamp,
     note: issue.storyIds.length ? `The Daily for ${issue.editionDate}.` : "No new news story was published today. The latest Front PAiGE and available columns remain below."
   };
-  // Weekly is a Wednesday-to-Wednesday publication, not a Daily refill slot.
-  // A held or missing Weekly is never elevated merely to populate the page.
-  if (!issue.weeklyStoryId) {
-    next.publications.weekly = {
-      ...next.publications.weekly,
-      status: "quiet",
-      publishedAt: null,
-      updatedAt: timestamp,
-      lastCheckedAt: timestamp,
-      note: "No Weekly roundup is available for the current Wednesday-to-Wednesday window."
-    };
-  }
+  // Daily never edits Weekly identity, status or dates. A separate admitted
+  // Weekly successor (or explicit hold/retraction) controls that publication.
   return next;
 }
 

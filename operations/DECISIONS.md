@@ -27,8 +27,12 @@ Ali's August 30 recurring-cycle correction: the existing daily07:00 Vancouver
 Codex heartbeat is ACTIVE and owns gated source-to-publication orchestration;
 "no backend cron enabled" must not be reported as "no active schedule". Its next
 run uses the preserved released implementation and reconciles current production,
-not the older iCloud source. Weekly until-admitted-successor continuity and known
-next-date preflight gaps are explicitly routed in that same runbook.
+not the older iCloud source. Weekly retains its exact canonical story pointer
+and original dates until an admitted successor or explicit hold/retraction;
+Wednesday is a successor-review cadence, not an expiry. Daily cannot overwrite
+that authority. Reused bank items require exact new-date admission. The runbook
+binds dynamic next-date, continuity and native 200% zoom checks; a real new-story
+editorial branch remains HOLD until its separate admissions are earned.
 
 | Question | Current source |
 |---|---|

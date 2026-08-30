@@ -148,13 +148,14 @@ assert.equal(contract.visibleStories(bigPictureFixture, "big-picture", NOW).leng
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
 const weeklyWindow = JSON.parse(JSON.stringify(base.publications.weekly));
 weeklyWindow.status = "current";
+weeklyWindow.storyId = "weekly-test-fixture";
 weeklyWindow.editionDate = "2026-08-19";
 weeklyWindow.editorialTimeZone = "America/Vancouver";
 weeklyWindow.publishedAt = "2026-08-19T15:00:00Z";
 weeklyWindow.updatedAt = "2026-08-19T15:00:00Z";
 weeklyWindow.lastCheckedAt = "2026-08-19T15:00:00Z";
 assert.equal(contract.effectivePublicationState(weeklyWindow, "2026-08-23T20:00:00Z"), "current", "Wednesday Weekly must remain current through Tuesday");
-assert.equal(contract.effectivePublicationState(weeklyWindow, "2026-08-26T20:00:00Z"), "archive", "Wednesday Weekly must expire at the next Wednesday boundary");
+assert.equal(contract.effectivePublicationState(weeklyWindow, "2026-09-02T20:00:00Z"), "current", "Weekly persists beyond two Wednesdays until an admitted successor");
 assert.equal(contract.effectivePublicationState(weeklyWindow, "2026-08-18T20:00:00Z"), "archive", "a future Weekly must not appear current");
 const invalidWeeklyDate = JSON.parse(JSON.stringify(base));
 invalidWeeklyDate.publications.weekly = { ...weeklyWindow, editionDate: "2026-08-20" };

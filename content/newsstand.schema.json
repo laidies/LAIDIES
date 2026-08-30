@@ -48,6 +48,7 @@
         "note": { "type": "string", "minLength": 10 },
         "editionDate": { "type": "string", "format": "date" },
         "editorialTimeZone": { "type": "string", "minLength": 3 },
+        "storyId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
         "issue": {
           "type": "object",
           "additionalProperties": true,
@@ -69,7 +70,7 @@
         },
         {
           "if": { "properties": { "edition": { "const": "weekly" }, "status": { "const": "current" } }, "required": ["edition", "status"] },
-          "then": { "required": ["editionDate", "editorialTimeZone"] }
+          "then": { "required": ["editionDate", "editorialTimeZone", "storyId"] }
         }
       ]
     },

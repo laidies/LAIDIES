@@ -3,11 +3,20 @@ import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { composeDailyEnvelope } from "./compose-daily-edition.mjs";
-import { promoteDailyIssue } from "./promote-daily-edition.mjs";
+import os from "node:os";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const SOURCE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+// Keep the historical August 4 test separate from current Weekly authority.
+const ROOT = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'newsstand-promoter-regression-')));
+for (const relative of ['scripts/compose-daily-edition.mjs','scripts/promote-daily-edition.mjs','content/newsstand-stories.js','content/daily-edition-columns.json','operations/agents/aidb-intelligence-desk/daily/2026-08-04.md']) {
+  fs.mkdirSync(path.dirname(path.join(ROOT,relative)),{recursive:true});
+  let bytes=fs.readFileSync(path.join(SOURCE_ROOT,relative),'utf8');
+  if(relative==='content/newsstand-stories.js') bytes+='\nwindow.NEWSSTAND_DATA.publications.weekly.status="quiet";\n';
+  fs.writeFileSync(path.join(ROOT,relative),bytes);
+}
+const {composeDailyEnvelope}=await import(pathToFileURL(path.join(ROOT,'scripts/compose-daily-edition.mjs')));
+const {promoteDailyIssue}=await import(pathToFileURL(path.join(ROOT,'scripts/promote-daily-edition.mjs')));
 const date = "2026-08-04";
 const radarPath = path.join(ROOT, `operations/agents/aidb-intelligence-desk/daily/${date}.md`);
 const composed = composeDailyEnvelope({
