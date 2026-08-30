@@ -166,8 +166,9 @@ async function submit(page, prompt = "Help me ask my manager for another day to 
 
 try {
   const desktop = await openFixture();
-  check(await desktop.page.locator(".fg-exterior img").isVisible(),
-    "visitor sees the cottage before the tool");
+  check(await desktop.page.locator(".fg-exterior.fg-exterior-held").isVisible() &&
+    await desktop.page.locator(".fg-exterior img").count() === 0,
+    "visitor sees the honest exterior hold without an unapproved cottage request");
   check(await desktop.page.locator(".fg-room-image").isVisible(),
     "visitor sees the parlour as the interface");
   check(await desktop.page.locator(".fairy-disclosure").isVisible(),

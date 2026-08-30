@@ -29,6 +29,14 @@
 > outage changes persistence status, not whether supported local Closet records
 > are visible.
 
+> **PUFFY CONSUMER BOUNDARY — 2026-08-29.** Every public page that loads
+> `puffy-bookmarks.js` must load `resident-card-contract-v1.js` first. Puffy
+> placement may recognize only a valid device-local Card read through that
+> contract; a missing contract is an integration failure, not evidence that the
+> visitor has no Card. The Gift Shop, Handbook, LIBRAiRY and Closet are covered
+> by the Resident contract guard. A Card enables only the device-local Puffy
+> picker and does not imply account, backup, sync, stock, reservation or reward.
+
 > **SUPERSEDED ACCOUNT BOUNDARY — 2026-08-23.** This update previously superseded the
 > preserved-behaviour statements below where they imply a publicly verified
 > account lifecycle. Resident Card owns the sole private sign-in-link request

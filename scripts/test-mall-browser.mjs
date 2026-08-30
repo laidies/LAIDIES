@@ -55,6 +55,12 @@ const overflow = (page) => page.evaluate(() =>
 
 try {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  await context.addInitScript(() => {
+    localStorage.setItem("laidies_resident_card_v1", JSON.stringify({
+      version: 1,
+      fields: { displayName: "Mall fixture resident" }
+    }));
+  });
   await blockExternal(context);
   const page = await context.newPage();
   const pageErrors = [];
@@ -174,6 +180,14 @@ try {
   check((await page.locator("#shopHeldCount").innerText()) === "0",
     "device-local interest reset did not update the count");
   console.log("MALL BROWSER STEP gift-shop");
+
+  await page.goto(`${origin}/handbook.html`, { waitUntil: "domcontentloaded" });
+  await page.locator("#buildings + .puffy-save-row .puffy-btn").click();
+  check(await page.locator(".puffy-picker .puffy-option").count() === 10,
+    "Handbook valid Resident Card does not open the ten-sticker Puffy picker");
+  check((await page.locator(".puffy-picker-head").innerText()).includes("Choose from your 10"),
+    "Handbook valid Resident Card is misclassified as Card-less");
+  console.log("MALL BROWSER STEP handbook-puffy");
 
   await page.goto(`${origin}/community/burn-book.html`, { waitUntil: "domcontentloaded" });
   check((await page.locator(".thread-hero").innerText()).includes("not a submission queue"),

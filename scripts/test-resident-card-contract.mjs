@@ -31,6 +31,12 @@ const house = fs.readFileSync(
   path.join(root, "content", "site", "sorority-house-v2.js"),
   "utf8"
 );
+const puffyConsumers = [
+  "handbook.html",
+  "laidies-card.html",
+  "library.html",
+  "shop.html"
+];
 
 const checks = [];
 function check(value, label) {
@@ -91,6 +97,15 @@ check(page.includes("resident-account-runtime-v1.js?v=20260829-provider-health-1
   "Resident Card and Closet bind the provider-health runtime cache identity");
 check(house.includes("It is not a Hyvor sign-in or cross-device community identity."), "Sorority House denies local-card identity escalation");
 check(house.includes("Every room is still open to explore."), "local card cannot unlock community rooms");
+for (const relative of puffyConsumers) {
+  const consumer = fs.readFileSync(path.join(root, relative), "utf8");
+  const contractIndex = consumer.indexOf("resident-card-contract-v1.js");
+  const puffyIndex = consumer.indexOf("puffy-bookmarks.js");
+  check(consumer.includes('src="/content/site/resident-card-contract-v1.js'),
+    `${relative} loads the Resident Card contract for Puffy saves`);
+  check(contractIndex >= 0 && puffyIndex >= 0 && contractIndex < puffyIndex,
+    `${relative} loads the Resident Card contract before Puffy runtime`);
+}
 
 const failures = checks.filter((item) => !item.ok);
 for (const item of checks) {
