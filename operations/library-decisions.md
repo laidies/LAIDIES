@@ -51,6 +51,15 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Current implementation assets
 
+### Full-viewport reader and protected art margin — 2026-08-30
+
+Ali explicitly rejected navy side gutters and the computer overlapping prose.
+An open book fills the browser viewport; the imagegen frame remains unchanged.
+Reserve clearance beyond the rendered artwork for all scrolling text, not only
+the first screen. Keep the book's horizontal Contents/Save/Top/Back controls
+available; the underlying website header must not intrude. Check wide desktop
+as well as mobile, including text scrolled past the fixed computer.
+
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`
 - Shelf wall, floor and case assets are not active inputs for the four-book browse presentation.

@@ -8,7 +8,7 @@
   padding: 0;
   place-items: start center;
   overflow: hidden;
-  background: #07102f;
+  background: #fffdfb;
 }
 
 #reader .book--reference-zine {
@@ -16,8 +16,8 @@
   --violet: #7040d0;
   --cyan: #18bdd5;
   position: relative;
-  width: min(1487px, 100dvw);
-  max-width: 1487px;
+  width: 100dvw;
+  max-width: none;
   height: 100dvh;
   max-height: none;
   padding: 0;
@@ -25,7 +25,7 @@
   border: 0;
   border-radius: 0;
   background: #fffdfb;
-  box-shadow: 0 28px 90px rgba(2, 8, 28, .58);
+  box-shadow: none;
   color: var(--ink);
 }
 
@@ -64,8 +64,9 @@
 
 .book--reference-zine .band {
   display: grid;
+  flex-shrink: 0;
   min-height: 190px;
-  padding: 38px 58px 18px 184px;
+  padding: 38px 58px 18px max(184px, calc(13vw + 24px));
   grid-template-columns: minmax(500px, 1fr) auto;
   align-items: center;
   gap: 28px;
@@ -243,6 +244,7 @@
 .book--reference-zine .body {
   position: relative;
   display: block;
+  flex: 1 1 0;
   height: calc(100dvh - 190px);
   min-height: 0;
   overflow: hidden;
@@ -251,7 +253,10 @@
 .book--reference-zine .toc { display: none !important; }
 .book--reference-zine .txt {
   height: 100%;
-  padding: 6px 116px 80px 236px;
+  /* The baked-in computer extends to x=280 of the 1487px frame. A 19%
+     rail plus 24px clearance protects every scroll position. With centered
+     object-fit:cover, horizontal cropping can only reduce that left extent. */
+  padding: 6px 116px 80px calc(19vw + 24px);
   overflow: auto;
   background: rgba(255, 255, 255, .08);
   color: #1b2345;
@@ -386,7 +391,7 @@
   .book--reference-zine .reader-actions { position: static; width: 100%; min-width: 0; margin: 3px 0 0; justify-content: flex-end; }
   .book--reference-zine .reader-contents { position: relative; inset: auto; }
   .book--reference-zine .body { height: calc(100dvh - 170px); }
-  .book--reference-zine .txt { padding: 6px 34px 76px 128px; font-size: 17px; line-height: 1.58; }
+  .book--reference-zine .txt { padding: 6px 34px 76px calc(19vw + 24px); font-size: 17px; line-height: 1.58; }
   .book--reference-zine .txt .reader-preface-heading { width: calc(100% - 214px); min-height: 92px; margin-bottom: 7px; padding: 4px 0 8px 100px; font-size: 31px; }
   .book--reference-zine .txt .reader-preface-heading::before { width: 92px; height: 92px; font-size: 31px; }
   .book--reference-zine .txt .reader-preface-heading::after { left: 112px; width: calc(100% - 112px); height: 24px; }
@@ -399,6 +404,13 @@
   .book--reference-zine .reader-preface-card p { font-size: 14px; line-height: 1.4; }
   .book--reference-zine .reader-preface-card-why { min-height: 132px; }
   .book--reference-zine .reader-preface-card-job { min-height: 210px; }
+}
+
+/* Keep the controls out of the title when the protected margin leaves less
+   horizontal room. This changes only header layout, not book typography. */
+@media (min-width: 1200px) and (max-width: 1499px) {
+  .book--reference-zine .band { grid-template-columns: 1fr; gap: 12px; padding-top: 24px; }
+  .book--reference-zine .reader-actions { min-width: 0; justify-content: flex-end; }
 }
 
 /* Mobile keeps the same visual vocabulary, with the controls and contents always reachable. */
@@ -451,6 +463,8 @@
 
 @media (max-width: 420px) {
   .book--reference-zine .band { min-height: 122px; padding-left: 38px; }
+  .book--reference-zine .band .reader-actions { width: calc(100% + 28px); margin-left: -28px; }
+  .book--reference-zine .reader-contents > summary { min-height: 44px; }
   .book--reference-zine .band .t { font-size: 32px; }
   .book--reference-zine .body { height: calc(100dvh - 122px); }
   .book--reference-zine .txt { padding: 18px 14px 70px 43px; }

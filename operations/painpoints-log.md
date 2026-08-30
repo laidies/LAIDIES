@@ -14784,6 +14784,13 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why “accepted copy” and “the author's copy” turned out to be two different things.
 - **Publication status:** PRODUCTION LIBRARY CORRECTION / DEPLOYED AND VERIFIED PUBLICLY.
 
+## Reader geometry regression — 2026-08-30
+
+- **Failure:** A fixed 1487px reader left navy gutters on wide displays; its fixed 236px text inset allowed the raster computer to intrude into prose. The old browser test server also served external CSS as an octet stream, so its no-overflow test did not establish the actual styled layout.
+- **Prevention:** Serve real stylesheet/font MIME types; wait for fonts and frame decoding; assert full viewport geometry, control bounds and raster-safe text clearance at wide and narrow viewports. A continuously scrolling reader needs clearance at every scroll position. Calibrate with intentionally restored width and overlap defects.
+- **Verification:** Four books × six widths passed. Bad-width and bad-art injections failed. Independent screenshot review found no visible blocker; 2560px capture clipping remains explicitly an evidence limitation. No public release in this task.
+- **Behind the Build angle:** A passing browser check can test the wrong design if the stylesheet never loaded.
+
 ## BTB-487 — A deep freshness review can correctly produce no new release
 
 - **Date:** 2026-08-29

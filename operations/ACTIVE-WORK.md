@@ -4,6 +4,17 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-FULL-VIEWPORT-ART-CLEARANCE-20260830
+- **Status:** VERIFIED LOCALLY — not deployed
+- **Owner:** Codex foreground; Ali owns visual acceptance and public release.
+- **Goal:** Remove navy reader gutters and computer/text overlap; retain book controls without exposing the underlying site header.
+- **Result:** The shared reader fills the viewport. Its desktop text inset reserves 19% of viewport width plus 24px beyond the existing raster computer; artwork and manuscripts are unchanged. Header controls reflow below the title at compact desktop widths. Small-phone controls fit without clipping. The body flexes into the space remaining below the persistent header.
+- **Verification:** `scripts/test-library-opening-books.cjs` passed four previews and all four books at 1280/1710/1920/2560/390/320px (24 journeys). Checks cover full-viewport bounds, top-edge hit testing, frame clearance, control visibility, continuous scrolling and Contents/Top navigation. Deliberately injected old gutters and art overlap each produce failure. The test server now serves CSS with its correct MIME type and waits for decoded frame/fonts before geometry checks.
+- **Visual review:** Main-agent browser inspection plus independent artifact-first review found no visible blocker in desktop top/scrolled and phone captures at `/tmp/library-fullwidth-review-20260830/`. The 2560px viewport screenshot is capture-capped to 2459px; far-right control visibility at that width is geometry-tested, not fully captured. CSS SHA-256: `4ccbac4beeed84d8e597fe4e7602bd96d9b5fb437813732783db15d1c3bdf05a`.
+- **Next action:** Ali can inspect the corrected local preview. No deployment, live verification, manuscript change or image generation was performed. Prior deployment identities below are historical, not verified-current bases for a new release.
+
+## Previous four-book release
+
 - **Task ID:** LIBRARY-FOUR-BOOK-CLAUDE-REVISION-INTEGRATION-20260829
 - **Status:** DEPLOYED / PUBLICLY VERIFIED
 - **Owner:** Codex foreground; Ali owns public release and final editorial taste
