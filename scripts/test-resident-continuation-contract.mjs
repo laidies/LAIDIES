@@ -18,7 +18,7 @@ class Storage {
   removeItem(key) { this.values.delete(String(key)); }
 }
 
-function makeDevice(path, title, seed = {}) {
+function makeDevice(path, title, seed = {}, search = "") {
   const localStorage = new Storage(seed);
   const listeners = new Map();
   const window = {
@@ -35,7 +35,7 @@ function makeDevice(path, title, seed = {}) {
     localStorage,
     location: {
       pathname: path,
-      search: "",
+      search,
       hash: ""
     },
     setInterval() {},
@@ -108,6 +108,20 @@ assert.deepEqual(
 assert.deepEqual(
   Array.from(merged.activities["tour_2026-W31"].value).sort(),
   ["blend-snap", "chick-flicks", "newsstand"]
+);
+
+const publicCardVisit = makeDevice(
+  "/laidies-card.html",
+  "Another resident's Closet | LAiDIES",
+  { laidies_continuation_v1: JSON.stringify(first) },
+  "?u=public_alice"
+);
+const publicCardBefore = publicCardVisit.localStorage.getItem("laidies_continuation_v1");
+publicCardVisit.api.recordLastPage();
+assert.equal(
+  publicCardVisit.localStorage.getItem("laidies_continuation_v1"),
+  publicCardBefore,
+  "another resident's public Card must not become this resident's resume target"
 );
 
 d1.api.applyDocument(merged);
@@ -204,5 +218,5 @@ assert.equal(
 console.log(
   "RESIDENT CONTINUATION CONTRACT PASS " +
   "episode_merge=1 collections_union=1 tour_union=1 safe_path=1 " +
-  "private_exclusion=1 account_switch_isolation=1"
+  "private_exclusion=1 public_card_resume_exclusion=1 account_switch_isolation=1"
 );

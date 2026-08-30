@@ -287,6 +287,11 @@
   }
 
   function recordLastPage() {
+    var search = String(global.location.search || "");
+    if (/\/laidies-card(?:\.html)?$/.test(global.location.pathname) &&
+        /(?:^|[?&])(?:u|member)(?:=|&|$)/.test(search)) {
+      return readLocalDocument();
+    }
     var path = safePath(
       global.location.pathname + global.location.search + global.location.hash
     );

@@ -278,10 +278,10 @@ try {
   await page.locator("#closetPersistenceState").waitFor();
   await page.waitForFunction(() =>
     document.querySelector("#closetPersistenceState")?.textContent
-      .includes("Device-local view"));
+      .includes("saved in this browser"));
   check(
-    (await page.locator("#closetPersistenceState").innerText()).includes("Device-local view"),
-    "Closet does not distinguish its device-local state"
+    (await page.locator("#closetPersistenceState").innerText()).includes("saved in this browser"),
+    "Closet does not preserve its browser-local boundary while account restore is unavailable"
   );
   check(
     (await page.locator("#cardCarry").innerText()).includes("Caboodles case"),
@@ -291,13 +291,15 @@ try {
     "walletSlots",
     "dashboardSection",
     "covenSection",
-    "tourSection",
-    "collectionSection",
     "fairyBankSection",
     "leaderboardSection"
   ]) {
     check(await page.locator(`#${id}`).isHidden(),
       `unproved Closet surface remained visitor-visible: ${id}`);
+  }
+  for (const id of ["tourSection", "collectionSection"]) {
+    check(await page.locator(`#${id}`).isVisible(),
+      `proved device-local Closet continuation was hidden: ${id}`);
   }
   check(await page.locator("#shareCardBtn").isDisabled(),
     "device-local handle enabled a public Share action");
@@ -484,7 +486,7 @@ try {
   await closetFailurePage.goto(`${origin}/laidies-card.html`, { waitUntil: "domcontentloaded" });
   await closetFailurePage.waitForFunction(() =>
     document.querySelector("#closetPersistenceState")?.textContent
-      .includes("Device-local view"));
+      .includes("saved in this browser"));
   await closetFailurePage.locator("#editCardBtn").click();
   await closetFailurePage.locator("#editName").fill("Partial write must not appear");
   await closetFailurePage.locator("#editQuote").fill("New quote must not appear");
@@ -775,10 +777,13 @@ try {
   const publicCalls = await publicAccount.mockPage.evaluate(
     () => window.__MAIKEOVER_PREFLIGHT_CALLS__
   );
-  check(publicCalls.every((call) => call.table === "public_resident_cards"),
-    "public Card queried a raw/private table");
+  check(publicCalls.filter((call) => call.table).every((call) => call.table === "public_resident_cards"),
+    `public Card queried a raw/private table: ${JSON.stringify(publicCalls)}`);
   check(!publicCalls.some((call) => call.table === "member_reward_events"),
     "public Card queried raw member_reward_events");
+  check(!publicCalls.some((call) => call.name === "put_my_resident_continuation_v1" &&
+    String(call.args?.p_document?.last?.path || "").includes("u=public_alice")),
+    "public Card visit was saved as the signed-in resident's own Closet continuation");
   const publicSelect = publicCalls.find(
     (call) => call.table === "public_resident_cards" && call.op === "select"
   );
