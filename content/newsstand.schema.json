@@ -54,6 +54,9 @@
           "required": ["status", "storyIds", "serviceRecordIds"],
           "properties": {
             "status": { "const": "complete" },
+            "disposition": { "enum": ["quiet", "service_ready", "candidates_pending_review"] },
+            "frontPaigeStoryId": { "type": "string", "pattern": "^front-paige-[a-z0-9-]+$" },
+            "weeklyStoryId": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
             "storyIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
             "serviceRecordIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
           }

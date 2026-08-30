@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="./content/newsstand.css?v=20260829-big-picture-row-1">
+    <link rel="stylesheet" href="./content/newsstand.css?v=20260830-mobile-status-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -135,49 +135,6 @@
                 <span class="ns-front-action">Open Big Picture →</span>
               </button>
             </div>
-            <article class="ns-miss-jeeves" id="dear-miss-jeeves-time-2026-08-24" aria-labelledby="ns-miss-jeeves-title">
-              <header class="ns-miss-jeeves__head">
-                <p>Advice for your AI age</p>
-                <h3 id="ns-miss-jeeves-title">Dear Miss Jeeves</h3>
-              </header>
-              <div class="ns-miss-jeeves__letter">
-                <p>Dear Miss Jeeves,</p>
-                <p>Why is my AI assistant so strangely bad at knowing what day or time it is?</p>
-                <p class="ns-miss-jeeves__signature">— Temporally Confused in Toronto</p>
-              </div>
-              <div class="ns-miss-jeeves__answer">
-                <p><strong>Dear Temporally Confused,</strong></p>
-                <p>A language model does not experience time passing. It answers from the information the product places in its context. Some AI tools supply the current date, time zone or calendar information; others do not. A long conversation can also carry an older date forward.</p>
-                <p><strong>What to try:</strong> Put the exact date, time zone and deadline directly in the request: “Today is August 24, 2026 in Vancouver. Draft a schedule for Tuesday, August 25.” Then verify any consequential date against your calendar.</p>
-                <p><strong>Why it works:</strong> You replace a hidden or stale assumption with explicit, checkable context. If the answer could make you late, miss a deadline or book the wrong day, let your calendar—not the chatbot—have the final word.</p>
-                <p class="ns-miss-jeeves__signoff">Yours in punctuality,<br><strong>Miss Jeeves</strong></p>
-              </div>
-            </article>
-            <article class="ns-concept-week" id="concept-ai-system" aria-labelledby="ns-concept-week-title">
-              <header class="ns-concept-week__head">
-                <p>Concept of the Week</p>
-                <h3 id="ns-concept-week-title">An AI system is more than its model.</h3>
-                <p class="ns-concept-week__dek">The same model can be careful, reckless, useful or useless depending on everything wrapped around it.</p>
-              </header>
-              <div class="ns-concept-week__body">
-                <section>
-                  <h4>The plain-English version</h4>
-                  <p>The <strong>model</strong> is the part that generates or interprets language, images or other information. The <strong>system</strong> is the model plus the context it receives, the tools and data it can reach, the instructions it follows, the monitoring around it and the people responsible for the result.</p>
-                </section>
-                <section>
-                  <h4>A concrete example</h4>
-                  <p>Put the same language model in a public chatbot and it may only answer from your conversation. Put it inside an HR tool and it may also read policies, search employee records or draft a recommendation. Same underlying model; very different system, stakes and permissions.</p>
-                </section>
-                <section>
-                  <h4>The common confusion</h4>
-                  <p>“The model can do it” does not mean the product has reliable sources, permission to act, a review step or a way to correct a mistake. A fluent demo proves surprisingly little about the whole arrangement.</p>
-                </section>
-                <section>
-                  <h4>Use the concept</h4>
-                  <p>Before trusting workplace AI, ask four questions: <strong>What can it see? What can it do? Who checks it? Who owns the decision?</strong> That quick system map is more useful than memorising another leaderboard.</p>
-                </section>
-              </div>
-            </article>
             <section class="ns-feature-desk" aria-labelledby="ns-feature-desk-title" hidden>
               <div class="ns-feature-desk__head">
                 <p class="ns-front-desk__label">Keep this page</p>
@@ -272,14 +229,9 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="./content/newsstand-reader-contract.js?v=20260823-newsstand-v1"></script>
-    <script src="./content/newsstand-stories.js?v=20260829-big-picture-release-1"></script>
+    <script src="./content/newsstand-reader-contract.js?v=20260830-canonical-continuity-1"></script>
+    <script src="./content/newsstand-stories.js?v=20260830-daily-edition-1"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
-    <script>
-      if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
-        document.write('<script src="./operations/product-stewards/newsstand/candidates/front-paige-data-centre-agency-2026-08-23/local-preview-data.js?v=20260824-layout-review-3"><\/script>');
-      }
-    </script>
     <script>
       (function () {
         "use strict";
@@ -1363,9 +1315,15 @@
             var issueIds = Array.isArray(publication.issue.storyIds)
               ? publication.issue.storyIds
               : [];
-            return issueIds.map(function (id) {
+            var datedStories = issueIds.map(function (id) {
               return visible.find(function (story) { return story.id === id; });
             }).filter(Boolean);
+            var frontId = publication.issue.frontPaigeStoryId;
+            var frontStory = frontId && stories.find(function (story) { return story.id === frontId; });
+            var admittedFront = frontStory && contract.accessDecision(data, frontStory, { edition: "daily", scope: "feature" }, now).canExpose
+              ? frontStory
+              : null;
+            return (admittedFront ? [admittedFront] : []).concat(datedStories);
           }
 
           Array.prototype.forEach.call(document.querySelectorAll("[data-contents-for]"), function (node) {
@@ -1390,6 +1348,8 @@
             var leadVisualCredit = leadVisual && leadVisual.querySelector(".ns-front-paige-image__credit");
             if (visible.length) {
               var lead = visible[0];
+              var storyDate = leadDesk && leadDesk.querySelector('[data-status-for="daily"]');
+              if (storyDate) storyDate.textContent = "Published " + formatDate(lead.publishedAt);
               var control = node.closest("[data-edition], [data-open-edition]");
               if (leadDesk) {
                 leadDesk.disabled = false;
@@ -1763,7 +1723,7 @@
     <script src="./content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="./content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260829-approved-service-desks-1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260830-canonical-continuity-1"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>

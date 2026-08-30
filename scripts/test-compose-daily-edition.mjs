@@ -55,7 +55,7 @@ secondDuplicate.id = "DUPLICATE-B";
 duplicateColumns.records.push(duplicate, secondDuplicate);
 assert.throws(() => composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw: JSON.stringify(duplicateColumns) }), /duplicate desk/, "duplicate same-date desk must fail");
 
-const conflictingStories = storiesRaw.replaceAll('publishedAt: "2026-08-03T22:00:00Z"', 'publishedAt: "2026-08-04T22:00:00Z"');
+const conflictingStories = storiesRaw.replaceAll('"publishedAt": "2026-08-03T22:00:00Z"', '"publishedAt": "2026-08-04T22:00:00Z"');
 assert.throws(() => composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw: conflictingStories, columnsRaw }), /quiet editorial disposition conflicts/, "quiet disposition cannot hide a same-date published story");
 
 const legacy = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-03.json"), "utf8"));

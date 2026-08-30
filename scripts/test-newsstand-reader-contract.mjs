@@ -90,7 +90,10 @@ function mutate(base, mutation) {
   if (mutation === "missing-dataset") return null;
   const data = JSON.parse(JSON.stringify(base));
   const bigPicture = data.stories.find((story) => story.id === "label-is-not-a-truth-detector");
-  if (mutation === "empty-stories") data.stories = [];
+  if (mutation === "empty-stories") {
+    data.stories = [];
+    delete data.publications.daily.issue.frontPaigeStoryId;
+  }
   if (mutation === "dataset-hold") data.datasetStatus = "hold";
   if (mutation === "publication-unavailable") {
     data.publications["big-picture"].status = "unavailable";
@@ -140,8 +143,8 @@ const drill = JSON.parse(fs.readFileSync(DRILL_FILE, "utf8"));
 assert.deepEqual(Array.from(contract.EDITIONS), ["breaking", "daily", "weekly", "big-picture"]);
 assert.equal(contract.validate(base).length, 0);
 assert.equal(contract.visibleStories(base, "weekly", NOW).length, 0, "held Weekly story must fail closed");
-assert.equal(contract.visibleStories(base, "big-picture", NOW).length, 0, "the corrected canonical dataset has no Big Picture filler");
-assert.equal(contract.visibleStories(bigPictureFixture, "big-picture", NOW).length, 1, "the synthetic fixture retains Big Picture contract coverage");
+assert.equal(contract.visibleStories(base, "big-picture", NOW).length, 1, "the admitted Big Picture remains available");
+assert.equal(contract.visibleStories(bigPictureFixture, "big-picture", NOW).length, 2, "the synthetic fixture adds independent Big Picture contract coverage");
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
 const weeklyWindow = JSON.parse(JSON.stringify(base.publications.weekly));
 weeklyWindow.status = "current";
@@ -174,6 +177,7 @@ governedQuietDaily.publications.daily.issue.sourceIdentity = { radarSha256: "a".
 assert.equal(contract.validate(governedQuietDaily).length, 0, "a checksum-bound governed quiet Daily is a complete issue");
 const governedQuietOnly = JSON.parse(JSON.stringify(governedQuietDaily));
 governedQuietOnly.stories = [];
+delete governedQuietOnly.publications.daily.issue.frontPaigeStoryId;
 governedQuietOnly.publications.daily.editionDate = "2026-08-04";
 governedQuietOnly.publications.daily.lastCheckedAt = NOW_VANCOUVER_AUG_4;
 assert.equal(contract.datasetState(governedQuietOnly, NOW_VANCOUVER_AUG_4).state, "ready", "a fresh governed quiet Daily can recover a dataset with no visible story");
@@ -272,8 +276,8 @@ assert.match(html, /id="ns-browse-all"[^>]*>Browse all back issues<\/button>/, "
 assert.match(html, /id="ns-catchup-title">Catch me up\.<\/h2>/, "returning readers need a visible Catch Me Up route");
 assert.match(html, /id="ns-catchup-since" type="date"/, "Catch Me Up needs a visitor-editable start date");
 assert.match(html, /newsstand-catchup-v1\.js/, "the Catch Me Up consumer must be loaded");
-assert.doesNotMatch(html, /resident-continuation-bootstrap-v1\.js/, "NewsStand must not mount held account continuation");
-assert.match(html, /newsstand-current-issue\.js/, "NewsStand must load the owner-released current issue from a public content path");
+assert.match(html, /resident-continuation-bootstrap-v1\.js/, "the incumbent resident continuation integration remains outside NewsStand publication authority");
+assert.doesNotMatch(html, /newsstand-current-issue\.js|local-preview-data\.js/, "NewsStand must use schema-2 canonical data without a preview-only authority overlay");
 assert.equal((catchup.match(/record\.freshness\.expiresAt >= today/g) || []).length, 2,
   "Daily and historical service items must both fail closed after their freshness window");
 assert.match(catchup, /latestStoredDailyIssue\(\)/, "a stale current desk must still offer the latest admitted Daily as a labelled back issue");

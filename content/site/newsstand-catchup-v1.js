@@ -173,12 +173,12 @@
   }
 
   function issueEnvelopeProjection(issue) {
-    return {
+    var projection = {
       schemaVersion: "daily-private-issue-v1",
       mode: "PRIVATE_DRAFT_ONLY",
       editionDate: issue.editionDate,
       editorialTimeZone: issue.editorialTimeZone,
-      disposition: issue.disposition === "quiet" ? "QUIET" : "CANDIDATES_PENDING_REVIEW",
+      disposition: issue.disposition === "quiet" ? "QUIET" : issue.disposition === "service_ready" ? "SERVICE_READY" : "CANDIDATES_PENDING_REVIEW",
       status: issue.disposition === "quiet" ? "PRIVATE_QUIET_DRAFT" : "PRIVATE_REVIEW_DRAFT",
       storyIds: issue.storyIds,
       storySnapshots: issue.stories,
@@ -187,6 +187,9 @@
       canonicalWrite: false,
       deployActionTaken: false
     };
+    if (Object.prototype.hasOwnProperty.call(issue, "frontPaigeStoryId")) projection.frontPaigeStoryId = issue.frontPaigeStoryId;
+    if (Object.prototype.hasOwnProperty.call(issue, "weeklyStoryId")) projection.weeklyStoryId = issue.weeklyStoryId;
+    return projection;
   }
 
   function sha256Text(value) {
@@ -197,13 +200,14 @@
   }
 
   async function validDailyIssueStore(value) {
-    if (!value || value.schemaVersion !== "daily-issues-v1" || value.owner !== "newsstand-daily" || !Array.isArray(value.issues)) return false;
+    function invalid(reason) { global.__newsstandDailyIssueValidationFailure = reason; return false; }
+    if (!value || value.schemaVersion !== "daily-issues-v1" || value.owner !== "newsstand-daily" || !Array.isArray(value.issues)) return invalid("store-shape");
     var dates = new Set();
     for (var issueIndex = 0; issueIndex < value.issues.length; issueIndex += 1) {
       var issue = value.issues[issueIndex];
       if (!issue || !/^\d{4}-\d{2}-\d{2}$/.test(issue.editionDate || "") || dates.has(issue.editionDate) ||
           issue.editorialTimeZone !== "America/Vancouver" || issue.status !== "complete" ||
-          ["quiet", "candidates_pending_review"].indexOf(issue.disposition) === -1 ||
+          ["quiet", "service_ready", "candidates_pending_review"].indexOf(issue.disposition) === -1 ||
           !Array.isArray(issue.storyIds) || !Array.isArray(issue.stories) || !Array.isArray(issue.serviceRecordIds) || !Array.isArray(issue.desks) ||
           issue.desks.length !== dailyDeskTypesForDate(issue.editionDate).length || !HASH.test(issue.envelopeSha256 || "") ||
           !issue.sourceIdentity || ![issue.sourceIdentity.radarSha256, issue.sourceIdentity.storiesSha256, issue.sourceIdentity.columnsSha256].every(function (hash) { return HASH.test(hash || ""); }) ||
@@ -214,7 +218,7 @@
           (issue.admission.decision === "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" && !HASH.test(issue.admission.predecessorEnvelopeSha256 || "")) ||
           !/independent/i.test(issue.admission.reviewedBy || "") || !/independent/i.test(issue.admission.reviewerRole || "") ||
           !validTimestamp(issue.admission.reviewedAt) || Date.parse(issue.admission.reviewedAt) > Date.now() + 300000 ||
-          Date.parse(issue.admission.reviewedAt) < Date.parse(issue.editionDate + "T00:00:00Z")) return false;
+          Date.parse(issue.admission.reviewedAt) < Date.parse(issue.editionDate + "T00:00:00Z")) return invalid("issue-shape:" + (issue && issue.editionDate || issueIndex));
       dates.add(issue.editionDate);
       var allowedDeskTypes = dailyDeskTypesForDate(issue.editionDate);
       var types = new Set();
@@ -230,51 +234,24 @@
         return desk.state === "empty" && desk.recordId === null && Boolean(desk.emptyState);
       });
       if (!desksValid || new Set(readyIds).size !== readyIds.length ||
-          readyIds.join("\n") !== issue.serviceRecordIds.join("\n")) return false;
-      if (issue.stories.map(function (story) { return story && story.id; }).join("\n") !== issue.storyIds.join("\n")) return false;
+          readyIds.join("\n") !== issue.serviceRecordIds.join("\n")) return invalid("desk-binding:" + issue.editionDate);
+      if (issue.stories.map(function (story) { return story && story.id; }).join("\n") !== issue.storyIds.join("\n")) return invalid("story-binding:" + issue.editionDate);
       if (issue.stories.some(function (snapshot) {
         return !snapshot || typeof snapshot.id !== "string" || snapshot.edition !== "daily" ||
           dateOnly(snapshot.publishedAt) !== issue.editionDate ||
           ["published", "corrected"].indexOf(snapshot.status) === -1;
-      })) return false;
-      if (issue.disposition === "quiet" && (issue.storyIds.length || readyIds.length)) return false;
-      if (issue.disposition === "candidates_pending_review" && !issue.storyIds.length && !readyIds.length) return false;
+      })) return invalid("story-snapshot:" + issue.editionDate);
+      if (issue.disposition === "quiet" && (issue.storyIds.length || readyIds.length)) return invalid("quiet-has-content:" + issue.editionDate);
+      if (issue.disposition === "candidates_pending_review" && !issue.storyIds.length && !readyIds.length) return invalid("candidate-empty:" + issue.editionDate);
       var computedEnvelopeHash = await sha256Text(canonicalJson(issueEnvelopeProjection(issue)) + "\n");
-      if (!computedEnvelopeHash || computedEnvelopeHash !== issue.envelopeSha256) return false;
+      if (!computedEnvelopeHash || computedEnvelopeHash !== issue.envelopeSha256) return invalid("envelope-hash:" + issue.editionDate + ":" + computedEnvelopeHash);
     }
     return true;
   }
 
   function applyLatestDailyIssue() {
-    if (!contract || !data || data.datasetStatus !== "published") return;
-    var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
-    var issue = issues.filter(function (item) {
-      return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate) &&
-        item.editionDate === editorialToday() &&
-        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now();
-    }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
-    var publication = data.publications && data.publications.daily;
-    if (!issue || !publication) return;
-    var publicationDate = dateOnly(publication.editionDate || publication.publishedAt);
-    if (publicationDate && issue.editionDate < publicationDate) return;
-    publication.editionDate = issue.editionDate;
-    publication.issue = {
-      status: "complete",
-      disposition: issue.disposition,
-      storyIds: issue.storyIds || [],
-      serviceRecordIds: issue.serviceRecordIds || [],
-      sourceIdentity: issue.sourceIdentity || null
-    };
-    publication.status = "current";
-    publication.publishedAt = issue.editionDate + "T12:00:00Z";
-    publication.updatedAt = issue.admission && issue.admission.reviewedAt || publication.publishedAt;
-    publication.lastCheckedAt = issue.admission && issue.admission.reviewedAt || publication.publishedAt;
-    if (!data.lastCheckedAt || publication.lastCheckedAt > data.lastCheckedAt) {
-      data.lastCheckedAt = publication.lastCheckedAt;
-    }
-    publication.note = issue.disposition === "quiet"
-      ? "There is no new edition for this date."
-      : publication.note;
+    // Snapshot history cannot promote itself. Schema-2 is the sole current
+    // publication authority; the release transaction sets its dated pointers.
     syncCatchupAvailability();
   }
 
@@ -307,8 +284,12 @@
     var action = document.querySelector('.ns-publication[data-edition="daily"] .ns-publication__action');
     var indexAction = document.querySelector('[data-index-action-for="daily"]');
     Array.prototype.forEach.call(statuses, function (status) {
+      var frontId = daily.issue && daily.issue.frontPaigeStoryId;
+      var front = frontId && sourceStories.find(function (story) { return story.id === frontId; });
       status.textContent = status.closest(".ns-paper-index")
         ? compactPublicationStatusCopy(dailyState, daily)
+        : status.closest(".ns-front-desk--lead") && front && contract.accessDecision(data, front, { edition: "daily", scope: "feature" }, now).canExpose
+        ? "Published " + formatDate(front.publishedAt)
         : publicationStatusCopy(dailyState, daily);
       status.setAttribute("data-state", dailyState);
     });
@@ -404,6 +385,10 @@
     });
   }
 
+  function columnById(id) {
+    return eligibleColumns().find(function (record) { return record.id === id; });
+  }
+
   function columnEmpty(type, fallback) {
     return columns && columns.emptyStates && columns.emptyStates[type] || fallback;
   }
@@ -453,7 +438,7 @@
     if (issue) {
       var desk = issue.desks.find(function (item) { return item.type === type; }) || null;
       if (!desk || desk.state !== "ready") return desk;
-      var admittedColumn = columnFor(date, type);
+      var admittedColumn = columnById(desk.recordId);
       return admittedColumn && admittedColumn.id === desk.recordId ? desk : null;
     }
     return columnFor(date, type) || null;
@@ -485,7 +470,7 @@
       var node = document.querySelector('[data-desk="' + type + '"]');
       if (!node) return;
       var desk = issue && issue.desks.find(function (item) { return item.type === type; });
-      var admittedColumn = issue && columnFor(issue.editionDate, type);
+      var admittedColumn = issue && desk && columnById(desk.recordId);
       var ready = desk && desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
       node.setAttribute("data-desk-state", ready ? "ready" : "empty");
       var label = '<small>' + escapeHTML(labels[type]) + '</small>';
@@ -509,7 +494,7 @@
     var date = currentDailyDate();
     var issue = storedDailyIssue(date);
     var today = issue ? issue.desks.filter(function (desk) {
-      var admittedColumn = columnFor(date, desk.type);
+      var admittedColumn = columnById(desk.recordId);
       return desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
     }) :
       eligibleColumns().filter(function (record) { return record.editionDate === date; });
@@ -522,6 +507,9 @@
     if (promise) promise.hidden = true;
     node.setAttribute("data-story-count", String(stories.length));
     node.setAttribute("data-service-count", String(today.length));
+    var persistentFrontId = data.publications.daily.issue && data.publications.daily.issue.frontPaigeStoryId;
+    var persistentFront = persistentFrontId && sourceStories.find(function (story) { return story.id === persistentFrontId; });
+    if (persistentFront && contract.accessDecision(data, persistentFront, { edition: "daily", scope: "feature" }, new Date().toISOString()).canExpose) return;
     if (stories.length) {
       node.innerHTML = [
         '<span class="ns-publication__count">Feature story</span>',
@@ -742,7 +730,7 @@
       return issue.editionDate >= since && issue.editionDate !== dailyDate;
     }).flatMap(function (issue) {
       return issue.desks.filter(function (desk) {
-        var admittedColumn = columnFor(issue.editionDate, desk.type);
+        var admittedColumn = columnById(desk.recordId);
         return desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
       }).map(function (desk) {
         return {
@@ -940,6 +928,17 @@
       .then(function (response) { if (!response.ok) throw new Error("daily-issues-unavailable"); return response.json(); })
       .then(async function (value) {
         if (!await validDailyIssueStore(value)) throw new Error("daily-issues-invalid");
+        var canonicalDate = currentDailyDate();
+        value.issues = value.issues.filter(function (issue) { return issue.editionDate <= canonicalDate; });
+        var currentIssue = value.issues.find(function (issue) { return issue.editionDate === canonicalDate; });
+        var canonicalIssue = data.publications && data.publications.daily && data.publications.daily.issue;
+        if (currentIssue && canonicalIssue &&
+            (currentIssue.storyIds.join("\n") !== (canonicalIssue.storyIds || []).join("\n") ||
+             currentIssue.serviceRecordIds.join("\n") !== (canonicalIssue.serviceRecordIds || []).join("\n") ||
+             (currentIssue.frontPaigeStoryId || null) !== (canonicalIssue.frontPaigeStoryId || null) ||
+             (currentIssue.weeklyStoryId || null) !== (canonicalIssue.weeklyStoryId || null))) {
+          throw new Error("daily-snapshot-canonical-mismatch");
+        }
         dailyIssues = value;
         global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
           detail: { stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }) }

@@ -3497,6 +3497,9 @@ body.ns-story-open { overflow: hidden; }
 
 @media (max-width: 720px) {
   .ns-reader--story .ns-reader__rail { min-height: 58px; padding: 8px 16px; flex-direction: row; }
+  .ns-newsroom-bar.ns-paper-statusbar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .ns-paper-statusbar .ns-newsroom-bar__status { width: 100%; min-width: 0; }
+  .ns-paper-statusbar .ns-state__actions { width: 100%; flex-wrap: wrap; }
   .ns-reader--story .ns-unfolded-paper { width: 100%; padding: 34px 20px 72px; }
   .ns-reader--story .ns-article__head h2 { max-width: none; font-size: clamp(34px, 9.5vw, 42px); line-height: 1.02; }
   .ns-article__hero { margin: 8px 0 34px; }

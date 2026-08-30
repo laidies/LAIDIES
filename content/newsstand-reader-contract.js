@@ -36,6 +36,10 @@
             var quietIssue = item.issue && item.issue.disposition === "quiet" && item.issue.sourceIdentity &&
               /^[a-f0-9]{64}$/.test(String(item.issue.sourceIdentity.radarSha256 || ""));
             if ((!issueItems || !issueItems.length) && !quietIssue) errors.push("daily issue has no admitted story or service item and no governed quiet disposition");
+            if (item.issue && item.issue.frontPaigeStoryId !== undefined &&
+                !/^front-paige-[a-z0-9-]+$/.test(String(item.issue.frontPaigeStoryId || ""))) {
+              errors.push("daily Front PAiGE story ID is invalid");
+            }
           }
           if (edition === "weekly" && item.status === "current") {
             if (!/^\d{4}-\d{2}-\d{2}$/.test(String(item.editionDate || ""))) errors.push("weekly editionDate is invalid");
@@ -150,6 +154,18 @@
         if (storySlugs.has(story.slug)) errors.push(story.slug + " story slug is duplicated");
         storySlugs.add(story.slug);
       });
+      var dailyIssue = data.publications && data.publications.daily && data.publications.daily.issue;
+      if (dailyIssue && dailyIssue.frontPaigeStoryId) {
+        var frontPaigeStory = storiesById.get(dailyIssue.frontPaigeStoryId);
+        if (!frontPaigeStory || frontPaigeStory.edition !== "daily" || !/^front-paige-/.test(frontPaigeStory.id) ||
+            ["published", "corrected"].indexOf(frontPaigeStory.status) === -1 ||
+            !frontPaigeStory.sourceApproval || frontPaigeStory.sourceApproval.status !== "approved") {
+          errors.push("daily Front PAiGE story is not an admitted published feature");
+        }
+        if ((dailyIssue.storyIds || []).indexOf(dailyIssue.frontPaigeStoryId) !== -1) {
+          errors.push("daily Front PAiGE story must not be duplicated in date-specific Daily stories");
+        }
+      }
       data.stories.forEach(function (story) {
         if (!story || !story.id) return;
         if ((story.predecessorStoryIds || []).includes(story.id) || (story.successorStoryIds || []).includes(story.id)) {
@@ -310,7 +326,7 @@
         reason: "This story is not published yet."
       };
     }
-    var archiveScope = story && context && ["search", "archive", "hash"].indexOf(context.scope) !== -1;
+    var archiveScope = story && context && ["search", "archive", "hash", "feature"].indexOf(context.scope) !== -1;
     if (publicationState === "stale" && !archiveScope) {
       return {
         canExpose: false,

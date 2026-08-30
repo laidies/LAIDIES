@@ -10,57 +10,53 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-08-24T17:00:00Z",
-  "lastCheckedAt": "2026-08-24T17:00:00Z",
+  "generatedAt": "2026-08-30T15:31:04Z",
+  "lastCheckedAt": "2026-08-30T15:31:04Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
       "job": "News as it happens, when waiting would leave readers behind.",
       "status": "quiet",
       "publishedAt": null,
-      "updatedAt": "2026-08-24T17:00:00Z",
-      "lastCheckedAt": "2026-08-24T17:00:00Z",
+      "updatedAt": "2026-08-30T15:22:32Z",
+      "lastCheckedAt": "2026-08-30T15:22:32Z",
       "maxAgeHours": 24,
       "note": "No breaking story."
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-08-24",
+      "editionDate": "2026-08-30",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
-        "storyIds": [
-          "front-paige-accountable-systems-2026-08-24"
-        ],
+        "disposition": "service_ready",
+        "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
+        "weeklyStoryId": null,
+        "storyIds": [],
         "serviceRecordIds": [
-          "DAILY-2026-08-24-PAIGE-OUTLINE-FIRST",
-          "DAILY-2026-08-24-CAREER-REAL-ASSIGNMENT",
-          "DAILY-2026-08-24-CONCEPT-AI-SYSTEM",
-          "DAILY-2026-08-24-MME-CABOODLE",
-          "DAILY-2026-08-24-DEAR-JEEVES-TIME",
-          "DAILY-2026-08-24-WHATS-NEW-BIG-PICTURE",
-          "DAILY-2026-08-24-DID-YOU-KNOW-KSVL"
+          "DAILY-2026-08-30-CAREER-DELEGATION",
+          "DAILY-2026-08-30-MME-MINI-BACKPACK"
         ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-08-24T17:00:00Z",
-      "updatedAt": "2026-08-24T17:00:00Z",
-      "lastCheckedAt": "2026-08-24T17:00:00Z",
+      "publishedAt": "2026-08-30T15:31:04Z",
+      "updatedAt": "2026-08-30T15:31:04Z",
+      "lastCheckedAt": "2026-08-30T15:31:04Z",
       "maxAgeHours": 36,
-      "note": "The Daily for August 24, 2026."
+      "note": "No new news story was published today. The latest Front PAiGE and available columns remain below."
     },
     "weekly": {
       "edition": "weekly",
       "editionDate": "2026-08-19",
       "editorialTimeZone": "America/Vancouver",
       "job": "The week’s bigger picture, connecting the stories without repeating every headline.",
-      "status": "current",
-      "publishedAt": "2026-08-24T17:00:00Z",
-      "updatedAt": "2026-08-24T17:00:00Z",
-      "lastCheckedAt": "2026-08-24T17:00:00Z",
+      "status": "quiet",
+      "publishedAt": null,
+      "updatedAt": "2026-08-30T15:31:04Z",
+      "lastCheckedAt": "2026-08-30T15:31:04Z",
       "maxAgeHours": 192,
-      "note": "Wednesday to Wednesday."
+      "note": "No Weekly roundup is available for the current Wednesday-to-Wednesday window."
     },
     "big-picture": {
       "edition": "big-picture",

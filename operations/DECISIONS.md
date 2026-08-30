@@ -20,6 +20,10 @@ proper domain source before building from it.
 
 ## Core routes
 
+NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
+service-bank reuse, deterministic derivatives and the manual release boundary:
+`operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` (August 30 proving run).
+
 | Question | Current source |
 |---|---|
 | Names, retired terms, status words | `operations/voice/laidies-canon-index.md` |

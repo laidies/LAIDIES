@@ -14,7 +14,9 @@ const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/rele
 const EVIDENCE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/evidence");
 const HASH = /^[a-f0-9]{64}$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
-const TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+const LEGACY_TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+const CURRENT_TYPES = ["paige_tip", "career_life", "concept_week", "mme_claio", "dear_miss_jeeves", "behind_build", "around_town", "whats_new_sunnyvaile", "crossword", "song", "did_you_know", "town_note", "curiosity"];
+const typesForDate = (date) => date >= "2026-08-23" ? CURRENT_TYPES : LEGACY_TYPES;
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = (value) => {
   if (value === null || typeof value !== "object") return JSON.stringify(value);
@@ -30,14 +32,18 @@ const exactKeys = (value, keys, label) => {
 };
 
 function validateEnvelope(value) {
-  exactKeys(value, ["schemaVersion", "mode", "editionDate", "editorialTimeZone", "disposition", "status", "storyIds", "storySnapshots", "desks", "sourceIdentity", "canonicalWrite", "deployActionTaken"], "envelope");
+  const hasFrontPaige = value && Object.prototype.hasOwnProperty.call(value, "frontPaigeStoryId");
+  const hasWeekly = value && Object.prototype.hasOwnProperty.call(value, "weeklyStoryId");
+  exactKeys(value, ["schemaVersion", "mode", "editionDate", "editorialTimeZone", "disposition", "status", "storyIds", "storySnapshots", "desks", "sourceIdentity", "canonicalWrite", "deployActionTaken", ...(hasFrontPaige ? ["frontPaigeStoryId"] : []), ...(hasWeekly ? ["weeklyStoryId"] : [])], "envelope");
   if (value.schemaVersion !== "daily-private-issue-v1" || value.mode !== "PRIVATE_DRAFT_ONLY" ||
       !DATE.test(value.editionDate || "") || value.editorialTimeZone !== "America/Vancouver" ||
       value.canonicalWrite !== false || value.deployActionTaken !== false) reject("input is not a private non-writing envelope");
-  if (![["QUIET", "PRIVATE_QUIET_DRAFT"], ["CANDIDATES_PENDING_REVIEW", "PRIVATE_REVIEW_DRAFT"]]
+  if (![["QUIET", "PRIVATE_QUIET_DRAFT"], ["SERVICE_READY", "PRIVATE_REVIEW_DRAFT"], ["CANDIDATES_PENDING_REVIEW", "PRIVATE_REVIEW_DRAFT"]]
       .some(([disposition, status]) => value.disposition === disposition && value.status === status)) reject("envelope disposition/status is invalid");
   if (!Array.isArray(value.storyIds) || value.storyIds.some((id) => typeof id !== "string" || !id) ||
       new Set(value.storyIds).size !== value.storyIds.length) reject("story IDs are invalid");
+  if (hasFrontPaige && !(value.frontPaigeStoryId === null || /^front-paige-[a-z0-9-]+$/.test(value.frontPaigeStoryId))) reject("Front PAiGE story ID is invalid");
+  if (hasWeekly && !(value.weeklyStoryId === null || /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value.weeklyStoryId))) reject("Weekly story ID is invalid");
   if (!Array.isArray(value.storySnapshots) || value.storySnapshots.some((story) => !story || typeof story !== "object" || Array.isArray(story))) {
     reject("story snapshots are invalid");
   }
@@ -64,10 +70,11 @@ function validateEnvelope(value) {
     const absolute = path.join(ROOT, sourcePath);
     if (!fs.existsSync(absolute) || sha256(fs.readFileSync(absolute)) !== expectedHash) reject(`source bytes changed for ${sourcePath}`);
   }
-  if (!Array.isArray(value.desks) || value.desks.length !== TYPES.length) reject("Daily issue contents are incomplete");
+  const types = typesForDate(value.editionDate);
+  if (!Array.isArray(value.desks) || value.desks.length !== types.length) reject("Daily issue contents are incomplete");
   const deskTypes = new Set();
   for (const desk of value.desks) {
-    if (!desk || !TYPES.includes(desk.type) || deskTypes.has(desk.type)) reject("Daily desk types are invalid");
+    if (!desk || !types.includes(desk.type) || deskTypes.has(desk.type)) reject("Daily desk types are invalid");
     deskTypes.add(desk.type);
     if (desk.state === "ready") {
       exactKeys(desk, ["type", "state", "recordId", "headline", "summary", "destination"], `ready desk ${desk.type}`);
@@ -81,8 +88,9 @@ function validateEnvelope(value) {
   if (new Set(readyIds).size !== readyIds.length) reject("ready desk record IDs are duplicated");
   const columnData = JSON.parse(fs.readFileSync(path.join(ROOT, value.sourceIdentity.columnsPath), "utf8"));
   for (const desk of value.desks.filter((item) => item.state === "ready")) {
-    const record = (columnData.records || []).find((item) => item.id === desk.recordId && item.editionDate === value.editionDate &&
-      ["APPROVED", "PUBLISHED", "CORRECTED"].includes(item.status) && item.publicEligibility === "ELIGIBLE");
+    const record = (columnData.records || []).find((item) => item.id === desk.recordId && item.editionDate <= value.editionDate &&
+      ["APPROVED", "PUBLISHED", "CORRECTED"].includes(item.status) && item.publicEligibility === "ELIGIBLE" &&
+      item.freshness && item.freshness.expiresAt >= value.editionDate);
     if (!record || record.type !== desk.type || record.headline !== desk.headline || record.summary !== desk.summary ||
         (record.destination || null) !== desk.destination) reject(`ready desk ${desk.type} is not bound to admitted source content`);
   }
@@ -97,7 +105,20 @@ function validateEnvelope(value) {
       reject(`story ${id} snapshot is not the complete admitted source record`);
     }
   }
+  if (value.frontPaigeStoryId) {
+    const feature = (storiesContext.window.NEWSSTAND_DATA && storiesContext.window.NEWSSTAND_DATA.stories || []).find((item) =>
+      item.id === value.frontPaigeStoryId && item.edition === "daily" && /^front-paige-/.test(item.id) &&
+      ["published", "corrected"].includes(item.status) && item.sourceApproval && item.sourceApproval.status === "approved");
+    if (!feature || value.storyIds.includes(value.frontPaigeStoryId)) reject("Front PAiGE is not an admitted persistent feature");
+  }
+  if (value.weeklyStoryId) {
+    const weekly = (storiesContext.window.NEWSSTAND_DATA && storiesContext.window.NEWSSTAND_DATA.stories || []).find((item) =>
+      item.id === value.weeklyStoryId && item.edition === "weekly" && ["published", "corrected"].includes(item.status) &&
+      item.sourceApproval && item.sourceApproval.status === "approved");
+    if (!weekly) reject("Weekly continuity story is not admitted");
+  }
   if (value.disposition === "QUIET" && (value.storyIds.length || readyIds.length)) reject("quiet issue contains publishable material");
+  if (value.disposition === "SERVICE_READY" && !readyIds.length) reject("service-ready issue contains no admitted service item");
   if (value.disposition === "CANDIDATES_PENDING_REVIEW" && !value.storyIds.length && !readyIds.length) reject("non-quiet issue contains no admitted material");
 }
 
@@ -133,6 +154,8 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     editorialTimeZone: envelope.editorialTimeZone,
     status: "complete",
     disposition: envelope.disposition.toLowerCase(),
+    ...(Object.prototype.hasOwnProperty.call(envelope, "frontPaigeStoryId") ? { frontPaigeStoryId: envelope.frontPaigeStoryId } : {}),
+    ...(Object.prototype.hasOwnProperty.call(envelope, "weeklyStoryId") ? { weeklyStoryId: envelope.weeklyStoryId } : {}),
     storyIds: envelope.storyIds,
     stories: envelope.storySnapshots,
     serviceRecordIds: envelope.desks.filter((desk) => desk.state === "ready").map((desk) => desk.recordId),

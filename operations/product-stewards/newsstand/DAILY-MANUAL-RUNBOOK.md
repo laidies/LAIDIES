@@ -10,14 +10,21 @@ For `YYYY-MM-DD`, the authoritative radar input must exist at:
 
 `operations/agents/aidb-intelligence-desk/daily/YYYY-MM-DD.md`
 
-Its NewsStand row must use the structured `- **NewsStand:** ...` form. A quiet
-day is exactly `- **NewsStand:** NO NEW HANDOFF.`
+Its NewsStand row uses the structured `- **NewsStand:** ...` form. A quiet
+day is `- **NewsStand:** NO NEW HANDOFF.`; the coordinated radar's explicit
+`**Result:** QUIET` is also accepted when no NewsStand row is present.
+A quiet news day may still produce a SERVICE_READY issue from exactly admitted,
+unexpired bank content. Reuse requires a newly dated record with a unique ID,
+`predecessorRecordId`, unchanged source copy and exact independent admission.
+Never relabel an old record ID as a new publication.
 
 ## 2. Run the fail-closed checks
 
 ```sh
 node scripts/test-compose-daily-edition.mjs
 node scripts/test-promote-daily-edition.mjs
+node scripts/test-publish-daily-edition.mjs
+node scripts/test-build-newsstand-derivatives.mjs
 node scripts/test-newsstand-reader-contract.mjs
 ```
 
@@ -70,7 +77,30 @@ node scripts/promote-daily-edition.mjs \
 
 Run the same command again. It must report `IDEMPOTENT`, not append a duplicate.
 
-## 6. Verify the visitor result
+## 6. Project into schema 2, then generate derivatives
+
+```sh
+node scripts/publish-daily-edition.mjs --date YYYY-MM-DD
+node scripts/publish-daily-edition.mjs --date YYYY-MM-DD --check
+node scripts/build-newsstand-derivatives.mjs
+node scripts/build-newsstand-derivatives.mjs --check
+```
+
+The projector rechecks the exact private envelope, independent decision and
+stored membership. `content/newsstand-stories.js` is the sole current-edition
+authority. The Daily issue store is dated history; neither it nor a local preview
+may replace the current edition in the browser. Feed and archive are deterministic
+derivatives of canonical data, admitted issue history and service-bank authority.
+
+The newest admitted Front PAiGE persists under its original publication date;
+it is not inserted into the new Daily's `storyIds`. A current admitted Weekly
+persists within its Wednesday-to-Wednesday window. Missing or held Weekly remains
+quiet. No ordinary story or Big Picture text is written by this projection.
+
+Do not rerun the promoter after projection: its input checksum deliberately binds
+the pre-projection canonical bytes. Use the projector's `--check` for idempotence.
+
+## 7. Verify the visitor result
 
 ```sh
 node scripts/test-newsstand-reader-contract.mjs
@@ -78,7 +108,7 @@ node scripts/test-newsstand-reader-browser.mjs
 ```
 
 The browser suite must exit normally. Check that the current Daily displays the
-exact Vancouver edition date, prior-date items appear only in the archive, and
+exact Vancouver edition date, dated news is not carried forward as new, and
 issue-store or optional-column failure preserves a truthful fallback.
 It must also retain the admitted Daily headline, body, route and source after
 its deliberate post-validation mutation of global story memory.
@@ -87,6 +117,13 @@ its deliberate post-validation mutation of global story memory.
 
 Stop the issue before canonical write if the radar date/path, checksum,
 independent reviewer, story/service date, quiet disposition or reader tests do
-not match. Never repair a failed issue by carrying yesterday's item forward.
+not match. Never repair a failed issue by presenting yesterday's news as new.
 This workflow authorizes no deployment, provider action, public publication or
 dispatcher restart.
+
+When Ali separately authorizes a live proving run, recover the exact provider-
+confirmed production artifact, overlay only admitted NewsStand files and compare
+the complete manifests with `check-newsstand-release-scope.mjs`. Commit the exact
+source before deployment. Verify both immutable and custom origins on desktop
+and mobile; a local check is not a published issue. The August 30 proving run does
+not create a scheduler or grant future automatic publication authority.
