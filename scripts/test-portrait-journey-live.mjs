@@ -38,6 +38,8 @@ try {
   const b=await browser.newContext({viewport:{width:390,height:844}});
   const first=await a.newPage(), second=await b.newPage();
   const errors=[];
+  first.on('requestfailed',request=>{if(request.url().includes('laidies-avatar.')) console.log('AVATAR NETWORK FAILURE '+request.failure()?.errorText);});
+  first.on('response',response=>{if(response.url().includes('laidies-avatar.')) console.log('AVATAR HTTP '+response.status());});
   first.on('pageerror',e=>errors.push(e.message)); second.on('pageerror',e=>errors.push(e.message));
   await signIn(first);
   await first.goto(origin+'/maikeover.html',{waitUntil:'domcontentloaded'});

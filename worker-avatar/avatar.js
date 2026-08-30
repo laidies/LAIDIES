@@ -29,11 +29,30 @@ async function boundedText(source, limit) {
   return new TextDecoder().decode(merged);
 }
 function isPng(bytes) { return bytes.length >= 8 && PNG.every((n, i) => bytes[i] === n); }
-function bytes(raw) { try { return Uint8Array.from(atob(raw), c => c.charCodeAt(0)); } catch { return null; } }
+function validBase64(raw) { return typeof raw === "string" && raw.length >= 4 && raw.length % 4 === 0 && B64.test(raw); }
+// `Uint8Array.from(atob(raw), mapper)` briefly retains a large input string,
+// callback machinery and a second output array. Photo input is bounded, but
+// still decode it with one indexed allocation before placing it in FormData.
+function decodeBase64(raw) {
+  if (!validBase64(raw)) return null;
+  try {
+    const binary = atob(raw), data = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index += 1) data[index] = binary.charCodeAt(index);
+    return data;
+  } catch { return null; }
+}
+// Provider output stays base64 all the way to the visitor. Confirm its PNG
+// signature from the first 12 encoded characters instead of decoding up to
+// three multi-megabyte images concurrently just to inspect eight bytes.
+function pngBase64(raw) {
+  if (!validBase64(raw) || raw.length > MAX_OUTPUT || raw.length < 12) return false;
+  try { return isPng(new Uint8Array([...atob(raw.slice(0, 12))].map(c => c.charCodeAt(0)))); }
+  catch { return false; }
+}
 function image(value) {
   const match = typeof value === "string" && value.match(/^data:(image\/(?:png|jpeg));base64,([A-Za-z0-9+/]+={0,2})$/);
-  if (!match || !B64.test(match[2])) return null;
-  const data = bytes(match[2]);
+  if (!match || !validBase64(match[2])) return null;
+  const data = decodeBase64(match[2]);
   if (!data || !data.length || data.length > MAX_IMAGE) return null;
   const valid = match[1] === "image/png" ? isPng(data) : data.length >= 3 && data[0] === 255 && data[1] === 216 && data[2] === 255;
   return valid ? { data, mime: match[1] } : null;
@@ -66,6 +85,11 @@ async function reserve(db, requestId, userHash, day, now) {
   } catch { return "unavailable"; }
 }
 function promptFor(data) { return data.photo ? `Turn this photo into ${STYLE} Preserve the person's recognizable identity. ${data.extras}`.trim() : `${data.prompt}, ${data.extras}, ${STYLE}`.trim(); }
+function logProviderFailure(status) { console.warn(JSON.stringify({ event: "portrait-provider-failure", status })); }
+function logProviderException(error) {
+  const name = String(error && error.name || "Error").replace(/[^A-Za-z0-9_.-]/g, "").slice(0, 64) || "Error";
+  console.warn(JSON.stringify({ event: "portrait-provider-exception", name }));
+}
 async function generate(env, data, prompt, signal) {
   try {
     let result;
@@ -73,11 +97,10 @@ async function generate(env, data, prompt, signal) {
       const form = new FormData(); form.set("model", "gpt-image-1"); form.set("image", new File([data.photo.data], "portrait", { type: data.photo.mime })); form.set("prompt", prompt); form.set("size", "1024x1024"); form.set("quality", "medium"); form.set("input_fidelity", "high");
       result = await fetch("https://api.openai.com/v1/images/edits", { method: "POST", headers: { authorization: `Bearer ${env.OPENAI_API_KEY}` }, body: form, signal });
     } else result = await fetch("https://api.openai.com/v1/images/generations", { method: "POST", headers: { authorization: `Bearer ${env.OPENAI_API_KEY}`, "content-type": "application/json" }, body: JSON.stringify({ model: "gpt-image-1", prompt, size: "1024x1024", quality: "medium", n: 1 }), signal });
-    if (!result.ok) return null;
+    if (!result.ok) { logProviderFailure(result.status); return null; }
     const encoded = JSON.parse(await boundedText(result, MAX_OUTPUT + 4096))?.data?.[0]?.b64_json;
-    const decoded = typeof encoded === "string" && encoded.length <= MAX_OUTPUT && B64.test(encoded) ? bytes(encoded) : null;
-    return decoded && isPng(decoded) ? encoded : null;
-  } catch { return null; }
+    return pngBase64(encoded) ? encoded : null;
+  } catch (error) { logProviderException(error); return null; }
 }
 export default { async fetch(request, env) {
   const origin = request.headers.get("origin") || "";

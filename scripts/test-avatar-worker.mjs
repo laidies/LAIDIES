@@ -3,6 +3,10 @@ import worker from "../worker-avatar/avatar.js";
 
 const USER = "11111111-1111-4111-8111-111111111111";
 const PNG = "iVBORw0KGgo=";
+const PHOTO_PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL9wQAAAABJRU5ErkJggg==";
+// 3 MiB decoded payload: valid base64 and PNG signature, intentionally no
+// decoded image body is needed to prove the Worker no longer allocates it.
+const LARGE_PNG = "iVBORw0KGgoA" + "A".repeat(4 * 1024 * 1024 - 12);
 const requestId = (n) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
 class Usage {
   rows = [];
@@ -40,6 +44,7 @@ globalThis.fetch = async (url) => {
     const next = providerPlan?.shift();
     if (next === "throw") throw new Error("timeout");
     if (next === "fail") return new Response("", { status: 503 });
+    if (next === "large") return Response.json({ data: [{ b64_json: LARGE_PNG }] });
     return Response.json({ data: [{ b64_json: PNG }] });
   }
   throw new Error("unexpected fetch");
@@ -67,6 +72,16 @@ try {
   providerPlan = ["success", "fail", "success"];
   const partial = await worker.fetch(post(valid(9)), { ...env, PORTRAIT_USAGE: new Usage() });
   assert.equal(partial.status, 200); assert.equal((await partial.json()).completed, 2, "partial successes are returned truthfully");
+  providerPlan = ["large", "large", "large"];
+  const beforeLarge = providerCalls;
+  const large = await worker.fetch(post(valid(11)), { ...env, PORTRAIT_USAGE: new Usage() });
+  const largeBody = await large.json();
+  assert.equal(large.status, 200, "three 3 MiB synthetic PNG outputs remain bounded and usable");
+  assert.equal(largeBody.completed, 3);
+  assert.deepEqual(largeBody.images, [LARGE_PNG, LARGE_PNG, LARGE_PNG]);
+  assert.equal(providerCalls - beforeLarge, 3, "large-output batch makes exactly three provider calls");
+  const photo = await worker.fetch(post({ ...valid(12), itemPrompt: "", image: `data:image/png;base64,${PHOTO_PNG}`, consent: true }), { ...env, PORTRAIT_USAGE: new Usage() });
+  assert.equal(photo.status, 200, "bounded photo decode accepts a valid PNG without callback-array allocation");
   providerPlan = ["throw", "throw", "throw"];
   const timeout = await worker.fetch(post(valid(10)), { ...env, PORTRAIT_USAGE: new Usage() });
   assert.equal(timeout.status, 502, "all timed-out candidates fail without provider detail leakage");
