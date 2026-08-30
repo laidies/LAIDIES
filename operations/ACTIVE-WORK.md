@@ -2,11 +2,11 @@
 
 ## 2026-08-29 production successor
 
-- **Status:** BUILDING — public page recovery advanced; Resident provider recovery and held feed restoration remain open.
-- Production deployment `089d7483-6643-40a6-88fb-0e07cdb95f58` uses pushed source `25d2b0c7864a8d5838925aaed91033429010bb9c` and exact 670-file artifact `/tmp/laidies-held-art-successor.jpAhxV`, manifest `/tmp/laidies-held-art-successor.jpAhxV.manifest.json`, identity `eb4c6f4e747eda5bb35b0e677fcc495c354433162efce836ef93e7c058fa63b8`.
+- **Status:** BUILDING — public page recovery advanced; Resident provider recovery remains open.
+- Production deployment `dcc3627e-7b8d-4b1a-9dbb-062facc4e176` uses pushed source `f7905a3b105247436fb89423e04d38fdfabebb40` and exact 670-file artifact `/tmp/laidies-newsstand-restore.YUDo7H`, manifest `/tmp/laidies-newsstand-restore.YUDo7H.manifest.json`, identity `7bb3fb56fbc911f3f3fd4b9c9208633d4820b209d887a70c3e4f6d74b9f93858`.
 - Exact release boundary: predecessor `b63d429c-5ede-45dc-868a-9492d35ffa00` to `089d7483` changes six unique paths: `blend-snap.html`, `bronze-aige.html`, `content/bronze-aige-v2.css`, `laidies-card.html`, `post-office.html`, and `postcard.html`. Intermediary production `c73ce7a2-8151-4272-a2f6-61e17905ddba` admitted the four touch-target paths; the immediate `c73ce7a2` to `089d7483` overlay changed three paths because `laidies-card.html` changed in both stages.
 - It preserves the coordinated recovered baseline, adds 44px minimum controls for Blend Snap retry, Card flipping and Bronze AiGE stations, and stops requesting unapproved Closet vessel art or presenting hidden postcard previews as broken images.
-- A corrected full-scroll audit rendered all 83 routes at 390x844 and 1200x814: 166/166 had no blank output, overflow, page errors or private runtime requests. The remaining same-origin 404s are the explicitly held Chat Room digest and Trading Cards catalogue JSON feeds.
+- The held Chat Room digest and Trading Cards catalogue were not restored from stale or unapproved records. Their pages now make no missing-feed request and show one explicit unavailable state while preserving the public discussion-room routes. Successor `4474aa27-5e34-40a7-b907-938284105399` changed exactly `community/chat-room-digest.html`, `community/chat-room-digest.js`, and `games/trading-cards.html`; `dcc3627e` preserves those bytes and changes only `content/newsstand-stories.js` to restore the approved data-centre Big Picture object. A fresh full-scroll audit of `dcc3627e` rendered all 83 routes at 390x844 and 1200x814: 166/166 had no blank output, overflow, page errors, private runtime requests, same-origin error responses or broken visible images.
 - Resident account-backed and cross-device restoration remains blocked on recovery of the real Supabase provider project; no replacement was guessed or created.
 
 <!-- context-authority: operations/context-authority.json -->
