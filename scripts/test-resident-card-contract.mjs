@@ -81,6 +81,14 @@ check(closetBridge.includes("runtime.writeLocalEnvelope(remoteDocument)") &&
 check(accountRuntime.includes("detectSessionInUrl: false") &&
   accountRuntime.includes('flowType: "pkce"'),
   "shared account runtime owns the PKCE callback boundary");
+check(accountRuntime.includes('new URL("/auth/v1/health", config.url)') &&
+  accountRuntime.includes("controller.abort()") &&
+  accountRuntime.indexOf("requireHealthyProvider(config)") <
+    accountRuntime.indexOf("module.createClient"),
+  "shared account runtime proves bounded provider health before exposing account state");
+check(page.includes("resident-account-runtime-v1.js?v=20260829-provider-health-1") &&
+  closet.includes("resident-account-runtime-v1.js?v=20260829-provider-health-1"),
+  "Resident Card and Closet bind the provider-health runtime cache identity");
 check(house.includes("It is not a Hyvor sign-in or cross-device community identity."), "Sorority House denies local-card identity escalation");
 check(house.includes("Every room is still open to explore."), "local card cannot unlock community rooms");
 

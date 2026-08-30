@@ -10,6 +10,16 @@
 > Girl Talk choices and private free-form activity out of the continuation
 > document.
 
+> **PROVIDER-FAILURE BOUNDARY — 2026-08-29.** Account controls are conditional
+> on one bounded `GET /auth/v1/health` response from the configured provider.
+> An unresolved hostname, timeout or non-success response hides both signed-out
+> and signed-in account controls and reports that the account service is
+> unavailable; it must not convert an SDK-loaded/no-session result into a
+> usable sign-in claim. Device-local Card state and routes remain untouched.
+> This is a failure-state guard, not a replacement backend or a demotion of the
+> previously verified account architecture. Restoring the provider still
+> requires the real account lifecycle and two-device verification.
+
 > **SUPERSEDED ACCOUNT BOUNDARY — 2026-08-23.** This update previously superseded the
 > preserved-behaviour statements below where they imply a publicly verified
 > account lifecycle. Resident Card owns the sole private sign-in-link request

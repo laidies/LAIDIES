@@ -310,16 +310,24 @@ try {
     await context.close();
   }
 
+  const accountBackendAttempts = externalAttempts.filter((url) => {
+    try {
+      return new URL(url).hostname.endsWith(".supabase.co") ||
+        /auth\/v1|member_profiles/i.test(url);
+    } catch (_) {
+      return /auth\/v1|member_profiles/i.test(url);
+    }
+  });
   check(
-    !externalAttempts.some((url) => {
-      try {
-        return new URL(url).hostname.endsWith(".supabase.co") ||
-          /auth\/v1|member_profiles/i.test(url);
-      } catch (_) {
-        return /auth\/v1|member_profiles/i.test(url);
-      }
-    }),
-    "route attempts no account or profile backend request"
+    accountBackendAttempts.length > 0 &&
+      accountBackendAttempts.every((url) => {
+        try {
+          return new URL(url).pathname === "/auth/v1/health";
+        } catch (_) {
+          return false;
+        }
+      }),
+    "unavailable route limits account backend attempts to the bounded Auth health probe"
   );
   check(pageErrors.length === 0, "hostile whole-journey fixtures produce no page errors");
 } finally {

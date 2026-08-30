@@ -44,6 +44,34 @@
     global.history.replaceState({}, "", url.pathname + url.search + url.hash);
   }
 
+  async function requireHealthyProvider(config) {
+    var controller = new AbortController();
+    var timeout = global.setTimeout(function () {
+      controller.abort();
+    }, 4000);
+    try {
+      var healthUrl = new URL("/auth/v1/health", config.url);
+      var response = await global.fetch(healthUrl.href, {
+        method: "GET",
+        cache: "no-store",
+        credentials: "omit",
+        redirect: "error",
+        headers: {
+          accept: "application/json",
+          apikey: config.anonKey
+        },
+        signal: controller.signal
+      });
+      if (!response.ok) {
+        throw new Error("resident-account-provider-unhealthy");
+      }
+    } catch (_) {
+      throw new Error("resident-account-provider-unavailable");
+    } finally {
+      global.clearTimeout(timeout);
+    }
+  }
+
   async function createRuntime() {
     var config = global.LAIDIES_SUPABASE_CONFIG;
     var identity = global.LAIDIESIdentityV1;
@@ -61,6 +89,7 @@
     if (controlledPreflight) {
       client = controlledPreflight;
     } else {
+      await requireHealthyProvider(config);
       var module = await import(
         "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"
       );
