@@ -1,6 +1,8 @@
 # Daily live proving run — August 30, 2026
 
-Status: DEPLOYED / PUBLICLY VERIFIED FOR THE EXACT NEWSSTAND DELTA. No scheduler or future automatic-publication authority is implied.
+Status: DEPLOYED / PUBLICLY VERIFIED FOR THE EXACT NEWSSTAND DELTA. Ali separately updated the existing active Codex heartbeat to daily07:00 Vancouver with gated publication authority; this run created no duplicate automation or backend cron.
+
+Recurring implementation is bound to `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` in the preserved stable checkout `/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`. The original temporary source-worktree path below is provenance only. Known future unattended preflight gaps are listed in that runbook; this successful proving run does not establish that every future branch is operational.
 
 ## Public outcome
 

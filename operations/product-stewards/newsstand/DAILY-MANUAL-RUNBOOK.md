@@ -1,8 +1,62 @@
-# The Daily — manual issue runbook
+# The Daily — cycle runbook (heartbeat and manual)
 
-Use this bounded local sequence until a separate scheduler and monitor have
-been built and independently verified. It does not deploy or publish. The
-Control Room dispatcher stays paused.
+Use this bounded sequence inside the existing active Codex heartbeat,
+`daily-allie-k-miller-and-ethan-mollick-source-check`, named **Daily LAiDIES
+NewsStand research and publication cycle**, daily at 07:00 America/Vancouver.
+Its target is thread `01a02f95-3838-7af0-a4c7-2f51253a133d`. The heartbeat
+orchestrates research and independent reviews; no single shell command
+substitutes for editorial judgment. No duplicate automation or separate
+backend cron is enabled. The older Control Room dispatcher stays paused.
+
+## Recurring entry and current released seed
+
+Stable implementation checkout:
+`/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
+Branch: `release/newsstand-daily-20260830`. Released source: `b03bcc649bf7da7f03db7e0eb95e123d4955f15a`;
+initial public-verification handoff: `9690f8a6`. Production seed:
+`dbc39599-5e48-493c-8513-2eac99d8244f`, artifact identity
+`fe7bb68733e040a0d9c4a1182922a9ec3f762c6e788abd347c61b49b5e6af612`.
+These are recovery pointers, not permission to deploy stale bytes: resolve the
+actual provider head and exact immutable artifact anew before every release.
+Use a clean isolated transaction worktree for each future candidate; never
+mutate the public artifact while an input, review or check is unresolved.
+
+The heartbeat reads this file, then invokes the commands below with the current
+Vancouver date. Its full source/admission/release prompt remains authoritative.
+The command entry after source research and preflight is:
+
+```sh
+cd /Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830
+NEWSSTAND_DAY=$(TZ=America/Vancouver date +%F)
+node scripts/compose-daily-edition.mjs --date "$NEWSSTAND_DAY" \
+  --radar "operations/agents/aidb-intelligence-desk/daily/$NEWSSTAND_DAY.md" \
+  --output "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/$NEWSSTAND_DAY.json"
+```
+
+Execute it in the clean transaction worktree selected for that run; the `cd`
+above identifies the preserved implementation entry, not permission to overwrite
+an admitted same-date envelope. Continue through the independent review and
+projection/release commands below, never straight from composition to deploy.
+
+The August 30 live proving run succeeded, but the next unattended cycle must
+resolve these known preflight gaps rather than bypassing them:
+
+1. `test-newsstand-reader-browser.mjs` and `test-publish-daily-edition.mjs` bind
+   August 30 fixtures. Separate immutable regression fixtures from the next
+   candidate's date/membership checks before a later dated issue is admitted.
+2. The latest heartbeat requires the admitted Weekly to stay until an admitted
+   successor; the current composer ages it out after seven days. Reconcile that
+   rule with original-date display and a calibrated Wednesday successor
+   test before any future carried Weekly is published. Today's Weekly is held,
+   so no existing admitted Weekly was removed by this proving run.
+3. The broader heartbeat asks for 200% zoom coverage and separately identified
+   accuracy and beginner/voice review for new ordinary copy. The August 30 run
+   had no ordinary candidate and does not prove those future branches. Obtain
+   those checks/reviews when applicable; never fabricate review observations.
+4. The broad episode hook and legacy Big Picture shape checker remain unrelated
+   known failures. Preserve their disclosure and exact non-NewsStand byte scope;
+   do not describe them as passing. Source/browser/provider access must also be
+   available when the local heartbeat runs.
 
 ## 1. Confirm the dated source receipt
 
@@ -118,12 +172,13 @@ its deliberate post-validation mutation of global story memory.
 Stop the issue before canonical write if the radar date/path, checksum,
 independent reviewer, story/service date, quiet disposition or reader tests do
 not match. Never repair a failed issue by presenting yesterday's news as new.
-This workflow authorizes no deployment, provider action, public publication or
-dispatcher restart.
+The scripts themselves do not deploy or restart any dispatcher. The existing
+heartbeat's explicitly granted publication authority applies only after every
+candidate admission, artifact scope and live-verification gate succeeds.
 
-When Ali separately authorizes a live proving run, recover the exact provider-
+For an authorized proving run or the existing heartbeat, recover the exact provider-
 confirmed production artifact, overlay only admitted NewsStand files and compare
 the complete manifests with `check-newsstand-release-scope.mjs`. Commit the exact
 source before deployment. Verify both immutable and custom origins on desktop
-and mobile; a local check is not a published issue. The August 30 proving run does
-not create a scheduler or grant future automatic publication authority.
+and mobile; a local check is not a published issue. The August 30 proving run did
+not create a scheduler: Ali updated the existing active heartbeat separately.

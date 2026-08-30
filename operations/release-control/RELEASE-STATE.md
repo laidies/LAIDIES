@@ -22,8 +22,12 @@ The scoped artifact passes 54 browser checks and independent desktop/mobile
 review. All 28 changed/protected path comparisons match the immutable origin
 `https://dbc39599.laidies-sunnyvaile.pages.dev` and `https://laidies.ai`.
 Real desktop/mobile NewsStand reading, dated service issue, Catch Me Up, archive
-filters and unchanged Big Picture pass on both origins. Scheduling remains
-manual. Full outcome and explicit checker limits:
+filters and unchanged Big Picture pass on both origins. The existing Codex
+heartbeat is ACTIVE daily07:00 Vancouver, separately updated by Ali; no new
+backend cron or duplicate automation was created. Its implementation entry is
+`operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` in stable checkout
+`/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
+Future unattended preflight gaps remain explicit there. Full outcome and checker limits:
 `operations/product-stewards/newsstand/evidence/daily-proving-run-2026-08-30.md`.
 
 ## Superseded recovery record

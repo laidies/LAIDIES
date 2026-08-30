@@ -23,6 +23,12 @@ proper domain source before building from it.
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:
 `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` (August 30 proving run).
+Ali's August 30 recurring-cycle correction: the existing daily07:00 Vancouver
+Codex heartbeat is ACTIVE and owns gated source-to-publication orchestration;
+"no backend cron enabled" must not be reported as "no active schedule". Its next
+run uses the preserved released implementation and reconciles current production,
+not the older iCloud source. Weekly until-admitted-successor continuity and known
+next-date preflight gaps are explicitly routed in that same runbook.
 
 | Question | Current source |
 |---|---|
