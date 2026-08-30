@@ -34,7 +34,7 @@ function forbid(source, pattern, label) {
 }
 
 requireMatch(house, /Every wing and room is discoverable|Every room is still open to explore/, "open room discovery");
-requireMatch(house, /Resident Card is local profile play — not a community login/i, "identity boundary");
+requireMatch(house, /Resident Card is local profile space — not a community login/i, "identity boundary");
 requireMatch(house, /Hyvor separately controls discussion sign-in, publication and moderation/i, "provider boundary");
 requireMatch(house, /private messages[\s\S]{0,180}another person's information/i, "safe-sharing rule");
 requireMatch(house, /not a post, Closet import or member reward/i, "Girl Talk boundary");
