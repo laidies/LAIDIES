@@ -7,7 +7,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DATA_FILE = path.join(ROOT, "content", "newsstand-stories.js");
+const DATA_FILE = path.join(process.env.NEWSSTAND_TEST_FIXTURE_ROOT || ROOT, "content", "newsstand-stories.js");
 const CONTRACT_FILE = path.join(ROOT, "content", "newsstand-reader-contract.js");
 const CASE_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-reader", "state-cases.json");
 const DRILL_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-reader", "correction-retraction-rollback-drill.json");
@@ -92,6 +92,7 @@ function mutate(base, mutation) {
   const bigPicture = data.stories.find((story) => story.id === "label-is-not-a-truth-detector");
   if (mutation === "empty-stories") {
     data.stories = [];
+    data.publications.weekly.status = "quiet";
     delete data.publications.daily.issue.frontPaigeStoryId;
   }
   if (mutation === "dataset-hold") data.datasetStatus = "hold";
@@ -171,6 +172,7 @@ assert.equal(staleStoryDecision.state, "archive", "stale published story must be
 const emptyDailyIssue = JSON.parse(JSON.stringify(base));
 emptyDailyIssue.publications.daily.issue.storyIds = [];
 emptyDailyIssue.publications.daily.issue.serviceRecordIds = [];
+delete emptyDailyIssue.publications.daily.issue.disposition;
 assert.match(contract.validate(emptyDailyIssue).join("\n"), /daily issue has no admitted story or service item/, "an unexplained empty Daily cannot pass as complete");
 const governedQuietDaily = JSON.parse(JSON.stringify(emptyDailyIssue));
 governedQuietDaily.publications.daily.issue.disposition = "quiet";
@@ -178,6 +180,7 @@ governedQuietDaily.publications.daily.issue.sourceIdentity = { radarSha256: "a".
 assert.equal(contract.validate(governedQuietDaily).length, 0, "a checksum-bound governed quiet Daily is a complete issue");
 const governedQuietOnly = JSON.parse(JSON.stringify(governedQuietDaily));
 governedQuietOnly.stories = [];
+governedQuietOnly.publications.weekly.status = "quiet";
 delete governedQuietOnly.publications.daily.issue.frontPaigeStoryId;
 governedQuietOnly.publications.daily.editionDate = "2026-08-04";
 governedQuietOnly.publications.daily.lastCheckedAt = NOW_VANCOUVER_AUG_4;

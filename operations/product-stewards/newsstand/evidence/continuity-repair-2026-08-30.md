@@ -84,6 +84,11 @@ Synthetic fixtures are private test data, not real editorial approvals.
 Browser source and exact artifact: 54 checks pass at desktop1440/mobile390/320.
 Tomorrow QUIET fixture: 54 pass. Tomorrow retained Weekly fixture: 57 pass,
 including original date and exactly one Weekly after a newer visit cutoff.
+Reader state-contract tests also pass against current, tomorrow QUIET and
+tomorrow retained-Weekly fixtures. Their empty-state negative cases explicitly
+remove quiet permission and clear the synthetic Weekly pointer, instead of
+depending on current production being service-led or having no Weekly. This
+last test-only hardening changes no public bytes and requires no new deployment.
 Calibration: the same Weekly fixture on deployed predecessor code exits1 with
 `current Weekly survives a visit cutoff later than its original date: false !== true`.
 

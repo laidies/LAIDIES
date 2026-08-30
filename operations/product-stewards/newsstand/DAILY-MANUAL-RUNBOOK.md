@@ -47,8 +47,10 @@ quiet and exactly admitted service cycles, idempotence, service use after a quie
 issue, Weekly persistence at 6/7/8/14 days, original dates, held/new successor
 non-substitution, exact successor selection and retraction notices. Its fixtures
 are synthetic and private, never editorial admission. Run its emitted fixture
-through the browser suite with `NEWSSTAND_TEST_FIXTURE_ROOT=<fixture>` and
-`<fixture>/weekly`. The old deployed reader fails the Weekly cutoff test;
+through both `test-newsstand-reader-contract.mjs` and the browser suite with
+`NEWSSTAND_TEST_FIXTURE_ROOT=<fixture>` and `<fixture>/weekly`. Empty-state
+negative fixtures explicitly remove quiet permission and Weekly pointers, so
+they do not depend on today's service-led issue. The old deployed reader fails the Weekly cutoff test;
 the repaired reader passes. `--zoom-200` uses native Chromium 200% browser zoom,
 not pinch or a device-scale-only substitute (1440 outer / 720 CSS pixels).
 
