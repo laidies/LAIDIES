@@ -1,5 +1,31 @@
 # Active work
 
+## 2026-08-30 KSVL continuity successor — BUILDING, not yet deployed
+
+Current release base is the independently verified NewsStand successor
+`b2695dc7-c6a5-49a0-a194-6cb3e85124df`, exact input
+`/tmp/laidies-newsstand-bank-successor.grAiqm`, identity
+`48cf4656a60bb79f1849549b751205bbf411b433eed2872d2e0633b40000e1d4`.
+NewsStand and its publishing lane hold deployments pending this handoff.
+
+The repair retains station/mix/album/single position and preferences through
+ordinary same-tab links, restores cold visits paused, uses one exclusive audio
+owner across tabs/popout, and distributes one canonical bottom player to full
+town documents. Full navigation may briefly interrupt audio; the explicit
+popout is the uninterrupted option. Rendered books and Grimoire stay untouched.
+The combined release includes committed Closet recovery `26e1eeeb`.
+
+Maker catalogue, decoded-audio/failure suite, calibrated distribution, and
+continuity suite pass. Independent review found silent storage denial; repaired
+with a persistent warning and fail-closed popout transfer. New denied-storage
+tests reject the predecessor; re-review found no remaining bounded blocker.
+Real local Chrome Radio → Library preserves active listening; popup handoff and
+remote Pause work; 390/320 controls fit with 44px buttons. This is not yet a
+public result. Current exact artifact and live-origin checks are the next gate.
+Native Safari/physical devices, request lifecycle, sticker-to-Closet delivery,
+account listening history and audio-quality judgment remain unverified/outside
+this continuity repair. No backend, credentials or resident data changed.
+
 ## 2026-08-30 remaining Closet recovery and KSVL audit
 
 - **Closet: VERIFIED LOCALLY, not deployed.** `laidies-card.html` restores the

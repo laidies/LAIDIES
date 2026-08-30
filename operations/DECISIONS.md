@@ -47,6 +47,7 @@ proper domain source before building from it.
 | Visitor’s Centre | `operations/product-stewards/visitors-centre/EXPERIENCE-BRIEF.md` |
 | Homepage/town entry | `operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md` |
 | NewsStand | `operations/product-stewards/newsstand/EXPERIENCE-BRIEF.md` |
+| KSVL continuity, playback ownership and canonical player distribution | `operations/product-stewards/ksvl/OPERATING-SPEC.md` (dated 2026-08-30 repair contract); `scripts/lib/ksvl-distribution.mjs` and calibrated continuity/cache tests enforce the shared-runtime rule |
 | SUNNYVAiLE High | `operations/sunnyvaile-high-design-decisions-20260724.md` |
 | Classroom | `operations/classroom-design-decisions-20260724.md` |
 | Pop Quiz | `operations/pop-quiz-design-decisions-20260724.md` |

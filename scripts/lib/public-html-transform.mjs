@@ -1,4 +1,5 @@
 import { distributeContextNavigation } from './context-navigation-distribution-v1.mjs';
+import { distributeKsvl } from './ksvl-distribution.mjs';
 
 const LIBRARY_RENDERED_FRAGMENT = /^content\/library-books\/rendered\/[^/]+\.html$/;
 
@@ -12,5 +13,5 @@ export function transformPublicHtml(relative, source) {
     return source;
   }
 
-  return distributeContextNavigation(relative, source);
+  return distributeKsvl(relative, distributeContextNavigation(relative, source));
 }

@@ -433,6 +433,7 @@ try {
   for (const width of [320, 390]) {
     const {context, page} = await open(registry, {width,height:860});
     await page.locator(".ksvl-cd-play-btn:not([disabled])").first().click();
+    await page.locator(".ksvl-now-playing.is-visible").waitFor({state: "visible"});
     const compactTargets = await page.locator(".ksvl-now-playing.is-visible .ksvl-np-btn:visible").evaluateAll((buttons) =>
       buttons.map((button) => {
         const rect = button.getBoundingClientRect();

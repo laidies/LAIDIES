@@ -1,5 +1,53 @@
 # KSVL Community RAiDIO operating specification
 
+## Current repair contract — 2026-08-30
+
+Ali authorised KSVL repair after the live continuity audit. The exact audit and
+release base are recorded in `FUNCTIONALITY-MAP.md` and `operations/ACTIVE-WORK.md`.
+Current catalogue authority remains the creator-confirmed 29-song registry and
+the July 26 `state.json` ruling: missing captions or contextual links are follow-up
+work, not a reason to disable otherwise admitted originals. The earlier blanket
+rights/content holds below are historical and do not override that ruling.
+
+The active repair changes only player mechanics and distribution, popup guidance,
+and the already-tested self-only Closet restoration. No new music, visual art,
+reward, request-service, account-sync, editorial content or site architecture.
+
+- First arrival and later return stay silent; a valid saved state restores paused.
+- A same-tab, ordinary town link followed during active listening carries a short,
+  one-use continuation intent. Resume the admitted ID/position/preferences if the
+  browser permits. Explicit Pause/Stop must survive. No muted background autoplay
+  trick or arbitrary click-to-unmute behaviour.
+- Full document navigation may interrupt audio briefly. Truly uninterrupted
+  playback uses the existing explicit pop-out; do not claim seamless same-tab audio.
+- A same-origin browser lock owns KSVL audio. Other pages expose the same bottom
+  controls and send bounded commands to that owner. Heartbeat/display data cannot
+  override a live lock. Popup recognition covers `.html` and pretty routes. Failed
+  pop-out leaves the current sound intact. Closing the owner restores paused state.
+- If browser capabilities/storage/autoplay policy prevent continuity, report that
+  limitation without starting a competing owner or silently skipping the track.
+- One canonical runtime per full active town document; never inject it into
+  rendered book fragments or retired Grimoire readers. Preserve all unrelated
+  page bytes and current NewsStand publication data. The public builder and exact
+  overlay share the same distribution transform.
+- The bottom deck must expose Pause/Resume, Stop, seek/volume/mute, track changes,
+  shuffle/repeat and pop-out at 320/390px, with at least 44px button targets and
+  content space reserved beneath it. Hidden CD faces must not accept keyboard
+  input or clicks intended for the visible face.
+
+Maker tests: existing catalogue/failure/browser suite, fail-first continuity suite
+(active/cold/paused, live/mix/album/single, position/preferences, popup/remote/blocked,
+stop/close, malformed state), calibrated distribution tests and exact artifact
+preservation. Independent read-only review follows zero known maker failures.
+Then inspect real audio and ordinary navigation on desktop/phone-sized browsers,
+commit exact source, verify current production head, overlay the held exact
+successor, and verify immutable/custom origins. Native Safari/physical phone and
+speaker-quality evidence remain separately unverified unless actually performed.
+
+Technical references checked 2026-08-30: MDN HTMLMediaElement.play (browser denial
+must be handled) and W3C Web Locks (origin-scoped exclusive ownership). These do
+not prove a device outcome; the browser journeys must do that.
+
 **Status:** BOUNDED LOCAL PASS — independent Repair 2 rejudge 86.75/100; no rights, public
 playback, request-delivery or learning-completion approval
 **Reconciled:** 2026-07-25

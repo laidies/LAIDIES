@@ -1,5 +1,30 @@
 # KSVL functionality and cross-page touchpoint map
 
+## 2026-08-30 continuity repair — LOCAL verification, public gate pending
+
+The current repair contract is the dated section of `OPERATING-SPEC.md`.
+It supersedes the historical audit defects below only for tested local bytes.
+Station/mix/album/single state, active ordinary-link continuation, cold/paused
+restore, position/preferences, single-owner popup handoff, remote controls,
+blocked popup, Stop/close, malformed and denied storage all pass the calibrated
+continuity browser suite. The predecessor fails twelve assertions, including
+the four newly added storage-warning assertions. The existing decoded-audio
+and failure suite also passes. The independent implementation re-review found
+no remaining blocker after the silent-storage-denial repair.
+
+Real local Chrome visits prove Radio → Library active listening, advancing
+progress, popup handoff and remote Pause. The player fits 390/320px with all
+buttons at least 44px. Same-tab full navigation is resumable, not seamless.
+Canonical distribution removes duplicate legacy loaders while preserving
+rendered book bytes. The builder and immutable overlay use the same transform.
+NewsStand b2695dc7 is the exact successor base; public verification remains
+pending until a new deployment and both-origin journeys are recorded.
+
+Still open: native Safari/physical device/background/lock-screen behavior,
+authenticated request lifecycle, the contradictory sticker offer and absent
+Closet consumer, contextual teaching/captions, and full-track listening quality.
+No new music, reward or account-sync claim is admitted by this repair.
+
 ## 2026-08-30 live continuity audit — defects confirmed, repair not released
 
 Ali requested the full KSVL behaviour audit, specifically music following the

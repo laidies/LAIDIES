@@ -7,6 +7,27 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-08-30 KSVL continuity repair
+
+Saved playback and a visible player were not enough: station/single contexts
+were dropped, full-page return always paused, several destinations loaded no
+canonical runtime or two competing runtimes, and popup detection rejected the
+production pretty URL. The repair separates cold restore from short-lived
+ordinary-link continuation and uses an exclusive browser lock, not a stale
+heartbeat, to own audio. Other pages send bounded commands to that owner.
+Independent review caught silent denied-storage failures; a persistent warning
+and explicit save outcome now prevent false continuity/popout promises. A second
+warning element initially broke a strict status selector; a distinct warning
+class fixes that without weakening the test or overriding its hidden state.
+The fail-first suite rejects the old runtime on twelve assertions; real local
+Radio → Library progression, popup transfer and remote Pause supplement fake
+audio tests. Prevention: count actual audio owners, reproduce production route
+forms, test every persistence context and storage denial, and generate the one
+canonical loader/cache identity in both builder and exact overlay. Full document
+navigation remains resumable, not seamless; native device behavior stays
+unverified. Behind the Build angle: remembering a song is a data problem;
+keeping one controllable song playing is also an ownership problem.
+
 ## Canonical ID migration — 2026-07-24
 
 This file consolidates both genuine source ledgers without overwriting either
