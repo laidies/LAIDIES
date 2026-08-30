@@ -41,7 +41,26 @@ const mime = new Map([
   [".svg", "image/svg+xml"]
 ]);
 
-const server = http.createServer((request, response) => {
+const requestedOrigin = process.env.RESIDENT_TEST_ORIGIN?.trim();
+let origin = "";
+if (requestedOrigin) {
+  const url = new URL(requestedOrigin);
+  assert.ok(
+    url.protocol === "https:" || url.protocol === "http:",
+    "RESIDENT_TEST_ORIGIN must use http or https"
+  );
+  assert.equal(
+    url.pathname, "/",
+    "RESIDENT_TEST_ORIGIN must be an origin, not a page path"
+  );
+  assert.equal(url.search, "", "RESIDENT_TEST_ORIGIN cannot include a query");
+  assert.equal(url.hash, "", "RESIDENT_TEST_ORIGIN cannot include a hash");
+  assert.equal(url.username, "", "RESIDENT_TEST_ORIGIN cannot include credentials");
+  assert.equal(url.password, "", "RESIDENT_TEST_ORIGIN cannot include credentials");
+  origin = url.origin;
+}
+
+const server = origin ? null : http.createServer((request, response) => {
   const url = new URL(request.url, "http://127.0.0.1");
   const relative = url.pathname === "/"
     ? "resident-card.html"
@@ -60,8 +79,10 @@ const server = http.createServer((request, response) => {
   fs.createReadStream(resolved).pipe(response);
 });
 
-await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-const origin = `http://127.0.0.1:${server.address().port}`;
+if (server) {
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  origin = `http://127.0.0.1:${server.address().port}`;
+}
 const browser = await chromium.launch({ executablePath: chrome, headless: true });
 const card = {
   version: 1,
@@ -92,6 +113,21 @@ const continuation = {
   activities: {},
   collections: {}
 };
+const tourFixture = ["newsstand", "chick-flicks"];
+const charmFixture = ["w1-butterfly-clip"];
+const puffyFixture = [{
+  schema_version: 2,
+  id: "resident-browser-puffy",
+  book_id: "concepts-101",
+  section_id: "",
+  content_version: "concepts-101-2026-08-03.1",
+  title: "Concepts 101",
+  summary: "Saved book · SUNNYVAiLE LIBRAiRY",
+  url: "/library.html#concepts-101",
+  sticker: "usable-25/01-heart-sunglasses.png",
+  purpose: "",
+  placedAt: new Date().toISOString()
+}];
 
 async function signIn(page) {
   return page.evaluate(async ({ accountEmail, accountPassword }) => {
@@ -107,7 +143,9 @@ async function signIn(page) {
 
 try {
   const first = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-  await first.addInitScript(({ envelope, continuationDocument }) => {
+  await first.addInitScript(({ envelope, continuationDocument, tour, charms, puffies }) => {
+    const fixtureKey = "laidies_resident_browser_test_fixture_v1";
+    if (sessionStorage.getItem(fixtureKey) === "seeded") return;
     localStorage.setItem("laidies_resident_card_v1", JSON.stringify(envelope));
     localStorage.setItem(
       "laidies_continuation_v1",
@@ -120,19 +158,41 @@ try {
       completed: false,
       savedAt: continuationDocument.last.updated_at
     }));
-  }, { envelope: card, continuationDocument: continuation });
+    localStorage.setItem("laidies_tour_2026-W35", JSON.stringify(tour));
+    localStorage.setItem("laidies_charms_found", JSON.stringify(charms));
+    localStorage.setItem("laidies_puffies_board", JSON.stringify(puffies));
+    sessionStorage.setItem(fixtureKey, "seeded");
+  }, {
+    envelope: card,
+    continuationDocument: continuation,
+    tour: tourFixture,
+    charms: charmFixture,
+    puffies: puffyFixture
+  });
   const firstPage = await first.newPage();
   await firstPage.goto(`${origin}/resident-card.html`, {
     waitUntil: "domcontentloaded"
   });
   const userId = await signIn(firstPage);
   await firstPage.reload({ waitUntil: "domcontentloaded" });
-  await firstPage.locator("#rcAccountClaimButton").waitFor({ state: "visible" });
-  await firstPage.locator("#rcAccountClaimButton").click();
-  await firstPage.waitForFunction(() =>
-    !document.getElementById("rcAccountStatus").textContent
-      .includes("Keeping this Card")
-  );
+  await firstPage.locator("#rcAccountClaimButton:visible, #rcAccountRestoreButton:visible").first().waitFor({ state: "visible" });
+  const claimButton = firstPage.locator("#rcAccountClaimButton");
+  const claimedDuringTest = await claimButton.isVisible();
+  if (claimedDuringTest) {
+    await claimButton.click();
+    await firstPage.waitForFunction(() =>
+      !document.getElementById("rcAccountStatus").textContent
+        .includes("Keeping this Card")
+    );
+  } else {
+    await firstPage.locator("#rcAccountRestoreButton").waitFor({
+      state: "visible"
+    });
+    await firstPage.locator("#rcAccountRestoreButton").click();
+    await firstPage.waitForFunction(() =>
+      document.getElementById("rcAccountStatus").textContent.startsWith("Restored.")
+    );
+  }
   console.log("STEP first-browser-status", await firstPage.locator("#rcAccountStatus").innerText());
   assert.match(
     await firstPage.locator("#rcAccountStatus").innerText(),
@@ -163,6 +223,14 @@ try {
   assert.equal(restoredContinuation.document.last.path, "/watch.html?ep=02");
   assert.equal(restoredContinuation.episode.programme, "02");
   assert.equal(restoredContinuation.episode.time, 123.4);
+  const restoredSupportedState = await secondPage.evaluate(() => ({
+    tour: JSON.parse(localStorage.getItem("laidies_tour_2026-W35")),
+    charms: JSON.parse(localStorage.getItem("laidies_charms_found")),
+    puffies: JSON.parse(localStorage.getItem("laidies_puffies_board"))
+  }));
+  assert.deepEqual(restoredSupportedState.tour, tourFixture);
+  assert.deepEqual(restoredSupportedState.charms, charmFixture);
+  assert.deepEqual(restoredSupportedState.puffies, puffyFixture);
   await secondPage.locator("#rcAccountRestoreButton").waitFor({
     state: "visible"
   });
@@ -192,16 +260,22 @@ try {
     true
   );
 
+  await secondPage.goto(`${origin}/resident-card.html`, {
+    waitUntil: "domcontentloaded"
+  });
+  await secondPage.locator("#rcAccountSignOut").waitFor({ state: "visible" });
+  await secondPage.locator("#rcAccountSignOut").click();
+  await secondPage.locator("#rcAccountSignedOut").waitFor({ state: "visible" });
+  assert.equal(await secondPage.locator("#rcAccountSignedIn").isHidden(), true);
+  assert.equal(await secondPage.locator("#rcAccountEmail").isVisible(), true);
+  await secondPage.reload({ waitUntil: "domcontentloaded" });
+  await secondPage.locator("#rcAccountSignedOut").waitFor({ state: "visible" });
+  assert.equal(await secondPage.locator("#rcAccountSignedIn").isHidden(), true);
+  assert.equal(await secondPage.locator("#rcAccountEmail").isVisible(), true);
+  const signOutShowsForm = true;
+
   let accountSwitchIsolation = null;
   if (switchCredentials) {
-    await secondPage.goto(`${origin}/resident-card.html`, {
-      waitUntil: "domcontentloaded"
-    });
-    await secondPage.evaluate(async () => {
-      const runtime = await window.LAIDIESResidentAccountRuntime.get();
-      const result = await runtime.client.auth.signOut();
-      if (result.error) throw result.error;
-    });
     await secondPage.evaluate(async ({ accountEmail, accountPassword }) => {
       const runtime = await window.LAIDIESResidentAccountRuntime.get();
       const result = await runtime.client.auth.signInWithPassword({
@@ -227,23 +301,35 @@ try {
         localStorage.getItem("laidies_screening_progress_v1"),
       lastPath: JSON.parse(
         localStorage.getItem("laidies_continuation_v1")
-      ).last.path
+      ).last.path,
+      tour: localStorage.getItem("laidies_tour_2026-W35"),
+      charms: localStorage.getItem("laidies_charms_found"),
+      puffies: localStorage.getItem("laidies_puffies_board")
     }));
     assert.equal(accountSwitchIsolation.episodeProgress, null);
     assert.equal(accountSwitchIsolation.lastPath, "/library.html");
+    assert.equal(accountSwitchIsolation.tour, null);
+    assert.equal(accountSwitchIsolation.charms, null);
+    assert.equal(accountSwitchIsolation.puffies, null);
   }
 
   console.log(JSON.stringify({
     result: "PASS",
-    accountUserId: userId,
-    firstBrowserClaim: true,
+    firstBrowserClaim: claimedDuringTest ? "claimed" : "restored-existing",
     secondBrowserRestore: true,
     crossBrowserContinuation: true,
     restoredEpisodePositionSeconds: restoredContinuation.episode.time,
+    restoredTourStops: restoredSupportedState.tour,
+    restoredCharmCount: restoredSupportedState.charms.length,
+    restoredPuffyCount: restoredSupportedState.puffies.length,
+    signOutShowsEmailForm: signOutShowsForm,
     accountSwitchIsolation: accountSwitchIsolation
       ? accountSwitchIsolation.ownerBound &&
         accountSwitchIsolation.episodeProgress === null &&
-        accountSwitchIsolation.lastPath === "/library.html"
+        accountSwitchIsolation.lastPath === "/library.html" &&
+        accountSwitchIsolation.tour === null &&
+        accountSwitchIsolation.charms === null &&
+        accountSwitchIsolation.puffies === null
       : "not-run",
     closetAccountBacked: true,
     mobileClosetNoHorizontalOverflow: true
@@ -253,5 +339,7 @@ try {
   await second.close();
 } finally {
   await browser.close();
-  await new Promise((resolve) => server.close(resolve));
+  if (server) {
+    await new Promise((resolve) => server.close(resolve));
+  }
 }

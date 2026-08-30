@@ -1,5 +1,15 @@
 # Resident Card construction — 2026-07-24
 
+> **PROVIDER RECOVERY — 2026-08-30.** Ali upgraded the existing LAIDIES organization
+> to Pro; the original provider project is online. Live-origin private Card,
+> Closet and bounded continuation tests passed using approved disposable users.
+> Supported episode/Tour/charm/Puffy state restores between isolated laptop/phone-sized
+> browsers, sign-out survives reload, and switching accounts clears prior state.
+> Test users and dependent records were deleted; five original user IDs preserved.
+> Real email-link delivery/callback and physical-device/Safari tests remain unverified.
+> No site deployment, schema change, new project or key rotation was needed.
+> This does not admit held public balances, rewards, leaderboards or identity surfaces.
+
 > **CURRENT ACCOUNT BOUNDARY — 2026-08-29.** The August 23 hold below was a
 > stale regression and is superseded. Account-backed Card claiming,
 > restoration and bounded cross-device continuation were deployed and
