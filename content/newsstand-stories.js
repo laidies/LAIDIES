@@ -10,8 +10,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-08-30T15:31:04Z",
-  "lastCheckedAt": "2026-08-30T15:31:04Z",
+  "generatedAt": "2026-08-30T20:56:26Z",
+  "lastCheckedAt": "2026-08-30T20:56:26Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -34,15 +34,20 @@ window.NEWSSTAND_DATA = {
         "weeklyStoryId": null,
         "storyIds": [],
         "serviceRecordIds": [
+          "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP",
           "DAILY-2026-08-30-CAREER-DELEGATION",
-          "DAILY-2026-08-30-MME-MINI-BACKPACK"
+          "DAILY-2026-08-30-CONCEPT-WEEK-CONCEPT-01-CONTEXT",
+          "DAILY-2026-08-30-MME-MINI-BACKPACK",
+          "DAILY-2026-08-30-DEAR-MISS-JEEVES-JEEVES-01-TIME",
+          "DAILY-2026-08-30-WHATS-NEW-SUNNYVAILE-TOWN-02-DATA-CENTRES",
+          "DAILY-2026-08-30-DID-YOU-KNOW-TOWN-01-LIBRARY"
         ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-08-30T15:31:04Z",
-      "updatedAt": "2026-08-30T15:31:04Z",
-      "lastCheckedAt": "2026-08-30T15:31:04Z",
+      "publishedAt": "2026-08-30T20:56:26Z",
+      "updatedAt": "2026-08-30T20:56:26Z",
+      "lastCheckedAt": "2026-08-30T20:56:26Z",
       "maxAgeHours": 36,
       "note": "No new news story was published today. The latest Front PAiGE and available columns remain below."
     },

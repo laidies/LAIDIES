@@ -1,0 +1,534 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "town-01-library",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-site-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-site-completed.json",
+      "sha256": "35e9878d8519976f25019cdd7a878323d7f5e1af633c5563c681964cc0cd0348"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:51:13.688Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-01-library.md",
+      "sha256": "7760190a1bfddb3e7c54a642901212d3a6cf15434793a73ba306ef9aeef94cab"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-01-library.manifest.json",
+      "sha256": "1276c858784126490d9d6a292e8e614b3b092939ded4c0c79ff53c478a5f52a0"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-site-completed-20260830",
+    "reviewedAt": "2026-08-30T20:51:13.688Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 'AI system' entry — the 'Where it stops' template repeats identically in every glossary block"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 'Provider' entry — decorative analogy doing no explanatory work"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' entry — one of Walkman/Cher/toolbox/librarian confetti across adjacent entries"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue",
+            "locator": "CQX-BAD-001 'Tool' entry — invented character with no canon standing"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 'AI system' entry — terms stacked before any motivating problem or mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single decision scenario swallows the entire book introduction"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — worked-example detail overtakes the book's stated purpose"
+          },
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming",
+            "locator": "CQX-BAD-002 Introduction — book purpose narrowed to fault-diagnosis of one request"
+          },
+          {
+            "excerpt": "You used an **AI system**: the whole working arrangement",
+            "locator": "CQX-BAD-002 Introduction — system anatomy before the reader has a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, garnish second",
+        "direct warm address to a smart, busy reader",
+        "honest hedging where a claim is unverified",
+        "one specific low-risk next action per piece"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth without hype"
+        },
+        {
+          "excerpt": "Regina George energy",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 13 — reference that carries the teaching"
+        },
+        {
+          "excerpt": "the most talented new hire",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — plain honest framing without personification"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Which of the four LIBRAiRY books should I open for my situation?",
+    "promisedPayoff": "Know which book does which job so you can go straight to the right one.",
+    "centralMentalModel": "The four books are different tools, not a sequence.",
+    "dailyLifeConnection": "Pick by need: a task, a term, a system question, or a wider-effects question.",
+    "surfaceJob": "Recurring service column routing readers into the LIBRAiRY.",
+    "desiredReaderFeeling": "Oriented and unburdened — no obligation to read everything in order."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each book's job is stated in one plain sentence with no jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit.",
+          "locator": "town-01-library body ¶2"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The routing advice saves the reader from guessing among four titles.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use the dictionary for a term you have just encountered",
+          "locator": "town-01-library body ¶2"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct, permission-giving close matches the smart-friend register; branded LIBRAiRY spelling exact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library body ¶2"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Short and warm rather than funny; acceptable for a short service column per calibration, with the closing line carrying the personality.",
+      "artifactEvidence": [
+        {
+          "excerpt": "you do not need to read all four in order",
+          "locator": "town-01-library body ¶2"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All four titles match the observed reader titles on both origins; no capability overclaim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the AI Dictionary and Straight Answers About AI",
+          "locator": "town-01-library body ¶1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Claims are structural (which books exist, what they do) and re-checkable against the library page; no dated numbers embedded.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101",
+          "locator": "town-01-library body ¶1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Headline, one-line deck, short body, single named action — fits the recurring service-column slot.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Browse the four books",
+          "locator": "town-01-library action link"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "Book names and LIBRAiRY spelling match the observed reader titles and brand lock exactly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI Fundamentals 101, Working with AI 101",
+          "locator": "town-01-library body ¶1"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Positions the four books relative to each other (understanding vs task vs term vs wider effects) so the set reads as one system.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Open Working with AI when you have a task to do.",
+          "locator": "town-01-library body ¶2"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Anchored to real reader moments: having a task, meeting a term, wondering about effects.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Straight Answers for questions about AI’s wider effects",
+          "locator": "town-01-library body ¶2"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Meets the Episode 1 bar for short service copy: specific, useful-before-clever, no filler.",
+      "artifactEvidence": [
+        {
+          "excerpt": "explanations, practical methods, a dictionary and sourced questions",
+          "locator": "town-01-library deck"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "One action, named for what it does, pointing at the observed library destination.",
+      "artifactEvidence": [
+        {
+          "excerpt": "https://laidies.ai/library.html",
+          "locator": "town-01-library action link"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; none required for a routing column — treated as absent, not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Four books to help you find your next answer.",
+          "locator": "town-01-library headline"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or authority names invoked; only the four LIBRAiRY book titles appear.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No named communicator's style is imitated; plain service-column register throughout.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler or corporate phrasing; each sentence routes the reader to a specific book.",
+      "artifactLocator": "town-01-library body ¶2"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The 'next answer' headline is paid off by four concrete routing sentences.",
+      "artifactLocator": "town-01-library headline and body ¶2"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy appears anywhere in the column.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The four books are explicitly related as different jobs within one set.",
+      "artifactLocator": "town-01-library body ¶2"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment beat precedes the routing information.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "All four titles and the library destination match the 2026-08-30 site observations.",
+      "artifactLocator": "town-01-library body ¶1 and action link"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No familiar-life example is used; direct routing copy only.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The single action names its destination: 'Browse the four books'.",
+      "artifactLocator": "town-01-library action link"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms are defined or stacked; only book titles are named.",
+      "artifactLocator": "town-01-library body ¶1"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The close releases obligation ('you do not need to read all four in order') rather than inflating stakes.",
+      "artifactLocator": "town-01-library body ¶2, final sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No technical vocabulary is used at all.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Permission-giving close keeps the tone warm rather than duty-bound.",
+      "artifactLocator": "town-01-library body ¶2"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Each routing sentence leads with the reader's situation, not the book's structure.",
+      "artifactLocator": "town-01-library body ¶2"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No mechanism claim exists to compress; routing copy.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "No mechanism claim is made that would need explanation.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Both paragraphs explain the set before the single link appears.",
+      "artifactLocator": "town-01-library action link position"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Four distinct reader situations are covered, not one narrow case.",
+      "artifactLocator": "town-01-library body ¶2"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No cultural or scholarly references appear.",
+      "artifactLocator": "town-01-library, full column"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Which-book-does-what claims are structural and re-checkable at library.html.",
+      "artifactLocator": "town-01-library body ¶1–¶2"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Second-person service voice throughout; no lecture register.",
+      "artifactLocator": "town-01-library body ¶2"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "'The LIBRAiRY’s opening set' opens both deck and lede — a one-off echo recorded as a limitation, not a repeating template.",
+      "artifactLocator": "town-01-library deck and body ¶1"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example present to overtake anything.",
+      "artifactLocator": "town-01-library, full column"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "four-books-exist",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the AI Dictionary and Straight Answers About AI",
+            "locator": "town-01-library body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Both origins opened these direct reader routes",
+            "locator": "site-destinations.md, Library and Dictionary section"
+          },
+          {
+            "excerpt": "`#straight-answers` | `Straight Answers About AI`",
+            "locator": "site-destinations.md, reader-route table"
+          }
+        ],
+        "scopeAndFreshness": "All four reader titles observed on both origins 2026-08-30; re-verify if the opening set changes."
+      },
+      {
+        "claimId": "book-job-characterizations",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "explanations, practical methods, a dictionary and sourced questions",
+            "locator": "town-01-library deck"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "By the end of this chapter, you will be able to",
+            "locator": "ai-fundamentals-101-chapters.txt, Chapter 4 objectives — explanatory book format"
+          }
+        ],
+        "scopeAndFreshness": "The bound Fundamentals chapters confirm the explanatory character; the practical character of Working with AI and 'sourced questions' for Straight Answers rest on the observed reader openings only, hence QUALIFIED."
+      },
+      {
+        "claimId": "library-link-works",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "https://laidies.ai/library.html",
+            "locator": "town-01-library action link"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "All four showed `Edition reviewed 29 August 2026`. No sign-in prompt appeared.",
+            "locator": "site-destinations.md, Library and Dictionary section"
+          }
+        ],
+        "scopeAndFreshness": "Book routes on laidies.ai observed; the bare library.html landing (no fragment) was not itself logged."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Re-verify if the LIBRAiRY opening set changes or a fifth book ships.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "The phrase 'The LIBRAiRY’s opening set' opens both the deck and the first body sentence — redundant lede, not substantive.",
+    "The link is to library.html generally; individual book anchors were the routes actually observed.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "did_you_know",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-35e9878d8519",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

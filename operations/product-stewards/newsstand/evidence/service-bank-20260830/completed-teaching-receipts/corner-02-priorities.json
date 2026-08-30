@@ -1,0 +1,490 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "corner-02-priorities",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-02-priorities.md",
+      "sha256": "88eb007d55afa32f023036902cb74c26cf5532ade276b247a8981127ea163036"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-02-priorities.manifest.json",
+      "sha256": "3fc2de73a88ecf161f00a7f5dabfb6c96f7eb7f10b051b6424137c6f3c05b155"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What do I do when a second 'urgent' deadline lands on an already full day?",
+    "promisedPayoff": "A script that converts silent overload into the manager's explicit priority decision.",
+    "centralMentalModel": "Surface the trade-off; make the decision visible instead of absorbing it.",
+    "dailyLifeConnection": "Presentation due tomorrow, report also due tomorrow.",
+    "surfaceJob": "Advice-column practice piece.",
+    "desiredReaderFeeling": "Backed up, not squeezed."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Script states the trade and asks the one decisive question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the report would move to Thursday. Which should come first?",
+          "locator": "corner-02 ¶1 script"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Primary script plus a both-fixed fallback covers the realistic branches.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Could we reduce the report to the essential figures",
+          "locator": "corner-02 ¶2 script"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct, anti-beige, no deficit framing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "instead of silently accepting two incompatible deadlines",
+          "locator": "corner-02 dek"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Brisk, recognizable scenario; suitably lean.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your manager needs a presentation by tomorrow.",
+          "locator": "corner-02 ¶1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Clark characterization matches source; explicit no-magic disclaimer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It will not manufacture extra hours",
+          "locator": "corner-02 ¶3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Bring a realistic estimate, including time to check the work.",
+          "locator": "corner-02 ¶2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Advice-column form.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What should move when another “urgent” job arrives?",
+          "locator": "corner-02 title"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Rehearsable scripts for both branches.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask what can change",
+          "locator": "corner-02 ¶2"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The manager's answer is immediate feedback on whether the trade-off landed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "it gives your manager a concrete decision to make",
+          "locator": "corner-02 ¶3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic first; source theme summarized honestly rather than quoted decoratively.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask for a priority decision",
+          "locator": "corner-02 dek"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Trade-off-visible pattern transfers to any competing-commitment scenario.",
+      "artifactEvidence": [
+        {
+          "excerpt": "making that trade-off visible at work",
+          "locator": "corner-02 ¶3"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Explicit both-deadlines-fixed branch.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If both deadlines really are fixed, ask what can change",
+          "locator": "corner-02 ¶2"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Clark named with accurate, load-bearing summary.",
+      "artifactLocator": "corner-02 ¶3"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Own voice.",
+      "artifactLocator": "corner-02"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "corner-02"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Scripts delivered.",
+      "artifactLocator": "corner-02"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "corner-02"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Single relevant link.",
+      "artifactLocator": "corner-02"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Advice leads.",
+      "artifactLocator": "corner-02"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No stats; explicit limitation.",
+      "artifactLocator": "corner-02 ¶3"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "corner-02"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Named days and quantities in scripts.",
+      "artifactLocator": "corner-02 ¶1"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "corner-02"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on honest limits.",
+      "artifactLocator": "corner-02 ¶3"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain.",
+      "artifactLocator": "corner-02"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Brisk but humane.",
+      "artifactLocator": "corner-02"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Pressure scenario leads.",
+      "artifactLocator": "corner-02"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "corner-02"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Why-it-works explained (visible decision).",
+      "artifactLocator": "corner-02 ¶3"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "corner-02"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Right scope.",
+      "artifactLocator": "corner-02"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "One reference.",
+      "artifactLocator": "corner-02"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Evergreen.",
+      "artifactLocator": "corner-02"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Advice voice.",
+      "artifactLocator": "corner-02"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "corner-02"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "corner-02"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/clark-priorities.txt",
+        "sha256": "c54f0096db5a7422489837f303ecf5dbc2d066965b5bac773ee1a9fd2d205d0e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "clark-margin-guarding",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Dorie Clark writes about protecting time for chosen priorities and leaving room between commitments.",
+            "locator": "corner-02 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/clark-priorities.txt",
+          "sha256": "c54f0096db5a7422489837f303ecf5dbc2d066965b5bac773ee1a9fd2d205d0e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "margin, creating space between commitments to reduce stress and improve decision-making",
+            "locator": "clark-priorities 'Building in Margin'"
+          },
+          {
+            "excerpt": "Protecting your time requires learning to say no",
+            "locator": "clark-priorities 'Guarding Your Time'"
+          }
+        ],
+        "scopeAndFreshness": "Accurate paraphrase of the linked blog post; evergreen."
+      },
+      {
+        "claimId": "script-originality",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "This is a LAiDIES script for making that trade-off visible at work.",
+            "locator": "corner-02 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/clark-priorities.txt",
+          "sha256": "c54f0096db5a7422489837f303ecf5dbc2d066965b5bac773ee1a9fd2d205d0e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "strategies for triaging requests",
+            "locator": "clark-priorities 'Guarding Your Time'"
+          }
+        ],
+        "scopeAndFreshness": "Script not in source; originality disclosed, per review requirements no published quotation demanded."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Clark blog URL change or removal",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No reader testing performed.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "career_life",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

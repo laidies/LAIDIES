@@ -1,0 +1,465 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "fact-01-dictionary",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.800Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-01-dictionary.md",
+      "sha256": "3d9d111eb79aae7e2bd625cfa2b0dadbfe7c2bb1e8e44209edeb17ce71d786f3"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-01-dictionary.manifest.json",
+      "sha256": "88c12a1ae33c5335d8322fa611b5e0c9dc62abf97533d2ccf840ddc6f1e36a87"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I look up one unfamiliar AI term?",
+    "promisedPayoff": "The dictionary supports quick lookup while Fundamentals supplies a longer explanation.",
+    "centralMentalModel": "The dictionary supports quick lookup while Fundamentals supplies a longer explanation.",
+    "dailyLifeConnection": "Can I look up one unfamiliar AI term?",
+    "surfaceJob": "A complete did_you_know column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The dictionary supports quick lookup while Fundamentals supplies a longer explanation. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "The dictionary supports quick lookup while Fundamentals supplies a longer explanation. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. One short paragraph tells the visitor where to go and how that book differs from the textbook. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Look up a term encountered in the paper. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: The dictionary supports quick lookup while Fundamentals supplies a longer explanation. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary: summary"
+        },
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+          "locator": "fact-01-dictionary: body paragraph 1"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. One short paragraph tells the visitor where to go and how that book differs from the textbook.",
+      "artifactLocator": "fact-01-dictionary: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "fact-01-dictionary-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "You can look up a term without starting a whole textbook.",
+            "locator": "fact-01-dictionary: summary"
+          },
+          {
+            "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books. Use it when a story mentions an unfamiliar term; use AI Fundamentals 101 when you want the longer explanation of how it fits into the system.",
+            "locator": "fact-01-dictionary: body paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The AI Dictionary` | `HOW THIS DICTIONARY WORKS` and `This is a front door, not a competing source of truth.` |\n\nAll four showed `Edition reviewed 29 August 2026`. No sign-in prompt appeared.\n\n## Catch Me Up and archive — `town-03-catchup`\n\nOn both origins, entering `2026-08-23` in **Start with** and activating **Show\nwhat I missed** returned two older results: the August 24 Daily, *The AI\nopportunity gap is opening now.*, and the August 24 Big Picture, *Why data\ncentres became a public villain—and what a better bargain would look like*.\n\nThe archive’s Theme control offered `data centres`; selecting it reported `1\nback issue available.` The visible browse-by-topic list also showed `data\ncentres 1`.\n\n## Mme CLAi-O — `fact-02-mme`\n\nBoth origins rendered `MME CLAI-O`, `One random authored reflection. Never a\nprediction.`, **Cut the deck**, and the visible boundary: each draw is one\nrandom authored card, is not tailored to the reader, does not analyse or answer\na question, and is not a prediction or professional advice.\n\nThe custom origin’s already-visible device-local history showed the actual saved\ncard `The Sun-In Spray` with `You are trying to change gradually enough that\nnobody asks questions.` The immutable origin reported `Madame is in. The deck\nis ready.` and showed no saved card.\n\n**Unverified by design:** no new card was drawn, so a newly generated card,\nits next-move wording, and post-draw persistence were not observed. Drawing\nwould write device-local history, outside this check’s no-mutation boundary.\n\n## Unsigned reading and data-centre article — `fact-03-reading`, `town-02-data-centres`\n\nOn both origins, an unsigned visitor could open\n`#big-picture-data-centre-deal-2026-08-24` directly. The reader showed:\n\n- section label: `THE BIG PICTURE`;\n- exact title: *Why data centres became a public villain—and what a better\n  bargain would look like*;\n- visible deck: `Data centres are not new. What changed was AI: bigger\n  facilities, lower trust and a flood of alarming claims that are hard to\n  compare.`;\n- published date: `August 24, 2026`; and\n- article line: `PUBLISHED AUGUST 24, 2026 · UPDATED AND CHECKED AUGUST 29,\n  2026`.\n\nThe custom-origin navigation retained visible `Sign in` and `Join the town`\nlinks, but opening the article did not display a login prompt. This confirms the\nobserved anonymous reader journey only; it does not establish account, s",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md: The AI Dictionary"
+          }
+        ],
+        "scopeAndFreshness": "The dictionary supports quick lookup while Fundamentals supplies a longer explanation. One short paragraph tells the visitor where to go and how that book differs from the textbook. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "One short paragraph tells the visitor where to go and how that book differs from the textbook."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

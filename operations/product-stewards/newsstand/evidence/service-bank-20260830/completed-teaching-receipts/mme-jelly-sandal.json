@@ -1,0 +1,469 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "mme-jelly-sandal",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PROMOTIONAL",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/mme-jelly-sandal.md",
+      "sha256": "5fd63b269bcd4e16bcd7768cb350b2d88ff29fad2c432ca8ecaeeba778861fd9"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/mme-jelly-sandal.manifest.json",
+      "sha256": "ffa930b365f94c6a600cda9d7745dcea529630e609819facf38aa16f8dace6ff"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Is this exciting new yes actually going to hurt by mid-afternoon?",
+    "promisedPayoff": "A quick gut-check before accepting a shiny opportunity.",
+    "centralMentalModel": "Cute shoe now, blister later — glamour needs a friction check.",
+    "dailyLifeConnection": "Saying yes to a stretch project without asking what comes with it.",
+    "surfaceJob": "Promote the Mme CLAi-O card game with one card's flavour.",
+    "desiredReaderFeeling": "Amused, seen, curious to draw a card."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each of the three lines is one plain idea; the move is a literal question to ask.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask what support, scope, and authority come with the yes.",
+          "locator": "mme-jelly-sandal move line"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The move converts the metaphor into a real negotiation question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A shiny opportunity still needs a friction check.",
+          "locator": "mme-jelly-sandal message line"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Y2K object plus workplace truth; matches deck-authored voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "there may be a blister by 3 p.m.",
+          "locator": "mme-jelly-sandal read line"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The blister image lands the lesson without over-explaining.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This looks fun, but there may be a blister by 3 p.m.",
+          "locator": "mme-jelly-sandal read line"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No factual claims; prose verified verbatim against deck JSON.",
+      "artifactEvidence": [
+        {
+          "excerpt": "support, scope, and authority",
+          "locator": "mme-jelly-sandal move line"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen advice card; nothing month-dependent.",
+      "artifactEvidence": [
+        {
+          "excerpt": "still needs a friction check",
+          "locator": "mme-jelly-sandal message line"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Read/message/move structure fits the promotional card format.",
+      "artifactEvidence": [
+        {
+          "excerpt": "# The Jelly Sandal",
+          "locator": "mme-jelly-sandal title"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "Promotes only what the deck contains; no feature overclaim, no benefit guarantee.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Visit Mme CLAi-O",
+          "locator": "mme-jelly-sandal link text"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "Single named destination action in Writing-Lock-compliant wording (no 'Play').",
+      "artifactEvidence": [
+        {
+          "excerpt": "[Visit Mme CLAi-O](https://laidies.ai/games/madame-claio.html)",
+          "locator": "mme-jelly-sandal link"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No expert names invoked.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Authored deck voice, not imitation.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler phrases.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Hook resolves into a concrete question.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Sandal metaphor carries the point.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links to the game it excerpts.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Joke and lesson are the same sentence.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No empirical claims made.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Not a technical piece.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Move names three specific asks.",
+      "artifactLocator": "mme-jelly-sandal move"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms defined.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the action, not hype.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain words throughout.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Humour present in read line.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Not applicable; motivation leads.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No mechanism owed.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Promo card, no mechanism claim.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Card is complete before the link.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Scope matches a single card.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "One object reference only.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Evergreen.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Card voice, not explainer.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Deck format is the product, not scaffolding.",
+      "artifactLocator": "mme-jelly-sandal"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example.",
+      "artifactLocator": "mme-jelly-sandal"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/data/mme-claio-deck.json",
+        "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "jelly-deck-match",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "This looks fun, but there may be a blister by 3 p.m.",
+            "locator": "mme-jelly-sandal read line"
+          },
+          {
+            "excerpt": "Ask what support, scope, and authority come with the yes.",
+            "locator": "mme-jelly-sandal move line"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/data/mme-claio-deck.json",
+          "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This looks fun, but there may be a blister by 3 p.m.",
+            "locator": "deck cards[id=jelly-sandal].read"
+          },
+          {
+            "excerpt": "Ask what support, scope, and authority come with the yes.",
+            "locator": "deck cards[id=jelly-sandal].move"
+          }
+        ],
+        "scopeAndFreshness": "Static authored copy; all three lines verbatim. Re-verify only if deck edited."
+      },
+      {
+        "claimId": "game-destination-renders",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "[Visit Mme CLAi-O](https://laidies.ai/games/madame-claio.html)",
+            "locator": "mme-jelly-sandal link"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Both origins rendered `MME CLAI-O`",
+            "locator": "site-destinations.md §Mme CLAi-O — fact-02-mme"
+          }
+        ],
+        "scopeAndFreshness": "Bound visitor observation (2026-08-30, no sign-in, no draw) shows the linked game page rendering with the deck ready on both origins. Supports destination behaviour only; no draw or persistence claimed. Re-verify on URL or page change."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Deck JSON edit or game URL change",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Destination rendering is supported by the bound 2026-08-30 visitor observation (site-destinations.md): the game page rendered on both origins with the deck ready. A fresh card draw and post-draw persistence were intentionally not observed.",
+    "No reader testing performed; judgment from prose only.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "mme_claio",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

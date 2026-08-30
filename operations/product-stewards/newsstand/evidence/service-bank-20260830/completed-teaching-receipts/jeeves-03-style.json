@@ -1,0 +1,540 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-03-style",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-03-style.md",
+      "sha256": "50d4c4c24e74af29fffbdf6c65065cd2aa348fae7e01b37b729f5ef0a79876bd"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-03-style.manifest.json",
+      "sha256": "27169bf6a06eef9d13406441c35012ff4a3e745b8e59f0ec3cd729bcfc9dc813"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does 'make it professional' produce unbearable corporate email, and how do I sound like me?",
+    "promisedPayoff": "A method: show your voice, name the changes, edit surgically.",
+    "centralMentalModel": "'Professional' delegates the decision to the tool's generic default; an example plus named changes takes it back.",
+    "dailyLifeConnection": "Every workplace email draft.",
+    "surfaceJob": "Miss Jeeves letters column.",
+    "desiredReaderFeeling": "Ownership of her own voice."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Diagnosis stated plainly before the fix.",
+      "artifactEvidence": [
+        {
+          "excerpt": "leaves a lot for the tool to decide",
+          "locator": "jeeves-03 reply ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Two concrete prompts plus a fact-preservation check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "dates, names and commitments should not change during a tone edit",
+          "locator": "jeeves-03 reply ¶3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Anti-beige, anti-filler; wince test is pure LAiDIES.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03 closing"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Recognizable pain ('I hope this message finds you well') played well.",
+      "artifactEvidence": [
+        {
+          "excerpt": "followed by three paragraphs nobody needed",
+          "locator": "jeeves-03 letter"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Default-voice diagnosis and example method match bound book; privacy step included.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing.",
+          "locator": "jeeves-03 reply ¶2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Durable technique; no product or date claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask it to change the offending sentences only",
+          "locator": "jeeves-03 reply ¶3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "FAQ letter format intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03 reply"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "Answers both why-it-happens and how-to-sound-like-me.",
+      "artifactEvidence": [
+        {
+          "excerpt": "How do I make it sound like me?",
+          "locator": "jeeves-03 letter"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Email tone is a daily task; replacement example is word-level real.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Replace ‘I am reaching out to inquire’ with ‘Can you tell me’",
+          "locator": "jeeves-03 reply ¶3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic leads, garnish closes; strong short-column voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03 reply ¶1"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Immediately usable two-step method plus surgical-edit fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Then name the changes",
+          "locator": "jeeves-03 reply ¶2"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absence not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03 dek"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-03"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "House persona.",
+      "artifactLocator": "jeeves-03"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Mocks it, doesn't commit it.",
+      "artifactLocator": "jeeves-03"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Delivered.",
+      "artifactLocator": "jeeves-03"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "jeeves-03"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links to output-control chapter, matching topic.",
+      "artifactLocator": "jeeves-03 link"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Diagnosis first.",
+      "artifactLocator": "jeeves-03"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "'Might mean' hedging present.",
+      "artifactLocator": "jeeves-03 reply ¶1"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Filler-email example returns the underspecification mechanism.",
+      "artifactLocator": "jeeves-03 reply ¶1"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Prompts are word-specific.",
+      "artifactLocator": "jeeves-03 reply ¶2"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-03"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the wince test, not hype.",
+      "artifactLocator": "jeeves-03 closing"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain.",
+      "artifactLocator": "jeeves-03"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Humour earned throughout.",
+      "artifactLocator": "jeeves-03"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Letter motivates.",
+      "artifactLocator": "jeeves-03 letter"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Fully explained.",
+      "artifactLocator": "jeeves-03"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Underspecification-to-default mechanism named.",
+      "artifactLocator": "jeeves-03 reply ¶1"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "jeeves-03"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Method generalizes to any tone task.",
+      "artifactLocator": "jeeves-03"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-03"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Durable.",
+      "artifactLocator": "jeeves-03"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Column voice.",
+      "artifactLocator": "jeeves-03"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-03"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Proportionate.",
+      "artifactLocator": "jeeves-03"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+        "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "default-voice-diagnosis",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "produce an email full of formal introductions and impressive-sounding filler",
+            "locator": "jeeves-03 reply ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "a recognisable voice that belongs to no one",
+            "locator": "Working with AI 101 §3.1"
+          },
+          {
+            "excerpt": "it's defaulting to the template rather than your voice",
+            "locator": "Working with AI 101 §3.2"
+          }
+        ],
+        "scopeAndFreshness": "Rebound from an unprovided §1.3 passage to literal Chapter 3 passages supporting the same generic-default diagnosis; durable."
+      },
+      {
+        "claimId": "voice-example-method",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Give it a short, privacy-safe example of your own writing.",
+            "locator": "jeeves-03 reply ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Show 2-3 pieces of your real writing",
+            "locator": "Working with AI 101 §2.5"
+          },
+          {
+            "excerpt": "Use a harmless stand-in, remove names, paste only the necessary passage",
+            "locator": "Working with AI 101 §2.4"
+          }
+        ],
+        "scopeAndFreshness": "Combines few-shot voice guidance with Allowed-Information Check; durable."
+      },
+      {
+        "claimId": "tone-edit-fact-check",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "dates, names and commitments should not change during a tone edit",
+            "locator": "jeeves-03 reply ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Constraints. What it must NOT do.",
+            "locator": "Working with AI 101 §2.3"
+          }
+        ],
+        "scopeAndFreshness": "Original but sound check consistent with source's constraint-and-compare practice."
+      },
+      {
+        "claimId": "library-link-ch3",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "controlling what comes back",
+            "locator": "jeeves-03 link text"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Chapter 3: Controlling What Comes Back",
+            "locator": "Working with AI 101 Ch3 title"
+          },
+          {
+            "excerpt": "3.2 Making It Sound Like You",
+            "locator": "Working with AI 101 §3.2 heading"
+          }
+        ],
+        "scopeAndFreshness": "Corrected chapter extraction confirms the chapter and section titles matching the link anchor. Re-verify on book revision."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Working with AI 101 revision or anchor confirmation",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No reader testing performed.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "dear_miss_jeeves",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

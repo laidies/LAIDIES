@@ -1,0 +1,563 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "concept-02-token",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "EXPLANATION",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.md",
+      "sha256": "5ccfb312d350e28c0a19705afba2a08d1a5e7e3e7f331d46ee5fb776db292b00"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.manifest.json",
+      "sha256": "39861933bfc920f6c5eb2ce46e91457e7a50d48aca266e858cfe97db4f374b70"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why do token limits never match my word counts?",
+    "promisedPayoff": "Understand what a token is well enough to handle limits sensibly.",
+    "centralMentalModel": "Text is chopped into reusable pieces mapped to numbers; splits vary by tokeniser, so tokens are not words.",
+    "dailyLifeConnection": "A big document hitting a limit.",
+    "surfaceJob": "Concept explainer column.",
+    "desiredReaderFeeling": "Unintimidated by the jargon on pricing pages and error messages."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Definition in one plain sentence before any consequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a tokeniser breaks it into reusable pieces and represents them as numbers",
+          "locator": "concept-02 ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Explains the limit math and gives a document strategy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a limit of 10,000 tokens does not mean 10,000 words",
+          "locator": "concept-02 ¶2"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Plain and confident; policy/exception line adds a flash of specificity.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word",
+          "locator": "concept-02 dek"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Modest, but the exception-separated-from-rule closer sticks.",
+      "artifactEvidence": [
+        {
+          "excerpt": "if the exception ends up separated from the rule",
+          "locator": "concept-02 ¶3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every mechanism claim matches ch4, including tokeniser variability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The exact split depends on the tokeniser.",
+          "locator": "concept-02 ¶1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Hypothetical 10,000-token figure avoids naming any real product limit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the system also needs room to produce its answer",
+          "locator": "concept-02 ¶2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Concept-slot format intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tokens: the pieces a language model processes.",
+          "locator": "concept-02 title"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Connects tokenisation to limits, shared space, and document handling.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The document, instructions and conversation can all take up space",
+          "locator": "concept-02 ¶2"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Too-large-document case is the reader's actual encounter with tokens.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If a document is too large for a task",
+          "locator": "concept-02 ¶3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic carries; nothing hidden behind metaphor.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A piece might be a whole word, part of a word, punctuation or a single character.",
+          "locator": "concept-02 ¶1"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Reader can restate 'pieces, not words; splits vary; everything shares the space'.",
+      "artifactEvidence": [
+        {
+          "excerpt": "word counts and token limits differ",
+          "locator": "concept-02 dek"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Section-with-context strategy transfers to any oversized input.",
+      "artifactEvidence": [
+        {
+          "excerpt": "work on clearly labelled sections",
+          "locator": "concept-02 ¶3"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Concrete shortening/sectioning move with the integrity caveat.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep the passages needed to interpret each section together.",
+          "locator": "concept-02 ¶3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absence not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before a language model works with text",
+          "locator": "concept-02 ¶1"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "Mechanism → consequence → practical handling; complete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is why a limit of 10,000 tokens",
+          "locator": "concept-02 ¶2"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-02"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Own register.",
+      "artifactLocator": "concept-02"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-02"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Dek promise met.",
+      "artifactLocator": "concept-02"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "concept-02"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links tokens to limits and documents.",
+      "artifactLocator": "concept-02"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Understanding leads.",
+      "artifactLocator": "concept-02"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Variability hedges present.",
+      "artifactLocator": "concept-02 ¶1"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Policy example returns the coherence lesson.",
+      "artifactLocator": "concept-02 ¶3"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actions concrete.",
+      "artifactLocator": "concept-02 ¶3"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Single concept.",
+      "artifactLocator": "concept-02"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on caveat.",
+      "artifactLocator": "concept-02"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Tokeniser' defined by its action in the same sentence.",
+      "artifactLocator": "concept-02 ¶1"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Dry-ish but clear; within latitude.",
+      "artifactLocator": "concept-02"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Dek names the reader's real confusion first.",
+      "artifactLocator": "concept-02 dek"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Full mechanism in body.",
+      "artifactLocator": "concept-02"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Mechanism explicit.",
+      "artifactLocator": "concept-02 ¶1"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "concept-02"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Generalizes.",
+      "artifactLocator": "concept-02"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-02"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No real limits or prices named.",
+      "artifactLocator": "concept-02"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Plainer and warmer than the negative exemplars.",
+      "artifactLocator": "concept-02"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-02"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-02"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+        "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "tokeniser-mechanism",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a tokeniser breaks it into reusable pieces and represents them as numbers",
+            "locator": "concept-02 ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A tokeniser first divides the text into reusable pieces and maps those pieces to numbers.",
+            "locator": "AI Fundamentals 101 §4.1"
+          }
+        ],
+        "scopeAndFreshness": "Direct match."
+      },
+      {
+        "claimId": "piece-granularity-variability",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A piece might be a whole word, part of a word, punctuation or a single character.",
+            "locator": "concept-02 ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A piece can be a whole word, part of one, punctuation or even a single character",
+            "locator": "AI Fundamentals 101 §4.1"
+          }
+        ],
+        "scopeAndFreshness": "Direct match, including tokeniser dependence."
+      },
+      {
+        "claimId": "tokens-not-words",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a limit of 10,000 tokens does not mean 10,000 words",
+            "locator": "concept-02 ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "one token is roughly three-quarters of a word",
+            "locator": "AI Fundamentals 101 §4.2"
+          }
+        ],
+        "scopeAndFreshness": "10,000 figure is hypothetical, not a product claim; durable."
+      },
+      {
+        "claimId": "section-integrity-advice",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+            "locator": "concept-02 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Only part of a long document is relevant to this task",
+            "locator": "Working with AI 101 §2.4 paste guidance"
+          }
+        ],
+        "scopeAndFreshness": "Original but sound extension of source's selective-pasting guidance."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "AI Fundamentals 101 revision",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No reader testing performed.",
+    "No analogy used — treated as absent.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "concept_week",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

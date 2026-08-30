@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "corner-03-reconnect",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.788Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-03-reconnect.md",
+      "sha256": "f2dcdb0fbe0c9102baf2264e91e7b3e1b306474ceb06f9025e8a0ce417a39a8a"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-03-reconnect.manifest.json",
+      "sha256": "4edc9be437a07254984b4a21abd85ced2df6068629b5cdc0b00d876e704321a7"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I get back in touch without making it transactional?",
+    "promisedPayoff": "Write an honest check-in without a link if nothing genuinely relevant comes to mind.",
+    "centralMentalModel": "Show genuine interest before needing a favour; do not disguise a request.",
+    "dailyLifeConnection": "How do I get back in touch without making it transactional?",
+    "surfaceJob": "A complete career_life column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Show genuine interest before needing a favour; do not disguise a request. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Write an honest check-in without a link if nothing genuinely relevant comes to mind. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Write an honest check-in without a link if nothing genuinely relevant comes to mind. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: Write an honest check-in without a link if nothing genuinely relevant comes to mind.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: How do I get back in touch without making it transactional?",
+        "probeResponse": "Write an honest check-in without a link if nothing genuinely relevant comes to mind.",
+        "expectedEvidence": "Show genuine interest before needing a favour; do not disguise a request."
+      }
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Write an honest check-in without a link if nothing genuinely relevant comes to mind. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+          "locator": "corner-03-reconnect: summary"
+        },
+        {
+          "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03-reconnect: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03-reconnect: body paragraph 2"
+        },
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03-reconnect: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link.",
+      "artifactLocator": "corner-03-reconnect: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/clark-relationships.txt",
+        "sha256": "0821210de928908ffb0f71696d6241326df2093c1df20521994541be04d5b6da"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "corner-03-reconnect-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Reconnect with something specific, not a mystery invitation to “pick your brain”.",
+            "locator": "corner-03-reconnect: summary"
+          },
+          {
+            "excerpt": "You liked working with someone, then six months disappeared. You do not need an elaborate reason to get back in touch.",
+            "locator": "corner-03-reconnect: body paragraph 1"
+          },
+          {
+            "excerpt": "Try: “I was reminded of our conversation about onboarding when I saw this example. The section on first-week checklists made me think of your project. How did the new process work out?” Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+            "locator": "corner-03-reconnect: body paragraph 2"
+          },
+          {
+            "excerpt": "Dorie Clark recommends building relationships before an immediate need arises. The point is to stay interested in the person’s work, not to disguise a request. If you do need help, say what you are asking for and make it easy to decline.",
+            "locator": "corner-03-reconnect: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/clark-relationships.txt",
+          "sha256": "0821210de928908ffb0f71696d6241326df2093c1df20521994541be04d5b6da"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Build relationships before you need them Networking works best when it begins long before you need something. The most valuable professional connections are built through genuine curiosity, generosity, and consistency. Reaching out without an immediate agenda builds trust that pays off later. Strong relationships are not transactional. They are built on mutual respect and shared value. Turn experiments into systems One of the biggest shifts that supports long-term growth is turning what works into a repeatable process. If a strategy produces results, whether it’s an outreach message, a content schedule, or a framework that resonates, document it and refine it. Systems multiply effort and ensure successes are not one-time events but foundations for future opportunities. Preparation isn’t about perfection. It’s about consistently building habits, relationships, and systems that position you for success when opportunity arrives. For more ideas on creating momentum and building opportunities over time, join my email newsletter at https://dorieclark.com/subscribe . Copyright 2026 Dorie Clark, all rights reserved. Privacy Policy Search\n",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/clark-relationships.txt: Build relationships before you need them"
+          }
+        ],
+        "scopeAndFreshness": "Show genuine interest before needing a favour; do not disguise a request. The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The onboarding message has a concrete reason to write and the text allows a warm check-in with no token link."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

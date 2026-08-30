@@ -1,0 +1,631 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "concept-01-context",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "EXPLANATION",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.789Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-01-context.md",
+      "sha256": "92023428ed7b8357d3a3e2ec378a1665fdb7249e158afa15726838f0d3c649a7"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-01-context.manifest.json",
+      "sha256": "cbf91047facef8e2cde3490d2d011eca5b0c8597dccb625be3321ff04e20c308"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does the answer miss something I already supplied?",
+    "promisedPayoff": "Explain-back: context is what is available now, not everything saved. Transfer: restate a dietary constraint for a meal plan.",
+    "centralMentalModel": "Context is the material available for this answer; the context window is a capacity limit.",
+    "dailyLifeConnection": "Why does the answer miss something I already supplied?",
+    "surfaceJob": "A complete concept_week column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Context is the material available for this answer; the context window is a capacity limit. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Context is the material available for this answer; the context window is a capacity limit. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: Explain-back: context is what is available now, not everything saved. Transfer: restate a dietary constraint for a meal plan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Why does the answer miss something I already supplied?",
+        "probeResponse": "Explain-back: context is what is available now, not everything saved. Transfer: restate a dietary constraint for a meal plan.",
+        "expectedEvidence": "Context is the material available for this answer; the context window is a capacity limit."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: Explain-back: context is what is available now, not everything saved. Transfer: restate a dietary constraint for a meal plan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Why does the answer miss something I already supplied?",
+        "probeResponse": "Explain-back: context is what is available now, not everything saved. Transfer: restate a dietary constraint for a meal plan.",
+        "expectedEvidence": "Context is the material available for this answer; the context window is a capacity limit."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Explain-back: context is what is available now, not everything saved. Transfer: restate a dietary constraint for a meal plan. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: Context is the material available for this answer; the context window is a capacity limit. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "Context is the material available for this answer; the context window is a capacity limit. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01-context: summary"
+        },
+        {
+          "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+          "locator": "concept-01-context: body paragraph 1"
+        },
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01-context: body paragraph 2"
+        },
+        {
+          "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+          "locator": "concept-01-context: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read.",
+      "artifactLocator": "concept-01-context: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "concept-01-context-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+            "locator": "concept-01-context: summary"
+          },
+          {
+            "excerpt": "Ask an AI to write an invitation and it can produce something plausible. Tell it that this is a casual lunch for six colleagues, not a customer event, and you have changed the material it can work with. That material is context.",
+            "locator": "concept-01-context: body paragraph 1"
+          },
+          {
+            "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools. What actually reaches the model depends on the product. A document sitting in your account is not proof that its contents were used.",
+            "locator": "concept-01-context: body paragraph 2"
+          },
+          {
+            "excerpt": "The context window is a different thing: it is the limit on how much material the model can process at once, measured in tokens. Context is the material; the window sets a capacity limit. If an important detail has disappeared from a long conversation, restate it and check that the next answer follows it.",
+            "locator": "concept-01-context: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "8.2 — The Two Sources of \"Knowledge\" Based on everything you've learned so far, there are only two ways the model \"knows\" something when it responds to you: Source 1: Training weights (frozen, general, potentially stale) Everything the model absorbed during training (Chapters 3-5) is encoded in its weights. This includes patterns of language, general facts about the world, reasoning patterns, style — everything that was in the training data. This knowledge is frozen at the training cutoff date and never updates. Source 2: Context window (live, specific, provided right now) Everything placed into the context window for this specific request — your message, conversation history, system instructions, documents you uploaded, search results, the current date. This is live information, specific to this moment, and disappears the moment the response is complete. The model can't tell the difference. When it generates a response, it draws on both sources simultaneously. It doesn't flag \"this fact comes from my training\" versus \"this fact comes from the document you just uploaded.\" It processes everything in the context window as one combined input. This distinction — training knowledge vs contextual information — is fundamental to understanding both the capabilities and limitations of these systems. 8.3 — What \"Memory\" Actually Means (When Companies Say It) 📼 Rewind it: Calling every saved preference \"memory\" is how you end up with a Burn Book full of assumptions. Ask what was actually stored, where it lives, and whether the product will retrieve it next time. The model itself has not quietly become a person who remembers you. In 2024–2026, many AI products launched \"memory\" features — ChatGPT's Memory, Claude's memory, and others. What are these actually doing? They're not giving the model actual memory. They're doing this: Extracting facts from your conversations (\"User's name is Ali.\" \"User prefers concise answers.\" \"User is working on a textbook project.\") Storing those facts externally — in a database, outside the model. Injecting relevant facts back into the context window each time you start a new conversation. The model still has no memory. But the application layer remembers things about you and feeds them back in each time, making it appear as if the model remembers. It's a clever design — but mechanically, it's just context window management. The three ti",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt: 8.2"
+          }
+        ],
+        "scopeAndFreshness": "Context is the material available for this answer; the context window is a capacity limit. The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The lunch invitation establishes the effect of supplied details before defining context. Product-dependent access prevents the false promise that every saved document was read."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

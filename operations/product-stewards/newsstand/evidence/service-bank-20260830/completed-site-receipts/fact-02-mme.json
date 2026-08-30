@@ -1,0 +1,572 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "fact-02-mme",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-site-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-site-completed.json",
+      "sha256": "35e9878d8519976f25019cdd7a878323d7f5e1af633c5563c681964cc0cd0348"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:51:13.688Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-02-mme.md",
+      "sha256": "768f9337bd6db5142de0b987941d5e02ab99811422f4670a183c6becd1558aec"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-02-mme.manifest.json",
+      "sha256": "f0fc31f96ed4d36fde8b6d6c53a2acafb68c000f92d346a71358e7bbe0404bdc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-site-completed-20260830",
+    "reviewedAt": "2026-08-30T20:51:13.688Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 'AI system' entry — the 'Where it stops' template repeats identically in every glossary block"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 'Provider' entry — decorative analogy doing no explanatory work"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' entry — one of Walkman/Cher/toolbox/librarian confetti across adjacent entries"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue",
+            "locator": "CQX-BAD-001 'Tool' entry — invented character with no canon standing"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 'AI system' entry — terms stacked before any motivating problem or mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single decision scenario swallows the entire book introduction"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — worked-example detail overtakes the book's stated purpose"
+          },
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming",
+            "locator": "CQX-BAD-002 Introduction — book purpose narrowed to fault-diagnosis of one request"
+          },
+          {
+            "excerpt": "You used an **AI system**: the whole working arrangement",
+            "locator": "CQX-BAD-002 Introduction — system anatomy before the reader has a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, garnish second",
+        "direct warm address to a smart, busy reader",
+        "honest hedging where a claim is unverified",
+        "one specific low-risk next action per piece"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth without hype"
+        },
+        {
+          "excerpt": "Regina George energy",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 13 — reference that carries the teaching"
+        },
+        {
+          "excerpt": "the most talented new hire",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — plain honest framing without personification"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Are Mme CLAi-O's cards just vibes, or do they give me something to do?",
+    "promisedPayoff": "Every card ends in a concrete move you could actually make today.",
+    "centralMentalModel": "Authored reflection plus practical move — a nudge, never a prediction.",
+    "dailyLifeConnection": "Overload example: drop one commitment before adding another.",
+    "surfaceJob": "Recurring fact-box explaining what a card contains and where to find the deck.",
+    "desiredReaderFeeling": "Charmed but grounded — it's playful and still honest about what it is."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Card anatomy stated plainly in one sentence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "includes a reading, a message and a practical move",
+          "locator": "fact-02-mme body ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The concrete Mini Backpack move shows the reader exactly what they'd get.",
+      "artifactEvidence": [
+        {
+          "excerpt": "asks you to remove one commitment before adding another",
+          "locator": "fact-02-mme body ¶1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Playful subject handled with honest boundaries; branded Mme CLAi-O spelling exact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Mme CLAi-O’s cards have a practical move on them.",
+          "locator": "fact-02-mme headline"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The Mini Backpack example carries the deck's own charm into the column.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The Mini Backpack, for example",
+          "locator": "fact-02-mme body ¶1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Card structure and the authored boundary were already verified against the deck and page; the NewsStand-features-a-card claim is now supported by the bound front-page observation of the featured Mini Backpack link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand can feature a card, and you can explore the deck at Mme CLAi-O’s.",
+          "locator": "fact-02-mme body ¶2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Claims are structural against a versioned deck file; re-checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Each card in Mme CLAi-O’s reflection deck",
+          "locator": "fact-02-mme body ¶1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Short fact-box with one named action; fits the slot.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Visit Mme CLAi-O",
+          "locator": "fact-02-mme action link"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "Card name and move content match the authored deck; 'reflection deck' matches deck_id 'mme-claio-reflection-deck'.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Mme CLAi-O’s reflection deck",
+          "locator": "fact-02-mme body ¶1"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Both asserted relationships are now evidenced: deck-to-Mme-page was verified earlier, and deck-to-NewsStand is corroborated by the observed featured card link on the front page.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand can feature a card",
+          "locator": "fact-02-mme body ¶2"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The overload/commitment example is a recognizable working-life moment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "remove one commitment before adding another",
+          "locator": "fact-02-mme body ¶1"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Concrete example plus honest boundary matches the benchmark's specificity-and-honesty pattern.",
+      "artifactEvidence": [
+        {
+          "excerpt": "These are authored reflections, not predictions about your future.",
+          "locator": "fact-02-mme body ¶2"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "One action naming the destination; the Mme page was observed rendering on both origins.",
+      "artifactEvidence": [
+        {
+          "excerpt": "https://laidies.ai/games/madame-claio.html",
+          "locator": "fact-02-mme action link"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The card content is quoted subject matter, not an analogy; no analogy defects.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A reading comes with something to consider doing next.",
+          "locator": "fact-02-mme deck"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or authority names; card and place names only.",
+      "artifactLocator": "fact-02-mme, full box"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated voice; the deck's own charm is quoted, not pastiched.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler; anatomy, example, boundary, destination in four sentences.",
+      "artifactLocator": "fact-02-mme body ¶1–¶2"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's 'practical move' promise is paid off with the Mini Backpack move.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The Mini Backpack is quoted card content, not an analogy of the column's own.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The deck is connected to both the NewsStand feature slot and the Mme CLAi-O page.",
+      "artifactLocator": "fact-02-mme body ¶2"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The playful example serves the card-anatomy point rather than replacing it.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The NewsStand-features-a-card claim, previously unsupported, is now corroborated by the bound 2026-08-30 front-page observation of the featured Mini Backpack link; no unsupported claims remain.",
+      "artifactLocator": "fact-02-mme body ¶2"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The Mini Backpack example returns the exact point: each card ends in a move.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action names its destination: 'Visit Mme CLAi-O'.",
+      "artifactLocator": "fact-02-mme action link"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No definition stacking; one three-part anatomy stated once.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends with an honest boundary line, not inflated significance.",
+      "artifactLocator": "fact-02-mme body ¶2"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Reading, message and practical move' are plain words made concrete by the example.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The deck's playfulness carries through while the boundaries stay honest.",
+      "artifactLocator": "fact-02-mme body ¶1–¶2"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "What's-on-a-card is itself the reader's question and is answered first.",
+      "artifactLocator": "fact-02-mme headline"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Card anatomy gets a full sentence plus an example before any link.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Card anatomy is stated adequately for a fact box.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The anatomy and boundary precede the single link.",
+      "artifactLocator": "fact-02-mme action link position"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers anatomy, an example, the NewsStand slot, and the destination.",
+      "artifactLocator": "fact-02-mme, full box"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Only the deck's own card is referenced.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Deck claims are reviewable against the versioned JSON; the feature claim against the live front page.",
+      "artifactLocator": "fact-02-mme body ¶1–¶2"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Playful-but-plain register, not an explainer lecture.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No repeated phrasing across deck, body and boundary line.",
+      "artifactLocator": "fact-02-mme deck and body"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The single example stays subordinate to the anatomy point.",
+      "artifactLocator": "fact-02-mme body ¶1"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/data/mme-claio-deck.json",
+        "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/mme-newsstand-observation.md",
+        "sha256": "07274ede6a2dac1be566fd38ea0765a8828cd40f7762b5563c9fded8a0f9a49d"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "card-anatomy",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "includes a reading, a message and a practical move",
+            "locator": "fact-02-mme body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/data/mme-claio-deck.json",
+          "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "You are carrying too much in a bag designed for lip gloss",
+            "locator": "mme-claio-deck.json, mini-backpack 'read' field"
+          },
+          {
+            "excerpt": "Capacity matters. Stop calling overload a time management issue.",
+            "locator": "mme-claio-deck.json, mini-backpack 'message' field"
+          }
+        ],
+        "scopeAndFreshness": "Every card in the bound deck carries read/message/move fields."
+      },
+      {
+        "claimId": "mini-backpack-move",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "asks you to remove one commitment before adding another",
+            "locator": "fact-02-mme body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/data/mme-claio-deck.json",
+          "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Remove one commitment before adding another shiny thing.",
+            "locator": "mme-claio-deck.json, mini-backpack 'move' field"
+          }
+        ],
+        "scopeAndFreshness": "Faithful paraphrase omitting 'shiny thing'; substance matches the authored deck."
+      },
+      {
+        "claimId": "newsstand-can-feature-card",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The NewsStand can feature a card",
+            "locator": "fact-02-mme body ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/mme-newsstand-observation.md",
+          "sha256": "07274ede6a2dac1be566fd38ea0765a8828cd40f7762b5563c9fded8a0f9a49d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Mme CLAi-O The Mini Backpack. Capacity matters.",
+            "locator": "mme-newsstand-observation.md, quoted front-page link label"
+          },
+          {
+            "excerpt": "Its destination was /games/madame-claio.html.",
+            "locator": "mme-newsstand-observation.md, destination line"
+          },
+          {
+            "excerpt": "This establishes that the NewsStand features a card.",
+            "locator": "mme-newsstand-observation.md, conclusion"
+          }
+        ],
+        "scopeAndFreshness": "Featured Mini Backpack link observed 2026-08-30 in an unsigned tab on the laidies.ai NewsStand front page; a single placement supports the modest 'can feature' phrasing. Re-verify if the feature slot changes."
+      },
+      {
+        "claimId": "authored-not-prediction",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "These are authored reflections, not predictions about your future.",
+            "locator": "fact-02-mme body ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Both origins rendered `MME CLAI-O`",
+            "locator": "site-destinations.md, Mme CLAi-O section"
+          },
+          {
+            "excerpt": "is not a prediction or professional advice",
+            "locator": "site-destinations.md, Mme CLAi-O section"
+          }
+        ],
+        "scopeAndFreshness": "Boundary text observed live 2026-08-30 on both origins."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Re-verify if the deck JSON changes or the NewsStand card-feature slot is removed or reworked.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The earlier independent report found one unsupported NewsStand card-feature claim; this completed independent report binds the actual live observation and now records zero objective defects. The prose remains unchanged and FIRST-review lineage is preserved."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "The Mini Backpack move is a close paraphrase (drops 'shiny thing') rather than the deck's verbatim wording; substance matches, so treated as qualified, not defective.",
+    "A fresh card draw was intentionally not observed (would mutate device-local history), so post-draw presentation is unverified by design.",
+    "The NewsStand feature claim rests on a single observed front-page placement of one card (The Mini Backpack) on 2026-08-30; the modest 'can feature' phrasing matches that evidence.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "did_you_know",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-35e9878d8519",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

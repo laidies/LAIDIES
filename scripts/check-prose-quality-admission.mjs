@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
+const NEWSSTAND_SAMPLING_POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
 const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
 const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
@@ -40,6 +41,7 @@ export function enforcedFailureFamilies(registry) {
 
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const text = value => typeof value === "string" && value.trim().length > 0;
+const validDateOnly = value => /^\d{4}-\d{2}-\d{2}$/.test(value || "") && new Date(`${value}T00:00:00.000Z`).toISOString().slice(0, 10) === value;
 
 function loadBinding(root, binding, label, errors) {
   if (!binding || !text(binding.path) || !HASH.test(binding.sha256 || "")) { errors.push(`${label}: exact path and SHA-256 are required`); return null; }
@@ -57,6 +59,50 @@ function evidenceAppears(body, evidence, label, errors) {
     if (!text(item?.excerpt) || item.excerpt.trim().length < 15 || !text(item?.locator)) errors.push(`${label}[${index}]: excerpt of at least 15 characters and locator are required`);
     else if (!body?.includes(item.excerpt)) errors.push(`${label}[${index}]: excerpt does not occur in the exact prose`);
   }
+}
+
+function samplingOverrideFor(receipt, root, errors) {
+  const override = receipt?.samplingOverride;
+  if (!override) return null;
+  const require = (condition, message) => { if (!condition) errors.push(message); };
+  require(receipt?.stage === "INDEPENDENT_SEMANTIC_ADMISSION", "samplingOverride is only available to independent review");
+  require(receipt?.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS", "samplingOverride is limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS");
+  require(override?.policy?.path === NEWSSTAND_SAMPLING_POLICY, "samplingOverride must bind the canonical NewsStand sampling policy");
+  const policyBody = loadBinding(root, override?.policy, "samplingOverride.policy", errors);
+  if (!policyBody) return null;
+  let policy;
+  try { policy = JSON.parse(policyBody); }
+  catch (error) { errors.push(`samplingOverride.policy: invalid JSON: ${error.message}`); return null; }
+  require(policy.schemaVersion === "laidies-newsstand-recurring-service-sampling-policy.v1", "samplingOverride policy schemaVersion mismatch");
+  require(policy.policyId === override.policyId, "samplingOverride policyId mismatch");
+  require(validDateOnly(policy.authorizedOn), "samplingOverride policy authorizedOn is invalid");
+  require(policy.surface === receipt.surface, "samplingOverride policy surface mismatch");
+  require(Array.isArray(policy.allowedContentClasses) && policy.allowedContentClasses.includes(receipt.contentClass), "samplingOverride contentClass is not authorized");
+  require(!policy.excludedContentClasses?.includes(receipt.contentClass), "samplingOverride contentClass is excluded");
+  const entries = Array.isArray(policy.entries) ? policy.entries : [];
+  require(entries.length > 0, "samplingOverride policy entries are required");
+  require(entries.length === new Set(entries.map(item => item?.id)).size, "samplingOverride policy entry IDs must be unique");
+  for (const [index, item] of entries.entries()) {
+    require(text(item?.id) && text(item?.type), `samplingOverride policy entry ${index} needs id and type`);
+    require(policy.allowedContentClasses?.includes(item?.contentClass), `samplingOverride policy entry ${item?.id || index} has an unauthorized contentClass`);
+    require(item?.teachingEntry === true || item?.teachingEntry === false, `samplingOverride policy entry ${item?.id || index} needs teachingEntry`);
+  }
+  require(Number.isInteger(policy.sampling?.minimumTeachingEntriesPerBatch) && policy.sampling.minimumTeachingEntriesPerBatch >= 1, "samplingOverride policy minimumTeachingEntriesPerBatch is invalid");
+  require(policy.sampling?.humanEvidenceClaim === "NONE", "samplingOverride policy must not claim human evidence");
+  const entry = entries.find(item => item?.id === receipt.candidateId);
+  require(Boolean(entry), "samplingOverride candidateId is not in the authorized NewsStand inventory");
+  require(entry?.contentClass === receipt.contentClass, "samplingOverride candidate contentClass does not match the authorized inventory");
+  require(entry?.type === override.serviceType, "samplingOverride serviceType does not match the authorized inventory");
+  require(override.sampleStatus === "PENDING_BATCH_SAMPLE" && policy.sampling?.status === "PENDING", "samplingOverride may only report an honestly pending batch sample");
+  require(override.correctionFeedbackStatus === policy.sampling?.correctionFeedback, "samplingOverride correction-feedback status mismatch");
+  const queue = Array.isArray(override.sampleQueue) ? override.sampleQueue : [];
+  require(queue.length === new Set(queue).size, "samplingOverride sampleQueue IDs must be unique");
+  require(queue.includes(receipt.candidateId), "samplingOverride sampleQueue must include this candidate");
+  const queued = queue.map(id => entries.find(item => item?.id === id));
+  require(queued.every(Boolean), "samplingOverride sampleQueue contains an unauthorized candidate");
+  require(queued.filter(item => item?.teachingEntry === true).length >= policy.sampling?.minimumTeachingEntriesPerBatch, "samplingOverride sampleQueue must include the policy minimum teaching entry");
+  require(receipt.limitations?.includes("No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."), "samplingOverride must disclose that observed human-comprehension evidence is not claimed");
+  return policy;
 }
 
 export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
@@ -85,6 +131,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(text(receipt?.reviewedAt) && !Number.isNaN(Date.parse(receipt?.reviewedAt)), "reviewedAt must be an ISO date-time");
   require(["PASS", "HOLD", "REJECT"].includes(receipt?.verdict), "verdict is invalid");
   require(Array.isArray(receipt?.limitations), "limitations must be an array");
+  const samplingPolicy = samplingOverrideFor(receipt, root, errors);
 
   const artifactBody = loadBinding(root, receipt?.artifact?.reviewText, "artifact.reviewText", errors);
   const manifestBody = loadBinding(root, receipt?.artifact?.manifest, "artifact.manifest", errors);
@@ -124,7 +171,10 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(Boolean(positive), "registered positive calibration is required");
   let positiveBody = null;
   if (positive) {
-    require(positive.useFor.includes(receipt.contentClass), `positive exemplar ${positive.id} is not approved for ${receipt.contentClass}`);
+    const serviceVoiceCalibration = receipt.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS" &&
+      positive.id === "CQX-GOOD-EPISODE-001" &&
+      receipt.calibration?.positive?.application === "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE";
+    require(positive.useFor.includes(receipt.contentClass) || serviceVoiceCalibration, `positive exemplar ${positive.id} is not approved for ${receipt.contentClass}`);
     positiveBody = loadBinding(root, { path: positive.path, sha256: positive.sha256 }, "calibration.positive", errors);
   }
   require(receipt?.calibration?.positive?.verdict === "PASS", "positive calibration must be recognized as PASS");
@@ -146,6 +196,9 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
         const probe = outcome?.simulatedReaderProbe;
         for (const field of ["prompt", "probeResponse", "expectedEvidence"]) require(text(probe?.[field]), `${outcomeName}.simulatedReaderProbe.${field} is required`);
         require(!outcome?.observedReaderEvidence, `${outcomeName}: producer simulation cannot occupy observedReaderEvidence`);
+      } else if (samplingPolicy) {
+        require(!outcome?.observedReaderEvidence, `${outcomeName}: pending batch sampling cannot claim observedReaderEvidence`);
+        require(!outcome?.simulatedReaderProbe, `${outcomeName}: independent review cannot substitute a simulated reader probe`);
       } else {
         const observed = outcome?.observedReaderEvidence;
         require(observed?.evidenceType === "OBSERVED_HUMAN", `${outcomeName}.observedReaderEvidence must declare OBSERVED_HUMAN`);

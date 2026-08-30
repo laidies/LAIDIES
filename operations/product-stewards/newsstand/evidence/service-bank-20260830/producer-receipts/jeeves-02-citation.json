@@ -1,0 +1,659 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-02-citation",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.794Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-02-citation.md",
+      "sha256": "96a12013cbc50c501c09ef35045b8c35d62418cbd2431f23d98f5142c7021688"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-02-citation.manifest.json",
+      "sha256": "620d68fe830c18cb0894b8f65c659d9630040e6f659831709aee62b939e388df"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does the source exist but not contain the statistic?",
+    "promisedPayoff": "A source must support the actual claim, not merely exist; AI-generated checking passages also need comparison.",
+    "centralMentalModel": "A source must support the actual claim, not merely exist; AI-generated checking passages also need comparison.",
+    "dailyLifeConnection": "Why does the source exist but not contain the statistic?",
+    "surfaceJob": "A complete dear_miss_jeeves column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "A source must support the actual claim, not merely exist; AI-generated checking passages also need comparison. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Check the original study population and measurement before using a claim about your own workplace. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: A source must support the actual claim, not merely exist; AI-generated checking passages also need comparison. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "jeeves-02-citation-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+            "locator": "jeeves-02-citation: summary"
+          },
+          {
+            "excerpt": "Dear Footnote Detective,",
+            "locator": "jeeves-02-citation: body paragraph 1"
+          },
+          {
+            "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+            "locator": "jeeves-02-citation: body paragraph 2"
+          },
+          {
+            "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+            "locator": "jeeves-02-citation: body paragraph 3"
+          },
+          {
+            "excerpt": "If the tool can read the source, try: “For each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.” Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+            "locator": "jeeves-02-citation: body paragraph 4"
+          },
+          {
+            "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+            "locator": "jeeves-02-citation: body paragraph 5"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "11.6 — Hallucination: Why It Makes Things Up You've probably experienced this: you ask an AI to recommend a book, and it gives you a title, an author, a publication year, even a one-paragraph summary. It sounds perfect. You search for it and the book doesn't exist. The author is real. The topic is real. The title is plausible. But the book was never written. The model didn't lie to you — it has no concept of lying. It produced the most plausible-sounding next tokens given the pattern of your question. And \"plausible-sounding\" is the problem. Hallucination is when the model generates text that sounds confident and factual but isn't true — fake citations, invented statistics, wrong dates, fabricated quotes. Not errors from confusion. Confidently stated fictions that read exactly like correct answers. Why it happens (mechanically): The model generates the most probable next token at each step, based on patterns in its training data. It doesn't have a \"truth database\" to check against. It doesn't know the difference between \"a pattern that generates true statements\" and \"a pattern that generates plausible-sounding statements.\" When you ask about a topic where the model's training data contains strong patterns — \"What is the capital of France?\" — it reliably produces correct answers because the correct answer dominates the pattern. When you ask about something more obscure, more nuanced, or in a format that invites specific details (like \"list three academic papers about X\") — the model generates what that type of output should look like based on patterns. Paper titles, author names, journal names, years — all generated to match the pattern of \"what a citation looks like.\" But the specific combination wasn't verified against reality. It was pattern-completed. When hallucination is most likely: Requests for specific details (names, dates, citations, statistics) Topics with less representation in training data Requests that demand an answer even when the model is uncertain Long-form generation where each token compounds potential errors How it's being addressed (2026): RAG (grounding in retrieved documents reduces hallucination significantly) Chain-of-thought reasoning (models that \"think step by step\" hallucinate less on reasoning tasks) Citation/source linking (models trained to cite their sources, so outputs can be verified) Confidence calibration (research into",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt: 11.6"
+          }
+        ],
+        "scopeAndFreshness": "A source must support the actual claim, not merely exist; AI-generated checking passages also need comparison. The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The survey example separates AI use from effectiveness. The reply gives a concrete checking prompt, an inaccessible-source fallback and a specific, modest closing joke."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

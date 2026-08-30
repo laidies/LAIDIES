@@ -1,0 +1,529 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "paige-03-save-good-example",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching.json",
+      "sha256": "ec923c10b184f2f7b4b8f45b36bad048e8a88e45b7901a56a8921d360e32bcd1"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:42:50.600Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-03-save-good-example.md",
+      "sha256": "9e802f8fcd92c110e60b9ad9b138744b8ccef0ab7fdbb24f3eff559e5c17d488"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-03-save-good-example.manifest.json",
+      "sha256": "1f3d0a32c346417c823f6f651bbd659b61e72eb60eb1c0e6df1c8cfaf96f199e"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-20260830",
+    "reviewedAt": "2026-08-30T20:42:50.600Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I make the good result happen again next time?",
+    "promisedPayoff": "A saved example turns vague style asks into a concrete standard.",
+    "centralMentalModel": "Examples set the shape; facts must come from today's notes, never the sample.",
+    "dailyLifeConnection": "The one AI email that finally sounded right.",
+    "surfaceJob": "Practice column building the reader's reusable kit.",
+    "desiredReaderFeeling": "Systematic rather than lucky."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Shape-versus-facts split stated in the prompt itself.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use this example for length and tone, not for its facts.",
+          "locator": "paige-03 prompt"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Builds a reusable asset, not a one-off trick.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03 ¶1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Specific and plain; 'less vague' framing is honest, not hypey.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague.",
+          "locator": "paige-03 ¶3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Modest but real; the contamination twist keeps it interesting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It can also contaminate the new draft with old details",
+          "locator": "paige-03 ¶3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Anchoring/contamination risk matches source; privacy step included.",
+      "artifactEvidence": [
+        {
+          "excerpt": "save a version with private details removed",
+          "locator": "paige-03 ¶1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Durable technique; no dated claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Do not carry over the example’s names, dates or promises.",
+          "locator": "paige-03 prompt"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Practice-column format intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Save the example, not just the prompt.",
+          "locator": "paige-03 title"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Concrete next-time prompt to run.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Write a new email from the notes below.",
+          "locator": "paige-03 prompt"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Final check compares output facts to today's notes — a decidable test.",
+      "artifactEvidence": [
+        {
+          "excerpt": "compare facts with today’s notes, not with the sample",
+          "locator": "paige-03 ¶3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic carries; no metaphor asked to do teaching work.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03 dek"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Example-plus-note pattern generalizes to any recurring deliverable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep it beside the instruction that produced it",
+          "locator": "paige-03 ¶1"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Contamination named with the check that catches it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "which is why the final check should compare facts",
+          "locator": "paige-03 ¶3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "paige-03"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Own register.",
+      "artifactLocator": "paige-03"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "paige-03"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Payoff delivered.",
+      "artifactLocator": "paige-03"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy (not a defect).",
+      "artifactLocator": "paige-03"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links to system-building chapter, matching topic.",
+      "artifactLocator": "paige-03 link"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Teaching leads.",
+      "artifactLocator": "paige-03"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Risks stated as capabilities/risks.",
+      "artifactLocator": "paige-03"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "paige-03"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Prompt and storage steps specific.",
+      "artifactLocator": "paige-03 prompt"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "paige-03"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the check.",
+      "artifactLocator": "paige-03"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Contaminate' immediately explained by context.",
+      "artifactLocator": "paige-03 ¶3"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Plain but warm enough.",
+      "artifactLocator": "paige-03"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Win-first framing.",
+      "artifactLocator": "paige-03 ¶1"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Mechanism in body.",
+      "artifactLocator": "paige-03"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Explains both why examples help and how they mislead.",
+      "artifactLocator": "paige-03 ¶3"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "paige-03"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Right scope.",
+      "artifactLocator": "paige-03"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "paige-03"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Durable.",
+      "artifactLocator": "paige-03"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Coach voice.",
+      "artifactLocator": "paige-03"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No scaffolding.",
+      "artifactLocator": "paige-03"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "paige-03"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101.txt",
+        "sha256": "4a538bab17b79adc306090958bbfc78af1fd7bd7cf637c79d5a5a5e9983a7640"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "example-collapses-vagueness",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "An example makes ‘friendly but direct’ less vague.",
+            "locator": "paige-03 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101.txt",
+          "sha256": "4a538bab17b79adc306090958bbfc78af1fd7bd7cf637c79d5a5a5e9983a7640"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "it collapses those hundred interpretations into one clear target",
+            "locator": "Working with AI 101 §2.5"
+          }
+        ],
+        "scopeAndFreshness": "Durable few-shot principle."
+      },
+      {
+        "claimId": "contamination-anchoring",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It can also contaminate the new draft with old details",
+            "locator": "paige-03 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101.txt",
+          "sha256": "4a538bab17b79adc306090958bbfc78af1fd7bd7cf637c79d5a5a5e9983a7640"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "One example can anchor the AI too strongly to a single template",
+            "locator": "Working with AI 101 §2.5"
+          }
+        ],
+        "scopeAndFreshness": "Fact carry-over is a reasonable extension of documented anchoring; column pairs it with a check, so risk-managed."
+      },
+      {
+        "claimId": "privacy-redaction",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "save a version with private details removed",
+            "locator": "paige-03 ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101.txt",
+          "sha256": "4a538bab17b79adc306090958bbfc78af1fd7bd7cf637c79d5a5a5e9983a7640"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Use a harmless stand-in, remove names, paste only the necessary passage",
+            "locator": "Working with AI 101 §2.4"
+          }
+        ],
+        "scopeAndFreshness": "Matches Allowed-Information Check."
+      },
+      {
+        "claimId": "library-link-ch13",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "building your system",
+            "locator": "paige-03 link text"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101.txt",
+          "sha256": "4a538bab17b79adc306090958bbfc78af1fd7bd7cf637c79d5a5a5e9983a7640"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "turning isolated wins into a repeatable system",
+            "locator": "Working with AI 101 §1.5 Part VI description"
+          }
+        ],
+        "scopeAndFreshness": "Topic match confirmed; exact chapter-13 anchor not in excerpts, confirmed by separate page test."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Working with AI 101 revision or anchor confirmation",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Chapter 13 anchor supported by the source's Part VI description but exact section title not in the excerpts.",
+    "No reader testing performed.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "paige_tip",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-ec923c10b184",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

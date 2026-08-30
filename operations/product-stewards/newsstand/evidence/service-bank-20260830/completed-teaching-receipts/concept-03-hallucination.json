@@ -1,0 +1,559 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "concept-03-hallucination",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "EXPLANATION",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-03-hallucination.md",
+      "sha256": "3641e963e187fbc1e116fea231db09706242eaa43652512db11e198eef0f6616"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-03-hallucination.manifest.json",
+      "sha256": "fd662e3958d2356bf377a60396589707f825a41094ca1624eff23a333d7b33f5"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does a mostly-good AI answer still slip in something false?",
+    "promisedPayoff": "Know what hallucination actually is and how to catch it.",
+    "centralMentalModel": "Generation is not verification; one invented detail can hide inside useful work, so open the source and match the claim.",
+    "dailyLifeConnection": "A citation or date that turns out not to exist.",
+    "surfaceJob": "Concept explainer column.",
+    "desiredReaderFeeling": "Calm vigilance instead of blanket distrust."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Definition then immediate nuance in plain words.",
+      "artifactEvidence": [
+        {
+          "excerpt": "false or unsupported information presented in a generated answer",
+          "locator": "concept-03 ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The one-nonexistent-study framing recalibrates how readers check work.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One nonexistent study in an otherwise sensible summary is enough.",
+          "locator": "concept-03 ¶1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct, skeptical of polish, no fearmongering.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A response can be mostly useful and still include a false citation or date.",
+          "locator": "concept-03 dek"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Tight and readable; final trap line lands.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A real link to a real paper is not enough if the paper does not say what the answer claims.",
+          "locator": "concept-03 ¶3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Avoids the banned unqualified 'always makes up citations'; grounding limits correctly stated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the answer can still misread that evidence or add an unsupported detail",
+          "locator": "concept-03 ¶2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Durable mechanism claims only.",
+      "artifactEvidence": [
+        {
+          "excerpt": "it does not automatically verify every sentence against a reliable record",
+          "locator": "concept-03 ¶2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Concept-slot format intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Hallucination: a convincing answer with an invented detail.",
+          "locator": "concept-03 title"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Connects generation, search/document grounding, and human verification as distinct parts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Search and supplied documents can give it evidence to use",
+          "locator": "concept-03 ¶2"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Citation-checking is the reader's real exposure point.",
+      "artifactEvidence": [
+        {
+          "excerpt": "open the cited source and find the passage that supports it",
+          "locator": "concept-03 ¶3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic carries the whole piece.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A language model generates its response",
+          "locator": "concept-03 ¶2"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Reader can restate: generated, not verified; can be one detail; check the source itself.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not have to be an entirely invented story.",
+          "locator": "concept-03 ¶1"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Author/date/conclusion matching transfers to any cited claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check that the author, date and conclusion match the answer.",
+          "locator": "concept-03 ¶3"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific when-it-matters verification routine.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When a claim matters, open the cited source",
+          "locator": "concept-03 ¶3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absence not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In AI, a hallucination is",
+          "locator": "concept-03 ¶1"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "Definition → mechanism → limits of grounding → verification action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A response can be mostly useful",
+          "locator": "concept-03 dek"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-03"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Own register.",
+      "artifactLocator": "concept-03"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-03"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Delivered.",
+      "artifactLocator": "concept-03"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "concept-03"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Grounding and checking connected.",
+      "artifactLocator": "concept-03 ¶2"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Understanding leads.",
+      "artifactLocator": "concept-03"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Claims hedged where required.",
+      "artifactLocator": "concept-03 ¶2"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Citation example returns mechanism.",
+      "artifactLocator": "concept-03"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Verification steps specific.",
+      "artifactLocator": "concept-03 ¶3"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Single concept.",
+      "artifactLocator": "concept-03"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the trap warning.",
+      "artifactLocator": "concept-03 ¶3"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Term defined immediately.",
+      "artifactLocator": "concept-03 ¶1"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Serious but not lifeless.",
+      "artifactLocator": "concept-03"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reader's risk leads.",
+      "artifactLocator": "concept-03 dek"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Full mechanism present.",
+      "artifactLocator": "concept-03 ¶2"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Generation-vs-verification explained.",
+      "artifactLocator": "concept-03 ¶2"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "concept-03"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Generalizes.",
+      "artifactLocator": "concept-03"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-03"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Durable; Currency-Rule compliant hedges.",
+      "artifactLocator": "concept-03 ¶2"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Plain-teaching voice.",
+      "artifactLocator": "concept-03"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-03"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-03"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "hallucination-definition",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "false or unsupported information presented in a generated answer",
+            "locator": "concept-03 ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "fake citations, invented statistics, wrong dates, fabricated quotes",
+            "locator": "AI Fundamentals 101 §11.6"
+          }
+        ],
+        "scopeAndFreshness": "Matches source definition including partial-answer nuance."
+      },
+      {
+        "claimId": "no-auto-verification",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "it does not automatically verify every sentence against a reliable record",
+            "locator": "concept-03 ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It has no mechanism for checking its output against reality.",
+            "locator": "AI Fundamentals 101 §8.7"
+          }
+        ],
+        "scopeAndFreshness": "Durable; phrased without the banned unqualified forms."
+      },
+      {
+        "claimId": "grounding-limits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the answer can still misread that evidence or add an unsupported detail",
+            "locator": "concept-03 ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "You still need to check that it retrieved the right, current passages and represented them correctly.",
+            "locator": "AI Fundamentals 101 §8.6"
+          }
+        ],
+        "scopeAndFreshness": "Matches RAG-limits framing."
+      },
+      {
+        "claimId": "verify-in-source-action",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Check that the author, date and conclusion match the answer.",
+            "locator": "concept-03 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "must be verified by someone qualified to check it",
+            "locator": "AI Fundamentals 101 §11.6 legal-brief example"
+          }
+        ],
+        "scopeAndFreshness": "Consistent with trust-framework verification rule."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "AI Fundamentals 101 revision",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No reader testing performed.",
+    "No analogy used — treated as absent.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "concept_week",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

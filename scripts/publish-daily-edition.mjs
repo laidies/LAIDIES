@@ -96,13 +96,21 @@ export function projectDailyIssue({ dataset, issue, columns }) {
   return next;
 }
 
+export function projectDailySourceRaw({ raw, issue, columns }) {
+  const context = { window: {} };
+  vm.runInNewContext(raw, context, { timeout: 1000 });
+  const next = projectDailyIssue({ dataset: context.window.NEWSSTAND_DATA, issue, columns });
+  const start = raw.indexOf("window.NEWSSTAND_DATA = ");
+  const end = raw.indexOf("\n};", start);
+  if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
+  return raw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + raw.slice(end + 3);
+}
+
 function main() {
   const index = process.argv.indexOf("--date");
   const date = index >= 0 ? process.argv[index + 1] : null;
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) reject("--date YYYY-MM-DD is required");
   const raw = fs.readFileSync(DATA_PATH, "utf8");
-  const context = { window: {} };
-  vm.runInNewContext(raw, context, { timeout: 1000 });
   const store = JSON.parse(fs.readFileSync(STORE_PATH, "utf8"));
   const matches = store.issues.filter((issue) => issue.editionDate === date);
   if (matches.length !== 1) reject("exactly one admitted dated issue is required");
@@ -112,11 +120,7 @@ function main() {
     decision: JSON.parse(fs.readFileSync(path.join(ROOT, `operations/product-stewards/newsstand/evidence/daily-issue-admission-${date}.json`), "utf8"))
   });
   const columns = JSON.parse(fs.readFileSync(COLUMNS_PATH, "utf8"));
-  const next = projectDailyIssue({ dataset: context.window.NEWSSTAND_DATA, issue: matches[0], columns });
-  const start = raw.indexOf("window.NEWSSTAND_DATA = ");
-  const end = raw.indexOf("\n};", start);
-  if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
-  const nextRaw = raw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + raw.slice(end + 3);
+  const nextRaw = projectDailySourceRaw({ raw, issue: matches[0], columns });
   if (process.argv.includes("--check")) {
     if (raw !== nextRaw) reject("schema-2 publication differs from the admitted issue projection");
   } else if (raw !== nextRaw) fs.writeFileSync(DATA_PATH, nextRaw);

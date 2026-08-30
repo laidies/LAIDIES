@@ -1,0 +1,631 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "concept-02-token",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "EXPLANATION",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.790Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.md",
+      "sha256": "5ccfb312d350e28c0a19705afba2a08d1a5e7e3e7f331d46ee5fb776db292b00"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.manifest.json",
+      "sha256": "39861933bfc920f6c5eb2ce46e91457e7a50d48aca266e858cfe97db4f374b70"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why is a token limit different from a word limit?",
+    "promisedPayoff": "Explain-back: tokens are not reliably whole words. Transfer: keep a contract condition together with its exception.",
+    "centralMentalModel": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count.",
+    "dailyLifeConnection": "Why is a token limit different from a word limit?",
+    "surfaceJob": "A complete concept_week column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: Explain-back: tokens are not reliably whole words. Transfer: keep a contract condition together with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Why is a token limit different from a word limit?",
+        "probeResponse": "Explain-back: tokens are not reliably whole words. Transfer: keep a contract condition together with its exception.",
+        "expectedEvidence": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: Explain-back: tokens are not reliably whole words. Transfer: keep a contract condition together with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Why is a token limit different from a word limit?",
+        "probeResponse": "Explain-back: tokens are not reliably whole words. Transfer: keep a contract condition together with its exception.",
+        "expectedEvidence": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Explain-back: tokens are not reliably whole words. Transfer: keep a contract condition together with its exception. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail.",
+      "artifactLocator": "concept-02-token: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "concept-02-token-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+            "locator": "concept-02-token: summary"
+          },
+          {
+            "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+            "locator": "concept-02-token: body paragraph 1"
+          },
+          {
+            "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+            "locator": "concept-02-token: body paragraph 2"
+          },
+          {
+            "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+            "locator": "concept-02-token: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "4.2 — What a Token Actually Is 📼 Rewind it: If you ever cut words and letters from magazines for a school-project title, you already know the basic move: build new text from a fixed box of reusable pieces. A tokeniser also works with reusable pieces — but its pieces may be a whole word, part of one, punctuation, or one character. It is not reading the pieces or deciding what they mean. The intuition is simple: a token is a word. One word = one token. That's close, but wrong in ways that matter. A token is a chunk — sometimes a whole word, sometimes part of a word, sometimes just a single character or a punctuation mark. The system has a fixed vocabulary of these chunks (typically 50,000–100,000 of them), and every piece of text you give it gets broken into pieces from that vocabulary. Real examples: The sentence \"I love playing basketball\" might get split like this: Text Tokens I I love love playing play + ing basketball basket + ball \"Love\" is common enough to be one token. \"Playing\" gets split into \"play\" and \"ing\" — because \"ing\" appears at the end of thousands of words, so the system learned to treat it as its own chunk. \"Basketball\" splits into \"basket\" + \"ball\" — two familiar pieces. Now a less common word: \"tokenisation\" might split into token + isation — or even token + is + ation , depending on the specific system. And something unusual — a rare word, a name, a technical term the system hasn't seen often — gets chopped into smaller and smaller pieces, sometimes all the way down to individual letters. The rule of thumb: In English, one token is roughly three-quarters of a word. So 100 words ≈ 130 tokens. A full page of text is about 500–700 tokens. 💡 Why not just use whole words? Because there are too many of them. English alone has hundreds of thousands of words, plus names, technical terms, slang, new words being invented constantly. You'd need an infinitely large vocabulary. By splitting into subword chunks, the system can handle any word it's never seen before — it just breaks it into smaller familiar pieces. It's a balance between efficiency (common words stay whole) and flexibility (rare words get broken down). Think of it like Scrabble tiles — but instead of individual letters, you have tiles for common chunks: one tile for \"the\", one for \"ing\", one for \"un\", one for \"tion\". Common words are just one tile. Unusual words take several tiles pu",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt: 4.2"
+          }
+        ],
+        "scopeAndFreshness": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Words, pieces, punctuation and characters are distinguished without a universal ratio. The policy-exception example explains why arbitrary document splitting can fail."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

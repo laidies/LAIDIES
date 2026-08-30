@@ -1,0 +1,507 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-02-citation",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-02-citation.md",
+      "sha256": "96a12013cbc50c501c09ef35045b8c35d62418cbd2431f23d98f5142c7021688"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-02-citation.manifest.json",
+      "sha256": "620d68fe830c18cb0894b8f65c659d9630040e6f659831709aee62b939e388df"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "The linked paper is real but the statistic isn't in it — am I missing something?",
+    "promisedPayoff": "How to distinguish a checking aid from actual verification.",
+    "centralMentalModel": "A citation is somewhere to check, not proof; the final check is human, in the original source.",
+    "dailyLifeConnection": "Reusing an AI-cited stat in your own work.",
+    "surfaceJob": "Miss Jeeves letters column.",
+    "desiredReaderFeeling": "Validated (you weren't missing something) and equipped."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The failure mode named in one sentence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the source exists, but the answer misrepresents it",
+          "locator": "jeeves-02 reply ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Concrete checking prompt plus the honest cap on it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "show the short passage in the source that supports it and its location",
+          "locator": "jeeves-02 reply ¶3 prompt"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Witty, precise, receipts-minded.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02 closing"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Letter voice and specific worked distinction keep it lively.",
+      "artifactEvidence": [
+        {
+          "excerpt": "— Footnote Detective in Fredericton",
+          "locator": "jeeves-02 letter"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Mechanism and quotation-invention caveat both match the bound book.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02 reply ¶3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Durable, hedged ('may have mixed up'), no dated claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The model may have mixed up two studies",
+          "locator": "jeeves-02 reply ¶1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "FAQ letter format intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02 reply"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "Directly answers 'am I missing something?' — no, this is a known failure kind.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake",
+          "locator": "jeeves-02 reply ¶1"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Survey-vs-causation example is a workplace-real distinction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02 reply ¶2"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic first, garnish at the close; meets the bar.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+          "locator": "jeeves-02 dek"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Check steps plus explicit no-access fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified.",
+          "locator": "jeeves-02 reply ¶4"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absence not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Open the original source and look for the exact finding.",
+          "locator": "jeeves-02 reply ¶2"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-02"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "House persona.",
+      "artifactLocator": "jeeves-02"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-02"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Delivered.",
+      "artifactLocator": "jeeves-02"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "jeeves-02"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links to hallucination chapter, matching topic.",
+      "artifactLocator": "jeeves-02 link"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Mechanism first.",
+      "artifactLocator": "jeeves-02"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Hedged causes.",
+      "artifactLocator": "jeeves-02 reply ¶1"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Survey example teaches scope-checking.",
+      "artifactLocator": "jeeves-02 reply ¶2"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Checking prompt is concrete.",
+      "artifactLocator": "jeeves-02 reply ¶3"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-02"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a joke that restates the lesson.",
+      "artifactLocator": "jeeves-02 closing"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain.",
+      "artifactLocator": "jeeves-02"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Humour earned.",
+      "artifactLocator": "jeeves-02"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Letter motivates.",
+      "artifactLocator": "jeeves-02 letter"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Full explanation given.",
+      "artifactLocator": "jeeves-02"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Names misattachment mechanism.",
+      "artifactLocator": "jeeves-02 reply ¶1"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "jeeves-02"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers found-and-not-found cases.",
+      "artifactLocator": "jeeves-02"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-02"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Durable.",
+      "artifactLocator": "jeeves-02"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Column voice.",
+      "artifactLocator": "jeeves-02"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-02"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Proportionate.",
+      "artifactLocator": "jeeves-02"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "misrepresentation-mode",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "attached a plausible link to a claim it generated",
+            "locator": "jeeves-02 reply ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "the specific combination of author + title + year was never verified against reality",
+            "locator": "AI Fundamentals 101 §8.7"
+          }
+        ],
+        "scopeAndFreshness": "Matches pattern-completion-without-truth-check mechanism."
+      },
+      {
+        "claimId": "invented-quotations",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The tool can also invent quotations",
+            "locator": "jeeves-02 reply ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "produce author names, paper titles, journal names, and years — that don't exist",
+            "locator": "AI Fundamentals 101 §8.7"
+          }
+        ],
+        "scopeAndFreshness": "Capability-of-error claim, correctly framed as checking-aid limitation."
+      },
+      {
+        "claimId": "verify-before-relying",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "do not present the claim as verified",
+            "locator": "jeeves-02 reply ¶4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Rule: use as starting point, verify when accuracy matters",
+            "locator": "AI Fundamentals 101 Ch11 Key Terms — Trust framework"
+          }
+        ],
+        "scopeAndFreshness": "Matches trust framework; durable."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "AI Fundamentals 101 revision",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No reader testing performed.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "dear_miss_jeeves",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

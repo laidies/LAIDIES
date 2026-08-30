@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "corner-01-credit",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.786Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-01-credit.md",
+      "sha256": "5169a4f35317ef5ee6b85af4ae8c4b3c503951525199a438c3747a8d046fd3c1"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-01-credit.manifest.json",
+      "sha256": "bfe28b21059816204c630f4d5a53460f6d66053cf08e7ff654a5e14c7c76b59f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How can I respond when someone takes credit for my idea?",
+    "promisedPayoff": "State which part of a joint report you drafted rather than claiming ownership of the whole project.",
+    "centralMentalModel": "Name the contribution with supportable details and ask for a specific correction; consider power and retaliation.",
+    "dailyLifeConnection": "How can I respond when someone takes credit for my idea?",
+    "surfaceJob": "A complete career_life column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Name the contribution with supportable details and ask for a specific correction; consider power and retaliation. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "State which part of a joint report you drafted rather than claiming ownership of the whole project. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "State which part of a joint report you drafted rather than claiming ownership of the whole project. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: State which part of a joint report you drafted rather than claiming ownership of the whole project.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: How can I respond when someone takes credit for my idea?",
+        "probeResponse": "State which part of a joint report you drafted rather than claiming ownership of the whole project.",
+        "expectedEvidence": "Name the contribution with supportable details and ask for a specific correction; consider power and retaliation."
+      }
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "State which part of a joint report you drafted rather than claiming ownership of the whole project. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A script for putting your contribution back into the conversation.",
+          "locator": "corner-01-credit: summary"
+        },
+        {
+          "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+          "locator": "corner-01-credit: body paragraph 1"
+        },
+        {
+          "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+          "locator": "corner-01-credit: body paragraph 2"
+        },
+        {
+          "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+          "locator": "corner-01-credit: body paragraph 3"
+        },
+        {
+          "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+          "locator": "corner-01-credit: body paragraph 4"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing.",
+      "artifactLocator": "corner-01-credit: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/gallo-credit.txt",
+        "sha256": "3a9728c46845da3679bdcc584bc1e15e360677c4c0314f6309aa87570071c22e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "corner-01-credit-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A script for putting your contribution back into the conversation.",
+            "locator": "corner-01-credit: summary"
+          },
+          {
+            "excerpt": "You explained the idea yesterday. Today a colleague presents it as theirs. If you can respond calmly, make your contribution specific: “I’m glad we’re taking this forward. When I proposed the pilot yesterday, the problem I wanted to solve was the handover delay. I can walk us through the first step.”",
+            "locator": "corner-01-credit: body paragraph 1"
+          },
+          {
+            "excerpt": "If the meeting has moved on, follow up privately: “In today’s meeting, you presented the pilot without mentioning my contribution. I developed the proposal we discussed yesterday. Can you clarify that in the follow-up?”",
+            "locator": "corner-01-credit: body paragraph 2"
+          },
+          {
+            "excerpt": "Use details you can support. If this keeps happening, keep the relevant drafts and messages, and discuss the pattern with a manager you trust. You do not have to improvise a confrontation with someone who can retaliate against you.",
+            "locator": "corner-01-credit: body paragraph 3"
+          },
+          {
+            "excerpt": "Dorie Clark’s work on professional visibility informs this column; Amy Gallo’s guidance addresses credit-taking specifically. The scripts here are written by LAiDIES, not quotations from either author.",
+            "locator": "corner-01-credit: body paragraph 4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/gallo-credit.txt",
+          "sha256": "3a9728c46845da3679bdcc584bc1e15e360677c4c0314f6309aa87570071c22e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Remedy the situation It’s not enough to address the credit stealing. You also need to make the situation right, i.e. get the credit you deserve. If the other person recognizes their mistake, you might request that they send an email acknowledging your contributions, or you can both talk to your manager to set the record straight. 6. Be proactive about preventing it from happening again How can you make sure you get credit in the future? If you feel like you’re being systematically undermined, Dillon suggests talking to your boss or another manager. And Uzzi’s research shows that in collaborative projects, it’s important to agree upfront on allocation, and even write down a plan for how people will get credit. Never assume the roles are clear to everyone! 7. Model good credit sharing You can set the right tone by giving credit where it’s due. For example, Uzzi likes to add a slide at the end of his presentations with the name of every contributor. He tries to give his collaborators the deck beforehand and ask, “Does it give appropriate credit?” I love this approach! Check out the full article for more concrete examples and detail. One important note about the article: I wrote it nine years ago and regret not including some of the important nuances around gender and credit stealing. This is a topic that my Women at Work colleagues explored in an early episode of the podcast: The Art of Claiming Credit . I highly recommend listening to it to learn more about the ways that gender bias influences who gets credit and why. Now, I’m curious: if you’ve been in this situation, what helped you to get out of it? Did you decide to let it go, or did you say something? My Latest Book The paperback edition of “Getting Along” came out globally yesterday! Get your copy here (this link will go to your local Amazon page.) To my US and Canadian friends, the paperback version isn't available in those regions just yet but stay tuned. Event Women at Work is back on May 16 for our second live virtual gathering! Amy B. and I are thrilled to invite you to an engaging half-day of conversations. We have a stellar speaker line-up including DEI strategist Lily Zheng, organizational psychologist Ruchi Sinha, and career expert Dorie Clark. You can learn more and get your tickets here: Women at Work Live! Speaking I’m writing this newsletter from (cold, gray) London. The weather has not dete",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/gallo-credit.txt: Remedy the situation"
+          }
+        ],
+        "scopeAndFreshness": "Name the contribution with supportable details and ask for a specific correction; consider power and retaliation. The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The meeting and private follow-up scripts are usable. Clark supplies visibility, Gallo credit-taking guidance, and the article explicitly identifies the scripts as LAiDIES writing."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

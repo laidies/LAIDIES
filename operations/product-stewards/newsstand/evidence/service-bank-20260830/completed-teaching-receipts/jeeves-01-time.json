@@ -1,0 +1,512 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-01-time",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-01-time.md",
+      "sha256": "59091964ec88c4028d6306468f838f912177c0b7bbe6c9d949175f305bd08647"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-01-time.manifest.json",
+      "sha256": "2bef6deb169798a815690b213588baeea934b170c13d4e922334709d042c1b28"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why is my brilliant AI wrong about what day it is, and how do I stop it wrecking my plans?",
+    "promisedPayoff": "A reliable routine for any date-sensitive task.",
+    "centralMentalModel": "Explaining calendars and checking today's date are different tasks; the second needs a supplied date or a tool.",
+    "dailyLifeConnection": "Scheduling meetings, flights, time zones.",
+    "surfaceJob": "Miss Jeeves letters column.",
+    "desiredReaderFeeling": "Charmed and equipped to double-check."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Core distinction in one sentence up front.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks.",
+          "locator": "jeeves-01 reply ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Copyable prompt with date, place, time zone; plus fallback checks.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Today is Monday, 7 September 2026, in Vancouver.",
+          "locator": "jeeves-01 reply ¶3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Persona lands the close with humour serving the lesson; AI is 'it' throughout.",
+      "artifactEvidence": [
+        {
+          "excerpt": "checked twice than arrived on Wednesday for a Tuesday lunch",
+          "locator": "jeeves-01 closing"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Letter format and sign-off keep it lively.",
+      "artifactEvidence": [
+        {
+          "excerpt": "— Temporally Confused in Toronto",
+          "locator": "jeeves-01 letter"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Mechanism matches source; product variation hedged; example dates internally correct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the app must supply a current date or give it access to a suitable tool",
+          "locator": "jeeves-01 reply ¶1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Hedged with 'Some products'; only date is inside an example prompt, not a claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Some products supply date information automatically.",
+          "locator": "jeeves-01 reply ¶2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Fits the FAQ letters format.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01 reply"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "Addresses both the why and the how-do-I-stop-it halves of the letter.",
+      "artifactEvidence": [
+        {
+          "excerpt": "how do I stop it messing up my plans?",
+          "locator": "jeeves-01 letter"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Meetings, flights, deadlines named directly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For flights, appointments and deadlines, confirm the final date",
+          "locator": "jeeves-01 reply ¶4"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic first, garnish last; the strongest voice of the batch.",
+      "artifactEvidence": [
+        {
+          "excerpt": "does not supply the missing fact",
+          "locator": "jeeves-01 reply ¶2"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Task-specific routine plus independent-clock fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "use a calendar or time-zone converter to confirm the result",
+          "locator": "jeeves-01 reply ¶3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absence not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date",
+          "locator": "jeeves-01 dek"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-01"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Persona is house style, not imitation.",
+      "artifactLocator": "jeeves-01"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-01"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Question answered fully.",
+      "artifactLocator": "jeeves-01"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "jeeves-01"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links to matching context chapter.",
+      "artifactLocator": "jeeves-01 link"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Mechanism first, joke last.",
+      "artifactLocator": "jeeves-01"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Hedged product claims.",
+      "artifactLocator": "jeeves-01 reply ¶2"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Scheduling example returns the supply-the-date mechanism.",
+      "artifactLocator": "jeeves-01 reply ¶3"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Prompt fully specified with time zone.",
+      "artifactLocator": "jeeves-01 reply ¶3"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-01"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a check.",
+      "artifactLocator": "jeeves-01"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain.",
+      "artifactLocator": "jeeves-01"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Humour present and earned.",
+      "artifactLocator": "jeeves-01 closing"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Letter supplies motivation.",
+      "artifactLocator": "jeeves-01 letter"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Mechanism spelled out.",
+      "artifactLocator": "jeeves-01 reply ¶1"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Explains why models miss dates and where errors persist.",
+      "artifactLocator": "jeeves-01 reply ¶2"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "jeeves-01"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers scheduling, now-questions, conversions.",
+      "artifactLocator": "jeeves-01"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-01"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Hedged; example date is illustrative.",
+      "artifactLocator": "jeeves-01"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Column voice.",
+      "artifactLocator": "jeeves-01"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "jeeves-01"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Example proportionate.",
+      "artifactLocator": "jeeves-01"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "date-must-be-supplied",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the app must supply a current date or give it access to a suitable tool",
+            "locator": "jeeves-01 reply ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "search results, the current date",
+            "locator": "AI Fundamentals 101 §8.2 — current date listed as supplied context"
+          }
+        ],
+        "scopeAndFreshness": "Matches context-supply model; hedged for product variation."
+      },
+      {
+        "claimId": "residual-error-modes",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "carry forward an old date from the conversation or get the day-of-week calculation wrong",
+            "locator": "jeeves-01 reply ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The model can't tell the difference.",
+            "locator": "AI Fundamentals 101 §8.2"
+          }
+        ],
+        "scopeAndFreshness": "Plausible failure modes consistent with stale-context behaviour; the column states them as possibilities ('might'), and the source establishes only the underlying mechanism, not these specific modes."
+      },
+      {
+        "claimId": "example-date-arithmetic",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Monday, 7 September 2026",
+            "locator": "jeeves-01 reply ¶3"
+          },
+          {
+            "excerpt": "Thursday, 10 September at 2 p.m.",
+            "locator": "jeeves-01 reply ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "search results, the current date",
+            "locator": "AI Fundamentals 101 §8.2 — contextual support for the supply-the-date practice only; not a calendar authority"
+          }
+        ],
+        "scopeAndFreshness": "Day-of-week correctness (7 September 2026 is a Monday; 10 September 2026 is a Thursday) was verified by reviewer calendar arithmetic, not by any bound source; the bound excerpt supports only the practice of supplying the confirmed date. The example is illustrative prose, so it carries no staleness risk; re-verify only if the prose changes."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "AI Fundamentals 101 revision",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No reader testing performed.",
+    "Example date correctness verified by calendar arithmetic, not a bound source.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "dear_miss_jeeves",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

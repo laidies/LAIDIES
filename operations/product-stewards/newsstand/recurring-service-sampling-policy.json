@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "laidies-newsstand-recurring-service-sampling-policy.v1",
+  "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+  "authorizedOn": "2026-08-30",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "allowedContentClasses": ["PRACTICE", "FAQ", "REFERENCE", "EXPLANATION", "PROMOTIONAL", "MICROCOPY"],
+  "excludedContentClasses": ["NEWS", "EPISODE", "CLASS", "LIBRAIRY", "INTERACTIVE"],
+  "sampling": {
+    "status": "PENDING",
+    "unit": "BATCH",
+    "minimumTeachingEntriesPerBatch": 1,
+    "correctionFeedback": "PENDING_RECURRING_REVIEWER_FEEDBACK",
+    "humanEvidenceClaim": "NONE"
+  },
+  "entries": [
+    {"id":"mme-jelly-sandal","type":"mme_claio","contentClass":"PROMOTIONAL","teachingEntry":false},
+    {"id":"mme-mini-backpack","type":"mme_claio","contentClass":"PROMOTIONAL","teachingEntry":false},
+    {"id":"mme-caboodle","type":"mme_claio","contentClass":"PROMOTIONAL","teachingEntry":false},
+    {"id":"paige-01-follow-up","type":"paige_tip","contentClass":"PRACTICE","teachingEntry":true},
+    {"id":"paige-02-fix-one-thing","type":"paige_tip","contentClass":"PRACTICE","teachingEntry":true},
+    {"id":"paige-03-save-good-example","type":"paige_tip","contentClass":"PRACTICE","teachingEntry":true},
+    {"id":"corner-01-credit","type":"career_life","contentClass":"PRACTICE","teachingEntry":true},
+    {"id":"corner-02-priorities","type":"career_life","contentClass":"PRACTICE","teachingEntry":true},
+    {"id":"corner-03-reconnect","type":"career_life","contentClass":"PRACTICE","teachingEntry":true},
+    {"id":"concept-01-context","type":"concept_week","contentClass":"EXPLANATION","teachingEntry":true},
+    {"id":"concept-02-token","type":"concept_week","contentClass":"EXPLANATION","teachingEntry":true},
+    {"id":"concept-03-hallucination","type":"concept_week","contentClass":"EXPLANATION","teachingEntry":true},
+    {"id":"jeeves-01-time","type":"dear_miss_jeeves","contentClass":"FAQ","teachingEntry":true},
+    {"id":"jeeves-02-citation","type":"dear_miss_jeeves","contentClass":"FAQ","teachingEntry":true},
+    {"id":"jeeves-03-style","type":"dear_miss_jeeves","contentClass":"FAQ","teachingEntry":true},
+    {"id":"town-01-library","type":"did_you_know","contentClass":"REFERENCE","teachingEntry":false},
+    {"id":"town-03-catchup","type":"did_you_know","contentClass":"REFERENCE","teachingEntry":false},
+    {"id":"fact-01-dictionary","type":"did_you_know","contentClass":"REFERENCE","teachingEntry":false},
+    {"id":"fact-02-mme","type":"did_you_know","contentClass":"REFERENCE","teachingEntry":false},
+    {"id":"fact-03-reading","type":"did_you_know","contentClass":"REFERENCE","teachingEntry":false}
+  ]
+}

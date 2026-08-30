@@ -1,0 +1,559 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "concept-01-context",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "EXPLANATION",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-completed.json",
+      "sha256": "34cf3be550c479f5fff7e910dca37207b6460fdf0a63009fa02300e45c3dabcf"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:50:54.399Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-01-context.md",
+      "sha256": "92023428ed7b8357d3a3e2ec378a1665fdb7249e158afa15726838f0d3c649a7"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-01-context.manifest.json",
+      "sha256": "cbf91047facef8e2cde3490d2d011eca5b0c8597dccb625be3321ff04e20c308"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-teaching-completed-20260830",
+    "reviewedAt": "2026-08-30T20:50:54.399Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — dictionary-style term stacking with no motivating problem"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 — identical 'Where it stops / In real life' scaffold repeated for every term"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' block — analogy decorates rather than carries the teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk",
+            "locator": "CQX-BAD-001 'Tool' block — canon reference dropped without technical return"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office",
+            "locator": "CQX-BAD-002 Ch1 — job-offer worked example swallows the book's introductory purpose"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did' — textbook explainer voice, no LAiDIES warmth"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — process instruction before the reader is given a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic stated first, garnish second",
+        "Warmth with workplace specificity",
+        "Honest limits named (context, hallucination) without fearmongering",
+        "Concrete low-risk first action with the reader's judgment kept in charge"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party"
+        },
+        {
+          "excerpt": "the other 20% wrong in ways only she could see",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity plus honest verification framing"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why doesn't the AI seem to know things I already told it or uploaded?",
+    "promisedPayoff": "Know what the model can actually see, and how to fix it when it forgets.",
+    "centralMentalModel": "Context is the material supplied for this answer; the window is the token capacity limit — different things.",
+    "dailyLifeConnection": "Writing an invitation; long chats losing details.",
+    "surfaceJob": "Concept-of-the-day explainer column.",
+    "desiredReaderFeeling": "Demystified and able to self-repair."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Definition arrives through a concrete before/after example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That material is context.",
+          "locator": "concept-01 ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Corrects the common account-equals-visibility mistake.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A document sitting in your account is not proof that its contents were used.",
+          "locator": "concept-01 ¶2"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Plain, confident, no jargon-first; drier than Episode 1 but within short-column latitude.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your chat history and what the model can use right now are not necessarily the same thing.",
+          "locator": "concept-01 dek"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Lunch-invitation example gives a small concrete hook; modest but adequate.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a casual lunch for six colleagues, not a customer event",
+          "locator": "concept-01 ¶1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All mechanism claims align with AI Fundamentals ch4/ch8; product-dependence properly stated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What actually reaches the model depends on the product.",
+          "locator": "concept-01 ¶2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Durable concept teaching; no sizes, prices or model names.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the limit on how much material the model can process at once, measured in tokens",
+          "locator": "concept-01 ¶3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Single-concept explainer fits the slot.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Context: the information available for this answer.",
+          "locator": "concept-01 title"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Ties message, instructions, files, tools, product assembly and window into one picture.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools.",
+          "locator": "concept-01 ¶2"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Invitation task and long-conversation forgetting are everyday cases.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If an important detail has disappeared from a long conversation",
+          "locator": "concept-01 ¶3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic leads and carries; passes the plain-teaching test.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Context is the material; the window sets a capacity limit.",
+          "locator": "concept-01 ¶3"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "A reader could restate 'material vs capacity limit' and the account caveat from these sentences alone.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The context window is a different thing",
+          "locator": "concept-01 ¶3"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Restate-and-verify repair transfers to any product or task.",
+      "artifactEvidence": [
+        {
+          "excerpt": "restate it and check that the next answer follows it",
+          "locator": "concept-01 ¶3"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Ends with a specific self-repair move.",
+      "artifactEvidence": [
+        {
+          "excerpt": "restate it and check that the next answer follows it",
+          "locator": "concept-01 ¶3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; concrete scenario does the work — absence is not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask an AI to write an invitation",
+          "locator": "concept-01 ¶1"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "Scenario → definition → boundary correction → distinction → action; complete arc.",
+      "artifactEvidence": [
+        {
+          "excerpt": "you have changed the material it can work with",
+          "locator": "concept-01 ¶1"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-01"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Own register.",
+      "artifactLocator": "concept-01"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-01"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Question answered in body.",
+      "artifactLocator": "concept-01"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy.",
+      "artifactLocator": "concept-01"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Concept tied to product behaviour and to library chapter.",
+      "artifactLocator": "concept-01"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Understanding leads.",
+      "artifactLocator": "concept-01"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Hedged where product-dependent.",
+      "artifactLocator": "concept-01 ¶2"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Invitation example returns the context mechanism.",
+      "artifactLocator": "concept-01 ¶1"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action is specific and testable.",
+      "artifactLocator": "concept-01 ¶3"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "One concept plus its boundary — not a term stack.",
+      "artifactLocator": "concept-01"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the repair, not hype.",
+      "artifactLocator": "concept-01"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Tokens' introduced with plain framing.",
+      "artifactLocator": "concept-01 ¶3"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Dry-ish but not lifeless; acceptable for slot.",
+      "artifactLocator": "concept-01"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Invitation scenario motivates first.",
+      "artifactLocator": "concept-01 ¶1"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Mechanism fully in body.",
+      "artifactLocator": "concept-01"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Explains what context is and what determines it.",
+      "artifactLocator": "concept-01 ¶2"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete before link.",
+      "artifactLocator": "concept-01"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Concept generalizes beyond the example.",
+      "artifactLocator": "concept-01"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-01"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No sizes or dates baked in.",
+      "artifactLocator": "concept-01"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational plainness, distinct from BAD-001/002 register.",
+      "artifactLocator": "concept-01"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "concept-01"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Example stays small.",
+      "artifactLocator": "concept-01"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "context-components",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Context can include your message, instructions, earlier conversation, material from files and results returned by tools.",
+            "locator": "concept-01 ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "search results, the current date",
+            "locator": "AI Fundamentals 101 §8.2 Source 2"
+          }
+        ],
+        "scopeAndFreshness": "Matches ch8 context enumeration; durable."
+      },
+      {
+        "claimId": "account-not-context",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A document sitting in your account is not proof that its contents were used.",
+            "locator": "concept-01 ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anything that isn't in the current context window might as well not exist.",
+            "locator": "AI Fundamentals 101 §8.3"
+          }
+        ],
+        "scopeAndFreshness": "Consistent with retrieval-not-storage framing."
+      },
+      {
+        "claimId": "window-token-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "measured in tokens",
+            "locator": "concept-01 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Everything competes for space inside the same window.",
+            "locator": "AI Fundamentals 101 §4.5"
+          }
+        ],
+        "scopeAndFreshness": "Durable definition; no size figures cited, so no staleness risk."
+      },
+      {
+        "claimId": "restate-repair",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "restate it and check that the next answer follows it",
+            "locator": "concept-01 ¶3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Inspect the active context and its relevance.",
+            "locator": "AI Fundamentals 101 Ch8 check-understanding"
+          }
+        ],
+        "scopeAndFreshness": "Matches source's diagnostic guidance."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "AI Fundamentals 101 revision",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Explain-back assessed from prose only; no reader testing.",
+    "No analogy used — treated as absent, not a defect.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "concept_week",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-34cf3be550c4",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

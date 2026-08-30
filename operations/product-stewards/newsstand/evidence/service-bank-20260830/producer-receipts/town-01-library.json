@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "town-01-library",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.798Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-01-library.md",
+      "sha256": "7760190a1bfddb3e7c54a642901212d3a6cf15434793a73ba306ef9aeef94cab"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-01-library.manifest.json",
+      "sha256": "1276c858784126490d9d6a292e8e614b3b092939ded4c0c79ff53c478a5f52a0"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Which of the four books should I open?",
+    "promisedPayoff": "Choose a book according to the job: explanation, practical task, term lookup or wider question.",
+    "centralMentalModel": "Choose a book according to the job: explanation, practical task, term lookup or wider question.",
+    "dailyLifeConnection": "Which of the four books should I open?",
+    "surfaceJob": "A complete did_you_know column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Choose a book according to the job: explanation, practical task, term lookup or wider question. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Choose a book according to the job: explanation, practical task, term lookup or wider question. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Choose the dictionary for a term and Fundamentals for its longer explanation. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: Choose a book according to the job: explanation, practical task, term lookup or wider question. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+          "locator": "town-01-library: summary"
+        },
+        {
+          "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+          "locator": "town-01-library: body paragraph 1"
+        },
+        {
+          "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+          "locator": "town-01-library: body paragraph 2"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today.",
+      "artifactLocator": "town-01-library: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "town-01-library-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The LIBRAiRY’s opening set includes explanations, practical methods, a dictionary and sourced questions.",
+            "locator": "town-01-library: summary"
+          },
+          {
+            "excerpt": "The LIBRAiRY’s opening set brings together AI Fundamentals 101, Working with AI 101, the AI Dictionary and Straight Answers About AI.",
+            "locator": "town-01-library: body paragraph 1"
+          },
+          {
+            "excerpt": "Start with Fundamentals when you want to understand how the pieces fit. Open Working with AI when you have a task to do. Use the dictionary for a term you have just encountered, and Straight Answers for questions about AI’s wider effects. The books do different jobs, so you do not need to read all four in order.",
+            "locator": "town-01-library: body paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Both origins opened these direct reader routes, each with the shown title and\nopening text after the reader loaded:\n\n| Route fragment | Reader title | Visible opening |\n| --- | --- | --- |\n| `#ai-fundamentals-101` | `AI Fundamentals 101` | `PREFACE — WHY THIS BOOK MATTERS` |\n| `#working-with-ai-101` | `Working with AI 101` | `INTRODUCTION: FROM KNOWING TO DOING` |\n| `#straight-answers` | `Straight Answers About AI` | `HOW TO USE THESE ANSWERS` and `Reference shelf` |\n| `#ai-dictionary` | `The AI Dictionary` | `HOW THIS DICTIONARY WORKS` and `This is a front door, not a competing source of truth.` |\n\nAll four showed `Edition reviewed 29 August 2026`. No sign-in prompt appeared.\n\n## Catch Me Up and archive — `town-03-catchup`\n\nOn both origins, entering `2026-08-23` in **Start with** and activating **Show\nwhat I missed** returned two older results: the August 24 Daily, *The AI\nopportunity gap is opening now.*, and the August 24 Big Picture, *Why data\ncentres became a public villain—and what a better bargain would look like*.\n\nThe archive’s Theme control offered `data centres`; selecting it reported `1\nback issue available.` The visible browse-by-topic list also showed `data\ncentres 1`.\n\n## Mme CLAi-O — `fact-02-mme`\n\nBoth origins rendered `MME CLAI-O`, `One random authored reflection. Never a\nprediction.`, **Cut the deck**, and the visible boundary: each draw is one\nrandom authored card, is not tailored to the reader, does not analyse or answer\na question, and is not a prediction or professional advice.\n\nThe custom origin’s already-visible device-local history showed the actual saved\ncard `The Sun-In Spray` with `You are trying to change gradually enough that\nnobody asks questions.` The immutable origin reported `Madame is in. The deck\nis ready.` and showed no saved card.\n\n**Unverified by design:** no new card was drawn, so a newly generated card,\nits next-move wording, and post-draw persistence were not observed. Drawing\nwould write device-local history, outside this check’s no-mutation boundary.\n\n## Unsigned reading and data-centre article — `fact-03-reading`, `town-02-data-centres`\n\nOn both origins, an unsigned visitor could open\n`#big-picture-data-centre-deal-2026-08-24` directly. The reader showed:\n\n- section label: `THE BIG PICTURE`;\n- exact title: *Why data centres became a public villain—and what a better\n  bargain would look like*;\n- visible deck: `Dat",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md: Both origins opened"
+          }
+        ],
+        "scopeAndFreshness": "Choose a book according to the job: explanation, practical task, term lookup or wider question. The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The four titles and their distinct roles are accurate; it does not claim the Library is newly opened today."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

@@ -1,0 +1,659 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-01-time",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.793Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-01-time.md",
+      "sha256": "59091964ec88c4028d6306468f838f912177c0b7bbe6c9d949175f305bd08647"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-01-time.manifest.json",
+      "sha256": "2bef6deb169798a815690b213588baeea934b170c13d4e922334709d042c1b28"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does AI get the day wrong, and how can I avoid a missed appointment?",
+    "promisedPayoff": "Explaining dates differs from checking the current clock; supply verified date and time zone and check consequential outputs.",
+    "centralMentalModel": "Explaining dates differs from checking the current clock; supply verified date and time zone and check consequential outputs.",
+    "dailyLifeConnection": "Why does AI get the day wrong, and how can I avoid a missed appointment?",
+    "surfaceJob": "A complete dear_miss_jeeves column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Explaining dates differs from checking the current clock; supply verified date and time zone and check consequential outputs. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "For a flight, compare the invitation with the airline booking and a calendar rather than asking whether the model is sure. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: Explaining dates differs from checking the current clock; supply verified date and time zone and check consequential outputs. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+          "locator": "jeeves-01-time: summary"
+        },
+        {
+          "excerpt": "Dear Temporally Confused,",
+          "locator": "jeeves-01-time: body paragraph 1"
+        },
+        {
+          "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+          "locator": "jeeves-01-time: body paragraph 2"
+        },
+        {
+          "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+          "locator": "jeeves-01-time: body paragraph 3"
+        },
+        {
+          "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+          "locator": "jeeves-01-time: body paragraph 4"
+        },
+        {
+          "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+          "locator": "jeeves-01-time: body paragraph 5"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today.",
+      "artifactLocator": "jeeves-01-time: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "jeeves-01-time-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A calendar question needs a reliable date, not just a convincing sentence.",
+            "locator": "jeeves-01-time: summary"
+          },
+          {
+            "excerpt": "Dear Temporally Confused,",
+            "locator": "jeeves-01-time: body paragraph 1"
+          },
+          {
+            "excerpt": "Explaining a calendar and checking today’s date are different tasks. A model can generate an answer about dates from the information it has, but the app must supply a current date or give it access to a suitable tool if you want it to check the time now.",
+            "locator": "jeeves-01-time: body paragraph 2"
+          },
+          {
+            "excerpt": "Some products supply date information automatically. Some can use search or other tools. That still leaves room for mistakes: the answer might use the wrong time zone, carry forward an old date from the conversation or get the day-of-week calculation wrong. Saying “Are you sure?” does not supply the missing fact.",
+            "locator": "jeeves-01-time: body paragraph 3"
+          },
+          {
+            "excerpt": "For a scheduling task, give it the confirmed date, place and time zone: “Today is Monday, 7 September 2026, in Vancouver. The meeting is on Thursday, 10 September at 2 p.m. Vancouver time. Draft an invitation using those details.” If you are converting between time zones, use a calendar or time-zone converter to confirm the result.",
+            "locator": "jeeves-01-time: body paragraph 4"
+          },
+          {
+            "excerpt": "For a question about right now, ask the tool to check a current clock if it has access to one. If it cannot, check your device’s clock yourself. For flights, appointments and deadlines, confirm the final date against the booking or calendar before acting. Miss Jeeves would rather you checked twice than arrived on Wednesday for a Tuesday lunch.",
+            "locator": "jeeves-01-time: body paragraph 5"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "8.2 — The Two Sources of \"Knowledge\" Based on everything you've learned so far, there are only two ways the model \"knows\" something when it responds to you: Source 1: Training weights (frozen, general, potentially stale) Everything the model absorbed during training (Chapters 3-5) is encoded in its weights. This includes patterns of language, general facts about the world, reasoning patterns, style — everything that was in the training data. This knowledge is frozen at the training cutoff date and never updates. Source 2: Context window (live, specific, provided right now) Everything placed into the context window for this specific request — your message, conversation history, system instructions, documents you uploaded, search results, the current date. This is live information, specific to this moment, and disappears the moment the response is complete. The model can't tell the difference. When it generates a response, it draws on both sources simultaneously. It doesn't flag \"this fact comes from my training\" versus \"this fact comes from the document you just uploaded.\" It processes everything in the context window as one combined input. This distinction — training knowledge vs contextual information — is fundamental to understanding both the capabilities and limitations of these systems. 8.3 — What \"Memory\" Actually Means (When Companies Say It) 📼 Rewind it: Calling every saved preference \"memory\" is how you end up with a Burn Book full of assumptions. Ask what was actually stored, where it lives, and whether the product will retrieve it next time. The model itself has not quietly become a person who remembers you. In 2024–2026, many AI products launched \"memory\" features — ChatGPT's Memory, Claude's memory, and others. What are these actually doing? They're not giving the model actual memory. They're doing this: Extracting facts from your conversations (\"User's name is Ali.\" \"User prefers concise answers.\" \"User is working on a textbook project.\") Storing those facts externally — in a database, outside the model. Injecting relevant facts back into the context window each time you start a new conversation. The model still has no memory. But the application layer remembers things about you and feeds them back in each time, making it appear as if the model remembers. It's a clever design — but mechanically, it's just context window management. The three ti",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt: 8.2"
+          }
+        ],
+        "scopeAndFreshness": "Explaining dates differs from checking the current clock; supply verified date and time zone and check consequential outputs. The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The complete letter gets a complete answer: product variation, old context, time zones and calculation can all matter. The September dates are a prompt example, not today."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

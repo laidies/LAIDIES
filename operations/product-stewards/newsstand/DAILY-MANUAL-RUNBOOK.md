@@ -69,21 +69,45 @@ It is candidate input to the existing column/issue path, not a second publisher.
 Check coverage with:
 
 ```sh
-node scripts/prepare-newsstand-service-bank.mjs --date YYYY-MM-DD --check
+node scripts/prepare-newsstand-service-bank.mjs --date YYYY-MM-DD --reuse-admitted --check
 ```
 
 Use `--output operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/YYYY-MM-DD.json`
 instead of `--check` to prepare a private proposal. This never changes canonical
 columns or grants approval. It chooses unused entries, carries full paragraphs,
 questions, sources and destinations, and reports readiness separately from draft
-coverage. `--item type=bankItemId` selects a particular unused item. What's New
+coverage. The recurring cycle uses `--reuse-admitted`: prefer unused approved
+entries; when a desk has no unused approved entry, reuse an exactly reviewed,
+eligible, unexpired entry before considering unapproved candidates. Reuse creates
+a new dated ID and binds `predecessorRecordId`; it never changes the original
+event date, expiration, source copy or reviewed-content hash. A new independent
+issue admission is still required. Without the flag, preparation stays unused-only.
+`--item type=bankItemId` selects a particular item subject to those same checks. What's New
 requires its original event date and a retirement date; an expired announcement
 produces a gap, never a newly dated event.
 
-All 22 seed entries are currently CANDIDATE/INELIGIBLE. Complete the applicable
-exact-content source, voice, format and comprehension reviews before adding an
+The August 30 bank contains 18 APPROVED/ELIGIBLE entries, backed by exact
+producer and independent Claude accuracy/voice receipts. Approval is checked
+against the frozen text hash and raw independent judgment, not a filename or
+status label. Four entries remain held: the idea-credit Corner Office source
+needs replacement and fresh review, the additional Mme site fact lacks a complete
+producer chain, Caboodle has an incomplete imported review field, and crossword
+still needs native assistive-technology review. The current published Corner
+Office and Mme selection are preserved, not silently replaced by those candidates.
+The next-date check produces seven ready desks and one crossword candidate;
+it does not approve or publish tomorrow's issue. Complete
+exact-content source, independent writing and format reviews before adding an
 admitted dated record to `content/daily-edition-columns.json` and composing the
-issue below. Existing observed-human evidence requirements have not changed.
+issue below. On August 30 Ali authorized sampled reader testing for routine
+service entries instead of mandatory observed-human testing for every entry.
+`recurring-service-sampling-policy.json` binds the permitted entry IDs, types
+and classes. Each independent review still assesses comprehension and transfer;
+the pending sample queue and correction feedback must remain explicit. Never
+record a model simulation as a human observation. At least one teaching entry
+per batch enters the reader-test queue. This does not approve any prose and does
+not change Big Picture's Ali-review requirement, news admission, or the gates
+for books, classes and episodes. Episode 1 supplies voice-only calibration for
+these short services: no inherited factual claims or episode-shaped template.
 Crossword also remains held for native assistive-technology review. Do not
 interpret eight proposed rows as eight admitted sections.
 
@@ -154,6 +178,14 @@ The `daily-issue-successor-admission-v1` schema is reserved for a checksum-bound
 migration of an already admitted issue. It must bind both exact predecessor and
 successor envelope hashes. Do not use it to revise copy, desks, membership or
 source identity; the writer rejects those changes.
+
+`daily-issue-service-revision-admission-v1` permits a separately reviewed,
+same-date empty-service-slot addition only. It binds the exact predecessor and
+successor envelopes, named added records and either the original pre-projection
+source or an exact manifest plus successful immutable/custom published-base
+observations. It cannot replace a ready service, change any article, or change
+Front PAiGE/Weekly/date continuity. The August 30 five-slot addition uses this
+path; its evidence is in `evidence/service-revision-2026-08-30/`.
 
 ## 5. Write the admitted issue to the local canonical store
 

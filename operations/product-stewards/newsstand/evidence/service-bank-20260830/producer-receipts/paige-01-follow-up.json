@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "paige-01-follow-up",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.778Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-01-follow-up.md",
+      "sha256": "78be4e963021c809155c2c9090e9f7aa97913c9f96041eae9b0c709861fb69d5"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-01-follow-up.manifest.json",
+      "sha256": "24ddeb3b0c7d0303e2e7d655fe166704574d7a862f885ee5c5e9110e394dc5a8"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I send this follow-up without promising something we did not agree?",
+    "promisedPayoff": "For an itinerary, supply booking details and compare dates with the booking, not the generated draft.",
+    "centralMentalModel": "Separate decisions, actions and unresolved questions before drafting; compare commitments afterwards.",
+    "dailyLifeConnection": "Can I send this follow-up without promising something we did not agree?",
+    "surfaceJob": "A complete paige_tip column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Separate decisions, actions and unresolved questions before drafting; compare commitments afterwards. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "For an itinerary, supply booking details and compare dates with the booking, not the generated draft. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "For an itinerary, supply booking details and compare dates with the booking, not the generated draft. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: For an itinerary, supply booking details and compare dates with the booking, not the generated draft.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Can I send this follow-up without promising something we did not agree?",
+        "probeResponse": "For an itinerary, supply booking details and compare dates with the booking, not the generated draft.",
+        "expectedEvidence": "Separate decisions, actions and unresolved questions before drafting; compare commitments afterwards."
+      }
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "For an itinerary, supply booking details and compare dates with the booking, not the generated draft. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+          "locator": "paige-01-follow-up: summary"
+        },
+        {
+          "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+          "locator": "paige-01-follow-up: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+          "locator": "paige-01-follow-up: body paragraph 2"
+        },
+        {
+          "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+          "locator": "paige-01-follow-up: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting.",
+      "artifactLocator": "paige-01-follow-up: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+        "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "paige-01-follow-up-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Make the draft keep track of what was agreed—and what wasn’t.",
+            "locator": "paige-01-follow-up: summary"
+          },
+          {
+            "excerpt": "Before you ask AI to write a follow-up email, separate your notes into decisions, actions and unresolved questions. Use only information you are allowed to put in that tool.",
+            "locator": "paige-01-follow-up: body paragraph 1"
+          },
+          {
+            "excerpt": "Try: “Draft a short follow-up from these notes. Include each agreed action, its owner and its deadline. If a name or date is missing, write ‘to confirm’. Keep proposals separate from decisions. Do not add commitments.”",
+            "locator": "paige-01-follow-up: body paragraph 2"
+          },
+          {
+            "excerpt": "That last instruction matters: a tidy email can quietly turn ‘we could launch in October’ into ‘we will launch in October’. Compare the draft with your notes before sending. Check names, dates and promises first; polish the greeting afterwards.",
+            "locator": "paige-01-follow-up: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "2.3 The Brief (Not the Prompt) The word \"prompt\" implies a single clever sentence that unlocks the AI's potential. The reality in 2026 is closer to writing a brief: a short, structured description that gives a smart but uninformed executor everything they need to produce what you want. An agent can sometimes pause or ask for clarification, but you should not depend on that happening at the right moment. If the brief leaves an important blank, the system may make a plausible choice and continue. Name the ambiguity before it becomes an autonomous decision. A good brief has at most six parts: Outcome. What you want to end up with, described as a result, not a process. \"A one-page summary of this report for my CFO\" not \"read this and tell me what's important.\" Audience. Who will read/use this output. This changes everything: vocabulary, detail level, what gets emphasised, what gets left out. Constraints. What it must NOT do. Length limits. Things to avoid. Scope boundaries. \"Under 300 words. No technical jargon. Don't mention the restructuring.\" Format. What the output looks like structurally. Bullet points or prose. Sections or one block. Table or narrative. If you don't specify, it'll choose for you (often wrong). What good looks like. If you have an example of the kind of output you want, show it (Section 4.5 covers this in depth). If you don't, describe the quality bar: \"The tone of an internal email between peers, not a formal memo to a board.\" What you've already tried (if relevant). If this isn't your first attempt, tell it what didn't work and why. \"I already tried asking for a summary and it was too high-level. I need more operational detail, specifically around timelines and owners.\" You don't always need all six. A simple task might only need outcome + constraints. A complex task might need all of them. The test: could a smart colleague you've never worked with execute this brief without asking you a single clarifying question? If yes, the AI can too. If not, what question would they ask? Answer it in the brief. 2.4 Upload, Paste, or Describe? Before choosing a format, decide whether the AI is allowed to receive the information at all. Run this Allowed-Information Check : Whose information is it? Mine, my employer's, a client's, a colleague's or the public's? What kind is it? Public, internal, confidential, personal, regulated or contract-restricted? ",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt: 2.3"
+          }
+        ],
+        "scopeAndFreshness": "Separate decisions, actions and unresolved questions before drafting; compare commitments afterwards. The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The October example shows a proposal becoming a promise. The copy supplies a full prompt and prioritises names, dates and commitments over polishing a greeting."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

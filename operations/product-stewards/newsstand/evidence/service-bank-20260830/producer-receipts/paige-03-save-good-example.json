@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "paige-03-save-good-example",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.784Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-03-save-good-example.md",
+      "sha256": "9e802f8fcd92c110e60b9ad9b138744b8ccef0ab7fdbb24f3eff559e5c17d488"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-03-save-good-example.manifest.json",
+      "sha256": "1f3d0a32c346417c823f6f651bbd659b61e72eb60eb1c0e6df1c8cfaf96f199e"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What should I save when an AI email finally sounds like me?",
+    "promisedPayoff": "Reuse the tone of an invitation but check dates and location against the new event notes.",
+    "centralMentalModel": "A privacy-safe example makes tone concrete but its facts must not migrate into a new message.",
+    "dailyLifeConnection": "What should I save when an AI email finally sounds like me?",
+    "surfaceJob": "A complete paige_tip column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "A privacy-safe example makes tone concrete but its facts must not migrate into a new message. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Reuse the tone of an invitation but check dates and location against the new event notes. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Reuse the tone of an invitation but check dates and location against the new event notes. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: Reuse the tone of an invitation but check dates and location against the new event notes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: What should I save when an AI email finally sounds like me?",
+        "probeResponse": "Reuse the tone of an invitation but check dates and location against the new event notes.",
+        "expectedEvidence": "A privacy-safe example makes tone concrete but its facts must not migrate into a new message."
+      }
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Reuse the tone of an invitation but check dates and location against the new event notes. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+          "locator": "paige-03-save-good-example: summary"
+        },
+        {
+          "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+          "locator": "paige-03-save-good-example: body paragraph 1"
+        },
+        {
+          "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+          "locator": "paige-03-save-good-example: body paragraph 2"
+        },
+        {
+          "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+          "locator": "paige-03-save-good-example: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example.",
+      "artifactLocator": "paige-03-save-good-example: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+        "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "paige-03-save-good-example-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A useful result gives you a concrete standard for the next attempt.",
+            "locator": "paige-03-save-good-example: summary"
+          },
+          {
+            "excerpt": "When an AI-assisted email finally sounds like you, save a version with private details removed. Keep it beside the instruction that produced it and a short note about what you changed.",
+            "locator": "paige-03-save-good-example: body paragraph 1"
+          },
+          {
+            "excerpt": "Next time, try: “Use this example for length and tone, not for its facts. Write a new email from the notes below. Do not carry over the example’s names, dates or promises.”",
+            "locator": "paige-03-save-good-example: body paragraph 2"
+          },
+          {
+            "excerpt": "An example makes ‘friendly but direct’ less vague. It can also contaminate the new draft with old details, which is why the final check should compare facts with today’s notes, not with the sample.",
+            "locator": "paige-03-save-good-example: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "13.1 From One-Off to Repeatable Six months ago, someone in our community told us she uses AI \"every day\" but still feels like she's starting from scratch each time. New chat. Re-explain the context. Re-state her preferences. Get a mediocre first attempt. Fix it. Paste it somewhere. Tomorrow: same thing, from zero. She's not doing it wrong. She just doesn't have a system yet. The difference between \"I use AI every day\" and \"AI reliably saves me time\" often depends substantially on the system, not only the tool, model or a secret prompt. She needs to extract what works, save it somewhere stable and stop reinventing the setup every time she opens a new chat. The pattern: Do it. Use AI for a task. Apply what you've learned in Chapters 4-6 (brief, control, iterate). Notice. What worked? What did you have to fix? What did you wish you'd specified upfront? Extract. Pull out the reusable parts: the brief structure, the constraints that mattered, the format that worked, the examples you showed it. Save. Put those reusable parts somewhere stable: a document, a note, a template, a project in your AI tool. Reuse and refine. Next time you do the same type of task, start from the template. Fix what's still off. The template gets better each time. This is how \"I sometimes get good results\" becomes \"I reliably get good results.\" Not through a magic prompt. Through iteration on the SYSTEM, not just the output. The reusable move is to stop treating every useful result as a one-off prompt. Save the context, instructions and acceptance criteria that actually helped, then test whether they improve the next run. 13.2 The Minimum Viable System You don't need a complex setup. A working AI system has three components: 1. Your persistent setup (Chapter 6) Persistent instructions that capture your voice and preferences (the closet computer in Clueless picked her outfit because it already knew her wardrobe, her rules and her taste — same idea, except you write the rules yourself, once) A project or workspace for each recurring area of work Memory that accumulates over time (check it periodically) This is the foundation. Without it, every conversation starts from zero. 2. A few recurring workflows (Chapters 10, 12) Start with one. When that works reliably, add another. Three to five recurring workflows may be a useful ceiling for a first system, but the right number is whatever remains ",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt: 13.1"
+          }
+        ],
+        "scopeAndFreshness": "A privacy-safe example makes tone concrete but its facts must not migrate into a new message. The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The prompt explicitly separates length and tone from facts; the final check uses current notes, not the old example."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

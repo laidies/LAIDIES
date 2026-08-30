@@ -1,0 +1,465 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "fact-03-reading",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.801Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-03-reading.md",
+      "sha256": "2d1435aba9a09824391d5db8f7f419370a856aa907ba2f50b506e311a0d97fb8"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-03-reading.manifest.json",
+      "sha256": "0724e18322367732b7b8005433936e40ae0bbf8edc0682e8b9f1ba638c33a858"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Do I need a Resident Card to read NewsStand?",
+    "promisedPayoff": "Available articles and archive are public; no saved-progress or account entitlement is promised.",
+    "centralMentalModel": "Available articles and archive are public; no saved-progress or account entitlement is promised.",
+    "dailyLifeConnection": "Do I need a Resident Card to read NewsStand?",
+    "surfaceJob": "A complete did_you_know column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Available articles and archive are public; no saved-progress or account entitlement is promised. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Available articles and archive are public; no saved-progress or account entitlement is promised. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The copy makes a bounded anonymous-reading claim and supplies the archive route. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Open an article or return to one through the archive without signing in. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: Available articles and archive are public; no saved-progress or account entitlement is promised. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading: summary"
+        },
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+          "locator": "fact-03-reading: body paragraph 1"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The copy makes a bounded anonymous-reading claim and supplies the archive route.",
+      "artifactLocator": "fact-03-reading: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "fact-03-reading-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The NewsStand is open to visitors.",
+            "locator": "fact-03-reading: summary"
+          },
+          {
+            "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card. Follow a headline to the full story, or use the archive when you want to return to something you read earlier.",
+            "locator": "fact-03-reading: body paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "an unsigned visitor could open\n`#big-picture-data-centre-deal-2026-08-24` directly. The reader showed:\n\n- section label: `THE BIG PICTURE`;\n- exact title: *Why data centres became a public villain—and what a better\n  bargain would look like*;\n- visible deck: `Data centres are not new. What changed was AI: bigger\n  facilities, lower trust and a flood of alarming claims that are hard to\n  compare.`;\n- published date: `August 24, 2026`; and\n- article line: `PUBLISHED AUGUST 24, 2026 · UPDATED AND CHECKED AUGUST 29,\n  2026`.\n\nThe custom-origin navigation retained visible `Sign in` and `Join the town`\nlinks, but opening the article did not display a login prompt. This confirms the\nobserved anonymous reader journey only; it does not establish account, storage,\nor accessibility behaviour.\n\n## Failures\n\nNo broken destination, missing listed book title/opening, missing data-centres\narticle, or failed Catch Me Up/archive selection was observed. The only\nuncompleted requested observation is a fresh Mme CLAi-O draw and its move text,\nintentionally not performed because it would mutate device-local history.\n",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md: an unsigned visitor could open"
+          }
+        ],
+        "scopeAndFreshness": "Available articles and archive are public; no saved-progress or account entitlement is promised. The copy makes a bounded anonymous-reading claim and supplies the archive route. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The copy makes a bounded anonymous-reading claim and supplies the archive route."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

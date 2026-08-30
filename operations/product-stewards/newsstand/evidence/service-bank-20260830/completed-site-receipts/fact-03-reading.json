@@ -1,0 +1,529 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "fact-03-reading",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-site-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-site-completed.json",
+      "sha256": "35e9878d8519976f25019cdd7a878323d7f5e1af633c5563c681964cc0cd0348"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:51:13.688Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-03-reading.md",
+      "sha256": "2d1435aba9a09824391d5db8f7f419370a856aa907ba2f50b506e311a0d97fb8"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-03-reading.manifest.json",
+      "sha256": "0724e18322367732b7b8005433936e40ae0bbf8edc0682e8b9f1ba638c33a858"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-site-completed-20260830",
+    "reviewedAt": "2026-08-30T20:51:13.688Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 'AI system' entry — the 'Where it stops' template repeats identically in every glossary block"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 'Provider' entry — decorative analogy doing no explanatory work"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' entry — one of Walkman/Cher/toolbox/librarian confetti across adjacent entries"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue",
+            "locator": "CQX-BAD-001 'Tool' entry — invented character with no canon standing"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 'AI system' entry — terms stacked before any motivating problem or mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single decision scenario swallows the entire book introduction"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — worked-example detail overtakes the book's stated purpose"
+          },
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming",
+            "locator": "CQX-BAD-002 Introduction — book purpose narrowed to fault-diagnosis of one request"
+          },
+          {
+            "excerpt": "You used an **AI system**: the whole working arrangement",
+            "locator": "CQX-BAD-002 Introduction — system anatomy before the reader has a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, garnish second",
+        "direct warm address to a smart, busy reader",
+        "honest hedging where a claim is unverified",
+        "one specific low-risk next action per piece"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth without hype"
+        },
+        {
+          "excerpt": "Regina George energy",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 13 — reference that carries the teaching"
+        },
+        {
+          "excerpt": "the most talented new hire",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — plain honest framing without personification"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Do I need an account just to read the paper?",
+    "promisedPayoff": "No — read and browse freely; the card is not a paywall.",
+    "centralMentalModel": "The NewsStand is a public paper; the Resident Card is for other things.",
+    "dailyLifeConnection": "A curious visitor wanting to read before committing to anything.",
+    "surfaceJob": "Recurring fact-box lowering the barrier to reading.",
+    "desiredReaderFeeling": "Welcome — no gate, no catch."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The whole answer is one plain sentence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card.",
+          "locator": "fact-03-reading body"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Removes a real adoption barrier and gives two concrete reading routes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "use the archive when you want to return to something you read earlier",
+          "locator": "fact-03-reading body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Open-door framing, no corporate hedging; brand spellings exact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading deck"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Brief and hospitable; appropriate for the slot without decoration.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You don’t need a Resident Card to read the paper.",
+          "locator": "fact-03-reading headline"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Unsigned reading verified: article opened directly with no login prompt; archive controls observed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "without creating a Resident Card",
+          "locator": "fact-03-reading body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "'Available NewsStand articles' is appropriately scoped and re-checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the available NewsStand articles",
+          "locator": "fact-03-reading body"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Single-fact box with one named action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Browse the archive",
+          "locator": "fact-03-reading action link"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "NewsStand and Resident Card spellings match the brand lock; anchor targets the observed archive.",
+      "artifactEvidence": [
+        {
+          "excerpt": "https://laidies.ai/newsstand.html#newsstand-archive",
+          "locator": "fact-03-reading action link"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Correctly separates public reading from the Resident Card account layer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand is open to visitors.",
+          "locator": "fact-03-reading deck"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Speaks to the ordinary want of returning to something read earlier.",
+      "artifactEvidence": [
+        {
+          "excerpt": "return to something you read earlier",
+          "locator": "fact-03-reading body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Direct answer first, routes second — matches the benchmark's useful-before-clever order.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You don’t need a Resident Card to read the paper.",
+          "locator": "fact-03-reading headline"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "One action naming its destination; archive observed working.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Browse the archive",
+          "locator": "fact-03-reading action link"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absent, not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "open to visitors",
+          "locator": "fact-03-reading deck"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or authority names appear.",
+      "artifactLocator": "fact-03-reading, full box"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated voice; hospitable plain register.",
+      "artifactLocator": "fact-03-reading deck"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler or hedging around the access answer.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline answers its own question immediately.",
+      "artifactLocator": "fact-03-reading headline"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used.",
+      "artifactLocator": "fact-03-reading, full box"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Public reading is correctly separated from the Resident Card account layer.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment beat; the access fact leads.",
+      "artifactLocator": "fact-03-reading headline"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Unsigned reading and archive browsing were directly observed on both origins.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The wanting-to-reread moment returns directly to the archive route.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action names its destination: 'Browse the archive'.",
+      "artifactLocator": "fact-03-reading action link"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms defined or stacked.",
+      "artifactLocator": "fact-03-reading, full box"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a reading route, not a moral.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Resident Card' is used in a sentence that makes its role clear on first mention.",
+      "artifactLocator": "fact-03-reading headline"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Open-door framing keeps the tone welcoming.",
+      "artifactLocator": "fact-03-reading deck"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The reader's question (do I need an account?) leads.",
+      "artifactLocator": "fact-03-reading headline"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No mechanism to compress; an access fact.",
+      "artifactLocator": "fact-03-reading, full box"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "No mechanism claim required for an access fact.",
+      "artifactLocator": "fact-03-reading, full box"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The access answer and both reading routes precede the link.",
+      "artifactLocator": "fact-03-reading action link position"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers both first reading and returning via the archive.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No cultural or scholarly references.",
+      "artifactLocator": "fact-03-reading, full box"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "'Available NewsStand articles' scopes the claim and is re-checkable live.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Direct second-person answer, not a lecture.",
+      "artifactLocator": "fact-03-reading body"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No repeated phrasing across headline, deck and body.",
+      "artifactLocator": "fact-03-reading deck and body"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example present.",
+      "artifactLocator": "fact-03-reading, full box"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "unsigned-reading",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "You can read the available NewsStand articles and browse the archive without creating a Resident Card.",
+            "locator": "fact-03-reading body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "an unsigned visitor could open",
+            "locator": "site-destinations.md, unsigned reading section"
+          },
+          {
+            "excerpt": "opening the article did not display a login prompt",
+            "locator": "site-destinations.md, unsigned reading section"
+          }
+        ],
+        "scopeAndFreshness": "Anonymous reader journey observed 2026-08-30 on both origins; account/storage behaviour explicitly out of scope."
+      },
+      {
+        "claimId": "archive-return-route",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "use the archive when you want to return to something you read earlier",
+            "locator": "fact-03-reading body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The archive’s Theme control offered `data centres`",
+            "locator": "site-destinations.md, Catch Me Up section"
+          }
+        ],
+        "scopeAndFreshness": "Archive browse observed with one theme; grows with content."
+      },
+      {
+        "claimId": "headline-to-story",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Follow a headline to the full story",
+            "locator": "fact-03-reading body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "returned two older results: the August 24 Daily",
+            "locator": "site-destinations.md, Catch Me Up section"
+          }
+        ],
+        "scopeAndFreshness": "Stories reachable and readable; the click-through from a listed headline specifically was not logged."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Re-verify if unsigned access policy or archive anchors change.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Headline-to-full-story navigation was not itself logged (direct anchors were observed working); treated as qualified, low-risk.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "did_you_know",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-35e9878d8519",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

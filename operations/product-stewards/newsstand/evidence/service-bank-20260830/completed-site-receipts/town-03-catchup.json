@@ -1,0 +1,550 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "town-03-catchup",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-site-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-site-completed.json",
+      "sha256": "35e9878d8519976f25019cdd7a878323d7f5e1af633c5563c681964cc0cd0348"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:51:13.688Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-03-catchup.md",
+      "sha256": "9f05c901f6a0086d01ed1b087074686aecd44793fdd56b01217d14dbe48c1090"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-03-catchup.manifest.json",
+      "sha256": "402c2c884b11f66da676160f62271fbe035ce0930efaa18a248ec4a73444c019"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-site-completed-20260830",
+    "reviewedAt": "2026-08-30T20:51:13.688Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 'AI system' entry — the 'Where it stops' template repeats identically in every glossary block"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 'Provider' entry — decorative analogy doing no explanatory work"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' entry — one of Walkman/Cher/toolbox/librarian confetti across adjacent entries"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue",
+            "locator": "CQX-BAD-001 'Tool' entry — invented character with no canon standing"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 'AI system' entry — terms stacked before any motivating problem or mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single decision scenario swallows the entire book introduction"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — worked-example detail overtakes the book's stated purpose"
+          },
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming",
+            "locator": "CQX-BAD-002 Introduction — book purpose narrowed to fault-diagnosis of one request"
+          },
+          {
+            "excerpt": "You used an **AI system**: the whole working arrangement",
+            "locator": "CQX-BAD-002 Introduction — system anatomy before the reader has a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, garnish second",
+        "direct warm address to a smart, busy reader",
+        "honest hedging where a claim is unverified",
+        "one specific low-risk next action per piece"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth without hype"
+        },
+        {
+          "excerpt": "Regina George energy",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 13 — reference that carries the teaching"
+        },
+        {
+          "excerpt": "the most talented new hire",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — plain honest framing without personification"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "I was away — how do I see what I missed without pretending it's today's news?",
+    "promisedPayoff": "Pick a date, see what published since, and find older pieces by topic.",
+    "centralMentalModel": "The NewsStand is a dated archive you rewind, not a feed that relabels old news.",
+    "dailyLifeConnection": "Returning from a few days away and wanting to catch up honestly.",
+    "surfaceJob": "Recurring service column explaining the Catch Me Up and archive tools.",
+    "desiredReaderFeeling": "Relieved — nothing is lost, and nothing is being dressed up as new."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The tool's operation is stated in one plain sentence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Catch Me Up lets you choose how far back to look, then browse available NewsStand stories.",
+          "locator": "town-03-catchup body ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Tells a returning reader exactly which two tools cover their situation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can also use the archive to find an older article by topic.",
+          "locator": "town-03-catchup body ¶1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The anti-fake-freshness line is a sharp, honest LAiDIES beat.",
+      "artifactEvidence": [
+        {
+          "excerpt": "These are dated articles, not yesterday’s headlines relabelled as today’s news.",
+          "locator": "town-03-catchup body ¶2"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The direct 'Away for a few days?' address and the relabelled-news jab give it life without forced jokes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Away for a few days? Catch up from a date you choose.",
+          "locator": "town-03-catchup headline"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Date-selection, older-story browsing, topic archive, and visible dates were all directly observed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Look at the publication and update dates when you return to a story.",
+          "locator": "town-03-catchup body ¶2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Describes stable controls, not perishable content; instructs the reader to rely on dates on the article itself.",
+      "artifactEvidence": [
+        {
+          "excerpt": "publication and update dates",
+          "locator": "town-03-catchup body ¶2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Headline, deck, two short paragraphs, one named action — fits the slot.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Open Catch Me Up",
+          "locator": "town-03-catchup action link"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "Feature names (Catch Me Up, NewsStand, archive) match observed interface labels and the brand lock.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The NewsStand keeps older reporting within reach.",
+          "locator": "town-03-catchup deck"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Relates Catch Me Up (date-based) to the archive (topic-based) as complementary routes into the same paper.",
+      "artifactEvidence": [
+        {
+          "excerpt": "use the archive to find an older article by topic",
+          "locator": "town-03-catchup body ¶1"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Framed around the ordinary experience of being away for a few days.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Away for a few days?",
+          "locator": "town-03-catchup headline"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Specific, honest, and useful-before-clever; meets the short-column bar.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not yesterday’s headlines relabelled as today’s news",
+          "locator": "town-03-catchup body ¶2"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Single action that names the tool it opens.",
+      "artifactEvidence": [
+        {
+          "excerpt": "https://laidies.ai/newsstand.html#newsstand-catchup",
+          "locator": "town-03-catchup action link"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absent, not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "keeps older reporting within reach",
+          "locator": "town-03-catchup deck"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or authority names; only NewsStand feature names appear.",
+      "artifactLocator": "town-03-catchup, full column"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated voice; direct second-person address to a returning reader.",
+      "artifactLocator": "town-03-catchup headline"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler; both paragraphs state tool behaviour or honest framing.",
+      "artifactLocator": "town-03-catchup body ¶1–¶2"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The 'catch up from a date you choose' promise is fulfilled by the Catch Me Up description.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used anywhere in the column.",
+      "artifactLocator": "town-03-catchup, full column"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Catch Me Up (date-based) and the archive (topic-based) are related as complementary routes into the same paper.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The relabelled-news jab follows, not precedes, the tool explanation.",
+      "artifactLocator": "town-03-catchup body ¶2"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Date selection, older results, and the theme archive were all directly observed 2026-08-30.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The being-away framing returns directly to the tool that solves it.",
+      "artifactLocator": "town-03-catchup headline and body ¶1"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action names the tool it opens: 'Open Catch Me Up'.",
+      "artifactLocator": "town-03-catchup action link"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No definitions stacked; two features named and explained in use.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The column ends on a practical date-checking instruction, not inflated stakes.",
+      "artifactLocator": "town-03-catchup body ¶2"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Feature names are explained in the same sentence they first appear.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The relabelled-headlines line gives the instruction personality.",
+      "artifactLocator": "town-03-catchup body ¶2"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Motivation (away for a few days) leads in the headline before any tool detail.",
+      "artifactLocator": "town-03-catchup headline"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The tool's operation gets a full plain sentence, not a compressed aside.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Choose-a-date-then-browse behaviour is stated adequately for routing copy.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Both tools are explained before the single link.",
+      "artifactLocator": "town-03-catchup action link position"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers both date-based catch-up and topic-based archive return.",
+      "artifactLocator": "town-03-catchup body ¶1"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No cultural or scholarly references at all.",
+      "artifactLocator": "town-03-catchup, full column"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Describes stable controls and tells readers to rely on per-article dates.",
+      "artifactLocator": "town-03-catchup body ¶2"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational second person throughout; no lecture register.",
+      "artifactLocator": "town-03-catchup headline"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Deck and lede use different wording; no repeated template.",
+      "artifactLocator": "town-03-catchup deck and body ¶1"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example present.",
+      "artifactLocator": "town-03-catchup, full column"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "catchup-date-selection-works",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Catch Me Up lets you choose how far back to look, then browse available NewsStand stories.",
+            "locator": "town-03-catchup body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "entering `2026-08-23` in **Start with**",
+            "locator": "site-destinations.md, Catch Me Up section"
+          },
+          {
+            "excerpt": "returned two older results: the August 24 Daily",
+            "locator": "site-destinations.md, Catch Me Up section"
+          }
+        ],
+        "scopeAndFreshness": "Observed on both origins 2026-08-30 without sign-in."
+      },
+      {
+        "claimId": "archive-by-topic-works",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "You can also use the archive to find an older article by topic.",
+            "locator": "town-03-catchup body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The archive’s Theme control offered `data centres`",
+            "locator": "site-destinations.md, Catch Me Up section"
+          }
+        ],
+        "scopeAndFreshness": "One theme observed with one back issue; scales as the archive grows."
+      },
+      {
+        "claimId": "dates-visible-on-stories",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Look at the publication and update dates when you return to a story.",
+            "locator": "town-03-catchup body ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "PUBLISHED AUGUST 24, 2026 · UPDATED AND CHECKED",
+            "locator": "site-destinations.md, data-centre article section"
+          }
+        ],
+        "scopeAndFreshness": "Observed on the Big Picture article; date display on every article type not individually logged."
+      },
+      {
+        "claimId": "catchup-anchor",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "https://laidies.ai/newsstand.html#newsstand-catchup",
+            "locator": "town-03-catchup action link"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "entering `2026-08-23` in **Start with**",
+            "locator": "site-destinations.md, Catch Me Up section"
+          }
+        ],
+        "scopeAndFreshness": "Catch Me Up observed on the NewsStand page; the specific #newsstand-catchup fragment was not itself logged."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Re-verify if Catch Me Up controls or NewsStand anchors change.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "The exact anchor #newsstand-catchup was not itself logged in the observation record; the Catch Me Up control was observed on the NewsStand page.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "did_you_know",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-35e9878d8519",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

@@ -32,6 +32,8 @@ try {
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
     positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION", "NEWS"] }]
   }));
+  const samplingPolicyPath = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
+  write(samplingPolicyPath, fs.readFileSync(path.resolve(samplingPolicyPath), "utf8"));
 
   const excerpt = candidateBody.slice(0, 80);
   const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
@@ -131,6 +133,40 @@ try {
   assert.match(inspect(silentReject).join("\n"), /learningDisposition is required/);
   const missingComparable = structuredClone(receipt); delete missingComparable.ratchet.priorComparable;
   assert.match(inspect(missingComparable).join("\n"), /successor must bind a prior comparable/);
+  const serviceManifestPath = "content/service-manifest.json";
+  write(serviceManifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "concept-01-context", surface: "NEWSSTAND_RECURRING_SERVICE_COLUMNS", contentClass: "EXPLANATION", reviewText: bind(candidatePath) }));
+  const sampledService = structuredClone(receipt);
+  sampledService.candidateId = "concept-01-context";
+  sampledService.surface = "NEWSSTAND_RECURRING_SERVICE_COLUMNS";
+  sampledService.artifact.manifest = bind(serviceManifestPath);
+  sampledService.limitations.push("No observed human-comprehension evidence is claimed for this entry; batch sampling is pending.");
+  for (const name of ["explainBack", "unseenTransfer"]) delete sampledService.outcomes[name].observedReaderEvidence;
+  sampledService.samplingOverride = {
+    policy: bind(samplingPolicyPath), policyId: "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    serviceType: "concept_week", sampleStatus: "PENDING_BATCH_SAMPLE", batchId: "daily-service-batch-fixture",
+    sampleQueue: ["concept-01-context"], correctionFeedbackStatus: "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  };
+  assert.deepEqual(inspect(sampledService), [], "authorized NewsStand service profile may use pending batch sampling without fabricated human evidence");
+  const crossSurface = structuredClone(sampledService); crossSurface.surface = "NEWSSTAND";
+  assert.match(inspect(crossSurface).join("\n"), /limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS/);
+  const bigPicture = structuredClone(sampledService); bigPicture.surface = "NEWSSTAND_BIG_PICTURE";
+  assert.match(inspect(bigPicture).join("\n"), /limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS/);
+  const noIndependentProof = structuredClone(sampledService); delete noIndependentProof.samplingOverride;
+  assert.match(inspect(noIndependentProof).join("\n"), /observedReaderEvidence/);
+  const originalRegistry = fs.readFileSync(registry, "utf8");
+  const voiceRegistry = JSON.parse(originalRegistry);
+  voiceRegistry.positiveExemplars.push({ id: "CQX-GOOD-EPISODE-001", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EPISODE"] });
+  fs.writeFileSync(registry, JSON.stringify(voiceRegistry));
+  const voiceOnlyService = structuredClone(sampledService);
+  voiceOnlyService.calibration.registrySha256 = hash(registry);
+  voiceOnlyService.calibration.positive.exemplarId = "CQX-GOOD-EPISODE-001";
+  voiceOnlyService.calibration.positive.application = "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE";
+  assert.deepEqual(inspect(voiceOnlyService), [], "short service voice calibration does not inherit episode format or claims");
+  const wrongVoiceSurface = structuredClone(voiceOnlyService); wrongVoiceSurface.surface = "LIBRAIRY";
+  assert.match(inspect(wrongVoiceSurface).join("\n"), /not approved for EXPLANATION/);
+  const inheritsVoiceFacts = structuredClone(voiceOnlyService); delete inheritsVoiceFacts.calibration.positive.application;
+  assert.match(inspect(inheritsVoiceFacts).join("\n"), /not approved for EXPLANATION/);
+  fs.writeFileSync(registry, originalRegistry);
   const newsManifest = JSON.parse(fs.readFileSync(path.join(root, manifestPath), "utf8"));
   newsManifest.contentClass = "NEWS";
   fs.writeFileSync(path.join(root, manifestPath), JSON.stringify(newsManifest));
@@ -140,7 +176,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=21 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=3 hold=1 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 sampled_service_profile=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "town-02-data-centres",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PROMOTIONAL",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-site-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-site-completed.json",
+      "sha256": "35e9878d8519976f25019cdd7a878323d7f5e1af633c5563c681964cc0cd0348"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:51:13.688Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-02-data-centres.md",
+      "sha256": "132c28d1c67189be3393e5e9a52d1099453386d64cbd02ca0c3005d07fdd4825"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/town-02-data-centres.manifest.json",
+      "sha256": "371f6ce3b092943d9daab5d16a4b0bd3cb8c1b274f85898788c047926e6dcacc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-site-completed-20260830",
+    "reviewedAt": "2026-08-30T20:51:13.688Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 'AI system' entry — the 'Where it stops' template repeats identically in every glossary block"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 'Provider' entry — decorative analogy doing no explanatory work"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' entry — one of Walkman/Cher/toolbox/librarian confetti across adjacent entries"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue",
+            "locator": "CQX-BAD-001 'Tool' entry — invented character with no canon standing"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 'AI system' entry — terms stacked before any motivating problem or mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single decision scenario swallows the entire book introduction"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — worked-example detail overtakes the book's stated purpose"
+          },
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming",
+            "locator": "CQX-BAD-002 Introduction — book purpose narrowed to fault-diagnosis of one request"
+          },
+          {
+            "excerpt": "You used an **AI system**: the whole working arrangement",
+            "locator": "CQX-BAD-002 Introduction — system anatomy before the reader has a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, garnish second",
+        "direct warm address to a smart, busy reader",
+        "honest hedging where a claim is unverified",
+        "one specific low-risk next action per piece"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth without hype"
+        },
+        {
+          "excerpt": "Regina George energy",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 13 — reference that carries the teaching"
+        },
+        {
+          "excerpt": "the most talented new hire",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — plain honest framing without personification"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What is this Big Picture about, and is it worth my click?",
+    "promisedPayoff": "A dated, updated deep-dive on why data centres became the villain and what a fairer deal looks like.",
+    "centralMentalModel": "The buildings absorbed wider AI fears; the fix is a better bargain, not louder claims.",
+    "dailyLifeConnection": "Data-centre backlash is the AI story readers are most likely meeting in their own local news.",
+    "surfaceJob": "Promotional pointer from the town column to a flagship article.",
+    "desiredReaderFeeling": "Curious and confident the piece is current and one click away."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Title, dates, and access path are stated without ambiguity.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Published August 24 and updated August 29",
+          "locator": "town-02-data-centres body ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader learns what the article covers and that it was re-checked after publication.",
+      "artifactEvidence": [
+        {
+          "excerpt": "how environmental claims can mislead, and why transparency and community benefits belong in the discussion",
+          "locator": "town-02-data-centres body ¶2"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "'takes on the data-centre backlash' has editorial energy; no banned constructions or operations language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The Big Picture takes on the data-centre backlash.",
+          "locator": "town-02-data-centres headline"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The 'public villain' title does the hooking; the promo stays serviceably plain, with the repeated dateline noted as a limitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Why data centres became a public villain—and what a better bargain would look like",
+          "locator": "town-02-data-centres body ¶1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Title verbatim, both dates, and direct anonymous access all match the observation log; thematic summary recorded as qualified.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Published August 24 and updated August 29",
+          "locator": "town-02-data-centres body ¶1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Dates are explicit and match the article's own visible dateline; the promo self-expires cleanly as a dated pointer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "updated August 29",
+          "locator": "town-02-data-centres body ¶1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Headline, deck, two short paragraphs, one action — fits the promotional slot.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read the full article",
+          "locator": "town-02-data-centres action link"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "The core promises — this article, these dates, reachable in one step without a second edition — are each directly observed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The full piece is available from its headline; you do not need to open a second edition to reach it.",
+          "locator": "town-02-data-centres body ¶2"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "One action naming the outcome, pointing at the observed working anchor.",
+      "artifactEvidence": [
+        {
+          "excerpt": "#big-picture-data-centre-deal-2026-08-24",
+          "locator": "town-02-data-centres action link"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark names; only the article's own title and section label.",
+      "artifactLocator": "town-02-data-centres body ¶1"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated voice; standard promo register with one energetic verb.",
+      "artifactLocator": "town-02-data-centres headline"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Plain but not sludgy; dates, title, themes and access path with no filler.",
+      "artifactLocator": "town-02-data-centres body ¶1–¶2"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The promo names the article's actual arguments rather than teasing them.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy; 'public villain' is the article's own quoted title.",
+      "artifactLocator": "town-02-data-centres body ¶1"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The article is placed within the NewsStand with a direct one-step access note.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The hook is the article title itself; substance follows immediately.",
+      "artifactLocator": "town-02-data-centres body ¶1–¶2"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Title and both dates verified; the three-theme summary is recorded as qualified, not overclaimed.",
+      "artifactLocator": "town-02-data-centres body ¶1–¶2"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No familiar-life example used.",
+      "artifactLocator": "town-02-data-centres, full column"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action names the outcome and targets the observed working anchor.",
+      "artifactLocator": "town-02-data-centres action link"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms defined or stacked.",
+      "artifactLocator": "town-02-data-centres, full column"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on access logistics, not an inflated moral.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Second edition' is the only insider-adjacent phrase, and the plain claim behind it (one-step access) is stated in the same sentence.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "'takes on the data-centre backlash' keeps editorial energy in the promo.",
+      "artifactLocator": "town-02-data-centres headline"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The why-care (the backlash) leads; not applicable beyond that for a promo.",
+      "artifactLocator": "town-02-data-centres headline"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The article's arguments get a full sentence before the click.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "A promo need not explain the article's mechanism; its themes are named.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "What the article argues precedes the link.",
+      "artifactLocator": "town-02-data-centres action link position"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers subject, dates, themes and access in one short promo.",
+      "artifactLocator": "town-02-data-centres, full column"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No external references at all.",
+      "artifactLocator": "town-02-data-centres, full column"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Explicit dates match the article's visible dateline and let the promo self-expire cleanly.",
+      "artifactLocator": "town-02-data-centres body ¶1"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Promo register, not an explainer lecture.",
+      "artifactLocator": "town-02-data-centres body ¶2"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "'Published August 24' echoes in deck and lede — a one-off dateline echo recorded as a limitation, not a repeating template.",
+      "artifactLocator": "town-02-data-centres deck and body ¶1"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example present.",
+      "artifactLocator": "town-02-data-centres, full column"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "title-exact",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Why data centres became a public villain—and what a better bargain would look like",
+            "locator": "town-02-data-centres body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "section label: `THE BIG PICTURE`;",
+            "locator": "site-destinations.md, data-centre article section"
+          },
+          {
+            "excerpt": "published date: `August 24, 2026`; and",
+            "locator": "site-destinations.md, data-centre article section"
+          }
+        ],
+        "scopeAndFreshness": "Title and section label observed verbatim 2026-08-30."
+      },
+      {
+        "claimId": "publish-update-dates",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Published August 24 and updated August 29",
+            "locator": "town-02-data-centres body ¶1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "PUBLISHED AUGUST 24, 2026 · UPDATED AND CHECKED",
+            "locator": "site-destinations.md, data-centre article section"
+          }
+        ],
+        "scopeAndFreshness": "Year implied by the dated column and confirmed by the anchor's 2026-08-24 slug; re-date the promo if the article is updated again."
+      },
+      {
+        "claimId": "content-themes",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "how environmental claims can mislead, and why transparency and community benefits belong in the discussion",
+            "locator": "town-02-data-centres body ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "lower trust and a flood of alarming claims that are hard to",
+            "locator": "site-destinations.md, observed article deck"
+          }
+        ],
+        "scopeAndFreshness": "Consistent with observed title and deck; the full article body is not in the bound evidence, so the three-theme summary is producer-asserted."
+      },
+      {
+        "claimId": "direct-access-no-second-edition",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The full piece is available from its headline; you do not need to open a second edition to reach it.",
+            "locator": "town-02-data-centres body ¶2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "`#big-picture-data-centre-deal-2026-08-24` directly",
+            "locator": "site-destinations.md, unsigned reading section"
+          }
+        ],
+        "scopeAndFreshness": "Direct anonymous open observed on both origins 2026-08-30."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Re-date or retire the promo if the article receives a further update after August 29, 2026.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "'Published August 24' appears in both deck and first body sentence — redundant dateline, not substantive.",
+    "The three-theme content summary (fears focus, misleading environmental claims, transparency and community benefits) is supported only by the observed title and deck, not a bound article body.",
+    "'you do not need to open a second edition to reach it' is slightly insider-flavoured phrasing, though the underlying claim (direct access) is verified."
+  ]
+}

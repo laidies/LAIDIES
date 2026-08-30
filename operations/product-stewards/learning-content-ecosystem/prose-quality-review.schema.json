@@ -33,6 +33,25 @@
     "lineage": { "type": "object" },
     "learningDisposition": { "type": "object" },
     "verdict": { "enum": ["PASS", "HOLD", "REJECT"] },
-    "limitations": { "type": "array" }
+    "limitations": { "type": "array" },
+    "samplingOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "policyId", "serviceType", "sampleStatus", "batchId", "sampleQueue", "correctionFeedbackStatus"],
+      "properties": {
+        "policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "sha256"],
+          "properties": { "path": { "type": "string" }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+        },
+        "policyId": { "type": "string", "minLength": 1 },
+        "serviceType": { "type": "string", "minLength": 1 },
+        "sampleStatus": { "const": "PENDING_BATCH_SAMPLE" },
+        "batchId": { "type": "string", "minLength": 1 },
+        "sampleQueue": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "correctionFeedbackStatus": { "const": "PENDING_RECURRING_REVIEWER_FEEDBACK" }
+      }
+    }
   }
 }

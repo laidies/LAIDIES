@@ -1,0 +1,659 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-03-style",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:22:17.010Z",
+  "encodedAt": "2026-08-30T20:43:47.795Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-readthrough.md",
+    "sha256": "012bbce15d59b041a396d84e9f7cf98d17ceca63f2bdd69fc537d0420cce8199"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-03-style.md",
+      "sha256": "50d4c4c24e74af29fffbdf6c65065cd2aa348fae7e01b37b729f5ef0a79876bd"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-03-style.manifest.json",
+      "sha256": "27169bf6a06eef9d13406441c35012ff4a3e745b8e59f0ec3cd729bcfc9dc813"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-30T20:22:17.010Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt: In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md: We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md: who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does professional email sound nothing like me?",
+    "promisedPayoff": "Specific wording and a privacy-safe example define tone better than a broad style label; facts still need preservation checks.",
+    "centralMentalModel": "Specific wording and a privacy-safe example define tone better than a broad style label; facts still need preservation checks.",
+    "dailyLifeConnection": "Why does professional email sound nothing like me?",
+    "surfaceJob": "A complete dear_miss_jeeves column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Specific wording and a privacy-safe example define tone better than a broad style label; facts still need preservation checks. Bound source supports the mechanism or product facts; scripts and applications are original advice, not source quotations or proven benefit guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source checked for this bank; Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Recheck by 2026-09-29; no automatic redating.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Episode 1 is a voice-only comparator. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader. The short column does not imitate the episode's length or reference density.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Use a short example for tone in a new message, then check its names, dates and commitments. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example serves this distinction: Specific wording and a privacy-safe example define tone better than a broad style label; facts still need preservation checks. No analogy is relied upon to prove a product capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give the tool an example of your voice and a specific job to do.",
+          "locator": "jeeves-03-style: summary"
+        },
+        {
+          "excerpt": "Dear Trapped in Corporate,",
+          "locator": "jeeves-03-style: body paragraph 1"
+        },
+        {
+          "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+          "locator": "jeeves-03-style: body paragraph 2"
+        },
+        {
+          "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+          "locator": "jeeves-03-style: body paragraph 3"
+        },
+        {
+          "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+          "locator": "jeeves-03-style: body paragraph 4"
+        },
+        {
+          "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+          "locator": "jeeves-03-style: body paragraph 5"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for benchmarkNameDrop. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for communicationPastiche. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for corporateSludge. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for curiosityWithoutPayoff. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for decorativeAnalogy. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for disconnectedSystem. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for entertainmentBeforeUnderstanding. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for factlessConfidence. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for familiarExampleWithoutTechnicalReturn. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for genericAction. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for glossaryAccumulation. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for inflatedTakeawayEnding. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for jargonBeforeMeaning. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for joylessInstruction. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismBeforeMotivation. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for mechanismCompressedBehindHook. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for missingMechanism. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for prematureClickBeforeMechanism. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for purposeTooNarrow. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for referenceConfetti. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for staleUnreviewableClaims. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for technicalExplainerVoice. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for templateRepetition. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete short entry for workedExampleOvertakesBookPurpose. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader.",
+      "artifactLocator": "jeeves-03-style: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+        "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "jeeves-03-style-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Give the tool an example of your voice and a specific job to do.",
+            "locator": "jeeves-03-style: summary"
+          },
+          {
+            "excerpt": "Dear Trapped in Corporate,",
+            "locator": "jeeves-03-style: body paragraph 1"
+          },
+          {
+            "excerpt": "“Professional” leaves a lot for the tool to decide. It might mean concise and courteous to you, but produce an email full of formal introductions and impressive-sounding filler. The instruction names a broad style without showing what you want.",
+            "locator": "jeeves-03-style: body paragraph 2"
+          },
+          {
+            "excerpt": "Give it a short, privacy-safe example of your own writing. Then name the changes: “Write this in my usual style. Put the request in the first sentence. Keep it warm and direct. Use ordinary words. Do not add a greeting longer than the request.”",
+            "locator": "jeeves-03-style: body paragraph 3"
+          },
+          {
+            "excerpt": "If the draft is already close, ask it to change the offending sentences only. You might write: “Replace ‘I am reaching out to inquire’ with ‘Can you tell me’. Keep the rest unchanged.” Compare the revision with your original; dates, names and commitments should not change during a tone edit.",
+            "locator": "jeeves-03-style: body paragraph 4"
+          },
+          {
+            "excerpt": "An example gives the tool something concrete to follow. You still choose what sounds like you. If a sentence would make you wince saying it to a colleague, it does not become professional because an AI put it in an email.",
+            "locator": "jeeves-03-style: body paragraph 5"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt",
+          "sha256": "8e19626cffaaf14b71e241e9ac42d778d545917efb71559fcd11ca2879a5bd3a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "3.2 Making It Sound Like You Chapter 6 will teach you how to set up persistent voice instructions using your own writing examples. That handles the baseline across all conversations. For task-specific voice matching, the same principle applies in miniature: show, don't describe. If you have an example of the tone you want: \"Match the tone of this example: [paste a paragraph]. My piece should sound like this but cover [your actual topic].\" If you know what you DON'T want: \"Write this in my voice (see my instructions). Specifically: no corporate language, no bullet points unless I ask, no summarising what I just told you back to me.\" If the output comes back sounding generic despite your instructions: The problem is almost always one of two things: Your persistent instructions describe your voice in adjectives (\"professional yet warm\") rather than showing it through examples. Adjectives describe every brand and constrain none of them. Chapter 6 shows how to rebuild from real samples. You're asking for something the AI has seen a million templated versions of (email, LinkedIn post, meeting summary) and it's defaulting to the template rather than your voice. The fix: paste an example of YOUR version of that format. \"Write a meeting summary like THIS one, not like the default.\" 3.3 The Ban List (And Its Limits) Banned words and phrases are the quickest surface fix. They work. They're also not sufficient on their own. A working ban list for 2026 might include: Words that signal AI to any reader by now: delve, tapestry, landscape, robust, leverage, pivotal, multifaceted, foster, paramount, nuanced, crucial Structural tells: Opening with a summary of the question. \"Great question!\" Three-item parallel structures in every paragraph. Restating the conclusion in the final line. Sections that all start with the same grammatical structure. Filler phrases: \"It's worth noting that,\" \"In today's rapidly evolving landscape,\" \"At its core,\" \"Let's dive in,\" \"I'd be happy to help\" You can paste a ban list into your persistent instructions (covered in Chapter 6) or include it in a task-specific request. Both work. But here's the limit: A ban list removes symptoms. It doesn't add your voice. Output without banned words but also without your perspective is still generic. It's just generic in a less detectable way. The ban list cleans; the voice examples (Section 5.2) and the genu",
+            "locator": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/working-with-ai-101-chapters.txt: 3.2"
+          }
+        ],
+        "scopeAndFreshness": "Specific wording and a privacy-safe example define tone better than a broad style label; facts still need preservation checks. The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader. The original application is advice, not a measured outcome. Current site observations supplement the earlier prose reading; this does not claim rendered-column or human-comprehension testing."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new frozen bank entry; earlier advisory preparation is recorded in producer-readthrough.md."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The reply replaces a named inflated phrase with ordinary words, offers a bounded edit, and leaves the final voice choice with the reader."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; not independent admission, public verification or human testing.",
+    "Receipt encoded after the recorded read-through; its dated notes and actual simulated checks are bound.",
+    "Site observations and corrected chapter extraction supplement the original reading; independent source review remains mandatory."
+  ]
+}

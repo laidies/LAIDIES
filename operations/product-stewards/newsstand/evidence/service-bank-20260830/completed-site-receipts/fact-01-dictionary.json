@@ -1,0 +1,511 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "fact-01-dictionary",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "REFERENCE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-bank-site-completed-20260830",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-site-completed.json",
+      "sha256": "35e9878d8519976f25019cdd7a878323d7f5e1af633c5563c681964cc0cd0348"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-30T20:51:13.688Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-01-dictionary.md",
+      "sha256": "3d9d111eb79aae7e2bd625cfa2b0dadbfe7c2bb1e8e44209edeb17ce71d786f3"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/fact-01-dictionary.manifest.json",
+      "sha256": "88c12a1ae33c5335d8322fa611b5e0c9dc62abf97533d2ccf840ddc6f1e36a87"
+    }
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "claude-fable-service-bank-site-completed-20260830",
+    "reviewedAt": "2026-08-30T20:51:13.688Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 'AI system' entry — the 'Where it stops' template repeats identically in every glossary block"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 'Provider' entry — decorative analogy doing no explanatory work"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "CQX-BAD-001 'Model' entry — one of Walkman/Cher/toolbox/librarian confetti across adjacent entries"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue",
+            "locator": "CQX-BAD-001 'Tool' entry — invented character with no canon standing"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 'AI system' entry — terms stacked before any motivating problem or mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single decision scenario swallows the entire book introduction"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — worked-example detail overtakes the book's stated purpose"
+          },
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming",
+            "locator": "CQX-BAD-002 Introduction — book purpose narrowed to fault-diagnosis of one request"
+          },
+          {
+            "excerpt": "You used an **AI system**: the whole working arrangement",
+            "locator": "CQX-BAD-002 Introduction — system anatomy before the reader has a reason to care"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, garnish second",
+        "direct warm address to a smart, busy reader",
+        "honest hedging where a claim is unverified",
+        "one specific low-risk next action per piece"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth without hype"
+        },
+        {
+          "excerpt": "Regina George energy",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 13 — reference that carries the teaching"
+        },
+        {
+          "excerpt": "the most talented new hire",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — plain honest framing without personification"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "A story used a term I don't know — where do I look it up quickly?",
+    "promisedPayoff": "One term looked up in seconds, without committing to a textbook.",
+    "centralMentalModel": "Dictionary for the quick definition; Fundamentals for the connected explanation.",
+    "dailyLifeConnection": "Hitting an unfamiliar term mid-article.",
+    "surfaceJob": "Recurring fact-box routing readers to the dictionary.",
+    "desiredReaderFeeling": "Unintimidated — looking things up is cheap and normal."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The core promise is one plain, memorable sentence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary deck"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Gives a decision rule for dictionary vs Fundamentals, which is the real question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "use AI Fundamentals 101 when you want the longer explanation of how it fits into the system",
+          "locator": "fact-01-dictionary body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Plain, warm, respects the reader's time; branded spelling exact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "There’s an AI Dictionary in the LIBRAiRY.",
+          "locator": "fact-01-dictionary headline"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The anti-textbook framing carries the charm; no joke needed at this length.",
+      "artifactEvidence": [
+        {
+          "excerpt": "without starting a whole textbook",
+          "locator": "fact-01-dictionary deck"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Dictionary confirmed as one of four observed opening books; anchor route observed opening it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books.",
+          "locator": "fact-01-dictionary body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Structural claim, re-checkable at the destination; no dated specifics.",
+      "artifactEvidence": [
+        {
+          "excerpt": "one of the LIBRAiRY’s four opening books",
+          "locator": "fact-01-dictionary body"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Single-fact box with one action — exactly the slot's shape.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Open the AI Dictionary",
+          "locator": "fact-01-dictionary action link"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "Names and anchor match the observed reader route table.",
+      "artifactEvidence": [
+        {
+          "excerpt": "https://laidies.ai/library.html#ai-dictionary",
+          "locator": "fact-01-dictionary action link"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Explicitly relates the dictionary to Fundamentals as shallow vs deep routes to the same concept.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the longer explanation of how it fits into the system",
+          "locator": "fact-01-dictionary body"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Tied to the concrete moment of meeting a term inside a story.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use it when a story mentions an unfamiliar term",
+          "locator": "fact-01-dictionary body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Plain mechanic first, no filler — consistent with the voice benchmark for short copy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You can look up a term without starting a whole textbook.",
+          "locator": "fact-01-dictionary deck"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Action names its destination and points at the observed anchor.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Open the AI Dictionary",
+          "locator": "fact-01-dictionary action link"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy used; absent, not a defect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "There’s an AI Dictionary in the LIBRAiRY.",
+          "locator": "fact-01-dictionary headline"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmarks or authorities named; two book titles only.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated style; plain warm register.",
+      "artifactLocator": "fact-01-dictionary deck"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler; every sentence gives a lookup rule or a destination.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline states the fact outright; nothing is withheld for a click.",
+      "artifactLocator": "fact-01-dictionary headline"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Dictionary and Fundamentals are explicitly related as shallow vs deep routes to the same concept.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment beat; the fact leads.",
+      "artifactLocator": "fact-01-dictionary headline"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The one-of-four claim and the anchor match the observed reader-route table.",
+      "artifactLocator": "fact-01-dictionary body and action link"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The mid-story unfamiliar-term moment returns straight to the lookup rule.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action names its destination: 'Open the AI Dictionary'.",
+      "artifactLocator": "fact-01-dictionary action link"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms are defined or stacked, even though the subject is a dictionary.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the action link without an inflated moral.",
+      "artifactLocator": "fact-01-dictionary action link"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No technical vocabulary used.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The anti-textbook framing keeps the instruction light.",
+      "artifactLocator": "fact-01-dictionary deck"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The reader's moment (a story mentions an unfamiliar term) leads the usage rule.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No mechanism to compress; a lookup pointer.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "No mechanism claim needing explanation in a lookup pointer.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The when-to-use rule precedes the link.",
+      "artifactLocator": "fact-01-dictionary body then action link"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers both quick lookup and the deeper Fundamentals route.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No cultural or scholarly references.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "One-of-four is a structural claim re-checkable at the observed anchor.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Direct second-person advice, not an explainer lecture.",
+      "artifactLocator": "fact-01-dictionary body"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No repeated phrasing between headline, deck and body.",
+      "artifactLocator": "fact-01-dictionary deck and body"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example present.",
+      "artifactLocator": "fact-01-dictionary, full box"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+        "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+        "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "dictionary-is-one-of-four",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The AI Dictionary is one of the LIBRAiRY’s four opening books.",
+            "locator": "fact-01-dictionary body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/site-destinations.md",
+          "sha256": "40686eb769d3cf5a38d771b85c00c4139c13c31d67f94e5d3f42f705344eae02"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "`#ai-dictionary` | `The AI Dictionary`",
+            "locator": "site-destinations.md, reader-route table"
+          },
+          {
+            "excerpt": "Both origins opened these direct reader routes",
+            "locator": "site-destinations.md, Library and Dictionary section"
+          }
+        ],
+        "scopeAndFreshness": "Observed 2026-08-30 on both origins; re-verify if the set changes."
+      },
+      {
+        "claimId": "fundamentals-for-depth",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "use AI Fundamentals 101 when you want the longer explanation of how it fits into the system",
+            "locator": "fact-01-dictionary body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/sources/ai-fundamentals-101-chapters.txt",
+          "sha256": "f62d252341571da41ebf1e6ec2c4a6bdf775322d4e1d5f37ed322675969bb0a0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Understanding tokens is understanding the currency the entire system runs on.",
+            "locator": "ai-fundamentals-101-chapters.txt, Chapter 4 — system-connected explanatory depth"
+          }
+        ],
+        "scopeAndFreshness": "Characterization of the book's depth is consistent with the bound chapter excerpts; whole-book scope not independently checked."
+      }
+    ],
+    "reviewedThrough": "2026-08-30",
+    "nextTrigger": "Re-verify if the dictionary anchor or the LIBRAiRY set changes.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal independent semantic review for this unchanged service-bank candidate ID."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed independent judgment recorded no objective defect for this candidate."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "b7c4a548c0a8c3be123a59ee4517d59a951290c67f57c48b13205de2df647e6e"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "did_you_know",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-35e9878d8519",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

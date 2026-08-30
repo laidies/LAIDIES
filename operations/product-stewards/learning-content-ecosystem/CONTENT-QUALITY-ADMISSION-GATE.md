@@ -5,6 +5,20 @@
 **Applies to:** every public teaching, editorial, reference, daily, social,
 audio, video, interactive and community-derived content artifact
 
+## NewsStand recurring-service exception authorized August 30, 2026
+
+Ali authorized sampled reader testing for routine NewsStand services, while
+retaining exact independent source and writing review for every entry. The
+bounded policy is `operations/product-stewards/newsstand/recurring-service-sampling-policy.json`.
+It lists eligible IDs/types/classes; it is not publication permission. Pending
+samples must not be described as observed-human evidence. At least one teaching
+entry per batch enters the reader-test queue, with correction feedback recorded.
+The independent reviewer still assesses clarity, transfer and every other
+applicable outcome. Episode 1 may supply **voice-only** calibration for this
+surface, including its FAQ, reference and promotional entries; it supplies no
+inherited facts or format. This does not change Big Picture's Ali review or the
+existing news, book, episode, class and interactive/accessibility gates.
+
 ## What this gate guarantees—and what it does not
 
 This gate does not declare content good because a checklist exists. It permits
