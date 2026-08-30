@@ -147,9 +147,12 @@ may replace the current edition in the browser. Feed and archive are determinist
 derivatives of canonical data, admitted issue history and service-bank authority.
 
 The newest admitted Front PAiGE persists under its original publication date;
-it is not inserted into the new Daily's `storyIds`. A current admitted Weekly
-persists within its Wednesday-to-Wednesday window. Missing or held Weekly remains
-quiet. No ordinary story or Big Picture text is written by this projection.
+it is not inserted into the new Daily's `storyIds`. Current implementation only
+retains Weekly within a seven-day window; that is the known gap above, not the
+intended policy. Required policy: consider a successor on Wednesday and retain
+the admitted Weekly with its real date until an admitted successor exists.
+Missing or held Weekly remains quiet. No ordinary story or Big Picture text is
+written by this projection.
 
 Do not rerun the promoter after projection: its input checksum deliberately binds
 the pre-projection canonical bytes. Use the projector's `--check` for idempotence.
