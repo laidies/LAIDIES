@@ -161,20 +161,10 @@
       <section class="catalogue-section" id="concept-deck" aria-labelledby="conceptPreviewHeading">
         <div class="section-heading">
           <p class="eyebrow">Concept prompts</p>
-          <h2 id="conceptPreviewHeading">Browse by episode</h2>
-          <p>Each entry tells you what the activity is and what to try. The list comes from the current Trading Cards source catalogue; held artwork and reward copy are not displayed.</p>
+          <h2 id="conceptPreviewHeading">The concept catalogue is being checked</h2>
+          <p>Only reviewed Concept Cards can appear here. Earlier prompt drafts and artwork remain out of the public catalogue until their learning, source, visual, and ownership checks are complete.</p>
         </div>
-        <div class="preview-controls">
-          <label for="issueFilter">Show</label>
-          <select id="issueFilter">
-            <option value="all">All available prompt previews</option>
-            <option value="issue01">Issue 01</option>
-            <option value="issue02">Issue 02</option>
-            <option value="issue03">Issue 03</option>
-          </select>
-        </div>
-        <p class="preview-status" id="previewStatus" aria-live="polite">Loading the current prompt catalogue…</p>
-        <div class="concept-preview-list" id="conceptPreviewList" aria-live="polite"></div>
+        <p class="preview-status" id="previewStatus" role="status">No prompt previews are published yet. No pack or collection state is created.</p>
       </section>
 
       <section class="character-section" id="character-deck" aria-labelledby="characterPreviewHeading">
@@ -191,61 +181,6 @@
     </div>
   </main>
 
-  <script>
-  (function () {
-    'use strict';
-    const list = document.getElementById('conceptPreviewList');
-    const filter = document.getElementById('issueFilter');
-    const status = document.getElementById('previewStatus');
-    const params = new URLSearchParams(window.location.search || '');
-    const issueMatch = String(params.get('issue') || '').match(/\d+/);
-    let promptRows = [];
-
-    function renderPromptRows() {
-      const selected = filter.value;
-      const rows = selected === 'all' ? promptRows : promptRows.filter(function (row) { return row.issue === selected; });
-      list.replaceChildren();
-      rows.forEach(function (row) {
-        const item = document.createElement('article');
-        item.className = 'concept-preview-item';
-        const issue = document.createElement('p');
-        issue.className = 'concept-preview-issue';
-        issue.textContent = row.issueLabel;
-        const copy = document.createElement('div');
-        copy.className = 'concept-preview-copy';
-        const title = document.createElement('h3');
-        title.textContent = row.title;
-        const action = document.createElement('strong');
-        action.textContent = row.unlockTitle;
-        const prompt = document.createElement('p');
-        prompt.textContent = row.prompt;
-        copy.append(title, action, prompt);
-        item.append(issue, copy);
-        list.appendChild(item);
-      });
-      status.textContent = rows.length + (rows.length === 1 ? ' prompt preview' : ' prompt previews') + ' shown. No collection state is created.';
-    }
-
-    if (issueMatch) {
-      const issueValue = 'issue' + String(Number(issueMatch[0])).padStart(2, '0');
-      if (filter.querySelector('option[value="' + issueValue + '"]')) filter.value = issueValue;
-    }
-    filter.addEventListener('change', renderPromptRows);
-    fetch('../content/site/card-packs.json')
-      .then(function (response) {
-        if (!response.ok) throw new Error('catalogue unavailable');
-        return response.json();
-      })
-      .then(function (data) {
-        promptRows = Array.isArray(data.cards) ? data.cards : [];
-        renderPromptRows();
-      })
-      .catch(function () {
-        status.textContent = 'The prompt preview could not be loaded.';
-        list.innerHTML = '<p class="preview-error">Try again later. No pack or collection state was changed.</p>';
-      });
-  })();
-  </script>
   <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
   <script src="../content/site/brand-polish.js?v=wm2" defer></script>
   <script defer src="/content/site/sv-back-nav.js?v=2"></script>
