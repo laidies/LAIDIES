@@ -66,7 +66,7 @@
     state.storageAvailable = false;
     const status = document.getElementById("lumLocalStatus");
     status.classList.add("is-error");
-    status.textContent = message || "This browser blocked local storage. Your picks cannot be saved, so the page will not pretend they persist.";
+    status.textContent = message || "This browser could not save your favourite, so the page will not pretend it was saved.";
   }
 
   function readPicks() {
@@ -94,7 +94,7 @@
       updatePickOutputs();
       render();
     } catch (error) {
-      setStorageFailure("This browser could not save that local pick. Nothing was claimed as saved; the profile cards remain available.");
+      setStorageFailure("This browser could not save that favourite. Nothing was claimed as saved; the profile cards remain available.");
       render();
     }
   }
@@ -259,7 +259,7 @@
     const picked = state.picks[state.wing] === profile.id;
     pick.setAttribute("aria-pressed", picked ? "true" : "false");
     pick.disabled = !state.storageAvailable;
-    pick.textContent = picked ? "Candle lit · clear" : "Light this local candle";
+    pick.textContent = picked ? "Candle lit · clear" : "Light this candle";
     pick.addEventListener("click", () => writePick(state.wing, profile.id));
     actions.appendChild(pick);
 
@@ -428,6 +428,11 @@
     if (!wing || !state.data) return;
     state.picks[wing] = profileById(wing, event.newValue || "") ? (event.newValue || "") : "";
     updatePickOutputs();
+    render();
+  });
+  window.addEventListener("laidies:continuation-change", () => {
+    if (!state.data) return;
+    readPicks();
     render();
   });
   window.addEventListener("hashchange", applyHash);

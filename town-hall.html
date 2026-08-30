@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/town-hall-v2.css?v=20260725-2">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260830-closet-memory-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
@@ -344,14 +344,14 @@
       <div class="sv-trip-tie" id="townRegularTie">
         <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
         <h3 class="sv-trip-tie__title">Your Town Regular &mdash; this is where you pick her.</h3>
-        <p class="sv-trip-tie__body">Choose one Regular for the <strong>Your Luminaries</strong> band on this device. Meeting her is a trip to Town Hall &mdash; so this is where you pick her. This choice is not an account or cross-device record.</p>
+        <p class="sv-trip-tie__body">Choose one Regular for the <strong>Your Luminaries</strong> band. Meeting her is a trip to Town Hall &mdash; so this is where you pick her. This saved favourite is not a reward or verified status.</p>
         <div class="tr-pick-row" role="group" aria-label="Pick your Town Regular">
           <button type="button" class="tr-pick" data-town-slug="mme-claio">Mme CL<span class="ai">Ai</span>-O</button>
           <button type="button" class="tr-pick" data-town-slug="fairy-godmother">F<span class="ai">Ai</span>RY Godmother</button>
           <button type="button" class="tr-pick" data-town-slug="dj-sunnyv">DJ SunnyV</button>
           <button type="button" class="tr-pick" data-town-slug="mayor-deb">Mayor Deb</button>
         </div>
-        <p class="sv-trip-tie__note" id="townRegularNote">Pick one for Your Luminaries on this device. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card &rarr;</a></p>
+        <p class="sv-trip-tie__note" id="townRegularNote">Pick one for Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card &rarr;</a></p>
       </div>
 
       <style>
@@ -376,8 +376,6 @@
       <script>
         (function () {
           'use strict';
-          // MIGRATION NOTE (Part C / sign-in plumbing): when the LAiDIES member card / sign-in ships,
-          // this Town Regular pick moves from this device to the user's account.
           var KEY = 'laidies_town_regular';
           var tie = document.getElementById('townRegularTie');
           if (!tie) return;
@@ -400,9 +398,9 @@
             });
             if (note) {
               if (cur && NAMES[cur]) {
-                note.innerHTML = '★ <strong>' + NAMES[cur] + '</strong> is in Your Luminaries on this device. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
+                note.innerHTML = '★ <strong>' + NAMES[cur] + '</strong> is in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
               } else {
-                note.innerHTML = 'Pick one for Your Luminaries on this device. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
+                note.innerHTML = 'Pick one for Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
               }
             }
           }
@@ -415,6 +413,7 @@
           });
           if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint);
           else paint();
+          window.addEventListener('laidies:continuation-change', paint);
         })();
       </script>
 
@@ -631,7 +630,7 @@
 
   <footer>© LAiDIES · Filed from SUNNYVAiLE · Town Hall at Civic Square</footer>
 
-    <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>

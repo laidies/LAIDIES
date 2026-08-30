@@ -1,5 +1,35 @@
 # Active work
 
+## 2026-08-30 Closet cross-device memory — VERIFIED LOCALLY, release pending
+
+Ali authorized prioritized recovery starting with private cross-device memory.
+Current scope and acceptance are in `operations/resident-card-design-decisions.md`
+(dated Closet memory decision). Add existing quiz/visit/three-favourite records,
+fix stale timestamps and visible consumer refresh, preserve account isolation.
+The new contract test rejected the incumbent (`favourite must be collected`).
+Race tests cover queued edits, unchanged remote no-op, denied clear and changed
+session; captured-session request headers prevent cross-account SDK races.
+The real existing backend passed two disposable-account/browser sessions against
+local candidate pages: restore, later choice, clear, sign-out and account isolation.
+Exact-artifact UI refresh checks pass 12/12 at1280/390/320; original Resident suite
+passes156/156. Browser calibration rejects the prior blank favourite. Cache guard
+rejects old tokens and passes66 loader edges plus bootstrap dependencies.
+Candidate input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-closet-memory-final.l9pmp8`;
+manifest same path plus `.manifest.json`;673files,640161427bytes,
+identity`f150ad915f24ede6783c867b19e62b84b001332d033506558225e2b687e92e35`.
+Exact base remains931eb0dc:65changedpaths,608unchanged,noadditions/removals.
+54 changes are cache-loader-only (including one NewsStand bootstrap token),
+11 are runtime/consumer/dependency paths. NewsStand content/data and all books,
+portraits,KSVL runtime and unrelated bytes remain exact. No release yet.
+Normal commit hook again rejects the unrelated45 missing Episode03 source assets.
+Local links1947/110pages, inline JS295/119pages and rejection-prevention pass.
+The scoped commit bypasses that unrelated hook only; no Episode content changes
+or Episode quality/availability claim are included.
+Two disposable verification accounts are foreground-owned and must be deleted
+after real backend/browser tests; no original resident records may be changed.
+Remaining queue: request/community submissions, messaging/referrals, then held
+reward/collection lifecycles subject to their privacy and safety requirements.
+
 ## 2026-08-30 KSVL / Closet — DEPLOYED AND PUBLICLY VERIFIED (bounded)
 
 - Final production: `931eb0dc-ab7e-4744-a0c6-7a8c846802e5`, pushed source

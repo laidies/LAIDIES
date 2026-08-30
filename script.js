@@ -4945,7 +4945,7 @@ function renderQuizResult(score, quiz, reward, coreScore = score, persistenceSco
 
   const message = document.createElement("p");
   message.textContent = persistenceScope === "device"
-    ? `${reward.title}. ${reward.message} This playful score and sticker are saved on this browser/device; cross-device progress is not verified.`
+    ? `${reward.title}. ${reward.message} This playful score and sticker are saved in this browser. Sign in to carry supported progress between browsers.`
     : `${reward.title}. ${reward.message} Browser storage is unavailable, so this result lasts only for this open session and will not survive reload.`;
 
   card.append(scoreLine, ratingLine, message);
@@ -5374,6 +5374,7 @@ function gradeQuiz() {
 renderQuiz();
 renderQuizProgress();
 hydrateQuizDataFromFile();
+window.addEventListener("laidies:continuation-change", renderQuizProgress);
 
 quizIssueSelect?.addEventListener("change", () => {
   activeQuizKey = quizIssueSelect.value;

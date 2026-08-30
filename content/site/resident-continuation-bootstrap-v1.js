@@ -29,7 +29,7 @@
       ready: function () { return !!global.LAIDIESResidentAccountRuntime; }
     },
     {
-      src: publicArtifactDependencies.continuation + "?v=20260729-continuation-1",
+      src: publicArtifactDependencies.continuation + "?v=20260830-closet-memory-1",
       ready: function () { return !!global.LAIDIESResidentContinuationV1; }
     }
   ];

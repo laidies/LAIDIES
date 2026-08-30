@@ -65,6 +65,26 @@
 
 ## Decision
 
+### 2026-08-30 — complete private Closet memory (BUILDING)
+
+Ali requested the remaining recovery gaps in priority order, starting with
+cross-device memory. Extend the existing private continuation document to the
+three non-Card Luminary favourites, building visits, quiz progress and legacy
+best-score records. No replacement backend, public identity, rewards, messages,
+prompt drafts or other free-form activity. Favourites use admitted profile IDs
+and timestamped clears; unchanged reads never become new edits. Quiz bests and
+visit counts never decrease; replicated aggregate counts use maximum, not sum,
+because historical records cannot distinguish duplicate from independent visits
+or attempts. The earliest visit and latest activity are retained. These are
+personal progress summaries, not audited event totals or rewards.
+
+Acceptance: fresh browser restoration and visible consumer refresh; later choice
+and clear beat stale browser state; edits during requests survive; account changes
+clear all added keys before importing; denied storage/provider failure cannot
+claim success. Test with disposable users only, remove exact users afterward,
+preserve all existing residents. Release overlays the verified 931eb0dc artifact
+and updates every affected cache-loader edge; no older whole-site source build.
+
 ### 2026-08-30 — recover the original generated portrait workflow
 
 **Public verification:** released as Pages `cdac28a7` with avatar Worker `9c7168fc`. Description and photo generation, three choices, selected-image local/account saving, explicit existing-account update and fresh-browser restoration passed on the live custom domain. A differing local Card is preserved, not silently replaced by the account copy; the Resident desk offers the explicit update/restore choice. Portrait-only Cards render in the Closet. This supersedes the prerelease BUILDING status below, not the separate held public-handle/reward boundaries. Desktop/mobile Chromium viewport tests are not physical-device/Safari verification.

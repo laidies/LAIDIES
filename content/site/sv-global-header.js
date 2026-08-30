@@ -315,7 +315,7 @@
     if (window.LAIDIESResidentContinuationBootstrapV1 ||
         document.querySelector('script[data-laidies-continuation-bootstrap]')) return;
     var script = document.createElement('script');
-    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260829-continuation-restore-1';
+    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260830-closet-memory-1';
     script.async = true;
     script.dataset.laidiesContinuationBootstrap = '1';
     document.head.appendChild(script);

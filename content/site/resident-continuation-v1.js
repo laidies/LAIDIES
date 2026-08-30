@@ -17,11 +17,62 @@
     welcomeTour: "laidies_welcome_tour_v1",
     tourCompletions: "laidies_tour_completions",
     tourLastRewardedWeek: "laidies_tour_last_rewarded_week",
-    newsstandSeen: "laidies_newsstand_seen_v1"
+    newsstandSeen: "laidies_newsstand_seen_v1",
+    buildingVisits: "laidies_building_visits",
+    quizProgress: "laidiesQuizProgress",
+    quizBestScores: "laidiesQuizBestScores",
+    luminaryMaven: "laidies_maven",
+    luminaryBuilder: "laidies_builder",
+    luminaryTownRegular: "laidies_town_regular"
   });
   var listeners = [];
   var syncPromise = null;
   var lastSnapshot = "";
+  // Mirror the admitted profile IDs, not names or free-form profile content.
+  var PREFERENCES = Object.freeze({
+    luminaryMaven: "ada-lovelace grace-hopper hedy-lamarr karen-sparck-jones hannah-fry fei-fei-li timnit-gebru rachel-thomas joy-buolamwini kate-crawford meredith-whittaker emily-bender eniac-six margaret-hamilton frances-allen grace-wahba cynthia-dwork daphne-koller barbara-liskov jean-sammet adele-goldberg shafi-goldwasser lynn-conway".split(" "),
+    luminaryBuilder: "mira-murati daniela-amodei lila-ibrahim fidji-simo chelsea-finn amanda-askell allie-k-miller".split(" "),
+    luminaryTownRegular: "mme-claio fairy-godmother dj-sunnyv mayor-deb".split(" ")
+  });
+  function isPreference(name) {
+    return Object.prototype.hasOwnProperty.call(PREFERENCES, name);
+  }
+
+  // These are private progress records, never currency or proof of ownership.
+  function memoryValue(name, value) {
+    if (isPreference(name)) {
+      return value === null || value === "" ? null
+        : PREFERENCES[name].indexOf(value) !== -1 ? value : undefined;
+    }
+    if (["buildingVisits", "quizProgress", "quizBestScores"].indexOf(name) === -1) return value;
+    if (!isObject(value)) return undefined;
+    var result = {};
+    Object.keys(value).slice(0, 100).forEach(function (key) {
+      if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(key) || key === "constructor") return;
+      var record = value[key];
+      if (name === "quizBestScores") {
+        if (Number.isFinite(record) && record >= 0 && record <= 100) result[key] = record;
+        return;
+      }
+      if (!isObject(record)) return;
+      var clean = {};
+      var fields = name === "buildingVisits" ? ["n", "first", "last"]
+        : ["bestScore", "latestScore", "latestCoreScore", "bestCoreScore", "maxScore", "bonusScore", "attempts"];
+      fields.forEach(function (field) {
+        if (Number.isFinite(record[field]) && record[field] >= 0 && record[field] <= Number.MAX_SAFE_INTEGER) clean[field] = record[field];
+      });
+      if (name === "quizProgress") {
+        ["completedAt", "updated_at"].forEach(function (field) {
+          if (safeTimestamp(record[field])) clean[field] = record[field];
+        });
+        // Existing quiz catalogue labels are display-only, never HTML.
+        if (safeLabel(record.stickerTitle)) clean.stickerTitle = safeLabel(record.stickerTitle);
+        if (safeLabel(record.stickerTier)) clean.stickerTier = safeLabel(record.stickerTier);
+      }
+      if (Object.keys(clean).length) result[key] = clean;
+    });
+    return result;
+  }
 
   function now() {
     return new Date().toISOString();
@@ -110,6 +161,13 @@
     result.last = validLast(value.last);
     result.episodes = boundedMap(value.episodes, 50);
     result.activities = boundedMap(value.activities, 150);
+    Object.keys(FIXED_ACTIVITIES).forEach(function (name) {
+      var item = result.activities[name];
+      if (!item) return;
+      var clean = memoryValue(name, item.value);
+      if (clean === undefined || !safeTimestamp(item.updated_at)) delete result.activities[name];
+      else item.value = clean;
+    });
     result.collections = boundedMap(value.collections, 40);
     try {
       return JSON.stringify(result).length <= 60000 ? result : null;
@@ -139,33 +197,38 @@
     return validateDocument(readJson(DOCUMENT_KEY)) || emptyDocument();
   }
 
-  function writeLocalDocument(document) {
+  function writeLocalDocument(document, forceNotify) {
     var valid = validateDocument(document);
     if (!valid) throw new TypeError("Invalid Resident continuation document.");
+    var changed = !same(readJson(DOCUMENT_KEY), valid);
     writeJson(DOCUMENT_KEY, valid);
-    notify(valid);
+    if (changed || forceNotify) notify(valid);
     return valid;
   }
 
   function clearSupportedLocalState() {
+    function remove(key) {
+      global.localStorage.removeItem(key);
+      if (global.localStorage.getItem(key) !== null) throw new Error("continuation-local-clear-failed");
+    }
     try {
-      global.localStorage.removeItem(DOCUMENT_KEY);
-      global.localStorage.removeItem("laidies_screening_progress_v1");
+      remove(DOCUMENT_KEY);
+      remove("laidies_screening_progress_v1");
       Object.keys(FIXED_ACTIVITIES).forEach(function (name) {
-        global.localStorage.removeItem(FIXED_ACTIVITIES[name]);
+        remove(FIXED_ACTIVITIES[name]);
       });
       Object.keys(FIXED_COLLECTIONS).forEach(function (name) {
-        global.localStorage.removeItem(FIXED_COLLECTIONS[name]);
+        remove(FIXED_COLLECTIONS[name]);
       });
       for (var index = global.localStorage.length - 1;
            index >= 0;
            index -= 1) {
         var key = global.localStorage.key(index);
         if (/^laidies_tour_\d{4}-W\d{2}$/.test(key || "")) {
-          global.localStorage.removeItem(key);
+          remove(key);
         }
       }
-    } catch (_) {}
+    } catch (_) { throw new Error("continuation-local-clear-failed"); }
   }
 
   function boundOwner() {
@@ -267,10 +330,38 @@
         Object.keys(left[section]).concat(Object.keys(right[section]))
       );
       keys.forEach(function (key) {
+        if (isPreference(key) && left[section][key] && right[section][key] &&
+            left[section][key].updated_at === right[section][key].updated_at &&
+            (left[section][key].value === null || right[section][key].value === null)) {
+          result[section][key] = entry(null, left[section][key].updated_at);
+          return;
+        }
+        if (section === "activities" && (key === "buildingVisits" || key === "quizProgress")) {
+          var l = left[section][key], r = right[section][key];
+          var combined = mergeEntry(l, r, true);
+          if (l && r) Object.keys(combined.value).forEach(function (id) {
+            var a = l.value[id], b = r.value[id];
+            if (!a || !b) return;
+            if (key === "buildingVisits") {
+              combined.value[id] = {
+                n: Math.max(a.n || 0, b.n || 0),
+                first: Math.min(a.first || Infinity, b.first || Infinity),
+                last: Math.max(a.last || 0, b.last || 0)
+              };
+              if (!Number.isFinite(combined.value[id].first)) delete combined.value[id].first;
+            } else {
+              combined.value[id].bestScore = Math.max(a.bestScore || 0, b.bestScore || 0);
+              combined.value[id].bestCoreScore = Math.max(a.bestCoreScore || 0, b.bestCoreScore || 0);
+              combined.value[id].attempts = Math.max(a.attempts || 0, b.attempts || 0);
+            }
+          });
+          result[section][key] = combined;
+          return;
+        }
         result[section][key] = mergeEntry(
           left[section][key],
           right[section][key],
-          section !== "episodes"
+          section !== "episodes" && !isPreference(key)
         );
       });
     });
@@ -333,7 +424,14 @@
           if (raw !== null && raw !== "") value = raw;
         } catch (_) {}
       }
-      if (value !== null) document[section][name] = entry(value);
+      value = memoryValue(name, value);
+      var prior = document[section][name];
+      if (value !== undefined && (value !== null || (isPreference(name) && prior))) {
+        if (!prior || !same(prior.value, value)) {
+          var changedAt = Math.max(Date.now(), (Date.parse(prior && prior.updated_at || "") || 0) + 1);
+          document[section][name] = entry(value, new Date(changedAt).toISOString());
+        }
+      }
     });
   }
 
@@ -344,7 +442,10 @@
         if (!/^laidies_tour_\d{4}-W\d{2}$/.test(key)) continue;
         var value = readJson(key);
         if (Array.isArray(value)) {
-          document.activities[key.replace("laidies_", "")] = entry(value);
+          var name = key.replace("laidies_", "");
+          if (!document.activities[name] || !same(document.activities[name].value, value)) {
+            document.activities[name] = entry(value);
+          }
         }
       }
     } catch (_) {}
@@ -392,7 +493,16 @@
       }
     }
     Object.keys(FIXED_ACTIVITIES).forEach(function (name) {
-      applyEntry(FIXED_ACTIVITIES[name], valid.activities[name], true);
+      var item = valid.activities[name];
+      if (isPreference(name)) {
+        if (!item) return;
+        if (item.value === null) global.localStorage.removeItem(FIXED_ACTIVITIES[name]);
+        else global.localStorage.setItem(FIXED_ACTIVITIES[name], item.value);
+        if (global.localStorage.getItem(FIXED_ACTIVITIES[name]) !== item.value) throw new Error("continuation-local-read-after-write-failed");
+      } else {
+        // The supplied document is already merged with local progress.
+        applyEntry(FIXED_ACTIVITIES[name], item, false);
+      }
     });
     Object.keys(valid.activities).forEach(function (name) {
       if (/^tour_\d{4}-W\d{2}$/.test(name)) {
@@ -402,7 +512,7 @@
     Object.keys(FIXED_COLLECTIONS).forEach(function (name) {
       applyEntry(FIXED_COLLECTIONS[name], valid.collections[name], true);
     });
-    writeLocalDocument(valid);
+    writeLocalDocument(valid, true);
     return valid;
   }
 
@@ -412,7 +522,10 @@
   }
 
   async function syncWith(runtime) {
-    if (syncPromise) return syncPromise;
+    // A caller may have edited after the active request took its snapshot.
+    // Wait, then collect again; joining the old promise would falsely report
+    // that the caller's newer edit had reached the account.
+    if (syncPromise) return syncPromise.catch(function () {}).then(function () { return syncWith(runtime); });
     syncPromise = (async function () {
       var session = await runtime.controller.getSession();
       var local = collectLocal();
@@ -426,19 +539,43 @@
         clearSupportedLocalState();
         local = emptyDocument();
       }
+      // Bind before network work so a failed request cannot make another
+      // account's staged data look like anonymous history on the next attempt.
+      bindOwner(ownerId);
+      writeLocalDocument(local);
+      async function requireSameOwner() {
+        var current = await runtime.controller.getSession();
+        if (String(current && current.user && current.user.id || "") !== ownerId || boundOwner() !== ownerId) {
+          throw new Error("continuation-session-changed");
+        }
+      }
+      function ownerRpc(name, args) {
+        var request = runtime.client.rpc(name, args);
+        // Pin each request to the captured session, including if the SDK's
+        // active account changes while it resolves authentication internally.
+        if (session.access_token) {
+          if (typeof request.setHeader !== "function") throw new Error("continuation-owner-binding-unavailable");
+          request = request.setHeader("Authorization", "Bearer " + session.access_token);
+        }
+        return request;
+      }
       for (var attempt = 0; attempt < 3; attempt += 1) {
-        var remoteResult = await runtime.client.rpc(
+        var remoteResult = await ownerRpc(
           "get_my_resident_continuation_v1"
         );
         if (remoteResult.error) throw remoteResult.error;
+        await requireSameOwner();
         var remote = remoteResult.data &&
           remoteResult.data.continuation || null;
         var merged = mergeDocuments(
-          local,
+          collectLocal(),
           remote && remote.document
         );
-        applyDocument(merged);
-        var put = await runtime.client.rpc(
+        if (remote && same(merged, remote.document)) {
+          applyDocument(merged);
+          return { state: "account-backed", revision: remote.revision, document: merged };
+        }
+        var put = await ownerRpc(
           "put_my_resident_continuation_v1",
           {
             p_document: merged,
@@ -447,7 +584,7 @@
           }
         );
         if (!put.error) {
-          var verified = await runtime.client.rpc(
+          var verified = await ownerRpc(
             "get_my_resident_continuation_v1"
           );
           if (verified.error ||
@@ -457,8 +594,10 @@
               !same(verified.data.continuation.document, merged)) {
             throw new Error("continuation-remote-read-after-write-failed");
           }
-          writeLocalDocument(merged);
-          bindOwner(ownerId);
+          await requireSameOwner();
+          // Preserve edits made while the request was in flight; the next
+          // cycle will send them rather than overwriting them with its reply.
+          applyDocument(mergeDocuments(merged, collectLocal()));
           return {
             state: "account-backed",
             revision: put.data.revision,
@@ -502,16 +641,17 @@
 
   function startAutoSync(runtime) {
     recordLastPage();
-    function run() {
+    function run(force) {
       var snapshot = JSON.stringify(canonical(collectLocal()));
-      if (snapshot === lastSnapshot) return;
-      lastSnapshot = snapshot;
-      syncWith(runtime).catch(function () {});
+      if (!force && snapshot === lastSnapshot) return;
+      syncWith(runtime).then(function () { lastSnapshot = snapshot; }).catch(function () { lastSnapshot = ""; });
     }
     run();
-    global.setInterval(run, 5000);
+    global.setInterval(function () { run(false); }, 5000);
+    // Pull remote changes even when this browser has made no local edits.
+    global.setInterval(function () { run(true); }, 30000);
     document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "visible") run();
+      if (document.visibilityState === "visible") run(true);
     });
   }
 

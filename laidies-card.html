@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260830-closet-memory-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
@@ -1171,7 +1171,7 @@
       var TILES = [
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
         { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
-        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'This-device summary' },
+        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'Saved progress summary' },
         { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Express tours' },
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
@@ -1257,6 +1257,7 @@
           new MutationObserver(refresh).observe(el, { childList: true, characterData: true, subtree: true });
         });
         window.addEventListener('load', refresh);
+        window.addEventListener('laidies:continuation-change', refresh);
       }
 
       if (document.readyState === 'loading') {
@@ -1529,7 +1530,7 @@
         </div>
         <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
       </div>
-      <p class="vessel-note">On this device, this is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or synced account history. <a href="/sunnyvaile-high.html#report-card">Your local Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
+      <p class="vessel-note">This is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or verified status. <a href="/sunnyvaile-high.html#report-card">Your Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
     </div>
 
     <!-- Trading Card Binder -->
@@ -1952,6 +1953,21 @@
 
   // Your Coven — pantheon label maps (SAiNT map already lives above as SAINT_LABEL)
   var MAVEN_LABEL = {
+    'ada-lovelace': 'Ada Lovelace',
+    'grace-hopper': 'Grace Hopper',
+    'hedy-lamarr': 'Hedy Lamarr',
+    'karen-sparck-jones': 'Karen Spärck Jones',
+    'eniac-six': 'The ENIAC Six',
+    'margaret-hamilton': 'Margaret Hamilton',
+    'frances-allen': 'Frances Allen',
+    'grace-wahba': 'Grace Wahba',
+    'cynthia-dwork': 'Cynthia Dwork',
+    'daphne-koller': 'Daphne Koller',
+    'barbara-liskov': 'Barbara Liskov',
+    'jean-sammet': 'Jean Sammet',
+    'adele-goldberg': 'Adele Goldberg',
+    'shafi-goldwasser': 'Shafi Goldwasser',
+    'lynn-conway': 'Lynn Conway',
     'hannah-fry': 'Hannah Fry',
     'fei-fei-li': 'Fei-Fei Li',
     'timnit-gebru': 'Timnit Gebru',
@@ -1959,9 +1975,10 @@
     'joy-buolamwini': 'Joy Buolamwini',
     'kate-crawford': 'Kate Crawford',
     'meredith-whittaker': 'Meredith Whittaker',
-    'emily-bender': 'Emily Bender'
+    'emily-bender': 'Emily M. Bender'
   };
   var BUILDER_LABEL = {
+    'allie-k-miller': 'Allie K. Miller',
     'mira-murati': 'Mira Murati',
     'daniela-amodei': 'Daniela Amodei',
     'lila-ibrahim': 'Lila Ibrahim',
@@ -2068,6 +2085,7 @@
   document.addEventListener('charmhunt:week-unlocked', function () { if (window.renderCharmBracelet) window.renderCharmBracelet(); });
 
   function hydrateCoven() {
+    if (isPublicMode) return;
     var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
     var applyPick = function(elId, key, labels) {
       var el = document.getElementById(elId);
@@ -2099,6 +2117,7 @@
       hydrateCoven();
     }
   });
+  window.addEventListener('laidies:continuation-change', hydrateCoven);
 
   function readCache() {
     var envelope = readCardEnvelope();
@@ -2672,13 +2691,16 @@
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>
-  (function renderWallet() {
+  (function () {
     'use strict';
     // Membership cards — one per building, fed by the visit counter that
     // sv-you-are-here.js stamps on every building page (laidies_building_visits).
+    function renderWallet() {
+    if (window.LAIDIESPublicCardRoute.parse(window.location.search).requested) return;
     var grid = document.getElementById('walletGrid');
     var list = window.SV_BUILDINGS;
     if (!grid || !list || !list.length) return;
+    grid.replaceChildren();
     var EMOJI = {
       'visitors-centre': '🚐', 'newsstand': '🗞️', 'chick-flicks': '📼', 'blend-snap': '☕',
       'mme-claio': '🔮', 'maikeover': '💇‍♀️', 'bronze-aige': '🍸', 'dream-phone': '📞',
@@ -2719,11 +2741,16 @@
       card.appendChild(visit);
       grid.appendChild(card);
     });
+    }
+    renderWallet();
+    window.addEventListener('laidies:continuation-change', renderWallet);
   })();
-  (function renderClipJar() {
+  (function () {
     'use strict';
     // Device-local Quiz + Express progress summary. It reads product-owned
     // local records but does not create currency, rewards, ownership or sync.
+    function renderClipJar() {
+    if (window.LAIDIESPublicCardRoute.parse(window.location.search).requested) return;
     function stored(key) {
       try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; }
     }
@@ -2758,13 +2785,13 @@
     var ledger = document.getElementById('clipJarLedger');
     if (!countEl || !totalEl || !ledger) return;
     totalEl.textContent = String(total);
-    countEl.textContent = total === 0 ? 'No local records yet'
-      : total + ' local record point' + (total === 1 ? '' : 's');
+    countEl.textContent = total === 0 ? 'No saved progress yet'
+      : total + ' saved progress point' + (total === 1 ? '' : 's');
     ledger.innerHTML = '';
     if (!rows.length) {
       var empty = document.createElement('li');
       empty.className = 'clip-empty';
-      empty.textContent = 'No local progress recorded yet — complete a Pop Quiz or Express tour on this device.';
+      empty.textContent = 'No saved progress recorded yet — complete a Pop Quiz or Express tour.';
       ledger.appendChild(empty);
       return;
     }
@@ -2781,13 +2808,19 @@
       li.append(ep, amount);
       ledger.appendChild(li);
     });
+    }
+    renderClipJar();
+    window.addEventListener('laidies:continuation-change', renderClipJar);
   })();
-  (function renderLocalStickerBook() {
+  (function () {
     'use strict';
     // Signed-in users get the Sticker Book from Supabase (renderCollections).
     // Signed-out/local users don't, so fill it from local stores here — the
     // Express "Caught Up" stickers plus local Pop Quiz stickers.
     // Guarded to signed-out so it never clobbers the Supabase pass.
+    var defaultSlots = (document.getElementById('stickerGrid') || { children: [] }).children.length;
+    function renderLocalStickerBook() {
+    if (window.LAIDIESPublicCardRoute.parse(window.location.search).requested) return;
     var signedIn = false;
     try { signedIn = Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k); }); } catch (e) {}
     if (signedIn) return;
@@ -2807,8 +2840,8 @@
     var countEl = document.getElementById('stickerCount');
     var gridEl = document.getElementById('stickerGrid');
     if (countEl) countEl.textContent = stickers.length + ' collected';
-    if (gridEl && stickers.length > 0) {
-      var slots = Math.max(gridEl.children.length, Math.min(stickers.length, 12));
+    if (gridEl) {
+      var slots = Math.max(defaultSlots, Math.min(stickers.length, 12));
       gridEl.innerHTML = '';
       for (var s = 0; s < slots; s++) {
         var tile = document.createElement('div');
@@ -2822,6 +2855,9 @@
         gridEl.appendChild(tile);
       }
     }
+    }
+    renderLocalStickerBook();
+    window.addEventListener('laidies:continuation-change', renderLocalStickerBook);
   })();
   (function() {
     'use strict';
@@ -2862,7 +2898,7 @@
     document.addEventListener('sv:tour-checkin', renderTour);
   })();
   </script>
-    <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>

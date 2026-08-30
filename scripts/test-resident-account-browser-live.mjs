@@ -161,6 +161,12 @@ try {
     localStorage.setItem("laidies_tour_2026-W35", JSON.stringify(tour));
     localStorage.setItem("laidies_charms_found", JSON.stringify(charms));
     localStorage.setItem("laidies_puffies_board", JSON.stringify(puffies));
+    localStorage.setItem("laidies_maven", "ada-lovelace");
+    localStorage.setItem("laidies_builder", "mira-murati");
+    localStorage.setItem("laidies_town_regular", "dj-sunnyv");
+    localStorage.setItem("laidies_building_visits", JSON.stringify({library:{n:3,first:1700000000000,last:1700001000000}}));
+    localStorage.setItem("laidiesQuizProgress", JSON.stringify({ep01:{bestScore:4,latestScore:4,attempts:2,completedAt:new Date().toISOString()}}));
+    localStorage.setItem("laidiesQuizBestScores", JSON.stringify({ep01:4}));
     sessionStorage.setItem(fixtureKey, "seeded");
   }, {
     envelope: card,
@@ -174,6 +180,20 @@ try {
     waitUntil: "domcontentloaded"
   });
   const userId = await signIn(firstPage);
+  // Repeated runs may reuse only this task's disposable account. Start its
+  // continuation afresh so generated fixture timestamps cannot accumulate.
+  if (/^memory-a-\d+@example\.com$/.test(email)) {
+    await firstPage.evaluate(async (document) => {
+      const runtime = await window.LAIDIESResidentAccountRuntime.get();
+      const remote = await runtime.client.rpc("get_my_resident_continuation_v1");
+      if (remote.error) throw remote.error;
+      const put = await runtime.client.rpc("put_my_resident_continuation_v1", {
+        p_document:document,p_idempotency_key:crypto.randomUUID(),
+        p_expected_revision:remote.data.continuation?.revision || null
+      });
+      if (put.error) throw put.error;
+    }, continuation);
+  }
   await firstPage.reload({ waitUntil: "domcontentloaded" });
   await firstPage.locator("#rcAccountClaimButton:visible, #rcAccountRestoreButton:visible").first().waitFor({ state: "visible" });
   const claimButton = firstPage.locator("#rcAccountClaimButton");
@@ -196,7 +216,7 @@ try {
   console.log("STEP first-browser-status", await firstPage.locator("#rcAccountStatus").innerText());
   assert.match(
     await firstPage.locator("#rcAccountStatus").innerText(),
-    /private account-backed Card/
+    /account-backed Card/
   );
   await firstPage.locator("#rcAccountContinue").waitFor({ state: "visible" });
   assert.equal(
@@ -206,12 +226,16 @@ try {
 
   const second = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const secondPage = await second.newPage();
+  secondPage.setDefaultTimeout(20000);
+  console.log("STEP second-browser-open");
   await secondPage.goto(`${origin}/resident-card.html`, {
     waitUntil: "domcontentloaded"
   });
   assert.equal(await signIn(secondPage), userId);
+  console.log("STEP second-browser-signed-in");
   await secondPage.reload({ waitUntil: "domcontentloaded" });
   await secondPage.locator("#rcAccountContinue").waitFor({ state: "visible" });
+  console.log("STEP second-browser-continuation-ready");
   assert.equal(
     await secondPage.locator("#rcAccountContinue").getAttribute("href"),
     "/watch.html?ep=02"
@@ -255,6 +279,34 @@ try {
     /restored the verified private Card/
   );
   assert.equal(await secondPage.locator("#cardName").innerText(), card.fields.displayName);
+  await secondPage.waitForFunction(() => document.getElementById("covenMavenPick").textContent.includes("Ada"));
+  assert.match(await secondPage.locator("#covenBuilderPick").innerText(), /Mira/i);
+  assert.match(await secondPage.locator("#covenTownPick").innerText(), /Sunny/i);
+  assert.match(await secondPage.locator("#clipJarLedger").innerText(), /Best quiz score: 4/);
+  assert.equal(await secondPage.evaluate(() => JSON.parse(localStorage.getItem("laidies_building_visits")).library.n), 3);
+  console.log("STEP new-memory-restore PASS favourites=3 quiz=1 visits=1 visible-closet=1");
+
+  // A new choice on the phone must beat the unchanged stale desktop copy.
+  await secondPage.evaluate(async () => {
+    localStorage.setItem("laidies_maven", "grace-hopper");
+    const runtime = await window.LAIDIESResidentAccountRuntime.get();
+    await window.LAIDIESResidentContinuationV1.syncWith(runtime);
+  });
+  await firstPage.evaluate(async () => {
+    await window.LAIDIESResidentContinuationV1.syncWith(await window.LAIDIESResidentAccountRuntime.get());
+  });
+  assert.equal(await firstPage.evaluate(() => localStorage.getItem("laidies_maven")), "grace-hopper");
+  // Deletion is a saved choice, not permission to resurrect an older pick.
+  await secondPage.evaluate(async () => {
+    localStorage.removeItem("laidies_maven");
+    await window.LAIDIESResidentContinuationV1.syncWith(await window.LAIDIESResidentAccountRuntime.get());
+  });
+  await firstPage.evaluate(async () => {
+    await window.LAIDIESResidentContinuationV1.syncWith(await window.LAIDIESResidentAccountRuntime.get());
+  });
+  assert.equal(await firstPage.evaluate(() => localStorage.getItem("laidies_maven")), null);
+  assert.match(await secondPage.locator("#covenMavenPick").innerText(), /pick one/i);
+  console.log("STEP newer-choice-and-clear PASS stale-desktop=1 same-tab-refresh=1");
   assert.equal(
     await secondPage.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     true
@@ -283,6 +335,15 @@ try {
         password: accountPassword
       });
       if (result.error) throw result.error;
+      const existing = await runtime.client.rpc("get_my_resident_continuation_v1");
+      if (existing.error) throw existing.error;
+      const isolated = window.LAIDIESResidentContinuationV1.emptyDocument();
+      isolated.last = {path:"/library.html",label:"Library",kind:"page",updated_at:new Date().toISOString()};
+      const put = await runtime.client.rpc("put_my_resident_continuation_v1", {
+        p_document:isolated,p_idempotency_key:crypto.randomUUID(),
+        p_expected_revision:existing.data.continuation?.revision || null
+      });
+      if (put.error) throw put.error;
     }, {
       accountEmail: switchCredentials.email,
       accountPassword: switchCredentials.password
@@ -304,13 +365,15 @@ try {
       ).last.path,
       tour: localStorage.getItem("laidies_tour_2026-W35"),
       charms: localStorage.getItem("laidies_charms_found"),
-      puffies: localStorage.getItem("laidies_puffies_board")
+      puffies: localStorage.getItem("laidies_puffies_board"),
+      memory: ["laidies_maven","laidies_builder","laidies_town_regular","laidies_building_visits","laidiesQuizProgress","laidiesQuizBestScores"].map(key=>localStorage.getItem(key))
     }));
     assert.equal(accountSwitchIsolation.episodeProgress, null);
     assert.equal(accountSwitchIsolation.lastPath, "/library.html");
     assert.equal(accountSwitchIsolation.tour, null);
     assert.equal(accountSwitchIsolation.charms, null);
     assert.equal(accountSwitchIsolation.puffies, null);
+    assert.deepEqual(accountSwitchIsolation.memory, [null,null,null,null,null,null]);
   }
 
   console.log(JSON.stringify({
@@ -318,6 +381,8 @@ try {
     firstBrowserClaim: claimedDuringTest ? "claimed" : "restored-existing",
     secondBrowserRestore: true,
     crossBrowserContinuation: true,
+    closetMemoryRestored: true,
+    newerChoiceAndClear: true,
     restoredEpisodePositionSeconds: restoredContinuation.episode.time,
     restoredTourStops: restoredSupportedState.tour,
     restoredCharmCount: restoredSupportedState.charms.length,

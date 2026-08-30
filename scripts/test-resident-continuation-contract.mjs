@@ -3,7 +3,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const source = fs.readFileSync(
-  new URL("../content/site/resident-continuation-v1.js", import.meta.url),
+  process.env.CONTINUATION_SOURCE || new URL("../content/site/resident-continuation-v1.js", import.meta.url),
   "utf8"
 );
 
@@ -19,6 +19,11 @@ class Storage {
 }
 
 function makeDevice(path, title, seed = {}, search = "") {
+  let clock = Date.parse("2026-08-30T10:00:00Z");
+  class Clock extends Date {
+    constructor(...args) { super(...(args.length ? args : [clock])); }
+    static now() { return clock; }
+  }
   const localStorage = new Storage(seed);
   const listeners = new Map();
   const window = {
@@ -53,7 +58,7 @@ function makeDevice(path, title, seed = {}, search = "") {
     CustomEvent: window.CustomEvent,
     URL,
     Set,
-    Date,
+    Date: Clock,
     JSON,
     Number,
     Object,
@@ -63,7 +68,7 @@ function makeDevice(path, title, seed = {}, search = "") {
     TypeError,
     Error
   });
-  return { api: window.LAIDIESResidentContinuationV1, localStorage };
+  return { api: window.LAIDIESResidentContinuationV1, localStorage, tick: () => { clock += 1000; } };
 }
 
 const d1 = makeDevice("/watch.html", "Episode 01 | LAiDIES", {
@@ -220,3 +225,98 @@ console.log(
   "episode_merge=1 collections_union=1 tour_union=1 safe_path=1 " +
   "private_exclusion=1 public_card_resume_exclusion=1 account_switch_isolation=1"
 );
+
+// Calibrated against the public predecessor: these assertions must fail there.
+const memory = makeDevice("/laidies-card", "My Closet", {
+  laidies_maven: "ada-lovelace",
+  laidies_builder: "mira-murati",
+  laidies_town_regular: "dj-sunnyv",
+  laidies_building_visits: JSON.stringify({ library: { n: 3, first: 1000, last: 3000 } }),
+  laidiesQuizProgress: JSON.stringify({ ep01: { bestScore: 4, attempts: 2, completedAt: "2026-08-29T10:00:00Z" } }),
+  laidiesQuizBestScores: JSON.stringify({ ep01: 4 }),
+  laidies_private_prompt_draft: "excluded"
+});
+const saved = memory.api.collectLocal();
+assert.equal(saved.activities.luminaryMaven?.value, "ada-lovelace", "favourite must be collected");
+assert.equal(saved.activities.buildingVisits.value.library.n, 3);
+assert.equal(saved.activities.quizProgress.value.ep01.bestScore, 4);
+memory.api.applyDocument(saved);
+assert.equal(memory.localStorage.getItem("laidies_maven"), "ada-lovelace", "raw slug must not become quoted JSON");
+memory.tick();
+assert.equal(JSON.stringify(memory.api.collectLocal()), JSON.stringify(saved), "reads must not manufacture new edits");
+const fresh = makeDevice("/laidies-card", "My Closet");
+fresh.api.applyDocument(saved);
+let rehydrated = 0;
+fresh.api.subscribe(() => { rehydrated += 1; });
+fresh.localStorage.removeItem("laidies_builder");
+fresh.api.applyDocument(saved);
+assert.equal(rehydrated, 1, "same-document rehydration must notify open consumers");
+assert.equal(fresh.localStorage.getItem("laidies_builder"), "mira-murati");
+assert.equal(JSON.parse(fresh.localStorage.getItem("laidies_building_visits")).library.n, 3);
+fresh.tick();
+fresh.localStorage.setItem("laidies_maven", "grace-hopper");
+const edited = fresh.api.collectLocal();
+const combined = memory.api.mergeDocuments(memory.api.collectLocal(), edited);
+assert.equal(combined.activities.luminaryMaven.value, "grace-hopper", "newer choice wins over stale device");
+fresh.api.applyDocument(combined);
+fresh.tick();
+fresh.localStorage.removeItem("laidies_maven");
+const cleared = fresh.api.collectLocal();
+const clearedMerge = memory.api.mergeDocuments(saved, cleared);
+memory.api.applyDocument(clearedMerge);
+assert.equal(memory.localStorage.getItem("laidies_maven"), null, "cleared favourites must not resurrect");
+const improved = structuredClone(saved);
+improved.activities.buildingVisits.value = { library: { n: 5, first: 2000, last: 4000 }, newsstand: { n: 1, first: 2500, last: 2500 } };
+improved.activities.quizProgress.value.ep01 = { bestScore: 2, attempts: 3, completedAt: "2026-08-30T10:00:00Z" };
+const progressMerge = memory.api.mergeDocuments(saved, improved);
+assert.equal(progressMerge.activities.buildingVisits.value.library.n, 5, "replicated counts are not summed");
+assert.equal(progressMerge.activities.buildingVisits.value.library.first, 1000);
+assert.equal(progressMerge.activities.buildingVisits.value.library.last, 4000);
+assert.equal(progressMerge.activities.quizProgress.value.ep01.bestScore, 4, "later lower attempt must not erase best score");
+assert.equal(progressMerge.activities.quizProgress.value.ep01.attempts, 3);
+memory.api.clearSupportedLocalState();
+for (const key of ["laidies_maven", "laidies_builder", "laidies_town_regular", "laidies_building_visits", "laidiesQuizProgress", "laidiesQuizBestScores"]) {
+  assert.equal(memory.localStorage.getItem(key), null, `account switch clears ${key}`);
+}
+assert.equal(memory.localStorage.getItem("laidies_private_prompt_draft"), "excluded");
+console.log("CLOSET MEMORY CONTRACT PASS restore=1 raw_slug=1 stable_timestamp=1 stale_choice=1 clear=1 best_score=1 visits=1 isolation=1");
+
+const profiles = JSON.parse(fs.readFileSync(new URL("../content/luminairy-profiles.json", import.meta.url)));
+const closet = fs.readFileSync(new URL("../laidies-card.html", import.meta.url), "utf8");
+for (const [group,key] of [["mavens","laidies_maven"],["trailblazers","laidies_builder"]]) {
+  for (const profile of profiles[group]) {
+    const d = makeDevice("/luminairy", "Luminary", {[key]:profile.id});
+    const name = group === "mavens" ? "luminaryMaven" : "luminaryBuilder";
+    assert.equal(d.api.collectLocal().activities[name]?.value, profile.id, `${profile.id} must be admitted to sync`);
+    assert.ok(closet.includes(`'${profile.id}':`), `${profile.id} needs a Closet label`);
+  }
+}
+
+const racing = makeDevice("/luminairy", "Luminary", {laidies_maven:"ada-lovelace"});
+let db = null, writes = 0, owner = "resident-a";
+const racingRuntime = {
+  controller:{getSession:async()=>({user:{id:owner}})},
+  client:{rpc:async(name,args)=>{
+    if(name === "get_my_resident_continuation_v1") return {data:{continuation:db},error:null};
+    writes += 1;
+    db = {document:structuredClone(args.p_document),revision:`revision-${writes}`};
+    if(writes === 1) { racing.tick(); racing.localStorage.setItem("laidies_maven","grace-hopper"); }
+    return {data:{revision:db.revision},error:null};
+  }}
+};
+await Promise.all([racing.api.syncWith(racingRuntime),racing.api.syncWith(racingRuntime)]);
+assert.equal(db.document.activities.luminaryMaven.value,"grace-hopper","queued save must send an in-flight edit");
+const writeCount = writes;
+await racing.api.syncWith(racingRuntime);
+assert.equal(writes,writeCount,"unchanged remote snapshot must not create a mutation");
+const guarded = makeDevice("/luminairy", "Luminary", {laidies_maven:"ada-lovelace",laidies_continuation_owner_v1:"resident-a"});
+guarded.localStorage.removeItem = () => {};
+owner = "resident-b";
+await assert.rejects(guarded.api.syncWith(racingRuntime), /continuation-local-clear-failed/);
+assert.equal(writes,writeCount,"failed isolation must stop before backend mutation");
+const switching = makeDevice("/luminairy", "Luminary", {laidies_maven:"ada-lovelace"});
+owner = "resident-a";
+const changedSession = {controller:racingRuntime.controller,client:{rpc:async()=>{owner="resident-b";return {data:{continuation:db},error:null};}}};
+await assert.rejects(switching.api.syncWith(changedSession), /continuation-session-changed/);
+assert.equal(switching.localStorage.getItem("laidies_maven"),"ada-lovelace","foreign reply is not applied");
+console.log("CLOSET MEMORY RACE CONTRACT PASS queued_edit=1 no_op=1 failed_clear=1 switched_session=1");
