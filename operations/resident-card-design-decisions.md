@@ -20,6 +20,15 @@
 > previously verified account architecture. Restoring the provider still
 > requires the real account lifecycle and two-device verification.
 
+> **CLOSET DISPLAY BOUNDARY — 2026-08-29.** The August 23 blanket hiding of
+> Closet progression was broader than the verified July continuation contract.
+> The Wednesday Tour and supported collection shelves are visible for
+> device-local Cards and remain the account-restoration destinations for the
+> bounded continuation document. FAiRY balances and leaderboards remain hidden:
+> the July release explicitly excluded public balances and ownership. A provider
+> outage changes persistence status, not whether supported local Closet records
+> are visible.
+
 > **SUPERSEDED ACCOUNT BOUNDARY — 2026-08-23.** This update previously superseded the
 > preserved-behaviour statements below where they imply a publicly verified
 > account lifecycle. Resident Card owns the sole private sign-in-link request
