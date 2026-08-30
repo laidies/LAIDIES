@@ -2,12 +2,13 @@
 
 ## 2026-08-30 NewsStand Daily proving run
 
-- **Status:** BUILDING — exact local artifact independently accepted; deployment and public verification pending.
+- **Status:** PUBLICLY VERIFIED — exact NewsStand proving-run delta deployed and checked on both origins.
 - **Owner:** NewsStand foreground in `/private/tmp/laidies-newsstand-daily-20260830.cwlFK8`; scope is only the Daily publication path and NewsStand visitor delta.
-- **Current production:** provider-confirmed `65e2bdaf-1c85-4f0a-a8b7-4f3cce611cd8`, source `819a5119`; exact base artifact `/private/tmp/laidies-resident-privacy-successor.Bez0zU`, identity `9a373cc303d38c35ad794f2c504912f3ac2e05a27b6bcecec4e1772a3ca86ce5`. This supersedes the historical production pointers below; recovered binding is in the recovery branch's `c1858412` release record.
+- **Current production:** provider-confirmed `dbc39599-5e48-493c-8513-2eac99d8244f`, source `b03bcc649bf7da7f03db7e0eb95e123d4955f15a`. Base/rollback is `65e2bdaf-1c85-4f0a-a8b7-4f3cce611cd8`; all 662 non-NewsStand files retain its exact bytes. This supersedes the historical production pointers below.
 - **Candidate:** `/private/tmp/laidies-newsstand-public-20260830.vR86i3`, identity `fe7bb68733e040a0d9c4a1182922a9ec3f762c6e788abd347c61b49b5e6af612`; 672 files, exactly ten NewsStand modifications, no additions/removals or non-NewsStand changes.
 - **Result so far:** August 30 service-led issue, no new news story; original Front PAiGE and Big Picture retained; two exactly admitted bank instances; held Weekly/features remain held. Source and artifact browser suites pass 54 checks including calibrated mobile overlap rejection. Independent reviewer `/root/source_routing_review` accepts the exact desktop/mobile artifact. No scheduler change.
-- **Next:** commit exact owned paths, recheck provider head, deploy exact artifact if unchanged, verify immutable/custom byte parity and desktop/mobile journeys. See `operations/product-stewards/newsstand/evidence/daily-production-scope-2026-08-30.json`.
+- **Verification:** 28 exact public-byte comparisons and real custom/immutable 1440/390 browser journeys pass. One-click Front reading, two service desks, archive/date/concept filtering, Catch Me Up and unchanged eight-section Big Picture verified. See `operations/product-stewards/newsstand/evidence/daily-proving-run-2026-08-30.md`.
+- **Remaining:** no new ordinary news candidate or admitted Weekly; unadmitted service desks stay held. The independent manual cycle now reaches public schema-2 data, but unattended scheduling/monitoring was not enabled. The unrelated episode commit-hook and legacy Big Picture validator limitations are disclosed in the handoff.
 
 ## 2026-08-29 production successor
 

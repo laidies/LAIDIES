@@ -1,12 +1,35 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-29 UTC
-**Release owner:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828 foreground release lane
+**Updated:** 2026-08-30 UTC
+**Release owner:** NEWSSTAND-DAILY-PROVING-RUN-20260830 foreground release lane (NewsStand delta only)
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
 ## Current truth
+
+Current production is `dbc39599-5e48-493c-8513-2eac99d8244f`, deployment source
+`b03bcc649bf7da7f03db7e0eb95e123d4955f15a`, pushed branch
+`release/newsstand-daily-20260830`. Exact artifact:
+`/private/tmp/laidies-newsstand-public-20260830.vR86i3`; manifest
+`/private/tmp/laidies-newsstand-public-20260830.manifest.json`; 672 files;
+identity `fe7bb68733e040a0d9c4a1182922a9ec3f762c6e788abd347c61b49b5e6af612`.
+It overlays exactly ten NewsStand paths onto provider-confirmed predecessor
+`65e2bdaf-1c85-4f0a-a8b7-4f3cce611cd8` and preserves all 662 other files.
+No Big Picture/story text changes. August 30 has two exactly admitted service
+instances and no newly published ordinary news story. Held content stays held.
+The scoped artifact passes 54 browser checks and independent desktop/mobile
+review. All 28 changed/protected path comparisons match the immutable origin
+`https://dbc39599.laidies-sunnyvaile.pages.dev` and `https://laidies.ai`.
+Real desktop/mobile NewsStand reading, dated service issue, Catch Me Up, archive
+filters and unchanged Big Picture pass on both origins. Scheduling remains
+manual. Full outcome and explicit checker limits:
+`operations/product-stewards/newsstand/evidence/daily-proving-run-2026-08-30.md`.
+
+## Superseded recovery record
+
+The older deployment pointers below are historical, not the current head.
+Resident/provider and other unrelated unresolved work remains unchanged.
 
 > **Current production head:** `53cf6451-0fe8-4ef6-9f23-bacf0ddf52df`, source `aa13498c`, exact artifact `/tmp/laidies-library-reader-art-successor.FgLvPq`, manifest `/tmp/laidies-library-reader-art-successor.FgLvPq.manifest.json`, 672 files, identity `98e937241a026819a405c015c8902951ddb508fc89a1b5608bb07b0c9b926042`. It preserves the complete `915c176e` baseline, changes only `library.html`, and adds the two admitted desktop/mobile companion-book frames previously omitted from the public artifact. The four-book Library suite passes at 1280/390/320; 24 live custom/immutable book journeys load the exact responsive frames with complete Contents, continuous scroll, zero overflow, zero page errors and zero same-origin HTTP errors. Resident account-backed and cross-device restoration remain blocked on authenticated unpause of the existing provider project and a new controlled public lifecycle pass.
 

@@ -1,6 +1,17 @@
 # Daily live proving run — August 30, 2026
 
-Status: LOCAL ACCEPTED / PUBLIC RELEASE PENDING. No scheduler or future automatic-publication authority is implied.
+Status: DEPLOYED / PUBLICLY VERIFIED FOR THE EXACT NEWSSTAND DELTA. No scheduler or future automatic-publication authority is implied.
+
+## Public outcome
+
+- Deployment: `dbc39599-5e48-493c-8513-2eac99d8244f`, project `laidies-sunnyvaile`, production branch `homepage-redesign`.
+- Deployment source: committed and pushed `b03bcc649bf7da7f03db7e0eb95e123d4955f15a` on `release/newsstand-daily-20260830`.
+- Immutable origin: https://dbc39599.laidies-sunnyvaile.pages.dev/newsstand
+- Public route: https://laidies.ai/newsstand
+- Wrangler 4.119.0 uploaded exactly ten changed asset files (660 cached), retained the existing redirects and worker from the bound artifact, and returned a successful production deployment. Provider listing confirms the exact full deployment ID and source.
+- All 28 exact-byte comparisons pass: ten changed paths plus Resident continuation, Library, Homepage and Watch at both origins. Machine-readable results: `daily-public-byte-verification-2026-08-30.json`.
+- Actual browser checks on both origins at 1440x1000 and 390x844: correct Aug30 issue and Aug24 Front date; full Front article opens in one action without a Daily interstitial and focus reaches the story heading; exactly two service cards; no held static features; no document overflow or broken loaded images. Mobile Catch Me Up opens the dated two-service issue, archive lists ten items, custom date filter returns the two Aug30 items, immutable concept filter returns the two dated delegation instances. Big Picture still opens its unchanged eight-section examination on both origins.
+- Rollback target if a later defect appears: `65e2bdaf-1c85-4f0a-a8b7-4f3cce611cd8`. No rollback was performed.
 
 ## Exact input and release boundary
 
@@ -34,4 +45,4 @@ the representative missing image is absent from base commit `819a511` itself.
 The exact artifact preserves all non-NewsStand/episode bytes. Only this unrelated
 hook is bypassed for the scoped commit; its failure is not relabelled PASS.
 
-The legacy `validate-newsstand-stories.mjs` still rejects the unchanged incumbent Big Picture's newer long-form shape (92 errors); it is not claimed as passing or used to approve that existing story. Scoped schema-2 reader tests pass, and this release does not modify or re-admit Big Picture. No new ordinary Daily candidate was drafted, so no ordinary-story accuracy/voice admission was bypassed. No full-site rebuild, unrelated provider repair, subscription, source-cadence change or automation enablement occurred. Public verification is still required below.
+The legacy `validate-newsstand-stories.mjs` still rejects the unchanged incumbent Big Picture's newer long-form shape (92 errors); it is not claimed as passing or used to approve that existing story. Scoped schema-2 reader tests pass, and this release does not modify or re-admit Big Picture. No new ordinary Daily candidate was drafted, so no ordinary-story accuracy/voice admission was bypassed. No full-site rebuild, unrelated provider repair, subscription, source-cadence change or automation enablement occurred. This is one completed proving run, not proof that unattended daily publishing is operational.
