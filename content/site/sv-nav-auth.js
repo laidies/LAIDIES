@@ -30,6 +30,11 @@
 
   function getLocalAvatar() {
     try {
+      var contract = window.LAIDIESResidentCard;
+      if (contract) {
+        var local = contract.read(localStorage);
+        return local && local.state === 'saved' && local.envelope.fields.cardAvatarUrl || '';
+      }
       var direct = localStorage.getItem('laidies_card_avatar_url') || '';
       if (safeAssetPath(direct)) return direct;
       var raw = localStorage.getItem('laidies_resident_card_v1');
@@ -107,6 +112,7 @@
   }
   window.addEventListener('pageshow', updateNav);
   window.addEventListener('focus', updateNav);
+  window.addEventListener('laidies:resident-card-restored', updateNav);
   window.addEventListener('storage', function (event) {
     if (event.key === KEY ||
         event.key === 'laidies_card_avatar_url' ||

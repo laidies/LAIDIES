@@ -2,7 +2,7 @@
   "use strict";
 
   var toolCopy = {
-    look: "Look drawer open · style the card while the portrait booth remains safely closed.",
+    look: "Look drawer open · choose your era, outfit, accessories and portrait.",
     backdrop: "Backdrop drawer open · choose the card and portrait setting.",
     soundtrack: "Soundtrack drawer open · choose the song that follows you home.",
     saint: "Patron Saint drawer open · pick the voice you want in your corner.",

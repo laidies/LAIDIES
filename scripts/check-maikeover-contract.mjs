@@ -76,8 +76,6 @@ for (const id of [
   "walletSlots",
   "dashboardSection",
   "covenSection",
-  "tourSection",
-  "collectionSection",
   "fairyBankSection",
   "leaderboardSection"
 ]) {

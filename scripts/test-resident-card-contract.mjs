@@ -72,7 +72,7 @@ check(contract.includes("hasExactKeys") && contract.includes("FIELD_NAMES.indexO
 check(contract.includes("isPlainObject") && contract.includes("Object.getPrototypeOf"), "shared contract requires plain objects");
 check(contract.includes("\\u202a-\\u202e") && contract.includes("\\u2066-\\u2069"), "shared contract rejects bidi controls");
 check(contract.includes("decodeURIComponent(value) !== value"), "asset path must be canonically decoded");
-check(contract.includes('return /^\\/assets\\/') && !contract.includes("data:image"), "stored avatars are packaged asset paths only");
+check(contract.includes('return /^\\/assets\\/') && contract.includes("isSafeRasterPortrait") && contract.includes("98304"), "stored avatars admit only packaged paths or bounded JPEG/PNG portraits");
 check(contract.includes('document.createElement("img")') && contract.includes("replaceChildren(image)"), "shared avatar renderer uses DOM APIs");
 check(maikeover.includes("One versioned envelope is the only authoritative local card write."), "MAiKEOVER keeps an atomic authoritative local write");
 check(maikeover.includes("LAIDIESResidentCard.buildEnvelope"), "MAiKEOVER writes only shared-contract envelopes");

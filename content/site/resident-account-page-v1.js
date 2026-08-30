@@ -33,6 +33,10 @@
     show("rcAccountSignedIn", signedIn);
     show("rcAccountClaim", signedIn && !remote && local && local.state === "saved");
     show("rcAccountRestore", signedIn && !!remote);
+    var hasDifferentLocalCard = signedIn && remote && local && local.state === "saved" &&
+      JSON.stringify(window.LAIDIESResidentCard.validateEnvelope(local.envelope)) !==
+      JSON.stringify(window.LAIDIESResidentCard.validateEnvelope(remote.document));
+    show("rcAccountUpdate", !!hasDifferentLocalCard);
     show("rcAccountNoCard", signedIn && !remote && (!local || local.state !== "saved"));
     show("rcAccountCloset", signedIn && !!remote);
 
@@ -108,18 +112,25 @@
   }
 
   async function claimLocalCard() {
-    var button = byId("rcAccountClaimButton");
-    button.disabled = true;
+    var buttons = [byId("rcAccountClaimButton"), byId("rcAccountUpdateButton")];
+    if (buttons.some(function (button) { return button && button.disabled; })) return;
+    buttons.forEach(function (button) { if (button) button.disabled = true; });
     setStatus("Keeping this Card with your account…", "neutral");
     try {
+      var current = await runtime.client.auth.getSession();
+      if (current.error || !current.data.session || !state.session ||
+          current.data.session.user.id !== state.session.user.id) {
+        throw new Error("The signed-in account changed. Reload this desk before keeping a Card.");
+      }
       var local = runtime.localCard();
-      var result = await runtime.controller.claimLocalCard(local.envelope, crypto.randomUUID(), null);
+      var revision = state && state.remote && state.remote.card && state.remote.card.revision || null;
+      var result = await runtime.controller.claimLocalCard(local.envelope, crypto.randomUUID(), revision);
       if (!result.localPreserved) throw new Error("The local Card was not preserved after claim.");
       await refresh();
     } catch (error) {
       setStatus(error && error.message ? error.message : "The Card could not be kept with this account.", "error");
     } finally {
-      button.disabled = false;
+      buttons.forEach(function (button) { if (button) button.disabled = false; });
     }
   }
 
@@ -128,6 +139,11 @@
     button.disabled = true;
     setStatus("Restoring your account-backed Card to this browser…", "neutral");
     try {
+      var current = await runtime.client.auth.getSession();
+      if (current.error || !current.data.session || !state.session ||
+          current.data.session.user.id !== state.session.user.id) {
+        throw new Error("The signed-in account changed. Reload this desk before restoring a Card.");
+      }
       var remote = state && state.remote && state.remote.card;
       runtime.writeLocalEnvelope(remote.document);
       setStatus("Restored. This browser now uses your account-backed Card and signed-in continuation.", "success");
@@ -160,6 +176,7 @@
     if (!form) return;
     form.addEventListener("submit", requestLink);
     byId("rcAccountClaimButton").addEventListener("click", claimLocalCard);
+    byId("rcAccountUpdateButton").addEventListener("click", claimLocalCard);
     byId("rcAccountRestoreButton").addEventListener("click", restoreRemoteCard);
     var signOutButton = byId("rcAccountSignOut");
     if (signOutButton) signOutButton.addEventListener("click", signOut);

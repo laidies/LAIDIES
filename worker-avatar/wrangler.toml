@@ -1,13 +1,18 @@
 # LAiDIES avatar maker — Cloudflare Worker.
-# Photo -> vision description -> prompt (+ user traits) -> Flux pixel character.
+# Authenticated description/photo -> three bounded OpenAI pixel portraits.
 # Deploy from this dir:  wrangler deploy
 name = "laidies-avatar"
 main = "avatar.js"
-compatibility_date = "2026-06-25"
+compatibility_date = "2026-08-30"
 
-[ai]
-binding = "AI"
+# OPENAI_API_KEY remains an existing Worker secret, never a browser value.
+[vars]
+SUPABASE_URL = "https://swqnkxzebxdbgyrzpdne.supabase.co"
+SUPABASE_PUBLISHABLE_KEY = "sb_publishable_7O-8aXJ7iNj41f2jatytZA_2llRkNtW"
+GENERATION_ENABLED = "true"
+ALLOW_LOCALHOST = "false"
 
-# Cloudflare Images binding — used to convert HEIC/any upload to PNG server-side.
-[images]
-binding = "IMAGES"
+[[d1_databases]]
+binding = "PORTRAIT_USAGE"
+database_name = "laidies-portrait-usage"
+database_id = "37ec877d-26d6-4d7b-8212-8a4e8ba6ea5b"

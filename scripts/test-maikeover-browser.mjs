@@ -157,15 +157,14 @@ try {
   }
   check(JSON.stringify(observedDrawerOrder) === JSON.stringify(drawerOrder),
     `seven-drawer Tab order is not logical (${observedDrawerOrder.join(" → ")})`);
-  check(await page.locator("#moMake").count() === 0,
-    "held portrait booth still exposes a generation control");
-  check(await page.locator("#moPhoto").count() === 0,
-    "held portrait booth still exposes a photo input");
+  check(await page.locator("#moMake").count() === 1,
+    "restored portrait booth is missing generation control");
+  check(await page.locator("#moPhoto").count() === 1,
+    "restored portrait booth is missing optional photo input");
   check(await contrastRatio(page, "#moPersistenceState", "#moPersistenceState") >= 4.5,
     "persistence-state computed text contrast is below 4.5:1");
-  check((await page.locator("#moPortraitHold").innerText())
-    .includes("No photo picker, description prompt or portrait provider is loaded"),
-  "held portrait booth does not explain that provider and intake controls are absent");
+  check(await page.locator("#moPhotoConsent").count() === 1,
+    "restored photo intake is missing explicit provider consent");
   const focusContrast = await page.evaluate(() => {
     const parse = (value) => {
       const match = String(value).match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)/);

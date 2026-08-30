@@ -853,3 +853,18 @@ footer {
     transition: none;
   }
 }
+.mo-portrait-note { font-size: 13px; line-height: 1.6; margin: 12px 0; }
+.mo-portrait-modes { display: flex; flex-wrap: wrap; gap: 12px; border: 1px solid var(--rose); border-radius: 12px; margin: 16px 0; }
+.mo-portrait-modes label, .mo-portrait-consent { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+#moDescriptionPanel textarea { display: block; width: 100%; box-sizing: border-box; font: inherit; padding: 10px; border: 1px solid var(--rose); border-radius: 10px; }
+#moPhoto { display: block; width: 100%; max-width: 100%; margin: 12px 0; }
+#moPhotoPanel[hidden], #moDescriptionPanel[hidden], #moPortraitSignIn[hidden] { display: none !important; }
+.mo-portrait-action { min-height: 44px; padding: 12px 18px; margin: 10px 4px 10px 0; border: 2px solid var(--rose); border-radius: 24px; background: var(--rose); color: var(--cream); font: inherit; font-weight: 700; cursor: pointer; }
+.mo-portrait-action.secondary { background: var(--cream); color: var(--plum); }
+.mo-portrait-action:disabled { opacity: .55; cursor: wait; }
+.mo-portrait-candidates { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-top: 12px; }
+.mo-portrait-candidate { min-width: 0; padding: 3px; border: 3px solid transparent; border-radius: 10px; background: var(--cream); cursor: pointer; }
+.mo-portrait-candidate[aria-pressed="true"] { border-color: var(--rose); }
+.mo-portrait-candidate img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.mo-portrait-action:focus-visible, .mo-portrait-candidate:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }
+.mo-chips .chip { min-height:44px; }

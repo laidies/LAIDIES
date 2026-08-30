@@ -65,6 +65,10 @@
 
 ## Decision
 
+### 2026-08-30 — recover the original generated portrait workflow
+
+Ali explicitly requested recovery of the era/decade and accessory portrait controls and the existing API integration. Preserve the six original era choices (any, 1990, 1995, 2000, 2005, 2010), nine outfits, eleven accessories (at most four selected), eight backdrops and three selectable generated portraits. Verified sign-in plus durable per-account/global daily caps guard paid generation; local styling and saving do not require an account. No automatic paid retries. Original photo uploads require explicit OpenAI-processing consent and are not persisted by LAiDIES. The selected, resized JPEG/PNG is bounded to 96 KiB decoded and can be saved in the private Card and its mutation history; neither removal from the current Card nor sign-out promises deletion of history or provider records. Existing-account Card updates are explicit and revision-checked. Release status remains BUILDING until tested publicly.
+
 Resident Card is the MAiKEOVER intake experience, not a generic account form.
 The page now moves through one salon arrival, one Post Office intake sheet, and
 one optional consultation. Existing authentication and profile code remains in

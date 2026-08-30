@@ -24,7 +24,7 @@ const document = {
     };
   }
 };
-const sandbox = { window: { document } };
+const sandbox = { window: { document, atob, btoa } };
 vm.createContext(sandbox);
 vm.runInContext(source, sandbox, {
   filename: "resident-card-contract-v1.js"
@@ -43,6 +43,13 @@ function parse(value) {
 }
 
 const validAsset = "/assets/brand/laidies-logo-square-pearl-512-v1.png";
+const raster = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a6X8AAAAASUVORK5CYII=';
+check(contract.isSafeRasterPortrait(raster), 'real bounded PNG passes');
+check(Boolean(parse({version:1,fields:{cardAvatarUrl:raster}})), 'PNG survives full Card envelope');
+check(!contract.isSafeRasterPortrait(raster.slice(0,-4)), 'truncated PNG is rejected');
+check(!contract.isSafeRasterPortrait(raster.replace('image/png','image/svg+xml')), 'raster relabeled SVG is rejected');
+check(!contract.isSafeRasterPortrait('data:image/png;base64,' + 'A'.repeat(131076)), 'oversized portrait is rejected');
+check(!contract.isSafeRasterPortrait(raster + '\n'), 'noncanonical base64 is rejected');
 check(Boolean(contract), "shared contract installs");
 check(Boolean(parse({ version: 1, fields: { displayName: "Ali" } })), "minimal valid envelope passes");
 check(Boolean(parse({

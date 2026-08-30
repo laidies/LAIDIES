@@ -14806,6 +14806,15 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How the newest note sent three finished products backward—and why release recovery needs a family tree, not just a timestamp.
 - **Publication status:** PRODUCTION RECOVERY / DEPLOYED AND PUBLICLY VERIFIED FOR RECOVERY SCOPE / FRESH SIGNED-IN TWO-DEVICE RESIDENT RECHECK OUTSTANDING.
 
+## BTB-490 — A portrait button is not a recovered portrait journey
+
+- **Date:** 2026-08-30
+- **Area:** Resident Card portrait restoration.
+- **Failure:** The July safety pause hid the era/outfit/accessory controls and disabled the actual API. Later Card validators admitted only packaged asset paths, the account desk lacked an existing-Card update control, the Closet skipped portrait-only Cards, and automatic account restoration could overwrite a newly edited local Card.
+- **Prevention:** Trace generation → candidate selection → bounded raster → atomic local save → explicit revision-checked account update → fresh-browser restoration. Test a portrait-only Card, malformed output, a failed paid request and divergent local/account copies. Never equate a successful image API call with a portable Card. Guard every paid batch with verified authentication, durable replay/quota checks and no automatic retries; photo processing needs explicit consent and accurate retention language.
+- **Outcome at prerelease:** Local regression failures were reproduced and fixed, an independent review found no production blocker, and a real scratch batch returned three images. The live photo/account journey is still required before release completion. Unrelated pre-existing Episode 03 hook failures are not waived by these scoped checks.
+- **Possible Behind the Build angle:** Why restoring a feature means following the user's data all the way home, not just unhiding its controls.
+
 ## BTB-489 — Restored frontend code cannot reach a database that no longer has a hostname
 
 - **Date:** 2026-08-29

@@ -7,12 +7,12 @@
   <meta name="description" content="MAiKEOVER on MAiN at MAiN Street No. 6 — the beauty parlor where LAiDIES are made and members come back. New here? Design your card. Coming back? See your card and what your week brought in.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260724-1">
-  <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260830-portrait-1">
+  <script src="/content/site/resident-card-contract-v1.js?v=20260830-portrait-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
     window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
@@ -88,7 +88,7 @@
       <p class="mo-section-kicker">The vanity drawers</p>
       <h2 style="margin-bottom:6px;">Pick up one tool at a time.</h2>
       <p class="sv-lede" style="margin-top:0;">Your choices update the mirror above. Style and save the card here; the Resident Card desk can separately request a private sign-in link.</p>
-      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Look drawer open · the portrait booth is getting a safety upgrade.</p>
+      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Look drawer open · choose your portrait style.</p>
 
       <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
 
@@ -121,12 +121,29 @@
           <!-- Avatar -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
-            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The AI portrait booth is temporarily closed for a safety upgrade.</strong> You can still style and save the rest of your Resident Card today. No photo leaves this page while the booth is closed.</p>
-            <div id="moPortraitHold" role="status" tabindex="-1" style="margin:0 0 12px; padding:12px 14px; border-left:6px solid var(--rose); background:#fff3f7; color:#2b1230; font-size:13px; font-weight:700;">
-              No photo picker, description prompt or portrait provider is loaded while the booth is closed. A future booth must pass consent, retention/deletion, safety, three-candidate comparison and save-contract review before these controls return.
+            <p>Use your photo or describe a person, then choose an era, outfit and up to four accessories. Make three portraits and pick your favourite.</p>
+            <p id="moPortraitAuth" role="status">Checking portrait sign-in…</p>
+            <a href="/resident-card.html#rcAccountTitle" target="_blank" rel="noopener" id="moPortraitSignIn">Sign in for portraits (opens a new tab)</a>
+            <p class="mo-portrait-note">Portraits need sign-in: two sets of three per account each day. Card styling and device-local saving do not.</p>
+            <fieldset class="mo-portrait-modes"><legend>Start your portrait</legend>
+              <label><input type="radio" name="moPortraitMode" value="scratch" checked> No photo — build one</label>
+              <label><input type="radio" name="moPortraitMode" value="photo"> Use my photo</label>
+            </fieldset>
+            <div id="moDescriptionPanel">
+              <label for="moDescribe">Describe your portrait</label>
+              <textarea id="moDescribe" maxlength="600" rows="3" placeholder="Hair, skin tone, glasses and the look you want"></textarea>
             </div>
-
-            <div id="moPortraitOptionsHeld" hidden aria-hidden="true">
+            <div id="moPhotoPanel" hidden>
+              <label for="moPhoto">Your photo (JPG, PNG or WebP; up to 8 MB)</label>
+              <input id="moPhoto" type="file" accept="image/jpeg,image/png,image/webp">
+              <label class="mo-portrait-consent"><input type="checkbox" id="moPhotoConsent">This is my photo, or I have permission to use it. I agree to send it to OpenAI to make these portraits.</label>
+            </div>
+            <details class="mo-portrait-note"><summary>Where your image goes</summary>
+              <p>Your description, choices and optional resized photo go to OpenAI. OpenAI may retain API inputs and outputs in abuse-monitoring logs for up to 30 days, with limited exceptions. <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">OpenAI data controls</a>.</p>
+              <p>LAiDIES does not put your source photo in its database or logs. Candidates stay in this page until you leave. Only the portrait you choose is included when you save your Card; keeping the Card with your account also stores that portrait privately with the Card and its change records.</p>
+              <p>Remove portrait clears it from the preview; save again to update the local Card, then explicitly update your account copy at the Resident Card desk. This does not erase earlier account history or provider logs.</p>
+            </details>
+            <div id="moPortraitOptions">
             <div class="mo-sub">The Era's Tour — pick one</div>
             <div class="mo-chips" id="moEra"></div>
             <p id="moEraDesc" style="margin:0 0 6px; font-size:12px; color:var(--plum-soft);"></p>
@@ -142,7 +159,10 @@
             <div class="mo-chips" id="moBackdrop"></div>
             </div>
 
-            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Portrait comparison is unavailable. The rest of the Resident Card maker remains open.</div>
+            <button type="button" id="moMake" class="mo-portrait-action">Make 3 portraits</button>
+            <button type="button" id="moClearPortrait" class="mo-portrait-action secondary">Remove portrait</button>
+            <div id="moCands" class="mo-portrait-candidates" role="group" aria-label="Choose your portrait"></div>
+            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Choose your look, then make your portraits.</div>
           </div>
 
           <!-- Background -->
@@ -337,6 +357,7 @@
           <div>
             <button type="button" id="moSave" style="background:var(--gold); color:var(--plum); border:0; border-radius:999px; padding:14px 30px; font-family:inherit; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Save my card ★</button>
             <a href="/laidies-card.html" id="moSeeCloset" style="display:none; margin-left:14px; color:var(--rose); font-weight:700; text-decoration:underline;">See it in my Closet →</a>
+            <p><a href="/resident-card.html#rcAccountTitle">After saving, keep or update my private account Card →</a></p>
             <div id="moSaveMsg" role="status" aria-live="polite" tabindex="-1" style="margin-top:10px; font-size:13px; color:#2c7d3c; min-height:18px;"></div>
           </div>
 
@@ -505,7 +526,7 @@
       if(state.avatar){
         var image = document.createElement('img');
         var safePreview = window.LAIDIESResidentCard &&
-          window.LAIDIESResidentCard.isSafeAssetPath(state.avatar);
+          window.LAIDIESResidentCard.isSafeAvatarSource(state.avatar);
         if (safePreview) {
           image.src = state.avatar;
           image.alt = 'avatar';
@@ -599,8 +620,23 @@
     $('moCarrySel').addEventListener('change', renderPreview);
     $('moNameInput').addEventListener('input', renderPreview);
 
-    // The portrait provider, photo intake and candidate renderer are excluded
-    // while the booth is held. Styling and device-local Card save remain.
+    window.LAIDIESPortraitChoices = Object.freeze({
+      extras: function () {
+        var extras = [A_ERA[eraIdx2].p, A_FIT[fitIdx2].p, A_BG[bgIdx2].p];
+        A_ACC.forEach(function (item, index) {
+          if (!accOn2[index]) return;
+          var name = $('moNameNeck').value.trim().replace(/[^a-zA-Z '-]/g, '').slice(0, 30);
+          extras.push(item.name && name ? item.p + ' reading ' + name : item.p);
+        });
+        return extras.filter(Boolean).join(', ');
+      }
+    });
+    window.addEventListener('laidies:portrait-selected', function (event) {
+      var portrait = event.detail && event.detail.image;
+      if (portrait !== '' && !window.LAIDIESResidentCard.isSafeRasterPortrait(portrait)) return;
+      state.avatar = portrait;
+      renderPreview();
+    });
 
     // ---- save ----
     function announceCardSave(message, color) {
@@ -626,7 +662,7 @@
         displayName: $('moNameInput').value.trim(),
         carry: $('moCarrySel').value,
         cardAvatarUrl: window.LAIDIESResidentCard &&
-          window.LAIDIESResidentCard.isSafeAssetPath(state.avatar)
+          window.LAIDIESResidentCard.isSafeAvatarSource(state.avatar)
           ? state.avatar
           : ''
       });
@@ -685,7 +721,7 @@
       else if ($('moBgChips').children[0]) { $('moBgChips').children[0].classList.add('on'); $('moBgChips').children[0].setAttribute('aria-pressed','true'); }
       var av = fields.cardAvatarUrl;
       if (av && window.LAIDIESResidentCard &&
-          window.LAIDIESResidentCard.isSafeAssetPath(av)) {
+          window.LAIDIESResidentCard.isSafeAvatarSource(av)) {
         state.avatar = av;
       }
       if(fields.song) $('moSongSel').value=fields.song;
@@ -1003,9 +1039,10 @@
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
-<script defer src="/content/site/maikeover-v2.js?v=20260823-query-boundary-1"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260830-portrait-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260830-portrait-1"></script>
 </body>
 </html>
