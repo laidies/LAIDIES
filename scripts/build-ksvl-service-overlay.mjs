@@ -10,7 +10,9 @@ const manifest=JSON.parse(fs.readFileSync(manifestArg,'utf8'));
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 if(manifest.identitySha256!==identity || sha(manifest.files.map(f=>`${f.sha256}  ${f.path}\n`).join(''))!==identity)throw Error('Base identity mismatch');
 const own=new Set(mode==='requests-only'?['radio.html']:['radio.html','laidies-card.html','content/site/resident-continuation-v1.js','content/site/resident-continuation-bootstrap-v1.js','content/site/sv-global-header.js']);
-const add=mode==='requests-only'?['content/site/ksvl-requests-v1.js']:mode==='stickers-only'?['content/site/ksvl-stickers-v1.js']:['content/site/ksvl-stickers-v1.js','content/site/ksvl-requests-v1.js'];
+const requested=mode==='requests-only'?['content/site/ksvl-requests-v1.js']:mode==='stickers-only'?['content/site/ksvl-stickers-v1.js']:['content/site/ksvl-stickers-v1.js','content/site/ksvl-requests-v1.js'];
+const add=requested.filter(file=>!manifest.files.some(r=>r.path===file));
+for(const file of requested)if(!add.includes(file))own.add(file);
 const token='20260830-ksvl-service-1';
 export function cache(text){return text.replace(/((?:sv-global-header|resident-continuation-bootstrap-v1|resident-continuation-v1)\.js\?v=)20260830-closet-memory-1/g,`$1${token}`);}
 const output=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-ksvl-service.'));
