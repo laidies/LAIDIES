@@ -9,6 +9,7 @@ import vm from "node:vm";
 import { careerLaneErrors } from "./newsstand-career-lane.mjs";
 import { fileURLToPath } from "node:url";
 import { loadOrdinaryStoryCandidate, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
+import { loadServicePredecessor, carryIdentity, serviceEligible, validateServiceSelection } from "./newsstand-service-continuity.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
@@ -32,7 +33,7 @@ function parseStories(raw) {
   return JSON.parse(JSON.stringify(context.window.NEWSSTAND_DATA));
 }
 
-export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, root = ROOT }) {
+export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, servicePredecessor = null, root = ROOT }) {
   if (!DATE.test(date || "")) reject("--date must be YYYY-MM-DD");
   const allowedReceiptPaths = [
     path.join(root, `operations/agents/aidb-intelligence-desk/daily/${date}.md`),
@@ -61,9 +62,12 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   // Older bank entries remain opportunities, not permission to republish under
   // a new date. A reused service requires its own exactly admitted dated row.
   const eligiblePool = sameDateRecords;
-  const eligible = eligiblePool.filter((record) => record.editionDate <= date && types.includes(record.type) && PUBLIC.has(record.status) &&
-    record.publicEligibility === "ELIGIBLE" && record.freshness && record.freshness.expiresAt >= date)
+  const eligible = eligiblePool.filter((record) => types.includes(record.type) && serviceEligible(record, date))
     .sort((a, b) => String(b.editionDate).localeCompare(String(a.editionDate)));
+  const predecessor = servicePredecessor ? loadServicePredecessor(servicePredecessor, { root, date, storiesRaw, columns: columnsData }) : null;
+  for (const record of predecessor?.records || []) {
+    if (!eligible.some(item => item.type === record.type)) eligible.push(record);
+  }
   for (const record of eligible) {
     const laneErrors = careerLaneErrors(record, date);
     if (laneErrors.length) reject(`${record.id}: ${laneErrors.join('; ')}`);
@@ -77,7 +81,8 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     if (validated.publicationBaseRaw !== storiesRaw) reject("ordinary candidate publication base differs from current canonical source");
     if (storiesData.stories.some(story => story.id === validated.story.id || story.slug === validated.story.slug)) reject("ordinary candidate duplicates an incumbent ID or slug");
     exactStories.push(validated.story);
-    candidateIdentity = candidateBinding;
+    candidateIdentity = { ...candidateBinding, storyId: validated.story.id,
+      unpublishedState: { status: validated.story.status, publishedAt: validated.story.publishedAt, sourceApproval: validated.story.sourceApproval } };
   }
   const frontPaigeStory = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
     /^front-paige-/.test(String(story.id || "")) && ["published", "corrected"].includes(story.status) &&
@@ -96,7 +101,8 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     const record = eligible.find((item) => item.type === type);
     return record ? {
       type, state: "ready", recordId: record.id, headline: record.headline,
-      summary: record.summary, destination: record.destination || null
+      summary: record.summary, destination: record.destination || null,
+      ...(record.editionDate < date ? { carriedFrom: carryIdentity(predecessor.prior, record) } : {})
     } : {
       type, state: "empty", recordId: null,
       emptyState: columnsData.emptyStates && columnsData.emptyStates[type] || "No admitted item is filed in this desk."
@@ -117,11 +123,13 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     sourceIdentity: {
       radarPath: path.relative(root, radarPath), radarSha256: sha256(radarRaw),
       storiesPath: "content/newsstand-stories.js", storiesSha256: sha256(storiesRaw),
-      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {})
+      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {}),
+      ...(servicePredecessor ? { servicePredecessor } : {})
     },
     canonicalWrite: false,
     deployActionTaken: false
   };
+  validateServiceSelection({ desks, columns: columnsData, date, predecessor, canonicalIssue: storiesData.publications?.daily?.issue });
   return { envelope, canonical: `${canonicalJson(envelope)}\n`, sha256: sha256(`${canonicalJson(envelope)}\n`) };
 }
 
@@ -136,13 +144,15 @@ function main() {
   const radarPath = path.resolve(argument("--radar", args) || "");
   const output = path.resolve(argument("--output", args) || "");
   const candidatePath = argument("--story-candidate", args);
+  const predecessorPath = argument("--service-predecessor", args);
   if (!output.startsWith(`${PRIVATE_ROOT}${path.sep}`)) reject("output must remain inside the private Daily issue directory");
   if (!radarPath.startsWith(`${path.join(ROOT, "operations")}${path.sep}`) || !fs.existsSync(radarPath)) reject("editorial receipt must be an existing operations file");
   const radarRaw = fs.readFileSync(radarPath, "utf8");
   const storiesRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
   const columnsRaw = fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8");
   const candidateBinding = candidatePath ? { path: path.relative(ROOT, path.resolve(candidatePath)), sha256: sha256(fs.readFileSync(path.resolve(candidatePath))) } : null;
-  const result = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding });
+  const servicePredecessor = predecessorPath ? { path: path.relative(ROOT, path.resolve(predecessorPath)), sha256: sha256(fs.readFileSync(path.resolve(predecessorPath))) } : null;
+  const result = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding, servicePredecessor });
   fs.mkdirSync(path.dirname(output), { recursive: true });
   if (fs.existsSync(output) && fs.readFileSync(output, "utf8") !== result.canonical) reject("private envelope already exists; use a new revision filename rather than overwrite reviewed evidence");
   if (!fs.existsSync(output)) fs.writeFileSync(output, result.canonical, { flag: "wx" });

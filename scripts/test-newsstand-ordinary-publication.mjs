@@ -9,6 +9,7 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { execFileSync } from 'node:child_process';
+import { webcrypto } from 'node:crypto';
 import { buildDerivatives } from './build-newsstand-derivatives.mjs';
 import { composeDailyEnvelope } from './compose-daily-edition.mjs';
 import { promoteDailyIssue } from './promote-daily-edition.mjs';
@@ -120,7 +121,7 @@ assert.throws(() => projectDailySourceRaw({ root, raw: output, issue: admitted.i
 put(sourceBinding.path, 'Synthetic authority: This fixture changes one setting, not every product.\n');
 // Invoke the actual CLI boundary, including the resume/check commands. The
 // fixture root is derived from copied script locations, not a release bypass.
-for (const name of ['compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives', 'newsstand-career-lane']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
+for (const name of ['newsstand-service-continuity', 'newsstand-career-lane', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-reader-contract.js'), 'utf8'));
 const envelopePath = `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}-fixture-revision.json`;
 const decisionPath = `operations/product-stewards/newsstand/evidence/${date}-fixture-admission.json`;
@@ -140,4 +141,52 @@ assert.equal(fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'u
 assert.match(cli('build-newsstand-derivatives', []), /PASS/);
 assert.match(cli('build-newsstand-derivatives', ['--check']), /PASS/);
 assert.equal(fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8'), base, 'real canonical data must never change during tests');
+// Exercise the real client snapshot gate, not just story access eligibility.
+class FixtureDate extends Date { constructor(...a){super(...(a.length?a:[`${date}T23:00:00Z`]));}static now(){return Date.parse(`${date}T23:00:00Z`);} }
+const sandbox={window:{crypto:webcrypto,NEWSSTAND_DATA:publicData,localStorage:{getItem:()=>null}},document:{readyState:'loading',addEventListener(){}},Date:FixtureDate,TextEncoder,URL,Intl,Set};
+vm.runInNewContext(fs.readFileSync(path.join(SOURCE,'content/site/newsstand-catchup-v1.js'),'utf8').replace('})(window);',`global.test={validDailyIssueStore,set(c){columns=c;}};})(window);`),sandbox);
+sandbox.window.test.set(columns);
+assert.equal(await sandbox.window.test.validDailyIssueStore(admitted.store),true,sandbox.window.__newsstandDailyIssueValidationFailure);
+const changedState=structuredClone(admitted.store);changedState.issues.at(-1).sourceIdentity.ordinaryCandidate.unpublishedState.status='published';
+assert.equal(await sandbox.window.test.validDailyIssueStore(changedState),false,'changed original candidate state fails envelope identity');
+// Actual reviewed ordinary candidate + seven original-date services in one
+// new issue, through composer, admission, projection, derivatives and reader.
+const oldDate='2026-08-29';
+const carryColumns={...columns,records:columns.records.filter(r=>r.editionDate===date).map(r=>({...r,editionDate:oldDate}))};
+assert.equal(carryColumns.records.length,7);
+const carryData=structuredClone(dataset);
+carryData.publications.daily.editionDate=oldDate;
+carryData.publications.daily.issue={status:'complete',storyIds:[],serviceRecordIds:[],frontPaigeStoryId:original.frontPaigeStoryId,weeklyStoryId:original.weeklyStoryId};
+const encode=v=>`window.NEWSSTAND_DATA = ${JSON.stringify(v,null,2)};\n`;
+const oldRadar=`operations/agents/aidb-intelligence-desk/daily/${oldDate}.md`, oldRadarRaw=`${oldDate}\n- **NewsStand:** NO NEW HANDOFF. Synthetic prior publication.\n`;
+put(oldRadar,oldRadarRaw);put('content/newsstand-stories.js',encode(carryData));put('content/daily-edition-columns.json',carryColumns);
+const priorEnvelope=composeDailyEnvelope({root,date:oldDate,radarPath:path.join(root,oldRadar),radarRaw:oldRadarRaw,storiesRaw:encode(carryData),columnsRaw:JSON.stringify(carryColumns)});
+const priorDecision={...seedDecision,editionDate:oldDate,envelopeSha256:priorEnvelope.sha256,reviewedAt:oldDate+'T22:00:00Z'};
+const carriedPrior=promoteDailyIssue({root,store:{schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[]},envelope:priorEnvelope.envelope,envelopeRaw:priorEnvelope.canonical,decision:priorDecision,maker:'fixture-maker',now:date+'T23:00:00Z'});
+const carryBaseRaw=projectDailySourceRaw({root,raw:encode(carryData),issue:carriedPrior.issue,columns:carryColumns});
+const ev='operations/product-stewards/newsstand/evidence/ordinary-carry-fixture';
+const frozen={stories:put(`${ev}/stories.js`,carryBaseRaw),issues:put(`${ev}/issues.json`,carriedPrior.store),columns:put(`${ev}/columns.json`,carryColumns)};
+const publicPaths={stories:'content/newsstand-stories.js',issues:'content/newsstand-daily-issues.json',columns:'content/daily-edition-columns.json'};
+const files=Object.entries(publicPaths).map(([k,p])=>({path:p,sha256:frozen[k].sha256})).sort((a,b)=>a.path.localeCompare(b.path));
+const identity=sha256(files.map(f=>`${f.sha256}  ${f.path}\n`).join(''));
+const deploymentId='12345678-1234-1234-1234-123456789abc';
+const proof=put(`${ev}/proof.json`,{schemaVersion:'newsstand-service-predecessor-v1',deploymentId,predecessorEnvelopeSha256:carriedPrior.issue.envelopeSha256,...frozen,
+  manifest:put(`${ev}/manifest.json`,{schema:'laidies-release-artifact-manifest/v1',identitySha256:identity,files}),
+  verification:put(`${ev}/verification.json`,{schemaVersion:'newsstand-service-predecessor-verification-v1',deploymentId,providerHeadId:deploymentId,artifactIdentitySha256:identity,checkedAt:date+'T20:00:00Z',limitation:'SYNTHETIC ONLY',observations:['https://laidies.ai','https://12345678.laidies-sunnyvaile.pages.dev'].flatMap(origin=>Object.entries(publicPaths).map(([k,p])=>({url:origin+'/'+p,status:200,sha256:frozen[k].sha256})))})});
+const carryPackage={...candidate,publicationBase:put(`${prefix}/carry-base.js`,carryBaseRaw)};
+const carryCandidateBinding=put(`${prefix}/carry-candidate.json`,carryPackage);
+put('content/newsstand-stories.js',carryBaseRaw);put('content/daily-edition-columns.json',carryColumns);
+const combined=composeDailyEnvelope({root,date,radarPath:path.join(root,radarPath),radarRaw,storiesRaw:carryBaseRaw,columnsRaw:JSON.stringify(carryColumns),candidateBinding:carryCandidateBinding,servicePredecessor:proof});
+const combinedDecision={...seedDecision,envelopeSha256:combined.sha256,reviewedAt:date+'T22:00:00Z'};
+const combinedResult=promoteDailyIssue({root,store:carriedPrior.store,envelope:combined.envelope,envelopeRaw:combined.canonical,decision:combinedDecision,maker:'fixture-maker',now:date+'T23:00:00Z'});
+verifyProjectionAdmission({root,issue:combinedResult.issue,envelopeRaw:combined.canonical,decision:combinedDecision});
+const combinedRaw=projectDailySourceRaw({root,raw:carryBaseRaw,issue:combinedResult.issue,columns:carryColumns});
+assert.equal(projectDailySourceRaw({root,raw:combinedRaw,issue:combinedResult.issue,columns:carryColumns}),combinedRaw);
+assert.equal(combinedResult.issue.serviceRecordIds.length,7);assert.ok(combinedResult.issue.storyIds.includes(story.id));
+assert.ok(combinedResult.issue.desks.filter(d=>d.state==='ready').every(d=>d.carriedFrom.originalEditionDate===oldDate));
+const combinedDerived=buildDerivatives({storyRaw:combinedRaw,columns:carryColumns,issues:combinedResult.store});
+assert.equal(combinedDerived.archive.items.filter(i=>i.kind==='service').length,7);
+assert.ok(combinedDerived.archive.items.filter(i=>i.kind==='service').every(i=>i.editionDate===oldDate));
+sandbox.window.test.set(carryColumns);
+assert.equal(await sandbox.window.test.validDailyIssueStore(combinedResult.store),true,sandbox.window.__newsstandDailyIssueValidationFailure);
 console.log(`ORDINARY NEWS PIPELINE PASS private_composition=1 first_issue=1 same_day_append=1 published_only_after_admission=1 incumbents_preserved=1 repeat_and_resume=1 base_drift_rejected=1 review_mutations_rejected=${rejected} human_gate_preserved=1 real_cli=1 feed_archive_reader=1 fixture=${root} REAL_PUBLIC_WRITES=0`);

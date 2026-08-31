@@ -362,6 +362,69 @@ newer. Missing or held Weekly remains unavailable; no ordinary story or Big
 Picture text is written by projection. Older service-bank rows are opportunities,
 not new-date permission: reuse requires an exactly admitted dated instance.
 
+### Exact published-service carry-forward (August 31 local repair)
+
+Carrying an existing publication is different from reissuing or reviewing prose.
+Pass `--service-predecessor operations/product-stewards/newsstand/evidence/<run>/service-predecessor.json`
+to the existing composer when retaining published desks. No automatic latest-by-type
+lookup is permitted. The proof uses schema `newsstand-service-predecessor-v1` and
+binds `deploymentId`, `predecessorEnvelopeSha256`, and `{path,sha256}` references
+named `stories`, `issues`, `columns`, `manifest`, and `verification`. All referenced
+bytes must be frozen under existing private NewsStand evidence, never a deployed
+input directory. The manifest is the exact current complete production manifest.
+The three source references are the exact published stories, issue store and column
+store; their hashes must match the manifest and both live origins.
+
+The verification record uses `newsstand-service-predecessor-verification-v1`,
+`deploymentId`, freshly observed `providerHeadId`, `artifactIdentitySha256`,
+`checkedAt`, and six `observations` (`url`, `status:200`, `sha256`): all three public
+paths on the custom and immutable origins. Record the real provider/origin checks,
+never synthetic or inferred observations. Its check must fall on the issue's
+Vancouver editorial day and precede independent issue admission by at most 24 hours.
+Independent issue review must inspect that evidence's provenance; hashes and
+observation JSON alone are not an independent review or a live provider check.
+Recheck head/coordination immediately before any separately authorized release.
+
+Only exact prior `serviceRecordIds` with unchanged full record bytes and matching
+prior desk snapshots are carry candidates. A ready carried desk has `carriedFrom`
+with predecessor `editionDate`, `envelopeSha256`, full `recordSha256`, and the
+service's `originalEditionDate`. This metadata is included in the new envelope's
+independent admission. It does not reseal or refresh historical prose reviews.
+Original IDs, publication/event dates, destinations, review paths, expiry and
+retirement remain untouched. Held, ineligible, expired and retired entries are
+withheld; changed originals or mismatched predecessor proofs reject the transaction.
+
+An exactly admitted new dated service may replace its desk through the normal
+admission path. A Concept successor is considered on Wednesday; omitting the carry
+proof or expiry of the prior concept cannot bypass that cadence. With no admitted
+successor, the eligible incumbent remains under its original date. No existing
+Concept means an initial admitted Concept can be filed without pretending it is a
+weekly replacement. Historical same-date reproduction is not a new successor.
+
+Projection preserves a checksum-bound current issue. Reader loading requires that
+exact issue and the matching column records; failure does not expose arbitrary bank
+rows. Carried cards show their original publication date. Back issues retain each
+appearance, while archive/Catch Me Up do not turn repeated appearances into newly
+dated service publications. The original source text and receipts are not modified.
+
+Run `node scripts/test-newsstand-service-continuity.mjs` alongside the ordinary
+publication, next-cycle, promoter, publisher, service-reader and derivative tests.
+These are synthetic integrity/behavior regressions, not editorial approval or public
+verification. Do not include the earlier local August31 service rotation in a news
+release merely because it is in this checkout. Start from the freshly confirmed
+published service bytes; use Library's verified successor as the eventual base.
+
+The ordinary candidate's existing source-identity binding additionally records its
+`storyId` and exact `unpublishedState` (`status`, `publishedAt`, `sourceApproval`).
+The package validator checks these against the actual frozen candidate. The client
+uses that state only to reconstruct the admitted private envelope checksum; it
+continues displaying the admitted published snapshot. This prevents promotion's
+three state changes from invalidating the original envelope on the reader. Both
+governed dated radar paths (AIDB and editorial-intake) are accepted consistently.
+The ordinary regression now tests a reviewed synthetic article and seven carried
+services together through the real client issue-validation gate, not just the
+story access predicate.
+
 Do not rerun the promoter after projection: its input checksum deliberately binds
 the pre-projection canonical bytes. Use the projector's `--check` for idempotence.
 

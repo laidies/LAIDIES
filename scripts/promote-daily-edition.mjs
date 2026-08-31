@@ -9,6 +9,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { projectDailySourceRaw } from "./publish-daily-edition.mjs";
 import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
+import { loadServicePredecessor, validateServiceSelection } from "./newsstand-service-continuity.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORE_PATH = path.join(ROOT, "content/newsstand-daily-issues.json");
@@ -118,7 +119,7 @@ function validateEnvelope(value, root = ROOT) {
     reject("story snapshots do not match story IDs");
   }
   const candidateBinding = value.sourceIdentity?.ordinaryCandidate;
-  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(candidateBinding ? ["ordinaryCandidate"] : [])], "sourceIdentity");
+  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
   const candidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate }).story : null;
   const allowedReceiptPaths = [
     `operations/agents/aidb-intelligence-desk/daily/${value.editionDate}.md`,
@@ -146,7 +147,7 @@ function validateEnvelope(value, root = ROOT) {
     if (!desk || !types.includes(desk.type) || deskTypes.has(desk.type)) reject("Daily desk types are invalid");
     deskTypes.add(desk.type);
     if (desk.state === "ready") {
-      exactKeys(desk, ["type", "state", "recordId", "headline", "summary", "destination"], `ready desk ${desk.type}`);
+      exactKeys(desk, ["type", "state", "recordId", "headline", "summary", "destination", ...(desk.carriedFrom ? ["carriedFrom"] : [])], `ready desk ${desk.type}`);
       if (!desk.recordId || !desk.headline || !desk.summary || !(desk.destination === null || typeof desk.destination === "string")) reject(`ready desk ${desk.type} is invalid`);
     } else if (desk.state === "empty") {
       exactKeys(desk, ["type", "state", "recordId", "emptyState"], `empty desk ${desk.type}`);
@@ -156,6 +157,9 @@ function validateEnvelope(value, root = ROOT) {
   const readyIds = value.desks.filter((desk) => desk.state === "ready").map((desk) => desk.recordId);
   if (new Set(readyIds).size !== readyIds.length) reject("ready desk record IDs are duplicated");
   const columnData = JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
+  const predecessor = value.sourceIdentity.servicePredecessor ? loadServicePredecessor(value.sourceIdentity.servicePredecessor, {
+    root, date: value.editionDate, columns: columnData, storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8')
+  }) : null;
   for (const desk of value.desks.filter((item) => item.state === "ready")) {
     const record = (columnData.records || []).find((item) => item.id === desk.recordId && item.editionDate <= value.editionDate &&
       ["APPROVED", "PUBLISHED", "CORRECTED"].includes(item.status) && item.publicEligibility === "ELIGIBLE" &&
@@ -165,6 +169,7 @@ function validateEnvelope(value, root = ROOT) {
   }
   const storiesContext = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), "utf8"), storiesContext, { timeout: 1000 });
+  validateServiceSelection({ desks: value.desks, columns: columnData, date: value.editionDate, predecessor, canonicalIssue: storiesContext.window.NEWSSTAND_DATA.publications?.daily?.issue });
   const canonicalStories = storiesContext.window.NEWSSTAND_DATA.stories || [];
   if (candidate && (!value.storyIds.includes(candidate.id) || canonicalStories.some(story => story.id === candidate.id || story.slug === candidate.slug))) reject("ordinary candidate is absent from issue or duplicates an incumbent");
   for (const [index, id] of value.storyIds.entries()) {
@@ -211,6 +216,9 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   if (canonicalJson(parsedEnvelope) !== canonicalJson(envelope)) reject("envelope raw/object mismatch");
   envelope = parsedEnvelope;
   validateEnvelope(envelope, root);
+  if (envelope.sourceIdentity.servicePredecessor) loadServicePredecessor(envelope.sourceIdentity.servicePredecessor, {
+    root, date: envelope.editionDate, columns: JSON.parse(fs.readFileSync(path.join(root, envelope.sourceIdentity.columnsPath), 'utf8')), reviewedAt: decision.reviewedAt
+  });
   const successorDecision = decision && decision.schemaVersion === "daily-issue-successor-admission-v1";
   const newsRevisionDecision = decision && decision.schemaVersion === "daily-issue-news-revision-admission-v1";
   const serviceRevisionDecision = decision && decision.schemaVersion === "daily-issue-service-revision-admission-v1";

@@ -9,6 +9,7 @@ import vm from "node:vm";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
+import { loadServicePredecessor, validateServiceSelection } from "./newsstand-service-continuity.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "content/newsstand-stories.js");
@@ -78,14 +79,20 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
       (weekly?.status === "current" && (!currentWeeklyId || weekly.editionDate > issue.editionDate))) {
     reject("Weekly continuity must preserve the exact current canonical pointer; Daily cannot replace or clear it");
   }
+  const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, {
+    root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt
+  }) : null;
+  if (predecessor && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
+  if (predecessor && stable(issue.serviceRecordIds) !== stable(issue.desks.filter(d => d.state === 'ready').map(d => d.recordId))) reject('service IDs differ from admitted desks');
+  if (issue.desks) validateServiceSelection({ desks: issue.desks, columns, date: issue.editionDate, predecessor, canonicalIssue: dataset.publications.daily.issue });
   for (const id of issue.serviceRecordIds) {
     const record = columns.records.find((item) => item.id === id);
-    const laneErrors = careerLaneErrors(record, issue.editionDate);
-    if (laneErrors.length) reject(`${id}: ${laneErrors.join('; ')}`);
-    if (!record || record.editionDate !== issue.editionDate || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
+    if (!record || (!predecessor && record.editionDate !== issue.editionDate) || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
         record.publicEligibility !== "ELIGIBLE" || !record.freshness || record.freshness.expiresAt < issue.editionDate) {
       reject(`service record ${id} is not exactly admitted for this date`);
     }
+    const laneErrors = careerLaneErrors(record, issue.editionDate);
+    if (laneErrors.length) reject(`${id}: ${laneErrors.join('; ')}`);
   }
   const timestamp = issue.admission.reviewedAt;
   if (!Number.isFinite(Date.parse(timestamp))) reject("admission timestamp is invalid");
@@ -102,6 +109,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
       weeklyStoryId: issue.weeklyStoryId || null,
       storyIds: [...issue.storyIds],
       serviceRecordIds: [...issue.serviceRecordIds],
+      ...(predecessor ? { envelopeSha256: issue.envelopeSha256 } : {}),
       ...(issue.disposition === "quiet" ? { sourceIdentity: { radarSha256: issue.sourceIdentity.radarSha256 } } : {})
     },
     status: "current",
@@ -117,7 +125,8 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
 
 export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
-  const baseRaw = ordinary ? ordinary.publicationBaseRaw : raw;
+  const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
+  const baseRaw = ordinary ? ordinary.publicationBaseRaw : predecessor ? predecessor.storiesRaw : raw;
   if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");
   const context = { window: {} };
   vm.runInNewContext(baseRaw, context, { timeout: 1000 });
@@ -126,7 +135,7 @@ export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
   const end = baseRaw.indexOf("\n};", start);
   if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
   const nextRaw = baseRaw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + baseRaw.slice(end + 3);
-  if (ordinary && raw !== baseRaw && raw !== nextRaw) reject("ordinary publication base changed after review; retry is not exact projected output");
+  if ((ordinary || predecessor) && raw !== baseRaw && raw !== nextRaw) reject("publication base changed after review; retry is not exact projected output");
   return nextRaw;
 }
 

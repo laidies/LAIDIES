@@ -11,6 +11,7 @@ const SOURCE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "
 const ROOT = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'newsstand-promoter-regression-')));
 fs.mkdirSync(path.join(ROOT, 'scripts'), { recursive: true });
 fs.copyFileSync(path.join(SOURCE_ROOT, 'scripts/check-content-producer-contract.mjs'), path.join(ROOT, 'scripts/check-content-producer-contract.mjs'));
+fs.copyFileSync(path.join(SOURCE_ROOT, 'scripts/newsstand-service-continuity.mjs'), path.join(ROOT, 'scripts/newsstand-service-continuity.mjs'));
 fs.mkdirSync(path.join(ROOT, 'content'), { recursive: true });
 fs.copyFileSync(path.join(SOURCE_ROOT, 'content/newsstand-reader-contract.js'), path.join(ROOT, 'content/newsstand-reader-contract.js'));
 for (const relative of ['scripts/validate-newsstand-ordinary-story-candidate.mjs','scripts/check-prose-quality-admission.mjs','scripts/compose-daily-edition.mjs','scripts/promote-daily-edition.mjs','scripts/publish-daily-edition.mjs','content/newsstand-stories.js','content/daily-edition-columns.json','operations/agents/aidb-intelligence-desk/daily/2026-08-04.md','operations/agents/aidb-intelligence-desk/daily/2026-08-30.md']) {

@@ -230,7 +230,11 @@
       disposition: issue.disposition === "quiet" ? "QUIET" : issue.disposition === "service_ready" ? "SERVICE_READY" : "CANDIDATES_PENDING_REVIEW",
       status: issue.disposition === "quiet" ? "PRIVATE_QUIET_DRAFT" : "PRIVATE_REVIEW_DRAFT",
       storyIds: issue.storyIds,
-      storySnapshots: issue.stories,
+      storySnapshots: issue.stories.map(function (story) {
+        var candidate = issue.sourceIdentity.ordinaryCandidate;
+        return candidate && candidate.storyId === story.id && candidate.unpublishedState
+          ? Object.assign({}, story, candidate.unpublishedState) : story;
+      }),
       desks: issue.desks,
       sourceIdentity: issue.sourceIdentity,
       canonicalWrite: false,
@@ -260,7 +264,7 @@
           !Array.isArray(issue.storyIds) || !Array.isArray(issue.stories) || !Array.isArray(issue.serviceRecordIds) || !Array.isArray(issue.desks) ||
           issue.desks.length !== dailyDeskTypesForDate(issue.editionDate).length || !HASH.test(issue.envelopeSha256 || "") ||
           !issue.sourceIdentity || ![issue.sourceIdentity.radarSha256, issue.sourceIdentity.storiesSha256, issue.sourceIdentity.columnsSha256].every(function (hash) { return HASH.test(hash || ""); }) ||
-          issue.sourceIdentity.radarPath !== "operations/agents/aidb-intelligence-desk/daily/" + issue.editionDate + ".md" ||
+          ["operations/agents/aidb-intelligence-desk/daily/" + issue.editionDate + ".md", "operations/product-stewards/newsstand/editorial-intake/" + issue.editionDate + ".md"].indexOf(issue.sourceIdentity.radarPath) === -1 ||
           issue.sourceIdentity.storiesPath !== "content/newsstand-stories.js" ||
           issue.sourceIdentity.columnsPath !== "content/daily-edition-columns.json" ||
           !issue.admission || ["ACCEPT_LOCAL_CANONICAL_WRITE", "ACCEPT_LOCAL_CANONICAL_SUCCESSOR"].indexOf(issue.admission.decision) === -1 ||
@@ -284,6 +288,18 @@
       });
       if (!desksValid || new Set(readyIds).size !== readyIds.length ||
           readyIds.join("\n") !== issue.serviceRecordIds.join("\n")) return invalid("desk-binding:" + issue.editionDate);
+      for (var carriedDesk of issue.desks.filter(function (desk) { return desk.carriedFrom; })) {
+        var from = carriedDesk.carriedFrom;
+        var predecessors = value.issues.filter(function (prior) { return prior.editionDate === from.editionDate && prior.envelopeSha256 === from.envelopeSha256; });
+        var prior = predecessors[0];
+        var priorDesk = prior && prior.desks.find(function (desk) { return desk.state === "ready" && desk.recordId === carriedDesk.recordId && desk.type === carriedDesk.type; });
+        var record = columns && columns.records.find(function (item) { return item.id === carriedDesk.recordId; });
+        if (predecessors.length !== 1 || !priorDesk || !record || from.editionDate >= issue.editionDate ||
+            from.originalEditionDate !== record.editionDate || record.editionDate > from.editionDate ||
+            priorDesk.headline !== carriedDesk.headline || priorDesk.summary !== carriedDesk.summary || priorDesk.destination !== carriedDesk.destination ||
+            !HASH.test(from.recordSha256 || "") || await sha256Text(canonicalJson(record)) !== from.recordSha256 ||
+            (priorDesk.carriedFrom && priorDesk.carriedFrom.recordSha256 !== from.recordSha256)) return invalid("carried-service-binding:" + issue.editionDate);
+      }
       if (issue.stories.map(function (story) { return story && story.id; }).join("\n") !== issue.storyIds.join("\n")) return invalid("story-binding:" + issue.editionDate);
       if (issue.stories.some(function (snapshot) {
         return !snapshot || typeof snapshot.id !== "string" || snapshot.edition !== "daily" ||
@@ -436,12 +452,13 @@
   }
 
   function eligibleColumns() {
-    var today = availableThroughDate();
+    var today = editorialToday();
     return columns && Array.isArray(columns.records)
       ? columns.records.filter(function (record) {
-          return ["APPROVED", "PUBLISHED"].indexOf(record.status) !== -1 &&
+          return ["APPROVED", "PUBLISHED", "CORRECTED"].indexOf(record.status) !== -1 && record.editionDate <= today &&
             record.publicEligibility === "ELIGIBLE" && record.freshness &&
-            record.freshness.expiresAt >= today;
+            record.freshness.expiresAt >= today && (!record.availableUntil || record.availableUntil >= today) &&
+            (!record.retiredAt || record.retiredAt.slice(0, 10) > today);
         })
       : [];
   }
@@ -569,7 +586,7 @@
       var admittedColumn = columnById(desk.recordId);
         return admittedColumn && admittedColumn.id === desk.recordId ? desk : null;
     }
-    return columnFor(date, type) || null;
+    return null; // A bank row is not authority when the dated issue failed to load.
   }
 
   function renderFrontDesks() {
@@ -627,7 +644,9 @@
             return;
           }
         }
-        var content = illustration + label + '<strong>' + escapeHTML(desk.headline) + '</strong><span>' + escapeHTML(desk.summary) + '</span>';
+        var content = illustration + label + '<strong>' + escapeHTML(desk.headline) + '</strong>' +
+          (desk.carriedFrom ? '<span class="ns-service-date">Published ' + escapeHTML(formatDate(admittedColumn.editionDate)) + '</span>' : '') +
+          '<span>' + escapeHTML(desk.summary) + '</span>';
         if (type === "crossword" && serviceLink(desk.destination)) {
           node.innerHTML = '<a href="' + escapeHTML(desk.destination) + '">' + content + '<span class="ns-service-action">Play the crossword →</span></a>';
           return;
@@ -661,8 +680,7 @@
     var today = issue ? issue.desks.filter(function (desk) {
       var admittedColumn = columnById(desk.recordId);
       return desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
-    }) :
-      eligibleColumns().filter(function (record) { return record.editionDate === date; });
+    }) : [];
     var stories = currentDailyStories(date, issue);
     var tip = dailyDeskValue(issue, date, "paige_tip");
     var node = document.querySelector('[data-contents-for="daily"]');
@@ -696,7 +714,7 @@
     return [
       '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '">',
         '<p class="ns-daily-desk__label">', escapeHTML(label), '</p>',
-        '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? "In this edition" : "No item today"), '</p>',
+        '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? desk && desk.carriedFrom ? "Published " + formatDate(desk.carriedFrom.originalEditionDate) : "In this edition" : "No item today"), '</p>',
         '<h3>', escapeHTML(headline), '</h3>',
         '<p>', escapeHTML(body), '</p>',
         record ? '<a data-open-column="' + escapeHTML(record.id) + '" href="' + escapeHTML(columnHref(record.id)) + '">Read the full column →</a>' :
@@ -901,7 +919,7 @@
     }).flatMap(function (issue) {
       return issue.desks.filter(function (desk) {
         var admittedColumn = columnById(desk.recordId);
-        return desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
+        return desk.state === "ready" && !desk.carriedFrom && admittedColumn && admittedColumn.id === desk.recordId;
       }).map(function (desk) {
         return {
           key: "service:" + desk.recordId,
@@ -1128,16 +1146,24 @@
       .then(function (response) { if (!response.ok) throw new Error("daily-derivatives-unavailable"); return response.json(); })
       .then(function (value) { derivatives = value; })
       .catch(function () { derivatives = null; renderCatchup(); });
+    var columnsRequest = fetch("/content/daily-edition-columns.json", { credentials: "same-origin" })
+      .then(function (response) { if (!response.ok) throw new Error("daily-columns-unavailable"); return response.json(); })
+      .then(function (value) { columns = value; })
+      .catch(function () { columns = null; })
+      .finally(function () { columnsLoaded = true; });
     fetch("/content/newsstand-daily-issues.json", { credentials: "same-origin" })
       .then(function (response) { if (!response.ok) throw new Error("daily-issues-unavailable"); return response.json(); })
       .then(async function (value) {
+        await columnsRequest;
         if (!await validDailyIssueStore(value)) throw new Error("daily-issues-invalid");
         var canonicalDate = currentDailyDate();
         value.issues = value.issues.filter(function (issue) { return issue.editionDate <= canonicalDate; });
         var currentIssue = value.issues.find(function (issue) { return issue.editionDate === canonicalDate; });
         var canonicalIssue = data.publications && data.publications.daily && data.publications.daily.issue;
+        if (canonicalIssue && canonicalIssue.status === "complete" && !currentIssue) throw new Error("daily-current-snapshot-missing");
         if (currentIssue && canonicalIssue &&
-            (currentIssue.storyIds.join("\n") !== (canonicalIssue.storyIds || []).join("\n") ||
+            ((canonicalIssue.envelopeSha256 && canonicalIssue.envelopeSha256 !== currentIssue.envelopeSha256) ||
+             currentIssue.storyIds.join("\n") !== (canonicalIssue.storyIds || []).join("\n") ||
              currentIssue.serviceRecordIds.join("\n") !== (canonicalIssue.serviceRecordIds || []).join("\n") ||
              (currentIssue.frontPaigeStoryId || null) !== (canonicalIssue.frontPaigeStoryId || null) ||
              (currentIssue.weeklyStoryId || null) !== (canonicalIssue.weeklyStoryId || null))) {
@@ -1156,11 +1182,6 @@
       })
       .catch(function (error) { global.__newsstandDailyIssueError = String(error && error.message || error); dailyIssues = null; })
       .finally(function () { dailyIssuesLoaded = true; renderFrontDesks(); maybeOpenSharedDailyRequest(); });
-    fetch("/content/daily-edition-columns.json", { credentials: "same-origin" })
-      .then(function (response) { if (!response.ok) throw new Error("daily-columns-unavailable"); return response.json(); })
-      .then(function (value) { columns = value; updateDailyPaper(); renderCatchup(); })
-      .catch(function () { columns = null; updateDailyPaper(); renderCatchup(); })
-      .finally(function () { columnsLoaded = true; renderFrontDesks(); maybeOpenSharedDailyRequest(); });
     function recordPublicationView(event) {
       var detail = event && event.detail || {};
       markSeen(detail.key, detail.publicationAt);

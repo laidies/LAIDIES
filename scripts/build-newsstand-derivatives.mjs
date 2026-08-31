@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { validatePublicCarry } from "./newsstand-service-continuity.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORY_PATH = path.join(ROOT, "content/newsstand-stories.js");
@@ -129,13 +130,17 @@ export function buildDerivatives({ storyRaw, columns, issues }) {
       if (!historicallyBound) {
         reject(`admitted issue ${issue.editionDate} references ineligible service record ${recordId}`);
       }
+      const desk = issue.desks?.find(d => d.recordId === recordId && d.state === 'ready');
+      if (desk?.carriedFrom) validatePublicCarry(desk, issue, issues, record);
+      const original = desk?.carriedFrom ? issues.issues.find(i => i.editionDate === record.editionDate && i.status === 'complete' && i.admission && i.serviceRecordIds.includes(recordId)) : issue;
+      if (!original) reject(`carried service ${recordId} has no original publication`);
       serviceItems.push({
         id: `service:${record.id}`,
         kind: "service",
         edition: "daily",
         desk: record.type,
-        editionDate: issue.editionDate,
-        publishedAt: issue.admission.reviewedAt,
+        editionDate: original.editionDate,
+        publishedAt: original.admission.reviewedAt,
         headline: record.headline,
         summary: record.summary,
         themes: [...(record.themes || [])].sort(),

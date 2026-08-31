@@ -33,6 +33,9 @@ export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date } = {}) 
   if (!binding?.path?.startsWith("operations/product-stewards/newsstand/candidates/")) throw new Error("ordinary candidate must be private NewsStand candidate input");
   const candidate = JSON.parse(read(root, binding, "ordinary candidate package"));
   const result = validateOrdinaryStoryCandidate(candidate, { root });
+  if (binding.storyId !== undefined || binding.unpublishedState !== undefined) {
+    if (binding.storyId !== candidate.story.id || stable(binding.unpublishedState) !== stable({ status: candidate.story.status, publishedAt: candidate.story.publishedAt, sourceApproval: candidate.story.sourceApproval })) throw new Error('ordinary envelope pre-publication state differs from exact candidate');
+  }
   if (date && candidate.editionDate !== date) throw new Error("ordinary candidate date mismatch");
   return { ...result, candidate };
 }
