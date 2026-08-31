@@ -9,6 +9,12 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Current page-wide decisions
 
+- **Next textbook scope — Ali, 2026-08-31.** Alongside the renewed Who’s Who
+  brief, commission a ChatGPT guide, a Claude guide and a tool/application
+  selection guide. These are additive books; the labels below are working
+  descriptions, not newly approved cover titles. Scope is DECIDED; outlines
+  are PROPOSED; full manuscripts and publication remain HOLD. Detailed scope
+  and the relationship to existing books are recorded below.
 - Ali commissioned two additive living LIBRAiRY books on 2026-08-24:
   **Move 37: The Breakthroughs That Changed AI**, a sourced account of the
   pivotal technical and scientific moments that changed what AI could do and
@@ -39,6 +45,93 @@ This compact packet contains only current page-wide overrides, routing, active a
 - Topic demand separates “we have it but people cannot find it” from “we need coverage.” Passive records use controlled IDs only; explicit requests alone may store disclosed visitor text. Popularity never creates a promise or publication.
 - Puffy saves preserve whole-book versus exact-section scope. The first save attempt owns the Resident Card explanation; My Closet remains in the Sorority House.
 - Mobile explanation precedes what it explains; controls, covers and text remain readable without horizontal overflow. Desktop and mobile require real browser inspection.
+
+## Next practical textbooks — 2026-08-31
+
+**Shared acceptance:** Practical, nontechnical reference books with current
+best practices, useful tips and example prompts embedded in complete jobs.
+Show the starting materials, chosen product/mode, initial brief, actual
+output, inspection, revision and usable final deliverable. Explain what to
+change in each prompt and why; do not sell magic wording or a pile of prompts
+as a method. Candidate examples are not tested results until actually run.
+Include privacy, permissions, spend limits, backups and human approval before
+publishing, sending, deleting or making consequential external changes.
+
+### 2. ChatGPT guide
+
+- **Reader job:** Use ChatGPT to build finished work, not only discuss it.
+- **Proposed coverage:** Orientation and current modes; choosing task settings;
+  supplying files and context; projects, memory and reusable instructions;
+  research and source checking; documents, spreadsheets and presentations;
+  visual and interactive outputs; connected tools; building and revising
+  projects; verification, export and handoff; troubleshooting and usage costs.
+- **Explicit requested comparison:** ChatGPT, Cowork and Codex. Explain that
+  Cowork belongs to Claude/Anthropic. Include ChatGPT Chat and Work, Codex,
+  Claude chat, Cowork and Claude Code, without implying identical access,
+  capabilities or availability. Give a concrete same-job routing example.
+- **Proposed worked jobs:** Source-backed proposal and slide deck; budget or
+  planning spreadsheet with checked formulas; a small working tracker or web
+  tool. Choose the actual supported mode/tool after current verification.
+- **Existing material:** `content/library-books/tool-chatgpt.md` is a legacy
+  1,689-word tool entry sourced from superseded Grimoire material. Preserve
+  it as an inventory input; audit every retained claim and retire legacy
+  links in the successor. Do not publish it as the latest guide or silently
+  create a duplicate catalogue identity.
+
+### 3. Claude guide
+
+- **Reader job:** Complete equivalent practical jobs using Claude's actual
+  features and working methods, not a ChatGPT manuscript with names swapped.
+- **Proposed coverage:** Claude chat, Cowork and Claude Code; projects and
+  source context; artifacts and files; research; skills and connectors;
+  appropriate task delegation; directing revisions; recovering from failed
+  attempts; inspecting/exporting deliverables; privacy and usage controls.
+- **Proposed worked jobs:** Turn source documents into a report and slides;
+  organize a bounded set of copied files with a change manifest; create and
+  test a small interactive tool. Include tailored initial and follow-up
+  prompts, not assumed cross-product feature parity.
+- No standalone Claude manuscript was found in the inspected book-source
+  and current Library operations paths; this is a bounded inventory result.
+
+### 4. Tool/application selection guide
+
+- **Reader job:** Choose the simplest adequate tool or small combination for
+  the desired output, constraints and budget, including when no AI is needed.
+- **Proposed categories:** Writing/editing, research, documents/slides,
+  spreadsheets/data, coding/websites/apps, images/design, video/animation,
+  music, narration/voice, transcription/audio cleanup and automation.
+- Compare Claude versus ChatGPT on named tasks with the same inputs and
+  acceptance conditions. Record exact product, model/mode when exposed,
+  plan, test date, settings, output quality, manual repair and total cost.
+  Vendor feature documentation cannot establish a comparative winner.
+- Each recommendation explains: choose it when; avoid it when; adequate
+  alternative; learning effort; editable/export formats; cost and limits;
+  privacy; rights and commercial-use conditions; source and checked date.
+  Distinguish narration from conversational voice and transcription, and
+  music generation from editing and licensed stock. Voice cloning needs
+  consent. A paid plan does not by itself settle privacy or usage rights.
+- No standalone selection manuscript was found in the inspected paths.
+
+### Ownership, freshness and next production step
+
+- Working with AI 101 owns the transferable brief/context/inspect/verify/
+  revise workflow. Its current intake already covers product-mode mapping;
+  retain one maintained explanation and adapt/link it in the new guides.
+- Who’s Who owns companies, people and industry relationships. The selection
+  guide owns task-fit comparisons; vendor guides own product-specific how-to.
+- Use the existing Library versioning/correction system. Date volatile tool
+  cards and verify plan, region, device, rollout, access and rights claims
+  before release. The requested latest coverage is not fulfilled by old notes.
+- Official orientation checked this turn: [OpenAI desktop Chat/Work/Codex](https://learn.chatgpt.com/docs/app),
+  [ChatGPT Work execution and access](https://learn.chatgpt.com/docs/enterprise/chatgpt-work-overview),
+  [Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork),
+  and [Claude Code](https://code.claude.com/docs/en/overview).
+  This establishes scope distinctions, not a complete feature audit or test.
+- Next: reconcile the existing ChatGPT entry, build bounded feature/source
+  inventories for both vendor guides, then bind production contracts and run
+  one comparable project in each before expanding. Do not begin full drafts
+  from these outline bullets alone. No roster of recommended media tools has
+  yet been researched or tested, and no catalogue or live-page change is made.
 
 ## Route by task
 

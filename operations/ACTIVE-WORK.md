@@ -4,6 +4,24 @@
 
 ## Current task
 
+### 2026-08-31 — practical-guide scope additions
+
+- **Status:** THREE BOOK JOBS DECIDED / OUTLINES PROPOSED / MANUSCRIPTS HOLD.
+- **Ali's additions:** ChatGPT guide with latest practices, tips and prompts
+  for finished projects plus ChatGPT/Cowork/Codex distinctions; equivalent
+  Claude-specific guide; task-led tool/application selection including music
+  and narration. Full scope: `operations/library-decisions.md`, Next practical
+  textbooks section. These add to Who’s Who; they do not abandon that work.
+- **Verified:** Existing legacy ChatGPT entry and Working with AI 101 overlap;
+  official OpenAI/Anthropic orientation documents. No task comparisons or
+  full current feature audit have been run.
+- **Next:** Reconcile legacy ChatGPT material; source product-specific feature
+  inventories; prepare one common end-to-end project for both vendor guides.
+  Who’s Who resumes at its source/coverage audit below.
+- **Preserved:** Existing manuscripts, renders, catalogue and live site.
+  The previously recorded missing `operations/context-authority.json` remains
+  unresolved; its failing startup check is not rerun for these scope additions.
+
 ### 2026-08-31 — Who’s Who textbook continuation
 
 - **Status:** SPECIFIED / COVERAGE EXPANSION PROPOSED / MANUSCRIPT HOLD.
