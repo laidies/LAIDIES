@@ -74,6 +74,9 @@ Ali's header-placement correction keeps Contents on the left and groups Save
 and Top on the right with the other book actions. Do not leave Save and Top
 clustered beside Contents while Back alone consumes the right edge. Preserve
 the same grouping when the header reflows onto a second row.
+Save and Top use thin rounded outlines consistent with Contents and Back:
+the floppy remains a compact square button, Top a small text button, with no
+heavy borders or offset shadows (Ali approved, 2026-08-30).
 
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`

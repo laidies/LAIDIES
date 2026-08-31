@@ -14798,6 +14798,10 @@ while remaining falsely unfinished in the launch record.
 - **Verification:** Four books at nine widths pass; injected old grouping fails. Independent local pixel review confirms right grouping with no clipping. No public deployment.
 - **Behind the Build angle:** Whitespace communicates which controls belong together.
 
+### Thin-outline follow-up
+
+- Shared button resets outrank low-specificity per-control styles. The approved Save/Top border rule must target the actual header action buttons; source declarations alone do not establish visible outlines. Verified computed 1px borders, 8px corners and no shadow plus 320/1710px pixel review. Four-book nine-width checks still pass; local only.
+
 ## Compact reader artwork omission — 2026-08-30
 
 - **Failure:** The full-width correction retained a near-blank mobile raster at the user's actual 700px pane; center-cover cropping removed most remaining edge decoration. Previous desktop/phone review missed this intermediate view and cannot establish compact visual acceptance.

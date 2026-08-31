@@ -6,9 +6,10 @@
 
 - **Task ID:** LIBRARY-RIGHT-HEADER-ACTIONS-20260830
 - **Status:** VERIFIED LOCALLY — not deployed
-- **Goal and result:** Ali requested Save and Top on the right. Contents remains separate at the left of the action row; Save, Top and Back are grouped together on the right at desktop and compact widths. Artwork, manuscripts and interactions are unchanged.
+- **Goal and result:** Ali requested Save and Top on the right, then approved thin rounded outlines. Contents remains separate at the left of the action row; Save, Top and Back are grouped together on the right at desktop and compact widths. Save is a 44px square; Save and Top have 1px purple borders, 8px rounded corners and no shadow. Artwork, manuscripts and interactions are unchanged.
 - **Verification:** Four-book nine-width browser suite passes. Injecting the old left-side action arrangement fails the new grouping guard. Maker and independent screenshot review at 660/320/1710px found no clipping, title collision or art regression. Captures: `/tmp/library-right-actions.iRSwo3/`. The stylesheet has an explicit new cache token so the preview loads the correction.
 - **Next action:** Inspect refreshed local preview. No deployment or public-origin verification performed; production artifact reconciliation remains mandatory before any future release.
+- **Outline verification:** All four books still pass the nine-width reader suite. Actual browser computed styles confirm 1px borders, 8px radius and no shadow. Maker plus independent review of `/tmp/library-outlined-actions.fjdBiO/320.png` and `1710.png` found no clipping or visual blocker. Preview stylesheet cache token: `outlined-actions-v9`.
 
 ## Previous compact artwork correction
 
