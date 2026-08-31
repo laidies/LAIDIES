@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const source=fs.readFileSync('content/site/resident-necklaces-v1.js','utf8');
+function api(text=source){const window={setTimeout,clearTimeout,document:{readyState:'loading',addEventListener(){}}};vm.runInNewContext(text,{window});return window.LAIDIESResidentNecklacesV1;}
+let actor={user:{id:'resident-a'},access_token:'synthetic-a'},calls=0,draws=[];
+let response=async()=>({data:[{id:'event1',title:'BEST FRIENDS necklace',createdAt:'2026-08-31T00:00:00Z'}]});
+const runtime={controller:{getSession:async()=>actor},client:{rpc:name=>{assert.equal(name,'list_my_resident_necklaces_v1');return {setHeader:async(key,value)=>{calls++;assert.equal(key,'Authorization');assert.equal(value,'Bearer '+actor.access_token);return response();}};}}};
+const c=api().create(runtime,(rows,message)=>draws.push({rows,message}));
+await c.refresh();assert.equal(draws.at(-1).rows.length,1,'private generic necklaces render without public handle');
+actor=null;const prior=calls;await c.refresh();assert.equal(calls,prior);assert.equal(draws.at(-1).rows,null,'guest cannot keep old private collection');
+actor={user:{id:'resident-a'},access_token:'synthetic-a'};
+response=async()=>{actor={user:{id:'resident-b'},access_token:'synthetic-b'};return {data:[{id:'event1',title:'BEST FRIENDS necklace',createdAt:'2026-08-31'}]};};
+await c.refresh();assert.equal(draws.at(-1).rows,null,'late collection response discarded after account switch');
+actor={user:{id:'resident-a'},access_token:'synthetic-a'};
+let finish;response=()=>new Promise(resolve=>finish=resolve);
+const inflight=c.refresh();while(!finish)await new Promise(resolve=>setTimeout(resolve,0));c.clear();finish({data:[{id:'event1',title:'BEST FRIENDS necklace',createdAt:'2026-08-31'}]});await inflight;
+assert.equal(draws.at(-1).rows,null,'logout event invalidates in-flight response');
+response=async()=>({data:[{id:'event1',title:'untrusted private handle',createdAt:'2026-08-31'}]});await c.refresh();assert.equal(draws.at(-1).rows,null,'unexpected projection fails closed');
+const mutant=api(source.replace("if(!after || after.user.id!==before.user.id)",'if(false)'));
+draws=[];actor={user:{id:'resident-a'},access_token:'synthetic-a'};
+response=async()=>{actor={user:{id:'resident-b'},access_token:'synthetic-b'};return {data:[{id:'event1',title:'BEST FRIENDS necklace',createdAt:'2026-08-31'}]};};
+await mutant.create(runtime,(rows,message)=>draws.push({rows,message})).refresh();
+assert.throws(()=>assert.equal(draws.at(-1).rows,null),'calibration rejects old-account collection disclosure');
+console.log('PASS necklaces: owner-bound generic projection, guest denial, logout/account-switch isolation, malformed data rejection; known-bad race rejected');

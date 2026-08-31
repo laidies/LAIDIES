@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://swqnkxzebxdbgyrzpdne.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>Invite a friend · LAiDIES</title>
+  <!-- This private invitation route deliberately has no analytics or session recording. -->
+  <script src="/content/site/resident-referrals-v1.js?v=20260831-1"></script>
+  <script defer src="/content/site/supabase-config.js?v=20260702-1"></script>
+  <script defer src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+  <script defer src="/content/site/identity-client-v1.js?v=20260729-continuation-1"></script>
+  <script defer src="/content/site/resident-account-runtime-v1.js?v=20260729-continuation-1"></script>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,sans-serif;color:#191629;background:#f9f4fc}
+    *{box-sizing:border-box}body{margin:0}main{max-width:58rem;margin:auto;padding:clamp(1rem,4vw,3rem)}
+    a{color:#52238c;text-underline-offset:.2em}nav{display:flex;flex-wrap:wrap;gap:1rem;padding:1rem 0}
+    h1{font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.05}h2{font-size:1.6rem}p{line-height:1.6}
+    section{margin:2rem 0;padding:clamp(1rem,3vw,2rem);border:2px solid #191629;background:#fff;box-shadow:7px 7px #61d4e5}
+    button,.action{display:inline-block;min-height:48px;padding:.8rem 1rem;margin:.35rem .5rem .35rem 0;border:2px solid #191629;background:#61d4e5;color:#191629;font:700 1rem system-ui;cursor:pointer;white-space:normal}
+    button:disabled{opacity:.55;cursor:wait}button:focus-visible,a:focus-visible,input:focus-visible{outline:4px solid #f041a3;outline-offset:3px}
+    label{display:block;font-weight:700}input{width:100%;min-height:48px;padding:.7rem;font:inherit;border:2px solid #191629}
+    li{padding:1rem 0;border-bottom:1px solid #c6b9d4;overflow-wrap:anywhere}ul{padding-left:1.3rem}
+    #referralStatus{border-left:5px solid #b04491;padding:1rem;min-height:4rem} [hidden]{display:none!important}
+  </style>
+</head>
+<body>
+<main id="referralPanel">
+  <nav aria-label="Resident navigation"><a href="/">SUNNYVAiLE home</a><a href="/resident-card.html#rcAccountTitle">Sign in or save your Card</a><a href="/laidies-card.html">Your Closet</a></nav>
+  <h1>Invite a friend.</h1>
+  <p>When your invited friend signs in and makes her Resident Card, you can both receive a matching BEST FRIENDS necklace in your Closets. Opening or copying a link earns nothing.</p>
+  <p id="referralStatus" role="status" aria-live="polite" tabindex="-1">Checking the private invitation service…</p>
+  <noscript><p>This invitation service needs JavaScript. No invitation has been accepted. You can still use the links above to make your Card.</p></noscript>
+  <section aria-labelledby="inviteTitle">
+    <h2 id="inviteTitle">Your invitation</h2>
+    <p>Already have an account Card? Create a private link for one friend. No contacts or personal note are uploaded. You decide how to share it.</p>
+    <button type="button" id="referralCreate" disabled>Create invitation</button>
+    <button type="button" id="referralAccept" hidden>Accept this invitation</button>
+    <div id="referralShare" hidden>
+      <label for="referralLink">Private invitation link — share only with your chosen friend</label>
+      <input id="referralLink" type="text" readonly autocomplete="off">
+      <button type="button" id="referralCopy">Copy private link</button>
+    </div>
+    <p>Joining through an invitation is optional. You can ignore it or withdraw the relationship later. This service does not award Butterfly Clips, stamps or background unlocks.</p>
+  </section>
+  <section aria-labelledby="receiptTitle">
+    <h2 id="receiptTitle">Your private receipts</h2>
+    <button type="button" id="referralRefresh" disabled>Refresh receipts</button>
+    <ul id="referralList"></ul>
+    <p>After accepting, <a href="/maikeover.html">make your Card</a> and <a href="/resident-card.html#rcAccountTitle">save it with your account</a>. Return here to confirm your necklace, then <a href="/laidies-card.html">open your Closet</a>.</p>
+  </section>
+</main>
+</body>
+</html>

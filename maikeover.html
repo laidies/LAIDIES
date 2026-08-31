@@ -358,6 +358,7 @@
             <button type="button" id="moSave" style="background:var(--gold); color:var(--plum); border:0; border-radius:999px; padding:14px 30px; font-family:inherit; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Save my card ★</button>
             <a href="/laidies-card.html" id="moSeeCloset" style="display:none; margin-left:14px; color:var(--rose); font-weight:700; text-decoration:underline;">See it in my Closet →</a>
             <p><a href="/resident-card.html#rcAccountTitle">After saving, keep or update my private account Card →</a></p>
+            <p><a href="/resident-referrals.html">Accepted an invitation? Return to check your necklace →</a></p>
             <div id="moSaveMsg" role="status" aria-live="polite" tabindex="-1" style="margin-top:10px; font-size:13px; color:#2c7d3c; min-height:18px;"></div>
           </div>
 
@@ -917,24 +918,11 @@
         if (window.plausible) {
           try { window.plausible('Resident Card claim result', { props: { result: 'success' } }); } catch (_) {}
         }
-        redeemBestieInvite();   // if she arrived via a postcard, complete the necklace
       } catch (err) {
         setStatus('Something went sideways. Try again?', 'bad');
         claimBtn.textContent = originalText;
         claimBtn.disabled = false;
       }
-    }
-
-    // BEST FRIENDS necklace — she got here from someone's postcard; now that she
-    // has a card + is signed in, redeem it (grants a necklace half to both).
-    async function redeemBestieInvite() {
-      var from = lsGet('laidies_invited_by');
-      if (!from || !supabase || !session) return;
-      try {
-        var r = await supabase.rpc('redeem_bestie_invite', { inviter_handle: from });
-        if (!r.error && r.data === 'granted') { lsSet('laidies_invited_by', ''); }
-        else if (!r.error && (r.data === 'self' || r.data === 'no-such-resident')) { lsSet('laidies_invited_by', ''); }
-      } catch (_) { /* keep the flag; a later visit can retry */ }
     }
 
     function renderClaimed(handle, localOnly) {

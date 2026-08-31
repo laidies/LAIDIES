@@ -49,6 +49,35 @@ are local; no production schema/user/reward changes. Five-invitations/day and
 moderation operating ownership remains unresolved. Do not expose these services
 merely because local unit tests pass.
 
+Local repair checkpoint: migration
+`supabase/migrations/20260831010000_resident_referrals_v1.sql` SHA
+`b01817d2a6623db50bdf508c5afe61f3fbc754d2cf9d1a940e594e62014bea44`.
+Foreground read the repaired SQL/full fixture and independently reran
+`PGLITE_ROOT=/tmp/laidies-referral-db.NvLhvP node scripts/test-resident-referrals-local.mjs`:
+74 assertions/expected denials passed;11 deliberately broken candidates rejected;
+all synthetic accounts/schema rolled back. Includes actual baseline/public-card
+policies, realistic API grants, restrictive drift guards, private generic necklace
+projection, immutable first-claim time, real Card RPC, reciprocal deletion and
+historical preservation. This is local PostgreSQL mechanics, NOT live-provider
+concurrency or a two-browser referral journey.
+
+Frontend candidates: `resident-referrals.html`, `content/site/resident-referrals-v1.js`,
+`content/site/resident-necklaces-v1.js`, plus narrow links/loader changes to
+Resident Card/Closet/MAiKEOVER. Legacy automatic handle redemption removed locally.
+Owner-bound pre/post-dispatch checks, finite waits, matching-key-only retry cleanup,
+terminal receipt truth and queued account refresh replace the rejected behavior.
+The ordinary Closet now calls the private necklace projection; public `?u`/`?member`
+views skip it. Signed-out browser checks pass320 referral and390 referral/Closet;
+unknown count is not shown as zero. Real production `/resident-referrals.html`
+still returns404; no migration, referral grant or public frontend deployed.
+Run the three `test-resident-{referrals-client,referrals-initialization,necklaces-client}.mjs`
+suites before resuming. Independent frontend recheck passed five actual-init
+journeys and five known-bad mutations; client SHA
+`9517b2d989e75e6226aa2cc4ebc52616c70854f9d06f530b1575a669f2d83322`.
+Remaining: policy decision, provider migration admission/current-grant comparison, real
+two-account/cross-browser and concurrent-request tests, visual admission and
+exact-current-artifact overlay release. Library currently holds Pages slot.
+
 ### Native Safari NewsStand review — bounded LOCAL observation
 
 Aug31 candidate at localhost8851: HTML SHA `a4c79b900fa9afb2fe427e3232a5e2bf2cfaf7372243c9177551915a179598ea`,
@@ -64,6 +93,31 @@ restores normal header/column clearance. Plain Shift+Tab skips buttons under the
 current Safari setting; Option navigation tested without changing that setting.
 Screenshot `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/com.openai.sky.CUAService/Safari Screenshot 2026-08-31 at 8.28.19 AM.jpeg`.
 No content admission or release; local seven-row Aug31 rotation remains excluded.
+
+Archive successor HTML `6e95ab2f85c5beb911257654e56fd14480df038422b6c66ebe155063dda202a3`
+(CSS/runtime unchanged) restores the exact EU archive link's AX focus after
+keyboard Back. At genuine200%, however, the settled leading headline remains
+under the fixed header and no distinct focus outline was visually identifiable.
+Visible-focus/clearance remains HOLD, handed to the publisher for bounded repair.
+Screenshot `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/com.openai.sky.CUAService/Safari Screenshot 2026-08-31 at 8.33.21 AM.jpeg`.
+Native zoom restored100% and confirmed. Do not substitute AX focus for visible
+unobscured focus. These observations did not authorize publication.
+
+Next candidate2c5b4839/3305ba96/14ddd105: exact hashes verified and Safari200%
+confirmed; archive opened. The Mac then locked before the ordinary article/Back
+recheck. Computer Use explicitly requires manual unlock; no bypass attempted.
+This last temporary localhost200% zoom is NOT restored yet. On unlock, finish
+only the latest publisher-provided candidate, then restore100% and verify it.
+Publisher may repair its separately found fractional-scroll restoration loop;
+no pass is claimed for2c5b or any later bytes. Library owner01a02f80 was granted
+a bounded Pages slot for its phone adaptation over acbbcf86; no deployment by
+this lane while that slot is held. Obtain its exact successor before any release.
+Publisher's final locked-session successor: HTML
+`2a6ddd7d79e7471baf3b61bef24b62d7baf0a9f42b75567bb493dff93247fd4a`,
+CSS `3305ba96d3383be5c77502a57128d9d68cf1fe1ac02b5b9551012a6408f0f9c5`,
+runtime `14ddd105c527a9ece14721934d117f2687c86815feca7f150e5ec248f4b17e4d`.
+Publisher reports calibrated subpixel-tolerant bounded scroll restoration;
+foreground has not rechecked these final bytes natively or deployed them.
 
 
 ## 2026-08-30 shared native-menu repair — DEPLOYED / PUBLICLY VERIFIED (bounded)
