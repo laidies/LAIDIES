@@ -27,7 +27,7 @@
   var deskIllustrations = {
     dear_miss_jeeves: "jeeves-phone.png", career_life: "corner-planner.png",
     paige_tip: "paige-cassette.png", concept_week: "concept-notebook.png",
-    whats_new_sunnyvaile: "town-street.png", did_you_know: "radio-boombox.png"
+    whats_new_sunnyvaile: "town-street.png", did_you_know: "did-you-know-question-20260831.png"
   };
   var previousPublicationView = latestPublicationView(readState());
   var sharedDailyHandled = false;
@@ -566,7 +566,6 @@
       if (ready) {
         admittedCount += 1;
         var illustrationPath = deskIllustrations[type] ? '/assets/newsstand/design-20260830/' + deskIllustrations[type] : '';
-        if (type === 'did_you_know' && /library/i.test((admittedColumn.sourceId || '') + ' ' + admittedColumn.id)) illustrationPath = '/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png';
         var illustration = illustrationPath ? '<img class="ns-desk-image" src="' + illustrationPath + '" alt="" loading="lazy" width="1448" height="1086">' : '';
         if (type === "mme_claio" && readingCards) {
           var card = readingCards.find(function (item) { return item.id === admittedColumn.sourceId; });
