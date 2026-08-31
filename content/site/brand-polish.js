@@ -4,7 +4,7 @@
     if (!scope) return;
 
     var brandRegex = /\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b/g;
-    var skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "CODE", "PRE", "SVG"]);
+    var skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION", "OPTGROUP", "CODE", "PRE", "SVG"]);
 
     function makeWordmark() {
       // Canonical wordmark: <span class="brand-word-inline"><span aria-hidden>L<span data-brand-ai>Ai</span>DIES</span></span>
@@ -25,6 +25,7 @@
     }
 
     scope.querySelectorAll(".wordmark").forEach(function (element) {
+      if (element.closest('select, option, optgroup, textarea, input')) return;
       var normalized = element.textContent.replace(/\s+/g, "").toLowerCase();
       if (normalized !== "laidies") return;
       var wordmark = makeWordmark();

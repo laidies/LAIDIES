@@ -22,7 +22,10 @@ first failed before repair. Hash-only navigation needed a real event listener.
 Public inspection then found the shared decorative formatter nesting spans in
 a native OPTION, blanking its accessible label. Radio received a14-byte existing
 opt-out, within its promised release boundary; the shared root cause on other
-menus remains separate local repair, not silently added to that release.
+menus received separate local guards in all three formatter copies, including
+the `.wordmark` shortcut. Each old formatter failed the native-option fixture;
+all repaired copies preserve plain native labels and normal branded prose.
+Release remains separate and held for Library coordination, not silently added.
 Prevention: test guest→sign-in, interrupted/replayed writes, two browser contexts,
 native accessible names and actual hash transitions, not only static markup or
 an SDK error-null result. Reuse exact current artifact overlays to preserve other

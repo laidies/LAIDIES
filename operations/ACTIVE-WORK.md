@@ -1,5 +1,27 @@
 # Active work
 
+## 2026-08-30 shared native-menu repair — LOCAL / release HOLD
+
+KSVL request release below is publicly verified; Library owns the next Pages
+slot. No further deployment by this lane until its exact successor handoff.
+Recovered root cause: accent autowrap, script.js wordmark and brand-polish
+wordmark all omitted native option/select/optgroup guards. The `.wordmark`
+shortcut also needs to skip native controls. Local fixes cover all three copies.
+Calibrated browser fixture rejected each predecessor (2/5/5 nested option
+elements); all three corrected formatter tests pass with ordinary branding intact.
+Local full-page1280/390/320 tests pass for Radio, Closet, MAiKEOVER, Visitor's Centre
+and FAiRY Godmother (10/62/129/18/8 native options respectively).
+Private candidate `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-native-brand.yCbDxH`;
+manifest samepath+.manifest.json;675files,640176450bytes, identity
+`9a24529d52c7b296eef421461d6fc8366a0849f0982790a8b79e0de008aa3768`.
+From exact8ce8632d:61 changed paths, comprising3 formatter files and58 cache-token
+consumer files; no additions/removals. Candidate is NOT DEPLOYED. Independent
+local review accepted: all675 hashes, three actual node filters and their rejected
+predecessors, all82 HTML loader edges plus dynamic polish edge verified. Browser
+tests were maker-run, not independently rerun. Before release, rebuild using scripts/build-native-brand-overlay.mjs
+against the Library's then-current verified artifact, recheck boundary, and test
+the actual custom/immutable visitor menus. Do not deploy this stale-base candidate.
+
 ## 2026-08-30 KSVL request recovery — DEPLOYED / PUBLICLY VERIFIED (bounded)
 
 Production `8ce8632d-8529-4482-a1c1-f7c5b703c72a`, pushed source
@@ -40,8 +62,8 @@ Library granted this bounded deployment slot; exact final successor returned to
 Library owner01a02f80 and NewsStand owner01a03456/publisher01a02f95. Hold further
 Pages releases while the isolated Library release rebases. NewsStand holds.
 
-Remaining safe local work: shared accent formatters can insert markup into other
-native menus; Radio is protected but shared root-cause repair is not yet released.
+Remaining safe local work: shared native-menu repair is prepared above but not
+yet released; Radio's request menu is already protected.
 Town Hall intake is not a recovered completed backend: SUBMISSION_RELEASED=false,
 raw SDK insert response cannot satisfy receipt contract, and retention/deletion
 policy plus named triage/backup and escalation ownership remain explicit gates.

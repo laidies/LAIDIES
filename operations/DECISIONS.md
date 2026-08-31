@@ -20,6 +20,13 @@ proper domain source before building from it.
 
 ## Core routes
 
+Shared brand formatter repair rule (2026-08-30): native SELECT/OPTION/OPTGROUP,
+TEXTAREA and INPUT contents remain plain text, including `.wordmark` shortcuts.
+All three formatter copies must pass `scripts/test-native-brand-controls.mjs`;
+the broken predecessors were rejected before this guard was accepted. Changed
+formatter resources require versioned consumer references in an exact-current
+artifact overlay. This does not authorize an unrelated layout or prose change.
+
 | Question | Current source |
 |---|---|
 | Names, retired terms, status words | `operations/voice/laidies-canon-index.md` |
