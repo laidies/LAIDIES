@@ -7,11 +7,25 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current release is the verified acbbcf86 FAiRY successor below; query
+Current coordinated release is Library's f2eeceba successor below; query
 the provider again and coordinate before any successor. NewsStand Aug31 service candidate is local only
 at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEWS
 may be included. Town Hall/moderation ownership and retention remain unresolved
 operating decisions, not permission to expose private intake.
+
+### Library phone successor — coordinated handoff received
+
+Owner01a02f80 reports verified Production `f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`,
+source `d3d1e2be6db1351e1f480e430c04538a163a26b2`; exact input
+`/tmp/laidies-library-phone-release-20260831`, manifest/delta suffixes
+`.manifest.json`/`.delta.json`;690 files,659288857 bytes;identity
+`42746b50be18859cc17779231bc650577d92a7430dcfd6c0c91f57713dd77c2f`.
+Foreground rehashed all690 local files and verified the exact two-changed/four-added,
+684-unchanged/no-removed boundary against acbbcf86. No local integrity mismatch.
+Both FAiRY paths and all unrelated bytes retained. Owner's live browser/public
+verification is received evidence, not foreground-repeated testing. Slot returned;
+use this exact base and fresh-check production before any next release. No change
+to referral HOLD or locked-Safari state; no deployment made for this handoff.
 
 ### FAiRY portrait loading — DEPLOYED / PUBLICLY VERIFIED (bounded)
 

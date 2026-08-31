@@ -6,7 +6,26 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth — 2026-08-31 FAiRY portrait successor
+## Current coordinated handoff — 2026-08-31 Library phone successor
+
+Library owner01a02f80 reports verified Production
+`f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`, source
+`d3d1e2be6db1351e1f480e430c04538a163a26b2`, immutable
+`https://f2eeceba.laidies-sunnyvaile.pages.dev`.
+Exact input `/tmp/laidies-library-phone-release-20260831`; manifest suffix
+`.manifest.json`; delta suffix `.delta.json`;690 files,659288857 bytes;identity
+`42746b50be18859cc17779231bc650577d92a7430dcfd6c0c91f57713dd77c2f`.
+Foreground independently rehashed all690 local files (zero mismatches), verified
+whole identity, and compared acbbcf86: exactly library.html+reader CSS changed,
+four phone frames added,684 unchanged,zero removed. Both FAiRY paths preserved.
+Owner reports live custom/immutable responsive book checks and52/52 public hashes;
+foreground has NOT repeated those browser/provider checks in this handoff.
+Pages slot returned; use this exact successor for the next coordinated overlay,
+with a fresh provider-head check immediately before release. Referral checkpoint
+952f6859 remains local-only; native Safari is still blocked by the locked Mac.
+No deployment, backend/account mutation or browser action by this handoff.
+
+## Historical predecessor — 2026-08-31 FAiRY portrait successor
 
 Production `acbbcf86-0e17-4b22-a167-90ea24d58c64`, pushed source
 `f9d638465f550ea9a6f50364cd91a168b4a9cedb`; immutable
