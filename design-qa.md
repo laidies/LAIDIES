@@ -1,3 +1,67 @@
+# NewsStand selected-layout implementation — local review
+
+final result: passed
+
+Scope: local design implementation and named interactions only. This is not publication approval, a fresh editorial fact-check, or backend scheduling acceptance.
+
+## Visual truth and evidence
+
+- Selected layout: `/Users/alisoneakin/.codex/generated_images/01a03456-f2ec-7282-b455-6b488723a4ab/exec-c7157bd6-e419-4be6-bc88-d91b2bd2bd47.png` (881 × 1786).
+- Later light masthead direction: `/Users/alisoneakin/.codex/generated_images/01a03456-f2ec-7282-b455-6b488723a4ab/exec-e39145c9-b04c-47c9-a2df-edd6a4582169.png` (1877 × 838).
+- Implementation: `http://127.0.0.1:8936/newsstand.html`, served from `/tmp/laidies-newsstand-design-preview.jV7xVL`.
+- Screenshots: `operations/product-stewards/newsstand/evidence/design-20260830/desktop-1280.png` (1280 × 4613), `masthead-1280.png`, `features-1280.png`, `archive-1280.png`, `phone-390.png` (390 × 7272), `phone-320.png` (320 × 8167).
+- CSS viewports: 1280 × 900, 390 × 844, 320 × 800. Screenshots are one image pixel per CSS pixel. Anonymous browser, August 30 local edition, loaded images, article closed for front-page captures.
+- Full reference and browser screenshot were emitted together for composition comparison. Masthead reference and desktop viewport were emitted together; feature reference and scrolled desktop viewport were emitted together. Reference widths differ; comparison used corresponding region proportions rather than claiming pixel-identical frames. Mobile has no supplied visual target and was checked for responsive usability instead.
+
+## Findings and fixes
+
+1. P1, inherited fixed image heights: lead image clipped; feature rows stretched thousands of pixels. Removed fixed wrapper/image heights, set explicit aspect ratios, and corrected selector specificity. Post-fix desktop and phone images are visible without clipping their feature subjects.
+2. P1, left-column density: old link padding and long excerpts left a roughly 600px hole beside Front PAiGE. Removed inherited padding, shortened listing display to headline/date/link, and used compact thumbnails. Final top-column heights were 717px and 819px; no page-height blank block remains.
+3. P1, archive contrast: old white text inherited onto new pale backgrounds. Set scoped dark foregrounds and a white archive search surface. `archive-1280.png` shows readable headings, explanations, labels and controls after correction.
+4. P2, backpack anatomy: first two generated strap versions rejected. Selected `mini-backpack-v3.png` has only a conventional top handle; no exposed shoulder strap. This is a candidate for Ali's visual judgment, not a claim of approval.
+5. P2, image/content mismatch: radio artwork illustrated a Library fact. Library-specific records now use the existing Library interior instead; post-fix feature screenshot confirms the selection.
+
+## Five fidelity surfaces
+
+- Typography: heavy Jost masthead consistent with Library direction; Playfair Display headlines; Jost body/UI. Existing exact Paige recolour retained. Hierarchy checked at desktop and narrow widths.
+- Spacing: Latest left, larger Front PAiGE right, full-width Big Picture below, four illustrated feature columns, then inline Mme reading and town/site features. Two-column service layout on phones. Shared navigation remains at the top.
+- Colour: pale pink masthead, yellow weather strip, cyan/yellow/red illustrations, plum text and purple link accents. Old dark archive surface removed. No custom CSS/SVG imitation illustrations.
+- Images: original Front PAiGE and Big Picture sources retained, not the generated mockup's approximations. New independent raster feature assets. All loaded images had nonzero natural width during final checks.
+- Copy/content: canonical article and bank files unchanged. Full Mini Backpack reading comes from the existing deck. Weather/traffic copy implements the chosen mock. Real published archive stories replace mock OpenAI/Slack examples. Dates remain visible; no invented current stories.
+
+## Expected differences / publication gaps
+
+- Latest contains two eligible archived news stories, not the unadmitted OpenAI/Slack mock content.
+- Current Corner Office remains the canonical delegation item; the mock's credit-taking article is not substituted.
+- No current Weekly or published crossword exists in this artifact. Their honest empty states remain; this design pass does not repair those editorial gaps.
+- Paige uses the actual existing recoloured scene crop, not the mockup's generated cutout. Masthead is light and shared navigation is above it, following Ali's later directions.
+- More Big Picture cards remain hidden until other eligible published Big Picture articles exist.
+- Existing readers, archive and catch-up extend below the mockup's cropped endpoint. They were retained and checked, not replaced by a static image.
+
+## Verification
+
+- Front PAiGE, Big Picture and a Latest headline each open their article with one click. Back-to-paper works.
+- Big Picture's 30-second summary starts collapsed and opens on click.
+- Dear Miss Jeeves opens full column with question before answer.
+- Archive search `data centres` returns one back issue.
+- Phone Menu opens and closes. Widths 390 and 320 have no horizontal document overflow; 320 final broken-image count: zero.
+- Browser error log: none during named journeys.
+- `node scripts/test-newsstand-service-reader.mjs`: PASS full_body, question_first, source_dedup, escaping, candidate_expired_orphan_denied, eight_slots.
+- Catch-up runtime and inline HTML scripts parse successfully.
+- Preview compared with exact 6b664326 base: 672 of 674 existing files byte-identical. Only `newsstand.html` and `content/site/newsstand-catchup-v1.js` differ; new CSS/assets are additions. Article/data files and shared Resident/KSVL runtime files remain exact.
+
+## Boundaries
+
+No deployment, push, content rewrite, provider change or schedule change. No native Safari or physical-device test. In-app browser inspection timed out; Chrome was used for local browser evidence. Ali retains design approval. Production release remains on hold for the separate KSVL lane and must use its next exact successor, not this preview directory.
+
+Implementation checklist complete for local review: selected layout, supplied masthead adjustments, standalone imagery, real-data wiring, responsive checks, core reader interactions, archive contrast, protected-byte comparison. Editorial publication gaps above remain outside this local design acceptance.
+
+## Commit check boundary
+
+The normal pre-commit hook failed on 45 missing Episode 3 image references outside this change. Town checks, local links (1942 references), inline scripts (294), CLI path guards and rejection-prevention checks passed. The local-only design commit bypasses that unrelated hook failure; this is not a release-gate pass. Prior project QA history is preserved below.
+
+---
+
 # Design QA — room-first building rebuilds
 
 Date: 2026-07-23  

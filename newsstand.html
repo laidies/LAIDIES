@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260830-layout-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -33,7 +34,7 @@
     <link rel="canonical" href="https://laidies.ai/newsstand" />
   <meta property="og:url" content="https://laidies.ai/newsstand" />
 </head>
-  <body>
+  <body class="ns-redesign">
     <a class="sv-skip-link" href="#newsstand-main">Skip to content</a>
     <header class="topbar">
       <a class="logo" href="/" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>
@@ -70,11 +71,16 @@
               </div>
             </figure>
             <div class="ns-v11-brandcopy">
-              <p class="ns-v11-location">Paige&rsquo;s NewsStand · MAiN Street No. 2</p>
-              <h1>THE SUNNYVA<span class="ns-brand-i">i</span>LE NEWSSTAND</h1>
+              <p class="ns-v11-location">The SUNNYVA<span class="ns-brand-i">i</span>LE</p>
+              <h1>NewsStand</h1>
               <p>AI news, explained for your work and life.</p>
             </div>
           </header>
+          <section class="ns-town-strip" aria-label="SUNNYVAiLE weather and traffic — town humour">
+            <p><b>Weather</b> Sunny with scattered pop-ups.</p>
+            <p><b>Traffic</b> Information Superhighway delays. Someone picked up the landline.</p>
+            <time id="ns-town-date"></time>
+          </section>
           <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE Daily front page">
             <header class="ns-one-paper__masthead">
               <div class="ns-masthead-flag">
@@ -129,16 +135,17 @@
               </div>
               <button class="ns-front-desk ns-front-desk--big-picture ns-front-open" type="button" data-open-edition="big-picture">
                 <span class="ns-front-desk__label">The Big Picture</span>
+                <span class="ns-big-picture-image" hidden><img alt="" loading="lazy"></span>
                 <strong class="ns-front-column-promise">Latest analysis</strong>
                 <span class="ns-front-status" data-status-for="big-picture" aria-hidden="true">Checking…</span>
                 <span class="ns-front-contents" data-contents-for="big-picture" aria-live="polite"></span>
-                <span class="ns-front-action">Open Big Picture →</span>
+                <span class="ns-front-action">Read the full article →</span>
               </button>
             </div>
+            <aside class="ns-big-picture-more" aria-label="More Big Picture articles" hidden></aside>
             <section class="ns-feature-desk" aria-labelledby="ns-feature-desk-title" hidden>
               <div class="ns-feature-desk__head">
-                <p class="ns-front-desk__label">Keep this page</p>
-                <h4 id="ns-feature-desk-title">Useful this week</h4>
+                <h2 id="ns-feature-desk-title">Features</h2>
               </div>
               <ul class="ns-feature-desk__grid">
                 <li data-desk="paige_tip"><strong>Paige&rsquo;s AI &amp; Productivity Tip</strong><span>Loading today&rsquo;s tip…</span></li>
@@ -1345,7 +1352,8 @@
             node.setAttribute("data-state", state);
             node.setAttribute("data-story-count", String(visible.length));
             var leadDesk = node.closest(".ns-front-desk--lead");
-            var leadVisual = leadDesk && leadDesk.querySelector(".ns-front-paige-image");
+            var pictureDesk = node.closest(".ns-front-desk--big-picture");
+            var leadVisual = leadDesk ? leadDesk.querySelector(".ns-front-paige-image") : pictureDesk && pictureDesk.querySelector(".ns-big-picture-image");
             var leadVisualImage = leadVisual && leadVisual.querySelector("img");
             var leadVisualCredit = leadVisual && leadVisual.querySelector(".ns-front-paige-image__credit");
             if (visible.length) {
@@ -1381,7 +1389,7 @@
                     ? firstSentence(lead.what_this_means || lead.laidies_read || "")
                     : "");
               var primaryRead = lead.front_summary || (leadDesk
-                ? firstSentence(lead.the_story || lead.laidies_read)
+                ? (lead.thread_subtitle || firstSentence(lead.the_story || lead.laidies_read))
                 : edition === "weekly" || edition === "big-picture"
                   ? firstSentence(lead.the_story || lead.laidies_read)
                   : firstSentence(lead.laidies_read || lead.the_story));
@@ -1395,7 +1403,7 @@
                 ].join(""),
                 '<span class="ns-publication__headline">', escapeHTML(lead.headline), "</span>",
                 '<span class="ns-publication__teaser">', escapeHTML(primaryRead), "</span>",
-                secondaryRead ? '<span class="ns-publication__read"><b>' +
+                secondaryRead && edition === "weekly" ? '<span class="ns-publication__read"><b>' +
                   (leadDesk ? "The LAiDIES read" : edition === "weekly" ? "The through-line" : "The question underneath it") +
                   '</b>' + escapeHTML(secondaryRead) + "</span>" : ""
               ].join("");
@@ -1453,17 +1461,25 @@
             var edition = node.getAttribute("data-secondary-for");
             var publication = data && data.publications && data.publications[edition];
             var state = publication ? contract.effectivePublicationState(publication, now) : "unavailable";
-            var eligible = storiesForCurrentPublication(edition, publication, state).slice(1);
+            var frontId = publication && publication.issue && publication.issue.frontPaigeStoryId;
+            // Latest is an archive-backed shelf, not today's issue alone. Canonical
+            // holds and retractions still apply through the reader contract.
+            var eligible = admittedArchiveStories(edition).filter(function (story) {
+              return story.id !== frontId;
+            }).sort(function (a, b) { return (b.publishedAt || "").localeCompare(a.publishedAt || ""); });
             if (!eligible.length) {
-              node.textContent = "No additional published stories are available yet.";
+              node.innerHTML = '<p class="ns-latest-empty">No other news stories are published yet. Start with the Front PAiGE, or explore our features below.</p><a class="ns-latest-features" href="#ns-feature-desk-title">Explore the features →</a>';
               return;
             }
 
             node.innerHTML = eligible.slice(0, 3).map(function (story) {
+              var localIllustration = { "eu-ai-act-transparency-starts": "latest-labels.png", "label-is-not-a-truth-detector": "latest-checking.png" }[story.id];
+              var thumbnail = story.heroVisual || (localIllustration ? { src: "/assets/newsstand/design-20260830/" + localIllustration, alt: "Illustration about AI labelling and verification" } : null);
               return [
-                '<article><a class="ns-front-story" href="#', escapeAttribute(story.slug), '"><strong>', escapeHTML(story.headline), '</strong>',
-                '<span>', escapeHTML(formatDate(story.publishedAt)), ' · ',
-                  escapeHTML(firstSentence(story.laidies_read || story.the_story)), '</span>',
+                '<article><a class="ns-front-story" href="#', escapeAttribute(story.slug), '">',
+                thumbnail && thumbnail.src ? '<img class="ns-latest-image" src="' + escapeAttribute(thumbnail.src) + '" alt="' + escapeAttribute(thumbnail.alt || "") + '" loading="lazy">' : '',
+                '<strong>', escapeHTML(story.headline), '</strong>',
+                '<span>', escapeHTML(formatDate(story.publishedAt)), '</span>',
                 '<em>Read the story →</em></a></article>'
               ].join("");
             }).join("");
@@ -1473,6 +1489,21 @@
         function setArrivalState() {
           renderPublicationStates();
           renderPublicationContents();
+          var morePicture = document.querySelector(".ns-big-picture-more");
+          var pictureLead = document.querySelector('[data-open-edition="big-picture"]');
+          if (morePicture) {
+            var pictureSlug = pictureLead && pictureLead.getAttribute("data-lead-slug");
+            var earlierPictures = stories.filter(function (story) {
+              return story.edition === "big-picture" && story.slug !== pictureSlug &&
+                contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
+            }).sort(function (a,b) { return (b.publishedAt || "").localeCompare(a.publishedAt || ""); }).slice(0,3);
+            morePicture.hidden = earlierPictures.length === 0;
+            morePicture.innerHTML = earlierPictures.map(function (story) {
+              return '<a href="#' + escapeAttribute(story.slug) + '">' +
+                (story.heroVisual ? '<img src="' + escapeAttribute(story.heroVisual.src) + '" alt="' + escapeAttribute(story.heroVisual.alt || "") + '" loading="lazy">' : '') +
+                escapeHTML(story.headline) + '</a>';
+            }).join('');
+          }
           renderTopicButtons();
           var newsroomDate = document.getElementById("ns-newsroom-date");
           if (newsroomDate) {
@@ -1724,9 +1755,9 @@
     </script>
     <script src="./content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-    <script defer src="./content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260830-service-bank-1"></script>
-    <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260830-layout-1"></script>
+    <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   </body>

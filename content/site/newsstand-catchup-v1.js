@@ -23,6 +23,12 @@
   var dailyIssues = null;
   var dailyIssuesLoaded = false;
   var columnsLoaded = false;
+  var readingCards = null;
+  var deskIllustrations = {
+    dear_miss_jeeves: "jeeves-phone.png", career_life: "corner-planner.png",
+    paige_tip: "paige-cassette.png", concept_week: "concept-notebook.png",
+    whats_new_sunnyvaile: "town-street.png", did_you_know: "radio-boombox.png"
+  };
   var previousPublicationView = latestPublicationView(readState());
   var sharedDailyHandled = false;
   var columnReturnTarget = null;
@@ -549,7 +555,18 @@
       var label = '<small>' + escapeHTML(labels[type]) + '</small>';
       if (ready) {
         admittedCount += 1;
-        var content = label + '<strong>' + escapeHTML(desk.headline) + '</strong><span>' + escapeHTML(desk.summary) + '</span>';
+        var illustrationPath = deskIllustrations[type] ? '/assets/newsstand/design-20260830/' + deskIllustrations[type] : '';
+        if (type === 'did_you_know' && /library/i.test((admittedColumn.sourceId || '') + ' ' + admittedColumn.id)) illustrationPath = '/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png';
+        var illustration = illustrationPath ? '<img class="ns-desk-image" src="' + illustrationPath + '" alt="" loading="lazy" width="1448" height="1086">' : '';
+        if (type === "mme_claio" && readingCards) {
+          var card = readingCards.find(function (item) { return item.id === admittedColumn.sourceId; });
+          if (card) {
+            var art = card.id === "mini-backpack" ? "/assets/newsstand/design-20260830/mini-backpack-v3.png" : "/assets/mme-claio/reading-cards/" + encodeURIComponent(card.art_slug) + ".webp";
+            node.innerHTML = '<article class="ns-reading-card"><img src="' + art + '" alt="' + escapeHTML(card.card) + ' reading card" loading="lazy"><div>' + label + '<p class="ns-reading-label">Reading of the Week</p><h3>' + escapeHTML(card.card) + '</h3><p>' + escapeHTML(card.read) + '</p><p>' + escapeHTML(card.message) + '</p><p>' + escapeHTML(card.move) + '</p></div></article>';
+            return;
+          }
+        }
+        var content = illustration + label + '<strong>' + escapeHTML(desk.headline) + '</strong><span>' + escapeHTML(desk.summary) + '</span>';
         if (type === "crossword" && serviceLink(desk.destination)) {
           node.innerHTML = '<a href="' + escapeHTML(desk.destination) + '">' + content + '<span class="ns-service-action">Play the crossword →</span></a>';
           return;
@@ -1030,6 +1047,15 @@
         status.textContent = "Copy this address: " + url.href;
       }
     });
+    var townDate = document.getElementById("ns-town-date");
+    if (townDate) {
+      townDate.textContent = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Vancouver", weekday: "long", month: "long", day: "numeric", year: "numeric" }).format(new Date());
+      townDate.dateTime = editorialToday();
+    }
+    fetch("/content/data/mme-claio-deck.json", { credentials: "same-origin" })
+      .then(function (response) { if (!response.ok) throw new Error("reading-deck-unavailable"); return response.json(); })
+      .then(function (deck) { readingCards = Array.isArray(deck.cards) ? deck.cards : null; renderFrontDesks(); })
+      .catch(function () { readingCards = null; });
     fetch("/content/daily-learning-derivatives.json", { credentials: "same-origin" })
       .then(function (response) { if (!response.ok) throw new Error("daily-derivatives-unavailable"); return response.json(); })
       .then(function (value) { derivatives = value; })
