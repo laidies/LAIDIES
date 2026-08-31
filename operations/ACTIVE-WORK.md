@@ -15,11 +15,12 @@ operating decisions, not permission to expose private intake.
 
 ### FAiRY five-situation pilot — LOCAL BUILD / real-model trial HOLD
 
-Latest model decision: Ali rejected GPT4.1; do not run that trial. Revised
-recommendation is GPT5.6Sol/medium for advice, Terra as a comparison alternative.
-Account access and revised reasoning-inclusive cost/timeout/privacy terms remain
-unverified; see the new top entry in FAiRY answer-quality.md. No paid run or
-runtime model change has occurred.
+Latest model decision: Ali approved GPT5.6Sol/medium for advice; GPT4.1 is
+rejected. Local advice/revision request adapter now defaults to Sol with bounded
+reasoning-inclusive output, completion/refusal checks and a body-inclusive
+deadline. Existing safety classifier stays separate/unconfigured. No paid run,
+remote configuration or deployment. Account access and revised trial approval
+remain pending; see the new top entry in FAiRY answer-quality.md.
 
 Latest checkpoint: Ali approved building/testing the practical advice plus useful
 AI preparation proposal. Local Worker now appends five bounded references only

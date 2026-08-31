@@ -88,8 +88,19 @@ staging/page gates remain required before promotion.
 
 The 2026-07-26 local candidate also requires `OPENAI_API_KEY` before an answer
 or revision call and accepts an optional non-secret `ANSWER_MODEL` setting
-(defaulting to the recovered `gpt-4o` model name until the owner approves an
-exact staging model/version). Request JSON is capped at 32,000 bytes before
+(defaulting locally to owner-approved `gpt-5.6-sol` as of2026-08-31).
+`src/advice-provider.js` uses medium reasoning, an8192-token completion ceiling
+including reasoning, `store:false`, standard service tier and no legacy sampling
+parameters for Sol. Advice and revisions share this adapter; explicit historical
+test/model overrides retain their old shape. No fallback/retry selects another
+model. Sol receipts must identify Sol, assistant role and `finish_reason:stop`;
+refusals, truncations and tool calls cannot become successful answers. The20s
+deadline now includes reading/parsing the bounded128KiB provider response.
+The separate classifier is unchanged and still unconfigured. No Responses API,
+tools, conversation storage or multi-turn features were added. The existing
+page15s timeout is still a release blocker until real latency is measured; this
+local adapter is not production-ready or a quality-certified model run.
+Request JSON is capped at 32,000 bytes before
 parsing, answer fields are bounded before `case_success`, and browser origins
 outside the LAiDIES/localhost allowlist fail before provider work. The local
 page understands the typed contract, but rendered-browser and real-provider

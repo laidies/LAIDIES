@@ -216,6 +216,7 @@ async function replayClassification(entry, classification) {
       body: JSON.stringify({ prompt: entry.prompt })
     }), {
       OPENAI_API_KEY: "offline-replay-only",
+      ANSWER_MODEL: "offline-replay-only",
       REQUEST_CLASSIFIER: {
         async classify() {
           if (classification instanceof Error) throw classification;

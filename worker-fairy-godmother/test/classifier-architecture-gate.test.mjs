@@ -88,7 +88,8 @@ function validAnswer() {
 
 function answerResponse(content = validAnswer()) {
   return new Response(JSON.stringify({
-    choices: [{ message: { content } }]
+    model: "gpt-5.6-sol",
+    choices: [{ finish_reason: "stop", message: { role: "assistant", content } }]
   }), { status: 200, headers: { "Content-Type": "application/json" } });
 }
 

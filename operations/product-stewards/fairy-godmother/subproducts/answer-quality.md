@@ -1,5 +1,97 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — Sol advice target approved; local compatibility work
+
+Ali agreed to the recommendation: `gpt-5.6-sol`, medium reasoning, standard
+mode for FAiRY advice. DECIDED. Build the bounded local request/response
+compatibility and its tests; preserve the current safety classifier, frozen
+production artifact, source-attribution hold and account/allowance contract.
+This is model-choice authority, not an approved revised paid-trial budget,
+production release, provider credential creation or visitor-data disclosure.
+No automatic fallback to GPT4.1 or a cheaper model on failure.
+
+### Compatibility build and preservation boundary
+
+Advice and revision calls now share `worker-fairy-godmother/src/advice-provider.js`.
+Default target is exact `gpt-5.6-sol`, medium reasoning, standard service tier,
+8192 `max_completion_tokens` (visible plus reasoning), `store:false`, no
+temperature/frequency/presence penalties. Existing text-only Chat Completions
+endpoint and JSON-object contract remain: no function tools, no Responses
+state replay, uploads, Pro mode, explicit cache or prompt rewrite added.
+GPT5.6 supports Chat Completions; the documented reasoning/function-tools
+restriction does not apply to this tool-free call. Responses remains the future
+route if actual tools/multi-turn state are admitted, not a dependency introduced
+for this bounded migration.
+
+The adapter checks exact Sol model receipt, assistant role, one choice and
+`finish_reason:stop`; refusals/tool calls/truncation fail before allowance writes.
+It enforces128KiB response bytes and a20s deadline covering headers AND body,
+cancels a stalled reader and does not retry/fall back. Existing explicit test or
+historical model overrides retain their request settings. The offline classifier
+replay now explicitly names its synthetic answer model; it is not a real Sol
+run. Its frozen semantic cases and labels did not change. No Wrangler config,
+classifier implementation, frozen v18 bytes, page or production endpoint changed.
+
+Maker checks: eight new compatibility tests, including the old `max_tokens`
+mutation, valid Sol/schema path, refusal/truncation/wrong model/no-write cases,
+revision path,128KiB failure, stalled-body timeout/cancellation and no fallback.
+Existing page typed/legacy contract passes. The initial full regression exposed
+old synthetic envelopes omitting Sol completion metadata; architecture mocks
+now provide it and classifier offline replay declares its synthetic override.
+This repairs test inputs without weakening completion guards or classifier tests.
+No API key is configured in the current shell (presence checks only); no secret
+was printed, read from another task or retrieved from production.
+
+Final local verification: full Worker suite55/55 passed; frozen recovery checksum,
+45-case fixture integrity and79-case classifier fixture integrity passed. These
+are local behavior/integrity results, not real-provider semantic admission.
+Independent read-only review found no new adapter blocker and retained the
+15s/20s deadline mismatch as a release blocker. No provider call or browser/live
+verification was performed in this backend-only checkpoint. Commit uses the
+previously documented hooks override for unrelated repository hook failures;
+only the nine task-owned paths are staged, with focused tests and staged diff
+inspection retained.
+
+Remaining: actual API/model access and real answers, tokenizer/budget enforcement
+for paid evaluation, safety-classifier provider admission, production identity/
+allowance/privacy gates, and measured latency. The unchanged15s page deadline
+is shorter than20s backend deadline; do not deploy this candidate before a
+coherent end-to-end latency/error contract is measured and repaired. No new
+browser visual QA is required/claimed for these backend-only edits.
+
+### Revised paid-trial proposal — approval/setup still required
+
+Recommend20 synthetic **answer-only** cases using approved Sol/medium, with the
+existing five-situation reference context. Use predetermined safe work routes
+only inside the private quality harness; this does not evaluate or bypass the
+production safety classifier, and must not be labelled end-to-end service QA.
+No visitor conversations, personal files/uploads, tools, retries, deployment or
+paid subscription. Separate test credentials are required; do not borrow the
+production secret. Record only synthetic results and provider usage privately.
+
+Proposed maximumUS$5, subject to an enforced12000 verified input tokens and8192
+completion tokens per call,20 calls total. Current Sol pricing isUS$4/million
+input andUS$20/million output; counting every input at the1.25x cache-write rate
+gives a conservative calculatedUS$4.4768 total at those caps. This is a bounded
+proposal, not measured usage or an implemented budget gate; stop if exact token
+bounds/pricing/account access cannot be verified. Classifier paid evaluation is
+outside this allowance. Retain20s timeout as a measured failure threshold for
+this first trial, not a promise of responsiveness. No automatic retries.
+
+Privacy: `store:false`, no training opt-in, standard API processing without a
+regional-residency promise. Abuse-monitoring content may persist up to30 days
+with documented exceptions; prompt-cache state may persist up to24h. Do not
+claim zero retention or use real workplace details in this trial.
+Official documentation checked31August2026:
+- https://developers.openai.com/api/docs/models/gpt-5.6-sol
+- https://developers.openai.com/api/docs/guides/upgrading-to-gpt-5p6-sol
+- https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create
+- https://developers.openai.com/api/docs/guides/your-data
+
+Alternative: a smaller10-case trial lowers cost but covers fewer risk/context
+variants. Switching to Terra now would not establish the selected Sol quality
+benchmark. No revised paid trial has been approved or run.
+
 ## 2026-08-31 — GPT4.1 pilot recommendation rejected
 
 Ali rejected GPT4.1 as too old and wants a better model. DECIDED: do not use

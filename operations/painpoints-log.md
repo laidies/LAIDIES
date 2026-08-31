@@ -14970,3 +14970,9 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** The proposed GPT4.1 baseline prioritised compatibility with the recovered adapter over Ali's desired quality. Ali rejected it; current official guidance supports a GPT5.6Sol quality-first candidate.
 - **Prevention:** Choose the model for the visitor's judgment task, then adapt the request and measure useful answers, latency and cost. Compatibility is an implementation constraint, not the primary selection criterion. Do not copy non-reasoning-model budgets/timeouts into a reasoning-model trial.
 - **Possible Behind the Build angle:** The easiest model to connect is not necessarily the right model for the reader.
+
+## 2026-08-31 — Sol migration: completion means more than valid JSON
+
+- **Finding:** The old advice adapter used a non-reasoning token field, accepted prose/JSON without checking completion status and stopped its timeout when headers arrived. A reasoning-model upgrade can exhaust its budget or stall while reading the body even when the response looks plausible.
+- **Prevention:** Share the advice/revision adapter, bound reasoning plus visible output, reject refusal/truncation before allowance writes, and keep the deadline active through bounded body parsing. The new timeout test uses a never-finishing stream and verifies cancellation; a legacy-token-field mutation fails the request check. Keep offline replay explicitly synthetic instead of weakening real-provider receipt checks.
+- **Possible Behind the Build angle:** A sentence can look finished even when the model was cut off. The app must check the receipt as well as the words.
