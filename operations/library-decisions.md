@@ -78,6 +78,12 @@ Save and Top use thin rounded outlines consistent with Contents and Back:
 the floppy remains a compact square button, Top a small text button, with no
 heavy borders or offset shadows (Ali approved, 2026-08-30).
 
+The AI Fundamentals title must preserve the approved oversized, angled
+AI/Fundamentals treatment and prominent purple 101. Do not flatten the words
+or shrink 101 disproportionately in a compact pane. The local title-proportions
+correction retains live type and the existing pink raster brush, scopes the
+compact scale change to this title, and preserves the current control grouping.
+
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`
 - Shelf wall, floor and case assets are not active inputs for the four-book browse presentation.

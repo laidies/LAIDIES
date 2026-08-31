@@ -4,6 +4,14 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-TITLE-PROPORTIONS-20260830
+- **Status:** VERIFIED LOCALLY — not deployed
+- **Result:** Corrected the flattened AI Fundamentals title: restored the angled AI/Fundamentals typography, increased compact title scale and restored prominent purple 101. Retained existing live text and raster brush; no new art, manuscript changes or control changes. Recent button commits did not alter title rules; the compact title's earlier 42px cap and reduced number size were present beforehand.
+- **Verification:** Four-book nine-width reader suite passes with title/controls intersection and proportional-number guards. Deliberately shrinking 101 makes the suite fail (`titleScale:false` at 820px). Maker and independent review of 700/320/1710px captures at `/tmp/library-title-restore.KWDEQU/` found no visible blocker and a hierarchy closer to the approved reference; this is not an exact raster replica or owner approval.
+- **Next action:** Ali reviews refreshed local title. No deployment or live verification; existing production-base boundaries remain.
+
+## Previous header actions
+
 - **Task ID:** LIBRARY-RIGHT-HEADER-ACTIONS-20260830
 - **Status:** VERIFIED LOCALLY — not deployed
 - **Goal and result:** Ali requested Save and Top on the right, then approved thin rounded outlines. Contents remains separate at the left of the action row; Save, Top and Back are grouped together on the right at desktop and compact widths. Save is a 44px square; Save and Top have 1px purple borders, 8px rounded corners and no shadow. Artwork, manuscripts and interactions are unchanged.

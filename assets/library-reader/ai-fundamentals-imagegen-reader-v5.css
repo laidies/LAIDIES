@@ -95,7 +95,7 @@
   white-space: nowrap;
 }
 .book--reference-zine .band .t:not(:has(.reader-title-lead)) { font-size: 48px; letter-spacing: -.035em; }
-.book--reference-zine .reader-title-lead { font-size: 1.22em; line-height: .9; letter-spacing: -.09em; transform: none; }
+.book--reference-zine .reader-title-lead { font-size: 1.22em; line-height: .9; letter-spacing: -.09em; transform: rotate(-6deg); transform-origin: left bottom; }
 .book--reference-zine .reader-title-name {
   position: relative;
   padding: 0 5px 15px 0;
@@ -103,6 +103,8 @@
   font-size: .68em;
   font-weight: 800;
   letter-spacing: -.045em;
+  transform: rotate(-7deg);
+  transform-origin: left bottom;
 }
 .book--reference-zine .reader-title-name::after {
   content: none;
@@ -444,10 +446,11 @@
      motifs end before x=174/958; reserve that scaled extent plus clearance. */
   .book--reference-zine .band { display: grid; min-height: 126px; padding: 10px 10px 9px 40px; grid-template-columns: 1fr; gap: 5px; border-bottom: 3px solid var(--cyan); background: rgba(255, 253, 251, .96); }
   .book--reference-zine .band .t { font-size: clamp(31px, 9vw, 42px); line-height: .98; gap: 6px; }
+  .book--reference-zine .band .t:has(.reader-title-lead) { font-size: clamp(32px, 8.6vw, 68px); gap: 10px; padding-top: 22px; padding-bottom: 10px; }
   .book--reference-zine .band .t:not(:has(.reader-title-lead)) { font-size: 25px; line-height: 1; white-space: normal; }
-  .book--reference-zine .reader-title-name { padding-bottom: 7px; font-size: .8em; }
+  .book--reference-zine .reader-title-name { padding-bottom: 7px; font-size: .68em; }
   .book--reference-zine .reader-title-name::after { bottom: -4px; height: 19px; }
-  .book--reference-zine .reader-title-number { font-size: .82em; }
+  .book--reference-zine .reader-title-number { font-size: 1em; }
   .book--reference-zine .reader-actions { width: 100%; min-width: 0; flex: 0 0 auto; margin: 0; justify-content: flex-start; gap: 3px; }
   .book--reference-zine .reader-save-book { width: 40px; height: 40px; min-height: 40px; }
   .book--reference-zine .reader-save-book img { width: 29px; height: 29px; }
@@ -486,6 +489,7 @@
   .book--reference-zine .band .reader-actions { width: calc(100% + 28px); margin-left: -28px; }
   .book--reference-zine .reader-contents > summary { min-height: 44px; }
   .book--reference-zine .band .t { font-size: 32px; }
+  .book--reference-zine .band .t:has(.reader-title-lead) { font-size: clamp(32px, 8.6vw, 36px); gap: 7px; }
   .book--reference-zine .body { height: calc(100dvh - 122px); }
   .book--reference-zine .txt { padding: 18px 14px 70px calc(max(18.2vw, 10.6dvh) + 16px); }
   .book--reference-zine .txt .reader-preface-heading { padding: 66px 0 9px; padding-right: 0 !important; font-size: 23px; }

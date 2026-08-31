@@ -14793,6 +14793,10 @@ while remaining falsely unfinished in the launch record.
 
 ## Reader header action grouping — 2026-08-30
 
+### Title hierarchy correction
+
+- A responsive title can remain technically readable while losing the approved hierarchy: the compact rule capped the title at 42px, reduced 101 separately and flattened the angled treatment. Button fixes did not cause those pre-existing rules. Preserve component proportions across breakpoints and inspect against the approved source, not only the previous screenshot. Current guard checks number/title ratio and title/control clearance; local maker/independent review compares the 700/320/1710px result with the original reference. Possible Behind the Build angle: fitting a title is not the same as preserving its design.
+
 - **Failure:** A flexible gap attached to Back left Save and Top clustered with Contents in a narrow header. During repair a cached stylesheet briefly concealed the updated selector.
 - **Prevention:** Place flexible space before the entire Save/Top/Back group; test adjacent action bounds and use an explicit asset cache token for visible stylesheet revisions. Inspect the actual loaded page, not only source changes.
 - **Verification:** Four books at nine widths pass; injected old grouping fails. Independent local pixel review confirms right grouping with no clipping. No public deployment.
