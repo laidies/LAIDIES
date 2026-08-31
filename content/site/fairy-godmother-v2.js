@@ -83,6 +83,21 @@
   function buildSaintRail() {
     if (!modeSelect || !saintRail) return;
 
+    // Native lazy loading may prefetch these large portraits several screens
+    // away. Keep the labelled buttons usable immediately; request each exact
+    // approved portrait only as it approaches the visible, scrollable rail.
+    var portraitObserver = typeof IntersectionObserver === "function"
+      ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var image = entry.target;
+          image.src = image.dataset.portraitSrc;
+          delete image.dataset.portraitSrc;
+          portraitObserver.unobserve(image);
+        });
+      }, { rootMargin: "200px" })
+      : null;
+
     saints.forEach(function (saint) {
       var button = document.createElement("button");
       button.type = "button";
@@ -92,9 +107,11 @@
 
       if (saint.image) {
         var image = document.createElement("img");
-        image.src = saint.image;
         image.alt = "";
         image.loading = "lazy";
+        image.decoding = "async";
+        if (portraitObserver) image.dataset.portraitSrc = saint.image;
+        else image.src = saint.image;
         button.appendChild(image);
       }
 
@@ -109,6 +126,7 @@
       });
 
       saintRail.appendChild(button);
+      if (saint.image && portraitObserver) portraitObserver.observe(image);
     });
 
     modeSelect.addEventListener("change", syncSaintSelection);
