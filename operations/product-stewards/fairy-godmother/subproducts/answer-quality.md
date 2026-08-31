@@ -40,9 +40,36 @@ a promised sponsorship outcome. An official deprecated2023 NCSC source was
 excluded after reading its30July2026 withdrawal notice. No raw visitor cases
 are collected; no recurrence/automation, provider call or public release added.
 
-Next research: sponsorship/advocacy requests, return from leave/career breaks,
-remote exclusion, and pressure to hide or exaggerate AI use. Require a distinct
-visitor need, original-source support and a context/safety variant for each.
+Second bounded research pass adds five private candidates: specific advocacy,
+remote decision exclusion, returning to an existing employer, explaining a
+career break to a prospective employer, and pressure to misrepresent AI work.
+The bank now has nine scenarios including the original handout pilot. Checked
+primary sources: Lean In's sponsorship introduction, authors' Microsoft Research
+collaboration summary, Acas return-meeting guidance and iRelaunch's public FAQ;
+the UK playbook's transparency section extends the existing AI source. Preserve
+source limits: neither the Lean In video nor full remote-study methods/corrections
+were reviewed; UK guidance is not universal employment law; none of these
+sources proves that our proposed scripts work. No paid material was accessed.
+
+Ten synthetic context/negative cases are specified, not executed: fabricated
+career history, false endorsement, medical/legal boundary, urgent decisions,
+retaliation and harmless editing among them. The next useful step is the
+existing small source-aware answer pilot below, not expanding the catalogue
+indefinitely. Prioritised future research gaps remain in the same JSON. No
+runtime, API, model, provider, scheduled research or public release changed.
+Integrity check: nine unique scenarios/seven source IDs/ten review cases;
+three deliberately malformed source/authorship/boundary variants rejected.
+Read-only source reconciliation found no blocking mismatch. These are not
+answer-quality admission. Normal commit hook again failed on45 existing missing
+Episode03 assets and two existing extensionless-link checks; research-only owned
+paths committed with a one-command hook bypass after staged diff inspection.
+
+Routing lesson: the phrase "return to work" is insufficient to choose an
+answer. Existing employment versus a new application changes both the useful
+script and the sensitive information involved. Ask about the work situation,
+not the private reason for leave. Similarly, topic similarity never overrides
+safety routing or admits a private source candidate.
+
 Printed statistics, historical absolutes, quotation attributions and diagnostic
 claims in Part Two remain fact-check inputs, not approved FAiRY claims. In
 particular, neither vague feedback nor discomfort alone proves discrimination;

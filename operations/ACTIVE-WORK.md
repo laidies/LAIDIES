@@ -22,8 +22,12 @@ The current16-page PDF at `/Users/alisoneakin/Downloads/Leading Through Complexi
 was supplied and read in full; it replaces the earlier eight-page candidate.
 Ali asks continued research on additional scenarios. Private
 `product-stewards/fairy-godmother/scenario-research.json` contains one exact
-handout-script pilot plus three explicitly new research drafts and primary
-source/support boundaries. No scenario was added to the live FAiRY runtime.
+handout-script pilot plus eight explicitly new research drafts and primary
+source/support boundaries. The second pass adds advocacy, remote decision
+exclusion, separate existing-employer return and prospective-employer career
+break cases, and pressure to misrepresent AI work. Ten synthetic context/risk
+cases are written but not executed. Next dependency is the bounded reviewed-
+source answer pilot, not bulk ingestion. No scenario was added to the live FAiRY runtime.
 This does not replace recovery/referrals. The
 existing local answer contract rejects citations, so sourced guidance requires
 an explicit reviewed-source integration, not name-dropping in the prompt.
