@@ -293,6 +293,9 @@
     var statuses = document.querySelectorAll('[data-status-for="daily"]');
     var action = document.querySelector('.ns-publication[data-edition="daily"] .ns-publication__action');
     var indexAction = document.querySelector('[data-index-action-for="daily"]');
+    var frontId = daily.issue && daily.issue.frontPaigeStoryId;
+    var front = frontId && sourceStories.find(function (story) { return story.id === frontId; });
+    var readableFront = front && contract.accessDecision(data, front, { edition: "daily", scope: "feature" }, now).canExpose;
     Array.prototype.forEach.call(statuses, function (status) {
       var frontId = daily.issue && daily.issue.frontPaigeStoryId;
       var front = frontId && sourceStories.find(function (story) { return story.id === frontId; });
@@ -304,7 +307,8 @@
       status.setAttribute("data-state", dailyState);
     });
     if (action) {
-      action.textContent = dailyState === "current" ? "Read the story →" :
+      action.textContent = readableFront ? "Read the full article →" :
+        dailyState === "current" ? "Read the story →" :
         dailyState === "archive" ? "Browse the archive below" :
         dailyState === "quiet" ? "No issue today" :
         dailyState === "hold" ? "Check this paper · Not published" :
@@ -357,6 +361,12 @@
     var publication = data.publications && data.publications.daily;
     var action = document.querySelector('.ns-publication[data-edition="daily"] .ns-publication__action');
     if (!issue || !publication || !action) return;
+    var frontId = publication.issue && publication.issue.frontPaigeStoryId;
+    var front = frontId && sourceStories.find(function (story) { return story.id === frontId; });
+    if (front && contract.accessDecision(data, front, { edition: "daily", scope: "feature" }, new Date().toISOString()).canExpose) {
+      action.textContent = "Read the full article →";
+      return;
+    }
     var state = contract.effectivePublicationState(publication, new Date().toISOString());
     if (["stale", "quiet", "archive"].indexOf(state) !== -1) {
       action.textContent = "Browse the archive below";
