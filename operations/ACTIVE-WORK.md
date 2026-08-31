@@ -18,8 +18,10 @@ operating decisions, not permission to expose private intake.
 Ali's31August addition: match sourced Dorie Clark/other relevant guidance to
 the visitor's question and grow a bank from her *What To Actually Say* talk.
 Recorded in `product-stewards/fairy-godmother/subproducts/answer-quality.md`.
-Only the cover/contents image is currently supplied; no scenario answers have
-been extracted or invented. This does not replace recovery/referrals. The
+Only the cover/contents image is currently supplied. An earlier eight-page
+PDF was found and read, but its opening/structure differ from the screenshot;
+it is historical evidence, not the confirmed current source. No scenarios
+were added to FAiRY or invented. This does not replace recovery/referrals. The
 existing local answer contract rejects citations, so sourced guidance requires
 an explicit reviewed-source integration, not name-dropping in the prompt.
 No Worker, public page, provider, reward or release changed for this intake.
