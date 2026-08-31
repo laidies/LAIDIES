@@ -35,19 +35,26 @@
 
 ### 2026-08-31 — model-specific full examples
 
-- **Status:** SCOPE DECIDED / RESEARCH EXPANDED / PILOT INPUTS PREPARED / PRODUCT RUNS AND MANUSCRIPTS HOLD.
-- **Delivered:** Model/effort/skills/context addenda in both vendor packets;
-  selection-guide routing; exact workshop input, rules, prompts, revision and
-  reference calculations in
-  `operations/product-stewards/library/MODEL-SPECIFIC-EXAMPLE-PILOT-2026-08-31.md`.
-- **Verified:** Official model/effort guidance; Fable overplanning versus Opus 5
-  redundant-verification warnings; Sonnet 5 literal scope; context/skill location
-  differences. Reference arithmetic checked locally; no product runs implied.
-- **Not done:** Account/model comparisons, measured cost/latency, installed
-  skills, full effort-by-model recipes, manuscripts or publication.
-- **Next:** Bind the first manuscript production contract, then run the shared
-  fixture on available Free/paid surfaces without unauthorized spend. Retain
-  actual outputs and limitations; extend to a difficult high-effort case.
+- **Status:** FIRST ACTUAL RUN ROUND DELIVERED / WHO'S WHO SAMPLE DRAFTED / THREE VENDOR-SELECTION SAMPLES AND MANUSCRIPTS HOLD.
+- **Delivered:** Nine preserved responses across an observed ChatGPT Free route
+  and Claude Code Sonnet 5 Medium/High; exact source packets, failed revision,
+  targeted repairs and calibrated arithmetic/agenda checks in
+  `operations/product-stewards/library/pilot-20260831/`. The first sourced
+  Who's Who manuscript proof is
+  `content/library-books/pilots/whos-who-in-ai/chip-chain-sample-2026-08-31.md`.
+- **Verified:** The Free route produced initial files and continued in text
+  after a data-analysis limit; its revision left stale budget cells until a
+  targeted correction. Paid Claude also invented or overstated source policy.
+  Sonnet 5 High used more reported output tokens than Medium on the bounded
+  harder pair without establishing a material quality advantage.
+- **Not done:** Claude Free Chat; paid ChatGPT; Claude Chat/Cowork; standalone
+  Codex trial; complete Light-to-Max recipes; installed context/skill tests;
+  media output/rights comparisons; real-reader evidence; full manuscripts or
+  publication. The chip sample still needs its exact producer self-review and
+  independent semantic review.
+- **Next:** Draft the matched ChatGPT, Claude and task-selection samples from
+  the preserved runs, then review the four exact samples together for overlap,
+  usefulness and transfer before expanding any full manuscript.
 - **Preserved:** Who's Who and all other book work; live Library unchanged.
 
 ### 2026-08-31 — four-book deep research

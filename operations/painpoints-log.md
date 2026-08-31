@@ -14742,3 +14742,19 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why “I checked it” is not the check—and
   how to finish a useful Free-plan task after its file tool hits a limit.
 - **Status:** Internal findings only. No human-reader or publication verdict.
+
+## LIBRARY-PRODUCER-BINDING-20260831 — A current exemplar can invalidate an old contract
+
+- **Finding:** The Who's Who producer gate rejected drafting because its
+  intake and explanation-source hashes were stale, and the shared exemplar
+  registry still pointed at an older version of `straight-answers.md`.
+- **Prevention:** Run the producer-contract gate immediately before prose work,
+  refresh changed source and exemplar bindings deliberately, then rerun it.
+  Never treat a previously passing contract as current after governed bytes
+  change.
+- **Evidence:** The stale contract failed with three exact SHA mismatches. The
+  refreshed registry and Who's Who contract now return `CONTENT PRODUCER
+  CONTRACT INTEGRITY MATCH status=READY_TO_DRAFT`.
+- **Possible Behind the Build angle:** Why a useful older review can become
+  invalid even when nobody changed the review file itself.
+- **Status:** Internal production-control repair; no publication authority.
