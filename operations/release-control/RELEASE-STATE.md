@@ -6,7 +6,27 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current coordinated handoff — 2026-08-31 Library phone successor
+## Current production — 2026-08-31 Closet portrait-route successor
+
+Production `477e6a11-9486-4a43-a3b3-15f8c1e0c4f9`, source
+`22d07ec53c7a4d0553e46abe842424e4c4cffffe` pushed to the recovery branch;
+immutable `https://477e6a11.laidies-sunnyvaile.pages.dev`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-closet-portrait-route.sQvhwx`;
+manifest suffix `.manifest.json`;690 files,659288997 bytes; identity
+`58db674d90877a6843800b399b282dee1067f97849b748d63d75b0b43b447bee`.
+Exactly one changed path from f2eeceba: `laidies-card.html`, one edit-drawer
+portrait block only.689 unchanged,0 added/removed. No scripts, Card data,
+referral loaders, NewsStand, Library or FAiRY changes. Separate unfinished
+24-avatar catalog is not being declared built. Link reaches existing MAiKEOVER.
+Independent manifest/diff review passes. Custom and immutable1280/390/320 actual
+Edit→portrait-link→MAiKEOVER journeys pass, target44px minimum, no overflow.
+20/20 public hashes across10 paths match; all690 local files unchanged postdeploy.
+Provider confirmed head477e6a11. No generation/save/account/backend mutation.
+Native NewsStand final candidate check separately passes at genuine200%;100%
+restored. This does not admit that local NewsStand candidate for publication.
+Referral local checkpoint remains HOLD; use this exact base for future overlays.
+
+## Historical predecessor — 2026-08-31 Library phone successor
 
 Library owner01a02f80 reports verified Production
 `f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`, source
@@ -22,7 +42,8 @@ Owner reports live custom/immutable responsive book checks and52/52 public hashe
 foreground has NOT repeated those browser/provider checks in this handoff.
 Pages slot returned; use this exact successor for the next coordinated overlay,
 with a fresh provider-head check immediately before release. Referral checkpoint
-952f6859 remains local-only; native Safari is still blocked by the locked Mac.
+952f6859 remains local-only; native Safari was blocked at this historical handoff
+(the later final native check in ACTIVE-WORK supersedes that lock).
 No deployment, backend/account mutation or browser action by this handoff.
 
 ## Historical predecessor — 2026-08-31 FAiRY portrait successor

@@ -7,7 +7,7 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current coordinated release is Library's f2eeceba successor below; query
+Current coordinated release is Closet's477e6a11 successor below; query
 the provider again and coordinate before any successor. NewsStand Aug31 service candidate is local only
 at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEWS
 may be included. Town Hall/moderation ownership and retention remain unresolved
@@ -28,7 +28,22 @@ use this exact base and fresh-check production before any next release. No chang
 to referral HOLD; the later native Safari recheck below supersedes the lock.
 No deployment made for this handoff.
 
-### Closet portrait-route repair — LOCAL, release verification pending
+### Closet portrait-route repair — DEPLOYED / PUBLICLY VERIFIED (bounded)
+
+Production `477e6a11-9486-4a43-a3b3-15f8c1e0c4f9`, pushed source
+`22d07ec53c7a4d0553e46abe842424e4c4cffffe`, immutable
+`https://477e6a11.laidies-sunnyvaile.pages.dev`. Provider head checked immediately
+before and after release. Exact input
+`/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-closet-portrait-route.sQvhwx`.
+Independent integrity/route review passes. Both custom and immutable1280/390/320
+journeys open Edit, show the underlined44px-or-larger link, and reach MAiKEOVER's
+original portrait controls. No horizontal overflow.20/20 public hash comparisons
+across10 changed/protected paths match; all690 input files unchanged after deploy.
+Local server8853 stopped, browser viewport restored and task tab closed. No paid
+generation, Card save, backend, user or reward mutation. Full cold-load timing,
+native physical-phone/VoiceOver and signed-in save were not rerun for this link-only
+change. Earlier known global hook failures remain; focused inline parsing and
+staged diff checks passed, owned commit used core.hooksPath=/dev/null.
 
 Live audit at1710/390 found the edit drawer still ended at the unfinished
 24-avatar catalog notice, without a route to the already-restored portrait maker.
@@ -48,6 +63,14 @@ has explicit underline and a44px minimum target. Exact-candidate320/1280 browser
 checks show no overflow, visible target61.2/44px high, real MAiKEOVER navigation
 with original era/outfit/accessory controls, and Close returning focus to Edit.
 No generation/save/account mutation or cold-cache performance claim.
+
+Backend continuation: fresh Supabase auth health returns200; no global provider
+outage inferred. All three local referral frontend suites rerun successfully,
+including5actual-init journeys and5rejected mutants. Referrals still need the
+pending five/day +30-day invitation-expiry decision and real provider/journey
+release gates. Town Hall still needs an operating owner/retention decision;
+newsletter acceptance/delivery requires authorized provider evidence. Read-only
+backend inventory found no new independently repairable KSVL request defect.
 
 ### FAiRY portrait loading — DEPLOYED / PUBLICLY VERIFIED (bounded)
 
