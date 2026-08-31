@@ -4,6 +4,23 @@
 
 ## Current task
 
+### 2026-08-31 — model-specific full examples
+
+- **Status:** SCOPE DECIDED / RESEARCH EXPANDED / PILOT INPUTS PREPARED / PRODUCT RUNS AND MANUSCRIPTS HOLD.
+- **Delivered:** Model/effort/skills/context addenda in both vendor packets;
+  selection-guide routing; exact workshop input, rules, prompts, revision and
+  reference calculations in
+  `operations/product-stewards/library/MODEL-SPECIFIC-EXAMPLE-PILOT-2026-08-31.md`.
+- **Verified:** Official model/effort guidance; Fable overplanning versus Opus 5
+  redundant-verification warnings; Sonnet 5 literal scope; context/skill location
+  differences. Reference arithmetic checked locally; no product runs implied.
+- **Not done:** Account/model comparisons, measured cost/latency, installed
+  skills, full effort-by-model recipes, manuscripts or publication.
+- **Next:** Bind the first manuscript production contract, then run the shared
+  fixture on available Free/paid surfaces without unauthorized spend. Retain
+  actual outputs and limitations; extend to a difficult high-effort case.
+- **Preserved:** Who's Who and all other book work; live Library unchanged.
+
 ### 2026-08-31 — four-book deep research
 
 - **Status:** SOURCE RESEARCH PASS DELIVERED / COVERAGE GAPS AND PRODUCT TESTS OPEN / MANUSCRIPTS AND PUBLICATION HOLD.

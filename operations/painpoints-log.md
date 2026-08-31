@@ -14711,3 +14711,16 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why a free AI demo may not give you a
   usable file—and why paying does not automatically solve that problem.
 - **Status:** Internal research correction only; no publication or account tests.
+
+## LIBRARY-MODEL-RECIPES-20260831 — More review is not a portable default
+
+- **Finding:** Official Fable guidance recommends deliberate verification for
+  long tasks while Opus 5 guidance warns against redundant generic re-checks.
+  Similar effort names do not establish equivalent behaviour or plan access.
+- **Prevention:** Bind recipe to model/version, surface, effort and actual tools.
+  Retain acceptance conditions but remove duplicated rituals only after a
+  representative comparison. Separate model-only, effort-only and workflow
+  comparisons. Skill files and written rules are not permission enforcement.
+- **Possible Behind the Build angle:** Why telling a newer AI to check again
+  can cost more without improving the result—and what to ask for instead.
+- **Status:** Research and trial design; no measured comparative result.

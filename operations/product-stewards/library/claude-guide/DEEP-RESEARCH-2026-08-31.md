@@ -4,6 +4,87 @@
 
 **Purpose:** current source inventory for the proposed nontechnical Claude guide. This is not a feature-comparison verdict, a tested workflow, or publishable prose. Product claims below were checked on 2026-08-31; availability, limits, regions, models, and pricing can change.
 
+## Model-specific expansion — checked 2026-08-31
+
+Official-source findings and proposed trials, not measured model results.
+Full fixture: `../MODEL-SPECIFIC-EXAMPLE-PILOT-2026-08-31.md`.
+
+| Current API model | Documented effort levels |
+|---|---|
+| Fable 5, Mythos 5, Opus 5, Sonnet 5 | low, medium, high, xhigh, max |
+| Opus 4.8, Opus 4.7 | low, medium, high, xhigh, max |
+| Opus 4.6, Sonnet 4.6 | low, medium, high, max; not xhigh |
+
+API default: high. Effort is not a hard spending limit. Source:
+[API effort](https://platform.claude.com/docs/en/build-with-claude/effort).
+The app lists these Fable/Opus/Sonnet models but access depends on account/admin.
+Do not infer Mythos consumer access. Opus 5 thinking cannot be disabled in the
+app; API rules differ. Source:
+[App controls](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings).
+Fable 5 is unavailable on Free. Pro and standard Team seats require usage
+credits, rather than including Fable in normal plan usage. Max/premium seats
+have a shared weekly allowance with a Fable portion, not unlimited access.
+Source: [Fable access](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan).
+
+### Different models need different corrections
+
+- **Fable 5:** Anthropic documents excessive context gathering/deliberation on
+  routine high-effort work. Test lower effort and a clear scope/finish line.
+  It also recommends deliberate verification for long difficult runs. Ali's
+  concern is supported, but a universal over-review defect is not established.
+  Older skills can over-constrain the model. Source:
+  [Fable prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5).
+- **Opus 5:** Anthropic warns that generic extra verification/re-check
+  instructions can duplicate the model's own checks. Keep acceptance
+  requirements but test removing redundant review rituals. Effort does not
+  reliably shorten visible responses: set output length separately.
+  Small tasks should not acquire unnecessary reviewer agents. Source:
+  [Opus prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5).
+- **Sonnet 5:** Lower-effort instructions are more literal; name all affected
+  sections/files rather than expecting one instruction to generalize. Raise
+  effort when a complex task is too shallow. Tool use can change with effort.
+  Source: [Sonnet prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5).
+
+### Workshop adaptations — untested editorial proposals
+
+Fable 5 medium: use the complete-job prompt and bounded-work rules in the
+fixture; compare high with identical inputs and count unnecessary actions
+separately from required checks. This routine trial is not a vendor-default claim.
+
+Opus 5 medium: replace generic repeated-check instructions, rather than adding
+another rule, with: “Acceptance: correct costs; a 90-minute agenda including a
+10-minute break; an invitation of at most 120 words; every brief requirement
+present. Provide the outputs and evidence of these conditions. No additional
+review stage or reviewer.” Compare with the original prompt at the same effort.
+
+Sonnet 5 medium: the revision must explicitly say: “Apply the attendance revision
+to both files and every section mentioning attendance; preserve unaffected
+content.” Compare low only with the complete requirements retained.
+
+Set effort through the actual control. A prompt saying “use medium” does not
+prove the setting changed. Cover high/xhigh/max with genuinely harder examples;
+do not sell the workshop fixture as proof of their usefulness.
+
+### Where instructions and skills actually go
+
+Claude Code uses project `CLAUDE.md` or `.claude/CLAUDE.md`, with personal
+guidance in `~/.claude/CLAUDE.md`. It does not automatically read `AGENTS.md`
+as equivalent; explicit import is supported. Confirm loaded guidance through
+`/context`. Instructions are not enforced permissions. Source:
+[Memory](https://code.claude.com/docs/en/memory).
+Code project skills use `.claude/skills/<name>/SKILL.md`; personal skills use
+`~/.claude/skills/<name>/SKILL.md`. Cowork uses account-enabled skills, not
+that personal local folder. Installation on one surface is not proof of
+discovery on another. Source: [Skills](https://code.claude.com/docs/en/skills).
+App skills are documented for Free and paid accounts with code execution enabled
+and applicable organization controls. Source:
+[Use skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+
+Still open: Free selector/caps; paid execution; Cowork instruction placement;
+older exposed models' distinct recipes; actual skill contents and install trials
+for substantial document/code examples. No purchases, installations or model
+trial runs were made for this addendum.
+
 ## Executive finding
 
 The important correction to old Claude/Cowork explainers is **certain**: Cowork is not now accurately described as a local-only desktop agent. It is a paid, beta work mode whose agent loop and code execution run in Anthropic cloud sandboxes by default; the Claude Desktop app is required only when that cloud session needs a granted route to local files, browser, or computer. Work can continue after the laptop closes, but local-device reach cannot. [Cowork help, living documentation checked 2026-08-31](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) and [architecture overview, living documentation checked 2026-08-31](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)

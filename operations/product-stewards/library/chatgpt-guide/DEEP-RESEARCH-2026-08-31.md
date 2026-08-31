@@ -146,6 +146,65 @@ not clinical or legal advice.
 
 ## Source register — opened 2026-08-31
 
+### Model-specific operating recipes — scope expansion
+
+Checked 2026-08-31. This addendum specifies trials; it does not report measured
+model performance. Do not merge ChatGPT Chat, Work, Codex and API controls into
+one fictional picker.
+
+| Choice | Verified distinction | Proposed trial, not a measured winner |
+|---|---|---|
+| GPT-5.6 Luna | Clear, repeatable work; lowest-cost family member | Extract workshop expenses into a fixed schema, with exact source-row references |
+| GPT-5.6 Terra | Balanced everyday work | Assemble the expense data and agreed policy into a practical workshop pack |
+| GPT-5.6 Sol | Complex, ambiguous work and polish | Reconcile conflicting workshop requirements or build/test the interactive version |
+| Light / Low | Light is the documented desktop/Work/IDE label; Low is CLI wording | Bounded extraction; explicit fields, missing-value rule and a small check |
+| Medium | Balance of depth and speed | Complete pack with specified deliverables and acceptance checks |
+| High / Extra High | More demanding planning/analysis | Resolve a documented conflict; explain decision evidence, not hidden reasoning |
+| Max | More single-task reasoning; may need enabling | Compare only on a genuinely hard case where the lower setting fails |
+| Ultra | Uses subagents; not merely more serial thinking | Independent workstreams with owned outputs and a reconciliation step; not a default for this small pilot |
+
+Source: [Models](https://learn.chatgpt.com/docs/models). Exact selectable
+model/effort combinations and entitlements still require per-account checks.
+This documentation describes Work/Codex surfaces; it is not proof that ordinary
+Free Chat exposes the same controls. It also announces GPT-5.4/mini retirement
+from ChatGPT-authenticated Codex on August 31, 2026, while API-key access is
+unaffected. Do not recommend retired choices merely because an older local
+configuration still lists them. Retain a migration sidebar, not an active recipe.
+
+The API separately documents `none`, `low`, `medium`, `high`, `xhigh`, `max`;
+Pro execution mode is independent of effort, not proof of a ChatGPT Pro-plan
+feature. Avoid equating API `none`, app Light, a subscription called Pro and
+Ultra. Source: [GPT-5.6 guide](https://developers.openai.com/api/docs/guides/latest-model).
+
+**Prompt adaptation:** Give Luna a narrow schema and explicit handling of
+unknowns; give Terra the complete bounded outcome; give Sol the real ambiguity,
+evidence and finish line. These are editorial starting hypotheses to compare,
+not claims that a smaller model cannot do the larger job. Raising effort does
+not require a longer prompt. OpenAI recommends removing redundant instructions,
+retaining constraints and stopping conditions, and testing a familiar task at
+the same effort and one level lower. Preserve essential validation. Source:
+[GPT-5.6 prompting](https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6.md).
+
+**Where the context belongs:** Persistent local Codex rules go in the project's
+`AGENTS.md`; reusable procedures can live in `.agents/skills/<name>/SKILL.md`.
+Project sources, one-job attachments, memories, skills and external connectors
+have different jobs. A skill's instructions do not themselves grant tool access
+or enforce permissions. Start with relevant existing capabilities; installing
+more skills is not a quality measure. Source:
+[Customization](https://learn.chatgpt.com/docs/customization/overview).
+
+A web ChatGPT project carries uploaded/connected sources and project
+instructions; it does not automatically read a local folder. In a local
+multi-folder project, automatic guidance discovery starts from the primary
+folder, not all secondary folders. The example must show the actual destination
+and confirm which files were read; merely naming a file is insufficient.
+Source: [Projects](https://learn.chatgpt.com/docs/projects).
+
+**Full-example production input:**
+`../MODEL-SPECIFIC-EXAMPLE-PILOT-2026-08-31.md` holds the exact fictional inputs,
+reusable rules, initial/follow-up prompts, reference calculations and comparison
+method. The actual product output, elapsed usage and Free/paid runs remain open.
+
 Official living documentation unless a date is stated. 'Undated' means no
 publication/update date was established in the fetched text, not that the page
 was published today.

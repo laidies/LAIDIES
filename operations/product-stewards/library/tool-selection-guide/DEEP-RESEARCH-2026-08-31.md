@@ -4,6 +4,17 @@
 
 **Purpose:** research input for the proposed practical tool/application selection guide. It is not a universal ranking, legal advice, a promise of access, or a licence clearance. “Commercial use allowed” is a vendor licence statement, not a guarantee of copyright, originality, trademark clearance, consent, platform acceptance, or fitness for a particular publication.
 
+## Model/effort routing addition — 2026-08-31
+
+Ali's expanded scope requires a second decision after choosing the application:
+which available model, effort and execution mode fit the job? Route readers to
+the model-specific sections of the ChatGPT/Claude packets and the shared
+`../MODEL-SPECIFIC-EXAMPLE-PILOT-2026-08-31.md` fixture. Do not copy an API
+capability table into a consumer-plan recommendation. A higher setting, paid
+plan, extra skill or reviewer is useful only if it improves the required result.
+The pilot separates full-workflow comparisons from controlled model/effort
+comparisons. Exact account controls and comparative outcomes remain untested.
+
 ## Decision first: use the smallest toolchain that preserves a usable, reviewable final file
 
 The wrong framing is “Which AI tool is best?” **Likely:** most beginner jobs need one source-grounded research space, one editable production tool, and a human check—not seven generators. Choose by the deliverable and its risk:

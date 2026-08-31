@@ -64,6 +64,23 @@ are saved below. They distinguish official product facts, first-hand methods,
 editorial adaptations and untested account behaviour. They are research inputs,
 not manuscript admission or comprehensive coverage of every provider.
 
+**Model-specific full examples — Ali, 2026-08-31:** The ChatGPT and Claude
+guides must teach selection and operation of each currently relevant model,
+not merely each application. Cover every documented effort level exposed in
+the named surface, from its lightest setting through its maximum; keep model,
+effort, execution mode and subscription distinct. Do not equate identically
+named levels across vendors or invent controls for Free accounts. Include
+full starting materials, exact context-file contents and placement, useful
+skills and installation/access boundaries, reusable rules, initial prompt,
+actual output, inspection, targeted revision, final deliverable and stopping
+conditions. Show what changes by model/effort and why, including avoiding
+unnecessary reviews, delegation and scope expansion without skipping necessary
+checks. Ali's Fable 5 over-review example is a research/test case, not yet a
+proven universal model trait. Recommendations must distinguish documented
+behaviour, first-hand expert experience, editorial hypotheses and our actual
+test results. The selection guide must route readers to these exact recipes;
+the underlying model/effort/plan records remain dated and refreshable.
+
 - `operations/product-stewards/library/whos-who-in-ai/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/chatgpt-guide/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/claude-guide/DEEP-RESEARCH-2026-08-31.md`
