@@ -14758,3 +14758,22 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why a useful older review can become
   invalid even when nobody changed the review file itself.
 - **Status:** Internal production-control repair; no publication authority.
+
+## LIBRARY-FOUR-BOOK-PROOF-20260831 — One shared job is useful only when each book asks a different question
+
+- **Finding:** Reusing the same workshop fixture across the ChatGPT, Claude and
+  selection guides exposed genuine product differences, but repeating one
+  generic lesson would have created three near-duplicate books. The chip sample
+  confirmed that Who's Who has a separate infrastructure and relationship job.
+- **Prevention:** Keep the complete fixture in each standalone vendor guide,
+  where setup and recovery differ. In the selection guide, compare preserved
+  outcomes without reprinting the full tutorial. Bind model/effort recipes to
+  the vendor book and company/power relationships to Who's Who. Working with AI
+  101 remains the universal workflow owner.
+- **Evidence:** Four distinct manuscript samples and
+  `FOUR-BOOK-SAMPLE-RECONCILIATION-2026-08-31.md`; all producer contracts pass
+  current integrity checks and the calibrated pilot still rejects the actual
+  failed ChatGPT revision.
+- **Possible Behind the Build angle:** How one fictional workshop revealed
+  four different books instead of four covers on the same advice.
+- **Status:** Internal production learning; semantic review and publication remain HOLD.

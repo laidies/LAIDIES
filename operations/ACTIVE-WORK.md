@@ -35,13 +35,15 @@
 
 ### 2026-08-31 — model-specific full examples
 
-- **Status:** FIRST ACTUAL RUN ROUND DELIVERED / WHO'S WHO SAMPLE DRAFTED / THREE VENDOR-SELECTION SAMPLES AND MANUSCRIPTS HOLD.
+- **Status:** FIRST ACTUAL RUN ROUND AND FOUR REPRESENTATIVE SAMPLES DELIVERED / SELF-REVIEW, FULL MANUSCRIPTS AND PUBLICATION HOLD.
 - **Delivered:** Nine preserved responses across an observed ChatGPT Free route
   and Claude Code Sonnet 5 Medium/High; exact source packets, failed revision,
   targeted repairs and calibrated arithmetic/agenda checks in
   `operations/product-stewards/library/pilot-20260831/`. The first sourced
-  Who's Who manuscript proof is
-  `content/library-books/pilots/whos-who-in-ai/chip-chain-sample-2026-08-31.md`.
+  four sourced manuscript proofs are under
+  `content/library-books/pilots/{whos-who-in-ai,chatgpt-guide,claude-guide,tool-selection-guide}/`.
+  Their cross-book ownership and expansion order are reconciled in
+  `operations/product-stewards/library/FOUR-BOOK-SAMPLE-RECONCILIATION-2026-08-31.md`.
 - **Verified:** The Free route produced initial files and continued in text
   after a data-analysis limit; its revision left stale budget cells until a
   targeted correction. Paid Claude also invented or overstated source policy.
@@ -52,9 +54,9 @@
   media output/rights comparisons; real-reader evidence; full manuscripts or
   publication. The chip sample still needs its exact producer self-review and
   independent semantic review.
-- **Next:** Draft the matched ChatGPT, Claude and task-selection samples from
-  the preserved runs, then review the four exact samples together for overlap,
-  usefulness and transfer before expanding any full manuscript.
+- **Next:** Complete exact producer self-review for the four prose files, repair
+  decision-changing defects, then run only the next product/context/Skill tests
+  that answer a reader choice before expanding first full chapters.
 - **Preserved:** Who's Who and all other book work; live Library unchanged.
 
 ### 2026-08-31 — four-book deep research
