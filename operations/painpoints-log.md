@@ -1,5 +1,13 @@
 # LAiDIES build learning ledger
 
+## Whole-manuscript artwork clearance — 2026-08-31
+
+- **Risk:** Container padding and an opening screenshot do not detect a later paragraph or heading translated into the fixed art rail.
+- **Prevention:** Measure every laid-out DOM text range against the artwork's widest rendered extent at every supported width, while retaining pixel inspection of the actual frame. This protects later scroll positions rather than only the introduction.
+- **Calibration learning:** A last-paragraph selector may select an empty layout element. Require nonempty rendered text before injecting a known overlap; an HTTP timeout or empty-element transform is not proof the guard can fail. The corrected injection produced negative clearance and a failing exit status.
+- **Result:** Four live books pass nine widths; desktop/phone scrolled inspection found no art/text overlap. Exact narrow-screen artwork selection remains a separate unfinished issue. No production mutation.
+- **Behind the Build angle:** Testing the whole book, not only the attractive first screen.
+
 ## Four-book colour family — 2026-08-30
 
 - **Failure caught internally:** Generated Working title reversed word order; discarded before implementation. Phone heading save buttons crowded long words; put the button on its own row. White title paper produced a visible rectangle; integrate its existing pixels without redrawing approved lettering.

@@ -4,6 +4,14 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-LIVE-TEXT-CLEARANCE-20260831
+- **Status:** LIVE AUDIT VERIFIED; artwork-selection correction still unfinished.
+- **Live evidence:** `https://laidies.ai/library` and all thirteen reader release paths match the colour-release hashes; four rendered manuscripts also match. All four readers pass nine-width opening/navigation/viewport checks. Added a DOM Range guard measuring every laid-out text run throughout the full manuscript against the outermost frame artwork, including text below the opening viewport; all four live books pass all nine widths. Scrolled desktop and phone pixels independently inspected in the browser show no computer/text overlap.
+- **Calibration:** A deliberately translated, nonempty late paragraph produces negative artwork clearance and fails the guard. Earlier calibration attempts selected empty paragraphs and were not valid evidence; the final injection filters nonempty rendered text. A network timeout in the first remote calibration attempt was not treated as the expected failure.
+- **Remaining:** Below 1200px, current production still selects the alternate compact artwork; the exact approved-background selection is not fully implemented. No public files changed or deployment occurred during this status/clearance audit. Only the test and internal records changed.
+
+## Previous exact-frame clarification
+
 - **Task ID:** LIBRARY-EXACT-FRAME-SELECTION-20260830
 - **Status:** DECIDED; narrow-screen implementation mismatch remains.
 - **Evidence:** Ali's three attached landscape artworks are RGB pixel-identical to the three deployed desktop masters. The purple v6 master shares the composition. At the actual 700px live browser, the reader still loads the separate compact v7 artwork. Exact selection recorded in `operations/library-decisions.md`; no new images, runtime changes or deployment in this clarification.

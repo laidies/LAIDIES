@@ -118,6 +118,13 @@ const server = http.createServer((request, response) => {
           });
           await page.locator('#reader .reader-page-art').evaluate(img => img.decode());
         }
+        if (process.env.LIBRARY_TEST_INJECT_LATE_TEXT_OVERLAP === '1') {
+          await page.locator('#rtxt').evaluate(text => {
+            const paragraph = [...text.querySelectorAll('p')].filter(p => p.innerText.trim() && p.getBoundingClientRect().height > 0).at(-1);
+            if (!paragraph) throw Error('Calibration requires a laid-out final paragraph');
+            paragraph.style.setProperty('transform', 'translateX(-500px)', 'important');
+          });
+        }
         const geometry = await page.locator("#reader").evaluate(node => {
           const book = node.querySelector('.book').getBoundingClientRect();
           const text = node.querySelector('#rtxt');
@@ -127,6 +134,21 @@ const server = http.createServer((request, response) => {
           const compact = /(?:reader-frame-compact-imagegen-v7|(?:working|answers|dictionary)-compact-imagegen-v1)/.test(img.currentSrc);
           const artRight = compact ? frame.left + 174 * scale : frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
           const textLeft = text.getBoundingClientRect().left + parseFloat(getComputedStyle(text).paddingLeft);
+          // Include every laid-out text run, even far below the opening screen.
+          // A later negative margin must not evade the container-padding guard.
+          const walker = document.createTreeWalker(text, NodeFilter.SHOW_TEXT);
+          let run, textRunCount = 0, minimumTextLeft = Infinity;
+          while ((run = walker.nextNode())) {
+            if (!run.textContent.trim()) continue;
+            const range = document.createRange();
+            range.selectNodeContents(run);
+            for (const rect of range.getClientRects()) {
+              if (rect.width > 0 && rect.height > 0) {
+                textRunCount++;
+                minimumTextLeft = Math.min(minimumTextLeft, rect.left);
+              }
+            }
+          }
           const band = node.querySelector('.band').getBoundingClientRect();
           const save = node.querySelector('.reader-save-book').getBoundingClientRect();
           const top = node.querySelector('#reader-top').getBoundingClientRect();
@@ -153,12 +175,13 @@ const server = http.createServer((request, response) => {
             rightActionGroup: Math.abs(top.left - save.right) <= 10 && Math.abs(back.left - top.right) <= 10,
             compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition.startsWith('0%')),
             artClearance: textLeft - artRight,
+            textRunCount, allTextArtClearance: minimumTextLeft - artRight,
             minimumArtClearance: compact ? 14 : 20,
             protectedFrame: compact || /(?:ai-fundamentals-frame-imagegen-v6|(?:working|answers|dictionary)-desktop-imagegen-v1)/.test(img.currentSrc),
             textBottom: text.getBoundingClientRect().bottom
           };
         });
-        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.titleClear || !geometry.titleOriginal || !geometry.companionCorrect || !geometry.rightActionGroup || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
+        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.titleClear || !geometry.titleOriginal || !geometry.companionCorrect || !geometry.rightActionGroup || !geometry.compactFrameVisible || !geometry.textRunCount || geometry.allTextArtClearance < 0 || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
           failures.push(`${id}@${width}: full-page/art-safe geometry failed ${JSON.stringify(geometry)}`);
         }
         const navigation = await page.locator("#reader").evaluate(node => ({
