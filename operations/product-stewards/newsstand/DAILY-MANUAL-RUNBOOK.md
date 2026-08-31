@@ -61,11 +61,12 @@ feed/archive generation and reader contract. It has not published a real story.
 Run `node scripts/test-newsstand-ordinary-publication.mjs` for this branch.
 
 Remaining conditional blockers: new ordinary prose still requires separate exact
-accuracy and beginner/voice admissions. The current shared NEWS gate also
-requires recorded human explain-back and unseen-transfer evidence for each
-article; the service-bank sampling exception does not apply. No policy change
-is implied by the code repair. Until Ali decides this point or actual required
-evidence exists, the ordinary-news proving run remains held. Do not describe
+accuracy and beginner/voice admissions. On August 31 Ali authorized routine news
+without per-story human checks. Use `ordinary-news-editorial-policy.json` in this
+directory: independent AI editorial analysis replaces only the human explain-back
+and transfer observations for ordinary `NEWSSTAND_DAILY` `NEWS`. It does not
+waive any other quality or release gate, or Big Picture's exact-version Ali review.
+Do not describe
 a service-only run as operational news publication. The unrelated broad episode
 hook and legacy Big Picture checker remain known failures, not passing checks.
 Source/browser/provider access and the local Codex host must be available.
@@ -214,11 +215,50 @@ Package contract (`scripts/validate-newsstand-ordinary-story-candidate.mjs`):
   the independent factual review. Recheck sources on the editorial date.
 - `reviewEvidence`: exact `{path, sha256}` bindings for `producer`,
   `independent`, and `independentRawReport`. Existing producer and independent
-  prose contracts remain mandatory, including cross-family review and the
-  human evidence rule. Both bind the same complete review text and rendering.
+  prose contracts remain mandatory, including cross-family review and exact
+  explanation assessments. Both bind the same complete review text and rendering.
   The independent receipt's `reportBinding` points to the raw JSON report with
   `candidateId`, `storySha256`, `reviewerPrincipalId`, `verdict: PASS`, and
   substantive `findings`. Do not manufacture reviewer or reader records.
+
+### Ordinary-news reader explanation review (Ali authorized August 31)
+
+The independent receipt may carry `newsEditorialReview: {policy: {path, sha256},
+analysis: {path, sha256}}`. Policy is the exact
+`operations/product-stewards/newsstand/ordinary-news-editorial-policy.json`.
+The raw analysis declares `evidenceType: AI_EDITORIAL_ANALYSIS`, `candidateId`,
+`reviewerPrincipalId`, `reviewTextSha256`, `checks` and `outcomes`. It is real
+independent reviewer output, not a maker-generated passing receipt.
+
+Four checks each need PASS/HOLD/FAIL, a specific observation and exact article
+excerpt/locator in `artifactEvidence`:
+
+- `incidentExplained`: who did what, what changed and why it matters are clear.
+  Explain an unfamiliar company or incident when it is necessary to understand
+  the story; naming “the Hugging Face incident” is not an explanation.
+- `termsExplainedInContext`: explain necessary technical terms as they arise,
+  using an example when useful. Do not replace jargon with vague metaphors.
+- `readerConsequenceSpecific`: distinguish a current consequence from a possible
+  future one; name who is affected and how. “Tools and permissions matter” is
+  not enough. Do not invent personal advice; say when no reader action is needed.
+- `noInternalNotesOrInventedAdvice`: coherent paragraphs and a useful ending;
+  no internal planning notes, unsupported balance, slogan conclusions or
+  compulsory tips. Class Notes link to actual relevant admitted material.
+
+For both `explainBack` and `unseenTransfer`, retain the existing outcome verdict,
+observation and article evidence. Replace `observedReaderEvidence` with
+`aiEditorialAnalysis: {evidenceType: AI_EDITORIAL_ANALYSIS, prompt, response,
+expectedEvidence, assessment}`. Bind the identical objects in the raw analysis's
+`outcomes`. Explain-back must restate the story's mechanism and consequence in
+ordinary language; transfer must use a different situation to reveal a likely
+misunderstanding. Neither may claim to be a real reader response. Include the
+receipt limitation: “AI editorial assessment only; no observed human-comprehension
+evidence is claimed.” No human sampling is a routine-news publication prerequisite.
+
+All existing clarity, voice, useful action, source/freshness, uncertainty,
+calibration and anti-slop rulings still apply. A failed explanation means rewrite
+and fresh independent review, not a caveat pasted into the story. These tests
+validate evidence completeness and identity, not the truth of a reviewer's judgment.
 
 The composer stores a held snapshot and the package binding. Promotion reopens
 all evidence and admits that exact snapshot; projection performs the only
@@ -322,8 +362,10 @@ exact Vancouver edition date, dated news is not carried forward as new, and
 issue-store or optional-column failure preserves a truthful fallback.
 The synthetic ordinary-story test additionally runs actual compose, promote,
 publish, repeat/check and derivative commands in an isolated fixture, verifies
-reader eligibility, and rejects copy/review/source/base drift and missing human
-evidence. It is not public or human evidence. A real ordinary story must still
+reader eligibility, and rejects copy/review/source/base drift and missing required
+review evidence. `test-prose-quality-admission.mjs` exercises the bounded AI
+editorial profile as well as the unchanged human gates outside that profile.
+Synthetic tests are not public or human evidence. A real ordinary story must still
 pass source, prose, browser, release and custom/immutable verification before
 this branch can be described as publicly operational.
 It must also retain the admitted Daily headline, body, route and source after

@@ -34,6 +34,8 @@ try {
   }));
   const samplingPolicyPath = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
   write(samplingPolicyPath, fs.readFileSync(path.resolve(samplingPolicyPath), "utf8"));
+  const newsPolicyPath = "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json";
+  write(newsPolicyPath, fs.readFileSync(path.resolve(newsPolicyPath), "utf8"));
 
   const excerpt = candidateBody.slice(0, 80);
   const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
@@ -174,6 +176,55 @@ try {
   news.outcomes.datedChange = structuredClone(news.outcomes.plainClarity);
   news.outcomes.consequenceAndUncertainty = structuredClone(news.outcomes.readerValue);
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
+  const newsAnalysisPath = "evidence/news-editorial-analysis.json";
+  const editorialNews = structuredClone(news);
+  editorialNews.candidateId = "ordinary-news-fixture";
+  editorialNews.surface = "NEWSSTAND_DAILY";
+  const editorialManifestPath = "content/news-editorial-manifest.json";
+  write(editorialManifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: editorialNews.candidateId, surface: editorialNews.surface, contentClass: "NEWS", reviewText: bind(candidatePath) }));
+  editorialNews.artifact.manifest = bind(editorialManifestPath);
+  editorialNews.reviewedAt = "2026-08-31T10:00:00-07:00";
+  editorialNews.reviewer.principalId = "independent-news-principal";
+  editorialNews.calibration.reviewerPrincipalId = "independent-news-principal";
+  editorialNews.calibration.reviewedAt = "2026-08-31T09:00:00-07:00";
+  editorialNews.limitations = ["AI editorial assessment only; no observed human-comprehension evidence is claimed."];
+  for (const name of ["explainBack", "unseenTransfer"]) delete editorialNews.outcomes[name].observedReaderEvidence;
+  const makeAnalysis = (prompt, response) => ({ evidenceType: "AI_EDITORIAL_ANALYSIS", prompt, response, expectedEvidence: "Mechanism, consequence and a distinct case.", assessment: "PASS: the answer identifies the mechanism and reader action." });
+  const analysis = {
+    evidenceType: "AI_EDITORIAL_ANALYSIS", candidateId: editorialNews.candidateId,
+    reviewerPrincipalId: editorialNews.reviewer.principalId, reviewTextSha256: editorialNews.artifact.reviewText.sha256,
+    outcomes: {
+      explainBack: makeAnalysis("Explain why the policy supports the promise.", "It supplies the evidence; the model only drafts."),
+      unseenTransfer: makeAnalysis("Apply the same distinction to a travel rule.", "Use the current travel rule as evidence and verify the date.")
+    },
+    checks: Object.fromEntries(["incidentExplained", "termsExplainedInContext", "readerConsequenceSpecific", "noInternalNotesOrInventedAdvice"].map(name => [name, { verdict: "PASS", observation: `${name} passes on the exact prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }] }]))
+  };
+  editorialNews.outcomes.explainBack.aiEditorialAnalysis = analysis.outcomes.explainBack;
+  editorialNews.outcomes.unseenTransfer.aiEditorialAnalysis = analysis.outcomes.unseenTransfer;
+  write(newsAnalysisPath, JSON.stringify(analysis));
+  editorialNews.newsEditorialReview = { policy: bind(newsPolicyPath), analysis: bind(newsAnalysisPath) };
+  assert.deepEqual(inspect(editorialNews), [], "authorized Daily NEWS may use bound AI editorial analysis without human observations");
+  const missingAnalysis = structuredClone(editorialNews); delete missingAnalysis.newsEditorialReview.analysis;
+  assert.match(inspect(missingAnalysis).join("\n"), /analysis.*required|analysis JSON|AI analysis requires/);
+  const forgedHuman = structuredClone(editorialNews); forgedHuman.outcomes.explainBack.observedReaderEvidence = observedParticipants[0];
+  assert.match(inspect(forgedHuman).join("\n"), /cannot claim observed humans/);
+  for (const [field, value] of [["surface", "NEWSSTAND_BIG_PICTURE"], ["surface", "NEWSSTAND_RECURRING_SERVICE_COLUMNS"], ["contentClass", "EXPLANATION"]]) { const wrong = structuredClone(editorialNews); wrong[field] = value; assert.match(inspect(wrong).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/); }
+  const stale = structuredClone(editorialNews); stale.newsEditorialReview.policy.sha256 = "0".repeat(64);
+  assert.match(inspect(stale).join("\n"), /SHA-256 mismatch/);
+  const missingCheck = structuredClone(editorialNews); delete analysis.checks.incidentExplained; write(newsAnalysisPath, JSON.stringify(analysis)); missingCheck.newsEditorialReview.analysis = bind(newsAnalysisPath);
+  assert.match(inspect(missingCheck).join("\n"), /incidentExplained requires/); analysis.checks.incidentExplained = { verdict: "PASS", observation: "pass", artifactEvidence: [{ excerpt, locator: "candidate.md:1" }] };
+  const holdCheck = structuredClone(editorialNews); analysis.checks.incidentExplained.verdict = "HOLD"; write(newsAnalysisPath, JSON.stringify(analysis)); holdCheck.newsEditorialReview.analysis = bind(newsAnalysisPath);
+  assert.match(inspect(holdCheck).join("\n"), /PASS forbidden/); analysis.checks.incidentExplained.verdict = "PASS";
+  const missingTransfer = structuredClone(editorialNews); delete missingTransfer.outcomes.unseenTransfer;
+  assert.match(inspect(missingTransfer).join("\n"), /unseenTransfer is missing/);
+  const samePrompt = structuredClone(editorialNews); samePrompt.outcomes.unseenTransfer.aiEditorialAnalysis.prompt = samePrompt.outcomes.explainBack.aiEditorialAnalysis.prompt;
+  assert.match(inspect(samePrompt).join("\n"), /different case/);
+  const missingCore = structuredClone(editorialNews); delete missingCore.outcomes.plainClarity;
+  assert.match(inspect(missingCore).join("\n"), /plainClarity is missing/);
+  const missingFacts = structuredClone(editorialNews); delete missingFacts.factualReview.claimMap;
+  assert.match(inspect(missingFacts).join("\n"), /claim-to-source map/);
+  const producerMisuse = structuredClone(editorialNews); producerMisuse.stage = "PRODUCER_SELF_REVIEW"; producerMisuse.reviewer.principalId = producerMisuse.maker;
+  assert.match(inspect(producerMisuse).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/);
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
   console.log("PROSE QUALITY CALIBRATION PASS valid=3 hold=1 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 sampled_service_profile=1");

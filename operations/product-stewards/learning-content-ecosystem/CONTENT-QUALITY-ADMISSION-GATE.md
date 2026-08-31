@@ -21,6 +21,19 @@ existing news, book, episode, class and interactive/accessibility gates.
 
 ## What this gate guarantees—and what it does not
 
+**Ordinary NewsStand news, August 31 ruling:** Ali removed mandatory human
+checks for routine news, not the requirement to explain it clearly to
+non-technical LAiDIES readers. The bounded policy is
+`operations/product-stewards/newsstand/ordinary-news-editorial-policy.json`.
+Only independent `NEWSSTAND_DAILY` / `NEWS` receipts may use explicitly labelled,
+exact-prose-bound AI editorial explanation/transfer analysis instead of observed
+human evidence. The Daily runbook specifies the required explanation checks.
+All other source, clarity, usefulness, voice, independence, rendered experience
+and release requirements remain. Big Picture still requires Ali's exact-version
+review. This does not alter Library, episode, class or service-bank policies.
+Do not report AI analysis as observed reader comprehension or require human
+sampling as a new routine-news publication blocker.
+
 This gate does not declare content good because a checklist exists. It permits
 an exact artifact to advance only when the applicable checks have independent,
 artifact-bound evidence.

@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const NEWSSTAND_SAMPLING_POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
+const NEWS_EDITORIAL_POLICY = "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json";
 const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
 const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
@@ -105,6 +106,26 @@ function samplingOverrideFor(receipt, root, errors) {
   return policy;
 }
 
+function newsEditorialAnalysisFor(receipt, root, errors) {
+  const profile = receipt?.newsEditorialReview;
+  if (!profile) return null;
+  const require = (ok, message) => { if (!ok) errors.push(`newsEditorialReview: ${message}`); };
+  require(receipt.stage === "INDEPENDENT_SEMANTIC_ADMISSION" && receipt.surface === "NEWSSTAND_DAILY" && receipt.contentClass === "NEWS", "limited to independent ordinary NEWSSTAND_DAILY NEWS review");
+  require(!receipt.samplingOverride, "cannot combine with service sampling");
+  require(profile.policy?.path === NEWS_EDITORIAL_POLICY, "canonical policy path required");
+  const policyText = loadBinding(root, profile.policy, "newsEditorialReview.policy", errors);
+  const analysisText = loadBinding(root, profile.analysis, "newsEditorialReview.analysis", errors);
+  let policy, analysis;
+  try { policy = JSON.parse(policyText); analysis = JSON.parse(analysisText); }
+  catch { errors.push("newsEditorialReview: invalid policy/analysis JSON"); return null; }
+  require(policy?.policyId === "ordinary-news-ai-editorial-review-2026-08-31" && policy?.status === "ACTIVE" && policy?.surface === "NEWSSTAND_DAILY" && policy?.contentClass === "NEWS" && policy?.humanCheckRequired === false, "policy scope/status mismatch");
+  require(Date.parse(receipt.reviewedAt) >= Date.parse("2026-08-31T00:00:00-07:00"), "cannot retrospectively waive older reviews");
+  require(analysis?.evidenceType === "AI_EDITORIAL_ANALYSIS", "analysis must declare AI_EDITORIAL_ANALYSIS");
+  require(analysis?.candidateId === receipt.candidateId && analysis?.reviewerPrincipalId === receipt.reviewer?.principalId && analysis?.reviewTextSha256 === receipt.artifact?.reviewText?.sha256, "analysis must bind exact candidate, prose and independent reviewer");
+  require(receipt.limitations?.includes("AI editorial assessment only; no observed human-comprehension evidence is claimed."), "must disclose absence of observed human evidence");
+  return analysis;
+}
+
 export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   const errors = [];
   const require = (condition, message) => { if (!condition) errors.push(message); };
@@ -132,8 +153,17 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(["PASS", "HOLD", "REJECT"].includes(receipt?.verdict), "verdict is invalid");
   require(Array.isArray(receipt?.limitations), "limitations must be an array");
   const samplingPolicy = samplingOverrideFor(receipt, root, errors);
+  const newsAnalysis = newsEditorialAnalysisFor(receipt, root, errors);
 
   const artifactBody = loadBinding(root, receipt?.artifact?.reviewText, "artifact.reviewText", errors);
+  if (newsAnalysis) {
+    for (const name of ["incidentExplained", "termsExplainedInContext", "readerConsequenceSpecific", "noInternalNotesOrInventedAdvice"]) {
+      const check = newsAnalysis.checks?.[name];
+      require(["PASS", "HOLD", "FAIL"].includes(check?.verdict) && text(check?.observation), `newsEditorialReview.${name} requires verdict and specific assessment`);
+      evidenceAppears(artifactBody, check?.artifactEvidence, `newsEditorialReview.${name}`, errors);
+      if (receipt.verdict === "PASS") require(check?.verdict === "PASS", `PASS forbidden: newsEditorialReview.${name} did not pass`);
+    }
+  }
   const manifestBody = loadBinding(root, receipt?.artifact?.manifest, "artifact.manifest", errors);
   if (receipt?.artifact?.rendered) loadBinding(root, receipt.artifact.rendered, "artifact.rendered", errors);
   if (manifestBody) {
@@ -191,11 +221,19 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
     require(text(outcome?.observation), `outcome ${outcomeName} needs a specific observation`);
     evidenceAppears(artifactBody, outcome?.artifactEvidence, `outcomes.${outcomeName}.artifactEvidence`, errors);
     if (["explainBack", "unseenTransfer"].includes(outcomeName)) {
+      require(!outcome?.aiEditorialAnalysis || Boolean(newsAnalysis), `${outcomeName}: AI analysis requires authorized ordinary-news profile`);
       require(!outcome?.readerEvidence, `${outcomeName}.readerEvidence is retired because it could not distinguish simulation from observation`);
       if (receipt?.stage === "PRODUCER_SELF_REVIEW") {
         const probe = outcome?.simulatedReaderProbe;
         for (const field of ["prompt", "probeResponse", "expectedEvidence"]) require(text(probe?.[field]), `${outcomeName}.simulatedReaderProbe.${field} is required`);
         require(!outcome?.observedReaderEvidence, `${outcomeName}: producer simulation cannot occupy observedReaderEvidence`);
+      } else if (newsAnalysis) {
+        require(!outcome?.observedReaderEvidence && !outcome?.simulatedReaderProbe, `${outcomeName}: AI editorial analysis cannot claim observed humans or reuse producer simulation`);
+        const analysis = outcome?.aiEditorialAnalysis;
+        require(analysis?.evidenceType === "AI_EDITORIAL_ANALYSIS", `${outcomeName}: explicitly labelled AI editorial analysis required`);
+        for (const field of ["prompt", "response", "expectedEvidence", "assessment"]) require(text(analysis?.[field]), `${outcomeName}.aiEditorialAnalysis.${field} is required`);
+        require(Boolean(analysis) && JSON.stringify(analysis) === JSON.stringify(newsAnalysis.outcomes?.[outcomeName]), `${outcomeName}: AI analysis must match bound independent report`);
+        if (outcomeName === "unseenTransfer") require(analysis?.prompt !== receipt.outcomes?.explainBack?.aiEditorialAnalysis?.prompt, "unseenTransfer requires a different case, not repeated explain-back");
       } else if (samplingPolicy) {
         require(!outcome?.observedReaderEvidence, `${outcomeName}: pending batch sampling cannot claim observedReaderEvidence`);
         require(!outcome?.simulatedReaderProbe, `${outcomeName}: independent review cannot substitute a simulated reader probe`);

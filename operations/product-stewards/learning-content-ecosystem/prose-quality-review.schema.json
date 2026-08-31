@@ -34,6 +34,16 @@
     "learningDisposition": { "type": "object" },
     "verdict": { "enum": ["PASS", "HOLD", "REJECT"] },
     "limitations": { "type": "array" },
+    "reportBinding": { "type": "object", "required": ["path", "sha256"], "properties": { "path": { "type": "string" }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } } },
+    "newsEditorialReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "analysis"],
+      "properties": {
+        "policy": { "type": "object", "required": ["path", "sha256"], "properties": { "path": { "const": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json" }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } } },
+        "analysis": { "type": "object", "required": ["path", "sha256"], "properties": { "path": { "type": "string", "minLength": 1 }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } } }
+      }
+    },
     "samplingOverride": {
       "type": "object",
       "additionalProperties": false,
