@@ -1,3 +1,11 @@
+# Backpack correction — August 30 follow-up
+
+Ali rejected the strapless v3 candidate. It is superseded locally by `assets/newsstand/design-20260830/mini-backpack-v4.png`: two flat pink fabric shoulder straps, conventional adjustment buckles and upper/lower rear attachments. Both straps remain visible beside the bag; the existing carry handle, star charm, frame, colours and exact card label remain. No article/deck text changed. Earlier v3 visual acceptance below is superseded by this correction.
+
+Built-in image editing was used. Prompt: edit the existing card; add two mechanically sensible broad flat pink woven-fabric shoulder straps sewn to the upper rear and attached through rectangular adjusters to the lower rear, with visible background between the loops and the bag. Keep the front three-quarter view, top carry handle, pink body, turquoise zips/star, yellow frame, turquoise halftone background, lightning bolts and THE MINI BACKPACK label. Slightly reduce the bag to fit both straps. No coiled cables, chains, disconnected ribbons, or strap/zip merging.
+
+The consumer now selects v4 and the runtime cache token is `20260830-backpack-4`. Desktop screenshot: `operations/product-stewards/newsstand/evidence/design-20260830/backpack-v4-desktop.png`. Service-reader regression and runtime syntax checks pass. Local only; no deployment. Prior candidates are preserved.
+
 # NewsStand selected-layout implementation — local review
 
 final result: passed

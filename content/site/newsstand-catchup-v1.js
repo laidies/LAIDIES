@@ -561,7 +561,7 @@
         if (type === "mme_claio" && readingCards) {
           var card = readingCards.find(function (item) { return item.id === admittedColumn.sourceId; });
           if (card) {
-            var art = card.id === "mini-backpack" ? "/assets/newsstand/design-20260830/mini-backpack-v3.png" : "/assets/mme-claio/reading-cards/" + encodeURIComponent(card.art_slug) + ".webp";
+            var art = card.id === "mini-backpack" ? "/assets/newsstand/design-20260830/mini-backpack-v4.png" : "/assets/mme-claio/reading-cards/" + encodeURIComponent(card.art_slug) + ".webp";
             node.innerHTML = '<article class="ns-reading-card"><img src="' + art + '" alt="' + escapeHTML(card.card) + ' reading card" loading="lazy"><div>' + label + '<p class="ns-reading-label">Reading of the Week</p><h3>' + escapeHTML(card.card) + '</h3><p>' + escapeHTML(card.read) + '</p><p>' + escapeHTML(card.message) + '</p><p>' + escapeHTML(card.move) + '</p></div></article>';
             return;
           }
