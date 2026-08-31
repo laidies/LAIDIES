@@ -51,6 +51,18 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Current implementation assets
 
+### Four-book colour family and isolated release — 2026-08-30
+
+Ali approved publishing the restored original-title reader and requested a
+similar design for all four books, each with a different colour. AI Fundamentals
+keeps its exact approved purple artwork/title. Implementation colour mapping:
+Working with AI uses turquoise, Straight Answers uses pink, Dictionary uses
+blue, all from the existing Library palette. Generate companion raster frames
+and title lettering with ImageGen; preserve white text clearance, continuous
+scrolling, semantic teaching-box colours and existing manuscripts. This is a
+bounded colour-family extension, not a new layout. Work on an isolated branch;
+release only the Library delta over verified current production bytes.
+
 ### Full-viewport reader and protected art margin — 2026-08-30
 
 Ali explicitly rejected navy side gutters and the computer overlapping prose.

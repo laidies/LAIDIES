@@ -523,3 +523,28 @@
   .book--reference-zine *::before,
   .book--reference-zine *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Companion editions use authored ImageGen lettering, not retyped approximations.
+   The viewports trim empty paper only; every glyph and underline stays visible. */
+.book--reference-zine .band .t:has(.reader-companion-title) { display: block; padding: 0; }
+.reader-companion-title { display: block; position: relative; width: min(100%,650px); aspect-ratio: 2090/480; overflow: hidden; mix-blend-mode: multiply; }
+.reader-companion-title > img { position: absolute; display: block; max-width: none; width: 103.9234%; height: auto; left: -1.9139%; top: -25%; }
+[data-reader-edition="answers"] .reader-companion-title { aspect-ratio: 1880/720; }
+[data-reader-edition="answers"] .reader-companion-title > img { width:104.8404%; left:-2.1277%; top:-5.5556%; }
+[data-reader-edition="dictionary"] .reader-companion-title { aspect-ratio:1700/530; }
+[data-reader-edition="dictionary"] .reader-companion-title > img { width:104.3529%; left:-2.3529%; top:-37.7358%; }
+#reader .book[data-reader-edition="working"] { --edition-ink:#087787; --edition-edge:#15bce0; }
+#reader .book[data-reader-edition="answers"] { --edition-ink:#a32170; --edition-edge:#f254a9; }
+#reader .book[data-reader-edition="dictionary"] { --edition-ink:#2457c7; --edition-edge:#2457e6; }
+#reader .book[data-reader-edition]:not([data-reader-edition="fundamentals"]) .reader-contents > summary,
+#reader .book[data-reader-edition]:not([data-reader-edition="fundamentals"]) .band .reader-top,
+#reader .book[data-reader-edition]:not([data-reader-edition="fundamentals"]) .band .reader-save-book { border-color:var(--edition-edge); color:var(--edition-ink); }
+@media(max-width:820px){ .reader-companion-title{width:min(100%,500px)} }
+@media(min-width:821px){
+  .book--reference-zine .band:has(.reader-companion-title){mix-blend-mode:multiply;}
+}
+@media(max-width:420px){
+  /* On the narrowest phones a save target gets a small row of its own,
+     rather than squeezing ordinary heading words beside a 44px control. */
+  .book--reference-zine .txt .reader-save-heading:not(.reader-preface-heading){padding-right:0!important;padding-top:44px;}
+}

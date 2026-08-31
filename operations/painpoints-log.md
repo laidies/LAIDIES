@@ -1,5 +1,12 @@
 # LAiDIES build learning ledger
 
+## Four-book colour family — 2026-08-30
+
+- **Failure caught internally:** Generated Working title reversed word order; discarded before implementation. Phone heading save buttons crowded long words; put the button on its own row. White title paper produced a visible rectangle; integrate its existing pixels without redrawing approved lettering.
+- **Prevention:** Read generated lettering character-for-character; inspect all responsive title/heading states, not only loaded-image geometry. Use a unique document query when capturing different books: hash-only navigation can retain the previous book and create false evidence.
+- **Release prevention:** Hash-check the exact current production input, overlay explicit Library paths only, and prove every unrelated byte unchanged. Reject wrong baseline identity before any copy. A source branch is not an exact deployed artifact.
+- **Behind the Build angle:** How four apparently correct screenshots can all show the same book, and why the visitor's actual pixels outrank test labels.
+
 **Public destination:** future **Field Notes from LAiDIES HQ: Behind the Build**
 **System:** `docs/product/behind-the-build-learning-system.md`
 **Editorial queue:** `operations/behind-the-build-publication-queue.md`

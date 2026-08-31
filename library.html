@@ -5,11 +5,8 @@
 <meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
 <link rel="canonical" href="https://laidies.ai/library" />
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<script>if(new URLSearchParams(location.search).has('library-proof'))document.documentElement.classList.add('library-proof')</script>
-<link rel="stylesheet" href="/operations/design-explorations/current/library/live-base-proof-20260822/proof.css">
-<script defer src="/content/site/sv-global-header.js?v=svgh-760-2026-08-23-v3-5be5e50aeb8e"></script>
-<script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
-<script defer src="/operations/design-explorations/current/library/live-base-proof-20260822/proof.js"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
 <style>
 :root{--midnight:#070f2b;--ink:#11183b;--pink:#f254a9;--purple:#7137d6;--cyan:#15bce0;--cobalt:#2457e6;--sky:#78c7ff;--coral:#ff7366;--orange:#ff9b3d;--lime:#b7e42b;--mint:#7de2c2;--yellow:#ffd34d;--cream:#fffdfb}
 *{box-sizing:border-box}
@@ -944,7 +941,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css?v=original-title-v11">
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css?v=four-book-colours-v12">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -1109,10 +1106,10 @@ const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
 const LOCAL_REVIEW_BOOK_RECORDS=Object.freeze({
- 'ai-fundamentals-101':Object.freeze({sourcePath:'/content/library-books/rendered/ai-fundamentals-101.html',contentVersion:'ai-fundamentals-101-2026-08-24.6',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'921aa20a3699402ef573e35a7fd89002ef86504798c2c524e4764cc15c81832c'}),
- 'working-with-ai-101':Object.freeze({sourcePath:'/content/library-books/rendered/working-with-ai-101.html',contentVersion:'working-with-ai-101-2026-08-24.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'0a57a3e31622836ac990362bf30b273406f60df5b3584f37d8161d79ace72736'}),
- 'straight-answers':Object.freeze({sourcePath:'/content/library-books/rendered/straight-answers.html',contentVersion:'straight-answers-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'3c32da26cebf6257ed9114f4e3847b8f888a330deea515d2ef85eb363d54172c'}),
- 'ai-dictionary':Object.freeze({sourcePath:'/content/library-books/rendered/ai-dictionary.html',contentVersion:'ai-dictionary-2026-08-23.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'0ec283612e30ae8cb86ab2978089f941e31fbbb021aea47ecfe3a0f6f57896ec'}),
+ 'ai-fundamentals-101':Object.freeze({sourcePath:'/content/library-books/rendered/ai-fundamentals-101.html',contentVersion:'ai-fundamentals-101-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e'}),
+ 'working-with-ai-101':Object.freeze({sourcePath:'/content/library-books/rendered/working-with-ai-101.html',contentVersion:'working-with-ai-101-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c'}),
+ 'straight-answers':Object.freeze({sourcePath:'/content/library-books/rendered/straight-answers.html',contentVersion:'straight-answers-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'7ba998a551128a6adeb67233cbbdb70a0cd7dd7e59519b8dca060796ad822b9b'}),
+ 'ai-dictionary':Object.freeze({sourcePath:'/content/library-books/rendered/ai-dictionary.html',contentVersion:'ai-dictionary-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'43820ca8610a39e02c179eff7b1f2d65bd9eb876e94024c8439c80dedc3a3144'}),
  'briefing-101':Object.freeze({sourcePath:'/content/library-books/rendered/briefing-101.html',contentVersion:'briefing-101-2026-08-06.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'b9c58ceb6067f1dcf044d1d1e49de9967ddcfe9370910bcc059fc7a51d76f95e'}),
  'how-to-check':Object.freeze({sourcePath:'/content/library-books/rendered/verification-rulebook.html',contentVersion:'sha256-6f9898d4ec3f0151e7aa171132e78b9227d76f65a18b1abc5f725c81577b7274',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'19cf0fc41ac79ca34f595bbc1956c8410513421adb9ae0a7e8e060bffb78753c'})
 });
@@ -1547,10 +1544,16 @@ function assignBookSectionAnchors(txt){
     heading.id=slug+(occurrence>1?'-'+occurrence:'');
   });
 }
+const READER_EDITIONS=Object.freeze({
+ 'working-with-ai-101':'working',
+ 'straight-answers':'answers',
+ 'ai-dictionary':'dictionary'
+});
 function renderReaderTitle(id,title){
  const target=document.getElementById('rt');
  const book=target.closest('.book');
  book?.classList.toggle('book--ai-fundamentals-art',id==='ai-fundamentals-101');
+ if(book)book.dataset.readerEdition=READER_EDITIONS[id]||'fundamentals';
  target.replaceChildren();
  target.removeAttribute('aria-label');
  if(id==='ai-fundamentals-101'){
@@ -1560,7 +1563,14 @@ function renderReaderTitle(id,title){
   art.append(original);target.append(art);
   return;
  }
- target.textContent=title;
+ const edition=READER_EDITIONS[id];
+ if(edition){
+  target.setAttribute('aria-label',title);
+  const art=document.createElement('span');art.className='reader-companion-title';art.setAttribute('aria-hidden','true');
+  const image=document.createElement('img');
+  image.src='/assets/library-reader/'+edition+'-title-imagegen-v1.png';image.alt='';image.setAttribute('aria-hidden','true');
+  art.append(image);target.append(art);
+ }else target.textContent=title;
 }
 function updateReaderPageArt(spread){
  const book=document.querySelector('#reader .book');
@@ -1571,8 +1581,9 @@ function updateReaderPageArt(spread){
  const opening=fundamentals&&Boolean(spread?.querySelector('.reader-preface-heading'));
  book.classList.toggle('book--ai-fundamentals-art',fundamentals);
  book.classList.toggle('is-opening-art',opening);
- image.src=fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-v4.png?v=4a';
- mobile.srcset='/assets/library-reader/reader-frame-compact-imagegen-v7.png';
+ const edition=READER_EDITIONS[activeReaderBookId];
+ image.src=edition?'/assets/library-reader/'+edition+'-desktop-imagegen-v1.png':fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-v4.png?v=4a';
+ mobile.srcset=edition?'/assets/library-reader/'+edition+'-compact-imagegen-v1.png':'/assets/library-reader/reader-frame-compact-imagegen-v7.png';
 }
 function decorateReaderOpening(id,txt){
  txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());
@@ -1955,7 +1966,9 @@ try{libraryHeading=libraryHash[1]?decodeURIComponent(libraryHash[1]):'';}catch(e
 if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHeading);
 })();
 </script>
-<script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260830-portrait-1"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260803-card-required"></script>
+  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
 </body>
 </html>

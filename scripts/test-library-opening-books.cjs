@@ -4,7 +4,7 @@ const http = require("node:http");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
-const root = process.cwd();
+const root = process.env.LIBRARY_TEST_ROOT || process.cwd();
 const playwrightRoot = process.env.PLAYWRIGHT_CORE_PATH || path.resolve(root, ".ds-sync/node_modules/playwright-core");
 const mime = { ".html":"text/html; charset=utf-8", ".css":"text/css; charset=utf-8", ".js":"text/javascript; charset=utf-8", ".json":"application/json; charset=utf-8", ".png":"image/png", ".jpg":"image/jpeg", ".svg":"image/svg+xml", ".woff2":"font/woff2" };
 const books = [
@@ -29,7 +29,7 @@ const server = http.createServer((request, response) => {
 (async () => {
   const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
-  const origin = `http://127.0.0.1:${server.address().port}`;
+  const origin = process.env.LIBRARY_TEST_ORIGIN || `http://127.0.0.1:${server.address().port}`;
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   page.setDefaultTimeout(8000);
@@ -75,7 +75,7 @@ const server = http.createServer((request, response) => {
         failures.push(`${id}: admitted book did not open as its full structured artifact ${JSON.stringify({ ...reader, text: reader.text.slice(0, 180) })}`);
       }
     }
-    for (const width of [1280, 1710, 1920, 2560, 821, 820, 700, 390, 320]) {
+    for (const width of (process.env.LIBRARY_TEST_WIDTHS || '1280,1710,1920,2560,821,820,700,390,320').split(',').map(Number)) {
       await page.setViewportSize({ width, height: width > 560 ? 900 : 844 });
       for (const [id, title, , expectedChapterKeys] of books) {
         console.log(`LIBRARY OPENING BOOKS CHECK reader=${id} viewport=${width}`);
@@ -97,7 +97,7 @@ const server = http.createServer((request, response) => {
         await page.evaluate(async () => {
           await document.fonts.ready;
           await document.querySelector('#reader .reader-page-art').decode();
-          await document.querySelector('.reader-title-art > img')?.decode();
+          await document.querySelector('.reader-title-art > img,.reader-companion-title > img')?.decode();
         });
         // Calibration deliberately restores the rejected desktop width/margin.
         if (process.env.LIBRARY_TEST_INJECT_GUTTERS === "1" && width > 1487) {
@@ -124,20 +124,22 @@ const server = http.createServer((request, response) => {
           const img = node.querySelector('.reader-page-art');
           const frame = img.getBoundingClientRect();
           const scale = Math.max(frame.width / img.naturalWidth, frame.height / img.naturalHeight);
-          const compact = img.currentSrc.includes('reader-frame-compact-imagegen-v7');
+          const compact = /(?:reader-frame-compact-imagegen-v7|(?:working|answers|dictionary)-compact-imagegen-v1)/.test(img.currentSrc);
           const artRight = compact ? frame.left + 174 * scale : frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
           const textLeft = text.getBoundingClientRect().left + parseFloat(getComputedStyle(text).paddingLeft);
           const band = node.querySelector('.band').getBoundingClientRect();
           const save = node.querySelector('.reader-save-book').getBoundingClientRect();
           const top = node.querySelector('#reader-top').getBoundingClientRect();
           const back = node.querySelector('#reader-close').getBoundingClientRect();
-          const titleParts = [...node.querySelectorAll('.reader-title-art')];
+          const titleParts = [...node.querySelectorAll('.reader-title-art,.reader-companion-title')];
           const actions = [...node.querySelectorAll('.reader-actions > *')].map(x => x.getBoundingClientRect()).filter(x => x.width && x.height);
           const titleClear = titleParts.every(part => {
             const r = part.getBoundingClientRect();
             return r.left >= 0 && r.top >= 0 && r.right <= innerWidth && actions.every(a => r.right <= a.left || r.left >= a.right || r.bottom <= a.top || r.top >= a.bottom);
           });
           const titleImage = titleParts[0]?.querySelector('img');
+          const edition = node.querySelector('.book').dataset.readerEdition;
+          const companionCorrect = edition === 'fundamentals' || (titleParts.length === 1 && titleImage?.naturalWidth > 0 && titleImage.currentSrc.endsWith(`${edition}-title-imagegen-v1.png`) && img.currentSrc.includes(`${edition}-${compact ? 'compact' : 'desktop'}-imagegen-v1.png`));
           const titleOriginal = !node.querySelector('.book--ai-fundamentals-art') || (titleParts.length === 1 && titleImage?.naturalWidth === 1487 && titleImage?.naturalHeight === 1058 && titleImage.currentSrc.includes('ai-fundamentals-approved-title-source.png') && node.querySelector('#rt').getAttribute('aria-label') === 'AI Fundamentals 101');
           const controls = ['#mobile-toc > summary','.reader-save-book','#reader-top','#reader-close'].map(selector => {
             const rect = node.querySelector(selector).getBoundingClientRect();
@@ -147,16 +149,16 @@ const server = http.createServer((request, response) => {
             fullViewport: Math.abs(book.left) < 1 && Math.abs(book.right - innerWidth) < 1 && Math.abs(book.top) < 1 && Math.abs(book.bottom - innerHeight) < 1,
             bookAtTop: [1,innerWidth/2,innerWidth-1].every(x => node.contains(document.elementFromPoint(x,1))),
             controlsVisible: controls.every(Boolean),
-            titleClear, titleOriginal,
+            titleClear, titleOriginal, companionCorrect,
             rightActionGroup: Math.abs(top.left - save.right) <= 10 && Math.abs(back.left - top.right) <= 10,
             compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition.startsWith('0%')),
             artClearance: textLeft - artRight,
             minimumArtClearance: compact ? 14 : 20,
-            protectedFrame: compact || img.currentSrc.includes('ai-fundamentals-frame-imagegen-v6'),
+            protectedFrame: compact || /(?:ai-fundamentals-frame-imagegen-v6|(?:working|answers|dictionary)-desktop-imagegen-v1)/.test(img.currentSrc),
             textBottom: text.getBoundingClientRect().bottom
           };
         });
-        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.titleClear || !geometry.titleOriginal || !geometry.rightActionGroup || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
+        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.titleClear || !geometry.titleOriginal || !geometry.companionCorrect || !geometry.rightActionGroup || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
           failures.push(`${id}@${width}: full-page/art-safe geometry failed ${JSON.stringify(geometry)}`);
         }
         const navigation = await page.locator("#reader").evaluate(node => ({

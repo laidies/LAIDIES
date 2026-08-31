@@ -4,6 +4,15 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-FOUR-BOOK-COLOURS-20260830
+- **Status:** VERIFIED LOCALLY; coordinated deployment pending.
+- **Authority:** Ali requested publishing the restored title/layout from an isolated branch and giving the three companion books the same design in distinct colours.
+- **Result:** Purple Fundamentals preserved; ImageGen turquoise Working, pink Straight Answers, blue Dictionary. Continuous full-width reader; Contents left, outlined Save/Top/Back right; no manuscript or semantic-box changes.
+- **Verification:** Source and exact candidate pass four books at nine widths. Independent review of twelve final desktop/phone captures found no visible blocker.
+- **Release record:** `operations/library-four-book-colours-release-20260830.md`. Overlay only thirteen Library paths onto 8ce8632d; never deploy this source checkout wholesale.
+
+## Previous original-title recovery
+
 - **Task ID:** LIBRARY-ORIGINAL-TITLE-RECOVERY-20260830
 - **Status:** VERIFIED LOCALLY — not deployed
 - **Result:** Recovered exact title pixels from the approved generated reference rather than repeating the rejected rotated-font approximation. The source is copied unchanged to the public asset folder and only its title region is displayed proportionally; no rejected background/Preface imagery is reintroduced. Accessible title remains, manuscript/art/control changes are zero.
