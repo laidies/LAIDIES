@@ -113,6 +113,23 @@ as a method. Candidate examples are not tested results until actually run.
 Include privacy, permissions, spend limits, backups and human approval before
 publishing, sending, deleting or making consequential external changes.
 
+**Companion SUNNYVAiLE High courses — Ali, 2026-08-31:** The ChatGPT and
+Claude guides will each have a companion course in SUNNYVAiLE High. The book
+remains the scannable, current user manual and lookup reference: setup,
+interface, settings, models, worked examples, troubleshooting and dated tool
+cards. The course must add a genuine modality advantage rather than narrating
+the book: live or faithfully captured demonstration, learner action in a safe
+fictional workspace, visible comparison, feedback and failure diagnosis, then
+an unseen transfer task that produces a checked result. The existing learning
+inventory already contains eight researched ChatGPT periods and eight
+unscheduled Claude counterparts; reconcile and update those lanes instead of
+commissioning duplicate courses. Their existing titles, claims, sequence and
+status are evidence only until they pass current product, overlap and teaching
+review. Course names, final lesson count, release sequencing and whether a
+shared introductory unit should precede both remain open. A book or course may
+link to its companion only when the destination's real availability is
+truthfully represented.
+
 ### 2. ChatGPT guide
 
 - **Reader job:** Use ChatGPT to build finished work, not only discuss it.
