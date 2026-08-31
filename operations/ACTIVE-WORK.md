@@ -4,6 +4,14 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-APPROVED-FRAMES-PHONE-RELEASE-20260831
+- **Status:** HOLD — explicit phone composition choice needed before release.
+- **Authority:** Ali requested publishing the remaining exact-background correction, with no obscured text.
+- **Conflict:** Independent read-only inspection confirms the 1486×1059 landscape master at full 844px phone height makes the art rail about223px wide. At320px, 16px clearance and right inset leave about65px for prose. Width-fit instead makes the entire frame only228px high, ending the rail near the top. Stretching, cropping motifs or repeating the strip would violate existing decisions. A phone adaptation or an explicit phone-only composition tradeoff is required; neither is silently authorized by choosing the exact landscape master.
+- **Release:** No runtime edits/deployment. NewsStand has no Pages slot reserved and was told not to hold its work for this decision. Latest received—not freshly provider-verified—base remains fcbe7249; verify current provider head and recovery-owner handoff before any later release.
+
+## Previous live clearance audit
+
 - **Task ID:** LIBRARY-LIVE-TEXT-CLEARANCE-20260831
 - **Status:** LIVE AUDIT VERIFIED; artwork-selection correction still unfinished.
 - **Live evidence:** `https://laidies.ai/library` and all thirteen reader release paths match the colour-release hashes; four rendered manuscripts also match. All four readers pass nine-width opening/navigation/viewport checks. Added a DOM Range guard measuring every laid-out text run throughout the full manuscript against the outermost frame artwork, including text below the opening viewport; all four live books pass all nine widths. Scrolled desktop and phone pixels independently inspected in the browser show no computer/text overlap.
