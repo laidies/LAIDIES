@@ -2,6 +2,13 @@
 
 **Status:** SPECIFIED — local compose/share preparation exists; recipient delivery, invite acceptance and rewards are unavailable/unverified.
 
+**2026-08-31 implementation mandate:** Ali explicitly requested working referrals
+be built and launched. The prior unavailable state describes current production,
+not the desired endpoint. Implementation is BUILDING under the dated ruling in
+`operations/post-office-decisions.md`; release still requires the real
+two-account journey and server safeguards below. No reward amount was selected
+by this instruction.
+
 **Job:** let a visitor make a card and choose a user-controlled way to share it. `/postcard.html` owns the composer; `post-office.html` passes only a card selection. A visible selected card, copied link or resolved native share sheet is a local/browser receipt. It never proves a recipient, mail/SMS delivery, open, join, account or relationship.
 
 | State | Truthful outcome | Recovery |

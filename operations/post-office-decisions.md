@@ -1,5 +1,19 @@
 # POST OFFICE — DECISIONS (rebuild 2026-07-22)
 
+## 2026-08-31 — referrals must be built and launched
+
+Ali: “i want referrals to be live and working so let's not forget to build that
+and laucnh it”. This is active implementation and release authority, not a
+request to preserve a permanently disabled referral surface. Build and verify
+the complete invitation/acceptance/cross-device result under
+`operations/product-stewards/post-office/subproducts/postcards-referral.md`.
+Existing privacy, server-authority, anti-self/replay/abuse and truthful receipt
+requirements still apply. A copied link is not a qualified referral. This
+instruction does not select new reward amounts or admit the provisional
+Butterfly Clip catalog. Recover existing approved recognition before asking
+for any missing economic decision. Status: BUILDING; not yet deployed or
+publicly verified.
+
 > **CURRENT SIGN-IN BOUNDARY — 2026-08-23.** This narrow update supersedes
 > older implementation descriptions below where they conflict. The Post Office
 > collects one newsletter email for Buttondown and **no account email**. Its

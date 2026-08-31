@@ -1,12 +1,28 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-30 UTC
+**Updated:** 2026-08-31 UTC
 **Release owner:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth — 2026-08-30 shared native-menu successor
+## Current truth — 2026-08-31 FAiRY portrait successor
+
+Production `acbbcf86-0e17-4b22-a167-90ea24d58c64`, pushed source
+`f9d638465f550ea9a6f50364cd91a168b4a9cedb`; immutable
+`https://acbbcf86.laidies-sunnyvaile.pages.dev`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-fairy-portraits.jxzaKS`;
+manifest same path plus `.manifest.json`;686 files,653490502 bytes;identity
+`0bf9ca911e8beff9b5b61fb3d9bd05b51968d126d4a0cccc2e5e885ec87705fa`.
+Exactly two changed paths versus fcbe7249: portrait runtime plus FAiRY page
+cache token.684 unchanged,0 added/removed; no backend/image changes. Independent
+exact-artifact review and calibrated portrait tests passed. Maker live both-origin
+1280/390/320 checks passed;16/16 public-path byte comparisons pass. This proves
+bounded offscreen deferral, selection and preservation, not a full timing audit.
+Referrals are local-only BUILDING; NewsStand candidate/design excluded. Hold lifts
+for coordinated Library/NewsStand successors; recheck provider before any release.
+
+## Historical predecessor — 2026-08-30 shared native-menu successor
 
 Production `fcbe7249-2a3d-4fe3-99dc-d4546ffcf27b`, pushed source
 `280a400444fbaa01a67381a1eb4e9a4d0ecea5f9`, immutable

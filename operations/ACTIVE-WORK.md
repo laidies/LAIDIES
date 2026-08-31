@@ -1,5 +1,71 @@
 # Active work
 
+## 2026-08-31 continued recovery — BUILDING
+
+Ali requested completion of all three remaining lanes: investigate Closet and
+FAiRY loading, finish native browser/accessibility and NewsStand checks, and
+recover held backend functionality. She additionally explicitly authorized
+building and launching real referrals; see the dated Post Office decision.
+Do not silently drop this lane or equate an unavailable notice with completion.
+Current release is the verified acbbcf86 FAiRY successor below; query
+the provider again and coordinate before any successor. NewsStand Aug31 service candidate is local only
+at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEWS
+may be included. Town Hall/moderation ownership and retention remain unresolved
+operating decisions, not permission to expose private intake.
+
+### FAiRY portrait loading — DEPLOYED / PUBLICLY VERIFIED (bounded)
+
+Production `acbbcf86-0e17-4b22-a167-90ea24d58c64`, pushed source
+`f9d638465f550ea9a6f50364cd91a168b4a9cedb`, immutable
+`https://acbbcf86.laidies-sunnyvaile.pages.dev`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-fairy-portraits.jxzaKS`;
+manifest same path plus `.manifest.json`;686 files,653490502 bytes;identity
+`0bf9ca911e8beff9b5b61fb3d9bd05b51968d126d4a0cccc2e5e885ec87705fa`.
+Exactly two changed paths versus fcbe7249: `content/site/fairy-godmother-v2.js`
+and `games/fairy-godmother.html` (cache token only);684 unchanged,0 added/removed.
+All original image bytes retained. IntersectionObserver defers portrait URLs
+until near the clipped visible rail; labels/selectors work before image decoding.
+Calibrated test rejects predecessor; fallback test preserves all six URLs.
+Independent review verified all686 artifact hashes and exact two-path boundary.
+Maker custom and immutable1280/390/320 controls/width checks pass; initial320
+has six offscreen images without src; Buffy selection loads David/Buffy only,
+then other original images decode on approach. Live16/16 byte comparisons across
+eight public paths pass, including protected NewsStand/Library/Resident/Closet/Radio.
+`_worker.js` is intentionally not a public asset (404); no parity claim for it.
+No API submission, backend or image change; no full cold-load timing improvement
+or Closet performance fix claimed. Viewport override restored. Native physical
+device/VoiceOver remain untested. Pages slot returned to Library/NewsStand owners.
+Normal commit hook was blocked by45 missing Episode03 comic assets plus two
+existing pretty-URL link-check failures; inspected owned paths committed using
+core.hooksPath=/dev/null after focused checks passed. Unrelated work preserved.
+
+### Referrals — LOCAL BUILDING, NOT DEPLOYED
+
+Initial independent review rejected the candidate for a pre-dispatch account
+switch race, public reward-policy relationship leak, account-deletion orphan
+awards, dormant Closet renderer and inaccurate test-policy coverage. Repairs
+are local; no production schema/user/reward changes. Five-invitations/day and
+30-day-expiry defaults remain proposed pending Ali's decision. Town Hall and
+moderation operating ownership remains unresolved. Do not expose these services
+merely because local unit tests pass.
+
+### Native Safari NewsStand review — bounded LOCAL observation
+
+Aug31 candidate at localhost8851: HTML SHA `a4c79b900fa9afb2fe427e3232a5e2bf2cfaf7372243c9177551915a179598ea`,
+CSS `043367178ca4d0b5e15e31ea8d978a99ee08db5b8d14c71eff4bbd499f0a04ad`,
+runtime `fd6ac85a1715625830dc01889bd7b9c38f0375d74b0cb96c9561da8815e6861e`.
+Hashes unchanged before/after. Genuine Safari PageMenu200% selected and visually
+confirmed, then100% restored. Previous clipped Back failure repaired for Paige:
+full button visible below header, Option+Shift+Tab reaches it, Space activates,
+focus returns exact Paige opener. Archive→EU ordinary article Back fully visible
+and keyboard operable, but returns to Browse all back issues rather than exact
+story opener: FAIL retained and handed to publisher01a02f95. Ordinary→Back→Paige
+restores normal header/column clearance. Plain Shift+Tab skips buttons under the
+current Safari setting; Option navigation tested without changing that setting.
+Screenshot `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/com.openai.sky.CUAService/Safari Screenshot 2026-08-31 at 8.28.19 AM.jpeg`.
+No content admission or release; local seven-row Aug31 rotation remains excluded.
+
+
 ## 2026-08-30 shared native-menu repair — DEPLOYED / PUBLICLY VERIFIED (bounded)
 
 Production `fcbe7249-2a3d-4fe3-99dc-d4546ffcf27b`, pushed source
