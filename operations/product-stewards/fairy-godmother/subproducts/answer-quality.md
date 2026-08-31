@@ -1,5 +1,40 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — bounded Sol trial approved
+
+Ali approved the revised20-scenario answer-only trial, maximumUS$5, using
+invented workplace situations only. This supersedes the approval-pending
+language in the historical proposal below. Preserve its Sol/medium settings,
+no retries, no visitor data, no production release and separate test access.
+BUILDING: enforce total attempts/reserved worst-case cost and validate exact
+input-token bounds before any paid request. Provider access is not implied by
+budget approval; do not retrieve production secrets or borrow other task keys.
+
+Local preparation now contains exactly20 private synthetic cases—four each for
+feedback, credit, workload, promotion and return—with ordinary/power/context,
+missing-evidence and no-unnecessary-AI judgments. The offline preflight passes
+every prompt through the actual Worker and captures the exact outbound Sol
+request; evaluator judgments are kept out of the model input. It makes zero
+network calls and deliberately exits HOLD. Captured request JSON is10612–10758
+bytes; byte size is explicitly not treated as a token count.
+
+A durable pre-dispatch journal now reserves the fullUS$0.22384 conditional
+worst-case and one of20 attempts before each request. Reservations cannot be
+reused or refunded after timeout/failure, and concurrent reservation uses an
+exclusive lock. Mutations for duplicate case, oversized/unverified token count,
+21st reservation and leaked evaluator judgment fail local tests. At all20
+reservations the conditional ceiling isUS$4.4768, leavingUS$0.5232 under the
+approved maximum. Independent review confirmed the coverage and identified the
+same pre-dispatch/token-count boundary.
+
+Current preflight verdict: HOLD, zero provider calls and zero spend. No isolated
+`FAIRY_SOL_TEST_API_KEY` or general API key is configured. Official documentation
+states Chat message tokenisation can vary by model and the available installed
+runtime has no model-aware tokenizer. Therefore exact Sol input-token verification
+is still missing and no paid runner was created. Credential creation/access is a
+separate authority decision; production secrets were not inspected. No answer,
+quality, latency, classifier or live-service result exists yet.
+
 ## 2026-08-31 — Sol advice target approved; local compatibility work
 
 Ali agreed to the recommendation: `gpt-5.6-sol`, medium reasoning, standard

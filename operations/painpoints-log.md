@@ -14976,3 +14976,9 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** The old advice adapter used a non-reasoning token field, accepted prose/JSON without checking completion status and stopped its timeout when headers arrived. A reasoning-model upgrade can exhaust its budget or stall while reading the body even when the response looks plausible.
 - **Prevention:** Share the advice/revision adapter, bound reasoning plus visible output, reject refusal/truncation before allowance writes, and keep the deadline active through bounded body parsing. The new timeout test uses a never-finishing stream and verifies cancellation; a legacy-token-field mutation fails the request check. Keep offline replay explicitly synthetic instead of weakening real-provider receipt checks.
 - **Possible Behind the Build angle:** A sentence can look finished even when the model was cut off. The app must check the receipt as well as the words.
+
+## 2026-08-31 — A spending limit needs a reservation, not a success counter
+
+- **Finding:** Counting only successful model answers leaves timeouts, failures and concurrent calls outside the approved attempt/cost ceiling. Exact Chat input tokens also cannot be inferred safely from raw text or an older model's counting rule.
+- **Prevention:** Before each paid request, count the exact assembled request with model-appropriate evidence, then durably reserve the full worst-case cost and one attempt. Never refund or retry a timeout. A preflight without trustworthy token evidence or isolated access must stop before the first provider call.
+- **Possible Behind the Build angle:** A useful AI budget is enforced before the request leaves—not reconstructed from the bill afterward.

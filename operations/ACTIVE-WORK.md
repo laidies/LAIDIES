@@ -19,8 +19,11 @@ Latest model decision: Ali approved GPT5.6Sol/medium for advice; GPT4.1 is
 rejected. Local advice/revision request adapter now defaults to Sol with bounded
 reasoning-inclusive output, completion/refusal checks and a body-inclusive
 deadline. Existing safety classifier stays separate/unconfigured. No paid run,
-remote configuration or deployment. Account access and revised trial approval
-remain pending; see the new top entry in FAiRY answer-quality.md.
+remote configuration or deployment. Ali approved the private20-scenario,
+maximumUS$5 answer-only trial. Its exact cases, request-capture preflight and
+durable pre-dispatch attempt/cost reservations are built locally; the preflight
+correctly HOLDs with zero calls because isolated access and exact Sol chat input-
+token verification are unavailable. See the top entry in FAiRY answer-quality.md.
 
 Latest checkpoint: Ali approved building/testing the practical advice plus useful
 AI preparation proposal. Local Worker now appends five bounded references only
