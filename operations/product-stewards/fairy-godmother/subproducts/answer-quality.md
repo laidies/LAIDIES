@@ -1,5 +1,45 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — connect guidance to the actual answer call
+
+Ali explicitly clarified that the handout and researched scenarios must inform
+FAiRY's AI call so readers receive practical, usable ways to respond, not merely
+populate a private research archive. Direction DECIDED; integration not built.
+Begin with reviewed reference context and examples supplied at inference time,
+not model fine-tuning. The intended answer gives usable wording/action, why it
+fits, relevant power/context alternatives and a next move. Keep source credit
+outside the copyable script. Private research status is not admission; select
+only an admitted source packet after existing safety routing and verify actual
+answers before release. No automatic training on private visitor conversations,
+personality impersonation, new model purchase or whole-site replacement.
+
+Ali then requested ideas for an effective AI-assisted career-advice experience
+and explicitly rejected clichéd empowerment/nonsense advice. Answer-experience
+design is the current checkpoint before implementation. Requirement DECIDED:
+practical situation advice plus an AI element when it materially helps; do not
+force an AI step into every answer or substitute a pep talk for usable help.
+
+Proposed design (not yet approved implementation): lead with an immediately
+usable response/action; explain its specific strategic job; offer a genuinely
+different lower-exposure alternative if power or safety makes it relevant;
+add one optional bounded AI assist such as evidence organisation, rehearsal
+or checking a draft against actual criteria. Use only supplied facts, preserve
+unknowns and require source checks for employer policy or current claims.
+Role-play explores possible responses, never predicts what another person
+thinks. Supporting sources remain outside the copied deliverable. Do not force
+a fixed multi-section essay onto a one-sentence problem.
+
+Implementation checkpoint: inspected existing call/response contract; no
+Worker/page/prompt code changed. Local `extractValidatedAnswer` and
+`buildP0AnswerPrompt` forbid sources, and the typed page lacks a source renderer.
+The source labels in the older note below were conceptual, not actual function
+names. A safe integration must change the selected-reference input, validation
+and source-note rendering together, preserve the currentness/safety gates, and
+not replace production with the unprovisioned staging reconstruction. Supporting
+read-only inventory reran the existing Worker suite successfully (40 tests,
+45 core fixture records,79 classifier fixture records); these are local mechanics
+and fixture integrity, not actual answer-quality or live-provider proof.
+
 ## 2026-08-31 — situation-matched guidance and Ali's talk scenarios
 
 **Direction: DECIDED; full source received/read; private research underway;

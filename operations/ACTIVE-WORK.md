@@ -15,6 +15,14 @@ operating decisions, not permission to expose private intake.
 
 ### FAiRY guidance intake — full source read; additional private research BUILDING
 
+Latest checkpoint: Ali explicitly wants the bank to inform the actual AI call,
+then asked for ideas combining practical career responses with useful AI help,
+without clichéd empowerment advice. Answer-experience proposal is current;
+integration is not built. No Worker/page code changed. Exact source-input,
+answer validation and source-note renderer must move together; default staging
+still lacks configured provider/classifier dependencies. Resume after design
+discussion with the smallest source-aware pilot, not another broad catalogue.
+
 Ali's31August addition: match sourced Dorie Clark/other relevant guidance to
 the visitor's question and grow a bank from her *What To Actually Say* talk.
 Recorded in `product-stewards/fairy-godmother/subproducts/answer-quality.md`.
