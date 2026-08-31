@@ -11,10 +11,11 @@
 .ns-redesign .ns-v11-brandcopy .ns-v11-location { margin: 0 0 7px; color: #281333; font: 700 clamp(16px, 1.8vw, 24px)/1.1 Jost, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .ns-redesign .ns-v11-brandcopy h1 { margin: 0; color: #7137d6; font: 400 clamp(58px, 8vw, 112px)/1.05 var(--ns-display); text-transform: uppercase; letter-spacing: .005em; -webkit-text-stroke: 0; text-shadow: none; }
 .ns-redesign .ns-v11-brandcopy > p:last-child { margin: 15px 0 0; color: #281333; font: 500 clamp(16px, 1.55vw, 21px)/1.35 Jost, sans-serif; text-align: left; max-width: none; }
-.ns-town-strip { display: flex; gap: 22px; align-items: center; justify-content: space-between; margin: 0 0 24px; padding: 12px 0; background: #fff; border-bottom: 1px solid #281333; font: 500 14px/1.4 Jost, sans-serif; }
-.ns-town-strip p { margin: 0; }
-.ns-town-strip b { margin-right: 8px; font-weight: 800; color: #6430b7; }
-.ns-town-strip time { white-space: nowrap; font-weight: 700; }
+.ns-town-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) auto; gap: 24px; align-items: center; margin: 0 0 24px; padding: 20px 0; background: #fff; border-bottom: 2px solid #7137d6; font: 500 17px/1.4 Jost, sans-serif; }
+.ns-town-strip p { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0; }
+.ns-town-strip b { display: inline-block; padding: 5px 15px; border-radius: 999px; background: #7137d6; color: #fff; font: 800 16px/1.2 Jost, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.ns-town-strip p:first-child b { background: #54d7e8; color: #281333; }
+.ns-town-strip time { white-space: nowrap; font: 600 13px/1.4 Jost, sans-serif; color: #62576a; }
 .ns-redesign .ns-one-paper__masthead { display: none; }
 .ns-redesign .ns-paper-statusbar { background: none; border: 0; margin: 0 0 18px; padding: 0; min-height: 0; display: flex; align-items: center; justify-content: flex-end; }
 .ns-redesign .ns-newsroom-bar__status { display: none; }
@@ -121,7 +122,8 @@
   .ns-redesign .ns-v11-brandbar { margin: 0; padding: 8px 0 0; gap: 22px; min-height: 190px; }
   .ns-redesign .ns-v11-paige, .ns-redesign .ns-v11-paige .ns-paige__crop { flex-basis: 175px; width: 175px; height: 190px; }
   .ns-redesign .ns-v11-paige .ns-paige__crop img { width: 340px; left: -88px; top: 0; }
-  .ns-town-strip { margin: 0 0 24px; padding: 12px 0; flex-wrap: wrap; gap: 8px 20px; }
+  .ns-town-strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 16px 20px; }
+  .ns-town-strip time { grid-column: 1 / -1; }
   .ns-redesign .ns-front-page-grid { column-gap: 20px; grid-template-columns: minmax(180px,.85fr) minmax(0,1.8fr); }
   .ns-redesign .ns-front-desk--lead { padding-left: 20px !important; }
   .ns-redesign .ns-front-desk--big-picture { grid-template-columns: 1.1fr 1fr; gap: 0 20px; }
@@ -137,9 +139,9 @@
   .ns-redesign .ns-v11-brandcopy .ns-v11-location { font-size: 12px; letter-spacing: .07em; }
   .ns-redesign .ns-v11-brandcopy h1 { font-size: clamp(31px,8.8vw,52px); }
   .ns-redesign .ns-v11-brandcopy > p:last-child { display: block; font-size: 14px; margin-top: 9px; }
-  .ns-town-strip { margin: 0 0 16px; padding: 10px 0; display: block; font-size: 13px; }
-  .ns-town-strip p { margin-bottom: 6px; }
-  .ns-town-strip time { display: block; margin-top: 8px; }
+  .ns-town-strip { margin: 0 0 16px; padding: 16px 0; grid-template-columns: minmax(0, 1fr); gap: 16px; font-size: 16px; }
+  .ns-town-strip p { gap: 6px; }
+  .ns-town-strip time { display: block; margin: 0; }
   .ns-redesign .ns-front-page-grid { display: flex; flex-direction: column; gap: 24px; }
   .ns-redesign .ns-front-desk--lead { order: 0; padding: 0 !important; border: 0; }
   .ns-redesign .ns-front-page-grid__right { order: 1; width: 100%; gap: 12px; }
