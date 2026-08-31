@@ -14964,3 +14964,9 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** The first pilot accepted any recognised source ID and displayed it as answer credit. Independent review reproduced a feedback answer carrying an unrelated reference. Separate browser testing found the pre-existing repeat-preview error replaced the useful answer, removing copy access.
 - **Prevention:** Known source IDs are not support evidence; hold public credit until semantic admission. Put preview gating before input errors and render the notice separately. The actual extracted handler now passes an empty-repeat test; a deliberately disabled gate fails it. Optional preparation uses the same answer, with explicit no-extra-call wording and independent copy text. Mock/page checks remain separate from actual model-quality claims.
 - **Possible Behind the Build angle:** A citation can be real and still be the wrong citation. A limit message should not take away the work the reader already received.
+
+## 2026-08-31 — FAiRY model choice must serve advice quality
+
+- **Finding:** The proposed GPT4.1 baseline prioritised compatibility with the recovered adapter over Ali's desired quality. Ali rejected it; current official guidance supports a GPT5.6Sol quality-first candidate.
+- **Prevention:** Choose the model for the visitor's judgment task, then adapt the request and measure useful answers, latency and cost. Compatibility is an implementation constraint, not the primary selection criterion. Do not copy non-reasoning-model budgets/timeouts into a reasoning-model trial.
+- **Possible Behind the Build angle:** The easiest model to connect is not necessarily the right model for the reader.

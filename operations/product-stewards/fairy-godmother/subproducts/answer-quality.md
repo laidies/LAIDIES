@@ -1,5 +1,29 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — GPT4.1 pilot recommendation rejected
+
+Ali rejected GPT4.1 as too old and wants a better model. DECIDED: do not use
+GPT4.1 as the pilot baseline merely because the old adapter supports it.
+Replacement RECOMMENDATION (not yet configured or tested): `gpt-5.6-sol`,
+medium reasoning, standard mode for reader-facing advice. Establish quality on
+the five-situation/context-risk cases before considering `gpt-5.6-terra` as a
+lower-cost alternative or using a smaller model for classification. Safety
+classification is not assumed routine or adequate solely because it is cheaper.
+
+Official documentation fetched31August2026 identifies Sol as the current
+flagship for complex professional work and medium as a balanced starting point:
+https://developers.openai.com/api/docs/guides/latest-model
+https://developers.openai.com/api/docs/models/gpt-5.6-sol
+This supports model selection, not demonstrated FAiRY answer quality or account
+access. Recommendation is an inference to test. Newer models still require
+source-fit, usable-wording, uncertainty, power/context and cliché rejection checks.
+
+The GPT4.1 trial proposal below is SUPERSEDED, not approval for a paid run.
+Recalculate reasoning-inclusive token ceilings, cost, timeout and privacy/cache
+terms before proposing the revised paid trial. Do not simply replace the model
+string in the old request or inherit its20case/40call economics. No API calls,
+provider configuration, runtime edits or deployment made for this decision.
+
 ## 2026-08-31 — five-situation build and test authorised
 
 Ali approved building and testing the proposed practical-advice/optional-AI
@@ -59,7 +83,7 @@ VoiceOver, physical phone, deployed Worker, public URL or cross-device allowance
 verification is claimed. Staging has no configured classifier/answer provider.
 No credentials were printed/retrieved or borrowed from production.
 
-### Proposed bounded real-provider trial — NOT APPROVED / NOT RUN
+### SUPERSEDED GPT4.1 trial proposal — REJECTED / NOT RUN
 
 Recommendation: use existing OpenAI account access, if available, with pinned
 `gpt-4.1-2025-04-14` for both separate classification and answer stages as a
