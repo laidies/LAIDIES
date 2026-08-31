@@ -23,7 +23,8 @@
     quizBestScores: "laidiesQuizBestScores",
     luminaryMaven: "laidies_maven",
     luminaryBuilder: "laidies_builder",
-    luminaryTownRegular: "laidies_town_regular"
+    luminaryTownRegular: "laidies_town_regular",
+    ksvlStickerPicks: "laidies_ksvl_sticker_picks_v1"
   });
   var listeners = [];
   var syncPromise = null;
@@ -40,6 +41,11 @@
 
   // These are private progress records, never currency or proof of ownership.
   function memoryValue(name, value) {
+    if (name === "ksvlStickerPicks") {
+      if (!isObject(value) || !Array.isArray(value.slugs) || typeof value.picked !== "boolean") return undefined;
+      var allowed = "ksvl-community-raidio ksvl-dj-sunnyv-fanclub ksvl-books-hooks-motto-oval ksvl-dont-just-learn-bumper band-the-laidies band-the-regressions band-the-recalls band-the-overfits band-the-embeddings band-latent-space band-the-bots band-chain-of-thought band-grand-ol-query band-the-predicts".split(" ");
+      return {picked:value.picked,slugs:Array.from(new Set(value.slugs.filter(function (slug) { return allowed.indexOf(slug) !== -1; }))).slice(0,3).sort()};
+    }
     if (isPreference(name)) {
       return value === null || value === "" ? null
         : PREFERENCES[name].indexOf(value) !== -1 ? value : undefined;
@@ -214,6 +220,8 @@
     try {
       remove(DOCUMENT_KEY);
       remove("laidies_screening_progress_v1");
+      remove("laidies_ksvl_stickers_earned");
+      remove("laidies_ksvl_stickers_picked");
       Object.keys(FIXED_ACTIVITIES).forEach(function (name) {
         remove(FIXED_ACTIVITIES[name]);
       });
@@ -361,7 +369,7 @@
         result[section][key] = mergeEntry(
           left[section][key],
           right[section][key],
-          section !== "episodes" && !isPreference(key)
+          section !== "episodes" && !isPreference(key) && key !== "ksvlStickerPicks"
         );
       });
     });

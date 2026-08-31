@@ -320,3 +320,22 @@ const changedSession = {controller:racingRuntime.controller,client:{rpc:async()=
 await assert.rejects(switching.api.syncWith(changedSession), /continuation-session-changed/);
 assert.equal(switching.localStorage.getItem("laidies_maven"),"ada-lovelace","foreign reply is not applied");
 console.log("CLOSET MEMORY RACE CONTRACT PASS queued_edit=1 no_op=1 failed_clear=1 switched_session=1");
+
+const stickersDevice = makeDevice('/radio','Radio', {laidies_ksvl_sticker_picks_v1:JSON.stringify({picked:true,slugs:['ksvl-community-raidio','band-the-laidies','ksvl-encore','bad']})});
+const picksDoc = stickersDevice.api.collectLocal();
+assert.ok(picksDoc.activities.ksvlStickerPicks, 'declaration picks must be collected');
+assert.deepEqual(JSON.parse(JSON.stringify(picksDoc.activities.ksvlStickerPicks.value)), {picked:true,slugs:['band-the-laidies','ksvl-community-raidio']}, 'only declaration picks are collected');
+const stablePicks = stickersDevice.api.collectLocal();
+assert.equal(stablePicks.activities.ksvlStickerPicks.updated_at,picksDoc.activities.ksvlStickerPicks.updated_at);
+stickersDevice.tick();
+stickersDevice.localStorage.setItem('laidies_ksvl_sticker_picks_v1',JSON.stringify({picked:true,slugs:[]}));
+const removedPicks = stickersDevice.api.collectLocal();
+const mergedPicks = stickersDevice.api.mergeDocuments(picksDoc,removedPicks);
+assert.equal(mergedPicks.activities.ksvlStickerPicks.value.slugs.length,0,'stale browser cannot resurrect removed picks');
+stickersDevice.api.applyDocument(mergedPicks);
+assert.equal(JSON.parse(stickersDevice.localStorage.getItem('laidies_ksvl_sticker_picks_v1')).slugs.length,0);
+stickersDevice.localStorage.setItem('laidies_ksvl_stickers_earned','["band-the-laidies"]');
+stickersDevice.localStorage.setItem('laidies_ksvl_stickers_picked','1');
+stickersDevice.api.clearSupportedLocalState();
+for (const key of ['laidies_ksvl_sticker_picks_v1','laidies_ksvl_stickers_earned','laidies_ksvl_stickers_picked']) assert.equal(stickersDevice.localStorage.getItem(key),null);
+console.log('KSVL DECLARATION MEMORY PASS allowlist=1 stable=1 removal=1 legacy_account_clear=1');

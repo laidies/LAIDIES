@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/radio-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260830-closet-memory-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
@@ -267,7 +267,7 @@
     <div id="ksvl-mix-cds"></div>
 
     </div><!-- /hub-mixcds -->
-    <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
 
     <!-- ============================================================
          KSVL · The Bands (10 fictional-band album covers)
@@ -520,6 +520,9 @@
       .ksvl-sticker-tile.is-locked img { filter: grayscale(1); opacity: 0.32; }
       .ksvl-sticker-tile.is-earned img { filter: none; opacity: 1; }
       .ksvl-sticker-tile.is-selectable { cursor: pointer; }
+      button.ksvl-sticker-tile { font:inherit;color:inherit;border:1px solid transparent;background:transparent;min-height:44px;min-width:44px; }
+      button.ksvl-sticker-tile:focus-visible { outline:3px solid var(--rose);outline-offset:3px; }
+      .ksvl-stickers-confirm-btn { min-height:44px; }
       .ksvl-sticker-tile.is-selectable:hover img { filter: grayscale(0.4); opacity: 0.75; }
       .ksvl-sticker-tile.is-selected { transform: scale(1.06); }
       .ksvl-sticker-tile.is-selected img { filter: none; opacity: 1; }
@@ -541,7 +544,7 @@
     <section class="ksvl-stickers" id="ksvl-stickers">
       <p class="ksvl-stickers-eyebrow">★ 99.9 KSVL · The Sticker Sheet</p>
       <h2 class="ksvl-stickers-title">Grab a few from the counter.</h2>
-      <p class="ksvl-stickers-lede">KSVL stickers are coming later. Listening does not add a sticker to your collection yet.</p>
+      <p class="ksvl-stickers-lede">Pick up to three declaration stickers for your private Closet. Sign in to keep your choices across devices. Listening achievements are still coming later.</p>
 
       <figure style="margin:14px 0 20px;">
         <div class="ksvl-sticker-banner-held" data-asset-status="held" role="img" aria-label="KSVL sticker-banner artwork is being prepared.">Sticker banner visual held</div>
@@ -550,166 +553,15 @@
       <div class="ksvl-stickers-status" id="ksvl-stickers-status"></div>
       <div class="ksvl-stickers-grid" id="ksvl-stickers-grid"></div>
       <div class="ksvl-stickers-legend">
-        <span><span class="dot dot--earned"></span>Earned</span>
+        <span><span class="dot dot--earned"></span>Picked</span>
         <span><span class="dot dot--pick"></span>Selected — not saved yet</span>
-        <span><span class="dot dot--locked"></span>Locked — hover to see how</span>
+        <span><span class="dot dot--locked"></span>Not picked or coming later</span>
       </div>
     </section>
 
     </div><!-- /hub-stickers -->
 
-    <script>
-      (function() {
-        'use strict';
-
-        // 20 stickers · type: 'declaration' can be picked from the counter · 'achievement' must be earned via specific action
-        var STICKERS = [
-          // Station badges
-          { slug: 'ksvl-community-raidio',           type: 'declaration', name: 'KSVL · Community RAiDIO',    earn: 'Grab from the counter.' },
-          { slug: 'ksvl-charter-listener',           type: 'achievement', name: 'Charter Listener',           earn: 'Coming later.' },
-          { slug: 'ksvl-all-wednesdays',             type: 'achievement', name: 'All Wednesdays',             earn: 'Coming later.' },
-          { slug: 'ksvl-dj-sunnyv-fanclub',          type: 'declaration', name: 'DJ SunnyV Fan Club',         earn: 'Grab from the counter.' },
-          // Mix + genre badges
-          { slug: 'ksvl-saints-mix-certified',       type: 'achievement', name: 'SAiNTS Mix Certified',       earn: 'Coming later.' },
-          { slug: 'ksvl-bronze-aige-regular',        type: 'achievement', name: 'BRONZE AiGE Regular',        earn: 'Coming later.' },
-          { slug: 'ksvl-mix-cd-alchemist',           type: 'achievement', name: 'Mix CD Alchemist',           earn: 'Coming later.' },
-          { slug: 'ksvl-encore',                     type: 'achievement', name: 'Encore',                     earn: 'Coming later.' },
-          // Motto stickers (bonus declarations)
-          { slug: 'ksvl-books-hooks-motto-oval',     type: 'declaration', name: '"Don\'t just learn from books"', earn: 'Grab from the counter.' },
-          { slug: 'ksvl-dont-just-learn-bumper',     type: 'declaration', name: 'Books & Hooks · Bumper',     earn: 'Grab from the counter.' },
-          // Band collectors — all declarations (taste picks)
-          { slug: 'band-the-laidies',                type: 'declaration', name: 'THE LAiDIES',                earn: 'Grab from the counter.' },
-          { slug: 'band-the-regressions',            type: 'declaration', name: 'The Regressions',            earn: 'Grab from the counter.' },
-          { slug: 'band-the-recalls',                type: 'declaration', name: 'The Recalls',                earn: 'Grab from the counter.' },
-          { slug: 'band-the-overfits',               type: 'declaration', name: 'The Overfits',               earn: 'Grab from the counter.' },
-          { slug: 'band-the-embeddings',             type: 'declaration', name: 'The Embeddings',             earn: 'Grab from the counter.' },
-          { slug: 'band-latent-space',               type: 'declaration', name: 'Latent Space',               earn: 'Grab from the counter.' },
-          { slug: 'band-the-bots',                   type: 'declaration', name: 'The Bots',                   earn: 'Grab from the counter.' },
-          { slug: 'band-chain-of-thought',           type: 'declaration', name: 'Chain of Thought',           earn: 'Grab from the counter.' },
-          { slug: 'band-grand-ol-query',             type: 'declaration', name: "Grand Ol' Query",            earn: 'Grab from the counter.' },
-          { slug: 'band-the-predicts',               type: 'declaration', name: 'The Predicts',               earn: 'Grab from the counter.' }
-        ];
-
-        var STORAGE_KEY = 'laidies_ksvl_stickers_earned';
-        var PICK_KEY = 'laidies_ksvl_stickers_picked';
-        var FREEBIE_LIMIT = 3;
-
-        function getEarned() {
-          try { var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : []; }
-          catch(e) { return []; }
-        }
-        function setEarned(list) {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch(e) {}
-        }
-        function hasPicked() {
-          try { return localStorage.getItem(PICK_KEY) === '1'; } catch(e) { return false; }
-        }
-        function setPicked() {
-          try { localStorage.setItem(PICK_KEY, '1'); } catch(e) {}
-        }
-
-        // Expose a global earn API so other pages/mechanics can grant stickers
-        window.KSVL_stickers = {
-          list: function() { return STICKERS.slice(); },
-          earned: getEarned,
-          earn: function(slug) {
-            var e = getEarned();
-            if (e.indexOf(slug) === -1) { e.push(slug); setEarned(e); }
-            renderTiles();
-            return e;
-          }
-        };
-
-        function toggleSelection(slug, tile) {
-          if (hasPicked()) return;
-          if (tile.classList.contains('is-earned')) return;
-          var selected = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
-          if (tile.classList.contains('is-selected')) {
-            tile.classList.remove('is-selected');
-          } else {
-            if (selected.length >= FREEBIE_LIMIT) return;
-            tile.classList.add('is-selected');
-          }
-          updateStatus();
-        }
-
-        function updateStatus() {
-          var status = document.getElementById('ksvl-stickers-status');
-          if (!status) return;
-          var earned = getEarned();
-          if (hasPicked()) {
-            var total = STICKERS.length;
-            status.innerHTML = '<span>You have <strong>' + earned.length + ' of ' + total + '</strong> stickers saved in this browser. Listening unlocks are coming later.</span>';
-            return;
-          }
-          var selectedTiles = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
-          var count = selectedTiles.length;
-          var remaining = FREEBIE_LIMIT - count;
-          var msg = count === 0
-            ? '<span>Pick <strong>up to ' + FREEBIE_LIMIT + '</strong> stickers from the counter. Take them home to your Closet.</span>'
-            : '<span><strong>' + count + '</strong> selected. ' + remaining + ' left.</span>';
-          var btn = count > 0
-            ? '<button id="ksvl-stickers-confirm" class="ksvl-stickers-confirm-btn">Take these ' + count + ' →</button>'
-            : '';
-          status.innerHTML = msg + btn;
-          var confirmBtn = document.getElementById('ksvl-stickers-confirm');
-          if (confirmBtn) confirmBtn.addEventListener('click', confirmPick);
-        }
-
-        function confirmPick() {
-          var selectedTiles = document.querySelectorAll('.ksvl-sticker-tile.is-selected');
-          var earned = getEarned();
-          selectedTiles.forEach(function(t) {
-            var slug = t.getAttribute('data-slug');
-            if (earned.indexOf(slug) === -1) earned.push(slug);
-          });
-          setEarned(earned);
-          setPicked();
-          renderTiles();
-        }
-
-        function renderTiles() {
-          var grid = document.getElementById('ksvl-stickers-grid');
-          if (!grid) return;
-          grid.innerHTML = '';
-          var earned = getEarned();
-          var picked = hasPicked();
-          STICKERS.forEach(function(s) {
-            var tile = document.createElement('div');
-            var isEarned = earned.indexOf(s.slug) > -1;
-            var isSelectable = !picked && s.type === 'declaration' && !isEarned;
-            tile.className = 'ksvl-sticker-tile' + (isEarned ? ' is-earned' : ' is-locked') + (isSelectable ? ' is-selectable' : '');
-            tile.setAttribute('data-slug', s.slug);
-            tile.setAttribute('data-type', s.type);
-            tile.setAttribute('title', s.name + (isEarned ? '' : ' — ' + s.earn));
-            var img = document.createElement('img');
-            img.src = '/assets/stickers/ksvl/' + s.slug + '.png';
-            img.alt = s.name;
-            img.loading = 'lazy';
-            tile.appendChild(img);
-            var caption = document.createElement('div');
-            caption.className = 'ksvl-sticker-caption';
-            var strong = document.createElement('strong');
-            strong.textContent = s.name;
-            caption.appendChild(strong);
-            if (!isEarned) {
-              var hint = document.createElement('span');
-              hint.className = 'earn-hint';
-              hint.textContent = s.earn;
-              caption.appendChild(hint);
-            }
-            tile.appendChild(caption);
-            if (isSelectable) {
-              tile.addEventListener('click', function() { toggleSelection(s.slug, tile); });
-            }
-            grid.appendChild(tile);
-          });
-          updateStatus();
-        }
-
-        renderTiles();
-      })();
-    </script>
+    <script defer src="/content/site/ksvl-stickers-v1.js?v=20260830-counter-1"></script>
 
     <!-- ============================================================
          KSVL · Call in a request (song request form)

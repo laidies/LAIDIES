@@ -14,7 +14,8 @@ function walk(dir) {
       for(const match of source.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)/gi)) {
         const url=new URL(match[1],'https://laidies.ai/'+path.relative(root,full));
         if(url.origin==='https://laidies.ai'&&names.has(path.basename(url.pathname))) {
-          assert.equal(url.searchParams.get('v'),'20260830-closet-memory-1',`${path.relative(root,full)} stale ${url.pathname}`);
+          const expected=['sv-global-header.js','resident-continuation-bootstrap-v1.js','resident-continuation-v1.js'].includes(path.basename(url.pathname))?'20260830-ksvl-service-1':'20260830-closet-memory-1';
+          assert.equal(url.searchParams.get('v'),expected,`${path.relative(root,full)} stale ${url.pathname}`);
           assert.ok(fs.existsSync(path.join(root,url.pathname)),`${url.pathname} missing`);
           checks++;
         }
@@ -24,6 +25,6 @@ function walk(dir) {
 }
 walk(root);
 assert.ok(checks>=60,'full public artifact required');
-assert.match(fs.readFileSync(path.join(root,'content/site/sv-global-header.js'),'utf8'),/resident-continuation-bootstrap-v1\.js\?v=20260830-closet-memory-1/);
-assert.match(fs.readFileSync(path.join(root,'content/site/resident-continuation-bootstrap-v1.js'),'utf8'),/continuation \+ "\?v=20260830-closet-memory-1"/);
+assert.match(fs.readFileSync(path.join(root,'content/site/sv-global-header.js'),'utf8'),/resident-continuation-bootstrap-v1\.js\?v=20260830-ksvl-service-1/);
+assert.match(fs.readFileSync(path.join(root,'content/site/resident-continuation-bootstrap-v1.js'),'utf8'),/continuation \+ "\?v=20260830-ksvl-service-1"/);
 console.log(`RESIDENT MEMORY ARTIFACT PASS ${checks} loader edges plus shared bootstrap dependencies`);

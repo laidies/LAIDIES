@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260830-closet-memory-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
@@ -1479,6 +1479,20 @@
       </div>
       <p class="vessel-note">Collected from supported quizzes and Express tours. Girl Talk keeps its honour-system collection inside the game on this device.</p>
     </div>
+
+    <section class="vessel vessel--sticker-book" id="ksvlClosetStickers" hidden>
+      <h3 class="vessel-title">Your KSVL sticker picks</h3>
+      <p id="ksvlClosetStickerStatus" class="vessel-note" role="status" aria-live="polite"></p>
+      <div id="ksvlClosetStickerGrid"></div>
+      <p class="vessel-note"><a href="/radio#hub-stickers">Visit the Radio sticker counter →</a></p>
+    </section>
+    <style>
+      #ksvlClosetStickerGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px; }
+      .ksvl-closet-sticker { display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0; }
+      .ksvl-closet-sticker img { width:100%;max-width:160px;height:130px;object-fit:contain; }
+      .ksvl-closet-sticker button { min-height:44px;padding:8px;max-width:100%;font:inherit;color:var(--plum);background:var(--cream);border:1px solid var(--rose);border-radius:6px;cursor:pointer; }
+    </style>
+    <script defer src="/content/site/ksvl-stickers-v1.js?v=20260830-counter-1"></script>
 
     <!-- Merit Sash -->
     <div class="vessel vessel--sash">

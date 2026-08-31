@@ -1,5 +1,43 @@
 # Active work
 
+## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
+
+Sticker-only candidate `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-service.aYHJy2`;
+manifest same path plus `.manifest.json`;674files,640164318bytes, identity
+`5bef57446e5337d6951fe846cb7c8147e4b90b92878cdafaf4b69632039b8764`.
+It changes63 paths from11ada06e (5 functional/dependency paths and58 other
+loader-token-only paths), adds only `content/site/ksvl-stickers-v1.js`, removes
+nothing. Radio overlay replaces ONLY its sticker section and header cache token;
+its old request implementation/copy remain byte-identical. NewsStand changes
+only its Resident bootstrap cache token; music runtime, books and portraits exact.
+Fail-first keyboard counter test rejects predecessor (0 native buttons vs14).
+Candidate maker and independent reviewer pass3 widths plus storage denial;
+original Resident156/156, decoded KSVL playback/failure suite,414 active assets
+and66 loader edges pass. Real backend with disposable account passes desktop
+pickup→fresh390px Closet→remove→old desktop Radio. Account cleanup is pending.
+
+Request candidate is HOLD, NOT DEPLOYED: live metadata confirms0 requests and
+effective anon INSERT/authenticated INSERT/admin_notes SELECT permissions.
+A BEGIN/migration/synthetic-role-tests/ROLLBACK rehearsal passed private owner
+isolation, safe receipts, replay, delete, validation, cap and expiry. Postcheck:
+candidate tableNULL,fixture users0,original users5,requests0. No production
+schema/permissions changed. New request client/migration/tests are separate
+prepared source, not part of the sticker artifact. Independent review found
+auth-generation and expired-retry defects; fixes and fail-first tests continue.
+Ali was asked to approve30-day private request retention/automatic cleanup;
+no scheduler, retention change or new request UI will go live before that answer.
+
+Ali explicitly authorized continued backend/non-working recovery and narrow live
+releases. Start from exact11ada06e input below; NewsStand acknowledges the Pages
+hold. Foreground owns Radio/Closet/shared continuation and release paths; a
+read-only request audit supports schema/privacy diagnosis. First visitor delta:
+Radio declaration sticker picks must reach the private Closet and its existing
+account continuation; listening achievements, public ownership and currency stay
+held. Preserve admitted sticker pixels, provide native controls and honest
+storage failure. Request transaction/privacy and draft lifecycle are being traced
+against the live provider before choosing the smallest safe recovery. No policy
+for automatic deletion, staff access or public request credit is inferred.
+
 ## 2026-08-30 Closet cross-device memory — DEPLOYED AND PUBLICLY VERIFIED (bounded)
 
 Production `11ada06e-b04f-459b-a32c-8569b9d84fff`, pushed source

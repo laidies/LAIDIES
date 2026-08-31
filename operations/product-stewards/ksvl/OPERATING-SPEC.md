@@ -1,5 +1,22 @@
 # KSVL Community RAiDIO operating specification
 
+## Request / declaration-sticker recovery — 2026-08-30 (BUILDING)
+
+Ali authorized recovery and live narrow releases of remaining non-working
+backend features. Restore the existing up-to-three declaration sticker pickup
+as private choices visible in the Closet and backed by Resident continuation.
+Use the existing14 declaration designs without altered pixels; the6 listening
+achievement designs remain locked. A declaration is taste, never verified
+listening, ownership, currency or learning completion. Preserve existing picks,
+permit removing them, and preserve the one-time pickup flag. Latest deliberate
+choice/removal wins across browsers; account switches clear these private keys.
+Storage denial cannot claim saved, and public Card routes show no private picks.
+This explicitly extends the earlier radio-only display scope for declaration
+pixels to the private Closet; independent review must inspect that exact reuse.
+Request recovery must first verify the actual provider permissions; protect
+staff fields and private text, duplicate retries and safe own-account actions.
+No automatic retention deletion or new staff/public policy is inferred.
+
 ## Current repair contract — 2026-08-30
 
 Release outcome: this bounded continuity contract is deployed as
