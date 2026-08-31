@@ -1,5 +1,15 @@
 # Active work
 
+## 2026-08-30 Ordinary NewsStand publication connection
+
+- **Status:** LOCAL implementation and isolated command tests pass; no real new news article admitted or deployed by this repair.
+- **Repair:** Private, checksum-bound ordinary-news candidates now pass through composition, independent story review, issue admission, canonical projection and public feed/archive generation. Initial issues and append-only same-day news revisions are supported. Frozen input checks reject drift; repeated projection is idempotent. Vancouver dates, not UTC date prefixes, determine issue membership.
+- **Verification:** The ordinary-news end-to-end CLI fixture passes, including 15 invalid-candidate cases, preservation of incumbent articles/service desks/Front PAiGE/Big Picture, and feed/archive/reader eligibility. Composer, promoter and projector regression suites pass. Fixture observations are synthetic test data, never real editorial approval. No browser or live-publication claim is made for this repair.
+- **Schedule:** The existing ACTIVE 07:00 Vancouver heartbeat was updated through the app to use the repaired connection and check a rolling seven-day unpublished-news backlog. Its cadence, target task and notification policy were preserved; no parallel scheduler was created. A future unattended run has not been observed.
+- **Commit limitation:** The repository-wide precommit check failed on 45 missing Episode 3 image assets. Town, links, inline JavaScript and rejection checks passed. The bounded local repair commit bypasses that unrelated hook; no episode assets were changed and this is not release admission.
+- **Remaining decision:** The shared NEWS rule still requires observed human explain-back and transfer evidence for every story. The service-bank sampling exception does not cover news. Unattended ordinary-news publication remains blocked pending an explicit policy decision or genuine required observations; Big Picture continues to require Ali's review.
+- **Release coordination:** The latest received verified handoff is `fcbe7249-2a3d-4fe3-99dc-d4546ffcf27b`, exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-native-brand.rJeTfb`, identity `8ba0c5a94dba71be0698656e36ed2f9fcbf29774f5d523853c0b11752050776d`. This is a handoff, not a fresh provider check by this repair. No Pages deployment occurred; recheck the head before any future release. Local NewsStand design changes are not authorized for incidental publication.
+
 ## 2026-08-30 NewsStand Daily proving run
 
 - **Status:** PUBLICLY VERIFIED — exact NewsStand proving-run delta deployed and checked on both origins.

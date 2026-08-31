@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { loadOrdinaryStoryCandidate, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
@@ -30,11 +31,11 @@ function parseStories(raw) {
   return JSON.parse(JSON.stringify(context.window.NEWSSTAND_DATA));
 }
 
-export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw }) {
+export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, root = ROOT }) {
   if (!DATE.test(date || "")) reject("--date must be YYYY-MM-DD");
   const allowedReceiptPaths = [
-    path.join(ROOT, `operations/agents/aidb-intelligence-desk/daily/${date}.md`),
-    path.join(ROOT, `operations/product-stewards/newsstand/editorial-intake/${date}.md`)
+    path.join(root, `operations/agents/aidb-intelligence-desk/daily/${date}.md`),
+    path.join(root, `operations/product-stewards/newsstand/editorial-intake/${date}.md`)
   ];
   if (!allowedReceiptPaths.includes(path.resolve(radarPath || ""))) reject("receipt must be the exact dated AIDB or NewsStand editorial-intake record");
   if (!radarRaw.includes(date)) reject("editorial receipt does not contain the issue date");
@@ -62,9 +63,17 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   const eligible = eligiblePool.filter((record) => record.editionDate <= date && types.includes(record.type) && PUBLIC.has(record.status) &&
     record.publicEligibility === "ELIGIBLE" && record.freshness && record.freshness.expiresAt >= date)
     .sort((a, b) => String(b.editionDate).localeCompare(String(a.editionDate)));
-  const exactStories = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
-    !/^front-paige-/.test(String(story.id || "")) && String(story.publishedAt || "").slice(0, 10) === date &&
+  let exactStories = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
+    !/^front-paige-/.test(String(story.id || "")) && vancouverDay(story.publishedAt) === date &&
     ["published", "corrected"].includes(story.status) && story.sourceApproval && story.sourceApproval.status === "approved");
+  let candidateIdentity = null;
+  if (candidateBinding) {
+    let validated; try { validated = loadOrdinaryStoryCandidate(candidateBinding, { root, date }); } catch (error) { reject(error.message); }
+    if (validated.publicationBaseRaw !== storiesRaw) reject("ordinary candidate publication base differs from current canonical source");
+    if (storiesData.stories.some(story => story.id === validated.story.id || story.slug === validated.story.slug)) reject("ordinary candidate duplicates an incumbent ID or slug");
+    exactStories.push(validated.story);
+    candidateIdentity = candidateBinding;
+  }
   const frontPaigeStory = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
     /^front-paige-/.test(String(story.id || "")) && ["published", "corrected"].includes(story.status) &&
     story.sourceApproval && story.sourceApproval.status === "approved")
@@ -101,9 +110,9 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     storySnapshots: exactStories,
     desks,
     sourceIdentity: {
-      radarPath: path.relative(ROOT, radarPath), radarSha256: sha256(radarRaw),
+      radarPath: path.relative(root, radarPath), radarSha256: sha256(radarRaw),
       storiesPath: "content/newsstand-stories.js", storiesSha256: sha256(storiesRaw),
-      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw)
+      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {})
     },
     canonicalWrite: false,
     deployActionTaken: false
@@ -121,14 +130,17 @@ function main() {
   const date = argument("--date", args);
   const radarPath = path.resolve(argument("--radar", args) || "");
   const output = path.resolve(argument("--output", args) || "");
+  const candidatePath = argument("--story-candidate", args);
   if (!output.startsWith(`${PRIVATE_ROOT}${path.sep}`)) reject("output must remain inside the private Daily issue directory");
   if (!radarPath.startsWith(`${path.join(ROOT, "operations")}${path.sep}`) || !fs.existsSync(radarPath)) reject("editorial receipt must be an existing operations file");
   const radarRaw = fs.readFileSync(radarPath, "utf8");
   const storiesRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
   const columnsRaw = fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8");
-  const result = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw });
+  const candidateBinding = candidatePath ? { path: path.relative(ROOT, path.resolve(candidatePath)), sha256: sha256(fs.readFileSync(path.resolve(candidatePath))) } : null;
+  const result = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding });
   fs.mkdirSync(path.dirname(output), { recursive: true });
-  fs.writeFileSync(output, result.canonical);
+  if (fs.existsSync(output) && fs.readFileSync(output, "utf8") !== result.canonical) reject("private envelope already exists; use a new revision filename rather than overwrite reviewed evidence");
+  if (!fs.existsSync(output)) fs.writeFileSync(output, result.canonical, { flag: "wx" });
   console.log(`DAILY EDITION PRIVATE COMPOSER PASS date=${date} disposition=${result.envelope.disposition} stories=${result.envelope.storyIds.length} ready_desks=${result.envelope.desks.filter((desk) => desk.state === "ready").length} sha256=${result.sha256} public_write=false`);
 }
 

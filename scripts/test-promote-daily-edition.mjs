@@ -9,7 +9,11 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const SOURCE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 // Keep the historical August 4 test separate from current Weekly authority.
 const ROOT = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'newsstand-promoter-regression-')));
-for (const relative of ['scripts/compose-daily-edition.mjs','scripts/promote-daily-edition.mjs','scripts/publish-daily-edition.mjs','content/newsstand-stories.js','content/daily-edition-columns.json','operations/agents/aidb-intelligence-desk/daily/2026-08-04.md','operations/agents/aidb-intelligence-desk/daily/2026-08-30.md']) {
+fs.mkdirSync(path.join(ROOT, 'scripts'), { recursive: true });
+fs.copyFileSync(path.join(SOURCE_ROOT, 'scripts/check-content-producer-contract.mjs'), path.join(ROOT, 'scripts/check-content-producer-contract.mjs'));
+fs.mkdirSync(path.join(ROOT, 'content'), { recursive: true });
+fs.copyFileSync(path.join(SOURCE_ROOT, 'content/newsstand-reader-contract.js'), path.join(ROOT, 'content/newsstand-reader-contract.js'));
+for (const relative of ['scripts/validate-newsstand-ordinary-story-candidate.mjs','scripts/check-prose-quality-admission.mjs','scripts/compose-daily-edition.mjs','scripts/promote-daily-edition.mjs','scripts/publish-daily-edition.mjs','content/newsstand-stories.js','content/daily-edition-columns.json','operations/agents/aidb-intelligence-desk/daily/2026-08-04.md','operations/agents/aidb-intelligence-desk/daily/2026-08-30.md']) {
   fs.mkdirSync(path.dirname(path.join(ROOT,relative)),{recursive:true});
   let bytes=fs.readFileSync(path.join(SOURCE_ROOT,relative),'utf8');
   if(relative==='content/newsstand-stories.js') bytes+='\nwindow.NEWSSTAND_DATA.publications.weekly.status="quiet";\n';

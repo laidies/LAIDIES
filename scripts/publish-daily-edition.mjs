@@ -7,6 +7,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "content/newsstand-stories.js");
@@ -17,17 +18,19 @@ const stable = (value) => value === null || typeof value !== "object" ? JSON.str
   : Array.isArray(value) ? `[${value.map(stable).join(",")}]`
     : `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stable(value[key])}`).join(",")}}`;
 
-export function verifyProjectionAdmission({ issue, envelopeRaw, decision }) {
+export function verifyProjectionAdmission({ issue, envelopeRaw, decision, root = ROOT }) {
   const digest = createHash("sha256").update(envelopeRaw).digest("hex");
   if (digest !== issue.envelopeSha256 || digest !== decision.envelopeSha256 || decision.editionDate !== issue.editionDate) reject("exact envelope admission checksum/date mismatch");
   for (const field of ["decision", "reviewedAt", "reviewedBy", "reviewerRole"]) {
     if (decision[field] !== issue.admission[field]) reject(`admission ${field} changed`);
   }
   const envelope = JSON.parse(envelopeRaw);
+  const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
+  if (ordinary && !["daily-issue-admission-v1", "daily-issue-news-revision-admission-v1"].includes(decision.schemaVersion)) reject("ordinary projection requires initial or news-revision admission");
   const expected = {
     editionDate: envelope.editionDate, editorialTimeZone: envelope.editorialTimeZone,
     disposition: envelope.disposition.toLowerCase(), storyIds: envelope.storyIds,
-    stories: envelope.storySnapshots, desks: envelope.desks, sourceIdentity: envelope.sourceIdentity,
+    stories: envelope.storySnapshots.map(story => ordinary?.story.id === story.id ? publishCandidateStory(story, issue.admission.reviewedAt) : story), desks: envelope.desks, sourceIdentity: envelope.sourceIdentity,
     frontPaigeStoryId: envelope.frontPaigeStoryId || null, weeklyStoryId: envelope.weeklyStoryId || null,
     serviceRecordIds: envelope.desks.filter((desk) => desk.state === "ready").map((desk) => desk.recordId)
   };
@@ -35,7 +38,7 @@ export function verifyProjectionAdmission({ issue, envelopeRaw, decision }) {
   if (stable(actual) !== stable(expected)) reject("stored issue differs from exact admitted envelope");
 }
 
-export function projectDailyIssue({ dataset, issue, columns }) {
+export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   if (!dataset || dataset.schemaVersion !== "2.0.0" || dataset.datasetStatus !== "published") reject("schema-2 canonical dataset is required");
   if (!issue || issue.status !== "complete" || !issue.admission ||
       !["ACCEPT_LOCAL_CANONICAL_WRITE", "ACCEPT_LOCAL_CANONICAL_SUCCESSOR"].includes(issue.admission.decision) ||
@@ -45,9 +48,22 @@ export function projectDailyIssue({ dataset, issue, columns }) {
   const next = structuredClone(dataset);
   const stories = new Map(next.stories.map((story) => [story.id, story]));
   const isAdmitted = (story) => story && ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved";
+  const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
+  if (ordinary) {
+    const published = publishCandidateStory(ordinary.story, issue.admission.reviewedAt);
+    const snapshot = issue.stories.find(story => story.id === published.id);
+    if (!issue.storyIds.includes(published.id) || stable(snapshot) !== stable(published)) reject("ordinary candidate differs from its independently admitted snapshot");
+    const existing = stories.get(published.id);
+    if (existing && stable(existing) !== stable(published)) reject("ordinary publication cannot overwrite an existing story");
+    if (next.stories.some(story => story.slug === published.slug && story.id !== published.id)) reject("ordinary publication duplicates an existing slug");
+    if (!existing) {
+      next.stories.push(published);
+      stories.set(published.id, published);
+    }
+  }
   for (const id of issue.storyIds) {
     const story = stories.get(id);
-    if (!isAdmitted(story) || story.edition !== "daily" || String(story.publishedAt).slice(0, 10) !== issue.editionDate || /^front-paige-/.test(id)) {
+    if (!isAdmitted(story) || story.edition !== "daily" || vancouverDay(story.publishedAt) !== issue.editionDate || /^front-paige-/.test(id)) {
       reject(`dated Daily story ${id} is not admitted for this issue`);
     }
   }
@@ -96,17 +112,23 @@ export function projectDailyIssue({ dataset, issue, columns }) {
   return next;
 }
 
-export function projectDailySourceRaw({ raw, issue, columns }) {
+export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
+  const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
+  const baseRaw = ordinary ? ordinary.publicationBaseRaw : raw;
+  if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");
   const context = { window: {} };
-  vm.runInNewContext(raw, context, { timeout: 1000 });
-  const next = projectDailyIssue({ dataset: context.window.NEWSSTAND_DATA, issue, columns });
-  const start = raw.indexOf("window.NEWSSTAND_DATA = ");
-  const end = raw.indexOf("\n};", start);
+  vm.runInNewContext(baseRaw, context, { timeout: 1000 });
+  const next = projectDailyIssue({ dataset: context.window.NEWSSTAND_DATA, issue, columns, root });
+  const start = baseRaw.indexOf("window.NEWSSTAND_DATA = ");
+  const end = baseRaw.indexOf("\n};", start);
   if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
-  return raw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + raw.slice(end + 3);
+  const nextRaw = baseRaw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + baseRaw.slice(end + 3);
+  if (ordinary && raw !== baseRaw && raw !== nextRaw) reject("ordinary publication base changed after review; retry is not exact projected output");
+  return nextRaw;
 }
 
 function main() {
+  const arg = name => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : null;
   const index = process.argv.indexOf("--date");
   const date = index >= 0 ? process.argv[index + 1] : null;
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) reject("--date YYYY-MM-DD is required");
@@ -114,16 +136,23 @@ function main() {
   const store = JSON.parse(fs.readFileSync(STORE_PATH, "utf8"));
   const matches = store.issues.filter((issue) => issue.editionDate === date);
   if (matches.length !== 1) reject("exactly one admitted dated issue is required");
+  const envelopePath = path.resolve(arg("--envelope") || path.join(ROOT, `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}.json`));
+  const decisionPath = path.resolve(arg("--decision") || path.join(ROOT, `operations/product-stewards/newsstand/evidence/daily-issue-admission-${date}.json`));
+  if (!envelopePath.startsWith(path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/")) || !decisionPath.startsWith(path.join(ROOT, "operations/product-stewards/newsstand/evidence/"))) reject("projection requires private envelope and NewsStand evidence paths");
   verifyProjectionAdmission({
     issue: matches[0],
-    envelopeRaw: fs.readFileSync(path.join(ROOT, `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}.json`), "utf8"),
-    decision: JSON.parse(fs.readFileSync(path.join(ROOT, `operations/product-stewards/newsstand/evidence/daily-issue-admission-${date}.json`), "utf8"))
+    envelopeRaw: fs.readFileSync(envelopePath, "utf8"),
+    decision: JSON.parse(fs.readFileSync(decisionPath, "utf8"))
   });
   const columns = JSON.parse(fs.readFileSync(COLUMNS_PATH, "utf8"));
   const nextRaw = projectDailySourceRaw({ raw, issue: matches[0], columns });
   if (process.argv.includes("--check")) {
     if (raw !== nextRaw) reject("schema-2 publication differs from the admitted issue projection");
-  } else if (raw !== nextRaw) fs.writeFileSync(DATA_PATH, nextRaw);
+  } else if (raw !== nextRaw) {
+    const temporary = `${DATA_PATH}.tmp-${process.pid}`;
+    fs.writeFileSync(temporary, nextRaw, { flag: "wx" });
+    fs.renameSync(temporary, DATA_PATH);
+  }
   console.log(`DAILY CANONICAL PUBLICATION ${process.argv.includes("--check") ? "CHECK" : "WRITE"} PASS date=${date} stories=${matches[0].storyIds.length} service_records=${matches[0].serviceRecordIds.length} deploy=false`);
 }
 

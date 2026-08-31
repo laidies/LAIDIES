@@ -55,9 +55,18 @@ they do not depend on today's service-led issue. The old deployed reader fails t
 the repaired reader passes. `--zoom-200` uses native Chromium 200% browser zoom,
 not pinch or a device-scale-only substitute (1440 outer / 720 CSS pixels).
 
+The August 30 ordinary-story connection is now implemented locally and tested
+with synthetic first-issue and same-day-append inputs through the actual CLI,
+feed/archive generation and reader contract. It has not published a real story.
+Run `node scripts/test-newsstand-ordinary-publication.mjs` for this branch.
+
 Remaining conditional blockers: new ordinary prose still requires separate exact
-accuracy and beginner/voice admissions; that branch has not been proven with a
-real candidate. Hold it rather than invent content. The unrelated broad episode
+accuracy and beginner/voice admissions. The current shared NEWS gate also
+requires recorded human explain-back and unseen-transfer evidence for each
+article; the service-bank sampling exception does not apply. No policy change
+is implied by the code repair. Until Ali decides this point or actual required
+evidence exists, the ordinary-news proving run remains held. Do not describe
+a service-only run as operational news publication. The unrelated broad episode
 hook and legacy Big Picture checker remain known failures, not passing checks.
 Source/browser/provider access and the local Codex host must be available.
 
@@ -120,6 +129,15 @@ marked unapproved. Its synthetic eligibility must never enter a release.
 
 ### Source receipt
 
+Research the rolling seven-day window and unresolved candidates against the
+actual published story IDs, not only announcements posted on the issue date.
+"No new AIDB edition today" is not "nothing left worth reporting." Keep the
+source's event date distinct from the newspaper's publication date. Prioritize
+useful unreported developments, merge duplicate events and record the reason
+for rejection/hold. A blocked review must be reported as a blocked review, not
+converted to QUIET. An existing same-day issue with no admitted delta stays
+unchanged; do not overwrite it with a freshly dated quiet envelope.
+
 For `YYYY-MM-DD`, the authoritative radar input must exist at:
 
 `operations/agents/aidb-intelligence-desk/daily/YYYY-MM-DD.md`
@@ -138,6 +156,7 @@ Never relabel an old record ID as a new publication.
 node scripts/test-compose-daily-edition.mjs
 node scripts/test-promote-daily-edition.mjs
 node scripts/test-publish-daily-edition.mjs
+node scripts/test-newsstand-ordinary-publication.mjs
 node scripts/test-build-newsstand-derivatives.mjs
 node scripts/test-newsstand-reader-contract.mjs
 ```
@@ -165,6 +184,54 @@ The result must say `public_write=false`. Record its SHA-256. Its
 `storySnapshots` array must contain the complete canonical object for every
 admitted `storyId`; an ID-only envelope is invalid.
 
+### New ordinary stories: private candidate input
+
+Use the existing composer with `--story-candidate` pointing to a private JSON
+package under `operations/product-stewards/newsstand/candidates/`. Do not insert
+an unreviewed draft into `content/newsstand-stories.js` to satisfy composition.
+This path accepts one new ordinary story per transaction; repeat only after
+the prior transaction is complete. It cannot replace Front PAiGE, Big Picture,
+Weekly, a correction, or an existing article.
+
+Package contract (`scripts/validate-newsstand-ordinary-story-candidate.mjs`):
+
+- `schemaVersion: newsstand-ordinary-story-candidate-v1`;
+  `candidateStatus: READY_FOR_ISSUE_ADMISSION`; `candidateId`; `editionDate`.
+- Complete `story`: same ID as candidate, `edition: daily`, `status: hold`,
+  `publishedAt: null`, dated `updatedAt`/`lastCheckedAt`, source approval
+  `independent-review-required`, and no correction/retraction/lineage mutation.
+- `storySha256`: SHA-256 of the stable, key-sorted complete story JSON.
+- `publicationBase: {path, sha256}`: frozen private copy of the exact canonical
+  source from the confirmed current transaction base, including incumbent
+  articles. The copy must equal the current source before composition.
+- `sourceText: {path, sha256}`: `candidateReviewText(story)` from the validator;
+  the complete record is bound, including reader-facing extra fields, not only
+  three selected paragraphs. `claimMap: {path, sha256}` is the independently
+  reviewed factual claim map JSON.
+- `producerContract: {path, sha256}`: passing existing prevention-first NEWS
+  contract for `NEWSSTAND_DAILY`, by the actual maker.
+- `sources`: one `{id, url, evidence: {path, sha256}}` per public source, matching
+  the independent factual review. Recheck sources on the editorial date.
+- `reviewEvidence`: exact `{path, sha256}` bindings for `producer`,
+  `independent`, and `independentRawReport`. Existing producer and independent
+  prose contracts remain mandatory, including cross-family review and the
+  human evidence rule. Both bind the same complete review text and rendering.
+  The independent receipt's `reportBinding` points to the raw JSON report with
+  `candidateId`, `storySha256`, `reviewerPrincipalId`, `verdict: PASS`, and
+  substantive `findings`. Do not manufacture reviewer or reader records.
+
+The composer stores a held snapshot and the package binding. Promotion reopens
+all evidence and admits that exact snapshot; projection performs the only
+held-to-published conversion after issue admission. It never composes prose.
+The publication timestamp comes from the independent issue admission on the
+same Vancouver date; source event dates remain in the article. Canonical
+insertion and repeat checks accept only the exact frozen base or exact expected
+output. Evidence or source drift stops the transaction before a public write.
+
+Use a new private envelope filename for a same-day revision, for example
+`YYYY-MM-DD-news-1.json`. The composer refuses to overwrite different existing
+envelope bytes. Keep all predecessor evidence.
+
 ## 4. Require independent admission
 
 A reviewer who is not the maker inspects the exact envelope and creates only:
@@ -174,6 +241,16 @@ A reviewer who is not the maker inspects the exact envelope and creates only:
 It must match schema `daily-issue-admission-v1`, decision
 `ACCEPT_LOCAL_CANONICAL_WRITE`, the exact date and envelope SHA-256, and name
 the reviewer, role and UTC review time. A maker cannot approve her own issue.
+
+For a new ordinary story added to an already complete same-day issue, use
+`daily-issue-news-revision-admission-v1`, decision
+`ACCEPT_LOCAL_CANONICAL_SUCCESSOR`, the normal reviewer/date/envelope fields,
+`predecessorEnvelopeSha256`, and `addedStoryIds` containing the one candidate ID.
+This separately reviewed revision can only append that story. Existing story
+copy/order, ready and empty desks, service IDs, columns bytes, Front PAiGE and
+Weekly pointers must remain unchanged. Generic or service-revision decisions
+cannot admit an ordinary candidate. An initial issue still uses
+`daily-issue-admission-v1`.
 
 The `daily-issue-successor-admission-v1` schema is reserved for a checksum-bound
 migration of an already admitted issue. It must bind both exact predecessor and
@@ -208,6 +285,10 @@ node scripts/build-newsstand-derivatives.mjs
 node scripts/build-newsstand-derivatives.mjs --check
 ```
 
+For revision filenames, pass the same explicit
+`--envelope <private-path>` and `--decision <evidence-path>` to both publisher
+commands. Do not overwrite the original date-only evidence files.
+
 The projector rechecks the exact private envelope, independent decision and
 stored membership. `content/newsstand-stories.js` is the sole current-edition
 authority. The Daily issue store is dated history; neither it nor a local preview
@@ -239,6 +320,12 @@ node scripts/test-newsstand-reader-browser.mjs --zoom-200
 The browser suite must exit normally. Check that the current Daily displays the
 exact Vancouver edition date, dated news is not carried forward as new, and
 issue-store or optional-column failure preserves a truthful fallback.
+The synthetic ordinary-story test additionally runs actual compose, promote,
+publish, repeat/check and derivative commands in an isolated fixture, verifies
+reader eligibility, and rejects copy/review/source/base drift and missing human
+evidence. It is not public or human evidence. A real ordinary story must still
+pass source, prose, browser, release and custom/immutable verification before
+this branch can be described as publicly operational.
 It must also retain the admitted Daily headline, body, route and source after
 its deliberate post-validation mutation of global story memory.
 
