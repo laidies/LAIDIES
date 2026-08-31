@@ -5,10 +5,11 @@
 ## Current task
 
 - **Task ID:** LIBRARY-APPROVED-FRAMES-PHONE-RELEASE-20260831
-- **Status:** HOLD — explicit phone composition choice needed before release.
+- **Status:** VERIFIED LOCALLY — Ali-approved phone adaptations; exact candidate built, release pending.
 - **Authority:** Ali requested publishing the remaining exact-background correction, with no obscured text.
 - **Conflict:** Independent read-only inspection confirms the 1486×1059 landscape master at full 844px phone height makes the art rail about223px wide. At320px, 16px clearance and right inset leave about65px for prose. Width-fit instead makes the entire frame only228px high, ending the rail near the top. Stretching, cropping motifs or repeating the strip would violate existing decisions. A phone adaptation or an explicit phone-only composition tradeoff is required; neither is silently authorized by choosing the exact landscape master.
-- **Release:** No runtime edits/deployment. NewsStand has no Pages slot reserved and was told not to hold its work for this decision. Latest received—not freshly provider-verified—base remains fcbe7249; verify current provider head and recovery-owner handoff before any later release.
+- **Resolution:** Keep exact desktop masters and titles; use ImageGen to adapt the same angled paper, halftone, colours and ordered computer motifs to portrait proportions with a protected white reading area. No manuscript or interaction changes. Verify actual rendered clearance throughout all four books before the bounded Library release.
+- **Release:** Recovery's FAiRY successor acbbcf86 is the verified base. Exact six-path candidate `/tmp/laidies-library-phone-release-20260831`; details and independent review in `operations/library-phone-frames-release-20260831.md`. Preserve all other production bytes; verify head again immediately before release.
 
 ## Previous live clearance audit
 

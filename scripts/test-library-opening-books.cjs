@@ -5,6 +5,7 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const root = process.env.LIBRARY_TEST_ROOT || process.cwd();
+const widths = (process.env.LIBRARY_TEST_WIDTHS || '1280,1710,1920,2560,821,820,700,390,320').split(',').map(Number);
 const playwrightRoot = process.env.PLAYWRIGHT_CORE_PATH || path.resolve(root, ".ds-sync/node_modules/playwright-core");
 const mime = { ".html":"text/html; charset=utf-8", ".css":"text/css; charset=utf-8", ".js":"text/javascript; charset=utf-8", ".json":"application/json; charset=utf-8", ".png":"image/png", ".jpg":"image/jpeg", ".svg":"image/svg+xml", ".woff2":"font/woff2" };
 const books = [
@@ -75,7 +76,7 @@ const server = http.createServer((request, response) => {
         failures.push(`${id}: admitted book did not open as its full structured artifact ${JSON.stringify({ ...reader, text: reader.text.slice(0, 180) })}`);
       }
     }
-    for (const width of (process.env.LIBRARY_TEST_WIDTHS || '1280,1710,1920,2560,821,820,700,390,320').split(',').map(Number)) {
+    for (const width of widths) {
       await page.setViewportSize({ width, height: width > 560 ? 900 : 844 });
       for (const [id, title, , expectedChapterKeys] of books) {
         console.log(`LIBRARY OPENING BOOKS CHECK reader=${id} viewport=${width}`);
@@ -131,8 +132,8 @@ const server = http.createServer((request, response) => {
           const img = node.querySelector('.reader-page-art');
           const frame = img.getBoundingClientRect();
           const scale = Math.max(frame.width / img.naturalWidth, frame.height / img.naturalHeight);
-          const compact = /(?:reader-frame-compact-imagegen-v7|(?:working|answers|dictionary)-compact-imagegen-v1)/.test(img.currentSrc);
-          const artRight = compact ? frame.left + 174 * scale : frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
+          const compact = /(?:fundamentals|working|answers|dictionary)-phone-imagegen-v2/.test(img.currentSrc);
+          const artRight = compact ? frame.left + 149 * scale : frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
           const textLeft = text.getBoundingClientRect().left + parseFloat(getComputedStyle(text).paddingLeft);
           // Include every laid-out text run, even far below the opening screen.
           // A later negative margin must not evade the container-padding guard.
@@ -161,7 +162,7 @@ const server = http.createServer((request, response) => {
           });
           const titleImage = titleParts[0]?.querySelector('img');
           const edition = node.querySelector('.book').dataset.readerEdition;
-          const companionCorrect = edition === 'fundamentals' || (titleParts.length === 1 && titleImage?.naturalWidth > 0 && titleImage.currentSrc.endsWith(`${edition}-title-imagegen-v1.png`) && img.currentSrc.includes(`${edition}-${compact ? 'compact' : 'desktop'}-imagegen-v1.png`));
+          const companionCorrect = edition === 'fundamentals' || (titleParts.length === 1 && titleImage?.naturalWidth > 0 && titleImage.currentSrc.endsWith(`${edition}-title-imagegen-v1.png`) && img.currentSrc.includes(compact ? `${edition}-phone-imagegen-v2.png` : `${edition}-desktop-imagegen-v1.png`));
           const titleOriginal = !node.querySelector('.book--ai-fundamentals-art') || (titleParts.length === 1 && titleImage?.naturalWidth === 1487 && titleImage?.naturalHeight === 1058 && titleImage.currentSrc.includes('ai-fundamentals-approved-title-source.png') && node.querySelector('#rt').getAttribute('aria-label') === 'AI Fundamentals 101');
           const controls = ['#mobile-toc > summary','.reader-save-book','#reader-top','#reader-close'].map(selector => {
             const rect = node.querySelector(selector).getBoundingClientRect();
@@ -173,7 +174,7 @@ const server = http.createServer((request, response) => {
             controlsVisible: controls.every(Boolean),
             titleClear, titleOriginal, companionCorrect,
             rightActionGroup: Math.abs(top.left - save.right) <= 10 && Math.abs(back.left - top.right) <= 10,
-            compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition.startsWith('0%')),
+            compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition === '0% 0%' && Math.abs(frame.height-innerHeight)<1 && Math.abs(frame.width/frame.height-img.naturalWidth/img.naturalHeight)<.002),
             artClearance: textLeft - artRight,
             textRunCount, allTextArtClearance: minimumTextLeft - artRight,
             minimumArtClearance: compact ? 14 : 20,
@@ -234,7 +235,7 @@ const server = http.createServer((request, response) => {
     console.error(`LIBRARY OPENING BOOKS FAIL\n- ${failures.join("\n- ")}`);
     process.exit(1);
   }
-  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · continuous_scroll=true · persistent_navigation=4x9_viewports · full_viewport_and_art_clearance=true`);
+  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · continuous_scroll=true · persistent_navigation=${books.length}x${widths.length}_viewports · full_viewport_and_art_clearance=true`);
 })().catch(error => {
   console.error(`LIBRARY OPENING BOOKS FAIL: ${error.stack || error}`);
   server.close();

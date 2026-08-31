@@ -10,7 +10,7 @@ const source = process.cwd();
 const manifest = JSON.parse(await fs.readFile(base + '.manifest.json', 'utf8'));
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 if (manifest.identitySha256 !== expectedIdentity || sha(manifest.files.map(f => `${f.sha256}  ${f.path}\n`).join('')) !== expectedIdentity) throw Error('Baseline identity mismatch');
-const owned = ['library.html', 'assets/library-reader/ai-fundamentals-imagegen-reader-v5.css', 'assets/library-reader/ai-fundamentals-approved-title-source.png', 'assets/library-reader/reader-frame-compact-imagegen-v7.png', ...['working','answers','dictionary'].flatMap(e => ['desktop','compact','title'].map(k => `assets/library-reader/${e}-${k}-imagegen-v1.png`))];
+const owned = ['library.html', 'assets/library-reader/ai-fundamentals-imagegen-reader-v5.css', ...['fundamentals','working','answers','dictionary'].map(e => `assets/library-reader/${e}-phone-imagegen-v2.png`)];
 for (const f of manifest.files) {
   if (path.isAbsolute(f.path) || f.path.split('/').includes('..')) throw Error('Unsafe manifest path');
   if (sha(await fs.readFile(path.join(base,f.path))) !== f.sha256) throw Error(`Baseline bytes changed: ${f.path}`);

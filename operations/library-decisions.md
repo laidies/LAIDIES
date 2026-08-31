@@ -121,6 +121,19 @@ do not substitute CSS approximations again. Current controls/art stay intact.
 
 ## Release boundary
 
+### Phone adaptation authorization — 2026-08-31
+
+Ali explicitly answered yes to making phone-sized adaptations of the selected
+backgrounds, preserving their colours and artwork, after the exact landscape
+geometry left only about65px of prose at320px. This authorizes faithful ImageGen
+portrait adaptations and their bounded release; it does not authorize replacing
+the desktop masters or original title. Retain angled warm-white paper, upper-left
+wedges/starburst, upper-right halftone, continuous coloured left rail and the
+cursor/floppy/star/chip/computer motif sequence. Keep the white text area clear
+at every scroll position. Purple Fundamentals, turquoise Working, pink Straight
+Answers and blue Dictionary remain fixed. Supersede the alternate compact frames;
+do not relabel them as the newly authorized adaptation.
+
 Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23, then directly corrected opening-book image placement, the duplicate Contents page, flat mobile index, missing purpose-led AI Fundamentals preface, its exact “Whatever” to “RSVP: Yes. I have notes.” third transformation and chapter-opening panel order on 2026-08-24. The accepted production successor is source `e7fc827018aa937c5ae06bc72be0ba56a6616213`, artifact `efe5cc550385c5be3dc8d112141b1e0ee5f99ef3fa387862a71bdfebbbe6c922` and deployment `c3cde9a0-b530-4e9f-bfd2-7dcc3c48a6d2`; both public origins matched all changed visitor files and the live mobile/desktop reader contract. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
 
 ## Prohibited active inputs

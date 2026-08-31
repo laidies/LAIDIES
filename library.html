@@ -941,7 +941,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 </style>
-<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css?v=four-book-colours-v12">
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css?v=approved-phone-frames-v13">
   <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
@@ -1038,7 +1038,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book book--reference-zine" tabindex="-1">
     <picture class="reader-pop-frame" aria-hidden="true">
-      <source id="reader-page-art-mobile" media="(max-width: 1199px)" srcset="/assets/library-reader/reader-frame-compact-imagegen-v7.png">
+      <source id="reader-page-art-mobile" media="(max-width: 1199px)" srcset="/assets/library-reader/fundamentals-phone-imagegen-v2.png">
       <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a" alt="">
     </picture>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
@@ -1583,7 +1583,7 @@ function updateReaderPageArt(spread){
  book.classList.toggle('is-opening-art',opening);
  const edition=READER_EDITIONS[activeReaderBookId];
  image.src=edition?'/assets/library-reader/'+edition+'-desktop-imagegen-v1.png':fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-v4.png?v=4a';
- mobile.srcset=edition?'/assets/library-reader/'+edition+'-compact-imagegen-v1.png':'/assets/library-reader/reader-frame-compact-imagegen-v7.png';
+ mobile.srcset='/assets/library-reader/'+(edition||'fundamentals')+'-phone-imagegen-v2.png';
 }
 function decorateReaderOpening(id,txt){
  txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());

@@ -14841,3 +14841,10 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The 2026-06-30 through 2026-08-28 AIDB window was checked against all four live manuscripts. All 51 editions were screened and 20 relevant long features read. The comparison found useful labels but no missing durable teaching or source-backed conclusion change, so the verified `8f369f4c` production release was preserved rather than replaced with a no-op successor.
 - **Possible Behind the Build angle:** Why reading two months of AI news led us to publish nothing—and made the books more trustworthy.
 - **Publication status:** INTERNAL FRESHNESS DECISION / NO PUBLIC DELTA.
+
+## LIBRARY-20260831 — Approved artwork needs an explicit phone adaptation
+
+- **Failure:** Scaling a wide approved frame to phone height left too little room for prose; cover-fitting a portrait frame in a wider pane cropped the lower computer. ImageGen's first portrait also exceeded the requested rail width.
+- **Prevention:** Get explicit authority for responsive composition, inspect actual pixels rather than requested dimensions, reserve a measured artwork boundary and fit the full portrait by height without cover-cropping. Keep desktop/title bytes unchanged. Test all laid-out manuscript text runs, including later sections, and prove the guard rejects injected overlap and the rejected mobile source.
+- **Result:** Ali authorized the adaptation; four ImageGen phone frames retain the palette/motif sequence. Bounded visual review accepts opening and scrolled renders; source and exact candidate geometry/navigation pass. Public verification is recorded separately in `library-phone-frames-release-20260831.md`.
+- **Behind the Build angle:** Why an approved desktop illustration needs a separately designed phone frame—not a smaller screenshot.
