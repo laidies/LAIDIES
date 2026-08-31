@@ -25,7 +25,29 @@ Foreground rehashed all690 local files and verified the exact two-changed/four-a
 Both FAiRY paths and all unrelated bytes retained. Owner's live browser/public
 verification is received evidence, not foreground-repeated testing. Slot returned;
 use this exact base and fresh-check production before any next release. No change
-to referral HOLD or locked-Safari state; no deployment made for this handoff.
+to referral HOLD; the later native Safari recheck below supersedes the lock.
+No deployment made for this handoff.
+
+### Closet portrait-route repair — LOCAL, release verification pending
+
+Live audit at1710/390 found the edit drawer still ended at the unfinished
+24-avatar catalog notice, without a route to the already-restored portrait maker.
+The illustrated catalog is not being declared built: the existing generated
+portrait workflow is the destination. Replace only that HTML block with a real
+MAiKEOVER link, sign-in disclosure and explicit save-before-leaving reminder.
+No Card data, save handler, portrait API, script or privacy behavior changes.
+Repository search found one public occurrence of the dead-end notice.
+
+Exact candidate `laidies-closet-portrait-route.sQvhwx` under the system temporary
+directory, manifest suffix `.manifest.json`,690 files,659288997 bytes, identity
+`58db674d90877a6843800b399b282dee1067f97849b748d63d75b0b43b447bee`.
+Built from exact f2eeceba; exactly `laidies-card.html` changed,689 paths unchanged,
+none added/removed. Builder rejects missing/duplicate predecessor blocks.
+Initial RErqQd candidate rejected by maker for a small unmarked link; successor
+has explicit underline and a44px minimum target. Exact-candidate320/1280 browser
+checks show no overflow, visible target61.2/44px high, real MAiKEOVER navigation
+with original era/outfit/accessory controls, and Close returning focus to Edit.
+No generation/save/account mutation or cold-cache performance claim.
 
 ### FAiRY portrait loading — DEPLOYED / PUBLICLY VERIFIED (bounded)
 
@@ -90,7 +112,8 @@ journeys and five known-bad mutations; client SHA
 `9517b2d989e75e6226aa2cc4ebc52616c70854f9d06f530b1575a669f2d83322`.
 Remaining: policy decision, provider migration admission/current-grant comparison, real
 two-account/cross-browser and concurrent-request tests, visual admission and
-exact-current-artifact overlay release. Library currently holds Pages slot.
+exact-current-artifact overlay release. Library returned its bounded Pages slot;
+coordinate again before any production release.
 
 ### Native Safari NewsStand review — bounded LOCAL observation
 
@@ -131,7 +154,23 @@ Publisher's final locked-session successor: HTML
 CSS `3305ba96d3383be5c77502a57128d9d68cf1fe1ac02b5b9551012a6408f0f9c5`,
 runtime `14ddd105c527a9ece14721934d117f2687c86815feca7f150e5ec248f4b17e4d`.
 Publisher reports calibrated subpixel-tolerant bounded scroll restoration;
-foreground has not rechecked these final bytes natively or deployed them.
+foreground subsequently rechecked these exact final bytes as recorded below.
+
+Final native recheck at09:15, Mac unlocked: all three hashes unchanged before
+and after. Genuine Safari Page Menu200% confirmed. Archive→EU transparency
+story→Option+Shift+Tab reaches fully unobscured Back; Space returns exact
+`#eu-ai-act-transparency-starts` link with visible purple outline and the entire
+leading headline below the header. Subsequent state is settled. Paige service
+Back and exact opener focus pass the same keyboard/clearance checks. Its inline
+outline is fragmented but visible; this is not a broad design approval.
+Safari Page Menu100% restoration explicitly verified. No preference/lock bypass.
+One mistaken Home shortcut navigated the task tab to Apple between journeys;
+the exact local URL was reopened before testing the service. Archive evidence:
+`/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/com.openai.sky.CUAService/Safari Screenshot 2026-08-31 at 9.15.02 AM.jpeg`;
+service-return evidence same directory, `Safari Screenshot 2026-08-31 at 9.15.40 AM.jpeg`.
+Bounded native reader check passes; no article admission or deployment. Results
+returned to publisher01a02f95 and owner01a03456. Their local service rotation
+and other release gates remain separate.
 
 
 ## 2026-08-30 shared native-menu repair — DEPLOYED / PUBLICLY VERIFIED (bounded)
