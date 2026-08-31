@@ -4,6 +4,12 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-EXACT-FRAME-SELECTION-20260830
+- **Status:** DECIDED; narrow-screen implementation mismatch remains.
+- **Evidence:** Ali's three attached landscape artworks are RGB pixel-identical to the three deployed desktop masters. The purple v6 master shares the composition. At the actual 700px live browser, the reader still loads the separate compact v7 artwork. Exact selection recorded in `operations/library-decisions.md`; no new images, runtime changes or deployment in this clarification.
+
+## Previous four-book colour release
+
 - **Task ID:** LIBRARY-FOUR-BOOK-COLOURS-20260830
 - **Status:** PUBLICLY VERIFIED — production `3d4bebd1-66ae-4e1e-be3c-f020080b306b`, source `318c82b663f13eab9db8fa98fbbef04b2df93989`.
 - **Authority:** Ali requested publishing the restored title/layout from an isolated branch and giving the three companion books the same design in distinct colours.

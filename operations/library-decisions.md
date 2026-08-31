@@ -53,6 +53,19 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ### Four-book colour family and isolated release — 2026-08-30
 
+**Exact artwork selection clarified by Ali:** the attached pink, blue and
+turquoise landscape frames are the approved artwork, not the later three
+portrait alternatives. AI Fundamentals must use the same composition in
+purple. The attachments are pixel-identical (RGB comparison, not filenames)
+to `answers-desktop-imagegen-v1.png`, `dictionary-desktop-imagegen-v1.png`
+and `working-desktop-imagegen-v1.png`. The matching purple master is
+`ai-fundamentals-frame-imagegen-v6.png`. Preserve the upper-left burst,
+angled top paper, upper-right halftone and cursor/floppy/chip/computer rail.
+Do not regenerate a different interpretation or alter approved titles/copy.
+The current below-1200px portrait substitution is not covered by this exact
+selection and remains an unresolved implementation mismatch; do not claim
+the selection is implemented at every width merely because desktop matches.
+
 Ali approved publishing the restored original-title reader and requested a
 similar design for all four books, each with a different colour. AI Fundamentals
 keeps its exact approved purple artwork/title. Implementation colour mapping:
