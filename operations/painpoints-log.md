@@ -14724,3 +14724,21 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why telling a newer AI to check again
   can cost more without improving the result—and what to ask for instead.
 - **Status:** Research and trial design; no measured comparative result.
+
+## LIBRARY-ACTUAL-PILOT-20260831 — Correct evidence can accompany a wrong file
+
+- **Observed:** A real Free ChatGPT revision used 22 meals in its evidence but
+  left 20 in the proposal. A concluding correction did not replace the table.
+  A targeted follow-up fixed the actual figures. Paid Claude also introduced
+  source-policy claims. A supporting reviewer missed a quantity contradiction
+  and imported a Medium-only phrase into its High-run review.
+- **Prevention:** Inspect actual deliverables against source facts and each
+  other, not completion summaries. Keep variant outputs separate. Preserve
+  failed and repaired outputs; test budget/length checks on known-bad inputs.
+  Distinguish a corrected observation from a replicated causal comparison.
+- **Evidence:** `operations/product-stewards/library/pilot-20260831/RESULTS.md`
+  and its exact run folders. The narrow checker rejects the actual failed
+  budget; foreground reconciliation rejected the spurious reviewer finding.
+- **Possible Behind the Build angle:** Why “I checked it” is not the check—and
+  how to finish a useful Free-plan task after its file tool hits a limit.
+- **Status:** Internal findings only. No human-reader or publication verdict.

@@ -86,6 +86,17 @@ the underlying model/effort/plan records remain dated and refreshable.
 - `operations/product-stewards/library/claude-guide/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/tool-selection-guide/DEEP-RESEARCH-2026-08-31.md`
 
+**Tested sample package — Ali, 2026-08-31:** Proceed with the proposed pilot:
+ordinary and conflicting-source versions of one fictional practical project,
+actual available Free and paid routes, targeted revision, preserved outputs
+and evidence, followed by representative vendor/selection sections and a
+separate chip-chain sample. Test promising tips against a baseline; distinguish
+model-only comparisons from different product/workflow comparisons. Do not
+purchase plans, use separately billed credits, contact readers or publish.
+Real-reader testing requires an available consenting reader; simulated feedback
+must remain explicitly simulated. Missing access is a named gap, not permission
+to present an internal agent as a Free or paid consumer-account test.
+
 **Freshness discipline:** Keep publication date, effective date and checked
 date separate. A relative “updated this week” label is not an exact date.
 Retain conflicts between official pages instead of choosing whichever is more

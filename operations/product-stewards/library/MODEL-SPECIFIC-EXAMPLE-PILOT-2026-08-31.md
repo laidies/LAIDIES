@@ -1,5 +1,9 @@
 # Full-example pilot: a workshop pack
 
+Historical 12-person trial design. The actual approved ordinary/conflicting-
+source test round uses the separate 18-person fixture and 22-person revision
+in `pilot-20260831/RESULTS.md`. Do not mix this design's numbers with those runs.
+
 Status: INTERNAL TRIAL DESIGN / NOT A RUN TRANSCRIPT / NOT MANUSCRIPT COPY.
 Owner: foreground Library producer. Scope decision: `operations/library-decisions.md`.
 All people, costs and events below are fictional. No subscriptions or external

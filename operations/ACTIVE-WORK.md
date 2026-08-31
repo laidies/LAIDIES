@@ -4,6 +4,35 @@
 
 ## Current task
 
+### 2026-08-31 — tested sample package, first hands-on round
+
+- **Status:** BUILDING / NINE ACTUAL RESPONSES PRESERVED / SAMPLE CHAPTERS AND PUBLICATION HOLD.
+- **Delivered:** `operations/product-stewards/library/pilot-20260831/RESULTS.md`,
+  fictional ordinary/conflicting/revision inputs, complete submitted prompts,
+  actual Free ChatGPT and subscription-authenticated Claude Code outputs,
+  corrections, run records and a sourced chip-chain research card.
+- **Verified:** Free ChatGPT's per-response GPT-5.6 Luna labels and actual
+  downloads; real data-analysis limit followed by working text-only revision;
+  Claude Sonnet 5 Medium/High with Max authentication. All nine agendas and
+  invitations meet the narrow numeric/length checks. The checker rejects the
+  five stale Free revision budget cells; the targeted repair fixes them.
+  Foreground inspection found additional source-fidelity errors, including
+  residual Claude repair issues. Same-input effort prompts match exactly.
+- **Not established:** General brand/model superiority, all effort levels,
+  installed context/skills, Claude Free Chat, paid ChatGPT, Cowork, Codex as a
+  separate product trial, music/narration outputs, or human comprehension.
+- **Next:** Bind prose-production contract and draft bounded vendor/selection
+  and chip-chain samples from the preserved evidence. Do not rerun unchanged
+  fixtures to conceal defects. Test remaining model/control choices only for
+  distinct reader decisions. A named consenting unfamiliar human is required
+  before a real-reader study; none was contacted or simulated as human.
+- **Boundary:** Existing included allowances used; no subscriptions bought,
+  separately billed API credentials used, overage enabled, publication, push,
+  deployment or live-site change. Claude browser was signed out; Code access
+  was available. No new login/account setup was attempted.
+
+### Earlier checkpoint — superseded by the actual runs above
+
 ### 2026-08-31 — model-specific full examples
 
 - **Status:** SCOPE DECIDED / RESEARCH EXPANDED / PILOT INPUTS PREPARED / PRODUCT RUNS AND MANUSCRIPTS HOLD.
