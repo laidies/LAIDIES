@@ -104,7 +104,24 @@ status label. Four entries remain held: the idea-credit Corner Office source
 needs replacement and fresh review, the additional Mme site fact lacks a complete
 producer chain, Caboodle has an incomplete imported review field, and crossword
 still needs native assistive-technology review. The current published Corner
-Office and Mme selection are preserved, not silently replaced by those candidates.
+Office and Mme selection were preserved in that release, not silently replaced by those candidates.
+
+**August 31 Corner Office correction (Ali):** `career_life` is non-AI
+workplace advice: difficult conversations, claiming credit, asking for a raise,
+negotiating pay, promotion and boundaries. Each entry needs a complete column
+and actual words to say, with a useful explanation and follow-up. Do not use
+AI prompting/delegation mirrors or a summary linking to an unrelated Episode.
+The `WORK-LIFE-AI-MIRROR-22` delegation item is rejected for this desk; its old
+approval cannot authorize a new-date copy or carry-forward after this ruling.
+`scripts/newsstand-career-lane.mjs` blocks that known-bad source/copy and missing
+bodies at preparation, composition and projection. It is not a semantic-review
+replacement: reviewers must separately judge the workplace situation and script.
+The existing `corner-01-credit` draft is the requested replacement; it remains
+held pending the already-required source repair and exact-content review. Do not
+weaken same-day append-only rules or rewrite historical receipts to insert it.
+The local preview and production still contain the older issued row until an
+explicit correction or new-date successor is admitted. This correction is not
+a claim that either visitor surface is repaired.
 The next-date check produces seven ready desks and one crossword candidate;
 it does not approve or publish tomorrow's issue. Complete
 exact-content source, independent writing and format reviews before adding an

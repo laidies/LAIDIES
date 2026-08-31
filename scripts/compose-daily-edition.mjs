@@ -6,6 +6,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
+import { careerLaneErrors } from "./newsstand-career-lane.mjs";
 import { fileURLToPath } from "node:url";
 import { loadOrdinaryStoryCandidate, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 
@@ -63,6 +64,10 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   const eligible = eligiblePool.filter((record) => record.editionDate <= date && types.includes(record.type) && PUBLIC.has(record.status) &&
     record.publicEligibility === "ELIGIBLE" && record.freshness && record.freshness.expiresAt >= date)
     .sort((a, b) => String(b.editionDate).localeCompare(String(a.editionDate)));
+  for (const record of eligible) {
+    const laneErrors = careerLaneErrors(record, date);
+    if (laneErrors.length) reject(`${record.id}: ${laneErrors.join('; ')}`);
+  }
   let exactStories = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
     !/^front-paige-/.test(String(story.id || "")) && vancouverDay(story.publishedAt) === date &&
     ["published", "corrected"].includes(story.status) && story.sourceApproval && story.sourceApproval.status === "approved");

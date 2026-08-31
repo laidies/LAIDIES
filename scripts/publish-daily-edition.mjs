@@ -3,6 +3,7 @@
 // Project an independently admitted Daily snapshot into the existing schema-2
 // publication record. This changes local publication data only; never deploys.
 import fs from "node:fs";
+import { careerLaneErrors } from "./newsstand-career-lane.mjs";
 import path from "node:path";
 import vm from "node:vm";
 import { createHash } from "node:crypto";
@@ -79,6 +80,8 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   }
   for (const id of issue.serviceRecordIds) {
     const record = columns.records.find((item) => item.id === id);
+    const laneErrors = careerLaneErrors(record, issue.editionDate);
+    if (laneErrors.length) reject(`${id}: ${laneErrors.join('; ')}`);
     if (!record || record.editionDate !== issue.editionDate || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
         record.publicEligibility !== "ELIGIBLE" || !record.freshness || record.freshness.expiresAt < issue.editionDate) {
       reject(`service record ${id} is not exactly admitted for this date`);

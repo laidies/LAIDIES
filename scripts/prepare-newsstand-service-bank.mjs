@@ -3,6 +3,7 @@
 // Private preparation only. This utility never writes the canonical Daily
 // columns, promotes an issue, or changes a bank item's approval.
 import crypto from "node:crypto";
+import { careerLaneErrors } from "./newsstand-career-lane.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -178,6 +179,8 @@ export function prepareServiceBankProposal({ date, bank, columns = { records: []
       gaps.push({ type, reason }); continue;
     }
     const ready = PUBLIC.has(item.status) && item.publicEligibility === "ELIGIBLE" && item.freshness.expiresAt >= date;
+    const laneErrors = careerLaneErrors(item, date);
+    if (laneErrors.length) reject(`${item.id}: ${laneErrors.join('; ')}`);
     selected[type] = {
       type,
       bankItemId: item.id,

@@ -136,6 +136,17 @@ text; visual art is admitted only for its exact placement. `ALI CONFIRMED`
 
 ## Required content and inventory
 
+### The Corner Office — Ali's August 31 correction
+
+The Corner Office is practical, non-AI career advice. Cover difficult people
+and conversations, credit for work, asking for a raise, negotiating compensation,
+promotion and boundaries. Give readers actual words to say and explain how to
+follow up. Dorie Clark's practical approach is a benchmark, not permission to
+attribute original LAiDIES scripts to her. AI tips belong to Paige's desk.
+The legacy “Delegate the outcome, not every keystroke” AI-mirror selection does
+not meet this purpose, even though it was previously admitted. The current
+repair and publication boundary are recorded in DAILY-MANUAL-RUNBOOK.md.
+
 Every visible story requires a claim-to-source map, stable source identities
 and URLs, access/recheck dates, source-approval state, correction owner,
 edition-specific job proof, explicit uncertainty and correction/retraction
