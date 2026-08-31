@@ -33,7 +33,7 @@ const server = http.createServer((request, response) => {
   const origin = process.env.LIBRARY_TEST_ORIGIN || `http://127.0.0.1:${server.address().port}`;
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  page.setDefaultTimeout(8000);
+  page.setDefaultTimeout(Number(process.env.LIBRARY_TEST_TIMEOUT_MS || 8000));
   await page.emulateMedia({ reducedMotion: "reduce" });
   const failures = [];
   try {

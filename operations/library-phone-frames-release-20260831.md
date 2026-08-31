@@ -1,6 +1,6 @@
 # Phone-frame production — 2026-08-31
 
-Status: verified local candidate; deployment/public verification pending.
+Status: PUBLICLY VERIFIED — production `f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`.
 
 ## Authority and invariants
 
@@ -66,3 +66,33 @@ Exactly two changed paths (`library.html`,reader CSS), four added phone frames,
 The overlay builder validates every base file and manifest identity before copy.
 Wrong/missing phone-source calibration fails all four readers; late-text overlap
 calibration fails with negative clearance (~-484px), not a network error.
+
+## Public release verification
+
+Deployed source `d3d1e2be6db1351e1f480e430c04538a163a26b2`, isolated branch
+`codex/library-four-book-colours-20260830`; deployment
+`f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`;
+immutable `https://f2eeceba.laidies-sunnyvaile.pages.dev`.
+The provider head was checked against acbbcf86 immediately before deploying;
+all690 candidate hashes rechecked. Both release owners granted the bounded slot.
+
+Custom domain four previews and four books×4widths(1280/700/390/320) pass;
+immutable four previews and four books×3widths(1280/390/320) pass. Checks include
+whole-manuscript text clearance, full viewport, exact frame/title, Contents
+destination/close, Top and no page-turn controls. Initial simultaneous remote
+runs timed out at the existing8-second allowance (one navigation, one book-load
+wait); sequential30-second runs completed successfully. This is not a load-time
+performance pass, and no production timeout was changed. The test's timeout
+override and actual-width-count reporting are internal-only corrections.
+
+Independent public-byte check:26paths per origin,52/52match candidate. Includes
+all6delta paths,4desktopframes,4titles,all6renderedbooks,Homepage/NewsStand/Radio,
+shared accent formatter and both FAiRY paths. Other684files are exact baseline
+bytes in the release manifest; not all were individually fetched from public HTTP.
+
+Actual browser pixels checked on the custom desktop/phone and immutable phone;
+the complete computer stays left of prose/teaching visuals while scrolling.
+Signed-out Save correctly opened the Resident Card requirement and Keep reading
+returned to the reader. No account/sticker data was changed; signed-in persistence
+was not retested. No manuscript, desktop image, title, backend or unrelated site
+content was edited. Release slot returned with this exact artifact handoff.

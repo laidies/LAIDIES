@@ -5,11 +5,11 @@
 ## Current task
 
 - **Task ID:** LIBRARY-APPROVED-FRAMES-PHONE-RELEASE-20260831
-- **Status:** VERIFIED LOCALLY — Ali-approved phone adaptations; exact candidate built, release pending.
+- **Status:** PUBLICLY VERIFIED — `f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`, source`d3d1e2be6db1351e1f480e430c04538a163a26b2`.
 - **Authority:** Ali requested publishing the remaining exact-background correction, with no obscured text.
 - **Conflict:** Independent read-only inspection confirms the 1486×1059 landscape master at full 844px phone height makes the art rail about223px wide. At320px, 16px clearance and right inset leave about65px for prose. Width-fit instead makes the entire frame only228px high, ending the rail near the top. Stretching, cropping motifs or repeating the strip would violate existing decisions. A phone adaptation or an explicit phone-only composition tradeoff is required; neither is silently authorized by choosing the exact landscape master.
 - **Resolution:** Keep exact desktop masters and titles; use ImageGen to adapt the same angled paper, halftone, colours and ordered computer motifs to portrait proportions with a protected white reading area. No manuscript or interaction changes. Verify actual rendered clearance throughout all four books before the bounded Library release.
-- **Release:** Recovery's FAiRY successor acbbcf86 is the verified base. Exact six-path candidate `/tmp/laidies-library-phone-release-20260831`; details and independent review in `operations/library-phone-frames-release-20260831.md`. Preserve all other production bytes; verify head again immediately before release.
+- **Release:** Exact six-path successor `/tmp/laidies-library-phone-release-20260831`,690files,identity`42746b50be18859cc17779231bc650577d92a7430dcfd6c0c91f57713dd77c2f`, preserves all684non-delta files from acbbcf86. Custom4widths and immutable3widths pass all4readers;52/52public hash comparisons match. Details, initial8-second test timeouts and bounded visual caveat in `operations/library-phone-frames-release-20260831.md`. No further deployment planned; handoff returned to release owners.
 
 ## Previous live clearance audit
 
