@@ -14958,3 +14958,9 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** "Return to work" covers both an existing employee's return conversation and a new applicant's career-break explanation. Treating them as one case invites irrelevant advice or unnecessary disclosure of private information. Sponsorship likewise requires actual advocacy, not inferred endorsement from advice.
 - **Prevention:** Match the visitor's work situation and intended action before selecting guidance. Keep source principles distinct from newly drafted scripts, retain employer/jurisdiction and study-population limits, and include a near-match that must take a different route. Ten such synthetic cases are recorded in FAiRY's private bank; none is an executed model test.
 - **Possible Behind the Build angle:** Good AI advice depends on knowing which situation you are in, not merely recognising the topic.
+
+## 2026-08-31 — FAiRY pilot: source membership and copyable answers
+
+- **Finding:** The first pilot accepted any recognised source ID and displayed it as answer credit. Independent review reproduced a feedback answer carrying an unrelated reference. Separate browser testing found the pre-existing repeat-preview error replaced the useful answer, removing copy access.
+- **Prevention:** Known source IDs are not support evidence; hold public credit until semantic admission. Put preview gating before input errors and render the notice separately. The actual extracted handler now passes an empty-repeat test; a deliberately disabled gate fails it. Optional preparation uses the same answer, with explicit no-extra-call wording and independent copy text. Mock/page checks remain separate from actual model-quality claims.
+- **Possible Behind the Build angle:** A citation can be real and still be the wrong citation. A limit message should not take away the work the reader already received.

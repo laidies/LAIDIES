@@ -13,15 +13,21 @@ at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEW
 may be included. Town Hall/moderation ownership and retention remain unresolved
 operating decisions, not permission to expose private intake.
 
-### FAiRY guidance intake — full source read; additional private research BUILDING
+### FAiRY five-situation pilot — LOCAL BUILD / real-model trial HOLD
 
-Latest checkpoint: Ali explicitly wants the bank to inform the actual AI call,
-then asked for ideas combining practical career responses with useful AI help,
-without clichéd empowerment advice. Answer-experience proposal is current;
-integration is not built. No Worker/page code changed. Exact source-input,
-answer validation and source-note renderer must move together; default staging
-still lacks configured provider/classifier dependencies. Resume after design
-discussion with the smallest source-aware pilot, not another broad catalogue.
+Latest checkpoint: Ali approved building/testing the practical advice plus useful
+AI preparation proposal. Local Worker now appends five bounded references only
+behind the server-side CAREER_GUIDANCE_PILOT flag and eligible safety route.
+The page renders an optional copyable preparation prompt from the same answer;
+pilot revision controls stay hidden, with no new multi-turn entitlement. A
+repeat request now preserves the original answer, including an empty repeat.
+Per-answer source credits were removed after review: known source membership
+cannot establish semantic support. Sources remain internal pilot context.
+Real classifier/answer credentials and explicit trial terms are not configured;
+no model calls or deployment made. Resume with the bounded provider proposal
+and precise checks/limits in `product-stewards/fairy-godmother/subproducts/answer-quality.md`.
+Mock tests/browser fixture establish mechanics only; content admission and real
+advice quality remain HOLD. Broad recovery/referrals remain open.
 
 Ali's31August addition: match sourced Dorie Clark/other relevant guidance to
 the visitor's question and grow a bank from her *What To Actually Say* talk.
@@ -39,7 +45,8 @@ source answer pilot, not bulk ingestion. No scenario was added to the live FAiRY
 This does not replace recovery/referrals. The
 existing local answer contract rejects citations, so sourced guidance requires
 an explicit reviewed-source integration, not name-dropping in the prompt.
-No Worker, public page, provider, reward or release changed for this intake.
+The earlier research-only intake did not change Worker/page/provider/rewards;
+the local pilot above now supersedes that implementation status. Live remains unchanged.
 Owner-entry check reports missing FAiRY visual inventory plus an unrelated
 LCWO-001 missing render; those block promotion, not this internal source intake.
 

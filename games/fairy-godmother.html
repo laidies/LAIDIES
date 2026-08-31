@@ -1468,6 +1468,29 @@
       appendTypedSection(output, "What is still unknown", answer.unknowns);
       appendTypedSection(output, "Your next move", answer.nextMove);
 
+      // Optional preparation is text from the same answer, not another call or
+      // an entitlement to rehearsal. Never import the private research bank.
+      if (answer.aiAssist && typeof answer.aiAssist.instruction === "string" &&
+          answer.aiAssist.instruction.length <= 1600) {
+        const preparation = document.createElement("details");
+        preparation.className = "fairy-ai-preparation";
+        const summary = document.createElement("summary");
+        summary.textContent = "Optional AI preparation: " + String(answer.aiAssist.label || "Prepare your next step");
+        summary.style.minHeight = "44px";
+        summary.style.cursor = "pointer";
+        preparation.appendChild(summary);
+        appendTypedSection(preparation, "What this helps with", answer.aiAssist.why);
+        appendTypedSection(preparation, "Preparation prompt", answer.aiAssist.instruction, { preformatted: true });
+        const preparationText = answer.aiAssist.instruction;
+        const preparationCopy = makeInlineAction("Copy preparation prompt", () => preparationText);
+        preparationCopy.querySelector("button").style.minHeight = "44px";
+        preparation.appendChild(preparationCopy);
+        const note = document.createElement("p");
+        note.textContent = "Opening or copying this does not run another AI call. Use only non-confidential information in a tool approved for your work. Multi-turn rehearsal inside FAiRY is not available in this pilot.";
+        preparation.appendChild(note);
+        output.appendChild(preparation);
+      }
+
       const disclosure = document.createElement("div");
       disclosure.className = "laidy-disclosure";
       disclosure.innerHTML =
@@ -1479,7 +1502,9 @@
       lastPromptGlowUpText = "";
       if (lastPostGlowUpText) {
         output.insertBefore(makeInlineAction("Copy usable answer", () => lastPostGlowUpText), disclosure);
-        output.insertBefore(makeRevisionRow(), disclosure);
+        if (!Object.prototype.hasOwnProperty.call(answer, "aiAssist")) {
+          output.insertBefore(makeRevisionRow(), disclosure);
+        }
       }
 
       if (coachActions) coachActions.classList.remove("is-visible");
@@ -1564,6 +1589,20 @@
     }
 
     async function runWand() {
+      if (shouldShowGate()) {
+        // Check before input errors so even an empty repeat cannot erase a result.
+        let gateNotice = document.getElementById("fairyPreviewGateNotice");
+        if (!gateNotice) {
+          gateNotice = document.createElement("p");
+          gateNotice.id = "fairyPreviewGateNotice";
+          gateNotice.setAttribute("role", "alert");
+          gateNotice.tabIndex = -1;
+          wandBtn.parentElement.after(gateNotice);
+        }
+        gateNotice.textContent = "This is a one-response local preview. Answers are not saved across visits. More requests, subscriptions, and member allowances are not verified on this page yet.";
+        gateNotice.focus();
+        return;
+      }
       const q = questionEl.value.trim();
       if (!q) {
         showError("The FAiRY Godmother needs an actual prompt to read. Tell her in a sentence or two what you’re trying to do.");
@@ -1587,11 +1626,6 @@
       }
       const selectedValue = modeEl.value || "auto";
       const energyKey = ENERGY_KEY_MAP[selectedValue] || "fairy";
-
-      if (shouldShowGate()) {
-        showError("This is a one-response local preview. More requests, subscriptions, and member allowances are not verified on this page yet.");
-        return;
-      }
 
       setLoading(true);
       try {

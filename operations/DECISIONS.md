@@ -20,6 +20,14 @@ proper domain source before building from it.
 
 ## Core routes
 
+FAiRY pilot source-use rule (2026-08-31): model-selected IDs from a known bank
+prove membership only, not support for a generated answer. Keep per-answer
+attribution held until source-support/answer admission; internal pilot context
+must not become visitor-facing expert credit. See the current FAiRY
+`product-stewards/fairy-godmother/subproducts/answer-quality.md` checkpoint.
+Optional preparation must disclose whether it runs another call; repeat-preview
+limits must preserve an already usable answer instead of replacing it.
+
 Shared brand formatter repair rule (2026-08-30): native SELECT/OPTION/OPTGROUP,
 TEXTAREA and INPUT contents remain plain text, including `.wordmark` shortcuts.
 All three formatter copies must pass `scripts/test-native-brand-controls.mjs`;

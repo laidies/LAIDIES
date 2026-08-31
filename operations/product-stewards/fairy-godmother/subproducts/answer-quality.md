@@ -1,5 +1,86 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — five-situation build and test authorised
+
+Ali approved building and testing the proposed practical-advice/optional-AI
+experience. BUILDING: vague feedback, interruptions/credit, workload,
+promotion and return after leave. Narrow owned implementation: Worker reference
+context and typed output, existing page optional preparation
+controls, focused tests. No redesign, model fine-tuning, visitor-data training,
+identity/allowance migration or production replacement. Candidate references
+remain pilot-only pending content/real-answer admission. Preserve the frozen
+v18 artifact and live endpoint; missing configured staging credentials or
+provider trial authority must not be worked around using production secrets.
+
+### Local implementation checkpoint
+
+`worker-fairy-godmother/src/career-guidance.js` contains five bounded context
+records and strict optional-preparation validation. `src/index.js` appends them
+to the actual answer request only after eligible work/career classification and
+server flag `CAREER_GUIDANCE_PILOT=1`; default config remains off. This is not a
+keyword classifier or a substitute for the semantic safety provider. References
+are experimental guidance, not admitted public content or proof of advice quality.
+
+Independent review reproduced an attribution defect: valid source IDs could be
+attached to unrelated answers. Repair: return no per-answer credits and remove
+the proposed page reference renderer; prompt-selected IDs remain internal pilot
+data. Known IDs establish membership only. Actual source-support admission is
+still required before attribution can be displayed. Do not infer endorsement.
+
+The page has optional preparation in native details, separate copy buttons,
+non-confidential/approved-tool warning and no extra-call control. Existing
+unmetered revision controls are hidden for pilot answers, including null assists.
+Multi-turn rehearsal is not built. Repeated/empty requests previously erased a
+usable answer; the local gate now appears separately before input validation.
+
+Checks: seven new tests (including deliberately bad source/schema mutations and
+a repeat-gate mutant), existing40 Worker tests,45 core fixture records and79
+classifier fixture records. The fixture counts prove integrity, not model skill.
+Local real-page synthetic-answer journey tested1280/390/320, separate clipboard
+contents, native details keyboard open/close, visible focus and answer retention
+after an empty repeat. No horizontal overflow observed. New preparation copy
+target has44px minimum. Test fixture uses a separate local preview key and blocks
+external service connections; no account/private visitor data used. This local
+checkout shows the existing portrait-placeholder state: whole-page visual parity
+with production is not claimed. Browser rejected the separate counter URL with
+ERR_BLOCKED_BY_CLIENT; no workaround used, and no browser network-count claim.
+Code/contract evidence supports no additional preparation call, not a real-provider receipt.
+
+No real model quality, energy invariance, source-fit accuracy, native Safari200%,
+VoiceOver, physical phone, deployed Worker, public URL or cross-device allowance
+verification is claimed. Staging has no configured classifier/answer provider.
+No credentials were printed/retrieved or borrowed from production.
+
+### Proposed bounded real-provider trial — NOT APPROVED / NOT RUN
+
+Recommendation: use existing OpenAI account access, if available, with pinned
+`gpt-4.1-2025-04-14` for both separate classification and answer stages as a
+compatibility baseline, not a final production-model choice. At most20 synthetic
+cases /40 requests, no retries, no tools/retrieval/uploads, no visitor text;
+only the small handout/reference context already in this pilot. Enforce aUS$5
+ceiling before calls, plus12000 input tokens and1800 output tokens per request;
+abort rather than silently truncate, exceed budget or substitute models.
+Existing classifier5s and answer20s deadlines remain; timeout failures count.
+Actual account/model access and exact tokenizer bounds still need setup/checking.
+Use `store:false`, no training opt-in and standard API processing without a
+regional-residency promise. Retain synthetic answers privately for review only.
+Standard abuse-monitoring retention can include content for up to30 days, with
+documented exceptions; do not promise zero retention.
+
+Official sources checked31August2026:
+- https://developers.openai.com/api/docs/models/gpt-4.1 — pinned snapshot and chat-completions support.
+- https://developers.openai.com/api/docs/pricing — standard GPT4.1 inputUS$2/outputUS$8 per million tokens; not an account-specific invoice quote.
+- https://developers.openai.com/api/docs/guides/your-data — no API training by default; retention/processing limits above.
+
+Alternative considered: newer reasoning-model comparison, but it needs a separate
+parameter/timeout migration and would confound this first integration baseline.
+Mocks alone cost nothing but cannot settle usefulness. A passing pilot is still
+not launch approval: full classifier/answer/content/privacy/allowance gates remain.
+Review actual outputs for specific usable wording, supplied facts only, genuine
+power/context alternatives, helpful optional AI work, near-match rejection and
+absence of clichés/unsupported source claims. Reuse the existing private
+scenario bank's near-match cases; do not count its unexecuted cases as results.
+
 ## 2026-08-31 — connect guidance to the actual answer call
 
 Ali explicitly clarified that the handout and researched scenarios must inform

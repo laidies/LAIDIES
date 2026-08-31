@@ -1,5 +1,6 @@
 // P0 phase 1 working mirror. The frozen v18 recovery artifact remains under
 // recovery/production-v18 and is intentionally not imported or modified here.
+import { careerPilotEnabled, careerGuidancePrompt, validateCareerFields } from "./career-guidance.js";
 const __name = (target) => target;
 const ALLOWED_ORIGINS = new Set([
   "https://laidies.ai",
@@ -210,7 +211,7 @@ function extractRevisionCompletion(data) {
   return content.trim();
 }
 
-function extractValidatedAnswer(data, route) {
+function extractValidatedAnswer(data, route, careerPilot = false) {
   const content = data?.choices?.[0]?.message?.content;
   if (typeof content !== "string" || !content.trim()) return null;
   let answer;
@@ -221,6 +222,7 @@ function extractValidatedAnswer(data, route) {
   }
   if (!answer || typeof answer !== "object" || Array.isArray(answer)) return null;
   const allowedKeys = ["read", "deliverable", "reasoning", "assumptions", "unknowns", "nextMove", "sources", "asOf"];
+  if (careerPilot) allowedKeys.push("aiAssist");
   const actualKeys = Object.keys(answer);
   if (actualKeys.length !== allowedKeys.length ||
       actualKeys.some((key) => !allowedKeys.includes(key))) return null;
@@ -247,7 +249,9 @@ function extractValidatedAnswer(data, route) {
       answer.unknowns.some((item) =>
         typeof item !== "string" || item.length > ANSWER_LIMITS.unknownsItem
       )) return null;
-  if (answer.sources.length !== 0 || answer.asOf !== null) return null;
+  if (answer.asOf !== null) return null;
+  const careerFields = validateCareerFields(answer, careerPilot);
+  if (!careerFields) return null;
   if (route.needsRetrieval || route.task === "current_fact_or_research") return null;
   return {
     read: answer.read.trim(),
@@ -256,7 +260,7 @@ function extractValidatedAnswer(data, route) {
     assumptions: answer.assumptions.map((item) => item.trim()),
     unknowns: answer.unknowns.map((item) => item.trim()),
     nextMove: answer.nextMove.trim(),
-    sources: [],
+    ...careerFields,
     asOf: null
   };
 }
@@ -1140,7 +1144,9 @@ const index_default = {
       });
     }
     const normalizedEnergy = normalizeEnergy(energy);
-    const systemPrompt = buildP0AnswerPrompt(dateString, normalizedEnergy, route);
+    const careerPilot = careerPilotEnabled(env, route);
+    const systemPrompt = buildP0AnswerPrompt(dateString, normalizedEnergy, route) +
+      (careerPilot ? "\n\n" + careerGuidancePrompt() : "");
     try {
       const identity = await getVerifiedIdentity(request, env);
       const allowance = await getAllowance(identity, env);
@@ -1180,7 +1186,7 @@ const index_default = {
         return serviceError(acao, requestId, "LAiDY's wand lost the thread before your answer was ready. Your Play was not used.");
       }
       const data = await response.json();
-      const answer = extractValidatedAnswer(data, route);
+      const answer = extractValidatedAnswer(data, route, careerPilot);
       if (!answer) {
         return serviceError(acao, requestId, "LAiDY received an answer that did not pass the case contract. Your Play was not used.");
       }
