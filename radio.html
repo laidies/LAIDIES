@@ -660,11 +660,15 @@
           '#hub-stickers': 'hub-stickers', '#ksvl-stickers': 'hub-stickers',
           '#hub-request': 'hub-request', '#ksvl-request': 'hub-request'
         };
-        var target = HASH_MAP[window.location.hash];
-        if (target) {
-          var hub = hubs.filter(function(h) { return h.getAttribute('data-panel') === target; })[0];
-          if (hub) open(hub, true);
+        function openHash() {
+          var target = HASH_MAP[window.location.hash];
+          if (target) {
+            var hub = hubs.filter(function(h) { return h.getAttribute('data-panel') === target; })[0];
+            if (hub) open(hub, true);
+          }
         }
+        window.addEventListener('hashchange', openHash);
+        openHash();
       })();
     </script>
 
