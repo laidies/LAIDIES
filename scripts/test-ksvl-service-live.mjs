@@ -11,7 +11,7 @@ const server=http.createServer((req,res)=>{let file=path.join(root,new URL(req.u
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=process.env.RESIDENT_TEST_ORIGIN||`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
-async function login(page){await page.waitForFunction(()=>window.LAIDIESResidentAccountRuntime&&window.LAIDIESResidentContinuationV1);return page.evaluate(async c=>{const r=await window.LAIDIESResidentAccountRuntime.get();const s=await r.client.auth.signInWithPassword(c);if(s.error)throw Error(s.error.code);return s.data.user.id;},credentials);}
+async function login(page){try{await page.waitForFunction(()=>window.LAIDIESResidentAccountRuntime&&window.LAIDIESResidentContinuationV1);}catch(error){console.log(await page.evaluate(()=>({config:!!window.LAIDIES_SUPABASE_CONFIG,contract:!!window.LAIDIESResidentCard,identity:!!window.LAIDIESIdentityV1,runtime:!!window.LAIDIESResidentAccountRuntime,continuation:!!window.LAIDIESResidentContinuationV1,scripts:Array.from(document.scripts).map(s=>s.src).filter(s=>s.includes("resident")||s.includes("identity"))})));throw error;}return page.evaluate(async c=>{const r=await window.LAIDIESResidentAccountRuntime.get();const s=await r.client.auth.signInWithPassword(c);if(s.error)throw Error(s.error.code);return s.data.user.id;},credentials);}
 try{
  const a=await browser.newContext({viewport:{width:1280,height:900}}),b=await browser.newContext({viewport:{width:390,height:844}});
  const p=await a.newPage(),q=await b.newPage();

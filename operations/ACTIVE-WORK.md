@@ -1,6 +1,25 @@
 # Active work
 
-## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
+## 2026-08-30 KSVL private sticker delivery — DEPLOYED / PUBLICLY VERIFIED (bounded)
+
+Production `6b664326-5e92-4b7c-bb46-2c8ec7eb80d6`, pushed source
+`6ce2992c71e75ffb3fd439aa1b3eeb6f3f6b5df4`, immutable
+`https://6b664326.laidies-sunnyvaile.pages.dev`, custom `https://laidies.ai`.
+The exact sticker-only input below is the required next overlay base. All674
+input hashes remained unchanged after deployment;140 public comparisons give
+139 exact matches, plus custom Postcard's independently normalized Cloudflare
+empty-mailto/decoder transformation. Real custom AND immutable two-browser
+journeys pass desktop pickup → fresh390px Closet → removal → original desktop.
+Immutable UI passes1280/390/320. An initial custom account-readiness timeout
+passed on repeat; its cause is unestablished. An image assertion was corrected
+to scroll lazy-loaded pixels into view before judging them. Neither is claimed
+as an additional production-code fix. Native Safari/physical devices untested.
+The exact disposable Auth user `9f928edc-5889-49ad-8742-f16a76376db1` was deleted;
+zero rows remain across auth.users, member_profiles, resident_cards,
+resident_identity_mutations, resident_continuations and continuation mutations.
+Original five Auth IDs are unchanged; KSVL requests remain0. Generated credential
+file and empty directory removed, two task Dashboard tabs closed. Synthetic test
+records are not recoverable. No original resident or persistent schema changed.
 
 Sticker-only candidate `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-service.aYHJy2`;
 manifest same path plus `.manifest.json`;674files,640164318bytes, identity
@@ -14,7 +33,7 @@ Fail-first keyboard counter test rejects predecessor (0 native buttons vs14).
 Candidate maker and independent reviewer pass3 widths plus storage denial;
 original Resident156/156, decoded KSVL playback/failure suite,414 active assets
 and66 loader edges pass. Real backend with disposable account passes desktop
-pickup→fresh390px Closet→remove→old desktop Radio. Account cleanup is pending.
+pickup→fresh390px Closet→remove→old desktop Radio. Cleanup is verified above.
 
 Request candidate is HOLD, NOT DEPLOYED: live metadata confirms0 requests and
 effective anon INSERT/authenticated INSERT/admin_notes SELECT permissions.
@@ -23,12 +42,17 @@ isolation, safe receipts, replay, delete, validation, cap and expiry. Postcheck:
 candidate tableNULL,fixture users0,original users5,requests0. No production
 schema/permissions changed. New request client/migration/tests are separate
 prepared source, not part of the sticker artifact. Independent review found
-auth-generation and expired-retry defects; fixes and fail-first tests continue.
+auth-generation and expired-retry defects. Current synthetic race suite passes
+6 scenarios and rejects5 deliberately bad mutations; contract suite passes.
+Request activation is still HOLD: retention approval and an enforced purge
+schedule, cold-offline draft behaviour, expanded provider permissions/concurrency
+checks and actual deployed submission/deletion journeys remain open. Prepared
+source is NOT the deployed Radio artifact and must never be released via HEAD.
 Ali was asked to approve30-day private request retention/automatic cleanup;
 no scheduler, retention change or new request UI will go live before that answer.
 
 Ali explicitly authorized continued backend/non-working recovery and narrow live
-releases. Start from exact11ada06e input below; NewsStand acknowledges the Pages
+releases. This release started from exact11ada06e below; NewsStand acknowledged the Pages
 hold. Foreground owns Radio/Closet/shared continuation and release paths; a
 read-only request audit supports schema/privacy diagnosis. First visitor delta:
 Radio declaration sticker picks must reach the private Closet and its existing

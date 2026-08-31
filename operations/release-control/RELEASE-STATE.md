@@ -6,7 +6,27 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth — 2026-08-30 private Closet memory successor
+## Current truth — 2026-08-30 KSVL private sticker successor
+
+Production `6b664326-5e92-4b7c-bb46-2c8ec7eb80d6`, deployed/pushed source
+`6ce2992c71e75ffb3fd439aa1b3eeb6f3f6b5df4`, immutable
+`https://6b664326.laidies-sunnyvaile.pages.dev`, custom `https://laidies.ai`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-service.aYHJy2`;
+manifest same path plus `.manifest.json`;674 files,640164318 bytes, identity
+`5bef57446e5337d6951fe846cb7c8147e4b90b92878cdafaf4b69632039b8764`.
+From11ada06e:63 changed paths (5 functional/dependency,58 other loader-token-only),
+1 added sticker module,610 unchanged,0 removed. NewsStand only its direct Resident
+bootstrap token; article/data/layout, all books, portraits and music runtime exact.
+All674 input hashes unchanged after release.140 custom/immutable comparisons:
+139 exact, custom Postcard only verified Cloudflare empty-mailto protection.
+Real custom and immutable desktop/phone-browser pickup → Closet → removal sync
+passes; immutable UI1280/390/320 passes. Disposable account/credentials removed;
+original five residents unchanged. No persistent provider/schema change.
+Request-service candidate is HOLD and NOT DEPLOYED; future source HEAD may contain
+that preparation. Use this exact input, never a whole-source rebuild. Details and
+limitations in `operations/ACTIVE-WORK.md`; physical devices/Safari not tested.
+
+## Previous truth — 2026-08-30 private Closet memory successor (superseded)
 
 Production `11ada06e-b04f-459b-a32c-8569b9d84fff`, pushed source
 `1fa874745025904afa62ee4da3d75ef585cb0c77`, immutable

@@ -7,6 +7,27 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-08-30 KSVL sticker consumer and held request-service repair
+
+The old counter had local picks without a private Closet consumer or typed
+account continuation. Restored the full pick → save → new browser → remove path,
+not merely a successful click. A stale source Radio music loader would have
+regressed the earlier player repair: exact-current-artifact overlay preserved it.
+Calibrated tests reject the predecessor; real custom/immutable account journeys
+pass. Scroll lazy-loaded images into view before asserting decoded pixels.
+One initial account-readiness timeout passed on repeat; cause remains unknown.
+The request audit found effective anonymous insertion and private staff-column
+access permissions. A new owner-only lifecycle passed a rolled-back provider
+rehearsal but remains off production pending retention policy, purge scheduling
+and remaining acceptance checks. Independent review rejected auth-switch and
+unknown-retry races; six scenarios now pass and five old-defect mutations fail.
+Prevention: bind consumer, owner, exact deployment and final receipt separately;
+never turn a draft, storage write, synthetic test or policy proposal into a live
+service claim. Source6ce2992c, deployment6b664326; original residents preserved.
+Possible Behind the Build angle: a saved choice is useful only when the next
+device can find it, change it and forget it. Request policy is still a decision,
+not permission inferred from an instruction to fix the site.
+
 ## 2026-08-30 private Closet memory repair
 
 The provider was online, but three favourites, quiz progress and visits were

@@ -32,6 +32,8 @@ try{
     await page.goto(origin+'/laidies-card#ksvlClosetStickers',{waitUntil:'domcontentloaded'});
     await page.locator('#ksvlClosetStickers').waitFor({state:'visible'});
     assert.equal(await page.locator('#ksvlClosetStickerGrid img').count(),3);
+    await page.locator('#ksvlClosetStickerGrid').scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>Array.from(document.querySelectorAll('#ksvlClosetStickerGrid img')).every(i=>i.complete&&i.naturalWidth>0));
     assert.equal(await page.locator('#ksvlClosetStickerGrid img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)),true,'real sticker pixels must load');
     await page.getByRole('button',{name:'Remove THE LAiDIES',exact:true}).click();
     await page.waitForFunction(()=>document.querySelectorAll('#ksvlClosetStickerGrid img').length===2);

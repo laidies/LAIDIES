@@ -1,6 +1,15 @@
 # KSVL Community RAiDIO operating specification
 
-## Request / declaration-sticker recovery — 2026-08-30 (BUILDING)
+## Request / declaration-sticker recovery — 2026-08-30
+
+Declaration picks: DEPLOYED / PUBLICLY VERIFIED (bounded) in6b664326,
+source6ce2992c. Custom and immutable real-account desktop/phone-browser pickup,
+Closet restoration and removal sync pass. Exact release and cleanup are recorded
+in `operations/ACTIVE-WORK.md`. Listening-earned rewards remain held.
+Request service: PREPARED / HOLD, NOT DEPLOYED. Provider rehearsal rolled back;
+no schema, permissions or retention scheduler was changed. Retention approval,
+cold-offline draft handling, remaining provider checks and real submission/delete
+verification are required before activation. Source HEAD is not a release input.
 
 Ali authorized recovery and live narrow releases of remaining non-working
 backend features. Restore the existing up-to-three declaration sticker pickup
