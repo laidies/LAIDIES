@@ -46,6 +46,14 @@ with production is not claimed. Browser rejected the separate counter URL with
 ERR_BLOCKED_BY_CLIENT; no workaround used, and no browser network-count claim.
 Code/contract evidence supports no additional preparation call, not a real-provider receipt.
 
+Implementation committed/pushed as `fe75169a`. Final actual desktop preparation
+button measured44px; viewport reset and synthetic server stopped. Focused page
+contract and293 inline scripts across120 pages parse. Existing unrelated global
+hook blockers (missing Episode03 assets and extensionless-link false negatives)
+were not repaired or relabelled passing; owned commit used a one-command hook
+override after focused tests and staged diff inspection. This is a local/pushed
+checkpoint, not production or content admission.
+
 No real model quality, energy invariance, source-fit accuracy, native Safari200%,
 VoiceOver, physical phone, deployed Worker, public URL or cross-device allowance
 verification is claimed. Staging has no configured classifier/answer provider.
