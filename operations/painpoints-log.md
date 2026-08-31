@@ -14791,6 +14791,14 @@ while remaining falsely unfinished in the launch record.
 - **Verification:** Four books × six widths passed. Bad-width and bad-art injections failed. Independent screenshot review found no visible blocker; 2560px capture clipping remains explicitly an evidence limitation. No public release in this task.
 - **Behind the Build angle:** A passing browser check can test the wrong design if the stylesheet never loaded.
 
+## Compact reader artwork omission — 2026-08-30
+
+- **Failure:** The full-width correction retained a near-blank mobile raster at the user's actual 700px pane; center-cover cropping removed most remaining edge decoration. Previous desktop/phone review missed this intermediate view and cannot establish compact visual acceptance.
+- **Prevention:** Check the actual browser pane plus both sides of art/layout breakpoints. Assert the intended responsive image and left anchoring, then inspect its rendered pixels. Geometry alone does not prove a design is visible. Never reserve space based solely on ImageGen's requested dimensions: measure its real motifs.
+- **Correction:** Generated one narrow companion to the existing purple/computer raster, left-anchored it for all four books below 1200px, and reserved live-text clearance. Preserved desktop art and manuscript bytes. The actual 700px view and scrolled view retain the purple rail; the 320px heading uses whole words. Four-book nine-width checks pass; injecting the old compact raster fails.
+- **Behind the Build angle:** A responsive image can load perfectly and still erase the design it was meant to preserve.
+- **Status:** Local correction only; no deployment.
+
 ## BTB-487 — A deep freshness review can correctly produce no new release
 
 - **Date:** 2026-08-29

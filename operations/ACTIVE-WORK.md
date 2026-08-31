@@ -4,14 +4,14 @@
 
 ## Current task
 
-- **Task ID:** LIBRARY-FULL-VIEWPORT-ART-CLEARANCE-20260830
+- **Task ID:** LIBRARY-COMPACT-PURPLE-ART-20260830
 - **Status:** VERIFIED LOCALLY — not deployed
 - **Owner:** Codex foreground; Ali owns visual acceptance and public release.
-- **Goal:** Remove navy reader gutters and computer/text overlap; retain book controls without exposing the underlying site header.
-- **Result:** The shared reader fills the viewport. Its desktop text inset reserves 19% of viewport width plus 24px beyond the existing raster computer; artwork and manuscripts are unchanged. Header controls reflow below the title at compact desktop widths. Small-phone controls fit without clipping. The body flexes into the space remaining below the persistent header.
-- **Verification:** `scripts/test-library-opening-books.cjs` passed four previews and all four books at 1280/1710/1920/2560/390/320px (24 journeys). Checks cover full-viewport bounds, top-edge hit testing, frame clearance, control visibility, continuous scrolling and Contents/Top navigation. Deliberately injected old gutters and art overlap each produce failure. The test server now serves CSS with its correct MIME type and waits for decoded frame/fonts before geometry checks.
-- **Visual review:** Main-agent browser inspection plus independent artifact-first review found no visible blocker in desktop top/scrolled and phone captures at `/tmp/library-fullwidth-review-20260830/`. The 2560px viewport screenshot is capture-capped to 2459px; far-right control visibility at that width is geometry-tested, not fully captured. CSS SHA-256: `4ccbac4beeed84d8e597fe4e7602bd96d9b5fb437813732783db15d1c3bdf05a`.
-- **Next action:** Ali can inspect the corrected local preview. No deployment, live verification, manuscript change or image generation was performed. Prior deployment identities below are historical, not verified-current bases for a new release.
+- **Goal:** Restore the purple halftone/computer border in Ali's actual 700px preview without reintroducing gutters or text overlap.
+- **Result:** A new ImageGen compact raster preserves the existing motif vocabulary below 1200px. It is anchored left; the live reading column clears its actual pixels. At the smallest phone width the preface badge sits above the title so words are not split. Old negative chapter margins no longer leak past compact viewport edges. Desktop artwork and all manuscripts are unchanged.
+- **Verification:** `scripts/test-library-opening-books.cjs` passed four previews and all four books at 1280/1710/1920/2560/821/820/700/390/320px (36 journeys). Checks cover full-window geometry, compact source/position, art clearance, control visibility, continuous scrolling and Contents/Top navigation. Deliberately restoring the old blank compact frame reports failure at all compact widths. Earlier gutter/overlap calibrations remain in the test.
+- **Visual review:** The preceding visual verdict missed the actual 700px pane and is invalid for compact-art visibility. Current maker captures are `/tmp/library-compact-art-review-20260830/700-top.png`, `700-scroll.png` and `320-top.png`. Independent reader-layout reviewer inspected those pixels and the compact/desktop rasters: no visible blocker, purple rail persists through scroll, computer clears text, no new motifs, 320px heading uses whole words, controls remain horizontal and visible. This is bounded local review, not owner acceptance or release admission. Compact raster SHA-256: `a0037b5509604c4f400485dc03e12601734715877826ad826c9223643613a8e9`; CSS SHA-256: `8e35f445ed786faa7610bc7f3cc5c989b0ea38b9def0792d65da67f67cec5362`.
+- **Next action:** Ali can inspect the restored local preview. No deployment, live verification or manuscript change. Prior deployment identities below are historical, not verified-current bases for a new release.
 
 ## Previous four-book release
 

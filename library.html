@@ -1041,7 +1041,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book book--reference-zine" tabindex="-1">
     <picture class="reader-pop-frame" aria-hidden="true">
-      <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png?v=6a">
+      <source id="reader-page-art-mobile" media="(max-width: 1199px)" srcset="/assets/library-reader/reader-frame-compact-imagegen-v7.png">
       <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a" alt="">
     </picture>
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
@@ -1574,7 +1574,7 @@ function updateReaderPageArt(spread){
  book.classList.toggle('book--ai-fundamentals-art',fundamentals);
  book.classList.toggle('is-opening-art',opening);
  image.src=fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-v4.png?v=4a';
- mobile.srcset=fundamentals?'/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-mobile-v4.png?v=4a';
+ mobile.srcset='/assets/library-reader/reader-frame-compact-imagegen-v7.png';
 }
 function decorateReaderOpening(id,txt){
  txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());

@@ -54,11 +54,21 @@ This compact packet contains only current page-wide overrides, routing, active a
 ### Full-viewport reader and protected art margin — 2026-08-30
 
 Ali explicitly rejected navy side gutters and the computer overlapping prose.
-An open book fills the browser viewport; the imagegen frame remains unchanged.
+An open book fills the browser viewport; the desktop ImageGen frame remains unchanged.
 Reserve clearance beyond the rendered artwork for all scrolling text, not only
 the first screen. Keep the book's horizontal Contents/Save/Top/Back controls
 available; the underlying website header must not intrude. Check wide desktop
 as well as mobile, including text scrolled past the fixed computer.
+
+Ali's subsequent correction rejects the near-blank compact frame: the purple
+halftone/computer border must remain visible in a narrow desktop pane too.
+Do not center-crop away that left edge. The local compact successor is
+`assets/library-reader/reader-frame-compact-imagegen-v7.png`, an ImageGen
+adaptation of the existing frame used below 1200px. Keep live text in its
+white area with clearance measured from the actual rendered motifs, not the
+requested generation dimensions. Include the actual 700px pane and both sides
+of the 820px layout breakpoint in regression checks. Desktop art and manuscript
+wording are not changed by this correction.
 
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`

@@ -75,7 +75,7 @@ const server = http.createServer((request, response) => {
         failures.push(`${id}: admitted book did not open as its full structured artifact ${JSON.stringify({ ...reader, text: reader.text.slice(0, 180) })}`);
       }
     }
-    for (const width of [1280, 1710, 1920, 2560, 390, 320]) {
+    for (const width of [1280, 1710, 1920, 2560, 821, 820, 700, 390, 320]) {
       await page.setViewportSize({ width, height: width > 560 ? 900 : 844 });
       for (const [id, title, , expectedChapterKeys] of books) {
         console.log(`LIBRARY OPENING BOOKS CHECK reader=${id} viewport=${width}`);
@@ -105,13 +105,20 @@ const server = http.createServer((request, response) => {
         if (process.env.LIBRARY_TEST_INJECT_ART_OVERLAP === "1" && width > 820) {
           await page.addStyleTag({ content: '#reader .book--reference-zine .txt{padding-left:100px!important}' });
         }
+        if (process.env.LIBRARY_TEST_INJECT_BLANK_COMPACT_FRAME === "1" && width <= 1199) {
+          await page.locator('#reader-page-art-mobile').evaluate(source => {
+            source.srcset = '/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png';
+          });
+          await page.locator('#reader .reader-page-art').evaluate(img => img.decode());
+        }
         const geometry = await page.locator("#reader").evaluate(node => {
           const book = node.querySelector('.book').getBoundingClientRect();
           const text = node.querySelector('#rtxt');
           const img = node.querySelector('.reader-page-art');
           const frame = img.getBoundingClientRect();
           const scale = Math.max(frame.width / img.naturalWidth, frame.height / img.naturalHeight);
-          const artRight = frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
+          const compact = img.currentSrc.includes('reader-frame-compact-imagegen-v7');
+          const artRight = compact ? frame.left + 174 * scale : frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
           const textLeft = text.getBoundingClientRect().left + parseFloat(getComputedStyle(text).paddingLeft);
           const band = node.querySelector('.band').getBoundingClientRect();
           const controls = ['#mobile-toc > summary','.reader-save-book','#reader-top','#reader-close'].map(selector => {
@@ -122,12 +129,14 @@ const server = http.createServer((request, response) => {
             fullViewport: Math.abs(book.left) < 1 && Math.abs(book.right - innerWidth) < 1 && Math.abs(book.top) < 1 && Math.abs(book.bottom - innerHeight) < 1,
             bookAtTop: [1,innerWidth/2,innerWidth-1].every(x => node.contains(document.elementFromPoint(x,1))),
             controlsVisible: controls.every(Boolean),
+            compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition.startsWith('0%')),
             artClearance: textLeft - artRight,
-            fundamentalsDesktop: innerWidth > 820 && img.currentSrc.includes('ai-fundamentals-frame-imagegen-v6'),
+            minimumArtClearance: compact ? 14 : 20,
+            protectedFrame: compact || img.currentSrc.includes('ai-fundamentals-frame-imagegen-v6'),
             textBottom: text.getBoundingClientRect().bottom
           };
         });
-        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.fundamentalsDesktop && geometry.artClearance < 20)) {
+        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
           failures.push(`${id}@${width}: full-page/art-safe geometry failed ${JSON.stringify(geometry)}`);
         }
         const navigation = await page.locator("#reader").evaluate(node => ({
@@ -180,7 +189,7 @@ const server = http.createServer((request, response) => {
     console.error(`LIBRARY OPENING BOOKS FAIL\n- ${failures.join("\n- ")}`);
     process.exit(1);
   }
-  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · continuous_scroll=true · persistent_navigation=4x6_viewports · full_viewport_and_art_clearance=true`);
+  console.log(`LIBRARY OPENING BOOKS PASS · preview_to_open=${books.length} · full_reader=${books.map(([id]) => id).join(",")} · continuous_scroll=true · persistent_navigation=4x9_viewports · full_viewport_and_art_clearance=true`);
 })().catch(error => {
   console.error(`LIBRARY OPENING BOOKS FAIL: ${error.stack || error}`);
   server.close();
