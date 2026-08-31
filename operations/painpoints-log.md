@@ -14695,3 +14695,19 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Library learning admission v3 binds exact canonical source, instructional verdict and truth-labelled artifact-first usability verdict; calibrated fixtures reject stale bindings, undisclosed simulation and false observed-human claims. Eight selected Library images are checksum-bound in the active registry after pixel review. Production verification tried to fetch Cloudflare's runtime-only `_worker.js`, exposed fresh-host propagation delay, caught Email Address Obfuscation changing rendered-book HTML, and then found the live reader rejecting Cloudflare's normal `.html` canonical redirect. A final ancestry audit caught a subtler release error: the four-book line had been built from an older commit than the actual preceding production deployment. The scope checker rejects runtime-only fetch paths, live checks retry propagation without weakening hashes, rendered books use the documented `no-transform` control, and the reader admits only the requested same-origin URL or its exact extensionless canonical form. A browser calibration still rejects arbitrary redirect targets. The reconciled artifact is now bound to actual prior-production source `6edea2ac…`: 24 exact changes, zero removals and 22 critical production paths checksum-preserved.
 - **Possible Behind the Build angle:** Why a failed build briefly looked like it had deleted half the website—and how exact scope checks stopped it going live.
 - **Publication status:** PRODUCTION LIBRARY RELEASE / DEPLOYED AND VERIFIED PUBLICLY as source `e31f6629…`, artifact `68e7b2a1…` and deployment `6e7ffa1a-c5ec-4771-9579-987ac4b384cd`.
+
+## LIBRARY-RESEARCH-20260831 — Current source does not mean current entitlement
+
+- **Area:** Four-book industry/product/practitioner research.
+- **Finding:** Official feature and pricing pages can conflict; a forthcoming
+  export rule is not yet today's rule; a fetched page's relative update label
+  is not a precise publication date. Early synthesis also missed Udio's direct
+  disabled-download notice and overstated grounding as preventing invention.
+- **Prevention:** Bind claim, exact source, publication/effective/check dates,
+  plan and output rights separately. Reconcile official conflicts explicitly;
+  open specific support notices before declaring a source unavailable. Treat
+  grounding as a checking aid, not proof of correctness. All four packets
+  separate documented capability from practitioner anecdote and our tests.
+- **Possible Behind the Build angle:** Why a free AI demo may not give you a
+  usable file—and why paying does not automatically solve that problem.
+- **Status:** Internal research correction only; no publication or account tests.

@@ -48,6 +48,34 @@ This compact packet contains only current page-wide overrides, routing, active a
 
 ## Next practical textbooks — 2026-08-31
 
+**Research requirement — Ali, 2026-08-31:** Deep current research is mandatory
+for all four next books (Who’s Who, ChatGPT, Claude and tool/application
+selection). Research experienced users and developers as well as official
+product sources. Cover free-only readers and paid plans explicitly; distinguish
+documented features from demonstrated techniques, independent tests, opinions
+and unverified claims. Record source date, checked date, product/mode, plan,
+platform/region limits and any extra tool/API cost. Give a genuine free path
+where possible; say when there is no equivalent. Never make a paid workflow
+look free or treat popularity/sponsorship as proof of expertise. This work is
+research, not permission to purchase subscriptions or publish the books.
+
+**Research delivered — 2026-08-31:** Four substantial source-linked packets
+are saved below. They distinguish official product facts, first-hand methods,
+editorial adaptations and untested account behaviour. They are research inputs,
+not manuscript admission or comprehensive coverage of every provider.
+
+- `operations/product-stewards/library/whos-who-in-ai/DEEP-RESEARCH-2026-08-31.md`
+- `operations/product-stewards/library/chatgpt-guide/DEEP-RESEARCH-2026-08-31.md`
+- `operations/product-stewards/library/claude-guide/DEEP-RESEARCH-2026-08-31.md`
+- `operations/product-stewards/library/tool-selection-guide/DEEP-RESEARCH-2026-08-31.md`
+
+**Freshness discipline:** Keep publication date, effective date and checked
+date separate. A relative “updated this week” label is not an exact date.
+Retain conflicts between official pages instead of choosing whichever is more
+convenient. Every chapter needs a complete no-cost route or an explicit
+no-equivalent boundary; trials, API credits and noncommercial-only output
+must not be presented as ordinary Free-plan parity.
+
 **Shared acceptance:** Practical, nontechnical reference books with current
 best practices, useful tips and example prompts embedded in complete jobs.
 Show the starting materials, chosen product/mode, initial brief, actual
@@ -127,11 +155,11 @@ publishing, sending, deleting or making consequential external changes.
   [Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork),
   and [Claude Code](https://code.claude.com/docs/en/overview).
   This establishes scope distinctions, not a complete feature audit or test.
-- Next: reconcile the existing ChatGPT entry, build bounded feature/source
-  inventories for both vendor guides, then bind production contracts and run
-  one comparable project in each before expanding. Do not begin full drafts
-  from these outline bullets alone. No roster of recommended media tools has
-  yet been researched or tested, and no catalogue or live-page change is made.
+- Next after the source pass: resolve the packets' specific remaining coverage
+  and entitlement gaps, then bind production contracts and test one comparable
+  project in each vendor guide before expanding. Media-tool candidates are now
+  source-researched, not hands-on compared. No catalogue or live-page change
+  is made; no full manuscript may be drafted from these outline bullets alone.
 
 ## Route by task
 

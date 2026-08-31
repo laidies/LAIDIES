@@ -4,6 +4,32 @@
 
 ## Current task
 
+### 2026-08-31 — four-book deep research
+
+- **Status:** SOURCE RESEARCH PASS DELIVERED / COVERAGE GAPS AND PRODUCT TESTS OPEN / MANUSCRIPTS AND PUBLICATION HOLD.
+- **Goal:** Current primary-source and first-hand expert research for Who’s
+  Who, ChatGPT, Claude and tool/application selection, with free and paid
+  paths distinguished throughout.
+- **Acceptance:** Four claim-linked research packets, current access/limits,
+  actionable expert techniques, evidence quality, conflicts, free alternatives
+  and honest untested/unknown boundaries. No purchased plans or public changes.
+- **Delivered:** Four `DEEP-RESEARCH-2026-08-31.md` packets under
+  `operations/product-stewards/library/{whos-who-in-ai,chatgpt-guide,claude-guide,tool-selection-guide}/`.
+  Source-linked company/chip/people map, Free/paid feature matrices, first-hand
+  methods, task-routing rules, music/narration/export boundaries and paired
+  workflow trial designs. Source check date is 2026-08-31; publication,
+  effective and check dates remain separate.
+- **Reconciled:** OpenAI Free FAQ and individual-plan data controls; Udio's
+  official disabled-download notice; Suno's September 3 download changes;
+  current Cowork execution; dated company ownership and supplier relationships.
+- **Open:** Sites entitlement conflict; account/model/region-specific limits;
+  additional global/public-interest industry profiles; comparative Free/paid
+  workflow tests and output/rights verification. These are not tested prompts
+  or finished manuscripts. No subscriptions bought or public content changed.
+- **Next:** Close the named evidence gaps needed for the first chapters, then
+  bind production contracts and run a small same-input project in the vendor
+  guides. Preserve the existing four-book public Library and all manuscripts.
+
 ### 2026-08-31 — practical-guide scope additions
 
 - **Status:** THREE BOOK JOBS DECIDED / OUTLINES PROPOSED / MANUSCRIPTS HOLD.
