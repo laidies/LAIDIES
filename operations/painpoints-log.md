@@ -14791,6 +14791,13 @@ while remaining falsely unfinished in the launch record.
 - **Verification:** Four books × six widths passed. Bad-width and bad-art injections failed. Independent screenshot review found no visible blocker; 2560px capture clipping remains explicitly an evidence limitation. No public release in this task.
 - **Behind the Build angle:** A passing browser check can test the wrong design if the stylesheet never loaded.
 
+## Reader header action grouping — 2026-08-30
+
+- **Failure:** A flexible gap attached to Back left Save and Top clustered with Contents in a narrow header. During repair a cached stylesheet briefly concealed the updated selector.
+- **Prevention:** Place flexible space before the entire Save/Top/Back group; test adjacent action bounds and use an explicit asset cache token for visible stylesheet revisions. Inspect the actual loaded page, not only source changes.
+- **Verification:** Four books at nine widths pass; injected old grouping fails. Independent local pixel review confirms right grouping with no clipping. No public deployment.
+- **Behind the Build angle:** Whitespace communicates which controls belong together.
+
 ## Compact reader artwork omission — 2026-08-30
 
 - **Failure:** The full-width correction retained a near-blank mobile raster at the user's actual 700px pane; center-cover cropping removed most remaining edge decoration. Previous desktop/phone review missed this intermediate view and cannot establish compact visual acceptance.

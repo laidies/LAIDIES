@@ -4,6 +4,14 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-RIGHT-HEADER-ACTIONS-20260830
+- **Status:** VERIFIED LOCALLY — not deployed
+- **Goal and result:** Ali requested Save and Top on the right. Contents remains separate at the left of the action row; Save, Top and Back are grouped together on the right at desktop and compact widths. Artwork, manuscripts and interactions are unchanged.
+- **Verification:** Four-book nine-width browser suite passes. Injecting the old left-side action arrangement fails the new grouping guard. Maker and independent screenshot review at 660/320/1710px found no clipping, title collision or art regression. Captures: `/tmp/library-right-actions.iRSwo3/`. The stylesheet has an explicit new cache token so the preview loads the correction.
+- **Next action:** Inspect refreshed local preview. No deployment or public-origin verification performed; production artifact reconciliation remains mandatory before any future release.
+
+## Previous compact artwork correction
+
 - **Task ID:** LIBRARY-COMPACT-PURPLE-ART-20260830
 - **Status:** VERIFIED LOCALLY — not deployed
 - **Owner:** Codex foreground; Ali owns visual acceptance and public release.

@@ -70,6 +70,11 @@ requested generation dimensions. Include the actual 700px pane and both sides
 of the 820px layout breakpoint in regression checks. Desktop art and manuscript
 wording are not changed by this correction.
 
+Ali's header-placement correction keeps Contents on the left and groups Save
+and Top on the right with the other book actions. Do not leave Save and Top
+clustered beside Contents while Back alone consumes the right edge. Preserve
+the same grouping when the header reflows onto a second row.
+
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`
 - Shelf wall, floor and case assets are not active inputs for the four-book browse presentation.

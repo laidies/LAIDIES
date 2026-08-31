@@ -105,6 +105,9 @@ const server = http.createServer((request, response) => {
         if (process.env.LIBRARY_TEST_INJECT_ART_OVERLAP === "1" && width > 820) {
           await page.addStyleTag({ content: '#reader .book--reference-zine .txt{padding-left:100px!important}' });
         }
+        if (process.env.LIBRARY_TEST_INJECT_LEFT_ACTIONS === "1") {
+          await page.addStyleTag({ content: '#reader .reader-save-book{margin-left:0!important} #reader #reader-close{margin-left:auto!important}' });
+        }
         if (process.env.LIBRARY_TEST_INJECT_BLANK_COMPACT_FRAME === "1" && width <= 1199) {
           await page.locator('#reader-page-art-mobile').evaluate(source => {
             source.srcset = '/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png';
@@ -121,6 +124,9 @@ const server = http.createServer((request, response) => {
           const artRight = compact ? frame.left + 174 * scale : frame.left + 280 * scale - (img.naturalWidth * scale - frame.width) / 2;
           const textLeft = text.getBoundingClientRect().left + parseFloat(getComputedStyle(text).paddingLeft);
           const band = node.querySelector('.band').getBoundingClientRect();
+          const save = node.querySelector('.reader-save-book').getBoundingClientRect();
+          const top = node.querySelector('#reader-top').getBoundingClientRect();
+          const back = node.querySelector('#reader-close').getBoundingClientRect();
           const controls = ['#mobile-toc > summary','.reader-save-book','#reader-top','#reader-close'].map(selector => {
             const rect = node.querySelector(selector).getBoundingClientRect();
             return rect.width > 0 && rect.height > 0 && rect.left >= 0 && rect.right <= innerWidth + 1 && rect.top >= 0 && rect.bottom <= band.bottom + 1;
@@ -129,6 +135,7 @@ const server = http.createServer((request, response) => {
             fullViewport: Math.abs(book.left) < 1 && Math.abs(book.right - innerWidth) < 1 && Math.abs(book.top) < 1 && Math.abs(book.bottom - innerHeight) < 1,
             bookAtTop: [1,innerWidth/2,innerWidth-1].every(x => node.contains(document.elementFromPoint(x,1))),
             controlsVisible: controls.every(Boolean),
+            rightActionGroup: Math.abs(top.left - save.right) <= 10 && Math.abs(back.left - top.right) <= 10,
             compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition.startsWith('0%')),
             artClearance: textLeft - artRight,
             minimumArtClearance: compact ? 14 : 20,
@@ -136,7 +143,7 @@ const server = http.createServer((request, response) => {
             textBottom: text.getBoundingClientRect().bottom
           };
         });
-        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
+        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.rightActionGroup || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
           failures.push(`${id}@${width}: full-page/art-safe geometry failed ${JSON.stringify(geometry)}`);
         }
         const navigation = await page.locator("#reader").evaluate(node => ({
