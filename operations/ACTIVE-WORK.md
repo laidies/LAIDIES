@@ -4,6 +4,15 @@
 
 ## Current task
 
+- **Task ID:** LIBRARY-ORIGINAL-TITLE-RECOVERY-20260830
+- **Status:** VERIFIED LOCALLY — not deployed
+- **Result:** Recovered exact title pixels from the approved generated reference rather than repeating the rejected rotated-font approximation. The source is copied unchanged to the public asset folder and only its title region is displayed proportionally; no rejected background/Preface imagery is reintroduced. Accessible title remains, manuscript/art/control changes are zero.
+- **Evidence:** Conversation at 2026-08-26T23:11:33 described the prior raster title; the later frame rebuild at 5ce9a39e recreated it as live fonts. This establishes the recovery mechanism, not approval of that rejected whole-page predecessor. Current source SHA and viewport coordinates are in `operations/library-decisions.md`.
+- **Verification:** Four books at nine widths pass. Original-title loaded-image and title/control-bound guards replace the invalidated font-ratio proxy. Maker plus independent title-only pixel review of `/tmp/library-original-title.uWPqhl/current.png`, `320.png`, `1710.png` confirms original lettering/stroke, no distortion, clipping, stray captured UI or control overlap.
+- **Next action:** Ali reviews restored local title. No deployment/public verification. Never redeploy this older whole-site worktree over the current combined production artifact.
+
+## Rejected title approximation — not visual authority
+
 - **Task ID:** LIBRARY-TITLE-PROPORTIONS-20260830
 - **Status:** VERIFIED LOCALLY — not deployed
 - **Result:** Corrected the flattened AI Fundamentals title: restored the angled AI/Fundamentals typography, increased compact title scale and restored prominent purple 101. Retained existing live text and raster brush; no new art, manuscript changes or control changes. Recent button commits did not alter title rules; the compact title's earlier 42px cap and reduced number size were present beforehand.

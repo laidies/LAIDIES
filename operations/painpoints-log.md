@@ -14795,6 +14795,8 @@ while remaining falsely unfinished in the launch record.
 
 ### Title hierarchy correction
 
+- **Owner rejection and correction:** Ali rejected `619d4dfc`; its no-visible-blocker review and font-ratio proxy did not establish fidelity. The cause was retyping/rotating an already authored graphic, including an incomplete separate brush. Recover the approved image's exact title pixels instead. Title-only independent comparison now checks letterforms, spacing and full stroke directly against the approved reference; a recreated font treatment cannot pass merely by meeting bounds or size ratios. Keep the current frame and controls untouched. No public release.
+
 - A responsive title can remain technically readable while losing the approved hierarchy: the compact rule capped the title at 42px, reduced 101 separately and flattened the angled treatment. Button fixes did not cause those pre-existing rules. Preserve component proportions across breakpoints and inspect against the approved source, not only the previous screenshot. Current guard checks number/title ratio and title/control clearance; local maker/independent review compares the 700/320/1710px result with the original reference. Possible Behind the Build angle: fitting a title is not the same as preserving its design.
 
 - **Failure:** A flexible gap attached to Back left Save and Top clustered with Contents in a narrow header. During repair a cached stylesheet briefly concealed the updated selector.

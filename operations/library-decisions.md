@@ -78,11 +78,17 @@ Save and Top use thin rounded outlines consistent with Contents and Back:
 the floppy remains a compact square button, Top a small text button, with no
 heavy borders or offset shadows (Ali approved, 2026-08-30).
 
-The AI Fundamentals title must preserve the approved oversized, angled
-AI/Fundamentals treatment and prominent purple 101. Do not flatten the words
-or shrink 101 disproportionately in a compact pane. The local title-proportions
-correction retains live type and the existing pink raster brush, scopes the
-compact scale change to this title, and preserves the current control grouping.
+Ali rejected `619d4dfc`'s retyped/rotated title approximation. The title now
+recovers the original approved ImageGen lettering and underline directly,
+without reconstructing it from fonts. This supersedes the live-typography rule
+for this decorative title only; its accessible name remains AI Fundamentals 101
+and all manuscript text stays live. Source bytes:
+`assets/library-reader/ai-fundamentals-approved-title-source.png`, SHA-256
+`e369aa14c574ce6e41314f4e5066c7a1fd2da9647cf70ebf6a370c2ccfea5fbc`,
+an unchanged copy of the approved reference. A proportional viewport displays
+only x196/y60/w650/h155 of that source, not the source page or rejected former
+frame. Keep original letters, spacing, angle, full pink stroke and purple 101;
+do not substitute CSS approximations again. Current controls/art stay intact.
 
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
 - Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`

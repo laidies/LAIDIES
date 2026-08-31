@@ -97,6 +97,7 @@ const server = http.createServer((request, response) => {
         await page.evaluate(async () => {
           await document.fonts.ready;
           await document.querySelector('#reader .reader-page-art').decode();
+          await document.querySelector('.reader-title-art > img')?.decode();
         });
         // Calibration deliberately restores the rejected desktop width/margin.
         if (process.env.LIBRARY_TEST_INJECT_GUTTERS === "1" && width > 1487) {
@@ -108,8 +109,8 @@ const server = http.createServer((request, response) => {
         if (process.env.LIBRARY_TEST_INJECT_LEFT_ACTIONS === "1") {
           await page.addStyleTag({ content: '#reader .reader-save-book{margin-left:0!important} #reader #reader-close{margin-left:auto!important}' });
         }
-        if (process.env.LIBRARY_TEST_INJECT_SMALL_TITLE_NUMBER === "1") {
-          await page.addStyleTag({ content: '#reader .reader-title-number{font-size:10px!important}' });
+        if (process.env.LIBRARY_TEST_INJECT_RETYPED_TITLE === "1" && id === 'ai-fundamentals-101') {
+          await page.locator('#rt').evaluate(title => { title.textContent = 'AI Fundamentals 101'; });
         }
         if (process.env.LIBRARY_TEST_INJECT_BLANK_COMPACT_FRAME === "1" && width <= 1199) {
           await page.locator('#reader-page-art-mobile').evaluate(source => {
@@ -130,13 +131,14 @@ const server = http.createServer((request, response) => {
           const save = node.querySelector('.reader-save-book').getBoundingClientRect();
           const top = node.querySelector('#reader-top').getBoundingClientRect();
           const back = node.querySelector('#reader-close').getBoundingClientRect();
-          const titleParts = [...node.querySelectorAll('.reader-title-lead,.reader-title-name,.reader-title-number')];
+          const titleParts = [...node.querySelectorAll('.reader-title-art')];
           const actions = [...node.querySelectorAll('.reader-actions > *')].map(x => x.getBoundingClientRect()).filter(x => x.width && x.height);
           const titleClear = titleParts.every(part => {
             const r = part.getBoundingClientRect();
             return r.left >= 0 && r.top >= 0 && r.right <= innerWidth && actions.every(a => r.right <= a.left || r.left >= a.right || r.bottom <= a.top || r.top >= a.bottom);
           });
-          const titleScale = !titleParts.length || parseFloat(getComputedStyle(titleParts[2]).fontSize) / parseFloat(getComputedStyle(titleParts[0]).fontSize) >= .75;
+          const titleImage = titleParts[0]?.querySelector('img');
+          const titleOriginal = !node.querySelector('.book--ai-fundamentals-art') || (titleParts.length === 1 && titleImage?.naturalWidth === 1487 && titleImage?.naturalHeight === 1058 && titleImage.currentSrc.includes('ai-fundamentals-approved-title-source.png') && node.querySelector('#rt').getAttribute('aria-label') === 'AI Fundamentals 101');
           const controls = ['#mobile-toc > summary','.reader-save-book','#reader-top','#reader-close'].map(selector => {
             const rect = node.querySelector(selector).getBoundingClientRect();
             return rect.width > 0 && rect.height > 0 && rect.left >= 0 && rect.right <= innerWidth + 1 && rect.top >= 0 && rect.bottom <= band.bottom + 1;
@@ -145,7 +147,7 @@ const server = http.createServer((request, response) => {
             fullViewport: Math.abs(book.left) < 1 && Math.abs(book.right - innerWidth) < 1 && Math.abs(book.top) < 1 && Math.abs(book.bottom - innerHeight) < 1,
             bookAtTop: [1,innerWidth/2,innerWidth-1].every(x => node.contains(document.elementFromPoint(x,1))),
             controlsVisible: controls.every(Boolean),
-            titleClear, titleScale,
+            titleClear, titleOriginal,
             rightActionGroup: Math.abs(top.left - save.right) <= 10 && Math.abs(back.left - top.right) <= 10,
             compactFrameVisible: innerWidth > 1199 || (compact && getComputedStyle(img).objectPosition.startsWith('0%')),
             artClearance: textLeft - artRight,
@@ -154,7 +156,7 @@ const server = http.createServer((request, response) => {
             textBottom: text.getBoundingClientRect().bottom
           };
         });
-        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.titleClear || !geometry.titleScale || !geometry.rightActionGroup || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
+        if (!geometry.fullViewport || !geometry.bookAtTop || !geometry.controlsVisible || !geometry.titleClear || !geometry.titleOriginal || !geometry.rightActionGroup || !geometry.compactFrameVisible || geometry.textBottom > (width > 560 ? 900 : 844) + 1 || (geometry.protectedFrame && geometry.artClearance < geometry.minimumArtClearance)) {
           failures.push(`${id}@${width}: full-page/art-safe geometry failed ${JSON.stringify(geometry)}`);
         }
         const navigation = await page.locator("#reader").evaluate(node => ({
