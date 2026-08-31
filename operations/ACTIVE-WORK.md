@@ -13,6 +13,19 @@ at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEW
 may be included. Town Hall/moderation ownership and retention remain unresolved
 operating decisions, not permission to expose private intake.
 
+### FAiRY guidance intake — direction DECIDED, full handout needed
+
+Ali's31August addition: match sourced Dorie Clark/other relevant guidance to
+the visitor's question and grow a bank from her *What To Actually Say* talk.
+Recorded in `product-stewards/fairy-godmother/subproducts/answer-quality.md`.
+Only the cover/contents image is currently supplied; no scenario answers have
+been extracted or invented. This does not replace recovery/referrals. The
+existing local answer contract rejects citations, so sourced guidance requires
+an explicit reviewed-source integration, not name-dropping in the prompt.
+No Worker, public page, provider, reward or release changed for this intake.
+Owner-entry check reports missing FAiRY visual inventory plus an unrelated
+LCWO-001 missing render; those block promotion, not this internal source intake.
+
 ### Library phone successor — coordinated handoff received
 
 Owner01a02f80 reports verified Production `f2eeceba-3ce0-418e-bfd9-95087f4b9e4f`,
