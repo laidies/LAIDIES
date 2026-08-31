@@ -5,11 +5,12 @@
 ## Current task
 
 - **Task ID:** LIBRARY-FOUR-BOOK-COLOURS-20260830
-- **Status:** VERIFIED LOCALLY; coordinated deployment pending.
+- **Status:** PUBLICLY VERIFIED — production `3d4bebd1-66ae-4e1e-be3c-f020080b306b`, source `318c82b663f13eab9db8fa98fbbef04b2df93989`.
 - **Authority:** Ali requested publishing the restored title/layout from an isolated branch and giving the three companion books the same design in distinct colours.
 - **Result:** Purple Fundamentals preserved; ImageGen turquoise Working, pink Straight Answers, blue Dictionary. Continuous full-width reader; Contents left, outlined Save/Top/Back right; no manuscript or semantic-box changes.
 - **Verification:** Source and exact candidate pass four books at nine widths. Independent review of twelve final desktop/phone captures found no visible blocker.
 - **Release record:** `operations/library-four-book-colours-release-20260830.md`. Overlay only thirteen Library paths onto 8ce8632d; never deploy this source checkout wholesale.
+- **Live result:** Custom and immutable origins passed four-book preview/open and continuous navigation at 1280/390/320; exact byte parity across 25 changed/protected paths. Save opened the ten-sticker picker without changing account data. Deployment slot returned to recovery owner for its bounded native-menu repair; no further deployment planned here.
 
 ## Previous original-title recovery
 

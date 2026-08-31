@@ -1,6 +1,6 @@
 # Four-book colour release — 2026-08-30
 
-Status: VERIFIED LOCALLY; deployment/public verification pending.
+Status: PUBLICLY VERIFIED. Production `3d4bebd1-66ae-4e1e-be3c-f020080b306b`, deployed source `318c82b663f13eab9db8fa98fbbef04b2df93989`, immutable `https://3d4bebd1.laidies-sunnyvaile.pages.dev`.
 
 Authority: Ali requested publishing the restored approved title/layout from an isolated branch and extending the same design to the three other books in different colours. Branch `codex/library-four-book-colours-20260830`; isolated worktree `/Users/alisoneakin/Projects/laidies-library-four-book-colours-20260830`.
 
@@ -21,3 +21,9 @@ Exact base `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-servic
 Candidate `/tmp/laidies-library-colours-release-20260830-final`; manifest same path plus `.manifest.json`; exact delta same path plus `.delta.json`.
 686 files, 653488243 bytes, identity `d9145bee0be602299842c684510efc109bf9b6424f2e5fc3897fc51a3ea5a369`.
 Two changed files: `library.html`, `assets/library-reader/ai-fundamentals-imagegen-reader-v5.css`. Eleven added reader assets: original approved title, compact purple frame, and nine companion assets. 673 existing files unchanged; zero removed. Every manuscript, Homepage, NewsStand, Radio and shared runtime byte preserved. Reconciled current Library runtime URLs are retained, including removal of private operations dependencies. Source checkout is not a whole-site deployment input.
+
+## Public verification and handoff
+
+Both `https://laidies.ai` and the immutable origin matched candidate hashes across 25 paths: thirteen release paths plus Homepage, NewsStand, Visitor's Centre, Radio, KSVL requests, shared header and all six rendered book files. Four preview/open journeys plus four books at 1280/390/320 passed on both origins. Continuous Contents-to-section navigation and Top worked; exact loaded title/frame, full viewport, rail clearance and control bounds passed. Live visual inspection confirmed original purple desktop and turquoise phone presentation. Live Save opened the existing ten-sticker picker; no sticker was applied or account data changed. No new backend/account/end-to-end persistence claim is made.
+
+Final source-only fallback correction was independently reviewed: it changes only books outside the four and preserves their original desktop frame. Four-book pixel review remains bound. Provider confirmed the full Production ID above. Exact successor was handed to recovery owner `01a04bb5-1dcb-74c3-ad99-61d09be0494e`; deployment slot returned for its narrow native-menu repair. NewsStand owner informed to coordinate after that slot. No whole-site source deployment, manuscript rewrite or unrelated repair was performed.
