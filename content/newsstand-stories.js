@@ -109,9 +109,9 @@ window.NEWSSTAND_DATA = {
       "closing_note": "Episode 4 gave us the historical correction: women were not late to computing or AI. They helped build the field. The present-day question is whether we will be in the room while it is built into work. We helped build AI. We should not sit out the part where it gets built into work.",
       "class_notes": "Episode 4 connection: women were pivotal to the algorithm, signal, first program, compiler, search and computer vision. Current evidence turns that history into an agency question about participation, workflow ownership and leadership now.",
       "heroVisual": {
-        "src": "/assets/episodes/ep-04/pixel/ep04-open-17-maivens-hall-comic-v2-bright-interior-full-portraits-1920.png",
-        "alt": "The bright MAiVENS hall from LAiDIES Episode 4, honouring women who built and questioned computing and AI.",
-        "credit": "LAiDIES Episode 4 · The Founding Mothers"
+        "src": "/assets/newsstand/design-20260830/front-paige-women-computing.png",
+        "alt": "Illustration of women working across generations of computing, from handwritten calculations and punch cards to modern AI.",
+        "credit": "LAiDIES"
       },
       "sources": [
         {

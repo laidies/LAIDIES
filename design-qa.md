@@ -1,3 +1,9 @@
+# Front PAiGE supplied image — August 30 follow-up
+
+Replaced the MAiVENS-hall visual with Ali's attached image, copied unchanged to `assets/newsstand/design-20260830/front-paige-women-computing.png`. Attachment and project SHA-256 match: `0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5`. No generation or image editing. The canonical story hero metadata, accessible description and credit now use this image; article text and all non-visual story data compare unchanged. The full article now renders the same hero as its front-page card. Front card preserves the source's complete 3:2 composition.
+
+Verified local desktop card (792 × 529 display for 1536 × 1024 source), full-reader image load, phone reader at 390px with 350px image/no horizontal overflow, inline script syntax and service-reader regression. Screenshots: `operations/product-stewards/newsstand/evidence/design-20260830/front-paige-homepage-image-desktop.png` and `front-paige-homepage-image-phone-reader.png`. Preview: `http://127.0.0.1:8936/newsstand.html?preview=front-paige-image`. Local only; no publication, no new source fact-check. Future release must rebuild canonical source-identity records for the changed story file and use the latest coordinated production base.
+
 # Backpack correction — August 30 follow-up
 
 Ali rejected the strapless v3 candidate. It is superseded locally by `assets/newsstand/design-20260830/mini-backpack-v4.png`: two flat pink fabric shoulder straps, conventional adjustment buckles and upper/lower rear attachments. Both straps remain visible beside the bag; the existing carry handle, star charm, frame, colours and exact card label remain. No article/deck text changed. Earlier v3 visual acceptance below is superseded by this correction.

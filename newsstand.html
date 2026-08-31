@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260830-layout-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260830-front-paige-image-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -239,7 +239,7 @@
     </footer>
 
     <script src="./content/newsstand-reader-contract.js?v=20260830-weekly-continuity-2"></script>
-    <script src="./content/newsstand-stories.js?v=20260830-service-bank-1"></script>
+    <script src="./content/newsstand-stories.js?v=20260830-front-paige-image-1"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       (function () {
@@ -896,6 +896,7 @@
               renderCorrectionHistory(story),
               renderStoryLineage(story),
               renderBigPictureHistory(story),
+              renderArticleHero(story),
               articleSection(isBigPicture ? "The Argument" : "The Story", story.the_story),
               articleSection("The LAiDIES Read", story.laidies_read),
               articleSection("What This Means For You", story.what_this_means),
