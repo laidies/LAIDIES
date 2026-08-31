@@ -1,0 +1,103 @@
+{
+  "status": "PRIVATE RESEARCH CANDIDATES — NOT APPROVED ANSWERS OR RUNTIME INPUT",
+  "updatedAt": "2026-08-31",
+  "purpose": "Expand situation-matched FAiRY guidance without attributing our scripts to Ali or named experts.",
+  "sourceHandout": {
+    "path": "/Users/alisoneakin/Downloads/Leading Through Complexity — Handout.pdf",
+    "sha256": "e419cd67663bf2ab33b869fc9667587974e455be9e6798c6ee32b86dc8db837d",
+    "pages": 16,
+    "parts": [{"title": "What To Actually Say", "startPdfPage": 1, "endPdfPage": 8}, {"title": "Changing the Room", "startPdfPage": 9, "endPdfPage": 16}],
+    "scope": "Ali's current source wording and argument; bibliography and printed claims are not independently verified by receipt of the PDF. Page numbers below mean physical PDF pages, not printed internal counters."
+  },
+  "sources": [
+    {
+      "id": "ali-handout-20260827",
+      "kind": "user-provided primary document",
+      "locator": "sourceHandout",
+      "checkedAt": "2026-08-31",
+      "support": "Authored situation/script pairs plus the distinction between immediate responses and collective or organisational change.",
+      "limit": "Do not attribute a script to a bibliography author without its specific supporting passage. Research/statistics/history require separate checks before reuse."
+    },
+    {
+      "id": "uk-ai-playbook",
+      "url": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+      "sections": ["Accountability and responsibility", "Data protection and privacy"],
+      "checkedAt": "2026-08-31",
+      "excerpt": "You must also put the necessary oversight and human-in-the-loop processes in place",
+      "support": "Human oversight, responsibility for outputs, clear roles, privacy controls and specialist involvement.",
+      "limit": "UK public-sector guidance, not a statement of the visitor's employer policy or legal duties. Workplace communication adaptations below are ours. No vendor-specific training/retention claim."
+    },
+    {
+      "id": "dorie-career-bridges",
+      "url": "https://dorieclark.com/blog/building-bridges-for-your-career/",
+      "sections": ["Initiating Conversations That Matter", "Consistent Engagement: Laying Down the Planks"],
+      "checkedAt": "2026-08-31",
+      "excerpt": "connecting with others without an agenda or expectations",
+      "support": "Sustained, substantive professional relationships rather than purely transactional requests.",
+      "limit": "Does not prove a particular sponsorship method, guarantee promotion, or resolve discrimination. Do not present our script as Dorie Clark's words."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "interrupted-in-meeting",
+      "status": "SOURCE-BOUND PILOT; ADAPTATION REVIEW OPEN",
+      "situation": "Someone interrupts before the visitor has finished a point.",
+      "goal": "Finish a useful point without pretending that one sentence repairs a repeated power imbalance.",
+      "sourceIds": ["ali-handout-20260827"],
+      "pdfPages": [3, 12, 13],
+      "aliOriginalScript": "Iʼd like to finish my thought.",
+      "adaptation": "Offer the source script only when appropriate; if direct interruption is unsafe or ineffective, discuss a facilitator, ally or written follow-up instead.",
+      "contextNeeded": ["One-off interruption or a repeated pattern?", "Who is interrupting, and what consequence does speaking up carry?"],
+      "organisationalMove": "A chair can enforce turn-taking; colleagues can return credit and space to the original speaker.",
+      "doNot": ["Guarantee that direct wording prevents escalation", "Infer discrimination from one unexplained incident", "Automatically append statistics or claim a named expert authored the script"]
+    },
+    {
+      "id": "confidential-document-ai-upload",
+      "status": "RESEARCHED CANDIDATE; RESPONSE NOT ADMITTED",
+      "situation": "A manager asks the visitor to upload confidential work to an AI tool whose approval is unclear.",
+      "goal": "Keep the task moving without exposing restricted information.",
+      "sourceIds": ["uk-ai-playbook"],
+      "proposedScriptAuthorship": "New LAiDIES draft, not handout or source wording",
+      "proposedScript": "Before I upload this, can we confirm this tool is approved for this type of information? I can work without uploading it while we check the approved route.",
+      "why": "LAiDIES operational framing: tool approval and permission for a particular data category are distinct questions; this is not a universal policy rule attributed to the UK source.",
+      "contextNeeded": ["Which tool and organisational account?", "What type of data, without pasting the actual confidential content?", "What does the organisation permit?"],
+      "organisationalMove": "The designated security/data owner supplies the approved tool and permitted use, rather than leaving the junior employee to invent policy.",
+      "doNot": ["Ask for the confidential document in FAiRY", "Assume removing names makes data anonymous", "Claim every AI provider trains on every upload", "Give jurisdiction-specific legal conclusions"],
+      "remaining": "Test a manager-pressure variant, already-approved enterprise-tool variant and an already-uploaded incident variant. The latter needs the organisation's incident process, not a promise that deleting chat fixes exposure."
+    },
+    {
+      "id": "ai-assisted-error-already-shared",
+      "status": "RESEARCHED CANDIDATE; RESPONSE NOT ADMITTED",
+      "situation": "The visitor discovers an error in AI-assisted work that has already been shared.",
+      "goal": "Stop reliance on the error and organise an accurate correction.",
+      "sourceIds": ["uk-ai-playbook"],
+      "proposedScriptAuthorship": "New LAiDIES draft, not an expert quotation",
+      "proposedScript": "I found an error in [specific part] of the version I sent. Please don't rely on that section while I check the impact. I'll update you by [time I can meet], with the correction or a clear status.",
+      "why": "Separate known error, uncertain impact and the next reliable update; naming AI does not replace correction.",
+      "contextNeeded": ["What is known to be wrong?", "Who received or acted on it?", "Is there a safety, financial, privacy or other high-impact consequence?"],
+      "organisationalMove": "Use the responsible owner's correction/escalation process and improve the review step that missed it.",
+      "doNot": ["Fabricate a corrected value", "Promise a correction deadline before impact is known", "Treat reassurance as incident resolution", "Ask the visitor to accept sole blame for unknown organisational failures"],
+      "remaining": "Review small internal typo versus consequential external decision separately; the latter must not become ordinary high-stakes advice."
+    },
+    {
+      "id": "work-known-no-opportunity-conversations",
+      "status": "RESEARCHED CANDIDATE; RESPONSE NOT ADMITTED",
+      "situation": "Good work is known locally, but the visitor has few substantive relationships outside her immediate team.",
+      "goal": "Begin a relevant professional conversation without a vague or transactional demand for sponsorship.",
+      "sourceIds": ["dorie-career-bridges"],
+      "proposedScriptAuthorship": "New LAiDIES draft informed by relationship-building guidance, not Dorie Clark's words",
+      "proposedScript": "I'm working on [real area], and your experience with [specific work] would help me think through [one question]. Would you have 15 minutes to compare notes?",
+      "why": "A specific, bounded conversation can begin a relationship; it is not a request for guaranteed advancement.",
+      "contextNeeded": ["Is there a relevant person whose work the visitor actually knows?", "What is the genuine shared question?", "Is the real obstacle relationships, unclear criteria, blocked access or something else?"],
+      "organisationalMove": "Managers should make fair introductions and clarify access to opportunities. Do not prescribe endless unpaid networking as the answer to an exclusionary process.",
+      "doNot": ["Invent familiarity or shared interests", "Assume a mentor is a sponsor", "Guarantee that networking earns promotion", "Use this instead of addressing unfair selection criteria"],
+      "remaining": "Find a separate primary sponsorship source before adding an explicit advocacy-request variant."
+    }
+  ],
+  "researchExclusions": [
+    {"url": "https://www.ncsc.gov.ie/pdfs/Cybersecurity_Guidance_on_Generative_AI_for_PSBs.pdf", "reason": "First page explicitly marks the 2023 guidance deprecated on30July2026. Do not use its old universal training/public-model statements as current guidance. Replacement link was unavailable in this browsing run; used current UK playbook instead, with jurisdictional limits."},
+    {"url": "https://www.amyegallo.com/newsletter-all/2021/12/15/what-i-do-when-i-feel-mortified", "reason": "Minor-error/self-compassion content is not sufficient evidence for an AI incident/correction protocol. Page also has inconsistent displayed byline metadata. Not used to attribute the proposed error script."}
+  ],
+  "nextResearch": ["Specific sponsorship/advocacy requests", "Returning after a career break or leave without assumptions about capacity", "Remote colleagues excluded from informal decisions", "Pressure to disguise AI use or overstate an AI result"],
+  "releaseBoundary": "No public deployment, runtime import, account data collection, model call or scenario admission. New answer content must pass the existing producer/review requirements and reviewed-source integration before release."
+}

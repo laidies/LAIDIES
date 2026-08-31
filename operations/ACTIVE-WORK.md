@@ -13,15 +13,18 @@ at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEW
 may be included. Town Hall/moderation ownership and retention remain unresolved
 operating decisions, not permission to expose private intake.
 
-### FAiRY guidance intake — direction DECIDED, full handout needed
+### FAiRY guidance intake — full source read; additional private research BUILDING
 
 Ali's31August addition: match sourced Dorie Clark/other relevant guidance to
 the visitor's question and grow a bank from her *What To Actually Say* talk.
 Recorded in `product-stewards/fairy-godmother/subproducts/answer-quality.md`.
-Only the cover/contents image is currently supplied. An earlier eight-page
-PDF was found and read, but its opening/structure differ from the screenshot;
-it is historical evidence, not the confirmed current source. No scenarios
-were added to FAiRY or invented. This does not replace recovery/referrals. The
+The current16-page PDF at `/Users/alisoneakin/Downloads/Leading Through Complexity — Handout.pdf`
+was supplied and read in full; it replaces the earlier eight-page candidate.
+Ali asks continued research on additional scenarios. Private
+`product-stewards/fairy-godmother/scenario-research.json` contains one exact
+handout-script pilot plus three explicitly new research drafts and primary
+source/support boundaries. No scenario was added to the live FAiRY runtime.
+This does not replace recovery/referrals. The
 existing local answer contract rejects citations, so sourced guidance requires
 an explicit reviewed-source integration, not name-dropping in the prompt.
 No Worker, public page, provider, reward or release changed for this intake.

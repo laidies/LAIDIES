@@ -2,7 +2,54 @@
 
 ## 2026-08-31 — situation-matched guidance and Ali's talk scenarios
 
-**Direction: DECIDED; source intake incomplete; not implemented or published.**
+**Direction: DECIDED; full source received/read; private research underway;
+not implemented or published.**
+
+### Current source and research continuation
+
+Ali supplied the complete16-page `/Users/alisoneakin/Downloads/Leading Through Complexity — Handout.pdf`,
+398,833 bytes, SHA256 `e419cd67663bf2ab33b869fc9667587974e455be9e6798c6ee32b86dc8db837d`.
+All16 pages were read, including both parts; rendered pages3–4 checked for
+script/situation alignment. This supersedes the eight-page candidate below
+for source extraction. The PDF itself was not changed or published.
+
+Physical PDF page map (do not use the older internal cross-references):
+
+| Content | PDF pages |
+|---|---|
+| What To Actually Say: cover and argument map | 1–2 |
+| In the Room: interruption, amplification, notes, uncertainty, compensation | 3 |
+| Power, Credit & Visibility, including two AI-work scenarios | 4 |
+| Feedback & Hard Conversations | 5 |
+| Boundaries, Pushback & Follow-Up | 6 |
+| Stronger Language and Feedback, or Bias? | 7 |
+| Inclusive Communication | 8 |
+| Changing the Room: cover and structural argument | 9–13 |
+| AI fluency, workplace-gap claims and history | 14–15 |
+| Bibliography/resources | 16 |
+
+User additionally requests continued research on more scenarios. First bounded
+pass is in `../scenario-research.json`: one source-bound interruption pilot and
+three new private candidates (confidential AI upload, correcting shared
+AI-assisted error, substantive career relationships). Primary sources and
+specific support limits are recorded; draft wording is explicitly ours, not
+Ali's or an expert quotation. Current UK playbook guidance supports bounded
+AI oversight/privacy principles, not the visitor's local law or employer policy.
+Dorie Clark's primary relationship guidance supports the career candidate, not
+a promised sponsorship outcome. An official deprecated2023 NCSC source was
+excluded after reading its30July2026 withdrawal notice. No raw visitor cases
+are collected; no recurrence/automation, provider call or public release added.
+
+Next research: sponsorship/advocacy requests, return from leave/career breaks,
+remote exclusion, and pressure to hide or exaggerate AI use. Require a distinct
+visitor need, original-source support and a context/safety variant for each.
+Printed statistics, historical absolutes, quotation attributions and diagnostic
+claims in Part Two remain fact-check inputs, not approved FAiRY claims. In
+particular, neither vague feedback nor discomfort alone proves discrimination;
+uncertainty, actual skill gaps and structural conditions must remain separable.
+
+### Original direction and earlier-source history
+
 Ali asks FAiRY to incorporate guidance from Dorie Clark and other relevant
 thinkers according to the question, and to build on her talk's scenarios and
 suggested answers. This is knowledge/answer-quality work, not a new personality
@@ -24,7 +71,7 @@ An earlier full eight-page candidate was subsequently recovered at
 All eight pages were text-extracted and read. This is NOT verified as the
 attached revision: it starts directly with In the Room, lacks the new cover
 and How This Fits Together map, and ends with sources. Preserve as earlier
-source evidence; request the current complete PDF before canonical extraction.
+source evidence only; the later supplied16-page source above now governs intake.
 The earlier bibliography already includes Dorie Clark and other guidance
 authors; it does not map every individual script to its supporting passage.
 One concrete adaptation guard: stronger-language swaps must not turn a real
