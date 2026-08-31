@@ -31,6 +31,9 @@ pending (roughly19MB total), while native labels/value selection still passed.
 Two preceding targeted runs completed at10s/14.6s. A controlled image fixture
 rejected eager loading but both src-before-lazy and lazy-before-src passed:
 assignment order alone is not an established cause and was not changed.
+Read-only shared-runtime audit found no saint-image preloader, await, or eager
+rewrite. Live DOM confirms all six remain loading=lazy below the viewport
+(top2183.9 at320x900). No speculative image/runtime fix was made.
 Separate custom320 checks show no horizontal overflow on all five pages.
 Independent local review accepted all3 filters and rejected predecessors, all82
 HTML loader edges plus dynamic polish edge. Rebase-only review verified all686
