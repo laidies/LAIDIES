@@ -13,6 +13,9 @@
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
+  <script defer src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+  <script defer src="/content/site/identity-client-v1.js?v=20260729-continuation-1"></script>
+  <script defer src="/content/site/resident-account-runtime-v1.js?v=20260729-continuation-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -105,7 +108,7 @@
     </p>
 
     <p class="sv-lede">
-      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. Listen to LAiDIES original songs; requests, listening history and favourites stay in this browser.
+      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. Listen to LAiDIES original songs. Listening history stays in this browser; signed-in requests go privately to station review.
     </p>
 
     <!-- KSVL LIVE — the full station broadcast (moved to top) -->
@@ -573,7 +576,7 @@
       <h2 style="margin: 0 0 12px; color: var(--cream); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, 3.5vw, 34px);">Got a song idea? Leave it for station review.</h2>
       <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.94;">A saved or received request is an idea for review—not a promise that DJ SunnyV heard it, selected it, will produce it or will add a credit. Signed-out drafts stay only on this device when local storage succeeds.</p>
 
-      <form id="ksvl-request-form" style="display: grid; gap: 18px; max-width: 640px;">
+      <form id="ksvl-request-form" class="clarity-mask" data-clarity-mask="true" style="display: grid; gap: 18px; max-width: 640px;">
         <label style="display: block;">
           <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);">Song style</span>
           <select id="ksvl-req-style" required style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--gold); border-radius: 8px; font: inherit; font-size: 15px;">
@@ -603,10 +606,21 @@
         </label>
 
         <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
-          <button id="ksvl-req-submit" type="submit" style="padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Save or send for review →</button>
+          <button id="ksvl-req-submit" type="submit" style="padding: 12px 26px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">Send for review →</button>
+          <button id="ksvl-req-save-draft" type="button">Save draft on this device</button>
+          <button id="ksvl-req-clear-draft" type="button">Clear draft</button>
+          <button id="ksvl-req-abandon-pending" type="button">Start a different request</button>
           <span id="ksvl-req-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" style="font-size: 13px; color: var(--cream); opacity: 0.85; line-height: 1.4;"></span>
         </div>
       </form>
+      <p style="max-width:640px">Sign in at the <a href="/resident-card" style="color:var(--gold)">Resident desk</a> to send an idea. Up to five requests per day. Requests stay private to you and station staff. You can delete yours below. Device-only drafts last seven days and are never sent automatically.</p>
+      <div id="ksvl-req-list" class="clarity-mask" data-clarity-mask="true" aria-live="polite"></div>
+      <style>
+        #ksvl-request button { min-height:44px;max-width:100%;font:inherit;cursor:pointer;padding:10px 14px; }
+        #ksvl-req-list > div { display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0; }
+        #ksvl-req-list span { overflow-wrap:anywhere; }
+        #ksvl-request input,#ksvl-request textarea,#ksvl-request select { box-sizing:border-box; }
+      </style>
     </section>
 
     </div><!-- /hub-request -->
@@ -654,118 +668,7 @@
       })();
     </script>
 
-    <script>
-      (function() {
-        'use strict';
-
-        var topicInput = document.getElementById('ksvl-req-topic');
-        var lyricsInput = document.getElementById('ksvl-req-lyrics');
-        var topicCount = document.getElementById('ksvl-req-topic-count');
-        var lyricsCount = document.getElementById('ksvl-req-lyrics-count');
-        var form = document.getElementById('ksvl-request-form');
-        var submitBtn = document.getElementById('ksvl-req-submit');
-        var statusEl = document.getElementById('ksvl-req-status');
-        var styleSelect = document.getElementById('ksvl-req-style');
-
-        topicInput.addEventListener('input', function() { topicCount.textContent = topicInput.value.length + ' / 200'; });
-        lyricsInput.addEventListener('input', function() { lyricsCount.textContent = lyricsInput.value.length + ' / 1000'; });
-
-        var supabaseClient = null;
-        async function initSupabase() {
-          if (supabaseClient) return supabaseClient;
-          var cfg = window.LAIDIES_SUPABASE_CONFIG;
-          if (!cfg) return null;
-          try {
-            var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
-            supabaseClient = mod.createClient(cfg.url, cfg.anonKey, {
-              auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
-            });
-            return supabaseClient;
-          } catch (err) {
-            console.error('[KSVL Request] Supabase init failed:', err);
-            return null;
-          }
-        }
-
-        form.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          var style = styleSelect.value;
-          var topic = topicInput.value.trim();
-          var lyrics = lyricsInput.value.trim();
-          if (!style || !topic) {
-            statusEl.textContent = 'Pick a style and give it a topic — those are the essentials.';
-            return;
-          }
-          submitBtn.disabled = true;
-          var originalText = submitBtn.textContent;
-          submitBtn.textContent = 'Sending…';
-          statusEl.textContent = '';
-
-          var client = await initSupabase();
-          if (!client) {
-            statusEl.textContent = 'Couldn\'t reach the station. Try again in a bit.';
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            return;
-          }
-
-          var session = null;
-          try {
-            var s = await client.auth.getSession();
-            session = s && s.data ? s.data.session : null;
-          } catch (_) {}
-
-          if (!session) {
-            var savedLocally = false;
-            try {
-              localStorage.setItem('ksvl_pending_request', JSON.stringify({ style: style, topic: topic, lyrics: lyrics, saved_at: new Date().toISOString() }));
-              savedLocally = true;
-            } catch (_) {
-              savedLocally = false;
-            }
-            statusEl.innerHTML = savedLocally ?
-              'Draft saved only on this device. It has not been sent or reviewed. <a href="/resident-card.html" style="color: var(--gold); text-decoration: underline; font-weight: 700;">Sign in with your Resident Card</a> if you want to attempt delivery for station review.' :
-              'This browser could not save the draft. It has not been sent; copy your text before leaving.';
-            statusEl.focus();
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            return;
-          }
-
-          var payload = {
-            user_id: session.user.id,
-            song_style: style,
-            topic: topic,
-            lyric_ideas: lyrics || null
-          };
-          try {
-            var result = await client.from('ksvl_song_requests').insert(payload).select().single();
-            if (result.error) throw result.error;
-            var receiptId = result.data && result.data.id ? String(result.data.id) : '';
-            if (!/^[A-Za-z0-9][A-Za-z0-9_-]{2,79}$/.test(receiptId)) {
-              throw new Error('Missing or invalid request receipt');
-            }
-            statusEl.textContent = 'Received for station review · receipt ' + receiptId +
-              '. This does not mean DJ SunnyV has heard, selected or promised to produce it.';
-            statusEl.focus();
-            form.reset();
-            topicCount.textContent = '0 / 200';
-            lyricsCount.textContent = '0 / 1000';
-            submitBtn.textContent = 'Sent ✓';
-            setTimeout(function() {
-              submitBtn.disabled = false;
-              submitBtn.textContent = originalText;
-            }, 3000);
-          } catch (err) {
-            console.error('[KSVL Request] Insert failed:', err);
-            statusEl.textContent = 'The station did not return a request receipt. Nothing is being described as delivered; try again when you are ready.';
-            statusEl.focus();
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-          }
-        });
-      })();
-    </script>
+    <script defer src="/content/site/ksvl-requests-v1.js?v=20260830-requests-1" onload="window.LAIDIESKSVLRequestsV1.init()"></script>
 
     <div class="sv-trip-tie">
       <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
