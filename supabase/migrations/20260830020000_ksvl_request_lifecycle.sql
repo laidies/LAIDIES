@@ -1,5 +1,8 @@
 -- Private, account-bound KSVL request lifecycle v1.
--- NOT APPLIED: final provider/browser acceptance is pending.
+-- APPLIED 2026-08-30; real provider/browser acceptance passed.
+-- Exact originally applied file SHA256 (before this comment-only status update):
+-- b415ef82cb9d72f4fbfb9c18fe7e89f6ce4c648ac147f479cc2d31833699acfc
+-- Release/cleanup evidence: operations/ACTIVE-WORK.md (8ce8632d).
 -- Preserve existing retention: no automatic expiry, purge function or scheduler.
 -- Existing request rows are deliberately not rewritten or deleted. New requests
 -- use only the RPCs below; direct PostgREST table access is removed.
