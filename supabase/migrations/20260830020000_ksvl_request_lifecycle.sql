@@ -1,20 +1,15 @@
 -- Private, account-bound KSVL request lifecycle v1.
--- HOLD / NOT APPLIED: retention approval, enforced purge scheduling and final
--- provider/browser acceptance are pending. Do not include in a migration push.
+-- NOT APPLIED: final provider/browser acceptance is pending.
+-- Preserve existing retention: no automatic expiry, purge function or scheduler.
 -- Existing request rows are deliberately not rewritten or deleted. New requests
 -- use only the RPCs below; direct PostgREST table access is removed.
 
 alter table public.ksvl_song_requests
-  add column if not exists idempotency_key uuid,
-  add column if not exists expires_at timestamptz;
+  add column if not exists idempotency_key uuid;
 
 create unique index if not exists ksvl_song_requests_owner_idempotency_key_v1
   on public.ksvl_song_requests (user_id, idempotency_key)
   where idempotency_key is not null;
-
-create index if not exists ksvl_song_requests_owner_expiry_v1
-  on public.ksvl_song_requests (user_id, expires_at desc)
-  where expires_at is not null;
 
 -- This receipt ledger intentionally contains no request text. It survives a
 -- requester deletion so the 24-hour limit and a same-key retry stay truthful.
@@ -36,8 +31,16 @@ alter table public.ksvl_song_request_receipts_v1 enable row level security;
 alter table public.ksvl_song_request_receipts_v1
   add column if not exists deleted_at timestamptz;
 
-revoke all on table public.ksvl_song_requests from anon, authenticated;
-revoke all on table public.ksvl_song_request_receipts_v1 from anon, authenticated;
+revoke all on table public.ksvl_song_requests from public, anon, authenticated;
+revoke all on table public.ksvl_song_request_receipts_v1 from public, anon, authenticated;
+-- Table-level REVOKE does not remove separately granted column privileges.
+do $$ declare v_column record; begin
+  for v_column in select table_name,column_name from information_schema.columns
+    where table_schema='public' and table_name in ('ksvl_song_requests','ksvl_song_request_receipts_v1')
+  loop
+    execute format('revoke all (%I) on table public.%I from public, anon, authenticated',v_column.column_name,v_column.table_name);
+  end loop;
+end; $$;
 
 drop policy if exists "KSVL request own insert" on public.ksvl_song_requests;
 drop policy if exists "KSVL request own read" on public.ksvl_song_requests;
@@ -62,7 +65,6 @@ declare
   v_receipt public.ksvl_song_request_receipts_v1%rowtype;
   v_request_id uuid;
   v_submitted_at timestamptz;
-  v_expires_at timestamptz;
   v_status text;
 begin
   if v_owner is null then
@@ -105,22 +107,18 @@ begin
     if v_receipt.request_fingerprint <> v_fingerprint then
       raise exception using errcode = '23505', message = 'idempotency-conflict';
     end if;
-    select submitted_at, expires_at, status into v_submitted_at, v_expires_at, v_status
+    select submitted_at, status into v_submitted_at, v_status
       from public.ksvl_song_requests
      where id = v_receipt.request_id and user_id = v_owner;
     if not found then
       return jsonb_build_object(
-        'state', case when v_receipt.deleted_at is not null then 'deleted' else 'expired' end,
+        'state', 'deleted',
         'receipt_id', v_receipt.request_id, 'replayed', true
       );
-    end if;
-    if v_expires_at <= now() then
-      return jsonb_build_object('state', 'expired', 'receipt_id', v_receipt.request_id, 'replayed', true);
     end if;
     return jsonb_build_object(
       'state', 'received', 'receipt_id', v_receipt.request_id,
       'status', v_status, 'submitted_at', v_submitted_at,
-      'expires_at', v_expires_at,
       'replayed', true
     );
   end if;
@@ -131,10 +129,10 @@ begin
   end if;
 
   insert into public.ksvl_song_requests (
-    user_id, song_style, topic, lyric_ideas, status, idempotency_key, expires_at
+    user_id, song_style, topic, lyric_ideas, status, idempotency_key
   ) values (
-    v_owner, v_style, v_topic, v_lyrics, 'submitted', p_idempotency_key, now() + interval '30 days'
-  ) returning id, submitted_at, expires_at into v_request_id, v_submitted_at, v_expires_at;
+    v_owner, v_style, v_topic, v_lyrics, 'submitted', p_idempotency_key
+  ) returning id, submitted_at into v_request_id, v_submitted_at;
 
   insert into public.ksvl_song_request_receipts_v1 (
     owner_id, idempotency_key, request_id, request_fingerprint
@@ -142,7 +140,7 @@ begin
 
   return jsonb_build_object(
     'state', 'received', 'receipt_id', v_request_id, 'status', 'submitted',
-    'submitted_at', v_submitted_at, 'expires_at', v_expires_at, 'replayed', false
+    'submitted_at', v_submitted_at, 'replayed', false
   );
 end;
 $$;
@@ -155,11 +153,10 @@ set search_path = ''
 as $$
   select coalesce(jsonb_agg(jsonb_build_object(
     'receipt_id', r.id, 'status', r.status, 'submitted_at', r.submitted_at,
-    'status_updated_at', r.status_updated_at, 'expires_at', r.expires_at
+    'status_updated_at', r.status_updated_at
   ) order by r.submitted_at desc), '[]'::jsonb)
   from public.ksvl_song_requests r
-  where r.user_id = auth.uid()
-    and r.expires_at > now();
+  where r.user_id = auth.uid();
 $$;
 
 create or replace function public.delete_my_ksvl_song_request_v1(p_receipt_id uuid)
@@ -194,33 +191,13 @@ begin
   if v_receipt.deleted_at is not null then
     return jsonb_build_object('state', 'deleted', 'receipt_id', p_receipt_id, 'replayed', true);
   end if;
-  return jsonb_build_object('state', 'expired', 'receipt_id', p_receipt_id, 'replayed', true);
-end;
-$$;
-
--- No scheduler is enabled by this migration. This function is deliberately
--- service-role-only so retention activation can be authorized separately.
-create or replace function public.purge_expired_ksvl_song_requests_v1()
-returns bigint
-language plpgsql
-security definer
-set search_path = ''
-as $$
-declare
-  v_count bigint;
-begin
-  delete from public.ksvl_song_requests where expires_at is not null and expires_at <= now();
-  get diagnostics v_count = row_count;
-  delete from public.ksvl_song_request_receipts_v1 where created_at < now() - interval '30 days';
-  return v_count;
+  return jsonb_build_object('state', 'deleted', 'receipt_id', p_receipt_id, 'replayed', true);
 end;
 $$;
 
 revoke all on function public.submit_my_ksvl_song_request_v1(text, text, text, uuid) from public, anon;
 revoke all on function public.list_my_ksvl_song_requests_v1() from public, anon;
 revoke all on function public.delete_my_ksvl_song_request_v1(uuid) from public, anon;
-revoke all on function public.purge_expired_ksvl_song_requests_v1() from public, anon, authenticated;
 grant execute on function public.submit_my_ksvl_song_request_v1(text, text, text, uuid) to authenticated;
 grant execute on function public.list_my_ksvl_song_requests_v1() to authenticated;
 grant execute on function public.delete_my_ksvl_song_request_v1(uuid) to authenticated;
-grant execute on function public.purge_expired_ksvl_song_requests_v1() to service_role;

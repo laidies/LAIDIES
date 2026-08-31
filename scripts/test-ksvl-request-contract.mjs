@@ -12,15 +12,15 @@ const client = fs.readFileSync(clientPath, "utf8");
 function requireText(text, pattern, message) { assert.match(text, pattern, message); }
 function rejectText(text, pattern, message) { assert.doesNotMatch(text, pattern, message); }
 
-requireText(migration, /revoke all on table public\.ksvl_song_requests from anon, authenticated;/, "direct request table access remains available");
-requireText(migration, /revoke all on table public\.ksvl_song_request_receipts_v1 from anon, authenticated;/, "receipt ledger is exposed");
+requireText(migration, /revoke all on table public\.ksvl_song_requests from public, anon, authenticated;/, "direct request table access remains available");
+requireText(migration, /revoke all on table public\.ksvl_song_request_receipts_v1 from public, anon, authenticated;/, "receipt ledger is exposed");
+requireText(migration, /revoke all \(%I\)/, "separate column grants remain exposed");
 requireText(migration, /security definer\s+set search_path = ''/s, "RPCs need a pinned search path");
 requireText(migration, /v_owner uuid := auth\.uid\(\)/, "owner must come from auth, not the client");
 requireText(migration, /idempotency-conflict/, "same key with different payload needs rejection");
 requireText(migration, /request-rate-limit/, "rate limiting is missing");
-requireText(migration, /now\(\) \+ interval '30 days'/, "new requests need bounded retention");
+rejectText(migration, /expires_at|interval '30 days'|cron\.schedule|purge_expired_ksvl/, "unapproved automatic expiry or deletion must not ship");
 requireText(migration, /delete from public\.ksvl_song_requests\s+where id = p_receipt_id and user_id = v_owner/s, "delete must be physical and owner-bound");
-requireText(migration, /grant execute on function public\.purge_expired_ksvl_song_requests_v1\(\) to service_role;/, "purge must stay service-role-only");
 requireText(migration, /'y2k-pop-anthem'.*'deb-comedy-song'/s, "server style allowlist is incomplete");
 requireText(migration, /pg_catalog\.sha256\(convert_to\(\s*jsonb_build_array/s, "idempotency fingerprint must be collision-resistant and unambiguous");
 requireText(migration, /deleted_at timestamptz/, "receipt lifecycle needs idempotent deleted state");
@@ -29,7 +29,7 @@ requireText(client, /LAIDIESResidentAccountRuntime\.get\(\)/, "client must use t
 requireText(client, /request-owner-binding-unavailable/, "client requests need captured-session binding");
 requireText(client, /data-clarity-mask/, "request fields need a Clarity mask");
 requireText(client, /DRAFT_TTL = 7 \* DAY/, "local drafts need seven-day expiry");
-requireText(client, /\(draft\.owner_id\|\|null\)!==\(ownerId\|\|null\)/, "account state must not restore a foreign draft");
+requireText(client, /draft\.owner_id && draft\.owner_id!==ownerId/, "account state must not restore a foreign draft");
 requireText(client, /retrying the unchanged idea will reuse it/, "unknown completion needs an honest retry message");
 requireText(client, /delete_my_ksvl_song_request_v1/, "client needs an owner delete path");
 requireText(client, /runtime\.controller\.getSession\(\)/, "client must capture the runtime controller session");
@@ -77,4 +77,4 @@ assert.match(ids["ksvl-req-status"].textContent, /Received for station review/, 
 session = {user:{id:"owner-b"},access_token:"token-b"}; authChange('SIGNED_IN',session);
 assert.equal(ids["ksvl-req-topic"].value, "", "auth switch left private request text visible");
 
-console.log("KSVL REQUEST CONTRACT PASS calibrated=2 client-fixtures=double-submit,auth-switch direct-table=revoked rpc=owner-bound retention=schedule-pending");
+console.log("KSVL REQUEST CONTRACT PASS calibrated=2 client-fixtures=double-submit,auth-switch direct-table=revoked rpc=owner-bound retention=unchanged-no-auto-delete");

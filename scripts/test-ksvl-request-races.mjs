@@ -72,7 +72,7 @@ function fixture(text, options = {}) {
         return {
           async setHeader(header, value) {
             assert.equal(header, "Authorization");
-            if (name === "list_my_ksvl_song_requests_v1") return { data: [], error: null };
+            if (name === "list_my_ksvl_song_requests_v1") return { data: options.rows||[], error: null };
             if (name === "submit_my_ksvl_song_request_v1") {
               submissions.push({ args: structuredClone(args), authorization: value });
               return submitHandler();
@@ -96,7 +96,7 @@ function fixture(text, options = {}) {
       randomUUID: () => `11111111-${instanceId}-4111-8111-${String(++uuidSequence).padStart(12, "0")}`
     },
     confirm: () => true,
-    LAIDIESResidentAccountRuntime: { get: async () => runtime }
+    LAIDIESResidentAccountRuntime: { get: async () => {if(options.offline)throw Error('offline');return runtime;} }
   };
   sandbox.window = sandbox;
   vm.runInNewContext(text, sandbox, { filename: "ksvl-requests-v1.js" });
@@ -251,7 +251,47 @@ async function newerSameOwnerPendingSurvives(text) {
   assert.equal(first.storage.get(PENDING_KEY), newerPending, "older completion erased a newer same-owner request's retry key");
 }
 
+async function coldOfflineDraft(text) {
+  const page=fixture(text,{offline:true,session:null});await page.init();
+  page.fill(payload('Offline idea to keep'));
+  page.ids['ksvl-req-save-draft'].listeners.click();await settle();
+  assert.equal(JSON.parse(page.storage.get(DRAFT_KEY)||'null')?.payload.topic,'Offline idea to keep','cold offline draft was not saved');
+  assert.match(page.ids['ksvl-req-status'].textContent,/Draft saved only on this device/);
+  const next=fixture(text,{offline:true,session:null,storage:page.storage});await next.init();
+  assert.equal(next.ids['ksvl-req-topic'].value,'Offline idea to keep','offline draft was not restored');
+  assert.equal(next.submissions.length,0);
+}
+async function terminalReceiptPreservesEditedText(text) {
+  for(const state of ['received','deleted','expired']) {
+    const page=fixture(text);await page.init();const response=deferred();page.onSubmit(()=>response.promise);
+    page.fill();page.submit();await settle();page.fill(payload('New text while awaiting receipt'));
+    response.resolve({data:{state,receipt_id:RECEIPT},error:null});await settle();
+    assert.equal(page.ids['ksvl-req-topic'].value,'New text while awaiting receipt',state+' cleared new text');
+  }
+}
+async function anonymousDraftSurvivesSignIn(text) {
+  const page=fixture(text,{session:null});await page.init();page.fill(payload('Draft before sign in'));
+  page.ids['ksvl-req-save-draft'].listeners.click();await settle();
+  const next=fixture(text,{storage:page.storage});await next.init();
+  assert.equal(next.ids['ksvl-req-topic'].value,'Draft before sign in','return from sign in destroyed draft');
+  assert.equal(JSON.parse(next.storage.get(DRAFT_KEY)).owner_id,'owner-a','restored draft must now be locally owner-bound');
+  next.change(account('owner-b'));await settle();assert.equal(next.ids['ksvl-req-topic'].value,'','foreign account inherited draft');
+  const sameTab=fixture(text,{session:null});await sameTab.init();sameTab.fill(payload('Same tab draft'));
+  sameTab.ids['ksvl-req-save-draft'].listeners.click();await settle();sameTab.change(account('owner-a'));await settle();
+  assert.equal(sameTab.ids['ksvl-req-topic'].value,'Same tab draft','same-tab sign in destroyed draft');
+}
+async function clearDraftKeepsReceipts(text) {
+  const page=fixture(text,{rows:[{receipt_id:RECEIPT,status:'submitted'}]});await page.init();
+  assert.equal(page.ids['ksvl-req-list'].children.length,1);page.fill();
+  page.ids['ksvl-req-clear-draft'].listeners.click();await settle();
+  assert.equal(page.ids['ksvl-req-list'].children.length,1,'clear draft hid account receipts');
+  assert.equal(page.ids['ksvl-req-topic'].value,'');
+}
 const scenarios = [
+  ['anonymous-draft-survives-sign-in',anonymousDraftSurvivesSignIn],
+  ['clear-draft-keeps-receipts',clearDraftKeepsReceipts],
+  ['cold-offline-draft',coldOfflineDraft],
+  ['terminal-receipt-preserves-new-text',terminalReceiptPreservesEditedText],
   ["stale-A-after-B-with-other-tab-pending", staleCompletionAfterAccountSwitch],
   ["same-owner-token-refresh", sameOwnerTokenRefresh],
   ["expired-unknown-retry-blocked", expiredUnknownRetry],
@@ -268,6 +308,10 @@ function mutateOnce(text, before, after, name) {
 // The original client was uncommitted. These named, anchored mutants reinstate
 // its exact failure mechanisms; they are calibration, not a historical checkout.
 const calibrations = [
+  ['old-anonymous-draft-loss',anonymousDraftSurvivesSignIn,()=>mutateOnce(source,
+    'draft.owner_id && draft.owner_id!==ownerId','(draft.owner_id||null)!==(ownerId||null)','anonymous-draft-loss')],
+  ['old-clear-draft-hides-receipts',clearDraftKeepsReceipts,()=>mutateOnce(source,
+    'clearForm(view);setStatus(view,"Device-only draft cleared.','clearVisible(view);setStatus(view,"Device-only draft cleared.','clear-draft-hides-receipts')],
   ["old-stale-completion-clear", staleCompletionAfterAccountSwitch, () => mutateOnce(source,
     'else if(error.message==="request-account-changed") return;',
     'else if(error.message==="request-account-changed") clearPrivate(view);', "stale-clear")],

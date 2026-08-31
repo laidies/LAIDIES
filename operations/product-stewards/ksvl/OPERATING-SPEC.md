@@ -1,5 +1,22 @@
 # KSVL Community RAiDIO operating specification
 
+## Request scope refinement — 2026-08-30 (BUILDING)
+
+Continue authorized functional repair without introducing a new retention
+policy. Existing server retention remains unchanged: no new expiry, purge
+function or scheduler. Requester-initiated removal deletes only that owner's
+request text from the active database; a non-text receipt prevents duplicate
+delivery and rate-limit reset. No backup-erasure promise. Authenticated owner
+receipts/status/delete are the visitor surface; station staff retain existing
+provider access. Anonymous/direct table and separately granted column access
+must be removed. Validate/replay under a per-owner transaction lock, cap five
+accepted requests in24hours including deleted ones. No automatic submission,
+public posting, production guarantee or new staff dashboard.
+Device-only save must not depend on an available account/network service;
+unknown identity may save/restore only anonymous local drafts, never expose an
+account-private draft. All prior auth-generation/retry guards remain required.
+This supersedes the proposed30-day retention gate below, not its missing tests.
+
 ## Request / declaration-sticker recovery — 2026-08-30
 
 Declaration picks: DEPLOYED / PUBLICLY VERIFIED (bounded) in6b664326,

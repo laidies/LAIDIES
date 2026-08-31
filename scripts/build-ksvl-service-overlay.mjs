@@ -4,13 +4,13 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 const [baseArg,manifestArg,identity,mode]=process.argv.slice(2);
-if(mode && mode!=='stickers-only')throw Error('Unknown overlay mode');
+if(mode && !['stickers-only','requests-only'].includes(mode))throw Error('Unknown overlay mode');
 const root=path.resolve(import.meta.dirname,'..'),base=path.resolve(baseArg);
 const manifest=JSON.parse(fs.readFileSync(manifestArg,'utf8'));
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 if(manifest.identitySha256!==identity || sha(manifest.files.map(f=>`${f.sha256}  ${f.path}\n`).join(''))!==identity)throw Error('Base identity mismatch');
-const own=new Set(['radio.html','laidies-card.html','content/site/resident-continuation-v1.js','content/site/resident-continuation-bootstrap-v1.js','content/site/sv-global-header.js']);
-const add=mode==='stickers-only'?['content/site/ksvl-stickers-v1.js']:['content/site/ksvl-stickers-v1.js','content/site/ksvl-requests-v1.js'];
+const own=new Set(mode==='requests-only'?['radio.html']:['radio.html','laidies-card.html','content/site/resident-continuation-v1.js','content/site/resident-continuation-bootstrap-v1.js','content/site/sv-global-header.js']);
+const add=mode==='requests-only'?['content/site/ksvl-requests-v1.js']:mode==='stickers-only'?['content/site/ksvl-stickers-v1.js']:['content/site/ksvl-stickers-v1.js','content/site/ksvl-requests-v1.js'];
 const token='20260830-ksvl-service-1';
 export function cache(text){return text.replace(/((?:sv-global-header|resident-continuation-bootstrap-v1|resident-continuation-v1)\.js\?v=)20260830-closet-memory-1/g,`$1${token}`);}
 const output=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-ksvl-service.'));

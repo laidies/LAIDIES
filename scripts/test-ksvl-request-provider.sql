@@ -10,6 +10,9 @@ declare a jsonb; b jsonb; n integer;
 begin
   if has_table_privilege('authenticated','public.ksvl_song_requests','SELECT')
      or has_table_privilege('anon','public.ksvl_song_requests','INSERT')
+     or has_any_column_privilege('authenticated','public.ksvl_song_requests','SELECT')
+     or has_any_column_privilege('anon','public.ksvl_song_requests','INSERT')
+     or has_table_privilege('authenticated','public.ksvl_song_request_receipts_v1','SELECT')
      or has_function_privilege('anon','public.submit_my_ksvl_song_request_v1(text,text,text,uuid)','EXECUTE') then
     raise exception 'FAIL direct or anonymous access';
   end if;
@@ -48,14 +51,8 @@ begin
   exception when sqlstate 'PT429' then null;end;
 end;$$;
 reset role;
--- Expiry is checked only on synthetic rows in this rolled-back transaction.
-update public.ksvl_song_requests set expires_at=now()-interval '1 day'
- where user_id='30fd534e-981d-4c70-9d7c-e28840856aa1';
-update public.ksvl_song_request_receipts_v1 set created_at=now()-interval '31 days'
- where owner_id='30fd534e-981d-4c70-9d7c-e28840856aa1';
-select public.purge_expired_ksvl_song_requests_v1();
 do $$begin
- if exists(select 1 from public.ksvl_song_requests where user_id='30fd534e-981d-4c70-9d7c-e28840856aa1') then raise exception 'FAIL request purge';end if;
- if exists(select 1 from public.ksvl_song_request_receipts_v1 where owner_id='30fd534e-981d-4c70-9d7c-e28840856aa1') then raise exception 'FAIL receipt purge';end if;
+ if (select count(*) from public.ksvl_song_requests where user_id='30fd534e-981d-4c70-9d7c-e28840856aa1')<>4 then raise exception 'FAIL owner deletion';end if;
+ if (select count(*) from public.ksvl_song_request_receipts_v1 where owner_id='30fd534e-981d-4c70-9d7c-e28840856aa1')<>5 then raise exception 'FAIL retry receipt retention';end if;
 end;$$;
-select 'KSVL provider transaction PASS: owner isolation, safe receipt, replay, deletion, validation, rate cap, expiry' as verdict;
+select 'KSVL provider transaction PASS: owner isolation, safe receipt, replay, deletion, validation, rate cap, unchanged retention' as verdict;

@@ -14,6 +14,7 @@ if (!playwrightRoot) {
 const { chromium } = await import(pathToFileURL(path.join(playwrightRoot, "index.mjs")));
 const chrome = process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const registry = JSON.parse(fs.readFileSync(path.join(root, "content/music/ksvl-track-registry.json"), "utf8"));
+const rpcRequests = fs.readFileSync(path.join(root,"radio.html"),'utf8').includes('ksvl-requests-v1.js');
 const admitted = structuredClone(registry);
 const held = structuredClone(registry);
 held.tracks.forEach((track) => {
@@ -237,6 +238,7 @@ async function submitRequestWithServiceResult(serviceResult) {
   });
   const page = await context.newPage();
   page.on("pageerror", (error) => failures.push(`request browser exception: ${error.message}`));
+  if(rpcRequests)await page.route('**/resident-account-runtime-v1.js*',route=>route.fulfill({contentType:'application/javascript',body:'window.LAIDIESResidentAccountRuntime={get:async()=>window.__KSVL_REQUEST_RUNTIME};'}));
   await page.route("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm", async (route) => {
     await route.fulfill({
       contentType:"text/javascript",
@@ -254,6 +256,7 @@ async function submitRequestWithServiceResult(serviceResult) {
         })
       })
     };
+    window.__KSVL_REQUEST_RUNTIME={controller:{getSession:async()=>({user:{id:'synthetic-request-owner'},access_token:'synthetic-only'})},client:{auth:{onAuthStateChange(){}},rpc(name){return {setHeader:async()=>name==='list_my_ksvl_song_requests_v1'?{data:[],error:null}:result};}}};
   }, serviceResult);
   await page.goto(`${origin}/radio.html`, {waitUntil:"domcontentloaded"});
   await page.evaluate(() => {
@@ -454,12 +457,13 @@ try {
   }
   {
     const missing = await submitRequestWithServiceResult({data:{}, error:null});
-    check(missing.status.includes("did not return a request receipt") &&
-      missing.status.includes("Nothing is being described as delivered"),
+    check((rpcRequests?missing.status.includes('could not confirm this request'):missing.status.includes("did not return a request receipt") &&
+      missing.status.includes("Nothing is being described as delivered")) && !missing.status.includes('Received for station review'),
       "missing request receipt was described as received");
     await missing.context.close();
-    const received = await submitRequestWithServiceResult({data:{id:"R-123"}, error:null});
-    check(received.status.includes("Received for station review · receipt R-123"),
+    const receipt=rpcRequests?'22222222-2222-4222-8222-222222222222':'R-123';
+    const received = await submitRequestWithServiceResult({data:rpcRequests?{state:'received',receipt_id:receipt}:{id:receipt}, error:null});
+    check(received.status.includes("Received for station review · receipt "+receipt),
       "validated request receipt was not shown");
     await received.context.close();
   }

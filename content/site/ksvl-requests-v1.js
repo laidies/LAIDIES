@@ -2,7 +2,7 @@
   "use strict";
   var DRAFT_KEY = "laidies_ksvl_request_draft_v1", PENDING_KEY = "laidies_ksvl_request_submission_v1";
   var DAY = 86400000, DRAFT_TTL = 7 * DAY, PENDING_TTL = DAY;
-  var ownerGeneration = 0;
+  var ownerGeneration = 0, knownOwner = null;
   function currentOperation(generation) { if(generation !== ownerGeneration) throw new Error('request-account-changed'); }
   var STYLES = ["y2k-pop-anthem","y2k-teen-drama-ballad","y2k-rnb-slow-jam","late-90s-alt-rock","y2k-country-pop","coffeehouse-acoustic","y2k-retro-house","saint-anthem","deb-comedy-song"];
   function byId(id) { return global.document.getElementById(id); }
@@ -18,11 +18,13 @@
   function fields() { return { style:byId("ksvl-req-style"), topic:byId("ksvl-req-topic"), lyrics:byId("ksvl-req-lyrics"), form:byId("ksvl-request-form"), status:byId("ksvl-req-status"), submit:byId("ksvl-req-submit"), save:byId("ksvl-req-save-draft"), clear:byId("ksvl-req-clear-draft"), abandon:byId("ksvl-req-abandon-pending"), list:byId("ksvl-req-list") }; }
   function setStatus(view, message) { view.status.textContent = message; view.status.focus(); }
   function collect(view) { return { song_style:view.style.value, topic:view.topic.value.trim(), lyric_ideas:view.lyrics.value.trim() || null }; }
-  function populate(view, payload) { view.style.value=payload.song_style||""; view.topic.value=payload.topic||""; view.lyrics.value=payload.lyric_ideas||""; }
-  function clearVisible(view) { view.form.reset(); if (view.list) view.list.replaceChildren(); }
+  function updateCounts(view) {var topic=byId('ksvl-req-topic-count'),lyrics=byId('ksvl-req-lyrics-count');if(topic)topic.textContent=view.topic.value.length+' / 200';if(lyrics)lyrics.textContent=view.lyrics.value.length+' / 1000';}
+  function populate(view, payload) { view.style.value=payload.song_style||""; view.topic.value=payload.topic||""; view.lyrics.value=payload.lyric_ideas||""; updateCounts(view); }
+  function clearForm(view) { view.form.reset(); updateCounts(view); }
+  function clearVisible(view) { clearForm(view); if (view.list) view.list.replaceChildren(); }
   function clearPrivate(view) { clearVisible(view); tryRemove(PENDING_KEY); }
   function pendingFor(ownerId) { var pending=read(PENDING_KEY); if (!pending) return null; if (pending.owner_id!==ownerId) {remove(PENDING_KEY);return null;} if (!Number.isFinite(pending.saved_at)||now()-pending.saved_at>PENDING_TTL||!valid(pending.payload)) {pending={owner_id:ownerId,idempotency_key:pending.idempotency_key,saved_at:pending.saved_at,expired:true};write(PENDING_KEY,pending);} return pending; }
-  function restoreDraft(view, ownerId) { var draft=read(DRAFT_KEY); if (!draft) return false; if (!Number.isFinite(draft.saved_at) || now()-draft.saved_at>DRAFT_TTL || !valid(draft.payload) || (draft.owner_id||null)!==(ownerId||null)) { tryRemove(DRAFT_KEY); return false; } populate(view,draft.payload); return true; }
+  function restoreDraft(view, ownerId) { var draft=read(DRAFT_KEY); if (!draft) return false; if (!Number.isFinite(draft.saved_at) || now()-draft.saved_at>DRAFT_TTL || !valid(draft.payload) || (draft.owner_id && draft.owner_id!==ownerId)) { tryRemove(DRAFT_KEY); return false; } if(ownerId && !draft.owner_id){draft.owner_id=ownerId;write(DRAFT_KEY,draft);} populate(view,draft.payload); return true; }
   function mask(view) { [view.topic,view.lyrics,view.form].forEach(function (element) { if (element) { element.setAttribute("data-clarity-mask","true"); element.classList.add("clarity-mask"); } }); }
   async function getRuntime() { return global.LAIDIESResidentAccountRuntime.get(); }
   async function getSession(runtime) { return runtime.controller.getSession(); }
@@ -39,10 +41,10 @@
   async function deleteRequest(view,runtime,session,receiptId,button) {
     var generation=ownerGeneration;
     button.disabled=true;
-    try { var result=await rpc(runtime,session,"delete_my_ksvl_song_request_v1",{p_receipt_id:receiptId});currentOperation(generation); if (result.error || !result.data || (result.data.state!=="deleted" && result.data.state!=="expired")) throw result.error||new Error("delete-unconfirmed"); var deletedMessage=result.data.state==="deleted" ? "Request deleted. Its non-text retry receipt may remain for up to 30 days; deletion does not reset the daily limit." : "This request had already expired."; setStatus(view,deletedMessage); try {await renderRequests(view,runtime,session);}catch(error){if(error.message==='request-account-changed')throw error;setStatus(view,deletedMessage+' The list could not refresh yet.');} }
+    try { var result=await rpc(runtime,session,"delete_my_ksvl_song_request_v1",{p_receipt_id:receiptId});currentOperation(generation); if (result.error || !result.data || (result.data.state!=="deleted" && result.data.state!=="expired")) throw result.error||new Error("delete-unconfirmed"); var deletedMessage="Request text deleted from the active station database. A non-text retry receipt remains to prevent duplicate delivery; deletion does not reset the daily limit."; setStatus(view,deletedMessage); try {await renderRequests(view,runtime,session);}catch(error){if(error.message==='request-account-changed')throw error;setStatus(view,deletedMessage+' The list could not refresh yet.');} }
     catch(error) { button.disabled=false; if (error.message!=="request-account-changed") setStatus(view,"The station could not confirm deletion. The request is still being treated as active."); }
   }
-  async function saveDraft(view) { var generation=ownerGeneration,runtime=await getRuntime(), session=await getSession(runtime);currentOperation(generation);var payload=collect(view); if (!valid(payload)) throw new Error("invalid-local-draft"); write(DRAFT_KEY,{owner_id:session?session.user.id:null,saved_at:now(),payload:payload}); }
+  async function saveDraft(view) { var payload=collect(view); if (!valid(payload)) throw new Error("invalid-local-draft"); write(DRAFT_KEY,{owner_id:knownOwner,saved_at:now(),payload:payload}); }
   async function submit(view) {
     var generation=ownerGeneration,runtime=await getRuntime(), session=await getSession(runtime);currentOperation(generation); if (!session) { setStatus(view,"Sign in with your Resident Card before sending. You can explicitly save a seven-day device-only draft instead."); return; }
     var payload=collect(view); if (!valid(payload)) throw new Error("invalid-request"); var pending=pendingFor(session.user.id), fingerprint=JSON.stringify(payload);
@@ -56,8 +58,9 @@
   }
   function bind(view) {
     var busy=false;
+    view.topic.addEventListener('input',function(){updateCounts(view);});view.lyrics.addEventListener('input',function(){updateCounts(view);});
     if (view.save) view.save.addEventListener("click",function(){ view.save.disabled=true; saveDraft(view).then(function(){setStatus(view,"Draft saved only on this device for seven days. It has not been sent or reviewed.");}).catch(function(){setStatus(view,"This browser could not save the draft. Nothing was sent; copy your text before leaving.");}).finally(function(){view.save.disabled=false;}); });
-    if (view.clear) view.clear.addEventListener("click",function(){ if (tryRemove(DRAFT_KEY)) {clearVisible(view);setStatus(view,"Device-only draft cleared. This does not withdraw any submitted or pending request.");} else setStatus(view,"This browser could not confirm the draft was cleared."); });
+    if (view.clear) view.clear.addEventListener("click",function(){ if (tryRemove(DRAFT_KEY)) {clearForm(view);setStatus(view,"Device-only draft cleared. This does not withdraw any submitted or pending request.");} else setStatus(view,"This browser could not confirm the draft was cleared."); });
     if (view.abandon) view.abandon.addEventListener("click",function(){ if(!global.confirm('The earlier request may already have arrived. Starting a different request does not withdraw it. Check your request list before continuing. Start a different request?'))return; if (tryRemove(PENDING_KEY)) setStatus(view,"Pending retry abandoned. Edit or send a new request when ready."); else setStatus(view,"This browser could not clear the pending retry."); });
     view.form.addEventListener("submit",function(event){ event.preventDefault(); if (busy) return; busy=true; view.submit.disabled=true; submit(view).catch(function(error){ if(error.code==='PT429')setStatus(view,'Five requests have already been received in the last 24 hours. Please wait before sending another.');else if(error.code==='22023'||error.message==='invalid-request')setStatus(view,'Choose a style, enter a topic of 3–200 characters and keep lyric ideas under 1,000 characters.');else if(error.message==="pending-reconciliation-required") setStatus(view,"A prior request has an unknown result. Restore its exact text to retry the same key, or explicitly abandon that retry before changing it."); else if(error.message==="request-account-changed") return; else setStatus(view,"The station could not confirm this request. If a retry key was saved, retrying the unchanged idea will reuse it."); }).finally(function(){busy=false;view.submit.disabled=false;}); });
   }
@@ -65,7 +68,7 @@
   function init() {
     var view=fields(); if(!view.form||!view.style||!view.topic||!view.lyrics||!view.status||!view.submit) return Promise.resolve(false);
     mask(view); bind(view); // handlers install before any provider/network work
-    getRuntime().then(async function(runtime){ var initial=await getSession(runtime), owner=initial?initial.user.id:null; runtime.client.auth.onAuthStateChange(function(event,session){var next=session?session.user.id:null;if(next!==owner){owner=next;ownerGeneration++;clearPrivate(view);tryRemove(DRAFT_KEY);setStatus(view,next?'Account changed. Your private request list will refresh.':'Signed out. Private request text and list cleared.');global.setTimeout(function(){bootstrap(view).catch(function(){});},0);}}); return bootstrap(view); }).catch(function(error){if(error.message!=='request-account-changed'&&view.list)view.list.replaceChildren();});
+    getRuntime().then(async function(runtime){ var initial=await getSession(runtime), owner=initial?initial.user.id:null;knownOwner=owner; runtime.client.auth.onAuthStateChange(function(event,session){var next=session?session.user.id:null;if(next!==owner){var signingIn=!owner&&!!next;owner=next;knownOwner=next;ownerGeneration++;if(!signingIn){clearPrivate(view);tryRemove(DRAFT_KEY);}else if(view.list)view.list.replaceChildren();setStatus(view,next?'Signed in. Your private request list will refresh.':'Signed out. Private request text and list cleared.');global.setTimeout(function(){bootstrap(view).catch(function(){});},0);}}); return bootstrap(view); }).catch(function(error){if(error.message!=='request-account-changed'){if(view.list)view.list.replaceChildren();var draft=read(DRAFT_KEY);if(!knownOwner && draft && !draft.owner_id && !view.topic.value && !view.lyrics.value)restoreDraft(view,null);}});
     return Promise.resolve(true);
   }
   global.LAIDIESKSVLRequestsV1=Object.freeze({init:init});

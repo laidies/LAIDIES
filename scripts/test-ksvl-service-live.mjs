@@ -35,7 +35,7 @@ try{
    await p.locator('#ksvl-req-submit').click();await p.waitForFunction(()=>document.querySelector('#ksvl-req-status').textContent.includes('Received for station review'));
    const id=await p.locator('[data-ksvl-request-delete]').getAttribute('data-ksvl-request-delete');
    await q.goto(origin+'/radio#hub-request',{waitUntil:'domcontentloaded'});await q.locator(`[data-ksvl-request-delete="${id}"]`).waitFor();
-   await q.locator(`[data-ksvl-request-delete="${id}"]`).click();await q.waitForFunction(()=>document.querySelector('#ksvl-req-status').textContent.startsWith('Request deleted'));
+   await q.locator(`[data-ksvl-request-delete="${id}"]`).click();await q.waitForFunction(()=>document.querySelector('#ksvl-req-status').textContent.startsWith('Request text deleted'));
    console.log('REAL REQUEST browser submit/receipt/second-browser status/own delete PASS');
  }
  console.log('REAL KSVL STICKER ACCOUNT PASS desktop pickup / phone Closet restore / removal back to desktop');

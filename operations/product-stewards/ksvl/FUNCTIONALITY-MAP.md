@@ -1,5 +1,18 @@
 # KSVL functionality and cross-page touchpoint map
 
+## 2026-08-30 latest bounded recovery
+
+The6b664326 release supersedes the identities below without changing the
+continuity runtime. Declaration sticker pickup→private Closet→signed-in
+cross-browser restoration/removal is publicly verified; listening-earned
+achievements remain held. Exact input and evidence: `operations/ACTIVE-WORK.md`.
+Request client/database repair is separately BUILDING, not deployed: owner-only
+RPCs, idempotency, receipt/status/delete, explicit offline-capable device draft.
+No automatic retention/deletion policy is introduced. The Library release hold
+must lift with an exact successor before coordinated schema/Radio activation.
+Native device/Safari/VoiceOver, actual external moderation and listening-earned
+rewards are not implied by this bounded repair.
+
 ## 2026-08-30 public continuity repair — verified bounded release
 
 Production `931eb0dc-ab7e-4744-a0c6-7a8c846802e5` preserves KSVL source

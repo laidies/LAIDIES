@@ -1,5 +1,48 @@
 # Active work
 
+## 2026-08-30 remaining service recovery — BUILDING
+
+Ali instructed continued recovery through completion. Preserve exact6b664326
+as the base and release only independently checked visitor deltas. Foreground
+owns KSVL request client/database/tests; independent read-only lane inventories
+remaining Community/Post Office/referral/reward gaps against current sources.
+Smaller request scope resolves the unapproved retention proposal without
+assuming consent: preserve existing server retention, add no expiry/purge/job,
+and disclose that no automatic deletion schedule exists. Restore owner-bound
+submission, idempotent receipts, private list and explicit requester deletion;
+remove anonymous/direct table and column access. Earlier30-day candidate is
+superseded, not applied. No original rows will be rewritten/deleted.
+Cold-offline draft fixture first failed, then passed after removing network
+dependence from explicit device-only save. Account-private drafts are not
+restored when identity cannot be established. Full client/provider/public
+acceptance and exact release remain pending; no completion claim yet.
+Independent review additionally reproduced anonymous save→sign-in draft loss
+and Clear draft hiding account receipts. Both were added as failing tests,
+fixed and calibrated with old-defect mutations:10 scenarios/7 mutants now pass.
+Exact candidate zqsr5j (675files, identity5de5a2b7de06a26045b64e2b8fd6ef88779cf1ffff6b52046df2320fbcfccda5)
+changes only radio.html and adds content/site/ksvl-requests-v1.js. Component
+browser1280/390/320 and original decoded-audio/receipt-truth suite pass.
+Original receipt fixture was adapted to the new RPC; its two old insert-shaped
+assertions first failed, not suppressed. Independent rejudge accepted both repaired
+flows and their account-isolation dependencies against all675 exact hashes;
+10 scenarios/7 old-defect mutants pass. This is local admission, not live proof.
+Prepared real-provider concurrency test is not yet run; it must use only the
+disposable identity after coordinated activation and must preserve original data.
+Library sub-agent01a054aa-a88f-7a92-a34b-82bd606dc43e requested a Pages hold;
+acknowledged and exact6b664326 handoff relayed via Library owner01a02f80 because
+direct sub-agent messaging was rejected. Do not activate schema while the old
+Radio remains live. One disposable test Auth user exists pending live tests:
+`0b85163b-2f92-407e-9e5b-af76109a3137`; cleanup is required. Provider rehearsal
+rolled back; candidate tableNULL/fixtures0/originalusers5/requests0 before that
+test-account creation. No persistent schema/Pages change this turn yet.
+
+Independent remaining inventory: resident mail explicitly gated on blocking/
+reporting (post-office-decisions.md); referrals/BEST FRIENDS and reward balances
+remain held, not hidden completed transactions. Comment Card is an intentional
+email-draft handoff. Live Ask the Room showed real Hyvor login, comment textbox
+and0comments; no public post or moderation result was tested. Do not translate
+those product-policy gates or third-party unknowns into repaired backend claims.
+
 ## 2026-08-30 KSVL private sticker delivery — DEPLOYED / PUBLICLY VERIFIED (bounded)
 
 Production `6b664326-5e92-4b7c-bb46-2c8ec7eb80d6`, pushed source
