@@ -3,6 +3,57 @@
 **Status:** SPECIFIED — GLOBAL PRIMARY-SOURCE RESEARCH BUILDING
 **Owner:** LIBRAiRY product steward with Learning System & Concepts
 
+## 2026-08-31 — renewed textbook brief
+
+**DECIDED — Ali:** Start the next LIBRAiRY textbooks. The first should explain
+all the major companies and key figures in AI, including chips.
+
+Continue this existing book, not a duplicate identity. Local source
+`content/library-books/sources/whos-who-in-ai.source.json` and its rendered
+derivative exist; older notes describing the book as unbuilt are superseded
+by that file observation. Existence is not content approval or publication.
+
+**Proposed expansion, not approved chapter wording:**
+
+1. The industry at a glance: distinguish companies, research labs, models,
+   products and infrastructure before introducing a roster.
+2. Model makers: major global organisations, what distinguishes their work,
+   and their model/product families; cover more than US consumer chatbots.
+3. Chips and their supply chain: chip design, fabrication, lithography,
+   memory, packaging and networking; explain training versus running a model
+   and why these dependencies matter. Chips are a substantial section.
+4. Cloud, data centres and physical resources: who supplies computing,
+   electricity, cooling and capacity, and who depends on whom.
+5. Products and distribution: consumer, workplace, creative and developer
+   tools; distinguish the company a reader buys from from underlying suppliers.
+6. Money and control: investment, ownership, governance, licensing,
+   partnerships and competing incentives, using dated sourced relationships.
+7. Key people: founders and executives alongside researchers, engineers and
+   public-interest figures. Explain actual contributions and decision rights;
+   never substitute celebrity, gender tokenism or job titles for explanation.
+8. Public power and a global view: relevant public bodies, standards and
+   geographic dependencies; current legal claims require primary-source review.
+9. Find a name: a concise people/company index linked to connected explanations.
+
+**Coverage rule proposed:** Include an organisation or person when omitting
+them would materially distort the reader's understanding of AI capability,
+supply, access, research, distribution or control. Use substantial profiles
+for central actors and shorter linked entries for supporting actors. Do not
+promise a literally exhaustive directory or treat the present draft's roster
+as complete. Date the roster and disclose meaningful coverage gaps.
+
+**Observed gap:** The existing source has nine short chapters, including a
+single chip-chain chapter and a selective model-lab roster. It explicitly
+acknowledges geographic omissions. These are useful foundations, not proof of
+the requested major-player coverage or textbook depth.
+
+**Next action:** Audit the complete existing source against this coverage
+scope; build a current company/person/source matrix, then refresh the producer
+contract before drafting a representative expanded chip section. This intake
+edit changes its checksum: the prior producer-contract binding must not be
+reused for successor prose. No prose, cover, reader, catalogue, release or
+live-site changes were made in this scoping turn.
+
 ## 1. Trigger and intended result
 
 - **Title:** Who’s Who in AI

@@ -4,6 +4,28 @@
 
 ## Current task
 
+### 2026-08-31 — Who’s Who textbook continuation
+
+- **Status:** SPECIFIED / COVERAGE EXPANSION PROPOSED / MANUSCRIPT HOLD.
+- **Current request:** Ali wants the next LIBRAiRY textbooks; the first explains
+  all major AI companies and key figures, explicitly including chips.
+- **Current source:** `operations/product-stewards/library/whos-who-in-ai/LEARNING-CONTENT-INTAKE-2026-08-24.md`, renewed brief dated 2026-08-31.
+- **Verified this turn:** Existing local source and render were recovered;
+  the source contains nine chapters and explicitly incomplete global coverage.
+  This is not a new full factual review or a public-state verification.
+- **Check boundary:** `git diff --check` passed. `npm run test:context-authority`
+  could not run its assertions: `ENOENT` for this checkout's missing
+  `operations/context-authority.json`. No configuration repair was attempted;
+  the startup-authority check remains unverified.
+- **Next action:** Audit the full source for company/person/chip-chain coverage,
+  source the expanded roster, refresh the producer contract and produce one
+  expanded chip-section proof before extending the rest of the book.
+- **Preserved:** Breakthroughs source, render and its prior review checkpoint
+  below are unchanged; its remaining gates are still open. No opening-book,
+  page, catalogue, deployment or public availability changes.
+
+### Preserved 2026-08-24 checkpoint
+
 - **Task ID:** LIBRARY-TWO-LIVING-BOOKS-20260824
 - **Status:** BREAKTHROUGHS VOICE REWRITE PASSED LOCALLY — ALI REVIEW — PUBLICATION HOLD
 - **Owner:** Codex foreground; Ali owns taste and public-product decisions
