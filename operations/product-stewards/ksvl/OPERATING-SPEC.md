@@ -1,6 +1,10 @@
 # KSVL Community RAiDIO operating specification
 
-## Request scope refinement — 2026-08-30 (BUILDING)
+## Request scope refinement — 2026-08-30 (DEPLOYED, bounded)
+
+Request lifecycle is live in8ce8632d, source73c3051d; exact release, applied SQL
+hash, real provider/browser results and disposable-account cleanup are recorded
+at the top of operations/ACTIVE-WORK.md. The historical HOLD below is superseded.
 
 Continue authorized functional repair without introducing a new retention
 policy. Existing server retention remains unchanged: no new expiry, purge
@@ -23,10 +27,10 @@ Declaration picks: DEPLOYED / PUBLICLY VERIFIED (bounded) in6b664326,
 source6ce2992c. Custom and immutable real-account desktop/phone-browser pickup,
 Closet restoration and removal sync pass. Exact release and cleanup are recorded
 in `operations/ACTIVE-WORK.md`. Listening-earned rewards remain held.
-Request service: PREPARED / HOLD, NOT DEPLOYED. Provider rehearsal rolled back;
-no schema, permissions or retention scheduler was changed. Retention approval,
-cold-offline draft handling, remaining provider checks and real submission/delete
-verification are required before activation. Source HEAD is not a release input.
+Request service: DEPLOYED. Transactional rehearsal rolled back, then the exact
+reviewed lifecycle migration was applied in the coordinated release. Cold-offline
+draft, real submission/delete, provider permissions and concurrency checks passed.
+No retention scheduler was introduced. Source HEAD is not a release input.
 
 Ali authorized recovery and live narrow releases of remaining non-working
 backend features. Restore the existing up-to-three declaration sticker pickup

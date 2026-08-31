@@ -7,6 +7,30 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-08-30 KSVL owner-bound request lifecycle and native-control regression
+
+Preserving existing retention resolved an invented30-day-policy dependency:
+no automatic expiry/purge/job was needed to restore private requester controls.
+Real permission checks must include separately granted columns, not just table
+grants. Stable owner-bound receipts and a transaction lock distinguish accepted,
+replayed, conflicted and deleted attempts; deletion must not reset a rate cap.
+Real-provider concurrency/replay/owner-delete checks passed, then every row of
+the disposable test identity was removed while all five original users remained.
+Independent review caught anonymous draft loss on sign-in and Clear draft
+hiding account receipts. Old-defect mutants now reject both; offline save also
+first failed before repair. Hash-only navigation needed a real event listener.
+Public inspection then found the shared decorative formatter nesting spans in
+a native OPTION, blanking its accessible label. Radio received a14-byte existing
+opt-out, within its promised release boundary; the shared root cause on other
+menus remains separate local repair, not silently added to that release.
+Prevention: test guest→sign-in, interrupted/replayed writes, two browser contexts,
+native accessible names and actual hash transitions, not only static markup or
+an SDK error-null result. Reuse exact current artifact overlays to preserve other
+teams' releases. Town Hall's raw insert still lacks receipt semantics and named
+triage/retention policy; do not portray an unopened intake as recovered backend.
+Behind the Build angle: a successful network call is not the same as a reliable
+service; receipts, ownership and preserved drafts make the visitor outcome real.
+
 ## 2026-08-30 KSVL sticker consumer and held request-service repair
 
 The old counter had local picks without a private Closet consumer or typed

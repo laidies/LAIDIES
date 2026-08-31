@@ -6,10 +6,13 @@ The6b664326 release supersedes the identities below without changing the
 continuity runtime. Declaration sticker pickup→private Closet→signed-in
 cross-browser restoration/removal is publicly verified; listening-earned
 achievements remain held. Exact input and evidence: `operations/ACTIVE-WORK.md`.
-Request client/database repair is separately BUILDING, not deployed: owner-only
+Request client/database repair is deployed in8ce8632d: owner-only
 RPCs, idempotency, receipt/status/delete, explicit offline-capable device draft.
-No automatic retention/deletion policy is introduced. The Library release hold
-must lift with an exact successor before coordinated schema/Radio activation.
+No automatic retention/deletion policy is introduced. Real custom/immutable
+submission, second-browser receipts and owner deletion passed on d007aa04; final
+8ce8632d only protects the native style label from decorative markup. Exact
+release and test boundaries are in operations/ACTIVE-WORK.md. Further Pages
+releases hold while Library rebases its isolated successor.
 Native device/Safari/VoiceOver, actual external moderation and listening-earned
 rewards are not implied by this bounded repair.
 
@@ -26,7 +29,7 @@ navigation stays paused. Bottom controls fit 390/320. Independent exact-artifact
 errors. The implemented continuity scope is public; the historical local/audit
 sections below remain evidence of predecessor states, not current failures.
 
-Open gaps are unchanged: authenticated requests, sticker-to-Closet collection,
+Historical gaps (requests and sticker collection now resolved above):
 listening-history account sync, contextual captions/lesson links and native
 Safari/physical-device/background behavior. Ordinary full-page navigation can
 briefly interrupt sound; use the explicit popup for uninterrupted listening.

@@ -6,7 +6,27 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth — 2026-08-30 KSVL private sticker successor
+## Current truth — 2026-08-30 KSVL request successor
+
+Production `8ce8632d-8529-4482-a1c1-f7c5b703c72a`, pushed source
+`73c3051d602b6dcf577b30fab4b02f40e2e516f2`, immutable
+`https://8ce8632d.laidies-sunnyvaile.pages.dev`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-service.UhcMYC`;
+manifest same path plus `.manifest.json`;675 files,640175067 bytes; identity
+`465d19ef23b4236042512790551afe0f9419a07681529b33c6969f937828751b`.
+From6b664326: radio.html changed; content/site/ksvl-requests-v1.js added;
+673 unchanged,0 removed. Intermediate d007aa04 received the same backend/client;
+final successor only adds14-byte native-select formatter opt-out to radio.html.
+All675 local hashes and38 public/custom-immutable path comparisons pass.
+Final custom and immutable1280/390/320 native menu, hash navigation, local draft
+save/reload/clear and no-overflow checks pass. Exact successor handed to Library
+owner01a02f80, NewsStand owner01a03456 and publisher01a02f95; Pages hold resumed.
+Applied migration SHA256 and actual provider/browser outcomes, limitations and
+test-account cleanup are recorded at the top of operations/ACTIVE-WORK.md.
+No automatic retention/purge/job introduced. Library granted this bounded slot;
+hold further Pages releases after the verified successor handoff.
+
+## Historical predecessor — 2026-08-30 KSVL private sticker successor
 
 Production `6b664326-5e92-4b7c-bb46-2c8ec7eb80d6`, deployed/pushed source
 `6ce2992c71e75ffb3fd439aa1b3eeb6f3f6b5df4`, immutable

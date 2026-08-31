@@ -1,6 +1,54 @@
 # Active work
 
-## 2026-08-30 remaining service recovery — BUILDING
+## 2026-08-30 KSVL request recovery — DEPLOYED / PUBLICLY VERIFIED (bounded)
+
+Production `8ce8632d-8529-4482-a1c1-f7c5b703c72a`, pushed source
+`73c3051d602b6dcf577b30fab4b02f40e2e516f2`, immutable
+`https://8ce8632d.laidies-sunnyvaile.pages.dev`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-service.UhcMYC`;
+manifest same path plus `.manifest.json`;675 files,640175067 bytes; identity
+`465d19ef23b4236042512790551afe0f9419a07681529b33c6969f937828751b`.
+From6b664326: only radio.html changed and content/site/ksvl-requests-v1.js added;
+673 unchanged,0 removed. From immediate d007aa04 predecessor: only14 bytes added
+to Radio's native style select (`data-brand-ai`) to prevent decorative span markup.
+All675 input hashes remain exact;38 custom/immutable comparisons across19 paths
+pass, including six rendered books, NewsStand, Resident, Closet and Homepage.
+
+Backend migration20260830020000 was applied transactionally before coordinated
+Radio deployment, SHA256 `b415ef82cb9d72f4fbfb9c18fe7e89f6ce4c648ac147f479cc2d31833699acfc`.
+Owner-bound submit/list/delete, idempotent receipts, transaction locking and
+five accepted requests per24h are live. Direct table AND column grants removed.
+No automatic expiry/purge/scheduler introduced; existing retention preserved.
+Original request rows0; no original residents rewritten or deleted.
+Exact provider rehearsal rolled back successfully before activation. Real custom
+and immutable d007aa04 browser submit→fresh phone-browser receipt→owner delete,
+plus preserved sticker pickup→Closet→remote removal passed. Final successor has
+identical request client/backend and only the14-byte native-label protection.
+Real API concurrency, same-key replay/conflict, direct/anonymous denial, private
+list, deleted-receipt non-resurrection and cap-not-reset-by-deletion all passed.
+Local component1280/390/320, original decoded-audio suite and10race scenarios /
+7known-bad mutants pass. Native-menu predecessor deliberately failed calibration.
+
+Disposable Auth user0b85163b-2f92-407e-9e5b-af76109a3137 deleted after testing;
+zero rows remain in auth, profiles, cards, identity mutations, continuations,
+continuation mutations, requests and request receipts for that exact identity.
+Original five Auth IDs unchanged. Generated credential file/directory removed;
+three task Dashboard/public tabs closed. Synthetic data is not recoverable.
+Physical devices/native Safari/VoiceOver not tested. Final live1280/390/320
+menu/hash-navigation/local-draft/overflow checks passed at both origins.
+Library granted this bounded deployment slot; exact final successor returned to
+Library owner01a02f80 and NewsStand owner01a03456/publisher01a02f95. Hold further
+Pages releases while the isolated Library release rebases. NewsStand holds.
+
+Remaining safe local work: shared accent formatters can insert markup into other
+native menus; Radio is protected but shared root-cause repair is not yet released.
+Town Hall intake is not a recovered completed backend: SUBMISSION_RELEASED=false,
+raw SDK insert response cannot satisfy receipt contract, and retention/deletion
+policy plus named triage/backup and escalation ownership remain explicit gates.
+Do not enable an unattended intake or invent those decisions. Direct messages,
+referrals and reward balances remain gated; no new public posting/moderation test.
+
+## Historical preparation — superseded by the deployed request record above
 
 Ali instructed continued recovery through completion. Preserve exact6b664326
 as the base and release only independently checked visitor deltas. Foreground
