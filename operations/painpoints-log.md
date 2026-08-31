@@ -25,7 +25,11 @@ opt-out, within its promised release boundary; the shared root cause on other
 menus received separate local guards in all three formatter copies, including
 the `.wordmark` shortcut. Each old formatter failed the native-option fixture;
 all repaired copies preserve plain native labels and normal branded prose.
-Release remains separate and held for Library coordination, not silently added.
+After Library returned3d4bebd1, the shared fix shipped separately asfcbe7249:
+three formatter files plus58cache-only consumers, all13Library changes exact.
+Full native-menu cases pass on both origins; custom full-load events had
+intermittent30s timeouts, then identical-code retries passed. Cause remains
+unestablished; native-control success is not a page-performance verdict.
 Prevention: test guest→sign-in, interrupted/replayed writes, two browser contexts,
 native accessible names and actual hash transitions, not only static markup or
 an SDK error-null result. Reuse exact current artifact overlays to preserve other

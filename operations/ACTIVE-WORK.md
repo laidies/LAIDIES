@@ -1,26 +1,53 @@
 # Active work
 
-## 2026-08-30 shared native-menu repair — LOCAL / release HOLD
+## 2026-08-30 shared native-menu repair — DEPLOYED / PUBLICLY VERIFIED (bounded)
 
-KSVL request release below is publicly verified; Library owns the next Pages
-slot. No further deployment by this lane until its exact successor handoff.
+Production `fcbe7249-2a3d-4fe3-99dc-d4546ffcf27b`, pushed source
+`280a400444fbaa01a67381a1eb4e9a4d0ecea5f9`, immutable
+`https://fcbe7249.laidies-sunnyvaile.pages.dev`, custom `https://laidies.ai`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-native-brand.rJeTfb`;
+manifest samepath+.manifest.json;686files,653489626bytes, identity
+`8ba0c5a94dba71be0698656e36ed2f9fcbf29774f5d523853c0b11752050776d`.
+Library returned the bounded slot after3d4bebd1, exact input
+`/tmp/laidies-library-colours-release-20260830-final`, identity
+`d9145bee0be602299842c684510efc109bf9b6424f2e5fc3897fc51a3ea5a369`.
+This successor preserves every one of its13 Library changed/added paths exactly.
+From3d4bebd1:61 changed paths (3 formatters,58 cache-only consumers),625 unchanged,
+0 added/removed. No backend change. Returned next Pages slot to NewsStand01a03456;
+hold further Pages releases in this lane pending its exact successor.
 Recovered root cause: accent autowrap, script.js wordmark and brand-polish
 wordmark all omitted native option/select/optgroup guards. The `.wordmark`
-shortcut also needs to skip native controls. Local fixes cover all three copies.
+shortcut also needed to skip native controls. Published fixes cover all three.
 Calibrated browser fixture rejected each predecessor (2/5/5 nested option
 elements); all three corrected formatter tests pass with ordinary branding intact.
-Local full-page1280/390/320 tests pass for Radio, Closet, MAiKEOVER, Visitor's Centre
-and FAiRY Godmother (10/62/129/18/8 native options respectively).
-Private candidate `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-native-brand.yCbDxH`;
-manifest samepath+.manifest.json;675files,640176450bytes, identity
-`9a24529d52c7b296eef421461d6fc8366a0849f0982790a8b79e0de008aa3768`.
-From exact8ce8632d:61 changed paths, comprising3 formatter files and58 cache-token
-consumer files; no additions/removals. Candidate is NOT DEPLOYED. Independent
-local review accepted: all675 hashes, three actual node filters and their rejected
-predecessors, all82 HTML loader edges plus dynamic polish edge verified. Browser
-tests were maker-run, not independently rerun. Before release, rebuild using scripts/build-native-brand-overlay.mjs
-against the Library's then-current verified artifact, recheck boundary, and test
-the actual custom/immutable visitor menus. Do not deploy this stale-base candidate.
+Local and immutable full-page1280/390/320 tests pass for Radio, Closet, MAiKEOVER,
+Visitor's Centre and FAiRY Godmother (10/62/129/18/8 native options respectively).
+Custom-domain native label/value cases also all pass, assembled from the full
+run and targeted retries: initial Closet390 and FAiRY320 full-load events timed
+out at30s; identical-code retries passed, including two targeted FAiRY320 runs.
+Their cause is unestablished; do not claim page-loading performance repaired.
+A third targeted FAiRY320 run timed out at35s with six existing SAiNT PNG requests
+pending (roughly19MB total), while native labels/value selection still passed.
+Two preceding targeted runs completed at10s/14.6s. A controlled image fixture
+rejected eager loading but both src-before-lazy and lazy-before-src passed:
+assignment order alone is not an established cause and was not changed.
+Separate custom320 checks show no horizontal overflow on all five pages.
+Independent local review accepted all3 filters and rejected predecessors, all82
+HTML loader edges plus dynamic polish edge. Rebase-only review verified all686
+hashes, identical admitted implementation,58 cache-only files and13 preserved
+Library paths. Maker live integrity: all686 input hashes and70 custom/immutable
+comparisons across35paths pass, including all13 Library delta and6 rendered books.
+The overlay builder rejected a deliberately wrong base identity before creating
+an artifact. Browser tests were maker-run, not independently rerun. Physical
+devices/native Safari/VoiceOver remain untested. Earlier yCbDxH candidate was
+never deployed; do not use it as a release base.
+
+Next unresolved service decision: Town Hall needs a named triage owner and backup
+before its private intake may open. Retention/deletion, escalation and tested
+server receipt/abuse controls remain gates after that assignment. Direct-message
+blocking/reporting, referrals/reward balances and KSVL transcript/context gaps
+remain explicitly uncompleted; none was silently enabled. Intermittent custom
+page-load timing remains a separate diagnostic follow-up, not a proven regression.
 
 ## 2026-08-30 KSVL request recovery — DEPLOYED / PUBLICLY VERIFIED (bounded)
 

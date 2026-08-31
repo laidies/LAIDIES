@@ -6,7 +6,23 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current truth — 2026-08-30 KSVL request successor
+## Current truth — 2026-08-30 shared native-menu successor
+
+Production `fcbe7249-2a3d-4fe3-99dc-d4546ffcf27b`, pushed source
+`280a400444fbaa01a67381a1eb4e9a4d0ecea5f9`, immutable
+`https://fcbe7249.laidies-sunnyvaile.pages.dev`.
+Exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-native-brand.rJeTfb`;
+manifest samepath+.manifest.json;686files,653489626bytes, identity
+`8ba0c5a94dba71be0698656e36ed2f9fcbf29774f5d523853c0b11752050776d`.
+Rebased from verified Library3d4bebd1:61 changed paths (3 formatters +58 cache-only
+consumers),625 unchanged,0 additions/removals. All13 latest Library paths exact.
+All686 input hashes and70 custom/immutable comparisons pass. Native labels/values
+pass1280/390/320 across five pages at both origins; custom required retries after
+intermittent30s full-load timeouts. Cause unestablished, not a performance repair.
+No new provider/schema change. Exact tests/limits in operations/ACTIVE-WORK.md.
+Next release slot goes to NewsStand01a03456; hold this lane's further Pages deploys.
+
+## Historical predecessor — 2026-08-30 KSVL request successor
 
 Production `8ce8632d-8529-4482-a1c1-f7c5b703c72a`, pushed source
 `73c3051d602b6dcf577b30fab4b02f40e2e516f2`, immutable

@@ -2,6 +2,11 @@
 
 ## 2026-08-30 latest bounded recovery
 
+Shared-menu successorfcbe7249 preserves all KSVL request/player/collection code;
+Radio changes only its shared formatter cache references. Native style labels
+pass on custom/immutable1280/390/320. Exact artifact and remaining performance
+limitations are recorded at the top of operations/ACTIVE-WORK.md.
+
 The6b664326 release supersedes the identities below without changing the
 continuity runtime. Declaration sticker pickup→private Closet→signed-in
 cross-browser restoration/removal is publicly verified; listening-earned
