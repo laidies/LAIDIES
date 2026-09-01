@@ -1,12 +1,34 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-31 UTC
+**Updated:** 2026-09-01 UTC
 **Release owner:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current production — 2026-08-31 Closet portrait-route successor
+## Current production — 2026-09-01 NewsStand Latest/Weekly successor
+
+Production `3bb041c5-38b1-4799-9512-54b5a2eb5ea4`, source
+`c77314316a4e50cb66371fc1e0a76a95f324841d`, immutable
+`https://3bb041c5.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-latest-weekly-successor.ekkdHx`; manifest suffix
+`.manifest.json`;719 files,729598226 bytes; identity
+`5431f7b9f6f483ee0746152dd95970b25f7b2565b96f0627e18ecd1dfa670470`.
+Relative to exact167171e7 it changes exactly `newsstand.html`,
+`content/newsstand-design.css`, `content/newsstand-stories.js`,
+`content/newsstand-public-feed.json`, and
+`content/newsstand-archive-index.json`; it adds exactly
+`assets/newsstand/design-20260830/latest-automated-alignment-20260901.png` and
+`assets/newsstand/design-20260830/latest-provider-switch-20260901.png`.
+No paths were removed. Homepage, Library, Resident, KSVL, FAiRY and all other
+bytes are preserved. The producing lane reports exact custom/immutable hash
+parity and passing desktop/mobile journeys with three Latest stories, the
+Weekly roundup, full-width layout and zero overflow. This foreground verified
+the local manifest counts/identity and exact seven-path artifact boundary; it
+did not repeat the producing lane's live browser checks. Use this exact artifact
+as the next release base after a fresh provider-head check.
+
+## Historical predecessor — 2026-08-31 Closet portrait-route successor
 
 Production `477e6a11-9486-4a43-a3b3-15f8c1e0c4f9`, source
 `22d07ec53c7a4d0553e46abe842424e4c4cffffe` pushed to the recovery branch;

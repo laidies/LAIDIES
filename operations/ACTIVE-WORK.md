@@ -7,11 +7,24 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current coordinated release is Closet's477e6a11 successor below; query
-the provider again and coordinate before any successor. NewsStand Aug31 service candidate is local only
-at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEWS
-may be included. Town Hall/moderation ownership and retention remain unresolved
-operating decisions, not permission to expose private intake.
+Current coordinated release is the verified NewsStand successor
+`3bb041c5-38b1-4799-9512-54b5a2eb5ea4`, source
+`c77314316a4e50cb66371fc1e0a76a95f324841d`, immutable
+`https://3bb041c5.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-latest-weekly-successor.ekkdHx`; manifest suffix
+`.manifest.json`;719 files,729598226 bytes; identity
+`5431f7b9f6f483ee0746152dd95970b25f7b2565b96f0627e18ecd1dfa670470`.
+Relative to167171e7 it changes exactly `newsstand.html`,
+`content/newsstand-design.css`, `content/newsstand-stories.js`,
+`content/newsstand-public-feed.json`, and
+`content/newsstand-archive-index.json`, and adds exactly
+`assets/newsstand/design-20260830/latest-automated-alignment-20260901.png` and
+`assets/newsstand/design-20260830/latest-provider-switch-20260901.png`.
+Homepage, Library, Resident, KSVL, FAiRY and all other bytes are preserved.
+Query the provider again before any successor and rebase only on this exact
+artifact unless a later coordinated handoff supersedes it. Town Hall/moderation
+ownership and retention remain unresolved operating decisions, not permission
+to expose private intake.
 
 ### FAiRY five-situation pilot — LOCAL BUILD / measured latency HOLD
 
