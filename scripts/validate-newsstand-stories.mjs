@@ -156,6 +156,14 @@ if (!Array.isArray(stories)) {
         story.sourceApproval?.status !== "approved") {
       fail(`${label}: visible story requires approved source evidence.`);
     }
+    if (story.status === "published" || story.status === "corrected") {
+      const visual = story.heroVisual;
+      if (!visual || typeof visual.src !== "string" || typeof visual.alt !== "string" || visual.alt.trim().length < 10) {
+        fail(`${label}: visible story requires a complete hero image and alt text.`);
+      } else if (!fs.existsSync(resolvePublicPath(visual.src))) {
+        fail(`${label}: hero image does not resolve: ${visual.src}`);
+      }
+    }
 
     const richText = [
       story.the_story, story.laidies_read, story.what_this_means,

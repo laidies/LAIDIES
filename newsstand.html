@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SUNNYVAiLE NewsStand · LAiDIES</title>
-    <meta name="description" content="AI news translated at the SUNNYVAiLE NewsStand through The Breaking, The Daily, The Weekly and The Big Picture.">
+    <meta name="description" content="AI news translated at the SUNNYVAiLE NewsStand through the latest reporting, the Front PAiGE, the week’s biggest stories and The Big Picture.">
     <meta property="og:title" content="SUNNYVAiLE NewsStand · LAiDIES">
-    <meta property="og:description" content="One source-checked AI newspaper: current news, the Wednesday Weekly, Big Picture analysis and useful recurring desks—without filler.">
+    <meta property="og:description" content="One source-checked AI newspaper: current news, the week’s biggest stories, Big Picture analysis and useful recurring desks—without filler.">
     <meta property="og:type" content="website">
     <link rel="alternate" type="application/feed+json" title="LAiDIES NewsStand latest publications" href="./content/newsstand-public-feed.json">
     <link rel="icon" type="image/svg+xml" href="./approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260831-paige-transparent-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260901-article-layout-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -81,14 +81,14 @@
             <p><b>Traffic</b> Information Superhighway delays. Someone picked up the landline.</p>
             <time id="ns-town-date"></time>
           </section>
-          <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE Daily front page">
+          <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE NewsStand front page">
             <header class="ns-one-paper__masthead">
               <div class="ns-masthead-flag">
-                <p class="ns-address">The Daily</p>
+                <p class="ns-address">The Latest</p>
                 <p class="ns-newsroom-date" id="ns-newsroom-date">Today at the NewsStand</p>
               </div>
               <div class="ns-masthead-title">
-                <h2 id="ns-building-title">THE SUNNYVA<span class="ns-brand-i">i</span>LE DAILY</h2>
+                <h2 id="ns-building-title">THE SUNNYVA<span class="ns-brand-i">i</span>LE NEWSSTAND</h2>
                 <p>News · Analysis · Practical guidance</p>
               </div>
             </header>
@@ -100,7 +100,7 @@
               </div>
               <div class="ns-state__actions">
                 <button class="ns-state__primary" type="button">Browse the archive</button>
-                <button class="ns-catchup-jump" type="button">Catch me up</button>
+                <button class="ns-catchup-jump" type="button" tabindex="-1" aria-hidden="true" hidden>Since your last visit</button>
               </div>
             </section>
             <section class="ns-breaking-strip" aria-label="Breaking desk">
@@ -124,6 +124,12 @@
                 <section class="ns-front-desk ns-front-desk--more-daily">
                   <span class="ns-front-desk__label">The Latest</span>
                   <div class="ns-front-secondary" data-secondary-for="daily" aria-live="polite">Checking for additional stories…</div>
+                  <button class="ns-catchup-jump ns-latest-catchup" type="button" aria-label="Choose when you last visited and catch up on what is new">
+                    <span class="ns-latest-catchup__eyebrow">Your catch-up</span>
+                    <strong>What changed while you were away?</strong>
+                    <span>Choose the date you last visited to see new stories, advice and updates from around SUNNYVAiLE.</span>
+                    <span class="ns-latest-catchup__action">Choose a date →</span>
+                  </button>
                 </section>
                 <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
                   <span class="ns-front-desk__label">Biggest Stories of the Week</span>
@@ -144,14 +150,21 @@
             </div>
             <aside class="ns-big-picture-more" aria-label="More Big Picture articles" hidden></aside>
             <section class="ns-feature-desk" aria-labelledby="ns-feature-desk-title" hidden>
-              <div class="ns-feature-desk__head">
-                <h2 id="ns-feature-desk-title">Features</h2>
+              <div class="ns-feature-desk__head ns-feature-desk__head--useful">
+                <p class="ns-kicker">Advice, tips &amp; explainers</p>
+                <h2 id="ns-feature-desk-title">Useful this week</h2>
               </div>
-              <ul class="ns-feature-desk__grid">
+              <ul class="ns-feature-desk__grid ns-feature-desk__grid--useful">
                 <li data-desk="paige_tip"><strong>Paige&rsquo;s AI &amp; Productivity Tip</strong><span>Loading today&rsquo;s tip…</span></li>
                 <li data-desk="career_life"><strong>The Corner Office</strong><span>Loading today&rsquo;s column…</span></li>
                 <li data-desk="concept_week"><strong>Concept of the Week</strong><span>Loading this week&rsquo;s concept…</span></li>
                 <li data-desk="dear_miss_jeeves"><strong>Dear Miss Jeeves</strong><span>Loading the advice column…</span></li>
+              </ul>
+              <div class="ns-feature-desk__head ns-feature-desk__head--town">
+                <p class="ns-kicker">Also in the paper</p>
+                <h2>Around SUNNYVA<span class="ns-brand-i">i</span>LE</h2>
+              </div>
+              <ul class="ns-feature-desk__grid ns-feature-desk__grid--town">
                 <li data-desk="mme_claio"><strong>Mme CLA<span class="ns-brand-i">i</span>-O</strong><span>Loading today&rsquo;s reading…</span></li>
                 <li data-desk="whats_new_sunnyvaile"><strong>What&rsquo;s New in SUNNYVA<span class="ns-brand-i">i</span>LE</strong><span>Loading the latest opening…</span></li>
                 <li data-desk="did_you_know"><strong>Did You Know?</strong><span>Loading today&rsquo;s fact…</span></li>
@@ -159,7 +172,7 @@
               </ul>
             </section>
           </div>
-          <p class="ns-counter-note">Older reporting, Weekly roundups and Big Picture pieces remain in the full archive below.</p>
+          <p class="ns-counter-note">Older reporting, previous roundups and Big Picture articles remain in the full archive below.</p>
         </div>
       </section>
 
@@ -168,10 +181,10 @@
           <p class="ns-kicker">Reading now</p>
           <button class="ns-return" id="ns-return" type="button">&larr; Back to the paper</button>
         </div>
-        <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="weekly">
+        <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="article">
           <header class="ns-unfolded-paper__masthead">
             <div>
-              <p class="ns-unfolded-paper__edition" id="ns-reader-edition">The Weekly</p>
+              <p class="ns-unfolded-paper__edition" id="ns-reader-edition">NewsStand</p>
               <h2 id="ns-reader-title" tabindex="-1">The full article.</h2>
             </div>
             <p class="ns-unfolded-paper__date" id="ns-reader-date"></p>
@@ -185,12 +198,12 @@
 
       <section class="ns-catchup" id="newsstand-catchup" aria-labelledby="ns-catchup-title">
         <div class="ns-catchup__intro">
-          <p class="ns-kicker">Returning to the counter?</p>
-          <h2 id="ns-catchup-title">Catch me up.</h2>
-          <p>Start with the latest Daily, check the Weekly, then review the headlines and columns published since your last visit.</p>
+          <p class="ns-kicker">Your catch-up</p>
+          <h2 id="ns-catchup-title">What&rsquo;s new since your last visit?</h2>
+          <p>Catch up on NewsStand stories, advice columns and verified SUNNYVAiLE updates published since the date below.</p>
         </div>
         <div class="ns-catchup__controls">
-          <label for="ns-catchup-since">Start with</label>
+          <label for="ns-catchup-since">Catch me up from</label>
           <input id="ns-catchup-since" type="date">
           <button id="ns-catchup-run" type="button">Show what I missed</button>
         </div>
@@ -238,8 +251,8 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="./content/newsstand-reader-contract.js?v=20260830-weekly-continuity-2"></script>
-    <script src="./content/newsstand-stories.js?v=20260830-front-paige-image-1"></script>
+    <script src="./content/newsstand-reader-contract.js?v=20260831-latest-five-days-1"></script>
+    <script src="./content/newsstand-stories.js?v=20260831-front-paige-approved-1"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       (function () {
@@ -252,14 +265,14 @@
             empty: "No breaking story."
           },
           daily: {
-            label: "The Daily",
+            label: "The Latest",
             title: "What changed and why it matters.",
-            empty: "Today’s edition is not on the rack yet."
+            empty: "No new story is ready for the rack yet."
           },
           weekly: {
             label: "The Weekly",
             title: "This week’s front page.",
-            empty: "No Weekly roundup is available this week."
+            empty: "No roundup is available this week."
           },
           "big-picture": {
             label: "The Big Picture",
@@ -716,12 +729,21 @@
           ].join("");
         }
 
+        function renderArticleBody(body) {
+          var content = String(body || "").trim();
+          if (!content) return "";
+          return /<(?:p|ul|ol|blockquote|h[2-6]|div)\b/i.test(content)
+            ? content
+            : "<p>" + content + "</p>";
+        }
+
         function articleSection(label, body) {
-          if (!body) return "";
+          var content = renderArticleBody(body);
+          if (!content) return "";
           return [
             '<section class="ns-article__section">',
               '<h3>', escapeHTML(label), "</h3>",
-              "<p>", body, "</p>",
+              '<div class="ns-article__copy">', content, "</div>",
             "</section>"
           ].join("");
         }
@@ -1120,12 +1142,10 @@
           var browser = document.getElementById("ns-topic-browser");
           var target = document.getElementById("ns-topic-buttons");
           var topicData = eligibleTopics();
-          var counts = topicData.counts;
           var topics = topicData.topics;
           target.innerHTML = topics.map(function (topic) {
             return '<button class="ns-topic-button" type="button" data-topic="' +
-              escapeAttribute(topic) + '">' + escapeHTML(topic) +
-              ' <span aria-hidden="true">' + counts[topic] + '</span></button>';
+              escapeAttribute(topic) + '">' + escapeHTML(topic) + '</button>';
           }).join("");
           browser.hidden = topics.length === 0;
           document.getElementById("ns-search-hint").textContent = defaultSearchHint();
@@ -1216,7 +1236,7 @@
                   ? "BIGGEST STORIES OF THE WEEK"
                   : story.edition === "big-picture"
                     ? "THE BIG PICTURE"
-                    : "THE DAILY"
+                    : "THE LATEST"
               : "Story unavailable.";
           return true;
         }
@@ -1362,6 +1382,7 @@
               var storyDate = leadDesk && leadDesk.querySelector('[data-status-for="daily"]');
               if (storyDate) storyDate.textContent = "Published " + formatDate(lead.publishedAt);
               var control = node.closest("[data-edition], [data-open-edition]");
+              if (edition === "weekly" && control) control.hidden = false;
               if (leadDesk) {
                 leadDesk.disabled = false;
                 leadDesk.setAttribute("aria-disabled", "false");
@@ -1433,6 +1454,12 @@
               return;
             }
 
+            if (edition === "weekly") {
+              var emptyWeeklyControl = node.closest("[data-open-edition]");
+              if (emptyWeeklyControl) emptyWeeklyControl.hidden = true;
+              return;
+            }
+
             var trackedBigPicture = edition === "big-picture" && window.NEWSSTAND_BIG_PICTURE_TRACKING &&
               Array.isArray(window.NEWSSTAND_BIG_PICTURE_TRACKING.items)
               ? window.NEWSSTAND_BIG_PICTURE_TRACKING.items
@@ -1465,13 +1492,18 @@
             var publication = data && data.publications && data.publications[edition];
             var state = publication ? contract.effectivePublicationState(publication, now) : "unavailable";
             var frontId = publication && publication.issue && publication.issue.frontPaigeStoryId;
-            // Latest is an archive-backed shelf, not today's issue alone. Canonical
-            // holds and retractions still apply through the reader contract.
+            // Latest is recent reporting, not an archive backfill. Front PAiGE and
+            // Big Picture have their own persistent sections below.
             var eligible = admittedArchiveStories(edition).filter(function (story) {
-              return story.id !== frontId;
+              return story.id !== frontId && contract.withinRecentCalendarDays(
+                story.publishedAt,
+                now,
+                5,
+                publication && publication.editorialTimeZone || "America/Vancouver"
+              );
             }).sort(function (a, b) { return (b.publishedAt || "").localeCompare(a.publishedAt || ""); });
             if (!eligible.length) {
-              node.innerHTML = '<p class="ns-latest-empty">No other news stories are published yet. Start with the Front PAiGE, or explore our features below.</p><a class="ns-latest-features" href="#ns-feature-desk-title">Explore the features →</a>';
+              node.innerHTML = '<p class="ns-latest-empty">No other story from the past five days has cleared the publishing bar. Start with the Front PAiGE, or explore our features below.</p><a class="ns-latest-features" href="#ns-feature-desk-title">Explore the features →</a>';
               return;
             }
 
@@ -1670,11 +1702,13 @@
             focusAfterPaint(firstPaper);
           }
         });
-        document.querySelector(".ns-catchup-jump").addEventListener("click", function () {
-          document.getElementById("newsstand-catchup").scrollIntoView({
-            behavior: motionBehavior(), block: "start", inline: "nearest"
+        Array.prototype.forEach.call(document.querySelectorAll(".ns-catchup-jump"), function (button) {
+          button.addEventListener("click", function () {
+            document.getElementById("newsstand-catchup").scrollIntoView({
+              behavior: motionBehavior(), block: "start", inline: "nearest"
+            });
+            focusAfterPaint(document.getElementById("ns-catchup-since"));
           });
-          focusAfterPaint(document.getElementById("ns-catchup-since"));
         });
         document.getElementById("ns-return").addEventListener("click", function () {
           if (location.hash) {
@@ -1732,6 +1766,13 @@
           document.getElementById("ns-reader-edition").textContent = "Topic";
           document.getElementById("ns-reader-title").textContent = button.getAttribute("data-topic");
         });
+        document.getElementById("newsstand-rack").addEventListener("click", function (event) {
+          var link = event.target.closest(".ns-front-story");
+          if (!link || reader.contains(link)) return;
+          lastInvoker = link;
+          pendingStoryView = { type: "closed", scrollY: window.scrollY };
+          persistHashlessView(pendingStoryView);
+        });
         rack.addEventListener("click", function (event) {
           var link = event.target.closest(".ns-front-story");
           if (link) {
@@ -1756,12 +1797,12 @@
         else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>
-    <script src="./content/site/brand-polish.js?v=wm2" defer></script>
+    <script src="./content/site/brand-polish.js?v=20260830-native-controls-1" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260831-did-you-know-art-1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260831-useful-palette-1"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
-    <script defer src="./content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+    <script defer src="./content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   </body>
 </html>

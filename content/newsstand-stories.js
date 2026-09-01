@@ -10,8 +10,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-08-30T20:56:26Z",
-  "lastCheckedAt": "2026-08-30T20:56:26Z",
+  "generatedAt": "2026-09-01T00:13:05.767Z",
+  "lastCheckedAt": "2026-09-01T00:13:05.767Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -25,14 +25,16 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-08-30",
+      "editionDate": "2026-08-31",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
         "disposition": "service_ready",
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": null,
-        "storyIds": [],
+        "storyIds": [
+          "chatgpt-ad-expansion-2026-08-31"
+        ],
         "serviceRecordIds": [
           "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP",
           "DAILY-2026-08-30-CAREER-DELEGATION",
@@ -41,15 +43,16 @@ window.NEWSSTAND_DATA = {
           "DAILY-2026-08-30-DEAR-MISS-JEEVES-JEEVES-01-TIME",
           "DAILY-2026-08-30-WHATS-NEW-SUNNYVAILE-TOWN-02-DATA-CENTRES",
           "DAILY-2026-08-30-DID-YOU-KNOW-TOWN-01-LIBRARY"
-        ]
+        ],
+        "envelopeSha256": "f506b40220b746ec152751e46714bcd3c5070f89ae1323266801c830327e1c5a"
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-08-30T20:56:26Z",
-      "updatedAt": "2026-08-30T20:56:26Z",
-      "lastCheckedAt": "2026-08-30T20:56:26Z",
+      "publishedAt": "2026-09-01T00:13:05.767Z",
+      "updatedAt": "2026-09-01T00:13:05.767Z",
+      "lastCheckedAt": "2026-09-01T00:13:05.767Z",
       "maxAgeHours": 36,
-      "note": "No new news story was published today. The latest Front PAiGE and available columns remain below."
+      "note": "The Daily for 2026-08-31."
     },
     "weekly": {
       "edition": "weekly",
@@ -97,7 +100,7 @@ window.NEWSSTAND_DATA = {
       "thread": "women-ai-opportunity-gap",
       "thread_subtitle": "Who gets the opportunity while AI reshapes ordinary work.",
       "thread_entry": "Current Front PAiGE",
-      "headline": "Women helped build AI. Will they shape its future at work?",
+      "headline": "The AI opportunity gap is opening now.",
       "the_story": "Two gaps are appearing at once. LinkedIn reports that women accounted for 26% of U.S. hires into AI occupations in 2025 and hold 13% of C-suite AI leadership roles across the 27 countries it studied. One week earlier, Census data showed a different divide inside ordinary jobs: among workers who had used AI at work, 30% of men said they used it every day in the previous week, compared with 17% of women. These measures are not the same and should not be collapsed into one statistic. Together, they raise a consequential question: as AI creates highly paid roles and begins to reshape everyday work, who is getting the opportunity, repetition and authority to shape what happens next?",
       "laidies_read": "This is not evidence that women are avoiding AI, and it is not a prediction that AI is about to erase women’s jobs. LinkedIn’s figures cover occupations it classifies as AI jobs—not every lawyer, marketer, project manager or finance professional who uses AI. The Census finding is specifically a frequency gap among workplace AI users. But opportunity compounds. The person who uses AI repeatedly learns where it fails, finds better uses, becomes the unofficial expert and is more likely to be invited into the next workflow decision. That is why waiting until the new job descriptions and promotion criteria are settled is the risky move.",
       "what_this_means": "Do not respond by trying every shiny tool. Pick one recurring piece of real work—meeting preparation, research, document review, status updates, spreadsheet cleanup or follow-ups—and use AI on it every time for a month, within your company’s rules. Keep a small record of what changed: time saved, quality improved, new responsibility taken on and judgment you still supplied. The aim is not to become ‘an AI person.’ It is to make sure your experience and authority are present when your team decides how work will be redesigned.",
@@ -1028,6 +1031,11 @@ window.NEWSSTAND_DATA = {
       "thread_subtitle": null,
       "thread_entry": null,
       "headline": "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-labels.png",
+        "alt": "A turquoise 1990s computer displaying a speech bubble, with a red mouse and a small AI label.",
+        "credit": "LAiDIES NewsStand"
+      },
       "the_story": "Article 50 of the European Union’s AI Act began applying on August 2, 2026. The European Commission’s guidance says providers of certain AI systems must make people aware when they are interacting directly with AI and must add machine-readable marks to certain AI-generated or manipulated outputs. Professional deployers have separate disclosure duties for emotion-recognition and biometric-categorisation systems, deepfakes, and AI-generated or manipulated text published to inform the public on matters of public interest when it has not received human review or editorial control. The Commission also describes a limited transition to December 2, 2026 for the marking-and-detection obligation for certain systems already on the market before August 2. The exact duty depends on the system, actor, use and exception; this is a practical orientation, not legal advice.",
       "laidies_read": "Think of the rule as caller ID for particular AI encounters—not a lie detector for everything on the screen. In covered situations, the person or system behind the interaction may need to tell you that AI is involved, and some generated media needs a machine-readable origin signal. That disclosure helps you ask the next question. It does not prove that the output is accurate, fair, safe or lawful.",
       "what_this_means": "If you are in the EU, expect clearer disclosure in the covered situations: direct AI interaction, certain generated or manipulated media, deepfakes, emotion recognition, biometric categorisation and some public-interest text without human editorial control. If you publish or deploy AI professionally, do not turn this article into a compliance checklist; use the Commission’s current guidance and qualified advice for your exact role and system. As a reader, treat a label as useful origin context. Still check the claim, source and date separately—and do not assume that an unlabelled item is human-made or compliant.",
@@ -1112,6 +1120,11 @@ window.NEWSSTAND_DATA = {
       "thread_subtitle": "provenance can show where content came from; it cannot decide whether the claim is true",
       "thread_entry": 1,
       "headline": "The label can tell you it was made with AI. It cannot tell you it is true.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-checking.png",
+        "alt": "A pop-art magnifying glass inspecting an AI label on a printed news page.",
+        "credit": "LAiDIES NewsStand"
+      },
       "the_story": "Google said on July 24 that it is signing the EU AI Act Code of Practice on Transparency of AI-Generated Content. Google connected that commitment to its work on the C2PA provenance standard and SynthID watermarking. The European Commission describes the code as a voluntary way for providers and deployers to help demonstrate compliance with AI Act transparency obligations that begin applying on August 2, 2026. The Commission also says adherence is <em>not</em> conclusive evidence of compliance. Those are two different layers: a company’s announcement about the tools it supports, and the regulator’s description of what signing the code does and does not prove.",
       "laidies_read": "Think of the liner notes inside a CD. They can tell you who produced the track, who sang backup and where it was recorded. That is useful provenance. They cannot tell you whether the singer’s story actually happened. An AI label works the same way: it can help show that a file was generated or edited with a particular system. It does not fact-check the sentence, prove the picture’s caption or turn a polished claim into evidence.",
       "what_this_means": "Treat provenance as one receipt, not the whole investigation. If a label or content credential is present, use it to understand origin and editing history. Then separately check the claim against a named source, date and original context. If the label is missing, do not assume the content is human-made; marks and metadata can be absent, stripped or unsupported. If the label is present, do not assume the content is deceptive—or accurate. <strong>How it was made and whether it is true are different questions.</strong>",
@@ -1169,6 +1182,84 @@ window.NEWSSTAND_DATA = {
       ],
       "saint_lane": "Elle Woods · Receipts",
       "badge": "THE BIG PICTURE · THE LABEL MAKER · ENTRY 1"
+    },
+    {
+      "id": "chatgpt-ad-expansion-2026-08-31",
+      "slug": "chatgpt-ad-expansion-2026-08-31",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-01T00:13:05.767Z",
+      "updatedAt": "2026-08-31T14:55:47.941Z",
+      "lastCheckedAt": "2026-08-31T14:55:47.941Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:chatgpt-ad-expansion-2026-08-31"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "OpenAI is expanding ChatGPT ads. Here’s what’s paid for.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-openai-ads-20260831.png",
+        "alt": "A woman at a 1990s desktop computer sees a clearly labelled sponsored hotel card beneath a separate chat answer.",
+        "credit": "LAiDIES NewsStand"
+      },
+      "the_story": "<p>OpenAI is expanding an advertising business that was already underway. Its August 31 announcement said businesses across India, Europe, the Middle East and North Africa would gain direct access to ChatGPT’s Ads Manager later that day. North American advertisers were not waiting for this expansion: OpenAI’s current availability list includes the United States, Canada and Mexico.</p><p>That does not mean every ChatGPT user in those countries will see ads. OpenAI says the user-facing test began in the United States and is expanding gradually. Its documentation says eligible Free and Go users may see sponsored placements below responses—not that every account will.</p>",
+      "laidies_read": "<p>Suppose you ask ChatGPT for somewhere to take six colleagues for lunch. You mention the neighbourhood and budget. Those details give the system <strong>context</strong>: information about what you need. OpenAI says its advertising system can use the current conversation to choose a relevant ad, separately from the system generating the answer.</p><p>A restaurant could therefore pay to appear beside that lunch discussion. That does not mean it won the comparison in the answer. OpenAI says advertisers cannot alter the response, and that ads are labelled and separate. Those are the company’s stated rules, not an independent audit.</p>",
+      "what_this_means": "<p>There is another distinction worth knowing: turning off ad personalisation does not turn off ads. OpenAI says the current chat can still guide ad selection; switching off personalisation stops it drawing on broader activity such as other conversations.</p><p>If a sponsored option catches your eye, assess its claims separately from the answer above it. A placement that fits your question is still a placement someone paid for—not a recommendation you earned by giving ChatGPT a beautifully detailed brief.</p>",
+      "cocktail_party": null,
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Related concept: <a href=\"/library.html#ai-fundamentals-101::%40ch-8-8-2-the-two-sources-of-knowledge\">conversational context</a>. OpenAI says its advertising system may use what you are discussing in the current chat to select a relevant ad. That explains why a conversation about lunch plans might produce a restaurant ad. It does not make the ad part of ChatGPT’s answer—or a recommendation.",
+      "sources": [
+        {
+          "id": "openai-ads-announcement-2026-08-31",
+          "label": "OpenAI — advertising expansion announced August 31",
+          "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/",
+          "publisherType": "vendor",
+          "accessedAt": "2026-08-31",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "openai-ads-consumer-faq",
+          "label": "OpenAI Help — Ads in ChatGPT",
+          "url": "https://help.openai.com/en/articles/20001047-ads-in-chatgpt",
+          "publisherType": "vendor",
+          "accessedAt": "2026-08-31",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "openai-ads-availability",
+          "label": "OpenAI Help — country-by-country advertiser availability",
+          "url": "https://help.openai.com/en/articles/20001245-ads-manager-availability",
+          "publisherType": "vendor",
+          "accessedAt": "2026-08-31",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "AI business models",
+        "trust and advertising"
+      ],
+      "concepts": [
+        "context"
+      ],
+      "tags": [
+        "OpenAI",
+        "ChatGPT",
+        "advertising",
+        "context"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
     }
   ]
 };

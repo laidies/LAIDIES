@@ -97,6 +97,11 @@
             !Array.isArray(story.concepts) || !story.concepts.length) {
           errors.push(label + " theme/concept metadata is missing");
         }
+        if (story && ["published", "corrected"].indexOf(story.status) !== -1 &&
+            (!story.heroVisual || !/^\/(?:approved-assets|assets)\/.+\.(?:png|jpe?g|webp|avif)$/i.test(String(story.heroVisual.src || "")) ||
+             typeof story.heroVisual.alt !== "string" || story.heroVisual.alt.trim().length < 10)) {
+          errors.push(label + " published story image is missing or incomplete");
+        }
         if (story && story.edition === "big-picture" && (!story.bigPicture ||
             !validDate(story.bigPicture.originallyPublishedAt) ||
             !validDate(story.bigPicture.lastMeaningfullyUpdatedAt) ||
@@ -216,6 +221,14 @@
 
   function calendarDayOffset(fromDate, toDate) {
     return (Date.parse(toDate + "T12:00:00Z") - Date.parse(fromDate + "T12:00:00Z")) / 86400000;
+  }
+
+  function withinRecentCalendarDays(publishedAt, now, dayCount, timeZone) {
+    if (!validDate(publishedAt) || !validDate(now) || !(Number(dayCount) > 0)) return false;
+    var publishedDate = calendarDateInZone(publishedAt, timeZone);
+    var currentDate = calendarDateInZone(now, timeZone);
+    var offset = calendarDayOffset(publishedDate, currentDate);
+    return offset >= 0 && offset < Number(dayCount);
   }
 
   function effectivePublicationState(publication, now) {
@@ -399,6 +412,7 @@
     EDITIONS: EDITIONS,
     validate: validate,
     ageHours: ageHours,
+    withinRecentCalendarDays: withinRecentCalendarDays,
     datasetState: datasetState,
     accessDecision: accessDecision,
     effectivePublicationState: effectivePublicationState,

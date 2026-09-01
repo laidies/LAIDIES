@@ -25,8 +25,8 @@
   var columnsLoaded = false;
   var readingCards = null;
   var deskIllustrations = {
-    dear_miss_jeeves: "jeeves-phone.png", career_life: "corner-planner.png",
-    paige_tip: "paige-cassette.png", concept_week: "concept-notebook.png",
+    dear_miss_jeeves: "jeeves-phone-warm-v2.png", career_life: "corner-planner-green-v2.png",
+    paige_tip: "paige-cassette-coral-v2.png", concept_week: "concept-notebook-mint-v2.png",
     whats_new_sunnyvaile: "town-street.png", did_you_know: "did-you-know-question-20260831.png"
   };
   var previousPublicationView = latestPublicationView(readState());
@@ -94,6 +94,12 @@
     var state = readState();
     var viewedAt = new Date().toISOString();
     state.lastPublication = { viewed_at: viewedAt };
+    writeState(state);
+  }
+
+  function rememberVisit() {
+    var state = readState();
+    state.lastPublication = { viewed_at: new Date().toISOString() };
     writeState(state);
   }
 
@@ -537,7 +543,7 @@
     var section = document.querySelector(".ns-feature-desk");
     if (!section) return;
     section.hidden = true;
-    if (!dailyIssuesLoaded || !columnsLoaded || !dailyIssues || !columns || global.NEWSSTAND_LOCAL_PREVIEW) return;
+    if (!columnsLoaded || !columns || global.NEWSSTAND_LOCAL_PREVIEW) return;
     // Keep the latest admitted service desks on the counter until a newer
     // complete edition replaces them. Their dated issue remains the authority;
     // an empty calendar day must not erase the newest published NewsStand.
@@ -559,9 +565,22 @@
       var node = document.querySelector('[data-desk="' + type + '"]');
       if (!node) return;
       var desk = issue && issue.desks.find(function (item) { return item.type === type; });
-      var admittedColumn = issue && desk && columnById(desk.recordId);
+      if (!issue) {
+        var fallbackColumn = eligibleColumns().filter(function (record) { return record.type === type; })
+          .sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
+        desk = fallbackColumn ? {
+          type: type,
+          state: "ready",
+          recordId: fallbackColumn.id,
+          headline: fallbackColumn.headline,
+          summary: fallbackColumn.summary,
+          destination: fallbackColumn.destination || null
+        } : null;
+      }
+      var admittedColumn = desk && columnById(desk.recordId);
       var ready = desk && desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
       node.setAttribute("data-desk-state", ready ? "ready" : "empty");
+      node.hidden = !ready;
       var label = '<small>' + escapeHTML(labels[type]) + '</small>';
       if (ready) {
         admittedCount += 1;
@@ -590,8 +609,13 @@
           : content;
         return;
       }
-      node.innerHTML = label + '<strong>Not published today</strong><span>' +
-        escapeHTML(desk && desk.emptyState || columnEmpty(type, "No item is available in this desk today.")) + '</span>';
+      node.innerHTML = "";
+    });
+    Array.prototype.forEach.call(section.querySelectorAll(".ns-feature-desk__grid"), function (grid) {
+      var hasReadyDesk = Boolean(grid.querySelector('li[data-desk-state="ready"]:not([hidden])'));
+      grid.hidden = !hasReadyDesk;
+      var heading = grid.previousElementSibling;
+      if (heading && heading.classList.contains("ns-feature-desk__head")) heading.hidden = !hasReadyDesk;
     });
     section.hidden = admittedCount === 0;
   }
@@ -786,7 +810,7 @@
     });
     var archiveStories = sourceStories.filter(function (story) { return story.edition !== "daily"; }).concat(admittedDailyStories);
     var storyItems = archiveStories.filter(function (story) {
-      if (dateOnly(story.publishedAt) < since || dateOnly(story.publishedAt) === dailyDate) return false;
+      if (dateOnly(story.publishedAt) < since) return false;
       var datedIssue = story.edition === "daily" ? storedDailyIssue(dateOnly(story.publishedAt)) : null;
       if (datedIssue && datedIssue.storyIds.indexOf(story.id) === -1) return false;
       var decision = contract.accessDecision(data, story, { scope: "hash" }, now);
@@ -802,7 +826,8 @@
         return {
           key: "story:" + story.id,
           date: dateOnly(story.publishedAt),
-          kind: "The " + story.edition.charAt(0).toUpperCase() + story.edition.slice(1),
+          kind: "NewsStand",
+          category: "news",
           headline: "A retracted story remains on record.",
           state: "Archive · retracted",
           points: [decision.reason],
@@ -815,7 +840,8 @@
         return {
           key: "story:" + story.id,
           date: dateOnly(story.publishedAt),
-          kind: "The " + story.edition.charAt(0).toUpperCase() + story.edition.slice(1),
+          kind: "NewsStand",
+          category: "news",
           headline: story.headline,
           state: "From the archive",
           points: ["Preserved with its original publication and source dates."],
@@ -827,7 +853,8 @@
       return {
         key: "story:" + story.id,
         date: dateOnly(story.publishedAt),
-        kind: "The " + story.edition.charAt(0).toUpperCase() + story.edition.slice(1),
+        kind: story.edition === "big-picture" ? "The Big Picture" : story.edition === "weekly" ? "Biggest Stories of the Week" : "The Latest",
+        category: "news",
         headline: story.headline,
         state: storyState === "corrected" ? "Archive · corrected" : "Archive",
         points: [sentence(story.the_story), sentence(story.what_this_means)].filter(Boolean),
@@ -837,7 +864,7 @@
       };
     });
     var canonicalServiceItems = (dailyIssues && dailyIssues.issues || []).filter(function (issue) {
-      return issue.editionDate >= since && issue.editionDate !== dailyDate;
+      return issue.editionDate >= since;
     }).flatMap(function (issue) {
       return issue.desks.filter(function (desk) {
         var admittedColumn = columnById(desk.recordId);
@@ -846,7 +873,8 @@
         return {
           key: "service:" + desk.recordId,
           date: issue.editionDate,
-          kind: "The Daily · " + dailyDeskLabel(desk.type),
+          kind: dailyDeskLabel(desk.type),
+          category: desk.type === "whats_new_sunnyvaile" ? "town" : "news",
           headline: desk.headline,
           state: "Published",
           points: [desk.summary],
@@ -857,12 +885,13 @@
       });
     });
     var legacyColumns = eligibleColumns().filter(function (record) {
-      return record.editionDate >= since && record.editionDate !== dailyDate && !storedDailyIssue(record.editionDate);
+      return record.editionDate >= since && !storedDailyIssue(record.editionDate);
     }).map(function (record) {
       return {
         key: "service:" + record.id,
         date: record.editionDate,
-        kind: "The Daily · " + dailyDeskLabel(record.type),
+        kind: dailyDeskLabel(record.type),
+        category: record.type === "whats_new_sunnyvaile" ? "town" : "news",
         headline: record.headline,
         state: "Published",
         points: [record.summary],
@@ -874,12 +903,13 @@
     var serviceItems = canonicalServiceItems.concat(legacyColumns);
     var admittedSourceIds = new Set(serviceItems.map(function (item) { return item.key.replace(/^service:/, ""); }));
     eligibleDerivatives().filter(function (record) {
-      return record.date >= since && record.date !== dailyDate && !storedDailyIssue(record.date) && !admittedSourceIds.has(record.id);
+      return record.date >= since && !storedDailyIssue(record.date) && !admittedSourceIds.has(record.id);
     }).forEach(function (record) {
       serviceItems.push({
         key: "service:" + record.id,
         date: record.date,
-        kind: record.type === "paige_tip" ? "The Daily · Paige’s tip" : "The Daily · historical Promptoscope",
+        kind: record.type === "paige_tip" ? "Paige’s tip" : "Historical Promptoscope",
+        category: "news",
         headline: record.headline,
         state: "Published",
         points: [record.body],
@@ -903,60 +933,38 @@
       since = availableThroughDate();
       input.value = since;
     }
-    var now = new Date().toISOString();
     var items = catchupItems(since);
-    var latestBackIssue = latestStoredDailyIssue();
-    var dailyDate = canRenderDaily() ? currentDailyDate() : latestBackIssue && latestBackIssue.editionDate;
-    var daily = dailyDate ? [
-      '<article class="ns-catchup-lead" data-catchup-role="daily">',
-        '<p class="ns-catchup-item__kind">Start here · ', canRenderDaily() ? 'The Daily' : 'Latest archive edition', '</p>',
-        '<h3>', canRenderDaily() ? 'Today\'s' : 'Most recent', ' SUNNYVA<span class="ns-brand-i">i</span>LE Daily.</h3>',
-        '<p>Stories and columns published for ', escapeHTML(formatDate(dailyDate)), '. ', canRenderDaily() ? '' : 'This edition is from the archive.', '</p>',
-        '<button type="button" data-open-daily data-daily-date="', escapeHTML(dailyDate), '">Open the Daily</button>',
-      '</article>'
-    ].join("") : "";
-    var weeklyPublication = data.publications && data.publications.weekly;
-    var weeklyState = contract.effectivePublicationState(weeklyPublication, now);
-    var weeklyStory = sourceStories.filter(function (story) {
-      return story.edition === "weekly" && weeklyState === "current" && story.id === weeklyPublication.storyId &&
-        contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
-    }).sort(function (a, b) { return String(b.publishedAt).localeCompare(String(a.publishedAt)); })[0];
-    var weekly = weeklyStory ? [
-      '<article class="ns-catchup-lead" data-catchup-role="weekly">',
-        '<p class="ns-catchup-item__kind">Next · The Weekly</p>',
-        '<h3>', escapeHTML(weeklyStory.headline), '</h3>',
-        '<p class="ns-catchup-item__kind">Published ', escapeHTML(dateOnly(weeklyStory.publishedAt)), '</p>',
-        '<p>', escapeHTML(sentence(weeklyStory.what_this_means || weeklyStory.the_story)), '</p>',
-        '<a href="#', escapeHTML(weeklyStory.slug), '">Open the Weekly →</a>',
-      '</article>'
-    ].join("") : [
-      '<article class="ns-catchup-lead" data-catchup-role="weekly" data-catchup-state="', escapeHTML(weeklyState), '">',
-        '<p class="ns-catchup-item__kind">Next · The Weekly</p>',
-        '<h3>No Weekly is ready to read.</h3>',
-        '<p>', escapeHTML(weeklyPublication && weeklyPublication.note || "No Weekly has cleared publication."), '</p>',
-      '</article>'
-    ].join("");
-    var history = items.length ? '<p class="ns-catchup__count">' + items.length +
-      (items.length === 1 ? " older result" : " older results") + " since " + escapeHTML(formatDate(since)) +
-      '.</p><div class="ns-catchup__timeline" data-catchup-role="history">' + items.map(function (item) {
+    function renderItems(groupItems, emptyCopy) {
+      if (!groupItems.length) return '<p class="ns-catchup__empty">' + escapeHTML(emptyCopy) + '</p>';
+      return '<div class="ns-catchup__timeline" data-catchup-role="history">' + groupItems.map(function (item) {
         return [
-          '<details class="ns-catchup-item">',
-            '<summary>',
-              '<span class="ns-catchup-item__date">', escapeHTML(formatDate(item.date)), '</span>',
+          '<article class="ns-catchup-item">',
+            '<div class="ns-catchup-item__meta">',
               '<span class="ns-catchup-item__kind">', escapeHTML(item.kind), '</span>',
-              '<strong>', escapeHTML(item.headline), '</strong>',
-              '<span class="ns-catchup-item__state">', escapeHTML(item.state), '</span>',
-            '</summary>',
-            '<div class="ns-catchup-item__body"><ul>',
-              item.points.map(function (point) { return '<li>' + escapeHTML(point) + '</li>'; }).join(""),
-            '</ul>',
+              '<span aria-hidden="true"> · </span>',
+              '<time datetime="', escapeHTML(item.date), '">', escapeHTML(formatDate(item.date)), '</time>',
+            '</div>',
+            '<h4>', escapeHTML(item.headline), '</h4>',
+            '<div class="ns-catchup-item__body">',
+              item.points.map(function (point) { return '<p>' + escapeHTML(point) + '</p>'; }).join(""),
             item.canOpen ? '<a href="' + escapeHTML(item.route) + '">' + escapeHTML(item.actionLabel) + ' →</a>' : '',
             '</div>',
-          '</details>'
+          '</article>'
         ].join("");
-      }).join("") + "</div>" : '<div class="ns-catchup__timeline" data-catchup-role="history"><p class="ns-catchup__empty">No other stories or columns were published after ' +
-        escapeHTML(formatDate(since)) + '.</p></div>';
-    target.innerHTML = daily + weekly + history;
+      }).join("") + "</div>";
+    }
+    var newsItems = items.filter(function (item) { return item.category !== "town"; });
+    var townItems = items.filter(function (item) { return item.category === "town"; });
+    target.innerHTML = [
+      '<section class="ns-catchup-group ns-catchup-group--news" aria-labelledby="ns-catchup-news-title">',
+        '<div class="ns-catchup-group__head"><div><h3 id="ns-catchup-news-title">New at the NewsStand</h3><p class="ns-catchup-group__dek">Stories, explainers and recurring columns published since ', escapeHTML(formatDate(since)), '.</p></div><p>', newsItems.length, newsItems.length === 1 ? ' new item' : ' new items', '</p></div>',
+        renderItems(newsItems, 'No new NewsStand stories or columns were published after ' + formatDate(since) + '.'),
+      '</section>',
+      '<section class="ns-catchup-group ns-catchup-group--town" aria-labelledby="ns-catchup-town-title">',
+        '<div class="ns-catchup-group__head"><div><h3 id="ns-catchup-town-title">Around SUNNYVA<span class="ns-brand-i">i</span>LE</h3><p class="ns-catchup-group__dek">New books, episodes, games and website features published since your selected date.</p></div><p>', townItems.length, townItems.length === 1 ? ' new update' : ' new updates', '</p></div>',
+        renderItems(townItems, 'No verified website, book, episode or feature update has been published for this period.'),
+      '</section>'
+    ].join("");
   }
 
   function initialize() {
@@ -1112,6 +1120,7 @@
       }
     }
     global.addEventListener("newsstand:publication-viewed", recordPublicationView);
+    global.addEventListener("pagehide", rememberVisit, { once: true });
     (global.__newsstandPublicationViewQueue || []).splice(0).forEach(function (detail) {
       recordPublicationView({ detail: detail });
     });
