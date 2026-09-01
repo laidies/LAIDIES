@@ -9,7 +9,7 @@
   background: #fff;
   color: var(--ns-ink);
 }
-.ns-redesign .ns-page { --ns-body: "Jost", system-ui, sans-serif; --ns-display: "Jost", system-ui, sans-serif; --ns-news-serif: "Playfair Display", Georgia, serif; box-sizing: border-box; max-width: 1440px; width: 100%; margin: 0 auto; padding: 0 32px 48px; }
+.ns-redesign .ns-page { --ns-body: "Jost", system-ui, sans-serif; --ns-display: "Jost", system-ui, sans-serif; --ns-news-serif: "Playfair Display", Georgia, serif; --ns-page-gutter: clamp(16px, 2.2vw, 38px); box-sizing: border-box; max-width: none; width: 100%; margin: 0; padding: 0 0 48px; }
 .ns-redesign .ns-room, .ns-redesign .ns-counter-surface, .ns-redesign .ns-one-paper { margin: 0; padding: 0; border: 0; box-shadow: none; background: #fff; overflow: visible; }
 .ns-redesign .ns-room::before, .ns-redesign .ns-room::after, .ns-redesign .ns-counter-surface::before, .ns-redesign .ns-counter-surface::after, .ns-redesign .ns-one-paper::before, .ns-redesign .ns-one-paper::after { display: none; }
 .ns-redesign .ns-v11-brandbar { position: relative; isolation: isolate; display: grid; grid-template-columns: 260px minmax(0,1fr); align-items: end; gap: 26px; min-height: 190px; margin: 18px 0 0; padding: 0 36px 0 0; background: linear-gradient(105deg,#ffe8ee 0%,#f9d9e7 56%,#ffd4de 100%); border: 0; border-top: 4px solid #281333; border-bottom: 4px solid #ee7458; box-shadow: inset 0 -1px 0 rgba(40,19,51,.1); overflow: visible; }
@@ -72,6 +72,25 @@
 .ns-redesign .ns-front-secondary strong { display: block; margin: 0 0 9px; font: 800 24px/1.16 var(--ns-news-serif); }
 .ns-redesign .ns-front-secondary span, .ns-redesign .ns-latest-empty { display: block; font: 500 17px/1.52 var(--ns-body); margin: 0 0 9px; }
 .ns-redesign .ns-front-secondary em, .ns-redesign .ns-latest-features { font: 600 15px/1.5 Jost,sans-serif; color: #6430b7; }
+.ns-redesign .ns-front-secondary article:nth-child(n+2) .ns-front-story {
+  display: grid;
+  grid-template-columns: minmax(112px, .42fr) minmax(0, .58fr);
+  grid-template-rows: auto auto 1fr;
+  gap: 4px 14px;
+  align-items: start;
+}
+.ns-redesign .ns-front-secondary article:nth-child(n+2) .ns-latest-image {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  height: 100%;
+  min-height: 132px;
+  margin: 0;
+}
+.ns-redesign .ns-front-secondary article:nth-child(n+2) strong,
+.ns-redesign .ns-front-secondary article:nth-child(n+2) span,
+.ns-redesign .ns-front-secondary article:nth-child(n+2) em { grid-column: 2; }
+.ns-redesign .ns-front-secondary article:nth-child(n+2) strong { font-size: 19px; }
+.ns-redesign .ns-front-secondary article:nth-child(n+2) span { font-size: 14px; margin-bottom: 0; }
 .ns-redesign .ns-latest-features { display: inline-block; padding: 9px 0; }
 .ns-redesign .ns-latest-catchup {
   display: block;
@@ -293,7 +312,7 @@
   .ns-redesign .ns-v11-brandbar::before { inset: 0 0 0 58%; opacity: .48; }
 }
 @media(max-width: 900px) {
-  .ns-redesign .ns-page { padding: 0 22px 32px; }
+  .ns-redesign .ns-page { --ns-page-gutter: 20px; padding-bottom: 32px; }
   .ns-redesign .ns-v11-brandbar { grid-template-columns: 200px minmax(0,1fr); gap: 20px; min-height: 168px; margin-top: 14px; padding-right: 22px; }
   .ns-redesign .ns-v11-paige, .ns-redesign .ns-v11-paige .ns-paige__crop { width: 200px; height: 168px; }
   .ns-redesign .ns-v11-paige .ns-paige__crop img { width: 290px; left: -50px; top: 17px; }
@@ -313,7 +332,7 @@
   .ns-redesign .ns-feature-desk__grid--town > [data-desk="did_you_know"] { border-top: 0; border-right: 0; }
 }
 @media(max-width: 600px) {
-  .ns-redesign .ns-page { padding: 0 18px 24px; }
+  .ns-redesign .ns-page { --ns-page-gutter: 14px; padding-bottom: 24px; }
   .ns-redesign .ns-v11-brandbar { grid-template-columns: 104px minmax(0,1fr); gap: 12px; min-height: 136px; margin-top: 10px; padding-right: 8px; border-top-width: 3px; }
   .ns-redesign .ns-v11-brandbar::before { inset: 0 0 0 64%; background-size: auto 108%; opacity: .42; }
   .ns-redesign .ns-v11-paige, .ns-redesign .ns-v11-paige .ns-paige__crop { width: 104px; height: 136px; }
@@ -329,6 +348,7 @@
   .ns-redesign .ns-front-page-grid { display: flex; flex-direction: column; gap: 24px; }
   .ns-redesign .ns-front-desk--lead { order: 0; padding: 0 !important; border: 0; }
   .ns-redesign .ns-front-page-grid__right { order: 1; width: 100%; gap: 12px; }
+  .ns-redesign .ns-front-secondary article:nth-child(n+2) .ns-front-story { grid-template-columns: minmax(108px, .38fr) minmax(0, .62fr); }
   .ns-redesign .ns-front-desk--big-picture { order: 2; display: flex; flex-direction: column; gap: 0; padding: 20px 0; }
   .ns-redesign .ns-big-picture-image { width: 100%; margin-bottom: 14px; }
   .ns-redesign .ns-front-desk--big-picture .ns-front-status { align-self: start; }
@@ -366,4 +386,19 @@
     font-size: clamp(34px, 10vw, 44px);
     line-height: 1.04;
   }
+}
+
+/* The newspaper fills the browser. Sections share one deliberate inner gutter;
+   the page itself is never presented as a clipped card inside a grey frame. */
+.ns-redesign .ns-town-strip,
+.ns-redesign .ns-front-page-grid,
+.ns-redesign .ns-big-picture-more,
+.ns-redesign .ns-feature-desk,
+.ns-redesign .ns-counter-note,
+.ns-redesign .ns-reader,
+.ns-redesign .ns-catchup,
+.ns-redesign .ns-archive {
+  width: calc(100% - (2 * var(--ns-page-gutter)));
+  margin-left: auto;
+  margin-right: auto;
 }

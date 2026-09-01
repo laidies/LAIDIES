@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "cursor-openai-access-2026-08-28",
+  "edition": "daily",
+  "candidateStatus": "approved-for-publication",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-09-01T15:18:23Z",
+  "nextRecheckAt": "2026-09-08",
+  "recheckDisposition": "PRIMARY_SOURCES_CHECKED",
+  "sources": [
+    {
+      "id": "openai-cursor-decision-2026-08-28",
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
+      "type": "vendor",
+      "accessedAt": "2026-09-01"
+    },
+    {
+      "id": "openai-cursor-transition-help-2026-08-28",
+      "url": "https://help.openai.com/en/articles/20001506-using-openai-models-in-cursor",
+      "type": "vendor",
+      "accessedAt": "2026-09-01"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CURSOR-C01",
+      "claim": "OpenAI says it intends to wind down Cursor's contracted model access and proposed November 12 as the transition date.",
+      "sourceIds": ["openai-cursor-decision-2026-08-28"],
+      "risk": "high"
+    },
+    {
+      "id": "CURSOR-C02",
+      "claim": "OpenAI lists an API key and Codex extension as partial alternatives and says those routes do not replace every Cursor feature.",
+      "sourceIds": ["openai-cursor-transition-help-2026-08-28"],
+      "risk": "medium"
+    }
+  ],
+  "requiredReview": ["source accuracy", "plain-language comprehension", "product-provider distinction"],
+  "publicAuthority": "APPROVED_FOR_PUBLICATION"
+}
