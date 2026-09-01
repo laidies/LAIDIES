@@ -312,10 +312,15 @@ for (const story of base.stories) {
 }
 assert.match(html, /function renderPublicationContents\(\)/, "the in-paper contents need a dedicated live renderer");
 assert.match(html, /id="ns-browse-all"[^>]*>Browse all back issues<\/button>/, "newcomers need a visible browse route that does not require a search term");
-assert.match(html, /id="ns-catchup-title">What&rsquo;s new since your last visit\?<\/h2>/, "returning readers need a visible since-your-last-visit route");
+assert.match(html, /id="ns-catchup-title"[^>]*>What&rsquo;s new since your last visit\?<\/h2>/, "returning readers need a visible since-your-last-visit route");
 assert.match(catchup, /New at the NewsStand/, "the catch-up results must explain that these are newly published NewsStand items");
 assert.doesNotMatch(catchup, /ns-catchup-item__state/, "the catch-up must not repeat internal publication-state labels on every item");
-assert.match(html, /id="ns-catchup-since" type="date"/, "Since Your Last Visit needs a visitor-editable start date");
+assert.doesNotMatch(html, /id="ns-catchup-since"/, "Catch-up must not ask readers to remember or enter their last visit date");
+assert.match(html, /id="ns-catchup-signin"[^>]*href="\/resident-card\.html#rcAccountTitle"/, "signed-out readers need a direct Resident sign-in route for account-backed catch-up");
+assert.match(catchup, /LAIDIESResidentContinuationV1\.syncWith\(runtime\)/, "Catch-up must hydrate the Resident's cross-device continuation before choosing its start date");
+assert.match(catchup, /catchupAccountState === "account-backed"/, "Catch-up must distinguish account-backed history from device-local fallback");
+assert.match(catchup, /new Date\(Date\.now\(\) - 7 \* DAY_MS\)/, "readers without saved history need a useful seven-day fallback");
+assert.match(catchup, /visibilityState === "hidden"\) persistVisit\(\)/, "a signed-in visit must be saved when the reader leaves rather than waiting for another visit");
 assert.match(html, /newsstand-catchup-v1\.js/, "the Catch Me Up consumer must be loaded");
 assert.match(html, /resident-continuation-bootstrap-v1\.js/, "the incumbent resident continuation integration remains outside NewsStand publication authority");
 assert.doesNotMatch(html, /newsstand-current-issue\.js|local-preview-data\.js/, "NewsStand must use schema-2 canonical data without a preview-only authority overlay");

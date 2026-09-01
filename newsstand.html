@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260725-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260901-full-width-weekly-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260901-account-catchup-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -193,13 +193,12 @@
       <section class="ns-catchup" id="newsstand-catchup" aria-labelledby="ns-catchup-title">
         <div class="ns-catchup__intro">
           <p class="ns-kicker">Your catch-up</p>
-          <h2 id="ns-catchup-title">What&rsquo;s new since your last visit?</h2>
-          <p>Catch up on NewsStand stories, advice columns and verified SUNNYVAiLE updates published since the date below.</p>
+          <h2 id="ns-catchup-title" tabindex="-1">What&rsquo;s new since your last visit?</h2>
+          <p id="ns-catchup-explainer">We&rsquo;re checking what changed while you were away.</p>
         </div>
-        <div class="ns-catchup__controls">
-          <label for="ns-catchup-since">Catch me up from</label>
-          <input id="ns-catchup-since" type="date">
-          <button id="ns-catchup-run" type="button">Show what I missed</button>
+        <div class="ns-catchup__account" id="ns-catchup-account" aria-live="polite">
+          <p class="ns-catchup__account-status" id="ns-catchup-account-status">Preparing your catch-up&hellip;</p>
+          <a class="ns-catchup__signin" id="ns-catchup-signin" href="/resident-card.html#rcAccountTitle" hidden>Sign in so LAiDIES remembers →</a>
         </div>
         <div class="ns-catchup__results" id="ns-catchup-results" aria-live="polite"></div>
       </section>
@@ -1701,7 +1700,7 @@
             document.getElementById("newsstand-catchup").scrollIntoView({
               behavior: motionBehavior(), block: "start", inline: "nearest"
             });
-            focusAfterPaint(document.getElementById("ns-catchup-since"));
+            focusAfterPaint(document.getElementById("ns-catchup-title"));
           });
         });
         document.getElementById("ns-return").addEventListener("click", function () {
@@ -1794,7 +1793,7 @@
     <script src="./content/site/brand-polish.js?v=20260830-native-controls-1" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260831-useful-palette-1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260901-account-catchup-1"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>

@@ -30,6 +30,10 @@
     whats_new_sunnyvaile: "town-street.png", did_you_know: "did-you-know-question-20260831.png"
   };
   var previousPublicationView = latestPublicationView(readState());
+  var catchupAccountState = "checking";
+  var catchupContextResolved = false;
+  var catchupRuntime = null;
+  var visitPersisted = false;
   var sharedDailyHandled = false;
   var columnReturnTarget = null;
 
@@ -140,16 +144,45 @@
     return latest && latest.editionDate > publicationDate ? latest.editionDate : publicationDate;
   }
 
-  function syncCatchupAvailability() {
-    var input = document.getElementById("ns-catchup-since");
-    if (!input) return;
-    input.max = availableThroughDate();
-    if (previousPublicationView && input.getAttribute("data-user-edited") !== "true") {
-      var previousDate = editorialDateOnly(previousPublicationView);
-      input.value = previousDate > input.max ? input.max : previousDate;
-    } else if (input.value && input.value > input.max) {
-      input.value = input.max;
+  function catchupSince() {
+    var fallback = editorialDateOnly(new Date(Date.now() - 7 * DAY_MS));
+    var since = previousPublicationView ? editorialDateOnly(previousPublicationView) : fallback;
+    var latest = availableThroughDate();
+    return since > latest ? latest : since;
+  }
+
+  function updateCatchupAccountCopy() {
+    var explainer = document.getElementById("ns-catchup-explainer");
+    var status = document.getElementById("ns-catchup-account-status");
+    var signIn = document.getElementById("ns-catchup-signin");
+    if (!explainer || !status || !signIn) return;
+    var since = catchupSince();
+    var remembered = Boolean(previousPublicationView);
+    signIn.hidden = catchupAccountState === "account-backed";
+    if (catchupAccountState === "account-backed") {
+      explainer.textContent = remembered
+        ? "Your Resident account remembered where you left off."
+        : "This is your first saved NewsStand visit, so we started with the last seven days.";
+      status.textContent = remembered
+        ? "Catching you up from " + formatDate(since) + "."
+        : "From now on, your catch-up will follow you across devices.";
+      return;
     }
+    if (catchupAccountState === "account-unavailable") {
+      explainer.textContent = "Your account history could not be reached, so this catch-up uses the history saved on this device.";
+      status.textContent = remembered
+        ? "Showing changes since " + formatDate(since) + "."
+        : "Showing the last seven days instead.";
+      signIn.textContent = "Try signing in again →";
+      return;
+    }
+    explainer.textContent = remembered
+      ? "This device remembered your last NewsStand visit."
+      : "There is no saved visit on this device yet, so we started with the last seven days.";
+    status.textContent = remembered
+      ? "Showing changes since " + formatDate(since) + "."
+      : "Sign in once and future catch-ups can follow you across devices.";
+    signIn.textContent = "Sign in so LAiDIES remembers →";
   }
 
   function formatDate(value) {
@@ -268,7 +301,7 @@
   function applyLatestDailyIssue() {
     // Snapshot history cannot promote itself. Schema-2 is the sole current
     // publication authority; the release transaction sets its dated pointers.
-    syncCatchupAvailability();
+    updateCatchupAccountCopy();
   }
 
   function publicationStatusCopy(state, publication) {
@@ -924,15 +957,9 @@
   }
 
   function renderCatchup() {
-    var input = document.getElementById("ns-catchup-since");
     var target = document.getElementById("ns-catchup-results");
-    if (!input || !target) return;
-    var since = input.value;
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(since)) return;
-    if (since > availableThroughDate()) {
-      since = availableThroughDate();
-      input.value = since;
-    }
+    if (!target) return;
+    var since = catchupSince();
     var items = catchupItems(since);
     function renderItems(groupItems, emptyCopy) {
       if (!groupItems.length) return '<p class="ns-catchup__empty">' + escapeHTML(emptyCopy) + '</p>';
@@ -961,23 +988,47 @@
         renderItems(newsItems, 'No new NewsStand stories or columns were published after ' + formatDate(since) + '.'),
       '</section>',
       '<section class="ns-catchup-group ns-catchup-group--town" aria-labelledby="ns-catchup-town-title">',
-        '<div class="ns-catchup-group__head"><div><h3 id="ns-catchup-town-title">Around SUNNYVA<span class="ns-brand-i">i</span>LE</h3><p class="ns-catchup-group__dek">New books, episodes, games and website features published since your selected date.</p></div><p>', townItems.length, townItems.length === 1 ? ' new update' : ' new updates', '</p></div>',
+        '<div class="ns-catchup-group__head"><div><h3 id="ns-catchup-town-title">Around SUNNYVA<span class="ns-brand-i">i</span>LE</h3><p class="ns-catchup-group__dek">New books, episodes, games and website features published while you were away.</p></div><p>', townItems.length, townItems.length === 1 ? ' new update' : ' new updates', '</p></div>',
         renderItems(townItems, 'No verified website, book, episode or feature update has been published for this period.'),
       '</section>'
     ].join("");
   }
 
   function initialize() {
-    var input = document.getElementById("ns-catchup-since");
-    var run = document.getElementById("ns-catchup-run");
-    if (!input || !run) return;
-    var fallback = new Date(Date.now() - 7 * DAY_MS);
-    syncCatchupAvailability();
-    input.value = editorialDateOnly(previousPublicationView || fallback);
-    syncCatchupAvailability();
-    input.addEventListener("input", function () { input.setAttribute("data-user-edited", "true"); });
-    input.addEventListener("change", function () { input.setAttribute("data-user-edited", "true"); });
-    run.addEventListener("click", renderCatchup);
+    if (!document.getElementById("ns-catchup-results")) return;
+    updateCatchupAccountCopy();
+    renderCatchup();
+    async function resolveCatchupContext() {
+      if (catchupContextResolved) return;
+      catchupContextResolved = true;
+      try {
+        if (!global.LAIDIESResidentAccountRuntime) throw new Error("resident-runtime-unavailable");
+        var runtime = await global.LAIDIESResidentAccountRuntime.get();
+        catchupRuntime = runtime;
+        var session = await runtime.controller.getSession();
+        if (global.LAIDIESResidentContinuationV1) {
+          try {
+            var result = await global.LAIDIESResidentContinuationV1.syncWith(runtime);
+            catchupAccountState = result && result.state === "account-backed"
+              ? "account-backed"
+              : "device-local";
+          } catch (_) {
+            catchupAccountState = session ? "account-unavailable" : "device-local";
+          }
+        } else {
+          catchupAccountState = session ? "account-unavailable" : "device-local";
+        }
+        previousPublicationView = latestPublicationView(readState());
+      } catch (_) {
+        var authenticated = document.querySelector(".sv-signin[data-authenticated='true']");
+        catchupAccountState = authenticated ? "account-unavailable" : "device-local";
+      }
+      updateCatchupAccountCopy();
+      renderCatchup();
+    }
+    global.addEventListener("laidies:continuation-ready", resolveCatchupContext, { once: true });
+    global.addEventListener("laidies:continuation-unavailable", resolveCatchupContext, { once: true });
+    global.setTimeout(resolveCatchupContext, 1800);
     document.addEventListener("click", function (event) {
       var columnLink = event.target.closest("[data-open-column]");
       if (columnLink && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
@@ -1097,7 +1148,7 @@
           detail: { stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }) }
         }));
         applyLatestDailyIssue();
-        syncCatchupAvailability();
+        updateCatchupAccountCopy();
         refreshPublicationChrome();
         refreshDailyBackIssueAction();
         updateDailyPaper();
@@ -1113,14 +1164,20 @@
     function recordPublicationView(event) {
       var detail = event && event.detail || {};
       markSeen(detail.key, detail.publicationAt);
-      previousPublicationView = latestPublicationView(readState());
-      if (previousPublicationView && input.getAttribute("data-user-edited") !== "true") {
-        input.value = editorialDateOnly(previousPublicationView);
-        syncCatchupAvailability();
+    }
+    function persistVisit() {
+      if (visitPersisted) return;
+      visitPersisted = true;
+      rememberVisit();
+      if (catchupRuntime && global.LAIDIESResidentContinuationV1) {
+        global.LAIDIESResidentContinuationV1.syncWith(catchupRuntime).catch(function () {});
       }
     }
     global.addEventListener("newsstand:publication-viewed", recordPublicationView);
-    global.addEventListener("pagehide", rememberVisit, { once: true });
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") persistVisit();
+    });
+    global.addEventListener("pagehide", persistVisit, { once: true });
     (global.__newsstandPublicationViewQueue || []).splice(0).forEach(function (detail) {
       recordPublicationView({ detail: detail });
     });
