@@ -7,20 +7,20 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current coordinated release is the verified account-aware NewsStand successor
-`18bd5103-a2cf-467c-ac1f-44f3cf8eb636`, source
-`1145f86d7a0a21c54381e1a4d392f614b7fdc90f`, immutable
-`https://18bd5103.laidies-sunnyvaile.pages.dev`. Exact input
-`/tmp/laidies-newsstand-account-catchup-successor.xraFU6`; manifest suffix
-`.manifest.json`;720 files,731415228 bytes; identity
-`6aab382e40c9fae3d7b3e38fb19be88a695728c278b9805f2b49fd1ba2a1899c`.
-The producing lane reports exactly three changes from the corrected Homepage
-base: `newsstand.html`, `content/newsstand-design.css`, and
-`content/site/newsstand-catchup-v1.js`. Catch-up is account-aware and the manual
-date control is removed. Homepage/video, Library, Resident, Radio and all other
-bytes are preserved and custom/immutable hash-verified by that lane. Foreground
-verified the local manifest counts and identity; it did not repeat the live
-browser or predecessor-delta checks.
+Current coordinated release is the verified NewsStand/Homepage-header successor
+`56563c37-1dc2-4e58-9c0f-af5271666afb`, source `f492fb7`, immutable
+`https://56563c37.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-homepage-header-successor.7AG81u`; manifest
+`/tmp/laidies-newsstand-homepage-header-successor.7AG81u.manifest.json`;720
+files,731417999 bytes; identity
+`0caf5f73175ce9e138d66f3a6dcb4d69fd6a0ff807c390a55460ace1d6827dee`.
+Foreground independently verified those manifest values and the exact delta
+from the `18bd5103` artifact: only `content/site/sv-topbar.css`,
+`newsstand.html`, and `newsstand-crossword.html` changed, with zero additions or
+removals. The producing lane reports matching custom/immutable hashes for the
+three changed paths and protected Homepage, Library, Resident, KSVL and
+NewsStand paths, plus passing Chrome journeys at1440,390 and320 pixels with the
+matching topbar, menu open/Escape focus return and zero horizontal overflow.
 Query the provider again before any successor and rebase only on this exact
 artifact unless a later coordinated handoff supersedes it. Town Hall/moderation
 ownership and retention remain unresolved operating decisions, not permission

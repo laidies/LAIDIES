@@ -6,7 +6,26 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current production — 2026-09-01 account-aware NewsStand catch-up successor
+## Current production — 2026-09-01 NewsStand/Homepage-header successor
+
+Production `56563c37-1dc2-4e58-9c0f-af5271666afb`, source `f492fb7`, immutable
+`https://56563c37.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-homepage-header-successor.7AG81u`; manifest
+`/tmp/laidies-newsstand-homepage-header-successor.7AG81u.manifest.json`;720
+files,731417999 bytes; identity
+`0caf5f73175ce9e138d66f3a6dcb4d69fd6a0ff807c390a55460ace1d6827dee`.
+This foreground independently verified the exact local manifest values and the
+artifact boundary from `18bd5103`: only `content/site/sv-topbar.css`,
+`newsstand.html`, and `newsstand-crossword.html` changed, with zero additions or
+removals. The producing lane reports matching custom/immutable hashes for the
+three changed paths plus protected Homepage index/runtime/video, Library,
+Resident, KSVL and NewsStand stories. It also reports passing actual Chrome
+journeys at1440,390 and320 pixels at both origins: matching gradient/navigation,
+menu open/Escape focus return and zero horizontal overflow. This foreground did
+not repeat those public browser journeys. Use this exact artifact as the next
+release base after a fresh provider-head check.
+
+## Historical predecessor — 2026-09-01 account-aware NewsStand catch-up successor
 
 Production `18bd5103-a2cf-467c-ac1f-44f3cf8eb636`, source
 `1145f86d7a0a21c54381e1a4d392f614b7fdc90f`, immutable
