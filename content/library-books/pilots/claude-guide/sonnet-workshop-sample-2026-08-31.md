@@ -9,7 +9,9 @@ Claude Chat, Cowork and Claude Code are not three levels of intelligence. They a
 - **Cowork** is a paid beta for longer multi-step computer work. Its agent loop runs in Anthropic cloud sandboxes by default. The desktop app provides a deliberately granted route when the task needs local files, browser or computer access.
 - **Claude Code** is the developer and power-user environment for an actual folder or repository, with explicit permissions, project instructions, file changes, commands, tests and version control.
 
-Use the smallest surface that can actually reach the permitted inputs and create the output. Then choose a model and effort. Do not start with Max because the job feels important. Start by asking what is genuinely difficult.
+Use the smallest surface that can actually reach the permitted inputs and create the output. Then choose a model and effort. Do not start with Max because the job feels important. Start with Medium for a complete everyday job. Raise it only when you can name what Medium missed or which connected decisions need more reasoning.
+
+For example, higher effort may be worth testing when three source documents contradict one another and the answer must explain which source wins; when one change affects several files and every version must stay consistent; or when Medium produced a shallow plan that skipped a named dependency. “This matters to me” is not the same as “this requires maximum reasoning.”
 
 ## The route tested here
 
@@ -108,19 +110,25 @@ The observed differences did not establish a better decision from High:
 | Medium | 6,400 | 71.8 seconds | Correct venue and budget; introduced an unsupported dietary-policy statement |
 | High | 8,177 | 76.7 seconds | Correct venue and budget; invitation count was approximate |
 
-One pair is not a benchmark. High used more reported output tokens and a little more time here, but that does not prove Medium is universally better value or High is wasteful. It proves only that this routine bounded job did not earn a High recommendation from the evidence we have.
+One pair is not a benchmark. High used more reported output tokens and a little more time here, but that does not prove Medium is universally better value or High is wasteful. It proves only that High did not solve a problem Medium had failed to solve in this particular job. Both chose the same venue and calculated the same correct budget.
 
-High effort is a setting, not a tiara. Give it a problem that needs the extra reasoning.
+High effort is a setting, not a tiara. Give it a specific problem to solve: a contradiction, a missed dependency or several connected changes that the lower setting did not keep straight.
 
-## The source-fidelity failure
+## How one small sentence changed the meaning
 
-The source said:
+The workshop plan included a caterer’s quote. The quote gave the meal price and then added one short factual note:
 
 > Dietary needs not collected.
 
-The Medium output turned that into a statement that collecting dietary needs was not planned or budgeted. Those are not the same claim. The source describes current information; the output invented a policy explanation.
+In ordinary language, that means nobody had yet recorded whether attendees needed vegetarian, allergy-safe or other meal options. It identifies unfinished work. It does not tell us why the information is missing or who is responsible for collecting it.
 
-This is why a source-backed answer still needs claim checking. A model can cite the right source and add a reason the source never gave.
+The Medium output changed this into a statement that collecting dietary needs was **not planned or budgeted**. That sounds similar, but it invents two decisions: that the organizer chose not to collect the information and chose not to allocate money for it. Neither decision appeared in the source.
+
+Why does that matter? An organizer reading the proposal could believe the issue had already been considered and rejected, rather than recognizing it as an unresolved task that still needed an owner. The safe wording was simply:
+
+> Dietary needs have not yet been collected. Confirm who will collect them before the catering order is finalized.
+
+This is why a source-backed answer still needs claim checking. A model can begin with the right fact and quietly add a reason, policy or decision that the source never gave.
 
 ## Approved revision
 
@@ -158,14 +166,14 @@ The actual repair run made the main corrections but still left residual attribut
 
 Use the current model picker and effort control available on your account. Anthropic’s current documentation lists low, medium, high, xhigh and max for Fable 5, Mythos 5, Opus 5 and Sonnet 5 through the API; exact app exposure and plan access differ.
 
-- **Low:** tightly specified extraction or transformation where you can name every affected field.
-- **Medium:** the starting point for a complete bounded document or file job like this one.
-- **High:** a genuine source conflict, planning problem or ambiguity that Medium handles too shallowly.
-- **xhigh or Max:** a difficult task whose value and failure evidence justify more reasoning. Do not use this workshop as proof that either is needed.
+- **Low:** test it for narrow extraction or transformation when the required fields and missing-value rule are explicit.
+- **Medium:** start here for a complete everyday document or file job with several clear requirements.
+- **High:** test it when Medium missed a named contradiction or dependency, or when one change must remain consistent across several connected outputs.
+- **xhigh or Max:** reserve these for long, consequential reasoning with many connected decisions after a lower setting has shown a specific shortfall. Do not use the emotional importance of the task—or this workshop—as proof that either is needed.
 
 Model-specific corrections matter:
 
-- **Fable 5:** Anthropic documents excessive context gathering and deliberation on some routine high-effort work. Give it a clear scope, a finish line and lower effort when appropriate. Long difficult work still needs deliberate verification.
+- **Fable 5:** Anthropic documents excessive context gathering and deliberation on some routine high-effort work. Give it a clear scope and finish line, and test a lower effort when the task has fixed inputs and outputs. For long work with conflicting evidence or many dependent changes, retain named verification checks rather than requesting a vague broad review.
 - **Opus 5:** Anthropic warns that generic “verify again” instructions can duplicate checks it already performs. Keep acceptance conditions; remove redundant review rituals.
 - **Sonnet 5:** name every file and section affected by a revision, especially at lower effort.
 

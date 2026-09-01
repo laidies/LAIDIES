@@ -57,6 +57,12 @@
 - **Next:** Complete exact producer self-review for the four prose files, repair
   decision-changing defects, then run only the next product/context/Skill tests
   that answer a reader choice before expanding first full chapters.
+- **Voice correction, 2026-09-01:** Claude effort guidance now defines a reason
+  to escalate through observable contradictions, dependencies, connected
+  changes or a named lower-setting failure. The caterer example now shows the
+  original fact, the invented policy, the practical consequence and the safe
+  correction. “High effort is a setting, not a tiara” remains after the
+  explanation rather than carrying it.
 - **Preserved:** Who's Who and all other book work; live Library unchanged.
 
 ### 2026-08-31 — four-book deep research

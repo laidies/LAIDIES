@@ -14777,3 +14777,19 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How one fictional workshop revealed
   four different books instead of four covers on the same advice.
 - **Status:** Internal production learning; semantic review and publication remain HOLD.
+
+## LIBRARY-EFFORT-EXPLANATION-20260901 — A memorable line cannot carry an undefined decision
+
+- **Finding:** “High effort is a setting, not a tiara” landed, but “use it for
+  difficult work” left the reader to define difficult, and the dietary-needs
+  example began with a small source distinction before explaining the event
+  context or consequence.
+- **Prevention:** Define effort escalation through observable task features or
+  a named lower-setting failure. Present every error as context, exact source,
+  model change, reader consequence and smallest correction before the memorable
+  landing line.
+- **Evidence:** Ali's direct comprehension feedback and the revised Claude
+  sample section `How one small sentence changed the meaning`.
+- **Possible Behind the Build angle:** Why the best line in the chapter still
+  failed when the explanation underneath it was missing.
+- **Status:** Internal teaching-prose correction; full manuscript remains HOLD.

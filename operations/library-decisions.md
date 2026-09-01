@@ -81,6 +81,20 @@ behaviour, first-hand expert experience, editorial hypotheses and our actual
 test results. The selection guide must route readers to these exact recipes;
 the underlying model/effort/plan records remain dated and refreshable.
 
+**Plain effort and error explanations — Ali, 2026-09-01:** Do not tell a
+nontechnical reader to raise effort because a task is “difficult,” “complex” or
+“important” without saying what that means. Start from the normal/default
+setting and raise it only for an observable reason: the lower setting missed a
+named dependency or contradiction; the job contains several connected changes
+that must remain consistent; evidence conflicts and the source hierarchy must
+be resolved; or a long multi-file plan has consequences that cannot be checked
+one piece at a time. Importance alone does not require higher effort. Every
+failure example must present, in order, the relevant context, the exact source
+fact, what the model changed or invented, why that could affect the reader's
+decision and the smallest useful correction. A clever line may land the lesson
+but may not substitute for this explanation. Retain “High effort is a setting,
+not a tiara” as the approved line after the mechanism is clear.
+
 - `operations/product-stewards/library/whos-who-in-ai/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/chatgpt-guide/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/claude-guide/DEEP-RESEARCH-2026-08-31.md`
