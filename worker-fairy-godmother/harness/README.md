@@ -195,7 +195,7 @@ the actual artifacts:
 
 ```bash
 node harness/verify-run-artifacts.mjs \
-  --manifest /approved/run-directory/results/run-manifest.json \
+  --manifest /approved/run-directory/results/signed-run-manifest.json \
   --approved-public-key /approved/authorized-runner-public-key.pem \
   --approved-key-fingerprint preregistered-64-hex-sha256 \
   --provider-input /approved/run-directory/send/provider-input.jsonl \
