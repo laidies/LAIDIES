@@ -104,6 +104,23 @@ Last reconciled: 2026-08-05.
   with red sweater or teal mailroom blouse. Do not substitute glamorous curls,
   arched fashion brows, a cardigan-and-paisley librarian costume or an elderly
   face. Ali must approve the corrected identity pilot before room integration.
+- **Miss Jeeves v4 identity pilot rejected — 2026-09-01.** Ali's direct visual
+  ruling supersedes its internal reviewer PASS: the narrowed hair correction
+  also produced a gaunt, hollow-cheeked, wide-eyed face that reads as Gollum,
+  not Ms Geist or a warm SUNNYVAiLE guide. Preserve the incumbent masthead.
+  Any successor starts from the warmer v2 facial proportions, restores fuller
+  cheeks, normal eye scale, a softer jaw and healthy neck/shoulder proportions,
+  and treats the compact bob as a separate hair-only requirement. A visual
+  checker that admitted v4 is not calibrated for gaunt/uncanny face drift.
+- **Miss Jeeves pencil-free teal identity approved — 2026-09-01.** Ali selected
+  `assets/library/candidates-20260901/miss-jeeves-geist-identity-selected-pencil-removed.png`
+  (SHA-256 `89c44d4be49d16d3fe69648f90da31fb3a4e505f439e019e2d20daef93dbb13f`)
+  as the exact identity source for masthead integration. Preserve its healthy
+  full face, warm expression, dark full curls, round gold glasses, pearl studs,
+  clean teal-blue cardigan and oversized white pointed collar. The earlier
+  pencil-in-hair version and the later compact-hair v7 candidate are superseded.
+  This approval authorizes a Library masthead candidate; it does not authorize
+  a page replacement, push or deployment without approval of the integrated image.
 - **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
   section must not repeat the blue-led catalogue surface immediately below it.
   Use the locked vivid pink → purple → blue gradient with the approved

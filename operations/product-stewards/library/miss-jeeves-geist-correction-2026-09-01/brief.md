@@ -1,6 +1,6 @@
 # Miss Jeeves / Ms Geist identity correction
 
-Status: INTERNAL IDENTITY PILOT — NOT APPROVED FOR MASTHEAD
+Status: PENCIL-FREE TEAL IDENTITY APPROVED — MASTHEAD INTEGRATION IN REVIEW
 
 ## Goal
 
@@ -46,3 +46,19 @@ the historical v4 room until Ali approves the pilot. No deployment is authorized
   broad outer hair silhouette.
 - v4 is the current review candidate; it materially reduces the hair footprint
   while preserving the corrected face, glasses, expression and red-white wardrobe.
+- Ali rejected v4 because its face reads as Gollum: hollow cheeks, oversized
+  staring eyes, pinched jaw, exposed thin neck and excessive etched facial
+  lines. The prior review PASS is invalidated. V5 must recover the warmer,
+  healthier v2 facial structure while retaining only v4's smaller hair footprint.
+- V5 restored healthy facial volume but retained salon hair, a polished generic
+  expression, a malformed fringed red cardigan and an obsolete brass-lamp/card-
+  catalogue Library background.
+- V7 used a clean saturated teal-blue cardigan and the modern Library, but Ali
+  preferred the earlier fuller-haired teal candidate. Ali then identified and
+  rejected the pencil emerging from that candidate's hair.
+- The surgical pencil-free correction is the approved identity authority:
+  `assets/library/candidates-20260901/miss-jeeves-geist-identity-selected-pencil-removed.png`
+  at SHA-256 `89c44d4be49d16d3fe69648f90da31fb3a4e505f439e019e2d20daef93dbb13f`.
+  Its face, hair, glasses, expression, teal cardigan and white collar are locked
+  for the masthead integration. The page remains unchanged until Ali approves
+  the integrated landscape image.

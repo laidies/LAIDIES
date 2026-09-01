@@ -14535,13 +14535,17 @@ authority and Welcome sign v3 are admitted.
   and screen-worn wardrobe into visible requirements. For a repeated stubborn
   defect, define geometric boundaries—width, height, endpoints and visible
   landmarks—rather than asking for “more” or “less” of a style adjective.
-- **Durable correction:** The v4 internal identity pilot binds two 1995 Ms Geist
-  stills and passes exact full-size and 390px review with a compact messy bob,
-  huge round glasses, pale eyes, earnest warmth and the red sweater/oversized
-  white collar. The historical v4 masthead is restored; integration still waits
-  for Ali's approval.
+- **Durable correction:** Ali's pixel review overruled the v4 internal PASS
+  because its gaunt, wide-eyed face read as Gollum. She selected the warmer,
+  fuller-haired modern-Library portrait instead, then caught and removed a
+  pencil that appeared to grow from the hair. The approved identity is now
+  bound to the exact pencil-free teal-cardigan artifact. Masthead production
+  also checks the centred 320px crop before review and rejects duplicate chairs
+  or other move-generated residue. The incumbent remains wired until Ali
+  approves the exact integrated landscape image.
 - **Possible Behind the Build angle:** We kept asking for messier hair when the
   real problem was the shape—and what changed when the prompt described the
   silhouette like a design constraint.
-- **Publication status:** INTERNAL IDENTITY PILOT / INCUMBENT RESTORED IN LOCAL
-  SOURCE / NOT PUSHED, DEPLOYED OR PUBLICLY VERIFIED.
+- **Publication status:** IDENTITY APPROVED / INTEGRATED MASTHEAD CANDIDATE
+  LOCALLY ADMITTED / INCUMBENT STILL WIRED / NOT PUSHED, DEPLOYED OR PUBLICLY
+  VERIFIED.
