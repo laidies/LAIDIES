@@ -8,7 +8,9 @@ export const ADVICE_TIMEOUT_MS = 30000;
 export const ADVICE_MAX_RESPONSE_BYTES = 131072;
 
 export function buildAdviceRequest(env, messages, structured = true) {
-  const model = typeof env.ANSWER_MODEL === 'string' && env.ANSWER_MODEL.trim()
+  const model = env.FAIRY_BETA_ENABLED === 'true'
+    ? ADVICE_MODEL
+    : typeof env.ANSWER_MODEL === 'string' && env.ANSWER_MODEL.trim()
     ? env.ANSWER_MODEL.trim() : ADVICE_MODEL;
   const common = { model, messages, ...(structured ? { response_format: { type: 'json_object' } } : {}) };
   if (model === ADVICE_MODEL) {
@@ -70,8 +72,12 @@ export async function requestAdviceCompletion(env, messages, structured = true) 
     return await Promise.race([deadline, (async () => {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.OPENAI_API_KEY}` },
-        body: JSON.stringify(body), signal: controller.signal, redirect: 'error'
+        body: JSON.stringify(body), signal: controller.signal, redirect: 'manual'
       });
+      if (response.status >= 300 && response.status < 400) {
+        await response.body?.cancel();
+        throw new Error('advice_redirect_rejected');
+      }
       if (!response.ok) { await response.body?.cancel(); return { ok: false, status: response.status }; }
       const data = await boundedJSON(response, controller.signal);
       if (!isCompleteAdviceCompletion(data, body.model)) throw new Error('advice_incomplete_or_refused');

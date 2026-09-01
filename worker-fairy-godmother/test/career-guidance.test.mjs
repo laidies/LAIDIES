@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
-import vm from 'node:vm';
 import worker from '../src/index.js';
 import { CAREER_GUIDANCE, careerPilotEnabled } from '../src/career-guidance.js';
 
@@ -130,25 +129,10 @@ test('quoted instructions stay untrusted and cannot supply source metadata', asy
   assert.deepEqual(result.data.answer.sources, []);
 });
 
-test('actual page repeat gate runs before invalid input and never replaces the existing answer', async () => {
+test('actual page has no client-side allowance gate and sends every valid attempt to the server ledger', async () => {
   const html = await readFile(new URL('../../games/fairy-godmother.html', import.meta.url), 'utf8');
-  const start = html.indexOf('async function runWand()');
-  const end = html.indexOf('wandBtn.addEventListener(', start);
-  assert.ok(start > 0 && end > start);
-  const source = html.slice(start, end);
-  async function exercise(code) {
-    let notices = 0, focused = false;
-    const notice = { setAttribute() {}, focus() { focused = true; } };
-    await vm.runInNewContext(code + '\nrunWand()', {
-      shouldShowGate: () => true,
-      document: { getElementById: () => null, createElement: () => notice },
-      wandBtn: { parentElement: { after() { notices++; } } },
-      questionEl: { value: '' },
-      showError() { throw new Error('Destroyed the existing answer'); }
-    });
-    assert.equal(notices, 1); assert.equal(focused, true);
-    assert.equal(notice.id, 'fairyPreviewGateNotice');
-  }
-  await exercise(source);
-  await assert.rejects(exercise(source.replace('if (shouldShowGate())', 'if (false)')), /Destroyed the existing answer/);
+  assert.doesNotMatch(html, /laidies_free_wishes_used|shouldShowGate|fairyPreviewGateNotice/);
+  assert.match(html, /requestId:\s*crypto\.randomUUID\(\)/);
+  assert.match(html, /guestToken:\s*guestToken\(\)/);
+  assert.match(html, /Signed-in Residents receive three cases each UTC day/);
 });

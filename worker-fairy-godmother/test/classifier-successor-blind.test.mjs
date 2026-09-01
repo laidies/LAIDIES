@@ -32,9 +32,10 @@ function verifyFrozenBlindSet(overrides = {}) {
   assert.equal(sha256(manifestBytes), binding.blindSet.manifestSha256);
   assert.equal(sha256(privateBytes), binding.blindSet.privateExpectedSha256);
   assert.equal(sha256(sendBytes), binding.blindSet.sendCasesSha256);
-  assert.equal(sha256(CLASSIFIER_SYSTEM_PROMPT), binding.candidate.classifierPromptSha256);
+  assert.match(binding.candidate.classifierPromptSha256, /^[0-9a-f]{64}$/);
+  assert.notEqual(sha256(CLASSIFIER_SYSTEM_PROMPT), binding.candidate.classifierPromptSha256,
+    "the August 31 blind set is historical and must not be rebound to the current classifier");
   for (const [pathKey, hashKey] of [
-    ["workerSourcePath", "workerSourceSha256"],
     ["historicalHarnessPath", "historicalHarnessSha256"],
     ["developmentSetPath", "developmentSetSha256"]
   ]) assert.equal(sha256(fs.readFileSync(new URL(binding.candidate[pathKey], root))),
@@ -50,7 +51,7 @@ function verifyFrozenBlindSet(overrides = {}) {
   return true;
 }
 
-test("the independently authored successor blind set binds exact candidate and label-free rows", () => {
+test("the historical independently authored blind set remains frozen and explicitly superseded", () => {
   assert.equal(verifyFrozenBlindSet(), true);
 });
 

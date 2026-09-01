@@ -1,0 +1,22 @@
+import worker from "./index.js";
+import { missingMaterialQuestion } from "./clarification.js";
+
+export default {
+  async fetch(request, env, context) {
+    let prompt = "";
+    if (env?.FAIRY_BETA_ENABLED === "true" && request.method === "POST") {
+      try { prompt = String((await request.clone().json())?.prompt || ""); } catch {}
+    }
+    const response = await worker.fetch(request, env, context);
+    const focusedQuestion = missingMaterialQuestion(prompt);
+    if (!focusedQuestion || !response.headers.get("content-type")?.includes("application/json")) return response;
+    let data;
+    try { data = await response.clone().json(); } catch { return response; }
+    if (data?.type !== "needs_information") return response;
+    data.question = focusedQuestion;
+    data.whyItMatters = "The missing material determines what the words mean, so guessing would be misleading.";
+    data.usefulNow = "Remove names, account numbers and confidential details before sharing only the relevant passage.";
+    return new Response(JSON.stringify(data), { status: response.status, headers: response.headers });
+  }
+};
+export { FairyBetaLedger } from "./beta-ledger.js";

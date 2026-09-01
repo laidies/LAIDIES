@@ -181,7 +181,7 @@ test("arch-008 makes uncertain quoted content a fail-closed route", async () => 
   assert.ok(route.reasonCodes.includes("quoted_content_uncertain"));
 });
 
-test("arch-009 and arch-010 enforce one Worker-owned five-second deadline even when adapters never settle", async () => {
+test("arch-009 and arch-010 enforce one Worker-owned ten-second deadline even when adapters never settle", async () => {
   const never = () => new Promise(() => {});
   const counter = { writes: 0 };
   let answerCalls = 0;
@@ -206,8 +206,8 @@ test("arch-009 and arch-010 enforce one Worker-owned five-second deadline even w
     assert.equal(data.type, "classification_uncertain");
     assert.ok(data.route.reasonCodes.includes("classifier_timeout"));
   }
-  assert.ok(elapsed >= 4_900, `deadline returned too early: ${elapsed}ms`);
-  assert.ok(elapsed < 5_700, `deadline failed to contain adapter: ${elapsed}ms`);
+  assert.ok(elapsed >= 9_900, `deadline returned too early: ${elapsed}ms`);
+  assert.ok(elapsed < 10_800, `deadline failed to contain adapter: ${elapsed}ms`);
   assert.equal(answerCalls, 0);
   assert.equal(counter.writes, 0);
 });

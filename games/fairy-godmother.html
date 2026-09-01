@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FAiRY GODMOTHER | LAiDIES · SUNNYVAiLE</title>
-    <meta name="description" content="An experimental AI work-drafting preview. Bring non-confidential details and leave with a prompt or draft to check yourself." />
+    <meta name="description" content="A practical AI advice beta for work and career situations. Bring non-confidential details and leave with language you can use." />
     <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
-    <meta property="og:description" content="Experimental work-drafting preview: improve a non-sensitive prompt or draft, then check the result yourself." />
+    <meta property="og:description" content="Practical AI help for work and career situations, with a usable answer, clear assumptions and fittings." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#b95d78" />
@@ -865,7 +865,7 @@
           <div class="fg-hero-copy">
             <p class="eyebrow brand-preserve-case">The FA<span class="ai-highlight">i</span>RY Godmother</p>
             <h1>Bring the prompt<br><span>that won&rsquo;t behave.</span></h1>
-            <p class="subtitle">Experimental preview: best for drafting or improving a work message using details you provide. Check every result before using it.</p>
+            <p class="subtitle">Practical help for a work or career situation: a clear read, language you can use, and the reasoning and assumptions to check.</p>
             <button class="fg-song-button" type="button"
                     aria-label="Listen to the FAiRY Godmother song on KSVL"
                     data-src="/content/music/game-ask-laidy.mp3"
@@ -877,8 +877,8 @@
           </div>
           <div class="fg-arrival" id="fgArrival" aria-live="polite">
             <span>Your visit</span>
-            <strong id="fgArrivalStatus">Work-drafting preview</strong>
-            <p id="fgArrivalNote">Not for current research, medical, crisis, emergency, legal, financial, or regulated-professional advice.</p>
+            <strong id="fgArrivalStatus">Guest beta: one case today.</strong>
+            <p id="fgArrivalNote">Signed-in Residents receive three cases each UTC day. Every completed case includes up to three fittings.</p>
           </div>
         </section>
 
@@ -892,8 +892,9 @@
 
           <section class="fairy-console" aria-label="FAiRY Godmother advice desk">
             <details class="fg-preview-slip" id="fgPreviewStatus">
-              <summary>Preview status slip</summary>
-              <p><strong>One local work-drafting preview.</strong> This is not an account, balance, reward or cross-device record. No FAiRY allowance is granted, reserved, spent, released or refunded here.</p>
+              <summary>Beta status slip</summary>
+              <p><strong>One guest case or three signed-in Resident cases per UTC day.</strong> Every completed case includes up to three fittings. Failed, incomplete, safely declined, or current-information requests do not use a case.</p>
+              <p>Your Resident sign-in works across devices. FAiRY does not save the words in your question or answer as case history; this page keeps recent answers only for this visit.</p>
             </details>
             <div class="fg-console-heading">
               <p>Step one</p>
@@ -918,7 +919,7 @@
               <p>Step two</p>
               <label for="fairyQuestion">What do you need help with?</label>
               <textarea id="fairyQuestion" rows="4" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
-              <p class="fairy-disclosure">AI-powered preview. Do not paste confidential details; anonymize sensitive information first. Maximum 8,000 characters. For current facts, use primary sources rather than this preview.</p>
+              <p class="fairy-disclosure">AI-powered beta. Do not paste confidential details; anonymize sensitive information first. Maximum 8,000 characters. FAiRY will stop rather than improvise current facts or regulated advice.</p>
             </div>
 
             <div class="fairy-buttons">
@@ -973,8 +974,8 @@
               <div id="historyList"></div>
             </div>
             <div class="badge-reveal" id="badgeReveal">
-              <strong>Local preview note.</strong>
-              <p>This page does not grant a member badge or FAiRY allowance.</p>
+              <strong>Private by design.</strong>
+              <p>Recent answers stay in this tab only. The service retains an anonymous receipt—not the words in your case—to enforce the daily beta limits and fittings.</p>
             </div>
           </aside>
         </section>
@@ -993,13 +994,15 @@
     </main>
 
     <!-- Scripts -->
-    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/supabase-config.js?v=20260702-1"></script>
+    <script src="../content/site/resident-card-contract-v1.js?v=20260830-portrait-1"></script>
+    <script src="../content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
     <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
     <script>
     // ===== FAiRY GODMOTHER — Worker-powered =====
     const WORKER_URL = window.LAIDIES_FAIRY_WORKER_URL
-      || "https://laidies-fairy-godmother.wednesday-laidies.workers.dev";
-    const USING_LEGACY_ENDPOINT = !window.LAIDIES_FAIRY_WORKER_URL;
+      || "https://laidies-fairy-godmother-staging.wednesday-laidies.workers.dev";
+    const USING_LEGACY_ENDPOINT = /\/laidies-fairy-godmother\.wednesday-laidies\.workers\.dev\/?$/.test(WORKER_URL);
 
     const ENERGY_KEY_MAP = {
       auto: "fairy",
@@ -1043,22 +1046,33 @@
     const MAX_PROMPT_CHARS = 8000;
     // The Worker stops first, so the page can render its truthful no-charge
     // response instead of abandoning a request that the provider is still handling.
-    const ADVICE_TIMEOUT_MS = 35000;
+    const ADVICE_TIMEOUT_MS = 45000;
     const ADVICE_PROGRESS_MS = 8000;
     const ADVICE_LONG_PROGRESS_MS = 18000;
 
-    const FREE_WISHES_LIMIT = 1;
-    const LS_FREE_WISHES_KEY = "laidies_free_wishes_used";
-    function getFreeWishesUsed() {
-      try { return parseInt(localStorage.getItem(LS_FREE_WISHES_KEY) || "0", 10) || 0; }
-      catch { return 0; }
+    const LS_GUEST_TOKEN_KEY = "laidies_fairy_guest_token_v1";
+    let currentCaseReceipt = null;
+
+    function guestToken() {
+      try { return localStorage.getItem(LS_GUEST_TOKEN_KEY) || ""; }
+      catch { return ""; }
     }
-    function incrementFreeWishesUsed() {
-      try { localStorage.setItem(LS_FREE_WISHES_KEY, String(getFreeWishesUsed() + 1)); }
-      catch {}
+
+    function rememberGuestToken(value) {
+      if (typeof value !== "string" || value.length < 40 || value.length > 1200) return;
+      try { localStorage.setItem(LS_GUEST_TOKEN_KEY, value); } catch {}
     }
-    function shouldShowGate() {
-      return getFreeWishesUsed() >= FREE_WISHES_LIMIT;
+
+    async function residentAccessToken() {
+      try {
+        const runtime = window.LAIDIESResidentAccountRuntime
+          ? await window.LAIDIESResidentAccountRuntime.get()
+          : null;
+        const result = runtime ? await runtime.client.auth.getSession() : null;
+        return result && !result.error && result.data && result.data.session
+          ? String(result.data.session.access_token || "")
+          : "";
+      } catch { return ""; }
     }
 
     // ===== DOM =====
@@ -1326,12 +1340,17 @@
 
       try {
         const response = await fetchWorkerResponse({
+          requestId: crypto.randomUUID(),
+          guestToken: guestToken(),
           revision: {
             previousDraft: lastPostGlowUpText,
             directive: opt.directive,
+            caseId: currentCaseReceipt && currentCaseReceipt.id,
+            expectedVersion: currentCaseReceipt && currentCaseReceipt.version,
           },
         });
         const data = await response.json().catch(() => null);
+        if (data && data.guestToken) rememberGuestToken(data.guestToken);
         const typedRevision = data && data.type === "revision_success"
           && data.answer && data.answer.deliverable
           ? String(data.answer.deliverable).trim()
@@ -1352,6 +1371,14 @@
         }
         swapPostGlowUpContent(revised, row);
         lastPostGlowUpText = revised;
+        if (data.case && data.case.caseId && Number.isInteger(data.case.version)) {
+          currentCaseReceipt = {
+            id: data.case.caseId,
+            version: data.case.version,
+            fittingsRemaining: data.case.fittingsRemaining
+          };
+          if (data.case.fittingsRemaining === 0) buttons.forEach((button) => { button.disabled = true; });
+        }
         status.textContent = "Revised — " + opt.label.toLowerCase() + ".";
       } catch (err) {
         console.error("Revision error:", err);
@@ -1529,9 +1556,13 @@
 
       lastPostGlowUpText = String(answer.deliverable || "");
       lastPromptGlowUpText = "";
+      currentCaseReceipt = data.case && data.case.id && Number.isInteger(data.case.version)
+        ? { id: data.case.id, version: data.case.version,
+            fittingsRemaining: Number.isInteger(data.case.fittingsRemaining) ? data.case.fittingsRemaining : 3 }
+        : null;
       if (lastPostGlowUpText) {
         output.insertBefore(makeInlineAction("Copy usable answer", () => lastPostGlowUpText), disclosure);
-        if (!Object.prototype.hasOwnProperty.call(answer, "aiAssist")) {
+        if (currentCaseReceipt && currentCaseReceipt.fittingsRemaining > 0) {
           output.insertBefore(makeRevisionRow(), disclosure);
         }
       }
@@ -1583,9 +1614,13 @@
       const controller = new AbortController();
       const timer = window.setTimeout(() => controller.abort(), ADVICE_TIMEOUT_MS);
       try {
+        const accessToken = await residentAccessToken();
+        const headers = { "Content-Type": "application/json" };
+        if (accessToken) headers.Authorization = "Bearer " + accessToken;
+        if (guestToken()) headers["X-LAiDIES-Guest-Token"] = guestToken();
         return await fetch(WORKER_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: headers,
           body: JSON.stringify(payload),
           signal: controller.signal
         });
@@ -1600,9 +1635,11 @@
       const workerEnergy = USING_LEGACY_ENDPOINT && energyKey === "fairy"
         ? "auto"
         : energyKey;
-      const payload = { prompt: prompt, energy: workerEnergy };
+      const payload = { prompt: prompt, energy: workerEnergy,
+        requestId: crypto.randomUUID(), guestToken: guestToken() };
       const response = await fetchWorkerResponse(payload);
       const data = await response.json().catch(() => null);
+      if (data && data.guestToken) rememberGuestToken(data.guestToken);
       if (!response.ok) {
         if (data && (data.message || data.response)) {
           const err = new Error("HTTP " + response.status);
@@ -1625,20 +1662,6 @@
     }
 
     async function runWand() {
-      if (shouldShowGate()) {
-        // Check before input errors so even an empty repeat cannot erase a result.
-        let gateNotice = document.getElementById("fairyPreviewGateNotice");
-        if (!gateNotice) {
-          gateNotice = document.createElement("p");
-          gateNotice.id = "fairyPreviewGateNotice";
-          gateNotice.setAttribute("role", "alert");
-          gateNotice.tabIndex = -1;
-          wandBtn.parentElement.after(gateNotice);
-        }
-        gateNotice.textContent = "This is a one-response local preview. Answers are not saved across visits. More requests, subscriptions, and member allowances are not verified on this page yet.";
-        gateNotice.focus();
-        return;
-      }
       const q = questionEl.value.trim();
       if (!q) {
         showError("The FAiRY Godmother needs an actual prompt to read. Tell her in a sentence or two what you’re trying to do.");
@@ -1669,13 +1692,11 @@
         if (result.contract === "typed") {
           if (result.data.type === "case_success") {
             showTypedSuccess(result.data, energyKey, q);
-            incrementFreeWishesUsed();
           } else {
             showTypedOutcome(result.data);
           }
         } else {
           showResponse(result.markdown, energyKey, q);
-          incrementFreeWishesUsed();
         }
       } catch (err) {
         console.error("FAiRY GODMOTHER worker error:", err);
@@ -1817,7 +1838,7 @@
       });
     })();
     </script>
-      <script src="../content/site/fairy-godmother-v2.js?v=20260724-1"></script>
+      <script src="../content/site/fairy-godmother-v2.js?v=20260901-beta-1"></script>
       <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm2" defer></script>
 <script>

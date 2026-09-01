@@ -51,25 +51,23 @@
     }
   ];
 
-  function setArrivalState() {
+  async function setArrivalState() {
     if (!arrivalStatus || !arrivalNote) return;
-
-    var freeWishesUsed = 0;
-
+    arrivalStatus.textContent = "Guest beta: one case today.";
+    arrivalNote.textContent = "Signed-in Residents receive three cases each UTC day. Every completed case includes up to three fittings.";
     try {
-      freeWishesUsed = parseInt(localStorage.getItem("laidies_free_wishes_used") || "0", 10) || 0;
+      var runtime = window.LAIDIESResidentAccountRuntime
+        ? await window.LAIDIESResidentAccountRuntime.get()
+        : null;
+      var result = runtime ? await runtime.client.auth.getSession() : null;
+      if (result && !result.error && result.data && result.data.session) {
+        arrivalStatus.textContent = "Resident beta: three cases today.";
+        arrivalNote.textContent = "Every completed case includes up to three fittings. Failed or safely declined requests do not use a case.";
+      }
     } catch (error) {
-      freeWishesUsed = 0;
+      // The Worker verifies identity again. Keep the truthful guest state when
+      // the browser cannot inspect a session.
     }
-
-    if (freeWishesUsed >= 1) {
-      arrivalStatus.textContent = "Local preview complete.";
-      arrivalNote.textContent = "This page does not verify subscriptions, member allowances, or additional requests.";
-      return;
-    }
-
-    arrivalStatus.textContent = "Work-drafting preview.";
-    arrivalNote.textContent = "One local preview response; no account or reward is created.";
   }
 
   function syncSaintSelection() {
@@ -139,7 +137,7 @@
   }
 
   buildSaintRail();
-  setArrivalState();
+  void setArrivalState();
   syncResultsState();
 
   if (advice) {

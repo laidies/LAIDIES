@@ -26,7 +26,7 @@ assert.match(page, /aria-live="polite" aria-labelledby="scrollHeader" tabindex="
 assert.match(page, /scrollEl\.focus\(\{ preventScroll: true \}\)/);
 assert.match(page, /prefers-reduced-motion: reduce/);
 assert.match(page, /id="fairyWaitStatus" role="status" aria-live="polite" aria-atomic="true" hidden/);
-assert.match(page, /ADVICE_TIMEOUT_MS = 35000/);
+assert.match(page, /ADVICE_TIMEOUT_MS = 45000/);
 assert.match(page, /ADVICE_PROGRESS_MS = 8000/);
 assert.match(page, /ADVICE_LONG_PROGRESS_MS = 18000/);
 assert.match(page, /waitStatusTimers\.forEach/);
@@ -42,8 +42,11 @@ assert.ok(browserTimeout >= providerTimeout + 3000,
   "browser must wait long enough to render the Worker's bounded failure response");
 
 const successBranch = page.indexOf('result.data.type === "case_success"');
-const successSpend = page.indexOf("incrementFreeWishesUsed();", successBranch);
 const typedOutcome = page.indexOf("showTypedOutcome(result.data);", successBranch);
-assert.ok(successBranch > -1 && successSpend > successBranch && typedOutcome > successSpend);
+assert.ok(successBranch > -1 && typedOutcome > successBranch);
+assert.doesNotMatch(page, /incrementFreeWishesUsed|laidies_free_wishes_used|fairyPreviewGateNotice/);
+assert.match(page, /guestToken:\s*guestToken\(\)/);
+assert.match(page, /requestId:\s*crypto\.randomUUID\(\)/);
+assert.match(page, /residentAccessToken\(\)/);
 
 console.log("PASS FAiRY page typed/legacy contract");

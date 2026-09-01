@@ -56,21 +56,17 @@ const check = (condition, message) => {
 
 const fixtureSuccess = {
   type: "case_success",
-  caseId: "fixture-case-001",
+  guestToken: "fixture." + "x".repeat(48) + ".signature",
+  case: { id: "fixture-case-001", version: 1, fittingsRemaining: 3 },
   answer: {
     read: "You need a clear request with a reason and a date.",
     deliverable: "Hi Jordan — could I have until Thursday to finish the review?",
-    reasoning: "It names the request and gives the recipient a usable date.",
+    reasoning: ["It names the request and gives the recipient a usable date."],
     assumptions: ["Thursday is still useful."],
     unknowns: ["Whether another deadline depends on this work."],
     nextMove: "Check the date, then send it."
   },
-  allowance: {
-    charged: true,
-    amount: 1,
-    balance: 2,
-    receiptId: "fixture-receipt-001"
-  }
+  play: { outcome: "spent" }
 };
 
 const fixtureStates = {
@@ -131,7 +127,7 @@ async function openFixture({
     if (accelerateAdviceTimers) {
       const nativeSetTimeout = window.setTimeout.bind(window);
       window.setTimeout = (callback, delay, ...args) => {
-        const accelerated = delay === 8000 ? 20 : delay === 18000 ? 40 : delay === 35000 ? acceleratedAdviceTimeoutMs : delay;
+        const accelerated = delay === 8000 ? 20 : delay === 18000 ? 40 : delay >= 35000 ? acceleratedAdviceTimeoutMs : delay;
         return nativeSetTimeout(callback, accelerated, ...args);
       };
     }
@@ -191,9 +187,8 @@ try {
     "visitor sees the parlour as the interface");
   check(await desktop.page.locator(".fairy-disclosure").isVisible(),
     "sensitive-data/currentness warning is visible before submission");
-  check(await desktop.page.locator("#fgArrivalNote").innerText() ===
-    "One local preview response; no account or reward is created.",
-    "arrival state honestly bounds local preview and reward scope");
+  check((await desktop.page.locator("#fgArrivalStatus").innerText()).toLowerCase().includes("guest beta: one case today"),
+    "signed-out arrival state honestly shows the server-enforced guest allowance");
   check(await desktop.page.locator("#fairyMode").getAttribute("aria-label") !== null ||
     await desktop.page.locator("label[for='fairyMode']").count() === 1,
     "energy selector has an accessible name");
@@ -214,14 +209,15 @@ try {
   }
   check(await desktop.page.locator("#wisdomCount").innerText() === "1",
     "successful typed result increments visible preview count");
-  check(await desktop.page.evaluate(() =>
-    localStorage.getItem("laidies_free_wishes_used")) === "1",
-  "successful typed result records the local preview");
   const request = await desktop.page.evaluate(() => window.__FAIRY_REQUESTS__[0]);
-  check(JSON.stringify(Object.keys(request).sort()) === JSON.stringify(["energy", "prompt"]),
-    "request contains only prompt and presentation energy");
+  check(JSON.stringify(Object.keys(request).sort()) === JSON.stringify(["energy", "guestToken", "prompt", "requestId"]),
+    "request contains the typed beta request ID and opaque guest continuity field");
+  check(typeof request.requestId === "string" && request.requestId.length > 20,
+    "request uses a fresh idempotency identifier");
   check(!JSON.stringify(request).includes("@"),
     "request does not silently append subscriber identity");
+  check((await desktop.page.evaluate(() => localStorage.getItem("laidies_fairy_guest_token_v1")))?.startsWith("fixture."),
+    "successful response stores only the opaque signed guest token");
   check(await desktop.page.evaluate(() => document.activeElement?.id) === "adviceScroll",
     "completed result receives focus");
   await desktop.context.close();
@@ -270,8 +266,8 @@ try {
     check(await fixture.page.locator("#wisdomCount").innerText() === "0",
       `${state} no-charge state does not increment visible preview count`);
     check(await fixture.page.evaluate(() =>
-      localStorage.getItem("laidies_free_wishes_used")) === null,
-    `${state} no-charge state does not consume local preview`);
+      localStorage.getItem("laidies_fairy_guest_token_v1")) === null,
+    `${state} no-charge state does not fabricate guest continuity`);
     check((await fixture.page.locator("#scrollBody").innerText()).length > 20,
       `${state} state renders a useful explanation`);
     check(await fixture.page.evaluate(() => document.activeElement?.id) === "adviceScroll",
@@ -279,28 +275,21 @@ try {
     await fixture.context.close();
   }
 
-  const returning = await openFixture({
-    seed: { laidies_free_wishes_used: "1" },
-    viewport: { width: 390, height: 844 }
-  });
-  const returningStatus = await returning.page.locator("#fgArrivalStatus").innerText();
-  check(returningStatus.toLowerCase().includes("complete"),
-    `returning local-preview state is visible (observed: ${returningStatus})`);
-  check(!(await returning.page.evaluate(() =>
+  const mobileGuest = await openFixture({ viewport: { width: 390, height: 844 } });
+  const mobileStatus = await mobileGuest.page.locator("#fgArrivalStatus").innerText();
+  check(mobileStatus.toLowerCase().includes("guest beta: one case today"),
+    `mobile signed-out state shows the guest allowance (observed: ${mobileStatus})`);
+  check(!(await mobileGuest.page.evaluate(() =>
     document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
   "390px page has no horizontal overflow");
-  await returning.page.locator("#fairyQuestion").fill("Help me ask my manager for another day to finish this review.");
-  await returning.page.locator("#wandButton").click();
-  await returning.page.locator("#fairyPreviewGateNotice").waitFor();
-  check((await returning.page.locator("#fairyPreviewGateNotice").innerText()).includes("one-response local preview"),
-    "second local request fails honestly without service call");
-  check(await returning.page.evaluate(() => window.__FAIRY_REQUESTS__.length) === 0,
-    "second local request does not call the service");
-  await returning.context.close();
+  await submit(mobileGuest.page);
+  check(await mobileGuest.page.locator(".laidy-revision-button").count() === 4,
+    "mobile typed success exposes four fitting choices for the case-bound allowance");
+  await mobileGuest.context.close();
 
   const storageDenied = await openFixture({ storageDenied: true });
-  check((await storageDenied.page.locator("#fgArrivalNote").innerText()).includes("no account or reward"),
-    "storage denial preserves bounded arrival truth");
+  check((await storageDenied.page.locator("#fgArrivalStatus").innerText()).toLowerCase().includes("guest beta"),
+    "storage denial preserves truthful guest fallback");
   await submit(storageDenied.page);
   check(await storageDenied.page.locator("#wisdomCount").innerText() === "1",
     "storage denial does not erase a successful in-session response");
