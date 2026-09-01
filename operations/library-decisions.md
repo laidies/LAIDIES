@@ -92,6 +92,18 @@ Last reconciled: 2026-08-05.
   a new masthead-only asset, keep her face and identity cues visible in the
   centred 320px crop, and do not use this character replacement to redesign the
   room or resolve the separate printer-joke prop.
+- **Miss Jeeves successor approval withdrawn — 2026-09-01.** Ali rejected both
+  the integrated masthead candidate and its first correction: the first woman
+  is too old and badly misses Ms Geist; the correction is younger and better
+  but still looks like a polished generic librarian rather than Ms Geist. The
+  wardrobe also fails to read specifically as 1995. Restore the historical v4
+  masthead as the active arrival image. Before any new masthead integration,
+  admit one identity pilot against actual 1995 film stills of Twink Caplan as
+  Ms Geist: her smaller messy dark bob, huge round wire glasses, narrow face,
+  blue eyes, expressive awkward warmth and screen-worn oversized white collar
+  with red sweater or teal mailroom blouse. Do not substitute glamorous curls,
+  arched fashion brows, a cardigan-and-paisley librarian costume or an elderly
+  face. Ali must approve the corrected identity pilot before room integration.
 - **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
   section must not repeat the blue-led catalogue surface immediately below it.
   Use the locked vivid pink → purple → blue gradient with the approved

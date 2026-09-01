@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "miss-jeeves-geist-identity-pilot-v4",
+  "surface": "LIBRAiRY Miss Jeeves identity pilot",
+  "mediaClass": "STILL",
+  "status": "READY_TO_RENDER",
+  "maker": {"principalId":"codex-root-20260901"},
+  "registry": {
+    "path": "operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/visual-quality-registry-snapshot.json",
+    "sha256": "5aeb36e8a5a442870e322f07b1a6d730069c16d5892564da303233bbc33a294d",
+    "positiveExemplarId": "VQX-GOOD-STILL-001",
+    "patternApplied": "Use the approved adult graphic-novel person register while binding identity to two actual 1995 Ms Geist stills.",
+    "limitObserved": "The style exemplar governs rendering only; the film stills govern the recognizable identity cues."
+  },
+  "intent": {
+    "placement": "Identity review before any LIBRAiRY masthead integration.",
+    "scenePurpose": "Prove the face, hair, glasses, expression and 1995 teacher wardrobe.",
+    "viewerUnderstanding": "This is Miss Jeeves: a SUNNYVAiLE reference guide with Ms Geist's warm, frazzled 1995 teacher energy.",
+    "visualJob": "ESTABLISH"
+  },
+  "companion": {
+    "kind": "SILENT_PURPOSE",
+    "path": "operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/brief.md",
+    "sha256": "28f04b8a8f39bdf6867a7021ebf1407acb7c2fc1a7cdb8ab9c05d0d38b0b6ccd",
+    "locator": "Goal and Acceptance",
+    "exactTextOrSilentPurpose": "Correct the rejected generic librarian toward Ms Geist before masthead work resumes."
+  },
+  "truth": {
+    "destinationStyleAuthority": {
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+      "rule": "Adult expressive graphic-novel rendering, not photorealism or a generic children's cartoon."
+    },
+    "location": {
+      "path": "operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/brief.md",
+      "sha256": "28f04b8a8f39bdf6867a7021ebf1407acb7c2fc1a7cdb8ab9c05d0d38b0b6ccd",
+      "rule": "Portrait proof only; no room integration."
+    },
+    "era": {
+      "path": "operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/references/miss-geist-classroom-portrait.jpg",
+      "sha256": "796783be20615a3224d79b00b81b3d9a416a42a19545ecaf3688b1df0f78d238",
+      "rule": "1995 classroom styling: oversized pointed white collar with cherry-red textured layer."
+    },
+    "wardrobeAndAccessories": {
+      "path": "operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/references/miss-geist-classroom-portrait.jpg",
+      "sha256": "796783be20615a3224d79b00b81b3d9a416a42a19545ecaf3688b1df0f78d238",
+      "rule": "Use the red and white screen-worn teacher outfit, huge round wire glasses and optional pencil in hair; omit the rejected librarian styling."
+    },
+    "physicalReality": {
+      "path": "operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/brief.md",
+      "sha256": "28f04b8a8f39bdf6867a7021ebf1407acb7c2fc1a7cdb8ab9c05d0d38b0b6ccd",
+      "rule": "Natural adult anatomy, coherent glasses and one complete visible hand at most."
+    },
+    "requiredVisualFacts": [
+      "Late-forties woman with a narrow heart-oval face, pale blue-grey eyes, fine brows and modest lips.",
+      "Small messy dark-brown bob with wisps and modest crown volume, not dense glamorous curls.",
+      "Huge round thin-wire glasses and an open, animated, slightly frazzled warmth.",
+      "Oversized pointed white collar under a cherry-red textured sweater layer reads immediately as a 1995 teacher outfit."
+    ],
+    "prohibitedContradictions": [
+      "No elderly face, silver hair, deep wrinkles, grandmother styling or hunched posture.",
+      "No voluminous salon curls, heavy arched brows, sultry half-smile or fashion makeup.",
+      "No ornate chain glasses, paisley blouse, teal embroidered cardigan or book brooch.",
+      "No visible text, logo, watermark, malformed hand or duplicate accessory."
+    ]
+  },
+  "references": [
+    {"role":"Primary 1995 face, hair, glasses, expression and wardrobe authority.","path":"operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/references/miss-geist-classroom-portrait.jpg","sha256":"796783be20615a3224d79b00b81b3d9a416a42a19545ecaf3688b1df0f78d238"},
+    {"role":"Secondary 1995 face, bob, eyes and glasses authority.","path":"operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/references/miss-geist-mailroom.jpg","sha256":"1af6822e2dbf8c4f7aac7be5843936ec5d4f3cfab2510c8970febb8c679eef2c"},
+    {"role":"Adult LAiDIES people-rendering authority.","path":"assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","sha256":"c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422"}
+  ],
+  "characters": [
+    {"name":"Miss Jeeves","roleInScene":"SUNNYVAiLE reference guide identity study.","realHistorical":false,"identityReference":{"path":"operations/product-stewards/library/miss-jeeves-geist-correction-2026-09-01/references/miss-geist-classroom-portrait.jpg","sha256":"796783be20615a3224d79b00b81b3d9a416a42a19545ecaf3688b1df0f78d238"}}
+  ],
+  "objectMap": [
+    {"id":"miss-jeeves","visualJob":"Prove corrected identity and 1995 wardrobe.","relationToCompanion":"Only required subject.","disposition":"REQUIRED"},
+    {"id":"red-white-outfit","visualJob":"Make the 1995 teacher reference unmistakable.","relationToCompanion":"Corrects the rejected generic librarian costume.","disposition":"REQUIRED"},
+    {"id":"library-props","visualJob":"Avoid confusing identity review with room design.","relationToCompanion":"Not needed in the portrait pilot.","disposition":"PROHIBITED"}
+  ],
+  "textPlan": {"mode":"NO_VISIBLE_TEXT","unplannedGeneratedTextForbidden":true},
+  "knownDefects": [
+    {"id":"VQX-BAD-001","disposition":"PREVENTED","preventionEvidence":"Bound the adult style authority and exact actual character stills."},
+    {"id":"VQX-BAD-002","disposition":"PREVENTED","preventionEvidence":"Portrait-only proof prohibits invented room content."},
+    {"id":"VQX-BAD-003","disposition":"PREVENTED","preventionEvidence":"Natural anatomy and minimal hands required."},
+    {"id":"VQX-BAD-004","disposition":"PREVENTED","preventionEvidence":"Exact face, eyes, glasses, hair and accessories require pixel inspection."},
+    {"id":"VQX-BAD-005","disposition":"PREVENTED","preventionEvidence":"No visible text permitted."},
+    {"id":"VQX-BAD-006","disposition":"PREVENTED","preventionEvidence":"Screen-worn 1995 red and white teacher outfit is explicit."},
+    {"id":"VQX-BAD-007","disposition":"PREVENTED","preventionEvidence":"Identity job is separated from masthead integration."},
+    {"id":"VQX-BAD-008","disposition":"PREVENTED","preventionEvidence":"Only the character and a simple backdrop are permitted."
+    }
+  ],
+  "makerPreflight": {"knownDefectsRemaining":0,"objectiveDefectsRemaining":0,"representativeProofFirst":true}
+}
