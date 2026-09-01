@@ -14494,3 +14494,54 @@ rules: obsolete colours, glamour-cartoon rendering, random vehicles and the
 wrong sign language. Both pointers are now rejected, the active Episode 04 cue
 is source-empty and the shared outro is honestly 0/5 until a current palette
 authority and Welcome sign v3 are admitted.
+
+## BTB-486 — A job title is not a character identity
+
+- **Date:** 2026-09-01
+- **Area:** LUMINAiRY / Matron Lumen identity production.
+- **Failure:** The old Matron Lumen visually translated “lantern-keeper in a
+  reverent hall” into a purple priestess robe, sacred chest-lantern medallion
+  and grand cathedral-host pose. The picture communicated the theme but not a
+  specific late-1990s woman who belonged with SUNNYVAiLE's other keepers.
+- **Root cause:** Role and setting cues were allowed to substitute for face,
+  period wardrobe, personality and visible working behaviour.
+- **Prevention rule:** Before generating a town keeper, define four separate
+  things: her memorable human identity, individual period styling, ordinary
+  work action and building context. Reject any candidate that could keep the
+  same costume and pose after swapping the keeper's name.
+- **Durable correction:** The old source is rejected as identity authority and
+  its stale curation label is changed from `correct` to `rejected`. The new
+  internal pilot uses a distinct older South Asian face, silver-streaked curls,
+  raspberry glasses, velvet blazer, geometric blouse, keys and a real taper at
+  a candle station. No consumer changes until Ali accepts the identity.
+- **Possible Behind the Build angle:** We had designed a lantern-keeper's
+  costume before we designed the woman wearing it.
+- **Publication status:** INTERNAL IDENTITY PILOT / NOT WIRED / NOT DEPLOYED.
+
+## BTB-487 — “Inspired by” is not likeness evidence
+
+- **Date:** 2026-09-01
+- **Area:** LIBRAiRY / Miss Jeeves identity production.
+- **Failure:** A Miss Geist-inspired brief produced first an elderly librarian,
+  then a younger but glamorous generic librarian with large salon curls,
+  chain glasses, paisley and a decorative book brooch. Even after the face and
+  outfit improved, two successor edits changed hair texture without materially
+  changing the wrong broad silhouette.
+- **Root cause:** The producer relied on a remembered character summary and
+  adjective-level styling instead of binding actual film stills and measurable
+  silhouette cues before generation.
+- **Prevention rule:** When a fictional screen character is the comparison,
+  bind at least two exact stills and separate face, hair silhouette, expression
+  and screen-worn wardrobe into visible requirements. For a repeated stubborn
+  defect, define geometric boundaries—width, height, endpoints and visible
+  landmarks—rather than asking for “more” or “less” of a style adjective.
+- **Durable correction:** The v4 internal identity pilot binds two 1995 Ms Geist
+  stills and passes exact full-size and 390px review with a compact messy bob,
+  huge round glasses, pale eyes, earnest warmth and the red sweater/oversized
+  white collar. The historical v4 masthead is restored; integration still waits
+  for Ali's approval.
+- **Possible Behind the Build angle:** We kept asking for messier hair when the
+  real problem was the shape—and what changed when the prompt described the
+  silhouette like a design constraint.
+- **Publication status:** INTERNAL IDENTITY PILOT / INCUMBENT RESTORED IN LOCAL
+  SOURCE / NOT PUSHED, DEPLOYED OR PUBLICLY VERIFIED.
