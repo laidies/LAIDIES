@@ -19,6 +19,70 @@
     src: '/content/music/dj-jaidy-week-04-it-was-women-all-along.mp3'
   };
 
+  /* ---------- approved first-visit dial-up arrival ---------- */
+  (function () {
+    var arrival = document.querySelector('[data-home-arrival]');
+    if (!arrival) return;
+    var video = arrival.querySelector('video');
+    var pause = arrival.querySelector('[data-arrival-pause]');
+    var skip = arrival.querySelector('[data-arrival-skip]');
+    if (!video || !pause || !skip) return;
+
+    var key = 'laidies_home_ident_seen';
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var closed = false;
+    var safetyTimer = 0;
+
+    function storeSeen() {
+      try { window.sessionStorage.setItem(key, '1'); } catch (error) { /* Static masthead remains the fallback. */ }
+    }
+    function wasSeen() {
+      try { return window.sessionStorage.getItem(key) === '1'; } catch (error) { return true; }
+    }
+    function closeArrival() {
+      if (closed) return;
+      closed = true;
+      window.clearTimeout(safetyTimer);
+      storeSeen();
+      video.pause();
+      arrival.hidden = true;
+    }
+    function startArrival() {
+      if (reduced || wasSeen()) {
+        storeSeen();
+        arrival.hidden = true;
+        return;
+      }
+      closed = false;
+      arrival.hidden = false;
+      video.currentTime = 0;
+      safetyTimer = window.setTimeout(closeArrival, 7000);
+      var started = video.play();
+      if (started && typeof started.catch === 'function') started.catch(closeArrival);
+    }
+    function armSafetyTimer() {
+      window.clearTimeout(safetyTimer);
+      safetyTimer = window.setTimeout(closeArrival, 7000);
+    }
+
+    pause.addEventListener('click', function () {
+      if (video.paused) {
+        var resumed = video.play();
+        if (resumed && typeof resumed.catch === 'function') resumed.catch(closeArrival);
+        armSafetyTimer();
+        pause.textContent = 'Pause arrival';
+      } else {
+        video.pause();
+        window.clearTimeout(safetyTimer);
+        pause.textContent = 'Resume arrival';
+      }
+    });
+    skip.addEventListener('click', closeArrival);
+    video.addEventListener('ended', closeArrival);
+    video.addEventListener('error', closeArrival);
+    startArrival();
+  })();
+
   /* ---------- latest-episode links: published index, static fallback in HTML ---------- */
   (function () {
     var links = document.querySelectorAll('[data-latest-episode-link]');
@@ -110,51 +174,108 @@
     });
   }
 
-  /* ---------- town map popups ---------- */
+  /* ---------- linked town map and building directory ---------- */
   (function () {
-    var wrap = document.querySelector('.map-wrap');
-    if (!wrap) return;
-    var pop = wrap.querySelector('.map-pop');
-    var h4 = pop.querySelector('h4'), p = pop.querySelector('p'), a = pop.querySelector('a');
-    var activeTrigger = null;
-    function closePopup(restoreFocus) {
-      if (pop.hidden) return;
-      pop.hidden = true;
-      if (activeTrigger) activeTrigger.setAttribute('aria-expanded', 'false');
-      if (restoreFocus && activeTrigger) activeTrigger.focus();
-      activeTrigger = null;
+    var town = document.getElementById('town');
+    if (!town) return;
+    var dialog = town.querySelector('#town-building-dialog');
+    var list = town.querySelector('.building-directory ul');
+    if (!dialog || !list) return;
+    var spots = Array.from(town.querySelectorAll('.map-spot'));
+    var links = Array.from(list.querySelectorAll('[data-building-link]'));
+    var caption = town.querySelector('.building-map-caption');
+    var title = dialog.querySelector('h3'), description = dialog.querySelector('p');
+    var address = dialog.querySelector('.building-dialog-address');
+    var detailImage = dialog.querySelector('.building-detail-image');
+    var go = dialog.querySelector('.building-go'), close = dialog.querySelector('.building-close');
+    var entries = links.map(function (link, index) {
+      var spot = spots.find(function (candidate) {
+        return candidate.dataset.href === link.getAttribute('href');
+      });
+      var spotLeft = spot ? parseFloat(spot.style.left) : 50;
+      var spotTop = spot ? parseFloat(spot.style.top) : 50;
+      var spotWidth = spot ? parseFloat(spot.style.width) : 0;
+      var spotHeight = spot ? parseFloat(spot.style.height) : 0;
+      var mapX = spotLeft + spotWidth / 2;
+      var mapY = spotTop + spotHeight / 2;
+      link.parentElement.style.setProperty('--map-x', mapX + '%');
+      link.parentElement.style.setProperty('--map-y', mapY + '%');
+      if (spot) spot.dataset.num = String(index + 1).padStart(2, '0');
+      return {
+        link: link,
+        spot: spot,
+        name: link.textContent.trim(),
+        address: link.parentElement.querySelector('.building-address').textContent.trim(),
+        description: link.parentElement.querySelector('p').textContent,
+        mapX: mapX,
+        mapY: mapY
+      };
+    });
+    var hovered = null, focused = null, opened = null, trigger = null;
+    function paint() {
+      var current = opened || hovered || focused;
+      entries.forEach(function (entry) {
+        entry.link.classList.toggle('is-highlighted', entry === current);
+        if (entry.spot) entry.spot.classList.toggle('is-highlighted', entry === current);
+      });
+      caption.textContent = current ? current.name : 'Choose a building on the map or in the list.';
     }
-    wrap.querySelectorAll('.map-spot').forEach(function (b) {
-      b.setAttribute('aria-haspopup', 'dialog');
-      b.setAttribute('aria-controls', 'town-map-popup');
-      b.setAttribute('aria-expanded', 'false');
-      b.addEventListener('click', function (e) {
-        e.stopPropagation();
-        if (activeTrigger === b && !pop.hidden) {
-          closePopup(true);
-          return;
-        }
-        if (activeTrigger) activeTrigger.setAttribute('aria-expanded', 'false');
-        activeTrigger = b;
-        b.setAttribute('aria-expanded', 'true');
-        h4.textContent = b.dataset.name; p.textContent = b.dataset.desc; a.href = b.dataset.href;
-        pop.hidden = false;
-        var W = wrap.clientWidth, H = wrap.clientHeight;
-        var bx = b.offsetLeft + b.offsetWidth / 2;
-        var left = bx - pop.offsetWidth / 2;
-        left = Math.max(10, Math.min(left, W - pop.offsetWidth - 10));
-        var top = b.offsetTop - pop.offsetHeight - 10;
-        if (top < 10) top = Math.min(b.offsetTop + b.offsetHeight + 10, H - pop.offsetHeight - 10);
-        pop.style.left = left + 'px'; pop.style.top = top + 'px';
-        a.focus();
+    function revealRow(entry) {
+      var row = entry.link.parentElement.getBoundingClientRect();
+      var bounds = list.getBoundingClientRect();
+      if (row.top < bounds.top) list.scrollTop += row.top - bounds.top;
+      else if (row.bottom > bounds.bottom) list.scrollTop += row.bottom - bounds.bottom;
+    }
+    function open(entry, button) {
+      opened = entry; trigger = button;
+      title.textContent = entry.name;
+      address.textContent = entry.address;
+      description.textContent = entry.description;
+      detailImage.style.setProperty('--map-x', entry.mapX + '%');
+      detailImage.style.setProperty('--map-y', entry.mapY + '%');
+      go.href = entry.link.getAttribute('href');
+      go.setAttribute('aria-label', 'Go to ' + entry.name);
+      [entry.link, entry.spot].filter(Boolean).forEach(function (node) { node.setAttribute('aria-expanded', 'true'); });
+      paint();
+      dialog.showModal();
+      close.focus();
+    }
+    entries.forEach(function (entry) {
+      [entry.link, entry.spot].filter(Boolean).forEach(function (node) {
+        node.setAttribute('aria-haspopup', 'dialog');
+        node.setAttribute('aria-controls', 'town-building-dialog');
+        node.setAttribute('aria-expanded', 'false');
+        node.addEventListener('mouseenter', function () {
+          hovered = entry; if (node === entry.spot) revealRow(entry); paint();
+        });
+        node.addEventListener('mouseleave', function () { hovered = null; paint(); });
+        node.addEventListener('focus', function () {
+          focused = entry; if (node === entry.spot) revealRow(entry); paint();
+        });
+        node.addEventListener('blur', function () { focused = null; paint(); });
+        node.addEventListener('click', function (event) {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          open(entry, node);
+        });
       });
     });
-    document.addEventListener('click', function (e) { if (!pop.hidden && !pop.contains(e.target)) closePopup(false); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !pop.hidden) {
-        e.preventDefault();
-        closePopup(true);
-      }
+    close.addEventListener('click', function () { dialog.close(); });
+    dialog.addEventListener('cancel', function (event) { event.preventDefault(); dialog.close(); });
+    dialog.addEventListener('click', function (event) {
+      if (event.target !== dialog) return;
+      var rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right ||
+          event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', function () {
+      if (opened) [opened.link, opened.spot].filter(Boolean).forEach(function (node) {
+        node.setAttribute('aria-expanded', 'false');
+      });
+      var returnTo = trigger;
+      opened = null; trigger = null; hovered = null;
+      if (returnTo) returnTo.focus();
+      paint();
     });
   })();
 
@@ -184,8 +305,8 @@
     });
     var readBtn = document.querySelector('.fc-default .fc-btn-teal');
     var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
-    if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04 →'; }
-    if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04 →'; }
+    if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04'; }
+    if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04'; }
   })();
 
   /* ---------- signed-in resume hook (wired to member_issue_progress later) ---------- */
