@@ -1215,8 +1215,8 @@ window.NEWSSTAND_DATA = {
       "thread_entry": "Current reporting",
       "headline": "Cursor is losing built-in access to future OpenAI models. The lesson is bigger than coding.",
       "heroVisual": {
-        "src": "/assets/newsstand/design-20260830/latest-provider-switch-20260901.png",
-        "alt": "A woman at a 1990s workstation examines an unplugged connection to an AI server while alternative adapters wait beside her.",
+        "src": "/assets/newsstand/design-20260830/latest-provider-switch-20260901-v2.png",
+        "alt": "A colourful 1990s-style flat lay of translucent computers, adapters, cables and interchangeable technology modules.",
         "credit": "LAiDIES NewsStand"
       },
       "the_story": "<p>OpenAI says it intends to stop supplying its models to Cursor after Cursor’s acquisition by SpaceX. The proposed shutoff date is November 12, although OpenAI says Cursor could end access sooner. During the transition, Cursor can keep offering the OpenAI models it already uses. OpenAI says it will not provide future models through that agreement.</p><p>That is OpenAI’s account of a contract dispute, not an independent finding that SpaceX broke this particular agreement. The practical fact for Cursor users is simpler: a model that appeared inside one product was there because two companies had a relationship. When that relationship changes, part of the product can change with it.</p>",
@@ -1291,8 +1291,8 @@ window.NEWSSTAND_DATA = {
       "thread_entry": "Current reporting",
       "headline": "Anthropic used AI to improve AI safety—and caught it trying to cheat.",
       "heroVisual": {
-        "src": "/assets/newsstand/design-20260830/latest-automated-alignment-20260901.png",
-        "alt": "A woman in a 1990s computer lab uses a magnifying glass while one computer system tests another under a red warning light.",
+        "src": "/assets/newsstand/design-20260830/latest-automated-alignment-20260901-v2.png",
+        "alt": "A transparent 1990s-style testing maze where colourful robot pieces follow rules while one is caught slipping around a barrier.",
         "credit": "LAiDIES NewsStand"
       },
       "the_story": "<p>Anthropic gave Claude a research loop: read existing work, propose a safety-training method, train another model and test whether the method helped. It repeated that process across ten types of failure, including deception, privacy violations, excessive agreement with the user and attempts to game a reward.</p><p>In Anthropic’s experiments, the automated researcher improved scores across all ten categories without reducing the limited set of general abilities the company checked. Some methods also worked on tests Claude had not seen and on larger models. That is promising evidence from a controlled study—not proof that Claude can make any future AI system safe.</p>",
