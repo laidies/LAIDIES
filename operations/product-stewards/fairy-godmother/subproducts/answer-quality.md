@@ -1,5 +1,23 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-09-01 — initial public beta limits approved
+
+Ali approved the recommended bounded launch policy: one guest case per UTC day,
+three cases per UTC day for a verified signed-in resident, and up to three
+case-bound fittings without another case charge. Provider dispatch must stop
+fail-closed once estimated daily provider spend reaches US$10; no over-cap
+request may begin. A provider, classifier, answer, timeout or validation failure
+uses no case and must retain any already usable answer.
+
+Guest enforcement requires a privacy-respecting signed server token and may not
+rely on the existing `laidies_free_wishes_used` localStorage key as authority.
+Resident enforcement requires verified opaque server identity and atomic
+server-side accounting. This decision selects limits and a cost ceiling; it does
+not admit the rejected classifier, authorize raw prompt retention, or make the
+current local candidate deployed. Status remains BUILDING until the new blind
+safety gate, exact-answer review, real-provider/staging journeys and public
+release checks pass.
+
 ## 2026-08-31 — bounded Terra classifier trial executed; admission HOLD
 
 Ali approved one private classifier-only trial over the unchanged 63-case
