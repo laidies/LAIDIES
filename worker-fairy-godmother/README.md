@@ -94,12 +94,14 @@ including reasoning, `store:false`, standard service tier and no legacy sampling
 parameters for Sol. Advice and revisions share this adapter; explicit historical
 test/model overrides retain their old shape. No fallback/retry selects another
 model. Sol receipts must identify Sol, assistant role and `finish_reason:stop`;
-refusals, truncations and tool calls cannot become successful answers. The20s
+refusals, truncations and tool calls cannot become successful answers. The30s
 deadline now includes reading/parsing the bounded128KiB provider response.
 The separate classifier is unchanged and still unconfigured. No Responses API,
 tools, conversation storage or multi-turn features were added. The existing
-page15s timeout is still a release blocker until real latency is measured; this
-local adapter is not production-ready or a quality-certified model run.
+page waits35s so the Worker can return its typed no-charge timeout first and
+shows staged status at8s/18s. Advice and revision use the same abortable browser
+request; no automatic retry is added. This local adapter is not production-ready
+or a quality-certified model run.
 Request JSON is capped at 32,000 bytes before
 parsing, answer fields are bounded before `case_success`, and browser origins
 outside the LAiDIES/localhost allowlist fail before provider work. The local

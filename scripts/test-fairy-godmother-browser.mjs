@@ -110,19 +110,31 @@ const fixtureStates = {
       message: "The advice desk is unavailable. Nothing was counted.",
       allowance: { charged: false }
     }
-  }
+  },
+  slowSuccess: { status: 200, body: fixtureSuccess, delayMs: 120 },
+  timeout: { status: 200, body: fixtureSuccess, delayMs: 500 },
+  revisionTimeout: { status: 200, body: fixtureSuccess }
 };
 
 async function openFixture({
   state = "success",
   viewport = { width: 1280, height: 900 },
   seed = {},
-  storageDenied = false
+  storageDenied = false,
+  accelerateAdviceTimers = false,
+  acceleratedAdviceTimeoutMs = 80
 } = {}) {
   const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
-  await context.addInitScript(({ seed, storageDenied }) => {
+  await context.addInitScript(({ seed, storageDenied, accelerateAdviceTimers, acceleratedAdviceTimeoutMs }) => {
     window.LAIDIES_FAIRY_WORKER_URL = "https://fixture.invalid/fairy";
     window.__FAIRY_REQUESTS__ = [];
+    if (accelerateAdviceTimers) {
+      const nativeSetTimeout = window.setTimeout.bind(window);
+      window.setTimeout = (callback, delay, ...args) => {
+        const accelerated = delay === 8000 ? 20 : delay === 18000 ? 40 : delay === 35000 ? acceleratedAdviceTimeoutMs : delay;
+        return nativeSetTimeout(callback, accelerated, ...args);
+      };
+    }
     for (const [key, value] of Object.entries(seed)) localStorage.setItem(key, value);
     if (storageDenied) {
       for (const method of ["getItem", "setItem", "removeItem"]) {
@@ -132,18 +144,24 @@ async function openFixture({
         });
       }
     }
-  }, { seed, storageDenied });
+  }, { seed, storageDenied, accelerateAdviceTimers, acceleratedAdviceTimeoutMs });
   await context.route("**/*", async (route) => {
     const url = route.request().url();
     if (url === "https://fixture.invalid/fairy") {
       const payload = JSON.parse(route.request().postData() || "{}");
       await route.request().frame().evaluate((value) => window.__FAIRY_REQUESTS__.push(value), payload);
       const fixture = fixtureStates[state];
-      return route.fulfill({
-        status: fixture.status,
-        contentType: "application/json",
-        body: JSON.stringify(fixture.body)
-      });
+      const delayMs = state === "revisionTimeout" && payload.revision ? 500 : fixture.delayMs || 0;
+      if (delayMs) await new Promise((resolve) => setTimeout(resolve, delayMs));
+      try {
+        return await route.fulfill({
+          status: fixture.status,
+          contentType: "application/json",
+          body: JSON.stringify(fixture.body)
+        });
+      } catch (error) {
+        if (!/Target page, context or browser has been closed|Route is already handled|Request context disposed/i.test(String(error))) throw error;
+      }
     }
     if (url.startsWith(origin)) return route.continue();
     prohibitedRequests.push(url);
@@ -208,6 +226,44 @@ try {
     "completed result receives focus");
   await desktop.context.close();
 
+  const slow = await openFixture({
+    state: "slowSuccess",
+    accelerateAdviceTimers: true,
+    acceleratedAdviceTimeoutMs: 200
+  });
+  const slowSubmit = submit(slow.page);
+  await slow.page.getByText("Still working — a careful answer can take up to half a minute.", { exact: true }).waitFor();
+  check(await slow.page.locator("#fairyWaitStatus").getAttribute("role") === "status",
+    "slow answer exposes an accessible staged progress status");
+  await slowSubmit;
+  check(await slow.page.locator("#wisdomCount").innerText() === "1" &&
+    await slow.page.getByText("Your usable answer", { exact: true }).count() === 1,
+  "slow response completes as a successful answer before the browser deadline");
+  check(await slow.page.locator("#fairyWaitStatus").isHidden(),
+    "completed answer clears the staged progress status");
+  await slow.context.close();
+
+  const timeout = await openFixture({ state: "timeout", accelerateAdviceTimers: true });
+  await submit(timeout.page);
+  check((await timeout.page.locator("#scrollBody").innerText()).includes("request was stopped and nothing was counted"),
+    "advice timeout is distinguished from a generic network flicker");
+  check(await timeout.page.locator("#wisdomCount").innerText() === "0",
+    "advice timeout does not increment the local preview count");
+  check(await timeout.page.locator("#wandButton").isEnabled(),
+    "advice timeout restores the submission controls");
+  await timeout.context.close();
+
+  const revisionTimeout = await openFixture({ state: "revisionTimeout", accelerateAdviceTimers: true });
+  await submit(revisionTimeout.page);
+  const originalDraft = await revisionTimeout.page.getByText(fixtureSuccess.answer.deliverable, { exact: true }).innerText();
+  await revisionTimeout.page.locator(".laidy-revision-button").first().click();
+  await revisionTimeout.page.getByText("That fitting took too long, so it was stopped. Your existing draft was not changed.", { exact: true }).waitFor();
+  check(await revisionTimeout.page.getByText(originalDraft, { exact: true }).count() === 1,
+    "revision timeout preserves the existing usable answer");
+  check(await revisionTimeout.page.locator(".laidy-revision-button").first().isEnabled(),
+    "revision timeout restores every fitting control");
+  await revisionTimeout.context.close();
+
   for (const state of ["clarify", "current", "boundary", "outage"]) {
     const fixture = await openFixture({ state });
     await submit(fixture.page);
@@ -233,8 +289,10 @@ try {
   check(!(await returning.page.evaluate(() =>
     document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
   "390px page has no horizontal overflow");
-  await submit(returning.page);
-  check((await returning.page.locator("#scrollBody").innerText()).includes("one-response local preview"),
+  await returning.page.locator("#fairyQuestion").fill("Help me ask my manager for another day to finish this review.");
+  await returning.page.locator("#wandButton").click();
+  await returning.page.locator("#fairyPreviewGateNotice").waitFor();
+  check((await returning.page.locator("#fairyPreviewGateNotice").innerText()).includes("one-response local preview"),
     "second local request fails honestly without service call");
   check(await returning.page.evaluate(() => window.__FAIRY_REQUESTS__.length) === 0,
     "second local request does not call the service");

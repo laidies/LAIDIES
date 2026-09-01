@@ -21,7 +21,11 @@ assert.match(sharedSite, /device-local honour-system game/);
 
 const fairy = read("games/fairy-godmother.html");
 assert.match(fairy, /MAX_PROMPT_CHARS = 8000/);
-assert.match(fairy, /ADVICE_TIMEOUT_MS = 15000/);
+assert.match(fairy, /ADVICE_TIMEOUT_MS = 35000/);
+assert.match(fairy, /ADVICE_PROGRESS_MS = 8000/);
+assert.match(fairy, /ADVICE_LONG_PROGRESS_MS = 18000/);
+assert.match(fairy, /a careful answer can take up to half a minute/);
+assert.match(fairy, /err\.name === "AbortError"/);
 assert.match(fairy, /isOutOfScopePrompt/);
 assert.match(fairy, /needsVerifiedInformation/);
 assert.match(fairy, /hasExpectedGlowUp/);

@@ -32,6 +32,12 @@ facts, criteria, outcomes, endorsement or employer policy. Never attach an
 unrelated reference merely to make the AI task valid.
 Optional preparation must disclose whether it runs another call; repeat-preview
 limits must preserve an already usable answer instead of replacing it.
+FAiRY synchronous advice and revision use one bounded provider attempt with no
+automatic retry. The Worker deadline is30s and the page deadline is35s so the
+typed no-charge backend failure can arrive before the browser aborts. The page
+must show honest staged progress and a revision failure must retain the existing
+draft and restore its controls. This local latency contract does not itself
+authorize deployment or admit model/classifier quality.
 
 Shared brand formatter repair rule (2026-08-30): native SELECT/OPTION/OPTGROUP,
 TEXTAREA and INPUT contents remain plain text, including `.wordmark` shortcuts.

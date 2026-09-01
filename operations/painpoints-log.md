@@ -14988,3 +14988,9 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** The private Sol/medium trial produced19 useful answers from20 synthetic cases, but one timed out. The first real Worker replay also rejected a useful external-job AI preparation because the validator incorrectly required every AI task to carry a handbook source, encouraging either a service error or a forced irrelevant citation.
 - **Prevention:** Review the exact words separately from transport and schema. Keep source support and AI usefulness independent; allow a no-source AI task only when it uses necessary non-confidential reader inputs, names what to verify and forbids invented facts. Calibrate replay with a known-bad mutation. Measure latency as a visitor outcome: one timeout plus11.4s median/17.5s p95 keeps the synchronous experience HOLD even when19 answered cases are good.
 - **Possible Behind the Build angle:** A good AI answer is not a working product if the app rejects it—or if the reader gives up waiting for it.
+
+## 2026-08-31 — The browser must not give up before the backend
+
+- **Finding:** FAiRY's page stopped at15s while its Worker continued for20s, so a valid answer could be discarded and the visitor was encouraged to retry. The separate revision fetch had no deadline at all and could strand every fitting control in a disabled state.
+- **Prevention:** Give the backend the earlier bounded deadline and the browser a small response margin; apply the same abortable helper to advice and revision; show staged, accessible progress; preserve the last usable draft on revision failure; never retry automatically. Calibrate the contract by removing the abort signal and require the known-bad page to fail before accepting the corrected browser journey.
+- **Possible Behind the Build angle:** Timeout numbers are part of the product promise. Two individually sensible deadlines can still create a broken experience when they are in the wrong order.

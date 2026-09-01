@@ -1,7 +1,10 @@
 // Approved local advice target. Classifier selection is a separate decision.
 export const ADVICE_MODEL = 'gpt-5.6-sol';
 export const ADVICE_MAX_COMPLETION_TOKENS = 8192;
-export const ADVICE_TIMEOUT_MS = 20000;
+// Leave enough room for the measured Sol/medium tail while keeping one bounded
+// provider attempt. The browser waits two seconds longer so this service can
+// return its truthful no-charge failure state first.
+export const ADVICE_TIMEOUT_MS = 30000;
 export const ADVICE_MAX_RESPONSE_BYTES = 131072;
 
 export function buildAdviceRequest(env, messages, structured = true) {

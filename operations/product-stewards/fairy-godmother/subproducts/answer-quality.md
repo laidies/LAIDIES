@@ -1,5 +1,31 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
+
+The measured trial exposed a real product defect rather than merely a slow
+model: the page abandoned requests at15s while the Worker continued to20s.
+That could discard a valid answer and invite a duplicate retry. The local
+candidate now keeps one attempt/no automatic retry, stops the Worker provider
+call at30s and lets the page wait35s so the Worker's typed no-charge result can
+arrive first. Visible status changes at8s and18s explain that FAiRY is still
+working. The same bounded request helper now covers revisions, which previously
+had no browser deadline; a timed-out revision preserves the existing draft and
+restores every fitting control.
+
+The gate was calibrated by removing the browser abort signal from a temporary
+candidate and confirming the page contract failed. Current exact source passes
+the page contract, the49-check real-browser fixture including slow success,
+advice timeout and revision timeout, and the full60-test Worker suite plus the
+frozen45-case and79-case fixtures. The broad end-of-day guard remains red on an
+unrelated pre-existing Girl Talk copy expectation; it reached that failure
+before its FAiRY assertions.
+
+This closes the15s/20s mismatch locally. It does not repair the missing
+`promotion-02` trial answer, prove the separate safety-classifier provider,
+supply independent semantic admission or establish live latency. No additional
+paid model call, secret use, production configuration or deployment occurred.
+Verdict remains LOCAL BUILD / HOLD.
+
 ## 2026-08-31 — bounded Sol trial executed; quality promising, latency HOLD
 
 The approved private20-case Sol/medium trial ran with synthetic prompts only,
@@ -20,10 +46,11 @@ repair retains strict shape/no-invention/privacy checks; a calibrated known-bad
 mutation is rejected, the full suite now passes60/60 and all19 returned answers
 replay as `case_success`.
 
-Verdict remains HOLD: one missing answer, median11.396s, p95/max17.519s, the
-existing15s page versus20s backend mismatch, no independent semantic admission,
-and no real safety-classifier provider result. No production configuration or
-deployment changed. Exact results and per-case maker judgments are bound in
+Verdict remains HOLD: one missing answer, median11.396s, p95/max17.519s, no
+independent semantic admission, and no real safety-classifier provider result.
+The later local checkpoint above repairs the page/backend mismatch; it does not
+retroactively change this paid trial. No production configuration or deployment
+changed. Exact results and per-case maker judgments are bound in
 `evidence/sol-answer-trial-2026-08-31/review.md`.
 
 ## 2026-08-31 — bounded Sol trial approved
@@ -86,8 +113,10 @@ for this bounded migration.
 
 The adapter checks exact Sol model receipt, assistant role, one choice and
 `finish_reason:stop`; refusals/tool calls/truncation fail before allowance writes.
-It enforces128KiB response bytes and a20s deadline covering headers AND body,
-cancels a stalled reader and does not retry/fall back. Existing explicit test or
+At that compatibility checkpoint it enforced128KiB response bytes and a20s
+deadline covering headers AND body; the current top checkpoint supersedes that
+deadline with30s after measured trial latency. It cancels a stalled reader and
+does not retry/fall back. Existing explicit test or
 historical model overrides retain their request settings. The offline classifier
 replay now explicitly names its synthetic answer model; it is not a real Sol
 run. Its frozen semantic cases and labels did not change. No Wrangler config,
