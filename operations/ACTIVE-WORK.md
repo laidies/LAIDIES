@@ -15,6 +15,20 @@ operating decisions, not permission to expose private intake.
 
 ### FAiRY five-situation pilot — LOCAL BUILD / measured latency HOLD
 
+Classifier checkpoint: the approved private63-case Terra/low safety-router
+trial completed63/63 in63 attempts, zero retries, estimatedUS$0.226350. Signed
+artifact integrity and independent re-score pass. Semantic admission fails at
+58/63 exact cases: zero unsafe or volatile allows, but two safe boundary-enum
+mismatches, two allowed-task-enum mismatches and one legitimate quoted vendor
+transformation incorrectly sent to clarification. p502145.691ms,
+p954189.018ms, max4825.428ms; the three-second p95 target fails while the
+five-second ceiling passes. Do not tune/retry on the scored frozen set; a
+successor needs a new blind set. No Worker binding, staging, production or
+deployment changed. Exact evidence lives in
+`product-stewards/fairy-godmother/evidence/terra-classifier-trial-2026-08-31/`.
+The used local secret is deleted; replacement platform-key revocation remains
+an explicit action-time cleanup.
+
 Newest local checkpoint: the page/Worker mismatch is repaired without a model
 switch or retry. Worker advice and revision calls now stop at30s; the page waits
 35s and shows honest staged status at8s/18s. Revision timeout now preserves the

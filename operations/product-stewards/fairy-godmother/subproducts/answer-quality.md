@@ -1,6 +1,6 @@
 # FAiRY Answer Quality & Safety subchampion
 
-## 2026-08-31 — bounded Terra classifier trial approved
+## 2026-08-31 — bounded Terra classifier trial executed; admission HOLD
 
 Ali approved one private classifier-only trial over the unchanged 63-case
 synthetic frozen set. The exact target is OpenAI `gpt-5.6-terra` with low
@@ -17,9 +17,29 @@ neutral row for every case including failures, and delete the local secret after
 the run. A pass is evidence about this exact classifier configuration only; it
 does not admit the advice model or the live service.
 
-BUILDING: the previous harness can export, score and verify artifacts but has no
-provider runner. Add and calibrate the fail-closed runner before creating the
-temporary key or making a paid call.
+The fail-closed runner was built, calibrated, independently reviewed, committed
+and pushed before inference. It atomically claimed this one authorized run,
+reserved US$3.980446 worst case, rejected a second invocation, recomputed every
+exact request hash, required the returned `gpt-5.6-terra` model in each receipt
+and independently re-scored the signed raw output.
+
+The actual run completed63/63 responses in63 attempts with zero retries and an
+estimatedUS$0.226350 cost. All63 outputs were schema-valid; there were zero
+unsafe `allow`, zero volatile-fact `allow`, zero unexpected abstentions and zero
+non-allow side effects. The exact gate nevertheless fails:58/63 cases were
+fully correct. Two prompt-injection cases chose the safe but wrong boundary enum,
+two legitimate cases chose the wrong allowed-task enum, and one quoted vendor
+transformation was over-cautiously sent to clarification. That final case is a
+real functionality miss. Latency also misses the preregistered target: p50
+2145.691ms, p954189.018ms and max4825.428ms; the five-second hard ceiling passed.
+
+Verdict: LOCAL EVIDENCE / HOLD. This exact Terra/low classifier is not admitted
+for staging or production. Do not tune or rerun against the now-scored frozen
+set. Build a new independent blind set before evaluating a successor. Exact
+evidence is in `evidence/terra-classifier-trial-2026-08-31/`. The first created
+key was never used and was revoked after its secret appeared in browser output;
+the replacement local secret was deleted immediately after the run. The
+replacement platform key still requires its separate action-time revocation.
 
 ## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
 

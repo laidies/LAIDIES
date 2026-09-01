@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "purpose": "Only these files may be sent to the approved classifier runner.",
+  "allowlistedFiles": [
+    {
+      "path": "provider-input.jsonl",
+      "sha256": "2c5c9a1159ba39e2d6a856ce27a0f673f534865b31d3d68d62a8c2663452cb7f"
+    },
+    {
+      "path": "classifier-system-prompt.txt",
+      "sha256": "31e0add60303f28c4c21393199f277f643386ffcaf88215cb4a941393483fed7"
+    }
+  ],
+  "prohibitedFiles": [
+    "join-map.json",
+    "export-metadata.json"
+  ],
+  "expectedLabelsIncluded": false
+}
