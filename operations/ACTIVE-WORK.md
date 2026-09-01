@@ -7,26 +7,42 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current coordinated release is the verified NewsStand/Homepage-header successor
-`56563c37-1dc2-4e58-9c0f-af5271666afb`, source `f492fb7`, immutable
-`https://56563c37.laidies-sunnyvaile.pages.dev`. Exact input
-`/tmp/laidies-newsstand-homepage-header-successor.7AG81u`; manifest
-`/tmp/laidies-newsstand-homepage-header-successor.7AG81u.manifest.json`;720
-files,731417999 bytes; identity
-`0caf5f73175ce9e138d66f3a6dcb4d69fd6a0ff807c390a55460ace1d6827dee`.
-Foreground independently verified those manifest values and the exact delta
-from the `18bd5103` artifact: only `content/site/sv-topbar.css`,
-`newsstand.html`, and `newsstand-crossword.html` changed, with zero additions or
-removals. The producing lane reports matching custom/immutable hashes for the
-three changed paths and protected Homepage, Library, Resident, KSVL and
-NewsStand paths, plus passing Chrome journeys at1440,390 and320 pixels with the
-matching topbar, menu open/Escape focus return and zero horizontal overflow.
-Query the provider again before any successor and rebase only on this exact
-artifact unless a later coordinated handoff supersedes it. Town Hall/moderation
-ownership and retention remain unresolved operating decisions, not permission
-to expose private intake.
+Current coordinated release is the verified FAiRY successor
+`802f2170-e3b2-470f-8767-d160f908ccf1`, source `c8b98c38`, immutable
+`https://802f2170.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-fairy-beta-candidate.sWf0Ev`; manifest
+`/tmp/laidies-fairy-beta-candidate.sWf0Ev.manifest.json`;723 files,741223518
+bytes; identity `097883a9f5d27e67103f8580cf068994be41547b1ff1a064d1a4290ad38fb670`.
+Relative to the exact `d19b25fb` NewsStand predecessor, only
+`games/fairy-godmother.html` and `content/site/fairy-godmother-v2.js` changed;
+721 unrelated files are byte-identical. Query the provider again before any
+successor and rebase only on this exact artifact unless a later coordinated
+handoff supersedes it. Town Hall/moderation ownership and retention remain
+unresolved operating decisions, not permission to expose private intake.
 
-### FAiRY five-situation pilot — LOCAL BUILD / measured latency HOLD
+### FAiRY Resident beta — DEPLOYED / PUBLICLY VERIFIED
+
+Production Worker `laidies-fairy-godmother` version
+`1eb0d4ee-dee6-46ef-b5e5-a83a6b00fc97` runs the admitted Sol advice and
+classifier path with one guest case or three Resident cases per UTC day, three
+case-bound fittings and a server-side US$10 daily reservation ceiling. A real
+disposable Supabase Resident signed into two independent sessions: successful
+cases reported remaining2,1,0; the fourth stopped before another answer; and a
+case created in the first session accepted a fitting from the second. The exact
+test Auth user was then deleted. A live custom-domain guest received the
+specific executive-presence feedback script and a second case failed closed
+without increasing Wisdom. Custom and immutable path hashes match the exact
+artifact; actual1280,390 and320 checks show the prompt and controls with zero
+horizontal overflow. The staging ledger correctly reached its separate daily
+budget during paid evaluation and is not the public endpoint.
+
+The current career pilot uses Ali's handout-derived scenarios and bounded
+source principles. Dorie Clark guidance is not yet source-admitted and is not
+claimed in public output. Public per-answer citations remain held because
+source membership alone does not prove that a source supports the generated
+answer.
+
+### FAiRY five-situation pilot — historical build and trial record
 
 Classifier checkpoint: the approved private63-case Terra/low safety-router
 trial completed63/63 in63 attempts, zero retries, estimatedUS$0.226350. Signed
