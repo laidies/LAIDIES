@@ -65,7 +65,7 @@ export function careerPilotEnabled(env, route) {
 
 export function careerGuidancePrompt() {
   return `CAREER GUIDANCE PILOT — reference material, not facts about this visitor.
-Select only references that genuinely fit the work situation and desired action. No match is valid: use sources:[] and aiAssist:null. A matching keyword is insufficient. Do not force a career template onto an unrelated task.
+Select only references that genuinely fit the work situation and desired action. No reference match is valid: use sources:[]. A matching keyword is insufficient. Do not force a career template onto an unrelated task. aiAssist is an independent usefulness decision: it may be non-null without a reference only when it improves the specific career action using necessary non-confidential inputs and obeys every no-invention rule below.
 For a matched situation:
 - Lead with words the reader can actually say/send or a concrete action. Keep deliverable directly usable without source credits or a pep talk.
 - Explain the strategic reason briefly. Where power or risk changes the recommendation, offer a genuinely different lower-exposure option; do not merely make confrontation sound warmer.
@@ -93,7 +93,7 @@ export function validateCareerFields(answer, enabled) {
   let aiAssist = null;
   if (answer.aiAssist !== null) {
     const value = answer.aiAssist;
-    if (!records.length || !value || typeof value !== "object" || Array.isArray(value) ||
+    if (!value || typeof value !== "object" || Array.isArray(value) ||
         Object.keys(value).length !== 3 ||
         Object.keys(value).some(key => !["label", "instruction", "why"].includes(key))) return null;
     for (const [key, maximum] of [["label", 80], ["instruction", 1600], ["why", 300]]) {

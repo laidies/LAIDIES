@@ -1,5 +1,31 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — bounded Sol trial executed; quality promising, latency HOLD
+
+The approved private20-case Sol/medium trial ran with synthetic prompts only,
+one attempt per case, zero retries, exact Responses input-token counting and a
+durable US$4.4768 worst-case reservation under the US$5 maximum. Nineteen cases
+completed; `promotion-02` hit the20-second deadline and was not retried. Known
+receipt cost is conservatively estimated atUS$0.426435; the OpenAI key table
+showedUS$0.29 shortly afterward and is not treated as final billing truth.
+
+Maker artifact-first review found all19 returned answers met their frozen
+scenario judgment and none used cliché empowerment, invented facts, guaranteed
+outcomes, diagnoses or fabricated expert endorsement. Six offered a grounded,
+non-confidential AI preparation task and13 correctly returned none. The actual
+Worker contract initially rejected the external-application `return-03` answer
+because useful AI preparation was incorrectly coupled to a handbook-source
+match. Ali's career-AI decision requires those to be independent. The local
+repair retains strict shape/no-invention/privacy checks; a calibrated known-bad
+mutation is rejected, the full suite now passes60/60 and all19 returned answers
+replay as `case_success`.
+
+Verdict remains HOLD: one missing answer, median11.396s, p95/max17.519s, the
+existing15s page versus20s backend mismatch, no independent semantic admission,
+and no real safety-classifier provider result. No production configuration or
+deployment changed. Exact results and per-case maker judgments are bound in
+`evidence/sol-answer-trial-2026-08-31/review.md`.
+
 ## 2026-08-31 — bounded Sol trial approved
 
 Ali approved the revised20-scenario answer-only trial, maximumUS$5, using

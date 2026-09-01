@@ -14982,3 +14982,9 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** Counting only successful model answers leaves timeouts, failures and concurrent calls outside the approved attempt/cost ceiling. Exact Chat input tokens also cannot be inferred safely from raw text or an older model's counting rule.
 - **Prevention:** Before each paid request, count the exact assembled request with model-appropriate evidence, then durably reserve the full worst-case cost and one attempt. Never refund or retry a timeout. A preflight without trustworthy token evidence or isolated access must stop before the first provider call.
 - **Possible Behind the Build angle:** A useful AI budget is enforced before the request leaves—not reconstructed from the bill afterward.
+
+## 2026-08-31 — Strong advice can still fail at the product boundary
+
+- **Finding:** The private Sol/medium trial produced19 useful answers from20 synthetic cases, but one timed out. The first real Worker replay also rejected a useful external-job AI preparation because the validator incorrectly required every AI task to carry a handbook source, encouraging either a service error or a forced irrelevant citation.
+- **Prevention:** Review the exact words separately from transport and schema. Keep source support and AI usefulness independent; allow a no-source AI task only when it uses necessary non-confidential reader inputs, names what to verify and forbids invented facts. Calibrate replay with a known-bad mutation. Measure latency as a visitor outcome: one timeout plus11.4s median/17.5s p95 keeps the synchronous experience HOLD even when19 answered cases are good.
+- **Possible Behind the Build angle:** A good AI answer is not a working product if the app rejects it—or if the reader gives up waiting for it.

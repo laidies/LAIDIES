@@ -83,6 +83,14 @@ test('no matching reference and no useful AI task are valid outcomes', async () 
   }
 });
 
+test('a useful grounded AI preparation task does not need a forced reference match', async () => {
+  const result = await run({ ...fixtureAnswer, sources: [] });
+  assert.equal(result.data.type, 'case_success');
+  assert.deepEqual(result.data.answer.sources, []);
+  assert.equal(result.data.answer.aiAssist.label, fixtureAnswer.aiAssist.label);
+  assert.match(result.payload.messages[0].content, /independent usefulness decision/);
+});
+
 test('known-bad answer mutations are rejected with zero allowance writes', async () => {
   const missing = { ...fixtureAnswer }; delete missing.aiAssist;
   const bad = [missing,
@@ -90,7 +98,6 @@ test('known-bad answer mutations are rejected with zero allowance writes', async
     { ...fixtureAnswer, sources: ['specific-feedback', 'specific-feedback'] },
     { ...fixtureAnswer, sources: ['specific-feedback', 'workload-priorities', 'promotion-criteria'] },
     { ...fixtureAnswer, sources: [{ id: 'specific-feedback', title: 'Invented expert' }] },
-    { ...fixtureAnswer, sources: [] },
     { ...fixtureAnswer, asOf: '2026-08-31' },
     { ...fixtureAnswer, aiAssist: { ...fixtureAnswer.aiAssist, url: 'https://invented.invalid' } },
     { ...fixtureAnswer, aiAssist: { ...fixtureAnswer.aiAssist, instruction: 'x'.repeat(1601) } },

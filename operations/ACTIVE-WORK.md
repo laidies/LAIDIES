@@ -13,17 +13,19 @@ at commit15261e0603a35c1b4b973e53dd32cc65cac1b3a7; no redesign or unadmitted NEW
 may be included. Town Hall/moderation ownership and retention remain unresolved
 operating decisions, not permission to expose private intake.
 
-### FAiRY five-situation pilot — LOCAL BUILD / real-model trial HOLD
+### FAiRY five-situation pilot — LOCAL BUILD / measured latency HOLD
 
 Latest model decision: Ali approved GPT5.6Sol/medium for advice; GPT4.1 is
-rejected. Local advice/revision request adapter now defaults to Sol with bounded
-reasoning-inclusive output, completion/refusal checks and a body-inclusive
-deadline. Existing safety classifier stays separate/unconfigured. No paid run,
-remote configuration or deployment. Ali approved the private20-scenario,
-maximumUS$5 answer-only trial. Its exact cases, request-capture preflight and
-durable pre-dispatch attempt/cost reservations are built locally; the preflight
-correctly HOLDs with zero calls because isolated access and exact Sol chat input-
-token verification are unavailable. See the top entry in FAiRY answer-quality.md.
+rejected. The private20-scenario, maximumUS$5 answer-only trial has now run with
+synthetic prompts, exact Responses token counting, one attempt per case and zero
+retries. Nineteen completed; `promotion-02` timed out at20s. Maker review passes
+all19 returned answers against their frozen judgments; the actual Worker replay
+passes all19 after removing an incorrect coupling between useful grounded AI
+preparation and handbook-source selection. Full Worker suite60/60 passes.
+Measured median is11.396s and p95/max17.519s; the15s page/20s backend mismatch,
+one missing answer, separate unproved safety-classifier provider and absent
+independent semantic admission keep this LOCAL/HOLD. No production config or
+deployment changed. See the top entry and exact evidence in FAiRY answer-quality.md.
 
 Latest checkpoint: Ali approved building/testing the practical advice plus useful
 AI preparation proposal. Local Worker now appends five bounded references only

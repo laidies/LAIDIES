@@ -1,6 +1,21 @@
 # FAiRY classifier offline provider harness
 
-**Status:** BUILT LOCALLY — no provider selected or called
+## Private Sol answer trial
+
+`run-sol-answer-trial.mjs` is a separate answer-quality runner for the exact
+20-case synthetic Sol trial. It reads an isolated key from a mode-600 file,
+counts each exact Responses input with `POST /v1/responses/input_tokens`,
+durably reserves one attempt and the full conditional cost before inference,
+uses `gpt-5.6-sol` at medium reasoning with `store:false`, and never retries.
+It must not receive visitor data or a production key. The approved caller is
+responsible for deleting the temporary key file and revoking the trial key.
+
+Replay completed answers through the actual Worker contract with
+`validate-sol-answer-trial.mjs`. The validator first proves it can fail by
+injecting a forbidden extra field. A contract replay is not semantic review;
+read every exact answer against the frozen case judgment before any admission.
+
+**Classifier-harness status:** BUILT LOCALLY — no classifier provider selected or called. The separate Sol answer trial above has one private measured run; it does not admit the classifier or production service.
 
 This harness keeps expected labels out of inference. It has two deliberately
 separate phases.

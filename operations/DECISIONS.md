@@ -25,6 +25,11 @@ prove membership only, not support for a generated answer. Keep per-answer
 attribution held until source-support/answer admission; internal pilot context
 must not become visitor-facing expert credit. See the current FAiRY
 `product-stewards/fairy-godmother/subproducts/answer-quality.md` checkpoint.
+Source selection and optional AI preparation are independent: a grounded career
+preparation task may use `sources:[]` when it needs only the visitor's supplied
+non-confidential inputs, remains explicit about what to verify and invents no
+facts, criteria, outcomes, endorsement or employer policy. Never attach an
+unrelated reference merely to make the AI task valid.
 Optional preparation must disclose whether it runs another call; repeat-preview
 limits must preserve an already usable answer instead of replacing it.
 
