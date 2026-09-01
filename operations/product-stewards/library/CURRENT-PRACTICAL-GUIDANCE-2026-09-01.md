@@ -18,6 +18,21 @@ A useful tip must answer seven questions:
 7. Is the advice a documented product fact, a named practitioner's method or
    a LAiDIES observation?
 
+Every card and worked workflow uses this visible plan treatment:
+
+- **Applies to both:** the method, decision or safety check that remains useful
+  whether the reader pays or not.
+- **Free route or limit:** how to complete the job with available Free tools,
+  including manual handling or a smaller bounded version.
+- **Paid difference or extension:** the extra capacity, model, execution surface
+  or automation that may remove a named bottleneck.
+- **No equivalent:** an honest statement when Free does not provide the same
+  capability. A trial, API credit or shared account is not a Free equivalent.
+
+The shared method is stated once. Paying can change capacity, model choice,
+tools, execution and convenience; it does not remove the need for source
+authority, permissions, inspection, verification or human judgment.
+
 Vendor documentation establishes current features and the vendor's recommended
 operating pattern. It does not establish that one vendor is better. A power
 user's success establishes a useful method to test, not a universal result.

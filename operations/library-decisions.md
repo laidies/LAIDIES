@@ -77,6 +77,16 @@ practice page triggers recheck of every affected tool card and worked example.
 The maintained synthesis is
 `operations/product-stewards/library/CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`.
 
+**Free-and-paid visibility — Ali, 2026-09-01:** Every setup instruction, tip,
+workflow, example and troubleshooting route in the ChatGPT and Claude guides
+must visibly identify what applies to **both Free and paid plans** before naming
+the difference. Use the pattern `Applies to both` → `Free route or limit` →
+`Paid difference or extension` → `No equivalent`, where applicable. Do not
+repeat the common method as two fake versions, imply that paying fixes source
+fidelity or judgment, or hide a paid-only feature inside an otherwise universal
+example. Plan names, account/admin controls, rollout, device and region remain
+separate from the Free/paid distinction.
+
 **Model-specific full examples — Ali, 2026-08-31:** The ChatGPT and Claude
 guides must teach selection and operation of each currently relevant model,
 not merely each application. Cover every documented effort level exposed in

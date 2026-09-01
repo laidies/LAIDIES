@@ -31,6 +31,10 @@
 - **Next:** Expand the two complete manuscripts from these source-bound cards,
   then run only the missing account/model comparisons that change a reader's
   selection decision. Recheck volatile cards before semantic review and release.
+- **Plan-visibility correction:** Every manuscript workflow must now lead with
+  what applies to both Free and paid readers, then show the exact Free route or
+  limit, paid difference or extension, and any honest no-equivalent boundary.
+  Paying is never presented as removing source, verification or judgment work.
 
 ### 2026-08-31 — tested sample package, first hands-on round
 
