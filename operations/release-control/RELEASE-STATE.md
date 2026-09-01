@@ -6,7 +6,24 @@
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current production — 2026-09-01 NewsStand Latest/Weekly successor
+## Current production — 2026-09-01 account-aware NewsStand catch-up successor
+
+Production `18bd5103-a2cf-467c-ac1f-44f3cf8eb636`, source
+`1145f86d7a0a21c54381e1a4d392f614b7fdc90f`, immutable
+`https://18bd5103.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-account-catchup-successor.xraFU6`; manifest suffix
+`.manifest.json`;720 files,731415228 bytes; identity
+`6aab382e40c9fae3d7b3e38fb19be88a695728c278b9805f2b49fd1ba2a1899c`.
+The producing lane reports exactly three changes from the corrected Homepage
+base: `newsstand.html`, `content/newsstand-design.css`, and
+`content/site/newsstand-catchup-v1.js`. Catch-up is account-aware and the manual
+date control is removed. Homepage/video, Library, Resident, Radio and all other
+bytes are preserved and custom/immutable hash-verified. This foreground
+verified the exact local manifest counts and identity but did not repeat the
+producing lane's live browser or predecessor-delta checks. Use this exact
+artifact as the next release base after a fresh provider-head check.
+
+## Historical predecessor — 2026-09-01 NewsStand Latest/Weekly successor
 
 Production `3bb041c5-38b1-4799-9512-54b5a2eb5ea4`, source
 `c77314316a4e50cb66371fc1e0a76a95f324841d`, immutable

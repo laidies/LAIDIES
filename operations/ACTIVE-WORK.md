@@ -7,20 +7,20 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current coordinated release is the verified NewsStand successor
-`3bb041c5-38b1-4799-9512-54b5a2eb5ea4`, source
-`c77314316a4e50cb66371fc1e0a76a95f324841d`, immutable
-`https://3bb041c5.laidies-sunnyvaile.pages.dev`. Exact input
-`/tmp/laidies-newsstand-latest-weekly-successor.ekkdHx`; manifest suffix
-`.manifest.json`;719 files,729598226 bytes; identity
-`5431f7b9f6f483ee0746152dd95970b25f7b2565b96f0627e18ecd1dfa670470`.
-Relative to167171e7 it changes exactly `newsstand.html`,
-`content/newsstand-design.css`, `content/newsstand-stories.js`,
-`content/newsstand-public-feed.json`, and
-`content/newsstand-archive-index.json`, and adds exactly
-`assets/newsstand/design-20260830/latest-automated-alignment-20260901.png` and
-`assets/newsstand/design-20260830/latest-provider-switch-20260901.png`.
-Homepage, Library, Resident, KSVL, FAiRY and all other bytes are preserved.
+Current coordinated release is the verified account-aware NewsStand successor
+`18bd5103-a2cf-467c-ac1f-44f3cf8eb636`, source
+`1145f86d7a0a21c54381e1a4d392f614b7fdc90f`, immutable
+`https://18bd5103.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-account-catchup-successor.xraFU6`; manifest suffix
+`.manifest.json`;720 files,731415228 bytes; identity
+`6aab382e40c9fae3d7b3e38fb19be88a695728c278b9805f2b49fd1ba2a1899c`.
+The producing lane reports exactly three changes from the corrected Homepage
+base: `newsstand.html`, `content/newsstand-design.css`, and
+`content/site/newsstand-catchup-v1.js`. Catch-up is account-aware and the manual
+date control is removed. Homepage/video, Library, Resident, Radio and all other
+bytes are preserved and custom/immutable hash-verified by that lane. Foreground
+verified the local manifest counts and identity; it did not repeat the live
+browser or predecessor-delta checks.
 Query the provider again before any successor and rebase only on this exact
 artifact unless a later coordinated handoff supersedes it. Town Hall/moderation
 ownership and retention remain unresolved operating decisions, not permission
