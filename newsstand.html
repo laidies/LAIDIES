@@ -1423,7 +1423,7 @@
                 '<span class="ns-publication__teaser">', escapeHTML(primaryRead), "</span>",
                 leadDesk && lead.the_story ? '<span class="ns-front-opening">' + escapeHTML(lead.the_story) + '</span>' : "",
                 secondaryRead && edition === "weekly" ? '<span class="ns-publication__read"><b>' +
-                  (leadDesk ? "The LAiDIES read" : edition === "weekly" ? "The through-line" : "The question underneath it") +
+                  (leadDesk ? "The LAiDIES read" : edition === "weekly" ? "Why it matters" : "The question underneath it") +
                   '</b>' + escapeHTML(secondaryRead) + "</span>" : ""
                 ,edition === "weekly" && Array.isArray(lead.weeklyHighlights) && lead.weeklyHighlights.length
                   ? '<span class="ns-weekly-highlights"><b>This week&rsquo;s storylines</b><ul>' +

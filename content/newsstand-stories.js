@@ -252,6 +252,7 @@ window.NEWSSTAND_DATA = {
       "thread_subtitle": "Wednesday to Wednesday",
       "thread_entry": "Weekly synthesis",
       "headline": "The AI stories worth carrying into this week.",
+      "front_read": "The most important story this week is not the arrival of new AI products. It is who gets the opportunity to use them, build expertise and benefit from the new work they create.",
       "weeklyHighlights": [
         "The AI opportunity gap: women remain underrepresented in AI hiring, leadership and daily workplace use.",
         "AI enters everyday work: Slack added more agentic work inside a familiar office tool.",
@@ -263,7 +264,7 @@ window.NEWSSTAND_DATA = {
         "credit": "LAiDIES"
       },
       "the_story": "The week’s most consequential stories were not equal. LinkedIn’s new hiring and leadership data belongs first because it changes how we should read several other developments: AI is creating highly paid work, appearing inside ordinary office tools, and reshaping routine tasks—but the people getting the new roles, daily practice and decision-making authority are not evenly distributed. Also worth knowing: OpenAI expanded zero-retention options for some API customers; Slack introduced more agentic work inside a familiar office product; OpenAI paused part of a frontier training effort while strengthening containment; and provenance and advertising questions continued moving into everyday AI products.",
-      "laidies_read": "The through-line is opportunity, not novelty. A new feature matters when it changes what a normal person can do, what her employer can monitor, what data moves where, or who gets credited and promoted for redesigning the work. That is why the gender and participation evidence wins the Front PAiGE while the product announcements become supporting evidence and practical sidebars.",
+      "laidies_read": "The most important story this week is not the arrival of new AI products. It is who gets the opportunity to use them, build expertise and benefit from the new work they create. A new feature matters when it changes what a normal person can do, what her employer can monitor, what data moves where, or who gets credited and promoted for redesigning the work. That is why the gender and participation evidence wins the Front PAiGE while the product announcements become supporting evidence and practical sidebars.",
       "what_this_means": "Read this week in order: first, who is getting the opportunity; second, how ordinary work is changing; third, what new privacy, permission and provenance questions come with it. Then choose one repeatable workflow to practise—not six new tools to sample.",
       "cocktail_party": "“The biggest AI story this week was not what the tools can do. It was who is getting the chance to build a career around what they can do.”",
       "watch_fors": [
