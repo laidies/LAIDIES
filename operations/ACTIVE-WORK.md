@@ -7,18 +7,20 @@ FAiRY loading, finish native browser/accessibility and NewsStand checks, and
 recover held backend functionality. She additionally explicitly authorized
 building and launching real referrals; see the dated Post Office decision.
 Do not silently drop this lane or equate an unavailable notice with completion.
-Current coordinated release is the verified FAiRY successor
-`802f2170-e3b2-470f-8767-d160f908ccf1`, source `c8b98c38`, immutable
-`https://802f2170.laidies-sunnyvaile.pages.dev`. Exact input
-`/tmp/laidies-fairy-beta-candidate.sWf0Ev`; manifest
-`/tmp/laidies-fairy-beta-candidate.sWf0Ev.manifest.json`;723 files,741223518
-bytes; identity `097883a9f5d27e67103f8580cf068994be41547b1ff1a064d1a4290ad38fb670`.
-Relative to the exact `d19b25fb` NewsStand predecessor, only
-`games/fairy-godmother.html` and `content/site/fairy-godmother-v2.js` changed;
-721 unrelated files are byte-identical. Query the provider again before any
-successor and rebase only on this exact artifact unless a later coordinated
-handoff supersedes it. Town Hall/moderation ownership and retention remain
-unresolved operating decisions, not permission to expose private intake.
+Current coordinated release is the verified NewsStand copy successor
+`828e22ed-2b5b-40a3-8068-b0fbb43d5119`, source `78b29edff893bab77b5d7224b4feb348e2214d51`, immutable
+`https://828e22ed.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-newsstand-weekly-copy-successor.AeNn5v`; manifest
+`/tmp/laidies-newsstand-weekly-copy-successor.AeNn5v.manifest.json`;723 files,
+741223875 bytes; identity
+`319893d160a089dab91b8f7dd5a21306f2e8ef60ae41212e8d9977c8bcbc35e3`.
+Relative to exact FAiRY predecessor `802f2170`, only `newsstand.html`,
+`content/newsstand-stories.js`, `content/newsstand-public-feed.json` and
+`content/newsstand-archive-index.json` changed. Both FAiRY paths and all other
+bytes are preserved. Query the provider again before any successor and rebase
+only on this exact artifact unless a later coordinated handoff supersedes it.
+Town Hall/moderation ownership and retention remain unresolved operating
+decisions, not permission to expose private intake.
 
 ### FAiRY Resident beta — DEPLOYED / PUBLICLY VERIFIED
 
