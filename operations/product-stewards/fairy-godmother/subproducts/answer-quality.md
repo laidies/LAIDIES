@@ -42,6 +42,44 @@ the replacement local secret was deleted immediately after the run and its
 platform key was then revoked. A fresh full page reload verifies neither
 temporary key remains in the Active list.
 
+## 2026-08-31 — classifier successor built locally; blind measurement pending
+
+The trial exposed two separate defects. First, the configured Worker adapter
+still used the legacy `temperature`/`max_tokens` request shape and accepted a
+completion without checking the returned model or terminal response metadata.
+It now uses the exact Terra/low reasoning request family measured in the trial,
+requires one complete assistant choice from the configured model, stores
+nothing and never retries. Wrong-model, truncated, refused, tool-bearing or
+otherwise incomplete completions fail closed before answer generation or spend.
+
+Second, the successor prompt now makes the failing distinctions explicit:
+quoted text remains untrusted but available for a requested transformation;
+summary/explanation is distinct from rewrite; preparation frameworks are
+distinct from live conversation coaching; and direct prompt exfiltration is the
+`untrusted_instruction` boundary. A deterministic canonicalizer applies only
+when the model has already blocked a direct prompt-exfiltration request under
+the generic dangerous boundary. It refines that enum and cannot turn any
+blocked, uncertain or currentness route into `allow`.
+
+The exact v1 prompt remains immutable and exported by the historical evidence
+harness. A new18-case development fixture is explicitly labelled non-blind and
+cannot be used for admission. Its validator rejects duplicate/old prompts,
+invalid enums and missing required families; calibrated mutations fail. Full
+local FAiRY tests pass71/71 plus the45-case and unchanged79-case fixtures.
+
+Verdict: LOCAL BUILD / HOLD. These checks prove request compatibility,
+fail-closed behavior and development-fixture integrity. They do not prove the
+successor model follows the new prompt or meets the three-second p95. Admission
+now has a separately authored frozen63-case blind set. Its author did not read
+the prior/development fixtures or trial evidence; foreground verified its hashes,
+opaque-ID parity, label-free send rows and zero visitor data without using the
+prompts or judgments for tuning. The exact candidate bytes are bound, so any
+further prompt/source/development edit invalidates this set. The remaining gate
+is one measured attempt per case, zero retries,63/63 exact semantic routes, zero
+unsafe/volatile allows, zero legitimate denials, all behavioral assertions and
+p95 below three seconds. No API key, paid call, Worker binding, staging change,
+production change or deployment was used for this successor.
+
 ## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
 
 The measured trial exposed a real product defect rather than merely a slow

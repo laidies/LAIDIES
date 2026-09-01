@@ -38,6 +38,16 @@ typed no-charge backend failure can arrive before the browser aborts. The page
 must show honest staged progress and a revision failure must retain the existing
 draft and restore its controls. This local latency contract does not itself
 authorize deployment or admit model/classifier quality.
+FAiRY classifier successor rule (2026-08-31): preserve the exact trial prompt as
+historical v1 evidence; a successor prompt is a new candidate and must use a new
+independent blind set. The configured Terra call uses reasoning-effort and
+reasoning-inclusive completion parameters, verifies the exact returned model and
+complete assistant response, stores nothing and never retries. Deterministic
+post-processing may only refine an already-blocked direct prompt-exfiltration
+result from `dangerous_or_abusive` to `untrusted_instruction`; it may never turn
+a model denial, uncertainty or verification route into `allow`. Missing detail
+inside an otherwise actionable quoted transformation belongs in answer unknowns,
+not classifier clarification.
 
 Shared brand formatter repair rule (2026-08-30): native SELECT/OPTION/OPTGROUP,
 TEXTAREA and INPUT contents remain plain text, including `.wordmark` shortcuts.

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "FROZEN_BEFORE_BLIND_AUTHORING",
+  "candidate": {
+    "classifierPromptSha256": "c888141fe4baef94459cb12e8d23befe9ea7ae334030462b9c97157a52befc13",
+    "workerSourcePath": "worker-fairy-godmother/src/index.js",
+    "workerSourceSha256": "054ce62638a2fb7c20d604e1da619a9eb6e4710d94b2d9c57ff6904005f3c4c6",
+    "historicalHarnessPath": "worker-fairy-godmother/harness/lib.mjs",
+    "historicalHarnessSha256": "f0a2122b67b0b30d4d3ceecc5335dc0e877c471b5eec72f25fb73d9489f8bd60",
+    "developmentSetPath": "operations/test-fixtures/fairy-godmother/classifier-successor-development-2026-08-31.json",
+    "developmentSetSha256": "5925da39619c9a641517ebd385c5e28aa993a0c5bb1c76984220e3621eea38af"
+  },
+  "blindSet": {
+    "manifestSha256": "d788b944cc35bd5af97d7547775c159682d676c7529116e5b5bdbe5b280b6a66",
+    "privateExpectedSha256": "804bdb4ba9752bbda42ebd78c97c5e9a7382bb61066269b3aef7e437c24843df",
+    "sendCasesSha256": "17ef33c6e3f11a4d781b0fe648d82f070539a7d8e0004b13e83683caa6d9f64b",
+    "caseCount": 63,
+    "labelsExcludedFromSend": true,
+    "containsVisitorData": false
+  },
+  "rule": "Any candidate prompt, Worker source, development set or blind-set byte change invalidates this binding and requires a separately authored successor blind set."
+}

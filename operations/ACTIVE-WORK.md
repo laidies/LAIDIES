@@ -29,6 +29,25 @@ deployment changed. Exact evidence lives in
 The used local secret is deleted. Both temporary platform keys are revoked and
 a fresh full page reload verifies neither remains in the Active list.
 
+Successor checkpoint: the local configured-classifier adapter no longer sends
+the legacy `temperature`/`max_tokens` shape. It now matches the measured
+Terra/low request contract, verifies the exact returned model and complete
+assistant response, and remains one-attempt/no-retry. The exact historical v1
+prompt remains exported for trial verification; the local successor prompt adds
+the quoted-transformation and task-ontology rules exposed by the five failures.
+A narrow deterministic canonicalizer changes only an already-blocked direct
+prompt-exfiltration boundary from the generic dangerous enum to
+`untrusted_instruction`; it never creates an allow. A separate18-case
+development set is explicitly non-admissive and passes its calibrated identity,
+lineage and coverage gate. Full FAiRY tests pass71/71 plus the45-case and untouched
+79-case fixtures. A role-distinct author then froze a new63-case blind set
+without reading prior/development fixtures or trial evidence. Foreground verified
+63/63 opaque-ID parity, label-free send rows, manifest hashes and zero visitor
+data without inspecting its prompts or judgments for tuning. The exact candidate
+prompt/source/development bytes are bound in the blind-set directory; changing
+any invalidates the set. A real measured one-attempt run remains required; no
+key, provider call, staging, production or deployment was used for this successor.
+
 Newest local checkpoint: the page/Worker mismatch is repaired without a model
 switch or retry. Worker advice and revision calls now stop at30s; the page waits
 35s and shows honest staged status at8s/18s. Revision timeout now preserves the

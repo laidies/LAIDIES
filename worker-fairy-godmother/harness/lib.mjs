@@ -4,7 +4,7 @@ import path from "node:path";
 
 import worker, {
   CLASSIFIER_CONTRACT_DESCRIPTOR,
-  CLASSIFIER_SYSTEM_PROMPT,
+  CLASSIFIER_SYSTEM_PROMPT_V1 as CLASSIFIER_SYSTEM_PROMPT,
   buildClassificationEnvelope,
   buildProviderClassifierPayload,
   classifyRequest,

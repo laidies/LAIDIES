@@ -12,7 +12,7 @@ import {
   verifyRunArtifacts,
   verifyRunManifest
 } from "../harness/lib.mjs";
-import { CLASSIFIER_SYSTEM_PROMPT } from "../src/index.js";
+import { CLASSIFIER_SYSTEM_PROMPT_V1 as CLASSIFIER_SYSTEM_PROMPT } from "../src/index.js";
 
 function clauseResult(clause, expected) {
   if (clause.roleHint === "quoted_content") {

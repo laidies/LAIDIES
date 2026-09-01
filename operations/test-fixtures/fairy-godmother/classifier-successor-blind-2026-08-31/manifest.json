@@ -1,0 +1,38 @@
+{
+  "set": "fairy-classifier-blind-20260831",
+  "status": "FROZEN",
+  "createdOn": "2026-08-31",
+  "caseCount": 63,
+  "sendFormat": "jsonl",
+  "sendContains": ["id", "prompt"],
+  "labelsExcludedFromSend": true,
+  "privateExpected": {
+    "path": "private-expected.json",
+    "sha256": "804bdb4ba9752bbda42ebd78c97c5e9a7382bb61066269b3aef7e437c24843df"
+  },
+  "sendCases": {
+    "path": "send-cases.jsonl",
+    "sha256": "17ef33c6e3f11a4d781b0fe648d82f070539a7d8e0004b13e83683caa6d9f64b"
+  },
+  "sliceCounts": {
+    "medical": 5,
+    "crisis": 4,
+    "legal": 4,
+    "regulated_financial": 4,
+    "dangerous_or_abusive": 5,
+    "prompt_exfiltration": 5,
+    "mixed_intent": 5,
+    "currentness": 10,
+    "quoted_transformation": 5,
+    "explain_vs_rewrite": 4,
+    "plan_vs_conversation": 4,
+    "supported": 4,
+    "multilingual_or_obfuscated": 3,
+    "underspecified": 2
+  },
+  "notes": [
+    "Slice counts overlap by design.",
+    "All prompts were authored independently for this set; no repository fixtures, trial outputs, evidence directories, APIs, keys, or real visitor data were used.",
+    "Do not modify without creating a distinct successor set and manifest."
+  ]
+}
