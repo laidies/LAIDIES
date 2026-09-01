@@ -171,6 +171,8 @@ function perfectRun() {
       responseId: `response-${record.itemId}`,
       runId: RUN_IDENTITY.runId,
       receivedAt: "2026-07-25T12:00:00.000Z",
+      model: RUN_IDENTITY.modelVersion,
+      requestSha256: crypto.createHash("sha256").update(`request-${record.itemId}`).digest("hex"),
       inputTokens,
       outputTokens
     };
@@ -195,6 +197,8 @@ function perfectRun() {
       usageReceiptId: receipt.receiptId,
       providerRequestId: receipt.requestId,
       providerResponseId: receipt.responseId,
+      providerModel: receipt.model,
+      requestSha256: receipt.requestSha256,
       usageReceiptSha256: crypto
         .createHash("sha256")
         .update(stableStringify(receipt))
@@ -212,6 +216,8 @@ function perfectRun() {
     responseId: `response-${row.itemId}`,
     runId: RUN_IDENTITY.runId,
     receivedAt: "2026-07-25T12:00:00.000Z",
+    model: RUN_IDENTITY.modelVersion,
+    requestSha256: row.requestSha256,
     inputTokens: row.inputTokens,
     outputTokens: row.outputTokens
   }));
@@ -245,12 +251,15 @@ function refreshProviderReceipts(run) {
         responseId: `response-${row.itemId}`,
         runId: RUN_IDENTITY.runId,
         receivedAt: "2026-07-25T12:00:00.000Z",
+        model: RUN_IDENTITY.modelVersion,
+        requestSha256: row.requestSha256,
         inputTokens: row.inputTokens,
         outputTokens: row.outputTokens
       };
       row.usageReceiptId = receipt.receiptId;
       row.providerRequestId = receipt.requestId;
       row.providerResponseId = receipt.responseId;
+      row.providerModel = receipt.model;
       row.usageReceiptSha256 = crypto
         .createHash("sha256")
         .update(stableStringify(receipt))
@@ -261,6 +270,8 @@ function refreshProviderReceipts(run) {
       delete row.usageReceiptSha256;
       delete row.providerRequestId;
       delete row.providerResponseId;
+      delete row.requestSha256;
+      delete row.providerModel;
     }
   }
   run.providerUsageReceiptsBytes = Buffer.from(stableStringify(receipts));

@@ -308,7 +308,7 @@ function validateProviderOutputRow(row) {
     "itemId", "classification", "error", "latencyMs", "inputTokens",
     "outputTokens", "estimatedCostUsd", "latencySource", "metricsStatus",
     "usageSource", "usageReceiptId", "usageReceiptSha256",
-    "providerRequestId", "providerResponseId"
+    "providerRequestId", "providerResponseId", "requestSha256", "providerModel"
   ];
   if (!row || typeof row !== "object" || Array.isArray(row) ||
       Object.keys(row).some((key) => !allowed.includes(key)) ||
@@ -320,6 +320,11 @@ function validateProviderOutputRow(row) {
       typeof row.latencyMs !== "number" ||
       !Number.isFinite(row.latencyMs) ||
       row.latencyMs < 0) return false;
+  if (row.providerModel != null &&
+      (typeof row.providerModel !== "string" || !/^[A-Za-z0-9][A-Za-z0-9._:-]{2,191}$/.test(row.providerModel))) {
+    return false;
+  }
+  if (row.requestSha256 != null && !/^[0-9a-f]{64}$/i.test(row.requestSha256)) return false;
   if (!["measured", "unsupported"].includes(row.metricsStatus)) return false;
   const metricKeys = ["inputTokens", "outputTokens", "estimatedCostUsd"];
   if (row.metricsStatus === "measured") {
@@ -334,13 +339,16 @@ function validateProviderOutputRow(row) {
           !/^[A-Za-z0-9][A-Za-z0-9._:-]{7,191}$/.test(row.usageReceiptId) ||
           !/^[0-9a-f]{64}$/i.test(row.usageReceiptSha256 || "") ||
           !/^[A-Za-z0-9][A-Za-z0-9._:-]{7,191}$/.test(row.providerRequestId || "") ||
-          !/^[A-Za-z0-9][A-Za-z0-9._:-]{7,191}$/.test(row.providerResponseId || ""))) return false;
+          !/^[A-Za-z0-9][A-Za-z0-9._:-]{7,191}$/.test(row.providerResponseId || "") ||
+          !/^[0-9a-f]{64}$/i.test(row.requestSha256 || "") ||
+          typeof row.providerModel !== "string")) return false;
     if (row.usageSource === "runner_tokenizer" &&
         (row.usageReceiptId != null || row.usageReceiptSha256 != null ||
           row.providerRequestId != null || row.providerResponseId != null)) return false;
   } else if (row.usageSource != null || row.usageReceiptId != null ||
       row.usageReceiptSha256 != null || row.providerRequestId != null ||
-      row.providerResponseId != null || metricKeys.some((key) => row[key] != null)) {
+      row.providerResponseId != null ||
+      metricKeys.some((key) => row[key] != null)) {
     return false;
   }
   return true;
@@ -763,7 +771,8 @@ function validateProviderUsageReceipts(
   rowsByItem,
   expectedRunId,
   expectedRunDate,
-  trustedToday
+  trustedToday,
+  expectedModelVersion
 ) {
   if (receiptBytes == null || sha256(receiptBytes) !== expectedHash.toLowerCase()) {
     throw new Error("Provider usage receipt artifact does not match its bound hash.");
@@ -781,7 +790,8 @@ function validateProviderUsageReceipts(
   for (const receipt of receipts) {
     const keys = [
       "schemaVersion", "itemId", "receiptId", "requestId", "responseId",
-      "runId", "receivedAt", "inputTokens", "outputTokens"
+      "runId", "receivedAt", "inputTokens", "outputTokens", "model",
+      "requestSha256"
     ];
     let receiptChronology;
     try {
@@ -797,6 +807,7 @@ function validateProviderUsageReceipts(
         stableStringify(keys.sort()) ||
         receipt.schemaVersion !== "1.0.0" ||
         receipt.runId !== expectedRunId ||
+        receipt.model !== expectedModelVersion ||
         receiptChronology.utcDate !== expectedRunDate ||
         receiptChronology.utcDate > trustedToday ||
         !/^[A-Za-z0-9][A-Za-z0-9._:-]{7,191}$/.test(receipt.receiptId || "") ||
@@ -804,6 +815,7 @@ function validateProviderUsageReceipts(
         !/^[A-Za-z0-9][A-Za-z0-9._:-]{7,191}$/.test(receipt.responseId || "") ||
         !Number.isInteger(receipt.inputTokens) || receipt.inputTokens < 0 ||
         !Number.isInteger(receipt.outputTokens) || receipt.outputTokens < 0 ||
+        !/^[0-9a-f]{64}$/i.test(receipt.requestSha256 || "") ||
         seenItems.has(receipt.itemId) ||
         seenRequests.has(receipt.requestId) ||
         seenResponses.has(receipt.responseId)) {
@@ -814,6 +826,8 @@ function validateProviderUsageReceipts(
         row.usageReceiptId !== receipt.receiptId ||
         row.providerRequestId !== receipt.requestId ||
         row.providerResponseId !== receipt.responseId ||
+        row.requestSha256 !== receipt.requestSha256 ||
+        row.providerModel !== receipt.model ||
         row.usageReceiptSha256 !== sha256(stableStringify(receipt)) ||
         row.inputTokens !== receipt.inputTokens ||
         row.outputTokens !== receipt.outputTokens) {
@@ -892,7 +906,8 @@ export async function scoreProviderOutputs({
         rowsByItem,
         verifiedRunIdentity.runId,
         verifiedRunIdentity.runDate,
-        trustedToday
+        trustedToday,
+        verifiedRunIdentity.modelVersion
     );
   } else if (verifiedMeasurementEvidence.usageSource === "runner_tokenizer") {
     const algorithm = verifiedMeasurementEvidence.tokenizer.configuration.encoding;
@@ -1290,7 +1305,8 @@ export function verifyRunArtifacts({
         rowsByItem,
         report.runIdentity.runId,
         report.runIdentity.runDate,
-        trustedToday
+        trustedToday,
+        report.runIdentity.modelVersion
       );
     } else if (measurementEvidence.usageSource === "runner_tokenizer") {
       const algorithm = measurementEvidence.tokenizer.configuration.encoding;

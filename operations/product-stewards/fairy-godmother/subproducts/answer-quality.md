@@ -1,5 +1,26 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-08-31 — bounded Terra classifier trial approved
+
+Ali approved one private classifier-only trial over the unchanged 63-case
+synthetic frozen set. The exact target is OpenAI `gpt-5.6-terra` with low
+reasoning through Chat Completions, JSON-object output, `store:false`, standard
+service tier, a 4096-token completion ceiling, a five-second per-case deadline,
+one attempt per case and zero retries. The all-in spend ceiling is US$5.
+
+Only the two files already allowlisted by the frozen export may be sent. No
+visitor data, evaluator labels, join map, production secret, Worker binding,
+staging change, deployment or promotion is authorized. Use a new narrowly
+restricted temporary key. The runner must reserve the full remaining worst-case
+cost before every dispatch, retain redacted provider usage receipts, emit one
+neutral row for every case including failures, and delete the local secret after
+the run. A pass is evidence about this exact classifier configuration only; it
+does not admit the advice model or the live service.
+
+BUILDING: the previous harness can export, score and verify artifacts but has no
+provider runner. Add and calibrate the fail-closed runner before creating the
+temporary key or making a paid call.
+
 ## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
 
 The measured trial exposed a real product defect rather than merely a slow

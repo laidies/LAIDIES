@@ -17,6 +17,20 @@ read every exact answer against the frozen case judgment before any admission.
 
 **Classifier-harness status:** BUILT LOCALLY — no classifier provider selected or called. The separate Sol answer trial above has one private measured run; it does not admit the classifier or production service.
 
+The approved Terra/low classifier trial uses
+`run-terra-classifier-trial.mjs`. Its signed run ID ends in the full SHA-256 of
+the canonical request configuration, binding Chat Completions, low reasoning,
+JSON-object output, `store:false`, standard tier,4096 completion tokens, a
+five-second timeout and zero retries. The runner checks the exact two-file send
+allowlist, requires a runner-owned mode-600 key file, preflights the whole
+worst-case run belowUS$5, atomically claims the single authorized trial in a
+separate private authority journal, and writes a durable remaining-cost
+reservation before each dispatch. A second invocation is refused even with a
+different output directory. Each measured row and strict provider receipt bind
+the returned model, OpenAI request/response IDs and the exact request SHA-256.
+`verify-run-artifacts.mjs` now requires that request-configuration file and
+independently recomputes the score report from the raw output and frozen join.
+
 This harness keeps expected labels out of inference. It has two deliberately
 separate phases.
 
@@ -203,6 +217,7 @@ node harness/verify-run-artifacts.mjs \
   --join-map /approved/run-directory/private/join-map.json \
   --report /approved/run-directory/results/score-report.json \
   --system-prompt /approved/run-directory/send/classifier-system-prompt.txt \
+  --request-configuration /approved/run-directory/request-configuration.json \
   --measurement-authority /approved/retained-pricing-or-entitlement-evidence \
   --authority-registry /approved/preregistered-authority-registry.json \
   --approved-authority-registry-sha256 preregistered-64-hex-registry-hash \
