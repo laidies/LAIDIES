@@ -84,6 +84,14 @@ Last reconciled: 2026-08-05.
   topic? Browse the shelves.” Do not show generic Resident Card/Puffy setup in
   the arrival masthead. Explain the Card only when the visitor first tries to
   save; the save dialog already owns that explanation.
+- **Miss Jeeves masthead identity successor — 2026-09-01.** Ali approved the
+  Miss Geist-inspired Miss Jeeves identity pilot for the existing LIBRAiRY
+  masthead and authorized replacing the old masthead character. This supersedes
+  only the old character-preservation clause above: the historical v4 room,
+  equipment, composition and separate shelf-room background remain fixed. Use
+  a new masthead-only asset, keep her face and identity cues visible in the
+  centred 320px crop, and do not use this character replacement to redesign the
+  room or resolve the separate printer-joke prop.
 - **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
   section must not repeat the blue-led catalogue surface immediately below it.
   Use the locked vivid pink → purple → blue gradient with the approved
