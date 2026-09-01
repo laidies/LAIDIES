@@ -56,6 +56,7 @@ same one-attempt/no-retry budget contract before any staging decision.
 
 The first generated key was never used and was revoked after its secret appeared
 in browser inspection output. The replacement key performed this run; its local
-secret file was deleted and verified absent immediately afterward. No visitor
-data, Worker binding, staging environment, production service or deployment was
-changed.
+secret file was deleted and verified absent immediately afterward, and its
+platform key was then revoked. A fresh full page reload verified that neither
+temporary key remained in the Active list. No visitor data, Worker binding,
+staging environment, production service or deployment was changed.

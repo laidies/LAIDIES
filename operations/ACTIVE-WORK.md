@@ -26,8 +26,8 @@ five-second ceiling passes. Do not tune/retry on the scored frozen set; a
 successor needs a new blind set. No Worker binding, staging, production or
 deployment changed. Exact evidence lives in
 `product-stewards/fairy-godmother/evidence/terra-classifier-trial-2026-08-31/`.
-The used local secret is deleted; replacement platform-key revocation remains
-an explicit action-time cleanup.
+The used local secret is deleted. Both temporary platform keys are revoked and
+a fresh full page reload verifies neither remains in the Active list.
 
 Newest local checkpoint: the page/Worker mismatch is repaired without a model
 switch or retry. Worker advice and revision calls now stop at30s; the page waits

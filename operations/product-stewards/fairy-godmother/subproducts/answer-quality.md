@@ -38,8 +38,9 @@ for staging or production. Do not tune or rerun against the now-scored frozen
 set. Build a new independent blind set before evaluating a successor. Exact
 evidence is in `evidence/terra-classifier-trial-2026-08-31/`. The first created
 key was never used and was revoked after its secret appeared in browser output;
-the replacement local secret was deleted immediately after the run. The
-replacement platform key still requires its separate action-time revocation.
+the replacement local secret was deleted immediately after the run and its
+platform key was then revoked. A fresh full page reload verifies neither
+temporary key remains in the Active list.
 
 ## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
 
