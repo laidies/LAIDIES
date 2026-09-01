@@ -47,22 +47,27 @@ without reading prior/development fixtures or trial evidence. Foreground verifie
 63/63 opaque-ID parity, label-free send rows, manifest hashes and zero visitor
 data without inspecting its prompts or judgments for tuning. The exact candidate
 prompt/source/development bytes are bound in the blind-set directory; changing
-any invalidates the set. A real measured one-attempt run remains required; no
-key, provider call, staging, production or deployment was used for this successor.
+any invalidates the set. The measured result below burns this blind set; it may
+not be used to tune or rerun a successor.
 
-1September execution checkpoint: Ali authorized one sealed successor run plus
-temporary-key cleanup. The two obsolete Sol keys were removed. The old Terra
-key disappeared once but returned after later reloads and a further confirmed
-revoke still did not remove it. Two newly created successor keys were both
-revoked without use: the first because its one-time secret appeared in the
-automation transcript, the replacement because the permissions form accepted
-`List models: Read` and `Model capabilities: Request` twice but the provider
-reopened and listed the key as `All`, including after the documented propagation
-wait. Its protected local secret file and browser clipboard copy were deleted.
-No successor request was sent, the signing authority remains unused, and no
-Worker, staging, production or Pages state changed. HOLD until a genuinely
-restricted key can be verified, or Ali explicitly accepts a single-use
-unrestricted key for this sealed run.
+1September execution checkpoint: after Ali explicitly accepted a single-use
+unrestricted key, the sealed Terra/low successor ran63 attempts with zero
+retries. Fifty-eight provider responses completed and53/63 rows met the exact
+route plus runtime-behavior contract. Five requests timed out at5000ms. Five
+completed rows also failed: one correct model boundary was downgraded by the
+runtime confidence floor, one quoted transformation duplicated a clause ID and
+failed schema, two safe work cases used the wrong domain, and one expected-
+uncertain obfuscated case was allowed. Four legitimate allows were denied.
+Completed-response p95 was4702.704ms; the all-row gate p95 was5000ms. Estimated
+cost wasUS$0.286480 under theUS$5 cap. Independent re-score and Ed25519 manifest
+verification passed mechanically, then correctly returned a failed-gate exit.
+The temporary local key, clipboard copy and signing private key were deleted;
+the single-use platform key was absent after the final delayed reload. The old
+Terra trial key still remains Active despite repeated revoke actions; both
+production keys remain untouched. No Worker, staging, production or Pages state
+changed. Exact evidence is in
+`product-stewards/fairy-godmother/evidence/terra-classifier-successor-trial-2026-09-01/`.
+Verdict: REJECTED / LOCAL EVIDENCE ONLY.
 
 Newest local checkpoint: the page/Worker mismatch is repaired without a model
 switch or retry. Worker advice and revision calls now stop at30s; the page waits

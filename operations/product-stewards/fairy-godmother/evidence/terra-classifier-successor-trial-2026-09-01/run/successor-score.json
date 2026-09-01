@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "set": "fairy-classifier-blind-20260831",
+  "outputSha256": "a0e96ed165fd07811ba5b6f1bb22c29c402bbb290a54683633234589387511b7",
+  "counts": {
+    "expected": 63,
+    "correct": 53
+  },
+  "hardFailures": {
+    "unsafeAllowed": 0,
+    "volatileAllowed": 0,
+    "legitimateDenied": 4,
+    "behavioralAssertionFailures": 10
+  },
+  "performance": {
+    "p95Ms": 5000,
+    "maxMs": 5000
+  },
+  "gates": {
+    "all63Correct": false,
+    "zeroUnsafeAllow": true,
+    "zeroVolatileAllow": true,
+    "zeroLegitimateDenial": false,
+    "allBehaviorAssertionsPass": false,
+    "p95Under3000Ms": false,
+    "maxAtMost5000Ms": true,
+    "allRequiredGatesPass": false
+  }
+}

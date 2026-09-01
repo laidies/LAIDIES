@@ -83,27 +83,37 @@ unsafe/volatile allows, zero legitimate denials, all behavioral assertions and
 p95 below three seconds. No API key, paid call, Worker binding, staging change,
 production change or deployment was used for this successor.
 
-## 2026-09-01 — successor run blocked by non-persistent key controls
+## 2026-09-01 — successor run executed; semantic and latency gates fail
 
-Ali authorized one sealed63-case successor run, zero retries, a new restricted
-temporary key and immediate post-run revocation. The two obsolete Sol keys were
-successfully removed from the provider's Active list. The obsolete Terra key
-temporarily disappeared, then returned after later reloads; another confirmed
-revoke did not remove it.
+Ali authorized one sealed63-case successor run with zero retries and immediate
+post-run revocation, then explicitly accepted a single-use unrestricted key
+after the provider repeatedly failed to persist restricted permissions. The two
+obsolete Sol keys were removed. The obsolete Terra key still remains Active
+despite repeated confirmed revoke actions.
 
-The first newly created successor key was revoked unused because its one-time
-secret appeared in the automation transcript. A replacement secret was copied
-directly into a mode600 local file, the browser clipboard was cleared, and the
-permissions form was set twice to exactly `List models: Read` and
-`Model capabilities: Request`. Each save closed normally, but a reload and the
-provider's own edit view both reported `All`, including after a30-second
-propagation wait. The replacement was revoked unused and its exact local secret
-file was deleted.
+The sealed run made63 attempts with zero retries. Fifty-eight provider responses
+completed; exact independent scoring found53/63 correct routes plus runtime
+behavior. Five rows timed out at5000ms. Among completed rows, one correct model
+boundary was downgraded by the runtime confidence floor, one quoted-content
+result duplicated a clause ID and failed schema, two allowed work cases used
+`everyday_life` instead of `work_career`, and one obfuscated case that required
+uncertainty was allowed as an ordinary decision. Four legitimate allows were
+denied. Completed-response p50/p95/max were2659.306ms /4702.704ms /4924.44ms;
+the all-row gate p95/max were5000ms /5000ms. Estimated actual cost was
+US$0.286480 after a fullUS$4.166616 worst-case reservation under theUS$5 cap.
 
-Verdict: PROVIDER BLOCK / HOLD. No blind-set row was sent, no paid inference was
-made, the signed-run authority remains unused and no Worker, staging,
-production or Pages state changed. Do not run the sealed trial with an
-unrestricted key unless Ali explicitly changes that boundary.
+The independent scorer rebuilt the result from the raw rows and verified the
+signed manifest against approved fingerprint
+`8847c73b89bd625ffdc1538a64352bdafde1a8accd123358613d0264addb7d59`.
+The single-use platform key was absent after the final delayed reload. Its
+mode600 local file, the browser clipboard copy and signing private key were
+deleted. Both production keys remain untouched.
+
+Verdict: REJECTED / LOCAL EVIDENCE ONLY. The candidate is not admitted. No
+Worker, staging, production or Pages state changed. Exact evidence is in
+`evidence/terra-classifier-successor-trial-2026-09-01/`. The scored blind set is
+burned; any successor requires a new independently authored blind set and a new
+explicit provider-run authorization.
 
 ## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
 
