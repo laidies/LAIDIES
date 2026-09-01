@@ -6,6 +6,33 @@ opened; no new account was created, subscription purchased or example run in
 a Free/Plus/Pro comparison. Current documentation is evidence of documented
 behavior, not proof of a particular reader's enabled account.
 
+**Operating-guidance refresh, 2026-09-01:** OpenAI's current Codex best-
+practices and GPT-5.6 model guidance were reopened. The maintained cross-guide
+practical synthesis is `../CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`.
+
+The current official operating pattern is useful because it is concrete:
+
+- brief the job with goal, relevant context, constraints and “done when”;
+- plan first when the approach is uncertain or several connected changes are
+  involved, but skip planning overhead for a one-step reversible correction;
+- put stable repository rules and verification commands in a short `AGENTS.md`,
+  adding rules from repeated observed friction rather than speculation;
+- give the agent an observable way to verify its work and inspect the actual
+  artifact or behaviour, not only its completion summary;
+- define allowed local actions separately from external, destructive, costly or
+  scope-expanding actions that need confirmation;
+- turn a repeated stable workflow into a narrowly triggered Skill, and connect
+  only the external systems that remove a real manual loop; and
+- for GPT-5.6 API work, treat model, effort, Pro execution mode and subscription
+  as separate choices. Medium is the balanced effort baseline; compare one
+  level lower and raise effort only for a measured quality gain. Pro mode is
+  not the ChatGPT Pro plan.
+
+Sources: [Codex best practices](https://learn.chatgpt.com/guides/best-practices)
+and [GPT-5.6 model guidance](https://developers.openai.com/api/docs/guides/latest-model),
+living documentation checked 2026-09-01. These are official product methods,
+not a ChatGPT-versus-Claude winner or proof of every account's controls.
+
 ## What changes the book
 
 The legacy `content/library-books/tool-chatgpt.md` is not a current guide.

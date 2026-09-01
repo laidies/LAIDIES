@@ -1,6 +1,6 @@
 # ChatGPT Free: from source pack to checked workshop plan
 
-**Representative manuscript sample — checked 31 August 2026**
+**Representative manuscript sample — product guidance refreshed 1 September 2026; observed run completed 31 August 2026**
 
 This example uses a real observed ChatGPT Free session and entirely fictional workshop material. It is not a promise that every Free account will show the same model, limits or file tools.
 
@@ -170,9 +170,34 @@ Replace the fictional source pack with a small permitted set of facts. Keep thes
 
 If a limit appears, ask what remains available. Reduce the job to complete text when necessary, save it yourself and continue from the last verified version. Do not evade limits, share accounts or repeatedly regenerate the whole project hoping one version will be lucky.
 
+## Where should reusable instructions live?
+
+Do not paste a master prompt into every job. Put information where it belongs:
+
+- **This chat:** the current goal, current source files, current constraints and
+  the finish line.
+- **A Project:** the bounded background and instructions shared by several
+  related chats. Confirm what the Project can actually access.
+- **Codex `AGENTS.md`:** short, always-true repository rules such as the source
+  of truth, protected folders, test command and definition of done.
+- **A Skill:** a repeated workflow whose inputs, steps, checks and output have
+  already worked manually. A Skill is not a permission grant.
+
+For this workshop, a useful project rule would be:
+
+```text
+Current written quotes override informal notes for prices, capacity and
+facilities. Never book, contact, purchase or publish. A proposal is complete
+only when proposal.md and evidence.md contain the same five final budget
+figures.
+```
+
+Keep it because it remains true across workshop revisions. Do not keep “22
+attendees” there; that belongs to the current source pack and will change.
+
 ## Sources and test record
 
-- OpenAI [ChatGPT Free FAQ](https://help.openai.com/en/articles/9275245-using-chatgpt-s-free-tier-faq), [models](https://learn.chatgpt.com/docs/models), [Chat, Work and Codex orientation](https://learn.chatgpt.com/docs/app), [data controls](https://help.openai.com/en/articles/7730893-data-controls-faq) and [Temporary Chat](https://help.openai.com/en/articles/8914046-temporary-chat-faq), checked 31 August 2026.
+- OpenAI [ChatGPT Free FAQ](https://help.openai.com/en/articles/9275245-using-chatgpt-s-free-tier-faq), [models](https://learn.chatgpt.com/docs/models), [Chat, Work and Codex orientation](https://learn.chatgpt.com/docs/app), [Codex best practices](https://learn.chatgpt.com/guides/best-practices), [data controls](https://help.openai.com/en/articles/7730893-data-controls-faq) and [Temporary Chat](https://help.openai.com/en/articles/8914046-temporary-chat-faq); operating guidance refreshed 1 September 2026.
 - Exact internal run record: `operations/product-stewards/library/pilot-20260831/RESULTS.md` and the preserved `chatgpt-free-*` run folders.
 
 **Recheck before release:** current Free models and tools, plan limits, interface labels, data controls, Temporary Chat retention and the complete rendered example.

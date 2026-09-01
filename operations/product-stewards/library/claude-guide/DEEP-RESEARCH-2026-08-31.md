@@ -2,38 +2,49 @@
 
 **Status:** SOURCE SYNTHESIS; manuscript, account-access checks, and comparative product tests remain HOLD.
 
-**Purpose:** current source inventory for the proposed nontechnical Claude guide. This is not a feature-comparison verdict, a tested workflow, or publishable prose. Product claims below were checked on 2026-08-31; availability, limits, regions, models, and pricing can change.
+**Purpose:** current source inventory for the proposed nontechnical Claude guide. This is not a feature-comparison verdict, a tested workflow, or publishable prose. Product claims below were checked on 2026-08-31, with the model and operating-guidance refresh checked on 2026-09-01; availability, limits, regions, models, and pricing can change. The maintained cross-guide practical synthesis is `../CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`.
 
-## Model-specific expansion — checked 2026-08-31
+## Model-specific expansion — refreshed 2026-09-01
 
 Official-source findings and proposed trials, not measured model results.
 Full fixture: `../MODEL-SPECIFIC-EXAMPLE-PILOT-2026-08-31.md`.
 
-| Current API model | Documented effort levels |
-|---|---|
-| Fable 5, Mythos 5, Opus 5, Sonnet 5 | low, medium, high, xhigh, max |
-| Opus 4.8, Opus 4.7 | low, medium, high, xhigh, max |
-| Opus 4.6, Sonnet 4.6 | low, medium, high, max; not xhigh |
+Anthropic's current model overview lists this active comparison:
 
-API default: high. Effort is not a hard spending limit. Source:
-[API effort](https://platform.claude.com/docs/en/build-with-claude/effort).
-The app lists these Fable/Opus/Sonnet models but access depends on account/admin.
-Do not infer Mythos consumer access. Opus 5 thinking cannot be disabled in the
-app; API rules differ. Source:
-[App controls](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings).
-Fable 5 is unavailable on Free. Pro and standard Team seats require usage
-credits, rather than including Fable in normal plan usage. Max/premium seats
-have a shared weekly allowance with a Fable portion, not unlimited access.
-Source: [Fable access](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan).
+| Current API model | Documented job | Supported API effort | Default |
+|---|---|---|---|
+| Fable 5.1 | demanding reasoning and long-horizon agentic work | low, medium, high, xhigh, max | high |
+| Opus 5 | complex agentic coding and enterprise work | low, medium, high, xhigh, max | high |
+| Sonnet 5 | speed/intelligence balance | low, medium, high, xhigh, max | high |
+| Haiku 4.5 | fastest current model | the same effort control is not supported | n/a |
+
+Source: [current model overview](https://platform.claude.com/docs/en/models/overview).
+Effort is not a hard spending limit. Exact effort choices and defaults are an
+API/product-surface fact, not a promise about a reader's model picker. Older
+support pages describing **Fable 5** consumer-plan access are not evidence of
+**Fable 5.1** access. Fable 5.1 app entitlement remains HOLD until the current
+plan/support source is reconciled. Do not infer Mythos consumer access from an
+older prompt page or API record.
+
+The official sources give three recommendations with different scopes. The
+general model overview says to start with Opus 5 for most workloads and use
+Fable 5.1 for demanding reasoning or long-horizon agents. The effort reference
+says to start Fable 5.1 at high, its API default, then step down where evaluation
+shows quality holds. The separate cost guide says to start Fable 5.1 at low for
+most **agent workloads**, then raise effort where it misses. Preserve all three:
+general model routing, conservative per-model capability guidance and a
+measured agent-cost strategy answer different questions. None is a universal
+consumer-app recipe.
 
 ### Different models need different corrections
 
-- **Fable 5:** Anthropic documents excessive context gathering/deliberation on
-  routine high-effort work. Test lower effort and a clear scope/finish line.
-  It also recommends deliberate verification for long difficult runs. Ali's
-  concern is supported, but a universal over-review defect is not established.
-  Older skills can over-constrain the model. Source:
-  [Fable prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5).
+- **Fable 5.1:** do not carry a Fable 5 personality claim forward as if the
+  version were unchanged. Anthropic's current cost guide shows workload-
+  dependent behaviour: one research benchmark was nearly flat across low,
+  medium and high while cost increased, whereas long-horizon coding showed a
+  real effort/quality trade-off. Test a lower effort and a clear finish line;
+  retain named verification when the task actually needs it. Source:
+  [cost and intelligence](https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence).
 - **Opus 5:** Anthropic warns that generic extra verification/re-check
   instructions can duplicate the model's own checks. Keep acceptance
   requirements but test removing redundant review rituals. Effort does not
@@ -47,9 +58,10 @@ Source: [Fable access](https://support.claude.com/en/articles/15424964-claude-fa
 
 ### Workshop adaptations — untested editorial proposals
 
-Fable 5 medium: use the complete-job prompt and bounded-work rules in the
-fixture; compare high with identical inputs and count unnecessary actions
-separately from required checks. This routine trial is not a vendor-default claim.
+Fable 5.1 low: use the complete-job prompt and bounded-work rules in the
+fixture; compare medium with identical inputs and count unnecessary actions
+separately from required checks. If low misses a named dependency, add high to
+the comparison. This is an API trial design, not a consumer-app default claim.
 
 Opus 5 medium: replace generic repeated-check instructions, rather than adding
 another rule, with: “Acceptance: correct costs; a 90-minute agenda including a
@@ -155,7 +167,8 @@ is an explicit remaining inventory item, not a settled universal picker.
 
 ## Opened-source register (not a link dump)
 
-All sources below were opened, not cited from search snippets, on 2026-08-31.
+Sources below were opened, not cited from search snippets, on 2026-08-31 unless
+the row records the 2026-09-01 refresh.
 
 | Source | Publisher / date shown | Used for |
 |---|---|---|
@@ -175,6 +188,11 @@ All sources below were opened, not cited from search snippets, on 2026-08-31.
 | [Claude Code permissions](https://code.claude.com/docs/en/permission-modes) | Anthropic, current docs | plan vs edits/auto boundaries |
 | [Claude Code extensions](https://code.claude.com/docs/en/features-overview) | Anthropic, current docs | CLAUDE.md/skills/MCP/hooks distinction |
 | [Claude Code best practices](https://code.claude.com/docs/en/best-practices) | Anthropic, living documentation checked 2026-08-31 | current project-context, verification and hook methods |
+| [Models overview](https://platform.claude.com/docs/en/models/overview) | Anthropic, living documentation checked 2026-09-01 | Fable 5.1 current lineup, defaults and general model route |
+| [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) | Anthropic, living documentation checked 2026-09-01 | all supported levels, defaults and model-specific effort guidance |
+| [Optimizing for cost and intelligence](https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence) | Anthropic, living documentation checked 2026-09-01 | effort sweeps, cost per completed task and workload-dependent model selection |
+| [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | Anthropic, living documentation checked 2026-09-01 | examples, structured prompts and long-context placement |
+| [Agentic coding and persistent returns to expertise](https://www.anthropic.com/research/claude-code-expertise) | Anthropic Research, 2026-06-16; checked 2026-09-01 | preliminary aggregate evidence on planning, execution, verification and domain expertise |
 | [Effective context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic, 2025-09-29 | context method/caveat |
 | [How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code) | Anthropic, 2025-07-24 | first-hand methods/caveats |
 | [Simon Willison: Helping people write code again](https://simonwillison.net/2026/Jan/4/coding-again/) | Simon Willison, 2026-01-04 | independent practitioner framing |

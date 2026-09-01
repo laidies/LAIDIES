@@ -64,6 +64,19 @@ are saved below. They distinguish official product facts, first-hand methods,
 editorial adaptations and untested account behaviour. They are research inputs,
 not manuscript admission or comprehensive coverage of every provider.
 
+**Practical-currentness spine — Ali, 2026-09-01:** The ChatGPT and Claude
+guides must be useful field guides, not product catalogues with a prompt list
+attached. Every material recommendation must state: the exact reader situation;
+what to do; why it helps; a complete usable example; what failure it prevents;
+the Free route; any paid or agentic extension; and whether its evidence is
+official documentation, a named practitioner's first-hand method, or a dated
+LAiDIES test. Model, effort, surface and plan guidance must be separately dated.
+When current sources disagree, retain the disagreement and explain the decision
+it changes. A model rename, retirement, entitlement change or changed best-
+practice page triggers recheck of every affected tool card and worked example.
+The maintained synthesis is
+`operations/product-stewards/library/CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`.
+
 **Model-specific full examples — Ali, 2026-08-31:** The ChatGPT and Claude
 guides must teach selection and operation of each currently relevant model,
 not merely each application. Cover every documented effort level exposed in

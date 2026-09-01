@@ -4,6 +4,34 @@
 
 ## Current task
 
+### 2026-09-01 — current practical guidance spine
+
+- **Status:** CURRENT SOURCE SYNTHESIS AND REPRESENTATIVE SAMPLE REFRESHED /
+  FULL MANUSCRIPTS, REMAINING ACCOUNT TESTS AND PUBLICATION HOLD.
+- **Delivered:** `operations/product-stewards/library/CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`
+  now turns official OpenAI/Anthropic guidance, named practitioner methods and
+  preserved LAiDIES tests into fourteen practical cards with an exact use case,
+  action, example, mechanism, failure, Free route, paid extension and evidence
+  label. ChatGPT and Claude research packets and representative samples consume
+  the refreshed source model.
+- **Freshness correction:** Anthropic's current model overview now lists Fable
+  5.1. Older Fable 5 consumer-access and prompting claims are not silently
+  applied to it. The packet preserves the official distinction between the
+  general Opus 5 starting recommendation and Fable 5.1-low guidance for measured
+  agent workloads. OpenAI's current Sol/Terra/Luna, effort and Pro-mode guidance
+  is separately recorded.
+- **Verified:** Current official pages were opened on 2026-09-01; named
+  practitioner methods remain attributed and bounded; content-producer source
+  bindings were refreshed. The preserved August 31 hands-on results remain the
+  only LAiDIES-tested product evidence.
+- **Not done:** No new consumer account, paid plan, Cowork, Fable 5.1, Opus 5,
+  ChatGPT paid or Codex model comparison was run. The new synthesis is internal
+  source material; it is not an independently admitted chapter, complete
+  manuscript or public release.
+- **Next:** Expand the two complete manuscripts from these source-bound cards,
+  then run only the missing account/model comparisons that change a reader's
+  selection decision. Recheck volatile cards before semantic review and release.
+
 ### 2026-08-31 — tested sample package, first hands-on round
 
 - **Status:** BUILDING / NINE ACTUAL RESPONSES PRESERVED / SAMPLE CHAPTERS AND PUBLICATION HOLD.

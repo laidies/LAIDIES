@@ -1,6 +1,6 @@
 # Claude: choose the surface before you choose the effort
 
-**Representative manuscript sample — checked 31 August 2026**
+**Representative manuscript sample — product guidance refreshed 1 September 2026; observed run completed 31 August 2026**
 
 Claude Chat, Cowork and Claude Code are not three levels of intelligence. They are different places to work.
 
@@ -9,7 +9,7 @@ Claude Chat, Cowork and Claude Code are not three levels of intelligence. They a
 - **Cowork** is a paid beta for longer multi-step computer work. Its agent loop runs in Anthropic cloud sandboxes by default. The desktop app provides a deliberately granted route when the task needs local files, browser or computer access.
 - **Claude Code** is the developer and power-user environment for an actual folder or repository, with explicit permissions, project instructions, file changes, commands, tests and version control.
 
-Use the smallest surface that can actually reach the permitted inputs and create the output. Then choose a model and effort. Do not start with Max because the job feels important. Start with Medium for a complete everyday job. Raise it only when you can name what Medium missed or which connected decisions need more reasoning.
+Use the smallest surface that can actually reach the permitted inputs and create the output. Then choose a model and effort. Do not start with Max because the job feels important. If your app supplies a default and no comparison control, use what the account actually provides. If you can choose effort, establish a baseline on a representative job and compare one level lower before spending more. This workshop used Medium as its baseline; that is a test choice, not Anthropic's universal default. Raise effort only when you can name what the lower setting missed or which connected decisions need more reasoning.
 
 For example, higher effort may be worth testing when three source documents contradict one another and the answer must explain which source wins; when one change affects several files and every version must stay consistent; or when Medium produced a shallow plan that skipped a named dependency. “This matters to me” is not the same as “this requires maximum reasoning.”
 
@@ -164,16 +164,16 @@ The actual repair run made the main corrections but still left residual attribut
 
 ## When to choose another effort or model
 
-Use the current model picker and effort control available on your account. Anthropic’s current documentation lists low, medium, high, xhigh and max for Fable 5, Mythos 5, Opus 5 and Sonnet 5 through the API; exact app exposure and plan access differ.
+Use the current model picker and effort control actually available on your account. Anthropic's current API comparison lists Fable 5.1, Opus 5, Sonnet 5 and Haiku 4.5. It shows high as the default effort for Fable 5.1, Opus 5 and Sonnet 5, while Haiku 4.5 does not support the same effort control. Exact app exposure and plan access differ; an API model page is not proof that your Claude Chat account includes the same picker.
 
-- **Low:** test it for narrow extraction or transformation when the required fields and missing-value rule are explicit.
-- **Medium:** start here for a complete everyday document or file job with several clear requirements.
+- **Low:** test it for narrow extraction or transformation when the required fields and missing-value rule are explicit. Anthropic's current agent-cost guide also recommends Fable 5.1 at low as a starting candidate for many agent workloads—but that is API workload advice, not a promise about your app.
+- **Medium:** use it as a comparison baseline for a complete document or file job with several clear requirements; this is where our Sonnet 5 workshop comparison started.
 - **High:** test it when Medium missed a named contradiction or dependency, or when one change must remain consistent across several connected outputs.
-- **xhigh or Max:** reserve these for long, consequential reasoning with many connected decisions after a lower setting has shown a specific shortfall. Do not use the emotional importance of the task—or this workshop—as proof that either is needed.
+- **xhigh or Max:** reserve these for long, consequential reasoning with many connected decisions after a lower setting has shown a specific shortfall. Do not use the emotional importance of the task—or this workshop—as proof that either is needed. Anthropic currently documents high as the API default for Fable 5.1, Opus 5 and Sonnet 5; a default is not evidence that every task benefits from it.
 
 Model-specific corrections matter:
 
-- **Fable 5:** Anthropic documents excessive context gathering and deliberation on some routine high-effort work. Give it a clear scope and finish line, and test a lower effort when the task has fixed inputs and outputs. For long work with conflicting evidence or many dependent changes, retain named verification checks rather than requesting a vague broad review.
+- **Fable 5.1:** do not inherit a Fable 5 personality label without retesting it. Anthropic's current measurements show that higher effort added cost without a meaningful quality gain on one research workload, while long-horizon coding showed a real quality trade-off. Give it a clear scope and finish line, test a lower effort on your own representative work, and raise effort only after naming what the lower setting missed.
 - **Opus 5:** Anthropic warns that generic “verify again” instructions can duplicate checks it already performs. Keep acceptance conditions; remove redundant review rituals.
 - **Sonnet 5:** name every file and section affected by a revision, especially at lower effort.
 
@@ -206,7 +206,7 @@ There is no Free Cowork or Claude Code equivalent documented in the current plan
 
 ## Sources and test record
 
-- Anthropic [plan pricing](https://claude.com/pricing), [Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork), [Cowork architecture](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview), [Claude Code features](https://code.claude.com/docs/en/features-overview), [effort controls](https://platform.claude.com/docs/en/build-with-claude/effort), [model controls](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings), [memory](https://code.claude.com/docs/en/memory) and [Skills](https://code.claude.com/docs/en/skills), checked 31 August 2026.
+- Anthropic [plan pricing](https://claude.com/pricing), [Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork), [Cowork architecture](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview), [Claude Code features](https://code.claude.com/docs/en/features-overview), [effort controls](https://platform.claude.com/docs/en/build-with-claude/effort), [current models](https://platform.claude.com/docs/en/models/overview), [cost and intelligence](https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence), [memory](https://code.claude.com/docs/en/memory) and [Skills](https://code.claude.com/docs/en/skills), model/effort guidance refreshed 1 September 2026.
 - Exact internal run record: `operations/product-stewards/library/pilot-20260831/RESULTS.md` and the preserved `claude-sonnet5-*` run folders.
 
 **Recheck before release:** product access, model names, effort combinations, plan prices and limits, Cowork architecture, Code instruction paths, Skills availability and every rendered output excerpt.

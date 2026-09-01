@@ -14793,3 +14793,24 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why the best line in the chapter still
   failed when the explanation underneath it was missing.
 - **Status:** Internal teaching-prose correction; full manuscript remains HOLD.
+
+## LIBRARY-ONE-DAY-MODEL-DRIFT-20260901 — A current model card can expire during drafting
+
+- **Finding:** The August 31 Claude packet named Fable 5. On September 1,
+  Anthropic's current model overview named Fable 5.1 and a current cost guide
+  supplied materially different workload/effort evidence. A simple global
+  rename would have falsely carried consumer access and model-tendency claims
+  from one version to another.
+- **Prevention:** Bind every volatile recommendation to model version, surface,
+  plan, source and checked date. On a model change, reopen the current overview,
+  cost/effort and entitlement sources; preserve conflicts; invalidate affected
+  cards and producer bindings. Keep durable workflow guidance separate from
+  model-specific inserts.
+- **Evidence:** Anthropic model overview and cost/intelligence guide checked
+  2026-09-01; refreshed Claude research, sample and shared practical-guidance
+  spine.
+- **Possible Behind the Build angle:** The AI guide that became outdated in one
+  day—and why “find and replace the model name” would have taught the wrong
+  lesson.
+- **Status:** Internal source and sample correction; no account test or public
+  release.
