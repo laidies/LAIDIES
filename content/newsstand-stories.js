@@ -252,6 +252,11 @@ window.NEWSSTAND_DATA = {
       "thread_subtitle": "Wednesday to Wednesday",
       "thread_entry": "Weekly synthesis",
       "headline": "The AI stories worth carrying into this week.",
+      "weeklyHighlights": [
+        "The AI opportunity gap: women remain underrepresented in AI hiring, leadership and daily workplace use.",
+        "AI enters everyday work: Slack added more agentic work inside a familiar office tool.",
+        "Privacy and safety move earlier: OpenAI expanded zero-retention options and paused part of a frontier-training effort while tightening containment."
+      ],
       "heroVisual": {
         "src": "/assets/newsstand/design-20260830/front-paige-women-computing.png",
         "alt": "Women working across generations of computing, from handwritten calculations and punch cards to modern AI.",

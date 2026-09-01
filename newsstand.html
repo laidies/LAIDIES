@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260901-weekly-row-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260901-weekly-card-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -127,6 +127,9 @@
               </div>
               <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
                 <span class="ns-front-desk__label">Biggest Stories of the Week</span>
+                <span class="ns-weekly-image">
+                  <img src="./assets/newsstand/design-20260830/weekly-roundup-20260901.png" alt="A stack of newspapers gathered with a binder clip beside a weekly desk calendar and highlighter." loading="lazy">
+                </span>
                 <strong class="ns-front-column-promise">Wednesday to Wednesday</strong>
                 <span class="ns-front-status" data-status-for="weekly" aria-hidden="true">Checking…</span>
                 <span class="ns-front-contents" data-contents-for="weekly" aria-live="polite"></span>
@@ -244,7 +247,7 @@
     </footer>
 
     <script src="./content/newsstand-reader-contract.js?v=20260831-latest-five-days-1"></script>
-    <script src="./content/newsstand-stories.js?v=20260901-front-paige-headline-1"></script>
+    <script src="./content/newsstand-stories.js?v=20260901-weekly-card-1"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       (function () {
@@ -1422,6 +1425,11 @@
                 secondaryRead && edition === "weekly" ? '<span class="ns-publication__read"><b>' +
                   (leadDesk ? "The LAiDIES read" : edition === "weekly" ? "The through-line" : "The question underneath it") +
                   '</b>' + escapeHTML(secondaryRead) + "</span>" : ""
+                ,edition === "weekly" && Array.isArray(lead.weeklyHighlights) && lead.weeklyHighlights.length
+                  ? '<span class="ns-weekly-highlights"><b>This week&rsquo;s storylines</b><ul>' +
+                    lead.weeklyHighlights.slice(0, 3).map(function (item) { return '<li>' + escapeHTML(item) + '</li>'; }).join("") +
+                    '</ul></span>'
+                  : ""
               ].join("");
               return;
             }
