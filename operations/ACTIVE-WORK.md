@@ -26,8 +26,10 @@ five-second ceiling passes. Do not tune/retry on the scored frozen set; a
 successor needs a new blind set. No Worker binding, staging, production or
 deployment changed. Exact evidence lives in
 `product-stewards/fairy-godmother/evidence/terra-classifier-trial-2026-08-31/`.
-The used local secret is deleted. Both temporary platform keys are revoked and
-a fresh full page reload verifies neither remains in the Active list.
+The used local secret is deleted. A later provider recheck on1September found
+that the old Terra trial key had returned to the Active list despite the prior
+revoke flow and reload; the two Sol trial keys are absent. Provider cleanup is
+therefore HOLD, not complete.
 
 Successor checkpoint: the local configured-classifier adapter no longer sends
 the legacy `temperature`/`max_tokens` shape. It now matches the measured
@@ -47,6 +49,20 @@ data without inspecting its prompts or judgments for tuning. The exact candidate
 prompt/source/development bytes are bound in the blind-set directory; changing
 any invalidates the set. A real measured one-attempt run remains required; no
 key, provider call, staging, production or deployment was used for this successor.
+
+1September execution checkpoint: Ali authorized one sealed successor run plus
+temporary-key cleanup. The two obsolete Sol keys were removed. The old Terra
+key disappeared once but returned after later reloads and a further confirmed
+revoke still did not remove it. Two newly created successor keys were both
+revoked without use: the first because its one-time secret appeared in the
+automation transcript, the replacement because the permissions form accepted
+`List models: Read` and `Model capabilities: Request` twice but the provider
+reopened and listed the key as `All`, including after the documented propagation
+wait. Its protected local secret file and browser clipboard copy were deleted.
+No successor request was sent, the signing authority remains unused, and no
+Worker, staging, production or Pages state changed. HOLD until a genuinely
+restricted key can be verified, or Ali explicitly accepts a single-use
+unrestricted key for this sealed run.
 
 Newest local checkpoint: the page/Worker mismatch is repaired without a model
 switch or retry. Worker advice and revision calls now stop at30s; the page waits

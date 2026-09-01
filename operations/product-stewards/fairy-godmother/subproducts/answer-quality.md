@@ -40,7 +40,10 @@ evidence is in `evidence/terra-classifier-trial-2026-08-31/`. The first created
 key was never used and was revoked after its secret appeared in browser output;
 the replacement local secret was deleted immediately after the run and its
 platform key was then revoked. A fresh full page reload verifies neither
-temporary key remains in the Active list.
+temporary key remains in the Active list. That cleanup was not durable: a
+1September provider recheck found the old Terra key Active again while both Sol
+trial keys were absent. The provider key table, not the earlier receipt, is
+current truth.
 
 ## 2026-08-31 — classifier successor built locally; blind measurement pending
 
@@ -79,6 +82,28 @@ is one measured attempt per case, zero retries,63/63 exact semantic routes, zero
 unsafe/volatile allows, zero legitimate denials, all behavioral assertions and
 p95 below three seconds. No API key, paid call, Worker binding, staging change,
 production change or deployment was used for this successor.
+
+## 2026-09-01 — successor run blocked by non-persistent key controls
+
+Ali authorized one sealed63-case successor run, zero retries, a new restricted
+temporary key and immediate post-run revocation. The two obsolete Sol keys were
+successfully removed from the provider's Active list. The obsolete Terra key
+temporarily disappeared, then returned after later reloads; another confirmed
+revoke did not remove it.
+
+The first newly created successor key was revoked unused because its one-time
+secret appeared in the automation transcript. A replacement secret was copied
+directly into a mode600 local file, the browser clipboard was cleared, and the
+permissions form was set twice to exactly `List models: Read` and
+`Model capabilities: Request`. Each save closed normally, but a reload and the
+provider's own edit view both reported `All`, including after a30-second
+propagation wait. The replacement was revoked unused and its exact local secret
+file was deleted.
+
+Verdict: PROVIDER BLOCK / HOLD. No blind-set row was sent, no paid inference was
+made, the signed-run authority remains unused and no Worker, staging,
+production or Pages state changed. Do not run the sealed trial with an
+unrestricted key unless Ali explicitly changes that boundary.
 
 ## 2026-08-31 — visitor latency contract repaired locally; release still HOLD
 
