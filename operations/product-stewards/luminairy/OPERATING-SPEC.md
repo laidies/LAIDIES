@@ -2,8 +2,8 @@
 
 **Owner:** LUMINAiRY building champion  
 **Research owner:** PATRON SAiNTS, MAiVENS & TRAiLBLAZERS research/editorial sub-champion  
-**Status:** BOUNDED LOCAL PASS — independent Repair 3 rejudge 90/100; all production claims held  
-**Last reviewed:** 2026-07-26
+**Status:** SIGNED PROFILE SET VALIDATED LOCALLY — Hannah Fry destination successor awaiting coordinated release
+**Last reviewed:** 2026-09-02
 
 ## Product job
 
@@ -24,6 +24,7 @@ The room is not a leaderboard, canon of “the greatest”, completion course, c
 5. A source link names the exact supported claim and opens its authoritative evidence. A general biography link must not masquerade as support for an unrelated quote, “first”, current role or causal inference.
 6. A visitor may choose one guide per wing. The choice and “met” list are private browser storage on this device only. Opening a profile means “opened on this device”; it is not learning, completion, endorsement, membership, reward or account state.
 7. The page offers a correction route that does not imply a guaranteed response. While Town Hall intake is held, the route is a transparent status page, not a working submission promise.
+8. When NewsStand coverage relates to a woman with a LUMINAiRY profile, the article links to that exact profile. The profile gives readers verified destinations to **Read**, **Watch**, **Listen** and **Follow** her work where applicable. Content-free landers are excluded. Changing a destination, action label or review date changes the profile bytes and therefore requires independent review plus a renewed signed receipt before publication.
 
 ## Claim admission contract
 
@@ -58,7 +59,7 @@ immediately on a credible news trigger. Historical priority/“first” claims
 require an authoritative specialist source and explicit scope. LAiDIES
 interpretation is labelled as interpretation.
 
-The bounded relaunch posture is intentionally conservative: existing biographies and interpretive cards remain **held** until their exact prose is decomposed and checked claim by claim. A small current-role claim may be admitted only when its exact wording is supported by a current first-party source.
+The current profile set contains 43 admitted, exact-profile records: 13 Saints, 23 MAiVENS and 7 Trailblazers. Each admission remains valid only while its complete profile bytes match an independently reviewed offline-signed receipt. Current-role and destination claims require current first-party or authoritative sources and a dated recheck boundary.
 
 ## Corrections
 
@@ -94,4 +95,4 @@ Release remains `BUILDING` until all are fresh:
 6. exact public artifact build with no missing referenced assets;
 7. research-owner approval for each admitted claim and owner visual approval.
 
-No deploy, publication, Git action or change to another product’s canon is authorized by this specification.
+This specification authorizes no blind deployment. A release owner must reconcile the scoped successor against the current production head, preserve unrelated bytes, publish through the normal release path and verify the resulting public origins before describing it as live.

@@ -3,20 +3,17 @@
 ## Current task
 
 - **Status:** VERIFIED LOCALLY
-- **Task:** Ordinary NewsStand publication connection and August 31 AI editorial review policy. No real new news article admitted or deployed by this repair.
-- **Task ID:** NEWSSTAND-ORDINARY-REVIEW-20260831
-- **Owner:** NewsStand foreground; routine publishing task owns the next real-story run.
-- **Updated:** 2026-08-31 America/Vancouver
-- **Goal:** Remove mandatory per-story human checking without weakening readable, sourced reporting.
-- **Acceptance:** Bounded independent AI review passes without humans; missing explanations, false human claims and cross-surface exceptions reject; all other admissions remain intact.
-- **Current step:** Local quality, producer, ordinary-publication and context-authority tests pass. Existing 07:00 automation updated; no public files changed by this policy repair.
-- **Next action:** Morning task applies the exact policy and checker to one current ordinary story, independently reviews it and resolves remaining browser/release checks before publication.
-- **Repair:** Private, checksum-bound ordinary-news candidates now pass through composition, independent story review, issue admission, canonical projection and public feed/archive generation. Initial issues and append-only same-day news revisions are supported. Frozen input checks reject drift; repeated projection is idempotent. Vancouver dates, not UTC date prefixes, determine issue membership.
-- **Verification:** The ordinary-news end-to-end CLI fixture passes, including 15 invalid-candidate cases, preservation of incumbent articles/service desks/Front PAiGE/Big Picture, and feed/archive/reader eligibility. Composer, promoter and projector regression suites pass. Fixture observations are synthetic test data, never real editorial approval. No browser or live-publication claim is made for this repair.
-- **Schedule:** The existing ACTIVE 07:00 Vancouver heartbeat was updated through the app to use the repaired connection and check a rolling seven-day unpublished-news backlog. Its cadence, target task and notification policy were preserved; no parallel scheduler was created. A future unattended run has not been observed.
-- **Commit limitation:** The repository-wide precommit check failed on 45 missing Episode 3 image assets. Town, links, inline JavaScript and rejection checks passed. The bounded local repair commit bypasses that unrelated hook; no episode assets were changed and this is not release admission.
-- **August 31 decision:** Ali authorized ordinary news without human checks, retaining accessible reader explanations. The ordinary-news editorial policy replaces only human explanation/transfer observations with explicitly labelled independent AI editorial analysis. Source, voice, reader consequence and release requirements remain; Big Picture still requires Ali's review. This resolves the policy blocker, not the unproved real-story/publication result.
-- **Release coordination:** The latest received verified handoff is `fcbe7249-2a3d-4fe3-99dc-d4546ffcf27b`, exact input `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-native-brand.rJeTfb`, identity `8ba0c5a94dba71be0698656e36ed2f9fcbf29774f5d523853c0b11752050776d`. This is a handoff, not a fresh provider check by this repair. No Pages deployment occurred; recheck the head before any future release. Local NewsStand design changes are not authorized for incidental publication.
+- **Task:** LUMINAiRY Hannah Fry destination successor for the NewsStand-to-profile relationship.
+- **Task ID:** LUMINAIRY-HANNAH-DESTINATIONS-20260902
+- **Owner:** LUMINAiRY foreground; release remains with the coordinated production owner.
+- **Updated:** 2026-09-02 America/Vancouver
+- **Goal:** A NewsStand reader who follows Hannah Fry into LUMINAiRY can immediately find checked places to read, watch, listen to and follow her work.
+- **Acceptance:** Seven exact destinations are independently checked and action-labelled; the exact changed profile has a renewed offline-signed receipt; the other 42 receipts remain unchanged; claim, browser and NewsStand relationship tests pass; no blind deployment occurs.
+- **Current step:** All local acceptance checks and the independent rendered-card review pass. The scoped successor awaits commit/push and handoff to the current release owner.
+- **Next action:** Reconcile the exact scoped commit with the current production head, preserve unrelated production bytes, then verify custom and immutable public origins before calling the change live.
+- **Repair:** Hannah retains her Cambridge profile and adds BBC AI Confidential, The Rest Is Science, Google DeepMind: The Podcast, YouTube, Instagram and X. `hannahfry.co.uk` is excluded because it currently returns a content-free lander. The runtime now pins a two-key public verification ring so Hannah alone can receive a renewed receipt without rewriting the other 42 admissions; no private signing key is stored in the repository.
+- **Verification:** The calibrated gate rejects an untrusted receipt key. Claim validation passes 43 profiles; the browser suite passes 13/23/7 cards, admission with and without Web Crypto, images, links, keyboard behavior and mobile overflow; the NewsStand relationship suite passes. Forty-two non-Hannah receipt objects are unchanged. This is local evidence, not public verification.
+- **Release boundary:** Work began from exact NewsStand handoff `a58f00edc7ba6a75f2e7e8de9cc9628b7b5a2bc2`. No deployment or production-head overwrite was performed.
 
 ## 2026-08-30 NewsStand Daily proving run
 

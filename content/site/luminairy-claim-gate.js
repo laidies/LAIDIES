@@ -3,12 +3,19 @@
 
   const claimsUrl = "/content/luminairy-claims.json";
   const receiptsUrl = "/content/luminairy-editorial-receipts.json";
-  const trustedKeyId = "luminairy-editorial-offline-r3-20260823";
-  const trustedKey = {
-    kty: "EC",
-    crv: "P-256",
-    x: "Sx-f3-ZiCYm-OOzoxfbsZjLgx6GW1AEff0gWB-C8r6Q",
-    y: "X_qk0_B9K2GKckhIM8WS6_NJB-6HXRlO0T1YappGRv4"
+  const trustedKeys = {
+    "luminairy-editorial-offline-r3-20260823": {
+      kty: "EC",
+      crv: "P-256",
+      x: "Sx-f3-ZiCYm-OOzoxfbsZjLgx6GW1AEff0gWB-C8r6Q",
+      y: "X_qk0_B9K2GKckhIM8WS6_NJB-6HXRlO0T1YappGRv4"
+    },
+    "luminairy-editorial-offline-r4-20260902": {
+      kty: "EC",
+      crv: "P-256",
+      x: "0SG_saUrurdGJZ4e8wFG23hvpV8vQUNm3YPad28WKWs",
+      y: "Gss04vUhNOgxvRkVn6M_QwK9Js42hogAD6JGsfMZhG8"
+    }
   };
 
   function normalize(value) {
@@ -135,7 +142,7 @@
     return bytesFromBase64(String(value).replace(/-/g, "+").replace(/_/g, "/"));
   }
 
-  function verifySignatureWithoutWebCrypto(receipt, signature) {
+  function verifySignatureWithoutWebCrypto(receipt, signature, trustedKey) {
     if (typeof BigInt === "undefined" || signature.length !== 64) return false;
     const p = BigInt("0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
     const n = BigInt("0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551");
@@ -185,8 +192,9 @@
 
   async function verifySignature(receipt) {
     const signature = bytesFromBase64(receipt.signature);
-    if (!signature) return false;
-    if (!window.crypto?.subtle || typeof TextEncoder === "undefined") return verifySignatureWithoutWebCrypto(receipt, signature);
+    const trustedKey = trustedKeys[receipt.keyId];
+    if (!signature || !trustedKey) return false;
+    if (!window.crypto?.subtle || typeof TextEncoder === "undefined") return verifySignatureWithoutWebCrypto(receipt, signature, trustedKey);
     const key = await window.crypto.subtle.importKey("jwk", trustedKey, { name: "ECDSA", namedCurve: "P-256" }, false, ["verify"]);
     return window.crypto.subtle.verify({ name: "ECDSA", hash: "SHA-256" }, key, signature, new TextEncoder().encode(receiptPayload(receipt)));
   }
@@ -217,7 +225,7 @@
     const seen = new Set();
     for (const receipt of receipts.receipts) {
       const record = records.get(receipt.claimId);
-      if (!record || seen.has(receipt.claimId) || receipt.keyId !== trustedKeyId || receipt.product !== "luminairy" || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.wing !== record.wing || receipt.profileId !== record.profileId || receipt.verifiedOn !== record.verifiedOn || receipt.recheckOn !== record.recheckOn || receipt.supportDecision !== "exact-profile-reviewed-and-supported" || !normalize(receipt.reviewerRole) || !strictDate(receipt.reviewedOn) || receipt.reviewedOn > today || !(await verifySignature(receipt))) throw new Error("trusted editorial receipt invalid");
+      if (!record || seen.has(receipt.claimId) || !trustedKeys[receipt.keyId] || receipt.product !== "luminairy" || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.wing !== record.wing || receipt.profileId !== record.profileId || receipt.verifiedOn !== record.verifiedOn || receipt.recheckOn !== record.recheckOn || receipt.supportDecision !== "exact-profile-reviewed-and-supported" || !normalize(receipt.reviewerRole) || !strictDate(receipt.reviewedOn) || receipt.reviewedOn > today || !(await verifySignature(receipt))) throw new Error("trusted editorial receipt invalid");
       seen.add(receipt.claimId);
     }
     if (seen.size !== profiles.size) throw new Error("trusted admission incomplete");

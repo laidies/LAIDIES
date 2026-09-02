@@ -1,6 +1,6 @@
 {
   "schemaVersion": "luminairy-profile-resource-candidate-v1",
-  "status": "checked-pending-signed-profile-receipt",
+  "status": "independently-reviewed-signed-profile-successor",
   "profileId": "hannah-fry",
   "checkedAt": "2026-09-02",
   "preserveExistingLinks": true,
@@ -13,31 +13,31 @@
     },
     {
       "type": "listen",
-      "label": "The Rest Is Science",
+      "label": "Listen to The Rest Is Science",
       "url": "https://therestis.com/science",
       "verification": "Official programme site."
     },
     {
       "type": "listen",
-      "label": "Google DeepMind: The Podcast",
+      "label": "Listen to Google DeepMind: The Podcast",
       "url": "https://deepmind.google/the-podcast/",
       "verification": "Official Google DeepMind programme page."
     },
     {
       "type": "watch",
-      "label": "Hannah Fry on YouTube",
+      "label": "Watch Hannah Fry on YouTube",
       "url": "https://www.youtube.com/@fryrsquared",
       "verification": "Channel page identifies Hannah Fry and her Cambridge role."
     },
     {
       "type": "follow",
-      "label": "Hannah Fry on Instagram",
+      "label": "Follow Hannah Fry on Instagram",
       "url": "https://www.instagram.com/fryrsquared/",
       "verification": "Profile page identifies Hannah Fry and her Cambridge role."
     },
     {
       "type": "follow",
-      "label": "Hannah Fry on X",
+      "label": "Follow Hannah Fry on X",
       "url": "https://x.com/FryRsquared",
       "verification": "Profile page identifies Hannah Fry."
     }
@@ -45,8 +45,19 @@
   "excluded": [
     {
       "url": "https://hannahfry.co.uk/",
-      "reason": "The domain currently redirects to a content-free lander, so it is not suitable as a reader destination."
+      "reason": "The domain currently returns a content-free lander, so it is not suitable as a reader destination."
     }
   ],
-  "publicationBoundary": "Do not edit content/luminairy-profiles.json until the profile owner issues a replacement checksum-bound signed editorial receipt."
+  "independentReview": {
+    "reviewedOn": "2026-09-02",
+    "result": "six destinations passed; content-free hannahfry.co.uk lander rejected",
+    "evidence": "operations/product-stewards/luminairy/hannah-fry-resource-links-independent-review-2026-09-02.md"
+  },
+  "admission": {
+    "profileSha256": "1638a86a2329121796d159ad169c95a7c030934d2049e190b2a59a837a0c0287",
+    "receiptId": "receipt-mavens-hannah-fry-20260902",
+    "keyId": "luminairy-editorial-offline-r4-20260902",
+    "recheckOn": "2026-12-02"
+  },
+  "publicationBoundary": "Local signed profile successor only. Coordinate with the current release head before deployment and verify the exact public origin after release."
 }

@@ -15,13 +15,20 @@ const html = read("luminairy.html");
 const css = read("content/luminairy-v2.css");
 const gate = read("content/site/luminairy-claim-gate.js");
 const sourcePacket = read("operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md");
+const hannahResources = JSON.parse(read("operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
 const errors = [];
 const today = new Date().toISOString().slice(0, 10);
-const publicJwk = {
-  kty: "EC",
-  crv: "P-256",
-  x: "Sx-f3-ZiCYm-OOzoxfbsZjLgx6GW1AEff0gWB-C8r6Q",
-  y: "X_qk0_B9K2GKckhIM8WS6_NJB-6HXRlO0T1YappGRv4"
+const publicJwks = {
+  "luminairy-editorial-offline-r3-20260823": {
+    kty: "EC", crv: "P-256",
+    x: "Sx-f3-ZiCYm-OOzoxfbsZjLgx6GW1AEff0gWB-C8r6Q",
+    y: "X_qk0_B9K2GKckhIM8WS6_NJB-6HXRlO0T1YappGRv4"
+  },
+  "luminairy-editorial-offline-r4-20260902": {
+    kty: "EC", crv: "P-256",
+    x: "0SG_saUrurdGJZ4e8wFG23hvpV8vQUNm3YPad28WKWs",
+    y: "Gss04vUhNOgxvRkVn6M_QwK9Js42hogAD6JGsfMZhG8"
+  }
 };
 
 const sha256 = (value) => crypto.createHash("sha256").update(String(value)).digest("hex");
@@ -56,7 +63,9 @@ if (claims.receiptManifest !== "/content/luminairy-editorial-receipts.json") err
 if (receiptManifest.schemaVersion !== 2 || receiptManifest.authorityModel !== "offline-p256-signed-profile-receipts") errors.push("receipt authority mismatch");
 if (claims.sourcePacketSha256 !== sha256(sourcePacket)) errors.push("source packet hash mismatch");
 if (!html.includes("luminairy-claim-gate.js") || html.indexOf("luminairy-claim-gate.js") > html.indexOf("luminairy-app.js")) errors.push("runtime gate must load before app");
-if (!gate.includes(publicJwk.x) || !gate.includes(publicJwk.y)) errors.push("runtime trusted key mismatch");
+for (const [keyId, publicJwk] of Object.entries(publicJwks)) {
+  if (!gate.includes(keyId) || !gate.includes(publicJwk.x) || !gate.includes(publicJwk.y)) errors.push(`runtime trusted key mismatch ${keyId}`);
+}
 if (!html.includes(claims.correctionRoute)) errors.push("visible correction route mismatch");
 if (!css.includes("--lum-sapphire") || !css.includes("--lum-amber") || !css.includes("--lum-pink") || !css.includes("--lum-red")) errors.push("four wing/anti palettes are not present");
 
@@ -86,6 +95,20 @@ for (const wing of Object.keys(expected)) {
 for (const retired of ["Oprah Winfrey", "Jessica Fletcher", "Jennifer Lopez"]) {
   if (JSON.stringify(profiles).includes(retired) || html.includes(retired)) errors.push(`retired profile remains: ${retired}`);
 }
+const hannah = profiles.mavens.find((profile) => profile.id === "hannah-fry");
+const expectedHannahLinks = [
+  ["read", "Read Cambridge profile", "https://www.damtp.cam.ac.uk/person/hf418"],
+  ["watch", "Watch AI Confidential", "https://www.bbc.co.uk/iplayer/episode/m002q76d/ai-confidential-with-hannah-fry-series-1-1-the-boy-who-tried-to-kill-the-queen"],
+  ["listen", "Listen to The Rest Is Science", "https://therestis.com/science"],
+  ["listen", "Listen to Google DeepMind: The Podcast", "https://deepmind.google/the-podcast/"],
+  ["watch", "Watch Hannah Fry on YouTube", "https://www.youtube.com/@fryrsquared"],
+  ["follow", "Follow Hannah Fry on Instagram", "https://www.instagram.com/fryrsquared/"],
+  ["follow", "Follow Hannah Fry on X", "https://x.com/FryRsquared"]
+];
+if (JSON.stringify((hannah?.links || []).map((link) => [link.type, link.label, link.url])) !== JSON.stringify(expectedHannahLinks)) errors.push("Hannah Fry watch/read/listen/follow destinations mismatch");
+if (hannah?.freshness !== "Role and destinations checked 2 Sep 2026") errors.push("Hannah Fry destination freshness label mismatch");
+if (hannahResources.status !== "independently-reviewed-signed-profile-successor" || hannahResources.admission?.profileSha256 !== sha256(profilePayload("mavens", hannah))) errors.push("Hannah Fry resource review/admission binding mismatch");
+if (!hannahResources.excluded?.some((entry) => entry.url === "https://hannahfry.co.uk/" && /content-free lander/.test(entry.reason) && !/redirect/.test(entry.reason))) errors.push("Hannah Fry content-free lander exclusion mismatch");
 
 if (!Array.isArray(claims.records) || claims.records.length !== profileEntries.size) errors.push("claim coverage mismatch");
 if (!Array.isArray(receiptManifest.receipts) || receiptManifest.receipts.length !== profileEntries.size) errors.push("receipt coverage mismatch");
@@ -100,7 +123,8 @@ for (const record of claims.records || []) {
 const receiptClaims = new Set();
 for (const receipt of receiptManifest.receipts || []) {
   const record = recordMap.get(receipt.claimId);
-  if (!record || receiptClaims.has(receipt.claimId) || receipt.keyId !== receiptManifest.keyId || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
+  const publicJwk = publicJwks[receipt.keyId];
+  if (!record || receiptClaims.has(receipt.claimId) || !publicJwk || !receiptManifest.trustedKeyIds?.includes(receipt.keyId) || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
   try {
     const valid = crypto.verify("sha256", Buffer.from(receiptPayload(receipt)), { key: crypto.createPublicKey({ key: publicJwk, format: "jwk" }), dsaEncoding: "ieee-p1363" }, Buffer.from(receipt.signature || "", "base64"));
     if (!valid) errors.push(`signature invalid ${receipt.claimId}`);
