@@ -71,6 +71,21 @@ The current stained-glass/portrait execution is implementation evidence, not
 final sitewide-style approval; the sitewide illustration style decision
 remains open under D-2026-07-26-050. **LOCKED LEDGER**
 
+### Current portrait ruling — 2026-09-02
+
+Ali rejected the currently public LUMINAiRY portrait collection as too
+realistic, painterly and dark. A successor must keep the useful stained-glass
+identity while changing the rendering language to a brighter, grown-up
+editorial-comic treatment: clean inked contours, simplified facial planes,
+flatter cel-shaded colour, luminous graphic glass and consistent waist-up
+framing. PATRON SAiNTS remain pink, MAiVENS remain sapphire and TRAiLBLAZERS
+remain golden amber. Dark cathedral staging, candles, near-black background
+fields, oil-paint brushwork and photographic skin modelling are rejected.
+Person-specific likeness evidence still governs identity. Existing public
+portraits remain in place until a representative three-wing proof receives
+Ali's taste approval and the resulting replacements pass visual admission.
+**ALI DIRECT RULING / BUILDING**
+
 ## Complete owned product tree
 
 | Owned surface | Product job | Authority/status |

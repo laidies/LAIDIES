@@ -14853,3 +14853,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Six five-person evidence batches now cover all 23 MAiVENS and 7 Trailblazers. Eight dark-sapphire MAiVEN replacements and one golden-amber Amanda replacement passed independent exact-pixel review while their incumbents remain preserved. The final candidate has 108 typed destinations, 30 r5 signed profile/evidence receipts, 30/30 independent content PASS, six final-render PASS results and passing Web Crypto/no-Web-Crypto, keyboard, image, link and responsive browser tests. All 13 Patron Saint profile, claim and receipt objects are unchanged. Exact production-artifact recovery and public-origin verification remain a release HOLD.
 - **Possible Behind the Build angle:** Why “the image exists and the link opens” was not enough—and the four separate checks that turned a directory into a trustworthy learning room.
 - **Publication status:** LOCAL SIGNED CANDIDATE COMPLETE / NOT DEPLOYED.
+
+## BTB-492 — “Luminous stained glass” became dark oil-painted portraiture
+
+- **Date:** 2026-09-02
+- **Area:** LUMINAiRY portrait system.
+- **Failure:** A visually consistent 43-person collection was still the wrong collection: realistic skin modelling, painterly texture, near-black shadows and cathedral staging made the cards feel solemn and dark rather than bright, graphic and inviting.
+- **Root cause:** Category colours, waist-up framing and likeness were checked, but “stained glass” was allowed to determine the rendering medium. “Luminous” was treated as a label rather than a visible property, and no representative three-wing proof was approved before the larger batch.
+- **Prevention rule:** Before another portrait batch, approve one representative from each wing at card size. Bind the rendering language explicitly: adult editorial comic, inked contours, simplified facial planes, flat cel shading and bright graphic glass; reject oil-paint brushwork, photographic skin, Gothic darkness, candles and near-black background fields.
+- **Durable correction:** Three non-public pilots now test Cher and Dionne in pink, Hannah Fry in sapphire and Allie K. Miller in golden amber. The current public images remain unchanged until Ali approves the direction and every replacement passes person-specific likeness and real-card review.
+- **Possible Behind the Build angle:** A coherent image system can consistently execute the wrong adjective—and why “luminous” needs a visual proof, not a prompt word.
+- **Publication status:** INTERNAL VISUAL PILOT / NOT DEPLOYED.

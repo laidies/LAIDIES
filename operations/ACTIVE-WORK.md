@@ -2,17 +2,22 @@
 
 ## Current task
 
-- **Status:** PUBLICLY VERIFIED — complete 30-profile LUMINAiRY successor deployed from the exact recovered production base
-- **Task:** Complete all 23 MAiVEN and 7 Trailblazer LUMINAiRY cards to the Hannah Fry resource standard.
-- **Task ID:** LUMINAIRY-ALL-PROFILE-RESOURCES-20260902
-- **Owner:** LUMINAiRY foreground; release remains with the coordinated production owner.
+- **Status:** BUILDING — representative three-wing visual pilot complete; Ali taste decision required before batch production
+- **Task:** Replace the LUMINAiRY collection's overly realistic, painterly and dark portrait language with a brighter adult editorial-comic system.
+- **Task ID:** LUMINAIRY-PORTRAIT-STYLE-RESET-20260902
+- **Owner:** LUMINAiRY foreground; Ali owns the style decision and public visual approval.
 - **Updated:** 2026-09-02 America/Vancouver
-- **Goal:** Every MAiVEN and Trailblazer card retains a verified portrait, presents current or historically bounded information and a specific LAiDIES lesson, and offers every genuinely applicable verified Read/Watch/Listen/Follow route.
-- **Acceptance:** One 30-person ledger proves coverage; all profile changes have exact evidence and independent review; every changed hash has a renewed offline-signed receipt; Saints and unrelated bytes are unchanged; full 23/7 Web Crypto/no-Web-Crypto, keyboard, image, destination and 1440/390/320 tests pass.
-- **Current step:** All six five-person evidence batches are complete. The exact 30-profile candidate has 30 independently reviewed portraits, 30 reviewed role/about and lesson sets, 108 verified typed destinations, 30 r5 offline-signed profile/evidence receipts, calibrated fail-closed admission, and passing desktop/390/320 plus Web Crypto/no-Web-Crypto browser tests. The 13 Patron Saint profile, claim and receipt objects remain unchanged. The retained 726-file production artifact is locally hash-exact to manifest identity `2cf8d8c87970b0474507675bfe6a5240a20ab856e35008c609cd815a2cf3dba5`; 713 immutable-origin files match their manifest bytes, while the two deployment-control files and eleven intentional worker-normalized routes are verified by the protected-route method rather than false byte comparison.
-- **Next action:** Normal freshness recheck only; no release work remains.
-- **Production recovery:** Read-only Cloudflare verification confirms deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and immutable origin `https://64b2bb39.laidies-sunnyvaile.pages.dev/`. The retained artifact `/private/tmp/laidies-newsstand-sep2-successor.YdnISM` is exact for all 726 manifest entries. Its checked-in manifest is `operations/product-stewards/luminairy/current-production-base-manifest-2026-09-02.json`.
-- **Release boundary:** Production deployment `1e5db871-af97-4c65-a90e-7866ad928747`, immutable origin `https://1e5db871.laidies-sunnyvaile.pages.dev/`, exact artifact identity `b70312c4b2837c782abf970e14119ef4afa342b33485cf15e3cc6101ffd1be88`. The 738-file artifact preserves all 729 `e9deb12e` base records except the six approved LUMINAiRY modifications, adds nine approved portraits, deletes nothing, and passes custom plus immutable browser and 30 exact changed-path hash checks.
+- **Goal:** All 43 portraits use one clearly illustrated, luminous and consistent card language while preserving recognisable person-specific identity and the three wing palettes.
+- **Acceptance:** Ali approves the representative visual direction; every replacement is waist-up, visibly illustrated rather than painterly/photoreal, brighter in face and background, likeness-reviewed against authoritative references and tested in the real cards at desktop/390/320. Content and links remain unchanged unless renewed profile receipts are required for changed image hashes.
+- **Current step:** Three 1024 × 1536 internal pilots exist for Cher and Dionne, Hannah Fry and Allie K. Miller. They replace oil-paint modelling and Gothic darkness with inked contours, flatter colour and bright graphic glass while retaining pink, sapphire and golden-amber wing identities. No public image was overwritten.
+- **Next action:** Ali decides whether the pilot is sufficiently illustrated or should move one step flatter/more stylised. Only the approved direction may become the 43-person production template.
+- **Public boundary:** Current deployment `1e5db871-af97-4c65-a90e-7866ad928747` remains unchanged and publicly verified for the completed profile-resource release. The visual successor is INTERNAL / NOT DEPLOYED.
+
+## Completed predecessor — all profile resources
+
+- **Status:** PUBLICLY VERIFIED — complete 30-profile LUMINAiRY successor deployed from the exact recovered production base.
+- **Task ID:** LUMINAIRY-ALL-PROFILE-RESOURCES-20260902.
+- **Result:** All 23 MAiVEN and 7 Trailblazer profiles have reviewed role/about/lesson content, 108 typed destinations, signed receipts and passing desktop/390/320 plus Web Crypto/no-Web-Crypto tests. All 13 Patron Saint profile, claim and receipt objects were unchanged. Production deployment `1e5db871-af97-4c65-a90e-7866ad928747`; immutable origin `https://1e5db871.laidies-sunnyvaile.pages.dev/`; exact artifact identity `b70312c4b2837c782abf970e14119ef4afa342b33485cf15e3cc6101ffd1be88`.
 
 ## 2026-08-30 NewsStand Daily proving run
 
