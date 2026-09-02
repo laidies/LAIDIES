@@ -33,6 +33,7 @@ const original = originalStore.issues.find(issue => issue.editionDate === date);
 assert.ok(original, 'fixture seed requires the existing published issue');
 put('content/newsstand-stories.js', base);
 put('content/daily-edition-columns.json', columnsRaw);
+put('content/luminairy-profiles.json', fs.readFileSync(path.join(SOURCE, 'content/luminairy-profiles.json'), 'utf8'));
 const radarPath = `operations/product-stewards/newsstand/editorial-intake/${date}.md`;
 const radarRaw = `${date}\n- **NewsStand:** REVIEW CANDIDATE fixture-current-news.\n`;
 put(radarPath, radarRaw);
@@ -128,6 +129,7 @@ put(sourceBinding.path, 'Synthetic authority: This fixture changes one setting, 
 // Invoke the actual CLI boundary, including the resume/check commands. The
 // fixture root is derived from copied script locations, not a release bypass.
 for (const name of ['newsstand-service-continuity', 'newsstand-career-lane', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
+put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-luminairy-links.mjs'), 'utf8'));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-reader-contract.js'), 'utf8'));
 const envelopePath = `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}-fixture-revision.json`;
 const decisionPath = `operations/product-stewards/newsstand/evidence/${date}-fixture-admission.json`;
