@@ -222,6 +222,18 @@ paths. `LOCKED LEDGER`
 
 ## Brand invariants and building freedoms
 
+### Locked arrival relationship — 2026-09-02
+
+Chick Flicks opens with the same spatial relationship as the live LIBRAiRY: a
+strong page-specific title masthead followed immediately by the actual Chick
+Flicks store image. The store establishes the building before the episode
+catalogue. Latest and Start here remain immediately clear below it; do not
+return to an oversized dark hero overlay that delays episode choice. Reuse
+`assets/sunnyvaile-masthead-chick-flicks.png` unless Ali separately rejects or
+replaces those exact bytes. This locks the arrival layout only; it does not
+approve a generated mock, change episode or media admission, authorize
+deployment or claim public release. `ALI DIRECT DESIGN DECISION`
+
 Invariants are truthful state, operable rendered objects, live readable UI,
 approved character continuity, candy-accent family, accessible controls,
 shared navigation grammar and no fake completion/account/media claim.

@@ -44,6 +44,7 @@ proper domain source before building from it.
 | Area | Current source |
 |---|---|
 | LIBRAiRY | `operations/library-decisions.md` |
+| Chick Flicks | `operations/product-stewards/chick-flicks/EXPERIENCE-BRIEF.md` |
 | Visitor’s Centre | `operations/product-stewards/visitors-centre/EXPERIENCE-BRIEF.md` |
 | Homepage/town entry | `operations/product-stewards/town-entry-homepage/EXPERIENCE-BRIEF.md` |
 | NewsStand | `operations/product-stewards/newsstand/EXPERIENCE-BRIEF.md` |
