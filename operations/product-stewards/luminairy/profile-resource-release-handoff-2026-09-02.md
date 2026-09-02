@@ -1,6 +1,6 @@
 # LUMINAiRY complete profile-resource release handoff
 
-**Status:** RELEASE CANDIDATE READY / NOT DEPLOYED
+**Status:** PUBLICLY VERIFIED
 
 **Content commit:** `6b604fd606ece7f8a3e6af8ac0a42859778c10b2`
 
@@ -62,3 +62,25 @@ The exact overlay passes the complete LUMINAiRY browser matrix: 13/23/7 renderin
 Independent release-scope review recomputed both artifact identities from the real bytes and passed the exact boundary: 9 additions, 6 modifications, 0 deletions and all 720 retained base paths hash-identical. The reviewer also reran the full browser matrix against the prepared artifact and confirmed that its public profile data is byte-identical to the committed source.
 
 No Cloudflare upload or deployment was made. The production owner must coordinate a Pages slot, confirm the provider head is still `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, deploy the exact artifact identity above rather than rebuilding it, and verify all 15 changed paths plus the LUMINAiRY interaction journeys at both immutable and custom origins. Any provider-head change invalidates this release handoff and requires rebasing the same 15-path overlay onto the newly recovered exact artifact.
+
+## Pre-deploy provider-head result
+
+The authorized fresh provider check found that production had moved before this candidate could be uploaded:
+
+- New deployment: `e9deb12e-40fb-4b12-adf7-0409b172a401`
+- New immutable origin: `https://e9deb12e.laidies-sunnyvaile.pages.dev/`
+- New exact source: `1d6671d639860e153c09fe57baee0183ecfca2b5`
+- Source subject: `Rebase referrals on current shared runtimes`
+
+The deployment was stopped before upload. Artifact identity `dcda6af63c3669f72f73485116cf5db05b2d27bd20de0a5e990bae962b58cb64` remains valid evidence for the tested 15-path overlay over predecessor `64b2bb39`, but it must not be deployed. Recover the exact `e9deb12e` artifact, reapply the same bounded delta, recompute identity and repeat independent scope/browser review.
+
+## Final public release
+
+- Deployment: `1e5db871-af97-4c65-a90e-7866ad928747`
+- Immutable origin: `https://1e5db871.laidies-sunnyvaile.pages.dev/`
+- Recovered base: 729 files, identity `cea473fe89a42a10a4f3603e46c372ee31d13608913cf98e6c5d61c5374400fa`
+- Deployed artifact: 738 files, 776,939,904 bytes, identity `b70312c4b2837c782abf970e14119ef4afa342b33485cf15e3cc6101ffd1be88`
+- Production manifest: `operations/product-stewards/luminairy/profile-resource-production-manifest-2026-09-02.json`
+- Delta: 9 additions, 6 modifications, 0 deletions, 723 unchanged base paths
+
+The fresh pre-upload provider head remained `e9deb12e`. Independent review recomputed the base and candidate identities and confirmed all referral and migration-related paths were preserved. All 15 changed paths match the deployed artifact at both origins (30/30 hash comparisons). The complete browser suite passes at custom and immutable origins: 13/23/7 roster, 108 exact destinations, all 30 portraits, signed admission with and without Web Crypto, keyboard, persistence/failure behaviour and desktop/390/320 layouts. The first immutable 320px image check was transiently incomplete immediately after deployment; the required retry passed after edge propagation.

@@ -1,6 +1,6 @@
 # LUMINAiRY MAiVEN and Trailblazer profile-resource coverage ledger
 
-**Status:** LOCAL CANDIDATE COMPLETE — 30/30 content, portrait, destination, evidence and signed-receipt records resolved; public release remains HOLD
+**Status:** PUBLICLY VERIFIED — 30/30 content, portrait, destination, evidence and signed-receipt records deployed
 **Checked:** 2026-09-02, America/Vancouver
 **Branch base:** `2926504b9e2239979ba274af51aaad3851fcf9be`
 **Scope:** all 23 MAiVENS and all 7 Trailblazers; 13 Patron Saints are protected and out of scope
@@ -40,7 +40,7 @@ Every row below is **DONE** in the local signed candidate. “Image” includes 
 | 5 | MAiVEN + Trailblazer | Adele Goldberg; Shafi Goldwasser; Lynn Conway; Mira Murati; Daniela Amodei | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
 | 6 | Trailblazer | Lila Ibrahim; Fidji Simo; Chelsea Finn; Amanda Askell; Allie K. Miller | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
 
-**Authoritative result:** 30 DONE · 0 temporary production HOLD · 0 genuine source-gap HOLD · 1 release-coordination HOLD.
+**Authoritative result:** 30 DONE · 0 temporary production HOLD · 0 genuine source-gap HOLD · 0 release HOLD.
 
 ## Starting inventory retained for before/after audit
 
@@ -83,7 +83,9 @@ Legend: **content present** means the existing card has role/about and a distinc
 
 There are no unresolved profile-content, portrait or source gaps. The retained 726-file current-production artifact has been recovered and verified locally against its complete manifest, identity `2cf8d8c87970b0474507675bfe6a5240a20ab856e35008c609cd815a2cf3dba5`. Of those paths, 713 match the immutable deployment byte-for-byte; two deployment-control files are intentionally not public, and eleven application routes are intentionally normalized by the Cloudflare worker. Those thirteen are handled by the established protected-route checks, not by weakening or bypassing comparison.
 
-The prepared 735-file successor has identity `dcda6af63c3669f72f73485116cf5db05b2d27bd20de0a5e990bae962b58cb64` and differs from the recovered base at exactly 15 LUMINAiRY paths: the page, app runtime, claim gate, profile/claim/receipt data, eight dark-sapphire MAiVEN portraits and one golden-amber Trailblazer portrait. Every other retained path has the base manifest SHA. The exact overlay passes the full browser suite. The only remaining HOLD is a coordinated production slot followed by custom-plus-immutable verification; no deploy has occurred.
+The prepared 735-file predecessor-based successor has identity `dcda6af63c3669f72f73485116cf5db05b2d27bd20de0a5e990bae962b58cb64` and differs from recovered deployment `64b2bb39` at exactly 15 LUMINAiRY paths: the page, app runtime, claim gate, profile/claim/receipt data, eight dark-sapphire MAiVEN portraits and one golden-amber Trailblazer portrait. Every other retained path has the base manifest SHA, and the exact overlay passes the full browser suite.
+
+At the authorized pre-deploy check, Cloudflare production had moved to `e9deb12e-40fb-4b12-adf7-0409b172a401`, exact source `1d6671d639860e153c09fe57baee0183ecfca2b5`. Deployment stopped before upload. The profile result remains 30 DONE with no content, portrait or source gaps; the single release HOLD now requires exact recovery of `e9deb12e`, rebasing the same 15-path delta, a new artifact identity and repeated release-scope/browser verification.
 
 ## Batch admission rule
 

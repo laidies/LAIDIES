@@ -2,7 +2,7 @@
 
 ## Current task
 
-- **Status:** LOCAL RELEASE CANDIDATE COMPLETE — 30/30 profiles resolved; exact production artifact recovered; release HOLD only on coordinated Pages slot and post-deploy verification
+- **Status:** PUBLICLY VERIFIED — complete 30-profile LUMINAiRY successor deployed from the exact recovered production base
 - **Task:** Complete all 23 MAiVEN and 7 Trailblazer LUMINAiRY cards to the Hannah Fry resource standard.
 - **Task ID:** LUMINAIRY-ALL-PROFILE-RESOURCES-20260902
 - **Owner:** LUMINAiRY foreground; release remains with the coordinated production owner.
@@ -10,9 +10,9 @@
 - **Goal:** Every MAiVEN and Trailblazer card retains a verified portrait, presents current or historically bounded information and a specific LAiDIES lesson, and offers every genuinely applicable verified Read/Watch/Listen/Follow route.
 - **Acceptance:** One 30-person ledger proves coverage; all profile changes have exact evidence and independent review; every changed hash has a renewed offline-signed receipt; Saints and unrelated bytes are unchanged; full 23/7 Web Crypto/no-Web-Crypto, keyboard, image, destination and 1440/390/320 tests pass.
 - **Current step:** All six five-person evidence batches are complete. The exact 30-profile candidate has 30 independently reviewed portraits, 30 reviewed role/about and lesson sets, 108 verified typed destinations, 30 r5 offline-signed profile/evidence receipts, calibrated fail-closed admission, and passing desktop/390/320 plus Web Crypto/no-Web-Crypto browser tests. The 13 Patron Saint profile, claim and receipt objects remain unchanged. The retained 726-file production artifact is locally hash-exact to manifest identity `2cf8d8c87970b0474507675bfe6a5240a20ab856e35008c609cd815a2cf3dba5`; 713 immutable-origin files match their manifest bytes, while the two deployment-control files and eleven intentional worker-normalized routes are verified by the protected-route method rather than false byte comparison.
-- **Next action:** The production owner may schedule one coordinated Pages slot for exact candidate artifact identity `dcda6af63c3669f72f73485116cf5db05b2d27bd20de0a5e990bae962b58cb64`, then verify all 15 changed paths plus protected route journeys at custom and immutable origins. Do not rebuild from source commit `51aa2c1`; its current builder correctly fails on an unrelated unregistered Homepage asset. Use the recovered artifact plus exact overlay described in `operations/product-stewards/luminairy/profile-resource-release-handoff-2026-09-02.md`.
+- **Next action:** Normal freshness recheck only; no release work remains.
 - **Production recovery:** Read-only Cloudflare verification confirms deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and immutable origin `https://64b2bb39.laidies-sunnyvaile.pages.dev/`. The retained artifact `/private/tmp/laidies-newsstand-sep2-successor.YdnISM` is exact for all 726 manifest entries. Its checked-in manifest is `operations/product-stewards/luminairy/current-production-base-manifest-2026-09-02.json`.
-- **Release boundary:** Candidate source commit `6b604fd606ece7f8a3e6af8ac0a42859778c10b2` is pushed on `feature/luminairy-all-profile-resources-20260902`. Exact 735-file overlay `/private/tmp/laidies-luminairy-overlay.DqYfVv` changes only 15 LUMINAiRY paths and passes the complete browser suite. No deployment, upload or production mutation has occurred.
+- **Release boundary:** Production deployment `1e5db871-af97-4c65-a90e-7866ad928747`, immutable origin `https://1e5db871.laidies-sunnyvaile.pages.dev/`, exact artifact identity `b70312c4b2837c782abf970e14119ef4afa342b33485cf15e3cc6101ffd1be88`. The 738-file artifact preserves all 729 `e9deb12e` base records except the six approved LUMINAiRY modifications, adds nine approved portraits, deletes nothing, and passes custom plus immutable browser and 30 exact changed-path hash checks.
 
 ## 2026-08-30 NewsStand Daily proving run
 
