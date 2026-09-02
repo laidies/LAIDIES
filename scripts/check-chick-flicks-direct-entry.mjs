@@ -14,6 +14,8 @@ const forbidden = [
   /checking (?:the )?tape manifest/i,
   /rental card/i,
   /favourite tape/i,
+  /as the season grows, new tapes open on the next full shelf/i,
+  /now at the counter/i,
 ];
 
 for (const phrase of forbidden) {

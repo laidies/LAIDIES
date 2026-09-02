@@ -26,7 +26,8 @@ forced-capital type, and the physical shelf is now the catalogue. The modal
 closes through its visible control or Escape, restores focus to the chosen tape,
 preserves the shelf position and supports direct episode hashes. The approved four-bay shelf repeats as the
 season grows instead of shrinking every release into one row; mobile presents
-two cases per shelf row. Static checks pass for exact asset hashes, palette, store/masthead ordering, four
+two cases per shelf row. That breakpoint/scaling explanation and the obsolete
+“Now at the counter” label are explicitly barred from public copy. Static checks pass for exact asset hashes, palette, store/masthead ordering, four
 physical tapes, four format-route triplets, trailer truth, forthcoming state,
 responsive rules and shared release-state copy. The guard was calibrated by
 replacing the Episode 04 VHS path in a scratch page and rejected it; the dialog

@@ -337,6 +337,13 @@ without moving the visitor away from the shelf. The shelf, tape covers and
 incremental multi-shelf model remain unchanged.
 `ALI DIRECT INTERACTION DECISION — 2026-09-02`
 
+Shelf scaling remains an internal implementation rule, not visitor copy. The
+sentence “As the season grows, new tapes open on the next full shelf—four
+across on desktop and two across on phones.” must not appear on the public
+page. “Now at the counter” is also denied public copy; the immediate modal and
+its episode choices provide the response without narrating the interface.
+`ALI DIRECT PUBLIC-COPY CORRECTION — 2026-09-02`
+
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
 ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt

@@ -80,6 +80,8 @@ check("released tapes open an immediate accessible format dialog", () => {
   assert.match(page, /<dialog class="cf-dialog" id="cf-episode-dialog"/);
   assert.match(page, /class="cf-dialog__close"[^>]*aria-label="Close episode details"/);
   assert.doesNotMatch(page, /class="cf-counter"/);
+  assert.doesNotMatch(page, /As the season grows, new tapes open on the next full shelf/i);
+  assert.doesNotMatch(page, /Now at the counter/i);
   for (const number of Object.keys(vhs)) {
     assert.match(page, new RegExp(`<h3 id="episode-${number}-title"`));
   }
