@@ -1422,8 +1422,8 @@ window.NEWSSTAND_DATA = {
       "edition": "daily",
       "status": "published",
       "publishedAt": "2026-09-02T09:51:21.295Z",
-      "updatedAt": "2026-09-02T09:08:23.758Z",
-      "lastCheckedAt": "2026-09-02T09:08:23.758Z",
+      "updatedAt": "2026-09-02T10:39:05Z",
+      "lastCheckedAt": "2026-09-02T10:39:05Z",
       "sourceApproval": {
         "status": "approved",
         "record": "newsstand:source-approval:anthropic-fable-5-1-2026-09-02"
@@ -1438,18 +1438,18 @@ window.NEWSSTAND_DATA = {
       "thread": null,
       "thread_subtitle": null,
       "thread_entry": null,
-      "headline": "Anthropic released Fable 5.1. The same model now comes with two sets of guardrails.",
+      "headline": "Anthropic’s Fable 5.1 is built for difficult, long-running work—not every Claude task.",
       "heroVisual": {
         "src": "/assets/newsstand/design-20260830/latest-anthropic-fable-5-1-20260902.png",
         "alt": "A shared glowing AI engine connects an open office workstation and a keycard-controlled laboratory workstation, illustrating one model with two access arrangements.",
         "credit": "LAiDIES NewsStand illustration"
       },
-      "the_story": "<p>Anthropic released Claude Fable 5.1 on September 1, alongside a version called Claude Mythos 5.1. Here is the unusual part: Anthropic says they are the same underlying model. Fable is available for general use; Mythos sits behind a trusted-access program for vetted cybersecurity and life-sciences work.</p><p>Fable 5.1 is available in Claude’s apps, Claude Code, Cowork, the API and supported cloud platforms. Anthropic says it performs better on coding, research and office work than Fable 5, and estimates that a typical pay-by-token workload will cost 25% less. Those performance and cost figures come from Anthropic’s own launch material, not an independent comparison of every kind of work.</p>",
-      "laidies_read": "<p>The decimal point is not the most interesting part of this release. Anthropic has taken one model and put two different sets of rules around what it may do and who may use it. In everyday Claude, Fable’s guardrails can block, redirect or limit a request. Mythos relaxes some of those restrictions for approved specialists whose legitimate work can resemble the dangerous work the safeguards are designed to stop.</p><p>That does not make Mythos a secret, smarter Claude. Think of it as the same employee with a different security badge: most people use the general entrance; vetted researchers can enter rooms where the work carries greater risk. The model is the same. The permissions and oversight are not.</p>",
-      "what_this_means": "<p>If you use Claude for ordinary work, Fable 5.1 is the release that applies to you. You do not need to apply for Mythos, and you should not assume Anthropic is withholding a “better” version. Mythos is a controlled route for specific professional work in cybersecurity and the life sciences.</p><p>For your own work, ignore the victory-lap benchmark chart for a moment. Give Fable 5.1 one recurring task you know well, using the same brief and checking list you used before. Compare the edits you had to make, the mistakes you caught and the time the task took. That will tell you more about whether 5.1 is an improvement for you than a vendor’s average score.</p>",
-      "cocktail_party": "“Anthropic released one underlying model in two versions: Fable 5.1 for general use and Mythos 5.1 for vetted cybersecurity and life-sciences work. The difference is access and guardrails, not a separate brain.”",
+      "the_story": "<p>Anthropic released Claude Fable 5.1 on September 1, alongside Claude Mythos 5.1. They are the same underlying model, but they are not the same product. Fable is the version offered through Claude’s paid plans and work tools. Mythos is restricted to approved cybersecurity and life-sciences specialists whose legitimate work can resemble the dangerous activity that AI safeguards are meant to stop.</p><p>Fable 5.1 is not available on Claude Free. On Pro and standard Team plans, it requires usage credits—an extra balance that is charged as you use the model—rather than drawing from the plan’s normal allowance. Max and premium Team or Enterprise plans include access within their plan limits, although Fable can use those limits faster. Anthropic says Fable is more efficient than its predecessor. That is a technical pricing claim, not a promise that every subscriber’s bill will fall by 25%, and it does not make Fable the sensible choice for every task.</p>",
+      "laidies_read": "<p>Fable 5.1 is aimed at the jobs where a cheaper or faster model is most likely to lose the thread: research that moves through many sources, a report assembled from several files, a complicated spreadsheet or document review, a large coding project, or an assignment that needs Claude to use tools and keep working through several stages.</p><p>In practical terms, that could mean asking it to compare a set of contracts and trace the differences, investigate a market question and produce a sourced briefing, work through a large codebase instead of changing one line, or coordinate a longer job across several apps. Those are examples of the kind of work Anthropic says it designed Fable to handle; they are not a promise that the model will complete every job correctly.</p><p>For a quick email, a simple summary or an early brainstorm, Fable may be unnecessary. More capability can cost more or use up a plan allowance faster. The useful question is not “Is this Anthropic’s newest model?” It is “Is my task difficult and long enough to justify using it?”</p>",
+      "what_this_means": "<p>If you use Claude Free, you cannot select Fable 5.1. If you use Pro or a standard Team plan, check the usage-credit setting before you start: Fable uses those credits from the first message. If you use Max or a premium workplace plan, it may already be included, but your usage allowance can disappear faster.</p><p>Try Fable on one demanding job you already know well—not on a routine task chosen just to test the new model. Give it the same source material, instructions and checking list you used before. Then compare whether it followed a long chain of work more reliably, found connections you missed, needed fewer corrections or saved enough time to justify the additional cost or plan usage.</p><p>Mythos is not the “better” version waiting behind a velvet rope. It is the same model with a different safety arrangement for a narrow group of vetted specialists. Most readers do not need it.</p>",
+      "cocktail_party": "“Fable 5.1 is Anthropic’s paid-tier model for difficult, long-running coding and knowledge work—not a default upgrade everyone needs. Mythos uses the same model with different safeguards for vetted specialists.”",
       "watch_fors": null,
-      "closing_note": null,
+      "closing_note": "<strong>Updated September 2:</strong> An earlier version did not explain Fable 5.1’s plan restrictions or the work it is best suited to. We have added both.",
       "class_notes": "For the underlying idea, read <a href=\"/library.html#ai-fundamentals-101::%40chapter-10\">AI Fundamentals 101: the model is only one part of the system</a>. This release shows how permissions, safeguards and human oversight can change what the same model is allowed to do.",
       "sources": [
         {
@@ -1464,6 +1464,22 @@ window.NEWSSTAND_DATA = {
           "id": "anthropic-release-notes-2026-09-01",
           "label": "Anthropic Help Center — Release notes for September 1, 2026",
           "url": "https://support.claude.com/en/articles/12138966-release-notes",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-02",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "anthropic-fable-plan-access-2026-09-02",
+          "label": "Anthropic Help Center — Claude Fable models on your plan",
+          "url": "https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-02",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "anthropic-fable-capabilities-2026-09-02",
+          "label": "Anthropic — Claude Fable capabilities and use cases",
+          "url": "https://www.anthropic.com/claude/fable",
           "publisherType": "vendor",
           "accessedAt": "2026-09-02",
           "approvalStatus": "reviewed"

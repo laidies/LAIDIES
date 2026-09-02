@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "anthropic-fable-5-1-2026-09-02",
+  "edition": "daily",
+  "candidateStatus": "approved-for-publication",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-09-02T10:39:05Z",
+  "nextRecheckAt": "2026-09-09",
+  "recheckDisposition": "PRIMARY_PRODUCT_SOURCES_CHECKED_AND_READER_UTILITY_CORRECTED",
+  "sources": [
+    {
+      "id": "anthropic-fable-mythos-5-1-announcement",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "type": "vendor",
+      "accessedAt": "2026-09-02"
+    },
+    {
+      "id": "anthropic-release-notes-2026-09-01",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "type": "vendor",
+      "accessedAt": "2026-09-02"
+    },
+    {
+      "id": "anthropic-fable-plan-access-2026-09-02",
+      "url": "https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan",
+      "type": "vendor",
+      "accessedAt": "2026-09-02"
+    },
+    {
+      "id": "anthropic-fable-capabilities-2026-09-02",
+      "url": "https://www.anthropic.com/claude/fable",
+      "type": "vendor",
+      "accessedAt": "2026-09-02"
+    }
+  ],
+  "claims": [
+    {
+      "id": "FABLE-C01",
+      "claim": "Anthropic released Claude Fable 5.1 and Claude Mythos 5.1 on September 1, 2026, as the same underlying model with different safeguards and access arrangements.",
+      "sourceIds": ["anthropic-fable-mythos-5-1-announcement", "anthropic-release-notes-2026-09-01"],
+      "risk": "high"
+    },
+    {
+      "id": "FABLE-C02",
+      "claim": "Fable 5.1 is not available on Claude Free; Pro and standard Team access requires usage credits, while Max and premium Team or Enterprise plans include access within plan limits.",
+      "sourceIds": ["anthropic-fable-plan-access-2026-09-02"],
+      "risk": "high"
+    },
+    {
+      "id": "FABLE-C03",
+      "claim": "Anthropic positions Fable for difficult long-running knowledge work, coding, research, multi-stage workflows and work involving multiple files or tools.",
+      "sourceIds": ["anthropic-fable-capabilities-2026-09-02", "anthropic-fable-mythos-5-1-announcement"],
+      "risk": "medium"
+    },
+    {
+      "id": "FABLE-C04",
+      "claim": "The recommendation to reserve Fable for demanding work and use a simpler model for routine work is LAiDIES interpretation, not an independently established performance guarantee.",
+      "sourceIds": ["anthropic-fable-capabilities-2026-09-02"],
+      "risk": "medium"
+    }
+  ],
+  "requiredReview": ["plan access", "plain-language pricing", "task fit", "vendor claim separation"],
+  "publicAuthority": "OWNER_DIRECTED_CORRECTION_WITH_PRIMARY_SOURCES"
+}

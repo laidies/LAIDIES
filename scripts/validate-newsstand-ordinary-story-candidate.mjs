@@ -29,6 +29,18 @@ export function publishCandidateStory(story, timestamp) {
   return { ...structuredClone(story), status: "published", publishedAt: timestamp,
     sourceApproval: { status: "approved", record: `newsstand:source-approval:${story.id}` } };
 }
+export function validateModelReleaseUtility(story) {
+  const subject = `${story?.headline || ""} ${(story?.themes || []).join(" ")} ${(story?.tags || []).join(" ")}`;
+  if (!/(?:model capabilities|model release|\b(?:fable|mythos|claude|gpt|gemini|llama|mistral)\b)/i.test(subject)) return [];
+  const prose = [story.the_story, story.laidies_read, story.what_this_means].join(" ").replace(/<[^>]+>/g, " ");
+  const errors = [];
+  if (!/(?:free|paid|plan|tier|usage credit|additional cost|included)/i.test(prose)) errors.push("model release does not explain who can access it or what access costs");
+  if (!/(?:best suited|aimed at|built for|designed.*(?:for|to handle)|use .* when)/i.test(prose)) errors.push("model release does not explain what work it is best suited to");
+  if (!/(?:email|summary|brainstorm|spreadsheet|document|research|coding|codebase|contract|report|across several apps)/i.test(prose)) errors.push("model release does not give recognizable human tasks");
+  if (!/(?:unnecessary|existing model|cheaper|faster|routine|simple|not .* every)/i.test(prose)) errors.push("model release does not explain when the new model is unnecessary");
+  if (!/(?:Anthropic says|OpenAI says|Google says|Meta says|vendor|not a promise|LAiDIES)/i.test(prose)) errors.push("model release does not distinguish vendor claims from interpretation");
+  return errors;
+}
 export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date, admittedHistoricalBase = false } = {}) {
   if (!binding?.path?.startsWith("operations/product-stewards/newsstand/candidates/")) throw new Error("ordinary candidate must be private NewsStand candidate input");
   const candidate = JSON.parse(read(root, binding, "ordinary candidate package"));
@@ -44,6 +56,8 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
   const story = candidate.story;
   if (["headline", "the_story", "laidies_read", "what_this_means"].some(key => typeof story?.[key] !== "string" || !story[key].trim())) throw new Error("ordinary candidate requires headline and complete reader copy");
+  const modelReleaseErrors = validateModelReleaseUtility(story);
+  if (modelReleaseErrors.length) throw new Error(`ordinary model-release candidate fails reader utility contract: ${modelReleaseErrors.join(" | ")}`);
   const publicationBaseRaw = read(root, candidate.publicationBase, "candidate publication base");
   if (!candidate.publicationBase.path.startsWith("operations/product-stewards/newsstand/")) throw new Error("candidate publication base must be frozen private input");
   if (!story || story.edition !== "daily" || story.status !== "hold" || story.publishedAt !== null || String(story.id || "") !== candidate.candidateId || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(story.slug || "") || /^front-paige-/.test(story.id) || vancouverDay(story.updatedAt) !== candidate.editionDate || !story.sourceApproval || story.sourceApproval.status !== "independent-review-required") throw new Error("ordinary candidate story must remain held and date-bound");
