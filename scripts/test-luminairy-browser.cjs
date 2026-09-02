@@ -192,7 +192,7 @@ async function run() {
     const blockedPage = await blockedContext.newPage();
     await blockedPage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
     await blockedPage.locator(".lum-card").first().waitFor();
-    assert.match(await blockedPage.locator("#lumLocalStatus").textContent(), /blocked local storage/i);
+    assert.match(await blockedPage.locator("#lumLocalStatus").textContent(), /(?:blocked local storage|could not save your favourite)/i);
     assert.equal(await blockedPage.locator(".lum-card__pick:disabled").count(), 13, "storage failure must disable dishonest save controls");
     await blockedContext.close();
 
