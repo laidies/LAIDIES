@@ -11,7 +11,11 @@ const results = JSON.parse(fs.readFileSync(path.join(root, "operations/agents/ai
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const expectFail = (name, changedRoster, changedResults, pattern) => assert.throws(() => validatePractitionerPilot(changedRoster, changedResults), pattern, name);
 
-assert.deepEqual(validatePractitionerPilot(roster, results), { sources: 13, signals: 4, usefulOwnerRulings: 3 });
+assert.deepEqual(validatePractitionerPilot(roster, results), { sources: 14, signals: 4, usefulOwnerRulings: 3 });
+const anthropicNews = roster.sources.find((source) => source.id === "SRC-ANTHROPIC-NEWS");
+assert.equal(anthropicNews?.channelUrl, "https://www.anthropic.com/news", "Anthropic's official news index must be monitored");
+assert.equal(anthropicNews?.cadence, "DAILY_RELEASE_CHECK", "Anthropic releases must be checked daily");
+assert.equal(anthropicNews?.promotionStatus, "PILOT", "Anthropic News must be inside the admitted recurring boundary");
 const paid = clone(roster); paid.sources[0].cost = "PAID";
 expectFail("paid source", paid, results, /cost must be NONE/);
 const silentRecurrence = clone(roster); delete silentRecurrence.recurringBoundary;

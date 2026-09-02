@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "asOf": "2026-08-07",
+  "asOf": "2026-09-02",
   "status": "BOUNDED_RECURRENCE_ADMITTED",
   "recurringAuthority": true,
   "recurringBoundary": "Only PROMOTED and PILOT sources run on their recorded cadence inside the existing Intelligence Desk automation. CANDIDATE sources remain on-trigger or due-roster-review only.",
@@ -85,6 +85,26 @@
       "retirementTrigger": "Repository becomes archived, unofficial, or consistently duplicates current docs.",
       "cost": "NONE",
       "promotionStatus": "CANDIDATE"
+    },
+    {
+      "id": "SRC-ANTHROPIC-NEWS",
+      "identity": "Anthropic News",
+      "company": "Anthropic",
+      "role": "Official company, model and product announcements",
+      "relevanceEvidence": "Anthropic publishes dated model and product releases on its official news index. The September 1, 2026 Fable 5.1 and Mythos 5.1 announcement was missed when the recurring sweep watched only the engineering index twice weekly.",
+      "tier": "OFFICIAL_AUTHORITY",
+      "channelUrl": "https://www.anthropic.com/news",
+      "monitoringMethod": "Check the official news index every day and open every newly dated announcement. Record the announcement date and verify model, access, pricing, platform and safeguard claims on the canonical release page before publication.",
+      "termsBoundary": "Public official pages only. Attribute performance, cost, safety and scientific-result claims to Anthropic unless independent evidence supports them.",
+      "distinctContribution": "Same-day primary evidence for Anthropic model, product, access and policy releases.",
+      "duplicationNote": "Check before secondary scouts. Reconcile overlaps with AIDB and Anthropic Engineering into one story, while retaining the official announcement as the authority for what Anthropic released.",
+      "cadence": "DAILY_RELEASE_CHECK",
+      "destinations": ["NewsStand", "freshness inbox", "books", "classes", "episodes", "AI tip"],
+      "verifiedAt": "2026-09-02",
+      "expiresAt": "2026-12-02",
+      "retirementTrigger": "Official route changes or Anthropic replaces the index with a different canonical release channel.",
+      "cost": "NONE",
+      "promotionStatus": "PILOT"
     },
     {
       "id": "SRC-ANTHROPIC-ENGINEERING",
