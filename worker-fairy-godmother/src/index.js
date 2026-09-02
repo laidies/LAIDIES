@@ -345,6 +345,11 @@ function answerShapeDiagnostic(data) {
   const content = data?.choices?.[0]?.message?.content;
   let parsed = null;
   try { parsed = typeof content === "string" ? JSON.parse(content) : null; } catch {}
+  const assist = parsed?.aiAssist;
+  const assistObject = assist && typeof assist === "object" && !Array.isArray(assist);
+  const maxStringLength = (value) => Array.isArray(value)
+    ? Math.max(0, ...value.filter((item) => typeof item === "string").map((item) => item.length))
+    : -1;
   return {
     event: "fairy_answer_contract_rejected",
     model: typeof data?.model === "string" ? data.model : "missing",
@@ -356,8 +361,23 @@ function answerShapeDiagnostic(data) {
     assumptionsItems: Array.isArray(parsed?.assumptions) ? parsed.assumptions.length : -1,
     unknownsItems: Array.isArray(parsed?.unknowns) ? parsed.unknowns.length : -1,
     sourcesItems: Array.isArray(parsed?.sources) ? parsed.sources.length : -1,
+    sourceTypesValid: Array.isArray(parsed?.sources) && parsed.sources.every((item) => typeof item === "string"),
+    readLength: typeof parsed?.read === "string" ? parsed.read.length : -1,
+    deliverableLength: typeof parsed?.deliverable === "string" ? parsed.deliverable.length : -1,
+    nextMoveLength: typeof parsed?.nextMove === "string" ? parsed.nextMove.length : -1,
+    reasoningMaxLength: maxStringLength(parsed?.reasoning),
+    assumptionsMaxLength: maxStringLength(parsed?.assumptions),
+    unknownsMaxLength: maxStringLength(parsed?.unknowns),
     asOfKind: parsed?.asOf === null ? "null" : typeof parsed?.asOf,
-    aiAssistKind: parsed?.aiAssist === null ? "null" : typeof parsed?.aiAssist
+    aiAssistKind: parsed?.aiAssist === null ? "null" : typeof parsed?.aiAssist,
+    aiAssistKeyCount: assistObject ? Object.keys(assist).length : -1,
+    aiAssistExactKeys: assistObject && Object.keys(assist).length === 3 &&
+      Object.keys(assist).every((key) => ["kind", "job", "materials"].includes(key)),
+    aiAssistKindAllowed: assistObject && ["quick_task", "career_workspace"].includes(assist.kind),
+    aiAssistJobIsString: assistObject && typeof assist.job === "string",
+    aiAssistMaterialsItems: assistObject && Array.isArray(assist.materials) ? assist.materials.length : -1,
+    aiAssistMaterialsAreStrings: assistObject && Array.isArray(assist.materials) &&
+      assist.materials.every((item) => typeof item === "string")
   };
 }
 
