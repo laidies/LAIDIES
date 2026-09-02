@@ -1,5 +1,35 @@
 # Active work
 
+## 2026-09-02 Resident referrals and Closet necklaces — DEPLOYED / PUBLICLY VERIFIED FOR THE RELEASED BOUNDARY
+
+Ali required referrals to be live rather than remain a described future loop.
+The existing Pro Supabase project was healthy, but the referral table and RPCs
+were absent and `/resident-referrals` returned 404. Migration
+`supabase/migrations/20260831010000_resident_referrals_v1.sql` is now applied to
+the existing project. Its rollback-only production rehearsal completed without
+an assertion failure; the final readback confirms the table and sampled RPC
+signatures exist, anonymous REST calls are denied, zero synthetic users remain
+and the invitation table is empty.
+
+Production deployment `e9deb12e-40fb-4b12-adf7-0409b172a401`, source
+`1d6671d639860e153c09fe57baee0183ecfca2b5`, uses exact input
+`/tmp/laidies-referrals-successor.ldeQ0N`, manifest
+`/tmp/laidies-referrals-successor.ldeQ0N.manifest.json`, 729 manifest records,
+751807890 bytes and identity
+`cea473fe89a42a10a4f3603e46c372ee31d13608913cf98e6c5d61c5374400fa`.
+Relative to the preserved 726-record production base it adds exactly
+`resident-referrals.html`, `content/site/resident-referrals-v1.js` and
+`content/site/resident-necklaces-v1.js`, and changes exactly
+`resident-card.html`, `maikeover.html` and `laidies-card.html`; nothing is
+removed. All six release paths plus protected Homepage, NewsStand, Library,
+FAiRY and KSVL paths match the candidate at both origins. Signed-out desktop
+and 390px journeys fail closed, scrub incoming tokens from the visible URL,
+retain 48px controls, show no horizontal overflow and emit no page errors. The
+current client and database mechanics separately pass privacy, idempotency,
+qualification, withdrawal, cascade-cleanup and race fixtures. A fresh
+two-live-account concurrent browser run remains desirable operational evidence;
+it is not represented as completed by the rollback-only database rehearsal.
+
 ## 2026-08-31 continued recovery — BUILDING
 
 Ali requested completion of all three remaining lanes: investigate Closet and

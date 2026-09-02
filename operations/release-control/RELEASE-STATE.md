@@ -1,12 +1,29 @@
 # LAiDIES release state
 
-**Updated:** 2026-09-01 UTC
+**Updated:** 2026-09-02 UTC
 **Release owner:** LIVE-SITE-MIXED-ARTIFACT-RECOVERY-20260828 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
-## Current production — 2026-09-01 NewsStand/Homepage-header successor
+## Current production — 2026-09-02 Resident referrals and Closet necklaces
+
+Production `e9deb12e-40fb-4b12-adf7-0409b172a401`, source
+`1d6671d639860e153c09fe57baee0183ecfca2b5`, immutable
+`https://e9deb12e.laidies-sunnyvaile.pages.dev`. Exact input
+`/tmp/laidies-referrals-successor.ldeQ0N`; manifest
+`/tmp/laidies-referrals-successor.ldeQ0N.manifest.json`; 729 manifest records,
+751807890 bytes; identity
+`cea473fe89a42a10a4f3603e46c372ee31d13608913cf98e6c5d61c5374400fa`.
+It adds the private referral page and two clients, changes the exact Resident
+Card, MAiKEOVER and Closet handoffs, and removes nothing. The matching
+authenticated-only Supabase referral migration is applied. Exact candidate
+hashes match custom and immutable origins for all six release paths and sampled
+protected Homepage, NewsStand, Library, FAiRY and KSVL paths. Signed-out
+desktop/phone, token-scrub, no-overflow and anonymous-denial checks pass. The
+final two-live-account concurrent browser run is not yet claimed.
+
+## Historical production — 2026-09-01 NewsStand/Homepage-header successor
 
 Production `56563c37-1dc2-4e58-9c0f-af5271666afb`, source `f492fb7`, immutable
 `https://56563c37.laidies-sunnyvaile.pages.dev`. Exact input
