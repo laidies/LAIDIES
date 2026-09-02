@@ -121,6 +121,14 @@ Last reconciled: 2026-08-05.
   pencil-in-hair version and the later compact-hair v7 candidate are superseded.
   This approval authorizes a Library masthead candidate; it does not authorize
   a page replacement, push or deployment without approval of the integrated image.
+- **Library masthead wall authority is the live cyan room — 2026-09-01.** Ali
+  rejected the lavender-wall integration because it does not match the current
+  public Library. Masthead successors must use the exact live cyan source
+  `library-interior-wide-jeeves-blue-walls-v3.png` as the room base, preserving
+  its 1746x901 geometry and aqua/cyan painted walls (representative median RGB
+  `119,204,221`). Do not recolour the stale lavender local room and call that a
+  public match. The corrected local candidate is
+  `assets/building-interiors/delivery-20260901-library-miss-jeeves-successor-v3/library-masthead-miss-jeeves-selected-live-cyan-v3.png`.
 - **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
   section must not repeat the blue-led catalogue surface immediately below it.
   Use the locked vivid pink → purple → blue gradient with the approved

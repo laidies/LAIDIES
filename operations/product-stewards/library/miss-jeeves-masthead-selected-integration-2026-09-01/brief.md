@@ -1,6 +1,6 @@
 # Miss Jeeves selected masthead integration
 
-Status: LOCAL CANDIDATE — OWNER APPROVAL REQUIRED BEFORE PAGE REPLACEMENT
+Status: SUPERSEDED — LAVENDER ROOM DOES NOT MATCH CURRENT PUBLIC LIBRARY
 
 ## Exact job
 
@@ -25,4 +25,11 @@ complete face and identity cues visible in the centred 320px and 390px crops.
 - No malformed anatomy, duplicate chair, generated text, added person, broken
   object, obvious composite seam or mobile face clipping.
 - Create a new versioned asset only. Do not modify `library.html`, push or deploy
-  until Ali approves the integrated landscape pixels.
+until Ali approves the integrated landscape pixels.
+
+## Supersession
+
+The current public Library uses the 1746x901 cyan-wall masthead, not this
+brief's 1672x940 lavender room. Ali required correction on 2026-09-01. The
+successor work and evidence are in
+`operations/product-stewards/library/miss-jeeves-masthead-live-cyan-correction-2026-09-01/`.

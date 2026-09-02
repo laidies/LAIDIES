@@ -14549,3 +14549,11 @@ authority and Welcome sign v3 are admitted.
 - **Publication status:** IDENTITY APPROVED / INTEGRATED MASTHEAD CANDIDATE
   LOCALLY ADMITTED / INCUMBENT STILL WIRED / NOT PUSHED, DEPLOYED OR PUBLICLY
   VERIFIED.
+
+**Ali correction, 2026-09-01:** The first admitted integration used a lavender
+local room even though the current public Library masthead has cyan walls. A
+visually good character composite still fails if its room authority is stale.
+The replacement was rebuilt from the exact downloaded public masthead; its
+wall median matches the live source and all pixels outside the bounded seat
+region are identical. Future replacements compare against the public asset
+before generation, not only the local file named by the workspace page.
