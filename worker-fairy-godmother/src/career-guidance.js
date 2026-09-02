@@ -8,7 +8,7 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v6";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v7";
 
 const SAFE_WORKSPACE_NEXT_MOVE = "Answer the workspace’s first question with observable facts. If a document would resolve a named uncertainty, add only the smallest permitted, redacted excerpt or a short summary—never a whole file by default.";
 
@@ -205,6 +205,20 @@ export const CAREER_GUIDANCE = Object.freeze([
     approach: "Distinguish making a case from clarifying the selection criteria. Connect actual contributions to supplied criteria and ask for a specific discussion before the next decision.",
     limits: "No guaranteed promotion, invented results, fabricated endorsement or assumption that the visitor lacks skill. Unclear or unfair access is not repaired solely by self-promotion.",
     aiJob: "Map real achievements to the actual role criteria, separating evidence, unknowns and questions. If criteria are absent, draft a request for them instead of manufacturing a rubric."
+  },
+  {
+    id: "career-relationship-bridges",
+    source: {
+      title: "Dorie Clark — Building Bridges For Your Career",
+      version: "checked 2026-09-02",
+      url: "https://dorieclark.com/blog/building-bridges-for-your-career/",
+      pages: []
+    },
+    situation: "Good work is known locally, but the visitor has few substantive professional relationships outside the immediate team and wants to begin a relevant conversation rather than ask a stranger for advancement.",
+    original: null,
+    approach: "Start with one genuine, bounded conversation about a shared professional question, then build the relationship through useful, consistent engagement over time without treating every contact as a transaction.",
+    limits: "Do not invent familiarity, prescribe networking when the real issue is blocked access or unfair criteria, confuse a professional relationship with sponsorship, or imply that repeated outreach guarantees visibility, opportunity or promotion.",
+    aiJob: "Using only the visitor's real work area, the other person's publicly known work and one genuine shared question, draft a concise invitation to compare notes. Do not invent shared interests, endorsements, access or a promised outcome."
   },
   {
     id: "return-to-team",

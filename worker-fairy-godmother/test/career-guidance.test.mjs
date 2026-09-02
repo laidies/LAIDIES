@@ -75,7 +75,7 @@ test('pilot is default-off and restricted by server-side route, not client flags
   assert.equal(Object.hasOwn(result.data.answer, 'aiAssist'), false);
 });
 
-test('answer payload includes all five references but does not publish unverified source selections', async () => {
+test('answer payload includes every governed reference but does not publish unverified source selections', async () => {
   for (const record of CAREER_GUIDANCE) {
     const result = await run({ ...fixtureAnswer, sources: [record.id] });
     assert.equal(result.data.type, 'case_success');
@@ -86,6 +86,10 @@ test('answer payload includes all five references but does not publish unverifie
     assert.match(result.payload.messages[0].content, /No invented achievements/);
     assert.match(result.payload.messages[0].content, /promotion_case: role_description, goals_or_scorecard, achievement_log, promotion_criteria/);
   }
+  const relationship = CAREER_GUIDANCE.find(record => record.id === 'career-relationship-bridges');
+  assert.equal(relationship.source.url, 'https://dorieclark.com/blog/building-bridges-for-your-career/');
+  assert.match(relationship.approach, /genuine, bounded conversation/);
+  assert.match(relationship.limits, /blocked access or unfair criteria/);
 });
 
 test('no matching reference and no useful AI task are valid outcomes', async () => {

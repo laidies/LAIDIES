@@ -39,8 +39,9 @@ horizontal overflow. The staging ledger correctly reached its separate daily
 budget during paid evaluation and is not the public endpoint.
 
 The current career pilot uses Ali's handout-derived scenarios and bounded
-source principles. Dorie Clark guidance is not yet source-admitted and is not
-claimed in public output. Public per-answer citations remain held because
+source principles. A source-bound Dorie Clark relationship-building record is
+implemented in local v7 only and remains out of production until its real-model
+answer is reviewed. Public per-answer citations remain held because
 source membership alone does not prove that a source supports the generated
 answer.
 
@@ -68,7 +69,10 @@ Custom/immutable page and protected-path hashes match, and actual rendered
 1280/390/320 fixture journeys pass at both origins. The production Worker CORS
 and no-charge invalid-input journey pass. A second real staging model run was
 blocked by the correctly exhausted guest ledger, so post-repair model
-repeatability and genuine native200% zoom remain explicitly unverified.
+repeatability remains unverified. Genuine Chrome200% zoom now passes on the live
+custom origin: the prompt and both actions remain visible without clipping, the
+primary action is keyboard-reachable with a visible focus outline, and Chrome
+was restored to100% with the synthetic field cleared and temporary tab closed.
 
 ### FAiRY five-situation pilot — historical build and trial record
 

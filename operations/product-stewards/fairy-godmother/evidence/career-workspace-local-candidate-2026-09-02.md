@@ -28,7 +28,9 @@
 ## What this does not prove
 
 Post-repair real-model repeatability, execution inside an external AI product,
-genuine native200% zoom, physical-device and native assistive-technology checks
-are not claimed. A copied prompt can reduce but cannot prove another AI product
+physical-device and native assistive-technology checks are not claimed. Genuine
+Chrome200% zoom is now observed on the live custom origin: controls remain
+visible, the primary action is keyboard-reachable with a visible focus outline,
+and Chrome was restored to100% afterward. A copied prompt can reduce but cannot prove another AI product
 will resist every adversarial document; the reader must still check that tool's
 current account, privacy and workplace settings.

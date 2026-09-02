@@ -41,8 +41,19 @@ production secrets, ledger, rate limiter and Supabase bindings. Pages deployment
 preserves722 files. Custom and immutable origins match the exact artifact for
 FAiRY plus protected Learn, NewsStand, Library, Resident and KSVL paths. Actual
 1280/390/320 rendered fixture journeys pass at both origins with zero overflow.
-Post-repair live-model repeatability and genuine native200% zoom remain HOLD;
-the staging guest ledger correctly refused another case rather than being reset.
+Post-repair live-model repeatability remains HOLD; the staging guest ledger
+correctly refused another case rather than being reset. Genuine Chrome200% zoom
+now passes on the live custom origin: prompt/actions visible without clipping,
+keyboard focus reaches the54px primary action with a visible outline, then the
+browser was restored to100% and the synthetic field cleared.
+
+The next source-bank candidate is local-only v7: `career-relationship-bridges`
+uses Dorie Clark's current primary “Building Bridges For Your Career” page only
+for a genuine bounded professional conversation and consistent engagement over
+time. It explicitly does not treat relationship-building as sponsorship, repair
+blocked access/unfair criteria with networking, or promise visibility or
+promotion. Exact contract tests pass; one post-reset real-model answer and
+independent answer review are required before a Worker release.
 
 ## 2026-09-01 — initial public beta limits approved
 
