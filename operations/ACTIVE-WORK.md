@@ -4,6 +4,35 @@
 
 ## Current task
 
+### 2026-09-02 — ChatGPT guide complete chapter proof
+
+- **Status:** FIRST COMPLETE CHAPTER EXACT-PROSE ADMITTED / FULL MANUSCRIPT,
+  DESIGNED READER AND PUBLICATION HOLD.
+- **Delivered:** A 3,895-word opening chapter, `Your first useful ChatGPT job`,
+  under `content/library-books/drafts/chatgpt-guide/`. It covers first setup,
+  Settings, Personality, Custom Instructions, Memory, Projects, Chat versus Work
+  versus Codex, GPT-5.6 Luna/Terra/Sol, every current Light-to-Ultra effort
+  level, API/plan distinctions, a complete Class of 2002 reunion job, exact
+  prompts, a constructed failed output, targeted repair and explicit
+  Applies-to-both / Free / paid / no-equivalent routes.
+- **Current evidence:** Product claims are bound to
+  `chatgpt-guide/CHAPTER-01-SOURCE-CARD-2026-09-02.md`, sourced from current
+  official OpenAI Learn and developer guidance checked 2026-09-02. The example
+  is visibly labelled as constructed and does not claim an account test.
+- **Review:** The first independent read returned HOLD because exact Personality
+  labels were not source-card-bound and the corrected example omitted the year
+  required by its own repair prompt. The R2 prose fixes both. The producer and
+  role-distinct independent exact-prose receipts now validate PASS against the
+  same SHA-256-bound manuscript.
+- **Not done:** This is one chapter, not the ChatGPT manuscript. It has not been
+  laid out or rendered as a book, tested with unfamiliar human readers, added to
+  the catalogue, deployed or publicly verified. No cross-plan account test was
+  performed and account-specific controls remain qualified.
+- **Next:** Ali decides whether this chapter's voice, teaching depth and worked
+  example form should govern the rest of the ChatGPT guide. If retained, draft
+  the remaining chapters from the current source cards and recheck volatile
+  product facts before each admission cycle.
+
 ### 2026-09-01 — current practical guidance spine
 
 - **Status:** CURRENT SOURCE SYNTHESIS AND REPRESENTATIVE SAMPLE REFRESHED /

@@ -14850,3 +14850,22 @@ while remaining falsely unfinished in the launch record.
   still fail—because the reader should not need an AI textbook to decode it.
 - **Status:** Binding manuscript priority recorded; full manuscripts and human
   comprehension testing remain HOLD.
+
+## LIBRARY-EXACTNESS-LESSON-MUST-PASS-ITSELF-20260902 — A verification chapter cannot hand-wave its own details
+
+- **Finding:** The first complete ChatGPT chapter explained exact source binding
+  and occurrence checking, yet its source card did not bind two named current
+  Personality options and its corrected footer omitted the year required by the
+  chapter's own repair prompt. Independent review found both before admission.
+- **Prevention:** Bind every named current UI label, not only the general
+  behaviour it illustrates. For worked repairs, compare the final artifact
+  character-for-character with the correction's controlling value and include
+  every dependent occurrence in the same final check.
+- **Evidence:** R1 independent HOLD and repaired R2 PASS for
+  `LIB-CHATGPT-GUIDE-CHAPTER-01-FIRST-USEFUL-JOB-R2-20260902`, exact manuscript
+  SHA-256 `c1c52b5423eaff6d714fe8a54a914a526191e7e2923c2d3ad13c011aca2b7d8e`.
+- **Possible Behind the Build angle:** The textbook teaching readers to check AI
+  work failed its own check—and became a better lesson because publication
+  stopped.
+- **Status:** Candidate-specific defects repaired; prevention applies to every
+  remaining practical-guide chapter. Full manuscripts and publication remain HOLD.
