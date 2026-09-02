@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260901-weekly-card-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260902-luminairy-links-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -842,6 +842,24 @@
           ].join("");
         }
 
+        function renderRelatedPeople(story) {
+          var people = story.relatedPeople || [];
+          if (!people.length) return "";
+          return [
+            '<aside class="ns-article__people" aria-label="Related LUMINAiRY profiles">',
+              '<h3>From the LUMINAiRY</h3>',
+              people.map(function (person) {
+                return [
+                  '<p><a href="./luminairy.html#', escapeAttribute(person.profileId), '">Explore ',
+                    escapeHTML(person.name), '\'s profile →</a>',
+                    person.reason ? '<span>' + escapeHTML(person.reason) + '</span>' : '',
+                  '</p>'
+                ].join("");
+              }).join(""),
+            '</aside>'
+          ].join("");
+        }
+
         function renderArticle(story) {
           var edition = story.edition;
           var isBigPicture = edition === "big-picture";
@@ -890,6 +908,7 @@
                 renderArticleHero(story),
                 renderQuickRead(story),
                 renderExamination(story),
+                renderRelatedPeople(story),
                 '<footer class="ns-article__sources">',
                   sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
                   story.aidb_credit ? '<p class="ns-article__inspiration">' + escapeHTML(story.aidb_credit) + "</p>" : "",
@@ -921,6 +940,7 @@
               watch,
               story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
               story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : "",
+              renderRelatedPeople(story),
               renderConceptsAndThemes(story),
               '<footer class="ns-article__sources">',
                 sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
