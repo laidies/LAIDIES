@@ -234,6 +234,15 @@ replaces those exact bytes. This locks the arrival layout only; it does not
 approve a generated mock, change episode or media admission, authorize
 deployment or claim public release. `ALI DIRECT DESIGN DECISION`
 
+The episode catalogue is a literal video-store wall: every episode is shown as
+its existing VHS tape sitting on a physical shelf. Generic cards, blank cases
+and 16:9 thumbnails are not the catalogue grammar. The VHS cover must remain
+large enough to identify, while released/forthcoming truth and Read, Listen and
+Watch actions remain deterministic, readable controls beside or beneath the
+tape rather than lettering baked into its artwork. Mobile may recompose the
+shelf, but it may not turn the episodes back into generic content cards.
+`ALI DIRECT DESIGN DECISION — 2026-09-02`
+
 Invariants are truthful state, operable rendered objects, live readable UI,
 approved character continuity, candy-accent family, accessible controls,
 shared navigation grammar and no fake completion/account/media claim.
