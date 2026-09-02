@@ -228,11 +228,14 @@ Chick Flicks opens with the same spatial relationship as the live LIBRAiRY: a
 strong page-specific title masthead followed immediately by the actual Chick
 Flicks store image. The store establishes the building before the episode
 catalogue. Latest and Start here remain immediately clear below it; do not
-return to an oversized dark hero overlay that delays episode choice. Reuse
-`assets/sunnyvaile-masthead-chick-flicks.png` unless Ali separately rejects or
-replaces those exact bytes. This locks the arrival layout only; it does not
-approve a generated mock, change episode or media admission, authorize
-deployment or claim public release. `ALI DIRECT DESIGN DECISION`
+return to an oversized dark hero overlay that delays episode choice. The image
+`assets/sunnyvaile-masthead-chick-flicks.png` is long-discarded and denied as
+masthead/store authority; the two September 2 mockups that used it are invalid.
+The masthead image slot is source-empty until the exact current approved Chick
+Flicks/store image is identified and verified. This locks the arrival layout
+and rejection only; it does not approve a replacement image, change episode or
+media admission, authorize deployment or claim public release.
+`ALI DIRECT CORRECTION — 2026-09-02`
 
 The episode catalogue is a literal video-store wall: every episode is shown as
 its existing VHS tape sitting on a physical shelf. Generic cards, blank cases
