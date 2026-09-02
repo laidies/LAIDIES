@@ -52,6 +52,13 @@ source membership alone does not prove that a source supports the generated
 answer. Exact v8 commit `566a74a0` is pushed and staging version
 `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100%; production remains unchanged.
 The next real staging case is scheduled just after the17:00 PDT UTC-day reset.
+Ali rejected waiting on a public-style guest reset for authorized staging QA.
+The local successor now has a secret-header staging-only QA identity with a
+separate three-case actor allowance while retaining the same rate limiter,
+atomic ledger and shared daily provider ceiling. Without the staging flag the
+header remains an ordinary guest and cannot increase allowance.90/90 Worker
+tests and dry-run bindings pass; production remains unchanged pending the real
+QA-authenticated v8 response.
 
 Career Workspace checkpoint: Ali approved a portable framework that readers
 build in their own AI tool. The public release keeps today's answer first,

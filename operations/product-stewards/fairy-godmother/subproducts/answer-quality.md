@@ -67,6 +67,16 @@ commit `566a74a0` is pushed; staging version
 and the existing Supabase, Durable Object and rate-limit bindings. Production
 remains unchanged.
 
+Ali correctly challenged the need to wait for a public guest reset to perform
+authorized staging evaluation. The successor adds a staging-only secret QA
+identity with three cases per UTC day, still governed by the same rate limiter,
+atomic Durable Object ledger, per-call budget reservation and shared US$10 daily
+provider ceiling. The QA header is absent from browser CORS and cannot increase
+allowance unless both the staging flag and secret are configured. The calibrated
+flag-off test proves the same header remains an ordinary one-case guest in the
+production-shaped environment. Full Worker tests pass90/90; real staging use is
+next.
+
 ## 2026-09-01 — initial public beta limits approved
 
 Ali approved the recommended bounded launch policy: one guest case per UTC day,

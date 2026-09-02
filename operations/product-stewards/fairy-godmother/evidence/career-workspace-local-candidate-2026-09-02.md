@@ -58,3 +58,18 @@ current account, privacy and workplace settings.
   `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100% with its four secrets,
   Supabase, Durable Object and rate-limit bindings present. A post-reset real v8
   response is still required before promotion.
+
+### Staging QA identity repair
+
+- The prior staging flow incorrectly coupled authorized QA to the public
+  one-guest-case daily identity limit. Waiting for the reset was not necessary
+  product safety; it was a missing test harness.
+- The successor accepts a timing-safe secret QA header only when the staging
+  flag is enabled. QA has a separate three-case actor allowance but uses the
+  same Durable Object ledger, rate limit, per-attempt reservation and shared
+  US$10 daily provider ceiling. The header is not allowed through browser CORS.
+- A calibrated flag-off test proves that supplying the header in a
+  production-shaped environment leaves the caller on the ordinary one-case
+  guest path. An invalid enabled token returns401 before provider use.
+- Full Worker suite passes90/90 and the Wrangler dry run exposes the staging
+  flag but no secret value. Production remains unchanged.

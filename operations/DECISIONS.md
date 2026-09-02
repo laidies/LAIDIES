@@ -62,6 +62,12 @@ typed no-charge backend failure can arrive before the browser aborts. The page
 must show honest staged progress and a revision failure must retain the existing
 draft and restore its controls. This local latency contract does not itself
 authorize deployment or admit model/classifier quality.
+FAiRY staging QA must not consume or evade the public guest identity allowance.
+The staging Worker may enable a secret-header QA identity with its own three-case
+daily actor allowance; it remains subject to the same atomic ledger, rate limit,
+per-attempt reservation and shared US$10 daily provider ceiling. The header is
+not exposed through browser CORS. Production must omit both the enable flag and
+secret, so the QA header cannot increase a public visitor's allowance.
 FAiRY classifier successor rule (2026-08-31): preserve the exact trial prompt as
 historical v1 evidence; a successor prompt is a new candidate and must use a new
 independent blind set. The configured Terra call uses reasoning-effort and

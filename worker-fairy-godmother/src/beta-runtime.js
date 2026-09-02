@@ -23,6 +23,16 @@ async function opaque(secret, value) {
   return b64url(await hmac(secret, value));
 }
 
+async function verifyQaToken(request, env) {
+  const supplied = request.headers.get("X-LAiDIES-QA-Token") || "";
+  if (env.FAIRY_QA_ENABLED !== "true" || !supplied) return null;
+  if (!env.FAIRY_QA_TOKEN || supplied.length > 512) throw new Error("qa_token_invalid");
+  const suppliedDigest = await crypto.subtle.digest("SHA-256", enc.encode(supplied));
+  const expectedDigest = await crypto.subtle.digest("SHA-256", enc.encode(env.FAIRY_QA_TOKEN));
+  if (!crypto.subtle.timingSafeEqual(suppliedDigest, expectedDigest)) throw new Error("qa_token_invalid");
+  return opaque(env.IDENTITY_HASH_SALT, `staging-qa:${supplied}`);
+}
+
 async function verifyResident(request, env) {
   const token = request.headers.get("authorization")?.match(/^Bearer\s+(.+)$/i)?.[1] || "";
   if (!token) return null;
@@ -61,6 +71,8 @@ async function verifyGuest(token, env) {
 
 export async function resolveBetaActor(request, env, body) {
   if (!env.GUEST_TOKEN_SIGNING_KEY || !env.IDENTITY_HASH_SALT) throw new Error("identity_secrets_unavailable");
+  const qa = await verifyQaToken(request, env);
+  if (qa) return { kind: "qa", id: qa, guestToken: null, limit: 3 };
   const suppliedAuthorization = request.headers.get("authorization") || "";
   const resident = await verifyResident(request, env);
   if (resident) return { kind: "resident", id: await opaque(env.IDENTITY_HASH_SALT, `resident:${resident}`), guestToken: null, limit: 3 };

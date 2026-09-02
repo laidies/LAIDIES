@@ -1216,16 +1216,19 @@ const index_default = {
       } catch (error) {
         const invalidToken = error?.message === "guest_token_invalid";
         const invalidResident = error?.message === "resident_session_invalid";
-        const invalidIdentity = invalidToken || invalidResident;
+        const invalidQa = error?.message === "qa_token_invalid";
+        const invalidIdentity = invalidToken || invalidResident || invalidQa;
         return typedResponse(acao, invalidIdentity ? 401 : 503, {
           ok: false,
-          type: invalidToken ? "guest_session_invalid" : invalidResident ? "resident_session_invalid" : "service_error",
+          type: invalidToken ? "guest_session_invalid" : invalidResident ? "resident_session_invalid" : invalidQa ? "qa_session_invalid" : "service_error",
           requestId,
           retryable: !invalidIdentity,
           message: invalidToken
             ? "This private guest pass is no longer valid. Refresh the page before trying again; no case was used."
             : invalidResident
               ? "Your Resident session could not be verified. Sign in again before trying; no case was used."
+              : invalidQa
+                ? "The staging QA credential is invalid. No case was used."
             : "FAiRY’s private identity desk is unavailable. No case was used.",
           play: noPlay("released")
         });

@@ -69,10 +69,11 @@ function env(overrides = {}) {
   };
 }
 
-function request(body, { token = "", ip = "192.0.2.1", authorization = "" } = {}) {
+function request(body, { token = "", qaToken = "", ip = "192.0.2.1", authorization = "" } = {}) {
   const headers = { "Content-Type": "application/json", Origin: "https://laidies.ai",
     "CF-Connecting-IP": ip, "User-Agent": "FAiRY beta contract test" };
   if (token) headers["X-LAiDIES-Guest-Token"] = token;
+  if (qaToken) headers["X-LAiDIES-QA-Token"] = qaToken;
   if (authorization) headers.Authorization = `Bearer ${authorization}`;
   return new Request("https://fairy.test", { method: "POST", headers, body: JSON.stringify(body) });
 }
@@ -158,6 +159,41 @@ test("verified Resident receives three cases and an invalid bearer token never d
     { authorization: "expired-session" }), env(), {});
   assert.equal(invalid.status, 401);
   assert.equal((await invalid.json()).type, "resident_session_invalid");
+});
+
+test("staging QA has a separate authenticated allowance without weakening the daily spend ceiling", async () => {
+  const qaToken = "staging-qa-secret-that-is-only-a-test-value";
+  const betaEnv = env({ FAIRY_QA_ENABLED: "true", FAIRY_QA_TOKEN: qaToken });
+  const calls = providerHarness();
+  for (let index = 1; index <= 3; index += 1) {
+    const response = await worker.fetch(request({ prompt: "Help me prepare a work conversation.",
+      requestId: `qa-case-request-0${index}` }, { qaToken }), betaEnv, {});
+    const data = await response.json();
+    assert.equal(data.type, "case_success", JSON.stringify(data));
+    assert.equal(data.allowance.kind, "qa");
+  }
+  const fourth = await worker.fetch(request({ prompt: "Help me prepare another work conversation.",
+    requestId: "qa-case-request-04" }, { qaToken }), betaEnv, {});
+  assert.equal(fourth.status, 429);
+  assert.equal(calls.advice, 3);
+
+  const invalid = await worker.fetch(request({ prompt: "Help me prepare a work conversation.",
+    requestId: "qa-invalid-request-01" }, { qaToken: "wrong-token" }), betaEnv, {});
+  assert.equal(invalid.status, 401);
+  assert.equal((await invalid.json()).type, "qa_session_invalid");
+  assert.equal(calls.advice, 3);
+});
+
+test("a QA header cannot increase allowance when the staging-only flag is absent", async () => {
+  const betaEnv = env();
+  const calls = providerHarness();
+  const first = await worker.fetch(request({ prompt: "Help me prepare a work conversation.",
+    requestId: "qa-disabled-request-01" }, { qaToken: "ignored-outside-staging" }), betaEnv, {});
+  assert.equal((await first.json()).allowance.kind, "guest");
+  const second = await worker.fetch(request({ prompt: "Help me prepare another work conversation.",
+    requestId: "qa-disabled-request-02" }, { qaToken: "ignored-outside-staging" }), betaEnv, {});
+  assert.equal(second.status, 429);
+  assert.equal(calls.advice, 1);
 });
 
 test("daily budget stops the twenty-first conservative reservation before classifier or answer provider use", async () => {
