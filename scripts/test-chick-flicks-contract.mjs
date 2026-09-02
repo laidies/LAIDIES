@@ -99,6 +99,17 @@ check("responsive and keyboard-visible rules preserve the interaction", () => {
   assert.match(styles, /\.cf-store__cases[^{]*\{[^}]*grid-template-columns:repeat\(4/);
 });
 
+check("the page uses the current Homepage and LIBRAiRY colour system", () => {
+  for (const colour of ["#070f2b", "#11183b", "#f254a9", "#ff7366", "#7137d6", "#2457e6", "#15bce0", "#78c7ff", "#7de2c2", "#b7e42b", "#ffd34d", "#fffdfb"]) {
+    assert.ok(styles.includes(colour), `missing current site colour ${colour}`);
+  }
+  assert.match(styles, /linear-gradient\(145deg,#ef4d9c 0%,#b75cc4 58%,#6c7cd1 100%\)/);
+  assert.match(styles, /linear-gradient\(125deg,rgba\(113,55,214,\.94\),rgba\(36,87,230,\.94\)\)/);
+  assert.match(styles, /linear-gradient\(125deg,var\(--pink\),var\(--coral\)\)/);
+  assert.match(styles, /linear-gradient\(125deg,var\(--mint\),var\(--cyan\)\)/);
+  assert.doesNotMatch(styles, /#f6f2ff|#f14f9f|#c653bc|#774ed5/);
+});
+
 check("shared Chick Flicks entries use release-state truth rather than weekly freshness", () => {
   const scoped = [
     read("index.html"),

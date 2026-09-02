@@ -1,6 +1,6 @@
 # Active work
 
-## 2026-09-02 Chick Flicks store-and-VHS redesign — BUILT LOCALLY; VISUAL CHECK WAITING
+## 2026-09-02 Chick Flicks store-and-VHS redesign — VISUALLY VERIFIED LOCALLY; RELEASE NOT AUTHORIZED
 
 The isolated successor at
 `/Users/alisoneakin/Projects/laidies-chick-flicks-masthead-livebase-20260902`
@@ -12,12 +12,18 @@ family and Ali's selected first LAiDIES-colour successor for Episode 04. Start
 here and Latest remain immediate; every released episode has direct Read,
 Listen and Watch routes; Episode 05 remains inactive without invented art.
 
-Static checks pass for exact asset hashes, store/masthead ordering, four physical
-tapes, four format-route triplets, trailer truth, forthcoming state, responsive
-rules and shared release-state copy. The guard was calibrated by replacing the
-Episode 04 VHS path in a scratch page and rejected it. The full page still needs
-desktop and phone visible-output review in Ali's chosen browser before admission.
-Nothing has been deployed or publicly verified.
+After Ali rejected the first candidate's page-specific colour approximation,
+the successor now binds the exact current public Homepage/LIBRAiRY palette and
+panel relationships. Same-viewport reference/candidate comparison plus complete
+1280px and 390px local journeys show readable uncropped cases, coherent lower
+sections, no broken images, no horizontal overflow, 48px phone format actions,
+working Start here and Read handoffs, honest Episode 05 and a responsive trailer.
+Static checks pass for exact asset hashes, palette, store/masthead ordering, four
+physical tapes, four format-route triplets, trailer truth, forthcoming state,
+responsive rules and shared release-state copy. The guard was calibrated by
+replacing the Episode 04 VHS path in a scratch page and rejected it. Evidence is
+in `operations/design-qa/chick-flicks-20260902/`. Nothing has been deployed or
+publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
 

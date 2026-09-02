@@ -278,6 +278,18 @@ mobile, and keep Episode 05 separate without an invented cover. This is an
 integration-candidate acceptance only; it does not admit or release the page.
 `INDEPENDENT VISUAL VERDICT — 2026-09-02`
 
+Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
+new page-specific approximation. The bound palette is deep midnight `#070f2b`,
+ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt
+`#2457e6`, cyan `#15bce0`, sky `#78c7ff`, mint `#7de2c2`, lime `#b7e42b`,
+yellow `#ffd34d` and cream `#fffdfb`. The title masthead uses the current live
+LIBRAiRY relationship `#ef4d9c → #b75cc4 → #6c7cd1`; lower sections reuse the
+Homepage's purple/cobalt, pink/coral and mint/cyan panel relationships. Dark
+midnight gutters, deep-ink borders and bright accent buttons complete the
+shared family. A new generic pale-card system or unrelated pink-purple gradient
+is rejected.
+`ALI DIRECT SITE-COLOUR CORRECTION — 2026-09-02`
+
 Invariants are truthful state, operable rendered objects, live readable UI,
 approved character continuity, candy-accent family, accessible controls,
 shared navigation grammar and no fake completion/account/media claim.
