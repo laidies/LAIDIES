@@ -2,18 +2,17 @@
 
 ## Current task
 
-- **Status:** VERIFIED LOCALLY
-- **Task:** LUMINAiRY Hannah Fry destination successor for the NewsStand-to-profile relationship.
-- **Task ID:** LUMINAIRY-HANNAH-DESTINATIONS-20260902
+- **Status:** BUILDING — 30-card inventory complete; research batches pending
+- **Task:** Complete all 23 MAiVEN and 7 Trailblazer LUMINAiRY cards to the Hannah Fry resource standard.
+- **Task ID:** LUMINAIRY-ALL-PROFILE-RESOURCES-20260902
 - **Owner:** LUMINAiRY foreground; release remains with the coordinated production owner.
 - **Updated:** 2026-09-02 America/Vancouver
-- **Goal:** A NewsStand reader who follows Hannah Fry into LUMINAiRY can immediately find checked places to read, watch, listen to and follow her work.
-- **Acceptance:** Seven exact destinations are independently checked and action-labelled; the exact changed profile has a renewed offline-signed receipt; the other 42 receipts remain unchanged; claim, browser and NewsStand relationship tests pass; no blind deployment occurs.
-- **Current step:** All local acceptance checks and the independent rendered-card review pass. The scoped successor awaits commit/push and handoff to the current release owner.
-- **Next action:** Reconcile the exact scoped commit with the current production head, preserve unrelated production bytes, then verify custom and immutable public origins before calling the change live.
-- **Repair:** Hannah retains her Cambridge profile and adds BBC AI Confidential, The Rest Is Science, Google DeepMind: The Podcast, YouTube, Instagram and X. `hannahfry.co.uk` is excluded because it currently returns a content-free lander. The runtime now pins a two-key public verification ring so Hannah alone can receive a renewed receipt without rewriting the other 42 admissions; no private signing key is stored in the repository.
-- **Verification:** The calibrated gate rejects an untrusted receipt key. Claim validation passes 43 profiles; the browser suite passes 13/23/7 cards, admission with and without Web Crypto, images, links, keyboard behavior and mobile overflow; the NewsStand relationship suite passes. Forty-two non-Hannah receipt objects are unchanged. This is local evidence, not public verification.
-- **Release boundary:** Work began from exact NewsStand handoff `a58f00edc7ba6a75f2e7e8de9cc9628b7b5a2bc2`. No deployment or production-head overwrite was performed.
+- **Goal:** Every MAiVEN and Trailblazer card retains a verified portrait, presents current or historically bounded information and a specific LAiDIES lesson, and offers every genuinely applicable verified Read/Watch/Listen/Follow route.
+- **Acceptance:** One 30-person ledger proves coverage; all profile changes have exact evidence and independent review; every changed hash has a renewed offline-signed receipt; Saints and unrelated bytes are unchanged; full 23/7 Web Crypto/no-Web-Crypto, keyboard, image, destination and 1440/390/320 tests pass.
+- **Current step:** Inventory and six five-person batch boundaries are recorded in `operations/product-stewards/luminairy/profile-resource-coverage-ledger-2026-09-02.md`. All 30 images exist and decode; only Hannah's seven links are currently action-typed. Twenty-nine profiles require renewed source, destination, content and image review.
+- **Next action:** Complete Batch 1 evidence and use it as the representative proof before repeating the exact contract across Batches 2–6.
+- **Production recovery:** Read-only Cloudflare verification confirms current deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and critical LUMINAiRY/NewsStand parity at custom and immutable origins. Provider data has no whole-artifact manifest/hash; reconstruct exact `51aa2c1` output and compare every path with the immutable origin before any release overlay.
+- **Release boundary:** Work continues from signed Hannah successor `2926504b9e2239979ba274af51aaad3851fcf9be` on isolated branch `feature/luminairy-all-profile-resources-20260902`. No deployment, upload or production mutation is authorized during research/batch production.
 
 ## 2026-08-30 NewsStand Daily proving run
 
