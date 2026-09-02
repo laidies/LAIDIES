@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "newsstand-source-bound-claim-map.v1",
+  "candidateId": "openclaw-shared-sessions-2026-09-02",
+  "reviewedThrough": "2026-09-02",
+  "claims": [
+    {
+      "claimId": "release",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "OpenClaw, an open-source product for building AI-assisted workflows, released a major update on August 30.",
+          "locator": "article.md"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/openclaw-shared-sessions-2026-09-02/source-openclaw.md",
+        "sha256": "ee924f899421877bd83b852b21e6b46e1606f36c73217df65b5f9f4f17d65a2f"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "OpenClaw's August 30 project release article describes a major rebuild",
+          "locator": "source-openclaw.md"
+        }
+      ],
+      "scopeAndFreshness": "Official project release; product and date attributed to OpenClaw."
+    },
+    {
+      "claimId": "shared-use",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "OpenClaw says its own team used shared cloud sessions to bring another person into work already underway or hand it over without starting the explanation again.",
+          "locator": "article.md"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/openclaw-shared-sessions-2026-09-02/source-openclaw.md",
+        "sha256": "ee924f899421877bd83b852b21e6b46e1606f36c73217df65b5f9f4f17d65a2f"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "its team's use of shared cloud sessions for collaboration and handoff",
+          "locator": "source-openclaw.md"
+        }
+      ],
+      "scopeAndFreshness": "Project-reported internal use, not independent productivity evidence."
+    },
+    {
+      "claimId": "durable-state",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "Its technical documentation says the central service keeps the main conversation and working state even when the task runs on another machine.",
+          "locator": "article.md"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/openclaw-shared-sessions-2026-09-02/source-openclaw.md",
+        "sha256": "ee924f899421877bd83b852b21e6b46e1606f36c73217df65b5f9f4f17d65a2f"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "the Gateway remains the owner of the canonical conversation, reconciled workspace, credentials and placement records",
+          "locator": "source-openclaw.md"
+        }
+      ],
+      "scopeAndFreshness": "Current official documentation checked 2026-09-02; configuration details may change."
+    },
+    {
+      "claimId": "permission-controls",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "OpenClaw documents separate controls for where work may run and which computer tools may be used.",
+          "locator": "article.md"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/openclaw-shared-sessions-2026-09-02/source-openclaw.md",
+        "sha256": "ee924f899421877bd83b852b21e6b46e1606f36c73217df65b5f9f4f17d65a2f"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "It documents distinct permissions for placement and computer-control tooling.",
+          "locator": "source-openclaw.md"
+        }
+      ],
+      "scopeAndFreshness": "Documented controls, not independent proof of security or correct configuration."
+    },
+    {
+      "claimId": "hermes-corroboration",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "Hermes, another agent product, also added group conversations and durable agent-to-agent messages in its August 31 release.",
+          "locator": "article.md"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/openclaw-shared-sessions-2026-09-02/source-hermes.md",
+        "sha256": "7914330f5b3b356af6c3575297900ab26a9ce24a08ab4dd5079b92325ba54962"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "released August 31. It reports Bot Mode, group chats, agent-to-agent direct messages and durable, inspectable conversations.",
+          "locator": "source-hermes.md"
+        }
+      ],
+      "scopeAndFreshness": "Corroborates experimentation only; not equivalence or inevitability."
+    },
+    {
+      "claimId": "aidb-interpretation",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "The AI Daily Brief argues that shared sessions point toward the next phase of agents.",
+          "locator": "article.md"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/openclaw-shared-sessions-2026-09-02/source-aidb.md",
+        "sha256": "1ea690e66352a58b5d7275d86fddce0e24f6510e958b79c0576780b77db2269e"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "AIDB's thesis is that moving an AI work session from a private conversation to a shared work record is an important next interaction pattern.",
+          "locator": "source-aidb.md"
+        }
+      ],
+      "scopeAndFreshness": "Attributed analytical interpretation, explicitly not treated as a settled industry fact."
+    }
+  ],
+  "heldClaims": [],
+  "correctionOwner": "NewsStand product steward"
+}

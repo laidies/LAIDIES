@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "openai-ads-run-rate-2026-09-02",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-02T16:45:46.096Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/quality-manifest.json",
+      "sha256": "96bd729ee2e087d1e849dcb1fe5dfaf815a6a89b0a4e87dc956ba02591970ada"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/article.md",
+      "sha256": "ddbb53863019770588398e354aa8180edf11a854c04be2ae407193378be8fda9"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-02T16:45:46.096Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# AI Fundamentals 101",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Dated change and bounded scope",
+        "Evidence separated from interpretation"
+      ],
+      "evidence": [
+        {
+          "excerpt": "That disclosure helps you ask the next question.",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/news-001-approved-frozen.js"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did OpenAI already earn one billion dollars from ChatGPT ads, and does the milestone change current account rules?",
+    "promisedPayoff": "Understand run rate and separate the business milestone from what a user sees.",
+    "centralMentalModel": "Run rate extends a current pace across a year; it is not cash collected, profit or a guaranteed forecast.",
+    "dailyLifeConnection": "A speedometer reports pace, not the distance already travelled.",
+    "surfaceJob": "A distinct ordinary Latest candidate, not a Front PAiGE or Big Picture replacement.",
+    "desiredReaderFeeling": "I understand the number and whether my account is affected."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The central distinction is stated in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is closer to a speedometer than a bank balance.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader consequence is explicit rather than implied.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That does not prove what OpenAI will do next.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The article speaks directly to an adult reader and gives a discriminating question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Judge the claim in the advertisement separately from the answer above it.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "One concrete image makes the invisible mechanism memorable without decorative reference confetti.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is closer to a speedometer than a bank balance.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The dated event is attributed and bound to exact sources.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The event date is visible and the source package records its 2026-09-02 check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "This is a bounded Latest story, not a feature or generic lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The development and its event date are stated in the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The article retains a concrete consequence and does not convert uncertainty into prediction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That does not prove what OpenAI will do next.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The familiar situation makes the system relationship visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is closer to a speedometer than a bank balance.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The explanation begins with the human misunderstanding and makes the mechanism concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is closer to a speedometer than a bank balance.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "A reader can restate the mechanism without unexplained product jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is closer to a speedometer than a bank balance.",
+          "locator": "article.md"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Did OpenAI already earn one billion dollars from ChatGPT ads, and does the milestone change current account rules?",
+        "probeResponse": "Run rate extends a current pace across a year; it is not cash collected, profit or a guaranteed forecast.",
+        "expectedEvidence": "It is closer to a speedometer than a bank balance."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "A different work case tests whether the distinction transfers.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Judge the claim in the advertisement separately from the answer above it.",
+          "locator": "article.md"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Another company reports a $50 million run rate. Is that money already earned or profit?",
+        "probeResponse": "Neither follows. It is a current revenue pace projected across a year, and the pace can change.",
+        "expectedEvidence": "Run rate extends a current pace across a year; it is not cash collected, profit or a guaranteed forecast."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The article provides a bounded question or checking move.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Judge the claim in the advertisement separately from the answer above it.",
+          "locator": "article.md"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The analogy maps to the mechanism and its limit is retained in surrounding prose.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is closer to a speedometer than a bank balance.",
+          "locator": "article.md"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact article checked; benchmarkNameDrop is not present.",
+      "artifactLocator": "article.md"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact article checked; communicationPastiche is not present.",
+      "artifactLocator": "article.md"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact article checked; corporateSludge is not present.",
+      "artifactLocator": "article.md"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact article checked; curiosityWithoutPayoff is not present.",
+      "artifactLocator": "article.md"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact article checked; decorativeAnalogy is not present.",
+      "artifactLocator": "article.md"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact article checked; disconnectedSystem is not present.",
+      "artifactLocator": "article.md"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact article checked; entertainmentBeforeUnderstanding is not present.",
+      "artifactLocator": "article.md"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact article checked; factlessConfidence is not present.",
+      "artifactLocator": "article.md"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact article checked; familiarExampleWithoutTechnicalReturn is not present.",
+      "artifactLocator": "article.md"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact article checked; genericAction is not present.",
+      "artifactLocator": "article.md"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact article checked; glossaryAccumulation is not present.",
+      "artifactLocator": "article.md"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact article checked; inflatedTakeawayEnding is not present.",
+      "artifactLocator": "article.md"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact article checked; jargonBeforeMeaning is not present.",
+      "artifactLocator": "article.md"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact article checked; joylessInstruction is not present.",
+      "artifactLocator": "article.md"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact article checked; mechanismBeforeMotivation is not present.",
+      "artifactLocator": "article.md"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact article checked; mechanismCompressedBehindHook is not present.",
+      "artifactLocator": "article.md"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact article checked; missingMechanism is not present.",
+      "artifactLocator": "article.md"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact article checked; prematureClickBeforeMechanism is not present.",
+      "artifactLocator": "article.md"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact article checked; purposeTooNarrow is not present.",
+      "artifactLocator": "article.md"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact article checked; referenceConfetti is not present.",
+      "artifactLocator": "article.md"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact article checked; staleUnreviewableClaims is not present.",
+      "artifactLocator": "article.md"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact article checked; technicalExplainerVoice is not present.",
+      "artifactLocator": "article.md"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact article checked; templateRepetition is not present.",
+      "artifactLocator": "article.md"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact article checked; workedExampleOvertakesBookPurpose is not present.",
+      "artifactLocator": "article.md"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-announcement.md",
+        "sha256": "fbbfcb77148f79206c4599f08f7c0bb73e94e2026216a1598877f7f44fbccdb8"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+        "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-predecessor.md",
+        "sha256": "7275c89a6f83107556aaf5273262454dfb2e017008ccaad6906d6a4f81cc7288"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "run-rate",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+            "locator": "article.md"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-announcement.md",
+          "sha256": "fbbfcb77148f79206c4599f08f7c0bb73e94e2026216a1598877f7f44fbccdb8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ChatGPT Ads reached a $1 billion annualized revenue run rate in fewer than 200 days",
+            "locator": "source-openai-announcement.md"
+          }
+        ],
+        "scopeAndFreshness": "August 31 company-reported pace, not audited collected revenue, profit or forecast."
+      },
+      {
+        "claimId": "advertisers-and-regions",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The company also said tens of thousands of advertisers were using the system and that advertisers could buy placements in more than 40 countries.",
+            "locator": "article.md"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-announcement.md",
+          "sha256": "fbbfcb77148f79206c4599f08f7c0bb73e94e2026216a1598877f7f44fbccdb8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "tens of thousands of advertisers use the product and advertiser access extends to more than 40 countries",
+            "locator": "source-openai-announcement.md"
+          }
+        ],
+        "scopeAndFreshness": "Company-reported advertiser-side access; not evidence every user sees ads."
+      },
+      {
+        "claimId": "plan-rules",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI's current help page says eligible Free and Go users may see ads. Plus, Pro, Business, Enterprise and Edu accounts remain ad-free.",
+            "locator": "article.md"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+          "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "eligible Free and Go users may see ads, while Plus, Pro, Business, Enterprise and Edu accounts do not have ads",
+            "locator": "source-openai-faq.md"
+          }
+        ],
+        "scopeAndFreshness": "Current OpenAI product policy checked 2026-09-02; may change by plan, region or time."
+      },
+      {
+        "claimId": "ads-free-route",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It also describes an Ads-Free option for some Free users with lower limits and fewer features.",
+            "locator": "article.md"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+          "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "an Ads-Free route for some Free users with lower usage limits and reduced feature access",
+            "locator": "source-openai-faq.md"
+          }
+        ],
+        "scopeAndFreshness": "Provider-described option; availability may vary by region and over time."
+      },
+      {
+        "claimId": "answer-separation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says advertisements are labelled, appear separately from answers and cannot be used by advertisers to change or rank an answer.",
+            "locator": "article.md"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+          "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ads are labelled and separate from answers, and advertisers cannot alter or rank answers",
+            "locator": "source-openai-faq.md"
+          }
+        ],
+        "scopeAndFreshness": "Provider-stated rule; no independent audit claimed."
+      },
+      {
+        "claimId": "predecessor",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Our August 31 story explained where ChatGPT ads appear and what information can make them relevant.",
+            "locator": "article.md"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-predecessor.md",
+          "sha256": "7275c89a6f83107556aaf5273262454dfb2e017008ccaad6906d6a4f81cc7288"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The August 31 story explains where sponsored placements can appear",
+            "locator": "source-predecessor.md"
+          }
+        ],
+        "scopeAndFreshness": "Links rather than overwrites the canonical predecessor story."
+      }
+    ],
+    "reviewedThrough": "2026-09-02 primary-source check",
+    "nextTrigger": "Reopen exact official sources before any publication transaction.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior candidate has this exact editorial job; the ads article links the earlier coverage but does not repeat its job."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer found no known or new reusable prose defect after the corrected exact-source pass."
+  }
+}
