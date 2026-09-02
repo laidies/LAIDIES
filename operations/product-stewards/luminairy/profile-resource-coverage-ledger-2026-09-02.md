@@ -40,7 +40,7 @@ Every row below is **DONE** in the local signed candidate. “Image” includes 
 | 5 | MAiVEN + Trailblazer | Adele Goldberg; Shafi Goldwasser; Lynn Conway; Mira Murati; Daniela Amodei | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
 | 6 | Trailblazer | Lila Ibrahim; Fidji Simo; Chelsea Finn; Amanda Askell; Allie K. Miller | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
 
-**Authoritative result:** 30 DONE · 0 temporary production HOLD · 0 genuine source-gap HOLD · 1 release HOLD.
+**Authoritative result:** 30 DONE · 0 temporary production HOLD · 0 genuine source-gap HOLD · 1 release-coordination HOLD.
 
 ## Starting inventory retained for before/after audit
 
@@ -81,7 +81,9 @@ Legend: **content present** means the existing card has role/about and a distinc
 
 ## Remaining release boundary
 
-There are no unresolved profile-content, portrait or source gaps. The only remaining HOLD is release coordination: provider read-only verification identifies production deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and critical-file parity at custom and immutable origins, but Cloudflare exposes no whole-artifact manifest. Do not deploy until the exact current artifact is reconstructed and compared path-by-path, this candidate is applied as an explicit changed-path overlay, a coordinated Pages slot is available, and custom plus immutable origins are reverified.
+There are no unresolved profile-content, portrait or source gaps. The retained 726-file current-production artifact has been recovered and verified locally against its complete manifest, identity `2cf8d8c87970b0474507675bfe6a5240a20ab856e35008c609cd815a2cf3dba5`. Of those paths, 713 match the immutable deployment byte-for-byte; two deployment-control files are intentionally not public, and eleven application routes are intentionally normalized by the Cloudflare worker. Those thirteen are handled by the established protected-route checks, not by weakening or bypassing comparison.
+
+The prepared 735-file successor has identity `dcda6af63c3669f72f73485116cf5db05b2d27bd20de0a5e990bae962b58cb64` and differs from the recovered base at exactly 15 LUMINAiRY paths: the page, app runtime, claim gate, profile/claim/receipt data, eight dark-sapphire MAiVEN portraits and one golden-amber Trailblazer portrait. Every other retained path has the base manifest SHA. The exact overlay passes the full browser suite. The only remaining HOLD is a coordinated production slot followed by custom-plus-immutable verification; no deploy has occurred.
 
 ## Batch admission rule
 
