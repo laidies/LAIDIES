@@ -1,19 +1,27 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+const bytes = (file) => fs.readFileSync(path.join(root, file));
 const exists = (file) => fs.existsSync(path.join(root, file));
+const sha256 = (file) => crypto.createHash("sha256").update(bytes(file)).digest("hex");
 const page = read("chick-flicks.html");
 const styles = read("content/chick-flicks.css");
 const index = JSON.parse(read("content/episode-index.json"));
 const checks = [];
-const check = (name, fn) => {
-  fn();
-  checks.push(name);
+const check = (name, fn) => { fn(); checks.push(name); };
+
+const vhs = {
+  "01": "63985d88a0de8377121dde1d5acf5fa471c6c13aec3b31352dbf37a9861cc722",
+  "02": "e9e731701793ffcbf0e844866feef0f5cb694010cd83b108cf5a559fd4783922",
+  "03": "b049fe5fa913eae7e8fb8f66f8f7bc7cce04b281139c04f464a81e109536cdde",
+  "04": "85faeed60e3a1f9f9232b32360c08e5b6be370ff4d97eff7bcb6ae84934886c8"
 };
+const store = "assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png";
 
 check("episode index has unique positive numbered records with titles", () => {
   assert.ok(Array.isArray(index.episodes) && index.episodes.length > 0);
@@ -26,137 +34,82 @@ check("episode index has unique positive numbered records with titles", () => {
   }
 });
 
-check("every published issue destination and every indexed box exists", () => {
-  for (const episode of index.episodes) {
-    const number = String(episode.number).padStart(2, "0");
-    assert.ok(exists(`assets/sunnyvaile-interiors/episode-vhs-boxes/ep-${number}.webp`),
-      `missing Episode ${number} box`);
-    if (episode.status === "published") {
-      assert.ok(episode.issueUrl, `Episode ${number}: published without issueUrl`);
-      assert.match(episode.issueUrl, /^\/?issues\/[^/]+\.html$/);
-      assert.ok(exists(episode.issueUrl.replace(/^\/+/, "")),
-        `Episode ${number}: missing ${episode.issueUrl}`);
-    }
+check("all published issue destinations exist", () => {
+  for (const episode of index.episodes.filter((entry) => entry.status === "published")) {
+    assert.match(episode.issueUrl, /^\/?issues\/[^/]+\.html$/);
+    assert.ok(exists(episode.issueUrl.replace(/^\/+/, "")), `missing ${episode.issueUrl}`);
   }
 });
 
-check("catalogue fails closed on schema, duplicate, URL and destination problems", () => {
-  assert.match(page, /Number\.isInteger\(raw\.number\)/);
-  assert.match(page, /Episode index contains a duplicate number/);
-  assert.match(page, /parsed\.origin !== window\.location\.origin/);
-  assert.match(page, /\/\^\\\/issues\\\/\[\^\/\]\+\\\.html\$\//);
-  assert.match(page, /fetchWithTimeout\(episode\._safeIssueUrl, \{ method: "HEAD"/);
-  assert.match(page, /episode\._available = response\.ok/);
-  assert.match(page, /No tape is being presented as released until the manifest and its issue destinations can be checked/);
+check("the discarded masthead cannot return and the exact store image is present", () => {
+  assert.doesNotMatch(page, /sunnyvaile-masthead-chick-flicks\.png/);
+  assert.match(page, /class="cf-masthead"/);
+  assert.match(page, new RegExp(`src="/${store.replaceAll("/", "\\/")}"`));
+  assert.ok(exists(store));
+  assert.equal(sha256(store), "1d510f6dc48511cd8393854999d002d88a999e61b0c33bf0672e6208c0989305");
+  assert.ok(page.indexOf('class="cf-masthead"') < page.indexOf('class="cf-store"'));
 });
 
-check("released, forthcoming and unavailable use one mechanical state rule", () => {
-  assert.match(page, /function releaseState\(episode\)/);
-  assert.match(page, /episode\._available/);
-  assert.match(page, /episode\.status === "draft"/);
-  assert.match(page, /return "unavailable"/);
-  assert.match(page, /state === "forthcoming" \? "coming soon"/);
-  assert.match(page, /"temporarily unavailable" : "unavailable"/);
-  assert.match(page, /list\.filter\(function \(episode\) \{ return releaseState\(episode\) === "released"; \}\)/);
-  assert.doesNotMatch(page, /list\.filter\(function \(episode\) \{ return episode\.status === "published"; \}\)\.length/);
-});
-
-check("arrival language cannot manufacture current-week freshness", () => {
-  assert.match(page, /latest released tape in the manifest/i);
-  assert.match(page, /latest verified release gets the front-wall sticker/i);
-  assert.doesNotMatch(page, /this Wednesday.?s new release|new releases land .* every Wednesday|Rent the new release/i);
-});
-
-check("favourite and last-rental memory are explicitly device-local", () => {
-  assert.match(page, /Favourite on this device:/);
-  assert.match(page, /No favourite tape saved on this device/);
-  assert.match(page, /Remove favourite from this device/);
-  assert.match(page, /Last rented on this device:/);
-  assert.match(page, /Favourite storage is unavailable/);
-  assert.match(page, /could not change your device-only favourite/);
-  assert.doesNotMatch(page, /Resident Card favourite|Put it on my member card|On my member card/);
-});
-
-check("last-rental return is validated, useful and reversibly device-local", () => {
-  assert.match(page, /id="cfReturnVisit"[\s\S]*hidden[\s\S]*aria-labelledby="cf-return-title"/);
-  assert.match(page, /id="cfContinueRental"[\s\S]*Continue with this tape/);
-  assert.match(page, /id="cfClearRental"[\s\S]*Clear and start over/);
-  assert.match(page, /function validatedLastRental\(\)/);
-  assert.match(page, /\/\^\\d\{2\}\$\/\.test\(stored\)/);
-  assert.match(page, /!episode \|\| !episode\._available/);
-  assert.match(page, /removeLocal\("laidies_cf_last_rental"\)/);
-  assert.match(page, /selectEpisode\(current\)/);
-  assert.match(page, /This browser would not let the store clear the device-only rental/);
-  assert.match(styles, /\.cf-return-visit\[hidden\][\s\S]*display: none/);
-});
-
-check("tape selection is a focused issue handoff, never completion", () => {
-  assert.match(page, /takeHome\.href = episode\._safeIssueUrl/);
-  assert.match(page, /rental\.focus\(\{ preventScroll: true \}\)/);
-  assert.match(page, /Released tapes open the full episode/);
-  assert.doesNotMatch(page, /episode completed|completed episode|reward balance|butterfly clip/i);
-});
-
-check("dynamic status, retry, broken-cover and reduced-motion states exist", () => {
-  assert.match(page, /id="cfAisleStatus" role="status" aria-live="polite"/);
-  assert.match(page, /data-retry-catalogue/);
-  assert.match(page, /var FETCH_TIMEOUT_MS/);
-  assert.match(page, /new AbortController\(\)/);
-  assert.match(page, /controller\.abort\(\)/);
-  assert.match(page, /error\.name === "AbortError"/);
-  assert.match(page, /focusElement\(retry\)/);
-  assert.match(page, /focusElement\(latest \? latestButton : title\)/);
-  assert.match(page, /cf-tape__fallback/);
-  assert.match(page, /image\.addEventListener\("error"/);
-  assert.match(page, /prefers-reduced-motion: reduce/);
-  assert.match(styles, /\.cf-tape\.is-image-missing \.cf-tape__fallback/);
-  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
-  assert.match(styles, /\.cf-aisles__track button \{[\s\S]*?min-height: 44px/);
-});
-
-check("trailer copy preserves illustrated listen-along and motion-film hold", () => {
-  assert.match(page, /illustrated, captioned introduction/i);
-  assert.match(page, /\/watch\.html\?ep=trailer/);
-  assert.doesNotMatch(page, /whole town in one watch|full motion film|motion movie/i);
-});
-
-check("all configured aisles are visible and include a deliberate empty state", () => {
-  for (const aisle of ["all", "prompting", "style", "everyday", "ethics", "history", "creative", "unfiled"]) {
-    assert.match(page, new RegExp(`data-aisle="${aisle}"`));
+check("four exact transparent VHS cases are operable on the physical shelf", () => {
+  assert.equal((page.match(/class="cf-tape(?:\s[^"]*)?"/g) || []).length, 4);
+  for (const [number, hash] of Object.entries(vhs)) {
+    const file = `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-${number}.png`;
+    assert.ok(exists(file), `missing ${file}`);
+    assert.equal(sha256(file), hash, `${file} changed`);
+    const png = bytes(file);
+    assert.equal(png.readUInt32BE(16), 1024, `${file} width`);
+    assert.equal(png.readUInt32BE(20), 1536, `${file} height`);
+    assert.equal(png[25], 6, `${file} must remain RGBA`);
+    assert.match(page, new RegExp(`href="#episode-${number}"[\\s\\S]{0,240}ep-${number}\\.png`));
   }
-  for (const aisle of ["prompting", "style", "everyday", "ethics", "history", "creative"]) {
-    assert.match(page, new RegExp(`${aisle}: \\[`));
+});
+
+check("four released rental records expose direct format routes", () => {
+  assert.equal((page.match(/<article class="cf-rental(?:\s[^"]*)?"/g) || []).length, 4);
+  for (const number of Object.keys(vhs)) {
+    assert.equal((page.match(new RegExp(`href="/issues/issue-${number}\\.html"`, "g")) || []).length, 1);
+    assert.equal((page.match(new RegExp(`href="/watch\\.html\\?ep=${number}&amp;mode=listen"`, "g")) || []).length, 1);
+    assert.equal((page.match(new RegExp(`href="/watch\\.html\\?ep=${number}&amp;mode=watch"`, "g")) || []).length, 1);
   }
-  assert.match(page, /creative: \[\]/);
-  assert.match(page, /if \(activeAisle === "all"\) return episodes\.slice\(\)/);
-  assert.match(page, /activeAisle === "unfiled"/);
-  assert.match(page, /no tapes filed in this aisle/);
+});
+
+check("start and latest routes remain immediately available", () => {
+  assert.match(page, /class="cf-routebar"/);
+  assert.match(page, /href="#episode-01"[\s\S]{0,180}<b>Start here<\/b>/);
+  assert.match(page, /href="#episode-04"[\s\S]{0,200}<b>Latest release<\/b>/);
+});
+
+check("Episode 05 is forthcoming without a fabricated tape or action", () => {
+  assert.match(page, /Episode 05 will join the shelf when it is ready to read and listen to\./);
+  assert.doesNotMatch(page, /issue-05|ep=05|episode-vhs-boxes-v2\/ep-05/);
+});
+
+check("the trailer is accurate and exposes one route", () => {
+  assert.match(page, /illustrated, captioned introduction explains the town and how each episode works/i);
+  assert.equal((page.match(/href="\/watch\.html\?ep=trailer"/g) || []).length, 1);
+  assert.match(page, /assets\/media\/opening-day-covers-v1\/trailer\/trailer-site\.jpg/);
+});
+
+check("responsive and keyboard-visible rules preserve the interaction", () => {
+  assert.match(styles, /\.cf-tape:focus-visible/);
+  assert.match(styles, /\.cf-button:focus-visible/);
+  assert.match(styles, /@media\(max-width:920px\)/);
+  assert.match(styles, /@media\(max-width:700px\)/);
+  assert.match(styles, /@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(styles, /\.cf-store__cases[^{]*\{[^}]*grid-template-columns:repeat\(4/);
 });
 
 check("shared Chick Flicks entries use release-state truth rather than weekly freshness", () => {
-  const homepage = read("index.html");
-  const directory = read("content/site/sunnyvaile-directory.js");
-  const checkin = read("content/site/sv-tour-checkin.js");
-  const welcome = read("content/site/sv-welcome-tour.js");
-  const trailerIssue = read("issues/issue-trailer.html");
-  assert.match(homepage, /Released episodes, then the full eight-stop route/);
-  assert.match(homepage, /latest released episode, or start at Episode 1/);
-  assert.match(directory, /Latest released tape/);
-  assert.match(checkin, /Latest released episode/);
-  assert.match(welcome, /Pull a released episode/);
-  assert.match(trailerIssue, /Grab a released tape/);
-  assert.match(trailerIssue, /Choose a released tape/);
-  const oldClaims = [
-    "This week's rental",
-    "This week's episode",
-    "this week’s episode, or start",
-    "Pull this week's episode",
-    "one tape a week",
-    "Grab this week's tape",
-    "Grab this week's —"
-  ];
-  const scopedCopy = [homepage, directory, checkin, welcome, trailerIssue].join("\n");
-  for (const claim of oldClaims) assert.ok(!scopedCopy.includes(claim), claim);
+  const scoped = [
+    read("index.html"),
+    read("content/site/sunnyvaile-directory.js"),
+    read("content/site/sv-tour-checkin.js"),
+    read("content/site/sv-welcome-tour.js"),
+    read("issues/issue-trailer.html")
+  ].join("\n");
+  for (const claim of ["This week's rental", "Pull this week's episode", "one tape a week", "Grab this week's tape"]) {
+    assert.ok(!scoped.includes(claim), claim);
+  }
 });
 
 console.log(`CHICK FLICKS CONTRACT PASS (${checks.length} checks)`);

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
-    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260828-direct-episodes-v2">
+    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260902-vhs-store-v1">
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
     <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
@@ -22,139 +22,111 @@
   <body class="chick-flicks-page">
     <header class="sv-header"></header>
     <main class="cf-page">
-      <section class="cf-hero" aria-labelledby="cf-title">
-        <img class="cf-hero__image" src="/assets/sunnyvaile-masthead-chick-flicks.png" alt="The Chick Flicks video store in SUNNYVAiLE" width="1536" height="1024">
-        <div class="cf-hero__shade" aria-hidden="true"></div>
-        <div class="cf-hero__copy">
-          <p class="cf-eyebrow">The Chick Flicks · No. 3 MAiN Street</p>
-          <h1 id="cf-title">Choose an episode.</h1>
-          <p class="cf-hero__lead">Read the full story, listen to the narrated edition, or watch the current video. Start at Episode 01, jump to the latest, or choose the lesson you need.</p>
-          <div class="cf-hero__actions">
-            <a class="cf-button cf-button--pink" href="#episodes">See all episodes</a>
-            <a class="cf-button cf-button--cyan" href="#trailer">Start with the trailer</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="cf-intro" aria-labelledby="cf-how-title">
+      <section class="cf-masthead" aria-labelledby="cf-title">
         <div>
-          <p class="cf-eyebrow">One story. One practical AI idea.</p>
-          <h2 id="cf-how-title">Pick what you want to learn.</h2>
+          <p class="cf-eyebrow">The Chick Flicks · No. 3 MAiN Street</p>
+          <h1 id="cf-title">The CHiCK FLiCKS</h1>
         </div>
-        <p>Each episode uses the Rewind Era to explain AI in plain English, then connects the story to something you can use. Read, Listen and Watch open the same episode in the format you prefer. The current videos are available while we keep improving their animation and visual continuity.</p>
+        <p class="cf-masthead__promise">Choose the story—or the format—that helps.</p>
       </section>
 
-      <section class="cf-trailer" id="trailer" aria-labelledby="cf-trailer-title">
-        <img src="/assets/media/opening-day-covers-v1/trailer/trailer-site.jpg" alt="The Trailer: Welcome to SUNNYVAiLE" width="1600" height="900" loading="eager">
-        <div class="cf-trailer__body">
-          <p class="cf-eyebrow">New to SUNNYVAiLE? Start here.</p>
-          <h2 id="cf-trailer-title">The Trailer</h2>
-          <p>The illustrated, captioned introduction explains the town, the learning story and how each episode works.</p>
-          <a class="cf-button cf-button--pink" href="/watch.html?ep=trailer">Play the trailer</a>
+      <section class="cf-store" aria-label="Episode tapes inside The Chick Flicks video store">
+        <img class="cf-store__room" src="/assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png" alt="Inside The Chick Flicks, with teal video shelves, pink fluorescent lighting and a Rewind Era checkout counter" width="1672" height="941">
+        <div class="cf-store__cases" aria-label="Episodes 01 to 04 on the New Releases shelf">
+          <a class="cf-tape" href="#episode-01" aria-label="Choose Episode 01: On Wednesdays We Do AI">
+            <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png" alt="Episode 01 VHS case: On Wednesdays We Do AI" width="1024" height="1536">
+          </a>
+          <a class="cf-tape" href="#episode-02" aria-label="Choose Episode 02: Tell Me What You Want">
+            <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-02.png" alt="Episode 02 VHS case: Tell Me What You Want" width="1024" height="1536">
+          </a>
+          <a class="cf-tape" href="#episode-03" aria-label="Choose Episode 03: The Burn Book Problem">
+            <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-03.png" alt="Episode 03 VHS case: The Burn Book Problem" width="1024" height="1536">
+          </a>
+          <a class="cf-tape cf-tape--latest" href="#episode-04" aria-label="Choose the latest release, Episode 04: The Founding Mothers">
+            <span>Latest</span>
+            <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png" alt="Episode 04 VHS case: The Founding Mothers" width="1024" height="1536">
+          </a>
         </div>
       </section>
+
+      <nav class="cf-routebar" aria-label="Quick episode routes">
+        <a href="#episode-01"><span class="cf-routebar__icon" aria-hidden="true">01</span><span><b>Start here</b><small>On Wednesdays We Do AI</small></span><strong aria-hidden="true">→</strong></a>
+        <a href="#episode-04"><span class="cf-routebar__icon cf-routebar__icon--latest" aria-hidden="true">04</span><span><b>Latest release</b><small>The Founding Mothers</small></span><strong aria-hidden="true">→</strong></a>
+      </nav>
 
       <section class="cf-episodes" id="episodes" aria-labelledby="cf-episodes-title">
         <div class="cf-section-head">
           <div>
-            <p class="cf-eyebrow">Season 01 · Episodes 01–04 available now</p>
-            <h2 id="cf-episodes-title">What do you want to understand?</h2>
+            <p class="cf-eyebrow">Season 01 · Four episodes available</p>
+            <h2 id="cf-episodes-title">Pick a tape. Choose a format.</h2>
           </div>
-          <p><strong>New here?</strong> Begin with Episode 01. The stories build on one another, but every episode has its own practical lesson.</p>
+          <p>Each episode tells one story and explains one practical AI idea. Read, Listen and Watch open the same episode in the format you prefer.</p>
         </div>
 
-        <div class="cf-episode-grid">
-          <article class="cf-episode cf-episode--pink">
-            <a class="cf-episode__art" href="/issues/issue-01.html" aria-label="Read Episode 01: On Wednesdays We Do AI">
-              <img src="/assets/media/opening-day-covers-v1/01/01-site.jpg" alt="Episode 01: On Wednesdays We Do AI" width="1600" height="900" loading="eager">
-            </a>
-            <div class="cf-episode__body">
-              <div class="cf-episode__meta"><span>Episode 01</span><span>Start here</span></div>
-              <h3>On Wednesdays We Do AI</h3>
-              <p class="cf-episode__hook">The one where she stops feeling behind and opens the tab anyway.</p>
-              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> What AI is and how to have a first safe interaction with the major tools.</p>
-              <div class="cf-episode__actions">
-                <a class="cf-button cf-button--dark" href="/issues/issue-01.html">Read Episode 01</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=01&amp;mode=listen">Listen</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=01&amp;mode=watch">Watch</a>
-              </div>
+        <div class="cf-rental-grid">
+          <article class="cf-rental" id="episode-01">
+            <div class="cf-rental__meta"><span>Episode 01</span><span>Start here</span></div>
+            <h3>On Wednesdays We Do AI</h3>
+            <p>The one where she stops feeling behind and opens the tab anyway.</p>
+            <p class="cf-rental__lesson"><strong>You’ll learn:</strong> What AI is and how to begin safely.</p>
+            <div class="cf-rental__actions">
+              <a class="cf-button cf-button--read" href="/issues/issue-01.html">Read</a>
+              <a class="cf-button cf-button--listen" href="/watch.html?ep=01&amp;mode=listen">Listen</a>
+              <a class="cf-button cf-button--watch" href="/watch.html?ep=01&amp;mode=watch">Watch</a>
             </div>
           </article>
 
-          <article class="cf-episode cf-episode--orange">
-            <a class="cf-episode__art" href="/issues/issue-02.html" aria-label="Read Episode 02: Tell Me What You Want">
-              <img src="/assets/media/opening-day-covers-v1/02/02-site.jpg" alt="Episode 02: Tell Me What You Want" width="1600" height="900" loading="lazy">
-            </a>
-            <div class="cf-episode__body">
-              <div class="cf-episode__meta"><span>Episode 02</span><span>Prompting</span></div>
-              <h3>Tell Me What You Want</h3>
-              <p class="cf-episode__hook">The one where a vague ask gets garbage back—and the brief changes everything.</p>
-              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> How to write specific, context-rich prompts that produce usable work output.</p>
-              <div class="cf-episode__actions">
-                <a class="cf-button cf-button--dark" href="/issues/issue-02.html">Read Episode 02</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=02&amp;mode=listen">Listen</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=02&amp;mode=watch">Watch</a>
-              </div>
+          <article class="cf-rental" id="episode-02">
+            <div class="cf-rental__meta"><span>Episode 02</span><span>Prompting</span></div>
+            <h3>Tell Me What You Want</h3>
+            <p>The one where a vague ask gets garbage back—and the brief changes everything.</p>
+            <p class="cf-rental__lesson"><strong>You’ll learn:</strong> How to give AI useful context and direction.</p>
+            <div class="cf-rental__actions">
+              <a class="cf-button cf-button--read" href="/issues/issue-02.html">Read</a>
+              <a class="cf-button cf-button--listen" href="/watch.html?ep=02&amp;mode=listen">Listen</a>
+              <a class="cf-button cf-button--watch" href="/watch.html?ep=02&amp;mode=watch">Watch</a>
             </div>
           </article>
 
-          <article class="cf-episode cf-episode--blue">
-            <a class="cf-episode__art" href="/issues/issue-03.html" aria-label="Read Episode 03: The Burn Book Problem">
-              <img src="/assets/media/opening-day-covers-v1/03/03-site.jpg" alt="Episode 03: The Burn Book Problem" width="1600" height="900" loading="lazy">
-            </a>
-            <div class="cf-episode__body">
-              <div class="cf-episode__meta"><span>Episode 03</span><span>Verification</span></div>
-              <h3>The Burn Book Problem</h3>
-              <p class="cf-episode__hook">The one where AI sounds completely certain—and she catches what it got wrong.</p>
-              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> How to check, challenge, source, and contain AI output before your name goes on it.</p>
-              <div class="cf-episode__actions">
-                <a class="cf-button cf-button--dark" href="/issues/issue-03.html">Read Episode 03</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=03&amp;mode=listen">Listen</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=03&amp;mode=watch">Watch</a>
-              </div>
+          <article class="cf-rental" id="episode-03">
+            <div class="cf-rental__meta"><span>Episode 03</span><span>Verification</span></div>
+            <h3>The Burn Book Problem</h3>
+            <p>The one where AI sounds completely certain—and she catches what it got wrong.</p>
+            <p class="cf-rental__lesson"><strong>You’ll learn:</strong> How to check AI before your name goes on it.</p>
+            <div class="cf-rental__actions">
+              <a class="cf-button cf-button--read" href="/issues/issue-03.html">Read</a>
+              <a class="cf-button cf-button--listen" href="/watch.html?ep=03&amp;mode=listen">Listen</a>
+              <a class="cf-button cf-button--watch" href="/watch.html?ep=03&amp;mode=watch">Watch</a>
             </div>
           </article>
 
-          <article class="cf-episode cf-episode--green">
-            <a class="cf-episode__art" href="/issues/issue-04.html" aria-label="Read Episode 04: The Founding Mothers">
-              <img src="/assets/media/opening-day-covers-v1/04/04-site.jpg" alt="Episode 04: The Founding Mothers" width="1600" height="900" loading="lazy">
-              <span class="cf-latest">Latest episode</span>
-            </a>
-            <div class="cf-episode__body">
-              <div class="cf-episode__meta"><span>Episode 04</span><span>Women in AI</span></div>
-              <h3>The Founding Mothers</h3>
-              <p class="cf-episode__hook">The one where she goes looking for AI’s origin story—and finds out it was women all along.</p>
-              <p class="cf-episode__lesson"><strong>You’ll learn:</strong> How women shaped the ideas, machines, and methods that made today’s AI possible.</p>
-              <div class="cf-episode__actions">
-                <a class="cf-button cf-button--dark" href="/issues/issue-04.html">Read Episode 04</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=04&amp;mode=listen">Listen</a>
-                <a class="cf-button cf-button--outline" href="/watch.html?ep=04&amp;mode=watch">Watch</a>
-              </div>
+          <article class="cf-rental cf-rental--latest" id="episode-04">
+            <div class="cf-rental__meta"><span>Episode 04</span><span>Latest release</span></div>
+            <h3>The Founding Mothers</h3>
+            <p>The one where she goes looking for AI’s origin story—and finds out it was women all along.</p>
+            <p class="cf-rental__lesson"><strong>You’ll learn:</strong> How women shaped the ideas and machines behind AI.</p>
+            <div class="cf-rental__actions">
+              <a class="cf-button cf-button--read" href="/issues/issue-04.html">Read</a>
+              <a class="cf-button cf-button--listen" href="/watch.html?ep=04&amp;mode=listen">Listen</a>
+              <a class="cf-button cf-button--watch" href="/watch.html?ep=04&amp;mode=watch">Watch</a>
             </div>
           </article>
         </div>
 
-        <aside class="cf-coming" aria-label="Next episode coming soon">
+        <aside class="cf-coming" aria-label="Episode 05 coming soon">
           <div class="cf-coming__number">05</div>
-          <div>
-            <p class="cf-eyebrow">Next episode</p>
-            <h2>Coming soon to The Chick Flicks.</h2>
-            <p>Episode 05 will appear here when it is ready to read and listen to.</p>
-          </div>
+          <div><p class="cf-eyebrow">Next episode</p><h2>Checked in when it’s ready.</h2><p>Episode 05 will join the shelf when it is ready to read and listen to.</p></div>
           <span class="cf-coming__sticker">Coming soon</span>
         </aside>
       </section>
 
-      <section class="cf-new-here" aria-labelledby="cf-new-title">
-        <div>
-          <p class="cf-eyebrow">Not sure where to begin?</p>
-          <h2 id="cf-new-title">Start at the beginning.</h2>
-          <p>Episode 01 introduces the learning story and gives you a first safe way into AI. You can read it, listen to it, and continue when you’re ready.</p>
-        </div>
-        <div class="cf-new-here__actions">
-          <a class="cf-button cf-button--pink" href="/issues/issue-01.html">Read Episode 01</a>
-          <a class="cf-button cf-button--cyan" href="/watch.html?ep=01&amp;mode=listen">Listen to Episode 01</a>
-          <a class="cf-button cf-button--cyan" href="/watch.html?ep=01&amp;mode=watch">Watch Episode 01</a>
+      <section class="cf-trailer" id="trailer" aria-labelledby="cf-trailer-title">
+        <img src="/assets/media/opening-day-covers-v1/trailer/trailer-site.jpg" alt="The Trailer: Welcome to SUNNYVAiLE" width="1600" height="900" loading="lazy">
+        <div class="cf-trailer__body">
+          <p class="cf-eyebrow">First visit to SUNNYVAiLE?</p>
+          <h2 id="cf-trailer-title">Watch the trailer.</h2>
+          <p>The illustrated, captioned introduction explains the town and how each episode works.</p>
+          <a class="cf-button cf-button--watch" href="/watch.html?ep=trailer">Play the trailer</a>
         </div>
       </section>
     </main>

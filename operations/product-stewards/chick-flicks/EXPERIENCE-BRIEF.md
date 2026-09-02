@@ -231,10 +231,14 @@ catalogue. Latest and Start here remain immediately clear below it; do not
 return to an oversized dark hero overlay that delays episode choice. The image
 `assets/sunnyvaile-masthead-chick-flicks.png` is long-discarded and denied as
 masthead/store authority; the two September 2 mockups that used it are invalid.
-The masthead image slot is source-empty until the exact current approved Chick
-Flicks/store image is identified and verified. This locks the arrival layout
-and rejection only; it does not approve a replacement image, change episode or
-media admission, authorize deployment or claim public release.
+The page-integration candidate now uses the text-free physical store interior
+`assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png`,
+SHA-256 `1d510f6dc48511cd8393854999d002d88a999e61b0c33bf0672e6208c0989305`,
+1672 × 941. It provides real teal metal shelving, pink fluorescent light,
+glass-block walls, patterned carpet, return slot and checkout register without
+baked text or people. It remains a candidate until the complete page passes
+same-viewport desktop and mobile visible-output review; its presence in source
+does not authorize deployment or claim public release.
 `ALI DIRECT CORRECTION — 2026-09-02`
 
 The episode catalogue is a literal video-store wall: every episode is shown as
@@ -245,6 +249,34 @@ Watch actions remain deterministic, readable controls beside or beneath the
 tape rather than lettering baked into its artwork. Mobile may recompose the
 shelf, but it may not turn the episodes back into generic content cards.
 `ALI DIRECT DESIGN DECISION — 2026-09-02`
+
+The confirmed visual source for Episodes 01–04 is the image-led comic title-card
+family: `ep01-title-card-comic-v2.png`, `ep02-title-card-comic-v2.png`,
+`ep03-title-card-comic-v2.png` and the selected Episode 04 successor
+`ep04-title-card-comic-v3-laidies-colour.png`. Each new VHS sleeve must preserve
+its episode-specific imagery and exact episode name; the generic Opening Day
+electric cover family and the obsolete July VHS cover art are rejected for this
+shelf. Episodes 01–03 keep their current colours. Ali selected the first
+September 2 Episode 04 colour successor over the stricter second recolour:
+`assets/episodes/ep-04/pixel/ep04-title-card-comic-v3-laidies-colour.png`,
+SHA-256 `88ea7bfcc665cace028d9845edb34f75bf42cf3b8e46c0896eb24b92d2a06b39`,
+1672 × 941. Its pink title, teal edge, navy field, purple/periwinkle bursts,
+coral accents and warm historical objects are the exact selected Chick Flicks
+cover source. The original v2 remains preserved and is not overwritten. No
+matching Episode 05 title card is inferred or invented.
+`ALI DIRECT EXACT COVER SELECTION — 2026-09-02`
+
+The accepted page-integration VHS family is
+`assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png` through
+`ep-04.png`. All four are 1024 × 1536 transparent PNGs in one clear-clamshell
+physical grammar. The exact hashes and independent visible-pixel verdict are
+bound in
+`evidence/episode-01-04-vhs-family-independent-verdict-2026-09-02.md`.
+Page integration must show every full sleeve, retain live HTML for availability
+and Read, Listen and Watch, recompose rather than genericize the shelf on
+mobile, and keep Episode 05 separate without an invented cover. This is an
+integration-candidate acceptance only; it does not admit or release the page.
+`INDEPENDENT VISUAL VERDICT — 2026-09-02`
 
 Invariants are truthful state, operable rendered objects, live readable UI,
 approved character continuity, candy-accent family, accessible controls,

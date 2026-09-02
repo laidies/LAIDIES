@@ -33,31 +33,39 @@ for (const number of ['01', '02', '03', '04']) {
 
 const trailerRoutes = source.match(/href=["']\/watch\.html\?ep=trailer["']/g) || [];
 if (trailerRoutes.length !== 1) errors.push('The page must expose exactly one direct trailer route');
-if (!/The illustrated, captioned introduction explains the town, the learning story and how each episode works\./.test(source)) {
+if (!/The illustrated, captioned introduction explains the town and how each episode works\./.test(source)) {
   errors.push('The trailer does not explain its orientation job');
 }
 const trailerImage = 'assets/media/opening-day-covers-v1/trailer/trailer-site.jpg';
 if (!source.includes(`src="/${trailerImage}"`)) errors.push('The page does not use the real trailer cover');
 if (!fs.existsSync(path.join(root, trailerImage))) errors.push(`Missing trailer image: ${trailerImage}`);
 
-if (!/Episode 05 will appear here when it is ready to read and listen to\./.test(source)) {
+if (!/Episode 05 will join the shelf when it is ready to read and listen to\./.test(source)) {
   errors.push('Episode 05 does not have a clear inactive coming-soon state');
 }
 if (/href=["'][^"']*issue-05/.test(source) || /href=["'][^"']*ep=05/.test(source)) {
   errors.push('Episode 05 exposes an active Read or Listen route');
 }
-if ((source.match(/<article class=["']cf-episode\s/g) || []).length !== 4) {
-  errors.push('The page must expose exactly four published episode cards');
+if ((source.match(/<article class=["']cf-rental(?:\s|["'])/g) || []).length !== 4) {
+  errors.push('The page must expose exactly four released episode rental records');
 }
 
 const expectedCoverPaths = ['01', '02', '03', '04']
-  .map(number => `assets/media/opening-day-covers-v1/${number}/${number}-site.jpg`);
-const imagePaths = [...source.matchAll(/<img[^>]+src=["'](\/assets\/media\/opening-day-covers-v1\/(?:0[1-4])\/(?:0[1-4])-site\.jpg)["']/g)]
+  .map(number => `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-${number}.png`);
+const imagePaths = [...source.matchAll(/<img[^>]+src=["'](\/assets\/sunnyvaile-interiors\/episode-vhs-boxes-v2\/ep-(?:0[1-4])\.png)["']/g)]
   .map(match => match[1].slice(1));
-if (imagePaths.length !== 4) errors.push('Each published episode must use one Opening Day site cover');
+if (imagePaths.length !== 4) errors.push('Each released episode must use one approved physical VHS case');
 for (const imagePath of expectedCoverPaths) {
-  if (!imagePaths.includes(imagePath)) errors.push(`Episode cover is not wired: ${imagePath}`);
-  if (!fs.existsSync(path.join(root, imagePath))) errors.push(`Missing episode image: ${imagePath}`);
+  if (!imagePaths.includes(imagePath)) errors.push(`Episode VHS case is not wired: ${imagePath}`);
+  if (!fs.existsSync(path.join(root, imagePath))) errors.push(`Missing episode VHS case: ${imagePath}`);
+}
+
+const storeImage = 'assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png';
+if (!source.includes(`src="/${storeImage}"`)) errors.push('The current store interior is not wired');
+if (!fs.existsSync(path.join(root, storeImage))) errors.push(`Missing store interior: ${storeImage}`);
+if (source.includes('sunnyvaile-masthead-chick-flicks.png')) errors.push('The long-discarded masthead image returned');
+if ((source.match(/class=["'][^"']*cf-tape(?:\s|["'])/g) || []).length !== 4) {
+  errors.push('The store shelf must expose exactly four operable VHS tapes');
 }
 
 if (errors.length) {

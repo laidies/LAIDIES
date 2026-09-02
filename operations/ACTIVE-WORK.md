@@ -1,5 +1,24 @@
 # Active work
 
+## 2026-09-02 Chick Flicks store-and-VHS redesign — BUILT LOCALLY; VISUAL CHECK WAITING
+
+The isolated successor at
+`/Users/alisoneakin/Projects/laidies-chick-flicks-masthead-livebase-20260902`
+starts from exact live source `6ce2992c` and replaces the long-discarded town
+masthead with a Library-related title masthead followed by a text-free physical
+Chick Flicks store interior. Episodes 01–04 are four exact transparent
+clear-clamshell VHS cases on the real shelves, using the image-led episode title
+family and Ali's selected first LAiDIES-colour successor for Episode 04. Start
+here and Latest remain immediate; every released episode has direct Read,
+Listen and Watch routes; Episode 05 remains inactive without invented art.
+
+Static checks pass for exact asset hashes, store/masthead ordering, four physical
+tapes, four format-route triplets, trailer truth, forthcoming state, responsive
+rules and shared release-state copy. The guard was calibrated by replacing the
+Episode 04 VHS path in a scratch page and rejected it. The full page still needs
+desktop and phone visible-output review in Ali's chosen browser before admission.
+Nothing has been deployed or publicly verified.
+
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
 
 Sticker-only candidate `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/laidies-ksvl-service.aYHJy2`;
