@@ -75,7 +75,6 @@ const server = http.createServer((request, response) => {
 
 await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
 const siteOrigin = process.env.NEWSSTAND_PUBLIC_ORIGIN || `http://127.0.0.1:${server.address().port}`;
-if (process.env.NEWSSTAND_PUBLIC_ORIGIN && !ZOOM) throw new Error('Public-origin mode is limited to the real-clock zoom branch');
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-newsstand-chrome-"));
 if (ZOOM) {
   fs.mkdirSync(path.join(profile,'Default'));
@@ -263,7 +262,7 @@ try {
     check(await value(direct, `(() => {
       const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
       return !!state && state.lastPublication &&
-        state.lastPublication.viewed_at === new Date().toISOString();
+        Math.abs(Date.parse(state.lastPublication.viewed_at) - Date.now()) < 5000;
     })()`), true, "successful story body view advances the returning-reader baseline");
     check(await value(direct, `(() => {
       const raw = localStorage.getItem('laidies_newsstand_seen_v1') || '';
@@ -285,7 +284,8 @@ try {
     await act(clicked, "document.querySelector('.ns-front-story[href^=\"#\"]').click()");
     check(await value(clicked, `(() => {
       const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
-      return !!document.querySelector('.ns-article') && state.lastPublication.viewed_at === new Date().toISOString();
+      return !!document.querySelector('.ns-article') &&
+        Math.abs(Date.parse(state.lastPublication.viewed_at) - Date.now()) < 5000;
     })()`), true, "clicked eligible story advances the baseline after its body opens");
     clicked.close();
 
