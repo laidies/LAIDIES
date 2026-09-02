@@ -14833,3 +14833,20 @@ while remaining falsely unfinished in the launch record.
   until the workshop catering became a 45-minute mixtape.
 - **Status:** Internal teaching standard corrected; manuscripts and publication
   remain HOLD.
+
+## LIBRARY-CORRECT-BUT-HARD-TO-ENTER-20260902 — Accuracy does not rescue inaccessible teaching
+
+- **Finding:** The guide work accumulated strong research, distinctions and
+  verification rules, but Ali had to repeatedly ask what excerpts meant. The
+  production system treated comprehension as one quality dimension rather than
+  the reader's doorway into every other benefit.
+- **Prevention:** Make easy engagement and understanding the first editorial
+  test. In friendly conversational prose, answer what the idea means, why it
+  matters and what the reader can do next. Introduce context and terminology at
+  the point of use; do not score technical completeness around reader friction.
+- **Evidence:** Ali's direct priority ruling on 2026-09-02, following the effort,
+  dietary-context, catering and generic-example corrections.
+- **Possible Behind the Build angle:** The AI textbook could be accurate and
+  still fail—because the reader should not need an AI textbook to decode it.
+- **Status:** Binding manuscript priority recorded; full manuscripts and human
+  comprehension testing remain HOLD.

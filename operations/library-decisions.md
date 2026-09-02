@@ -130,6 +130,21 @@ details may not appear in a reader excerpt without their full setup. A teaching
 adaptation of a tested failure must be labelled as an adaptation rather than an
 actual run of the nostalgic example.
 
+**Primary editorial priority — Ali, 2026-09-02:** The most important quality
+test for all four books is whether an ordinary nontechnical reader can easily
+engage with and understand the material. Accuracy remains non-negotiable, but
+coverage density, technical completeness, clever references and tidy taxonomy
+cannot compensate for prose that feels hard to enter or must be decoded. Write
+like a knowledgeable, friendly woman explaining something useful in
+conversation: answer the reader's question, introduce only the context she
+needs, explain cause and effect in plain language, use concrete examples, and
+say what she can do with the information. Define a necessary technical term at
+the moment it becomes useful. Keep paragraphs and sections scannable without
+turning the book into repetitive template cards. A passage is not ready merely
+because it is factually correct; the reader should be able to say what it
+means, why it matters and what to do next without hunting elsewhere or rereading
+to decode it.
+
 - `operations/product-stewards/library/whos-who-in-ai/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/chatgpt-guide/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/claude-guide/DEEP-RESEARCH-2026-08-31.md`

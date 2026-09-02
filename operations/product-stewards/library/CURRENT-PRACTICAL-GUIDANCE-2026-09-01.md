@@ -5,9 +5,23 @@
 for the two guide manuscripts, not publication approval or a claim that every
 feature is available in every account.
 
+## The reader promise
+
+The first job of these guides is to be easy to enter, understand and use. They
+should sound like a friendly, knowledgeable conversation, not a manual written
+for someone who already knows the product. Accuracy is required, but a correct
+paragraph that makes the reader work out what it means has not finished its
+job. Each section should leave her able to answer three questions without
+hunting elsewhere: What does this mean? Why would I care? What can I do now?
+
+Technical terms arrive only when they become useful and are explained where
+they appear. Examples begin with the whole situation. Structure should make the
+book easy to scan without making every page feel like the same worksheet.
+
 ## How a tip earns a place in the books
 
-A useful tip must answer seven questions:
+A useful tip must first be understandable and engaging, then answer seven
+questions:
 
 1. When would an ordinary reader use this?
 2. What exactly should she do?

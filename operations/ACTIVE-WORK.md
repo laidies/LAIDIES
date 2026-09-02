@@ -41,6 +41,11 @@
   a cassette-side timing repair and labels it honestly as an editorial
   adaptation, not a tested mixtape run. Internal workshop evidence remains
   preserved and does not become reader copy without full setup.
+- **Primary editorial priority, 2026-09-02:** Easy engagement and understanding
+  now outrank coverage density, cleverness and technical completeness as the
+  books' central editorial test. Every section must answer what the idea means,
+  why it matters and what the reader can do next in friendly conversational
+  prose. Accuracy remains non-negotiable; correctness alone is not completion.
 
 ### 2026-08-31 — tested sample package, first hands-on round
 
