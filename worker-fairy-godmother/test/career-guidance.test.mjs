@@ -197,7 +197,10 @@ test('feedback and impostor-label answers reject harmful conclusions before allo
     { field: 'nextMove', value: 'Ignore the feedback because it is just bias.' },
     { field: 'deliverable', value: 'Confront your boss and tell them they are sexist.' },
     { field: 'nextMove', value: 'Paste your full performance review here.' },
-    { field: 'reasoning', value: ['The feeling is real, so use affirmations that cure it.'] }
+    { field: 'reasoning', value: ['The feeling is real, so use affirmations that cure it.'] },
+    { field: 'deliverable', value: 'AI can rehearse concise answers and challenge your wording while it maps the evidence.' },
+    { field: 'deliverable', value: 'AI can build a private evidence map using the actual criterion.' },
+    { field: 'read', value: 'This is a real experience gap, not imaginary budget fairy dust; ask for the criterion.' }
   ];
   for (const mutation of mutations) {
     const result = await run({ ...base, [mutation.field]: mutation.value });
