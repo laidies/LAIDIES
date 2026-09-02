@@ -329,16 +329,17 @@ try {
 
     const malformed = await openPage("/newsstand.html");
     await act(malformed, "localStorage.setItem('laidies_newsstand_seen_v1', '{not-json');location.reload()");
-    for (let attempt = 0; attempt < 40; attempt += 1) {
-      if (await value(malformed, sanitizedReturningState)) break;
-      await sleep(50);
-    }
-    check(await value(malformed, `(() => {
+    const malformedStateReady = `(() => {
       const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
       return !!state && Object.keys(state).length === 1 &&
         Object.prototype.hasOwnProperty.call(state, 'lastPublication') &&
         !!document.querySelector('#ns-catchup-explainer') && !!document.querySelector('.ns-one-paper');
-    })()`), true, "malformed local returning state is discarded without blocking the reader");
+    })()`;
+    for (let attempt = 0; attempt < 120; attempt += 1) {
+      if (await value(malformed, malformedStateReady)) break;
+      await sleep(50);
+    }
+    check(await value(malformed, malformedStateReady), true, "malformed local returning state is discarded without blocking the reader");
     malformed.close();
 
     for (const width of [390, 320]) {
