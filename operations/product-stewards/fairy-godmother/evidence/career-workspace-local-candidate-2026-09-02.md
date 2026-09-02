@@ -53,11 +53,10 @@ current account, privacy and workplace settings.
   `be6fd4786e7891fd31b37257f73b5354d0064533cce4f3505f76bfb11b77a2ee`.
   The new regression and full Worker suite pass88/88; both frozen fixtures pass
   unchanged.
-- Production Worker and Pages were not changed by this failed candidate test.
-  Exact v8 commit `566a74a0` is pushed and staging version
-  `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100% with its four secrets,
-  Supabase, Durable Object and rate-limit bindings present. A post-reset real v8
-  response is still required before promotion.
+- Production Worker and Pages were not changed by the failed v7 candidate test.
+  Exact v8 commit `566a74a0` was pushed and pre-QA staging version
+  `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` preserved its four secrets, Supabase,
+  Durable Object and rate-limit bindings before the QA harness superseded it.
 
 ### Staging QA identity repair
 
@@ -77,7 +76,8 @@ current account, privacy and workplace settings.
   reached the older identity path and returned an ordinary guest receipt; an
   immediate token check then correctly failed. After propagation settled, the
   authenticated call returned `allowance.kind=qa`, daily limit3 and remaining2.
-  Release evidence uses the settled QA receipt, not the earlier guest result.
+  Release evidence uses the settled QA receipt on exact staging version
+  `e7886c56-686f-4e47-8ffe-473b79861c11`, not the earlier guest result.
 - The exact real v8 answer gives a bounded 20-minute invitation, reciprocal
   exchange, permission-based follow-up and no sponsorship promise. Its
   `conversation_rehearsal` card uses only supplied facts, explicitly stays

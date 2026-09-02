@@ -51,8 +51,8 @@ answer retained the practical invitation/follow-up and returned the governed
 AI rehearsal card with no prediction, document transfer, false familiarity or
 outcome promise. Public per-answer citations remain held because
 source membership alone does not prove that a source supports the generated
-answer. Exact v8 commit `566a74a0` is pushed and staging version
-`fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100%; production remains unchanged.
+answer. Exact v8 commit `566a74a0` was pushed and pre-QA staging version
+`fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` was superseded by the test-harness release.
 Production Worker version `823d830f-1e8d-462f-9eda-3d7831e78c59` is at100%.
 Exact binding inspection preserves the four production secrets, Supabase,
 Durable Object, rate limiter, pilot flag and US$10 cap while omitting both
@@ -65,7 +65,8 @@ separate three-case actor allowance while retaining the same rate limiter,
 atomic ledger and shared daily provider ceiling. Without the staging flag the
 header remains an ordinary guest and cannot increase allowance.90/90 Worker
 tests and dry-run bindings pass. The authenticated QA response and production
-promotion above close this hold.
+promotion above close this hold. The settled real QA response ran on exact
+staging version `e7886c56-686f-4e47-8ffe-473b79861c11`.
 
 Career Workspace checkpoint: Ali approved a portable framework that readers
 build in their own AI tool. The public release keeps today's answer first,

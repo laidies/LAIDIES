@@ -62,9 +62,10 @@ The guard does not add a workspace, source credit, document request or
 prediction of the other person's response. Exact local tests pass88/88 plus the
 frozen45-case answer and79-case classifier fixtures. The real authenticated-QA
 v8 answer passed the exact response review. Exact
-commit `566a74a0` is pushed; staging version
-`fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100% with all four required secrets
-and the existing Supabase, Durable Object and rate-limit bindings. Production
+commit `566a74a0` was pushed; pre-QA staging version
+`fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` preserved all four required secrets and
+the existing Supabase, Durable Object and rate-limit bindings before the QA
+harness superseded it. Production
 version `823d830f-1e8d-462f-9eda-3d7831e78c59` is now at100% with the four
 production secrets and existing bindings preserved; no staging QA flag or
 secret is present.
@@ -78,7 +79,8 @@ allowance unless both the staging flag and secret are configured. The calibrated
 flag-off test proves the same header remains an ordinary one-case guest in the
 production-shaped environment. Full Worker tests pass90/90. The settled
 staging QA call returned `allowance.kind=qa`, preserved the practical response
-and included the governed rehearsal task. Production no-charge checks pass.
+and included the governed rehearsal task on exact staging version
+`e7886c56-686f-4e47-8ffe-473b79861c11`. Production no-charge checks pass.
 
 ## 2026-09-01 — initial public beta limits approved
 
