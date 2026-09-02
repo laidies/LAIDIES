@@ -1,5 +1,34 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-09-02 — practical guidance is routed by problem, not personality
+
+Ali directed FAiRY to use other practical-script sources where they improve the
+answer, rather than making Dorie Clark the only external career lens. The
+private research bank now adds bounded source roles for feedback specificity,
+conversation follow-through, leader-created speaking-up conditions, career
+experiments, feedback requests and job-offer packaging. The initial sources are
+Sheila Heen and Douglas Stone, Alison Wood Brooks, Amy Edmondson, Herminia
+Ibarra, Lara Hogan and Deepak Malhotra.
+
+This is a source-development decision, not permission to assemble a panel of
+famous people inside an answer. FAiRY routes by the visitor's situation and
+desired action; each source must earn a distinct practical job and explicit
+limit. Visitor-facing scripts remain original LAiDIES adaptations unless Ali's
+handout is the named source. Do not imitate an author, claim endorsement,
+reproduce copyrighted script collections, or use a source name as proof that a
+generated answer is supported. Power, retaliation risk and the organisation's
+responsibility remain part of the answer rather than being edited away in the
+name of confidence.
+
+The six new scenario candidates are private research only. None has entered
+the Worker reference bank, generated a model call, changed the public FAiRY
+answer or been deployed. Each needs source-support admission plus ordinary,
+power-sensitive, wrong-route and unsupported-attribution tests before runtime
+integration. The smallest next Tier 1 pilot is `vague-feedback-label-to-data`,
+because it connects directly to Ali's existing handout and the released
+`specific-feedback` route while still testing whether an external framework
+adds usefulness instead of decorative authority.
+
 ## 2026-09-02 — Career Workspace portable interview released
 
 Ali approved an optional Career Workspace that readers build in their own AI
