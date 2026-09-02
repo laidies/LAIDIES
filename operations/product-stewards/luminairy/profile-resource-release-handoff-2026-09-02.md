@@ -1,8 +1,11 @@
 # LUMINAiRY complete profile-resource release handoff
 
-**Status:** RELEASE CANDIDATE READY / NOT DEPLOYED  
-**Source commit:** `6b604fd606ece7f8a3e6af8ac0a42859778c10b2`  
-**Branch:** `feature/luminairy-all-profile-resources-20260902`  
+**Status:** RELEASE CANDIDATE READY / NOT DEPLOYED
+
+**Content commit:** `6b604fd606ece7f8a3e6af8ac0a42859778c10b2`
+
+**Branch:** `feature/luminairy-all-profile-resources-20260902`
+
 **Checked:** 2026-09-02, America/Vancouver
 
 ## Outcome
