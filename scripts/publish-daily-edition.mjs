@@ -29,6 +29,7 @@ export function verifyProjectionAdmission({ issue, envelopeRaw, decision, root =
   const envelope = JSON.parse(envelopeRaw);
   const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   if (ordinary && !["daily-issue-admission-v1", "daily-issue-news-revision-admission-v1"].includes(decision.schemaVersion)) reject("ordinary projection requires initial or news-revision admission");
+  if (envelope.sourceIdentity.storyCorrection && decision.schemaVersion !== "daily-issue-story-correction-admission-v1") reject("story correction projection requires explicit correction admission");
   const expected = {
     editionDate: envelope.editionDate, editorialTimeZone: envelope.editorialTimeZone,
     disposition: envelope.disposition.toLowerCase(), storyIds: envelope.storyIds,
@@ -82,7 +83,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, {
     root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt
   }) : null;
-  if (predecessor && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
+  if (predecessor && !issue.sourceIdentity?.storyCorrection && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
   if (predecessor && stable(issue.serviceRecordIds) !== stable(issue.desks.filter(d => d.state === 'ready').map(d => d.recordId))) reject('service IDs differ from admitted desks');
   if (issue.desks) validateServiceSelection({ desks: issue.desks, columns, date: issue.editionDate, predecessor, canonicalIssue: dataset.publications.daily.issue });
   for (const id of issue.serviceRecordIds) {
@@ -94,6 +95,10 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
     const laneErrors = careerLaneErrors(record, issue.editionDate);
     if (laneErrors.length) reject(`${id}: ${laneErrors.join('; ')}`);
   }
+  // A dated-snapshot correction records history only. The corrected story is
+  // already the exact current schema-2 story; do not republish the day or move
+  // its timestamps while repairing the archive authority.
+  if (issue.sourceIdentity?.storyCorrection) return next;
   const timestamp = issue.admission.reviewedAt;
   if (!Number.isFinite(Date.parse(timestamp))) reject("admission timestamp is invalid");
   next.generatedAt = timestamp;
@@ -126,7 +131,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
 export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
-  const baseRaw = ordinary ? ordinary.publicationBaseRaw : predecessor ? predecessor.storiesRaw : raw;
+  const baseRaw = ordinary ? ordinary.publicationBaseRaw : issue.sourceIdentity?.storyCorrection ? raw : predecessor ? predecessor.storiesRaw : raw;
   if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");
   const context = { window: {} };
   vm.runInNewContext(baseRaw, context, { timeout: 1000 });
@@ -135,7 +140,7 @@ export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
   const end = baseRaw.indexOf("\n};", start);
   if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
   const nextRaw = baseRaw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + baseRaw.slice(end + 3);
-  if ((ordinary || predecessor) && raw !== baseRaw && raw !== nextRaw) reject("publication base changed after review; retry is not exact projected output");
+  if ((ordinary || (predecessor && !issue.sourceIdentity?.storyCorrection)) && raw !== baseRaw && raw !== nextRaw) reject("publication base changed after review; retry is not exact projected output");
   return nextRaw;
 }
 

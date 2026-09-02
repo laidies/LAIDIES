@@ -321,6 +321,14 @@ migration of an already admitted issue. It must bind both exact predecessor and
 successor envelope hashes. Do not use it to revise copy, desks, membership or
 source identity; the writer rejects those changes.
 
+When an already published ordinary story is corrected after its dated issue was
+admitted, use `prepare-newsstand-daily-story-correction.mjs` and a separately
+reviewed `daily-issue-story-correction-admission-v1` decision. The decision binds
+the exact predecessor issue, the one corrected story ID, the current approved
+story evidence and the successor envelope. This path may replace only that
+dated story snapshot and its story-source identity. It cannot change the date,
+story membership/order, services, Front PAiGE, Weekly, or any other story.
+
 `daily-issue-service-revision-admission-v1` permits a separately reviewed,
 same-date empty-service-slot addition only. It binds the exact predecessor and
 successor envelopes, named added records and either the original pre-projection

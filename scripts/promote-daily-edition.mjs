@@ -119,8 +119,18 @@ function validateEnvelope(value, root = ROOT) {
     reject("story snapshots do not match story IDs");
   }
   const candidateBinding = value.sourceIdentity?.ordinaryCandidate;
-  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
+  const correctionBinding = value.sourceIdentity?.storyCorrection;
+  if (candidateBinding && correctionBinding) reject("ordinary candidate and story correction cannot share one issue envelope");
+  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(correctionBinding ? ["storyCorrection"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
   const candidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate }).story : null;
+  if (correctionBinding) {
+    exactKeys(correctionBinding, ["storyId", "predecessorStorySha256", "successorStorySha256", "evidence"], "story correction");
+    if (typeof correctionBinding.storyId !== "string" || !HASH.test(correctionBinding.predecessorStorySha256 || "") ||
+        !HASH.test(correctionBinding.successorStorySha256 || "")) reject("story correction identity is invalid");
+    const evidence = readBoundEvidence(correctionBinding.evidence, "story correction evidence");
+    if (evidence.storyId !== correctionBinding.storyId || evidence.candidateStatus !== "approved-for-publication" ||
+        evidence.candidatePath !== "content/newsstand-stories.js") reject("story correction evidence does not admit the canonical story");
+  }
   const allowedReceiptPaths = [
     `operations/agents/aidb-intelligence-desk/daily/${value.editionDate}.md`,
     `operations/product-stewards/newsstand/editorial-intake/${value.editionDate}.md`
@@ -158,7 +168,7 @@ function validateEnvelope(value, root = ROOT) {
   if (new Set(readyIds).size !== readyIds.length) reject("ready desk record IDs are duplicated");
   const columnData = JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
   const predecessor = value.sourceIdentity.servicePredecessor ? loadServicePredecessor(value.sourceIdentity.servicePredecessor, {
-    root, date: value.editionDate, columns: columnData, storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8')
+    root, date: value.editionDate, columns: columnData, ...(!correctionBinding ? { storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8') } : {})
   }) : null;
   for (const desk of value.desks.filter((item) => item.state === "ready")) {
     const record = (columnData.records || []).find((item) => item.id === desk.recordId && item.editionDate <= value.editionDate &&
@@ -222,17 +232,26 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   const successorDecision = decision && decision.schemaVersion === "daily-issue-successor-admission-v1";
   const newsRevisionDecision = decision && decision.schemaVersion === "daily-issue-news-revision-admission-v1";
   const serviceRevisionDecision = decision && decision.schemaVersion === "daily-issue-service-revision-admission-v1";
+  const storyCorrectionDecision = decision && decision.schemaVersion === "daily-issue-story-correction-admission-v1";
   const hasPredecessorStories = serviceRevisionDecision && Object.prototype.hasOwnProperty.call(decision, "predecessorStories");
   const hasPublishedBase = serviceRevisionDecision && Object.prototype.hasOwnProperty.call(decision, "publishedBase");
   if (serviceRevisionDecision && hasPredecessorStories === hasPublishedBase) reject("service revision must bind exactly one predecessorStories or publishedBase proof");
-  exactKeys(decision, newsRevisionDecision
+  exactKeys(decision, storyCorrectionDecision
+    ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", "correctedStoryIds", "correctionEvidence", "reviewedAt", "reviewedBy", "reviewerRole"]
+    : newsRevisionDecision
     ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", "addedStoryIds", "reviewedAt", "reviewedBy", "reviewerRole"]
     : successorDecision
     ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole"]
     : serviceRevisionDecision
       ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", hasPredecessorStories ? "predecessorStories" : "publishedBase", "addedServiceRecordIds", "reviewedAt", "reviewedBy", "reviewerRole"]
       : ["schemaVersion", "decision", "editionDate", "envelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole"], "decision");
-  if (newsRevisionDecision) {
+  if (storyCorrectionDecision) {
+    if (decision.decision !== "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" || !HASH.test(decision.predecessorEnvelopeSha256 || "") ||
+        !Array.isArray(decision.correctedStoryIds) || decision.correctedStoryIds.length !== 1 || !envelope.sourceIdentity.storyCorrection ||
+        canonicalJson(decision.correctionEvidence) !== canonicalJson(envelope.sourceIdentity.storyCorrection.evidence)) {
+      reject("story correction requires one evidence-bound corrected story and predecessor");
+    }
+  } else if (newsRevisionDecision) {
     if (decision.decision !== "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" || !HASH.test(decision.predecessorEnvelopeSha256 || "") || !Array.isArray(decision.addedStoryIds) || decision.addedStoryIds.length !== 1 || !envelope.sourceIdentity.ordinaryCandidate) reject("news revision requires exactly one reviewed ordinary candidate and predecessor");
   } else if (successorDecision) {
     if (decision.decision !== "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" || !HASH.test(decision.predecessorEnvelopeSha256 || "")) {
@@ -259,7 +278,7 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: envelope.editionDate }) : null;
   if (ordinary) {
     if (ordinary.maker !== maker || ordinary.maker === decision.reviewedBy) reject("candidate maker identity differs from issue maker or self-admits");
-    if (successorDecision || serviceRevisionDecision) reject("ordinary candidate requires initial admission or explicit news revision, not generic/service successor");
+    if (successorDecision || serviceRevisionDecision || storyCorrectionDecision) reject("ordinary candidate requires initial admission or explicit news revision, not generic/service/correction successor");
     if (sha256(ordinary.publicationBaseRaw) !== envelope.sourceIdentity.storiesSha256) reject("ordinary candidate publication base does not match envelope source");
     if (Date.parse(decision.reviewedAt) < Date.parse(ordinary.reviewedAt)) reject("issue admission cannot precede independent story review");
     const day = vancouverDay(decision.reviewedAt);
@@ -283,7 +302,7 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
       reviewedAt: decision.reviewedAt,
       reviewedBy: decision.reviewedBy,
       reviewerRole: decision.reviewerRole,
-      ...((successorDecision || serviceRevisionDecision || newsRevisionDecision) ? { predecessorEnvelopeSha256: decision.predecessorEnvelopeSha256 } : {})
+      ...((successorDecision || serviceRevisionDecision || newsRevisionDecision || storyCorrectionDecision) ? { predecessorEnvelopeSha256: decision.predecessorEnvelopeSha256 } : {})
     }
   };
   const sameDate = store.issues.filter((item) => item && item.editionDate === envelope.editionDate);
@@ -302,6 +321,28 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
       return { store, changed: false, issue: existing };
     }
     if (ordinary && !newsRevisionDecision) reject("existing issue requires explicit append-only news revision");
+    if (storyCorrectionDecision) {
+      if (existing.envelopeSha256 !== decision.predecessorEnvelopeSha256) reject("story correction predecessor has changed");
+      for (const field of ["editionDate", "editorialTimeZone", "status", "disposition", "frontPaigeStoryId", "weeklyStoryId", "storyIds", "serviceRecordIds", "desks"]) {
+        if (canonicalJson(existing[field] ?? null) !== canonicalJson(issue[field] ?? null)) reject(`story correction changes protected ${field}`);
+      }
+      const corrected = [];
+      for (const [index, id] of existing.storyIds.entries()) {
+        const before = existing.stories[index];
+        const after = issue.stories[index];
+        if (canonicalJson(before) !== canonicalJson(after)) corrected.push(id);
+      }
+      if (canonicalJson(corrected) !== canonicalJson(decision.correctedStoryIds) || corrected[0] !== envelope.sourceIdentity.storyCorrection.storyId) reject("story correction changes do not match the exact independent decision");
+      if (sha256(canonicalJson(existing.stories[existing.storyIds.indexOf(corrected[0])])) !== envelope.sourceIdentity.storyCorrection.predecessorStorySha256 ||
+          sha256(canonicalJson(issue.stories[issue.storyIds.indexOf(corrected[0])])) !== envelope.sourceIdentity.storyCorrection.successorStorySha256) reject("story correction snapshot hashes do not match");
+      const oldSource = existing.sourceIdentity || {};
+      const newSource = issue.sourceIdentity || {};
+      for (const field of ["radarPath", "radarSha256", "storiesPath", "columnsPath", "columnsSha256", "servicePredecessor"]) {
+        if (canonicalJson(oldSource[field] ?? null) !== canonicalJson(newSource[field] ?? null)) reject(`story correction changes protected source ${field}`);
+      }
+      if (newSource.storiesSha256 !== sha256(fs.readFileSync(path.join(root, newSource.storiesPath)))) reject("story correction does not bind current canonical story bytes");
+      return { store: { ...store, issues: store.issues.map(item => item === existing ? issue : item) }, changed: true, issue };
+    }
     if (newsRevisionDecision) {
       if (existing.envelopeSha256 !== decision.predecessorEnvelopeSha256) reject("news revision predecessor has changed");
       for (const field of ["editionDate", "editorialTimeZone", "status", "frontPaigeStoryId", "weeklyStoryId", "serviceRecordIds", "desks"]) {
