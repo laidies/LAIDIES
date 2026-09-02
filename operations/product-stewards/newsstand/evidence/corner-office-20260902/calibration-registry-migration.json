@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "laidies-calibration-registry-migration.v1",
+  "candidateId": "corner-02-priorities",
+  "artifactSha256": "88eb007d55afa32f023036902cb74c26cf5532ade276b247a8981127ea163036",
+  "previousRegistrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+  "currentRegistrySha256": "c1d2aeb63b325bd56c2be5fc7bc7387f1087168a22ee43f5d11fceeae2dbfa90",
+  "disposition": "REFERENCED_CALIBRATORS_UNCHANGED",
+  "assessedAt": "2026-09-02T23:30:00Z",
+  "assessedBy": "/root",
+  "originalReviewerPrincipals": [
+    "/root",
+    "claude-fable-service-bank-teaching-20260830"
+  ],
+  "referencedCalibrators": [
+    {
+      "id": "CQX-BAD-001",
+      "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt",
+      "sha256": "c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc"
+    },
+    {
+      "id": "CQX-BAD-002",
+      "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+      "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+    },
+    {
+      "id": "CQX-GOOD-EPISODE-001",
+      "path": "content/episodes/episode-01.canon.md",
+      "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+    }
+  ],
+  "excludedRegistryChanges": [
+    "CQX-GOOD-STRAIGHT-ANSWERS-001 changed after the review but was not used to calibrate this PRACTICE receipt.",
+    "CQX-GOOD-NEWS-001 moved to frozen paths without changing its registered hashes and was not used to calibrate this PRACTICE receipt."
+  ],
+  "statement": "This migration does not claim a new semantic review. It permits the original receipts only because every negative calibrator required now and the exact positive calibrator those reviewers used retain the same IDs, paths and hashes."
+}

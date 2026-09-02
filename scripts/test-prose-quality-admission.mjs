@@ -101,6 +101,32 @@ try {
   assert.match(inspect(wrongManifest).join("\n"), /manifest is not bound to the reviewed prose/);
   const staleRegistry = structuredClone(receipt); staleRegistry.calibration.registrySha256 = "0".repeat(64);
   assert.match(inspect(staleRegistry).join("\n"), /registrySha256 is stale/);
+  const migrationPath = "evidence/calibration-migration.json";
+  const migrated = structuredClone(staleRegistry);
+  write(migrationPath, JSON.stringify({
+    schemaVersion: "laidies-calibration-registry-migration.v1",
+    candidateId: migrated.candidateId,
+    artifactSha256: migrated.artifact.reviewText.sha256,
+    previousRegistrySha256: migrated.calibration.registrySha256,
+    currentRegistrySha256: hash(registry),
+    disposition: "REFERENCED_CALIBRATORS_UNCHANGED",
+    assessedAt: "2026-08-07T07:01:00-07:00",
+    assessedBy: "fixture-registry-owner",
+    originalReviewerPrincipals: [migrated.reviewer.principalId],
+    referencedCalibrators: [
+      { id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)) },
+      { id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)) }
+    ],
+    excludedRegistryChanges: ["A registry field unrelated to the referenced calibrators changed."]
+  }));
+  migrated.calibrationMigration = bind(migrationPath);
+  assert.deepEqual(inspect(migrated), [], "stale whole-registry identity may migrate only when every referenced calibrator is unchanged");
+  const forgedMigration = structuredClone(migrated);
+  const forgedMigrationValue = JSON.parse(fs.readFileSync(path.join(root, migrationPath), "utf8"));
+  forgedMigrationValue.referencedCalibrators[0].sha256 = "f".repeat(64);
+  write("evidence/forged-calibration-migration.json", JSON.stringify(forgedMigrationValue));
+  forgedMigration.calibrationMigration = bind("evidence/forged-calibration-migration.json");
+  assert.match(inspect(forgedMigration).join("\n"), /referenced calibrators do not exactly match/);
   const fakeObservation = structuredClone(receipt); fakeObservation.outcomes.explainBack.observedReaderEvidence.participants[0].observationBinding = { path: "evidence/missing.md", sha256: "0".repeat(64) };
   assert.match(inspect(fakeObservation).join("\n"), /file missing/);
   const simulationInAdmission = structuredClone(receipt); delete simulationInAdmission.outcomes.explainBack.observedReaderEvidence; simulationInAdmission.outcomes.explainBack.simulatedReaderProbe = { prompt: "Pretend", probeResponse: "I can explain it", expectedEvidence: "Mechanism" };

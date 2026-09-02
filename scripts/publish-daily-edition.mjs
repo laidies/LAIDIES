@@ -10,6 +10,7 @@ import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 import { loadServicePredecessor, validateServiceSelection } from "./newsstand-service-continuity.mjs";
+import { requiredUsefulDeskErrors } from "./newsstand-required-service-desks.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "content/newsstand-stories.js");
@@ -48,6 +49,8 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
       !/independent/i.test(issue.admission.reviewedBy || "") || !/^[a-f0-9]{64}$/.test(issue.envelopeSha256 || "")) {
     reject("exact independently admitted Daily issue is required");
   }
+  const requiredDeskErrors = requiredUsefulDeskErrors(issue.desks, issue.editionDate);
+  if (requiredDeskErrors.length) reject(requiredDeskErrors.join("; "));
   const next = structuredClone(dataset);
   const stories = new Map(next.stories.map((story) => [story.id, story]));
   const isAdmitted = (story) => story && ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved";

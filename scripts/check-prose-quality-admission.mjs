@@ -54,6 +54,38 @@ function loadBinding(root, binding, label, errors) {
   return bytes.toString("utf8");
 }
 
+function calibrationRegistryIsCurrent(receipt, registry, registryBytes, root, errors) {
+  const currentSha256 = sha256(registryBytes);
+  if (receipt?.calibration?.registrySha256 === currentSha256) return true;
+  const migrationBody = loadBinding(root, receipt?.calibrationMigration, "calibrationMigration", errors);
+  if (!migrationBody) return false;
+  let migration;
+  try { migration = JSON.parse(migrationBody); }
+  catch (error) { errors.push(`calibrationMigration: invalid JSON: ${error.message}`); return false; }
+  const require = (condition, message) => { if (!condition) errors.push(`calibrationMigration: ${message}`); };
+  require(migration?.schemaVersion === "laidies-calibration-registry-migration.v1", "schemaVersion mismatch");
+  require(migration?.disposition === "REFERENCED_CALIBRATORS_UNCHANGED", "disposition mismatch");
+  require(migration?.candidateId === receipt?.candidateId, "candidateId mismatch");
+  require(migration?.artifactSha256 === receipt?.artifact?.reviewText?.sha256, "artifact mismatch");
+  require(migration?.previousRegistrySha256 === receipt?.calibration?.registrySha256, "previous registry mismatch");
+  require(migration?.currentRegistrySha256 === currentSha256, "current registry mismatch");
+  require(Array.isArray(migration?.originalReviewerPrincipals) && migration.originalReviewerPrincipals.includes(receipt?.reviewer?.principalId), "original reviewer is not covered");
+  const expected = [
+    ...(registry?.negativeExemplars || []).map(({ id, path, sha256 }) => ({ id, path, sha256 })),
+    ...(registry?.positiveExemplars || [])
+      .filter(item => item.id === receipt?.calibration?.positive?.exemplarId)
+      .map(({ id, path, sha256 }) => ({ id, path, sha256 }))
+  ].sort((left, right) => left.id.localeCompare(right.id));
+  const supplied = (migration?.referencedCalibrators || [])
+    .map(({ id, path, sha256 }) => ({ id, path, sha256 }))
+    .sort((left, right) => left.id.localeCompare(right.id));
+  require(JSON.stringify(supplied) === JSON.stringify(expected), "referenced calibrators do not exactly match the current required set");
+  require(text(migration?.assessedAt) && !Number.isNaN(Date.parse(migration.assessedAt)), "assessedAt is invalid");
+  require(text(migration?.assessedBy), "assessedBy is required");
+  require(Array.isArray(migration?.excludedRegistryChanges) && migration.excludedRegistryChanges.length > 0, "unrelated registry changes must be disclosed");
+  return true;
+}
+
 function evidenceAppears(body, evidence, label, errors) {
   if (!Array.isArray(evidence) || evidence.length === 0) { errors.push(`${label}: exact prose evidence is required`); return; }
   for (const [index, item] of evidence.entries()) {
@@ -182,7 +214,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   const negativeRegistry = new Map((registry.negativeExemplars || []).map(item => [item.id, item]));
   const enforcedFamilies = enforcedFailureFamilies(registry);
-  require(receipt?.calibration?.registrySha256 === sha256(registryBytes), "calibration registrySha256 is stale");
+  require(calibrationRegistryIsCurrent(receipt, registry, registryBytes, root, errors), "calibration registrySha256 is stale without a valid unchanged-calibrator migration");
   require(receipt?.calibration?.reviewerPrincipalId === receipt?.reviewer?.principalId, "calibration reviewer does not match candidate reviewer");
   require(text(receipt?.calibration?.reviewedAt) && Date.parse(receipt.calibration.reviewedAt) <= Date.parse(receipt.reviewedAt), "calibration must be completed by this reviewer before candidate review");
   const suppliedNegatives = new Map((receipt?.calibration?.negatives || []).map(item => [item.exemplarId, item]));

@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import { projectDailySourceRaw } from "./publish-daily-edition.mjs";
 import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 import { loadServicePredecessor, validateServiceSelection } from "./newsstand-service-continuity.mjs";
+import { requiredUsefulDeskErrors } from "./newsstand-required-service-desks.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORE_PATH = path.join(ROOT, "content/newsstand-daily-issues.json");
@@ -164,6 +165,8 @@ function validateEnvelope(value, root = ROOT, store = null) {
       if (desk.recordId !== null || !desk.emptyState) reject(`empty desk ${desk.type} is invalid`);
     } else reject(`desk ${desk.type} state is invalid`);
   }
+  const requiredDeskErrors = requiredUsefulDeskErrors(value.desks, value.editionDate);
+  if (requiredDeskErrors.length) reject(requiredDeskErrors.join("; "));
   const readyIds = value.desks.filter((desk) => desk.state === "ready").map((desk) => desk.recordId);
   if (new Set(readyIds).size !== readyIds.length) reject("ready desk record IDs are duplicated");
   const columnData = JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
