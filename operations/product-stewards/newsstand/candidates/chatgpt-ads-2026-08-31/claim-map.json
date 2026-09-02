@@ -1,0 +1,128 @@
+[
+  {
+    "claimId": "announced-access-not-completion",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "OpenAI announced on August 31 that more businesses",
+        "locator": "the_story paragraph1"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-announcement.md",
+      "sha256": "73d562d3f046816dc4c75281bff5d7653c8a2a96f206e7f3f84e4239cca5ce4c"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Starting later today",
+        "locator": "announcement exact quotation"
+      }
+    ],
+    "scopeAndFreshness": "Announced future access on Aug31, not observed completion; source supports regional scope. Recheck launch completion before release."
+  },
+  {
+    "claimId": "rollout-conflict",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Its country-by-country help page still listed some of those markets as coming soon",
+        "locator": "the_story paragraph1"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-availability.md",
+      "sha256": "6b805ed801835fcfe00600272dce8355567c733ef9e450fe6637f9caf54ec415"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "listed India and the European expansion markets as not yet self-service",
+        "locator": "source facts"
+      }
+    ],
+    "scopeAndFreshness": "Maker and independent research observed current table; advertiser access not consumer rollout."
+  },
+  {
+    "claimId": "plans-ad-placement",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "eligible Free and Go users may see sponsored placements below responses",
+        "locator": "the_story paragraph2"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+      "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Eligible Free/Go users may see ads",
+        "locator": "source facts"
+      }
+    ],
+    "scopeAndFreshness": "Attributed documented eligibility, not a guarantee or account test."
+  },
+  {
+    "claimId": "separate-ad-context",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "its advertising system can use the current conversation to choose a relevant ad",
+        "locator": "laidies_read paragraph1"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+      "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "context of your current chat thread",
+        "locator": "FAQ exact quote"
+      }
+    ],
+    "scopeAndFreshness": "Hypothetical lunch shows documented relationship, not actual ad observed. Answer independence is provider assertion."
+  },
+  {
+    "claimId": "answer-independence-claimed",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "OpenAI says advertisers cannot alter the response",
+        "locator": "laidies_read paragraph2"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+      "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "OpenAI says advertisers cannot change or rank the generated response",
+        "locator": "source facts"
+      }
+    ],
+    "scopeAndFreshness": "Explicit attribution and not-independent-audit caveat."
+  },
+  {
+    "claimId": "personalization-not-removal",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "turning off ad personalisation does not turn off ads",
+        "locator": "what_this_means paragraph1"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+      "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Turning personalization off does not remove advertising or stop the current thread being used to select ads",
+        "locator": "source facts"
+      }
+    ],
+    "scopeAndFreshness": "Documented current rule; not precise UI walkthrough or privacy promise."
+  }
+]

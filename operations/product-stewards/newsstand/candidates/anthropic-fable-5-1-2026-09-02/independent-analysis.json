@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "anthropic-fable-5-1-2026-09-02",
+  "reviewerPrincipalId": "cloudflare-qwen-independent-news-20260902",
+  "reviewTextSha256": "2dff3fda7fca4c50811f676b3e4b121a63d6b950e8c960cc5c9632a9ded76d29",
+  "checks": {
+    "incidentExplained": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic released Claude Fable 5.1 on September 1, alongside a version called Claude Mythos 5.1.",
+          "locator": "the_story paragraph1"
+        }
+      ],
+      "observation": "The article clearly explains the release of Fable 5.1 and Mythos 5.1",
+      "verdict": "PASS"
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.",
+          "locator": "laidies_read paragraph1"
+        }
+      ],
+      "observation": "The article does not contain internal notes or invented advice",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If you use Claude for ordinary work, Fable 5.1 is the release that applies to you.",
+          "locator": "what_this_means paragraph1"
+        }
+      ],
+      "observation": "The article distinguishes between current reader consequences and possibilities",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "In everyday Claude, Fable’s guardrails can block, redirect or limit a request.",
+          "locator": "laidies_read paragraph1"
+        }
+      ],
+      "observation": "The article explains necessary terms in context",
+      "verdict": "PASS"
+    }
+  },
+  "outcomes": {
+    "explainBack": {
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "A clear explanation of the release",
+        "prompt": "Explain the release of Fable 5.1 and Mythos 5.1 in simple terms",
+        "response": "Anthropic released two versions of their AI model, Fable 5.1 and Mythos 5.1, with different access and guardrails."
+      },
+      "artifactEvidence": [
+        {
+          "excerpt": "In everyday Claude, Fable’s guardrails can block, redirect or limit a request.",
+          "locator": "laidies_read paragraph1"
+        }
+      ],
+      "observation": "The article explains the mechanism and consequence in ordinary language",
+      "verdict": "PASS"
+    },
+    "unseenTransfer": {
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "A clear explanation of the difference between Fable 5.1 and Mythos 5.1",
+        "prompt": "Use a different situation to explain the difference between Fable 5.1 and Mythos 5.1",
+        "response": "Imagine an employee with different security clearances, one for general access and one for sensitive areas."
+      },
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of it as the same employee with a different security badge:",
+          "locator": "laidies_read paragraph2"
+        }
+      ],
+      "observation": "The article uses a genuinely different situation to expose misunderstanding",
+      "verdict": "PASS"
+    }
+  }
+}

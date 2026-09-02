@@ -1,0 +1,525 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "anthropic-fable-5-1-2026-09-02",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-02T09:08:23.758Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/manifest.json",
+      "sha256": "e9bdad7f6916bf60f2e4c42ccb44977230cd40a0a31fb8f5081e8fc2fbc788e2"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/review-text.json",
+      "sha256": "2dff3fda7fca4c50811f676b3e4b121a63d6b950e8c960cc5c9632a9ded76d29"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/rendered-article.html",
+      "sha256": "0381c612df2254b34205d946bea197561a864360ff1d4f972a5680929c616e93"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-08-31T14:55:47.941Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Dated change and bounded scope",
+        "Attribution and retained uncertainty; no historical facts inherited"
+      ],
+      "evidence": [
+        {
+          "excerpt": "That disclosure helps you ask the next question.",
+          "locator": "eu-ai-act-transparency-starts laidies_read"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What actually changed with Fable 5.1, and why did Anthropic release the same model under two names?",
+    "promisedPayoff": "Understand the release, the guardrail split and which version applies to ordinary users.",
+    "priorKnowledge": "No knowledge of model tiers, cybersecurity programs or AI safeguards is assumed.",
+    "centralMentalModel": "The model can remain the same while permissions, safeguards and access rules change around it.",
+    "dailyLifeConnection": "A familiar workplace security badge distinguishes the same employee from the rooms they are permitted to enter.",
+    "surfaceJob": "One dated ordinary story in The Latest, not a Front PAiGE replacement.",
+    "desiredFeeling": "I know what was released, which version I can use and what the two names actually mean.",
+    "desiredReaderFeeling": "I know what was released, which version I can use and what the two names actually mean."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The same-model fact appears in the opening paragraph.",
+      "artifactEvidence": [
+        {
+          "excerpt": "same underlying model",
+          "locator": "plainClarity in exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader is told which release applies to ordinary work.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you use Claude for ordinary work",
+          "locator": "readerValue in exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The voice is direct and lightly sceptical without being snide.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ignore the victory-lap benchmark chart for a moment",
+          "locator": "laidiesVoice in exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "One familiar image makes the access distinction memorable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "same employee with a different security badge",
+          "locator": "engagingEnjoyable in exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Vendor claims are explicitly attributed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those performance and cost figures come from Anthropic’s own launch material",
+          "locator": "factualIntegrity in exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The event date and current source check are explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "released Claude Fable 5.1 on September 1",
+          "locator": "freshnessReviewability in exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The story is a concise Latest explainer rather than a feature essay.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The decimal point is not the most interesting part",
+          "locator": "surfaceFit in exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The new release is dated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic released Claude Fable 5.1 on September 1",
+          "locator": "datedChange in exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The article separates availability facts from vendor performance claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not an independent comparison of every kind of work",
+          "locator": "consequenceAndUncertainty in exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The reader can compare the new version on work they already know.",
+      "artifactEvidence": [
+        {
+          "excerpt": "same brief and checking list you used before",
+          "locator": "dailyLifeConnection in exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The central distinction is stated plainly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the same. The permissions and oversight are not.",
+          "locator": "communicationBenchmark in exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The mechanism and consequence can be restated without jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The difference is access and guardrails, not a separate brain.",
+          "locator": "explainBack in exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Are Fable 5.1 and Mythos 5.1 different models?",
+        "probeResponse": "No. Anthropic says the underlying model is the same. Fable is generally available; Mythos gives vetted specialists a more permissive access route for sensitive work.",
+        "expectedEvidence": "Same model, different safeguards, access and audience."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The badge case supports transfer to other permission-controlled software.",
+      "artifactEvidence": [
+        {
+          "excerpt": "same employee with a different security badge",
+          "locator": "unseenTransfer in exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If the same payroll system gives managers and employees different permissions, does the manager version use a different underlying program?",
+        "probeResponse": "Not necessarily. The program may be the same while account permissions and oversight change what each person can access or do.",
+        "expectedEvidence": "Transfer sameness of underlying system versus different permissions."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The suggested test has specific comparison criteria.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Compare the edits you had to make, the mistakes you caught and the time the task took.",
+          "locator": "usefulAction in exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The analogy maps only sameness of model versus difference in access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of it as the same employee with a different security badge",
+          "locator": "analogyIntegrity in exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact story avoids glossaryAccumulation by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact story avoids templateRepetition by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact story avoids decorativeAnalogy by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact story avoids referenceConfetti by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact story avoids missingMechanism by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact story avoids genericAction by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact story avoids jargonBeforeMeaning by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact story avoids disconnectedSystem by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact story avoids factlessConfidence by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact story avoids staleUnreviewableClaims by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact story avoids corporateSludge by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact story avoids joylessInstruction by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact story avoids benchmarkNameDrop by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact story avoids curiosityWithoutPayoff by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact story avoids familiarExampleWithoutTechnicalReturn by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact story avoids communicationPastiche by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact story avoids entertainmentBeforeUnderstanding by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact story avoids mechanismCompressedBehindHook by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact story avoids prematureClickBeforeMechanism by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact story avoids inflatedTakeawayEnding by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact story avoids purposeTooNarrow by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact story avoids mechanismBeforeMotivation by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact story avoids workedExampleOvertakesBookPurpose by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact story avoids technicalExplainerVoice by keeping one dated release, one mechanism and one reader consequence in view.",
+      "artifactLocator": "The model is the same. The permissions and oversight are not."
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-announcement.md",
+        "sha256": "7e5e1f3d82e729ba2974a748084695adf029e79dcd441ba994b4a66c90586530"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-release-notes.md",
+        "sha256": "932cb7b150fb3f6ef0e2c6c0736a1be253626bf654311e15aee633414f2c35c9"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release-date",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "released Claude Fable 5.1 on September 1",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-release-notes.md",
+          "sha256": "932cb7b150fb3f6ef0e2c6c0736a1be253626bf654311e15aee633414f2c35c9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The release notes date the Claude Fable 5.1 and Claude Mythos 5.1 release to September 1, 2026.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Dated first-party release record."
+      },
+      {
+        "claimId": "same-model-different-safeguards",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "they are the same underlying model",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-announcement.md",
+          "sha256": "7e5e1f3d82e729ba2974a748084695adf029e79dcd441ba994b4a66c90586530"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Product identity and access arrangement are direct first-party facts."
+      },
+      {
+        "claimId": "availability-split",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Fable is available for general use; Mythos sits behind a trusted-access program",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-announcement.md",
+          "sha256": "7e5e1f3d82e729ba2974a748084695adf029e79dcd441ba994b4a66c90586530"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Fable 5.1 is generally available, while Mythos 5.1 is available only through our trusted access programs.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "General versus trusted access, checked September 2."
+      },
+      {
+        "claimId": "performance-and-cost",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic says it performs better on coding, research and office work than Fable 5, and estimates that a typical pay-by-token workload will cost 25% less",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-announcement.md",
+          "sha256": "7e5e1f3d82e729ba2974a748084695adf029e79dcd441ba994b4a66c90586530"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic estimates Fable 5.1 costs 25% less than Fable 5 for typical token-billed workloads",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Explicitly attributed vendor performance and estimated cost claims."
+      },
+      {
+        "claimId": "product-availability",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "available in Claude’s apps, Claude Code, Cowork, the API and supported cloud platforms",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-fable-5-1-2026-09-02/source-announcement.md",
+          "sha256": "7e5e1f3d82e729ba2974a748084695adf029e79dcd441ba994b4a66c90586530"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic says Fable 5.1 is available across Claude products, its API and supported cloud platforms.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "First-party availability checked September 2."
+      }
+    ],
+    "reviewedThrough": "2026-09-02",
+    "nextTrigger": "Anthropic changes availability, pricing or trusted-access documentation; independent evaluations materially contradict the attributed launch claims.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First LAiDIES ordinary-news article on the September 1 Fable 5.1 and Mythos 5.1 release."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The story directly explains the two-name release, attributes vendor claims and gives one bounded evaluation step."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer explain-back and transfer are simulated checks, not independent or human evidence.",
+    "Final independent editorial admission, browser rendering and public release remain separate gates."
+  ]
+}

@@ -27,7 +27,7 @@ export function verifyProjectionAdmission({ issue, envelopeRaw, decision, root =
     if (decision[field] !== issue.admission[field]) reject(`admission ${field} changed`);
   }
   const envelope = JSON.parse(envelopeRaw);
-  const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
+  const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   if (ordinary && !["daily-issue-admission-v1", "daily-issue-news-revision-admission-v1"].includes(decision.schemaVersion)) reject("ordinary projection requires initial or news-revision admission");
   const expected = {
     editionDate: envelope.editionDate, editorialTimeZone: envelope.editorialTimeZone,
@@ -50,7 +50,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   const next = structuredClone(dataset);
   const stories = new Map(next.stories.map((story) => [story.id, story]));
   const isAdmitted = (story) => story && ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved";
-  const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
+  const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   if (ordinary) {
     const published = publishCandidateStory(ordinary.story, issue.admission.reviewedAt);
     const snapshot = issue.stories.find(story => story.id === published.id);
@@ -124,7 +124,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
 }
 
 export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
-  const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate }) : null;
+  const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
   const baseRaw = ordinary ? ordinary.publicationBaseRaw : predecessor ? predecessor.storiesRaw : raw;
   if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");

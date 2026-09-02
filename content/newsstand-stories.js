@@ -10,8 +10,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-01T15:18:23Z",
-  "lastCheckedAt": "2026-09-01T15:18:23Z",
+  "generatedAt": "2026-09-02T09:51:21.295Z",
+  "lastCheckedAt": "2026-09-02T09:51:21.295Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -25,7 +25,7 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-08-31",
+      "editionDate": "2026-09-02",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
@@ -33,28 +33,25 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-accountable-systems-2026-08-24",
         "storyIds": [
-          "chatgpt-ad-expansion-2026-08-31",
-          "cursor-openai-access-2026-08-28",
-          "anthropic-automated-alignment-2026-08-28"
+          "anthropic-fable-5-1-2026-09-02"
         ],
         "serviceRecordIds": [
           "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP",
-          "DAILY-2026-08-30-CAREER-DELEGATION",
           "DAILY-2026-08-30-CONCEPT-WEEK-CONCEPT-01-CONTEXT",
           "DAILY-2026-08-30-MME-MINI-BACKPACK",
           "DAILY-2026-08-30-DEAR-MISS-JEEVES-JEEVES-01-TIME",
           "DAILY-2026-08-30-WHATS-NEW-SUNNYVAILE-TOWN-02-DATA-CENTRES",
           "DAILY-2026-08-30-DID-YOU-KNOW-TOWN-01-LIBRARY"
         ],
-        "envelopeSha256": "f506b40220b746ec152751e46714bcd3c5070f89ae1323266801c830327e1c5a"
+        "envelopeSha256": "85fcd73976054632b7779c73f0159a8996d9cde8a808930f168dc43d1a0f4bfc"
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-01T00:13:05.767Z",
-      "updatedAt": "2026-09-01T15:18:23Z",
-      "lastCheckedAt": "2026-09-01T15:18:23Z",
+      "publishedAt": "2026-09-02T09:51:21.295Z",
+      "updatedAt": "2026-09-02T09:51:21.295Z",
+      "lastCheckedAt": "2026-09-02T09:51:21.295Z",
       "maxAgeHours": 36,
-      "note": "The Daily for 2026-08-31."
+      "note": "The Daily for 2026-09-02."
     },
     "weekly": {
       "edition": "weekly",
@@ -1415,6 +1412,78 @@ window.NEWSSTAND_DATA = {
         "ChatGPT",
         "advertising",
         "context"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "anthropic-fable-5-1-2026-09-02",
+      "slug": "anthropic-fable-5-1-2026-09-02",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-02T09:51:21.295Z",
+      "updatedAt": "2026-09-02T09:08:23.758Z",
+      "lastCheckedAt": "2026-09-02T09:08:23.758Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:anthropic-fable-5-1-2026-09-02"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Anthropic released Fable 5.1. The same model now comes with two sets of guardrails.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-anthropic-fable-5-1-20260902.png",
+        "alt": "A shared glowing AI engine connects an open office workstation and a keycard-controlled laboratory workstation, illustrating one model with two access arrangements.",
+        "credit": "LAiDIES NewsStand illustration"
+      },
+      "the_story": "<p>Anthropic released Claude Fable 5.1 on September 1, alongside a version called Claude Mythos 5.1. Here is the unusual part: Anthropic says they are the same underlying model. Fable is available for general use; Mythos sits behind a trusted-access program for vetted cybersecurity and life-sciences work.</p><p>Fable 5.1 is available in Claude’s apps, Claude Code, Cowork, the API and supported cloud platforms. Anthropic says it performs better on coding, research and office work than Fable 5, and estimates that a typical pay-by-token workload will cost 25% less. Those performance and cost figures come from Anthropic’s own launch material, not an independent comparison of every kind of work.</p>",
+      "laidies_read": "<p>The decimal point is not the most interesting part of this release. Anthropic has taken one model and put two different sets of rules around what it may do and who may use it. In everyday Claude, Fable’s guardrails can block, redirect or limit a request. Mythos relaxes some of those restrictions for approved specialists whose legitimate work can resemble the dangerous work the safeguards are designed to stop.</p><p>That does not make Mythos a secret, smarter Claude. Think of it as the same employee with a different security badge: most people use the general entrance; vetted researchers can enter rooms where the work carries greater risk. The model is the same. The permissions and oversight are not.</p>",
+      "what_this_means": "<p>If you use Claude for ordinary work, Fable 5.1 is the release that applies to you. You do not need to apply for Mythos, and you should not assume Anthropic is withholding a “better” version. Mythos is a controlled route for specific professional work in cybersecurity and the life sciences.</p><p>For your own work, ignore the victory-lap benchmark chart for a moment. Give Fable 5.1 one recurring task you know well, using the same brief and checking list you used before. Compare the edits you had to make, the mistakes you caught and the time the task took. That will tell you more about whether 5.1 is an improvement for you than a vendor’s average score.</p>",
+      "cocktail_party": "“Anthropic released one underlying model in two versions: Fable 5.1 for general use and Mythos 5.1 for vetted cybersecurity and life-sciences work. The difference is access and guardrails, not a separate brain.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "For the underlying idea, read <a href=\"/library.html#ai-fundamentals-101::%40chapter-10\">AI Fundamentals 101: the model is only one part of the system</a>. This release shows how permissions, safeguards and human oversight can change what the same model is allowed to do.",
+      "sources": [
+        {
+          "id": "anthropic-fable-mythos-5-1-announcement",
+          "label": "Anthropic — Claude Fable 5.1 and Claude Mythos 5.1",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-02",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "anthropic-release-notes-2026-09-01",
+          "label": "Anthropic Help Center — Release notes for September 1, 2026",
+          "url": "https://support.claude.com/en/articles/12138966-release-notes",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-02",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "model capabilities",
+        "safety and security"
+      ],
+      "concepts": [
+        "models",
+        "guardrails"
+      ],
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "Fable 5.1",
+        "Mythos 5.1",
+        "guardrails"
       ],
       "saint_lane": null,
       "badge": "THE LATEST"

@@ -303,7 +303,7 @@
       if (issue.stories.map(function (story) { return story && story.id; }).join("\n") !== issue.storyIds.join("\n")) return invalid("story-binding:" + issue.editionDate);
       if (issue.stories.some(function (snapshot) {
         return !snapshot || typeof snapshot.id !== "string" || snapshot.edition !== "daily" ||
-          dateOnly(snapshot.publishedAt) !== issue.editionDate ||
+          editorialDateOnly(snapshot.publishedAt) !== issue.editionDate ||
           ["published", "corrected"].indexOf(snapshot.status) === -1;
       })) return invalid("story-snapshot:" + issue.editionDate);
       if (issue.disposition === "quiet" && (issue.storyIds.length || readyIds.length)) return invalid("quiet-has-content:" + issue.editionDate);

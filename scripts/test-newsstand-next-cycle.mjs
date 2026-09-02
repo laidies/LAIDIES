@@ -9,7 +9,7 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fixture = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'newsstand-next-cycle-test-')));
 const put = (name, value) => { const dest = path.join(fixture, name); fs.mkdirSync(path.dirname(dest), {recursive:true}); fs.writeFileSync(dest, value); };
-for (const name of ['newsstand-service-continuity','validate-newsstand-ordinary-story-candidate','check-content-producer-contract','check-prose-quality-admission','compose-daily-edition','promote-daily-edition','publish-daily-edition','build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(ROOT, `scripts/${name}.mjs`)));
+for (const name of ['newsstand-service-continuity','newsstand-career-lane','validate-newsstand-ordinary-story-candidate','check-content-producer-contract','check-prose-quality-admission','compose-daily-edition','promote-daily-edition','publish-daily-edition','build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(ROOT, `scripts/${name}.mjs`)));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-reader-contract.js')));
 const {composeDailyEnvelope} = await import(pathToFileURL(path.join(fixture, 'scripts/compose-daily-edition.mjs')));
 const {promoteDailyIssue} = await import(pathToFileURL(path.join(fixture, 'scripts/promote-daily-edition.mjs')));
@@ -58,7 +58,7 @@ assert.equal(quiet.first.issue.frontPaigeStoryId,base.publications.daily.issue.f
 // Exact-date service fixture reuses existing copy; this is not a public admission.
 const admittedHistory=JSON.parse(fs.readFileSync(path.join(ROOT,'content/newsstand-daily-issues.json'),'utf8'));
 const admittedIds=new Set(admittedHistory.issues.filter(i=>i.status==='complete'&&i.admission).flatMap(i=>i.serviceRecordIds));
-const prior=bank.records.find(r=>admittedIds.has(r.id)&&['APPROVED','PUBLISHED','CORRECTED'].includes(r.status)&&r.publicEligibility==='ELIGIBLE');
+const prior=bank.records.find(r=>admittedIds.has(r.id)&&r.type!=='career_life'&&['APPROVED','PUBLISHED','CORRECTED'].includes(r.status)&&r.publicEligibility==='ELIGIBLE');
 if (!prior) throw new Error('test needs one previously admitted service exemplar');
 const service={...structuredClone(prior),id:`TEST-${tomorrow}-SERVICE`,editionDate:tomorrow,predecessorRecordId:prior.id,freshness:{...prior.freshness,expiresAt:tomorrow}};
 const serviceBank={...bank,records:[...bank.records,service]};
@@ -77,7 +77,7 @@ const wd=structuredClone(base); wd.stories.push(weekly);
 wd.publications.weekly={...wd.publications.weekly,status:'current',storyId:weekly.id,editionDate:weeklyDate,editorialTimeZone:'America/Vancouver',publishedAt:weekly.publishedAt,updatedAt:weekly.updatedAt,lastCheckedAt:weekly.lastCheckedAt};
 weekly.sourceApproval=structuredClone(base.stories.find(s=>s.sourceApproval?.status==='approved').sourceApproval);
 assert.deepEqual(Array.from(contract.validate(wd)),[], 'synthetic Weekly fixture meets existing reader contract');
-for (const days of [6,7,8,14]) {
+for (const days of [6,7,8,13]) {
   const date=new Date(Date.parse(weeklyDate+'T12:00:00Z')+days*86400000).toISOString().slice(0,10);
   const result=cycle(date,wd,{...bank,records:[]});
   assert.equal(result.first.issue.weeklyStoryId,weekly.id);

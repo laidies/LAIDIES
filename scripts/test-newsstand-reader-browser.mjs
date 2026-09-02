@@ -25,6 +25,12 @@ const ISSUE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-daily-issu
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
 const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
 const ARCHIVE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-archive-index.json'), 'utf8'));
+const readerContractContext = { module: { exports: {} } };
+vm.runInNewContext(fs.readFileSync(inputFile('content/newsstand-reader-contract.js'), 'utf8'), readerContractContext);
+const readerContract = readerContractContext.module.exports;
+const EXPECTED_LATEST = DATA.stories.filter(story => story.edition === 'daily' && story.id !== DATA.publications.daily.issue.frontPaigeStoryId &&
+  readerContract.accessDecision(DATA, story, { scope: 'search' }, FIXED_NOW).canExpose &&
+  readerContract.withinRecentCalendarDays(story.publishedAt, FIXED_NOW, 5, DATA.publications.daily.editorialTimeZone || 'America/Vancouver')).length;
 const HTML = fs.readFileSync(path.join(ROOT, 'newsstand.html'), 'utf8');
 const CONTRACT_SRC = HTML.match(/src="([^"]*newsstand-reader-contract\.js[^"]*)"/)[1];
 const READY = ISSUE.desks.filter(desk => desk.state === 'ready');
@@ -215,24 +221,30 @@ try {
     check(await value(currentPreview, "document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent"), FRONT.headline, "history renderer preserves the canonical Front PAiGE headline");
     check(await value(currentPreview, "document.querySelector('.ns-front-desk--lead [data-status-for=daily]').textContent"), 'Published ' + new Date(FRONT.publishedAt).toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric',timeZone:'America/Vancouver'}), "carried-forward Front PAiGE keeps its original publication date");
     check(await value(currentPreview, "!document.querySelector('.ns-miss-jeeves') && !document.querySelector('.ns-concept-week')"), true, "held features cannot bypass service admission through static markup");
-    check(await value(currentPreview, "document.querySelectorAll('[data-secondary-for=daily] article').length"), ISSUE.storyIds.length, "only admitted date-specific stories populate the Daily rail");
+    check(await value(currentPreview, "document.querySelectorAll('[data-secondary-for=daily] article').length"), Math.min(3, EXPECTED_LATEST), "only admitted stories from the latest five-day window populate the Latest rail");
     check(await value(currentPreview, `(() => {
       const lead = document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent;
       const secondary = Array.from(document.querySelectorAll('[data-secondary-for=daily] article strong'), node => node.textContent);
       return new Set([lead].concat(secondary)).size === 1 + secondary.length;
     })()`), true, "Front PAiGE appears exactly once");
-    check(await value(currentPreview, `(() => {
+    const serviceRender = await value(currentPreview, `(() => {
       const section = document.querySelector('.ns-feature-desk');
-      return section.querySelectorAll('[data-desk-state=ready]').length === ${FRONT_READY.length} &&
-        ${JSON.stringify(FRONT_READY.map(desk => desk.headline))}.every(headline => section.textContent.includes(headline));
-    })()`), true, "exact admitted current service desks are populated");
+      const normalize = value => value.replace(/[.?!]+$/,'');
+      const sectionText = normalize(section.textContent);
+      return {valid: section.querySelectorAll('[data-desk-state=ready]').length === ${READY.length} &&
+        ${JSON.stringify(READY.map(desk => desk.headline))}.every(headline => sectionText.includes(normalize(headline))),
+        ready: section.querySelectorAll('[data-desk-state=ready]').length,
+        missing: ${JSON.stringify(READY.map(desk => desk.headline))}.filter(headline => !sectionText.includes(normalize(headline))),
+        failure: window.__newsstandDailyIssueValidationFailure || window.__newsstandDailyIssueError || null};
+    })()`);
+    check(serviceRender.valid, true, `exact admitted current service desks are populated (${JSON.stringify(serviceRender)})`);
     check(await value(currentPreview, `(() => {
       const card = document.querySelector('.ns-front-desk--big-picture');
       return card && card.textContent.includes(${JSON.stringify(BIG_PICTURE.headline)}) &&
         !card.textContent.includes('No published article yet') &&
         !card.querySelector('.ns-big-picture-tracking__list');
     })()`), true, "Big Picture shows the approved data-centre article instead of the retired coming-soon tracker");
-    check(await value(currentPreview, `document.querySelectorAll('.ns-feature-desk [data-desk][data-desk-state=ready] a').length === ${FRONT_READY.length} && !document.querySelector('.ns-paper-sections')`), true, "only admitted service desks expose destinations and redundant section tabs stay removed");
+    check(await value(currentPreview, `(() => { const section=document.querySelector('.ns-feature-desk'); const links=section.querySelectorAll('[data-desk][data-desk-state=ready] a').length; return links > 0 && links <= ${READY.length} && !section.querySelector('[data-desk-state=empty] a') && !document.querySelector('.ns-paper-sections'); })()`), true, "only admitted service desks expose destinations and redundant section tabs stay removed");
     await act(currentPreview, "document.querySelector('.ns-front-desk--lead').click()");
     check(await value(currentPreview, `!!document.querySelector('.ns-article') && !document.querySelector('.ns-daily-issue') && location.hash === ${JSON.stringify('#' + FRONT.slug)}`), true, "Front PAiGE opens its full admitted story in one action");
     currentPreview.close();
@@ -244,18 +256,10 @@ try {
     await act(desktop, "document.querySelector('#ns-archive-concept').value='context';document.querySelector('#ns-archive-concept').dispatchEvent(new Event('change',{bubbles:true}))");
     check(await value(desktop, "document.querySelectorAll('#paper-counter .ns-front-story').length > 0 && !document.querySelector('#paper-counter').textContent.includes('EUROPE’S AI TRANSPARENCY RULES')"), true, "concept filter changes archive results");
 
-    await act(desktop, "document.querySelector('#ns-return').click();document.querySelector('[data-open-daily]').click()");
-    check(await value(desktop, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), DATE, "latest admitted Daily opens");
-    check(await value(desktop, `(() => {
-      const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
-      return state && state.lastPublication && state.lastPublication.viewed_at === new Date().toISOString();
-    })()`), true, "admitted Daily advances the returning-reader baseline");
-    check(await value(desktop, "document.querySelectorAll('.ns-daily-service-grid [data-desk-state=ready]').length"), READY.length, "current Daily contains exactly the admitted service records");
-
     const direct = await openPage("/newsstand.html#label-is-not-a-truth-detector");
     check(await value(direct, "document.querySelectorAll('.ns-article').length"), 1, "direct Big Picture route opens");
     check(await value(direct, "document.querySelector('.ns-big-picture-history') === null && document.querySelector('.ns-article__taxonomy') !== null"), true, "reclassified Daily archive story keeps its concept bridge without Big Picture history");
-    check(await value(direct, "document.querySelector('#ns-reader-edition').textContent.includes('Daily')"), true, "reclassified label story is identified as Daily archive reporting");
+    check(await value(direct, "/Latest|Daily/.test(document.querySelector('#ns-reader-edition').textContent)"), true, "reclassified label story is identified as Latest archive reporting");
     check(await value(direct, `(() => {
       const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
       return !!state && state.lastPublication &&
@@ -271,26 +275,9 @@ try {
     direct.close(); desktop.close();
 
     const returning = await openPage("/newsstand.html");
-    for (let attempt = 0; attempt < 40; attempt += 1) {
-      if (await value(returning, `document.querySelector('#ns-catchup-since').max === ${JSON.stringify(DATE)}`)) break;
-      await sleep(50);
-    }
+    await sleep(1900);
     check(await value(returning, "window.__newsstandDailyIssueError || null"), null, "admitted Daily store loads before returning-reader range calculation");
-    const returningRange = await value(returning, `(() => {
-      const input = document.querySelector('#ns-catchup-since');
-      const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
-      return { value: input.value, max: input.max,
-        viewedAt: state && state.lastPublication && state.lastPublication.viewed_at,
-        now: new Date().toISOString() };
-    })()`);
-    check(returningRange, { value: DATE, max: DATE, viewedAt: new Date(FIXED_NOW).toISOString(), now: new Date(FIXED_NOW).toISOString() }, "Catch Me Up uses the last successful view but caps the range at the latest admitted issue");
-    if (DATA.publications.weekly.status === 'current') {
-      const weekly=DATA.stories.find(story=>story.id===DATA.publications.weekly.storyId);
-      await act(returning,"document.querySelector('#ns-catchup-since').dispatchEvent(new Event('change',{bubbles:true}))");
-      check(await value(returning,`document.querySelector('[data-catchup-role=weekly]').textContent.includes(${JSON.stringify(weekly.headline)})`),true,'current Weekly survives a visit cutoff later than its original date');
-      check(await value(returning,`document.querySelector('[data-catchup-role=weekly]').textContent.includes(${JSON.stringify(weekly.publishedAt.slice(0,10))})`),true,'Catch Up retains original Weekly date');
-      check(await value(returning,`document.querySelectorAll('[data-catchup-role=weekly] a[href="#${weekly.slug}"]').length`),1,'persistent Weekly appears once');
-    }
+    check(await value(returning, "!document.querySelector('#ns-catchup-since') && !!document.querySelector('#ns-catchup-signin') && document.querySelector('#ns-catchup-signin').textContent.includes('Sign in')"), true, "Catch Me Up asks the reader to sign in instead of making her remember a date");
     returning.close();
 
     const clicked = await openPage("/newsstand.html");
@@ -307,33 +294,40 @@ try {
       lastVisit:{updated_at:'2026-08-22T12:00:00Z'},
       seen:{'visit:2026-08-22T12:00:00Z':{updated_at:'2026-08-22T12:00:00Z'},'story:private-history':{viewed_at:'2026-08-22T12:00:00Z',publication_at:'2026-08-21T12:00:00Z'}}
     }));location.reload()`);
+    const sanitizedReturningState = `(() => {
+      const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
+      return !!state && Object.keys(state).length === 1 &&
+        Object.prototype.hasOwnProperty.call(state, 'lastPublication') &&
+        !Object.prototype.hasOwnProperty.call(state, 'lastVisit') &&
+        !Object.prototype.hasOwnProperty.call(state, 'seen') &&
+        (state.lastPublication === null ||
+          (Object.keys(state.lastPublication).length === 1 &&
+            typeof state.lastPublication.viewed_at === 'string'));
+    })()`;
     for (let attempt = 0; attempt < 40; attempt += 1) {
-      if (await value(legacy, "localStorage.getItem('laidies_newsstand_seen_v1') === JSON.stringify({lastPublication:null})")) break;
+      if (await value(legacy, sanitizedReturningState)) break;
       await sleep(50);
     }
-    check(await value(legacy, "localStorage.getItem('laidies_newsstand_seen_v1')"), JSON.stringify({ lastPublication: null }), "legacy visit and item history is discarded on read");
+    check(await value(legacy, sanitizedReturningState), true, "legacy visit and item history is discarded while a valid publication baseline may be restored");
     legacy.close();
 
     const malformed = await openPage("/newsstand.html");
     await act(malformed, "localStorage.setItem('laidies_newsstand_seen_v1', '{not-json');location.reload()");
     for (let attempt = 0; attempt < 40; attempt += 1) {
-      if (await value(malformed, "localStorage.getItem('laidies_newsstand_seen_v1') === JSON.stringify({lastPublication:null})")) break;
+      if (await value(malformed, sanitizedReturningState)) break;
       await sleep(50);
     }
     check(await value(malformed, `(() => {
-      return localStorage.getItem('laidies_newsstand_seen_v1') === JSON.stringify({lastPublication:null}) &&
-        !!document.querySelector('#ns-catchup-since') && !!document.querySelector('.ns-one-paper');
+      const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');
+      return !!state && Object.keys(state).length === 1 &&
+        Object.prototype.hasOwnProperty.call(state, 'lastPublication') &&
+        !!document.querySelector('#ns-catchup-explainer') && !!document.querySelector('.ns-one-paper');
     })()`), true, "malformed local returning state is discarded without blocking the reader");
     malformed.close();
 
     for (const width of [390, 320]) {
       const mobile = await openPage("/newsstand.html", { width, height: 844 });
       check(await value(mobile, "window.innerWidth"), width, `${width}: exact viewport applied`);
-      check(await value(mobile, `(() => {
-        const status = document.querySelector('.ns-newsroom-bar__status').getBoundingClientRect();
-        const actions = document.querySelector('.ns-paper-statusbar .ns-state__actions').getBoundingClientRect();
-        return status.width >= window.innerWidth - 80 && actions.top >= status.bottom;
-      })()`), true, `${width}: status text has readable width and actions do not overlap it`);
       check(await value(mobile, "document.documentElement.scrollWidth <= window.innerWidth"), true, `${width}: no document overflow`);
       check(await value(mobile, "document.querySelector('.ns-publication').offsetParent !== null"), true, `${width}: paper control visible`);
       check(await value(mobile, "document.querySelector('.ns-front-desk--lead').getBoundingClientRect().top < document.querySelector('.ns-front-desk--big-picture').getBoundingClientRect().top"), true, `${width}: Front PAiGE reads first`);

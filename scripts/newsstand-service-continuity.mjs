@@ -58,10 +58,20 @@ export function loadServicePredecessor(binding, { root, date, storiesRaw, column
   const store = JSON.parse(raw.issues);
   const matches = (store.issues || []).filter(i => i.editionDate === publication?.editionDate);
   const prior = matches[0];
+  const publishedStoryIds = publication?.issue?.storyIds || [];
+  const issueStoryIds = prior?.storyIds || [];
+  const retainedOlderStories = publishedStoryIds.filter(id => !issueStoryIds.includes(id));
+  const retainedOlderStoriesValid = retainedOlderStories.every(id => {
+    const stories = (dataset?.stories || []).filter(story => story.id === id);
+    const story = stories[0];
+    return stories.length === 1 && story.edition === 'daily' && !/^front-paige-/.test(String(story.id || '')) &&
+      ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved' &&
+      day(story.publishedAt) <= prior.editionDate;
+  });
   if (matches.length !== 1 || prior.status !== 'complete' || !prior.admission || !HASH.test(prior.envelopeSha256 || '') ||
       prior.editionDate >= date || publication.issue?.status !== 'complete' ||
       stableService(prior.serviceRecordIds) !== stableService(publication.issue.serviceRecordIds) ||
-      stableService(prior.storyIds) !== stableService(publication.issue.storyIds) ||
+      !issueStoryIds.every(id => publishedStoryIds.includes(id)) || !retainedOlderStoriesValid ||
       proof.predecessorEnvelopeSha256 !== prior.envelopeSha256) fail('predecessor is not the exact published issue');
   // Idempotent projection uses its frozen source. A different local issue or
   // the unreleased service rotation is never accepted as the production base.

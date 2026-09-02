@@ -1,0 +1,40 @@
+{
+  "reviewerPrincipalId": "cloudflare-llama-independent-news-20260902",
+  "actualModel": "@cf/meta/llama-3.3-70b-instruct-sd",
+  "reviewedAt": "2026-09-02T09:34:59.000Z",
+  "correction": {
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ]
+      }
+    ]
+  },
+  "providerResult": {
+    "id": "chatcmpl-8e2280a7-1a7f-444a-a5d5-b193b223488e",
+    "model": "@cf/meta/llama-3.3-70b-instruct-sd",
+    "finishReason": "stop",
+    "content": "{\"negatives\":[{\"exemplarId\":\"CQX-BAD-001\",\"verdict\":\"REJECT\",\"identifiedFailureFamilies\":[\"glossaryAccumulation\",\"templateRepetition\",\"decorativeAnalogy\",\"referenceConfetti\",\"missingMechanism\",\"genericAction\",\"jargonBeforeMeaning\",\"disconnectedSystem\",\"joylessInstruction\"]},{\"exemplarId\":\"CQX-BAD-002\",\"verdict\":\"REJECT\",\"identifiedFailureFamilies\":[\"purposeTooNarrow\",\"mechanismBeforeMotivation\",\"workedExampleOvertakesBookPurpose\",\"technicalExplainerVoice\"]}]}"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "provider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"outcomes\\\":{\\\"communicationBenchmark\\\":{\\\"verdict\\\":\\\"PASS\\\",\\\"observation\\\":\\\"The article meets the communication benchmark\\\",\\\"artifactEvidence\\\":[{\\\"excerpt\\\":\\\"The decimal point is not the most interesting part of this release. Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.\\\",\\\"locator\\\":\\\"laidies_read\\\"}]},\\\"datedChange\\\":{\\\"verdict\\\":\\\"PASS\\\",\\\"observation\\\":\\\"The article clearly states the dated change\\\",\\\"artifactEvidence\\\":[{\\\"excerpt\\\":\\\"Anthropic released Claude Fable 5.1 on September 1, alongside a version called Claude Mythos 5.1.\\\",\\\"locator\\\":\\\"the_story\\\"}]},\\\"freshnessReviewability\\\":{\\\"verdict\\\":\\\"PASS\\\",\\\"observation\\\":\\\"The article is up-to-date and reviewable\\\",\\\"artifactEvidence\\\":[{\\\"excerpt\\\":\\\"2026-09-02T09:08:23.758Z\\\",\\\"locator\\\":\\\"updatedAt\\\"}]}}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": 128008,
+        "token_ids": null
+      }
+    ],
+    "created": 1788340684,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-3c4af686-17d2-4dd4-954c-8f03c9f7ae7b",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": "{\"outcomes\\\":{\\\"communicationBenchmark\\\":{\\\"verdict\\\":\\\"PASS\\\",\\\"observation\\\":\\\"The article meets the communication benchmark\\\",\\\"artifactEvidence\\\":[{\\\"excerpt\\\":\\\"The decimal point is not the most interesting part of this release. Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.\\\",\\\"locator\\\":\\\"laidies_read\\\"}]},\\\"datedChange\\\":{\\\"verdict\\\":\\\"PASS\\\",\\\"observation\\\":\\\"The article clearly states the dated change\\\",\\\"artifactEvidence\\\":[{\\\"excerpt\\\":\\\"Anthropic released Claude Fable 5.1 on September 1, alongside a version called Claude Mythos 5.1.\\\",\\\"locator\\\":\\\"the_story\\\"}]},\\\"freshnessReviewability\\\":{\\\"verdict\\\":\\\"PASS\\\",\\\"observation\\\":\\\"The article is up-to-date and reviewable\\\",\\\"artifactEvidence\\\":[{\\\"excerpt\\\":\\\"2026-09-02T09:08:23.758Z\\\",\\\"locator\\\":\\\"updatedAt\\\"}]}}}",
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 1390,
+      "completion_tokens": 191,
+      "total_tokens": 1581,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 76.18588256835938
+    }
+  },
+  "promptSha256": "0b27102f7cff38f623e8732154f6645ef9f0fa065a7b6ed74e090195bd3727ae",
+  "correction": {
+    "outcomes": {
+      "communicationBenchmark": {
+        "verdict": "PASS",
+        "observation": "The article meets the communication benchmark",
+        "artifactEvidence": [
+          {
+            "excerpt": "The decimal point is not the most interesting part of this release. Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.",
+            "locator": "laidies_read"
+          }
+        ]
+      },
+      "datedChange": {
+        "verdict": "PASS",
+        "observation": "The article clearly states the dated change",
+        "artifactEvidence": [
+          {
+            "excerpt": "Anthropic released Claude Fable 5.1 on September 1, alongside a version called Claude Mythos 5.1.",
+            "locator": "the_story"
+          }
+        ]
+      },
+      "freshnessReviewability": {
+        "verdict": "PASS",
+        "observation": "The article is up-to-date and reviewable",
+        "artifactEvidence": [
+          {
+            "excerpt": "2026-09-02T09:08:23.758Z",
+            "locator": "updatedAt"
+          }
+        ]
+      }
+    }
+  }
+}

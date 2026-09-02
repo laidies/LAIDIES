@@ -1,0 +1,674 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "chatgpt-ad-expansion-2026-08-31",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "cloudflare-llama-independent-news-20260831-v2",
+    "principalId": "cloudflare-llama-independent-news-20260831-v2",
+    "role": "independent factual and reader-comprehension editor",
+    "modelFamily": "meta-llama",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-01T00:01:20.090Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/review-text.json",
+      "sha256": "57a30c6839a845016c4d617dc449c569b291bd74c0f41e055f2965c19bb32970"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/manifest.json",
+      "sha256": "f3b1dd14b55aea36196155d78766110ebfe0595a7cdf603a30aa489b7051aaff"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/rendered-article.html",
+      "sha256": "f5620ce5871f1af5f9f49503e023ac6e3aa7ee4bbc9338ec2065a6f2eb7156cb"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "cloudflare-llama-independent-news-20260831-v2",
+    "reviewedAt": "2026-09-01T00:01:20.090Z",
+    "negatives": [
+      {
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "B1"
+          }
+        ],
+        "exemplarId": "CQX-BAD-001",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "verdict": "REJECT"
+      },
+      {
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare two job offers.",
+            "locator": "..."
+          }
+        ],
+        "exemplarId": "CQX-BAD-002",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "verdict": "REJECT"
+      }
+    ],
+    "positive": {
+      "evidence": [
+        {
+          "excerpt": "Europe’s AI transparency rules started August 2.",
+          "locator": "..."
+        }
+      ],
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "strengthsRetained": [
+        "states the dated change and scope",
+        "separates evidence from inference",
+        "analogy maps one job and names its limit",
+        "gives a specific reader action without overclaiming"
+      ],
+      "verdict": "PASS"
+    }
+  },
+  "reverseBrief": {
+    "centralMentalModel": "The article explains that ChatGPT ads will use the current conversation to choose relevant ads, separate from the system generating the answer.",
+    "dailyLifeConnection": "The article helps users understand how ChatGPT ads will work and how they can assess the ads they see.",
+    "desiredReaderFeeling": "Readers should feel informed about ChatGPT ads and how they work.",
+    "humanQuestion": "What are OpenAI's plans for expanding ChatGPT ads, and how will they work?",
+    "promisedPayoff": "Understanding how ChatGPT ads will be displayed and how they relate to user input.",
+    "surfaceJob": "Reporting OpenAI's announcement of expanding ChatGPT ads and how they will be displayed."
+  },
+  "outcomes": {
+    "analogyIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "its advertising system can use the current conversation to choose a relevant ad",
+          "locator": "E7"
+        }
+      ],
+      "observation": "The article uses analogies effectively.",
+      "verdict": "PASS"
+    },
+    "communicationBenchmark": {
+      "artifactEvidence": [
+        {
+          "excerpt": "information about what you need.",
+          "locator": "E6"
+        }
+      ],
+      "observation": "The article communicates complex information in a clear and concise manner.",
+      "verdict": "PASS"
+    },
+    "consequenceAndUncertainty": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If a sponsored option catches your eye, assess its claims separately from the answer above it.",
+          "locator": "what_this_means paragraph2"
+        }
+      ],
+      "observation": "The article clearly explains the consequences and uncertainty of ChatGPT ads.",
+      "verdict": "PASS"
+    },
+    "dailyLifeConnection": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Suppose you ask ChatGPT for somewhere to take six colleagues for lunch.",
+          "locator": "E4"
+        }
+      ],
+      "observation": "The article helps readers understand how ChatGPT ads will affect their daily lives.",
+      "verdict": "PASS"
+    },
+    "datedChange": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI announced on August 31 that more businesses",
+          "locator": "E1"
+        }
+      ],
+      "observation": "The article clearly states the dated change and scope.",
+      "verdict": "PASS"
+    },
+    "engagingEnjoyable": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A restaurant could therefore pay to appear beside that lunch discussion.",
+          "locator": "E9"
+        }
+      ],
+      "observation": "The article is engaging and enjoyable to read.",
+      "verdict": "PASS"
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article clearly explains the expansion of ChatGPT ads and how they work.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an announced expansion, not confirmation that every advertiser can already get in.",
+          "locator": "E2"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "The restatement must include the expansion of ads, how ads are chosen, and the distinction between ads and answers.",
+        "prompt": "Ask for an ordinary-language restatement",
+        "response": "OpenAI is expanding its advertising system in ChatGPT, allowing more businesses to buy ads. These ads are chosen based on the current conversation and are separate from the answer generated by the system. Users may see sponsored placements, but turning off ad personalization does not turn off ads."
+      }
+    },
+    "factualIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "That does not mean it won the comparison in the answer.",
+          "locator": "E10"
+        }
+      ],
+      "observation": "The article is factually accurate and supported by sources.",
+      "verdict": "PASS"
+    },
+    "freshnessReviewability": {
+      "artifactEvidence": [
+        {
+          "excerpt": "turning off ad personalisation does not turn off ads.",
+          "locator": "E13"
+        }
+      ],
+      "observation": "The article is up-to-date and reviewable.",
+      "verdict": "PASS"
+    },
+    "laidiesVoice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Suppose you ask ChatGPT for somewhere to take six colleagues for lunch.",
+          "locator": "laidies_read paragraph1"
+        }
+      ],
+      "observation": "The article is written in a clear and engaging style.",
+      "verdict": "PASS"
+    },
+    "plainClarity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A placement that fits your question is still a placement someone paid for",
+          "locator": "E15"
+        }
+      ],
+      "observation": "The article is clear and easy to understand.",
+      "verdict": "PASS"
+    },
+    "readerValue": {
+      "artifactEvidence": [
+        {
+          "excerpt": "not a recommendation you earned by giving ChatGPT a beautifully detailed brief.",
+          "locator": "E16"
+        }
+      ],
+      "observation": "The article provides useful information for readers.",
+      "verdict": "PASS"
+    },
+    "surfaceFit": {
+      "artifactEvidence": [
+        {
+          "excerpt": "separately from the system generating the answer.",
+          "locator": "E8"
+        }
+      ],
+      "observation": "The article is well-suited for its intended audience.",
+      "verdict": "PASS"
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The article provides enough information to apply the concepts to a different scenario.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A placement that fits your question is still a placement someone paid for",
+          "locator": "E15"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "The correct transfer must include the distinction between paid placement and recommendation, and the limits of the provider's claims.",
+        "prompt": "A user is planning a vacation and asks ChatGPT for hotel recommendations. A sponsored hotel option appears in the results. What can and cannot be concluded about this option?",
+        "response": "The sponsored hotel option is a paid placement and not necessarily a recommendation. It may be relevant to the user's query based on the current conversation, but its appearance does not mean it is the best option. The user should assess the option's claims separately from the other results."
+      }
+    },
+    "usefulAction": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If a sponsored option catches your eye, assess its claims separately from the answer above it.",
+          "locator": "what_this_means paragraph2"
+        }
+      ],
+      "observation": "The article provides useful action for readers.",
+      "verdict": "PASS"
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "artifactLocator": "the_story",
+      "observation": "The article does not drop names or benchmarks without explaining their relevance. OpenAI and ChatGPT are central to the topic.",
+      "present": false
+    },
+    "communicationPastiche": {
+      "artifactLocator": "the_story",
+      "observation": "The article's communication style is consistent and clear, avoiding pastiche.",
+      "present": false
+    },
+    "corporateSludge": {
+      "artifactLocator": "the_story",
+      "observation": "The article critically examines OpenAI's advertising expansion, providing a balanced view.",
+      "present": false
+    },
+    "curiosityWithoutPayoff": {
+      "artifactLocator": "E4, E7",
+      "observation": "The article's examples and explanations satisfy the reader's curiosity about how ChatGPT ads work.",
+      "present": false
+    },
+    "decorativeAnalogy": {
+      "artifactLocator": "E4",
+      "observation": "The article does not use analogies as mere decorations. The example in E4 serves to illustrate how context works.",
+      "present": false
+    },
+    "disconnectedSystem": {
+      "artifactLocator": "the_story",
+      "observation": "The article connects the system of ad selection to the broader context of ChatGPT's functionality.",
+      "present": false
+    },
+    "entertainmentBeforeUnderstanding": {
+      "artifactLocator": "the_story",
+      "observation": "The article prioritizes understanding over entertainment, providing a straightforward explanation of ChatGPT ads.",
+      "present": false
+    },
+    "factlessConfidence": {
+      "artifactLocator": "E13",
+      "observation": "The article provides evidence and explanations to support its claims, such as the distinction between ad personalization and ad display (E13).",
+      "present": false
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "artifactLocator": "E4",
+      "observation": "The example in E4 provides a technical return by illustrating how context influences ad selection.",
+      "present": false
+    },
+    "genericAction": {
+      "artifactLocator": "E13",
+      "observation": "The article specifies actions, such as 'turning off ad personalisation' (E13), and explains their consequences.",
+      "present": false
+    },
+    "glossaryAccumulation": {
+      "artifactLocator": "E17",
+      "observation": "The article does not accumulate glossary terms without explanation. Technical terms like 'context' are briefly explained.",
+      "present": false
+    },
+    "inflatedTakeawayEnding": {
+      "artifactLocator": "what_this_means",
+      "observation": "The article's ending (what_this_means) provides a useful summary without inflating the takeaway.",
+      "present": false
+    },
+    "jargonBeforeMeaning": {
+      "artifactLocator": "E17",
+      "observation": "The article introduces technical terms like 'context' with a brief explanation, making it accessible to readers.",
+      "present": false
+    },
+    "joylessInstruction": {
+      "artifactLocator": "E15, E16",
+      "observation": "The article's instructional content (e.g., E15, E16) is clear and relevant to the reader's understanding of ChatGPT ads.",
+      "present": false
+    },
+    "mechanismBeforeMotivation": {
+      "artifactLocator": "E7",
+      "observation": "The article explains the mechanism of ad selection (E7) before discussing the motivation behind OpenAI's expansion.",
+      "present": false
+    },
+    "mechanismCompressedBehindHook": {
+      "artifactLocator": "E7",
+      "observation": "The article explains the mechanism of ad selection (E7) without compressing it behind a hook.",
+      "present": false
+    },
+    "missingMechanism": {
+      "artifactLocator": "E7, E8",
+      "observation": "The article explains the mechanism of how ads are chosen based on the current conversation (E7) and how they are separate from the answer generation (E8).",
+      "present": false
+    },
+    "prematureClickBeforeMechanism": {
+      "artifactLocator": "E7, E8",
+      "observation": "The article explains the mechanism of ad selection before discussing its implications.",
+      "present": false
+    },
+    "purposeTooNarrow": {
+      "artifactLocator": "the_story",
+      "observation": "The article's purpose is to inform readers about OpenAI's expansion of ChatGPT ads, which is a relevant and sufficiently broad topic.",
+      "present": false
+    },
+    "referenceConfetti": {
+      "artifactLocator": "sources",
+      "observation": "The article does not scatter references without connecting them to the main topic. References are used to support specific claims.",
+      "present": false
+    },
+    "staleUnreviewableClaims": {
+      "artifactLocator": "sources",
+      "observation": "The article's claims are supported by recent sources (e.g., OpenAI's announcement) and are subject to review.",
+      "present": false
+    },
+    "technicalExplainerVoice": {
+      "artifactLocator": "the_story",
+      "observation": "The article uses a clear and technical voice to explain complex topics like ad selection and personalization.",
+      "present": false
+    },
+    "templateRepetition": {
+      "artifactLocator": "the_story",
+      "observation": "The article does not repeat templates without adding new information. Each paragraph provides a unique perspective on the topic.",
+      "present": false
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "artifactLocator": "E4",
+      "observation": "The example in E4 supports the article's purpose without overtaking it.",
+      "present": false
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-announcement.md",
+        "sha256": "73d562d3f046816dc4c75281bff5d7653c8a2a96f206e7f3f84e4239cca5ce4c"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+        "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-availability.md",
+        "sha256": "6b805ed801835fcfe00600272dce8355567c733ef9e450fe6637f9caf54ec415"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "announced-access-not-completion",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI announced on August 31 that more businesses",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-announcement.md",
+          "sha256": "73d562d3f046816dc4c75281bff5d7653c8a2a96f206e7f3f84e4239cca5ce4c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Starting later today",
+            "locator": "announcement exact quotation"
+          }
+        ],
+        "scopeAndFreshness": "Announced future access on Aug31, not observed completion; source supports regional scope. Recheck launch completion before release."
+      },
+      {
+        "claimId": "rollout-conflict",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Its country-by-country help page still listed some of those markets as coming soon",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-availability.md",
+          "sha256": "6b805ed801835fcfe00600272dce8355567c733ef9e450fe6637f9caf54ec415"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "listed India and the European expansion markets as not yet self-service",
+            "locator": "source facts"
+          }
+        ],
+        "scopeAndFreshness": "Maker and independent research observed current table; advertiser access not consumer rollout."
+      },
+      {
+        "claimId": "plans-ad-placement",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "eligible Free and Go users may see sponsored placements below responses",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Eligible Free/Go users may see ads",
+            "locator": "source facts"
+          }
+        ],
+        "scopeAndFreshness": "Attributed documented eligibility, not a guarantee or account test."
+      },
+      {
+        "claimId": "separate-ad-context",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "its advertising system can use the current conversation to choose a relevant ad",
+            "locator": "laidies_read paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "context of your current chat thread",
+            "locator": "FAQ exact quote"
+          }
+        ],
+        "scopeAndFreshness": "Hypothetical lunch shows documented relationship, not actual ad observed. Answer independence is provider assertion."
+      },
+      {
+        "claimId": "answer-independence-claimed",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says advertisers cannot alter the response",
+            "locator": "laidies_read paragraph2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI says advertisers cannot change or rank the generated response",
+            "locator": "source facts"
+          }
+        ],
+        "scopeAndFreshness": "Explicit attribution and not-independent-audit caveat."
+      },
+      {
+        "claimId": "personalization-not-removal",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "turning off ad personalisation does not turn off ads",
+            "locator": "what_this_means paragraph1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Turning personalization off does not remove advertising or stop the current thread being used to select ads",
+            "locator": "source facts"
+          }
+        ],
+        "scopeAndFreshness": "Documented current rule; not precise UI walkthrough or privacy promise."
+      }
+    ],
+    "reviewedThrough": "2026-08-31",
+    "nextTrigger": "OpenAI rollout or availability documentation changes; new independent audit evidence; correction or contradictory observed behaviour.",
+    "correctionOwner": "LAiDIES NewsStand product steward",
+    "independentAssessments": [
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI announced on August 31 that more businesses would be able to buy ads directly inside ChatGPT.",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "announced-access-not-completion",
+        "observation": "The article clearly states that OpenAI announced the expansion of ChatGPT ads, but did not confirm completion.",
+        "sourceEvidence": [
+          {
+            "excerpt": "Starting later today",
+            "locator": "announcement exact quotation"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "Its country-by-country help page still listed some of those markets as coming soon",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "rollout-conflict",
+        "observation": "The article notes that the country-by-country help page still listed some markets as coming soon.",
+        "sourceEvidence": [
+          {
+            "excerpt": "listed India and the European expansion markets as not yet self-service",
+            "locator": "source facts"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "eligible Free and Go users may see sponsored placements below responses",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "claimId": "plans-ad-placement",
+        "observation": "The article explains that eligible Free and Go users may see sponsored placements below responses.",
+        "sourceEvidence": [
+          {
+            "excerpt": "Eligible Free/Go users may see ads",
+            "locator": "source facts"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "its advertising system can use the current conversation to choose a relevant ad",
+            "locator": "laidies_read paragraph1"
+          }
+        ],
+        "claimId": "separate-ad-context",
+        "observation": "The article explains that ChatGPT ads will use the current conversation to choose relevant ads.",
+        "sourceEvidence": [
+          {
+            "excerpt": "context of your current chat thread",
+            "locator": "FAQ exact quote"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says advertisers cannot alter the response",
+            "locator": "laidies_read paragraph2"
+          }
+        ],
+        "claimId": "answer-independence-claimed",
+        "observation": "The article explains that OpenAI says advertisers cannot alter the response.",
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI says advertisers cannot change or rank the generated response",
+            "locator": "source facts"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "turning off ad personalisation does not turn off ads",
+            "locator": "what_this_means paragraph1"
+          }
+        ],
+        "claimId": "personalization-not-removal",
+        "observation": "The article explains that turning off ad personalization does not turn off ads.",
+        "sourceEvidence": [
+          {
+            "excerpt": "Turning personalization off does not remove advertising or stop the current thread being used to select ads",
+            "locator": "source facts"
+          }
+        ],
+        "verdict": "PASS"
+      }
+    ]
+  },
+  "ratchet": {
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "repeatedKnownDefects": 0,
+    "reviewCycles": 1,
+    "reviewIssues": 0,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First independent semantic review of this exact ordinary-news candidate."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The article passes all checks and claim assessments."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Browser, native zoom and public release were not reviewed."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "f349fa4bf2fbcc1701af6b5511f1705b039ce09f3e071a24701e9ee123b23aab"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/independent-analysis-final-v2.json",
+      "sha256": "c7496c1145b1a7b36e6ce4d188cbba9a31f00c089c7ab177bdc9ca7043acb2b7"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/independent-raw-report-final-v2.json",
+    "sha256": "bd450d64a63505505d4dfce51390c4f36f631dcc3adde579a7b27a82c0d0ab43"
+  }
+}

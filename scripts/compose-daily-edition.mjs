@@ -62,15 +62,16 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   // Older bank entries remain opportunities, not permission to republish under
   // a new date. A reused service requires its own exactly admitted dated row.
   const eligiblePool = sameDateRecords;
-  const eligible = eligiblePool.filter((record) => types.includes(record.type) && serviceEligible(record, date))
+  let eligible = eligiblePool.filter((record) => types.includes(record.type) && serviceEligible(record, date))
     .sort((a, b) => String(b.editionDate).localeCompare(String(a.editionDate)));
   const predecessor = servicePredecessor ? loadServicePredecessor(servicePredecessor, { root, date, storiesRaw, columns: columnsData }) : null;
   for (const record of predecessor?.records || []) {
     if (!eligible.some(item => item.type === record.type)) eligible.push(record);
   }
-  for (const record of eligible) {
+  for (const record of [...eligible]) {
     const laneErrors = careerLaneErrors(record, date);
-    if (laneErrors.length) reject(`${record.id}: ${laneErrors.join('; ')}`);
+    if (laneErrors.length && record.editionDate === date) reject(`${record.id}: ${laneErrors.join('; ')}`);
+    if (laneErrors.length) eligible = eligible.filter(item => item.id !== record.id);
   }
   let exactStories = (storiesData.stories || []).filter((story) => story.edition === "daily" &&
     !/^front-paige-/.test(String(story.id || "")) && vancouverDay(story.publishedAt) === date &&

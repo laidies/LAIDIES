@@ -1,0 +1,148 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "promptSha256": "9abcf7795b0ca191ab3c6988393399903b4c57cbeaffe7a811053d07aafc271e",
+  "wrapper": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"choices\": {\"checks.incidentExplained\": \"E1\", \"checks.termsExplainedInContext\": \"E2\", \"outcomes.analogyIntegrity\": \"E7\", \"outcomes.communicationBenchmark\": \"E6\", \"outcomes.dailyLifeConnection\": \"E4\", \"outcomes.datedChange\": \"E1\", \"outcomes.engagingEnjoyable\": \"E9\", \"outcomes.explainBack\": \"E11\", \"outcomes.factualIntegrity\": \"E10\", \"outcomes.freshnessReviewability\": \"E13\", \"outcomes.plainClarity\": \"E15\", \"outcomes.readerValue\": \"E16\", \"outcomes.surfaceFit\": \"E8\", \"outcomes.unseenTransfer\": \"E14\", \"calibration.CQX-BAD-001\": \"B1\"}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788220520,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-e8ea0b12-adea-41a9-9c61-55c7e26b746e",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "choices": {
+        "calibration.CQX-BAD-001": "B1",
+        "checks.incidentExplained": "E1",
+        "checks.termsExplainedInContext": "E2",
+        "outcomes.analogyIntegrity": "E7",
+        "outcomes.communicationBenchmark": "E6",
+        "outcomes.dailyLifeConnection": "E4",
+        "outcomes.datedChange": "E1",
+        "outcomes.engagingEnjoyable": "E9",
+        "outcomes.explainBack": "E11",
+        "outcomes.factualIntegrity": "E10",
+        "outcomes.freshnessReviewability": "E13",
+        "outcomes.plainClarity": "E15",
+        "outcomes.readerValue": "E16",
+        "outcomes.surfaceFit": "E8",
+        "outcomes.unseenTransfer": "E14"
+      }
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 548,
+      "completion_tokens": 178,
+      "total_tokens": 726,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 51.06923294067383
+    }
+  },
+  "selected": {
+    "choices": {
+      "calibration.CQX-BAD-001": "B1",
+      "checks.incidentExplained": "E1",
+      "checks.termsExplainedInContext": "E2",
+      "outcomes.analogyIntegrity": "E7",
+      "outcomes.communicationBenchmark": "E6",
+      "outcomes.dailyLifeConnection": "E4",
+      "outcomes.datedChange": "E1",
+      "outcomes.engagingEnjoyable": "E9",
+      "outcomes.explainBack": "E11",
+      "outcomes.factualIntegrity": "E10",
+      "outcomes.freshnessReviewability": "E13",
+      "outcomes.plainClarity": "E15",
+      "outcomes.readerValue": "E16",
+      "outcomes.surfaceFit": "E8",
+      "outcomes.unseenTransfer": "E14"
+    }
+  },
+  "correction": {
+    "replacements": {
+      "calibration.CQX-BAD-001": {
+        "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+        "locator": "B1"
+      },
+      "checks.incidentExplained": {
+        "excerpt": "OpenAI announced on August 31 that more businesses",
+        "locator": "E1"
+      },
+      "checks.termsExplainedInContext": {
+        "excerpt": "This is an announced expansion, not confirmation that every advertiser can already get in.",
+        "locator": "E2"
+      },
+      "outcomes.analogyIntegrity": {
+        "excerpt": "its advertising system can use the current conversation to choose a relevant ad",
+        "locator": "E7"
+      },
+      "outcomes.communicationBenchmark": {
+        "excerpt": "information about what you need.",
+        "locator": "E6"
+      },
+      "outcomes.dailyLifeConnection": {
+        "excerpt": "Suppose you ask ChatGPT for somewhere to take six colleagues for lunch.",
+        "locator": "E4"
+      },
+      "outcomes.datedChange": {
+        "excerpt": "OpenAI announced on August 31 that more businesses",
+        "locator": "E1"
+      },
+      "outcomes.engagingEnjoyable": {
+        "excerpt": "A restaurant could therefore pay to appear beside that lunch discussion.",
+        "locator": "E9"
+      },
+      "outcomes.explainBack": {
+        "excerpt": "OpenAI says advertisers cannot alter the response",
+        "locator": "E11"
+      },
+      "outcomes.factualIntegrity": {
+        "excerpt": "That does not mean it won the comparison in the answer.",
+        "locator": "E10"
+      },
+      "outcomes.freshnessReviewability": {
+        "excerpt": "turning off ad personalisation does not turn off ads.",
+        "locator": "E13"
+      },
+      "outcomes.plainClarity": {
+        "excerpt": "A placement that fits your question is still a placement someone paid for",
+        "locator": "E15"
+      },
+      "outcomes.readerValue": {
+        "excerpt": "not a recommendation you earned by giving ChatGPT a beautifully detailed brief.",
+        "locator": "E16"
+      },
+      "outcomes.surfaceFit": {
+        "excerpt": "separately from the system generating the answer.",
+        "locator": "E8"
+      },
+      "outcomes.unseenTransfer": {
+        "excerpt": "switching off personalisation stops it drawing on broader activity",
+        "locator": "E14"
+      }
+    }
+  }
+}

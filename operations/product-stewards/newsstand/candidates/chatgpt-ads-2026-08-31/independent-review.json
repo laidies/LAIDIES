@@ -1,0 +1,564 @@
+{
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/manifest.json",
+      "sha256": "f3b1dd14b55aea36196155d78766110ebfe0595a7cdf603a30aa489b7051aaff"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/rendered-article.html",
+      "sha256": "f5620ce5871f1af5f9f49503e023ac6e3aa7ee4bbc9338ec2065a6f2eb7156cb"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/review-text.json",
+      "sha256": "57a30c6839a845016c4d617dc449c569b291bd74c0f41e055f2965c19bb32970"
+    }
+  },
+  "calibration": {
+    "negatives": [
+      {
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "exemplarId": "CQX-BAD-001",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "verdict": "REJECT"
+      },
+      {
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "exemplarId": "CQX-BAD-002",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "verdict": "REJECT"
+      }
+    ],
+    "positive": {
+      "evidence": [
+        {
+          "excerpt": "That disclosure helps you ask the next question.",
+          "locator": "eu-ai-act-transparency-starts laidies_read"
+        }
+      ],
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "strengthsRetained": [
+        "Dated change and bounded scope",
+        "Attribution and retained uncertainty; no historical facts inherited"
+      ],
+      "verdict": "PASS"
+    },
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewedAt": "2026-08-31T16:45:00Z",
+    "reviewerPrincipalId": "cloudflare-llama-independent-news-20260831"
+  },
+  "candidateId": "chatgpt-ad-expansion-2026-08-31",
+  "factualReview": {
+    "claimMap": [
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI announced on August 31 that more businesses",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "announced-access-not-completion",
+        "scopeAndFreshness": "Announced future access on Aug31, not observed completion; source supports regional scope. Recheck launch completion before release.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-announcement.md",
+          "sha256": "73d562d3f046816dc4c75281bff5d7653c8a2a96f206e7f3f84e4239cca5ce4c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Starting later today",
+            "locator": "announcement exact quotation"
+          }
+        ],
+        "status": "QUALIFIED"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "Its country-by-country help page still listed some of those markets as coming soon",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "rollout-conflict",
+        "scopeAndFreshness": "Maker and independent research observed current table; advertiser access not consumer rollout.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-availability.md",
+          "sha256": "6b805ed801835fcfe00600272dce8355567c733ef9e450fe6637f9caf54ec415"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "listed India and the European expansion markets as not yet self-service",
+            "locator": "source facts"
+          }
+        ],
+        "status": "VERIFIED"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "eligible Free and Go users may see sponsored placements below responses",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "claimId": "plans-ad-placement",
+        "scopeAndFreshness": "Attributed documented eligibility, not a guarantee or account test.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Eligible Free/Go users may see ads",
+            "locator": "source facts"
+          }
+        ],
+        "status": "QUALIFIED"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "its advertising system can use the current conversation to choose a relevant ad",
+            "locator": "laidies_read paragraph1"
+          }
+        ],
+        "claimId": "separate-ad-context",
+        "scopeAndFreshness": "Hypothetical lunch shows documented relationship, not actual ad observed. Answer independence is provider assertion.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "context of your current chat thread",
+            "locator": "FAQ exact quote"
+          }
+        ],
+        "status": "QUALIFIED"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says advertisers cannot alter the response",
+            "locator": "laidies_read paragraph2"
+          }
+        ],
+        "claimId": "answer-independence-claimed",
+        "scopeAndFreshness": "Explicit attribution and not-independent-audit caveat.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI says advertisers cannot change or rank the generated response",
+            "locator": "source facts"
+          }
+        ],
+        "status": "QUALIFIED"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "turning off ad personalisation does not turn off ads",
+            "locator": "what_this_means paragraph1"
+          }
+        ],
+        "claimId": "personalization-not-removal",
+        "scopeAndFreshness": "Documented current rule; not precise UI walkthrough or privacy promise.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+          "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Turning personalization off does not remove advertising or stop the current thread being used to select ads",
+            "locator": "source facts"
+          }
+        ],
+        "status": "QUALIFIED"
+      }
+    ],
+    "correctionOwner": "newsstand-daily",
+    "disposition": "CLAIMS_REVIEWED",
+    "nextTrigger": "Any changed announcement, availability table or ad FAQ; recheck before release.",
+    "reviewedThrough": "2026-08-31",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-announcement.md",
+        "sha256": "73d562d3f046816dc4c75281bff5d7653c8a2a96f206e7f3f84e4239cca5ce4c"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-consumer-faq.md",
+        "sha256": "b1fc9ab9be5496c681379fcf02fe8e56965fbc8e1c44ba4ad1dc9b0fd0f18a97"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/source-availability.md",
+        "sha256": "6b805ed801835fcfe00600272dce8355567c733ef9e450fe6637f9caf54ec415"
+      }
+    ]
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "artifactLocator": "information about what you need.",
+      "observation": "Uses motivation and visible causal contrast, no borrowed persona or forced surprise.",
+      "present": false
+    },
+    "communicationPastiche": {
+      "artifactLocator": "giving ChatGPT a beautifully detailed brief",
+      "observation": "Direct conversational explanation, Canadian spelling, one lightly irreverent ending rather than a prompt tip.",
+      "present": false
+    },
+    "corporateSludge": {
+      "artifactLocator": "giving ChatGPT a beautifully detailed brief",
+      "observation": "Direct conversational explanation, Canadian spelling, one lightly irreverent ending rather than a prompt tip.",
+      "present": false
+    },
+    "curiosityWithoutPayoff": {
+      "artifactLocator": "That does not mean it won the comparison in the answer.",
+      "observation": "Paid relevance can be mistaken for recommendation; article separates them.",
+      "present": false
+    },
+    "decorativeAnalogy": {
+      "artifactLocator": "Suppose you ask ChatGPT",
+      "observation": "Lunch is a hypothetical use case, not metaphor or invented observed evidence.",
+      "present": false
+    },
+    "disconnectedSystem": {
+      "artifactLocator": "separately from the system generating the answer.",
+      "observation": "Producer's own simulated check distinguishes separate paid selection and answer generation.",
+      "present": false
+    },
+    "entertainmentBeforeUnderstanding": {
+      "artifactLocator": "This is an announced expansion",
+      "observation": "Direct buying expansion is announced Aug31, distinct from historical availability.",
+      "present": false
+    },
+    "factlessConfidence": {
+      "artifactLocator": "Those are the company’s stated rules, not an independent audit.",
+      "observation": "Every company policy is attributed; conflicting rollout table retained and hypothetical example introduced as suppose.",
+      "present": false
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "artifactLocator": "You mention the neighbourhood and budget.",
+      "observation": "Team lunch details make ad relevance concrete.",
+      "present": false
+    },
+    "genericAction": {
+      "artifactLocator": "assess its claims separately from the answer above it.",
+      "observation": "Evaluate sponsored claims separately; no forced subscription/prompt or invented tool advice.",
+      "present": false
+    },
+    "glossaryAccumulation": {
+      "artifactLocator": "OpenAI announced on August 31",
+      "observation": "Reader gets the dated announcement before two ordinary distinctions; café case explains context as needed.",
+      "present": false
+    },
+    "inflatedTakeawayEnding": {
+      "artifactLocator": "assess its claims separately from the answer above it.",
+      "observation": "Evaluate sponsored claims separately; no forced subscription/prompt or invented tool advice.",
+      "present": false
+    },
+    "jargonBeforeMeaning": {
+      "artifactLocator": "OpenAI announced on August 31",
+      "observation": "Reader gets the dated announcement before two ordinary distinctions; café case explains context as needed.",
+      "present": false
+    },
+    "joylessInstruction": {
+      "artifactLocator": "somewhere to take six colleagues for lunch",
+      "observation": "Recognisable group lunch adds concrete stakes without a decorative pop-culture detour.",
+      "present": false
+    },
+    "mechanismBeforeMotivation": {
+      "artifactLocator": "This is an announced expansion",
+      "observation": "Direct buying expansion is announced Aug31, distinct from historical availability.",
+      "present": false
+    },
+    "mechanismCompressedBehindHook": {
+      "artifactLocator": "separately from the system generating the answer.",
+      "observation": "Producer's own simulated check distinguishes separate paid selection and answer generation.",
+      "present": false
+    },
+    "missingMechanism": {
+      "artifactLocator": "separately from the system generating the answer.",
+      "observation": "Producer's own simulated check distinguishes separate paid selection and answer generation.",
+      "present": false
+    },
+    "prematureClickBeforeMechanism": {
+      "artifactLocator": "information about what you need.",
+      "observation": "Uses motivation and visible causal contrast, no borrowed persona or forced surprise.",
+      "present": false
+    },
+    "purposeTooNarrow": {
+      "artifactLocator": "THE LATEST",
+      "observation": "One ordinary dated story, no dominant Front replacement or speculative Big Picture thesis.",
+      "present": false
+    },
+    "referenceConfetti": {
+      "artifactLocator": "giving ChatGPT a beautifully detailed brief",
+      "observation": "Direct conversational explanation, Canadian spelling, one lightly irreverent ending rather than a prompt tip.",
+      "present": false
+    },
+    "staleUnreviewableClaims": {
+      "artifactLocator": "with access scheduled to expand later that day",
+      "observation": "Announcement date explicit, sources current Aug31, launch table contradiction retained.",
+      "present": false
+    },
+    "technicalExplainerVoice": {
+      "artifactLocator": "OpenAI announced on August 31",
+      "observation": "Reader gets the dated announcement before two ordinary distinctions; café case explains context as needed.",
+      "present": false
+    },
+    "templateRepetition": {
+      "artifactLocator": "THE LATEST",
+      "observation": "One ordinary dated story, no dominant Front replacement or speculative Big Picture thesis.",
+      "present": false
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "artifactLocator": "You mention the neighbourhood and budget.",
+      "observation": "Team lunch details make ad relevance concrete.",
+      "present": false
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The pre-draft fixed-exemplar identity defect was repaired separately; exact prose has no maker-found known defect after removing an unnecessary hypothetical-evidence aside."
+  },
+  "limitations": [
+    "Producer simulated explain-back and transfer only; not independent or human evidence.",
+    "Rendered HTML derivative exists; final NewsStand reader and native200% accessibility remain separate unverified release gates.",
+    "Primary policies are attributed; no account-level ad experiment or independent assurance is claimed.",
+    "Metadata-only correction after producer reread: future-at-draft timestamps corrected to the observed original producer checkpoint. Exact failed input preserved. No new independent attempt or approval."
+  ],
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First real ordinary article on the Aug31 ad-expansion event; not a revision of existing story or prior rejected article."
+  },
+  "maker": "/root",
+  "outcomes": {
+    "analogyIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Suppose you ask ChatGPT",
+          "locator": "analogyIntegrity in exact story"
+        }
+      ],
+      "observation": "Lunch is a hypothetical use case, not metaphor or invented observed evidence.",
+      "verdict": "PASS"
+    },
+    "communicationBenchmark": {
+      "artifactEvidence": [
+        {
+          "excerpt": "information about what you need.",
+          "locator": "communicationBenchmark in exact story"
+        }
+      ],
+      "observation": "Uses motivation and visible causal contrast, no borrowed persona or forced surprise.",
+      "verdict": "PASS"
+    },
+    "consequenceAndUncertainty": {
+      "artifactEvidence": [
+        {
+          "excerpt": "That does not mean it won the comparison in the answer.",
+          "locator": "consequenceAndUncertainty in exact story"
+        }
+      ],
+      "observation": "Readers can identify paid placement without claiming bought answers or guaranteed independence.",
+      "verdict": "PASS"
+    },
+    "dailyLifeConnection": {
+      "artifactEvidence": [
+        {
+          "excerpt": "You mention the neighbourhood and budget.",
+          "locator": "dailyLifeConnection in exact story"
+        }
+      ],
+      "observation": "Team lunch details make ad relevance concrete.",
+      "verdict": "PASS"
+    },
+    "datedChange": {
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an announced expansion",
+          "locator": "datedChange in exact story"
+        }
+      ],
+      "observation": "Direct buying expansion is announced Aug31, distinct from historical availability.",
+      "verdict": "PASS"
+    },
+    "engagingEnjoyable": {
+      "artifactEvidence": [
+        {
+          "excerpt": "somewhere to take six colleagues for lunch",
+          "locator": "engagingEnjoyable in exact story"
+        }
+      ],
+      "observation": "Recognisable group lunch adds concrete stakes without a decorative pop-culture detour.",
+      "verdict": "PASS"
+    },
+    "explainBack": {
+      "artifactEvidence": [
+        {
+          "excerpt": "separately from the system generating the answer.",
+          "locator": "explainBack in exact story"
+        }
+      ],
+      "observation": "Producer's own simulated check distinguishes separate paid selection and answer generation.",
+      "simulatedReaderProbe": {
+        "expectedEvidence": "Separate announcement versus completed rollout; context, ad selection, generated answer and attributed independence.",
+        "probeResponse": "More advertisers are promised direct purchasing access. Chat details can help select a paid ad separately from the answer; OpenAI says advertisers cannot alter that answer. This is policy, not an audit.",
+        "prompt": "What is being expanded and how do the answer and ad differ?"
+      },
+      "verdict": "PASS"
+    },
+    "factualIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Those are the company’s stated rules, not an independent audit.",
+          "locator": "factualIntegrity in exact story"
+        }
+      ],
+      "observation": "Every company policy is attributed; conflicting rollout table retained and hypothetical example introduced as suppose.",
+      "verdict": "PASS"
+    },
+    "freshnessReviewability": {
+      "artifactEvidence": [
+        {
+          "excerpt": "with access scheduled to expand later that day",
+          "locator": "freshnessReviewability in exact story"
+        }
+      ],
+      "observation": "Announcement date explicit, sources current Aug31, launch table contradiction retained.",
+      "verdict": "PASS"
+    },
+    "laidiesVoice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "giving ChatGPT a beautifully detailed brief",
+          "locator": "laidiesVoice in exact story"
+        }
+      ],
+      "observation": "Direct conversational explanation, Canadian spelling, one lightly irreverent ending rather than a prompt tip.",
+      "verdict": "PASS"
+    },
+    "plainClarity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI announced on August 31",
+          "locator": "plainClarity in exact story"
+        }
+      ],
+      "observation": "Reader gets the dated announcement before two ordinary distinctions; café case explains context as needed.",
+      "verdict": "PASS"
+    },
+    "readerValue": {
+      "artifactEvidence": [
+        {
+          "excerpt": "That does not mean it won the comparison in the answer.",
+          "locator": "readerValue in exact story"
+        }
+      ],
+      "observation": "Paid relevance can be mistaken for recommendation; article separates them.",
+      "verdict": "PASS"
+    },
+    "surfaceFit": {
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an announced expansion",
+          "locator": "surfaceFit in exact story"
+        }
+      ],
+      "observation": "One ordinary dated story, no dominant Front replacement or speculative Big Picture thesis.",
+      "verdict": "PASS"
+    },
+    "unseenTransfer": {
+      "artifactEvidence": [
+        {
+          "excerpt": "turning off ad personalisation does not turn off ads.",
+          "locator": "unseenTransfer in exact story"
+        }
+      ],
+      "observation": "Payroll-software case tests the same boundary in a different buying decision.",
+      "simulatedReaderProbe": {
+        "expectedEvidence": "Distinct case; current-chat context survives personalization-off; relevance not endorsement.",
+        "probeResponse": "Neither. The current payroll conversation can still guide advertising. A paid placement is not the answer's recommendation. Check the vendor's claims and suitability separately.",
+        "prompt": "An accounting manager sees a sponsored payroll vendor after disabling personalisation. Does that prove the setting failed or ChatGPT chose the best payroll service?"
+      },
+      "verdict": "PASS"
+    },
+    "usefulAction": {
+      "artifactEvidence": [
+        {
+          "excerpt": "assess its claims separately from the answer above it.",
+          "locator": "usefulAction in exact story"
+        }
+      ],
+      "observation": "Evaluate sponsored claims separately; no forced subscription/prompt or invented tool advice.",
+      "verdict": "PASS"
+    }
+  },
+  "ratchet": {
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "repeatedKnownDefects": 0,
+    "reviewCycles": 1,
+    "reviewIssues": 0
+  },
+  "reverseBrief": {
+    "centralMentalModel": "The same conversation can inform an answer and a separately selected paid placement; relevance is not endorsement.",
+    "dailyLifeConnection": "Choosing somewhere for a team lunch with budget and dietary constraints.",
+    "desiredReaderFeeling": "I understand what is changing and what the label/control actually means.",
+    "humanQuestion": "Can I tell advice from an ad when using ChatGPT to choose something?",
+    "promisedPayoff": "Distinguish the announcement from completed rollout and paid placement from the answer; understand what disabling ad personalization does not do.",
+    "surfaceJob": "One ordinary dated story in The Latest, not Front PAiGE or Big Picture."
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-31T16:45:00Z",
+  "reviewer": {
+    "artifactFirst": true,
+    "id": "cloudflare-llama-independent-news-20260831",
+    "independentFromMaker": true,
+    "modelFamily": "meta-llama",
+    "principalId": "cloudflare-llama-independent-news-20260831",
+    "role": "independent factual and reader-comprehension editor"
+  },
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "verdict": "PASS",
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "f349fa4bf2fbcc1701af6b5511f1705b039ce09f3e071a24701e9ee123b23aab"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/independent-analysis.json",
+      "sha256": "2a2e629d7054f08776af1940ac9ae48e22edf51017e23d3e45c492646f65bfe4"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/chatgpt-ads-2026-08-31/independent-raw-report.json",
+    "sha256": "70eb20be6f07636476ec10bf545b721d906e58cdeede0d0c3d0032e2e533c3f5"
+  }
+}

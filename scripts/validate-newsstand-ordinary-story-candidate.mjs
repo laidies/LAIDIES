@@ -29,17 +29,17 @@ export function publishCandidateStory(story, timestamp) {
   return { ...structuredClone(story), status: "published", publishedAt: timestamp,
     sourceApproval: { status: "approved", record: `newsstand:source-approval:${story.id}` } };
 }
-export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date } = {}) {
+export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date, admittedHistoricalBase = false } = {}) {
   if (!binding?.path?.startsWith("operations/product-stewards/newsstand/candidates/")) throw new Error("ordinary candidate must be private NewsStand candidate input");
   const candidate = JSON.parse(read(root, binding, "ordinary candidate package"));
-  const result = validateOrdinaryStoryCandidate(candidate, { root });
+  const result = validateOrdinaryStoryCandidate(candidate, { root, admittedHistoricalBase });
   if (binding.storyId !== undefined || binding.unpublishedState !== undefined) {
     if (binding.storyId !== candidate.story.id || stable(binding.unpublishedState) !== stable({ status: candidate.story.status, publishedAt: candidate.story.publishedAt, sourceApproval: candidate.story.sourceApproval })) throw new Error('ordinary envelope pre-publication state differs from exact candidate');
   }
   if (date && candidate.editionDate !== date) throw new Error("ordinary candidate date mismatch");
   return { ...result, candidate };
 }
-export function validateOrdinaryStoryCandidate(candidate, { root = ROOT } = {}) {
+export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admittedHistoricalBase = false } = {}) {
   if (!candidate || candidate.schemaVersion !== "newsstand-ordinary-story-candidate-v1" || candidate.candidateStatus !== "READY_FOR_ISSUE_ADMISSION") throw new Error("ordinary candidate schema/status invalid");
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
   const story = candidate.story;
@@ -48,11 +48,19 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT } = {}) 
   if (!candidate.publicationBase.path.startsWith("operations/product-stewards/newsstand/")) throw new Error("candidate publication base must be frozen private input");
   if (!story || story.edition !== "daily" || story.status !== "hold" || story.publishedAt !== null || String(story.id || "") !== candidate.candidateId || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(story.slug || "") || /^front-paige-/.test(story.id) || vancouverDay(story.updatedAt) !== candidate.editionDate || !story.sourceApproval || story.sourceApproval.status !== "independent-review-required") throw new Error("ordinary candidate story must remain held and date-bound");
   if (story.bigPicture !== null || story.correction !== null || story.retraction !== null || ["correctionHistory", "predecessorStoryIds", "successorStoryIds"].some(key => !Array.isArray(story[key]) || story[key].length)) throw new Error("ordinary candidate cannot replace, correct or retract an incumbent");
-  const baseContext = { window: {} };
-  vm.runInNewContext(publicationBaseRaw, baseContext, { timeout: 1000 });
-  const baseData = JSON.parse(JSON.stringify(baseContext.window.NEWSSTAND_DATA));
-  const readerErrors = readerContract.validate({ ...baseData, stories: [...baseData.stories, publishCandidateStory(story, story.updatedAt)] });
-  if (readerErrors.length) throw new Error(`ordinary candidate fails reader contract: ${readerErrors.join(" | ")}`);
+  // New candidates must satisfy the reader contract that exists today. An
+  // already-admitted historical package is different: its frozen publication
+  // base may predate a later presentation rule (for example, mandatory story
+  // images). In that one reconstruction path we retain every checksum, source,
+  // review and held-story check below, but do not retroactively invalidate the
+  // old base with a rule that did not exist when it was admitted.
+  if (!admittedHistoricalBase) {
+    const baseContext = { window: {} };
+    vm.runInNewContext(publicationBaseRaw, baseContext, { timeout: 1000 });
+    const baseData = JSON.parse(JSON.stringify(baseContext.window.NEWSSTAND_DATA));
+    const readerErrors = readerContract.validate({ ...baseData, stories: [...baseData.stories, publishCandidateStory(story, story.updatedAt)] });
+    if (readerErrors.length) throw new Error(`ordinary candidate fails reader contract: ${readerErrors.join(" | ")}`);
+  }
   if (candidate.storySha256 !== sha256(stable(story))) throw new Error("ordinary candidate story hash mismatch");
   const sourceText = read(root, candidate.sourceText, "candidate sourceText");
   const claimMap = JSON.parse(read(root, candidate.claimMap, "candidate claimMap"));

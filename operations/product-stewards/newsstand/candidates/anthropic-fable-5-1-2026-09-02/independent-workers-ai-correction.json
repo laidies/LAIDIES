@@ -1,0 +1,244 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "provider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"noInternalNotesOrInventedAdvice\": {\"verdict\": \"PASS\", \"observation\": \"The article does not contain internal notes or invented advice\", \"artifactEvidence\": [{\"excerpt\": \"Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.\", \"locator\": \"laidies_read paragraph1\"}]}, \"claimAssessments\": [{\"claimId\": \"release-date\", \"verdict\": \"PASS\", \"observation\": \"The article states the release date as September 1\", \"candidateEvidence\": [{\"excerpt\": \"released Claude Fable 5.1 on September 1\", \"locator\": \"the_story paragraph1\"}], \"sourceEvidence\": [{\"excerpt\": \"The release notes date the Claude Fable 5.1 and Claude Mythos 5.1 release to September 1, 2026.\", \"locator\": \"Exact facts checked\"}]}, {\"claimId\": \"same-model-different-safeguards\", \"verdict\": \"PASS\", \"observation\": \"The article states that Fable 5.1 and Mythos 5.1 are the same model with different safeguards\", \"candidateEvidence\": [{\"excerpt\": \"they are the same underlying model\", \"locator\": \"the_story paragraph1\"}], \"sourceEvidence\": [{\"excerpt\": \"Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.\", \"locator\": \"Exact facts checked\"}]}, {\"claimId\": \"availability-split\", \"verdict\": \"PASS\", \"observation\": \"The article states that Fable 5.1 is available for general use and Mythos 5.1 is available for vetted cybersecurity and life-sciences work\", \"candidateEvidence\": [{\"excerpt\": \"Fable is available for general use; Mythos sits behind a trusted-access program\", \"locator\": \"the_story paragraph1\"}], \"sourceEvidence\": [{\"excerpt\": \"Fable 5.1 is generally available, while Mythos 5.1 is available only through our trusted access programs.\", \"locator\": \"Exact facts checked\"}]}, {\"claimId\": \"performance-and-cost\", \"verdict\": \"PASS\", \"observation\": \"The article states that Anthropic estimates Fable 5.1 performs better and costs 25% less than Fable 5, and this is a vendor claim\", \"candidateEvidence\": [{\"excerpt\": \"Anthropic says it performs better on coding, research and office work than Fable 5, and estimates that a typical pay-by-token workload will cost 25% less\", \"locator\": \"the_story paragraph2\"}], \"sourceEvidence\": [{\"excerpt\": \"Anthropic estimates Fable 5.1 costs 25% less than Fable 5 for typical token-billed workloads\", \"locator\": \"Exact facts checked\"}]}, {\"claimId\": \"product-availability\", \"verdict\": \"PASS\", \"observation\": \"The article states that Fable 5.1 is available across Claude products, its API, and supported cloud platforms\", \"candidateEvidence\": [{\"excerpt\": \"available in Claude’s apps, Claude Code, Cowork, the API and supported cloud platforms\", \"locator\": \"the_story paragraph2\"}], \"sourceEvidence\": [{\"excerpt\": \"Anthropic says Fable 5.1 is available across Claude products, its API and supported cloud platforms.\", \"locator\": \"Exact facts checked\"}]}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788340531,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-9cb554fb-aaa2-4961-9f2b-c7a5b98beb66",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "claimAssessments": [
+        {
+          "candidateEvidence": [
+            {
+              "excerpt": "released Claude Fable 5.1 on September 1",
+              "locator": "the_story paragraph1"
+            }
+          ],
+          "claimId": "release-date",
+          "observation": "The article states the release date as September 1",
+          "sourceEvidence": [
+            {
+              "excerpt": "The release notes date the Claude Fable 5.1 and Claude Mythos 5.1 release to September 1, 2026.",
+              "locator": "Exact facts checked"
+            }
+          ],
+          "verdict": "PASS"
+        },
+        {
+          "candidateEvidence": [
+            {
+              "excerpt": "they are the same underlying model",
+              "locator": "the_story paragraph1"
+            }
+          ],
+          "claimId": "same-model-different-safeguards",
+          "observation": "The article states that Fable 5.1 and Mythos 5.1 are the same model with different safeguards",
+          "sourceEvidence": [
+            {
+              "excerpt": "Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.",
+              "locator": "Exact facts checked"
+            }
+          ],
+          "verdict": "PASS"
+        },
+        {
+          "candidateEvidence": [
+            {
+              "excerpt": "Fable is available for general use; Mythos sits behind a trusted-access program",
+              "locator": "the_story paragraph1"
+            }
+          ],
+          "claimId": "availability-split",
+          "observation": "The article states that Fable 5.1 is available for general use and Mythos 5.1 is available for vetted cybersecurity and life-sciences work",
+          "sourceEvidence": [
+            {
+              "excerpt": "Fable 5.1 is generally available, while Mythos 5.1 is available only through our trusted access programs.",
+              "locator": "Exact facts checked"
+            }
+          ],
+          "verdict": "PASS"
+        },
+        {
+          "candidateEvidence": [
+            {
+              "excerpt": "Anthropic says it performs better on coding, research and office work than Fable 5, and estimates that a typical pay-by-token workload will cost 25% less",
+              "locator": "the_story paragraph2"
+            }
+          ],
+          "claimId": "performance-and-cost",
+          "observation": "The article states that Anthropic estimates Fable 5.1 performs better and costs 25% less than Fable 5, and this is a vendor claim",
+          "sourceEvidence": [
+            {
+              "excerpt": "Anthropic estimates Fable 5.1 costs 25% less than Fable 5 for typical token-billed workloads",
+              "locator": "Exact facts checked"
+            }
+          ],
+          "verdict": "PASS"
+        },
+        {
+          "candidateEvidence": [
+            {
+              "excerpt": "available in Claude’s apps, Claude Code, Cowork, the API and supported cloud platforms",
+              "locator": "the_story paragraph2"
+            }
+          ],
+          "claimId": "product-availability",
+          "observation": "The article states that Fable 5.1 is available across Claude products, its API, and supported cloud platforms",
+          "sourceEvidence": [
+            {
+              "excerpt": "Anthropic says Fable 5.1 is available across Claude products, its API and supported cloud platforms.",
+              "locator": "Exact facts checked"
+            }
+          ],
+          "verdict": "PASS"
+        }
+      ],
+      "noInternalNotesOrInventedAdvice": {
+        "artifactEvidence": [
+          {
+            "excerpt": "Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.",
+            "locator": "laidies_read paragraph1"
+          }
+        ],
+        "observation": "The article does not contain internal notes or invented advice",
+        "verdict": "PASS"
+      }
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 5429,
+      "completion_tokens": 714,
+      "total_tokens": 6143,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 291.009765625
+    }
+  },
+  "promptSha256": "d687ef86cdb325e1ec6ee93e000c79f7d8232ed2115e7eecc5a0937adc8cd9ab",
+  "correction": {
+    "claimAssessments": [
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "released Claude Fable 5.1 on September 1",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "release-date",
+        "observation": "The article states the release date as September 1",
+        "sourceEvidence": [
+          {
+            "excerpt": "The release notes date the Claude Fable 5.1 and Claude Mythos 5.1 release to September 1, 2026.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "they are the same underlying model",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "same-model-different-safeguards",
+        "observation": "The article states that Fable 5.1 and Mythos 5.1 are the same model with different safeguards",
+        "sourceEvidence": [
+          {
+            "excerpt": "Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "Fable is available for general use; Mythos sits behind a trusted-access program",
+            "locator": "the_story paragraph1"
+          }
+        ],
+        "claimId": "availability-split",
+        "observation": "The article states that Fable 5.1 is available for general use and Mythos 5.1 is available for vetted cybersecurity and life-sciences work",
+        "sourceEvidence": [
+          {
+            "excerpt": "Fable 5.1 is generally available, while Mythos 5.1 is available only through our trusted access programs.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic says it performs better on coding, research and office work than Fable 5, and estimates that a typical pay-by-token workload will cost 25% less",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "claimId": "performance-and-cost",
+        "observation": "The article states that Anthropic estimates Fable 5.1 performs better and costs 25% less than Fable 5, and this is a vendor claim",
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic estimates Fable 5.1 costs 25% less than Fable 5 for typical token-billed workloads",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "available in Claude’s apps, Claude Code, Cowork, the API and supported cloud platforms",
+            "locator": "the_story paragraph2"
+          }
+        ],
+        "claimId": "product-availability",
+        "observation": "The article states that Fable 5.1 is available across Claude products, its API, and supported cloud platforms",
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic says Fable 5.1 is available across Claude products, its API and supported cloud platforms.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "verdict": "PASS"
+      }
+    ],
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic has taken one model and put two different sets of rules around what it may do and who may use it.",
+          "locator": "laidies_read paragraph1"
+        }
+      ],
+      "observation": "The article does not contain internal notes or invented advice",
+      "verdict": "PASS"
+    }
+  }
+}

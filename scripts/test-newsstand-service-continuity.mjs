@@ -30,14 +30,15 @@ const evidence='operations/product-stewards/newsstand/evidence/carry-fixture';
 const deploymentId='12345678-1234-1234-1234-123456789abc';
 function proof(date, data=base, store=history, frozen=bank) {
   const published=store.issues.find(i=>i.editionDate===data.publications.daily.editionDate);
-  const bindings={stories:put(`${evidence}/base-${date}.js`,encode(data)),issues:put(`${evidence}/issues-${date}.json`,store),columns:put(`${evidence}/columns-${date}.json`,frozen)};
+  const token=hash(encode(data)+JSON.stringify(store)+JSON.stringify(frozen)).slice(0,12);
+  const bindings={stories:put(`${evidence}/base-${date}-${token}.js`,encode(data)),issues:put(`${evidence}/issues-${date}-${token}.json`,store),columns:put(`${evidence}/columns-${date}-${token}.json`,frozen)};
   const paths={stories:'content/newsstand-stories.js',issues:'content/newsstand-daily-issues.json',columns:'content/daily-edition-columns.json'};
   const files=Object.entries(paths).map(([key,p])=>({path:p,sha256:bindings[key].sha256})).sort((a,b)=>a.path.localeCompare(b.path));
   const identity=hash(files.map(f=>`${f.sha256}  ${f.path}\n`).join(''));
-  const manifest=put(`${evidence}/manifest-${date}.json`,{schema:'laidies-release-artifact-manifest/v1',identitySha256:identity,files});
+  const manifest=put(`${evidence}/manifest-${date}-${token}.json`,{schema:'laidies-release-artifact-manifest/v1',identitySha256:identity,files});
   const observations=['https://laidies.ai','https://12345678.laidies-sunnyvaile.pages.dev'].flatMap(origin=>Object.entries(paths).map(([key,p])=>({url:origin+'/'+p,status:200,sha256:bindings[key].sha256})));
-  const verification=put(`${evidence}/verification-${date}.json`,{schemaVersion:'newsstand-service-predecessor-verification-v1',deploymentId,providerHeadId:deploymentId,artifactIdentitySha256:identity,checkedAt:date+'T14:00:00Z',observations,limitation:'SYNTHETIC TEST ONLY. No actual network observations or publication authority.'});
-  return put(`${evidence}/proof-${date}.json`,{schemaVersion:'newsstand-service-predecessor-v1',deploymentId,predecessorEnvelopeSha256:published.envelopeSha256,manifest,verification,...bindings});
+  const verification=put(`${evidence}/verification-${date}-${token}.json`,{schemaVersion:'newsstand-service-predecessor-verification-v1',deploymentId,providerHeadId:deploymentId,artifactIdentitySha256:identity,checkedAt:date+'T14:00:00Z',observations,limitation:'SYNTHETIC TEST ONLY. No actual network observations or publication authority.'});
+  return put(`${evidence}/proof-${date}-${token}.json`,{schemaVersion:'newsstand-service-predecessor-v1',deploymentId,predecessorEnvelopeSha256:published.envelopeSha256,manifest,verification,...bindings});
 }
 function compose(date, servicePredecessor, data=base, columns=bank, news=false) {
   const radarPath=`operations/agents/aidb-intelligence-desk/daily/${date}.md`;
@@ -63,15 +64,28 @@ function cycle(date, binding, data=base, columns=bank, store=history, news=false
   }
   return {...result,composed,raw,derived};
 }
-const date='2026-08-31', binding=proof(date);
+const date='2026-09-03', binding=proof(date);
 assert.equal(compose(date,null).envelope.desks.filter(d=>d.state==='ready').length,0,'no general old-bank fallback');
+const retainedOlder=structuredClone(base);
+const olderStory=retainedOlder.stories.find(story=>story.edition==='daily'&&!/^front-paige-/.test(story.id)&&story.status==='published'&&story.sourceApproval?.status==='approved'&&story.publishedAt&&story.publishedAt.slice(0,10)<prior.editionDate&&!retainedOlder.publications.daily.issue.storyIds.includes(story.id));
+assert.ok(olderStory,'fixture includes an older approved Latest story');
+retainedOlder.publications.daily.issue.storyIds.push(olderStory.id);
+assert.equal(compose(date,proof(date,retainedOlder),retainedOlder).envelope.desks.filter(d=>d.state==='ready').length,6,'approved older Latest display may coexist with exact service predecessor while invalid carried desks are omitted');
+const badRetained=structuredClone(retainedOlder);badRetained.publications.daily.issue.storyIds.push('unapproved-display-injection');
+assert.throws(()=>compose(date,proof(date,badRetained),badRetained),/exact published issue/,'unapproved retained story is rejected');
 const quiet=cycle(date,binding);
-assert.deepEqual(quiet.issue.serviceRecordIds,prior.desks.filter(d=>d.state==='ready').map(d=>d.recordId));
+assert.deepEqual(quiet.issue.serviceRecordIds,prior.desks.filter(d=>d.state==='ready'&&d.type!=='career_life').map(d=>d.recordId));
 assert.ok(quiet.issue.desks.filter(d=>d.state==='ready').every(d=>d.carriedFrom.originalEditionDate==='2026-08-30'));
 assert.equal(JSON.stringify(bank),originalBank,'no redating or review receipt mutation');
-const nextDate='2026-09-01', nextBase=parse(quiet.raw);
+const nextDate='2026-09-04', nextBase=parse(quiet.raw);
 const next=cycle(nextDate,proof(nextDate,nextBase,quiet.store),nextBase,bank,quiet.store);
-assert.equal(next.issue.serviceRecordIds.length,7,'repeat next day carries exact prior membership');
+const expectedNextIds=quiet.issue.serviceRecordIds.filter(id=>{
+  const record=bank.records.find(item=>item.id===id);
+  return record && (!record.availableUntil||record.availableUntil>=nextDate) &&
+    (!record.freshness?.expiresAt||record.freshness.expiresAt>=nextDate) &&
+    (!record.retiredAt||record.retiredAt>nextDate);
+});
+assert.deepEqual(next.issue.serviceRecordIds,expectedNextIds,'repeat next day carries only the exact still-valid prior membership');
 const changed=structuredClone(bank); changed.records.find(r=>r.id===prior.serviceRecordIds[0]).headline+=' altered';
 assert.throws(()=>compose(date,binding,base,changed),/altered published/);
 for(const patch of [{status:'HOLD'},{publicEligibility:'INELIGIBLE'},{freshness:{expiresAt:'2026-08-29'}},{availableUntil:'2026-08-29'},{retiredAt:'2026-08-30'}]) {
@@ -90,7 +104,7 @@ const newBank={...bank,records:[...bank.records,successor]};
 const replaced=cycle(date,freshBinding,base,newBank);
 assert.ok(replaced.issue.serviceRecordIds.includes(successor.id));assert.ok(!replaced.issue.desks.find(d=>d.recordId===successor.id).carriedFrom);
 const concept=bank.records.find(r=>r.type==='concept_week'&&prior.serviceRecordIds.includes(r.id));
-const wed='2026-09-02';
+const wed='2026-09-09';
 const newConcept={...concept,id:'SYNTHETIC-CONCEPT',editionDate:date};
 assert.throws(()=>compose(date,freshBinding,base,{...bank,records:[...bank.records,newConcept]}),/Wednesday/);
 assert.throws(()=>compose(date,null,base,{...bank,records:[...bank.records,newConcept]}),/Wednesday/,'omitting proof cannot bypass Concept cadence');
@@ -100,16 +114,16 @@ assert.ok(cycle(wed,proof(wed),base,bank).issue.serviceRecordIds.includes(concep
 newConcept.editionDate=wed;
 assert.ok(cycle(wed,proof(wed),base,{...bank,records:[...bank.records,newConcept]}).issue.serviceRecordIds.includes(newConcept.id));
 // Reader consumes real issue envelopes and records; no browser is controlled.
-class FixtureDate extends Date { constructor(...args){super(...(args.length?args:['2026-08-31T16:00:00Z']));} static now(){return Date.parse('2026-08-31T16:00:00Z');} }
+class FixtureDate extends Date { constructor(...args){super(...(args.length?args:['2026-09-03T16:00:00Z']));} static now(){return Date.parse('2026-09-03T16:00:00Z');} }
 const sandbox={window:{crypto:webcrypto,location:{href:'http://127.0.0.1/newsstand.html'},NEWSSTAND_DATA:parse(quiet.raw),localStorage:{getItem:()=>null}},document:{readyState:'loading',addEventListener(){}},TextEncoder,URL,Intl,Set,Date:FixtureDate};
 vm.runInNewContext(read('content/site/newsstand-catchup-v1.js').replace('})(window);',`global.fixture={validDailyIssueStore,columnById,readableColumn,dailyDeskValue,set(c,i){columns=c;dailyIssues=i;}};})(window);`),sandbox);
 const reader=sandbox.window.fixture;reader.set(bank,quiet.store);
 assert.equal(await reader.validDailyIssueStore(quiet.store),true, sandbox.window.__newsstandDailyIssueValidationFailure);
-for(const id of prior.serviceRecordIds) {
+for(const id of quiet.issue.serviceRecordIds) {
   assert.equal(reader.columnById(id)?.id,id);
   if (bank.records.find(r=>r.id===id).body?.length) assert.equal(reader.readableColumn(id)?.id,id);
 }
 reader.set(bank,null);assert.equal(reader.dailyDeskValue(null,date,'paige_tip'),null);assert.equal(reader.readableColumn(prior.serviceRecordIds[0]),null);
 reader.set(null,quiet.store);assert.equal(await reader.validDailyIssueStore(quiet.store),false,'missing columns denies carried snapshots');
 reader.set(changed,quiet.store);assert.equal(await reader.validDailyIssueStore(quiet.store),false,'altered record denies runtime carry');
-console.log(`SERVICE CONTINUITY TEST PASS seven=7 original_dates=1 quiet=1 next_day=1 successor=1 wednesday=1 idempotent=1 archive=1 reader=1 adversarial=1 fixture=${root} SYNTHETIC_ONLY`);
+console.log(`SERVICE CONTINUITY TEST PASS prior_seven=1 invalid_carried_omitted=1 original_dates=1 quiet=1 next_day=1 successor=1 wednesday=1 idempotent=1 archive=1 reader=1 adversarial=1 fixture=${root} SYNTHETIC_ONLY`);

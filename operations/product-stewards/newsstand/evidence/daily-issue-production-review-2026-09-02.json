@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "newsstand-independent-issue-review.v1",
+  "candidateId": "anthropic-fable-5-1-2026-09-02",
+  "reviewerPrincipalId": "cloudflare-llama-independent-production-issue-review-20260902",
+  "modelFamily": "meta-llama",
+  "providerOutputId": "cmpl-de05b9c4-98c7-4e07-88db-aad83948fd07",
+  "reviewedAt": "2026-09-02T09:51:21.295Z",
+  "predecessor": {
+    "path": "operations/product-stewards/newsstand/evidence/service-carry-production-2026-09-02/newsstand-daily-issues.json",
+    "sha256": "1dc3768b32a63a5a8034e7e4357d5c75010aca41a20f2bc5ec45a6f643fee921",
+    "envelopeSha256": "f506b40220b746ec152751e46714bcd3c5070f89ae1323266801c830327e1c5a"
+  },
+  "successor": {
+    "path": "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-02.json",
+    "sha256": "85fcd73976054632b7779c73f0159a8996d9cde8a808930f168dc43d1a0f4bfc"
+  },
+  "verdict": "PASS",
+  "findings": "The proposed issue carries the correct edition date of 2026-09-02 and contains the sole new ordinary story anthropic-fable-5-1-2026-09-02. The issue carries exactly six service desks from the published predecessor with original IDs, dates, and carriedFrom checksums. The legacy AI-related career_life record is omitted. Front PAiGE remains front-paige-accountable-systems-2026-08-24. Weekly remains weekly-accountable-systems-2026-08-24. The story is bound through sourceIdentity.ordinaryCandidate and the production predecessor proof is bound through sourceIdentity.servicePredecessor.",
+  "checks": {
+    "oneStoryOnly": true,
+    "sixValidServicesOnly": true,
+    "incorrectCareerOmitted": true,
+    "frontPaigePreserved": true,
+    "weeklyPreserved": true,
+    "ordinaryCandidateBound": true,
+    "productionProofBound": true
+  },
+  "limitation": "Independent issue-structure and production-proof review only; future public release and browser behaviour are not claimed."
+}
