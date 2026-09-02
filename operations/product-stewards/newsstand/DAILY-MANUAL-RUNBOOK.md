@@ -150,11 +150,16 @@ marked unapproved. Its synthetic eligibility must never enter a release.
 Research the rolling seven-day window and unresolved candidates against the
 actual published story IDs, not only announcements posted on the issue date.
 "No new AIDB edition today" is not "nothing left worth reporting." Keep the
-source's event date distinct from the newspaper's publication date. Prioritize
-useful unreported developments, merge duplicate events and record the reason
-for rejection/hold. A blocked review must be reported as a blocked review, not
-converted to QUIET. An existing same-day issue with no admitted delta stays
-unchanged; do not overwrite it with a freshly dated quiet envelope.
+source's event or discovery date distinct from the newspaper's publication
+date. A worthwhile story may be published after it was announced or first
+found. Its visible `publishedAt` date is the date LAiDIES actually puts it on
+the site; do not backdate it to the announcement or discovery date. State the
+earlier event date accurately in the article and judge whether the development
+is still useful and relevant at publication time. Prioritize useful unreported
+developments, merge duplicate events and record the reason for rejection/hold.
+A blocked review must be reported as a blocked review, not converted to QUIET.
+An existing same-day issue with no admitted delta stays unchanged; do not
+overwrite it with a freshly dated quiet envelope.
 
 For `YYYY-MM-DD`, the authoritative radar input must exist at:
 
@@ -215,6 +220,8 @@ Package contract (`scripts/validate-newsstand-ordinary-story-candidate.mjs`):
 
 - `schemaVersion: newsstand-ordinary-story-candidate-v1`;
   `candidateStatus: READY_FOR_ISSUE_ADMISSION`; `candidateId`; `editionDate`.
+  `editionDate` is the intended LAiDIES publication date, not the source's
+  announcement date or the date the story was discovered.
 - Complete `story`: same ID as candidate, `edition: daily`, `status: hold`,
   `publishedAt: null`, dated `updatedAt`/`lastCheckedAt`, source approval
   `independent-review-required`, and no correction/retraction/lineage mutation.
@@ -454,8 +461,10 @@ its deliberate post-validation mutation of global story memory.
 ## Stop conditions
 
 Stop the issue before canonical write if the radar date/path, checksum,
-independent reviewer, story/service date, quiet disposition or reader tests do
-not match. Never repair a failed issue by presenting yesterday's news as new.
+independent reviewer, LAiDIES publication date, service date, quiet disposition
+or reader tests do not match. Publishing a still-relevant story after its event
+or discovery date is allowed; falsely backdating it or relabelling an already
+published story as newly published is not.
 The scripts themselves do not deploy or restart any dispatcher. The existing
 heartbeat's explicitly granted publication authority applies only after every
 candidate admission, artifact scope and live-verification gate succeeds.
