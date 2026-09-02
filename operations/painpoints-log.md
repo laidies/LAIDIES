@@ -14814,3 +14814,22 @@ while remaining falsely unfinished in the launch record.
   lesson.
 - **Status:** Internal source and sample correction; no account test or public
   release.
+
+## LIBRARY-CONTEXTLESS-EXAMPLE-20260901 — A real test fixture can still be the wrong teaching example
+
+- **Finding:** Catering and dietary details from the internal workshop test
+  appeared in short reader excerpts without the workshop setup. The details
+  were accurate to the test but felt arbitrary, then a generic LIBRAiRY example
+  missed Ali's intended Rewind Era register.
+- **Prevention:** Start every worked example with a complete situation that a
+  new reader can understand. Prefer a concrete Rewind Era experience when it
+  makes the AI mechanism visible; do not use nostalgia as decoration. Keep
+  internal fixtures as evidence and label any reader-facing adaptation rather
+  than implying it was the tested run.
+- **Evidence:** Ali's repeated comprehension correction on 2026-09-01 and the
+  cassette-side replacement in
+  `operations/product-stewards/library/CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`.
+- **Possible Behind the Build angle:** Why a real AI failure made a bad lesson
+  until the workshop catering became a 45-minute mixtape.
+- **Status:** Internal teaching standard corrected; manuscripts and publication
+  remain HOLD.

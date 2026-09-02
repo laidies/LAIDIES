@@ -35,6 +35,12 @@
   what applies to both Free and paid readers, then show the exact Free route or
   limit, paid difference or extension, and any honest no-equivalent boundary.
   Paying is never presented as removing source, verification or judgment work.
+- **Example-language correction:** Reader-facing teaching examples now prefer
+  self-contained Rewind Era situations when the nostalgia exposes the real
+  mechanism. The shared guidance replaces the contextless catering repair with
+  a cassette-side timing repair and labels it honestly as an editorial
+  adaptation, not a tested mixtape run. Internal workshop evidence remains
+  preserved and does not become reader copy without full setup.
 
 ### 2026-08-31 — tested sample package, first hands-on round
 

@@ -118,6 +118,18 @@ decision and the smallest useful correction. A clever line may land the lesson
 but may not substitute for this explanation. Retain “High effort is a setting,
 not a tiara” as the approved line after the mechanism is clear.
 
+**Rewind Era teaching examples — Ali, 2026-09-01:** Reader-facing examples in
+the four practical textbooks should prefer recognizable Rewind Era situations
+when they make the AI technique easier to see: mixtapes and cassette limits,
+video-store choices, magazine clippings, printed directions, disposable-camera
+rolls and similarly concrete experiences. The example must introduce its whole
+situation on the page, carry the real mechanism and work for a reader who knows
+nothing about LAiDIES. Nostalgia is not decorative copy. Internal test fixtures
+may remain ordinary or modern, but catering, dietary, workshop or other fixture
+details may not appear in a reader excerpt without their full setup. A teaching
+adaptation of a tested failure must be labelled as an adaptation rather than an
+actual run of the nostalgic example.
+
 - `operations/product-stewards/library/whos-who-in-ai/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/chatgpt-guide/DEEP-RESEARCH-2026-08-31.md`
 - `operations/product-stewards/library/claude-guide/DEEP-RESEARCH-2026-08-31.md`

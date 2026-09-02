@@ -104,9 +104,9 @@ links, saved state or a visible journey.
 **Do this:** name the check and the evidence you want returned.
 
 ```text
-Recalculate the subtotal, reserve, total and remaining budget. Return those
-five figures in one consistency table and name the source row used for each.
-Do not claim the files agree unless you inspected both final files.
+Before I record this 90-minute mixtape, add up every track on Side A and Side B.
+Show each side's calculation and final running time. Neither side may exceed
+45:00. Do not say it fits unless both totals prove it.
 ```
 
 **Why it helps:** “review carefully” is an activity request; a reconciled table,
@@ -133,10 +133,11 @@ wrong.
 dependent place that must change and protect unaffected work.
 
 ```text
-The proposal still uses 20 meals, while evidence.md correctly uses 22. Repair
-the catering line, subtotal, reserve, total and remaining amount in both files.
-Preserve the venue choice, agenda and invitation. Return the two complete
-corrected files and the five final figures. Stop there.
+Each side of this cassette can hold no more than 45:00. Your calculation shows
+Side A at 47:18. Remove its final 3:34 song, update Side A's total to 43:44 and
+remove that song from the cassette-case track list. Preserve Side B, the song
+order and the dedication. Return the corrected two-sided track list and case
+copy. Stop there.
 ```
 
 **Why it helps:** “try again” invites a new draft and new mistakes. A bounded
@@ -148,7 +149,9 @@ small enough to finish.
 **Free route:** ask for the corrected complete text. **Paid/agentic extension:**
 apply the patch to the files, show the changes and rerun the named checks.
 
-**Evidence:** LAiDIES ChatGPT Free and Claude Code workshop tests, 2026-08-31.
+**Evidence:** editorial Rewind Era adaptation of the bounded-repair pattern
+observed in LAiDIES ChatGPT Free and Claude Code workshop tests, 2026-08-31. The
+mixtape itself has not been run as a product test.
 
 ### 5. Plan only when a plan prevents a real mistake
 
