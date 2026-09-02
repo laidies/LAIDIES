@@ -4,9 +4,9 @@
 
 ## Exact candidate identity
 
-- `worker-fairy-godmother/src/career-guidance.js`: `7a8b9646880e4aeb9ebb94e93243c481d1a1a3d6fb6f588625517456fe9f4ebd`
-- `worker-fairy-godmother/src/index.js`: `989767d9949f98659c5f4bfa508df66841dec4ecec1eba342a9cb9c2006685e3`
-- `worker-fairy-godmother/test/career-guidance.test.mjs`: `41e7872cb0e040af926a53cb5522d4434a2b7b890b4f264c1b789e05b1865c3d`
+- `worker-fairy-godmother/src/career-guidance.js`: `e19e44f364702668882ed3eaf335b1b9e933a38219a2cb1ccbe4ca563e747dac`
+- `worker-fairy-godmother/src/index.js`: `5eca224d76ee058321e61528bcfb4eb32c655b49af40a0277a7660e04dcd531a`
+- `worker-fairy-godmother/test/career-guidance.test.mjs`: `0aeabaf87b5bf9d41e236abbbe7f53d23079c8a4721120923ed5f46103281bb7`
 - `games/fairy-godmother.html`: `a60c78acefed3af4680c26eb941b992f2585f50984833e8eac4216bca28fa47e`
 - `scripts/test-fairy-godmother-browser.mjs`: `c5291901235177886795a92d4372f291bcfbe48bfe27f524387c3fbcc8f3a449`
 - `worker-fairy-godmother/wrangler.jsonc`: `3dad768ed7e5a325a10b8eb44586c71de3fee2d5432d899f9ea58c958a6f53ee`; staging flag is exact `CAREER_GUIDANCE_PILOT=1`.

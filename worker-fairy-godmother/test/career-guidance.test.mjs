@@ -84,6 +84,7 @@ test('answer payload includes all five references but does not publish unverifie
     for (const reference of CAREER_GUIDANCE) assert.ok(result.payload.messages[0].content.includes(reference.id));
     assert.match(result.payload.messages[0].content, /lower-exposure option/);
     assert.match(result.payload.messages[0].content, /No invented achievements/);
+    assert.match(result.payload.messages[0].content, /promotion_case: role_description, goals_or_scorecard, achievement_log, promotion_criteria/);
   }
 });
 

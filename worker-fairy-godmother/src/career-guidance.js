@@ -8,7 +8,7 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260901-v4";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260901-v5";
 
 export const CAREER_WORKSPACE_MATERIALS = Object.freeze({
   role_description: "Your role description or scorecard — only the relevant responsibilities or criteria",
@@ -233,6 +233,8 @@ For a matched situation:
 - A workspace is optional, not homework and not a substitute for answering today's problem. Do not recommend one for every career question.
 - Allowed job IDs: ${Object.keys(AI_ASSIST_JOBS).join(", ")}.
 - Allowed material IDs: ${Object.keys(CAREER_WORKSPACE_MATERIALS).join(", ")}.
+- Job-compatible material IDs (never select a material outside the chosen job's row):
+${Object.entries(JOB_MATERIALS).map(([job, materials]) => `  - ${job}: ${[...materials].join(", ")}`).join("\n")}
 - Do not claim that preparation has already run, that FAiRY will store documents, or that another AI tool is private or employer-approved.
 - sources contains only the IDs of up to two references actually used below, never model-authored URLs, titles or quotes. These selections are internal pilot data, not visitor-visible credits. asOf stays null: these are reference dates, not verification of current law or facts.
 
