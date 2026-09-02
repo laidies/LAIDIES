@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
 const path = require("node:path");
 
 const playwrightPath = process.env.PLAYWRIGHT_CORE_PATH;
@@ -7,6 +8,21 @@ if (!playwrightPath) throw new Error("PLAYWRIGHT_CORE_PATH is required");
 const { chromium } = require(playwrightPath);
 
 const origin = process.env.LUMINAIRY_ORIGIN || "http://127.0.0.1:4173";
+const profiles = JSON.parse(fs.readFileSync(path.join(__dirname, "../content/luminairy-profiles.json"), "utf8"));
+
+async function assertExactResources(page, wing) {
+  const expected = profiles[wing];
+  for (const profile of expected) {
+    const card = page.locator(".lum-card", { has: page.locator(".lum-card__name", { hasText: profile.name }) });
+    assert.equal(await card.count(), 1, `${profile.id} must render exactly once`);
+    assert.equal(await card.locator(".lum-card__link").count(), profile.links.length, `${profile.id} must render every verified destination`);
+    for (const link of profile.links) {
+      const anchor = card.getByRole("link", { name: new RegExp(`^${link.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*↗$`) });
+      assert.equal(await anchor.count(), 1, `${profile.id} destination missing: ${link.label}`);
+      assert.equal(await anchor.getAttribute("href"), link.url, `${profile.id} destination URL mismatch: ${link.label}`);
+    }
+  }
+}
 
 async function imageFailures(page) {
   return page.locator(".lum-card__portrait img").evaluateAll(async (images) => {
@@ -60,7 +76,7 @@ async function run() {
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
     assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /mobile-heading-1$/, "the current mobile-heading successor must load its matching cache-busted stylesheet");
-    assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260902-r4$/, "the renewed Hannah receipt must load the matching two-key admission gate");
+    assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260902-r5$/, "the complete profile-resource release must load the matching admission gate");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
@@ -134,9 +150,10 @@ async function run() {
     assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search MAiVEN profiles", "the filter scope must update with the active wing");
     assert.deepEqual(await imageFailures(page), [], "all Maven images must decode");
     assert.ok(await page.locator(".lum-card__link").count() >= 23, "every Maven needs a source/work link");
+    await assertExactResources(page, "mavens");
     assert.match(await page.locator("#lumWingKicker").textContent(), /dark sapphire/i);
     const hannahCard = page.locator(".lum-card", { hasText: "Hannah Fry" });
-    assert.equal(await hannahCard.locator(".lum-card__link").count(), 7, "Hannah Fry needs one evidence link plus six verified watch, listen, and follow destinations");
+    assert.equal(await hannahCard.locator(".lum-card__link").count(), 7, "Hannah Fry needs all seven verified read, watch, listen, and follow destinations");
     for (const label of [
       "Read Cambridge profile", "Watch AI Confidential", "Listen to The Rest Is Science",
       "Listen to Google DeepMind: The Podcast", "Watch Hannah Fry on YouTube",
@@ -166,9 +183,10 @@ async function run() {
     assert.equal(await page.locator("#lumAudioStatus").isVisible(), false, "Saint playback status must clear when leaving the Saints wing");
     assert.deepEqual(await imageFailures(page), [], "all Trailblazer images must decode");
     assert.ok(await page.locator(".lum-card__link").count() >= 7, "every Trailblazer needs a work/source link");
+    await assertExactResources(page, "trailblazers");
     assert.match(await page.locator("#lumWingKicker").textContent(), /golden amber/i);
-    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Allie K. Miller" }).getByRole("link", { name: /Official work/ }).waitFor());
-    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Fidji Simo" }).getByText(/part-time adviser as of July 2026/i).waitFor());
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Allie K. Miller" }).getByRole("link", { name: /Read Allie K. Miller’s work/ }).waitFor());
+    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Fidji Simo" }).getByText(/CEO of Applications at OpenAI/i).waitFor());
 
     const badRel = await page.locator('.lum-card__link[target="_blank"]').evaluateAll((links) => links
       .filter((link) => !(link.rel.includes("noopener") && link.rel.includes("noreferrer"))).length);
@@ -256,9 +274,19 @@ async function run() {
     assert.equal(await mobilePage.locator(".lum-tabs").evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length), 1, "mobile tabs must stack");
     await mobileContext.close();
 
+    const narrowContext = await browser.newContext({ viewport: { width: 320, height: 720 }, isMobile: true });
+    const narrowPage = await narrowContext.newPage();
+    await narrowPage.goto(origin + "/luminairy.html#trailblazers", { waitUntil: "networkidle" });
+    await narrowPage.locator(".lum-card").first().waitFor();
+    const narrowOverflow = await narrowPage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    assert.ok(narrowOverflow <= 1, `320px horizontal overflow must be <=1px, got ${narrowOverflow}px`);
+    assert.equal(await narrowPage.locator(".lum-card").count(), 7, "320px view must render all Trailblazers");
+    assert.deepEqual(await imageFailures(narrowPage), [], "320px view must decode all Trailblazer images");
+    await narrowContext.close();
+
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cards, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, compact-desktop overflow, and mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cards, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, compact-desktop overflow, and 390/320 mobile overflow");
   } finally {
     await browser.close();
   }

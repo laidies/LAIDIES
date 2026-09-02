@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "luminairy-profile-resource-evidence.v1",
+  "batch": 2,
+  "checkedOn": "2026-09-02",
+  "status": "signed-local-candidate",
+  "profiles": [
+    {
+      "profileId": "fei-fei-li",
+      "image": {"sha256": "bdfae072174e46898b7cb61f9fd5d7349b3198e3140864f60a7d5615a32118a3", "verdict": "pass-to-retain", "reference": "https://profiles.stanford.edu/proxy/api/cap/profiles/15052/resources/profilephoto/350x350.1550534393295.jpg", "finding": "Face shape, shoulder-length dark hair and expression align with Stanford's official portrait; no anatomy or style defect found."},
+      "roleAbout": {"verdict": "supported", "text": "Li is Stanford’s Sequoia Professor and a founding co-director of Stanford HAI; Stanford identifies her as an inventor of ImageNet, and World Labs identifies her as co-founder and CEO.", "sources": ["https://profiles.stanford.edu/fei-fei-li", "https://www.worldlabs.ai/about"]},
+      "lesson": {"verdict": "improved", "text": "Training data turns human labels into a model’s idea of the world—ask who chose the examples and what they leave out."},
+      "links": [
+        {"type": "read", "label": "Read Fei-Fei Li’s Stanford profile", "url": "https://profiles.stanford.edu/fei-fei-li"},
+        {"type": "read", "label": "Read about World Labs", "url": "https://www.worldlabs.ai/about"},
+        {"type": "read", "label": "Read Fei-Fei Li on spatial intelligence", "url": "https://drfeifei.substack.com/p/from-words-to-worlds-spatial-intelligence"},
+        {"type": "watch", "label": "Watch Fei-Fei Li discuss world models", "url": "https://www.worldlabs.ai/blog/real-to-sim-to-real"}
+      ],
+      "rejectedCandidates": [{"url": "https://us.macmillan.com/books/9781250787515/theworldsisee", "reason": "Direct check returned a bot-blocking 403; omit from this release."}]
+    },
+    {
+      "profileId": "timnit-gebru",
+      "image": {"sha256": "fdbbfe3a953e80de45ad9c459bbefcb6f504c55a6775e71ba3fc5377ba53f94b", "verdict": "pass-to-retain", "reference": "https://www.linkedin.com/in/timnit-gebru-7b3b407", "finding": "Short natural curls, glasses and facial proportions align with the identifiable public profile imagery; no anatomy or style contradiction found."},
+      "roleAbout": {"verdict": "supported", "text": "DAIR identifies Gebru as its founder and executive director. She co-authored the peer-reviewed paper On the Dangers of Stochastic Parrots.", "sources": ["https://zines.dair-institute.org/research-philosophy-zine/accessible", "https://dl.acm.org/doi/10.1145/3442188.3445922"]},
+      "lesson": {"verdict": "improved", "text": "A fluent answer can still be unreliable: ask what data, labour, and incentives produced it before treating it as knowledge."},
+      "links": [
+        {"type": "read", "label": "Read DAIR’s research philosophy", "url": "https://zines.dair-institute.org/research-philosophy-zine/accessible"},
+        {"type": "read", "label": "Read On the Dangers of Stochastic Parrots", "url": "https://dl.acm.org/doi/10.1145/3442188.3445922"},
+        {"type": "watch", "label": "Watch DAIR’s Stochastic Parrots discussion", "url": "https://peertube.dair-institute.org/w/qBgQLX5DgMgHNF5NMo7886"},
+        {"type": "follow", "label": "Follow Timnit Gebru on LinkedIn", "url": "https://www.linkedin.com/in/timnit-gebru-7b3b407"}
+      ],
+      "rejectedCandidates": [{"url": "https://www.dair-institute.org/research", "reason": "Returns 404."}]
+    },
+    {
+      "profileId": "rachel-thomas",
+      "image": {"sha256": "2be05fcc7d3cf3a37eeb9d0ba692db1cdba0710988f62f3155205b0935e99d13", "verdict": "pass-to-retain", "reference": "https://rachel.fast.ai/images/thomas-2020-small.jpg", "finding": "Curly brown hair, facial structure and burgundy clothing direction align with the image on Thomas's own site."},
+      "roleAbout": {"verdict": "supported", "text": "Thomas is a co-founder of fast.ai. Her site describes her as the founding director of the Center for Applied Data Ethics and a Professor of Practice at Queensland University of Technology’s Centre for Data Science.", "sources": ["https://rachel.fast.ai/about.html", "https://www.fast.ai/posts/2020-08-19-data-ethics.html"]},
+      "lesson": {"verdict": "improved", "text": "Good AI teaching should include the task, its likely harms, and the people affected—not only the fastest way to use the tool."},
+      "links": [
+        {"type": "read", "label": "Read Rachel Thomas’s work", "url": "https://rachel.fast.ai/about.html"},
+        {"type": "read", "label": "Read fast.ai’s Applied Data Ethics course", "url": "https://www.fast.ai/posts/2020-08-19-data-ethics.html"},
+        {"type": "watch", "label": "Watch Rachel Thomas teach data ethics", "url": "https://www.youtube.com/playlist?list=PLtmWHNX-gukLQlMvtRJ19s7-8MrnRV6h6"},
+        {"type": "follow", "label": "Follow Rachel Thomas on X", "url": "https://twitter.com/math_rachel"},
+        {"type": "follow", "label": "Follow Rachel Thomas on LinkedIn", "url": "https://www.linkedin.com/in/rachel-thomas-942a7923/"}
+      ],
+      "rejectedCandidates": []
+    },
+    {
+      "profileId": "joy-buolamwini",
+      "image": {"sha256": "1d0283319f68503ccb9a0bcfe4bf39e81b5f2045a5a5715e0199f82ac677fa2c", "verdict": "pass-to-retain", "reference": "http://poetofcode.com/wp-content/themes/poet-of-code-theme/images/share-image.jpg", "finding": "Short natural hair, bright red glasses, red dress and facial presentation align with Buolamwini's official site image."},
+      "roleAbout": {"verdict": "supported", "text": "Buolamwini is founder of the Algorithmic Justice League and author of Unmasking AI. Her Gender Shades work evaluated commercial gender-classification systems across skin type and gender.", "sources": ["https://poetofcode.com/", "https://www.ajl.org/", "https://www.media.mit.edu/projects/gender-shades/overview/"]},
+      "lesson": {"verdict": "improved", "text": "Test error rates across the people who will bear the consequences, not only the overall average."},
+      "links": [
+        {"type": "read", "label": "Read Joy Buolamwini’s work", "url": "https://poetofcode.com/"},
+        {"type": "read", "label": "Read Unmasking AI", "url": "https://www.unmasking.ai/"},
+        {"type": "read", "label": "Read Algorithmic Justice League resources", "url": "https://newsletter.ajl.org/learn"},
+        {"type": "watch", "label": "Watch Joy Buolamwini discuss Unmasking AI", "url": "https://www.youtube.com/watch?v=DWfMNKbv2_U"},
+        {"type": "follow", "label": "Follow Joy Buolamwini on X", "url": "https://twitter.com/jovialjoy"},
+        {"type": "follow", "label": "Follow Joy Buolamwini on Instagram", "url": "https://www.instagram.com/poetofcode/"},
+        {"type": "follow", "label": "Follow Joy Buolamwini on LinkedIn", "url": "https://www.linkedin.com/in/buolamwini/"}
+      ],
+      "rejectedCandidates": [{"url": "https://gendershades.org/", "reason": "Did not resolve in the live check; retain MIT's project record as evidence instead."}]
+    },
+    {
+      "profileId": "kate-crawford",
+      "image": {"sha256": "8414f1ee17d2913ca3debd30fc758334cf64a56232574efa10c00d17eae0fa23", "verdict": "pass-to-retain", "reference": "https://katecrawford.net/", "finding": "Long auburn hair, complexion and mature facial structure align with Crawford's official self-presentation."},
+      "roleAbout": {"verdict": "supported", "text": "Crawford is a research professor at USC, a senior principal researcher at Microsoft Research New York, and the inaugural visiting chair of AI and Justice at the École Normale Supérieure in Paris.", "sources": ["https://katecrawford.net/", "https://katecrawford.net/about"]},
+      "lesson": {"verdict": "improved", "text": "AI has a supply chain—minerals, labour, energy, data, and institutional power—so assess it beyond the screen."},
+      "links": [
+        {"type": "read", "label": "Read Kate Crawford’s work", "url": "https://katecrawford.net/"},
+        {"type": "read", "label": "Read about Atlas of AI", "url": "https://katecrawford.net/atlas"},
+        {"type": "read", "label": "Read Atlas of AI from Yale", "url": "https://yalebooks.yale.edu/book/9780300252392/atlas-of-ai/"},
+        {"type": "follow", "label": "Follow Kate Crawford on X", "url": "https://twitter.com/katecrawford"},
+        {"type": "follow", "label": "Follow Kate Crawford on Instagram", "url": "https://www.instagram.com/__katecrawford__/"},
+        {"type": "follow", "label": "Follow Kate Crawford on Bluesky", "url": "https://bsky.app/profile/katecrawford.bsky.social"}
+      ],
+      "rejectedCandidates": [{"url": "https://annenberg.usc.edu/news/critical-conversations/kate-crawford-maps-world-extraction-and-exploitation-atlas-ai", "reason": "Valid evidence, but less useful than Crawford's maintained work and book routes."}]
+    }
+  ]
+}

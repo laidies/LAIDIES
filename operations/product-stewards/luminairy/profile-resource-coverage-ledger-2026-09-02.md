@@ -1,6 +1,6 @@
 # LUMINAiRY MAiVEN and Trailblazer profile-resource coverage ledger
 
-**Status:** BUILDING — inventory complete; 30-card research and admission pending
+**Status:** LOCAL CANDIDATE COMPLETE — 30/30 content, portrait, destination, evidence and signed-receipt records resolved; public release remains HOLD
 **Checked:** 2026-09-02, America/Vancouver
 **Branch base:** `2926504b9e2239979ba274af51aaad3851fcf9be`
 **Scope:** all 23 MAiVENS and all 7 Trailblazers; 13 Patron Saints are protected and out of scope
@@ -8,11 +8,13 @@
 ## What this ledger proves
 
 - The public profile source contains exactly **23 MAiVENS + 7 Trailblazers = 30 people**.
-- Each person has exactly one admitted claim and one signed receipt. No duplicate or omitted profile ID was found.
-- All 30 declared portrait files exist and decode locally. Twenty-nine are 1024 × 1536; Rachel Thomas is 1023 × 1537. File presence and decoding are integrity evidence, not independent likeness or visual-quality approval.
-- The 30 cards currently contain 54 links. Only Hannah Fry's seven links have explicit `read`, `watch`, `listen` or `follow` types and action-led labels. The other **47 links are untyped**.
-- Hannah Fry is the only card currently at the new resource-destination floor. The other 29 require live source renewal, applicable destination expansion, exact profile re-hashing and new signed receipts.
-- Existing roles/about text and distinct LAiDIES lessons are useful source material, not renewed approval. Each must be independently checked against current primary or authoritative evidence before it is retained.
+- Each person has exactly one admitted claim and one r5 signed resource-evidence receipt. No duplicate or omitted profile ID remains.
+- All 30 declared portrait files exist, decode, and passed person-by-person suitability/style review against an authoritative likeness reference. Eight MAiVEN portraits and Amanda Askell's Trailblazer portrait were replaced without overwriting their incumbents.
+- The 30 cards contain **108 verified, action-typed destinations:** 67 Read, 18 Watch, 3 Listen and 20 Follow. Categories are omitted when no verified useful destination exists.
+- Current role/about text, historical bounds and all 30 distinct LAiDIES lessons match six dated five-person evidence batches and passed independent exact-content review.
+- Direct destination checks resolved one dead Smithsonian ENIAC route and one incorrect Watch label. The final set has 96 direct passes, 5 expected redirects and 7 authoritative routes protected from automated access; **0 unresolved dead/wrong destinations**.
+- Runtime and offline admission bind each non-Saint profile hash to its exact per-person resource-evidence hash and an offline P-256 signature. Mutated text and mutated evidence hashes were proven to fail.
+- The 13 Patron Saint profile, claim and receipt objects are unchanged from base `2926504b9e2239979ba274af51aaad3851fcf9be`.
 
 ## Batch boundaries
 
@@ -25,7 +27,22 @@ The six batches preserve profile-source order. Each contains five people; their 
 5. **Batch 5 — MAiVENS 21–23 + Trailblazers 1–2:** Adele Goldberg, Shafi Goldwasser, Lynn Conway, Mira Murati, Daniela Amodei.
 6. **Batch 6 — Trailblazers 3–7:** Lila Ibrahim, Fidji Simo, Chelsea Finn, Amanda Askell, Allie K. Miller.
 
-## Card inventory and starting gaps
+## Final 30-person resolution ledger
+
+Every row below is **DONE** in the local signed candidate. “Image” includes exact-file decoding plus independent likeness/style review; “content” includes current/historical scope and distinct lesson; “destinations” includes typed label, ownership/usefulness and live-route disposition; “receipt” binds the exact profile and evidence hashes.
+
+| Batch | Wing | Profiles | Image | Content | Destinations | Receipt |
+|---:|---|---|---|---|---|---|
+| 1 | MAiVEN | Ada Lovelace; Grace Hopper; Hedy Lamarr; Karen Spärck Jones; Hannah Fry | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
+| 2 | MAiVEN | Fei-Fei Li; Timnit Gebru; Rachel Thomas; Joy Buolamwini; Kate Crawford | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
+| 3 | MAiVEN | Meredith Whittaker; Emily M. Bender; The ENIAC Six; Margaret Hamilton; Frances Allen | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
+| 4 | MAiVEN | Grace Wahba; Cynthia Dwork; Daphne Koller; Barbara Liskov; Jean Sammet | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
+| 5 | MAiVEN + Trailblazer | Adele Goldberg; Shafi Goldwasser; Lynn Conway; Mira Murati; Daniela Amodei | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
+| 6 | Trailblazer | Lila Ibrahim; Fidji Simo; Chelsea Finn; Amanda Askell; Allie K. Miller | 5/5 DONE | 5/5 DONE | 5/5 DONE | 5/5 r5 |
+
+**Authoritative result:** 30 DONE · 0 temporary production HOLD · 0 genuine source-gap HOLD · 1 release HOLD.
+
+## Starting inventory retained for before/after audit
 
 Legend: **content present** means the existing card has role/about and a distinct lesson, but both still require renewed source/content review. **Image integrity PASS** means the exact file exists and decodes; likeness/style review remains pending. Link counts are `total/action-typed`.
 
@@ -62,13 +79,9 @@ Legend: **content present** means the existing card has role/about and a distinc
 | 6 | Trailblazer · `amanda-askell` · Amanda Askell | Content present; role statement needs exact source | PASS · `assets/builders/y2k-stained-glass-v4-golden/amanda-askell-y2k-stained-glass.png` · `01050e423664…` | 1/0 · Claude's Constitution | r3 · 2026-11-23 | Verify portrait/current role and authorship wording; type Read; add official interviews/video/social only if identity is clear |
 | 6 | Trailblazer · `allie-k-miller` · Allie K. Miller | Content present; independent-work scope volatile | PASS · `assets/builders/y2k-stained-glass-v4-golden/allie-k-miller-y2k-stained-glass.png` · `396f3017ceb3…` | 2/0 · official site, Linktree | r3 · 2026-11-23 | Verify portrait/current positioning and hub ownership; type Read/Follow; add official newsletter, video, podcast and social destinations where live |
 
-## Genuine gaps and release blockers
+## Remaining release boundary
 
-1. **Destination evidence:** 29 profiles still need destination-by-destination live verification. A working URL alone is insufficient; the page must establish the person's identity, authorship, institutional role or official account ownership.
-2. **Image review:** all 30 exact image files exist and decode, but the repository does not contain a current person-by-person independent likeness/style review bound to these exact hashes. No replacement image is authorized by this ledger.
-3. **Current roles:** living-person roles, especially all seven Trailblazers, require fresh first-party confirmation. Historical profiles require bounded wording and must not be forced into a present-day “current role” field.
-4. **Typed actions:** 47 existing links are untyped and use source-style labels. They must become intentional Read/Watch/Listen/Follow destinations or be omitted if they do not provide a useful reader route.
-5. **Exact production artifact:** provider read-only verification confirms production deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and critical-file parity at custom and immutable origins. Cloudflare exposes no whole-artifact manifest or identity. Release remains HOLD until an exact `51aa2c1` artifact is reconstructed, every manifest path is compared with the immutable deployment, and the successor is applied as an explicit changed-path overlay.
+There are no unresolved profile-content, portrait or source gaps. The only remaining HOLD is release coordination: provider read-only verification identifies production deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and critical-file parity at custom and immutable origins, but Cloudflare exposes no whole-artifact manifest. Do not deploy until the exact current artifact is reconstructed and compared path-by-path, this candidate is applied as an explicit changed-path overlay, a coordinated Pages slot is available, and custom plus immutable origins are reverified.
 
 ## Batch admission rule
 

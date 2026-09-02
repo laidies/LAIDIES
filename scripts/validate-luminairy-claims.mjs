@@ -9,13 +9,18 @@ const root = path.resolve(process.env.LUMINAIRY_ROOT || process.cwd());
 const profilePath = path.resolve(process.env.LUMINAIRY_PROFILES_PATH || path.join(root, "content/luminairy-profiles.json"));
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 const profiles = JSON.parse(fs.readFileSync(profilePath, "utf8"));
-const claims = JSON.parse(read("content/luminairy-claims.json"));
-const receiptManifest = JSON.parse(read("content/luminairy-editorial-receipts.json"));
+const claimsPath = path.resolve(process.env.LUMINAIRY_CLAIMS_PATH || path.join(root, "content/luminairy-claims.json"));
+const receiptsPath = path.resolve(process.env.LUMINAIRY_RECEIPTS_PATH || path.join(root, "content/luminairy-editorial-receipts.json"));
+const claims = JSON.parse(fs.readFileSync(claimsPath, "utf8"));
+const receiptManifest = JSON.parse(fs.readFileSync(receiptsPath, "utf8"));
 const html = read("luminairy.html");
 const css = read("content/luminairy-v2.css");
 const gate = read("content/site/luminairy-claim-gate.js");
 const sourcePacket = read("operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md");
 const hannahResources = JSON.parse(read("operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
+const evidenceFiles = fs.readdirSync(path.join(root, "operations/product-stewards/luminairy"))
+  .filter((name) => /^profile-resource-evidence-batch-\d\d-2026-09-02\.json$/.test(name))
+  .sort();
 const errors = [];
 const today = new Date().toISOString().slice(0, 10);
 const publicJwks = {
@@ -28,13 +33,18 @@ const publicJwks = {
     kty: "EC", crv: "P-256",
     x: "0SG_saUrurdGJZ4e8wFG23hvpV8vQUNm3YPad28WKWs",
     y: "Gss04vUhNOgxvRkVn6M_QwK9Js42hogAD6JGsfMZhG8"
+  },
+  "luminairy-editorial-offline-r5-20260902": {
+    kty: "EC", crv: "P-256",
+    x: "PbQCO9tuJRrhE83ZuXq2UU0WLbz979M3zqmDpIc58zA",
+    y: "BT6SvRIfLRzXD9l_zAQyckGdAfvkcBvvOJAZtL0fwXA"
   }
 };
 
 const sha256 = (value) => crypto.createHash("sha256").update(String(value)).digest("hex");
 const profilePayload = (wing, profile) => JSON.stringify({ wing, profile });
 function receiptPayload(receipt) {
-  return JSON.stringify({
+  const payload = {
     schemaVersion: receipt.schemaVersion,
     receiptId: receipt.receiptId,
     keyId: receipt.keyId,
@@ -44,12 +54,14 @@ function receiptPayload(receipt) {
     profileId: receipt.profileId,
     profileSha256: receipt.profileSha256,
     sourcePacketSha256: receipt.sourcePacketSha256,
+    ...(receipt.resourceEvidenceSha256 ? { resourceEvidenceSha256: receipt.resourceEvidenceSha256 } : {}),
     verifiedOn: receipt.verifiedOn,
     recheckOn: receipt.recheckOn,
     reviewedOn: receipt.reviewedOn,
     reviewerRole: receipt.reviewerRole,
     supportDecision: receipt.supportDecision
-  });
+  };
+  return JSON.stringify(payload);
 }
 function strictDate(value) {
   return /^\d{4}-\d{2}-\d{2}$/.test(String(value || "")) && new Date(value + "T00:00:00Z").toISOString().slice(0, 10) === value;
@@ -71,6 +83,14 @@ if (!css.includes("--lum-sapphire") || !css.includes("--lum-amber") || !css.incl
 
 const expected = { saints: 13, mavens: 23, trailblazers: 7 };
 const profileEntries = new Map();
+const resourceEvidence = new Map();
+for (const file of evidenceFiles) {
+  const batch = JSON.parse(read(`operations/product-stewards/luminairy/${file}`));
+  for (const item of batch.profiles || []) {
+    if (!item.profileId || resourceEvidence.has(item.profileId)) errors.push(`duplicate resource evidence ${item.profileId}`);
+    else resourceEvidence.set(item.profileId, sha256(JSON.stringify(item)));
+  }
+}
 for (const wing of Object.keys(expected)) {
   if (!Array.isArray(profiles[wing]) || profiles[wing].length !== expected[wing]) {
     errors.push(`${wing} count must be ${expected[wing]}`);
@@ -117,6 +137,9 @@ for (const record of claims.records || []) {
   const entry = profileEntries.get(`${record.wing}:${record.profileId}`);
   if (!entry || record.claimId !== `${record.wing}-${record.profileId}` || record.status !== "admitted" || recordMap.has(record.claimId)) errors.push(`invalid claim identity ${record.claimId}`);
   else if (record.profileSha256 !== sha256(profilePayload(entry.wing, entry.profile))) errors.push(`profile hash mismatch ${record.claimId}`);
+  if (record.wing === "saints") {
+    if (record.resourceEvidenceSha256) errors.push(`Saint claim unexpectedly binds resource evidence ${record.claimId}`);
+  } else if (record.resourceEvidenceSha256 !== resourceEvidence.get(record.profileId)) errors.push(`resource evidence hash mismatch ${record.claimId}`);
   if (!strictDate(record.verifiedOn) || record.verifiedOn > today || !strictDate(record.recheckOn) || record.recheckOn < today) errors.push(`invalid/expired claim dates ${record.claimId}`);
   recordMap.set(record.claimId, record);
 }
@@ -124,7 +147,7 @@ const receiptClaims = new Set();
 for (const receipt of receiptManifest.receipts || []) {
   const record = recordMap.get(receipt.claimId);
   const publicJwk = publicJwks[receipt.keyId];
-  if (!record || receiptClaims.has(receipt.claimId) || !publicJwk || !receiptManifest.trustedKeyIds?.includes(receipt.keyId) || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
+  if (!record || receiptClaims.has(receipt.claimId) || !publicJwk || !receiptManifest.trustedKeyIds?.includes(receipt.keyId) || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.resourceEvidenceSha256 !== record.resourceEvidenceSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
   try {
     const valid = crypto.verify("sha256", Buffer.from(receiptPayload(receipt)), { key: crypto.createPublicKey({ key: publicJwk, format: "jwk" }), dsaEncoding: "ieee-p1363" }, Buffer.from(receipt.signature || "", "base64"));
     if (!valid) errors.push(`signature invalid ${receipt.claimId}`);

@@ -2,12 +2,12 @@
 
 **Owner:** LUMINAiRY building champion  
 **Research owner:** PATRON SAiNTS, MAiVENS & TRAiLBLAZERS research/editorial sub-champion  
-**Status:** SIGNED PROFILE SET VALIDATED LOCALLY — Hannah Fry destination successor awaiting coordinated release
+**Status:** SIGNED 30-PROFILE RESOURCE SET VALIDATED LOCALLY — coordinated release awaiting exact production artifact
 **Last reviewed:** 2026-09-02
 
 ## Product job
 
-The LUMINAiRY is a three-wing guide hall. It helps a visitor distinguish:
+The LUMINAiRY is a three-wing hall of cultural teaching devices, historical MAiVENS and present-day Trailblazers. It helps a visitor distinguish:
 
 - **PATRON SAiNTS:** clearly labelled LAiDIES cultural interpretation and practical rules, never presented as quotation, biography or factual authority;
 - **MAiVENS:** sourced accounts of women whose work helps explain computing and AI;

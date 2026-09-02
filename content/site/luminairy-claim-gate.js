@@ -15,6 +15,12 @@
       crv: "P-256",
       x: "0SG_saUrurdGJZ4e8wFG23hvpV8vQUNm3YPad28WKWs",
       y: "Gss04vUhNOgxvRkVn6M_QwK9Js42hogAD6JGsfMZhG8"
+    },
+    "luminairy-editorial-offline-r5-20260902": {
+      kty: "EC",
+      crv: "P-256",
+      x: "PbQCO9tuJRrhE83ZuXq2UU0WLbz979M3zqmDpIc58zA",
+      y: "BT6SvRIfLRzXD9l_zAQyckGdAfvkcBvvOJAZtL0fwXA"
     }
   };
 
@@ -96,7 +102,7 @@
   }
 
   function receiptPayload(receipt) {
-    return JSON.stringify({
+    const payload = {
       schemaVersion: receipt.schemaVersion,
       receiptId: receipt.receiptId,
       keyId: receipt.keyId,
@@ -106,12 +112,14 @@
       profileId: receipt.profileId,
       profileSha256: receipt.profileSha256,
       sourcePacketSha256: receipt.sourcePacketSha256,
+      ...(receipt.resourceEvidenceSha256 ? { resourceEvidenceSha256: receipt.resourceEvidenceSha256 } : {}),
       verifiedOn: receipt.verifiedOn,
       recheckOn: receipt.recheckOn,
       reviewedOn: receipt.reviewedOn,
       reviewerRole: receipt.reviewerRole,
       supportDecision: receipt.supportDecision
-    });
+    };
+    return JSON.stringify(payload);
   }
 
   function strictDate(value) {
@@ -219,13 +227,16 @@
       if (!entry || records.has(record.claimId) || record.claimId !== key.replace(":", "-") || record.status !== "admitted") throw new Error("claim identity mismatch");
       if (!strictDate(record.verifiedOn) || !strictDate(record.recheckOn) || record.verifiedOn > today || record.recheckOn < today) throw new Error("claim date invalid");
       if (await sha256(profilePayload(entry.wing, entry.profile)) !== record.profileSha256) throw new Error("profile bytes do not match admission");
+      if (record.wing === "saints") {
+        if (record.resourceEvidenceSha256) throw new Error("Saint claim resource binding invalid");
+      } else if (!/^[0-9a-f]{64}$/.test(record.resourceEvidenceSha256 || "")) throw new Error("profile resource evidence binding missing");
       records.set(record.claimId, record);
     }
 
     const seen = new Set();
     for (const receipt of receipts.receipts) {
       const record = records.get(receipt.claimId);
-      if (!record || seen.has(receipt.claimId) || !trustedKeys[receipt.keyId] || receipt.product !== "luminairy" || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.wing !== record.wing || receipt.profileId !== record.profileId || receipt.verifiedOn !== record.verifiedOn || receipt.recheckOn !== record.recheckOn || receipt.supportDecision !== "exact-profile-reviewed-and-supported" || !normalize(receipt.reviewerRole) || !strictDate(receipt.reviewedOn) || receipt.reviewedOn > today || !(await verifySignature(receipt))) throw new Error("trusted editorial receipt invalid");
+      if (!record || seen.has(receipt.claimId) || !trustedKeys[receipt.keyId] || receipt.product !== "luminairy" || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.resourceEvidenceSha256 !== record.resourceEvidenceSha256 || receipt.wing !== record.wing || receipt.profileId !== record.profileId || receipt.verifiedOn !== record.verifiedOn || receipt.recheckOn !== record.recheckOn || receipt.supportDecision !== "exact-profile-reviewed-and-supported" || !normalize(receipt.reviewerRole) || !strictDate(receipt.reviewedOn) || receipt.reviewedOn > today || !(await verifySignature(receipt))) throw new Error("trusted editorial receipt invalid");
       seen.add(receipt.claimId);
     }
     if (seen.size !== profiles.size) throw new Error("trusted admission incomplete");

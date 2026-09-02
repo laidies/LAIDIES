@@ -2,15 +2,15 @@
 
 ## Current task
 
-- **Status:** BUILDING — 30-card inventory complete; research batches pending
+- **Status:** LOCAL CANDIDATE COMPLETE — 30/30 profiles resolved; release HOLD on exact production-artifact recovery and coordinated Pages slot
 - **Task:** Complete all 23 MAiVEN and 7 Trailblazer LUMINAiRY cards to the Hannah Fry resource standard.
 - **Task ID:** LUMINAIRY-ALL-PROFILE-RESOURCES-20260902
 - **Owner:** LUMINAiRY foreground; release remains with the coordinated production owner.
 - **Updated:** 2026-09-02 America/Vancouver
 - **Goal:** Every MAiVEN and Trailblazer card retains a verified portrait, presents current or historically bounded information and a specific LAiDIES lesson, and offers every genuinely applicable verified Read/Watch/Listen/Follow route.
 - **Acceptance:** One 30-person ledger proves coverage; all profile changes have exact evidence and independent review; every changed hash has a renewed offline-signed receipt; Saints and unrelated bytes are unchanged; full 23/7 Web Crypto/no-Web-Crypto, keyboard, image, destination and 1440/390/320 tests pass.
-- **Current step:** Inventory and six five-person batch boundaries are recorded in `operations/product-stewards/luminairy/profile-resource-coverage-ledger-2026-09-02.md`. All 30 images exist and decode; only Hannah's seven links are currently action-typed. Twenty-nine profiles require renewed source, destination, content and image review.
-- **Next action:** Complete Batch 1 evidence and use it as the representative proof before repeating the exact contract across Batches 2–6.
+- **Current step:** All six five-person evidence batches are complete. The exact 30-profile candidate has 30 independently reviewed portraits, 30 reviewed role/about and lesson sets, 108 verified typed destinations, 30 r5 offline-signed profile/evidence receipts, calibrated fail-closed admission, and passing desktop/390/320 plus Web Crypto/no-Web-Crypto browser tests. The 13 Patron Saint profile, claim and receipt objects remain unchanged.
+- **Next action:** Recover the exact current production artifact, compare it path-by-path with immutable deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, prepare an exact changed-path overlay from the committed candidate, coordinate a Pages slot, then independently verify custom and immutable origins. Do not deploy from this isolated worktree directly.
 - **Production recovery:** Read-only Cloudflare verification confirms current deployment `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source `51aa2c124d780be4e4dfc3a9120721c1527d7e99`, and critical LUMINAiRY/NewsStand parity at custom and immutable origins. Provider data has no whole-artifact manifest/hash; reconstruct exact `51aa2c1` output and compare every path with the immutable origin before any release overlay.
 - **Release boundary:** Work continues from signed Hannah successor `2926504b9e2239979ba274af51aaad3851fcf9be` on isolated branch `feature/luminairy-all-profile-resources-20260902`. No deployment, upload or production mutation is authorized during research/batch production.
 
