@@ -99,7 +99,7 @@ function validatePublishedBase(binding, currentStoriesRaw) {
   if (expectedOrigins.size) reject("service revision publishedBase must include custom and immutable origin observations");
 }
 
-function validateEnvelope(value, root = ROOT) {
+function validateEnvelope(value, root = ROOT, store = null) {
   const hasFrontPaige = value && Object.prototype.hasOwnProperty.call(value, "frontPaigeStoryId");
   const hasWeekly = value && Object.prototype.hasOwnProperty.call(value, "weeklyStoryId");
   exactKeys(value, ["schemaVersion", "mode", "editionDate", "editorialTimeZone", "disposition", "status", "storyIds", "storySnapshots", "desks", "sourceIdentity", "canonicalWrite", "deployActionTaken", ...(hasFrontPaige ? ["frontPaigeStoryId"] : []), ...(hasWeekly ? ["weeklyStoryId"] : [])], "envelope");
@@ -179,7 +179,9 @@ function validateEnvelope(value, root = ROOT) {
   }
   const storiesContext = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), "utf8"), storiesContext, { timeout: 1000 });
-  validateServiceSelection({ desks: value.desks, columns: columnData, date: value.editionDate, predecessor, canonicalIssue: storiesContext.window.NEWSSTAND_DATA.publications?.daily?.issue });
+  const sameDateIssue = store?.issues?.find(issue => issue.editionDate === value.editionDate) || null;
+  const sameDateNewsAppend = Boolean(candidate && sameDateIssue && storiesContext.window.NEWSSTAND_DATA.publications?.daily?.editionDate === value.editionDate);
+  validateServiceSelection({ desks: value.desks, columns: columnData, date: value.editionDate, predecessor, canonicalIssue: storiesContext.window.NEWSSTAND_DATA.publications?.daily?.issue, sameDateNewsAppend });
   const canonicalStories = storiesContext.window.NEWSSTAND_DATA.stories || [];
   if (candidate && (!value.storyIds.includes(candidate.id) || canonicalStories.some(story => story.id === candidate.id || story.slug === candidate.slug))) reject("ordinary candidate is absent from issue or duplicates an incumbent");
   for (const [index, id] of value.storyIds.entries()) {
@@ -225,7 +227,7 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   try { parsedEnvelope = JSON.parse(envelopeRaw); } catch { reject("envelope raw bytes are not valid JSON"); }
   if (canonicalJson(parsedEnvelope) !== canonicalJson(envelope)) reject("envelope raw/object mismatch");
   envelope = parsedEnvelope;
-  validateEnvelope(envelope, root);
+  validateEnvelope(envelope, root, store);
   if (envelope.sourceIdentity.servicePredecessor) loadServicePredecessor(envelope.sourceIdentity.servicePredecessor, {
     root, date: envelope.editionDate, columns: JSON.parse(fs.readFileSync(path.join(root, envelope.sourceIdentity.columnsPath), 'utf8')), reviewedAt: decision.reviewedAt
   });

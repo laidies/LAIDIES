@@ -1,0 +1,683 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "openai-ads-run-rate-2026-09-02",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "cloudflare-llama-independent-news-openai-ads-run-rate-2026-09-02",
+    "principalId": "cloudflare-llama-independent-news-openai-ads-run-rate-2026-09-02",
+    "role": "independent factual and reader-comprehension editor",
+    "modelFamily": "meta-llama",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-02T17:23:05.811Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/publication-manifest.json",
+      "sha256": "1625553022d1d76756a35d982fb983603e098ae449932cc10d34dff9d2ce541f"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/review-text.json",
+      "sha256": "84e4e1d49d2d06f5c84cf4969828ac98270fcdbd202f056b5980a7601b33c7dd"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/rendered-article.html",
+      "sha256": "21511ebcdf7758c85d6d7ecba2ff10d2bafb12d1729e8a7383009880ef29819b"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "cloudflare-llama-independent-news-openai-ads-run-rate-2026-09-02",
+    "reviewedAt": "2026-09-02T09:35:41.157Z",
+    "negatives": [
+      {
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "Chapter 1 — Meet the parts of the system"
+          }
+        ],
+        "exemplarId": "CQX-BAD-001",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "verdict": "REJECT"
+      },
+      {
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare two job offers.",
+            "locator": "Introduction — What you are actually using"
+          }
+        ],
+        "exemplarId": "CQX-BAD-002",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "verdict": "REJECT"
+      }
+    ],
+    "positive": {
+      "evidence": [
+        {
+          "excerpt": "A clear explanation of what changed and why it matters.",
+          "locator": "daily edition"
+        }
+      ],
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "strengthsRetained": [
+        "states the dated change and scope",
+        "separates evidence from inference"
+      ],
+      "verdict": "PASS"
+    }
+  },
+  "reverseBrief": {
+    "centralMentalModel": "The advertising business is a significant part of OpenAI's revenue, and it may shape product decisions and user experience",
+    "dailyLifeConnection": "Users may see ads in their ChatGPT interactions, and the ads may be relevant to their queries",
+    "desiredReaderFeeling": "Informed and aware of the potential impact of advertising on their experience",
+    "humanQuestion": "What does the $1 billion annualized revenue run rate of OpenAI's advertising business mean for users?",
+    "promisedPayoff": "Understanding the implications of OpenAI's advertising business for user experience",
+    "surfaceJob": "Explaining the $1 billion annualized revenue run rate and its implications for users"
+  },
+  "outcomes": {
+    "analogyIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article uses analogies and explanations that are accurate and helpful",
+      "verdict": "PASS"
+    },
+    "communicationBenchmark": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article meets the communication benchmark and is easy to understand",
+      "verdict": "PASS"
+    },
+    "consequenceAndUncertainty": {
+      "artifactEvidence": [
+        {
+          "excerpt": "It does show that ads are becoming a serious part of the business, while OpenAI's current policy still limits them to eligible Free and Go users.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the consequences and uncertainties of the advertising business",
+      "verdict": "PASS"
+    },
+    "dailyLifeConnection": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If you use Free or Go, you may see paid placements where the feature is available.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the daily life connection and implications for users",
+      "verdict": "PASS"
+    },
+    "datedChange": {
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the dated change and its implications",
+      "verdict": "PASS"
+    },
+    "engagingEnjoyable": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The $1 billion figure, advertiser count and country reach come from OpenAI.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article is engaging and easy to follow",
+      "verdict": "PASS"
+    },
+    "explainBack": {
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "The article explains the $1 billion annualized revenue run rate and its implications for users",
+        "prompt": "Explain the $1 billion annualized revenue run rate of OpenAI's advertising business in ordinary language",
+        "response": "The $1 billion annualized revenue run rate means that OpenAI's advertising business is bringing in revenue at a pace that would equal $1 billion if it continued for a full year."
+      },
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI says ChatGPT ads are now coming in at a pace that would equal $1 billion over a year if it continued.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the mechanism and consequence in ordinary language",
+      "verdict": "PASS"
+    },
+    "factualIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI's current help page says eligible Free and Go users may see ads.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article is factually accurate and supported by source receipts",
+      "verdict": "PASS"
+    },
+    "freshnessReviewability": {
+      "artifactEvidence": [
+        {
+          "excerpt": "This connects to <strong>context, incentives and business models</strong> in AI Fundamentals 101. The answer and the sponsored placement are separate product systems, but information from the current conversation can matter to both. <a href=\\\"/newsstand.html#chatgpt-ad-expansion-2026-08-31\\\">August 31: OpenAI is expanding ChatGPT ads. Here's what's paid for.</a>",
+          "locator": "class_notes in exact story"
+        }
+      ],
+      "observation": "The article is up-to-date and reviewable",
+      "verdict": "PASS"
+    },
+    "laidiesVoice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "That does not prove what OpenAI will do next. It tells us which incentives are becoming harder to ignore.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The tone is informative and objective",
+      "verdict": "PASS"
+    },
+    "plainClarity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI says ChatGPT ads are now coming in at a pace that would equal $1 billion over a year if it continued.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The language is straightforward and easy to understand",
+      "verdict": "PASS"
+    },
+    "readerValue": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The milestone does not announce a change to that policy.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article provides valuable information about the implications of OpenAI's advertising business",
+      "verdict": "PASS"
+    },
+    "surfaceFit": {
+      "artifactEvidence": [
+        {
+          "excerpt": "This connects to <strong>context, incentives and business models</strong> in AI Fundamentals 101.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article fits the surface and is relevant to the topic",
+      "verdict": "PASS"
+    },
+    "unseenTransfer": {
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "The article uses a different situation to expose misunderstanding",
+        "prompt": "Use a different situation to expose misunderstanding about the $1 billion annualized revenue run rate",
+        "response": "The $1 billion annualized revenue run rate is not just a number, it has implications for users and their experience with ChatGPT"
+      },
+      "artifactEvidence": [
+        {
+          "excerpt": "The better long-term question is not whether advertising is automatically good or bad. It is whether you can tell when the product is answering you, when it is selling space beside that answer, and what you give up or gain under each account option.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article uses a different situation to expose misunderstanding",
+      "verdict": "PASS"
+    },
+    "usefulAction": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If you pay for Plus, Pro, Business, Enterprise or Edu, OpenAI's current policy still says your account is ad-free.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article provides useful action and implications for users",
+      "verdict": "PASS"
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not drop benchmark names without explanation",
+      "present": false
+    },
+    "communicationPastiche": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not use communication pastiche",
+      "present": false
+    },
+    "corporateSludge": {
+      "artifactLocator": "article.md",
+      "observation": "The article is free of corporate sludge",
+      "present": false
+    },
+    "curiosityWithoutPayoff": {
+      "artifactLocator": "article.md",
+      "observation": "The article provides payoff for the reader's curiosity",
+      "present": false
+    },
+    "decorativeAnalogy": {
+      "artifactLocator": "article.md",
+      "observation": "The article uses analogies that are accurate and helpful",
+      "present": false
+    },
+    "disconnectedSystem": {
+      "artifactLocator": "article.md",
+      "observation": "The article is well-connected and easy to follow",
+      "present": false
+    },
+    "entertainmentBeforeUnderstanding": {
+      "artifactLocator": "article.md",
+      "observation": "The article prioritizes understanding over entertainment",
+      "present": false
+    },
+    "factlessConfidence": {
+      "artifactLocator": "article.md",
+      "observation": "The article is factually accurate and supported by source receipts",
+      "present": false
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "artifactLocator": "article.md",
+      "observation": "The article uses familiar examples that provide technical return",
+      "present": false
+    },
+    "genericAction": {
+      "artifactLocator": "article.md",
+      "observation": "The article provides specific and useful action",
+      "present": false
+    },
+    "glossaryAccumulation": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not accumulate glossary terms without explanation",
+      "present": false
+    },
+    "inflatedTakeawayEnding": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not have an inflated takeaway ending",
+      "present": false
+    },
+    "jargonBeforeMeaning": {
+      "artifactLocator": "article.md",
+      "observation": "The article explains technical terms in context",
+      "present": false
+    },
+    "joylessInstruction": {
+      "artifactLocator": "article.md",
+      "observation": "The article is engaging and easy to follow",
+      "present": false
+    },
+    "mechanismBeforeMotivation": {
+      "artifactLocator": "article.md",
+      "observation": "The article explains the mechanism and consequence in ordinary language",
+      "present": false
+    },
+    "mechanismCompressedBehindHook": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not compress the mechanism behind a hook",
+      "present": false
+    },
+    "missingMechanism": {
+      "artifactLocator": "article.md",
+      "observation": "The article explains the mechanism and consequence in ordinary language",
+      "present": false
+    },
+    "prematureClickBeforeMechanism": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not prioritize clickbait over mechanism",
+      "present": false
+    },
+    "purposeTooNarrow": {
+      "artifactLocator": "article.md",
+      "observation": "The article has a clear and relevant purpose",
+      "present": false
+    },
+    "referenceConfetti": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not use reference confetti",
+      "present": false
+    },
+    "staleUnreviewableClaims": {
+      "artifactLocator": "article.md",
+      "observation": "The article is up-to-date and reviewable",
+      "present": false
+    },
+    "technicalExplainerVoice": {
+      "artifactLocator": "article.md",
+      "observation": "The article uses a clear and objective tone",
+      "present": false
+    },
+    "templateRepetition": {
+      "artifactLocator": "article.md",
+      "observation": "The article does not use template repetition",
+      "present": false
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "artifactLocator": "article.md",
+      "observation": "The article uses worked examples that support the book's purpose",
+      "present": false
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-announcement.md",
+        "sha256": "fbbfcb77148f79206c4599f08f7c0bb73e94e2026216a1598877f7f44fbccdb8"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+        "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+        "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-predecessor.md",
+        "sha256": "7275c89a6f83107556aaf5273262454dfb2e017008ccaad6906d6a4f81cc7288"
+      }
+    ],
+    "claimMap": {
+      "schemaVersion": "newsstand-source-bound-claim-map.v1",
+      "candidateId": "openai-ads-run-rate-2026-09-02",
+      "reviewedThrough": "2026-09-02",
+      "claims": [
+        {
+          "claimId": "run-rate",
+          "status": "QUALIFIED",
+          "candidateEvidence": [
+            {
+              "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+              "locator": "article.md"
+            }
+          ],
+          "sourceBinding": {
+            "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-announcement.md",
+            "sha256": "fbbfcb77148f79206c4599f08f7c0bb73e94e2026216a1598877f7f44fbccdb8"
+          },
+          "sourceEvidence": [
+            {
+              "excerpt": "ChatGPT Ads reached a $1 billion annualized revenue run rate in fewer than 200 days",
+              "locator": "source-openai-announcement.md"
+            }
+          ],
+          "scopeAndFreshness": "August 31 company-reported pace, not audited collected revenue, profit or forecast."
+        },
+        {
+          "claimId": "advertisers-and-regions",
+          "status": "QUALIFIED",
+          "candidateEvidence": [
+            {
+              "excerpt": "The company also said tens of thousands of advertisers were using the system and that advertisers could buy placements in more than 40 countries.",
+              "locator": "article.md"
+            }
+          ],
+          "sourceBinding": {
+            "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-announcement.md",
+            "sha256": "fbbfcb77148f79206c4599f08f7c0bb73e94e2026216a1598877f7f44fbccdb8"
+          },
+          "sourceEvidence": [
+            {
+              "excerpt": "tens of thousands of advertisers use the product and advertiser access extends to more than 40 countries",
+              "locator": "source-openai-announcement.md"
+            }
+          ],
+          "scopeAndFreshness": "Company-reported advertiser-side access; not evidence every user sees ads."
+        },
+        {
+          "claimId": "plan-rules",
+          "status": "VERIFIED",
+          "candidateEvidence": [
+            {
+              "excerpt": "OpenAI's current help page says eligible Free and Go users may see ads. Plus, Pro, Business, Enterprise and Edu accounts remain ad-free.",
+              "locator": "article.md"
+            }
+          ],
+          "sourceBinding": {
+            "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+            "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+          },
+          "sourceEvidence": [
+            {
+              "excerpt": "eligible Free and Go users may see ads, while Plus, Pro, Business, Enterprise and Edu accounts do not have ads",
+              "locator": "source-openai-faq.md"
+            }
+          ],
+          "scopeAndFreshness": "Current OpenAI product policy checked 2026-09-02; may change by plan, region or time."
+        },
+        {
+          "claimId": "ads-free-route",
+          "status": "VERIFIED",
+          "candidateEvidence": [
+            {
+              "excerpt": "It also describes an Ads-Free option for some Free users with lower limits and fewer features.",
+              "locator": "article.md"
+            }
+          ],
+          "sourceBinding": {
+            "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+            "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+          },
+          "sourceEvidence": [
+            {
+              "excerpt": "an Ads-Free route for some Free users with lower usage limits and reduced feature access",
+              "locator": "source-openai-faq.md"
+            }
+          ],
+          "scopeAndFreshness": "Provider-described option; availability may vary by region and over time."
+        },
+        {
+          "claimId": "answer-separation",
+          "status": "QUALIFIED",
+          "candidateEvidence": [
+            {
+              "excerpt": "OpenAI says advertisements are labelled, appear separately from answers and cannot be used by advertisers to change or rank an answer.",
+              "locator": "article.md"
+            }
+          ],
+          "sourceBinding": {
+            "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-openai-faq.md",
+            "sha256": "46cedbeee6f9874a5cf08b806a6c8f791a835aaf571cf6c148986873a2141a9b"
+          },
+          "sourceEvidence": [
+            {
+              "excerpt": "ads are labelled and separate from answers, and advertisers cannot alter or rank answers",
+              "locator": "source-openai-faq.md"
+            }
+          ],
+          "scopeAndFreshness": "Provider-stated rule; no independent audit claimed."
+        },
+        {
+          "claimId": "predecessor",
+          "status": "VERIFIED",
+          "candidateEvidence": [
+            {
+              "excerpt": "Our August 31 story explained where ChatGPT ads appear and what information can make them relevant.",
+              "locator": "article.md"
+            }
+          ],
+          "sourceBinding": {
+            "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/source-predecessor.md",
+            "sha256": "7275c89a6f83107556aaf5273262454dfb2e017008ccaad6906d6a4f81cc7288"
+          },
+          "sourceEvidence": [
+            {
+              "excerpt": "The August 31 story explains where sponsored placements can appear",
+              "locator": "source-predecessor.md"
+            }
+          ],
+          "scopeAndFreshness": "Links rather than overwrites the canonical predecessor story."
+        }
+      ],
+      "heldClaims": [],
+      "correctionOwner": "NewsStand product steward"
+    },
+    "reviewedThrough": "2026-09-02",
+    "nextTrigger": "A primary source changes, a correction appears, or new independent evidence materially changes the account.",
+    "correctionOwner": "LAiDIES NewsStand product steward",
+    "independentAssessments": [
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+            "locator": "article.md"
+          }
+        ],
+        "claimId": "run-rate",
+        "observation": "The article clearly explains the $1 billion annualized revenue run rate",
+        "sourceEvidence": [
+          {
+            "excerpt": "ChatGPT Ads reached a $1 billion annualized revenue run rate in fewer than 200 days",
+            "locator": "source-openai-announcement.md"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "The company also said tens of thousands of advertisers were using the system and that advertisers could buy placements in more than 40 countries.",
+            "locator": "article.md"
+          }
+        ],
+        "claimId": "advertisers-and-regions",
+        "observation": "The article clearly explains the number of advertisers and regions",
+        "sourceEvidence": [
+          {
+            "excerpt": "tens of thousands of advertisers use the product and advertiser access extends to more than 40 countries",
+            "locator": "source-openai-announcement.md"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI's current help page says eligible Free and Go users may see ads. Plus, Pro, Business, Enterprise and Edu accounts remain ad-free.",
+            "locator": "article.md"
+          }
+        ],
+        "claimId": "plan-rules",
+        "observation": "The article clearly explains the plan rules",
+        "sourceEvidence": [
+          {
+            "excerpt": "eligible Free and Go users may see ads, while Plus, Pro, Business, Enterprise and Edu accounts do not have ads",
+            "locator": "source-openai-faq.md"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "It also describes an Ads-Free option for some Free users with lower limits and fewer features.",
+            "locator": "article.md"
+          }
+        ],
+        "claimId": "ads-free-route",
+        "observation": "The article clearly explains the ads-free route",
+        "sourceEvidence": [
+          {
+            "excerpt": "an Ads-Free route for some Free users with lower usage limits and reduced feature access",
+            "locator": "source-openai-faq.md"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says advertisements are labelled, appear separately from answers and cannot be used by advertisers to change or rank an answer.",
+            "locator": "article.md"
+          }
+        ],
+        "claimId": "answer-separation",
+        "observation": "The article clearly explains the answer separation",
+        "sourceEvidence": [
+          {
+            "excerpt": "ads are labelled and separate from answers, and advertisers cannot alter or rank answers",
+            "locator": "source-openai-faq.md"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "candidateEvidence": [
+          {
+            "excerpt": "Our August 31 story explained where ChatGPT ads appear and what information can make them relevant.",
+            "locator": "article.md"
+          }
+        ],
+        "claimId": "predecessor",
+        "observation": "The article clearly explains the predecessor story",
+        "sourceEvidence": [
+          {
+            "excerpt": "The August 31 story explains where sponsored placements can appear",
+            "locator": "source-predecessor.md"
+          }
+        ],
+        "verdict": "PASS"
+      }
+    ]
+  },
+  "ratchet": {
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "repeatedKnownDefects": 0,
+    "reviewCycles": 1,
+    "reviewIssues": 0,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First independent semantic review of this exact ordinary-news candidate."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The article is well-structured, easy to understand, and free of material defects."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Browser, native zoom and public release were not reviewed."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "3d9e9f44deae523a0bfa6accf3271aef89d0e1db04dd1285f71a25683d7546cf"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/independent-publication-analysis.json",
+      "sha256": "ee21f0c6cf4735910a6f6e847f3ecc366957f85f2de3a37cfa572777c3f517a3"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-ads-run-rate-2026-09-02/independent-publication-raw-report.json",
+    "sha256": "9109664e49c4e0960b6e8a5a99f43ba18fc7c0e8973c288167ae38ca4a590b1d"
+  }
+}

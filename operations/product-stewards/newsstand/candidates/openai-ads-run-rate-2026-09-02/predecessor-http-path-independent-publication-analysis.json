@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openai-ads-run-rate-2026-09-02",
+  "reviewerPrincipalId": "cloudflare-llama-independent-news-openai-ads-run-rate-2026-09-02",
+  "reviewTextSha256": "84e4e1d49d2d06f5c84cf4969828ac98270fcdbd202f056b5980a7601b33c7dd",
+  "checks": {
+    "incidentExplained": {
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the $1 billion annualized revenue run rate and its implications",
+      "verdict": "PASS"
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The $1 billion figure, advertiser count and country reach come from OpenAI. They are company-reported numbers, not independently audited financial results.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article is well-structured and free of internal notes or invented advice",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If you pay for Plus, Pro, Business, Enterprise or Edu, OpenAI's current policy still says your account is ad-free.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the implications of the advertising business for users",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "Technical terms, such as 'run rate', are explained in context",
+      "verdict": "PASS"
+    }
+  },
+  "outcomes": {
+    "explainBack": {
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "The article explains the $1 billion annualized revenue run rate and its implications for users",
+        "prompt": "Explain the $1 billion annualized revenue run rate of OpenAI's advertising business in ordinary language",
+        "response": "The $1 billion annualized revenue run rate means that OpenAI's advertising business is bringing in revenue at a pace that would equal $1 billion if it continued for a full year."
+      },
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI says ChatGPT ads are now coming in at a pace that would equal $1 billion over a year if it continued.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article clearly explains the mechanism and consequence in ordinary language",
+      "verdict": "PASS"
+    },
+    "unseenTransfer": {
+      "aiEditorialAnalysis": {
+        "assessment": "PASS",
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "expectedEvidence": "The article uses a different situation to expose misunderstanding",
+        "prompt": "Use a different situation to expose misunderstanding about the $1 billion annualized revenue run rate",
+        "response": "The $1 billion annualized revenue run rate is not just a number, it has implications for users and their experience with ChatGPT"
+      },
+      "artifactEvidence": [
+        {
+          "excerpt": "The better long-term question is not whether advertising is automatically good or bad. It is whether you can tell when the product is answering you, when it is selling space beside that answer, and what you give up or gain under each account option.",
+          "locator": "article.md"
+        }
+      ],
+      "observation": "The article uses a different situation to expose misunderstanding",
+      "verdict": "PASS"
+    }
+  }
+}

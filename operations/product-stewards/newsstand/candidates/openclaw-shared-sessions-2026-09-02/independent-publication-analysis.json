@@ -1,0 +1,64 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openclaw-shared-sessions-2026-09-02",
+  "reviewerPrincipalId": "cloudflare-llama-independent-news-openclaw-shared-sessions-2026-09-02",
+  "reviewTextSha256": "b0195c87306858aa4f94b76a3cfdb0213912be3ff0259cd4967982983e9c7117",
+  "checks": {
+    "incidentExplained": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A shared agent session is an attempt to make that middle available too.",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "The article clearly explains the concept of shared AI sessions and their potential benefits.",
+      "verdict": "PASS"
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "Before using any shared AI workspace, ask three ordinary questions: What information will the session retain? Who is allowed to see or change the work? Who checks and owns the final decision?",
+          "locator": "what_this_means"
+        }
+      ],
+      "observation": "The article provides coherent paragraphs and a useful ending without internal planning notes or unsupported balance.",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The larger workplace question is therefore not only, “What does the AI remember?” It is also, “Who can see this context, who can act through it, and who remains responsible for the result?”",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "The article discusses the importance of access controls and accountability.",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "An <strong>agent</strong> here means software that can carry out a series of steps using the instructions, files and tools it has been allowed to use.",
+          "locator": "the_story"
+        }
+      ],
+      "observation": "The article explains technical terms, such as 'agent' and 'session', in context.",
+      "verdict": "PASS"
+    }
+  },
+  "outcomes": {
+    "explainBack": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article should explain the concept of shared AI sessions in a clear and concise manner.",
+      "prompt": "Explain the concept of shared AI sessions in ordinary language.",
+      "response": "A shared AI session is like a shared workspace where multiple people can work together on a project, using the same tools and information."
+    },
+    "unseenTransfer": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article should use a different situation to reveal a likely misunderstanding about shared AI sessions.",
+      "prompt": "Use a different situation to reveal a likely misunderstanding about shared AI sessions.",
+      "response": "Imagine a team working on a project, where one member leaves and another takes over. A shared AI session would allow the new member to pick up where the previous member left off, without having to start from scratch."
+    }
+  }
+}

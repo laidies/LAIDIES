@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS",
+  "envelopeSha256": "b6491f4fc0b71d5ab2ce436fcebefb1beabee7ea944d921a95976bd4d394e5e0",
+  "predecessorEnvelopeSha256": "1cef0c36eb3070bcfc2bf495386fa12a0667113e5dd5a2f18ac1a2bc3b5faa77",
+  "addedStoryIds": ["openclaw-shared-sessions-2026-09-02"],
+  "reviewedAt": "2026-09-02T17:43:48Z",
+  "reviewedBy": "codex-independent-newsstand-issue-admission-judge-20260902",
+  "reviewerRole": "Independent NewsStand same-day ordinary-story issue-admission judge",
+  "checks": {
+    "predecessorEnvelopeMatchesCanonical": true,
+    "exactlyOneStoryAppendedAfterFable": true,
+    "fableSnapshotByteEquivalent": true,
+    "fableOrderUnchanged": true,
+    "sixServiceDesksByteEquivalent": true,
+    "sixServiceIdsUnchanged": true,
+    "frontPaigeUnchanged": true,
+    "weeklyUnchanged": true,
+    "candidatePackageBindingMatchesEnvelope": true,
+    "candidateStoryStructurallyIdentical": true,
+    "candidateReviewBindingsPresentAndHashed": true,
+    "candidateImageBindingPresentAndHashed": true,
+    "noUnrelatedHeldStoryIncluded": true,
+    "candidateHeldStateIsPreAdmissionOnly": true
+  },
+  "findings": "The canonical September 2 predecessor records envelope 1cef0c36… and only Fable. The private envelope b6491f4f… preserves Fable’s exact snapshot and first position, all 13 desk objects byte-for-byte, the six ready service IDs, Front PAiGE and Weekly; it appends only OpenClaw. The candidate-package SHA c2b09958… matches the envelope binding. Its producer, independent, raw independent report, source text, claim map and producer-contract bindings all exist and match their registered hashes; candidate-hero.png matches both the candidate manifest and image record. OpenClaw remains status=hold with sourceApproval=independent-review-required only because this is the required pre-promotion private envelope; the runbook explicitly requires that state before this independent admission. No pre-existing held story has been inserted. This is an admission verdict only: it does not promote canonical data, stage the public image, deploy, or establish live behavior."
+}

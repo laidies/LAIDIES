@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "openclaw-shared-sessions-2026-09-02",
+  "edition": "daily",
+  "candidateStatus": "approved-for-publication",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-09-02T17:00:00Z",
+  "nextRecheckAt": "2026-09-09",
+  "recheckDisposition": "PRIMARY_PRODUCT_SOURCES_AND_ATTRIBUTED_ANALYSIS_CHECKED",
+  "sources": [
+    {"id":"openclaw-release","url":"https://openclaw.ai/blog/openclaw-2-accidentally/","type":"vendor","accessedAt":"2026-09-02"},
+    {"id":"openclaw-release-notes","url":"https://docs.openclaw.ai/releases/2026.8.1","type":"vendor","accessedAt":"2026-09-02"},
+    {"id":"openclaw-cloud-sessions","url":"https://docs.openclaw.ai/gateway/cloud-sessions","type":"vendor","accessedAt":"2026-09-02"},
+    {"id":"openclaw-foundation","url":"https://www.openclaw.org/","type":"organization","accessedAt":"2026-09-02"},
+    {"id":"hermes-agent-release","url":"https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31","type":"vendor","accessedAt":"2026-09-02"},
+    {"id":"aidb-2026-09-01","url":"https://aidailybrief.ai/e/2026-09-01","type":"analysis","accessedAt":"2026-09-02"}
+  ],
+  "claims": [
+    {"id":"OPENCLAW-C01","claim":"OpenClaw published its 2.0 release account on August 30, 2026.","sourceIds":["openclaw-release","openclaw-release-notes"],"risk":"medium"},
+    {"id":"OPENCLAW-C02","claim":"OpenClaw documents shared cloud sessions that retain conversation and working state for collaboration and handoff.","sourceIds":["openclaw-release","openclaw-cloud-sessions"],"risk":"high"},
+    {"id":"OPENCLAW-C03","claim":"OpenClaw documents separate placement and computer-control permissions; this is product documentation, not independent proof of security.","sourceIds":["openclaw-cloud-sessions"],"risk":"high"},
+    {"id":"OPENCLAW-C04","claim":"Hermes also announced group conversations and durable agent messaging, supporting only the limited inference that multiple builders are experimenting with shared agent work.","sourceIds":["hermes-agent-release"],"risk":"medium"},
+    {"id":"OPENCLAW-C05","claim":"The AI Daily Brief's next-phase framing is attributed analysis rather than established fact.","sourceIds":["aidb-2026-09-01"],"risk":"medium"}
+  ],
+  "requiredReview": ["product identity", "shared-session mechanism", "permission limits", "analysis attribution", "plain-language comprehension"],
+  "publicAuthority": "APPROVED_FOR_PUBLICATION"
+}

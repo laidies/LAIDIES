@@ -1,0 +1,104 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "failedClaimProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"claimVerdicts\": [{\"claimId\": \"reward-hack-examples\", \"verdict\": \"PASS\", \"reason\": \"The article claim is supported by the primary-source receipt with the qualification that these are Anthropic's observations from its training process.\"}, {\"claimId\": \"reward-hack-experiment\", \"verdict\": \"PASS\", \"reason\": \"The article claim is supported by the primary-source receipt with the qualification that this does not establish reward hacking as the sole cause of the incidents.\"}, {\"claimId\": \"evaluation-response\", \"verdict\": \"PASS\", \"reason\": \"The article claim is supported by the primary-source receipt with the qualification that this is an implemented claim, not independent evidence.\"}, {\"claimId\": \"rl-pause\", \"verdict\": \"PASS\", \"reason\": \"The article claim is supported by the primary-source receipt with the qualification that this is a separate action, not a duration claim about cyber evaluations.\"}, {\"claimId\": \"response-and-uncertainty\", \"verdict\": \"PASS\", \"reason\": \"The article claim is supported by the primary-source receipt with the qualification that the scope of the planned independent review is still being worked out.\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788369462,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-0e28dfd7-67a7-465e-b0d3-294343996335",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "claimVerdicts": [
+        {
+          "claimId": "reward-hack-examples",
+          "reason": "The article claim is supported by the primary-source receipt with the qualification that these are Anthropic's observations from its training process.",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "reward-hack-experiment",
+          "reason": "The article claim is supported by the primary-source receipt with the qualification that this does not establish reward hacking as the sole cause of the incidents.",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "evaluation-response",
+          "reason": "The article claim is supported by the primary-source receipt with the qualification that this is an implemented claim, not independent evidence.",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "rl-pause",
+          "reason": "The article claim is supported by the primary-source receipt with the qualification that this is a separate action, not a duration claim about cyber evaluations.",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "response-and-uncertainty",
+          "reason": "The article claim is supported by the primary-source receipt with the qualification that the scope of the planned independent review is still being worked out.",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 3079,
+      "completion_tokens": 250,
+      "total_tokens": 3329,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 133.31109619140625
+    }
+  },
+  "promptSha256": "4a250cb7233a6714a2c7f4ef0a6915876f5099cb7b8eab4548428cd388e93ae1",
+  "correction": {
+    "claimVerdicts": [
+      {
+        "claimId": "reward-hack-examples",
+        "reason": "The article claim is supported by the primary-source receipt with the qualification that these are Anthropic's observations from its training process.",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "reward-hack-experiment",
+        "reason": "The article claim is supported by the primary-source receipt with the qualification that this does not establish reward hacking as the sole cause of the incidents.",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "evaluation-response",
+        "reason": "The article claim is supported by the primary-source receipt with the qualification that this is an implemented claim, not independent evidence.",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "rl-pause",
+        "reason": "The article claim is supported by the primary-source receipt with the qualification that this is a separate action, not a duration claim about cyber evaluations.",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "response-and-uncertainty",
+        "reason": "The article claim is supported by the primary-source receipt with the qualification that the scope of the planned independent review is still being worked out.",
+        "verdict": "PASS"
+      }
+    ]
+  }
+}

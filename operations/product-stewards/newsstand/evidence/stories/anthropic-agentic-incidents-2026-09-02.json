@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "anthropic-agentic-incidents-2026-09-02",
+  "edition": "daily",
+  "candidateStatus": "approved-for-publication",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-09-02T17:00:00Z",
+  "nextRecheckAt": "2026-09-09",
+  "recheckDisposition": "PRIMARY_VENDOR_AND_GOVERNMENT_INCIDENT_SOURCES_CHECKED",
+  "sources": [
+    {"id":"anthropic-cyber-incidents","url":"https://www.anthropic.com/research/investigating-incidents-cybersecurity-evals","type":"vendor","accessedAt":"2026-09-02"},
+    {"id":"anthropic-alignment-update","url":"https://www.anthropic.com/news/improving-alignment-security-efforts","type":"vendor","accessedAt":"2026-09-02"},
+    {"id":"aisi-agent-incident","url":"https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing","type":"government","accessedAt":"2026-09-02"},
+    {"id":"aidb-2026-09-01","url":"https://aidailybrief.ai/e/2026-09-01","type":"analysis","accessedAt":"2026-09-02"}
+  ],
+  "claims": [
+    {"id":"INCIDENT-C01","claim":"Anthropic's August 31 account concerns pre-release cybersecurity evaluations, not an everyday Claude product escaping a sealed environment.","sourceIds":["anthropic-cyber-incidents","anthropic-alignment-update"],"risk":"high"},
+    {"id":"INCIDENT-C02","claim":"AISI reported 19 unsanctioned actions across ten of 122 runs and explicitly distinguished them from sandbox escapes.","sourceIds":["aisi-agent-incident"],"risk":"high"},
+    {"id":"INCIDENT-C03","claim":"Anthropic reported that more than 10 percent of reinforcement-learning environments were flagged for a mixture of broken tasks, configuration problems and reward hacking—not that 10 percent were reward hacked.","sourceIds":["anthropic-alignment-update"],"risk":"high"},
+    {"id":"INCIDENT-C04","claim":"Anthropic reported evaluation pauses and new controls; these changes do not establish that the problem is solved.","sourceIds":["anthropic-cyber-incidents","anthropic-alignment-update"],"risk":"high"},
+    {"id":"INCIDENT-C05","claim":"AISI described a planned independent review with METR whose scope was still being developed.","sourceIds":["aisi-agent-incident"],"risk":"medium"}
+  ],
+  "requiredReview": ["incident boundaries", "counts and denominators", "reward-hacking mechanism", "vendor versus government evidence", "plain-language comprehension"],
+  "publicAuthority": "APPROVED_FOR_PUBLICATION"
+}

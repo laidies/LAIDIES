@@ -1,0 +1,27 @@
+{
+  "verdict": "HOLD",
+  "envelopeSha256": "562e380ff2281c19b0f4efffcb21c5b3ac600df009cfd2c76501e58704440145",
+  "predecessorEnvelopeSha256": "dc8ebcbc0ffb31d57086cb026c0311206efd73fef16edc79091007b7d5786e9d",
+  "addedStoryIds": ["openai-ads-run-rate-2026-09-02"],
+  "reviewedAt": "2026-09-02T17:47:24Z",
+  "reviewedBy": "codex-independent-newsstand-issue-admission-judge-20260902-ads",
+  "reviewerRole": "Independent NewsStand same-day ordinary-story issue-admission judge",
+  "checks": {
+    "canonicalPredecessorMatchesDc8ebcbc": true,
+    "exactlyOneStoryAppendedAfterThreeIncumbents": true,
+    "allThreeIncumbentSnapshotsByteEquivalent": true,
+    "incumbentOrderUnchanged": true,
+    "all13DesksByteEquivalent": true,
+    "sixServiceIdsUnchanged": true,
+    "frontPaigeUnchanged": true,
+    "weeklyUnchanged": true,
+    "candidatePackageBindingMatchesEnvelope": true,
+    "candidateStoryStructurallyIdentical": true,
+    "candidateArticleReviewsSourcesAndImageBindingsPresentAndHashed": true,
+    "noHeldTrumpVanceCyberChinaOrCctvStoryIncluded": true,
+    "candidateHeldStateIsPreAdmissionOnly": true,
+    "explicitSuccessorRelationshipToAugust31Story": false,
+    "august31StoryOverwritten": false
+  },
+  "findings": "The envelope is otherwise append-only and preserves all incumbents, services and persistent pointers. HOLD because the ads candidate does not encode the required durable successor relationship to the August 31 ads story: predecessorStoryIds is empty and relationshipType is null. The prose link alone is insufficient. Repair requires fresh exact-record review and a new issue admission."
+}

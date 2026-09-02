@@ -85,10 +85,12 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   }) : null;
   if (predecessor && !issue.sourceIdentity?.storyCorrection && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
   if (predecessor && stable(issue.serviceRecordIds) !== stable(issue.desks.filter(d => d.state === 'ready').map(d => d.recordId))) reject('service IDs differ from admitted desks');
-  if (issue.desks) validateServiceSelection({ desks: issue.desks, columns, date: issue.editionDate, predecessor, canonicalIssue: dataset.publications.daily.issue });
+  const sameDateNewsAppend = Boolean(ordinary && dataset.publications?.daily?.editionDate === issue.editionDate &&
+    stable(dataset.publications.daily.issue?.serviceRecordIds || []) === stable(issue.serviceRecordIds || []));
+  if (issue.desks) validateServiceSelection({ desks: issue.desks, columns, date: issue.editionDate, predecessor, canonicalIssue: dataset.publications.daily.issue, sameDateNewsAppend });
   for (const id of issue.serviceRecordIds) {
     const record = columns.records.find((item) => item.id === id);
-    if (!record || (!predecessor && record.editionDate !== issue.editionDate) || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
+    if (!record || (!predecessor && !sameDateNewsAppend && record.editionDate !== issue.editionDate) || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
         record.publicEligibility !== "ELIGIBLE" || !record.freshness || record.freshness.expiresAt < issue.editionDate) {
       reject(`service record ${id} is not exactly admitted for this date`);
     }

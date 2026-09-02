@@ -1,0 +1,64 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openai-ads-run-rate-2026-09-02",
+  "reviewerPrincipalId": "cloudflare-llama-independent-news-openai-ads-run-rate-2026-09-02",
+  "reviewTextSha256": "a86e48926594611787603e5711d88fdf155720ac70135fa96fda70477f5f004f",
+  "checks": {
+    "incidentExplained": {
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "The article clearly explains the $1 billion annualized revenue run rate and its implications",
+      "verdict": "PASS"
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The $1 billion figure, advertiser count and country reach come from OpenAI. They are company-reported numbers, not independently audited financial results.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "The article is coherent and free of internal notes or invented advice",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If you pay for Plus, Pro, Business, Enterprise or Edu, OpenAI's current policy still says your account is ad-free.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "The article provides specific examples and consequences for readers",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "Technical terms, such as 'run rate', are explained in context",
+      "verdict": "PASS"
+    }
+  },
+  "outcomes": {
+    "explainBack": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article explains the $1 billion annualized revenue run rate and its implications for users",
+      "prompt": "Explain the $1 billion annualized revenue run rate of OpenAI's advertising business",
+      "response": "The $1 billion annualized revenue run rate means that OpenAI's advertising business is generating revenue at a pace that would equal $1 billion over a year if it continued."
+    },
+    "unseenTransfer": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article uses a different situation to expose potential misunderstandings",
+      "prompt": "Use a different situation to expose potential misunderstandings about the $1 billion annualized revenue run rate",
+      "response": "The $1 billion annualized revenue run rate may not necessarily mean that OpenAI will continue to generate revenue at the same pace in the future."
+    }
+  }
+}

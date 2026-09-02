@@ -49,6 +49,8 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   const quiet = quietRows.length === dispositions.length;
   const storiesData = parseStories(storiesRaw);
   const columnsData = JSON.parse(columnsRaw);
+  const issueStorePath = path.join(root, "content/newsstand-daily-issues.json");
+  const issueStore = fs.existsSync(issueStorePath) ? JSON.parse(fs.readFileSync(issueStorePath, "utf8")) : { issues: [] };
   const types = typesForDate(date);
   if (!columnsData || columnsData.owner !== "newsstand-daily" || !Array.isArray(columnsData.records)) reject("invalid Daily column authority");
 
@@ -98,7 +100,27 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   if (weeklyPublication?.status === "current" && !weeklyStory) reject("current Weekly lacks an admitted non-future canonical story pointer");
   if (quiet && exactStories.length) reject("quiet editorial disposition conflicts with a same-date published story");
 
-  const desks = types.map((type) => {
+  const existingSameDateIssue = candidateBinding && storiesData.publications?.daily?.editionDate === date
+    ? (issueStore.issues || []).find(issue => issue.editionDate === date && issue.status === "complete") || null
+    : null;
+  if (existingSameDateIssue) {
+    const currentIssue = storiesData.publications.daily.issue;
+    if (currentIssue?.status !== "complete" || canonicalJson(currentIssue.serviceRecordIds || []) !== canonicalJson(existingSameDateIssue.serviceRecordIds || []) ||
+        canonicalJson(currentIssue.storyIds || []) !== canonicalJson(existingSameDateIssue.storyIds || []) ||
+        existingSameDateIssue.frontPaigeStoryId !== (frontPaigeStory?.id || null) || existingSameDateIssue.weeklyStoryId !== (weeklyStory?.id || null)) {
+      reject("same-date news revision does not match the exact current issue");
+    }
+  }
+  const desks = existingSameDateIssue ? types.map((type) => {
+    const priorDesk = existingSameDateIssue.desks.find(desk => desk.type === type);
+    if (!priorDesk) reject(`same-date predecessor is missing desk ${type}`);
+    if (priorDesk.state === "ready") {
+      const record = columnsData.records.find(item => item.id === priorDesk.recordId);
+      if (!record || !serviceEligible(record, date) || record.type !== type || record.headline !== priorDesk.headline ||
+          record.summary !== priorDesk.summary || (record.destination || null) !== priorDesk.destination) reject(`same-date predecessor desk ${type} changed`);
+    }
+    return structuredClone(priorDesk);
+  }) : types.map((type) => {
     const record = eligible.find((item) => item.type === type);
     return record ? {
       type, state: "ready", recordId: record.id, headline: record.headline,
@@ -130,7 +152,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     canonicalWrite: false,
     deployActionTaken: false
   };
-  validateServiceSelection({ desks, columns: columnsData, date, predecessor, canonicalIssue: storiesData.publications?.daily?.issue });
+  validateServiceSelection({ desks, columns: columnsData, date, predecessor, canonicalIssue: storiesData.publications?.daily?.issue, sameDateNewsAppend: Boolean(existingSameDateIssue) });
   return { envelope, canonical: `${canonicalJson(envelope)}\n`, sha256: sha256(`${canonicalJson(envelope)}\n`) };
 }
 

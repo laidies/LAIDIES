@@ -93,7 +93,7 @@ export function loadServicePredecessor(binding, { root, date, storiesRaw, column
 export function carryIdentity(prior, record) {
   return { editionDate: prior.editionDate, envelopeSha256: prior.envelopeSha256, recordSha256: serviceHash(stableService(record)), originalEditionDate: record.editionDate };
 }
-export function validateServiceSelection({ desks, columns, date, predecessor = null, canonicalIssue = null }) {
+export function validateServiceSelection({ desks, columns, date, predecessor = null, canonicalIssue = null, sameDateNewsAppend = false }) {
   for (const desk of desks.filter(d => d.state === 'ready')) {
     const matches = columns.records.filter(r => r.id === desk.recordId);
     const record = matches[0];
@@ -107,7 +107,18 @@ export function validateServiceSelection({ desks, columns, date, predecessor = n
       continue;
     }
     const frozen = predecessor?.records.find(r => r.id === record.id);
-    if (!frozen || stableService(desk.carriedFrom) !== stableService(carryIdentity(predecessor.prior, frozen))) fail('older service lacks exact published predecessor binding');
+    if (frozen) {
+      if (stableService(desk.carriedFrom) !== stableService(carryIdentity(predecessor.prior, frozen))) fail('older service lacks exact published predecessor binding');
+      continue;
+    }
+    // A same-date ordinary-news revision may retain the already admitted
+    // service desks verbatim. This is continuity, not a new selection: the
+    // promoter separately compares every desk against the exact predecessor
+    // issue and admits only one appended story.
+    const carried = desk.carriedFrom;
+    if (!sameDateNewsAppend || !canonicalIssue?.serviceRecordIds?.includes(record.id) || !carried ||
+        carried.editionDate >= date || carried.originalEditionDate !== record.editionDate ||
+        serviceHash(stableService(record)) !== carried.recordSha256) fail('older service lacks exact published predecessor binding');
   }
 }
 

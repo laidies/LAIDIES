@@ -183,7 +183,7 @@ if (!Array.isArray(stories)) {
         if (!item?.id || sourceIds.has(item.id)) fail(`${label}: source ${sourceIndex + 1} needs a unique id.`);
         sourceIds.add(item?.id);
         if (!item?.label?.trim()) fail(`${label}: source ${sourceIndex + 1} needs a label.`);
-        if (!["vendor", "regulator", "academic", "independent-reporting", "primary-document"].includes(item?.publisherType)) {
+        if (!["vendor", "regulator", "academic", "independent-reporting", "primary-document", "organization", "government", "analysis"].includes(item?.publisherType)) {
           fail(`${label}: source ${sourceIndex + 1} needs a valid publisherType.`);
         }
         if (!/^\d{4}-\d{2}-\d{2}$/.test(item?.accessedAt || "")) fail(`${label}: source ${sourceIndex + 1} needs accessedAt.`);
@@ -218,7 +218,7 @@ if (!Array.isArray(stories)) {
     }
     if (story.tags?.some((tag) => ["health", "medical", "privacy", "safety"].includes(String(tag).toLowerCase()))) {
       const sourceTypes = new Set((story.sources || []).map((source) => source.publisherType));
-      if (!sourceTypes.has("regulator") && !sourceTypes.has("academic") && !sourceTypes.has("independent-reporting")) {
+      if (!sourceTypes.has("regulator") && !sourceTypes.has("government") && !sourceTypes.has("academic") && !sourceTypes.has("independent-reporting")) {
         fail(`${label}: hard-hold topic requires authoritative independent context.`);
       }
     }

@@ -1,0 +1,134 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "claimVerdictProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"claimVerdicts\": [{\"claimId\": \"dated-update\", \"verdict\": \"PASS\"}, {\"claimId\": \"three-incidents\", \"verdict\": \"PASS\"}, {\"claimId\": \"aisi-actions\", \"verdict\": \"PASS\"}, {\"claimId\": \"not-escape\", \"verdict\": \"PASS\"}, {\"claimId\": \"mixed-ten-percent\", \"verdict\": \"PASS\"}, {\"claimId\": \"reward-hack-examples\", \"verdict\": \"FAIL\"}, {\"claimId\": \"reward-hack-experiment\", \"verdict\": \"FAIL\"}, {\"claimId\": \"evaluation-response\", \"verdict\": \"FAIL\"}, {\"claimId\": \"rl-pause\", \"verdict\": \"FAIL\"}, {\"claimId\": \"response-and-uncertainty\", \"verdict\": \"FAIL\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788369310,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-d3e0d6a4-a41a-4341-a108-5f8356647023",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "claimVerdicts": [
+        {
+          "claimId": "dated-update",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "three-incidents",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "aisi-actions",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "not-escape",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "mixed-ten-percent",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "reward-hack-examples",
+          "verdict": "FAIL"
+        },
+        {
+          "claimId": "reward-hack-experiment",
+          "verdict": "FAIL"
+        },
+        {
+          "claimId": "evaluation-response",
+          "verdict": "FAIL"
+        },
+        {
+          "claimId": "rl-pause",
+          "verdict": "FAIL"
+        },
+        {
+          "claimId": "response-and-uncertainty",
+          "verdict": "FAIL"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 3160,
+      "completion_tokens": 173,
+      "total_tokens": 3333,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 119.70115661621094
+    }
+  },
+  "promptSha256": "7f76d9b9d09d5cd4f1a4bdde250a1e385bfec55d0cd93fe8b22b507a53fdda35",
+  "correction": {
+    "claimVerdicts": [
+      {
+        "claimId": "dated-update",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "three-incidents",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "aisi-actions",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "not-escape",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "mixed-ten-percent",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "reward-hack-examples",
+        "verdict": "FAIL"
+      },
+      {
+        "claimId": "reward-hack-experiment",
+        "verdict": "FAIL"
+      },
+      {
+        "claimId": "evaluation-response",
+        "verdict": "FAIL"
+      },
+      {
+        "claimId": "rl-pause",
+        "verdict": "FAIL"
+      },
+      {
+        "claimId": "response-and-uncertainty",
+        "verdict": "FAIL"
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "correctionProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"checks\": {\"incidentExplained\": {\"artifactEvidence\": [{\"excerpt\": \"On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.\", \"locator\": \"EXACT STORY\"}], \"observation\": \"The article clearly explains the $1 billion annualized revenue run rate and its implications\", \"verdict\": \"PASS\"}}, \"noInternalNotesOrInventedAdvice\": {\"artifactEvidence\": [{\"excerpt\": \"The $1 billion figure, advertiser count and country reach come from OpenAI. They are company-reported numbers, not independently audited financial results.\", \"locator\": \"EXACT STORY\"}], \"observation\": \"The article is well-structured and free of internal notes or invented advice\", \"verdict\": \"PASS\"}, \"readerConsequenceSpecific\": {\"artifactEvidence\": [{\"excerpt\": \"If you pay for Plus, Pro, Business, Enterprise or Edu, OpenAI's current policy still says your account is ad-free.\", \"locator\": \"EXACT STORY\"}], \"observation\": \"The article clearly explains the implications of the advertising business for users\", \"verdict\": \"PASS\"}, \"termsExplainedInContext\": {\"artifactEvidence\": [{\"excerpt\": \"A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.\", \"locator\": \"EXACT STORY\"}], \"observation\": \"Technical terms, such as 'run rate', are explained in context\", \"verdict\": \"PASS\"}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788369590,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-4795ba81-e8c0-4239-ab0c-5313cba91c6f",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "checks": {
+        "incidentExplained": {
+          "artifactEvidence": [
+            {
+              "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+              "locator": "EXACT STORY"
+            }
+          ],
+          "observation": "The article clearly explains the $1 billion annualized revenue run rate and its implications",
+          "verdict": "PASS"
+        }
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "artifactEvidence": [
+          {
+            "excerpt": "The $1 billion figure, advertiser count and country reach come from OpenAI. They are company-reported numbers, not independently audited financial results.",
+            "locator": "EXACT STORY"
+          }
+        ],
+        "observation": "The article is well-structured and free of internal notes or invented advice",
+        "verdict": "PASS"
+      },
+      "readerConsequenceSpecific": {
+        "artifactEvidence": [
+          {
+            "excerpt": "If you pay for Plus, Pro, Business, Enterprise or Edu, OpenAI's current policy still says your account is ad-free.",
+            "locator": "EXACT STORY"
+          }
+        ],
+        "observation": "The article clearly explains the implications of the advertising business for users",
+        "verdict": "PASS"
+      },
+      "termsExplainedInContext": {
+        "artifactEvidence": [
+          {
+            "excerpt": "A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.",
+            "locator": "EXACT STORY"
+          }
+        ],
+        "observation": "Technical terms, such as 'run rate', are explained in context",
+        "verdict": "PASS"
+      }
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 12656,
+      "completion_tokens": 331,
+      "total_tokens": 12987,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 405.29656982421875
+    }
+  },
+  "promptSha256": "113f2cdafabfdcabd1883775c6833a863ef890e84e10cb7fbb409d3fa36a36f3",
+  "correctedJudgment": {
+    "checks": {
+      "incidentExplained": {
+        "artifactEvidence": [
+          {
+            "excerpt": "On August 31, OpenAI said its advertising business had reached a $1 billion annualized revenue run rate less than 200 days after ChatGPT ads launched.",
+            "locator": "EXACT STORY"
+          }
+        ],
+        "observation": "The article clearly explains the $1 billion annualized revenue run rate and its implications",
+        "verdict": "PASS"
+      }
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The $1 billion figure, advertiser count and country reach come from OpenAI. They are company-reported numbers, not independently audited financial results.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "The article is well-structured and free of internal notes or invented advice",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If you pay for Plus, Pro, Business, Enterprise or Edu, OpenAI's current policy still says your account is ad-free.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "The article clearly explains the implications of the advertising business for users",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "A <strong>run rate</strong> takes the amount a business is bringing in at its current pace and asks what that pace would look like if it continued for a full year.",
+          "locator": "EXACT STORY"
+        }
+      ],
+      "observation": "Technical terms, such as 'run rate', are explained in context",
+      "verdict": "PASS"
+    }
+  }
+}

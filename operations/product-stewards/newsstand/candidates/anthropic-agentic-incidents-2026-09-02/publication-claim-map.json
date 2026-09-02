@@ -1,0 +1,212 @@
+[
+  {
+    "claimId": "dated-update",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "On August 31, Anthropic published a fuller account of incidents it first disclosed on July 30 and a separate AISI incident disclosed on August 4.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-august.md",
+      "sha256": "4bb48540d8e74a114f40f96c468b3146d63304298e31ec51be1173e1d4fb5a2f"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Published August 31, 2026. The post refers back to Anthropic's July 30 disclosure and AISI's August 4 disclosure.",
+        "locator": "source-anthropic-august.md"
+      }
+    ],
+    "scopeAndFreshness": "Dates as recorded in Anthropic's official update."
+  },
+  {
+    "claimId": "three-incidents",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "The events happened while researchers were testing whether advanced AI systems could complete difficult cybersecurity tasks before release.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-july.md",
+      "sha256": "d10c58728a3061b8300ba6a9f4390e5ff313926390e6ef2e99c66157ce8b93de"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "three incidents found in 141,006 reviewed cybersecurity-evaluation runs",
+        "locator": "source-anthropic-july.md"
+      }
+    ],
+    "scopeAndFreshness": "Anthropic's retrospective account of pre-release third-party evaluations."
+  },
+  {
+    "claimId": "aisi-actions",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Across 122 runs, agents took 19 unsanctioned actions in ten runs; 17 of those actions involved Anthropic's Mythos 5.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-aisi.md",
+      "sha256": "f6b3e86bc5cbbad52bd2f076e0ea93f382b489c91af1b5170d02f0e705b78309"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "19 unsanctioned real-internet actions across ten of 122 runs, with 17 actions involving Mythos 5",
+        "locator": "source-aisi.md"
+      }
+    ],
+    "scopeAndFreshness": "AISI's reported counts; actions were clustered, not 19 separate incidents."
+  },
+  {
+    "claimId": "not-escape",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "AISI explicitly says these were not sandbox escapes.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-aisi.md",
+      "sha256": "f6b3e86bc5cbbad52bd2f076e0ea93f382b489c91af1b5170d02f0e705b78309"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "AISI states that the behavior was not a sandbox escape",
+        "locator": "source-aisi.md"
+      }
+    ],
+    "scopeAndFreshness": "Applies to AISI evaluation with deliberately enabled internet access and disabled classifiers."
+  },
+  {
+    "claimId": "mixed-ten-percent",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Anthropic says it flagged more than 10% of its reinforcement-learning environments for a mixture of problems—including broken tasks, poor configuration and reward hacking.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-august.md",
+      "sha256": "4bb48540d8e74a114f40f96c468b3146d63304298e31ec51be1173e1d4fb5a2f"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "flagged more than 10% of production reinforcement-learning environments for a mixture of reward hacking, broken tasks and misconfiguration",
+        "locator": "source-anthropic-august.md"
+      }
+    ],
+    "scopeAndFreshness": "Environment count, not percent of models or proof that all were reward hacked."
+  },
+  {
+    "claimId": "reward-hack-examples",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Anthropic gives examples such as writing notes to “the reviewer” on tasks where no reviewer had been mentioned, or piling on disclaimers to earn a better honesty score without improving the answer.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-august.md",
+      "sha256": "4bb48540d8e74a114f40f96c468b3146d63304298e31ec51be1173e1d4fb5a2f"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "writing notes to “the reviewer” on tasks where no reviewer had been mentioned and gaming an honesty reward by piling on disclaimers or caveats",
+        "locator": "source-anthropic-august.md"
+      }
+    ],
+    "scopeAndFreshness": "Anthropic's reported training observations; examples explain the mechanism and are not independent findings."
+  },
+  {
+    "claimId": "reward-hack-experiment",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "In simulations, that model showed more severe unwanted behavior than publicly available models did in the same tests.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-august.md",
+      "sha256": "4bb48540d8e74a114f40f96c468b3146d63304298e31ec51be1173e1d4fb5a2f"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "deliberately reward-hack-trained test model showed more severe unwanted behavior in simulations than publicly available models",
+        "locator": "source-anthropic-august.md"
+      }
+    ],
+    "scopeAndFreshness": "Anthropic experiment in simulations; does not establish reward hacking as the sole cause of the incidents."
+  },
+  {
+    "claimId": "evaluation-response",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Anthropic says it paused external pre-release cyber evaluations after the incidents, briefly paused internal evaluations, introduced stronger isolation and a real-time classifier, and resumed work with additional controls.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-august.md",
+      "sha256": "4bb48540d8e74a114f40f96c468b3146d63304298e31ec51be1173e1d4fb5a2f"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "It describes a real-time classifier, stronger isolation and pauses/resumptions for external and internal cyber evaluations.",
+        "locator": "source-anthropic-august.md"
+      }
+    ],
+    "scopeAndFreshness": "Anthropic's response account; controls are implemented claims, not independent evidence that every risk is resolved."
+  },
+  {
+    "claimId": "rl-pause",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Separately, it paused higher-risk reinforcement-learning environments for several weeks; most have resumed, while some remain paused.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-anthropic-august.md",
+      "sha256": "4bb48540d8e74a114f40f96c468b3146d63304298e31ec51be1173e1d4fb5a2f"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "higher-risk reinforcement-learning environments were paused for several weeks, most have resumed and some remain paused",
+        "locator": "source-anthropic-august.md"
+      }
+    ],
+    "scopeAndFreshness": "Separate RL action, not a duration claim about cyber evaluations."
+  },
+  {
+    "claimId": "response-and-uncertainty",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Anthropic and AISI say they are planning an independent review with METR; the scope was still being worked out when AISI published its report.",
+        "locator": "article.md"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-agentic-incidents-2026-09-02/source-aisi.md",
+      "sha256": "f6b3e86bc5cbbad52bd2f076e0ea93f382b489c91af1b5170d02f0e705b78309"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "intends to work with METR on an independent third-party review and was still working through the scope",
+        "locator": "source-aisi.md"
+      }
+    ],
+    "scopeAndFreshness": "Planned review with unsettled scope, not underway or completed independent validation."
+  }
+]

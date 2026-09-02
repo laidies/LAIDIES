@@ -1,0 +1,102 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "claimVerdictProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"claimVerdicts\": [{\"claimId\": \"release\", \"verdict\": \"PASS\"}, {\"claimId\": \"shared-use\", \"verdict\": \"PASS\"}, {\"claimId\": \"durable-state\", \"verdict\": \"PASS\"}, {\"claimId\": \"permission-controls\", \"verdict\": \"PASS\"}, {\"claimId\": \"hermes-corroboration\", \"verdict\": \"PASS\"}, {\"claimId\": \"aidb-interpretation\", \"verdict\": \"PASS\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788368919,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-d1b429ce-d932-4ffb-91f4-a34f1b7b1015",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "claimVerdicts": [
+        {
+          "claimId": "release",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "shared-use",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "durable-state",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "permission-controls",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "hermes-corroboration",
+          "verdict": "PASS"
+        },
+        {
+          "claimId": "aidb-interpretation",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 1793,
+      "completion_tokens": 104,
+      "total_tokens": 1897,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 69.11488342285156
+    }
+  },
+  "promptSha256": "1530c1905c32484d6ce5af3ef3e455959e9f3e89027f712e2ad3b29362e51ecc",
+  "correction": {
+    "claimVerdicts": [
+      {
+        "claimId": "release",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "shared-use",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "durable-state",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "permission-controls",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "hermes-corroboration",
+        "verdict": "PASS"
+      },
+      {
+        "claimId": "aidb-interpretation",
+        "verdict": "PASS"
+      }
+    ]
+  }
+}
