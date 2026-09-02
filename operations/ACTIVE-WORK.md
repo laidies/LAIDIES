@@ -5,8 +5,9 @@
 The isolated successor at
 `/Users/alisoneakin/Projects/laidies-chick-flicks-masthead-livebase-20260902`
 starts from exact live source `6ce2992c` and replaces the long-discarded town
-masthead with a Library-related title masthead followed by a text-free physical
-Chick Flicks store interior. Episodes 01–04 are four exact transparent
+masthead with a Library-related title masthead followed by Ali's exact approved
+late-1990s movie-rental interior. The previous September 2 room is rejected
+because it read as an office. Episodes 01–04 are four exact transparent
 clear-clamshell VHS cases on the real shelves, using the image-led episode title
 family and Ali's selected first LAiDIES-colour successor for Episode 04. Start
 here and Latest remain immediate; every released episode has direct Read,
@@ -18,11 +19,15 @@ panel relationships. Same-viewport reference/candidate comparison plus complete
 1280px and 390px local journeys show readable uncropped cases, coherent lower
 sections, no broken images, no horizontal overflow, 48px phone format actions,
 working Start here and Read handoffs, honest Episode 05 and a responsive trailer.
-Static checks pass for exact asset hashes, palette, store/masthead ordering, four
+The masthead filler is removed, ordinary headings use natural rather than
+forced-capital type, the physical shelf is now the catalogue and one selected
+tape moves to the format counter. The approved four-bay shelf repeats as the
+season grows instead of shrinking every release into one row; mobile presents
+two cases per shelf row. Static checks pass for exact asset hashes, palette, store/masthead ordering, four
 physical tapes, four format-route triplets, trailer truth, forthcoming state,
 responsive rules and shared release-state copy. The guard was calibrated by
 replacing the Episode 04 VHS path in a scratch page and rejected it. Evidence is
-in `operations/design-qa/chick-flicks-20260902/`. Nothing has been deployed or
+in `operations/design-qa/chick-flicks-20260902-v2/`. Nothing has been deployed or
 publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

@@ -278,6 +278,48 @@ mobile, and keep Episode 05 separate without an invented cover. This is an
 integration-candidate acceptance only; it does not admit or release the page.
 `INDEPENDENT VISUAL VERDICT — 2026-09-02`
 
+### Direct store correction — 2026-09-02
+
+The September 2 page-integration treatment that placed
+`assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png`
+under the title is rejected as the visitor-facing Chick Flicks store scene. It
+reads as a weird office rather than a movie-rental store. Preserve the file as
+rejected evidence; it is no longer masthead, room or storefront authority.
+
+The masthead carries the Chick Flicks identity only. The line “Choose the
+story—or the format—that helps.” is rejected as masthead copy. Do not fill the
+masthead with explanatory copy that belongs in the store. Headings, controls
+and episode descriptions use natural title and sentence case; the page may not
+force everything into capital letters. The exact `The CHiCK FLiCKS` name keeps
+its canonical stylisation.
+
+The catalogue must scale beyond four releases. Four current tapes may occupy
+the first physical shelf, but the system is a multi-shelf wall: additional
+episodes create additional shelf rows at the same identifiable cover size.
+Desktop does not shrink every tape to fit one row, and mobile recomposes the
+same shelves into two tapes per row. `Latest release` and `Start here` remain
+store signs/actions, not a fixed four-tape display contract.
+`ALI DIRECT REJECTION AND SCALING DECISION — 2026-09-02`
+
+### Approved rental-store environment and shelf — 2026-09-02
+
+Ali approved the exact rental-store interior generated as
+`exec-e8de2976-4909-47b8-9ed7-7533b738ba14.png` and the exact four-bay empty
+shelf generated as `exec-7cb6bba7-1b95-4096-8a7b-e0279a7b9038.png` for the
+Chick Flicks page. The repository copies are:
+
+- `assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-rental-store-interior-approved-v1.png`,
+  SHA-256 `a2961792a32429605f93558af1c7742906fc4333b1ae413f931ec4c0a633e405`;
+- `assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-four-bay-shelf-v1.png`,
+  SHA-256 `5a6ae951e995f84253e423cc8cd8ad5ba3cb295f75787d417124c1f3a56e9486`.
+
+The approved shelf is the repeatable episode-display unit. Add another shelf
+unit as episodes are released rather than shrinking the existing cases. The
+approval covers these exact source pixels and the incremental shelf model; the
+complete rendered page still requires local desktop/mobile inspection and a
+separate release decision.
+`ALI DIRECT VISUAL APPROVAL — 2026-09-02`
+
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
 ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt

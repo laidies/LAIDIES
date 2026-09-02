@@ -21,7 +21,8 @@ const vhs = {
   "03": "b049fe5fa913eae7e8fb8f66f8f7bc7cce04b281139c04f464a81e109536cdde",
   "04": "85faeed60e3a1f9f9232b32360c08e5b6be370ff4d97eff7bcb6ae84934886c8"
 };
-const store = "assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png";
+const store = "assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-rental-store-interior-approved-v1.png";
+const shelf = "assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-four-bay-shelf-v1.png";
 
 check("episode index has unique positive numbered records with titles", () => {
   assert.ok(Array.isArray(index.episodes) && index.episodes.length > 0);
@@ -41,12 +42,13 @@ check("all published issue destinations exist", () => {
   }
 });
 
-check("the discarded masthead cannot return and the exact store image is present", () => {
+check("the rejected office-like room cannot return and the approved rental store is present", () => {
   assert.doesNotMatch(page, /sunnyvaile-masthead-chick-flicks\.png/);
+  assert.doesNotMatch(page, /chick-flicks-store-shelves-v1\.png/);
   assert.match(page, /class="cf-masthead"/);
   assert.match(page, new RegExp(`src="/${store.replaceAll("/", "\\/")}"`));
   assert.ok(exists(store));
-  assert.equal(sha256(store), "1d510f6dc48511cd8393854999d002d88a999e61b0c33bf0672e6208c0989305");
+  assert.equal(sha256(store), "a2961792a32429605f93558af1c7742906fc4333b1ae413f931ec4c0a633e405");
   assert.ok(page.indexOf('class="cf-masthead"') < page.indexOf('class="cf-store"'));
 });
 
@@ -75,8 +77,8 @@ check("four released rental records expose direct format routes", () => {
 
 check("start and latest routes remain immediately available", () => {
   assert.match(page, /class="cf-routebar"/);
-  assert.match(page, /href="#episode-01"[\s\S]{0,180}<b>Start here<\/b>/);
-  assert.match(page, /href="#episode-04"[\s\S]{0,200}<b>Latest release<\/b>/);
+  assert.match(page, /href="#episode-01"[\s\S]{0,180}<b>Start with episode 1<\/b>/);
+  assert.match(page, /href="#episode-04"[\s\S]{0,220}<b>Go to the latest episode<\/b>/);
 });
 
 check("Episode 05 is forthcoming without a fabricated tape or action", () => {
@@ -96,7 +98,12 @@ check("responsive and keyboard-visible rules preserve the interaction", () => {
   assert.match(styles, /@media\(max-width:920px\)/);
   assert.match(styles, /@media\(max-width:700px\)/);
   assert.match(styles, /@media\(prefers-reduced-motion:reduce\)/);
-  assert.match(styles, /\.cf-store__cases[^{]*\{[^}]*grid-template-columns:repeat\(4/);
+  assert.match(styles, /\.cf-shelf-row[^{]*\{[^}]*grid-template-columns:repeat\(4/);
+  assert.match(styles, /@media\(max-width:700px\)[\s\S]*\.cf-shelf-row\{[^}]*grid-template-columns:repeat\(2/);
+  assert.ok(exists(shelf));
+  assert.equal(sha256(shelf), "5a6ae951e995f84253e423cc8cd8ad5ba3cb295f75787d417124c1f3a56e9486");
+  assert.match(styles, new RegExp(shelf.replaceAll("/", "\\/")));
+  assert.doesNotMatch(styles, /text-transform:uppercase/);
 });
 
 check("the page uses the current Homepage and LIBRAiRY colour system", () => {

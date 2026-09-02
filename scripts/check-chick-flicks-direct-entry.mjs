@@ -60,10 +60,11 @@ for (const imagePath of expectedCoverPaths) {
   if (!fs.existsSync(path.join(root, imagePath))) errors.push(`Missing episode VHS case: ${imagePath}`);
 }
 
-const storeImage = 'assets/sunnyvaile-interiors/chick-flicks-store/chick-flicks-store-shelves-v1.png';
-if (!source.includes(`src="/${storeImage}"`)) errors.push('The current store interior is not wired');
+const storeImage = 'assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-rental-store-interior-approved-v1.png';
+if (!source.includes(`src="/${storeImage}"`)) errors.push('The approved movie-rental store interior is not wired');
 if (!fs.existsSync(path.join(root, storeImage))) errors.push(`Missing store interior: ${storeImage}`);
 if (source.includes('sunnyvaile-masthead-chick-flicks.png')) errors.push('The long-discarded masthead image returned');
+if (source.includes('chick-flicks-store-shelves-v1.png')) errors.push('The rejected office-like store room returned');
 if ((source.match(/class=["'][^"']*cf-tape(?:\s|["'])/g) || []).length !== 4) {
   errors.push('The store shelf must expose exactly four operable VHS tapes');
 }

@@ -950,3 +950,23 @@ passed. Detailed evidence is in
 passed for fidelity to the accepted working environment, responsive behaviour,
 accessibility structure and functional journeys. The inherited book-cover
 palette remains an explicit owner gate and is not approved by this result.
+
+## Chick Flicks rental-store successor — 2026-09-02
+
+Ali rejected the earlier office-like room, masthead filler, all-capital
+ordinary headings and fixed four-tape composition. She directly approved the
+replacement rental-store interior and repeatable four-bay shelf. The local
+candidate now uses those exact assets, keeps the four approved VHS cases at an
+identifiable size, shows one selected-tape counter with direct Read, Listen and
+Watch controls, and adds future episodes as new shelf rows rather than
+shrinking the existing wall.
+
+Desktop 1280 × 900 and phone 390 × 844 captures, combined source/candidate
+comparisons, interaction evidence and comparison history are recorded in
+`operations/design-qa/chick-flicks-20260902-v2/AUDIT.md`. No actionable P0,
+P1 or P2 remains. Native Safari/VoiceOver, 200% zoom and public-origin checks
+remain separate release gates.
+
+### Final result
+
+passed
