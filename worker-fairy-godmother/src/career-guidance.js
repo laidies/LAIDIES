@@ -282,3 +282,27 @@ export function validateCareerFields(answer, enabled, route = null) {
     aiAssist
   };
 }
+
+export function diagnoseCareerFields(answer, route = null) {
+  const sources = answer?.sources;
+  const value = answer?.aiAssist;
+  const assistObject = value && typeof value === "object" && !Array.isArray(value);
+  const materials = assistObject && Array.isArray(value.materials) ? value.materials : [];
+  const jobAllowed = assistObject && typeof value.job === "string" && Object.hasOwn(AI_ASSIST_JOBS, value.job);
+  return {
+    careerSourcesAllowed: Array.isArray(sources) && sources.every((id) =>
+      typeof id === "string" && CAREER_GUIDANCE.some((record) => record.id === id)),
+    careerJobAllowed: jobAllowed,
+    careerMaterialsAllowed: assistObject && Array.isArray(value.materials) && materials.every((id) =>
+      typeof id === "string" && Object.hasOwn(CAREER_WORKSPACE_MATERIALS, id)),
+    careerMaterialsUnique: assistObject && Array.isArray(value.materials) &&
+      new Set(materials).size === materials.length,
+    careerMaterialsCompatible: jobAllowed && materials.every((id) => JOB_MATERIALS[value.job].has(id)),
+    careerWorkspaceRouteAllowed: assistObject && value.kind === "career_workspace"
+      ? route?.task === "decision_or_plan" && WORKSPACE_JOBS.has(value.job)
+      : true,
+    careerWorkspaceContinuity: assistObject && value.kind === "career_workspace"
+      ? route?.careerWorkspaceContinuity === true
+      : true
+  };
+}

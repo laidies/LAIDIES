@@ -4,6 +4,7 @@ import {
   careerPilotEnabled,
   careerGuidancePrompt,
   careerWorkspaceContinuityNeeded,
+  diagnoseCareerFields,
   validateCareerFields
 } from "./career-guidance.js";
 import { requestAdviceCompletion } from "./advice-provider.js";
@@ -341,7 +342,7 @@ function extractValidatedAnswer(data, route, careerPilot = false) {
   };
 }
 
-function answerShapeDiagnostic(data) {
+function answerShapeDiagnostic(data, route = null) {
   const content = data?.choices?.[0]?.message?.content;
   let parsed = null;
   try { parsed = typeof content === "string" ? JSON.parse(content) : null; } catch {}
@@ -377,7 +378,8 @@ function answerShapeDiagnostic(data) {
     aiAssistJobIsString: assistObject && typeof assist.job === "string",
     aiAssistMaterialsItems: assistObject && Array.isArray(assist.materials) ? assist.materials.length : -1,
     aiAssistMaterialsAreStrings: assistObject && Array.isArray(assist.materials) &&
-      assist.materials.every((item) => typeof item === "string")
+      assist.materials.every((item) => typeof item === "string"),
+    ...diagnoseCareerFields(parsed, route)
   };
 }
 
@@ -1435,7 +1437,7 @@ const index_default = {
       answerPhase = "contract";
       const answer = extractValidatedAnswer(data, route, careerPilot);
       if (!answer) {
-        if (betaEnabled(env)) console.warn(JSON.stringify(answerShapeDiagnostic(data)));
+        if (betaEnabled(env)) console.warn(JSON.stringify(answerShapeDiagnostic(data, route)));
         if (betaCaseReserved) await abortBetaCase(env, betaActor, requestId);
         return serviceError(acao, requestId, "LAiDY received an answer that did not pass the case contract. Your Play was not used.");
       }
