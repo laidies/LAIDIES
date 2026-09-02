@@ -2,15 +2,15 @@
 
 ## Current task
 
-- **Status:** BUILDING — representative three-wing visual pilot complete; Ali taste decision required before batch production
+- **Status:** BUILDING — first background system rejected; new jewel-blue MAiVEN stained-glass proof under Ali review
 - **Task:** Replace the LUMINAiRY collection's overly realistic, painterly and dark portrait language with a brighter adult editorial-comic system.
 - **Task ID:** LUMINAIRY-PORTRAIT-STYLE-RESET-20260902
 - **Owner:** LUMINAiRY foreground; Ali owns the style decision and public visual approval.
 - **Updated:** 2026-09-02 America/Vancouver
 - **Goal:** All 43 portraits use one clearly illustrated, luminous and consistent card language while preserving recognisable person-specific identity and the three wing palettes.
-- **Acceptance:** Ali approves the representative visual direction; every replacement is waist-up, visibly illustrated rather than painterly/photoreal, brighter in face and background, likeness-reviewed against authoritative references and tested in the real cards at desktop/390/320. Content and links remain unchanged unless renewed profile receipts are required for changed image hashes.
-- **Current step:** Three 1024 × 1536 internal pilots exist for Cher and Dionne, Hannah Fry and Allie K. Miller. They replace oil-paint modelling and Gothic darkness with inked contours, flatter colour and bright graphic glass while retaining pink, sapphire and golden-amber wing identities. No public image was overwritten.
-- **Next action:** Ali decides whether the pilot is sufficiently illustrated or should move one step flatter/more stylised. Only the approved direction may become the 43-person production template.
+- **Acceptance:** Every replacement is waist-up, visibly illustrated rather than painterly/photoreal, brighter in face and background, unmistakably stained glass and recognisably LAiDIES. Each wing ultimately has one exact reusable background or tightly controlled variations in one colour/geometry family. MAiVENS must be saturated blue-family glass with no beige/cream-dominant field; Saints remain pink, Trailblazers golden amber and Regina the red Anti-Saint exception. Every likeness is reviewed against its established identity reference and the real cards pass desktop/390/320. Content and links remain unchanged unless renewed profile receipts are required for changed image hashes.
+- **Current step:** Ali rejected the first six background proofs and the 26-card batch derived from them as boring, beige and insufficiently LAiDIES/stained-glass. Batch generation stopped immediately; all rejected bytes are preserved outside public asset paths. One new Hannah Fry proof uses saturated cobalt/sapphire/electric-blue/cyan glass, bold leading and controlled Y2K jewel/sparkle geometry with no beige field. No public image was overwritten.
+- **Next action:** Obtain Ali's verdict on the single corrected MAiVEN proof before generating another card. If accepted, extract one deterministic shared background asset and build transparent illustrated portraits over it so the background remains exact across the wing.
 - **Public boundary:** Current deployment `1e5db871-af97-4c65-a90e-7866ad928747` remains unchanged and publicly verified for the completed profile-resource release. The visual successor is INTERNAL / NOT DEPLOYED.
 
 ## Completed predecessor — all profile resources

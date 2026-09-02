@@ -86,6 +86,18 @@ portraits remain in place until a representative three-wing proof receives
 Ali's taste approval and the resulting replacements pass visual admission.
 **ALI DIRECT RULING / BUILDING**
 
+Ali found the brighter character treatment closer and added a collection-level
+rule: all portraits in a wing must use the same background, or only tightly
+controlled variations within the same colour and geometry family. She rejected
+the first proposed background families as boring, beige, insufficiently
+stained-glass and lacking LAiDIES identity. MAiVENS must be decisively blue,
+using saturated jewel blues rather than cream/beige-dominant fields. Future
+proofs must read immediately as luminous stained glass and specifically
+LAiDIES: glamorous, clever, playful and Y2K without returning to Gothic gloom,
+oil paint or generic corporate geometry. Regina's Anti-Saint treatment remains
+the red exception within the eventual Saint system. No background family is
+currently approved. **ALI DIRECT RULING / BUILDING**
+
 ## Complete owned product tree
 
 | Owned surface | Product job | Authority/status |
