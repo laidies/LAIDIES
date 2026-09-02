@@ -1070,6 +1070,10 @@ async function classifyRequest(prompt, dependencies = {}, options = {}) {
       value: careerPowerRiskPresent(instructionText),
       enumerable: false
     });
+    Object.defineProperty(route, "careerInstructionText", {
+      value: instructionText,
+      enumerable: false
+    });
   }
   return route;
 }

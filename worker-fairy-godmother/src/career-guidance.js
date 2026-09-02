@@ -8,7 +8,7 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v9";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v10";
 
 const SAFE_WORKSPACE_NEXT_MOVE = "Answer the workspace’s first question with observable facts. If a document would resolve a named uncertainty, add only the smallest permitted, redacted excerpt or a short summary—never a whole file by default.";
 
@@ -52,7 +52,69 @@ function includesLowerExposureRoute(answer) {
 }
 
 function publishesHeldSourceCredit(answer) {
-  return /\b(?:Dorie Clark|Acas|Harvard Business Review|HBR|Ruchika Tulshyan|Jodi-Ann Burey|Basima Tewfik|MIT Sloan|American Psychological Association|APA)\b|https?:\/\/|www\./i.test(visitorVisibleAnswerText(answer));
+  return /\b(?:Dorie Clark|Acas|Harvard Business Review|HBR|Ruchika Tulshyan|Jodi-Ann Burey|Basima Tewfik|MIT Sloan|American Psychological Association|APA|Alison Wood Brooks|Amy Edmondson|Herminia Ibarra|Lara Hogan|Deepak Malhotra|Sheila Heen|Douglas Stone|Program on Negotiation)\b|https?:\/\/|www\./i.test(visitorVisibleAnswerText(answer));
+}
+
+const REQUIRED_SOURCE_JOBS = Object.freeze({
+  "feedback-evidence-access": "feedback_evidence_access",
+  "career-relationship-bridges": "conversation_rehearsal",
+  "professional-conversation-follow-through": "conversation_follow_up",
+  "leader-invites-early-risk": "dissent_preflight",
+  "career-direction-small-experiment": "career_experiment",
+  "specific-feedback-request-and-pause": "feedback_request",
+  "job-offer-whole-package": "offer_package"
+});
+
+function requiredSourceJob(sourceIds) {
+  const jobs = sourceIds.map(id => REQUIRED_SOURCE_JOBS[id]).filter(Boolean);
+  return new Set(jobs).size === 1 ? jobs[0] : null;
+}
+
+export function careerSourceFitsPrompt(sourceId, prompt) {
+  const text = String(prompt || "").normalize("NFKC").toLowerCase();
+  if (sourceId === "professional-conversation-follow-through") {
+    return /\b(?:follow[- ]?up|continue|continued|spoke|talked|met|conversation|discussion)\b/.test(text) &&
+      /\b(?:said|mentioned|discussed|conversation|exchange|reply|respond|contact)\b/.test(text);
+  }
+  if (sourceId === "leader-invites-early-risk") {
+    return /\b(?:i (?:lead|manage|chair|run)|my team|our team|as (?:the )?(?:manager|leader|chair|facilitator))\b/.test(text) &&
+      /\b(?:risk|concern|disagree|dissent|silence|silent|agreement|decision|speak up)\b/.test(text);
+  }
+  if (sourceId === "career-direction-small-experiment") {
+    return /\b(?:career (?:change|direction|transition)|change careers?|different field|new field|possible direction)\b/.test(text) &&
+      /\b(?:test|try|experiment|explore|project|shadow|sample|before (?:i )?(?:quit|leave|decide))\b/.test(text);
+  }
+  if (sourceId === "specific-feedback-request-and-pause") {
+    return /\b(?:ask|asking|request|requested|want|seeking|received|got)\b.{0,45}\bfeedback\b|\bfeedback\b.{0,45}\b(?:skill|example|pause|process|think|respond)\b/.test(text);
+  }
+  if (sourceId === "job-offer-whole-package") {
+    return /\b(?:job|employment|written) offer\b|\boffer (?:package|letter|terms|deadline)\b/.test(text) &&
+      /\b(?:negotiat|package|salary|pay|title|start date|leave|vacation|flexib|remote|benefit|decide|decision)\b/.test(text);
+  }
+  return true;
+}
+
+function unsafePracticalSourceAnswer(sourceIds, answer) {
+  const text = visitorVisibleAnswerText(answer);
+  if (sourceIds.includes("professional-conversation-follow-through") &&
+      (/\b(?:keep|continue) (?:following up|contacting|messaging)\b.{0,45}\b(?:until|eventually)\b/i.test(text) ||
+       /\b(?:will|guarantee|ensures?)\b.{0,45}\b(?:sponsor|promotion|opportunit|relationship)\b/i.test(text))) return true;
+  if (sourceIds.includes("leader-invites-early-risk") &&
+      (/\b(?:guarantee|promise)\b.{0,35}\b(?:safe|safety|anonymous|anonymity)\b/i.test(text) ||
+       !/\b(?:respond|receive|thank|investigat|follow[- ]?up|what happens next)\b/i.test(text))) return true;
+  if (sourceIds.includes("career-direction-small-experiment") &&
+      (/\b(?:quit|resign|leave your job)\b.{0,45}\b(?:now|immediately|first)\b/i.test(text) ||
+       /\b(?:unpaid work|work for free|true calling|one true self)\b/i.test(text) ||
+       !/\b(?:bounded|small|reversible|afford|constraint|test|experiment)\b/i.test(text))) return true;
+  if (sourceIds.includes("specific-feedback-request-and-pause") &&
+      (/\bask (?:anyone|everyone) for (?:any |general )?feedback\b/i.test(text) ||
+       /\b(?:agree|accept) immediately\b/i.test(text) ||
+       !/\b(?:specific skill|observed|example|saw|witnessed)\b/i.test(text))) return true;
+  if (sourceIds.includes("job-offer-whole-package") &&
+      (/\b(?:guarantee|definitely|certainly)\b.{0,45}\b(?:offer|employer|agree|accept|increase)\b/i.test(text) ||
+       /\b(?:pretend|claim|say)\b.{0,35}\b(?:another offer|competing offer)\b/i.test(text) ||
+       !/\b(?:whole (?:offer|package|deal)|priorit|trade[- ]?off|constraint|flexib|multiple terms|two or three)\b/i.test(text))) return true;
+  return false;
 }
 
 export const CAREER_WORKSPACE_MATERIALS = Object.freeze({
@@ -87,6 +149,31 @@ const AI_ASSIST_JOBS = Object.freeze({
     why: "A bounded rehearsal can expose unclear wording and prepare a lower-exposure alternative without predicting another person.",
     quick: "Run one short, clearly hypothetical rehearsal using only the roles, facts and constraints I provide. After each reply, identify what my wording made clear, what remains unknown and one lower-exposure alternative. Do not predict the other person's actual response or invent their motives.",
     workspace: "Help me prepare and learn from recurring career conversations, keeping facts, wording, risks, follow-ups and unanswered questions connected."
+  }),
+  conversation_follow_up: Object.freeze({
+    label: "Build one real follow-up",
+    why: "This continues the subject the other person actually raised without turning professional contact into extraction or persistence after a boundary.",
+    quick: "Ask me for the specific point the person actually made, one relevant experience I can truthfully contribute, and whether continued contact was invited. Draft one follow-up question plus one brief reciprocal contribution. If there was no reply or a clear boundary, give me a graceful stop instead. Do not invent familiarity, remembered details, sponsorship or future opportunity."
+  }),
+  dissent_preflight: Object.freeze({
+    label: "Prepare the room for dissent",
+    why: "The useful move is not merely asking for concerns; it is deciding how the leader will receive, investigate and follow up on them.",
+    quick: "Ask me one focused question at a time about the decision still open, who is affected, known uncertainties, what happened when someone disagreed before, and what I control as the leader. Build: an opening invitation for decision-relevant risk, a non-defensive first response, the next investigation or decision step, and how I will close the loop. Do not promise safety or anonymity I cannot provide, and do not shift responsibility for the climate onto junior employees."
+  }),
+  career_experiment: Object.freeze({
+    label: "Design a small career test",
+    why: "A bounded experiment can replace a high-stakes identity guess with evidence about the work, constraints and next question.",
+    quick: "Interview me one focused question at a time about two or three possible career directions, the evidence I am missing, and my real limits on time, money, caregiving and exposure. Design one affordable, reversible test with a clear learning question, smallest action, stop condition and review point. Do not recommend quitting, unpaid work I cannot afford, or treat one pleasant conversation as proof of fit."
+  }),
+  feedback_request: Object.freeze({
+    label: "Ask for useful feedback",
+    why: "A specific skill, informed observer and real example make feedback more actionable; a bounded pause preserves thinking time without implying agreement.",
+    quick: "Ask me which specific skill I want to improve, who has actually observed it, and the real example they saw. Draft two questions about the work effect and one next experiment. Also draft a pause-and-return line using only a time I confirm I can meet. Do not ask for general praise, invent a date, imply immediate agreement or send me back to an unsafe person without a lower-exposure option."
+  }),
+  offer_package: Object.freeze({
+    label: "Prepare the whole-offer conversation",
+    why: "This makes real priorities and trade-offs visible without inventing leverage or assuming every term can move.",
+    quick: "Using only the written offer terms, real decision date, my two or three priorities and alternatives that I provide, organise a whole-package conversation. Separate confirmed terms, questions, priorities, trade-offs and stated constraints; draft one opening and one question about flexibility. Do not invent another offer, salary data, legal rights, employer policy or a promise that the offer will stay open."
   }),
   evidence_map: Object.freeze({
     label: "Map the evidence",
@@ -174,6 +261,11 @@ const JOB_MATERIALS = Object.freeze({
   feedback_clarification: new Set(["role_description", "exact_feedback_excerpt", "correspondence_excerpt", "decision_notes"]),
   feedback_evidence_access: new Set(),
   conversation_rehearsal: new Set(["meeting_agenda", "correspondence_excerpt", "decision_notes"]),
+  conversation_follow_up: new Set(),
+  dissent_preflight: new Set(),
+  career_experiment: new Set(),
+  feedback_request: new Set(),
+  offer_package: new Set(),
   evidence_map: new Set(["role_description", "goals_or_scorecard", "achievement_log", "promotion_criteria", "decision_notes", "portfolio_examples"]),
   workload_priorities: new Set(["goals_or_scorecard", "workload_list", "meeting_agenda", "correspondence_excerpt", "decision_notes"]),
   promotion_case: new Set(["role_description", "goals_or_scorecard", "achievement_log", "promotion_criteria", "decision_notes", "cv_or_resume", "portfolio_examples"]),
@@ -277,6 +369,76 @@ export const CAREER_GUIDANCE = Object.freeze([
     aiJob: "Using only the visitor's real work area, the other person's publicly known work and one genuine shared question, draft a concise invitation to compare notes. Do not invent shared interests, endorsements, access or a promised outcome."
   },
   {
+    id: "professional-conversation-follow-through",
+    source: {
+      title: "Dorie Clark and Alison Wood Brooks — professional conversation principles",
+      version: "checked 2026-09-02",
+      url: "https://www.library.hbs.edu/working-knowledge/elements-of-meaningful-conversation-fewer-mirror-questions-more-follow-ups",
+      pages: []
+    },
+    situation: "A relevant professional conversation has already begun and the visitor wants to continue the substance without generic networking or extracting help.",
+    original: null,
+    approach: "Follow the exact subject the other person raised with one genuine question, then offer one brief relevant connection from the visitor's own work. Continued contact is an invitation-sensitive exchange, not a campaign for access.",
+    limits: "Do not invent a remembered detail, ask a barrage of personal questions, treat responsiveness as sponsorship, or keep contacting someone after a clear decline or boundary. A manager-created access problem is not repaired solely through private networking.",
+    aiJob: "Use conversation_follow_up to draft one evidence-bound follow-up and a graceful stop when continued contact was not invited."
+  },
+  {
+    id: "leader-invites-early-risk",
+    source: {
+      title: "Amy Edmondson and Tijs Besieux — voice and silence in workplace conversations",
+      version: "checked 2026-09-02",
+      url: "https://www.hbs.edu/ris/Publication%20Files/Reflections_%20Voice%20and%20Silence%20in%20Workplace%20Conversations_619d3fd0-ddbf-4519-ab21-86695f515624.pdf",
+      pages: []
+    },
+    situation: "The visitor leads a meeting or decision and agreement or silence may be concealing decision-relevant risk.",
+    original: null,
+    approach: "Name that the decision still contains uncertainty, ask what information or risk could change it, then receive the first concern without punishment and state how it will be investigated or resolved.",
+    limits: "Use this only for a visitor who controls the room or decision. One invitation does not prove psychological safety. Do not promise anonymity, solicit candour and then debate the first contribution, or shift the burden of creating safety onto a junior employee.",
+    aiJob: "Use dissent_preflight to prepare the invitation, first response, investigation step and close-the-loop plan."
+  },
+  {
+    id: "career-direction-small-experiment",
+    source: {
+      title: "Herminia Ibarra — career-change experiments",
+      version: "checked 2026-09-02",
+      url: "https://herminiaibarra.com/reinventing-your-career-in-the-time-of-coronavirus/",
+      pages: []
+    },
+    situation: "The visitor is considering a career change but lacks enough experience or evidence to choose one final direction.",
+    original: null,
+    approach: "Replace an irreversible identity decision with one affordable, reversible experiment that tests a named uncertainty about the work, transferable skills or constraints.",
+    limits: "Do not invent a true calling, prescribe unpaid work the visitor cannot afford, treat one pleasant conversation as proof of fit, or recommend quitting before constraints and evidence are understood.",
+    aiJob: "Use career_experiment to choose one bounded test, learning question, stop condition and review point from the visitor's actual constraints."
+  },
+  {
+    id: "specific-feedback-request-and-pause",
+    source: {
+      title: "Lara Hogan — asking for specific, actionable feedback",
+      version: "checked 2026-09-02",
+      url: "https://larahogan.me/blog/get-feedback-from-colleagues/",
+      pages: []
+    },
+    situation: "The visitor wants feedback on one skill from someone who observed it, or needs time to process unexpected feedback without ending the conversation.",
+    original: null,
+    approach: "Name the skill and real observed example, ask what effect the approach had and what one thing to test next. If the feedback is unexpected, state the need to think and agree only a return time the visitor can actually meet.",
+    limits: "Keep requested feedback distinct from surprise feedback. Do not ask an uninformed observer, fabricate a follow-up date, imply immediate agreement, or direct a vulnerable visitor back to an unsafe person without a lower-exposure route.",
+    aiJob: "Use feedback_request to identify the skill, informed observer and real example, then draft two questions, one experiment and a bounded pause line."
+  },
+  {
+    id: "job-offer-whole-package",
+    source: {
+      title: "Deepak Malhotra — negotiating a job offer",
+      version: "checked 2026-09-02",
+      url: "https://hbr.org/2014/04/15-rules-for-negotiating-a-job-offer",
+      pages: []
+    },
+    situation: "The visitor has a real job offer and wants to discuss several terms without making disconnected demands or inventing leverage.",
+    original: null,
+    approach: "Prioritise the whole package, present two or three real priorities together, ask where flexibility exists and understand stated constraints before choosing a trade-off.",
+    limits: "Do not invent another offer, guarantee the offer remains open, assume every term is negotiable, use stale salary figures or give jurisdiction-specific legal advice. Current compensation, law and employer-policy questions require verified information.",
+    aiJob: "Use offer_package to organise confirmed terms, real priorities, questions, trade-offs and constraints without fabricating leverage."
+  },
+  {
     id: "return-to-team",
     source: {
       title: "Acas — Return to work meetings", version: "2024-07-11",
@@ -309,6 +471,11 @@ For a matched situation:
 - If a missing detail changes the risk/substance, name one focused question in unknowns and give only a safe conditional next step. Do not fill the gap with reassurance.
 - Offer zero or one optional AI preparation task only if it improves this specific action. Select the job that identifies the needed non-confidential inputs, useful output and checks. No invented achievements, estimates, endorsements or employer policies. Rehearsal explores possibilities, not another person's actual thoughts. No unsupported claim that a transcript is consented or safe to upload.
 - When career-relationship-bridges genuinely fits, conversation_rehearsal is the useful bounded AI task: it lets the reader practise the first exchange and a lower-exposure alternative without pretending to predict the other person. Select that quick task rather than null.
+- When professional-conversation-follow-through genuinely fits, select conversation_follow_up. Use only a detail the person actually raised and a connection the visitor can truthfully contribute; include a graceful stop for no reply or a clear boundary.
+- When leader-invites-early-risk genuinely fits, the visitor must control the room or decision. Select dissent_preflight and complete the move: invitation, non-defensive first response, investigation step and close-the-loop plan. Never promise safety or anonymity.
+- When career-direction-small-experiment genuinely fits, select career_experiment. Design one affordable, reversible test of a named uncertainty; never prescribe quitting or unaffordable unpaid work.
+- When specific-feedback-request-and-pause genuinely fits, select feedback_request. Keep requested feedback and surprise feedback distinct, use an informed observer plus real example, and never invent a return date.
+- When job-offer-whole-package genuinely fits, select offer_package. Use only actual offer terms and priorities, discuss constraints and trade-offs, and never invent competing offers, market data, law or employer flexibility.
 - When feedback-evidence-access genuinely fits, do not debate whether the visitor should feel doubtful or diagnose a syndrome. Begin with the work or career move being delayed. Separate supported evidence, a genuine learning need, unclear or inconsistently applied criteria, unequal access and unknowns. Feedback may be useful, biased or mixed; preserve a supported work issue without accepting an unsupported personality label. Do not declare discrimination from a feeling or one unexplained event. Treat the flip as a private pattern check, not proof or a default question to the manager. Give a written, private, ally-supported or representative-supported lower-exposure option whenever pay, promotion, visa, probation or retaliation power appears. Select feedback_evidence_access rather than a confidence exercise; the service will supply it when you return null. Describe only the evidence-and-access audit this job actually provides: do not promise AI rehearsal, role-play or a second AI job. Call the output a personal or preparation map, never a private map, and keep the tone direct rather than using fairytale decoration for a serious work problem.
 - aiAssist is null when it adds work without benefit. Otherwise it uses exactly {"kind":"quick_task","job":"one allowed job ID","materials":[]}. kind may instead be career_workspace. No label, why, instruction or other free-text field is permitted; the service generates every visitor-visible word.
 - Use quick_task for one bounded preparation job and materials must be [].
@@ -335,6 +502,8 @@ export function validateCareerFields(answer, enabled, route = null) {
       new Set(answer.sources).size !== answer.sources.length) return null;
   const records = answer.sources.map(id => CAREER_GUIDANCE.find(record => record.id === id));
   if (records.some(record => !record)) return null;
+  if (answer.sources.length > 1 && answer.sources.some(id => REQUIRED_SOURCE_JOBS[id])) return null;
+  if (answer.sources.some(id => !careerSourceFitsPrompt(id, route?.careerInstructionText))) return null;
   // A relationship-building answer has one already-governed, useful AI lesson:
   // rehearse the bounded first exchange without predicting the other person.
   // Keep this Worker-owned so a structurally valid model null cannot silently
@@ -344,11 +513,11 @@ export function validateCareerFields(answer, enabled, route = null) {
   if (answer.sources.includes("feedback-evidence-access") && unsafeFeedbackEvidenceAnswer(answer)) return null;
   if (answer.sources.includes("feedback-evidence-access") &&
       route?.careerPowerRisk === true && !includesLowerExposureRoute(answer)) return null;
-  const value = answer.aiAssist === null && answer.sources.includes("feedback-evidence-access")
-    ? { kind: "quick_task", job: "feedback_evidence_access", materials: [] }
-    : answer.aiAssist === null && answer.sources.includes("career-relationship-bridges")
-      ? { kind: "quick_task", job: "conversation_rehearsal", materials: [] }
-      : answer.aiAssist;
+  if (unsafePracticalSourceAnswer(answer.sources, answer)) return null;
+  const requiredJob = requiredSourceJob(answer.sources);
+  const value = answer.aiAssist === null && requiredJob
+    ? { kind: "quick_task", job: requiredJob, materials: [] }
+    : answer.aiAssist;
   let aiAssist = null;
   if (value !== null) {
     if (!value || typeof value !== "object" || Array.isArray(value) ||
@@ -363,6 +532,7 @@ export function validateCareerFields(answer, enabled, route = null) {
     if (value.materials.some(id => !JOB_MATERIALS[value.job].has(id))) return null;
     if (answer.sources.includes("feedback-evidence-access") &&
         (value.job !== "feedback_evidence_access" || value.kind !== "quick_task")) return null;
+    if (requiredJob && (value.job !== requiredJob || value.kind !== "quick_task")) return null;
     if (value.kind === "career_workspace" &&
         (route?.task !== "decision_or_plan" || !WORKSPACE_JOBS.has(value.job) ||
          route?.careerWorkspaceContinuity !== true)) return null;

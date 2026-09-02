@@ -5,6 +5,7 @@ import worker from '../src/index.js';
 import {
   CAREER_GUIDANCE,
   careerPilotEnabled,
+  careerSourceFitsPrompt,
   careerWorkspaceContinuityNeeded
 } from '../src/career-guidance.js';
 
@@ -76,7 +77,30 @@ test('pilot is default-off and restricted by server-side route, not client flags
 });
 
 test('answer payload includes every governed reference but does not publish unverified source selections', async () => {
+  const newReferenceCases = {
+    'professional-conversation-follow-through': {
+      prompt: 'We spoke last week and she mentioned a difficult handover. How do I follow up on that conversation?',
+      deliverable: 'You mentioned the handover. What changed after the decision? I have seen one relevant connection in my own work if useful.'
+    },
+    'leader-invites-early-risk': {
+      prompt: 'I lead our team and everyone is silent before a risky decision. How do I invite dissent?',
+      deliverable: 'What risk or information could change this decision? I will thank the first person who responds, investigate the concern and explain what happens next.'
+    },
+    'career-direction-small-experiment': {
+      prompt: 'I am exploring a career change to a new field and want to test it before I quit.',
+      deliverable: 'Choose one small, affordable and reversible experiment that tests the missing evidence before any decision.'
+    },
+    'specific-feedback-request-and-pause': {
+      prompt: 'I want to ask for feedback on a skill from a colleague who saw my presentation, and may need a pause to process it.',
+      deliverable: 'You observed my presentation. What effect did this specific skill have, and what is one example I could test next?'
+    },
+    'job-offer-whole-package': {
+      prompt: 'I have a written job offer and want to negotiate the salary, title and start date as a package.',
+      deliverable: 'Could we discuss the whole package? My priorities are these three terms; where is there flexibility and which constraints are fixed?'
+    }
+  };
   for (const record of CAREER_GUIDANCE) {
+    const candidate = newReferenceCases[record.id];
     const result = await run(record.id === 'feedback-evidence-access' ? {
       ...fixtureAnswer,
       read: 'The feeling is real; we need an observable example and the actual criterion.',
@@ -84,7 +108,12 @@ test('answer payload includes every governed reference but does not publish unve
       nextMove: 'Ask in writing for the criterion and one opportunity to demonstrate it.',
       sources: [record.id],
       aiAssist: null
-    } : { ...fixtureAnswer, sources: [record.id] });
+    } : {
+      ...fixtureAnswer,
+      ...(candidate ? { deliverable: candidate.deliverable } : {}),
+      sources: [record.id],
+      aiAssist: null
+    }, {}, candidate ? { prompt: candidate.prompt } : {});
     assert.equal(result.data.type, 'case_success');
     assert.equal(result.calls, 1); assert.equal(result.writes, 1);
     assert.deepEqual(result.data.answer.sources, []);
@@ -104,6 +133,48 @@ test('answer payload includes every governed reference but does not publish unve
   assert.match(impostor.approach, /private pattern check/);
   assert.match(impostor.limits, /specific skill gap/);
   assert.match(impostor.limits, /lower-exposure route/);
+});
+
+test('new practical routes require the matching situation and server-owned AI lesson', async () => {
+  const cases = [
+    ['professional-conversation-follow-through', 'conversation_follow_up', 'We spoke last week and she mentioned a difficult handover. How do I follow up on that conversation?', 'You mentioned the handover. What changed after the decision? I have seen a relevant connection in my own work if useful.'],
+    ['leader-invites-early-risk', 'dissent_preflight', 'I lead our team and everyone is silent before a risky decision. How do I invite dissent?', 'What risk could change the decision? I will thank the first response, investigate it and explain what happens next.'],
+    ['career-direction-small-experiment', 'career_experiment', 'I am exploring a career change to a new field and want to test it before I quit.', 'Use one small, affordable, reversible experiment to test the missing evidence.'],
+    ['specific-feedback-request-and-pause', 'feedback_request', 'I want to ask for feedback on a skill from a colleague who saw my presentation.', 'You observed my presentation. What effect did this specific skill have, and what is one example I could test next?'],
+    ['job-offer-whole-package', 'offer_package', 'I have a written job offer and want to negotiate salary and title as a package.', 'Could we discuss the whole package? Here are my priorities; where is there flexibility and which constraints are fixed?']
+  ];
+  for (const [source, job, prompt, deliverable] of cases) {
+    assert.equal(careerSourceFitsPrompt(source, prompt), true, source);
+    assert.equal(careerSourceFitsPrompt(source, 'My manager says I need more presence.'), false, source);
+    const result = await run({ ...fixtureAnswer, deliverable, sources: [source], aiAssist: null }, {}, { prompt });
+    assert.equal(result.data.type, 'case_success', source);
+    assert.equal(result.data.answer.aiAssist.job, job, source);
+    assert.equal(result.data.answer.aiAssist.kind, 'quick_task', source);
+    assert.deepEqual(result.data.answer.aiAssist.materials, [], source);
+  }
+});
+
+test('new practical routes reject wrong AI jobs and known harmful shortcuts before spending', async () => {
+  const mutations = [
+    ['professional-conversation-follow-through', 'We spoke and she mentioned a handover. How should I follow up?', 'Keep contacting her until she gives me an opportunity.'],
+    ['leader-invites-early-risk', 'I lead our team and silence worries me before a decision.', 'I promise this is anonymous and safe. Please disagree.'],
+    ['career-direction-small-experiment', 'I am exploring a career change and want to test it.', 'Quit immediately and find your one true calling.'],
+    ['specific-feedback-request-and-pause', 'I want to ask for feedback on a skill.', 'Ask everyone for general feedback and accept it immediately.'],
+    ['job-offer-whole-package', 'I have a written job offer and want to negotiate.', 'Pretend you have another offer; they will definitely increase this one.']
+  ];
+  for (const [source, prompt, deliverable] of mutations) {
+    const result = await run({ ...fixtureAnswer, deliverable, sources: [source], aiAssist: null }, {}, { prompt });
+    assert.equal(result.data.type, 'service_error', source);
+    assert.equal(result.writes, 0, source);
+  }
+  const wrongJob = await run({
+    ...fixtureAnswer,
+    deliverable: 'Use one small, affordable, reversible experiment to test the missing evidence.',
+    sources: ['career-direction-small-experiment'],
+    aiAssist: { kind: 'quick_task', job: 'career_decision', materials: [] }
+  }, {}, { prompt: 'I am exploring a career change and want to test a new field before I quit.' });
+  assert.equal(wrongJob.data.type, 'service_error');
+  assert.equal(wrongJob.writes, 0);
 });
 
 test('no matching reference and no useful AI task are valid outcomes', async () => {
