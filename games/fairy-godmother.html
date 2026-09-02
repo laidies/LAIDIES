@@ -1527,22 +1527,31 @@
       // Optional preparation is text from the same answer, not another call or
       // an entitlement to rehearsal. Never import the private research bank.
       if (answer.aiAssist && typeof answer.aiAssist.instruction === "string" &&
-          answer.aiAssist.instruction.length <= 1600) {
+          answer.aiAssist.instruction.length <= 6000) {
+        const isWorkspace = answer.aiAssist.kind === "career_workspace";
         const preparation = document.createElement("details");
         preparation.className = "fairy-ai-preparation";
         const summary = document.createElement("summary");
-        summary.textContent = "Optional AI preparation: " + String(answer.aiAssist.label || "Prepare your next step");
+        summary.textContent = (isWorkspace ? "Build this in your own AI: " : "Optional AI preparation: ") +
+          String(answer.aiAssist.label || "Prepare your next step");
         summary.style.minHeight = "44px";
         summary.style.cursor = "pointer";
         preparation.appendChild(summary);
         appendTypedSection(preparation, "What this helps with", answer.aiAssist.why);
-        appendTypedSection(preparation, "Preparation prompt", answer.aiAssist.instruction, { preformatted: true });
+        if (isWorkspace && Array.isArray(answer.aiAssist.materials) && answer.aiAssist.materials.length) {
+          appendTypedSection(preparation, "Useful material to consider", answer.aiAssist.materials);
+        }
+        appendTypedSection(preparation, isWorkspace ? "Career Workspace setup prompt" : "Preparation prompt",
+          answer.aiAssist.instruction, { preformatted: true });
         const preparationText = answer.aiAssist.instruction;
-        const preparationCopy = makeInlineAction("Copy preparation prompt", () => preparationText);
+        const preparationCopy = makeInlineAction(isWorkspace ? "Copy Career Workspace setup" : "Copy preparation prompt",
+          () => preparationText);
         preparationCopy.querySelector("button").style.minHeight = "44px";
         preparation.appendChild(preparationCopy);
         const note = document.createElement("p");
-        note.textContent = "Opening or copying this does not run another AI call. Use only non-confidential information in a tool approved for your work. Multi-turn rehearsal inside FAiRY is not available in this pilot.";
+        note.textContent = isWorkspace
+          ? "Copying this does not run another AI call, and it does not upload or save those materials in FAiRY. Your own AI tool will conduct the interview. Check that tool’s current privacy, account and workplace settings; use only the smallest non-confidential, redacted excerpts you are permitted to share."
+          : "Opening or copying this does not run another AI call. Use only non-confidential information in a tool approved for your work. Multi-turn rehearsal inside FAiRY is not available in this pilot.";
         preparation.appendChild(note);
         output.appendChild(preparation);
       }

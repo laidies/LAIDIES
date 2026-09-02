@@ -1,6 +1,11 @@
 // P0 phase 1 working mirror. The frozen v18 recovery artifact remains under
 // recovery/production-v18 and is intentionally not imported or modified here.
-import { careerPilotEnabled, careerGuidancePrompt, validateCareerFields } from "./career-guidance.js";
+import {
+  careerPilotEnabled,
+  careerGuidancePrompt,
+  careerWorkspaceContinuityNeeded,
+  validateCareerFields
+} from "./career-guidance.js";
 import { requestAdviceCompletion } from "./advice-provider.js";
 import {
   abortBetaCase,
@@ -321,7 +326,7 @@ function extractValidatedAnswer(data, route, careerPilot = false) {
         typeof item !== "string" || item.length > ANSWER_LIMITS.unknownsItem
       )) return null;
   if (answer.asOf !== null) return null;
-  const careerFields = validateCareerFields(answer, careerPilot);
+  const careerFields = validateCareerFields(answer, careerPilot, route);
   if (!careerFields) return null;
   if (route.needsRetrieval || route.task === "current_fact_or_research") return null;
   return {
@@ -1028,7 +1033,18 @@ async function classifyRequest(prompt, dependencies = {}, options = {}) {
     ? canonicalizeClassifierBoundary(validated, envelope)
     : null;
   if (!classification) return uncertainRoute("classifier_invalid_contract", envelope);
-  return aggregateClassifierResult(classification, envelope);
+  const route = aggregateClassifierResult(classification, envelope);
+  if (route.outcome === "allow") {
+    const instructionText = envelope.clauses
+      .filter((clause) => clause.roleHint === "user_instruction")
+      .map((clause) => clause.text)
+      .join("\n");
+    Object.defineProperty(route, "careerWorkspaceContinuity", {
+      value: careerWorkspaceContinuityNeeded(instructionText),
+      enumerable: false
+    });
+  }
+  return route;
 }
 
 function boundaryResponse(acao, requestId, route) {

@@ -30,6 +30,21 @@ preparation task may use `sources:[]` when it needs only the visitor's supplied
 non-confidential inputs, remains explicit about what to verify and invents no
 facts, criteria, outcomes, endorsement or employer policy. Never attach an
 unrelated reference merely to make the AI task valid.
+FAiRY Career Workspace rule (2026-09-01): when an ongoing career situation
+would benefit from a reusable system, FAiRY may offer a portable setup prompt
+for the reader's own AI tool. That tool interviews her one focused question at
+a time, suggests only the smallest redacted excerpt that resolves a named
+uncertainty and builds a working note that separates facts, unknowns, decision
+ownership, words to use, lower-exposure options and checks. FAiRY does not
+accept, upload, save or claim privacy for those documents in this release. The
+workspace is optional, never homework, never a substitute for solving today's
+problem and never generic confidence or "own your power" advice. Current
+privacy, retention, training and employer-approval claims remain the reader's
+tool/account decision and must not be invented.
+The service must independently require an explicit continuing need in the
+reader's own instruction—a workspace/tracker/project folder, recurring work,
+several future steps or a record to maintain. A one-off decision remains a
+bounded quick task even when its classifier route is `decision_or_plan`.
 Optional preparation must disclose whether it runs another call; repeat-preview
 limits must preserve an already usable answer instead of replacing it.
 FAiRY synchronous advice and revision use one bounded provider attempt with no

@@ -44,6 +44,22 @@ claimed in public output. Public per-answer citations remain held because
 source membership alone does not prove that a source supports the generated
 answer.
 
+Career Workspace checkpoint: Ali approved a portable framework that readers
+build in their own AI tool. A local candidate now keeps today's answer first,
+then may offer either a bounded quick task or an optional Career Workspace.
+The answer model selects only an allowlisted job and optional material IDs; the
+Worker deterministically generates every visitor-visible label, explanation and
+prompt, including a one-question-at-a-time interview, minimal/redacted material
+suggestions, practical output sections and the external-tool privacy boundary.
+FAiRY does not accept or save documents. The exact local candidate now passes86 Worker tests, the frozen
+45-case answer and79-case classifier fixtures, the typed page contract and
+73/73 actual Chromium checks at1280/390/320. The browser fixture renders the
+exact long copied prompt, including its untrusted-document rule. Independent
+artifact review reports no P0/P1 after the free-text, job/material, route and
+continuing-need repairs. Real staging Sol selection/usefulness, genuine200%
+browser zoom, deployment and live verification remain open; none of this local
+evidence is a public result.
+
 ### FAiRY five-situation pilot — historical build and trial record
 
 Classifier checkpoint: the approved private63-case Terra/low safety-router

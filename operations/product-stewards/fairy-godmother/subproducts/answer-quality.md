@@ -1,5 +1,37 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-09-01 — Career Workspace portable-interview candidate
+
+Ali approved an optional Career Workspace that readers build in their own AI
+tool. The bounded local candidate extends the existing AI preparation object
+with two strict kinds: a one-job `quick_task` and an optional
+`career_workspace`. The answer model may select only one allowlisted job and,
+for a workspace, up to six allowlisted material types. The Worker—not the
+answer model—generates every visitor-visible label, explanation and prompt,
+including the governed one-question-at-a-time interview,
+facts/unknowns/decision-owner structure, lower-exposure route, minimal-redacted-
+excerpt rule and external-tool privacy boundary.
+
+This is deliberately not a FAiRY upload, document parser, saved case file or
+cross-device workspace. The page only displays and copies the setup prompt; the
+reader's own AI conducts the interview. `aiAssist:null` remains valid and the
+workspace may not replace the immediate answer. Local contract tests include
+unknown jobs/materials, model-authored free text, quick-task material leakage,
+duplicates and more than six materials. Real Sol selection/usefulness,
+rendered desktop/mobile/accessibility, independent artifact review, deployment
+and live verification remain pending.
+
+The successor now rejects model-authored labels, rationale or instructions;
+allows only an exact three-field enum selection; enforces job-compatible
+materials; and requires both a `decision_or_plan` route and a continuing need
+stated in the reader's instruction. Thus a one-off Job A versus Job B decision
+cannot be inflated into homework. Anything pasted from a document is explicitly
+untrusted source material, never an instruction for the external AI. Local
+results:86 Worker tests, frozen45-case answer and79-case classifier fixtures,
+typed page contract and73/73 Chromium checks at1280/390/320. Independent exact-
+byte review reports no P0/P1. Real staging-model usefulness, native200% zoom and
+public release verification remain HOLD.
+
 ## 2026-09-01 — initial public beta limits approved
 
 Ali approved the recommended bounded launch policy: one guest case per UTC day,
