@@ -1,5 +1,38 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-09-02 — the feelings are real; the woman is not the syndrome
+
+Ali's governing FAiRY rule is that workplace doubt is real, but calling women's
+response “impostor syndrome” can misplace the defect inside the woman and divert
+energy from advancing her career. The syndrome FAiRY should expose is the bias
+built into society and workplaces—not a supposed fault women must repair before
+they are ready to act.
+
+FAiRY must therefore begin with the delayed career move, not an affirmation or
+confidence programme. It separates: evidence that already supports readiness;
+a specific skill or knowledge genuinely still needed; missing or inconsistent
+criteria; unequal access to assignments, information, feedback or sponsorship;
+and the person or system that owns the next decision. It takes the feeling
+seriously without diagnosing the visitor, declaring bias from thin evidence or
+pretending every doubt is externally caused.
+
+Ali's handout governs the feedback-or-bias branch. FAiRY checks specificity,
+connection to a relevant work outcome and the flip—whether the same feedback
+would be given to a man doing comparable work. The expanded candidate also
+checks actionability, access to improve and whether the standard becomes a
+moving target. Useful and biased content can coexist: keep the supported impact
+or gap, reject the unsupported personality label, and never force a false
+all-feedback-is-growth versus all-feedback-is-bias choice.
+
+The private `impostor-label-to-career-evidence` candidate now contains distinct
+words for a manager's confidence label, a real new-skill gap, qualified
+hesitation, inconsistent standards and blocked access. Its proposed AI job is
+an evidence-and-access audit in the reader's own tool—not a confidence score:
+one-question-at-a-time preparation of the target opportunity, criteria,
+evidence, actual gaps, unknowns, access barriers, decision owners and next
+career-advancing action. This is research/specification only. It is not in the
+Worker, has not been model-tested and is not live.
+
 ## 2026-09-02 — practical guidance is routed by problem, not personality
 
 Ali directed FAiRY to use other practical-script sources where they improve the
