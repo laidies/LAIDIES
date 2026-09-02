@@ -77,7 +77,14 @@ test('pilot is default-off and restricted by server-side route, not client flags
 
 test('answer payload includes every governed reference but does not publish unverified source selections', async () => {
   for (const record of CAREER_GUIDANCE) {
-    const result = await run({ ...fixtureAnswer, sources: [record.id] });
+    const result = await run(record.id === 'feedback-evidence-access' ? {
+      ...fixtureAnswer,
+      read: 'The feeling is real; we need an observable example and the actual criterion.',
+      deliverable: 'What specific example affected the work outcome, and what evidence would show the criterion is met?',
+      nextMove: 'Ask in writing for the criterion and one opportunity to demonstrate it.',
+      sources: [record.id],
+      aiAssist: null
+    } : { ...fixtureAnswer, sources: [record.id] });
     assert.equal(result.data.type, 'case_success');
     assert.equal(result.calls, 1); assert.equal(result.writes, 1);
     assert.deepEqual(result.data.answer.sources, []);
@@ -90,6 +97,13 @@ test('answer payload includes every governed reference but does not publish unve
   assert.equal(relationship.source.url, 'https://dorieclark.com/blog/building-bridges-for-your-career/');
   assert.match(relationship.approach, /genuine, bounded conversation/);
   assert.match(relationship.limits, /blocked access or unfair criteria/);
+  const impostor = CAREER_GUIDANCE.find(record => record.id === 'feedback-evidence-access');
+  assert.deepEqual(impostor.source.pages, [2, 7, 12, 13]);
+  assert.match(impostor.approach, /Treat the feeling as real/);
+  assert.match(impostor.approach, /useful feedback and bias can coexist/);
+  assert.match(impostor.approach, /private pattern check/);
+  assert.match(impostor.limits, /specific skill gap/);
+  assert.match(impostor.limits, /lower-exposure route/);
 });
 
 test('no matching reference and no useful AI task are valid outcomes', async () => {
@@ -113,6 +127,149 @@ test('relationship guidance always includes the bounded AI rehearsal lesson', as
   assert.match(result.data.answer.aiAssist.instruction, /clearly hypothetical rehearsal/);
   assert.match(result.data.answer.aiAssist.instruction, /Do not predict the other person's actual response/);
   assert.deepEqual(result.data.answer.aiAssist.materials, []);
+});
+
+test('impostor and feedback-bias guidance redirects effort to evidence and access', async () => {
+  const answer = {
+    ...fixtureAnswer,
+    read: 'The doubt is real, but confidence is not yet the useful diagnosis of this career problem.',
+    deliverable: 'Before we treat this as a confidence issue, can we identify the specific criterion, the evidence you are using, and what opportunity I will have to demonstrate it?',
+    reasoning: [
+      'The label does not establish whether the issue is a genuine skill gap, unclear feedback, unequal access or a mixture.',
+      'A supported work problem can be corrected without accepting an unsupported personality judgment.'
+    ],
+    unknowns: ['Whether the same criterion is applied consistently to comparable work.'],
+    nextMove: 'Name the career move being delayed and collect the stated criterion plus one relevant example.',
+    sources: ['feedback-evidence-access'],
+    aiAssist: null
+  };
+  const result = await run(answer);
+  assert.equal(result.data.type, 'case_success');
+  assert.deepEqual(result.data.answer.sources, []);
+  assert.equal(result.data.answer.aiAssist.kind, 'quick_task');
+  assert.equal(result.data.answer.aiAssist.job, 'feedback_evidence_access');
+  assert.equal(result.data.answer.aiAssist.label, 'Audit the evidence and access');
+  assert.match(result.data.answer.aiAssist.why, /redirects energy from fixing your confidence/);
+  assert.match(result.data.answer.aiAssist.instruction, /observable feedback or error/);
+  assert.match(result.data.answer.aiAssist.instruction, /lower-exposure alternative/);
+  assert.match(result.data.answer.aiAssist.instruction, /does not establish bias or discrimination/);
+  assert.match(result.data.answer.aiAssist.instruction, /never request a whole review/);
+  assert.doesNotMatch(result.data.answer.aiAssist.instruction, /cure|affirmation|power pose/i);
+});
+
+test('impostor source rejects a generic confidence or unrelated AI exercise', async () => {
+  for (const job of ['feedback_clarification', 'conversation_rehearsal', 'promotion_case']) {
+    const result = await run({
+      ...fixtureAnswer,
+      sources: ['feedback-evidence-access'],
+      aiAssist: { kind: 'quick_task', job, materials: [] }
+    });
+    assert.equal(result.data.type, 'service_error');
+    assert.equal(result.writes, 0);
+  }
+});
+
+test('the evidence-and-access job cannot become a retained Career Workspace in this release', async () => {
+  const result = await run({
+    ...workspaceAnswer,
+    sources: ['feedback-evidence-access'],
+    aiAssist: { kind: 'career_workspace', job: 'feedback_evidence_access', materials: [] }
+  }, { REQUEST_CLASSIFIER: testClassifier({ task: 'decision_or_plan' }) }, {
+    prompt: 'Help me maintain an ongoing evidence and access tracker across several promotion conversations.'
+  });
+  assert.equal(result.data.type, 'service_error');
+  assert.equal(result.writes, 0);
+});
+
+test('feedback and impostor-label answers reject harmful conclusions before allowance writes', async () => {
+  const base = {
+    ...fixtureAnswer,
+    read: 'The feeling is real; we need an observable example and the actual criterion.',
+    deliverable: 'What specific example affected the work outcome, and what evidence would show the criterion is met?',
+    reasoning: ['A real skill gap and an unsupported label can coexist.'],
+    nextMove: 'Ask in writing for the criterion and one opportunity to demonstrate it.',
+    sources: ['feedback-evidence-access'],
+    aiAssist: null
+  };
+  const mutations = [
+    { field: 'deliverable', value: 'Just be more confident and own the room.' },
+    { field: 'read', value: 'Your manager is definitely biased.' },
+    { field: 'nextMove', value: 'Ignore the feedback because it is just bias.' },
+    { field: 'deliverable', value: 'Confront your boss and tell them they are sexist.' },
+    { field: 'nextMove', value: 'Paste your full performance review here.' },
+    { field: 'reasoning', value: ['The feeling is real, so use affirmations that cure it.'] }
+  ];
+  for (const mutation of mutations) {
+    const result = await run({ ...base, [mutation.field]: mutation.value });
+    assert.equal(result.data.type, 'service_error', `${mutation.field}: ${mutation.value}`);
+    assert.equal(result.writes, 0);
+  }
+});
+
+test('a power-risk feedback case must include a genuinely lower-exposure route', async () => {
+  const base = {
+    ...fixtureAnswer,
+    read: 'The feeling is real; the label is not evidence and the actual criterion is still unknown.',
+    deliverable: 'What observable example affected the work outcome, and what criterion should I use?',
+    reasoning: ['A supported work issue and an unsupported label can coexist.'],
+    unknowns: ['What evidence would show that the criterion is met?'],
+    nextMove: 'Ask for one observable example and the work criterion.',
+    sources: ['feedback-evidence-access'],
+    aiAssist: null
+  };
+  const prompts = [
+    'My boss retaliates when people challenge feedback. What should I say?',
+    'My manager decides whether I keep my job.',
+    'I am on a temporary work permit.',
+    'They can fire me if I make trouble.',
+    'My contract is up for renewal.',
+    'This feedback determines whether I pass my performance review.'
+  ];
+  for (const prompt of prompts) {
+    const blocked = await run(base, {}, { prompt });
+    assert.equal(blocked.data.type, 'service_error', prompt);
+    assert.equal(blocked.writes, 0);
+    const allowed = await run({
+      ...base,
+      nextMove: 'Ask for the observable criterion in writing, keep a private factual record, and speak with a trusted representative before any direct challenge.'
+    }, {}, { prompt });
+    assert.equal(allowed.data.type, 'case_success', prompt);
+  }
+});
+
+test('document-transfer requests fail in every visitor-visible answer field, not only workspaces', async () => {
+  const mutations = [
+    ['read', 'Upload your whole HR file here.'],
+    ['deliverable', 'Paste the complete email chain into the tool.'],
+    ['nextMove', 'Send your personnel record to the AI.'],
+    ['reasoning', ['Provide your full performance review so the model can judge it.']],
+    ['assumptions', ['Attach the medical information before continuing.']],
+    ['unknowns', ['Can you share your colleague’s review?']]
+  ];
+  for (const [field, value] of mutations) {
+    const result = await run({ ...fixtureAnswer, [field]: value });
+    assert.equal(result.data.type, 'service_error', field);
+    assert.equal(result.writes, 0);
+  }
+  const safe = await run({ ...fixtureAnswer,
+    nextMove: 'Do not paste the full review. Use one short redacted example instead.' });
+  assert.equal(safe.data.type, 'case_success');
+});
+
+test('held source names and links cannot leak through visitor-visible answer text', async () => {
+  const mutations = [
+    ['read', 'Dorie Clark says your manager is not at fault; ask for evidence and the actual criterion.'],
+    ['deliverable', 'According to HBR, ask for one observable example.'],
+    ['reasoning', ['Acas supports this wording.']],
+    ['assumptions', ['Basima Tewfik would agree with the evidence check.']],
+    ['unknowns', ['Does https://example.com prove this?']],
+    ['nextMove', 'Read the MIT Sloan source, then ask for the actual work criterion.']
+  ];
+  for (const [field, value] of mutations) {
+    const result = await run({ ...fixtureAnswer, [field]: value });
+    assert.equal(result.data.type, 'service_error', field);
+    assert.equal(result.writes, 0);
+  }
 });
 
 test('a useful grounded AI preparation task does not need a forced reference match', async () => {

@@ -3,6 +3,7 @@
 import {
   careerPilotEnabled,
   careerGuidancePrompt,
+  careerPowerRiskPresent,
   careerWorkspaceContinuityNeeded,
   diagnoseCareerFields,
   validateCareerFields
@@ -1063,6 +1064,10 @@ async function classifyRequest(prompt, dependencies = {}, options = {}) {
       .join("\n");
     Object.defineProperty(route, "careerWorkspaceContinuity", {
       value: careerWorkspaceContinuityNeeded(instructionText),
+      enumerable: false
+    });
+    Object.defineProperty(route, "careerPowerRisk", {
+      value: careerPowerRiskPresent(instructionText),
       enumerable: false
     });
   }

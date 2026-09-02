@@ -8,17 +8,47 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v8";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v9";
 
 const SAFE_WORKSPACE_NEXT_MOVE = "Answer the workspace’s first question with observable facts. If a document would resolve a named uncertainty, add only the smallest permitted, redacted excerpt or a short summary—never a whole file by default.";
 
-function requestsWorkspaceDocumentTransfer(answer) {
-  const visibleText = [answer?.read, answer?.deliverable, answer?.nextMove,
+function visitorVisibleAnswerText(answer) {
+  return [answer?.read, answer?.deliverable, answer?.nextMove,
     ...(Array.isArray(answer?.reasoning) ? answer.reasoning : []),
     ...(Array.isArray(answer?.assumptions) ? answer.assumptions : []),
     ...(Array.isArray(answer?.unknowns) ? answer.unknowns : [])]
     .filter(value => typeof value === "string").join("\n").normalize("NFKC");
-  return /\b(?:add|upload|attach|paste|import|share|provide|copy)\b.{0,60}\b(?:exact\s+|full\s+|whole\s+|complete\s+|entire\s+|all\s+)?(?:documents?|files?|records?|emails?|messages?|cv|resume|résumé)\b/i.test(visibleText);
+}
+
+function requestsProhibitedDocumentTransfer(answer) {
+  const sentences = visitorVisibleAnswerText(answer).split(/(?<=[.!?])\s+|\n+/);
+  return sentences.some(sentence => {
+    if (/\b(?:do not|don't|never|avoid|without)\b.{0,35}\b(?:add|upload|attach|paste|import|share|provide|copy|send)\b/i.test(sentence)) return false;
+    return /\b(?:add|upload|attach|paste|import|share|provide|copy|send)\b.{0,80}\b(?:documents?|files?|records?|emails?|messages?|reviews?|threads?|chains?|personnel\s+(?:file|record)|performance\s+review|hr\s+(?:file|record|material)|investigation\s+(?:file|record|material)|medical\s+(?:file|record|information)|email\s+(?:thread|chain)|colleague(?:['’]s)?\s+(?:review|record|data))\b/i.test(sentence);
+  });
+}
+
+function unsafeFeedbackEvidenceAnswer(answer) {
+  const text = visitorVisibleAnswerText(answer);
+  const sentences = text.split(/(?<=[.!?])\s+|\n+/).filter(Boolean);
+  const unsafeAssertion = pattern => sentences.some(sentence =>
+    !/\b(?:do not|don't|does not|doesn't|cannot|can't|never|avoid|without|not enough to|no conclusion)\b/i.test(sentence) &&
+    pattern.test(sentence)
+  );
+  const confidenceCure = unsafeAssertion(/\b(?:just\s+)?(?:become|be|build|fix|improve|work on)\s+(?:your\s+)?(?:more\s+)?confiden(?:t|ce)\b|\baffirmations?\b.{0,35}\b(?:cure|fix|solve)\b/i);
+  const inventedBiasFinding = unsafeAssertion(/\b(?:your\s+(?:manager|boss)|they|this)\s+(?:is|are|proves?|shows?)\s+(?:clearly\s+|definitely\s+)?(?:biased|sexist|discriminat(?:ing|ion|ory))\b|\bthis\s+is\s+(?:clearly\s+|definitely\s+)?(?:bias|discrimination)\b/i);
+  const dismissesFeedback = unsafeAssertion(/\b(?:ignore|dismiss)\s+(?:all\s+|the\s+)?feedback\b|\bfeedback\s+is\s+(?:just|only)\s+bias\b/i);
+  const unsafeConfrontation = unsafeAssertion(/\b(?:confront|accuse)\b.{0,50}\b(?:manager|boss|them|biased|sexist|discrimination)\b|\btell\b.{0,45}\b(?:manager|boss|them)\b.{0,35}\b(?:biased|sexist|discriminat(?:ing|ion|ory))\b/i);
+  const hasActionableBasis = /\b(?:specific example|observable|work outcome|criteri(?:on|a)|evidence|access|opportunit(?:y|ies)|skill gap|learning need|standard|decision owner)\b/i.test(text);
+  return confidenceCure || inventedBiasFinding || dismissesFeedback || unsafeConfrontation || !hasActionableBasis;
+}
+
+function includesLowerExposureRoute(answer) {
+  return /\b(?:in writing|written clarification|private clarification|privately|trusted (?:ally|colleague|person)|support person|representative|union|hr|ethics|ombuds|factual record|document(?:ing|ation)|professional support)\b/i.test(visitorVisibleAnswerText(answer));
+}
+
+function publishesHeldSourceCredit(answer) {
+  return /\b(?:Dorie Clark|Acas|Harvard Business Review|HBR|Ruchika Tulshyan|Jodi-Ann Burey|Basima Tewfik|MIT Sloan|American Psychological Association|APA)\b|https?:\/\/|www\./i.test(visitorVisibleAnswerText(answer));
 }
 
 export const CAREER_WORKSPACE_MATERIALS = Object.freeze({
@@ -42,6 +72,11 @@ const AI_ASSIST_JOBS = Object.freeze({
     why: "This separates observable examples from labels so you can ask what actually needs to change.",
     quick: "Using only the non-confidential feedback and examples I provide, separate observable facts, labels and missing information. Draft up to three clarification questions. Do not invent expectations, motives or a diagnosis. Ask me to check every question against the original wording.",
     workspace: "Help me track feedback, observable examples, open questions, agreed expectations and follow-ups without turning a label into a fact."
+  }),
+  feedback_evidence_access: Object.freeze({
+    label: "Audit the evidence and access",
+    why: "This redirects energy from fixing your confidence to the career move, evidence, genuine gaps, criteria, access and decision owner.",
+    quick: "Interview me one focused question at a time about the career move being delayed. Use only a short non-confidential paraphrase or the smallest redacted excerpt if needed; never request a whole review, personnel file, email chain, HR or investigation material, medical information, or private colleague data, and remind me to check my AI tool's workplace rules. Build exactly: (1) observable feedback or error and its stated work outcome; (2) labels or judgments without an example; (3) known and missing criteria, relevant evidence, needed access and the decision owner; (4) one supported work action, clarification question, access request or mixed plan; (5) one lower-exposure alternative if power, retaliation or safety is unknown; and (6) a note that this information alone does not establish bias or discrimination. Treat comparable application as a private pattern check, not proof or a default accusation. Preserve a supported work issue while separating an unsupported personality label. Do not score confidence, decide I am qualified, invent achievements, or treat your interpretation as proof."
   }),
   conversation_rehearsal: Object.freeze({
     label: "Rehearse the conversation",
@@ -124,8 +159,16 @@ export function careerWorkspaceContinuityNeeded(text) {
   return false;
 }
 
+export function careerPowerRiskPresent(text) {
+  const value = String(text || "").normalize("NFKC");
+  return /\b(?:retaliat(?:e|es|ed|ion|ory)|reprisal|punish(?:es|ed|ment)?|visa|immigration|probation|work permit|work authori[sz]ation|sponsor(?:ship|ed)?)\b/i.test(value) ||
+    /\b(?:keep|lose)\s+my\s+job\b|\b(?:fire|fired|firing|termination|terminated|dismissal|dismissed)\b|\bcontract\b.{0,35}\b(?:renew|renewal|extended|extension)\b|\b(?:pass|fail)\b.{0,35}\b(?:performance\s+)?review\b/i.test(value) ||
+    /\b(?:manager|boss|supervisor)\b.{0,60}\b(?:controls?|decides?|determines?)\b.{0,50}\b(?:pay|salary|compensation|promotion|visa|probation)\b/i.test(value);
+}
+
 const JOB_MATERIALS = Object.freeze({
   feedback_clarification: new Set(["role_description", "exact_feedback_excerpt", "correspondence_excerpt", "decision_notes"]),
+  feedback_evidence_access: new Set(),
   conversation_rehearsal: new Set(["meeting_agenda", "correspondence_excerpt", "decision_notes"]),
   evidence_map: new Set(["role_description", "goals_or_scorecard", "achievement_log", "promotion_criteria", "decision_notes", "portfolio_examples"]),
   workload_priorities: new Set(["goals_or_scorecard", "workload_list", "meeting_agenda", "correspondence_excerpt", "decision_notes"]),
@@ -181,6 +224,15 @@ export const CAREER_GUIDANCE = Object.freeze([
     approach: "Ask for a concrete example, the different behaviour expected and how improvement would be recognised. This is an adaptation for vague feedback, not a diagnosis of bias.",
     limits: "Do not presume the criticism is either justified or discriminatory. Avoid scripts that dismiss all feedback. If direct challenge carries risk, prepare a private clarification or written recap.",
     aiJob: "Organise supplied feedback into observable examples, unanswered questions and proposed clarification questions. Do not invent the manager's expectations."
+  },
+  {
+    id: "feedback-evidence-access",
+    source: { ...HANDOUT, pages: [2, 7, 12, 13] },
+    situation: "Real workplace doubt is being labelled impostor syndrome in a way that redirects the visitor from a career move, or feedback may contain an actual work issue, bias, an access problem or a mixture of them.",
+    original: "I do not think it is imposter syndrome. I think I am being asked to prove myself more often than my colleagues are. Can we look at that instead?",
+    approach: "Treat the feeling as real without locating the syndrome in the woman. Begin with the career move being delayed. Separate an observable work issue and outcome, an unsupported label, stated or missing criteria, available evidence, and the access or opportunity needed to act. Use the flip—whether the same feedback appears to be applied to comparable work—as a private pattern check where evidence exists, never as proof or the default question to a manager. Preserve a supported work issue while separating an unsupported personality label; useful feedback and bias can coexist.",
+    limits: "Do not diagnose the visitor, tell her the feeling is imaginary, presume doubt proves either bias or incompetence, or prescribe confidence work before checking evidence, criteria and access. Do not infer legal discrimination from thin evidence or imply entitlement to confidential comparative information. When power or retaliation risk matters, offer a genuinely lower-exposure route and appropriate human support. A specific skill gap is the next thing to learn, not proof that she is fraudulent.",
+    aiJob: "Use feedback_evidence_access to map the desired career move, criteria, evidence, genuine gaps, unknown standards, access barriers and decision ownership. Do not score confidence or decide the case."
   },
   {
     id: "interruption-credit", source: { ...HANDOUT, pages: [3, 4, 6] },
@@ -253,10 +305,11 @@ For a matched situation:
 - If a missing detail changes the risk/substance, name one focused question in unknowns and give only a safe conditional next step. Do not fill the gap with reassurance.
 - Offer zero or one optional AI preparation task only if it improves this specific action. Select the job that identifies the needed non-confidential inputs, useful output and checks. No invented achievements, estimates, endorsements or employer policies. Rehearsal explores possibilities, not another person's actual thoughts. No unsupported claim that a transcript is consented or safe to upload.
 - When career-relationship-bridges genuinely fits, conversation_rehearsal is the useful bounded AI task: it lets the reader practise the first exchange and a lower-exposure alternative without pretending to predict the other person. Select that quick task rather than null.
+- When feedback-evidence-access genuinely fits, do not debate whether the visitor should feel doubtful or diagnose a syndrome. Begin with the work or career move being delayed. Separate supported evidence, a genuine learning need, unclear or inconsistently applied criteria, unequal access and unknowns. Feedback may be useful, biased or mixed; preserve a supported work issue without accepting an unsupported personality label. Do not declare discrimination from a feeling or one unexplained event. Treat the flip as a private pattern check, not proof or a default question to the manager. Give a written, private, ally-supported or representative-supported lower-exposure option whenever pay, promotion, visa, probation or retaliation power appears. Select feedback_evidence_access rather than a confidence exercise; the service will supply it when you return null.
 - aiAssist is null when it adds work without benefit. Otherwise it uses exactly {"kind":"quick_task","job":"one allowed job ID","materials":[]}. kind may instead be career_workspace. No label, why, instruction or other free-text field is permitted; the service generates every visitor-visible word.
 - Use quick_task for one bounded preparation job and materials must be [].
 - Use career_workspace only when the reader explicitly describes a continuing need: a workspace, tracker, project folder, recurring work, several future steps, or a record to maintain over time. A one-off decision or conversation is quick_task even when its route is decision_or_plan. Select zero to six material IDs from the allowlist below; never invent a material ID. The service independently checks that continuing need, then adds the governed one-question-at-a-time interview, job goal, privacy and output framework.
-- For career_workspace, never tell the reader to add, upload, attach, paste, import, share, provide or copy a document or file. The service supplies the next move itself. Discuss only the uncertainty a material could resolve; the governed workspace will request the smallest permitted redacted excerpt or short summary.
+- In every answer, never tell the reader to add, upload, attach, paste, import, share, provide, copy or send a full document, personnel file, performance review, email chain, HR/investigation material, medical information or private colleague data. The service rejects this across all visitor-visible fields. A workspace may discuss only the uncertainty a permitted material could resolve; the governed workspace will request the smallest permitted redacted excerpt or short summary.
 - A workspace is optional, not homework and not a substitute for answering today's problem. Do not recommend one for every career question.
 - Allowed job IDs: ${Object.keys(AI_ASSIST_JOBS).join(", ")}.
 - Allowed material IDs: ${Object.keys(CAREER_WORKSPACE_MATERIALS).join(", ")}.
@@ -282,9 +335,16 @@ export function validateCareerFields(answer, enabled, route = null) {
   // rehearse the bounded first exchange without predicting the other person.
   // Keep this Worker-owned so a structurally valid model null cannot silently
   // remove the AI-learning part Ali requires from this admitted situation.
-  const value = answer.aiAssist === null && answer.sources.includes("career-relationship-bridges")
-    ? { kind: "quick_task", job: "conversation_rehearsal", materials: [] }
-    : answer.aiAssist;
+  if (requestsProhibitedDocumentTransfer(answer)) return null;
+  if (publishesHeldSourceCredit(answer)) return null;
+  if (answer.sources.includes("feedback-evidence-access") && unsafeFeedbackEvidenceAnswer(answer)) return null;
+  if (answer.sources.includes("feedback-evidence-access") &&
+      route?.careerPowerRisk === true && !includesLowerExposureRoute(answer)) return null;
+  const value = answer.aiAssist === null && answer.sources.includes("feedback-evidence-access")
+    ? { kind: "quick_task", job: "feedback_evidence_access", materials: [] }
+    : answer.aiAssist === null && answer.sources.includes("career-relationship-bridges")
+      ? { kind: "quick_task", job: "conversation_rehearsal", materials: [] }
+      : answer.aiAssist;
   let aiAssist = null;
   if (value !== null) {
     if (!value || typeof value !== "object" || Array.isArray(value) ||
@@ -297,10 +357,11 @@ export function validateCareerFields(answer, enabled, route = null) {
         value.materials.some(id => typeof id !== "string" || !Object.hasOwn(CAREER_WORKSPACE_MATERIALS, id)) ||
         (value.kind === "quick_task" && value.materials.length !== 0)) return null;
     if (value.materials.some(id => !JOB_MATERIALS[value.job].has(id))) return null;
+    if (answer.sources.includes("feedback-evidence-access") &&
+        (value.job !== "feedback_evidence_access" || value.kind !== "quick_task")) return null;
     if (value.kind === "career_workspace" &&
         (route?.task !== "decision_or_plan" || !WORKSPACE_JOBS.has(value.job) ||
          route?.careerWorkspaceContinuity !== true)) return null;
-    if (value.kind === "career_workspace" && requestsWorkspaceDocumentTransfer(answer)) return null;
     const job = AI_ASSIST_JOBS[value.job];
     const clean = { kind: value.kind, job: value.job,
       label: job.label, why: job.why, materials: [...value.materials] };
