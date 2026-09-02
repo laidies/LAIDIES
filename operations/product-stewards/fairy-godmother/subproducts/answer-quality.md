@@ -61,7 +61,11 @@ existing bounded `conversation_rehearsal` quick task if the model returned null.
 The guard does not add a workspace, source credit, document request or
 prediction of the other person's response. Exact local tests pass88/88 plus the
 frozen45-case answer and79-case classifier fixtures. One post-reset real-model
-v8 answer and exact response review are required before a Worker release.
+v8 answer and exact response review are required before a Worker release. Exact
+commit `566a74a0` is pushed; staging version
+`fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100% with all four required secrets
+and the existing Supabase, Durable Object and rate-limit bindings. Production
+remains unchanged.
 
 ## 2026-09-01 — initial public beta limits approved
 

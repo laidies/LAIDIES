@@ -49,7 +49,9 @@ the already-governed `conversation_rehearsal` quick task when the model selects
 the relationship situation, while preserving null for unrelated cases;88/88
 Worker tests and the frozen45/79 fixtures pass. Public per-answer citations remain held because
 source membership alone does not prove that a source supports the generated
-answer.
+answer. Exact v8 commit `566a74a0` is pushed and staging version
+`fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100%; production remains unchanged.
+The next real staging case is scheduled just after the17:00 PDT UTC-day reset.
 
 Career Workspace checkpoint: Ali approved a portable framework that readers
 build in their own AI tool. The public release keeps today's answer first,

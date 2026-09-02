@@ -54,4 +54,7 @@ current account, privacy and workplace settings.
   The new regression and full Worker suite pass88/88; both frozen fixtures pass
   unchanged.
 - Production Worker and Pages were not changed by this failed candidate test.
-  A post-reset real v8 response is still required before promotion.
+  Exact v8 commit `566a74a0` is pushed and staging version
+  `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100% with its four secrets,
+  Supabase, Durable Object and rate-limit bindings present. A post-reset real v8
+  response is still required before promotion.
