@@ -23,6 +23,7 @@ const DATE = DATA.publications.daily.editionDate;
 const FIXED_NOW = new Date(Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000)).toISOString();
 const ISSUE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-daily-issues.json'), 'utf8')).issues.find(item => item.editionDate === DATE);
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
+const CURRENT_DAILY = DATA.stories.find(item => item.id === DATA.publications.daily.issue.storyIds[0]);
 const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
 const ARCHIVE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-archive-index.json'), 'utf8'));
 const readerContractContext = { module: { exports: {} } };
@@ -222,6 +223,12 @@ try {
     check(await value(currentPreview, "!document.querySelector('.ns-miss-jeeves') && !document.querySelector('.ns-concept-week')"), true, "held features cannot bypass service admission through static markup");
     check(await value(currentPreview, "document.querySelectorAll('[data-secondary-for=daily] article').length"), Math.min(3, EXPECTED_LATEST), "only admitted stories from the latest five-day window populate the Latest rail");
     check(await value(currentPreview, `(() => {
+      const link = document.querySelector('[data-secondary-for=daily] article a[href="#${CURRENT_DAILY.slug}"]');
+      const image = link && link.querySelector('img');
+      return !!link && link.textContent.includes(${JSON.stringify(CURRENT_DAILY.headline)}) &&
+        !!image && image.complete && image.naturalWidth > 0;
+    })()`), true, "current daily story appears in Latest with its loaded illustration");
+    check(await value(currentPreview, `(() => {
       const lead = document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent;
       const secondary = Array.from(document.querySelectorAll('[data-secondary-for=daily] article strong'), node => node.textContent);
       return new Set([lead].concat(secondary)).size === 1 + secondary.length;
@@ -247,6 +254,15 @@ try {
     await act(currentPreview, "document.querySelector('.ns-front-desk--lead').click()");
     check(await value(currentPreview, `!!document.querySelector('.ns-article') && !document.querySelector('.ns-daily-issue') && location.hash === ${JSON.stringify('#' + FRONT.slug)}`), true, "Front PAiGE opens its full admitted story in one action");
     currentPreview.close();
+
+    const currentDaily = await openPage(`/newsstand.html#${CURRENT_DAILY.slug}`);
+    check(await value(currentDaily, `(() => {
+      const article = document.querySelector('.ns-article');
+      return !!article && document.querySelector('#ns-story-title').textContent === ${JSON.stringify(CURRENT_DAILY.headline)} &&
+        article.textContent.includes('What This Means For You') &&
+        article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2;
+    })()`), true, "current daily story opens directly with reader consequence and source links");
+    currentDaily.close();
 
     await act(desktop, "document.querySelector('#ns-browse-all').click()");
     check(await value(desktop, "document.querySelector('#ns-search-hint').textContent"), `${ARCHIVE.items.length} back issues available.`, "complete archive opens");
