@@ -320,6 +320,23 @@ complete rendered page still requires local desktop/mobile inspection and a
 separate release decision.
 `ALI DIRECT VISUAL APPROVAL — 2026-09-02`
 
+### Direct tape interaction correction — 2026-09-02
+
+Choosing any released VHS must open its episode details immediately in a
+modal rental-counter dialog over the shelf; it may not silently change content
+below the fold or make the visitor scroll to discover what happened. The
+dialog shows the episode number and name, what the episode is about, its
+learning payoff, and the live Read, Listen and Watch choices. The Start and
+Latest quick routes open the same dialog for their exact episodes.
+
+The dialog must close through a visible Close control or Escape, contain
+keyboard focus while open, and return focus to the control that opened it.
+Direct `#episode-XX` links must open the matching dialog without converting the
+page into a below-fold destination. Closing removes that transient episode hash
+without moving the visitor away from the shelf. The shelf, tape covers and
+incremental multi-shelf model remain unchanged.
+`ALI DIRECT INTERACTION DECISION — 2026-09-02`
+
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
 ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt

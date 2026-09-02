@@ -1,5 +1,41 @@
 # Design QA — room-first building rebuilds
 
+## Chick Flicks immediate episode dialog — 2026-09-02
+
+**Source visual truth**
+
+- Approved store and shelf state: `operations/design-qa/chick-flicks-20260902-v2/06-desktop-counter-1280.png` (1280 × 900 px).
+- Direct interaction authority: `operations/product-stewards/chick-flicks/EXPERIENCE-BRIEF.md`, “Direct tape interaction correction — 2026-09-02”.
+- Combined before/after comparison: `operations/design-qa/chick-flicks-20260902-v3/desktop-before-after-comparison.png` (1280 × 520 px).
+
+**Rendered implementation**
+
+- Desktop Episode 04 dialog: `operations/design-qa/chick-flicks-20260902-v3/desktop-episode-04-dialog-1280x900.png` (1280 × 900 px; 1280 × 900 CSS viewport; density 1).
+- Phone Episode 04 dialog: `operations/design-qa/chick-flicks-20260902-v3/phone-episode-04-dialog-390x844.png` (390 × 844 px; 390 × 844 CSS viewport; density 1).
+- State: Episode 04 selected from the physical shelf with its format dialog open.
+
+**Findings**
+
+- No actionable P0/P1/P2 differences remain. The former P1 interaction defect—selection feedback appearing below the viewport—was removed by presenting the episode details immediately over the shelf.
+- Typography: natural title and sentence case, Jost hierarchy, readable episode title and legible UI labels are retained on both viewports.
+- Spacing/layout: desktop uses a two-column description/action layout; phone stacks three full-width 50px actions without clipping. Document overflow measured 0px at both widths.
+- Colours/tokens: cream paper, deep-ink structure, pink close control, yellow counter sign, cyan edge, sky Listen and mint Watch remain within the bound Homepage/LIBRAiRY palette.
+- Image quality/assets: the approved rental store, shelf and VHS pixels are unchanged beneath the modal. No replacement, approximation or new visible asset was introduced.
+- Copy/content: each episode keeps its exact title, description, learning payoff, state and Read/Listen/Watch routes.
+- Accessibility/interaction: the close control receives focus when opened; the visible Close control and Escape both close; a shelf-triggered close restores focus to the exact tape; direct `#episode-02` opened the correct labelled dialog; body scroll locking prevented an accidental below-fold handoff. The page error log was empty.
+
+**Comparison history**
+
+1. P1 incumbent: selecting a tape changed a rental counter below the shelf, so the visible viewport could appear unchanged.
+2. Fix: replaced the below-fold counter with one native modal dialog, retained four separately labelled episode records, intercepted tape plus Start/Latest routes without anchor scrolling, and added close/focus/history behavior.
+3. Post-fix evidence: the combined desktop comparison makes the immediate feedback change visible; the phone capture shows the full title, description, lesson and all three actions in the governed 390 × 844 viewport.
+
+Focused-region evidence was not separated from the dialog captures because the dialog itself fills the captured desktop and phone regions at readable size; the combined sheet supplies the full-state comparison.
+
+**Primary interactions tested:** shelf tape open, direct episode hash open, visible Close, Escape, focus return, route contents, no horizontal overflow, and no page errors.
+
+final result: passed
+
 Date: 2026-07-23  
 Pages: `post-office.html`, `visitors-centre.html`, `blend-snap.html`,
 `newsstand.html`, `chick-flicks.html`, `maikeover.html`, `luminairy.html`,

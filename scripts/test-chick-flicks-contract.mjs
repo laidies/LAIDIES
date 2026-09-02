@@ -11,6 +11,7 @@ const exists = (file) => fs.existsSync(path.join(root, file));
 const sha256 = (file) => crypto.createHash("sha256").update(bytes(file)).digest("hex");
 const page = read("chick-flicks.html");
 const styles = read("content/chick-flicks.css");
+const behavior = read("content/chick-flicks.js");
 const index = JSON.parse(read("content/episode-index.json"));
 const checks = [];
 const check = (name, fn) => { fn(); checks.push(name); };
@@ -75,6 +76,23 @@ check("four released rental records expose direct format routes", () => {
   }
 });
 
+check("released tapes open an immediate accessible format dialog", () => {
+  assert.match(page, /<dialog class="cf-dialog" id="cf-episode-dialog"/);
+  assert.match(page, /class="cf-dialog__close"[^>]*aria-label="Close episode details"/);
+  assert.doesNotMatch(page, /class="cf-counter"/);
+  for (const number of Object.keys(vhs)) {
+    assert.match(page, new RegExp(`<h3 id="episode-${number}-title"`));
+  }
+  assert.match(behavior, /dialog\.showModal\(\)/);
+  assert.match(behavior, /dialog\.close\(\)/);
+  assert.match(behavior, /event\.key === 'Escape'/);
+  assert.match(behavior, /lastTrigger\?\.focus\(\{ preventScroll: true \}\)/);
+  assert.match(behavior, /requestAnimationFrame\(\(\) => showEpisode\(directEpisode\)\)/);
+  assert.match(behavior, /history\.pushState\(null, '', `#\$\{id\}`\)/);
+  assert.match(styles, /\.cf-dialog::backdrop/);
+  assert.match(styles, /\.chick-flicks-page\.cf-dialog-open\{overflow:hidden\}/);
+});
+
 check("start and latest routes remain immediately available", () => {
   assert.match(page, /class="cf-routebar"/);
   assert.match(page, /href="#episode-01"[\s\S]{0,180}<b>Start with episode 1<\/b>/);
@@ -95,6 +113,7 @@ check("the trailer is accurate and exposes one route", () => {
 check("responsive and keyboard-visible rules preserve the interaction", () => {
   assert.match(styles, /\.cf-tape:focus-visible/);
   assert.match(styles, /\.cf-button:focus-visible/);
+  assert.match(styles, /\.cf-dialog__close:focus-visible/);
   assert.match(styles, /@media\(max-width:920px\)/);
   assert.match(styles, /@media\(max-width:700px\)/);
   assert.match(styles, /@media\(prefers-reduced-motion:reduce\)/);

@@ -10,8 +10,10 @@ late-1990s movie-rental interior. The previous September 2 room is rejected
 because it read as an office. Episodes 01–04 are four exact transparent
 clear-clamshell VHS cases on the real shelves, using the image-led episode title
 family and Ali's selected first LAiDIES-colour successor for Episode 04. Start
-here and Latest remain immediate; every released episode has direct Read,
-Listen and Watch routes; Episode 05 remains inactive without invented art.
+here and Latest remain immediate; choosing any released tape now opens its
+description, learning payoff and Read, Listen and Watch routes in an immediate
+modal rental counter instead of changing content below the fold. Episode 05
+remains inactive without invented art.
 
 After Ali rejected the first candidate's page-specific colour approximation,
 the successor now binds the exact current public Homepage/LIBRAiRY palette and
@@ -20,14 +22,17 @@ panel relationships. Same-viewport reference/candidate comparison plus complete
 sections, no broken images, no horizontal overflow, 48px phone format actions,
 working Start here and Read handoffs, honest Episode 05 and a responsive trailer.
 The masthead filler is removed, ordinary headings use natural rather than
-forced-capital type, the physical shelf is now the catalogue and one selected
-tape moves to the format counter. The approved four-bay shelf repeats as the
+forced-capital type, and the physical shelf is now the catalogue. The modal
+closes through its visible control or Escape, restores focus to the chosen tape,
+preserves the shelf position and supports direct episode hashes. The approved four-bay shelf repeats as the
 season grows instead of shrinking every release into one row; mobile presents
 two cases per shelf row. Static checks pass for exact asset hashes, palette, store/masthead ordering, four
 physical tapes, four format-route triplets, trailer truth, forthcoming state,
 responsive rules and shared release-state copy. The guard was calibrated by
-replacing the Episode 04 VHS path in a scratch page and rejected it. Evidence is
-in `operations/design-qa/chick-flicks-20260902-v2/`. Nothing has been deployed or
+replacing the Episode 04 VHS path in a scratch page and rejected it; the dialog
+boundary is separately calibrated against a page with its native dialog removed.
+Evidence is in `operations/design-qa/chick-flicks-20260902-v2/` and
+`operations/design-qa/chick-flicks-20260902-v3/`. Nothing has been deployed or
 publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
