@@ -30,6 +30,18 @@ preparation task may use `sources:[]` when it needs only the visitor's supplied
 non-confidential inputs, remains explicit about what to verify and invents no
 facts, criteria, outcomes, endorsement or employer policy. Never attach an
 unrelated reference merely to make the AI task valid.
+FAiRY feedback and “impostor syndrome” rule (2026-09-02): the feeling is real,
+but FAiRY must not locate a structural workplace problem inside the woman or
+divert her into a confidence programme. Begin with the career move being
+delayed. Separate supported work issues and genuine skill gaps from unsupported
+personality labels; ask for observable examples, relevant outcomes, explicit
+criteria, evidence, access and the decision owner. Useful feedback and possible
+bias may coexist. Comparable application is a private pattern check, not proof
+or a default accusation. When power or retaliation risk is present, include a
+lower-exposure route. The governed AI lesson is a personal evidence-and-access
+audit in the reader's own tool, using only non-confidential summaries or the
+smallest redacted excerpt; it does not diagnose, determine qualification or
+establish bias/discrimination.
 FAiRY Career Workspace rule (2026-09-01): when an ongoing career situation
 would benefit from a reusable system, FAiRY may offer a portable setup prompt
 for the reader's own AI tool. That tool interviews her one focused question at

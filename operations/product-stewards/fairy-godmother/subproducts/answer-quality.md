@@ -24,14 +24,29 @@ moving target. Useful and biased content can coexist: keep the supported impact
 or gap, reject the unsupported personality label, and never force a false
 all-feedback-is-growth versus all-feedback-is-bias choice.
 
-The private `impostor-label-to-career-evidence` candidate now contains distinct
-words for a manager's confidence label, a real new-skill gap, qualified
-hesitation, inconsistent standards and blocked access. Its proposed AI job is
-an evidence-and-access audit in the reader's own tool—not a confidence score:
-one-question-at-a-time preparation of the target opportunity, criteria,
-evidence, actual gaps, unknowns, access barriers, decision owners and next
-career-advancing action. This is research/specification only. It is not in the
-Worker, has not been model-tested and is not live.
+The released `feedback-evidence-access` path contains distinct treatment for a
+manager's confidence label, a real skill gap, inconsistent standards and
+blocked access. Its AI job is an evidence-and-access audit in the reader's own
+tool—not a confidence score: one-question-at-a-time preparation of the target
+opportunity, criteria, evidence, actual gaps, unknowns, access barriers,
+decision owners and next career-advancing action. It requests only a short
+non-confidential paraphrase or smallest redacted excerpt and does not establish
+bias or discrimination from the information alone.
+
+Production Worker version `6b1f8acd-af03-4594-b911-e84a63a94808` is live at
+100% in deployment `22b34c02-2e3e-4111-9c0d-4683d3612f7d`. A real production
+guest case accepted a genuine numerical error, separated unsupported “too
+emotional” and “executive presence” labels, requested observable examples and
+promotion criteria, supplied a lower-exposure written follow-up and returned
+the governed `feedback_evidence_access` quick task. It spent exactly one guest
+case after validated success. Three corrected actual-model staging answers
+cover a genuine gap, a mixed case and a manager-controlled power-risk case;
+independent artifact-first reviews passed them. The first staging answers were
+held for promising an unbuilt second AI job, calling a preparation map private
+and using glib “fairy dust” language; the Worker now rejects those failures.
+Final tests pass 97/97 plus the frozen 45-case answer and 79-case classifier
+fixtures. This release changes the Worker only; the public FAiRY page/runtime
+bytes and every Pages artifact remain unchanged.
 
 ## 2026-09-02 — practical guidance is routed by problem, not personality
 

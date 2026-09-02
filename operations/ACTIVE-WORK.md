@@ -1,5 +1,30 @@
 # Active work
 
+## 2026-09-02 FAiRY feedback, bias and career evidence — DEPLOYED / PUBLICLY VERIFIED
+
+Production Worker `laidies-fairy-godmother` version
+`6b1f8acd-af03-4594-b911-e84a63a94808` is at100% in deployment
+`22b34c02-2e3e-4111-9c0d-4683d3612f7d`. Exact commits
+`a4255ff6a2f738f3e72918bc74bdfd2955f96c6c` and
+`adcbcc2158ece422a0985d6436e9c5c236910da6` were pushed. The release adds the
+handout-bound `feedback-evidence-access` guidance path and the deterministic
+`feedback_evidence_access` quick task for the reader's own AI. It preserves a
+supported work issue, separates unsupported labels, asks for observable
+examples, role criteria, evidence, access and decision ownership, and requires
+a lower-exposure route when a manager controls employment outcomes. It does
+not diagnose the visitor or declare bias/discrimination from thin evidence.
+
+Final tests pass97/97 plus the frozen45-case answer and79-case classifier
+fixtures; the production upload preserves all four secrets, Supabase, Durable
+Object, rate limiter, Sol classifier, pilot flag and cost limits while omitting
+staging QA bindings. A real live production guest case returned the practical
+mixed-feedback script, promotion questions, written fallback and governed AI
+audit, then spent exactly one case after validation. Live CORS, method and
+invalid-input checks remain typed and no-charge. The canonical public page
+redirects to HTTP200 and still points to this production Worker. No Pages files
+or deployment changed. Full evidence is in
+`product-stewards/fairy-godmother/evidence/feedback-evidence-access-release-2026-09-02.md`.
+
 ## 2026-09-02 Resident referrals and Closet necklaces — DEPLOYED / PUBLICLY VERIFIED FOR THE RELEASED BOUNDARY
 
 Ali required referrals to be live rather than remain a described future loop.
