@@ -7,6 +7,25 @@ The page now moves through one salon arrival, one Post Office intake sheet, and
 one optional consultation. Existing authentication and profile code remains in
 place.
 
+## Identity and continuation — locked 2026-09-02
+
+- The Resident Card is how LAiDIES recognizes a resident. It is not merely a
+  decorative card saved in one browser.
+- The signed-in Resident Card account keeps the Card and the continuation data
+  explicitly admitted by the shared identity contract available across devices,
+  and it owns clear sign-in and sign-out states.
+- MAiKEOVER must explain that relationship in the primary journey: make the Card
+  at the vanity, then sign in through the single Resident Card account desk to
+  keep the supported Card and saves across devices. It must not imply that an
+  unsigned local draft is already synced.
+- A device-local draft may remain as a resilient fallback, but it is secondary
+  state/explanation rather than the product's defining promise.
+- This decision does not authorize a second email intake inside MAiKEOVER,
+  public Card sharing, unadmitted collection sync, avatar generation, or a
+  broader cross-device promise than the currently admitted continuation fields.
+
+Source: Ali direct product clarification, 2026-09-02.
+
 ## Construction grammar
 
 - The dimensional-comic MAiKEOVER vanity establishes the room.
