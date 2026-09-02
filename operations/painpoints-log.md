@@ -14843,3 +14843,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** `daily-issue-story-correction-admission-v1` and its preparation/regression path bind the exact predecessor issue, approved correction evidence, predecessor/successor story hashes and one corrected story ID. The calibrated negative cases reject an unrelated disposition change and unbound story copy. The publisher treats the repair as archive history only and cannot move the live Daily timestamp or rewrite current story data.
 - **Possible Behind the Build angle:** Why fixing the article readers could see still left the old article inside the newspaper they would later search.
 - **Publication status:** PUBLICLY VERIFIED at deployment `2a42f20f-d91d-47b6-8353-740ae3ea3053`; the corrected September 2 issue matches at custom and immutable origins.
+
+## BTB-491 — A complete episode can still disappear when intake records only its lead
+
+- **Date:** 2026-09-02
+- **Area:** NewsStand / AIDB intake and adaptation.
+- **Failure:** The September 1 AIDB edition contained 22 headline and main-episode items, but the prior NewsStand decision did not preserve an explicit disposition for each one. The live issue's single Fable story made the omitted items look considered when the durable intake could not prove that they had been read or rejected.
+- **Root cause:** Intake clustered the edition before completing item-level review. A complete transcript read was treated as evidence of complete editorial disposition even though no exact item count or one-row-per-item ledger was required.
+- **Prevention rule:** Every AIDB edition receipt records its exact headline/main-item count and a separate `KEEP`, `CHANGE` or `DISCARD` decision with reason for every item. Cluster and deduplicate only after this pass. The edition cannot be called complete when any row lacks a disposition.
+- **Durable correction:** `operations/agents/aidb-intelligence-desk/daily/2026-09-02-aidb-2026-09-01-complete-ledger.md` records 22 of 22 decisions, primary-source status, source-versus-interpretation boundaries and the resulting candidate clusters. No public content changed.
+- **Possible Behind the Build angle:** We read all 22 stories—and still lost 21 of them because “read” and “decided” were the same checkbox.
+- **Publication status:** PRIVATE RESEARCH PROCESS REPAIR / NO PUBLICATION.
