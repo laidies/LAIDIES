@@ -13,18 +13,19 @@
 
 ## Current task
 
-- **Status:** VERIFIED LOCALLY
-- **Task:** LUMINAiRY Hannah Fry destination successor for the NewsStand-to-profile relationship.
-- **Task ID:** LUMINAIRY-HANNAH-DESTINATIONS-20260902
-- **Owner:** LUMINAiRY foreground; release remains with the coordinated production owner.
+- **Status:** PUBLICLY VERIFIED
+- **Task:** September 2 NewsStand Latest expansion plus signed Hannah Fry LUMINAiRY destinations.
+- **Task ID:** NEWSSTAND-SEPTEMBER-2-LATEST-20260902
+- **Owner:** NewsStand foreground; Ali retains exact-version approval for Big Picture.
 - **Updated:** 2026-09-02 America/Vancouver
-- **Goal:** A NewsStand reader who follows Hannah Fry into LUMINAiRY can immediately find checked places to read, watch, listen to and follow her work.
-- **Acceptance:** Seven exact destinations are independently checked and action-labelled; the exact changed profile has a renewed offline-signed receipt; the other 42 receipts remain unchanged; claim, browser and NewsStand relationship tests pass; no blind deployment occurs.
-- **Current step:** All local acceptance checks and the independent rendered-card review pass. The scoped successor awaits commit/push and handoff to the current release owner.
-- **Next action:** Reconcile the exact scoped commit with the current production head, preserve unrelated production bytes, then verify custom and immutable public origins before calling the change live.
-- **Repair:** Hannah retains her Cambridge profile and adds BBC AI Confidential, The Rest Is Science, Google DeepMind: The Podcast, YouTube, Instagram and X. `hannahfry.co.uk` is excluded because it currently returns a content-free lander. The runtime now pins a two-key public verification ring so Hannah alone can receive a renewed receipt without rewriting the other 42 admissions; no private signing key is stored in the repository.
-- **Verification:** The calibrated gate rejects an untrusted receipt key. Claim validation passes 43 profiles; the browser suite passes 13/23/7 cards, admission with and without Web Crypto, images, links, keyboard behavior and mobile overflow; the NewsStand relationship suite passes. Forty-two non-Hannah receipt objects are unchanged. This is local evidence, not public verification.
-- **Release boundary:** Work began from exact NewsStand handoff `a58f00edc7ba6a75f2e7e8de9cc9628b7b5a2bc2`. No deployment or production-head overwrite was performed.
+- **Goal:** Publish every September 2 ordinary story that passed exact-source and reader-explanation admission while preserving the corrected issue and every unrelated production byte.
+- **Result:** OpenClaw shared sessions and Anthropic's agentic-incident/reward-hacking continuation are live as separate Latest stories beside the corrected Fable 5.1 story. The OpenAI advertising successor remains HOLD because its issue review found no checksum-bound predecessor relationship. Front PAiGE, Weekly and six service desks are unchanged.
+- **Production:** `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, source label `51aa2c1`, immutable origin `https://64b2bb39.laidies-sunnyvaile.pages.dev`.
+- **Artifact:** `/tmp/laidies-newsstand-sep2-successor.YdnISM`; manifest `/tmp/laidies-newsstand-sep2-successor.YdnISM.manifest.json`; 726 files; identity `2cf8d8c87970b0474507675bfe6a5240a20ab856e35008c609cd815a2cf3dba5`.
+- **Boundary:** Exactly 13 public paths changed: four canonical NewsStand data derivatives, NewsStand page/CSS, two new story images, four signed LUMINAiRY data/runtime paths and `luminairy.html`. All other predecessor bytes were preserved.
+- **Verification:** All 13 changed paths match at the custom and immutable origins. Both origins pass the 55-check NewsStand desktop/390/320 reader suite, including direct image/explanation/source journeys for every current issue story. Both origins pass the LUMINAiRY signed-receipt, 13/23/7-card, link, persistence, keyboard and mobile-overflow suite.
+- **Held:** OpenAI ads successor; Reese Gourley litigation; UCL surgery candidate; AI-responsibility Big Picture; cyber-model and China/CCTV items. None was published or smuggled into the release.
+- **Known unrelated limitation:** Repository-wide validation remains red on the incumbent Big Picture record and 45 missing Episode 3 assets. Native 200% was not repeated against these exact new story bytes; the previously verified NewsStand reader mechanics were preserved.
 
 ## 2026-08-30 NewsStand Daily proving run
 
