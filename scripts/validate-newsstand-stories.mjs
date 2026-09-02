@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { inspectNewsstandLuminairyLinks } from "./lib/newsstand-luminairy-links.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORY_FILE = path.join(ROOT, "content", "newsstand-stories.js");
@@ -222,6 +223,7 @@ if (!Array.isArray(stories)) {
         fail(`${label}: hard-hold topic requires authoritative independent context.`);
       }
     }
+    inspectNewsstandLuminairyLinks(story, { root: ROOT }).errors.forEach((error) => fail(`${label}: ${error}.`));
   });
 }
 

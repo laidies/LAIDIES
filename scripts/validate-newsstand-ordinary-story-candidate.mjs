@@ -6,6 +6,7 @@ import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { inspectProseReviewChain } from "./check-prose-quality-admission.mjs";
 import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
+import { inspectNewsstandLuminairyLinks } from "./lib/newsstand-luminairy-links.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readerContract = createRequire(import.meta.url)("../content/newsstand-reader-contract.js");
@@ -41,6 +42,8 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT } = {}) 
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
   const story = candidate.story;
   if (["headline", "the_story", "laidies_read", "what_this_means"].some(key => typeof story?.[key] !== "string" || !story[key].trim())) throw new Error("ordinary candidate requires headline and complete reader copy");
+  const luminairyLinks = inspectNewsstandLuminairyLinks(story, { root });
+  if (luminairyLinks.errors.length) throw new Error(`ordinary candidate LUMINAiRY links invalid: ${luminairyLinks.errors.join(" | ")}`);
   const publicationBaseRaw = read(root, candidate.publicationBase, "candidate publication base");
   if (!candidate.publicationBase.path.startsWith("operations/product-stewards/newsstand/")) throw new Error("candidate publication base must be frozen private input");
   if (!story || story.edition !== "daily" || story.status !== "hold" || story.publishedAt !== null || String(story.id || "") !== candidate.candidateId || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(story.slug || "") || /^front-paige-/.test(story.id) || vancouverDay(story.updatedAt) !== candidate.editionDate || !story.sourceApproval || story.sourceApproval.status !== "independent-review-required") throw new Error("ordinary candidate story must remain held and date-bound");

@@ -152,6 +152,14 @@ and URLs, access/recheck dates, source-approval state, correction owner,
 edition-specific job proof, explicit uncertainty and correction/retraction
 fields. `LOCKED LEDGER`
 
+When a story names a woman with an admitted LUMINAiRY profile, the story must
+declare her exact profile identity and explain why the link is useful. The full
+article links to that profile card. Her official watch, read, listen, website
+and social destinations belong on the canonical profile rather than being
+copied into individual stories, so one reviewed update fixes every article
+that points to her. Invented profiles and unlinked named matches fail
+publication validation. `ALI CONFIRMED` `APPROVED BRIEF/ARTIFACT`
+
 Primary/official evidence comes first; independent reporting supplies context,
 disagreement and facts interested parties may omit. AIDB is a comparative
 editorial check after the LAiDIES read exists, not automatic authority or
