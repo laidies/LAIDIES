@@ -209,6 +209,7 @@ test('quoted instructions stay untrusted and cannot supply source metadata', asy
 
 test('actual page has no client-side allowance gate and sends every valid attempt to the server ledger', async () => {
   const html = await readFile(new URL('../../games/fairy-godmother.html', import.meta.url), 'utf8');
+  const stagingConfig = JSON.parse(await readFile(new URL('../wrangler.jsonc', import.meta.url), 'utf8'));
   assert.doesNotMatch(html, /laidies_free_wishes_used|shouldShowGate|fairyPreviewGateNotice/);
   assert.match(html, /requestId:\s*crypto\.randomUUID\(\)/);
   assert.match(html, /guestToken:\s*guestToken\(\)/);
@@ -216,4 +217,5 @@ test('actual page has no client-side allowance gate and sends every valid attemp
   assert.match(html, /Build this in your own AI/);
   assert.match(html, /Copy Career Workspace setup/);
   assert.match(html, /does not upload or save those materials in FAiRY/);
+  assert.equal(stagingConfig.vars.CAREER_GUIDANCE_PILOT, '1');
 });
