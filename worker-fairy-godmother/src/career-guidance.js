@@ -8,7 +8,18 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260901-v5";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v6";
+
+const SAFE_WORKSPACE_NEXT_MOVE = "Answer the workspace’s first question with observable facts. If a document would resolve a named uncertainty, add only the smallest permitted, redacted excerpt or a short summary—never a whole file by default.";
+
+function requestsWorkspaceDocumentTransfer(answer) {
+  const visibleText = [answer?.read, answer?.deliverable, answer?.nextMove,
+    ...(Array.isArray(answer?.reasoning) ? answer.reasoning : []),
+    ...(Array.isArray(answer?.assumptions) ? answer.assumptions : []),
+    ...(Array.isArray(answer?.unknowns) ? answer.unknowns : [])]
+    .filter(value => typeof value === "string").join("\n").normalize("NFKC");
+  return /\b(?:add|upload|attach|paste|import|share|provide|copy)\b.{0,60}\b(?:exact\s+|full\s+|whole\s+|complete\s+|entire\s+|all\s+)?(?:documents?|files?|records?|emails?|messages?|cv|resume|résumé)\b/i.test(visibleText);
+}
 
 export const CAREER_WORKSPACE_MATERIALS = Object.freeze({
   role_description: "Your role description or scorecard — only the relevant responsibilities or criteria",
@@ -230,6 +241,7 @@ For a matched situation:
 - aiAssist is null when it adds work without benefit. Otherwise it uses exactly {"kind":"quick_task","job":"one allowed job ID","materials":[]}. kind may instead be career_workspace. No label, why, instruction or other free-text field is permitted; the service generates every visitor-visible word.
 - Use quick_task for one bounded preparation job and materials must be [].
 - Use career_workspace only when the reader explicitly describes a continuing need: a workspace, tracker, project folder, recurring work, several future steps, or a record to maintain over time. A one-off decision or conversation is quick_task even when its route is decision_or_plan. Select zero to six material IDs from the allowlist below; never invent a material ID. The service independently checks that continuing need, then adds the governed one-question-at-a-time interview, job goal, privacy and output framework.
+- For career_workspace, never tell the reader to add, upload, attach, paste, import, share, provide or copy a document or file. The service supplies the next move itself. Discuss only the uncertainty a material could resolve; the governed workspace will request the smallest permitted redacted excerpt or short summary.
 - A workspace is optional, not homework and not a substitute for answering today's problem. Do not recommend one for every career question.
 - Allowed job IDs: ${Object.keys(AI_ASSIST_JOBS).join(", ")}.
 - Allowed material IDs: ${Object.keys(CAREER_WORKSPACE_MATERIALS).join(", ")}.
@@ -267,6 +279,7 @@ export function validateCareerFields(answer, enabled, route = null) {
     if (value.kind === "career_workspace" &&
         (route?.task !== "decision_or_plan" || !WORKSPACE_JOBS.has(value.job) ||
          route?.careerWorkspaceContinuity !== true)) return null;
+    if (value.kind === "career_workspace" && requestsWorkspaceDocumentTransfer(answer)) return null;
     const job = AI_ASSIST_JOBS[value.job];
     const clean = { kind: value.kind, job: value.job,
       label: job.label, why: job.why, materials: [...value.materials] };
@@ -281,7 +294,8 @@ export function validateCareerFields(answer, enabled, route = null) {
     // Do not turn an unverified model selection into a visitor-facing credit.
     // Attribution remains held until source-support/real-answer admission.
     sources: [],
-    aiAssist
+    aiAssist,
+    ...(aiAssist?.kind === "career_workspace" ? { nextMove: SAFE_WORKSPACE_NEXT_MOVE } : {})
   };
 }
 

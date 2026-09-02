@@ -120,6 +120,22 @@ test('a career workspace becomes a portable one-question interview with bounded 
   assert.match(assist.instruction, /Help me prepare for promotion or advancement/);
   assert.equal(assist.materials.length, 4);
   assert.match(assist.materials[0], /role description/i);
+  assert.match(result.data.answer.nextMove, /smallest permitted, redacted excerpt or a short summary/);
+  assert.match(result.data.answer.nextMove, /never a whole file by default/);
+});
+
+test('workspace answers cannot direct a reader to transfer documents or files', async () => {
+  for (const nextMove of [
+    'Add the exact criteria documents or wording you already have, then enter one contribution.',
+    'Upload your promotion documents and I will organise them.',
+    'Paste the full file into the workspace.'
+  ]) {
+    const result = await run({ ...workspaceAnswer, nextMove }, {
+      REQUEST_CLASSIFIER: testClassifier({ task: 'decision_or_plan' })
+    }, { prompt: 'Help me build an ongoing promotion evidence tracker across several future conversations.' });
+    assert.equal(result.data.type, 'service_error');
+    assert.equal(result.writes, 0);
+  }
 });
 
 test('known-bad answer mutations are rejected with zero allowance writes', async () => {
