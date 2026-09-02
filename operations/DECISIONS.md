@@ -41,6 +41,9 @@ workspace is optional, never homework, never a substitute for solving today's
 problem and never generic confidence or "own your power" advice. Current
 privacy, retention, training and employer-approval claims remain the reader's
 tool/account decision and must not be invented.
+The Worker—not the answer model—owns the workspace next move and rejects any
+answer that directs document or file transfer; it may ask only for the smallest
+permitted redacted excerpt or short summary after naming the uncertainty.
 The service must independently require an explicit continuing need in the
 reader's own instruction—a workspace/tracker/project folder, recurring work,
 several future steps or a record to maintain. A one-off decision remains a

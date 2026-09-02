@@ -25,7 +25,7 @@ decisions, not permission to expose private intake.
 ### FAiRY Resident beta — DEPLOYED / PUBLICLY VERIFIED
 
 Production Worker `laidies-fairy-godmother` version
-`1eb0d4ee-dee6-46ef-b5e5-a83a6b00fc97` runs the admitted Sol advice and
+`6472bc3c-4d0b-439e-afd9-4eb67a10fe38` runs the admitted Sol advice and
 classifier path with one guest case or three Resident cases per UTC day, three
 case-bound fittings and a server-side US$10 daily reservation ceiling. A real
 disposable Supabase Resident signed into two independent sessions: successful
@@ -45,20 +45,30 @@ source membership alone does not prove that a source supports the generated
 answer.
 
 Career Workspace checkpoint: Ali approved a portable framework that readers
-build in their own AI tool. A local candidate now keeps today's answer first,
+build in their own AI tool. The public release keeps today's answer first,
 then may offer either a bounded quick task or an optional Career Workspace.
 The answer model selects only an allowlisted job and optional material IDs; the
 Worker deterministically generates every visitor-visible label, explanation and
 prompt, including a one-question-at-a-time interview, minimal/redacted material
 suggestions, practical output sections and the external-tool privacy boundary.
-FAiRY does not accept or save documents. The exact local candidate now passes86 Worker tests, the frozen
+FAiRY does not accept or save documents. An actual model answer exposed one
+privacy contradiction by asking for “exact criteria documents”; independent
+review held it. The successor now deterministically supplies the safe next move
+and rejects any workspace answer that directs document/file transfer, without
+spending a case. The exact release passes87 Worker tests, the frozen
 45-case answer and79-case classifier fixtures, the typed page contract and
 73/73 actual Chromium checks at1280/390/320. The browser fixture renders the
 exact long copied prompt, including its untrusted-document rule. Independent
 artifact review reports no P0/P1 after the free-text, job/material, route and
-continuing-need repairs. Real staging Sol selection/usefulness, genuine200%
-browser zoom, deployment and live verification remain open; none of this local
-evidence is a public result.
+continuing-need repairs. Pages deployment
+`c7bd8441-ca74-47b3-a98f-39b1ebfa3bcd` overlays exactly
+`games/fairy-godmother.html` on the coordinated723-file `fb5b4b02` artifact;
+identity `7139f882567e4884bbd741b2f3d24aab6f10b2e029b5350f59dcba98df9f2db6`.
+Custom/immutable page and protected-path hashes match, and actual rendered
+1280/390/320 fixture journeys pass at both origins. The production Worker CORS
+and no-charge invalid-input journey pass. A second real staging model run was
+blocked by the correctly exhausted guest ledger, so post-repair model
+repeatability and genuine native200% zoom remain explicitly unverified.
 
 ### FAiRY five-situation pilot — historical build and trial record
 

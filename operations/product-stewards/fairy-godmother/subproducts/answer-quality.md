@@ -1,9 +1,9 @@
 # FAiRY Answer Quality & Safety subchampion
 
-## 2026-09-01 — Career Workspace portable-interview candidate
+## 2026-09-02 — Career Workspace portable interview released
 
 Ali approved an optional Career Workspace that readers build in their own AI
-tool. The bounded local candidate extends the existing AI preparation object
+tool. The released system extends the existing AI preparation object
 with two strict kinds: a one-job `quick_task` and an optional
 `career_workspace`. The answer model may select only one allowlisted job and,
 for a workspace, up to six allowlisted material types. The Worker—not the
@@ -15,22 +15,34 @@ excerpt rule and external-tool privacy boundary.
 This is deliberately not a FAiRY upload, document parser, saved case file or
 cross-device workspace. The page only displays and copies the setup prompt; the
 reader's own AI conducts the interview. `aiAssist:null` remains valid and the
-workspace may not replace the immediate answer. Local contract tests include
+workspace may not replace the immediate answer. Contract tests include
 unknown jobs/materials, model-authored free text, quick-task material leakage,
-duplicates and more than six materials. Real Sol selection/usefulness,
-rendered desktop/mobile/accessibility, independent artifact review, deployment
-and live verification remain pending.
+duplicates and more than six materials.
 
 The successor now rejects model-authored labels, rationale or instructions;
 allows only an exact three-field enum selection; enforces job-compatible
 materials; and requires both a `decision_or_plan` route and a continuing need
 stated in the reader's instruction. Thus a one-off Job A versus Job B decision
 cannot be inflated into homework. Anything pasted from a document is explicitly
-untrusted source material, never an instruction for the external AI. Local
-results:86 Worker tests, frozen45-case answer and79-case classifier fixtures,
-typed page contract and73/73 Chromium checks at1280/390/320. Independent exact-
-byte review reports no P0/P1. Real staging-model usefulness, native200% zoom and
-public release verification remain HOLD.
+untrusted source material, never an instruction for the external AI. The first
+real Sol workspace selection was relevant and useful, but independent review
+found one P1 contradiction: its next move asked for “exact criteria documents.”
+The released successor deterministically replaces the workspace next move with
+the smallest permitted redacted excerpt/summary rule and rejects model answers
+that direct document or file transfer. The known-bad answer now fails without
+an allowance write.
+
+Release results:87 Worker tests, frozen45-case answer and79-case classifier
+fixtures, typed page contract and73/73 local Chromium checks. Production Worker
+version `6472bc3c-4d0b-439e-afd9-4eb67a10fe38` is at100% with the preserved
+production secrets, ledger, rate limiter and Supabase bindings. Pages deployment
+`c7bd8441-ca74-47b3-a98f-39b1ebfa3bcd` changes exactly
+`games/fairy-godmother.html` from coordinated predecessor `fb5b4b02` and
+preserves722 files. Custom and immutable origins match the exact artifact for
+FAiRY plus protected Learn, NewsStand, Library, Resident and KSVL paths. Actual
+1280/390/320 rendered fixture journeys pass at both origins with zero overflow.
+Post-repair live-model repeatability and genuine native200% zoom remain HOLD;
+the staging guest ledger correctly refused another case rather than being reset.
 
 ## 2026-09-01 — initial public beta limits approved
 
