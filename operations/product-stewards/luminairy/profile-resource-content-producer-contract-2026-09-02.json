@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "laidies-content-producer-contract.v1",
+  "candidateId": "LUMINAIRY-ALL-PROFILE-RESOURCES-20260902",
+  "surface": "The LUMINAiRY MAiVEN and Trailblazer cards",
+  "contentClass": "REFERENCE",
+  "producer": "luminairy-product-owner",
+  "status": "READY_TO_DRAFT",
+  "readerContract": {
+    "humanQuestion": "Who is this woman, what did or does she contribute to computing or AI, what useful lesson can I take from that work, and where can I encounter her work directly?",
+    "promisedPayoff": "Each card gives a concise, source-bounded answer and useful verified routes to read, watch, listen to or follow the woman's work without sending the reader to dead, parked, fan or impersonator pages.",
+    "priorKnowledge": "No technical background or familiarity with the person is assumed.",
+    "centralMentalModel": "The profile separates three things: an evidenced contribution or current role, LAiDIES' clearly labelled practical interpretation, and verified destinations where the reader can encounter the person's work herself.",
+    "dailyLifeConnection": "The lesson translates one specific contribution into a decision the reader can recognise in ordinary AI use, work or digital life without pretending the subject personally endorses that interpretation.",
+    "surfaceJob": "A compact reference card, not a biography, ranking, fan page or exhaustive bibliography.",
+    "desiredFeeling": "I understand why she is here, I learned one memorable thing, and I know where to go next."
+  },
+  "canonicalTruth": [
+    {
+      "claimId": "LUMINAIRY-CANON",
+      "owner": "voice",
+      "freshnessTrigger": "Any change to the roster, wing jobs, spelling, retired names or profile roles.",
+      "source": {
+        "path": "operations/voice/laidies-canon-index.md",
+        "sha256": "439421a4f42180ea16191c66e775b205d685b6059a6eea2a88404a114398267c"
+      }
+    },
+    {
+      "claimId": "LUMINAIRY-EXISTING-SOURCE-BOUNDARIES",
+      "owner": "luminairy-research",
+      "freshnessTrigger": "Before drafting and whenever a current role, affiliation, destination or source changes.",
+      "source": {
+        "path": "operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md",
+        "sha256": "99bb954d9ebdbbbf2e8ecf95df4a96f0ab17f46689e3d8ce3d624d5410749c59"
+      }
+    },
+    {
+      "claimId": "LUMINAIRY-30-PERSON-COVERAGE",
+      "owner": "luminairy-product-owner",
+      "freshnessTrigger": "Any profile, batch, image, claim, receipt or resource-coverage change.",
+      "source": {
+        "path": "operations/product-stewards/luminairy/profile-resource-coverage-ledger-2026-09-02.md",
+        "sha256": "8343308ff01dbb334e80678bed0ab4be1ec65979350e549bc38981ccd7b44807"
+      }
+    }
+  ],
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "strengthsToUse": [
+        "Answer the reader's practical question directly in plain language.",
+        "State boundaries without turning the answer into defensive policy prose.",
+        "Connect a precise fact to a useful next move."
+      ],
+      "patternsNotToCopy": [
+        "Do not expand compact cards into chapters or FAQs.",
+        "Do not copy its examples, metaphors or structural length.",
+        "Do not use a general explanation as evidence for a person-specific claim."
+      ]
+    }
+  ],
+  "knownFailurePreflight": {
+    "registryVersion": "laidies-content-quality-exemplars.v1",
+    "registrySha256": "c1d2aeb63b325bd56c2be5fc7bc7387f1087168a22ee43f5d11fceeae2dbfa90",
+    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002"],
+    "dispositions": {
+      "glossaryAccumulation": {"status": "CLEAR", "producerGuard": "Define only the contribution needed for this woman's lesson.", "preventionEvidence": "Each card has one bounded about sentence and one lesson."},
+      "templateRepetition": {"status": "CLEAR", "producerGuard": "Keep fields consistent but let each contribution determine the sentence and lesson.", "preventionEvidence": "Lessons must remain person-specific and cannot be interchangeable."},
+      "decorativeAnalogy": {"status": "CLEAR", "producerGuard": "No analogy is required or pre-authorized.", "preventionEvidence": "Profile facts and direct practical interpretations carry the card."},
+      "referenceConfetti": {"status": "CLEAR", "producerGuard": "Include destinations because they lead to the person's work, never as decoration.", "preventionEvidence": "Every URL receives a Read, Watch, Listen or Follow job and identity check."},
+      "missingMechanism": {"status": "CLEAR", "producerGuard": "The lesson names the specific technical or organizational relationship the contribution reveals.", "preventionEvidence": "Generic inspiration and fame statements are rejected."},
+      "genericAction": {"status": "CLEAR", "producerGuard": "The lesson changes a concrete reader decision or observation.", "preventionEvidence": "Interchangeable advice such as learn more or be careful is prohibited."},
+      "jargonBeforeMeaning": {"status": "CLEAR", "producerGuard": "Name the human-visible contribution before specialist terminology.", "preventionEvidence": "No prior technical knowledge is assumed."},
+      "disconnectedSystem": {"status": "CLEAR", "producerGuard": "Connect the person's contribution to the relevant part of computing, AI or its institutions.", "preventionEvidence": "About and lesson are reviewed together, not as isolated fields."},
+      "joylessInstruction": {"status": "CLEAR", "producerGuard": "Write concise, warm and adult prose with a memorable practical distinction.", "preventionEvidence": "The card is a useful introduction rather than a compliance note."},
+      "purposeTooNarrow": {"status": "CLEAR", "producerGuard": "Do not reduce a career to one product claim; state only the bounded contribution needed here.", "preventionEvidence": "The surface job is explicitly compact reference, not biography."},
+      "mechanismBeforeMotivation": {"status": "CLEAR", "producerGuard": "Begin with why the contribution matters before any necessary technical term.", "preventionEvidence": "The reader question governs the about sentence."},
+      "workedExampleOvertakesBookPurpose": {"status": "CLEAR", "producerGuard": "A micro-example may clarify a lesson but cannot become the person's identity.", "preventionEvidence": "Each card remains two concise meaning-bearing sentences."},
+      "technicalExplainerVoice": {"status": "CLEAR", "producerGuard": "Use plain, confident reference prose rather than system-document language.", "preventionEvidence": "Implementation, signing and review mechanics stay out of visitor copy."}
+    },
+    "knownDefectsRemaining": []
+  },
+  "draftArchitecture": {
+    "plainAnswer": "Each woman is here for a specific evidenced contribution; LAiDIES makes its practical meaning memorable and gives the reader direct, checked routes into her work.",
+    "causalSequence": [
+      "Verify the exact contribution or current role from a primary or authoritative source.",
+      "Explain the relevant consequence in one bounded about sentence.",
+      "Translate that contribution into one distinct LAiDIES lesson without presenting it as her quotation or endorsement.",
+      "Offer only useful destinations whose ownership and current availability were verified."
+    ],
+    "workedCase": "Ada Lovelace's card distinguishes the documented Bernoulli-number algorithm in her Notes from the overbroad title first programmer, then connects precise sequences to what a program actually is.",
+    "transferCase": "A reader opening a present-day Trailblazer card can distinguish a current organizational role from a prior appointment and follow an official route to the work rather than a stale biography.",
+    "usefulAction": "Choose one Read, Watch, Listen or Follow route and inspect the person's work directly, while retaining the card's one practical distinction.",
+    "analogyPlan": [],
+    "humourPlan": {"noneReason": "These compact real-person profiles need clarity, specificity and respect more than a joke."},
+    "formatSpecificStructure": "Name and role label; one bounded about sentence; one distinct LAiDIES lesson; portrait; action-typed resource links; visible checked date.",
+    "antiTemplateDecision": "Consistent fields support scanning, but no fixed quota of links, generic admiration sentence or interchangeable lesson is permitted."
+  },
+  "communicationDesign": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "Use the benchmark only to make one invisible contribution and its human consequence clear in a compact reference card; never imitate Hannah Fry's voice, persona or programme structure.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": {"disposition": "APPLY", "reason": "The reader needs to know why this person is in the room.", "plannedEvidence": "The about sentence answers what she contributed or currently does."},
+      "usefulCuriosity": {"disposition": "NOT_APPLICABLE", "reason": "A compact reference card should answer directly rather than manufacture suspense."},
+      "invisibleProcessConcrete": {"disposition": "APPLY", "reason": "Many contributions concern invisible software, statistical or institutional mechanisms.", "plannedEvidence": "The lesson names the concrete relationship the reader should notice."},
+      "familiarTechnicalMovement": {"disposition": "APPLY", "reason": "The lesson must connect a specialist contribution to ordinary AI or work decisions.", "plannedEvidence": "Each lesson returns from the contribution to one recognizable practical consequence."},
+      "limitationsConsequences": {"disposition": "APPLY", "reason": "Boundaries prevent first, inventor and current-role overclaims.", "plannedEvidence": "Evidence records retain scopes and rejected wording; visitor copy stays bounded."},
+      "humourSurprise": {"disposition": "NOT_APPLICABLE", "reason": "Humour is not needed to perform this reference-card job."},
+      "betterNextQuestion": {"disposition": "APPLY", "reason": "The card should lead into direct engagement with her work.", "plannedEvidence": "Verified action links let the reader choose what to read, watch, listen to or follow next."}
+    },
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": ["human reason", "concrete mechanism", "limitation", "better next question"],
+      "adaptation": "Compress the arc into an about sentence, a practical lesson and direct destination links; do not inflate the card into a lecture."
+    }
+  },
+  "representativeProofPlan": {
+    "highestRisk": "A polished resource card can still spread a stale role, flatten a nuanced historical claim, use an unsuitable portrait or send readers to an unofficial account.",
+    "plannedProof": "Complete Batch 1 end to end: five exact portraits, bounded historical/current claims, distinct lessons, verified and rejected destinations, per-profile evidence hashes, renewed receipts and rendered desktop/mobile checks.",
+    "acceptanceOutcome": "All five Batch 1 cards pass independent source/content/image review and fail closed when any profile hash, receipt key or evidence binding changes; no Saint or unrelated byte changes."
+  },
+  "ratchet": {
+    "targets": {
+      "repeatedKnownDefects": 0,
+      "objectiveDefectsFirstFoundAtReview": 0
+    },
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  }
+}
