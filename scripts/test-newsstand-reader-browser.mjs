@@ -22,6 +22,7 @@ const DATA = dataContext.window.NEWSSTAND_DATA;
 const DATE = DATA.publications.daily.editionDate;
 const FIXED_NOW = new Date(Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000)).toISOString();
 const ISSUE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-daily-issues.json'), 'utf8')).issues.find(item => item.editionDate === DATE);
+const ISSUE_DAILY = (ISSUE?.storyIds || []).map(id => DATA.stories.find(story => story.id === id)).filter(Boolean);
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
 const CURRENT_DAILY = DATA.stories.find(item => item.id === DATA.publications.daily.issue.storyIds[0]);
 const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
@@ -228,6 +229,11 @@ try {
       return !!link && link.textContent.includes(${JSON.stringify(CURRENT_DAILY.headline)}) &&
         !!image && image.complete && image.naturalWidth > 0;
     })()`), true, "current daily story appears in Latest with its loaded illustration");
+    check(await value(currentPreview, `(() => ${JSON.stringify(ISSUE_DAILY.map(story => ({ slug: story.slug, headline: story.headline })))}.every(story => {
+      const link = document.querySelector('[data-secondary-for=daily] article a[href="#' + story.slug + '"]');
+      const image = link && link.querySelector('img');
+      return !!link && link.textContent.includes(story.headline) && !!image && image.complete && image.naturalWidth > 0;
+    }))()`), true, "every story in the admitted current issue appears in Latest with its loaded illustration");
     check(await value(currentPreview, `(() => {
       const lead = document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent;
       const secondary = Array.from(document.querySelectorAll('[data-secondary-for=daily] article strong'), node => node.textContent);
@@ -263,6 +269,18 @@ try {
         article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2;
     })()`), true, "current daily story opens directly with reader consequence and source links");
     currentDaily.close();
+
+    for (const story of ISSUE_DAILY) {
+      const articlePage = await openPage(`/newsstand.html#${story.slug}`);
+      check(await value(articlePage, `(() => {
+        const article = document.querySelector('.ns-article');
+        return !!article && document.querySelector('#ns-story-title').textContent === ${JSON.stringify(story.headline)} &&
+          article.textContent.includes('What This Means For You') &&
+          article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2 &&
+          !!article.querySelector('.ns-article__hero img');
+      })()`), true, `admitted issue story ${story.id} opens directly with its image, explanation and source links`);
+      articlePage.close();
+    }
 
     await act(desktop, "document.querySelector('#ns-browse-all').click()");
     check(await value(desktop, "document.querySelector('#ns-search-hint').textContent"), `${ARCHIVE.items.length} back issues available.`, "complete archive opens");
