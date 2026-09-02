@@ -60,12 +60,14 @@ governed relationship source is selected, deterministically supplies the
 existing bounded `conversation_rehearsal` quick task if the model returned null.
 The guard does not add a workspace, source credit, document request or
 prediction of the other person's response. Exact local tests pass88/88 plus the
-frozen45-case answer and79-case classifier fixtures. One post-reset real-model
-v8 answer and exact response review are required before a Worker release. Exact
+frozen45-case answer and79-case classifier fixtures. The real authenticated-QA
+v8 answer passed the exact response review. Exact
 commit `566a74a0` is pushed; staging version
 `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100% with all four required secrets
 and the existing Supabase, Durable Object and rate-limit bindings. Production
-remains unchanged.
+version `823d830f-1e8d-462f-9eda-3d7831e78c59` is now at100% with the four
+production secrets and existing bindings preserved; no staging QA flag or
+secret is present.
 
 Ali correctly challenged the need to wait for a public guest reset to perform
 authorized staging evaluation. The successor adds a staging-only secret QA
@@ -74,8 +76,9 @@ atomic Durable Object ledger, per-call budget reservation and shared US$10 daily
 provider ceiling. The QA header is absent from browser CORS and cannot increase
 allowance unless both the staging flag and secret are configured. The calibrated
 flag-off test proves the same header remains an ordinary one-case guest in the
-production-shaped environment. Full Worker tests pass90/90; real staging use is
-next.
+production-shaped environment. Full Worker tests pass90/90. The settled
+staging QA call returned `allowance.kind=qa`, preserved the practical response
+and included the governed rehearsal task. Production no-charge checks pass.
 
 ## 2026-09-01 — initial public beta limits approved
 

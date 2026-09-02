@@ -40,25 +40,32 @@ budget during paid evaluation and is not the public endpoint.
 
 The current career pilot uses Ali's handout-derived scenarios and bounded
 source principles. A source-bound Dorie Clark relationship-building record is
-implemented in the local v8 successor and remains out of production until its
-post-reset real-model answer is reviewed. The first v7 real staging answer on
+implemented in released v8. The first v7 real staging answer on
 2September gave a specific bounded outreach script, follow-up sequence and
 honest sponsorship limits, but returned `aiAssist:null`; that misses Ali's
-required AI-learning link and keeps v7 on HOLD. V8 deterministically supplies
+required AI-learning link and kept v7 on HOLD. V8 deterministically supplies
 the already-governed `conversation_rehearsal` quick task when the model selects
 the relationship situation, while preserving null for unrelated cases;88/88
-Worker tests and the frozen45/79 fixtures pass. Public per-answer citations remain held because
+Worker tests and the frozen45/79 fixtures pass. The real authenticated-QA v8
+answer retained the practical invitation/follow-up and returned the governed
+AI rehearsal card with no prediction, document transfer, false familiarity or
+outcome promise. Public per-answer citations remain held because
 source membership alone does not prove that a source supports the generated
 answer. Exact v8 commit `566a74a0` is pushed and staging version
 `fb35f837-dcc6-4e9f-afa3-e6b7180aae9b` is at100%; production remains unchanged.
-The next real staging case is scheduled just after the17:00 PDT UTC-day reset.
+Production Worker version `823d830f-1e8d-462f-9eda-3d7831e78c59` is at100%.
+Exact binding inspection preserves the four production secrets, Supabase,
+Durable Object, rate limiter, pilot flag and US$10 cap while omitting both
+staging QA bindings. Live CORS, method and invalid-input no-charge checks pass;
+the public FAiRY page/runtime remain byte-identical to the verified Pages
+release. No Pages deployment occurred.
 Ali rejected waiting on a public-style guest reset for authorized staging QA.
 The local successor now has a secret-header staging-only QA identity with a
 separate three-case actor allowance while retaining the same rate limiter,
 atomic ledger and shared daily provider ceiling. Without the staging flag the
 header remains an ordinary guest and cannot increase allowance.90/90 Worker
-tests and dry-run bindings pass; production remains unchanged pending the real
-QA-authenticated v8 response.
+tests and dry-run bindings pass. The authenticated QA response and production
+promotion above close this hold.
 
 Career Workspace checkpoint: Ali approved a portable framework that readers
 build in their own AI tool. The public release keeps today's answer first,

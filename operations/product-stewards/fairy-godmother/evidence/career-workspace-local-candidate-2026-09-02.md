@@ -72,4 +72,21 @@ current account, privacy and workplace settings.
   production-shaped environment leaves the caller on the ordinary one-case
   guest path. An invalid enabled token returns401 before provider use.
 - Full Worker suite passes90/90 and the Wrangler dry run exposes the staging
-  flag but no secret value. Production remains unchanged.
+  flag but no secret value.
+- Cloudflare secret propagation was not immediate. The first post-update call
+  reached the older identity path and returned an ordinary guest receipt; an
+  immediate token check then correctly failed. After propagation settled, the
+  authenticated call returned `allowance.kind=qa`, daily limit3 and remaining2.
+  Release evidence uses the settled QA receipt, not the earlier guest result.
+- The exact real v8 answer gives a bounded 20-minute invitation, reciprocal
+  exchange, permission-based follow-up and no sponsorship promise. Its
+  `conversation_rehearsal` card uses only supplied facts, explicitly stays
+  hypothetical and forbids predicting motives or responses.
+- Inactive production version `823d830f-1e8d-462f-9eda-3d7831e78c59` preserved
+  all four production secrets and every existing Supabase, Durable Object,
+  rate-limit, pilot and budget binding while omitting the staging QA flag and
+  secret. It was then deployed at100%.
+- Live production OPTIONS200, GET405/no-spend and invalid-input400/no-spend
+  checks pass. Public FAiRY HTML SHA-256 remains `a60c78ac…47e`; runtime remains
+  `fdc769b7…112`, exactly matching the verified Pages artifact. No Pages
+  deployment occurred.
