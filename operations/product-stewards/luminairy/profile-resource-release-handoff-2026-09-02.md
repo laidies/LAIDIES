@@ -59,4 +59,6 @@ The exact changed paths are:
 
 The exact overlay passes the complete LUMINAiRY browser matrix: 13/23/7 rendering; all 30 exact destination sets; 12 available Saint songs with Carrie's correctly deferred; signed admission with and without Web Crypto; all portraits; keyboard use; local-save success and failure; desktop, 390 and 320 widths; and no horizontal overflow. Private-dependency inspection also passes.
 
+Independent release-scope review recomputed both artifact identities from the real bytes and passed the exact boundary: 9 additions, 6 modifications, 0 deletions and all 720 retained base paths hash-identical. The reviewer also reran the full browser matrix against the prepared artifact and confirmed that its public profile data is byte-identical to the committed source.
+
 No Cloudflare upload or deployment was made. The production owner must coordinate a Pages slot, confirm the provider head is still `64b2bb39-ab9e-40f1-9dd1-d595b14ccdb5`, deploy the exact artifact identity above rather than rebuilding it, and verify all 15 changed paths plus the LUMINAiRY interaction journeys at both immutable and custom origins. Any provider-head change invalidates this release handoff and requires rebasing the same 15-path overlay onto the newly recovered exact artifact.
