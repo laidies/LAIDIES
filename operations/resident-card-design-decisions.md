@@ -26,6 +26,21 @@ place.
 
 Source: Ali direct product clarification, 2026-09-02.
 
+## MAiKEOVER palette correction — locked 2026-09-02
+
+- Mauve cabinetry and dusty mauve/plum room treatments are rejected for
+  MAiKEOVER. Increasing their saturation does not make them current.
+- The page follows the current electric 1990s UI system: near-black navy
+  structure with hot pink, electric teal, saturated purple/periwinkle and coral
+  used as controlled accents. The vanity may use vivid coral/raspberry lacquer
+  and dark navy rather than a mauve base.
+- Pink and lilac may appear as a visitor-selected Resident Card finish or other
+  bounded choice; that does not authorize mauve as the room's structural
+  palette.
+
+Source: Ali direct correction, 2026-09-02; `operations/DECISIONS.md` palette
+authority.
+
 ## Construction grammar
 
 - The dimensional-comic MAiKEOVER vanity establishes the room.
