@@ -69,7 +69,18 @@ const permissiveScope = write('permissive-scope.json', {
 });
 result = run(base, added, permissiveScope);
 assert.notEqual(result.status, 0);
-assert.match(result.stderr, /may modify but not add or remove/);
+assert.match(result.stderr, /may not remove or add undeclared/);
+
+const explicitAssetScope = write('explicit-asset-scope.json', {
+  schema: 'laidies.newsstand-production-scope.v1',
+  project: 'laidies-sunnyvaile',
+  allowedArtifactPaths: ['newsstand.html', 'content/newsstand-stories.js', 'new-public-file.html'],
+  allowedAddedArtifactPaths: ['new-public-file.html'],
+  verificationPaths: ['index.html'],
+});
+result = run(base, added, explicitAssetScope);
+assert.equal(result.status, 0, result.stderr);
+assert.match(result.stdout, /new-public-file\.html/);
 
 result = run(base, base, scope);
 assert.notEqual(result.status, 0);
@@ -104,4 +115,4 @@ assert.match(result.stdout, /build-report\.json/);
 assert.match(result.stdout, /content\/daily-edition-columns\.json/);
 assert.match(result.stdout, /content\/newsstand-daily-issues\.json/);
 
-console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · deterministic build metadata may accompany exact NewsStand changes but cannot create a release · unrelated mutation, public addition and no-op candidate rejected');
+console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · deterministic build metadata may accompany exact NewsStand changes but cannot create a release · explicitly declared asset addition admitted · unrelated mutation, undeclared public addition and no-op candidate rejected');

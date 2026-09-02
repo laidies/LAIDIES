@@ -34,6 +34,11 @@ const normalized = value => {
 
 const allowed = new Set(scope.allowedArtifactPaths.map(normalized));
 if (allowed.size !== scope.allowedArtifactPaths.length) throw new Error('duplicate allowed artifact path');
+const allowedAdded = new Set((scope.allowedAddedArtifactPaths || []).map(normalized));
+if (allowedAdded.size !== (scope.allowedAddedArtifactPaths || []).length) throw new Error('duplicate allowed added artifact path');
+for (const artifactPath of allowedAdded) {
+  if (!allowed.has(artifactPath)) throw new Error(`allowed added artifact path is outside NewsStand scope: ${artifactPath}`);
+}
 
 const toMap = (manifest, label) => {
   if (!Array.isArray(manifest.files) || manifest.files.length === 0) throw new Error(`${label} artifact has no files`);
@@ -71,9 +76,9 @@ const outsideScope = changes.filter(change => !allowed.has(change.path));
 if (outsideScope.length) {
   throw new Error(`candidate changes public files outside NewsStand scope: ${outsideScope.map(change => change.path).join(', ')}`);
 }
-const structural = changes.filter(change => change.kind !== 'MODIFIED');
+const structural = changes.filter(change => change.kind === 'REMOVED' || (change.kind === 'ADDED' && !allowedAdded.has(change.path)));
 if (structural.length) {
-  throw new Error(`NewsStand release may modify but not add or remove public files: ${structural.map(change => change.path).join(', ')}`);
+  throw new Error(`NewsStand release may modify files and add explicitly declared assets, but may not remove or add undeclared public files: ${structural.map(change => change.path).join(', ')}`);
 }
 
 for (const verificationPath of scope.verificationPaths || []) {
