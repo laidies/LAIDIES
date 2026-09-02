@@ -1,5 +1,16 @@
 # Active work
 
+## 2026-09-02 NewsStand dated-issue correction
+
+- **Status:** PUBLICLY VERIFIED.
+- **Task:** Reconcile the corrected Fable 5.1 article with the September 2 dated Daily issue without changing the Weekly, Front PAiGE, service desks, current story data or unrelated site bytes.
+- **Source commit:** `99214e35f0ff1a47a6bf26eeee6eca9b7452f9ff`.
+- **Production:** `2a42f20f-d91d-47b6-8353-740ae3ea3053`, source label `99214e3`, immutable origin `https://2a42f20f.laidies-sunnyvaile.pages.dev`.
+- **Artifact:** `/tmp/laidies-newsstand-issue-correction-successor.bEfTXz`; manifest `/tmp/laidies-newsstand-issue-correction-successor.bEfTXz.manifest.json`; 724 files; identity `5238efcc57f0b8b7b65c81c5f9a9644681cef0ff3c9a4f8379c1187bffd9a4b6`.
+- **Boundary:** Exactly `content/newsstand-daily-issues.json` changed in the public artifact; 723 files were byte-preserved. Weekly remains `weekly-accountable-systems-2026-08-24`, Front PAiGE remains `front-paige-accountable-systems-2026-08-24`, and all six carried service records retain their original identities and order.
+- **Verification:** Custom and immutable origins return the candidate hash `adafc8e14b6ad47e422133d07e72ef7a831f2d40025168b1593eee195384523e`. Live desktop and 390px archive journeys show the approved reader-fit headline and explanation, no rejected `pay-by-token`, `25%` or broad ordinary-work copy, no horizontal overflow and zero immutable-origin browser errors.
+- **Known unrelated limitation:** The repository-wide precommit hook remains red on 45 missing Episode 3 images. The bounded NewsStand tests and calibrated correction rejection cases pass; no Episode files were changed.
+
 ## Current task
 
 - **Status:** VERIFIED LOCALLY
