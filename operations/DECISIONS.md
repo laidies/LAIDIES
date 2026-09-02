@@ -44,6 +44,12 @@ tool/account decision and must not be invented.
 The Worker—not the answer model—owns the workspace next move and rejects any
 answer that directs document or file transfer; it may ask only for the smallest
 permitted redacted excerpt or short summary after naming the uncertainty.
+When the answer model selects the governed `career-relationship-bridges`
+situation, the Worker also owns the missing AI-learning link: if the model
+returns `aiAssist:null`, the service supplies the already-governed bounded
+`conversation_rehearsal` quick task. This does not create a universal AI task
+for every career answer; unrelated or genuinely unhelpful cases may still use
+null.
 The service must independently require an explicit continuing need in the
 reader's own instruction—a workspace/tracker/project folder, recurring work,
 several future steps or a record to maintain. A one-off decision remains a

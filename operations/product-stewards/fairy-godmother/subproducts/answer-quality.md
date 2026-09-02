@@ -47,13 +47,21 @@ now passes on the live custom origin: prompt/actions visible without clipping,
 keyboard focus reaches the54px primary action with a visible outline, then the
 browser was restored to100% and the synthetic field cleared.
 
-The next source-bank candidate is local-only v7: `career-relationship-bridges`
+The source-bank candidate is now local-only v8: `career-relationship-bridges`
 uses Dorie Clark's current primary “Building Bridges For Your Career” page only
 for a genuine bounded professional conversation and consistent engagement over
 time. It explicitly does not treat relationship-building as sponsorship, repair
 blocked access/unfair criteria with networking, or promise visibility or
-promotion. Exact contract tests pass; one post-reset real-model answer and
-independent answer review are required before a Worker release.
+promotion. A real v7 staging answer on2September passed those advice limits and
+gave usable words plus a concrete follow-up sequence, but returned no optional
+AI task. That is a product miss because Ali explicitly requires the AI-learning
+link. V8 keeps the model's usefulness choice for ordinary cases but, when the
+governed relationship source is selected, deterministically supplies the
+existing bounded `conversation_rehearsal` quick task if the model returned null.
+The guard does not add a workspace, source credit, document request or
+prediction of the other person's response. Exact local tests pass88/88 plus the
+frozen45-case answer and79-case classifier fixtures. One post-reset real-model
+v8 answer and exact response review are required before a Worker release.
 
 ## 2026-09-01 — initial public beta limits approved
 

@@ -34,3 +34,24 @@ visible, the primary action is keyboard-reachable with a visible focus outline,
 and Chrome was restored to100% afterward. A copied prompt can reduce but cannot prove another AI product
 will resist every adversarial document; the reader must still check that tool's
 current account, privacy and workplace settings.
+
+## 2 September relationship-guidance successor
+
+- Staging v7 returned one real `case_success` at `2026-09-02T21:11:20Z` for the
+  bounded professional-relationship scenario. The response gave a specific
+  invitation, two-question conversation plan, permission-based follow-up and
+  explicit no-instant-sponsorship boundary. It invented no familiarity or
+  outcome and did not prescribe networking as a repair for unfair access.
+- The same response returned `aiAssist:null`. Because Ali requires a useful AI
+  learning/task in this scenario, v7 remains HOLD and was not promoted.
+- Local v8 adds no new visitor-facing prose. When the model selects
+  `career-relationship-bridges` but returns a null assist, the Worker supplies
+  the already-governed `conversation_rehearsal` quick task. Other situations
+  may still return null. Exact local v8 source SHA-256 is
+  `c30579adb9eecc31f6417988a782ce0a0339a899a63ccd0a502b5c8f806d7672`;
+  test SHA-256 is
+  `be6fd4786e7891fd31b37257f73b5354d0064533cce4f3505f76bfb11b77a2ee`.
+  The new regression and full Worker suite pass88/88; both frozen fixtures pass
+  unchanged.
+- Production Worker and Pages were not changed by this failed candidate test.
+  A post-reset real v8 response is still required before promotion.

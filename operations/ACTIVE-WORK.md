@@ -40,8 +40,14 @@ budget during paid evaluation and is not the public endpoint.
 
 The current career pilot uses Ali's handout-derived scenarios and bounded
 source principles. A source-bound Dorie Clark relationship-building record is
-implemented in local v7 only and remains out of production until its real-model
-answer is reviewed. Public per-answer citations remain held because
+implemented in the local v8 successor and remains out of production until its
+post-reset real-model answer is reviewed. The first v7 real staging answer on
+2September gave a specific bounded outreach script, follow-up sequence and
+honest sponsorship limits, but returned `aiAssist:null`; that misses Ali's
+required AI-learning link and keeps v7 on HOLD. V8 deterministically supplies
+the already-governed `conversation_rehearsal` quick task when the model selects
+the relationship situation, while preserving null for unrelated cases;88/88
+Worker tests and the frozen45/79 fixtures pass. Public per-answer citations remain held because
 source membership alone does not prove that a source supports the generated
 answer.
 

@@ -8,7 +8,7 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v7";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v8";
 
 const SAFE_WORKSPACE_NEXT_MOVE = "Answer the workspace’s first question with observable facts. If a document would resolve a named uncertainty, add only the smallest permitted, redacted excerpt or a short summary—never a whole file by default.";
 
@@ -252,6 +252,7 @@ For a matched situation:
 - References support an approach, not a script proven to work. Adapt to supplied facts; source original examples are not mandatory or always safe. Do not impersonate authors or say what an expert would say.
 - If a missing detail changes the risk/substance, name one focused question in unknowns and give only a safe conditional next step. Do not fill the gap with reassurance.
 - Offer zero or one optional AI preparation task only if it improves this specific action. Select the job that identifies the needed non-confidential inputs, useful output and checks. No invented achievements, estimates, endorsements or employer policies. Rehearsal explores possibilities, not another person's actual thoughts. No unsupported claim that a transcript is consented or safe to upload.
+- When career-relationship-bridges genuinely fits, conversation_rehearsal is the useful bounded AI task: it lets the reader practise the first exchange and a lower-exposure alternative without pretending to predict the other person. Select that quick task rather than null.
 - aiAssist is null when it adds work without benefit. Otherwise it uses exactly {"kind":"quick_task","job":"one allowed job ID","materials":[]}. kind may instead be career_workspace. No label, why, instruction or other free-text field is permitted; the service generates every visitor-visible word.
 - Use quick_task for one bounded preparation job and materials must be [].
 - Use career_workspace only when the reader explicitly describes a continuing need: a workspace, tracker, project folder, recurring work, several future steps, or a record to maintain over time. A one-off decision or conversation is quick_task even when its route is decision_or_plan. Select zero to six material IDs from the allowlist below; never invent a material ID. The service independently checks that continuing need, then adds the governed one-question-at-a-time interview, job goal, privacy and output framework.
@@ -277,9 +278,15 @@ export function validateCareerFields(answer, enabled, route = null) {
       new Set(answer.sources).size !== answer.sources.length) return null;
   const records = answer.sources.map(id => CAREER_GUIDANCE.find(record => record.id === id));
   if (records.some(record => !record)) return null;
+  // A relationship-building answer has one already-governed, useful AI lesson:
+  // rehearse the bounded first exchange without predicting the other person.
+  // Keep this Worker-owned so a structurally valid model null cannot silently
+  // remove the AI-learning part Ali requires from this admitted situation.
+  const value = answer.aiAssist === null && answer.sources.includes("career-relationship-bridges")
+    ? { kind: "quick_task", job: "conversation_rehearsal", materials: [] }
+    : answer.aiAssist;
   let aiAssist = null;
-  if (answer.aiAssist !== null) {
-    const value = answer.aiAssist;
+  if (value !== null) {
     if (!value || typeof value !== "object" || Array.isArray(value) ||
         Object.keys(value).length !== 3 ||
         Object.keys(value).some(key => !["kind", "job", "materials"].includes(key)) ||

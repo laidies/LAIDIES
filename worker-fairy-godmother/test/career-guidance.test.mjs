@@ -100,6 +100,21 @@ test('no matching reference and no useful AI task are valid outcomes', async () 
   }
 });
 
+test('relationship guidance always includes the bounded AI rehearsal lesson', async () => {
+  const result = await run({
+    ...fixtureAnswer,
+    sources: ['career-relationship-bridges'],
+    aiAssist: null
+  });
+  assert.equal(result.data.type, 'case_success');
+  assert.equal(result.data.answer.aiAssist.kind, 'quick_task');
+  assert.equal(result.data.answer.aiAssist.job, 'conversation_rehearsal');
+  assert.equal(result.data.answer.aiAssist.label, 'Rehearse the conversation');
+  assert.match(result.data.answer.aiAssist.instruction, /clearly hypothetical rehearsal/);
+  assert.match(result.data.answer.aiAssist.instruction, /Do not predict the other person's actual response/);
+  assert.deepEqual(result.data.answer.aiAssist.materials, []);
+});
+
 test('a useful grounded AI preparation task does not need a forced reference match', async () => {
   const result = await run({ ...fixtureAnswer, sources: [] });
   assert.equal(result.data.type, 'case_success');
