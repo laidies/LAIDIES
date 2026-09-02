@@ -1,6 +1,6 @@
 # Matron Lumen identity successor — verification
 
-Status: **LOCAL INTERNAL PILOT, VISUALLY ADMITTED, NOT WIRED, NOT PUSHED, NOT DEPLOYED**
+Status: **OWNER-APPROVED IDENTITY, NOT WIRED, NOT PUSHED, NOT DEPLOYED**
 
 ## Exact pilot
 
@@ -42,9 +42,10 @@ SUNNYVAiLE specificity; give her vivid individual 1999 styling and show her
 lighting a real candle; prohibit every old priestess cue, generated text and
 fantasy or anatomy drift.
 
-## Remaining after Ali's verdict
+## Owner verdict and remaining work
 
-If Ali accepts this identity, adapt it into one LUMINAiRY page placement first,
-preserving the admitted room and real responsive crops. Only then re-bind the
-episode intro pair, trading card, prompt authorities, episode reference manifest
-and other old-source consumers. If Ali rejects it, none of those surfaces move.
+Ali approved the exact pilot on 2026-09-02. Adapt it into one LUMINAiRY page
+placement first, preserving the admitted room and real responsive crops. Only
+after that placement is separately approved may the episode intro pair, trading
+card, prompt authorities, episode reference manifest and other old-source
+consumers be re-bound. No consumer moved as part of the identity approval.

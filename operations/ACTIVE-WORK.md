@@ -1129,3 +1129,11 @@ objective; every open lane keeps its own checkpoint.
   manifest, an episode cue, Canva animation or CapCut assembly.
 - **Truth boundary:** this checkpoint authorizes no intro/outro export, episode
   assembly, Watch binding, deployment, publication or public verification.
+
+### 2026-09-02 Matron Lumen identity approval checkpoint
+
+- **Current state:** `IDENTITY APPROVED / LUMINAiRY PAGE ADAPTATION NEXT / NOT WIRED OR DEPLOYED`.
+- **Approved artifact:** `assets/town-characters/candidates-20260901/matron-lumen-sunnyvaile-identity-pilot-v1.png`, SHA-256 `eda5ad20cbad72f60de9036238caddf244c07f7786b85123c157b133f6ed9f85`.
+- **Locked identity:** older South Asian woman with asymmetric silver-streaked curls, raspberry cat-eye glasses, wry warmth, raspberry velvet blazer, peacock geometric blouse, bangles, earrings, keys and practical candle-tending action. The fantasy-priestess predecessor remains rejected.
+- **Next action:** adapt this exact identity into one LUMINAiRY page placement, preserve the admitted room and responsive crops, and return that exact layout for Ali’s separate approval before rebinding any episode, card, prompt, manifest or shared-reference consumer.
+- **Truth boundary:** no consumer, page source, push, deployment or public byte changed with this identity approval.

@@ -1,6 +1,15 @@
 # Matron Lumen identity successor — 2026-09-01
 
-Status: **INTERNAL IDENTITY PILOT — NO CONSUMER OR RELEASE AUTHORITY**
+Status: **OWNER-APPROVED IDENTITY — CONSUMER ADAPTATIONS STILL REQUIRE REVIEW**
+
+## Owner approval
+
+Ali approved the exact pilot on 2026-09-02:
+`assets/town-characters/candidates-20260901/matron-lumen-sunnyvaile-identity-pilot-v1.png`
+at SHA-256 `eda5ad20cbad72f60de9036238caddf244c07f7786b85123c157b133f6ed9f85`.
+This image now governs Matron Lumen's face, hair, glasses, expression, wardrobe
+and practical lantern-keeper character. It does not by itself approve a page,
+episode pair, trading card, prompt reference, push or deployment.
 
 ## User decision
 

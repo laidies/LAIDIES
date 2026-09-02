@@ -14516,7 +14516,8 @@ authority and Welcome sign v3 are admitted.
   a candle station. No consumer changes until Ali accepts the identity.
 - **Possible Behind the Build angle:** We had designed a lantern-keeper's
   costume before we designed the woman wearing it.
-- **Publication status:** INTERNAL IDENTITY PILOT / NOT WIRED / NOT DEPLOYED.
+- **Publication status:** EXACT IDENTITY PILOT APPROVED BY ALI 2026-09-02 /
+  CONSUMER ADAPTATIONS NOT YET APPROVED / NOT WIRED / NOT DEPLOYED.
 
 ## BTB-487 — “Inspired by” is not likeness evidence
 
