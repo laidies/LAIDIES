@@ -14854,3 +14854,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** `operations/agents/aidb-intelligence-desk/daily/2026-09-02-aidb-2026-09-01-complete-ledger.md` records 22 of 22 decisions, primary-source status, source-versus-interpretation boundaries and the resulting candidate clusters. No public content changed.
 - **Possible Behind the Build angle:** We read all 22 stories—and still lost 21 of them because “read” and “decided” were the same checkbox.
 - **Publication status:** PRIVATE RESEARCH PROCESS REPAIR / NO PUBLICATION.
+
+## BTB-492 — A cross-product link is incomplete if the destination profile is a dead end
+
+- **Date:** 2026-09-02
+- **Area:** NewsStand and LUMINAiRY editorial relationships.
+- **Failure:** NewsStand could link a reader to a named LUMINAiRY woman while her profile offered only a single institutional biography, leaving no clear route to watch, read, listen to or follow her current work. Adding URLs directly would also mutate checksum-bound profile bytes and invalidate the existing signed admission.
+- **Root cause:** The two products governed their own links but had no shared relationship contract, and the profile receipt boundary had no scoped key-renewal path for one independently reviewed profile.
+- **Prevention rule:** When NewsStand coverage relates to a woman in LUMINAiRY, link to her exact profile. That profile supplies independently checked destinations labelled by reader action — Read, Watch, Listen or Follow — where applicable; exclude content-free landers. Any destination, label or freshness change must update the exact profile hash and receive a renewed offline signature. Pin new public verification keys in code; never accept a key merely because the editable receipt manifest names it.
+- **Durable correction:** Hannah Fry's profile now retains her Cambridge profile and adds six checked official destinations: BBC AI Confidential, The Rest Is Science, Google DeepMind: The Podcast, YouTube, Instagram and X. `hannahfry.co.uk` is excluded as a content-free lander. A Hannah-only renewed receipt is admitted through a pinned two-key public ring while the other 42 receipt objects remain unchanged. Claim, browser and NewsStand relationship tests pass locally; release and public-origin verification remain pending coordinated production-head reconciliation.
+- **Possible Behind the Build angle:** Why “link to her profile” was only half a reader journey — and how signed content makes even a useful URL change an editorial release.
+- **Publication status:** VERIFIED LOCALLY / NOT DEPLOYED.

@@ -59,7 +59,8 @@ async function run() {
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /purpose-first-v1$/, "purpose-first successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /mobile-heading-1$/, "the current mobile-heading successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260902-r4$/, "the renewed Hannah receipt must load the matching two-key admission gate");
     assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted interaction script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
@@ -134,6 +135,15 @@ async function run() {
     assert.deepEqual(await imageFailures(page), [], "all Maven images must decode");
     assert.ok(await page.locator(".lum-card__link").count() >= 23, "every Maven needs a source/work link");
     assert.match(await page.locator("#lumWingKicker").textContent(), /dark sapphire/i);
+    const hannahCard = page.locator(".lum-card", { hasText: "Hannah Fry" });
+    assert.equal(await hannahCard.locator(".lum-card__link").count(), 7, "Hannah Fry needs one evidence link plus six verified watch, listen, and follow destinations");
+    for (const label of [
+      "Read Cambridge profile", "Watch AI Confidential", "Listen to The Rest Is Science",
+      "Listen to Google DeepMind: The Podcast", "Watch Hannah Fry on YouTube",
+      "Follow Hannah Fry on Instagram", "Follow Hannah Fry on X"
+    ]) {
+      assert.equal(await hannahCard.getByRole("link", { name: new RegExp(label, "i") }).count(), 1, `Hannah Fry resource missing: ${label}`);
+    }
 
     await page.locator("#lumSearch").fill("privacy");
     assert.ok(await page.locator(".lum-card").count() >= 2, "search should find more than one privacy-related Maven");
