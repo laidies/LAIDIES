@@ -1,5 +1,17 @@
 # Active work
 
+## 2026-09-03 NewsStand Daily cycle
+
+- **Status:** HOLD — RESEARCH COMPLETE / NO PUBLICATION.
+- **Task:** Run the September 3 Vancouver NewsStand source-to-publication cycle without treating review-blocked news as a quiet day.
+- **Research result:** OpenAI's September 1 `Path to Astra` cybersecurity update and its ChatGPT for Healthcare data-connections announcement are material ordinary-story candidates. Both remain private HOLD pending the exact independent evidence and editorial gates recorded in `operations/agents/aidb-intelligence-desk/daily/2026-09-03.md`. AIDB had no edition newer than September 1; that complete 22-item edition was already reconciled on September 2.
+- **Private issue:** `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-03.json`, envelope SHA-256 `2041f624247a82c3fc04c5e7367433953bf0c77e0da6d416b3729e04277daca7`, disposition `CANDIDATES_PENDING_REVIEW`. It preserves Front PAiGE `front-paige-accountable-systems-2026-08-24` and Weekly `weekly-accountable-systems-2026-08-24`; it was not admitted, promoted or published.
+- **Official-index continuity:** A per-index high-water record was initialized at `operations/agents/aidb-intelligence-desk/sources/official-release-high-water.json` because the prior system state did not provide a trustworthy current marker for each official provider index.
+- **Publication blockers:** The service-bank check fails closed on stale `mme-jelly-sandal` producer and independent-review registry hashes; the current production predecessor does not yet have the proof required to carry its service desks into a new dated issue; the promoter fixture cannot resolve `scripts/lib/newsstand-luminairy-links.mjs`; and the publisher fixture rejects its stale envelope admission checksum/date. Six other scoped NewsStand regression suites pass.
+- **Production observation:** The provider head observed during the cycle was `41cf460f-5ae9-4550-8303-6527e81a37b4`. No complete production artifact was recovered because no candidate cleared admission and no release was attempted. Recheck the provider before any successor release.
+- **Public result:** No canonical data, public bytes, deployment or live NewsStand behavior changed. Native 200% and public-origin journeys were not rerun because there was no releasable visitor delta.
+- **Open intake defect:** The governed roster still lacks permanent authoritative legal/accountability and medical/public-benefit routes. The new six-desk ledger exposes this gap but does not itself repair the recurring source roster or prove retrospective catch fixtures.
+
 ## 2026-09-02 NewsStand dated-issue correction
 
 - **Status:** PUBLICLY VERIFIED.

@@ -14876,3 +14876,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The ads successor remains HOLD with its exact independent issue verdict and private image preserved. The released issue contains only the two separately admitted successors. The returning-state fixture now waits for repaired state and both required reader elements; it failed repeatedly on the immutable origin before the bounded timing repair and then passed both origins. Every current issue story now receives its own live image, full-article, reader-consequence and source-link journey.
 - **Possible Behind the Build angle:** Why “we said it was a follow-up” was not enough—and why a flaky test can be telling the truth about the test rather than the page.
 - **Publication status:** TWO STORIES PUBLICLY VERIFIED / ADS SUCCESSOR HELD.
+
+## BTB-494 — A source sweep can look complete while entire public-interest desks have no route
+
+- **Date:** 2026-09-03
+- **Area:** NewsStand source intake, official release continuity and daily issue admission.
+- **Failure:** The daily roster could check AI-industry releases and newsletters yet still had no permanent authoritative route for courts/accountability or medicine/public benefit. Its prior state also lacked a reliable high-water mark for each official provider index. A release could therefore be missed or a whole public-interest desk could go unchecked while the cycle appeared complete.
+- **Root cause:** Source cadence was governed by publication rather than by the six reader-relevant evidence desks. Provider checks recorded run activity without preserving one exact newest-seen URL and date per official index.
+- **Prevention rule:** Every cycle begins with exact official-index high-water comparison, then records a six-desk coverage ledger for accountability, medicine/public benefit, product releases, work/economy, security and material contrary evidence. A desk with no governed source route is an explicit intake defect, not a quiet result; every consequential candidate receives a disposition.
+- **Durable correction:** September 3 initializes the official-index high-water record and a complete daily coverage ledger. This is only the first bounded safeguard: permanent legal and medical source routes plus calibrated retrospective fixtures for the Gourley litigation and UCL surgery remain open and must be implemented before the intake defect can be called fixed.
+- **Possible Behind the Build angle:** The newspaper did not miss two stories because nobody searched; it missed them because its map of where news comes from had blank neighbourhoods.
+- **Publication status:** INTERNAL PROCESS REPAIR / NO PUBLICATION.
