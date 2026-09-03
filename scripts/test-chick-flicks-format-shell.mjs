@@ -18,7 +18,9 @@ assert.match(watch, /id="playerFallbackCover"/);
 assert.match(watch, /resumePanel\.hidden = true/);
 assert.match(watch, /playerFallbackCover\.hidden = false/);
 assert.match(watch, /class="screening-extras"/);
-assert.match(watch, /Everything in this episode/);
+assert.match(watch, /Special features/);
+assert.doesNotMatch(watch, /screening-departures/);
+assert.doesNotMatch(watch, /After the credits/);
 for (const route of ['blend-snap.html#the-study-pack', 'radio.html', 'sorority-house.html', 'learn/quiz.html']) {
   assert.match(watch, new RegExp(route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 }
@@ -43,7 +45,8 @@ assert.match(watchCss, /\.screening-arrival-play\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play__icon\s*\{/);
 assert.match(watchCss, /grid-template-columns:\s*4\.8rem minmax\(0, 1fr\)/);
 assert.match(watchCss, /\.screening-extras\s*\{/);
+assert.match(watchCss, /\.screening-extras\s*\{[^}]*background:\s*var\(--screen-midnight\)/s);
 assert.match(watchCss, /\.screening-room-page \.player-status p\s*\{/);
-assert.match(watchCss, /\.screening-departures\s*\{[^}]*background:\s*var\(--screen-paper\)/s);
+assert.doesNotMatch(watchCss, /\.screening-departures\s*\{/);
 
 console.log('CHICK FLICKS FORMAT SHELL PASS');

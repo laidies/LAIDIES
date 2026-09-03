@@ -63,6 +63,13 @@ Listen and Watch now expose the same Read, Study Pack, Song, Cocktail, Rooms and
 Quiz continuations as each reading page. If episode data fails, the player keeps
 the selected VHS visible, hides stale resume controls and offers one readable
 retry instead of leaving a black void.
+Ali rejected that corrected-but-still-generic treatment: two large white card
+grids read as a dashboard rather than a video store. The duplicate `After the
+credits` grid is now removed entirely. The six useful routes remain together in
+one compact deep-navy `Special features` rack, with pink, cyan, yellow, purple,
+mint and coral tape-label tiles. At 390px the rack becomes a two-column, three-row
+layout; all six destinations remain visible, there is no white tile and the page
+has zero horizontal overflow.
 
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-qa/chick-flicks-20260902-v3/`,

@@ -397,7 +397,10 @@ approved Chick Flicks VHS case; it may not fall back to an older widescreen
 episode poster. The Listen and Watch pages also repeat the read version's
 `Everything in this episode` continuations—Read, Study Pack, Song, Cocktail,
 Rooms and Quiz—so the visitor does not have to open the article merely to find
-those routes. A playback failure keeps the approved VHS visible, removes stale
+those routes. These continuations are one compact, deep-navy `Special features`
+rack with six saturated LAiDIES-colour tiles. A second oversized white
+`After the credits` card grid, white tiles, duplicated Read/Return destinations
+and dashboard-like empty space are prohibited. A playback failure keeps the approved VHS visible, removes stale
 resume competition and presents one readable retry action. Watch keeps a dark,
 focused player stage. Do not flatten
 the three formats into one identical template, return to a sparse generic navy

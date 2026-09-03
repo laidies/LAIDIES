@@ -207,7 +207,7 @@
     .chap:hover, .chap.is-now { opacity: 1; }
     main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260902-4">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260902-5">
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -325,10 +325,10 @@
       </div>
     </section>
 
-    <section class="screening-extras" aria-labelledby="screeningExtrasTitle">
+    <section class="screening-extras" id="episode-extras" aria-labelledby="screeningExtrasTitle">
       <div class="screening-extras__heading">
         <p>More from this tape</p>
-        <h2 id="screeningExtrasTitle">Everything in this episode</h2>
+        <h2 id="screeningExtrasTitle">Special features</h2>
       </div>
       <nav class="screening-extras__links" aria-label="Episode links">
         <a id="extraRead" href="/issues/issue-01.html"><span>Read</span><b>Full written episode</b></a>
@@ -338,14 +338,7 @@
         <a href="/sorority-house.html"><span>Rooms</span><b>Delta LAi Nu discussions</b></a>
         <a href="/learn/quiz.html"><span>Quiz</span><b>Check what you learned</b></a>
       </nav>
-    </section>
-
-    <section class="screening-departures" aria-label="After the screening">
-      <p class="screening-departures-label">After the credits</p>
-      <a href="/chick-flicks.html"><span>Return the tape</span><b>The Chick Flicks</b></a>
-      <a href="/issues/issue-01.html" id="screeningArticleLink"><span>Read the issue</span><b>Open the full story</b></a>
-      <a href="/handbook.html"><span>Take it with you</span><b>The LA<span class="ai">i</span>DIES Handbook</b></a>
-      <p class="scr-note" id="scrNote">Choose Watch or Listen when the programme is ready.</p>
+      <p class="screening-extras__note" id="scrNote">Choose Watch or Listen when the programme is ready.</p>
     </section>
   </main>
 
@@ -598,7 +591,7 @@
       if (isCurrent) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
-    var screeningArticleLink = document.getElementById('screeningArticleLink');
+    var screeningArticleLink = extraRead;
     if (screeningArticleLink) {
       screeningArticleLink.href = ep === 'trailer'
         ? '/issues/issue-trailer.html'

@@ -45,6 +45,9 @@ final result: passed
 - User-rejected footer contrast:
   `operations/design-audit/chick-flicks-listen-control-20260902/rejected-footer-contrast.png`
   — 2152 × 784 pixels.
+- User-rejected white dashboard treatment:
+  `operations/design-audit/chick-flicks-listen-control-20260902/rejected-white-card-extras.png`
+  — 2162 × 1430 pixels.
 - Approved episode identity:
   `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png`.
 
@@ -67,6 +70,12 @@ final result: passed
   390 × 844.
 - Place-label correction after Ali rejected the invented room number:
   `operations/design-audit/chick-flicks-listen-control-20260902/corrected-chick-flicks-eyebrow.png`.
+- Video-store extras successor:
+  `operations/design-audit/chick-flicks-listen-control-20260902/corrected-video-store-extras-2162x1430.png`
+  from a 2162 × 1430 CSS viewport; the browser capture is 2162 × 1304 pixels at
+  density 1. Phone evidence is `corrected-video-store-extras-mobile.png` at
+  390 × 844. The normalized rejected/corrected comparison is
+  `white-cards-to-video-store-comparison.jpg`.
 
 ### Findings and comparison history
 
@@ -85,6 +94,13 @@ final result: passed
 - **P1 fixed — after-credits text disappeared on the actual pale background.**
   The corrected same-viewport capture shows deep ink on cream with a dark
   border; the footer copyright is also dark on the pale ground.
+- **P1 fixed — making the white cards readable still left a generic dashboard.**
+  The rejected 2162 × 1430 capture had two oversized white grids, duplicated
+  Read/Return actions and large unused card interiors. The successor removes
+  `After the credits` entirely and keeps the six useful links in one compact
+  deep-navy `Special features` rack with saturated tape-label tiles. The
+  normalized side-by-side comparison shows the reduction from two pale grids
+  to one store-specific unit.
 - **P1 fixed — Listen hid the useful continuation routes behind Read.** Every
   Episode 01–04 Listen route now has six visible destinations: Read, Study
   Pack, Song, Cocktail, Rooms and Quiz. Episode 04 preserves the exact song and
@@ -106,6 +122,10 @@ final result: passed
   navigation, spans the content column and remains a 358 × 96px action at the
   390px viewport; the six-link grid is three across on desktop and two across
   on phone; all four phone routes reported zero horizontal overflow.
+- **Lower-section density:** the six destinations are three by two on desktop
+  and two by three at 390px. The phone rack is 358px wide, has zero page
+  overflow and replaces the duplicate departure grid with one short playback
+  note.
 - **Colour/tokens:** footer foreground/background computed as deep ink
   `rgb(5, 8, 23)` on cream `rgb(255, 248, 255)`; selected Listen and Resume
   computed as mint `rgb(125, 226, 194)`.
@@ -123,6 +143,9 @@ final result: passed
   overflow or broken visible images.
 - Episode 04 Play, Pause/Resume and Watch switching passed; Watch hides the
   audio-first arrival button and keeps the six continuation links.
+- The rebuilt `Special features` rack exposes six visible episode-specific
+  destinations with zero white tiles, zero `After the credits` component and
+  zero browser errors.
 - Browser diagnostics reported zero page errors; Plausible emitted only its
   expected localhost warning.
 - A deliberate offline reload was attempted to reproduce the user screenshot,
