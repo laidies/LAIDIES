@@ -1,5 +1,25 @@
 # Active work
 
+## 2026-09-02 FAiRY practical career script bank — DEPLOYED / PUBLICLY VERIFIED
+
+Production Worker `laidies-fairy-godmother` version
+`2fbf221a-6d7d-4e74-88d0-2069b177631f` is at 100% in deployment
+`403d3fc6-6c51-46d2-bb7f-dc89f8d682fa`. It adds five source-bound routes:
+professional conversation follow-through, leader-created conditions for early
+risk, a small reversible career experiment, a specific feedback request with a
+real return point, and whole-package job-offer negotiation. Each route requires
+a matching situation and receives one exact Worker-owned AI preparation job.
+
+Final tests pass 99/99 plus frozen 45-answer and 79-classifier fixtures. Two
+independent exact-output reviews found no P0/P1. The P2 repairs make the career
+experiment genuinely small, distinguish observation/report/assumption, remove
+arbitrary numeric pass thresholds and reject feedback pauses that quietly end
+the return commitment. A real production offer case returned the practical
+script and `offer_package` task, then spent one guest case after validation.
+Live no-charge checks and the canonical HTTP-200 page/Worker connection pass.
+No Pages bytes or deployment changed. Evidence:
+`product-stewards/fairy-godmother/evidence/practical-career-script-bank-release-2026-09-02.md`.
+
 ## 2026-09-02 FAiRY feedback, bias and career evidence — DEPLOYED / PUBLICLY VERIFIED
 
 Production Worker `laidies-fairy-godmother` version

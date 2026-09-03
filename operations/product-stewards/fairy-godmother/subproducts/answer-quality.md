@@ -1,5 +1,24 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-09-02 — five additional practical routes are live
+
+The earlier private research candidates for professional follow-through,
+leader-led dissent, small career experiments, specific feedback requests and
+whole-package offer negotiation are now source-bound runtime routes in
+production Worker version `2fbf221a-6d7d-4e74-88d0-2069b177631f`. Each route
+requires a situation match and receives one exact Worker-owned AI preparation
+job; the model cannot substitute a generic confidence exercise.
+
+Actual-model and adversarial testing changed the product before release. The
+career experiment now begins with a 60-to-90-minute solo minimum, separates
+observation, another person's report and assumptions, and uses patterns rather
+than an invented numerical pass threshold. A feedback answer that offered to
+end without a return point is now rejected before allowance spend. The live
+offer case uses only the actual written package and honest priorities, with no
+invented competing offer, salary data, law, employer policy or promised
+flexibility. Named-expert credit remains held; source support guides the route
+without becoming decorative public authority.
+
 ## 2026-09-02 — the feelings are real; the woman is not the syndrome
 
 Ali's governing FAiRY rule is that workplace doubt is real, but calling women's

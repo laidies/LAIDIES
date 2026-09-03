@@ -15031,3 +15031,23 @@ while remaining falsely unfinished in the launch record.
 - **Finding:** FAiRY's deterministic AI-task schema and unit tests passed, but the first actual-model feedback answers still promised an unbuilt second AI rehearsal job, called a preparation map “private” without controlling the reader's external tool, and used glib “fairy dust” language for a consequential workplace problem.
 - **Prevention:** Preserve and independently read actual-model staging prose before release. Reject visitor-visible promises of jobs the selected task cannot perform, privacy claims the product cannot make and decorative metaphors that trivialise the situation. Keep the useful structure—observable issue, outcome, unsupported labels, criteria, evidence, access, decision owner, supported action and lower-exposure option—server-owned. A case is spent only after the corrected answer passes these gates.
 - **Possible Behind the Build angle:** Why a perfectly shaped AI response can still give the wrong lesson—and how testing the actual words caught it before launch.
+
+## 2026-09-02 — Practical advice fails in the optional sentence too
+
+- **Finding:** Five source-matched FAiRY answers passed their structural contract
+  and independent review, yet later actual-model checks exposed three small
+  shortcuts with large practical consequences: a caregiving-constrained career
+  experiment expanded into a seven-step project, a feedback answer appended an
+  optional pause that ended the return commitment, and a career test invented a
+  numerical pass threshold. A natural phrase, “move into service design,” also
+  missed the route check even though “career change” matched.
+- **Prevention:** Review the entire visitor-visible answer, including optional
+  alternatives and decision rules. Bind minimum viable scope, distinguish
+  observation/report/assumption, reject unsupported score thresholds and require
+  feedback pauses to retain a real return point. Test ordinary synonyms against
+  the deterministic route guard. When a model violates one of those rules,
+  reproduce the exact phrase as a negative test and reject it before allowance
+  spend.
+- **Possible Behind the Build angle:** The main script was useful; the throwaway
+  “optional” paragraph broke the lesson. Why trustworthy AI products test every
+  sentence, not just the headline answer.
