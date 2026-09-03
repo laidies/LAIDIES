@@ -14,7 +14,9 @@ before checking material facts. Direction and power change the route: a manager
 owes clarity, evidence, support and honest consequences to a team member; a peer
 needs relevant observation and an appropriate invitation; upward feedback needs
 a power-risk check and a genuinely lower-exposure alternative. Personality
-labels, mind-reading and surprise-review stockpiles are not direct feedback.
+labels, mind-reading and surprise-review stockpiles are not direct feedback. If
+wrong information or active harm still needs correction, contain that before
+turning to the coaching conversation.
 
 ## 2026-09-02 — five additional practical routes are live
 
