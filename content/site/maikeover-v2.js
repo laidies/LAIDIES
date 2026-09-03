@@ -52,6 +52,38 @@
     }
   }
 
+  function residentNumberText(value) {
+    var number = Number(value);
+    return Number.isInteger(number) && number > 0
+      ? "No. " + String(number).padStart(4, "0")
+      : "No. NEW";
+  }
+
+  function paintResidentNumber(value) {
+    var residentNumber = document.getElementById("moResidentNo");
+    if (!residentNumber) return;
+    residentNumber.textContent = residentNumberText(value);
+    residentNumber.setAttribute(
+      "aria-label",
+      residentNumber.textContent === "No. NEW"
+        ? "Resident number assigned after account connection"
+        : "Resident number " + residentNumber.textContent.slice(4)
+    );
+  }
+
+  async function syncResidentNumber() {
+    paintResidentNumber(null);
+    try {
+      if (!window.LAIDIESResidentAccountRuntime) return;
+      var runtime = await window.LAIDIESResidentAccountRuntime.get();
+      var accountState = await runtime.getState();
+      var profile = accountState && accountState.remote && accountState.remote.profile;
+      paintResidentNumber(profile && profile.resident_number);
+    } catch (_) {
+      paintResidentNumber(null);
+    }
+  }
+
   function moveLiveObjects() {
     var mirrorMount = document.getElementById("moMirrorMount");
     var card = document.getElementById("moCard");
@@ -188,6 +220,9 @@
     moveLiveObjects();
     wireToolTray();
     setArrivalState();
+    paintResidentNumber(null);
+    window.addEventListener("laidies:continuation-ready", syncResidentNumber);
+    if (window.LAIDIESResidentAccountRuntime) syncResidentNumber();
     watchMirror();
   }
 

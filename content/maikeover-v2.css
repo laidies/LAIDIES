@@ -76,14 +76,15 @@ body:has(.mo-room) .sv-yah-chip { display: none !important; }
 .mo-mirror-mount #moCard[data-finish="mint"]::before { background:#9ed9cf; }
 .mo-mirror-mount #moCard[data-finish="lavender"]::before { background:#aaa2e8; }
 .mo-mirror-mount #moCard[data-finish="holo"]::before { background:linear-gradient(110deg,#ef9ac9,#9f9be5,#8ed9df); }
-.mo-mirror-mount #moCard>div:first-child { position:absolute; z-index:2; left:5.5%; right:5.5%; top:3.5%; display:flex!important; justify-content:space-between!important; margin:0!important; color:#fff!important; font-size:clamp(12px,1.02vw,14px)!important; letter-spacing:.08em!important; text-shadow:0 1px 1px rgba(45,12,43,.35); }
-.mo-mirror-mount .mo-card-ai { display:inline-block; margin:0 .05em; color:#ffd34d; font-size:1.25em; font-weight:900; line-height:.8; letter-spacing:-.04em; vertical-align:-.04em; text-shadow:0 1px 1px rgba(45,12,43,.5); }
-.mo-mirror-mount #moResidentNo { color:#fff!important; }
+.mo-mirror-mount #moCard>div:first-child { position:absolute; z-index:2; left:5.5%; right:5.5%; top:3.5%; display:flex!important; justify-content:space-between!important; margin:0!important; color:var(--mo-ink)!important; font-size:clamp(12px,1.02vw,14px)!important; letter-spacing:.08em!important; text-shadow:none; }
+.mo-mirror-mount .mo-card-ai { display:inline; margin:0; color:var(--mo-yellow); font-size:1em; font-weight:900; line-height:inherit; letter-spacing:inherit; vertical-align:baseline; text-shadow:none; }
+.mo-mirror-mount #moResidentNo { color:var(--mo-ink)!important; text-transform:none; }
 .mo-mirror-mount #moAvatar { position:absolute; z-index:2; left:64.5%; top:18.1%; width:30.7%!important; height:68.7%!important; margin:0!important; overflow:hidden; border:0!important; border-radius:10%!important; background:transparent!important; }
 .mo-mirror-mount #moAvatar img { width:100%!important; height:100%!important; object-fit:cover!important; }
-.mo-mirror-mount #moName { position:absolute; z-index:2; left:5.5%; top:22%; width:53%; margin:0!important; overflow:hidden; color:#291331!important; font-size:clamp(24px,2.3vw,34px)!important; line-height:1!important; text-overflow:ellipsis; white-space:nowrap; }
-.mo-mirror-mount #moHandle { position:absolute; z-index:2; left:5.5%; top:35%; width:53%; margin:0!important; overflow:hidden; color:#70203f!important; font-size:clamp(12px,1.05vw,14px)!important; text-overflow:ellipsis; white-space:nowrap; }
-.mo-mirror-mount #moHandle+div { position:absolute; z-index:2; left:5.5%; top:43%; width:53%; margin:0!important; color:#3d172c!important; font-size:clamp(12px,1.05vw,14px)!important; line-height:1.55!important; }
+.mo-mirror-mount #moName { position:absolute; z-index:2; left:5.5%; top:22%; width:53%; margin:0!important; overflow:hidden; color:var(--mo-ink)!important; font-size:clamp(24px,2.3vw,34px)!important; line-height:1!important; text-overflow:ellipsis; white-space:nowrap; }
+.mo-mirror-mount #moHandle { position:absolute; z-index:2; left:5.5%; top:35%; width:53%; margin:0!important; overflow:hidden; color:var(--mo-ink)!important; font-size:clamp(12px,1.05vw,14px)!important; text-overflow:ellipsis; white-space:nowrap; }
+.mo-mirror-mount #moHandle+div { position:absolute; z-index:2; left:5.5%; top:43%; width:53%; margin:0!important; color:var(--mo-ink)!important; font-size:clamp(12px,1.05vw,14px)!important; line-height:1.55!important; }
+.mo-mirror-mount #moHandle+div strong { color:var(--mo-ink)!important; }
 .mo-mirror-mount #moHandle+div>div { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .mo-room.is-building #moCard,.mo-room.is-complete #moCard { box-shadow:none!important; }
 

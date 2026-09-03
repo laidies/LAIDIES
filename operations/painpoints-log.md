@@ -14887,3 +14887,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Hydration now keeps the Closet handoff visible for a valid stored Card, long identity/favourite values use single-row ellipsis, and `maikeover.html` carries the new `20260902-card-text-fit-1` stylesheet identity. Calibrated MAiKEOVER checks reject removal of the hydration handoff, long-text containment and cache key. The final 741-file artifact `c991c2c25a004b328f09eb5a81982619f38c5feafd27e06256761cf184457af0` is live at deployment `41cf460f-5ae9-4550-8303-6527e81a37b4`; all five MAiKEOVER paths match at both public origins and all 736 unrelated base files remain unchanged.
 - **Possible Behind the Build angle:** We fixed the bug, rebuilt the page, accidentally brought the bug back—and then learned why a changed stylesheet can still look unchanged in a real browser.
 - **Publication status:** PUBLICLY VERIFIED.
+
+## BTB-495 — A material defect baked into the artwork cannot be repaired by piling on CSS
+
+- **Date:** 2026-09-03
+- **Area:** MAiKEOVER vanity artwork, Resident Card typography and identity truth.
+- **Failure:** The Resident Card kept looking like a ruled whiteboard because its pale fill, writing lines and weak material treatment were baked into the vanity raster while live CSS added a second visual system above it. The enlarged yellow `Ai`, white header text and permanent `No. ____` made the Card louder but less legible and implied an identifier that never changed.
+- **Root cause:** The physical Card surface and deterministic Card content were treated as separate polish layers without one owner for the final rendered object. CSS was asked to conceal a bad material surface, and the number placeholder had no explicit device-only versus account-backed state.
+- **Prevention rule:** Repair material and perspective defects in the exact raster; reserve HTML/CSS for deterministic, accessible live content. The `Ai` highlight keeps the surrounding word's computed size. A device-only Card says `No. NEW`; only a positive server `resident_number` may become an official four-digit Card number, and the browser never mints a fake one.
+- **Durable correction:** Active vanity/Card asset v6 removes the rules and uses one bold periwinkle/raspberry physical Card treatment. The page renders all Card text in deep ink, binds `Ai` size to the header, and synchronizes the number from the existing account runtime when available. The focused browser test proves device-local `NEW`, synthetic server number `4821`, equal-sized `Ai`, deep-ink header text and desktop/mobile containment.
+- **Possible Behind the Build angle:** Why the Card still looked fake after several CSS fixes—and why an ID should never pretend to be official before the account system issues it.
+- **Publication status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.

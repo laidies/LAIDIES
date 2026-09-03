@@ -22,7 +22,8 @@ function inspect(candidate) {
     'Your Closet keeps your saved things and progress available across devices',
     'Connect your Card. Open your Closet.',
     '/resident-card.html#rcAccountTitle',
-    'maikeover-vanity-resident-card-candidate-v5.png'
+    'maikeover-vanity-resident-card-candidate-v6.png',
+    'id="moResidentNo" style="font-family:monospace;">No. NEW</span>'
   ];
   for (const phrase of required) if (!candidate.includes(phrase)) failures.push(`missing: ${phrase}`);
   const tools = [...candidate.matchAll(/data-mo-tool="([^"]+)"/g)].map(match => match[1]);
@@ -57,7 +58,8 @@ function inspectCss(candidate) {
 
 const failures = inspect(html);
 failures.push(...inspectCss(css));
-if (!html.includes('content/maikeover-v2.css?v=20260902-card-text-fit-1')) failures.push('Card text-fit stylesheet cache key missing');
+if (!html.includes('content/maikeover-v2.css?v=20260903-card-surface-1')) failures.push('Card surface stylesheet cache key missing');
+if (!html.includes('content/site/maikeover-v2.js?v=20260903-resident-number-1')) failures.push('resident-number script cache key missing');
 if (!html.includes('Card saved on this device. Sign in at the Resident Card desk')) failures.push('save handoff copy missing');
 if (!js.includes('Connect your account before you leave if you want your Card and Closet available on another device.')) failures.push('signed-out Card/Closet handoff copy missing');
 if (!js.includes('var toolOrder = ["backdrop", "era", "soundtrack", "saint", "carrying", "finish"]')) failures.push('step behavior order missing');
@@ -65,13 +67,16 @@ if (!css.includes('--mo-hot: #f254a9') || !css.includes('--mo-purple: #7137d6') 
 if (html.includes('MAiN Street · SUNNYVAiLE') || html.includes('Come in as a visitor.')) failures.push('masthead still contains supporting copy beyond the building title');
 if (!css.includes('max-height:none; overflow:visible')) failures.push('open drawer is still trapped in a small internal scroller');
 if (!css.includes('.mo-chair-grid { display:grid!important; grid-template-columns:1fr!important;')) failures.push('working control layout missing');
-if (!fs.existsSync(path.join(root, 'assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v5.png'))) failures.push('recognizable Resident Card vanity asset missing');
+if (!fs.existsSync(path.join(root, 'assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v6.png'))) failures.push('line-free bold Resident Card vanity asset missing');
 if (html.includes('maikeover-vanity-resident-card-shell-candidate-v2.png')) failures.push('rejected drawer vanity asset returned');
 if (html.includes('maikeover-vanity-straight-on-card-candidate-v3.png')) failures.push('rejected passport-like Card asset returned');
 if (html.includes('maikeover-vanity-collectible-card-candidate-v4.png')) failures.push('rejected whiteboard-like Card asset returned');
 if (!css.includes('font-size:clamp(12px,1.05vw,14px)!important')) failures.push('Card details legibility floor missing');
 if (!css.includes('font-size:clamp(12px,1.02vw,14px)!important')) failures.push('Card header legibility floor missing');
-if (!css.includes('.mo-card-ai { display:inline-block;') || !css.includes('font-size:1.25em; font-weight:900;')) failures.push('SUNNYVAiLE Ai emphasis missing');
+if (!css.includes('.mo-card-ai { display:inline;') || !css.includes('font-size:1em; font-weight:900;')) failures.push('SUNNYVAiLE Ai size guard missing');
+if (!css.includes('color:var(--mo-ink)!important; font-size:clamp(12px,1.02vw,14px)!important')) failures.push('Card header lacks deep-ink text');
+if (!js.includes('? "No. " + String(number).padStart(4, "0")') || !js.includes(': "No. NEW";')) failures.push('Resident number does not distinguish account-issued and new Card states');
+if (!js.includes('profile && profile.resident_number')) failures.push('account-issued resident number is not painted on MAiKEOVER');
 if (!css.includes('font-size:5.8px!important; line-height:1.18!important')) failures.push('mobile Card details legibility floor missing');
 if (css.includes('#4b2148') || css.includes('#3f1737')) failures.push('retired structural plum token present');
 if (html.includes('MAiN Street · No. 6')) failures.push('unresolved street number returned');

@@ -120,3 +120,18 @@ approved Episode 04 Heroine style lock.
 Source: Ali's 2026-09-02 direct page corrections and deployment authorization;
 production verification at deployment
 `41cf460f-5ae9-4550-8303-6527e81a37b4`.
+
+## MAiKEOVER Card surface correction — 2026-09-03
+
+- Remove the ruled writing lines from the physical Card artwork. The Card is a
+  town credential, not stationery or a whiteboard.
+- The Card uses one bold periwinkle/lavender body, one saturated raspberry
+  header and deep ink text. A small yellow `Ai` accent may remain, but the
+  complete adjacent `Ai` pair must stay the same size as the surrounding
+  `SUNNYVAiLE` lettering. White Card-header text is rejected.
+- `No.` is functional account identity, not decoration. A device-only Card
+  reads `No. NEW`; after account connection, MAiKEOVER renders the positive
+  server-issued `resident_number`. The browser must not mint or persist a fake
+  official number.
+
+Source: Ali's direct Card corrections, 2026-09-03.
