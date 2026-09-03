@@ -94,32 +94,45 @@ export function careerSourceFitsPrompt(sourceId, prompt) {
   return true;
 }
 
-function unsafePracticalSourceAnswer(sourceIds, answer) {
+function practicalSourceUnsafeReasons(sourceIds, answer) {
   const text = visitorVisibleAnswerText(answer);
   const sentences = text.split(/(?<=[.!?])\s+|\n+/).filter(Boolean);
   const unsafeAssertion = pattern => sentences.some(sentence =>
-    !/\b(?:do not|don't|does not|doesn't|cannot|can't|never|avoid|without|no need to|not necessary to)\b/i.test(sentence) &&
+    !/\b(?:do not|don't|does not|doesn't|cannot|can't|never|avoid|without|no need to|not necessary to|no guarantee|nothing guarantees?)\b/i.test(sentence) &&
     pattern.test(sentence)
   );
+  const reasons = [];
   if (sourceIds.includes("professional-conversation-follow-through") &&
-      (unsafeAssertion(/\b(?:keep|continue) (?:following up|contacting|messaging)\b.{0,45}\b(?:until|eventually)\b/i) ||
-       unsafeAssertion(/\b(?:will|guarantee|ensures?)\b.{0,45}\b(?:sponsor|promotion|opportunit|relationship)\b/i))) return true;
+      unsafeAssertion(/\b(?:keep|continue) (?:following up|contacting|messaging)\b.{0,45}\b(?:until|eventually)\b/i)) reasons.push("follow_up_persistence");
+  if (sourceIds.includes("professional-conversation-follow-through") &&
+      unsafeAssertion(/\b(?:will|guarantee|ensures?)\b.{0,45}\b(?:sponsor|promotion|opportunit|relationship)\b/i)) reasons.push("follow_up_guarantee");
   if (sourceIds.includes("leader-invites-early-risk") &&
-      (unsafeAssertion(/\b(?:guarantee|promise)\b.{0,35}\b(?:safe|safety|anonymous|anonymity)\b/i) ||
-       !/\b(?:respond|receive|thank|investigat|follow[- ]?up|what happens next)\b/i.test(text))) return true;
+      unsafeAssertion(/\b(?:guarantee|promise)\b.{0,35}\b(?:safe|safety|anonymous|anonymity)\b/i)) reasons.push("dissent_false_safety");
+  if (sourceIds.includes("leader-invites-early-risk") &&
+      !/\b(?:respond|receive|thank|investigat|follow[- ]?up|what happens next)\b/i.test(text)) reasons.push("dissent_missing_response");
   if (sourceIds.includes("career-direction-small-experiment") &&
-      (unsafeAssertion(/\b(?:quit|resign|leave your job)\b.{0,45}\b(?:now|immediately|first)\b/i) ||
-       unsafeAssertion(/\b(?:unpaid work|work for free|true calling|one true self)\b/i) ||
-       !/\b(?:bounded|small|reversible|afford|constraint|test|experiment)\b/i.test(text))) return true;
+      unsafeAssertion(/\b(?:quit|resign|leave your job)\b.{0,45}\b(?:now|immediately|first)\b/i)) reasons.push("experiment_quit_first");
+  if (sourceIds.includes("career-direction-small-experiment") &&
+      unsafeAssertion(/\b(?:unpaid work|work for free|true calling|one true self)\b/i)) reasons.push("experiment_unpaid_or_calling");
+  if (sourceIds.includes("career-direction-small-experiment") &&
+      !/\b(?:bounded|small|reversible|afford|constraint|test|experiment)\b/i.test(text)) reasons.push("experiment_missing_bounds");
   if (sourceIds.includes("specific-feedback-request-and-pause") &&
-      (unsafeAssertion(/\bask (?:anyone|everyone) for (?:any |general )?feedback\b/i) ||
-       unsafeAssertion(/\b(?:agree|accept) immediately\b/i) ||
-       !/\b(?:specific skill|observed|example|saw|witnessed)\b/i.test(text))) return true;
+      unsafeAssertion(/\bask (?:anyone|everyone) for (?:any |general )?feedback\b/i)) reasons.push("feedback_indiscriminate");
+  if (sourceIds.includes("specific-feedback-request-and-pause") &&
+      unsafeAssertion(/\b(?:agree|accept) immediately\b/i)) reasons.push("feedback_forced_agreement");
+  if (sourceIds.includes("specific-feedback-request-and-pause") &&
+      !/\b(?:specific skill|observed|example|saw|witnessed)\b/i.test(text)) reasons.push("feedback_missing_observer");
   if (sourceIds.includes("job-offer-whole-package") &&
-      (unsafeAssertion(/\b(?:guarantee|definitely|certainly)\b.{0,45}\b(?:offer|employer|agree|accept|increase)\b/i) ||
-       unsafeAssertion(/\b(?:pretend|claim|say)\b.{0,35}\b(?:another offer|competing offer)\b/i) ||
-       !/\b(?:whole (?:offer|package|deal)|priorit|trade[- ]?off|constraint|flexib|multiple terms|two or three)\b/i.test(text))) return true;
-  return false;
+      unsafeAssertion(/\b(?:guarantee|definitely|certainly)\b.{0,45}\b(?:offer|employer|agree|accept|increase)\b/i)) reasons.push("offer_guarantee");
+  if (sourceIds.includes("job-offer-whole-package") &&
+      unsafeAssertion(/\b(?:pretend|claim|say)\b.{0,35}\b(?:another offer|competing offer)\b/i)) reasons.push("offer_invented_leverage");
+  if (sourceIds.includes("job-offer-whole-package") &&
+      !/\b(?:whole (?:offer|package|deal)|priorit|trade[- ]?off|constraint|flexib|multiple terms|two or three)\b/i.test(text)) reasons.push("offer_missing_structure");
+  return reasons;
+}
+
+function unsafePracticalSourceAnswer(sourceIds, answer) {
+  return practicalSourceUnsafeReasons(sourceIds, answer).length > 0;
 }
 
 export const CAREER_WORKSPACE_MATERIALS = Object.freeze({
@@ -575,6 +588,9 @@ export function diagnoseCareerFields(answer, route = null) {
     careerUnsafePracticalAnswer: Array.isArray(sources) && sources.every(item => typeof item === "string")
       ? unsafePracticalSourceAnswer(sources, answer)
       : null,
+    careerUnsafePracticalReasons: Array.isArray(sources) && sources.every(item => typeof item === "string")
+      ? practicalSourceUnsafeReasons(sources, answer)
+      : [],
     careerPublishesHeldSourceCredit: publishesHeldSourceCredit(answer),
     careerSourcesAllowed: Array.isArray(sources) && sources.every((id) =>
       typeof id === "string" && CAREER_GUIDANCE.some((record) => record.id === id)),

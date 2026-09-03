@@ -141,7 +141,7 @@ test('new practical routes require the matching situation and server-owned AI le
     ['leader-invites-early-risk', 'dissent_preflight', 'I lead our team and everyone is silent before a risky decision. How do I invite dissent?', 'What risk could change the decision? I will thank the first response, investigate it and explain what happens next. Do not promise anonymity or safety you cannot provide.'],
     ['career-direction-small-experiment', 'career_experiment', 'I am exploring a career change to a new field and want to test it before I quit.', 'Use one small, affordable, reversible experiment to test the missing evidence.'],
     ['specific-feedback-request-and-pause', 'feedback_request', 'I want to ask for feedback on a skill from a colleague who saw my presentation.', 'You observed my presentation. What effect did this specific skill have, and what is one example I could test next?'],
-    ['job-offer-whole-package', 'offer_package', 'I have a written job offer and want to negotiate salary and title as a package.', 'Could we discuss the whole package? Here are my priorities; where is there flexibility and which constraints are fixed? Do not pretend you have another offer.']
+    ['job-offer-whole-package', 'offer_package', 'I have a written job offer and want to negotiate salary and title as a package.', 'Could we discuss the whole package? Here are my priorities; where is there flexibility and which constraints are fixed? Do not pretend you have another offer. There is no guarantee the employer will agree.']
   ];
   for (const [source, job, prompt, deliverable] of cases) {
     assert.equal(careerSourceFitsPrompt(source, prompt), true, source);
