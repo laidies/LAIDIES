@@ -65,6 +65,8 @@ final result: passed
   `operations/design-audit/chick-flicks-listen-control-20260902/desktop-primary-listen-action.png`
   at the current desktop viewport and `mobile-primary-listen-action.png` at
   390 × 844.
+- Place-label correction after Ali rejected the invented room number:
+  `operations/design-audit/chick-flicks-listen-control-20260902/corrected-chick-flicks-eyebrow.png`.
 
 ### Findings and comparison history
 
@@ -90,6 +92,10 @@ final result: passed
 - **P2 fixed — inherited gold controls drifted from the current site palette.**
   active mode, resume and retry controls now use mint, cyan, pink, cream and
   deep navy.
+- **P1 fixed — `Screening Room One` invented a numbered venue.** The corrected
+  arrival says only `The Chick Flicks`; the separate right-hand status retains
+  the useful `Listen edition` / `Watch edition` context. Browser-rendered body
+  text contains zero instances of the rejected phrase.
 
 ### Fidelity surfaces
 

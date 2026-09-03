@@ -380,6 +380,10 @@ VHS cover identity and the current LAiDIES cream/lilac, deep navy, pink, cyan
 and purple family. They share one immediately visible Read / Listen / Watch
 switcher and a truthful return to the Chick Flicks store.
 
+The arrival belongs to `The Chick Flicks`; it may not invent numbered rooms or
+display `Screening Room One`. Format context belongs in the separate
+`Listen edition` / `Watch edition` status, not in a fictional venue label.
+
 Read stays a light, comfortable editorial surface with the episode artwork and
 chapter navigation. Listen is audio-first and visibly labels background
 playback plus captions. Its primary Start / Pause / Continue action is the first

@@ -9,6 +9,8 @@ const formatCss = read('content/episode-format-navigation.css');
 const issueJs = read('content/issue-feature-v2.js');
 
 assert.match(watch, /id="screeningCover"/);
+assert.doesNotMatch(watch, /Screening Room One/i);
+assert.match(watch, /<p class="scr-eyebrow">The Chick Flicks<\/p>/);
 assert.match(watch, /id="arrivalPlay"/);
 assert.match(watch, /id="arrivalPlayLabel">Start Episode 01/);
 assert.match(watch, /<small>Listen now<\/small>/);
