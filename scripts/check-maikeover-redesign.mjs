@@ -57,6 +57,7 @@ function inspectCss(candidate) {
 
 const failures = inspect(html);
 failures.push(...inspectCss(css));
+if (!html.includes('content/maikeover-v2.css?v=20260902-card-text-fit-1')) failures.push('Card text-fit stylesheet cache key missing');
 if (!html.includes('Card saved on this device. Sign in at the Resident Card desk')) failures.push('save handoff copy missing');
 if (!js.includes('Connect your account before you leave if you want your Card and Closet available on another device.')) failures.push('signed-out Card/Closet handoff copy missing');
 if (!js.includes('var toolOrder = ["backdrop", "era", "soundtrack", "saint", "carrying", "finish"]')) failures.push('step behavior order missing');
