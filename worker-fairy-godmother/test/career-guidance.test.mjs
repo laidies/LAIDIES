@@ -166,6 +166,7 @@ test('new practical routes reject wrong AI jobs and known harmful shortcuts befo
     ['career-direction-small-experiment', 'I am exploring a career change and want to test it.', 'Map the user goals and emotions as facts, then design a small reversible test.'],
     ['specific-feedback-request-and-pause', 'I want to ask for feedback on a skill.', 'Ask everyone for general feedback and accept it immediately.'],
     ['specific-feedback-request-and-pause', 'I want to ask for feedback on a skill from a colleague who observed me.', 'Ask about the specific skill and real example. Say you do not want to set a follow-up yet.'],
+    ['specific-feedback-request-and-pause', 'I want to ask for feedback on a skill from a colleague who observed me.', 'Ask about the specific skill and real example. If you do not want to commit to a return time immediately, say: “I’ll let you know if I have a follow-up question.”'],
     ['job-offer-whole-package', 'I have a written job offer and want to negotiate.', 'Pretend you have another offer; they will definitely increase this one.']
   ];
   for (const [source, prompt, deliverable] of mutations) {
