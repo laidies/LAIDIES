@@ -18,11 +18,12 @@ const put = (p, value) => { const raw = typeof value === 'string' ? value : JSON
 const parse = raw => { const c={window:{}};vm.runInNewContext(raw,c);return JSON.parse(JSON.stringify(c.window.NEWSSTAND_DATA)); };
 const encode = data => `window.NEWSSTAND_DATA = ${JSON.stringify(data,null,2)};\n`;
 const base = parse(read('content/newsstand-stories.js'));
-const prior = JSON.parse(read('content/newsstand-daily-issues.json')).issues.find(i=>i.editionDate==='2026-08-30');
+const canonicalIssues = JSON.parse(read('content/newsstand-daily-issues.json')).issues;
+const prior = canonicalIssues.find(i=>i.editionDate==='2026-09-02');
 assert.equal(prior.serviceRecordIds.length,7,'representative seven-desk published predecessor');
 const bank = JSON.parse(read('content/daily-edition-columns.json'));
-bank.records=bank.records.filter(r=>r.editionDate<='2026-08-30');
-const history={schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[prior]};
+bank.records=bank.records.filter(r=>r.editionDate<='2026-09-02');
+const history={schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:canonicalIssues.filter(issue=>issue.editionDate<=prior.editionDate)};
 base.publications.daily.editionDate=prior.editionDate;
 base.publications.daily.issue={status:'complete',disposition:prior.disposition,storyIds:prior.storyIds,serviceRecordIds:prior.serviceRecordIds,frontPaigeStoryId:prior.frontPaigeStoryId,weeklyStoryId:prior.weeklyStoryId};
 const originalBank = JSON.stringify(bank);
@@ -60,7 +61,8 @@ function cycle(date, binding, data=base, columns=bank, store=history, news=false
   assert.deepEqual(buildDerivatives({storyRaw:raw,columns,issues:result.store}),derived);
   for(const id of prior.serviceRecordIds.filter(id=>result.issue.serviceRecordIds.includes(id))) {
     const archived=derived.archive.items.filter(i=>i.id==='service:'+id);
-    assert.equal(archived.length,1);assert.equal(archived[0].editionDate,prior.editionDate);assert.equal(archived[0].publishedAt,prior.admission.reviewedAt);
+    const record=columns.records.find(item=>item.id===id);
+    assert.equal(archived.length,1);assert.equal(archived[0].editionDate,record.editionDate);
   }
   return {...result,composed,raw,derived};
 }
@@ -70,12 +72,12 @@ const retainedOlder=structuredClone(base);
 const olderStory=retainedOlder.stories.find(story=>story.edition==='daily'&&!/^front-paige-/.test(story.id)&&story.status==='published'&&story.sourceApproval?.status==='approved'&&story.publishedAt&&story.publishedAt.slice(0,10)<prior.editionDate&&!retainedOlder.publications.daily.issue.storyIds.includes(story.id));
 assert.ok(olderStory,'fixture includes an older approved Latest story');
 retainedOlder.publications.daily.issue.storyIds.push(olderStory.id);
-assert.equal(compose(date,proof(date,retainedOlder),retainedOlder).envelope.desks.filter(d=>d.state==='ready').length,6,'approved older Latest display may coexist with exact service predecessor while invalid carried desks are omitted');
+assert.equal(compose(date,proof(date,retainedOlder),retainedOlder).envelope.desks.filter(d=>d.state==='ready').length,7,'approved older Latest display may coexist with the exact seven-service predecessor');
 const badRetained=structuredClone(retainedOlder);badRetained.publications.daily.issue.storyIds.push('unapproved-display-injection');
 assert.throws(()=>compose(date,proof(date,badRetained),badRetained),/exact published issue/,'unapproved retained story is rejected');
 const quiet=cycle(date,binding);
-assert.deepEqual(quiet.issue.serviceRecordIds,prior.desks.filter(d=>d.state==='ready'&&d.type!=='career_life').map(d=>d.recordId));
-assert.ok(quiet.issue.desks.filter(d=>d.state==='ready').every(d=>d.carriedFrom.originalEditionDate==='2026-08-30'));
+assert.deepEqual(quiet.issue.serviceRecordIds,prior.serviceRecordIds);
+assert.ok(quiet.issue.desks.filter(d=>d.state==='ready').every(d=>d.carriedFrom.originalEditionDate===bank.records.find(record=>record.id===d.recordId).editionDate));
 assert.equal(JSON.stringify(bank),originalBank,'no redating or review receipt mutation');
 const nextDate='2026-09-04', nextBase=parse(quiet.raw);
 const next=cycle(nextDate,proof(nextDate,nextBase,quiet.store),nextBase,bank,quiet.store);

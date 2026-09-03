@@ -42,14 +42,14 @@ export function verifyProjectionAdmission({ issue, envelopeRaw, decision, root =
   if (stable(actual) !== stable(expected)) reject("stored issue differs from exact admitted envelope");
 }
 
-export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
+export function projectDailyIssue({ dataset, issue, columns, root = ROOT, proofReconstruction = false, serviceRevisionProjection = false }) {
   if (!dataset || dataset.schemaVersion !== "2.0.0" || dataset.datasetStatus !== "published") reject("schema-2 canonical dataset is required");
   if (!issue || issue.status !== "complete" || !issue.admission ||
       !["ACCEPT_LOCAL_CANONICAL_WRITE", "ACCEPT_LOCAL_CANONICAL_SUCCESSOR"].includes(issue.admission.decision) ||
       !/independent/i.test(issue.admission.reviewedBy || "") || !/^[a-f0-9]{64}$/.test(issue.envelopeSha256 || "")) {
     reject("exact independently admitted Daily issue is required");
   }
-  const requiredDeskErrors = requiredUsefulDeskErrors(issue.desks, issue.editionDate);
+  const requiredDeskErrors = proofReconstruction ? [] : requiredUsefulDeskErrors(issue.desks, issue.editionDate);
   if (requiredDeskErrors.length) reject(requiredDeskErrors.join("; "));
   const next = structuredClone(dataset);
   const stories = new Map(next.stories.map((story) => [story.id, story]));
@@ -90,10 +90,18 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   if (predecessor && stable(issue.serviceRecordIds) !== stable(issue.desks.filter(d => d.state === 'ready').map(d => d.recordId))) reject('service IDs differ from admitted desks');
   const sameDateNewsAppend = Boolean(ordinary && dataset.publications?.daily?.editionDate === issue.editionDate &&
     stable(dataset.publications.daily.issue?.serviceRecordIds || []) === stable(issue.serviceRecordIds || []));
-  if (issue.desks) validateServiceSelection({ desks: issue.desks, columns, date: issue.editionDate, predecessor, canonicalIssue: dataset.publications.daily.issue, sameDateNewsAppend });
+  if (issue.desks) validateServiceSelection({
+    desks: issue.desks,
+    columns,
+    date: issue.editionDate,
+    predecessor,
+    canonicalIssue: dataset.publications.daily.issue,
+    sameDateNewsAppend,
+    sameDateServiceRevision: proofReconstruction || serviceRevisionProjection
+  });
   for (const id of issue.serviceRecordIds) {
     const record = columns.records.find((item) => item.id === id);
-    if (!record || (!predecessor && !sameDateNewsAppend && record.editionDate !== issue.editionDate) || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
+    if (!record || (!predecessor && !sameDateNewsAppend && !proofReconstruction && !serviceRevisionProjection && record.editionDate !== issue.editionDate) || !["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) ||
         record.publicEligibility !== "ELIGIBLE" || !record.freshness || record.freshness.expiresAt < issue.editionDate) {
       reject(`service record ${id} is not exactly admitted for this date`);
     }
@@ -133,14 +141,14 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   return next;
 }
 
-export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
+export function projectDailySourceRaw({ raw, issue, columns, root = ROOT, proofReconstruction = false, serviceRevisionProjection = false }) {
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
   const baseRaw = ordinary ? ordinary.publicationBaseRaw : issue.sourceIdentity?.storyCorrection ? raw : predecessor ? predecessor.storiesRaw : raw;
   if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");
   const context = { window: {} };
   vm.runInNewContext(baseRaw, context, { timeout: 1000 });
-  const next = projectDailyIssue({ dataset: context.window.NEWSSTAND_DATA, issue, columns, root });
+  const next = projectDailyIssue({ dataset: context.window.NEWSSTAND_DATA, issue, columns, root, proofReconstruction, serviceRevisionProjection });
   const start = baseRaw.indexOf("window.NEWSSTAND_DATA = ");
   const end = baseRaw.indexOf("\n};", start);
   if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
@@ -161,13 +169,19 @@ function main() {
   const envelopePath = path.resolve(arg("--envelope") || path.join(ROOT, `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}.json`));
   const decisionPath = path.resolve(arg("--decision") || path.join(ROOT, `operations/product-stewards/newsstand/evidence/daily-issue-admission-${date}.json`));
   if (!envelopePath.startsWith(path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/")) || !decisionPath.startsWith(path.join(ROOT, "operations/product-stewards/newsstand/evidence/"))) reject("projection requires private envelope and NewsStand evidence paths");
+  const decision = JSON.parse(fs.readFileSync(decisionPath, "utf8"));
   verifyProjectionAdmission({
     issue: matches[0],
     envelopeRaw: fs.readFileSync(envelopePath, "utf8"),
-    decision: JSON.parse(fs.readFileSync(decisionPath, "utf8"))
+    decision
   });
   const columns = JSON.parse(fs.readFileSync(COLUMNS_PATH, "utf8"));
-  const nextRaw = projectDailySourceRaw({ raw, issue: matches[0], columns });
+  const nextRaw = projectDailySourceRaw({
+    raw,
+    issue: matches[0],
+    columns,
+    serviceRevisionProjection: decision.schemaVersion === "daily-issue-service-revision-admission-v1"
+  });
   if (process.argv.includes("--check")) {
     if (raw !== nextRaw) reject("schema-2 publication differs from the admitted issue projection");
   } else if (raw !== nextRaw) {

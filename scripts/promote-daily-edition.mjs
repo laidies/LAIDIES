@@ -184,7 +184,20 @@ function validateEnvelope(value, root = ROOT, store = null) {
   vm.runInNewContext(fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), "utf8"), storiesContext, { timeout: 1000 });
   const sameDateIssue = store?.issues?.find(issue => issue.editionDate === value.editionDate) || null;
   const sameDateNewsAppend = Boolean(candidate && sameDateIssue && storiesContext.window.NEWSSTAND_DATA.publications?.daily?.editionDate === value.editionDate);
-  validateServiceSelection({ desks: value.desks, columns: columnData, date: value.editionDate, predecessor, canonicalIssue: storiesContext.window.NEWSSTAND_DATA.publications?.daily?.issue, sameDateNewsAppend });
+  const sameDateServiceRevision = Boolean(!candidate && !correctionBinding && sameDateIssue &&
+    canonicalJson(value.storyIds) === canonicalJson(sameDateIssue.storyIds) &&
+    canonicalJson(value.storySnapshots) === canonicalJson(sameDateIssue.stories) &&
+    (value.frontPaigeStoryId || null) === (sameDateIssue.frontPaigeStoryId || null) &&
+    (value.weeklyStoryId || null) === (sameDateIssue.weeklyStoryId || null));
+  validateServiceSelection({
+    desks: value.desks,
+    columns: columnData,
+    date: value.editionDate,
+    predecessor,
+    canonicalIssue: sameDateIssue,
+    sameDateNewsAppend,
+    sameDateServiceRevision
+  });
   const canonicalStories = storiesContext.window.NEWSSTAND_DATA.stories || [];
   if (candidate && (!value.storyIds.includes(candidate.id) || canonicalStories.some(story => story.id === candidate.id || story.slug === candidate.slug))) reject("ordinary candidate is absent from issue or duplicates an incumbent");
   for (const [index, id] of value.storyIds.entries()) {
@@ -365,11 +378,11 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     }
     if (serviceRevisionDecision) {
       if (existing.envelopeSha256 !== decision.predecessorEnvelopeSha256) reject(`conflicting canonical issue for ${envelope.editionDate}`);
-      const currentStoriesRaw = fs.readFileSync(path.join(ROOT, existing.sourceIdentity.storiesPath), "utf8");
+      const currentStoriesRaw = fs.readFileSync(path.join(root, existing.sourceIdentity.storiesPath), "utf8");
       if (hasPredecessorStories) {
         const predecessorStoriesRaw = readBoundPredecessorStories(decision.predecessorStories, existing);
-        const columns = JSON.parse(fs.readFileSync(path.join(ROOT, existing.sourceIdentity.columnsPath), "utf8"));
-        const expectedCurrentStoriesRaw = projectDailySourceRaw({ raw: predecessorStoriesRaw, issue: existing, columns });
+        const columns = JSON.parse(fs.readFileSync(path.join(root, existing.sourceIdentity.columnsPath), "utf8"));
+        const expectedCurrentStoriesRaw = projectDailySourceRaw({ raw: predecessorStoriesRaw, issue: existing, columns, proofReconstruction: true });
         if (currentStoriesRaw !== expectedCurrentStoriesRaw || sha256(expectedCurrentStoriesRaw) !== envelope.sourceIdentity.storiesSha256) {
           reject(`service revision stories source is not the exact predecessor publication projection for ${envelope.editionDate}`);
         }

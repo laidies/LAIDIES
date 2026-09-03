@@ -93,7 +93,7 @@ export function loadServicePredecessor(binding, { root, date, storiesRaw, column
 export function carryIdentity(prior, record) {
   return { editionDate: prior.editionDate, envelopeSha256: prior.envelopeSha256, recordSha256: serviceHash(stableService(record)), originalEditionDate: record.editionDate };
 }
-export function validateServiceSelection({ desks, columns, date, predecessor = null, canonicalIssue = null, sameDateNewsAppend = false }) {
+export function validateServiceSelection({ desks, columns, date, predecessor = null, canonicalIssue = null, sameDateNewsAppend = false, sameDateServiceRevision = false }) {
   for (const desk of desks.filter(d => d.state === 'ready')) {
     const matches = columns.records.filter(r => r.id === desk.recordId);
     const record = matches[0];
@@ -111,12 +111,12 @@ export function validateServiceSelection({ desks, columns, date, predecessor = n
       if (stableService(desk.carriedFrom) !== stableService(carryIdentity(predecessor.prior, frozen))) fail('older service lacks exact published predecessor binding');
       continue;
     }
-    // A same-date ordinary-news revision may retain the already admitted
-    // service desks verbatim. This is continuity, not a new selection: the
-    // promoter separately compares every desk against the exact predecessor
-    // issue and admits only one appended story.
+    // A same-date news or service revision may retain already admitted service
+    // desks verbatim. This is continuity, not a new selection: the promoter
+    // separately compares every desk against the exact predecessor issue and
+    // admits only the declared news or empty-to-ready service addition.
     const carried = desk.carriedFrom;
-    if (!sameDateNewsAppend || !canonicalIssue?.serviceRecordIds?.includes(record.id) || !carried ||
+    if (!(sameDateNewsAppend || sameDateServiceRevision) || !canonicalIssue?.serviceRecordIds?.includes(record.id) || !carried ||
         carried.editionDate >= date || carried.originalEditionDate !== record.editionDate ||
         serviceHash(stableService(record)) !== carried.recordSha256) fail('older service lacks exact published predecessor binding');
   }
@@ -128,9 +128,14 @@ export function validatePublicCarry(desk, issue, store, record) {
   const predecessors = (store.issues || []).filter(i => i.editionDate === from.editionDate && i.envelopeSha256 === from.envelopeSha256);
   const prior = predecessors[0];
   const priorDesk = prior?.desks?.find(d => d.state === 'ready' && d.type === desk.type && d.recordId === desk.recordId);
-  if (predecessors.length !== 1 || prior.status !== 'complete' || !prior.admission || !prior.serviceRecordIds.includes(desk.recordId) ||
-      from.editionDate >= issue.editionDate || from.originalEditionDate !== record.editionDate || record.editionDate > from.editionDate ||
-      serviceHash(stableService(record)) !== from.recordSha256 || !priorDesk ||
-      priorDesk.headline !== desk.headline || priorDesk.summary !== desk.summary || priorDesk.destination !== desk.destination ||
-      (priorDesk.carriedFrom && priorDesk.carriedFrom.recordSha256 !== from.recordSha256)) fail('public carried service predecessor mismatch');
+  const invalid = [
+    [predecessors.length !== 1, 'predecessor-count'], [prior?.status !== 'complete', 'predecessor-status'], [!prior?.admission, 'predecessor-admission'],
+    [!prior?.serviceRecordIds?.includes(desk.recordId), 'predecessor-membership'], [from.editionDate >= issue.editionDate, 'date-order'],
+    [from.originalEditionDate !== record.editionDate, 'original-date'], [record.editionDate > from.editionDate, 'record-date'],
+    [serviceHash(stableService(record)) !== from.recordSha256, 'record-hash'], [!priorDesk, 'predecessor-desk'],
+    [priorDesk && priorDesk.headline !== desk.headline, 'headline'], [priorDesk && priorDesk.summary !== desk.summary, 'summary'],
+    [priorDesk && priorDesk.destination !== desk.destination, 'destination'],
+    [priorDesk?.carriedFrom && priorDesk.carriedFrom.recordSha256 !== from.recordSha256, 'carried-hash']
+  ].filter(([failed]) => failed).map(([, reason]) => reason);
+  if (invalid.length) fail(`public carried service predecessor mismatch for ${desk.recordId}: ${invalid.join(',')}`);
 }
