@@ -66,17 +66,21 @@ retry instead of leaving a black void.
 Ali rejected that corrected-but-still-generic treatment: two large white card
 grids read as a dashboard rather than a video store. The duplicate `After the
 credits` grid is now removed entirely. The six useful routes remain together in
-one compact deep-navy `Special features` rack, with pink, cyan, yellow, purple,
-mint and coral tape-label tiles. At 390px the rack becomes a two-column, three-row
-layout; all six destinations remain visible, there is no white tile and the page
-has zero horizontal overflow.
+one compact `Special features` area. Ali then rejected the intermediate
+deep-navy rack on the pale page as another non-LAiDIES colour relationship. Its
+successor is an edge-to-edge band using the current LIBRAiRY masthead gradient,
+with six consistent deep-plum tape-label links and one cyan edge accent instead
+of six competing colours. At 390px the band becomes a two-column, three-row
+layout; all six destinations remain visible and the page has zero horizontal
+overflow.
 
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-qa/chick-flicks-20260902-v3/`,
 `operations/design-qa/chick-flicks-20260902-v4/` and
 `operations/design-qa/chick-flicks-20260902-v5/` and
 `operations/design-audit/chick-flicks-formats-20260902/` and
-`operations/design-audit/chick-flicks-listen-control-20260902/`. Nothing has been
+`operations/design-audit/chick-flicks-listen-control-20260902/` and
+`operations/design-audit/chick-flicks-listen-colour-20260902/`. Nothing has been
 deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

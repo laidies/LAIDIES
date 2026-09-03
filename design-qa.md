@@ -35,6 +35,44 @@
 
 final result: passed
 
+## Chick Flicks Listen colour correction — 2026-09-02
+
+**Source visual truth**
+
+- Current Homepage reference: `operations/design-audit/chick-flicks-listen-colour-20260902/homepage-current-colour-reference.png` (1280 × 720 px).
+- Current LIBRAiRY reference: `operations/design-audit/chick-flicks-listen-colour-20260902/library-current-colour-reference.png` (1280 × 720 px).
+- Ali-rejected navy-on-light predecessor: `operations/design-audit/chick-flicks-listen-colour-20260902/rejected-navy-on-light-extras.png` (1280 × 720 px).
+
+**Rendered implementation**
+
+- Desktop: `operations/design-audit/chick-flicks-listen-colour-20260902/laidies-colour-extras-desktop.png` (1280 × 720 px; 1280 × 720 CSS viewport; density 1).
+- Phone: `operations/design-audit/chick-flicks-listen-colour-20260902/laidies-colour-extras-mobile.png` (390 × 844 px; 390 × 844 CSS viewport; density 1).
+- Same-viewport comparison: `operations/design-audit/chick-flicks-listen-colour-20260902/navy-to-laidies-colour-comparison.png` (2560 × 720 px).
+- State: Episode 04 Listen mode, `#episode-extras`, all six continuation links visible.
+
+**Findings and comparison history**
+
+- **P1 fixed — the near-black rack floated on the pale page as a separate app.** The successor removes the boxed navy field and carries the exact current LIBRAiRY masthead gradient edge to edge across the lower section.
+- **P1 fixed — six unrelated tile colours created a rainbow dashboard.** All six links now share one deep-plum treatment with cream type and one cyan edge accent. Content and destinations are unchanged.
+- **P2 fixed — the module framing interrupted the page rhythm.** Removing the inset border, radius and pink drop-shadow lets the colour band behave like a full-width LAiDIES section while preserving ink keylines at its boundaries.
+
+**Fidelity surfaces**
+
+- **Typography:** Anton remains the display face and Jost the interface face; the existing natural-case heading and compact uppercase labels are unchanged.
+- **Spacing/layout rhythm:** the desktop band spans the 1280px viewport and keeps the 82rem inner grid; the 390px version retains two columns, six visible links and zero horizontal overflow.
+- **Colours/tokens:** the field computes to `#ef4d9c → #b75cc4 → #6c7cd1`; each link computes to deep plum `#4b2148`, cream `#fff8ff` and cyan edge `#25d8f2`. No navy field or per-card rainbow remains.
+- **Image quality:** this correction adds or replaces no image assets. Focused image comparison was unnecessary because the changed section contains typography and controls only, all readable in the full-view comparison.
+- **Copy/content:** all six labels, episode-specific text and destinations are unchanged; no new visitor promise was introduced.
+
+**Functional evidence**
+
+- Six links are rendered and visible at 1280 × 720 and 390 × 844.
+- Both viewports report zero horizontal overflow.
+- The browser reported zero console errors.
+- Local verification only; no deployment or public-origin claim.
+
+final result: passed
+
 ## Chick Flicks Listen controls, recovery and episode links — 2026-09-02
 
 ### Source visual truth
@@ -98,9 +136,9 @@ final result: passed
   The rejected 2162 × 1430 capture had two oversized white grids, duplicated
   Read/Return actions and large unused card interiors. The successor removes
   `After the credits` entirely and keeps the six useful links in one compact
-  deep-navy `Special features` rack with saturated tape-label tiles. The
-  normalized side-by-side comparison shows the reduction from two pale grids
-  to one store-specific unit.
+  `Special features` area. Ali subsequently rejected the intermediate
+  deep-navy rack on the pale page; the current successor is documented in the
+  colour-correction comparison above.
 - **P1 fixed — Listen hid the useful continuation routes behind Read.** Every
   Episode 01–04 Listen route now has six visible destinations: Read, Study
   Pack, Song, Cocktail, Rooms and Quiz. Episode 04 preserves the exact song and
@@ -1206,7 +1244,7 @@ passed
 - Reference: current Chick Flicks store, current LIBRAiRY/Homepage palette, and the approved Episode 01–04 transparent VHS family.
 - Compared: Read, Listen and Watch before/after at 1440 × 1000; Read and Listen at 390 × 844.
 - Identity: exact Episode 04 VHS case appears without cropping; title and episode number remain live text.
-- Palette: cream/lilac ground, deep navy, pink, cyan and purple match the current Chick Flicks family.
+- Palette: cream/lilac reading ground, the exact LIBRAiRY pink-purple-periwinkle gradient, deep-plum controls and restrained cyan accents match the current Chick Flicks family.
 - Hierarchy: cover → episode title → format choice → programme shelf → player.
 - Format distinction: Read remains editorial; Listen is labelled audio-first; Watch retains the dark screening stage.
 - Function: Read / Listen / Watch routes, episode programme links, caption/player region and return link remain present.

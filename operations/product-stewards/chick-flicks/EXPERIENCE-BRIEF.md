@@ -397,8 +397,11 @@ approved Chick Flicks VHS case; it may not fall back to an older widescreen
 episode poster. The Listen and Watch pages also repeat the read version's
 `Everything in this episode` continuations—Read, Study Pack, Song, Cocktail,
 Rooms and Quiz—so the visitor does not have to open the article merely to find
-those routes. These continuations are one compact, deep-navy `Special features`
-rack with six saturated LAiDIES-colour tiles. A second oversized white
+those routes. These continuations are one full-width `Special features` band
+using the exact LIBRAiRY masthead gradient `#ef4d9c → #b75cc4 → #6c7cd1`.
+The six links use one consistent deep-plum `#4b2148` tape-label treatment with
+cream type and one cyan edge accent. A navy module floating on the pale page,
+six unrelated tile colours, a second oversized white
 `After the credits` card grid, white tiles, duplicated Read/Return destinations
 and dashboard-like empty space are prohibited. A playback failure keeps the approved VHS visible, removes stale
 resume competition and presents one readable retry action. Watch keeps a dark,
@@ -408,6 +411,13 @@ hero, or make visitors hunt for a format link. Episodes 01–04 receive the same
 format navigation contract. Current media availability and in-progress wording
 remain governed by the Screening Room admission record.
 `ALI DIRECT DESIGN DECISION — 2026-09-02`
+
+The lower Listen/Watch continuation area may not reproduce the rejected
+near-black-navy-on-light-page composition. It must read as one LAiDIES surface,
+not a dark widget pasted into a pale app: the masthead gradient carries edge to
+edge and the link family stays visually restrained rather than becoming a
+rainbow dashboard.
+`ALI DIRECT LISTEN COLOUR CORRECTION — 2026-09-02`
 
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
