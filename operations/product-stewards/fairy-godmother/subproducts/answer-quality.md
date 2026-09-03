@@ -18,6 +18,16 @@ labels, mind-reading and surprise-review stockpiles are not direct feedback. If
 wrong information or active harm still needs correction, contain that before
 turning to the coaching conversation.
 
+This decision is now live in production Worker version
+`0c181537-b120-4f62-998e-b0605399d18f`, deployment
+`2a841e28-76bb-4b23-b3d0-ceaaedfdfd92`. The release adds distinct
+manager-to-team-member, peer-to-peer and upward-feedback routes with exact
+Worker-owned AI preparation jobs. Three real staging answers passed independent
+review. The manager candidate exposed one sequencing weakness—the conversation
+draft mentioned correcting live wrong information too late—so the released
+route now puts containment or correction before coaching. The public page and
+all Pages artifacts are unchanged.
+
 ## 2026-09-02 — five additional practical routes are live
 
 The earlier private research candidates for professional follow-through,

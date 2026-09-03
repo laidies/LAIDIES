@@ -1,5 +1,29 @@
 # Active work
 
+## 2026-09-02 FAiRY direction-aware feedback — DEPLOYED / PUBLICLY VERIFIED
+
+Production Worker `laidies-fairy-godmother` version
+`0c181537-b120-4f62-998e-b0605399d18f` is at 100% in deployment
+`2a841e28-76bb-4b23-b3d0-ceaaedfdfd92`. It distinguishes feedback from a
+manager to a team member, between peers and upward to a manager or senior
+leader. All three routes use care plus directness, specific observed work and a
+clear request; the manager route adds support and follow-up, the peer route
+does not manufacture authority, and the upward route requires a power-risk
+check and lower-exposure option. Active harm or wrong information is corrected
+before the coaching conversation.
+
+Final tests pass 99/99 plus frozen 45-answer and 79-classifier fixtures. Three
+actual-model staging answers passed two independent exact-output reviews; a
+separate upward classifier timeout failed closed and spent no case. Exact
+production binding inspection preserved all four secrets, Supabase, the
+Durable Object ledger, rate limiter, `gpt-5.6-sol`, pilot flag and cost caps
+while omitting staging QA. Live CORS, method and invalid-input checks pass and
+the canonical HTTP-200 page still points to the production Worker. The live
+paid guest journey could not be repeated because today's visitor allowance was
+already used; the attempted case returned 429 and spent zero. No Pages bytes or
+deployment changed. Evidence:
+`product-stewards/fairy-godmother/evidence/direction-aware-feedback-release-2026-09-02.md`.
+
 ## 2026-09-02 FAiRY practical career script bank — DEPLOYED / PUBLICLY VERIFIED
 
 Production Worker `laidies-fairy-godmother` version

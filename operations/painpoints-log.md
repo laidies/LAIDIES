@@ -15051,3 +15051,21 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The main script was useful; the throwaway
   “optional” paragraph broke the lesson. Why trustworthy AI products test every
   sentence, not just the headline answer.
+
+## 2026-09-02 — Direct feedback is not one route with three job titles
+
+- **Finding:** “Be direct” was too weak a product rule. The same words can become
+  managerial ambiguity, peer overreach or unsafe upward confrontation depending
+  on who holds authority. The first manager model answer also put correction of
+  live wrong information at the end of the draft even though its next move put
+  it first.
+- **Prevention:** Route feedback by direction before generation. Pair care with
+  direct challenge; require observation, work impact, request and inquiry in all
+  routes; add manager-owned support and follow-up, forbid peers from inventing
+  authority, and require a lower-exposure option for upward power risk. Correct
+  active harm or wrong information before coaching. Reject personality labels,
+  public criticism, anonymous consensus and surprise-review stockpiles before
+  allowance spend.
+- **Possible Behind the Build angle:** “Radical candor” is not permission to be
+  brutal—the product has to know who can affect whose job before it drafts the
+  sentence.
