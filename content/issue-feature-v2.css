@@ -774,14 +774,15 @@
 
 @media (max-width: 640px) {
   .issue-feature .tv-hero {
-    min-height: 760px;
-    padding: 20px;
+    --issue-mobile-cover-height: clamp(300px, 86vw, 360px);
+    min-height: 0;
+    padding: calc(var(--issue-mobile-cover-height) + 70px) 20px 28px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: stretch;
     gap: 14px;
-    background-size: auto 48%;
+    background-size: auto var(--issue-mobile-cover-height);
     background-repeat: no-repeat;
     background-position: left top;
     background-color: var(--issue-ink);
@@ -789,12 +790,12 @@
   }
 
   .issue-feature .tv-hero::before {
-    inset: 31% 0 0;
-    background: linear-gradient(180deg, transparent, var(--issue-ink) 20%);
+    inset: calc(var(--issue-mobile-cover-height) - 92px) 0 0;
+    background: linear-gradient(180deg, transparent, var(--issue-ink) 92px);
   }
 
   .issue-feature .tv-meta {
-    top: 42%;
+    top: calc(var(--issue-mobile-cover-height) + 14px);
     left: 20px;
     max-width: calc(100% - 40px);
     font-size: .61rem;
@@ -806,7 +807,7 @@
 
   .issue-feature .tv-title {
     max-width: 9ch;
-    margin: 0;
+    margin: 0 0 4px;
     font-size: clamp(3.25rem, 15vw, 5rem);
   }
 

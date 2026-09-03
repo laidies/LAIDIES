@@ -14,6 +14,22 @@
     var main = document.querySelector("main");
     if (!body || !main || !body.classList.contains("issue-feature")) return;
 
+    var episodeMatch = Array.from(body.classList).join(" ").match(/issue-feature--(\d{2})/);
+    var episodeNumber = episodeMatch ? episodeMatch[1] : "01";
+    var existingFormatNav = document.querySelector(".episode-format-nav");
+    if (!existingFormatNav) {
+      existingFormatNav = document.createElement("nav");
+      existingFormatNav.className = "episode-format-nav";
+      existingFormatNav.setAttribute("aria-label", "Choose Episode " + episodeNumber + " format");
+      existingFormatNav.innerHTML =
+        '<a class="episode-format-nav__choice" href="/issues/issue-' + episodeNumber + '.html" aria-current="page"><span>Read</span><small>Full written episode</small></a>' +
+        '<a class="episode-format-nav__choice" href="/watch.html?ep=' + episodeNumber + '&amp;mode=listen"><span>Listen</span><small>Narration + captions</small></a>' +
+        '<a class="episode-format-nav__choice" href="/watch.html?ep=' + episodeNumber + '&amp;mode=watch"><span>Watch</span><small>Current video</small></a>' +
+        '<p class="episode-format-nav__status" role="status">You’re reading Episode ' + episodeNumber + '.</p>';
+      var hero = document.querySelector(".tv-hero");
+      if (hero) hero.before(existingFormatNav);
+    }
+
     var titleRepeat = main.querySelector("figure.film");
     if (titleRepeat) {
       titleRepeat.classList.add("issue-title-repeat");

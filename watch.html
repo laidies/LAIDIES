@@ -207,8 +207,8 @@
     .chap:hover, .chap.is-now { opacity: 1; }
     main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260724-1">
-  <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260803-1">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260902-1">
+  <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -233,19 +233,29 @@
 
   <main class="screening-room-main">
     <section class="screening-arrival" aria-labelledby="scrTitle">
-      <div class="screening-house-line">
-        <p class="scr-eyebrow">The Chick Flicks · Screening Room One</p>
-        <p class="screening-house-status">Illustrated listen-alongs</p>
-      </div>
-      <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do AI</h1>
-      <p class="scr-sub" id="screeningIntro">Choose a tape, take your seat, and start the episode. Read-along captions are available.</p>
+      <div class="screening-feature">
+        <div class="screening-cover-wrap" aria-hidden="true">
+          <img class="screening-cover" id="screeningCover" src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png" alt="">
+          <span class="screening-cover-sticker" id="screeningCoverSticker">Now playing</span>
+        </div>
+        <div class="screening-feature-copy">
+          <div class="screening-house-line">
+            <p class="scr-eyebrow">The Chick Flicks · Screening Room One</p>
+            <p class="screening-house-status" id="screeningHouseStatus">Choose your format</p>
+          </div>
+          <p class="screening-kicker" id="screeningKicker">From the New Releases shelf</p>
+          <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do AI</h1>
+          <p class="scr-sub" id="screeningIntro">Choose Read, Listen or Watch, then settle in. Captions are available with playback.</p>
 
-      <nav class="episode-format-nav" id="episodeFormatNav" data-theme="dark" aria-label="Choose Episode 01 format">
+          <nav class="episode-format-nav" id="episodeFormatNav" data-theme="dark" aria-label="Choose Episode 01 format">
         <a class="episode-format-nav__choice" id="formatRead" href="/issues/issue-01.html"><span>Read</span><small>Full written episode</small></a>
         <a class="episode-format-nav__choice" id="formatListen" href="/watch.html?ep=01&amp;mode=listen" aria-current="page"><span>Listen</span><small>Narration + captions</small></a>
         <span class="episode-format-nav__choice" id="formatWatch" aria-disabled="true"><span>Watch</span><small>Not available yet</small></span>
         <p class="episode-format-nav__status" id="formatStatus" role="status">You’re listening to Episode 01. Visual edition not admitted yet.</p>
-      </nav>
+          </nav>
+          <a class="screening-return" href="/chick-flicks.html">← Return this tape to The Chick Flicks</a>
+        </div>
+      </div>
 
       <nav class="screening-program" aria-label="Screening programme">
         <span class="screening-program-label">On the shelf</span>
@@ -352,6 +362,17 @@
     var formatListen = document.getElementById('formatListen');
     var formatWatch = document.getElementById('formatWatch');
     var formatStatus = document.getElementById('formatStatus');
+    var screeningCover = document.getElementById('screeningCover');
+    var screeningCoverSticker = document.getElementById('screeningCoverSticker');
+    var screeningHouseStatus = document.getElementById('screeningHouseStatus');
+    var screeningKicker = document.getElementById('screeningKicker');
+    var EPISODE_COVERS = {
+      'trailer': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.png',
+      '01': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png',
+      '02': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-02.png',
+      '03': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-03.png',
+      '04': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png'
+    };
 
     function setFormatNavigation(playbackState) {
       var key = episodeKey(ep);
@@ -359,6 +380,11 @@
       var readUrl = ep === 'trailer'
         ? '/issues/issue-trailer.html'
         : '/issues/issue-' + key + '.html';
+      if (screeningCover) screeningCover.src = EPISODE_COVERS[key] || EPISODE_COVERS['01'];
+      if (screeningCoverSticker) screeningCoverSticker.textContent = requestedFormat === 'watch' ? 'Now screening' : 'Now playing';
+      if (screeningHouseStatus) screeningHouseStatus.textContent = requestedFormat === 'watch' ? 'Watch edition' : 'Listen edition';
+      if (screeningKicker) screeningKicker.textContent = ep === 'trailer' ? 'Your introduction to SUNNYVAiLE' : 'From the New Releases shelf';
+      document.body.dataset.format = requestedFormat;
       episodeFormatNav.setAttribute('aria-label', 'Choose ' + label + ' format');
       formatRead.href = readUrl;
       formatRead.removeAttribute('aria-current');
@@ -414,10 +440,10 @@
       '04': { coverage: 'complete' }
     };
     var HELD_VISUAL_COVERS = {
-      '01': '/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
-      '02': '/assets/episodes/ep-02/comic/ep02-title-card-comic-v2.png',
-      '03': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',
-      '04': '/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png'
+      '01': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png',
+      '02': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-02.png',
+      '03': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-03.png',
+      '04': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png'
     };
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(admission) {
@@ -766,6 +792,7 @@
         if (audioCaptionBar) audioCaptionBar.hidden = false;
         configureMediaSession(tape, ep);
         screeningMeta.textContent = 'Listen only · background and lock-screen controls · captions available';
+        screeningIntro.textContent = 'Press play for the narrated episode with read-along captions. It can keep playing in the background, subject to your device settings.';
         scrNote.textContent = 'Listen without keeping the film on screen. Playback can continue while you walk, commute or use another app, subject to your device settings.';
         setPressed('listen');
         if (continuePlaying) tape.play().catch(function () {});
@@ -792,6 +819,9 @@
         screeningMeta.textContent = inProgress
           ? 'Current illustrated video · improvements ongoing · captions available'
           : 'Complete illustrated film · captions available';
+        screeningIntro.textContent = inProgress
+          ? 'Watch the current illustrated episode with captions, or switch to Listen for background playback.'
+          : 'Watch the complete illustrated episode with captions, or switch to Listen for background playback.';
         scrNote.textContent = inProgress
           ? 'Watch the current illustrated video while we continue improving its animation and visual continuity, or choose Listen only.'
           : 'Watch the complete illustrated film, or choose Listen only for background and lock-screen playback.';

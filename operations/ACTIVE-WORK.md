@@ -40,11 +40,19 @@ episode tapes plus one trailer tape, three inert future tapes, four format-route
 responsive rules and shared release-state copy. The guard was calibrated by
 replacing the Episode 04 VHS path in a scratch page and rejected it; the dialog
 boundary is separately calibrated against a page with its native dialog removed.
+The same successor now also unifies the Episode 01–04 Read, Listen and Watch
+paths. Every reading page has the shared format switcher; the mobile Episode 04
+masthead collision is repaired. The Screening Room arrival carries the selected
+transparent VHS case and the same live LAiDIES palette, while Listen remains
+audio-first and Watch retains the dark film stage. Playback, captions, programme
+selection, in-progress wording and store return behavior are preserved.
+
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-qa/chick-flicks-20260902-v3/`,
 `operations/design-qa/chick-flicks-20260902-v4/` and
-`operations/design-qa/chick-flicks-20260902-v5/`. Nothing has been deployed or
-publicly verified.
+`operations/design-qa/chick-flicks-20260902-v5/` and
+`operations/design-audit/chick-flicks-formats-20260902/`. Nothing has been
+deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
 

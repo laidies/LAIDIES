@@ -1079,3 +1079,17 @@ remain separate release gates.
 ### Final result
 
 passed
+
+## Chick Flicks episode format family — 2026-09-02
+
+- Reference: current Chick Flicks store, current LIBRAiRY/Homepage palette, and the approved Episode 01–04 transparent VHS family.
+- Compared: Read, Listen and Watch before/after at 1440 × 1000; Read and Listen at 390 × 844.
+- Identity: exact Episode 04 VHS case appears without cropping; title and episode number remain live text.
+- Palette: cream/lilac ground, deep navy, pink, cyan and purple match the current Chick Flicks family.
+- Hierarchy: cover → episode title → format choice → programme shelf → player.
+- Format distinction: Read remains editorial; Listen is labelled audio-first; Watch retains the dark screening stage.
+- Function: Read / Listen / Watch routes, episode programme links, caption/player region and return link remain present.
+- Responsive: no observed horizontal overflow; mobile title/metadata collision repaired; controls remain readable.
+- Release: local verification only; not deployed and not publicly verified.
+
+final result: passed

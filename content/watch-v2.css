@@ -15,8 +15,9 @@ body.screening-room-page {
   margin: 0;
   color: var(--screen-paper);
   background:
-    radial-gradient(circle at 72% 4%, rgba(123, 60, 255, 0.19), transparent 28rem),
-    linear-gradient(180deg, #07102b 0%, var(--screen-ink) 38%, #03050e 100%);
+    radial-gradient(circle at 10% 8%, rgba(21, 188, 224, 0.22), transparent 31rem),
+    radial-gradient(circle at 91% 4%, rgba(242, 84, 169, 0.2), transparent 28rem),
+    linear-gradient(145deg, #f5f0ff 0%, #e9ddff 45%, #dcecff 100%);
   overflow-x: hidden;
 }
 
@@ -34,7 +35,52 @@ body.screening-room-page {
 .screening-arrival {
   width: min(100% - 3rem, 82rem);
   margin: 0 auto;
-  padding: clamp(3.75rem, 8vw, 7rem) 0 clamp(2.1rem, 4vw, 3.8rem);
+  padding: clamp(2.4rem, 5vw, 4.5rem) 0 clamp(2rem, 4vw, 3.5rem);
+}
+
+.screening-feature {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18.5rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5.5rem);
+}
+
+.screening-cover-wrap {
+  position: relative;
+  width: min(100%, 18.5rem);
+  justify-self: center;
+  transform: rotate(-1.2deg);
+}
+
+.screening-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 4px solid var(--screen-ink);
+  border-radius: 12px;
+  box-shadow: 13px 15px 0 var(--screen-cyan), 22px 25px 0 var(--screen-purple);
+}
+
+.screening-cover-sticker {
+  position: absolute;
+  right: -1.1rem;
+  bottom: 2.2rem;
+  padding: .55rem .85rem;
+  border: 3px solid var(--screen-ink);
+  border-radius: 6px;
+  color: var(--screen-ink);
+  background: var(--screen-coral);
+  box-shadow: 4px 4px 0 #fffdfb;
+  font: 900 .72rem/1 "Jost", sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  transform: rotate(2deg);
+}
+
+.screening-feature-copy {
+  min-width: 0;
 }
 
 .screening-house-line {
@@ -43,7 +89,7 @@ body.screening-room-page {
   justify-content: space-between;
   gap: 2rem;
   padding-bottom: 0.8rem;
-  border-bottom: 2px solid rgba(37, 216, 242, 0.5);
+  border-bottom: 2px solid rgba(9, 15, 43, 0.35);
 }
 
 .screening-room-page .scr-eyebrow,
@@ -55,19 +101,32 @@ body.screening-room-page {
 }
 
 .screening-room-page .scr-eyebrow {
-  color: var(--screen-cyan);
+  color: var(--screen-cobalt);
 }
 
 .screening-house-status {
-  color: var(--screen-lilac);
+  color: var(--screen-ink);
   text-align: right;
+}
+
+.screening-kicker {
+  display: inline-block;
+  margin: 1.4rem 0 0;
+  padding: .4rem .65rem;
+  border: 2px solid var(--screen-ink);
+  color: var(--screen-ink);
+  background: var(--screen-cyan);
+  font: 900 .7rem/1.15 "Jost", sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transform: rotate(-.5deg);
 }
 
 .screening-room-page .scr-title {
   max-width: 17ch;
   margin: clamp(1.25rem, 2.4vw, 2.1rem) 0 0;
-  color: var(--screen-paper);
-  font: 400 clamp(3rem, 7.7vw, 7.25rem)/0.94 "Anton", sans-serif;
+  color: var(--screen-ink);
+  font: 400 clamp(3rem, 6.4vw, 6.25rem)/0.92 "Anton", sans-serif;
   letter-spacing: -0.018em;
   text-wrap: balance;
   overflow-wrap: anywhere;
@@ -81,16 +140,28 @@ body.screening-room-page {
 .screening-room-page .scr-sub {
   max-width: 47rem;
   margin: 1.2rem 0 0;
-  color: rgba(255, 248, 255, 0.75);
+  color: rgba(9, 15, 43, 0.78);
   font: 500 clamp(1rem, 1.45vw, 1.2rem)/1.55 "Jost", sans-serif;
+}
+
+.screening-return {
+  display: inline-block;
+  margin-top: .9rem;
+  color: var(--screen-blue);
+  font: 800 .82rem/1.3 "Jost", sans-serif;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .22em;
 }
 
 .screening-program {
   display: grid;
   grid-template-columns: 9rem repeat(5, minmax(0, 1fr));
-  margin-top: clamp(2.4rem, 5vw, 4.4rem);
-  border-top: 2px solid rgba(255, 248, 255, 0.82);
-  border-bottom: 2px solid rgba(255, 248, 255, 0.82);
+  margin-top: clamp(2.6rem, 5vw, 4.2rem);
+  border: 3px solid var(--screen-ink);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #11183b;
+  box-shadow: 9px 9px 0 var(--screen-pink);
 }
 
 .screening-program-label,
@@ -163,8 +234,27 @@ body.screening-room-page {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background:
     radial-gradient(ellipse at 50% 46%, rgba(40, 72, 232, 0.25), transparent 47rem),
-    linear-gradient(180deg, #050817 0%, #090416 55%, #04050f 100%);
+    linear-gradient(180deg, #07102b 0%, #090416 55%, #04050f 100%);
   box-sizing: border-box;
+}
+
+body[data-format="listen"] .screening-auditorium {
+  background:
+    radial-gradient(circle at 14% 12%, rgba(125, 226, 194, .18), transparent 24rem),
+    radial-gradient(circle at 88% 28%, rgba(242, 84, 169, .18), transparent 30rem),
+    linear-gradient(145deg, #101b48 0%, #171040 54%, #0b1335 100%);
+}
+
+body[data-format="listen"] .screening-marquee span:first-child {
+  color: var(--screen-cyan);
+}
+
+body[data-format="listen"] .screening-cover-sticker {
+  background: #7de2c2;
+}
+
+body[data-format="watch"] .screening-cover-sticker {
+  background: var(--screen-pink);
 }
 
 .screening-stage {
@@ -412,7 +502,27 @@ body.screening-room-page {
   }
 
   .screening-arrival {
-    padding-top: 2.8rem;
+    padding-top: 2rem;
+  }
+
+  .screening-feature {
+    grid-template-columns: minmax(7.6rem, 9.2rem) minmax(0, 1fr);
+    align-items: start;
+    gap: 1.35rem;
+  }
+
+  .screening-cover {
+    border-width: 2px;
+    border-radius: 8px;
+    box-shadow: 7px 8px 0 var(--screen-cyan), 12px 14px 0 var(--screen-purple);
+  }
+
+  .screening-cover-sticker {
+    right: -.7rem;
+    bottom: 1rem;
+    padding: .38rem .5rem;
+    border-width: 2px;
+    font-size: .56rem;
   }
 
   .screening-house-line {
@@ -420,11 +530,36 @@ body.screening-room-page {
   }
 
   .screening-house-status {
+    display: none;
+  }
+
+  .screening-kicker {
+    margin-top: 1rem;
+    font-size: .56rem;
+  }
+
+  .screening-house-status {
     max-width: 9rem;
   }
 
   .screening-room-page .scr-title {
-    font-size: clamp(2.75rem, 14vw, 5.1rem);
+    margin-top: .8rem;
+    font-size: clamp(2rem, 10.5vw, 3.4rem);
+  }
+
+  .screening-room-page .scr-sub {
+    font-size: .92rem;
+    line-height: 1.45;
+  }
+
+  .screening-feature-copy .episode-format-nav {
+    position: static;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .screening-return {
+    font-size: .72rem;
   }
 
   .screening-program {
@@ -485,5 +620,19 @@ body.screening-room-page {
 
   .screening-room-page .scr-note {
     padding-top: 1rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .screening-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .screening-cover-wrap {
+    width: 10rem;
+  }
+
+  .screening-house-line {
+    margin-top: .9rem;
   }
 }

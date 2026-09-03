@@ -372,6 +372,23 @@ repeat across the three future positions so the shelf reads as stocked without
 inventing episode-specific cover art.
 `ALI DIRECT FUTURE-SHELF DECISION — 2026-09-02`
 
+### Episode format family — 2026-09-02
+
+Read, Listen and Watch are one Chick Flicks episode journey, but they do not
+perform the same job. All three must carry the exact episode name, its approved
+VHS cover identity and the current LAiDIES cream/lilac, deep navy, pink, cyan
+and purple family. They share one immediately visible Read / Listen / Watch
+switcher and a truthful return to the Chick Flicks store.
+
+Read stays a light, comfortable editorial surface with the episode artwork and
+chapter navigation. Listen is audio-first and visibly labels background
+playback plus captions. Watch keeps a dark, focused player stage. Do not flatten
+the three formats into one identical template, return to a sparse generic navy
+hero, or make visitors hunt for a format link. Episodes 01–04 receive the same
+format navigation contract. Current media availability and in-progress wording
+remain governed by the Screening Room admission record.
+`ALI DIRECT DESIGN DECISION — 2026-09-02`
+
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
 ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt
