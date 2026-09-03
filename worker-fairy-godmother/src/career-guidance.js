@@ -116,12 +116,17 @@ function practicalSourceUnsafeReasons(sourceIds, answer) {
       unsafeAssertion(/\b(?:unpaid work|work for free|true calling|one true self)\b/i)) reasons.push("experiment_unpaid_or_calling");
   if (sourceIds.includes("career-direction-small-experiment") &&
       !/\b(?:bounded|small|reversible|afford|constraint|test|experiment)\b/i.test(text)) reasons.push("experiment_missing_bounds");
+  if (sourceIds.includes("career-direction-small-experiment") &&
+      /\b(?:user goals?|emotions?)\b/i.test(text) &&
+      !/\b(?:said|reported|described|assumption|inference|infer)\b/i.test(text)) reasons.push("experiment_inferred_experience");
   if (sourceIds.includes("specific-feedback-request-and-pause") &&
       unsafeAssertion(/\bask (?:anyone|everyone) for (?:any |general )?feedback\b/i)) reasons.push("feedback_indiscriminate");
   if (sourceIds.includes("specific-feedback-request-and-pause") &&
       unsafeAssertion(/\b(?:agree|accept) immediately\b/i)) reasons.push("feedback_forced_agreement");
   if (sourceIds.includes("specific-feedback-request-and-pause") &&
       !/\b(?:specific skill|observed|example|saw|witnessed)\b/i.test(text)) reasons.push("feedback_missing_observer");
+  if (sourceIds.includes("specific-feedback-request-and-pause") &&
+      /\b(?:(?:i|you) (?:do not|don't) want to set|without setting|no) (?:a )?(?:follow[- ]?up|return point)\b/i.test(text)) reasons.push("feedback_missing_return_point");
   if (sourceIds.includes("job-offer-whole-package") &&
       unsafeAssertion(/\b(?:guarantee|definitely|certainly)\b.{0,45}\b(?:offer|employer|agree|accept|increase)\b/i)) reasons.push("offer_guarantee");
   if (sourceIds.includes("job-offer-whole-package") &&
@@ -181,7 +186,7 @@ const AI_ASSIST_JOBS = Object.freeze({
   career_experiment: Object.freeze({
     label: "Design a small career test",
     why: "A bounded experiment can replace a high-stakes identity guess with evidence about the work, constraints and next question.",
-    quick: "Interview me one focused question at a time about two or three possible career directions, the evidence I am missing, and my real limits on time, money, caregiving and exposure. Design one affordable, reversible test with a clear learning question, smallest action, stop condition and review point. Do not recommend quitting, unpaid work I cannot afford, or treat one pleasant conversation as proof of fit."
+    quick: "Interview me one focused question at a time about two or three possible career directions, the evidence I am missing, and my real limits on time, money, caregiving and exposure. Offer a true minimum first: one 60-to-90-minute, no-interview test I can do alone, with a clear learning question, stop condition and review point. Only then offer an optional expansion. Record observed steps and friction separately from what a willing person says they were trying to do or felt; label every other interpretation as an assumption. Do not recommend quitting, unpaid work I cannot afford, or treat one pleasant conversation as proof of fit."
   }),
   feedback_request: Object.freeze({
     label: "Ask for useful feedback",
@@ -491,8 +496,8 @@ For a matched situation:
 - When career-relationship-bridges genuinely fits, conversation_rehearsal is the useful bounded AI task: it lets the reader practise the first exchange and a lower-exposure alternative without pretending to predict the other person. Select that quick task rather than null.
 - When professional-conversation-follow-through genuinely fits, select conversation_follow_up. Use only a detail the person actually raised and a connection the visitor can truthfully contribute; include a graceful stop for no reply or a clear boundary.
 - When leader-invites-early-risk genuinely fits, the visitor must control the room or decision. Select dissent_preflight and complete the move: invitation, non-defensive first response, investigation step and close-the-loop plan. Never promise safety or anonymity.
-- When career-direction-small-experiment genuinely fits, select career_experiment. Design one affordable, reversible test of a named uncertainty; never prescribe quitting or unaffordable unpaid work.
-- When specific-feedback-request-and-pause genuinely fits, select feedback_request. Keep requested feedback and surprise feedback distinct, use an informed observer plus real example, and never invent a return date.
+- When career-direction-small-experiment genuinely fits, select career_experiment. Lead with a 60-to-90-minute no-interview minimum; separate observed steps and friction, what a willing person actually reports and assumptions. Only then offer an optional expansion. Never prescribe quitting or unaffordable unpaid work.
+- When specific-feedback-request-and-pause genuinely fits, select feedback_request. Keep requested feedback and surprise feedback distinct, use an informed observer plus real example, and never invent a return date or offer a pause with no real return point.
 - When job-offer-whole-package genuinely fits, select offer_package. Use only actual offer terms and priorities, discuss constraints and trade-offs, and never invent competing offers, market data, law or employer flexibility.
 - When feedback-evidence-access genuinely fits, do not debate whether the visitor should feel doubtful or diagnose a syndrome. Begin with the work or career move being delayed. Separate supported evidence, a genuine learning need, unclear or inconsistently applied criteria, unequal access and unknowns. Feedback may be useful, biased or mixed; preserve a supported work issue without accepting an unsupported personality label. Do not declare discrimination from a feeling or one unexplained event. Treat the flip as a private pattern check, not proof or a default question to the manager. Give a written, private, ally-supported or representative-supported lower-exposure option whenever pay, promotion, visa, probation or retaliation power appears. Select feedback_evidence_access rather than a confidence exercise; the service will supply it when you return null. Describe only the evidence-and-access audit this job actually provides: do not promise AI rehearsal, role-play or a second AI job. Call the output a personal or preparation map, never a private map, and keep the tone direct rather than using fairytale decoration for a serious work problem.
 - aiAssist is null when it adds work without benefit. Otherwise it uses exactly {"kind":"quick_task","job":"one allowed job ID","materials":[]}. kind may instead be career_workspace. No label, why, instruction or other free-text field is permitted; the service generates every visitor-visible word.
