@@ -1,5 +1,15 @@
 # Active work
 
+## 2026-09-03 MAiKEOVER Resident Card surface correction
+
+- **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
+- **Task:** Replace the ruled, pale and weakly legible vanity Card with a bold physical Resident Card, make the `Ai` in SUNNYVAiLE readable without enlarging it, and make the displayed Card number truthful.
+- **Source:** local commit `fa26156455f9b546c1fe2544cd9cc95deb93bb7e` on `release/maikeover-20260902`.
+- **Boundary:** Changes only the MAiKEOVER page, its stylesheet/runtime/checker, the MAiKEOVER design decision, active asset registry, one new admitted vanity/Card raster, one focused browser test and this task's design-QA/operations records. Production remains deployment `41cf460f-5ae9-4550-8303-6527e81a37b4` until a separately authorized release.
+- **Card behaviour:** A device-local draft reads `No. NEW`. The browser does not invent an official identifier. After a working account connection supplies a positive server `resident_number`, the Card renders that stable value as a four-digit number.
+- **Verification:** MAiKEOVER redesign and contract checks pass; shared Resident Card contract passes 34/34; active-asset admission passes; focused 1280px and 390px browser journeys pass `No. NEW`, synthetic account-issued `No. 4821`, equal-sized `Ai`, deep-ink header text and zero horizontal overflow. Exact visual QA and rejected/corrected comparison are in `operations/design-qa/maikeover-card-surface-20260903/`.
+- **Not done:** No production deployment, public-origin check, real sign-in email submission or authenticated backend number lifecycle was performed. The existing broad MAiKEOVER browser suite still times out on its older focus assertion before reaching this correction; the new bounded test covers this change directly.
+
 ## 2026-09-02 MAiKEOVER Resident Card redesign
 
 - **Status:** PUBLICLY VERIFIED.
