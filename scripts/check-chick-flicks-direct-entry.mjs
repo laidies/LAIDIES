@@ -42,9 +42,6 @@ const trailerImage = 'assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.p
 if (!source.includes(`src="/${trailerImage}"`)) errors.push('The page does not use the real trailer cover');
 if (!fs.existsSync(path.join(root, trailerImage))) errors.push(`Missing trailer image: ${trailerImage}`);
 
-if (!/Episode 05 will join the shelf when it is ready to read and listen to\./.test(source)) {
-  errors.push('Episode 05 does not have a clear inactive coming-soon state');
-}
 if (/href=["'][^"']*issue-05/.test(source) || /href=["'][^"']*ep=05/.test(source)) {
   errors.push('Episode 05 exposes an active Read or Listen route');
 }
@@ -67,13 +64,20 @@ if (!source.includes(`src="/${storeImage}"`)) errors.push('The approved movie-re
 if (!fs.existsSync(path.join(root, storeImage))) errors.push(`Missing store interior: ${storeImage}`);
 if (source.includes('sunnyvaile-masthead-chick-flicks.png')) errors.push('The long-discarded masthead image returned');
 if (source.includes('chick-flicks-store-shelves-v1.png')) errors.push('The rejected office-like store room returned');
-if ((source.match(/class=["'][^"']*cf-tape(?:\s|["'])/g) || []).length !== 5) {
+if ((source.match(/<a class=["'][^"']*cf-tape[^"']*["']/g) || []).length !== 5) {
   errors.push('The store shelves must expose the trailer plus four operable episode VHS tapes');
 }
 if (!/class=["'][^"']*cf-tape--trailer[^"']*["'][^>]*href=["']#trailer["']/.test(source)) {
   errors.push('The trailer must be an operable VHS tape on the shelf');
 }
 if (/class=["']cf-trailer["']/.test(source)) errors.push('The orphaned standalone trailer panel returned');
+const comingSoonCases = source.match(/<div class=["']cf-tape cf-tape--coming["'][^>]*aria-label=["']Episode 0[5-7] coming soon["'][^>]*>[\s\S]*?<\/div>/g) || [];
+if (comingSoonCases.length !== 3) errors.push('Future bays 5, 6 and 7 must each contain one inactive Coming soon VHS case');
+for (const block of comingSoonCases) {
+  if (/href=|data-episode=|data-program=/.test(block)) errors.push('A Coming soon VHS case exposes an active interaction');
+  if (!/coming-soon-vhs-v1\.png/.test(block)) errors.push('A future bay does not use the Coming soon VHS case');
+}
+if (/class=["'][^"']*cf-coming(?:\s|["'])/.test(source)) errors.push('The removed standalone coming-soon panel returned');
 
 if (errors.length) {
   console.error('CHICK FLICKS DIRECT ENTRY FAIL');
@@ -88,5 +92,6 @@ console.log('direct_listen_routes=4');
 console.log('direct_watch_routes=4');
 console.log('direct_trailer_routes=1');
 console.log('trailer_shelf_tapes=1');
-console.log('episode_05=COMING_SOON_NO_ACTION');
+console.log('future_shelf_tapes=3');
+console.log('episodes_05_06_07=COMING_SOON_NO_ACTION');
 console.log('visitor_facing_internal_language=0');

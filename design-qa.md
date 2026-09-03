@@ -1,5 +1,40 @@
 # Design QA — room-first building rebuilds
 
+## Chick Flicks future-release VHS shelf — 2026-09-02
+
+**Source visual truth**
+
+- User-rejected announcement panel: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/codex-clipboard-5bded0f3-ccd2-40ce-9b75-1ab94d5aeff2.png` (2062 × 750 px).
+- Accepted VHS packaging reference: `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png` (1024 × 1536 RGBA).
+- Full comparison: `operations/design-qa/chick-flicks-20260902-v5/comparison-banner-to-vhs-shelf.png` (3284 × 768 px).
+- Focused case comparison: `operations/design-qa/chick-flicks-20260902-v5/comparison-case-family.png` (984 × 768 px).
+
+**Rendered implementation**
+
+- Desktop future shelf: `operations/design-qa/chick-flicks-20260902-v5/implementation-desktop-future-shelf.png` (1440 × 1100 px; 1440 × 1100 CSS viewport; density 1).
+- Phone future shelf: `operations/design-qa/chick-flicks-20260902-v5/implementation-mobile-future-shelf.png` (390 × 844 px; 390 × 844 CSS viewport; density 1).
+- State: Episode 04 remains the latest release; Episodes 05–07 fill the remaining physical bays with the same inactive Coming soon case.
+
+**Findings**
+
+- No actionable P0/P1/P2 differences remain. The oversized announcement has been replaced by the requested physical shelf state.
+- Typography: the generated case says only `COMING SOON`, checked character-for-character. Shelf labels identify Episodes 5, 6 and 7 in the existing Jost UI style.
+- Spacing/layout: four equal cases fill the second desktop shelf; the existing phone rule makes two shelf rows. Labels remain uncropped and document width measured 390px in a 390px viewport.
+- Colours/tokens: placeholder art stays inside the current LAiDIES palette and is intentionally less saturated than released cases.
+- Image quality/assets: the 1024 × 1536 clear clamshell matches the episode family and uses genuine RGBA exterior transparency. A first RGB checkerboard export was rejected before page integration.
+- Copy/content: the `Next arrival` block and explanatory sentence are removed. No fabricated episode imagery or title was introduced.
+- Interaction/accessibility: all three cases are non-interactive, have explicit accessible names, and expose zero links, dialogs or format routes. Browser error log was empty.
+
+**Comparison history**
+
+1. P1 source: generic announcement card outside the physical catalogue.
+2. Fix: one reusable `COMING SOON` VHS placed in bays 5–7 with deterministic episode labels and no actions.
+3. Post-fix: combined full view and focused case-family comparison passed at desktop and phone widths.
+
+**Primary interactions tested:** released tape behavior retained, three future cases inert, zero future routes, responsive four/two-across layout, no horizontal overflow and no page errors.
+
+final result: passed
+
 ## Chick Flicks trailer shelf correction — 2026-09-02
 
 **Source visual truth**

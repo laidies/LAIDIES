@@ -26,6 +26,8 @@ const store = "assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-re
 const shelf = "assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-four-bay-shelf-v1.png";
 const trailerVhs = "assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.png";
 const trailerVhsHash = "45ac007f9456bf7f6c17b8e4e82c41bfc77d7577cc262fb57271f83983f036b3";
+const comingSoonVhs = "assets/sunnyvaile-interiors/episode-vhs-boxes-v2/coming-soon-vhs-v1.png";
+const comingSoonVhsHash = "54dd977a11cac51ff6b8ae0918ea9b961ef9deb3463b4628bb602797b25d3598";
 
 check("episode index has unique positive numbered records with titles", () => {
   assert.ok(Array.isArray(index.episodes) && index.episodes.length > 0);
@@ -56,7 +58,8 @@ check("the rejected office-like room cannot return and the approved rental store
 });
 
 check("the trailer and four exact transparent episode cases are operable on physical shelves", () => {
-  assert.equal((page.match(/class="cf-tape(?:\s[^"]*)?"/g) || []).length, 5);
+  assert.equal((page.match(/<a class="[^"]*cf-tape[^"]*"/g) || []).length, 5);
+  assert.equal((page.match(/<div class="cf-tape cf-tape--coming"/g) || []).length, 3);
   assert.equal((page.match(/class="cf-shelf-row(?:\s[^"]*)?"/g) || []).length, 2);
   assert.ok(exists(trailerVhs));
   assert.equal(sha256(trailerVhs), trailerVhsHash, `${trailerVhs} changed`);
@@ -111,9 +114,18 @@ check("start and latest routes remain immediately available", () => {
   assert.match(page, /href="#episode-04"[\s\S]{0,220}<b>Go to the latest episode<\/b>/);
 });
 
-check("Episode 05 is forthcoming without a fabricated tape or action", () => {
-  assert.match(page, /Episode 05 will join the shelf when it is ready to read and listen to\./);
-  assert.doesNotMatch(page, /issue-05|ep=05|episode-vhs-boxes-v2\/ep-05/);
+check("future bays 5, 6 and 7 use one inactive Coming soon VHS design", () => {
+  assert.ok(exists(comingSoonVhs));
+  assert.equal(sha256(comingSoonVhs), comingSoonVhsHash, `${comingSoonVhs} changed`);
+  const placeholderPng = bytes(comingSoonVhs);
+  assert.equal(placeholderPng.readUInt32BE(16), 1024, `${comingSoonVhs} width`);
+  assert.equal(placeholderPng.readUInt32BE(20), 1536, `${comingSoonVhs} height`);
+  assert.equal(placeholderPng[25], 6, `${comingSoonVhs} must remain RGBA`);
+  for (const number of ["05", "06", "07"]) {
+    assert.match(page, new RegExp(`aria-label="Episode ${number} coming soon"`));
+  }
+  assert.equal((page.match(/coming-soon-vhs-v1\.png/g) || []).length, 3);
+  assert.doesNotMatch(page, /class="cf-coming|issue-0[5-7]|ep=0[5-7]|episode-vhs-boxes-v2\/ep-0[5-7]/);
 });
 
 check("the trailer is accurate and exposes one route", () => {
@@ -135,7 +147,7 @@ check("responsive and keyboard-visible rules preserve the interaction", () => {
   assert.match(styles, /@media\(prefers-reduced-motion:reduce\)/);
   assert.match(styles, /\.cf-shelf-row[^{]*\{[^}]*grid-template-columns:repeat\(4/);
   assert.match(styles, /@media\(max-width:700px\)[\s\S]*\.cf-shelf-row\{[^}]*grid-template-columns:repeat\(2/);
-  assert.match(styles, /\.cf-shelf-row--partial\{[^}]*aspect-ratio:8\/9/);
+  assert.doesNotMatch(styles, /\.cf-shelf-row--partial/);
   assert.ok(exists(shelf));
   assert.equal(sha256(shelf), "5a6ae951e995f84253e423cc8cd8ad5ba3cb295f75787d417124c1f3a56e9486");
   assert.match(styles, new RegExp(shelf.replaceAll("/", "\\/")));
@@ -148,7 +160,6 @@ check("the page uses the current Homepage and LIBRAiRY colour system", () => {
   }
   assert.match(styles, /linear-gradient\(145deg,#ef4d9c 0%,#b75cc4 58%,#6c7cd1 100%\)/);
   assert.match(styles, /linear-gradient\(125deg,rgba\(113,55,214,\.94\),rgba\(36,87,230,\.94\)\)/);
-  assert.match(styles, /linear-gradient\(125deg,var\(--mint\),var\(--cyan\)\)/);
   assert.doesNotMatch(styles, /#f6f2ff|#f14f9f|#c653bc|#774ed5/);
 });
 

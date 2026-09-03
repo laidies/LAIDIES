@@ -16,30 +16,34 @@ the catalogue as an oversized panel. Start here and Latest remain immediate;
 choosing any released tape or the trailer now opens its
 description, learning payoff and Read, Listen and Watch routes in an immediate
 modal rental counter instead of changing content below the fold; the trailer
-exposes its orientation description and one `Play the trailer` action. Episode 05
-remains inactive without invented art.
+exposes its orientation description and one `Play the trailer` action. Episodes
+05–07 now occupy the remaining three bays as one repeated clear-clamshell
+`COMING SOON` design with numbered shelf labels. They are deliberately inert—no
+links, dialogs or format routes—and introduce no fabricated episode imagery.
 
 After Ali rejected the first candidate's page-specific colour approximation,
 the successor now binds the exact current public Homepage/LIBRAiRY palette and
 panel relationships. Same-viewport reference/candidate comparison plus complete
 1280px and 390px local journeys show readable uncropped cases, coherent lower
 sections, no broken images, no horizontal overflow, 48px phone format actions,
-working Start here and Read handoffs, honest Episode 05 and a responsive trailer.
+working Start here and Read handoffs, honest future-release states and a responsive trailer.
 The masthead filler is removed, ordinary headings use natural rather than
 forced-capital type, and the physical shelf is now the catalogue. The modal
 closes through its visible control or Escape, restores focus to the chosen tape,
 preserves the shelf position and supports direct episode and trailer hashes.
 The approved four-bay shelf repeats as the season grows instead of shrinking
 every release into one row: trailer plus Episodes 01–03 fill shelf one and
-Episode 04 begins shelf two; mobile presents two cases per shelf row. That breakpoint/scaling explanation and the obsolete
+Episode 04 plus the three inactive future cases fill shelf two; mobile presents
+two cases per shelf row. That breakpoint/scaling explanation and the obsolete
 “Now at the counter” label are explicitly barred from public copy. Static checks pass for exact asset hashes, palette, store/masthead ordering, four
-episode tapes plus one trailer tape, four format-route triplets, trailer truth, forthcoming state,
+episode tapes plus one trailer tape, three inert future tapes, four format-route triplets, trailer truth, forthcoming state,
 responsive rules and shared release-state copy. The guard was calibrated by
 replacing the Episode 04 VHS path in a scratch page and rejected it; the dialog
 boundary is separately calibrated against a page with its native dialog removed.
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
-`operations/design-qa/chick-flicks-20260902-v3/` and
-`operations/design-qa/chick-flicks-20260902-v4/`. Nothing has been deployed or
+`operations/design-qa/chick-flicks-20260902-v3/`,
+`operations/design-qa/chick-flicks-20260902-v4/` and
+`operations/design-qa/chick-flicks-20260902-v5/`. Nothing has been deployed or
 publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

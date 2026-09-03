@@ -361,6 +361,17 @@ Episode 04 starts the next repeatable shelf and future episodes fill that unit
 without shrinking any case.
 `ALI DIRECT TRAILER PLACEMENT DECISION — 2026-09-02`
 
+### Future-release shelf correction — 2026-09-02
+
+The separate Episode 05 announcement panel is removed. The three open bays
+beside Episode 04 are occupied by physical clear-clamshell VHS placeholders for
+Episodes 05, 06 and 07. Each placeholder says `Coming soon`, carries its episode
+number in the shelf label, and is visibly inactive: no link, dialog or format
+route exists until that episode is actually released. One shared case design may
+repeat across the three future positions so the shelf reads as stocked without
+inventing episode-specific cover art.
+`ALI DIRECT FUTURE-SHELF DECISION — 2026-09-02`
+
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
 ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt
