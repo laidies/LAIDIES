@@ -46,11 +46,15 @@ masthead collision is repaired. The Screening Room arrival carries the selected
 transparent VHS case and the same live LAiDIES palette, while Listen remains
 audio-first and Watch retains the dark film stage. Playback, captions, programme
 selection, in-progress wording and store return behavior are preserved.
-The Listen arrival now exposes a real Play / Pause / Resume control beside the
-selected case before the programme shelf, and the lower listening stage uses
-the same approved Chick Flicks VHS cover instead of the obsolete widescreen
-episode poster. The new control drives the existing narration, progress and
-caption player rather than simulating playback.
+After Ali found the first small Play control still visually ambiguous, the
+Listen arrival now makes playback the first full-width action after the episode
+description, ahead of the secondary format navigation. A large circular media
+icon, `LISTEN NOW`, `START / PAUSE / CONTINUE EPISODE 04`, runtime and caption
+promise sit inside one pink/cyan control. It remains fully visible at 390px with
+zero horizontal overflow. The lower listening stage uses the same approved
+Chick Flicks VHS cover instead of the obsolete widescreen episode poster. The
+new control drives the existing narration, progress and caption player rather
+than simulating playback.
 The pale-on-pale after-credits panel is replaced by a high-contrast cream card.
 Listen and Watch now expose the same Read, Study Pack, Song, Cocktail, Rooms and
 Quiz continuations as each reading page. If episode data fails, the player keeps

@@ -61,13 +61,21 @@ final result: passed
 - Phone evidence:
   `operations/design-audit/chick-flicks-listen-control-20260902/mobile-final-top.png`,
   `mobile-final-player.png` and `mobile-final-links-footer.png` at 390 × 844.
+- Primary-action successor after Ali's second hierarchy rejection:
+  `operations/design-audit/chick-flicks-listen-control-20260902/desktop-primary-listen-action.png`
+  at the current desktop viewport and `mobile-primary-listen-action.png` at
+  390 × 844.
 
 ### Findings and comparison history
 
-- **P1 fixed — the primary Listen action was hidden below the programme shelf.**
-  The selected-tape arrival now exposes a text-labelled Play Episode action.
-  Browser interaction proved Play → Pause → Resume against the real audio
-  element, rather than a simulated state.
+- **P1 fixed — the primary Listen action was first hidden below the programme
+  shelf, then remained visually ambiguous as a small peer of the format
+  navigation.** The selected-tape arrival now puts one full-width pink/cyan
+  action directly after the description and before Read / Listen / Watch. Its
+  large circular media icon, `LISTEN NOW`, exact episode number, runtime and
+  caption promise stay together inside the clickable area. Browser interaction
+  proved Start → Pause → Continue against the real audio element, rather than a
+  simulated state.
 - **P1 fixed — the lower player contradicted the selected tape and could become
   a black void.** The normal Listen player uses the exact approved VHS case.
   The failure routine now reveals the same cover, hides stale scenes and the
@@ -88,8 +96,9 @@ final result: passed
 - **Typography:** Anton remains the display face; Jost remains the interface
   face. Ordinary copy is natural case; short shelf/control labels retain the
   established uppercase register.
-- **Spacing/layout:** the primary Play control is visible in the desktop and
-  390px arrivals; the six-link grid is three across on desktop and two across
+- **Spacing/layout:** the primary Listen control precedes secondary format
+  navigation, spans the content column and remains a 358 × 96px action at the
+  390px viewport; the six-link grid is three across on desktop and two across
   on phone; all four phone routes reported zero horizontal overflow.
 - **Colour/tokens:** footer foreground/background computed as deep ink
   `rgb(5, 8, 23)` on cream `rgb(255, 248, 255)`; selected Listen and Resume

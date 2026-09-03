@@ -10,6 +10,8 @@ const issueJs = read('content/issue-feature-v2.js');
 
 assert.match(watch, /id="screeningCover"/);
 assert.match(watch, /id="arrivalPlay"/);
+assert.match(watch, /id="arrivalPlayLabel">Start Episode 01/);
+assert.match(watch, /<small>Listen now<\/small>/);
 assert.match(watch, /id="playerFallbackCover"/);
 assert.match(watch, /resumePanel\.hidden = true/);
 assert.match(watch, /playerFallbackCover\.hidden = false/);
@@ -36,6 +38,8 @@ assert.match(watchCss, /body\[data-format="listen"\]/);
 assert.match(watchCss, /body\[data-format="watch"\]/);
 assert.match(watchCss, /\.screening-feature\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play\s*\{/);
+assert.match(watchCss, /\.screening-arrival-play__icon\s*\{/);
+assert.match(watchCss, /grid-template-columns:\s*4\.8rem minmax\(0, 1fr\)/);
 assert.match(watchCss, /\.screening-extras\s*\{/);
 assert.match(watchCss, /\.screening-room-page \.player-status p\s*\{/);
 assert.match(watchCss, /\.screening-departures\s*\{[^}]*background:\s*var\(--screen-paper\)/s);

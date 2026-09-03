@@ -154,10 +154,8 @@ body.screening-room-page {
 }
 
 .screening-arrival-player {
-  display: flex;
-  align-items: center;
-  gap: .9rem 1.1rem;
-  margin-top: 1rem;
+  display: block;
+  margin: 1.35rem 0 1.15rem;
 }
 
 .screening-arrival-player[hidden] {
@@ -165,22 +163,74 @@ body.screening-room-page {
 }
 
 .screening-arrival-play {
-  min-height: 3.65rem;
-  padding: .85rem 1.25rem;
-  border: 3px solid var(--screen-ink);
-  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 4.8rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  min-height: 6.8rem;
+  padding: .85rem 1.2rem;
+  border: 4px solid var(--screen-ink);
+  border-radius: 10px;
   color: var(--screen-ink);
-  background: #7de2c2;
-  box-shadow: 6px 6px 0 var(--screen-pink);
-  font: 900 .9rem/1.2 "Jost", sans-serif;
-  letter-spacing: .035em;
+  background: var(--screen-pink);
+  box-shadow: 9px 9px 0 var(--screen-cyan);
+  text-align: left;
   cursor: pointer;
+}
+
+.screening-arrival-play__icon {
+  display: grid;
+  place-items: center;
+  width: 4.3rem;
+  height: 4.3rem;
+  border: 3px solid var(--screen-ink);
+  border-radius: 50%;
+  background: var(--screen-paper);
+}
+
+.screening-arrival-play__icon svg {
+  width: 2.15rem;
+  height: 2.15rem;
+  fill: currentColor;
+}
+
+.screening-arrival-play .pause-icon,
+.screening-arrival-play.is-playing .play-icon {
+  display: none;
+}
+
+.screening-arrival-play.is-playing .pause-icon {
+  display: block;
+}
+
+.screening-arrival-play__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.screening-arrival-play__copy small {
+  font: 900 .7rem/1 "Jost", sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.screening-arrival-play__copy strong {
+  font: 900 clamp(1.45rem, 2.7vw, 2.35rem)/1 "Anton", sans-serif;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+
+.screening-arrival-play__copy > span {
+  font: 800 .78rem/1.25 "Jost", sans-serif;
 }
 
 .screening-arrival-play:hover,
 .screening-arrival-play:focus-visible {
   background: var(--screen-cyan);
-  box-shadow: 3px 3px 0 var(--screen-purple);
+  box-shadow: 5px 5px 0 var(--screen-purple);
   transform: translate(2px, 2px);
   outline: 3px solid var(--screen-paper);
   outline-offset: 3px;
@@ -191,13 +241,6 @@ body.screening-room-page {
   opacity: .58;
   box-shadow: 3px 3px 0 rgba(9, 15, 43, .35);
   transform: none;
-}
-
-.screening-arrival-player p {
-  max-width: 18rem;
-  margin: 0;
-  color: rgba(9, 15, 43, .7);
-  font: 700 .76rem/1.35 "Jost", sans-serif;
 }
 
 .screening-program {
@@ -781,16 +824,23 @@ body[data-format="watch"] .screening-cover-sticker {
   }
 
   .screening-arrival-player {
-    align-items: stretch;
-    flex-direction: column;
+    margin-top: 1.1rem;
   }
 
   .screening-arrival-play {
-    width: 100%;
+    grid-template-columns: 3.8rem minmax(0, 1fr);
+    gap: .8rem;
+    min-height: 6rem;
+    padding: .75rem;
   }
 
-  .screening-arrival-player p {
-    max-width: none;
+  .screening-arrival-play__icon {
+    width: 3.55rem;
+    height: 3.55rem;
+  }
+
+  .screening-arrival-play__copy strong {
+    font-size: clamp(1.2rem, 6.4vw, 1.65rem);
   }
 
   .screening-program {

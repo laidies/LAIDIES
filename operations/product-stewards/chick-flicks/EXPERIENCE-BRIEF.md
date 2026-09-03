@@ -382,9 +382,13 @@ switcher and a truthful return to the Chick Flicks store.
 
 Read stays a light, comfortable editorial surface with the episode artwork and
 chapter navigation. Listen is audio-first and visibly labels background
-playback plus captions. Its primary Play / Pause / Resume action sits beside the
-selected VHS case before the programme shelf, controls the real narration and
-remains visible without scrolling. The listening stage repeats that exact
+playback plus captions. Its primary Start / Pause / Continue action is the first
+full-width action directly below the episode description, before the secondary
+Read / Listen / Watch navigation. It combines a large circular media icon,
+`LISTEN NOW`, the exact episode number, runtime and caption promise; a small
+generic button beside competing format choices is explicitly insufficient. It
+controls the real narration and remains visible without scrolling on desktop
+and phone. The listening stage repeats that exact
 approved Chick Flicks VHS case; it may not fall back to an older widescreen
 episode poster. The Listen and Watch pages also repeat the read version's
 `Everything in this episode` continuations—Read, Study Pack, Song, Cocktail,
