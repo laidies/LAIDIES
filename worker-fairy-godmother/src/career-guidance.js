@@ -562,6 +562,15 @@ export function diagnoseCareerFields(answer, route = null) {
   const materials = assistObject && Array.isArray(value.materials) ? value.materials : [];
   const jobAllowed = assistObject && typeof value.job === "string" && Object.hasOwn(AI_ASSIST_JOBS, value.job);
   return {
+    careerSourceIds: Array.isArray(sources) && sources.every(item => typeof item === "string") ? sources : [],
+    careerSelectedJob: assistObject && typeof value.job === "string" ? value.job : null,
+    careerRequiredSourceJob: Array.isArray(sources) ? requiredSourceJob(sources) : null,
+    careerSourcesFitPrompt: Array.isArray(sources) && sources.every(id =>
+      typeof id === "string" && careerSourceFitsPrompt(id, route?.careerInstructionText)),
+    careerUnsafePracticalAnswer: Array.isArray(sources) && sources.every(item => typeof item === "string")
+      ? unsafePracticalSourceAnswer(sources, answer)
+      : null,
+    careerPublishesHeldSourceCredit: publishesHeldSourceCredit(answer),
     careerSourcesAllowed: Array.isArray(sources) && sources.every((id) =>
       typeof id === "string" && CAREER_GUIDANCE.some((record) => record.id === id)),
     careerJobAllowed: jobAllowed,
