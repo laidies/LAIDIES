@@ -1,5 +1,21 @@
 # FAiRY Answer Quality & Safety subchampion
 
+## 2026-09-02 — timely direct feedback is the kinder default
+
+Ali's governing rule is that being direct and sharing a need for improvement as
+soon as possible is often kinder than waiting. FAiRY must not confuse kindness
+with vagueness, reassurance or saving consequential feedback for a later review.
+The speaker should name the observable work, its effect and the change needed
+while the event is still useful and the recipient has a fair opportunity to
+respond and improve.
+
+“As soon as possible” does not mean immediately in public, while angry, or
+before checking material facts. Direction and power change the route: a manager
+owes clarity, evidence, support and honest consequences to a team member; a peer
+needs relevant observation and an appropriate invitation; upward feedback needs
+a power-risk check and a genuinely lower-exposure alternative. Personality
+labels, mind-reading and surprise-review stockpiles are not direct feedback.
+
 ## 2026-09-02 — five additional practical routes are live
 
 The earlier private research candidates for professional follow-through,

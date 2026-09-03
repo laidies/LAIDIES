@@ -97,6 +97,18 @@ test('answer payload includes every governed reference but does not publish unve
     'job-offer-whole-package': {
       prompt: 'I have a written job offer and want to negotiate the salary, title and start date as a package.',
       deliverable: 'Could we discuss the whole package? My priorities are these three terms; where is there flexibility and which constraints are fixed?'
+    },
+    'manager-gives-timely-feedback': {
+      prompt: 'I manage a team member and need to give feedback about work I observed yesterday.',
+      deliverable: 'I noticed this specific missed handoff yesterday. It affected the client timeline. I need you to flag a delay before the handoff; what context am I missing? I can support the change and we will follow up Friday.'
+    },
+    'peer-gives-feedback': {
+      prompt: 'I need to give feedback to a peer about a problem I observed in our shared project.',
+      deliverable: 'Could I share something I noticed? The handoff arrived after our agreed time and affected the shared review. Could we agree one change, and what was happening from your perspective?'
+    },
+    'upward-feedback-with-power-check': {
+      prompt: 'I need to give feedback to my manager about a concern affecting our team, and she controls my promotion.',
+      deliverable: 'Could I share one observation tied to our delivery goal? I noticed decisions changed after the meeting and it affected the handoff. Could we record changes before work begins? A factual written question or trusted ally is a lower-exposure option.'
     }
   };
   for (const record of CAREER_GUIDANCE) {
@@ -142,6 +154,9 @@ test('new practical routes require the matching situation and server-owned AI le
     ['career-direction-small-experiment', 'career_experiment', 'I am exploring a career change to a new field and want to test it before I quit.', 'Use one small, affordable, reversible experiment to test the missing evidence.'],
     ['specific-feedback-request-and-pause', 'feedback_request', 'I want to ask for feedback on a skill from a colleague who saw my presentation.', 'You observed my presentation. What effect did this specific skill have, and what is one example I could test next?'],
     ['job-offer-whole-package', 'offer_package', 'I have a written job offer and want to negotiate salary and title as a package.', 'Could we discuss the whole package? Here are my priorities; where is there flexibility and which constraints are fixed? Do not pretend you have another offer. There is no guarantee the employer will agree.']
+    ,['manager-gives-timely-feedback', 'manager_feedback_preflight', 'I manage a direct report and need to give feedback about work I observed yesterday.', 'I noticed this specific missed handoff yesterday and its impact was a delayed review. I need you to flag delays earlier. What context am I missing? I can support the change and we will follow up Friday.']
+    ,['peer-gives-feedback', 'peer_feedback_preflight', 'I want to give feedback to a peer about a problem I observed in our shared work.', 'Could I share something I noticed? The handoff affected our shared review. Could we agree one change, and what was happening from your perspective?']
+    ,['upward-feedback-with-power-check', 'upward_feedback_preflight', 'I need to give feedback to my manager about a concern affecting our work.', 'Could I share one observation tied to our shared goal? The late decision affected the handoff. Could we confirm changes in writing? A trusted ally is a lower-exposure option.']
   ];
   for (const [source, job, prompt, deliverable] of cases) {
     assert.equal(careerSourceFitsPrompt(source, prompt), true, source);
@@ -156,6 +171,10 @@ test('new practical routes require the matching situation and server-owned AI le
     'career-direction-small-experiment',
     'I work in operations and want to move into service design, but I need a small test before I decide.'
   ), true);
+  assert.equal(careerSourceFitsPrompt(
+    'specific-feedback-request-and-pause',
+    'I need to give feedback to my direct report.'
+  ), false);
 });
 
 test('new practical routes reject wrong AI jobs and known harmful shortcuts before spending', async () => {
@@ -169,6 +188,9 @@ test('new practical routes reject wrong AI jobs and known harmful shortcuts befo
     ['specific-feedback-request-and-pause', 'I want to ask for feedback on a skill from a colleague who observed me.', 'Ask about the specific skill and real example. Say you do not want to set a follow-up yet.'],
     ['specific-feedback-request-and-pause', 'I want to ask for feedback on a skill from a colleague who observed me.', 'Ask about the specific skill and real example. If you do not want to commit to a return time immediately, say: “I’ll let you know if I have a follow-up question.”'],
     ['job-offer-whole-package', 'I have a written job offer and want to negotiate.', 'Pretend you have another offer; they will definitely increase this one.']
+    ,['manager-gives-timely-feedback', 'I manage a team member and need to give feedback.', 'Wait until the annual review, then tell her in front of the team that she is lazy.']
+    ,['peer-gives-feedback', 'I need to give feedback to a peer about our shared work.', 'Everyone thinks you have a bad attitude. You must change or face a formal warning.']
+    ,['upward-feedback-with-power-check', 'I need to give feedback to my manager about a work issue.', 'Confront your manager in public. The conversation is completely safe.']
   ];
   for (const [source, prompt, deliverable] of mutations) {
     const result = await run({ ...fixtureAnswer, deliverable, sources: [source], aiAssist: null }, {}, { prompt });

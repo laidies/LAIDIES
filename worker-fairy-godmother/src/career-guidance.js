@@ -8,7 +8,7 @@ const HANDOUT = {
   url: null
 };
 
-export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v10";
+export const CAREER_GUIDANCE_VERSION = "career-guidance-pilot-20260902-v11";
 
 const SAFE_WORKSPACE_NEXT_MOVE = "Answer the workspace’s first question with observable facts. If a document would resolve a named uncertainty, add only the smallest permitted, redacted excerpt or a short summary—never a whole file by default.";
 
@@ -52,7 +52,7 @@ function includesLowerExposureRoute(answer) {
 }
 
 function publishesHeldSourceCredit(answer) {
-  return /\b(?:Dorie Clark|Acas|Harvard Business Review|HBR|Ruchika Tulshyan|Jodi-Ann Burey|Basima Tewfik|MIT Sloan|American Psychological Association|APA|Alison Wood Brooks|Amy Edmondson|Herminia Ibarra|Lara Hogan|Deepak Malhotra|Sheila Heen|Douglas Stone|Program on Negotiation)\b|https?:\/\/|www\./i.test(visitorVisibleAnswerText(answer));
+  return /\b(?:Dorie Clark|Acas|Harvard Business Review|HBR|Ruchika Tulshyan|Jodi-Ann Burey|Basima Tewfik|MIT Sloan|American Psychological Association|APA|Alison Wood Brooks|Amy Edmondson|Herminia Ibarra|Lara Hogan|Deepak Malhotra|Sheila Heen|Douglas Stone|Program on Negotiation|Radical Candor|Kim Scott|Center for Creative Leadership|CCL)\b|https?:\/\/|www\./i.test(visitorVisibleAnswerText(answer));
 }
 
 const REQUIRED_SOURCE_JOBS = Object.freeze({
@@ -62,7 +62,10 @@ const REQUIRED_SOURCE_JOBS = Object.freeze({
   "leader-invites-early-risk": "dissent_preflight",
   "career-direction-small-experiment": "career_experiment",
   "specific-feedback-request-and-pause": "feedback_request",
-  "job-offer-whole-package": "offer_package"
+  "job-offer-whole-package": "offer_package",
+  "manager-gives-timely-feedback": "manager_feedback_preflight",
+  "peer-gives-feedback": "peer_feedback_preflight",
+  "upward-feedback-with-power-check": "upward_feedback_preflight"
 });
 
 function requiredSourceJob(sourceIds) {
@@ -90,6 +93,18 @@ export function careerSourceFitsPrompt(sourceId, prompt) {
   if (sourceId === "job-offer-whole-package") {
     return /\b(?:job|employment|written) offer\b|\boffer (?:package|letter|terms|deadline)\b/.test(text) &&
       /\b(?:negotiat|package|salary|pay|title|start date|leave|vacation|flexib|remote|benefit|decide|decision)\b/.test(text);
+  }
+  if (sourceId === "manager-gives-timely-feedback") {
+    return /\b(?:i (?:manage|lead|supervise)|my (?:direct report|employee|team member|report))\b/.test(text) &&
+      /\b(?:give|giving|share|sharing|deliver|delivering|need to give|have to give)\b.{0,45}\bfeedback\b|\bfeedback\b.{0,45}\b(?:direct report|employee|team member|report)\b/.test(text);
+  }
+  if (sourceId === "peer-gives-feedback") {
+    return /\b(?:peer|colleague|coworker|co-worker|team[- ]?mate)\b/.test(text) &&
+      /\b(?:give|giving|share|sharing|offer|offering)\b.{0,45}\bfeedback\b|\bfeedback\b.{0,45}\b(?:peer|colleague|coworker|co-worker|team[- ]?mate)\b/.test(text);
+  }
+  if (sourceId === "upward-feedback-with-power-check") {
+    return /\b(?:my (?:manager|boss|supervisor)|senior leader|superior|skip[- ]?level|leader above me)\b/.test(text) &&
+      /\b(?:give|giving|share|sharing|offer|offering|raise|raising)\b.{0,55}\b(?:feedback|concern|problem|issue)\b|\bfeedback\b.{0,45}\b(?:manager|boss|supervisor|leader|superior)\b/.test(text);
   }
   return true;
 }
@@ -135,6 +150,25 @@ function practicalSourceUnsafeReasons(sourceIds, answer) {
       unsafeAssertion(/\b(?:pretend|claim|say)\b.{0,35}\b(?:another offer|competing offer)\b/i)) reasons.push("offer_invented_leverage");
   if (sourceIds.includes("job-offer-whole-package") &&
       !/\b(?:whole (?:offer|package|deal)|priorit|trade[- ]?off|constraint|flexib|multiple terms|two or three)\b/i.test(text)) reasons.push("offer_missing_structure");
+  const givingFeedback = sourceIds.some(id => ["manager-gives-timely-feedback", "peer-gives-feedback", "upward-feedback-with-power-check"].includes(id));
+  if (givingFeedback && unsafeAssertion(/\b(?:you are|they are|she is|he is)\s+(?:lazy|difficult|abrasive|emotional|unprofessional|not leadership material)|\bbad attitude\b/i)) reasons.push("giving_feedback_personality_label");
+  if (givingFeedback && unsafeAssertion(/\b(?:wait|save|hold)\b.{0,35}\b(?:until|for)\b.{0,25}\b(?:annual |performance )?review\b/i)) reasons.push("giving_feedback_delayed_to_review");
+  if (givingFeedback && unsafeAssertion(/\b(?:criticise|criticize|correct|call (?:her|him|them) out|give (?:the )?feedback)\b.{0,45}\b(?:in public|in front of (?:the )?(?:team|everyone)|during the team meeting)\b/i)) reasons.push("giving_feedback_public_criticism");
+  if (givingFeedback && unsafeAssertion(/\b(?:say|send|give|deliver) (?:it|the feedback) immediately\b.{0,45}\b(?:angry|furious|upset|before checking|without checking)\b/i)) reasons.push("giving_feedback_impulsive");
+  if (sourceIds.includes("manager-gives-timely-feedback") &&
+      !/\b(?:observed|saw|noticed|specific|example)\b/i.test(text)) reasons.push("manager_feedback_missing_observation");
+  if (sourceIds.includes("manager-gives-timely-feedback") &&
+      !/\b(?:impact|effect|affected|consequence|result)\b/i.test(text)) reasons.push("manager_feedback_missing_impact");
+  if (sourceIds.includes("manager-gives-timely-feedback") &&
+      !/\b(?:next step|change needed|need you to|expect|support|follow[- ]?up|check[- ]?in)\b/i.test(text)) reasons.push("manager_feedback_missing_change_or_followup");
+  if (sourceIds.includes("peer-gives-feedback") &&
+      unsafeAssertion(/\b(?:everyone|the whole team|we all) (?:thinks?|says?|agrees?|feels?)\b/i)) reasons.push("peer_feedback_speaks_for_others");
+  if (sourceIds.includes("peer-gives-feedback") &&
+      unsafeAssertion(/\b(?:formal warning|performance consequence|disciplinary|i expect you to|you must)\b/i)) reasons.push("peer_feedback_claims_authority");
+  if (sourceIds.includes("upward-feedback-with-power-check") &&
+      unsafeAssertion(/\b(?:confront|accuse)\b.{0,50}\b(?:manager|boss|supervisor|leader|them)\b/i)) reasons.push("upward_feedback_confrontation");
+  if (sourceIds.includes("upward-feedback-with-power-check") &&
+      unsafeAssertion(/\b(?:this is|it is|the conversation is)\s+(?:completely |perfectly )?safe\b|\bno risk\b/i)) reasons.push("upward_feedback_false_safety");
   return reasons;
 }
 
@@ -199,6 +233,21 @@ const AI_ASSIST_JOBS = Object.freeze({
     label: "Prepare the whole-offer conversation",
     why: "This makes real priorities and trade-offs visible without inventing leverage or assuming every term can move.",
     quick: "Using only the written offer terms, real decision date, my two or three priorities and alternatives that I provide, organise a whole-package conversation. Separate confirmed terms, questions, priorities, trade-offs and stated constraints; draft one opening and one question about flexibility. Do not invent another offer, salary data, legal rights, employer policy or a promise that the offer will stay open."
+  }),
+  manager_feedback_preflight: Object.freeze({
+    label: "Prepare timely manager feedback",
+    why: "Direct feedback close to the event is kinder when it gives the person clear evidence, a fair chance to respond and a usable path to improve.",
+    quick: "Interview me one focused question at a time about the specific work I observed, when it happened, its work impact, the expectation or change needed, what context I may be missing, what support I control and when we will follow up. Draft a private conversation that cares personally and challenges directly: observation, impact, clear request, genuine inquiry, support and a real review point. Distinguish coaching from a formal performance or disciplinary process. Do not use personality labels, speak for unnamed others, hide material consequences, stockpile feedback for a review or tell me to deliver it while angry or before checking the facts."
+  }),
+  peer_feedback_preflight: Object.freeze({
+    label: "Prepare useful peer feedback",
+    why: "A peer can be timely and direct without pretending to manage the other person or speaking for the whole team.",
+    quick: "Ask me what I personally observed, how it affected shared work, whether anything is urgent, what I want to be different and whether a private conversation is appropriate. Draft a brief invitation, the observation and shared-work impact, one request, and a question for their perspective. If immediate customer, safety or irreversible work harm is occurring, give me a concise in-the-moment interruption followed by a private debrief. Do not use personality labels, claim everyone agrees, invent motives or consequences, or impersonate the person's manager."
+  }),
+  upward_feedback_preflight: Object.freeze({
+    label: "Prepare upward feedback",
+    why: "Upward feedback needs a clear work consequence and request, plus a route that does not pretend hierarchy or retaliation risk has disappeared.",
+    quick: "Ask me one focused question at a time about what I directly observed, the shared work consequence, the change or decision I need, my manager's response to past disagreement, and any power or retaliation risk. Draft a private, specific opening tied to the shared goal, a question that checks context and one concrete request. Also provide one genuinely lower-exposure option such as a factual written question, trusted ally, skip-level or established channel when appropriate. Do not diagnose motives, accuse, promise safety, cite unnamed consensus or tell me that better wording can repair an unsafe system."
   }),
   evidence_map: Object.freeze({
     label: "Map the evidence",
@@ -291,6 +340,9 @@ const JOB_MATERIALS = Object.freeze({
   career_experiment: new Set(),
   feedback_request: new Set(),
   offer_package: new Set(),
+  manager_feedback_preflight: new Set(),
+  peer_feedback_preflight: new Set(),
+  upward_feedback_preflight: new Set(),
   evidence_map: new Set(["role_description", "goals_or_scorecard", "achievement_log", "promotion_criteria", "decision_notes", "portfolio_examples"]),
   workload_priorities: new Set(["goals_or_scorecard", "workload_list", "meeting_agenda", "correspondence_excerpt", "decision_notes"]),
   promotion_case: new Set(["role_description", "goals_or_scorecard", "achievement_log", "promotion_criteria", "decision_notes", "cv_or_resume", "portfolio_examples"]),
@@ -450,6 +502,48 @@ export const CAREER_GUIDANCE = Object.freeze([
     aiJob: "Use feedback_request to identify the skill, informed observer and real example, then draft two questions, one experiment and a bounded pause line."
   },
   {
+    id: "manager-gives-timely-feedback",
+    source: {
+      title: "Radical Candor, CCL and Lara Hogan — timely manager feedback principles",
+      version: "checked 2026-09-02",
+      url: "https://www.radicalcandor.com/frequently-asked-questions",
+      pages: []
+    },
+    situation: "A manager has observed work that needs to improve and wants to address it promptly with a team member rather than stockpile it for a review.",
+    original: null,
+    approach: "Care personally and challenge directly: speak privately while the event is still useful, name the observable work and its effect, state the change or standard clearly, ask what context is missing, offer support the manager controls and agree a real follow-up. Directness is a service to the person's opportunity to improve, not permission to be harsh.",
+    limits: "Do not use personality labels, anonymous consensus, a praise sandwich that hides the issue, public criticism or a delayed surprise review. As soon as possible means after checking material facts and becoming able to speak constructively, not while angry. Be honest about material consequences and distinguish coaching from a formal performance or disciplinary process.",
+    aiJob: "Use manager_feedback_preflight to prepare the observation, impact, clear request, inquiry, support and follow-up."
+  },
+  {
+    id: "peer-gives-feedback",
+    source: {
+      title: "CCL and Radical Candor — specific, timely peer feedback principles",
+      version: "checked 2026-09-02",
+      url: "https://www.ccl.org/articles/leading-effectively-articles/building-relationship-skills/",
+      pages: []
+    },
+    situation: "The visitor personally observed a colleague's work affecting a shared outcome and wants to offer timely feedback without pretending to manage them.",
+    original: null,
+    approach: "Choose a private, appropriate moment; invite the conversation, name only what the visitor observed and its effect on shared work, make one concrete request and ask for the colleague's perspective. If preventable immediate harm is unfolding, interrupt the work briefly and debrief privately afterward.",
+    limits: "Do not speak for everyone, invent motives, use personality labels, threaten performance consequences or impersonate the colleague's manager. A peer may raise a work effect; she does not acquire authority over another person's career by calling it feedback.",
+    aiJob: "Use peer_feedback_preflight to prepare the invitation, observation, shared impact, request and inquiry."
+  },
+  {
+    id: "upward-feedback-with-power-check",
+    source: {
+      title: "Amy Edmondson and Radical Candor — upward voice and feedback principles",
+      version: "checked 2026-09-02",
+      url: "https://www.library.hbs.edu/working-knowledge/four-steps-to-build-the-psychological-safety-that-high-performing-teams-need-today",
+      pages: []
+    },
+    situation: "The visitor wants to give a manager or more senior leader feedback about an observed behaviour, decision or work effect.",
+    original: null,
+    approach: "Connect a specific observation to a shared work goal, ask a question that checks context and make one concrete request. Account for the leader's history of receiving dissent and provide a written, ally-supported, skip-level or established-channel alternative when direct feedback carries material risk.",
+    limits: "Do not promise that candour is safe, prescribe public confrontation, accuse the leader of a motive, cite unnamed consensus or imply better wording repairs retaliation or an unsafe system. Urgent safety, legal, discrimination or abuse matters keep their existing specialist boundaries.",
+    aiJob: "Use upward_feedback_preflight to prepare the observation, shared consequence, context question, request and lower-exposure alternative."
+  },
+  {
     id: "job-offer-whole-package",
     source: {
       title: "Deepak Malhotra — negotiating a job offer",
@@ -500,6 +594,9 @@ For a matched situation:
 - When leader-invites-early-risk genuinely fits, the visitor must control the room or decision. Select dissent_preflight and complete the move: invitation, non-defensive first response, investigation step and close-the-loop plan. Never promise safety or anonymity.
 - When career-direction-small-experiment genuinely fits, select career_experiment. Lead with a 60-to-90-minute no-interview minimum; separate observed steps and friction, what a willing person actually reports and assumptions. Only then offer an optional expansion. Use patterns in what engaged or drained the visitor, not an arbitrary numeric pass threshold. Never prescribe quitting or unaffordable unpaid work.
 - When specific-feedback-request-and-pause genuinely fits, select feedback_request. Keep requested feedback and surprise feedback distinct, use an informed observer plus real example, and never invent a return date or offer any alternative pause that ends without a real return point.
+- When manager-gives-timely-feedback genuinely fits, select manager_feedback_preflight. Care personally and challenge directly: give private, specific improvement feedback close to the event, with work impact, clear change, inquiry, support and follow-up. Do not confuse promptness with speaking while angry or before checking facts, hide consequences, or stockpile the issue for a review.
+- When peer-gives-feedback genuinely fits, select peer_feedback_preflight. Use only what the visitor personally observed and its shared-work effect; invite the conversation and do not speak for others or assume managerial authority.
+- When upward-feedback-with-power-check genuinely fits, select upward_feedback_preflight. Tie the observation to a shared goal, check context, make one request and account for hierarchy. When power or retaliation risk matters, include a genuinely lower-exposure route and never promise candour is safe.
 - When job-offer-whole-package genuinely fits, select offer_package. Use only actual offer terms and priorities, discuss constraints and trade-offs, and never invent competing offers, market data, law or employer flexibility.
 - When feedback-evidence-access genuinely fits, do not debate whether the visitor should feel doubtful or diagnose a syndrome. Begin with the work or career move being delayed. Separate supported evidence, a genuine learning need, unclear or inconsistently applied criteria, unequal access and unknowns. Feedback may be useful, biased or mixed; preserve a supported work issue without accepting an unsupported personality label. Do not declare discrimination from a feeling or one unexplained event. Treat the flip as a private pattern check, not proof or a default question to the manager. Give a written, private, ally-supported or representative-supported lower-exposure option whenever pay, promotion, visa, probation or retaliation power appears. Select feedback_evidence_access rather than a confidence exercise; the service will supply it when you return null. Describe only the evidence-and-access audit this job actually provides: do not promise AI rehearsal, role-play or a second AI job. Call the output a personal or preparation map, never a private map, and keep the tone direct rather than using fairytale decoration for a serious work problem.
 - aiAssist is null when it adds work without benefit. Otherwise it uses exactly {"kind":"quick_task","job":"one allowed job ID","materials":[]}. kind may instead be career_workspace. No label, why, instruction or other free-text field is permitted; the service generates every visitor-visible word.
@@ -537,6 +634,8 @@ export function validateCareerFields(answer, enabled, route = null) {
   if (publishesHeldSourceCredit(answer)) return null;
   if (answer.sources.includes("feedback-evidence-access") && unsafeFeedbackEvidenceAnswer(answer)) return null;
   if (answer.sources.includes("feedback-evidence-access") &&
+      route?.careerPowerRisk === true && !includesLowerExposureRoute(answer)) return null;
+  if (answer.sources.includes("upward-feedback-with-power-check") &&
       route?.careerPowerRisk === true && !includesLowerExposureRoute(answer)) return null;
   if (unsafePracticalSourceAnswer(answer.sources, answer)) return null;
   const requiredJob = requiredSourceJob(answer.sources);
