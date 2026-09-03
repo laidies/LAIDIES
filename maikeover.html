@@ -690,6 +690,7 @@
     // ---- hydrate from existing state ----
     (function(){
       var stored = readCardEnvelope();
+      if (stored) $('moSeeCloset').style.display='inline';
       var fields = stored ? stored.fields : legacyCardFields();
       var bg = fields.cardBg; if(bg && CARD_BG[bg]){ state.bg=bg;
         var chips=$('moBgChips').children, idx=BG_ORDER.indexOf(bg); if(chips[idx]) { chips[idx].classList.add('on'); chips[idx].setAttribute('aria-pressed','true'); } }

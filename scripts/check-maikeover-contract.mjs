@@ -36,6 +36,8 @@ requireText(maikeover, "localStorage.getItem(CARD_STORAGE_KEY) !== serialized",
   "local envelope save does not verify its write");
 requireText(maikeover, "carry: $('moCarrySel').value",
   "local save omits the carrying choice");
+requireText(maikeover, "if (stored) $('moSeeCloset').style.display='inline';",
+  "a restored local Card does not keep its Closet handoff visible");
 requireText(maikeover, "window.__LAIDIES_MAIKEOVER_ACCOUNT_PREFLIGHT__ === true",
   "account preflight is not explicitly gated");
 requireText(maikeover, "/^(localhost|127\\.0\\.0\\.1)$/",
