@@ -96,23 +96,28 @@ export function careerSourceFitsPrompt(sourceId, prompt) {
 
 function unsafePracticalSourceAnswer(sourceIds, answer) {
   const text = visitorVisibleAnswerText(answer);
+  const sentences = text.split(/(?<=[.!?])\s+|\n+/).filter(Boolean);
+  const unsafeAssertion = pattern => sentences.some(sentence =>
+    !/\b(?:do not|don't|does not|doesn't|cannot|can't|never|avoid|without|no need to|not necessary to)\b/i.test(sentence) &&
+    pattern.test(sentence)
+  );
   if (sourceIds.includes("professional-conversation-follow-through") &&
-      (/\b(?:keep|continue) (?:following up|contacting|messaging)\b.{0,45}\b(?:until|eventually)\b/i.test(text) ||
-       /\b(?:will|guarantee|ensures?)\b.{0,45}\b(?:sponsor|promotion|opportunit|relationship)\b/i.test(text))) return true;
+      (unsafeAssertion(/\b(?:keep|continue) (?:following up|contacting|messaging)\b.{0,45}\b(?:until|eventually)\b/i) ||
+       unsafeAssertion(/\b(?:will|guarantee|ensures?)\b.{0,45}\b(?:sponsor|promotion|opportunit|relationship)\b/i))) return true;
   if (sourceIds.includes("leader-invites-early-risk") &&
-      (/\b(?:guarantee|promise)\b.{0,35}\b(?:safe|safety|anonymous|anonymity)\b/i.test(text) ||
+      (unsafeAssertion(/\b(?:guarantee|promise)\b.{0,35}\b(?:safe|safety|anonymous|anonymity)\b/i) ||
        !/\b(?:respond|receive|thank|investigat|follow[- ]?up|what happens next)\b/i.test(text))) return true;
   if (sourceIds.includes("career-direction-small-experiment") &&
-      (/\b(?:quit|resign|leave your job)\b.{0,45}\b(?:now|immediately|first)\b/i.test(text) ||
-       /\b(?:unpaid work|work for free|true calling|one true self)\b/i.test(text) ||
+      (unsafeAssertion(/\b(?:quit|resign|leave your job)\b.{0,45}\b(?:now|immediately|first)\b/i) ||
+       unsafeAssertion(/\b(?:unpaid work|work for free|true calling|one true self)\b/i) ||
        !/\b(?:bounded|small|reversible|afford|constraint|test|experiment)\b/i.test(text))) return true;
   if (sourceIds.includes("specific-feedback-request-and-pause") &&
-      (/\bask (?:anyone|everyone) for (?:any |general )?feedback\b/i.test(text) ||
-       /\b(?:agree|accept) immediately\b/i.test(text) ||
+      (unsafeAssertion(/\bask (?:anyone|everyone) for (?:any |general )?feedback\b/i) ||
+       unsafeAssertion(/\b(?:agree|accept) immediately\b/i) ||
        !/\b(?:specific skill|observed|example|saw|witnessed)\b/i.test(text))) return true;
   if (sourceIds.includes("job-offer-whole-package") &&
-      (/\b(?:guarantee|definitely|certainly)\b.{0,45}\b(?:offer|employer|agree|accept|increase)\b/i.test(text) ||
-       /\b(?:pretend|claim|say)\b.{0,35}\b(?:another offer|competing offer)\b/i.test(text) ||
+      (unsafeAssertion(/\b(?:guarantee|definitely|certainly)\b.{0,45}\b(?:offer|employer|agree|accept|increase)\b/i) ||
+       unsafeAssertion(/\b(?:pretend|claim|say)\b.{0,35}\b(?:another offer|competing offer)\b/i) ||
        !/\b(?:whole (?:offer|package|deal)|priorit|trade[- ]?off|constraint|flexib|multiple terms|two or three)\b/i.test(text))) return true;
   return false;
 }
