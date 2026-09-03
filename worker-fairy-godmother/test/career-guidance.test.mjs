@@ -152,6 +152,10 @@ test('new practical routes require the matching situation and server-owned AI le
     assert.equal(result.data.answer.aiAssist.kind, 'quick_task', source);
     assert.deepEqual(result.data.answer.aiAssist.materials, [], source);
   }
+  assert.equal(careerSourceFitsPrompt(
+    'career-direction-small-experiment',
+    'I work in operations and want to move into service design, but I need a small test before I decide.'
+  ), true);
 });
 
 test('new practical routes reject wrong AI jobs and known harmful shortcuts before spending', async () => {

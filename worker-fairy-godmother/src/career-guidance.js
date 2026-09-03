@@ -81,7 +81,7 @@ export function careerSourceFitsPrompt(sourceId, prompt) {
       /\b(?:risk|concern|disagree|dissent|silence|silent|agreement|decision|speak up)\b/.test(text);
   }
   if (sourceId === "career-direction-small-experiment") {
-    return /\b(?:career (?:change|direction|transition)|change careers?|different field|new field|possible direction)\b/.test(text) &&
+    return /\b(?:career (?:change|direction|transition)|change careers?|different field|new field|possible direction|move into|moving into|pivot into|transition into)\b/.test(text) &&
       /\b(?:test|try|experiment|explore|project|shadow|sample|before (?:i )?(?:quit|leave|decide))\b/.test(text);
   }
   if (sourceId === "specific-feedback-request-and-pause") {
