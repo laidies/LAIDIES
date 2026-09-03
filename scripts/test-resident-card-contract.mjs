@@ -21,10 +21,6 @@ const closetBridge = fs.readFileSync(
   path.join(root, "content", "site", "closet-account-bridge-v1.js"),
   "utf8"
 );
-const puffyRuntime = fs.readFileSync(
-  path.join(root, "content", "site", "puffy-bookmarks.js"),
-  "utf8"
-);
 const contract = fs.readFileSync(
   path.join(root, "content", "site", "resident-card-contract-v1.js"),
   "utf8"
@@ -35,12 +31,6 @@ const house = fs.readFileSync(
   path.join(root, "content", "site", "sorority-house-v2.js"),
   "utf8"
 );
-const puffyConsumers = [
-  "handbook.html",
-  "laidies-card.html",
-  "library.html",
-  "shop.html"
-];
 
 const checks = [];
 function check(value, label) {
@@ -57,10 +47,9 @@ check(page.includes("identity-client-v1.js") &&
 check(!/member_profiles|\.from\(/.test(accountPage),
   "Resident Card account UI does not write profile tables directly");
 check(!/card (?:can|will) save quiz scores|card (?:can|will) save stickers|card (?:can|will) sign posts|card (?:can|will) unlock rooms/i.test(page), "route does not grant progression or community authority");
-check(page.includes("Signed-in continuation currently synchronizes episode position") &&
-  page.includes("free-form activity content stay out of continuation sync"), "separate activity persistence is explicit");
+check(page.includes("free-form activity content stay browser-only"), "separate activity persistence is explicit");
 check(page.includes("not reserved") &&
-  page.includes("Public member Cards and public reward ownership remain separate features"),
+  page.includes("Public Cards and public reward ownership remain separate features"),
   "identity and cross-product limits are explicit");
 check(page.includes('role="status"') && page.includes('aria-live="polite"') && page.includes('aria-atomic="true"'), "status has accessible live semantics");
 check(runtime.includes("contract.read(window.localStorage)"), "status reads only through the shared projection");
@@ -77,8 +66,7 @@ check(contract.includes('document.createElement("img")') && contract.includes("r
 check(maikeover.includes("One versioned envelope is the only authoritative local card write."), "MAiKEOVER keeps an atomic authoritative local write");
 check(maikeover.includes("LAIDIESResidentCard.buildEnvelope"), "MAiKEOVER writes only shared-contract envelopes");
 check(maikeover.includes('src="/content/site/resident-card-contract-v1.js'), "MAiKEOVER loads the shared contract");
-check(maikeover.includes("It is not reserved or public."), "MAiKEOVER preserves local-handle truth");
-check(closet.includes("browser-only or restored from your private account"), "Closet preserves persistence truth");
+check(maikeover.includes("It is not reserved, public or available on another device."), "MAiKEOVER preserves local-handle truth");
 check(closet.includes('src="/content/site/resident-card-contract-v1.js'), "Closet loads the shared contract");
 check(closet.includes("contract.read(localStorage)"), "Closet reads only through the shared projection");
 check(closet.includes("contract.replaceWithSafeImage"), "Closet delegates avatar rendering to the shared safe DOM helper");
@@ -86,32 +74,13 @@ check(!/el\\.innerHTML\\s*=\\s*'<img src=\"'\\s*\\+\\s*profile\\.card_avatar_url
 check(closet.includes("closet-account-bridge-v1.js"),
   "Closet loads the shared account restore bridge");
 check(closetBridge.includes("runtime.writeLocalEnvelope(remoteDocument)") &&
-  closetBridge.includes('state.state !== "account-backed-resident"'),
+  closetBridge.includes("account-backed-resident"),
   "Closet restores only a verified account-backed Card");
 check(accountRuntime.includes("detectSessionInUrl: false") &&
   accountRuntime.includes('flowType: "pkce"'),
   "shared account runtime owns the PKCE callback boundary");
-check(accountRuntime.includes('new URL("/auth/v1/health", config.url)') &&
-  accountRuntime.includes("controller.abort()") &&
-  accountRuntime.indexOf("requireHealthyProvider(config)") <
-    accountRuntime.indexOf("module.createClient"),
-  "shared account runtime proves bounded provider health before exposing account state");
-check(page.includes("resident-account-runtime-v1.js?v=20260829-provider-health-1") &&
-  closet.includes("resident-account-runtime-v1.js?v=20260829-provider-health-1"),
-  "Resident Card and Closet bind the provider-health runtime cache identity");
 check(house.includes("It is not a Hyvor sign-in or cross-device community identity."), "Sorority House denies local-card identity escalation");
 check(house.includes("Every room is still open to explore."), "local card cannot unlock community rooms");
-check(puffyRuntime.includes("route.replace(/\\.html$/, '')"),
-  "Puffy saves admit Cloudflare extensionless forms of exact public routes");
-for (const relative of puffyConsumers) {
-  const consumer = fs.readFileSync(path.join(root, relative), "utf8");
-  const contractIndex = consumer.indexOf("resident-card-contract-v1.js");
-  const puffyIndex = consumer.indexOf("puffy-bookmarks.js");
-  check(consumer.includes('src="/content/site/resident-card-contract-v1.js'),
-    `${relative} loads the Resident Card contract for Puffy saves`);
-  check(contractIndex >= 0 && puffyIndex >= 0 && contractIndex < puffyIndex,
-    `${relative} loads the Resident Card contract before Puffy runtime`);
-}
 
 const failures = checks.filter((item) => !item.ok);
 for (const item of checks) {

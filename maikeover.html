@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MAiKEOVER on MAiN · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="MAiKEOVER on MAiN at MAiN Street No. 6 — the beauty parlor where LAiDIES are made and members come back. New here? Design your card. Coming back? See your card and what your week brought in.">
+  <meta name="description" content="Make your SUNNYVAiLE Resident Card, save your town profile, and sign in to restore your Card and supported progress across devices.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260724-1">
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260902-explainer-palette-21">
   <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
     window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
@@ -40,55 +40,64 @@
   <link rel="canonical" href="https://laidies.ai/maikeover" />
   <meta property="og:url" content="https://laidies.ai/maikeover" />
 </head>
-<body>
+<body class="mo-v3">
 
   <header class="sv-header"></header>
 
-  <section class="sv-hero mo-room" aria-label="The MAiKEOVER vanity">
-    <img class="mo-room__backdrop" src="assets/building-interiors/maikeover-salon.jpg?v=20260708" alt="Inside MAiKEOVER on MAiN — a pink beauty parlor with a checkerboard floor, vinyl styling chairs, bulb-framed vanity mirrors and hood dryers" loading="eager">
-    <p class="mo-room__brand"><span class="ai">MAiKEOVER</span> <span>on <span class="ai">MAiN</span></span></p>
-    <div class="mo-mirror-mount" id="moMirrorMount" aria-label="Your live Resident Card mirror"></div>
-    <nav class="mo-tool-tray" aria-label="Vanity tool drawers">
-      <button type="button" data-mo-tool="look" aria-pressed="true">Look</button>
-      <button type="button" data-mo-tool="backdrop" aria-pressed="false">Backdrop</button>
-      <button type="button" data-mo-tool="soundtrack" aria-pressed="false">Soundtrack</button>
-      <button type="button" data-mo-tool="saint" aria-pressed="false">Saint</button>
-      <button type="button" data-mo-tool="era" aria-pressed="false">Era faves</button>
-      <button type="button" data-mo-tool="carrying" aria-pressed="false">Carrying</button>
-      <button type="button" data-mo-tool="finish" aria-pressed="false">Finish</button>
-    </nav>
+  <section class="mo-masthead" aria-labelledby="moMastheadTitle">
+    <div class="mo-masthead__copy">
+      <div class="mo-masthead__title">
+        <h1 id="moMastheadTitle">M<span class="mo-ai">Ai</span>KEOVER <small>on MA<span class="mo-ai">i</span>N</small></h1>
+      </div>
+    </div>
+    <section class="mo-masthead__visual" aria-label="Inside MAiKEOVER on MAiN with Paulette">
+      <img class="mo-masthead__image" src="/assets/town-characters/scenes/paulette-maikeover-masthead-comic-candidate-v1.png" alt="Paulette welcomes visitors inside MAiKEOVER on MAiN." width="1774" height="887">
+    </section>
   </section>
 
   <main class="mo-page">
-
-    <section class="mo-arrival" aria-labelledby="moArrivalTitle">
-    <div class="sv-eyebrow">
-      <span class="sv-eyebrow-label">★ MAiN Street · No. 6 · SUNNYVAiLE</span>
-    </div>
-
-    <h1 id="moArrivalTitle">New here? Take the chair.</h1>
-
-    <p class="sv-lede">
-      Work the seven drawers, watch your Resident Card change in the mirror,
-      and leave MAiN Street with a card that feels like yours.
-    </p>
-    <p class="mo-persistence-state" id="moPersistenceState" role="status" aria-live="polite">
-      <strong>Local-first card:</strong> saving keeps this card in this browser
-      on this device. The Resident Card desk can request a private sign-in link;
-      sign in at the Resident Card desk to keep an account-backed copy and continue across supported browsers.
-    </p>
-
-    <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rose); font-size: 17px; text-align: center; padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 24px 0;">
-      Wednesday tour · Stop No. 6 · After class, before the Bronze.
-    </p>
+    <section class="mo-card-explainer" id="mo-card-explained" aria-labelledby="moExplainerTitle">
+      <div class="mo-card-explainer__intro">
+        <p class="mo-section-kicker">Your town profile</p>
+        <h2 id="moExplainerTitle">Get your Resident Card.</h2>
+        <p>Your Resident Card is how LAiDIES knows you around town. Once it is connected to your account, your Closet is where your saved things and progress live.</p>
+      </div>
+      <div class="mo-card-explainer__steps" aria-label="How your Resident Card works">
+        <div><strong>1 · Make it yours</strong><span>Choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
+        <div><strong>2 · Open your Closet</strong><span>Sign in to connect the Card to your private account. Your Closet keeps your saved things and progress available across devices.</span></div>
+        <div><strong>3 · Update it any time</strong><span>Come back to MAiKEOVER whenever you want a new Card design or want to change your favourites.</span></div>
+      </div>
+      <div class="mo-card-explainer__actions">
+        <a class="mo-primary-link" href="#mo-maker">Get my Card</a>
+        <a class="mo-secondary-link" href="/resident-card.html#rcAccountTitle">Already have an account? Sign in</a>
+      </div>
+      <p class="mo-persistence-state" id="moPersistenceState" role="status" aria-live="polite"><strong>You can start before signing in.</strong> Connect your account before you leave if you want your Card and Closet available on another device.</p>
     </section>
 
+  <section class="mo-room" id="mo-maker" aria-labelledby="moMakerTitle">
+    <div class="mo-room__canvas">
+      <img class="mo-room__backdrop" src="/assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v5.png" alt="" width="1672" height="941">
+      <div class="mo-maker-intro">
+        <p class="mo-section-kicker">The working vanity</p>
+        <h2 id="moMakerTitle">Make your <span>Resident Card.</span></h2>
+        <p>Six steps. Your choices appear on the Card as you go.</p>
+      </div>
+      <div class="mo-mirror-mount" id="moMirrorMount" aria-label="Your live Resident Card mirror"></div>
+    </div>
+  </section>
+    <nav class="mo-tool-tray" aria-label="Resident Card steps">
+      <button type="button" data-mo-tool="backdrop" aria-pressed="true"><span>1</span> Backdrop</button>
+      <button type="button" data-mo-tool="era" aria-pressed="false"><span>2</span> Era faves</button>
+      <button type="button" data-mo-tool="soundtrack" aria-pressed="false"><span>3</span> Soundtrack</button>
+      <button type="button" data-mo-tool="saint" aria-pressed="false"><span>4</span> Saint</button>
+      <button type="button" data-mo-tool="carrying" aria-pressed="false"><span>5</span> Carrying</button>
+      <button type="button" data-mo-tool="finish" aria-pressed="false"><span>6</span> Finish</button>
+    </nav>
     <!-- ===== THE CHAIR: Resident Card customizer ===== -->
     <section id="mo-chair" style="--gold:#f6c04a; margin:8px 0 40px;">
-      <p class="mo-section-kicker">The vanity drawers</p>
-      <h2 style="margin-bottom:6px;">Pick up one tool at a time.</h2>
-      <p class="sv-lede" style="margin-top:0;">Your choices update the mirror above. Style and save the card here; the Resident Card desk can separately request a private sign-in link.</p>
-      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Look drawer open · the portrait booth is getting a safety upgrade.</p>
+      <h2 class="mo-drawer-heading">Choose your backdrop</h2>
+      <p class="mo-drawer-help">Move through each numbered step. Your choices update the Card in the mirror as you go.</p>
+      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Pick the finish for your Card.</p>
 
       <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
 
@@ -96,12 +105,10 @@
         <div class="mo-card-col" style="position:sticky; top:92px;">
           <div id="moCard" style="border:2px solid var(--rose); border-radius:18px; padding:20px; background:linear-gradient(135deg,#fffdfb 0%,#f8eef2 100%); box-shadow:0 16px 38px rgba(58,24,56,.14);">
             <div style="display:flex; justify-content:space-between; align-items:center; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--rose); font-weight:700; margin-bottom:14px;">
-              <span>★ SUNNYVAiLE Resident</span>
+              <span>★ SUNNYV<span class="mo-card-ai">Ai</span>LE Resident</span>
               <span id="moResidentNo" style="color:#b98a2a; font-family:monospace;">No. ————</span>
             </div>
-            <div id="moAvatar" style="width:100%; aspect-ratio:1; border-radius:14px; background:var(--pearl); display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid var(--line);">
-              <span style="font-family:'Playfair Display',Georgia,serif; font-size:44px; color:var(--rose); opacity:.5;">✦</span>
-            </div>
+            <div id="moAvatar" aria-label="Your Resident Card portrait"></div>
             <div id="moName" style="font-family:'Playfair Display',Georgia,serif; font-size:24px; font-weight:700; color:var(--plum); margin:14px 0 2px;">Your Name</div>
             <div id="moHandle" style="font-family:'Jost',sans-serif; font-size:13px; color:var(--rose); font-weight:600; margin-bottom:12px;">@yourhandle</div>
             <div style="font-family:'Jost',sans-serif; font-size:14px; color:var(--plum); line-height:1.7;">
@@ -121,10 +128,7 @@
           <!-- Avatar -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
-            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The AI portrait booth is temporarily closed for a safety upgrade.</strong> You can still style and save the rest of your Resident Card today. No photo leaves this page while the booth is closed.</p>
-            <div id="moPortraitHold" role="status" tabindex="-1" style="margin:0 0 12px; padding:12px 14px; border-left:6px solid var(--rose); background:#fff3f7; color:#2b1230; font-size:13px; font-weight:700;">
-              No photo picker, description prompt or portrait provider is loaded while the booth is closed. A future booth must pass consent, retention/deletion, safety, three-candidate comparison and save-contract review before these controls return.
-            </div>
+            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The portrait booth is temporarily closed while we finish its safety check.</strong> You can still make and save the rest of your Resident Card.</p>
 
             <div id="moPortraitOptionsHeld" hidden aria-hidden="true">
             <div class="mo-sub">The Era's Tour — pick one</div>
@@ -142,7 +146,7 @@
             <div class="mo-chips" id="moBackdrop"></div>
             </div>
 
-            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Portrait comparison is unavailable. The rest of the Resident Card maker remains open.</div>
+            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Continue to Backdrop when you are ready.</div>
           </div>
 
           <!-- Background -->
@@ -330,16 +334,20 @@
           <!-- Handle -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your @handle</label>
-            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Handle claims and public Closet addresses are currently held (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">no public handle</span>). Your saved card remains in this browser only.</p>
+            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Your local Card can use a draft handle (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">no draft handle</span>). A draft handle is local only. It is not reserved, public or available on another device. Sign in at the Resident Card desk to connect your Card to your private account.</p>
           </div>
 
           <!-- Save -->
           <div>
-            <button type="button" id="moSave" style="background:var(--gold); color:var(--plum); border:0; border-radius:999px; padding:14px 30px; font-family:inherit; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Save my card ★</button>
+            <button type="button" id="moSave" style="background:var(--gold); color:var(--plum); border:0; border-radius:999px; padding:14px 30px; font-family:inherit; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Save my Card</button>
             <a href="/laidies-card.html" id="moSeeCloset" style="display:none; margin-left:14px; color:var(--rose); font-weight:700; text-decoration:underline;">See it in my Closet →</a>
             <div id="moSaveMsg" role="status" aria-live="polite" tabindex="-1" style="margin-top:10px; font-size:13px; color:#2c7d3c; min-height:18px;"></div>
           </div>
 
+        </div>
+        <div class="mo-drawer-nav" aria-label="Move through the Resident Card steps">
+          <button type="button" id="moPreviousTool">Previous step</button>
+          <button type="button" id="moNextTool">Next: Era faves</button>
         </div>
       </div>
     </section>
@@ -350,8 +358,6 @@
       .mo-sub { font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:11px; letter-spacing:.1em; text-transform:uppercase; margin:12px 0 4px; }
       .mo-mode.on { background:var(--rose) !important; color:var(--cream) !important; border-color:var(--rose) !important; }
       #moBgChips .mo-bg { cursor:pointer; }
-      #moBgChips .mo-bg { width:54px; height:36px; border-radius:8px; border:2px solid transparent; }
-      #moBgChips .mo-bg.on { border-color:var(--rose); box-shadow:0 0 0 2px rgba(155,63,95,.25); }
       @media (max-width:720px){ .mo-chair-grid { grid-template-columns:1fr !important; } .mo-card-col { position:static !important; } }
     </style>
     <!-- ===== /THE CHAIR ===== -->
@@ -368,8 +374,8 @@
 
     <p class="mo-claim-intro">
       You can make and save a Resident Card on this device. Private account
-      sign-in-link requests are available at the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a>.
-      Account-backed Card continuation, public handles and shareable Closet addresses remain held.
+      continuation is available at the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a>.
+      Public handles and shareable Closet addresses remain held.
     </p>
 
     <div id="mo-claim-card" style="background: var(--pearl); border-radius: 14px; padding: 26px 28px; margin: 22px 0 32px; border: 1px solid var(--line);">
@@ -377,9 +383,9 @@
       <!-- Fail-closed release state. Local preflight may exercise the hidden
            states with deterministic mocks; this panel is the public default. -->
       <div class="mo-claim-state" data-state="held" tabindex="-1">
-        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Account release check</p>
-        <h3 style="margin:0 0 10px; color:var(--plum);">The guest book is not taking claims yet.</h3>
-        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">You can make and save your Resident Card on this device. Then use the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a> to keep a private account-backed copy and restore it in another supported browser. Handle claims and public Closet links remain separate.</p>
+        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Private account continuation</p>
+        <h3 style="margin:0 0 10px; color:var(--plum);">Keep your Resident Card with you.</h3>
+        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">Make and save your Card here, then <a href="/resident-card.html#rcAccountTitle">sign in at the Resident Card desk</a> to restore your Card and supported progress across devices. Public handles and shareable Cards remain separate.</p>
       </div>
 
       <!-- Loading placeholder -->
@@ -395,7 +401,7 @@
         <p id="mo-claim-result-label" style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
         <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
         <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
-        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved in this browser. It is not reserved or public. <a id="mo-local-signin" href="/resident-card.html#rcAccountTitle" style="color:var(--rose); font-weight:700; text-decoration:underline;">Keep it with my private account →</a></p>
+        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved or public. <a id="mo-local-signin" href="/resident-card.html#rcAccountTitle" style="color:var(--rose); font-weight:700; text-decoration:underline;">Keep it with a private account at the Resident Card desk →</a></p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
           <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>
@@ -428,11 +434,10 @@
     </div>
 
     <section class="mo-exit" aria-labelledby="moExitTitle">
-      <p class="mo-section-kicker">Your card has somewhere to go</p>
-      <h2 id="moExitTitle">The parlor makes it. The house lets it in.</h2>
-      <p>MAiKEOVER holds your personal Resident Card. The Sorority House is where
-        you use it with the other LAiDIES.</p>
-      <a href="/sorority-house.html">Walk to the Sorority House <span aria-hidden="true">→</span></a>
+      <p class="mo-section-kicker">Your Closet is next</p>
+      <h2 id="moExitTitle">Connect your Card. Open your Closet.</h2>
+      <p>Sign in to connect your Resident Card to your private account. Then your Closet keeps your saved things and supported progress available across devices.</p>
+      <a href="/resident-card.html#rcAccountTitle">Sign in and open my Closet <span aria-hidden="true">→</span></a>
     </section>
 
   </main>
@@ -452,6 +457,7 @@
       holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
     };
     var BG_ORDER = ['classic','pinklilac','peach','mint','lavender','holo'];
+    var BG_LABEL = {classic:'Classic',pinklilac:'Pink + lilac',peach:'Peach',mint:'Mint',lavender:'Lavender',holo:'Holo'};
     var SONG_LABEL = {
       'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap',
       'the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI',
@@ -486,11 +492,12 @@
       return legacy && legacy.state === 'legacy' ? legacy.fields : {};
     }
 
-    var state = { bg:'classic', avatar:'' };
+    var state = { bg:'pinklilac', avatar:'' };
 
     // ---- preview ----
     function renderPreview(){
-      $('moCard').style.background = CARD_BG[state.bg] || CARD_BG.classic;
+      $('moCard').dataset.finish = state.bg;
+      $('moCard').style.background = 'transparent';
       var nm = $('moNameInput').value.trim(); $('moName').textContent = nm || 'Your Name';
       var handle = window.LAIDIESResidentCard
         ? window.LAIDIESResidentCard.readHandle(localStorage)
@@ -528,6 +535,10 @@
         c.setAttribute('aria-label', key + ' card background');
         c.setAttribute('aria-pressed', 'false');
         c.style.background = CARD_BG[key];
+        var label = document.createElement('span');
+        label.className = 'mo-bg-label';
+        label.textContent = BG_LABEL[key];
+        c.appendChild(label);
         c.onclick = function(){
           state.bg = key;
           Array.prototype.forEach.call(wrap.children,function(x){
@@ -653,7 +664,7 @@
           throw new Error('storage verification failed');
         }
         announceCardSave(
-          'Saved on this device ★ — reload this browser to find it again.',
+          'Card saved on this device. Sign in at the Resident Card desk to restore your Card and supported progress across devices.',
           '#2c7d3c'
         );
         $('moSeeCloset').style.display='inline';
@@ -682,7 +693,7 @@
       var fields = stored ? stored.fields : legacyCardFields();
       var bg = fields.cardBg; if(bg && CARD_BG[bg]){ state.bg=bg;
         var chips=$('moBgChips').children, idx=BG_ORDER.indexOf(bg); if(chips[idx]) { chips[idx].classList.add('on'); chips[idx].setAttribute('aria-pressed','true'); } }
-      else if ($('moBgChips').children[0]) { $('moBgChips').children[0].classList.add('on'); $('moBgChips').children[0].setAttribute('aria-pressed','true'); }
+      else { var defaultIdx=BG_ORDER.indexOf(state.bg), defaultChip=$('moBgChips').children[defaultIdx]; if(defaultChip) { defaultChip.classList.add('on'); defaultChip.setAttribute('aria-pressed','true'); } }
       var av = fields.cardAvatarUrl;
       if (av && window.LAIDIESResidentCard &&
           window.LAIDIESResidentCard.isSafeAssetPath(av)) {
@@ -694,11 +705,7 @@
       if(fields.tvshow) $('moTvSel').value=fields.tvshow;
       if(fields.displayName) $('moNameInput').value=fields.displayName;
       if(fields.carry) $('moCarrySel').value=fields.carry;
-      if(stored) $('moSeeCloset').style.display='inline';
-      var h=window.LAIDIESResidentCard
-        ? window.LAIDIESResidentCard.readHandle(localStorage)
-        : '';
-      if(h) $('moHandleNote').textContent='@'+h;
+      var h=lsGet('laidies_card_username'); if(h) $('moHandleNote').textContent='@'+h;
       renderPreview();
     })();
   })();
@@ -952,11 +959,7 @@
       });
     }
 
-    function localHandle() {
-      return window.LAIDIESResidentCard
-        ? window.LAIDIESResidentCard.readHandle(localStorage)
-        : '';
-    }
+    function localHandle() { try { return localStorage.getItem('laidies_card_username') || ''; } catch (_) { return ''; } }
 
     async function init() {
       var lh = localHandle();
@@ -1001,9 +1004,9 @@
   </script>
 
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-    <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
-<script defer src="/content/site/maikeover-v2.js?v=20260823-query-boundary-1"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260902-card-order-3"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>

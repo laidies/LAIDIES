@@ -2,17 +2,28 @@
   "use strict";
 
   var toolCopy = {
-    look: "Look drawer open · style the card while the portrait booth remains safely closed.",
-    backdrop: "Backdrop drawer open · choose the card and portrait setting.",
-    soundtrack: "Soundtrack drawer open · choose the song that follows you home.",
-    saint: "Patron Saint drawer open · pick the voice you want in your corner.",
-    era: "Era Faves drawer open · put your movie and television canon on the card.",
-    carrying: "Carrying drawer open · choose the one thing in your bag.",
-    finish: "Finish drawer open · sign the card, save it, then claim your handle."
+    backdrop: "Pick the finish for your Card.",
+    soundtrack: "Pick your song.",
+    saint: "Pick your Patron Saint.",
+    era: "Pick your movie and television favourites.",
+    carrying: "Pick what you’re carrying.",
+    finish: "Add your name, save, then connect your account."
   };
 
+  var toolLabels = {
+    backdrop: "Backdrop", soundtrack: "Soundtrack",
+    saint: "Saint", era: "Era faves", carrying: "Carrying", finish: "Finish"
+  };
+  var toolHeadings = {
+    backdrop: "Choose your backdrop",
+    soundtrack: "Choose your soundtrack", saint: "Choose your Patron Saint",
+    era: "Choose your era faves", carrying: "Choose what you're carrying",
+    finish: "Finish your Resident Card"
+  };
+  var toolOrder = ["backdrop", "era", "soundtrack", "saint", "carrying", "finish"];
+  var currentTool = "backdrop";
+
   var toolGroups = {
-    look: [0],
     backdrop: [1],
     soundtrack: [2],
     saint: [3],
@@ -30,23 +41,14 @@
   }
 
   function setArrivalState() {
-    var title = document.getElementById("moArrivalTitle");
     var persistence = document.getElementById("moPersistenceState");
-    if (!title) return;
-    var contract = window.LAIDIESResidentCard;
-    var handle = contract ? contract.readHandle(window.localStorage) : "";
-    title.textContent = handle
-      ? "This device remembers @" + handle + "."
-      : "New here? Take the chair.";
+    var handle = localValue("laidies_card_username");
     if (persistence) {
-      var label = document.createElement("strong");
-      label.textContent = handle
-        ? "Device-local card and handle draft:"
-        : "Device-local card:";
-      var detail = document.createTextNode(handle
-        ? " this browser remembers @" + handle + ". That does not prove an account, public card, or cross-device copy."
-        : " saving keeps this card in this browser on this device. It is not yet an account, public card, or cross-device copy.");
-      persistence.replaceChildren(label, detail);
+      persistence.innerHTML = handle
+        ? "<strong>You have started a Card for @" +
+          handle +
+          ".</strong> Connect your account so your Card and Closet are available across devices."
+        : "<strong>You can start before signing in.</strong> Connect your account before you leave if you want your Card and Closet available on another device.";
     }
   }
 
@@ -67,7 +69,10 @@
     var controls = document.querySelector(".mo-controls");
     var status = document.getElementById("moToolStatus");
     var buttons = document.querySelectorAll("[data-mo-tool]");
-    var visible = toolGroups[tool] || toolGroups.look;
+    var heading = document.querySelector(".mo-drawer-heading");
+    var previous = document.getElementById("moPreviousTool");
+    var next = document.getElementById("moNextTool");
+    var visible = toolGroups[tool] || toolGroups.backdrop;
     var children;
     var i;
 
@@ -86,13 +91,18 @@
       );
     }
 
-    if (status) status.textContent = toolCopy[tool] || toolCopy.look;
-
-    if (tool === "finish") {
-      window.setTimeout(function () {
-        var held = document.querySelector('[data-state="held"]:not([hidden])');
-        if (held) held.focus();
-      }, 0);
+    currentTool = tool;
+    controls.setAttribute("data-active-tool", tool);
+    if (heading) heading.textContent = toolHeadings[tool] || toolHeadings.backdrop;
+    if (status) status.textContent = toolCopy[tool] || toolCopy.backdrop;
+    var index = toolOrder.indexOf(tool);
+    if (previous) {
+      previous.disabled = index <= 0;
+      previous.textContent = index > 0 ? "Previous: " + toolLabels[toolOrder[index - 1]] : "Previous step";
+    }
+    if (next) {
+      next.hidden = index >= toolOrder.length - 1;
+      next.textContent = index < toolOrder.length - 1 ? "Next: " + toolLabels[toolOrder[index + 1]] : "Save your Card";
     }
 
     if (shouldScroll) {
@@ -113,7 +123,21 @@
         setTool(button.getAttribute("data-mo-tool"), true);
       });
     });
-    setTool(window.location.hash === "#mo-claim-card" ? "finish" : "look", false);
+    var previous = document.getElementById("moPreviousTool");
+    var next = document.getElementById("moNextTool");
+    if (previous) previous.addEventListener("click", function () {
+      var index = toolOrder.indexOf(currentTool);
+      if (index > 0) setTool(toolOrder[index - 1], true);
+    });
+    if (next) next.addEventListener("click", function () {
+      var index = toolOrder.indexOf(currentTool);
+      if (index < toolOrder.length - 1) setTool(toolOrder[index + 1], true);
+      else {
+        var save = document.getElementById("moSave");
+        if (save) save.focus();
+      }
+    });
+    setTool(window.location.hash === "#mo-claim-card" ? "finish" : "backdrop", false);
   }
 
   function updateMirrorState() {
