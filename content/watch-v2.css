@@ -588,11 +588,11 @@ body[data-format="watch"] .screening-cover-sticker {
   width: 100%;
   margin: clamp(3.3rem, 7vw, 6rem) 0 0;
   padding: clamp(2.2rem, 4vw, 3.6rem) max(1.5rem, calc((100% - 82rem) / 2));
-  border-top: 4px solid var(--screen-ink);
-  border-bottom: 4px solid var(--screen-ink);
-  color: var(--screen-paper);
-  background: linear-gradient(145deg, #ef4d9c 0%, #b75cc4 58%, #6c7cd1 100%);
-  box-shadow: inset 0 -8px 0 rgba(37, 216, 242, .72);
+  border-top: 4px solid #3a1838;
+  border-bottom: 4px solid #3a1838;
+  color: #3a1838;
+  background: linear-gradient(135deg, #c96652 0%, #db7581 55%, #e982ab 112%);
+  box-shadow: inset 0 -8px 0 #57b6c0;
   scroll-margin-top: 6rem;
 }
 
@@ -607,7 +607,7 @@ body[data-format="watch"] .screening-cover-sticker {
 
 .screening-extras__heading p {
   margin: 0 0 .7rem;
-  color: var(--screen-paper);
+  color: #11183b;
   font: 900 .7rem/1.2 "Jost", sans-serif;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -616,7 +616,7 @@ body[data-format="watch"] .screening-cover-sticker {
 .screening-extras__heading h2 {
   margin: 0;
   max-width: 8ch;
-  color: var(--screen-paper);
+  color: #3a1838;
   font: 400 clamp(2.2rem, 4vw, 3.5rem)/.95 "Anton", sans-serif;
   letter-spacing: -.01em;
 }
@@ -634,20 +634,26 @@ body[data-format="watch"] .screening-cover-sticker {
   flex-direction: column;
   justify-content: space-between;
   gap: .65rem;
-  border: 3px solid var(--screen-ink);
+  border: 3px solid #3a1838;
   border-radius: 5px;
-  color: var(--screen-paper);
-  background: #4b2148;
-  box-shadow: 4px 4px 0 var(--screen-cyan);
+  color: #3a1838;
+  background: #57b6c0;
+  box-shadow: 4px 4px 0 rgba(58, 24, 56, .24);
   text-decoration: none;
   transition: transform .14s ease, box-shadow .14s ease;
 }
 
+.screening-extras__links a:nth-child(2) { background: #e982ab; }
+.screening-extras__links a:nth-child(3) { background: #ec7a78; }
+.screening-extras__links a:nth-child(4) { background: #b3abe7; }
+.screening-extras__links a:nth-child(5) { background: #f4a636; }
+.screening-extras__links a:nth-child(6) { background: #8bbde9; }
+
 .screening-extras__links a:hover,
 .screening-extras__links a:focus-visible {
   transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--screen-paper);
-  outline: 3px solid var(--screen-paper);
+  box-shadow: 7px 7px 0 rgba(58, 24, 56, .32);
+  outline: 3px solid #3a1838;
   outline-offset: 3px;
 }
 
@@ -666,8 +672,8 @@ body[data-format="watch"] .screening-cover-sticker {
   grid-column: 1 / -1;
   margin: .4rem 0 0;
   padding-top: 1.1rem;
-  border-top: 2px solid var(--screen-cyan);
-  color: var(--screen-paper);
+  border-top: 2px solid #3a1838;
+  color: #11183b;
   font: 600 .82rem/1.5 "Jost", sans-serif;
 }
 

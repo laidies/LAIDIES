@@ -397,11 +397,15 @@ approved Chick Flicks VHS case; it may not fall back to an older widescreen
 episode poster. The Listen and Watch pages also repeat the read version's
 `Everything in this episode` continuations—Read, Study Pack, Song, Cocktail,
 Rooms and Quiz—so the visitor does not have to open the article merely to find
-those routes. These continuations are one full-width `Special features` band
-using the exact LIBRAiRY masthead gradient `#ef4d9c → #b75cc4 → #6c7cd1`.
-The six links use one consistent deep-plum `#4b2148` tape-label treatment with
-cream type and one cyan edge accent. A navy module floating on the pale page,
-six unrelated tile colours, a second oversized white
+those routes. These continuations are one full-width `Special features` band.
+Its field and six links use exact current Homepage colour combinations: the
+Homepage coral-to-pink field `#c96652 → #db7581 → #e982ab`; the six Homepage
+activity-button fills `#57b6c0`, `#e982ab`, `#ec7a78`, `#b3abe7`, `#f4a636`
+and `#8bbde9`; Homepage dark ink `#3a1838` for display copy, card labels,
+keylines and shadows; and deep ink `#11183b` for small copy over the darker end
+of the field. Deep plum is not an active LAiDIES colour and white text is
+reserved for the rare surface where dark ink cannot remain accessible. A
+navy module floating on the pale page, a second oversized white
 `After the credits` card grid, white tiles, duplicated Read/Return destinations
 and dashboard-like empty space are prohibited. A playback failure keeps the approved VHS visible, removes stale
 resume competition and presents one readable retry action. Watch keeps a dark,
@@ -412,23 +416,27 @@ format navigation contract. Current media availability and in-progress wording
 remain governed by the Screening Room admission record.
 `ALI DIRECT DESIGN DECISION — 2026-09-02`
 
-The lower Listen/Watch continuation area may not reproduce the rejected
-near-black-navy-on-light-page composition. It must read as one LAiDIES surface,
-not a dark widget pasted into a pale app: the masthead gradient carries edge to
-edge and the link family stays visually restrained rather than becoming a
-rainbow dashboard.
+The lower Listen/Watch continuation area may not reproduce either rejected
+near-black-navy-on-light-page successor. It must read as one LAiDIES surface,
+not a dark widget pasted into a pale app. It also may not use the obsolete deep
+plum fill or routine white/cream lettering. Homepage colour combinations—not a
+separate interpretation of the token list—govern this component.
 `ALI DIRECT LISTEN COLOUR CORRECTION — 2026-09-02`
 
-Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
-new page-specific approximation. The bound palette is deep midnight `#070f2b`,
-ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt
-`#2457e6`, cyan `#15bce0`, sky `#78c7ff`, mint `#7de2c2`, lime `#b7e42b`,
-yellow `#ffd34d` and cream `#fffdfb`. The title masthead uses the current live
-LIBRAiRY relationship `#ef4d9c → #b75cc4 → #6c7cd1`; lower sections reuse the
-Homepage's purple/cobalt, pink/coral and mint/cyan panel relationships. Dark
-midnight gutters, deep-ink borders and bright accent buttons complete the
-shared family. A new generic pale-card system or unrelated pink-purple gradient
-is rejected.
+Deep plum is removed from the active Chick Flicks palette. Dark copy uses the
+current Homepage ink `#3a1838`; white is exceptional and requires a background
+that cannot support accessible dark ink.
+`ALI DIRECT PALETTE CORRECTION — 2026-09-03`
+
+Chick Flicks must use colour relationships inspected on the current Homepage,
+not a page-specific approximation or an old standalone token list. For the
+`Special features` continuation, the bound relationship is coral-to-pink
+`#c96652 → #db7581 → #e982ab`, Homepage dark ink `#3a1838`, and the Homepage
+activity-button sequence `#57b6c0`, `#e982ab`, `#ec7a78`, `#b3abe7`, `#f4a636`
+and `#8bbde9`. Small copy over the darker end of the field uses deep ink
+`#11183b` so it does not need white. Dark midnight remains available only where
+the Watch player needs a focused film stage. A generic pale-card system, deep-plum surface,
+routine white type or unrelated pink-purple gradient is rejected.
 `ALI DIRECT SITE-COLOUR CORRECTION — 2026-09-02`
 
 Invariants are truthful state, operable rendered objects, live readable UI,

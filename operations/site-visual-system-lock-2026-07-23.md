@@ -62,6 +62,11 @@ The website and episodes must feel like the same world:
 
 ## Colour
 
+- **Ali correction — 2026-09-03:** deep plum is no longer an active LAiDIES
+  panel, card, button or background colour. Default interface copy to the
+  current Homepage dark ink `#3a1838`; use white or cream text only when the
+  actual image or dark/saturated field makes dark ink inaccessible. Do not use
+  white as the routine way to make a coloured component feel branded.
 - Do not preserve the Homepage's existing light pastel gradients as a visual
   base. Ali rejected the half-pastel/half-bold split on 2026-08-23. Use the
   vibrant production palette in bounded colour families, with saturated

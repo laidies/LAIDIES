@@ -45,11 +45,15 @@ assert.match(watchCss, /\.screening-arrival-play\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play__icon\s*\{/);
 assert.match(watchCss, /grid-template-columns:\s*4\.8rem minmax\(0, 1fr\)/);
 assert.match(watchCss, /\.screening-extras\s*\{/);
-assert.match(watchCss, /\.screening-extras\s*\{[^}]*background:\s*linear-gradient\(145deg,\s*#ef4d9c 0%,\s*#b75cc4 58%,\s*#6c7cd1 100%\)/s);
+assert.match(watchCss, /\.screening-extras\s*\{[^}]*background:\s*linear-gradient\(135deg,\s*#c96652 0%,\s*#db7581 55%,\s*#e982ab 112%\)/s);
 assert.match(watchCss, /\.screening-extras__inner\s*\{/);
-assert.match(watchCss, /\.screening-extras__links a\s*\{[^}]*background:\s*#4b2148/s);
+assert.match(watchCss, /\.screening-extras__links a\s*\{[^}]*color:\s*#3a1838[^}]*background:\s*#57b6c0/s);
+for (const homepageAccent of ['#e982ab', '#ec7a78', '#b3abe7', '#f4a636', '#8bbde9']) {
+  assert.match(watchCss, new RegExp(`background:\\s*${homepageAccent}`));
+}
 assert.doesNotMatch(watchCss, /\.screening-extras\s*\{[^}]*background:\s*var\(--screen-midnight\)/s);
-assert.doesNotMatch(watchCss, /\.screening-extras__links a:nth-child/);
+assert.doesNotMatch(watchCss, /\.screening-extras__links a\s*\{[^}]*#4b2148/s);
+assert.doesNotMatch(watchCss, /\.screening-extras(?:__heading|__links|__note)[^{]*\{[^}]*color:\s*(?:var\(--screen-paper\)|#fff)/s);
 assert.match(watchCss, /\.screening-room-page \.player-status p\s*\{/);
 assert.doesNotMatch(watchCss, /\.screening-departures\s*\{/);
 
