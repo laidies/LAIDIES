@@ -24,6 +24,8 @@ const vhs = {
 };
 const store = "assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-rental-store-interior-approved-v1.png";
 const shelf = "assets/sunnyvaile-interiors/chick-flicks-store-v2/chick-flicks-four-bay-shelf-v1.png";
+const trailerVhs = "assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.png";
+const trailerVhsHash = "45ac007f9456bf7f6c17b8e4e82c41bfc77d7577cc262fb57271f83983f036b3";
 
 check("episode index has unique positive numbered records with titles", () => {
   assert.ok(Array.isArray(index.episodes) && index.episodes.length > 0);
@@ -53,8 +55,16 @@ check("the rejected office-like room cannot return and the approved rental store
   assert.ok(page.indexOf('class="cf-masthead"') < page.indexOf('class="cf-store"'));
 });
 
-check("four exact transparent VHS cases are operable on the physical shelf", () => {
-  assert.equal((page.match(/class="cf-tape(?:\s[^"]*)?"/g) || []).length, 4);
+check("the trailer and four exact transparent episode cases are operable on physical shelves", () => {
+  assert.equal((page.match(/class="cf-tape(?:\s[^"]*)?"/g) || []).length, 5);
+  assert.equal((page.match(/class="cf-shelf-row(?:\s[^"]*)?"/g) || []).length, 2);
+  assert.ok(exists(trailerVhs));
+  assert.equal(sha256(trailerVhs), trailerVhsHash, `${trailerVhs} changed`);
+  const trailerPng = bytes(trailerVhs);
+  assert.equal(trailerPng.readUInt32BE(16), 1024, `${trailerVhs} width`);
+  assert.equal(trailerPng.readUInt32BE(20), 1536, `${trailerVhs} height`);
+  assert.equal(trailerPng[25], 6, `${trailerVhs} must remain RGBA`);
+  assert.match(page, /class="cf-tape cf-tape--trailer" href="#trailer"[\s\S]{0,260}episode-vhs-boxes-v2\/trailer\.png/);
   for (const [number, hash] of Object.entries(vhs)) {
     const file = `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-${number}.png`;
     assert.ok(exists(file), `missing ${file}`);
@@ -68,7 +78,7 @@ check("four exact transparent VHS cases are operable on the physical shelf", () 
 });
 
 check("four released rental records expose direct format routes", () => {
-  assert.equal((page.match(/<article class="cf-rental(?:\s[^"]*)?"/g) || []).length, 4);
+  assert.equal((page.match(/<article class="[^"]*cf-rental[^"]*"[^>]*data-episode=/g) || []).length, 4);
   for (const number of Object.keys(vhs)) {
     assert.equal((page.match(new RegExp(`href="/issues/issue-${number}\\.html"`, "g")) || []).length, 1);
     assert.equal((page.match(new RegExp(`href="/watch\\.html\\?ep=${number}&amp;mode=listen"`, "g")) || []).length, 1);
@@ -109,7 +119,11 @@ check("Episode 05 is forthcoming without a fabricated tape or action", () => {
 check("the trailer is accurate and exposes one route", () => {
   assert.match(page, /illustrated, captioned introduction explains the town and how each episode works/i);
   assert.equal((page.match(/href="\/watch\.html\?ep=trailer"/g) || []).length, 1);
-  assert.match(page, /assets\/media\/opening-day-covers-v1\/trailer\/trailer-site\.jpg/);
+  assert.match(page, /id="trailer" data-program="trailer" hidden/);
+  assert.match(page, /Start here · Trailer/);
+  assert.doesNotMatch(page, /class="cf-trailer"/);
+  assert.match(behavior, /\.cf-rental\[data-episode\], \.cf-rental\[data-program\]/);
+  assert.match(behavior, /a\[href="#trailer"\], a\[href\^="#episode-"\]/);
 });
 
 check("responsive and keyboard-visible rules preserve the interaction", () => {
@@ -121,6 +135,7 @@ check("responsive and keyboard-visible rules preserve the interaction", () => {
   assert.match(styles, /@media\(prefers-reduced-motion:reduce\)/);
   assert.match(styles, /\.cf-shelf-row[^{]*\{[^}]*grid-template-columns:repeat\(4/);
   assert.match(styles, /@media\(max-width:700px\)[\s\S]*\.cf-shelf-row\{[^}]*grid-template-columns:repeat\(2/);
+  assert.match(styles, /\.cf-shelf-row--partial\{[^}]*aspect-ratio:8\/9/);
   assert.ok(exists(shelf));
   assert.equal(sha256(shelf), "5a6ae951e995f84253e423cc8cd8ad5ba3cb295f75787d417124c1f3a56e9486");
   assert.match(styles, new RegExp(shelf.replaceAll("/", "\\/")));
@@ -133,7 +148,6 @@ check("the page uses the current Homepage and LIBRAiRY colour system", () => {
   }
   assert.match(styles, /linear-gradient\(145deg,#ef4d9c 0%,#b75cc4 58%,#6c7cd1 100%\)/);
   assert.match(styles, /linear-gradient\(125deg,rgba\(113,55,214,\.94\),rgba\(36,87,230,\.94\)\)/);
-  assert.match(styles, /linear-gradient\(125deg,var\(--pink\),var\(--coral\)\)/);
   assert.match(styles, /linear-gradient\(125deg,var\(--mint\),var\(--cyan\)\)/);
   assert.doesNotMatch(styles, /#f6f2ff|#f14f9f|#c653bc|#774ed5/);
 });

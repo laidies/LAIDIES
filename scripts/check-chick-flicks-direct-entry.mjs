@@ -38,7 +38,7 @@ if (trailerRoutes.length !== 1) errors.push('The page must expose exactly one di
 if (!/The illustrated, captioned introduction explains the town and how each episode works\./.test(source)) {
   errors.push('The trailer does not explain its orientation job');
 }
-const trailerImage = 'assets/media/opening-day-covers-v1/trailer/trailer-site.jpg';
+const trailerImage = 'assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.png';
 if (!source.includes(`src="/${trailerImage}"`)) errors.push('The page does not use the real trailer cover');
 if (!fs.existsSync(path.join(root, trailerImage))) errors.push(`Missing trailer image: ${trailerImage}`);
 
@@ -48,7 +48,7 @@ if (!/Episode 05 will join the shelf when it is ready to read and listen to\./.t
 if (/href=["'][^"']*issue-05/.test(source) || /href=["'][^"']*ep=05/.test(source)) {
   errors.push('Episode 05 exposes an active Read or Listen route');
 }
-if ((source.match(/<article class=["']cf-rental(?:\s|["'])/g) || []).length !== 4) {
+if ((source.match(/<article class=["'][^"']*cf-rental[^"']*["'][^>]*data-episode=/g) || []).length !== 4) {
   errors.push('The page must expose exactly four released episode rental records');
 }
 
@@ -67,9 +67,13 @@ if (!source.includes(`src="/${storeImage}"`)) errors.push('The approved movie-re
 if (!fs.existsSync(path.join(root, storeImage))) errors.push(`Missing store interior: ${storeImage}`);
 if (source.includes('sunnyvaile-masthead-chick-flicks.png')) errors.push('The long-discarded masthead image returned');
 if (source.includes('chick-flicks-store-shelves-v1.png')) errors.push('The rejected office-like store room returned');
-if ((source.match(/class=["'][^"']*cf-tape(?:\s|["'])/g) || []).length !== 4) {
-  errors.push('The store shelf must expose exactly four operable VHS tapes');
+if ((source.match(/class=["'][^"']*cf-tape(?:\s|["'])/g) || []).length !== 5) {
+  errors.push('The store shelves must expose the trailer plus four operable episode VHS tapes');
 }
+if (!/class=["'][^"']*cf-tape--trailer[^"']*["'][^>]*href=["']#trailer["']/.test(source)) {
+  errors.push('The trailer must be an operable VHS tape on the shelf');
+}
+if (/class=["']cf-trailer["']/.test(source)) errors.push('The orphaned standalone trailer panel returned');
 
 if (errors.length) {
   console.error('CHICK FLICKS DIRECT ENTRY FAIL');
@@ -83,5 +87,6 @@ console.log('direct_read_routes=4');
 console.log('direct_listen_routes=4');
 console.log('direct_watch_routes=4');
 console.log('direct_trailer_routes=1');
+console.log('trailer_shelf_tapes=1');
 console.log('episode_05=COMING_SOON_NO_ACTION');
 console.log('visitor_facing_internal_language=0');

@@ -9,10 +9,14 @@ masthead with a Library-related title masthead followed by Ali's exact approved
 late-1990s movie-rental interior. The previous September 2 room is rejected
 because it read as an office. Episodes 01–04 are four exact transparent
 clear-clamshell VHS cases on the real shelves, using the image-led episode title
-family and Ali's selected first LAiDIES-colour successor for Episode 04. Start
-here and Latest remain immediate; choosing any released tape now opens its
+family and Ali's selected first LAiDIES-colour successor for Episode 04. The
+trailer is now a fifth clear-clamshell tape using its approved square cover,
+labelled `Start here · Trailer` and placed in bay one instead of hanging below
+the catalogue as an oversized panel. Start here and Latest remain immediate;
+choosing any released tape or the trailer now opens its
 description, learning payoff and Read, Listen and Watch routes in an immediate
-modal rental counter instead of changing content below the fold. Episode 05
+modal rental counter instead of changing content below the fold; the trailer
+exposes its orientation description and one `Play the trailer` action. Episode 05
 remains inactive without invented art.
 
 After Ali rejected the first candidate's page-specific colour approximation,
@@ -24,16 +28,18 @@ working Start here and Read handoffs, honest Episode 05 and a responsive trailer
 The masthead filler is removed, ordinary headings use natural rather than
 forced-capital type, and the physical shelf is now the catalogue. The modal
 closes through its visible control or Escape, restores focus to the chosen tape,
-preserves the shelf position and supports direct episode hashes. The approved four-bay shelf repeats as the
-season grows instead of shrinking every release into one row; mobile presents
-two cases per shelf row. That breakpoint/scaling explanation and the obsolete
+preserves the shelf position and supports direct episode and trailer hashes.
+The approved four-bay shelf repeats as the season grows instead of shrinking
+every release into one row: trailer plus Episodes 01–03 fill shelf one and
+Episode 04 begins shelf two; mobile presents two cases per shelf row. That breakpoint/scaling explanation and the obsolete
 “Now at the counter” label are explicitly barred from public copy. Static checks pass for exact asset hashes, palette, store/masthead ordering, four
-physical tapes, four format-route triplets, trailer truth, forthcoming state,
+episode tapes plus one trailer tape, four format-route triplets, trailer truth, forthcoming state,
 responsive rules and shared release-state copy. The guard was calibrated by
 replacing the Episode 04 VHS path in a scratch page and rejected it; the dialog
 boundary is separately calibrated against a page with its native dialog removed.
-Evidence is in `operations/design-qa/chick-flicks-20260902-v2/` and
-`operations/design-qa/chick-flicks-20260902-v3/`. Nothing has been deployed or
+Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
+`operations/design-qa/chick-flicks-20260902-v3/` and
+`operations/design-qa/chick-flicks-20260902-v4/`. Nothing has been deployed or
 publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

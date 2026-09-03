@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
-    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260902-episode-dialog-v1">
+    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260902-trailer-shelf-v1">
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
     <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
@@ -40,14 +40,18 @@
       <section class="cf-catalogue" id="new-releases" aria-labelledby="cf-releases-title">
         <header class="cf-section-head">
           <div>
-            <p class="cf-eyebrow">Season 1 · Four episodes available</p>
+            <p class="cf-eyebrow">Season 1 · Start here plus four episodes</p>
             <h2 id="cf-releases-title">New releases</h2>
           </div>
-          <p>Pick up a tape to see what it is about, then choose Read, Listen or Watch at the rental counter.</p>
+          <p>Start with the trailer, or pick up an episode to see what it is about and choose your format.</p>
         </header>
 
         <div class="cf-shelf-wall" aria-label="Released episodes on the New releases wall">
           <div class="cf-shelf-row">
+          <a class="cf-tape cf-tape--trailer" href="#trailer" aria-label="Choose the trailer: Welcome to SUNNYVAiLE">
+            <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.png" alt="The Trailer VHS case: Welcome to SUNNYVAiLE" width="1024" height="1536">
+            <span>Start here · Trailer</span>
+          </a>
           <a class="cf-tape" href="#episode-01" aria-label="Choose Episode 01: On Wednesdays We Do AI">
             <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png" alt="Episode 01 VHS case: On Wednesdays We Do AI" width="1024" height="1536">
             <span>Episode 1</span>
@@ -60,6 +64,8 @@
             <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-03.png" alt="Episode 03 VHS case: The Burn Book Problem" width="1024" height="1536">
             <span>Episode 3</span>
           </a>
+          </div>
+          <div class="cf-shelf-row cf-shelf-row--partial">
           <a class="cf-tape cf-tape--latest" href="#episode-04" aria-label="Choose the latest release, Episode 04: The Founding Mothers">
             <img src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png" alt="Episode 04 VHS case: The Founding Mothers" width="1024" height="1536">
             <span>Episode 4 · Latest</span>
@@ -71,6 +77,15 @@
             <button class="cf-dialog__close" type="button" aria-label="Close episode details">Close <span aria-hidden="true">×</span></button>
             <div class="cf-dialog__sign"><span>Your tape is ready</span><b>Choose your format</b></div>
             <div class="cf-rental-grid" aria-live="polite">
+          <article class="cf-rental cf-rental--trailer" id="trailer" data-program="trailer" hidden>
+            <div class="cf-rental__meta"><span>Start here</span><span>The trailer</span></div>
+            <h3 id="trailer-title" tabindex="-1">Welcome to SUNNYVAiLE</h3>
+            <p>The illustrated, captioned introduction explains the town and how each episode works.</p>
+            <div class="cf-rental__actions">
+              <a class="cf-button cf-button--watch" href="/watch.html?ep=trailer">Play the trailer</a>
+            </div>
+          </article>
+
           <article class="cf-rental" id="episode-01" data-episode="01">
             <div class="cf-rental__meta"><span>Episode 1</span><span>Start here</span></div>
             <h3 id="episode-01-title" tabindex="-1">On Wednesdays We Do AI</h3>
@@ -129,15 +144,6 @@
         </aside>
       </section>
 
-      <section class="cf-trailer" id="trailer" aria-labelledby="cf-trailer-title">
-        <img src="/assets/media/opening-day-covers-v1/trailer/trailer-site.jpg" alt="The Trailer: Welcome to SUNNYVAiLE" width="1600" height="900" loading="lazy">
-        <div class="cf-trailer__body">
-          <p class="cf-eyebrow">First visit to SUNNYVAiLE?</p>
-          <h2 id="cf-trailer-title">Watch the trailer</h2>
-          <p>The illustrated, captioned introduction explains the town and how each episode works.</p>
-          <a class="cf-button cf-button--watch" href="/watch.html?ep=trailer">Play the trailer</a>
-        </div>
-      </section>
     </main>
 
     <footer class="cf-footer">© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks · MAiN Street No. 3</footer>
@@ -147,6 +153,6 @@
     <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
     <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
-    <script defer src="/content/chick-flicks.js?v=20260902-episode-dialog-v1"></script>
+    <script defer src="/content/chick-flicks.js?v=20260902-trailer-shelf-v1"></script>
   </body>
 </html>

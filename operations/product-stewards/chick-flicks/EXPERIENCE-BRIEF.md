@@ -344,6 +344,23 @@ page. “Now at the counter” is also denied public copy; the immediate modal a
 its episode choices provide the response without narrating the interface.
 `ALI DIRECT PUBLIC-COPY CORRECTION — 2026-09-02`
 
+### Trailer shelf correction — 2026-09-02
+
+The trailer is part of the Chick Flicks viewing sequence and must appear as a
+proper physical VHS case on the same rental wall as the numbered episodes. It
+may not hang below the catalogue as a separate oversized promotional panel.
+Its live label is `Start here · Trailer`, so it cannot be mistaken for Episode
+00. Choosing it opens the same immediate rental-counter dialog with its brief
+orientation description and one honest `Play the trailer` action.
+
+The sleeve source is the existing square trailer master
+`assets/media/opening-day-covers-v1/trailer/trailer-master.jpg`; the physical
+case must match the accepted transparent clear-clamshell grammar used by
+Episodes 01–04. The trailer and Episodes 01–03 occupy the first four-bay shelf;
+Episode 04 starts the next repeatable shelf and future episodes fill that unit
+without shrinking any case.
+`ALI DIRECT TRAILER PLACEMENT DECISION — 2026-09-02`
+
 Chick Flicks must use the current public Homepage/LIBRAiRY colour system, not a
 new page-specific approximation. The bound palette is deep midnight `#070f2b`,
 ink `#11183b`, pink `#f254a9`, coral `#ff7366`, purple `#7137d6`, cobalt

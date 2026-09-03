@@ -1,8 +1,8 @@
 (() => {
   const dialog = document.querySelector('#cf-episode-dialog');
   const closeButton = dialog?.querySelector('.cf-dialog__close');
-  const rentals = [...document.querySelectorAll('.cf-rental[data-episode]')];
-  const triggers = [...document.querySelectorAll('a[href^="#episode-"]')];
+  const rentals = [...document.querySelectorAll('.cf-rental[data-episode], .cf-rental[data-program]')];
+  const triggers = [...document.querySelectorAll('a[href="#trailer"], a[href^="#episode-"]')];
   const known = new Set(rentals.map((rental) => rental.id));
   let lastTrigger = null;
 

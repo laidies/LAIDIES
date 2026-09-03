@@ -1,5 +1,43 @@
 # Design QA — room-first building rebuilds
 
+## Chick Flicks trailer shelf correction — 2026-09-02
+
+**Source visual truth**
+
+- User-rejected detached trailer panel: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/codex-clipboard-bee66a08-9664-4aa7-a26d-e9203fd8b4dc.png` (2212 × 970 px).
+- Approved trailer sleeve: `assets/media/opening-day-covers-v1/trailer/trailer-master.jpg` (3000 × 3000 px).
+- Combined full-state comparison: `operations/design-qa/chick-flicks-20260902-v4/comparison-standalone-to-shelf.png` (2752 × 810 px).
+- Focused art-to-case comparison: `operations/design-qa/chick-flicks-20260902-v4/comparison-trailer-art-to-case.png` (1291 × 810 px).
+
+**Rendered implementation**
+
+- Desktop shelf, shelf expansion and trailer dialog: `operations/design-qa/chick-flicks-20260902-v4/implementation-desktop-*.png` (1440 × 1100 px; 1440 × 1100 CSS viewport; density 1).
+- Phone shelf, shelf expansion and trailer dialog: `operations/design-qa/chick-flicks-20260902-v4/implementation-mobile-*.png` (390 × 844 px; 390 × 844 CSS viewport; density 1).
+- State: the trailer is the first physical tape, Episodes 01–03 complete shelf one, Episode 04 begins shelf two, and the trailer dialog opens from the tape.
+
+**Findings**
+
+- No actionable P0/P1/P2 differences remain. The detached-panel P1 is removed; the full comparison intentionally contrasts that rejected structure with the requested integrated store catalogue.
+- Typography: `Start here · Trailer` prevents an Episode 00 reading. Existing Jost hierarchy, natural-case page copy and every visible trailer-cover word remain correct.
+- Spacing/layout: desktop keeps four equal physical bays per shelf; phone keeps two cases per row. The partial second shelf occupies one phone shelf-height and leaves credible empty bays for future releases. Document width measured 390px in a 390px viewport.
+- Colours/tokens: yellow distinguishes the trailer without introducing a new colour; all catalogue, label, border and shadow colours stay in the current Homepage/LIBRAiRY system.
+- Image quality/assets: the 1024 × 1536 trailer case is a sharp RGBA clear clamshell using the approved square trailer artwork. A first RGB export with baked checkerboard pixels was rejected before integration and corrected to real exterior transparency.
+- Copy/content: the orphaned `Watch the trailer` block is gone. The tape opens the existing orientation description and one honest `Play the trailer` action.
+- Accessibility/interaction: desktop and phone both opened the native dialog from the trailer tape; visible Close remains available; no horizontal overflow or browser errors were found.
+
+**Comparison history**
+
+1. P1 source: trailer isolated below the video-store catalogue.
+2. P2 first asset attempt: apparent transparency was a baked checkerboard.
+3. Fix: package the approved art in the clear-case family, remove the standalone panel, place the trailer in bay one, move Episode 04 to a repeatable second shelf, and use the same immediate dialog behavior.
+4. Post-fix: full-view, focused-asset, expansion and dialog captures passed at 1440 × 1100 and 390 × 844.
+
+The dialog captures are focused interaction evidence; the art-to-case sheet is the focused asset evidence.
+
+**Primary interactions tested:** trailer-tape open, visible Close, direct trailer hash, one Play action, desktop/phone shelf growth, no horizontal overflow and no page errors.
+
+final result: passed
+
 ## Chick Flicks immediate episode dialog — 2026-09-02
 
 **Source visual truth**
