@@ -46,12 +46,23 @@ masthead collision is repaired. The Screening Room arrival carries the selected
 transparent VHS case and the same live LAiDIES palette, while Listen remains
 audio-first and Watch retains the dark film stage. Playback, captions, programme
 selection, in-progress wording and store return behavior are preserved.
+The Listen arrival now exposes a real Play / Pause / Resume control beside the
+selected case before the programme shelf, and the lower listening stage uses
+the same approved Chick Flicks VHS cover instead of the obsolete widescreen
+episode poster. The new control drives the existing narration, progress and
+caption player rather than simulating playback.
+The pale-on-pale after-credits panel is replaced by a high-contrast cream card.
+Listen and Watch now expose the same Read, Study Pack, Song, Cocktail, Rooms and
+Quiz continuations as each reading page. If episode data fails, the player keeps
+the selected VHS visible, hides stale resume controls and offers one readable
+retry instead of leaving a black void.
 
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-qa/chick-flicks-20260902-v3/`,
 `operations/design-qa/chick-flicks-20260902-v4/` and
 `operations/design-qa/chick-flicks-20260902-v5/` and
-`operations/design-audit/chick-flicks-formats-20260902/`. Nothing has been
+`operations/design-audit/chick-flicks-formats-20260902/` and
+`operations/design-audit/chick-flicks-listen-control-20260902/`. Nothing has been
 deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

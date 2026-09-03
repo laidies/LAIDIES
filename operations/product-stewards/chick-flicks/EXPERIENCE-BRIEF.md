@@ -382,7 +382,16 @@ switcher and a truthful return to the Chick Flicks store.
 
 Read stays a light, comfortable editorial surface with the episode artwork and
 chapter navigation. Listen is audio-first and visibly labels background
-playback plus captions. Watch keeps a dark, focused player stage. Do not flatten
+playback plus captions. Its primary Play / Pause / Resume action sits beside the
+selected VHS case before the programme shelf, controls the real narration and
+remains visible without scrolling. The listening stage repeats that exact
+approved Chick Flicks VHS case; it may not fall back to an older widescreen
+episode poster. The Listen and Watch pages also repeat the read version's
+`Everything in this episode` continuations—Read, Study Pack, Song, Cocktail,
+Rooms and Quiz—so the visitor does not have to open the article merely to find
+those routes. A playback failure keeps the approved VHS visible, removes stale
+resume competition and presents one readable retry action. Watch keeps a dark,
+focused player stage. Do not flatten
 the three formats into one identical template, return to a sparse generic navy
 hero, or make visitors hunt for a format link. Episodes 01–04 receive the same
 format navigation contract. Current media availability and in-progress wording

@@ -9,7 +9,19 @@ const formatCss = read('content/episode-format-navigation.css');
 const issueJs = read('content/issue-feature-v2.js');
 
 assert.match(watch, /id="screeningCover"/);
+assert.match(watch, /id="arrivalPlay"/);
+assert.match(watch, /id="playerFallbackCover"/);
+assert.match(watch, /resumePanel\.hidden = true/);
+assert.match(watch, /playerFallbackCover\.hidden = false/);
+assert.match(watch, /class="screening-extras"/);
+assert.match(watch, /Everything in this episode/);
+for (const route of ['blend-snap.html#the-study-pack', 'radio.html', 'sorority-house.html', 'learn/quiz.html']) {
+  assert.match(watch, new RegExp(route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+}
+assert.match(watch, /arrivalPlay\.addEventListener\('click', togglePlay\)/);
+assert.match(watch, /function syncArrivalPlay\(\)/);
 assert.match(watch, /EPISODE_COVERS\s*=\s*\{/);
+assert.match(watch, /listenCover\.src = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| admission\.posterPublicUrl/);
 for (const episode of ['01', '02', '03', '04']) {
   assert.match(watch, new RegExp(`episode-vhs-boxes-v2/ep-${episode}\\.png`));
   const issue = read(`issues/issue-${episode}.html`);
@@ -23,5 +35,9 @@ assert.match(formatCss, /Episodes 01–04/);
 assert.match(watchCss, /body\[data-format="listen"\]/);
 assert.match(watchCss, /body\[data-format="watch"\]/);
 assert.match(watchCss, /\.screening-feature\s*\{/);
+assert.match(watchCss, /\.screening-arrival-play\s*\{/);
+assert.match(watchCss, /\.screening-extras\s*\{/);
+assert.match(watchCss, /\.screening-room-page \.player-status p\s*\{/);
+assert.match(watchCss, /\.screening-departures\s*\{[^}]*background:\s*var\(--screen-paper\)/s);
 
 console.log('CHICK FLICKS FORMAT SHELL PASS');

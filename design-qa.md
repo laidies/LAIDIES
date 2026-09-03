@@ -35,6 +35,89 @@
 
 final result: passed
 
+## Chick Flicks Listen controls, recovery and episode links — 2026-09-02
+
+### Source visual truth
+
+- User-rejected player failure:
+  `operations/design-audit/chick-flicks-listen-control-20260902/rejected-player-failure.png`
+  — 2156 × 1114 pixels.
+- User-rejected footer contrast:
+  `operations/design-audit/chick-flicks-listen-control-20260902/rejected-footer-contrast.png`
+  — 2152 × 784 pixels.
+- Approved episode identity:
+  `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png`.
+
+### Rendered implementation
+
+- Player:
+  `operations/design-audit/chick-flicks-listen-control-20260902/corrected-player-2156x1114.png`
+  — 2156 × 1114 CSS viewport and screenshot pixels, device density 1.
+- Links and footer:
+  `operations/design-audit/chick-flicks-listen-control-20260902/corrected-footer-2152x784.png`
+  — 2152 × 784 CSS viewport and screenshot pixels, device density 1.
+- Combined same-input comparison:
+  `operations/design-audit/chick-flicks-listen-control-20260902/combined-comparison.png`.
+- Phone evidence:
+  `operations/design-audit/chick-flicks-listen-control-20260902/mobile-final-top.png`,
+  `mobile-final-player.png` and `mobile-final-links-footer.png` at 390 × 844.
+
+### Findings and comparison history
+
+- **P1 fixed — the primary Listen action was hidden below the programme shelf.**
+  The selected-tape arrival now exposes a text-labelled Play Episode action.
+  Browser interaction proved Play → Pause → Resume against the real audio
+  element, rather than a simulated state.
+- **P1 fixed — the lower player contradicted the selected tape and could become
+  a black void.** The normal Listen player uses the exact approved VHS case.
+  The failure routine now reveals the same cover, hides stale scenes and the
+  resume panel, disables transport and exposes one retry action.
+- **P1 fixed — after-credits text disappeared on the actual pale background.**
+  The corrected same-viewport capture shows deep ink on cream with a dark
+  border; the footer copyright is also dark on the pale ground.
+- **P1 fixed — Listen hid the useful continuation routes behind Read.** Every
+  Episode 01–04 Listen route now has six visible destinations: Read, Study
+  Pack, Song, Cocktail, Rooms and Quiz. Episode 04 preserves the exact song and
+  cocktail labels and destination fragments from its reading page.
+- **P2 fixed — inherited gold controls drifted from the current site palette.**
+  active mode, resume and retry controls now use mint, cyan, pink, cream and
+  deep navy.
+
+### Fidelity surfaces
+
+- **Typography:** Anton remains the display face; Jost remains the interface
+  face. Ordinary copy is natural case; short shelf/control labels retain the
+  established uppercase register.
+- **Spacing/layout:** the primary Play control is visible in the desktop and
+  390px arrivals; the six-link grid is three across on desktop and two across
+  on phone; all four phone routes reported zero horizontal overflow.
+- **Colour/tokens:** footer foreground/background computed as deep ink
+  `rgb(5, 8, 23)` on cream `rgb(255, 248, 255)`; selected Listen and Resume
+  computed as mint `rgb(125, 226, 194)`.
+- **Image quality:** no replacement, crop or approximation was introduced. All
+  four visible Listen covers resolve to their exact approved VHS paths with no
+  broken visible images.
+- **Copy/content:** continuation labels and route targets are taken from the
+  current Episode 01–04 reading-page rails. No new episode title or public
+  availability promise was invented.
+
+### Functional evidence and residual gap
+
+- All four Listen routes loaded the correct title, enabled Play button, exact
+  episode cover, six continuation links and matching Read route with zero
+  overflow or broken visible images.
+- Episode 04 Play, Pause/Resume and Watch switching passed; Watch hides the
+  audio-first arrival button and keeps the six continuation links.
+- Browser diagnostics reported zero page errors; Plausible emitted only its
+  expected localhost warning.
+- A deliberate offline reload was attempted to reproduce the user screenshot,
+  but browser safety blocked navigation while the local server was stopped.
+  The fail-closed DOM transition is therefore mechanically guarded rather than
+  represented by a post-fix offline screenshot. The successful player, exact
+  cover, controls, links, footer, desktop and phone states were browser-rendered.
+
+final result: passed
+
 ## Chick Flicks trailer shelf correction — 2026-09-02
 
 **Source visual truth**

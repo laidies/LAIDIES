@@ -207,7 +207,7 @@
     .chap:hover, .chap.is-now { opacity: 1; }
     main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260902-1">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260902-3">
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -253,6 +253,10 @@
         <span class="episode-format-nav__choice" id="formatWatch" aria-disabled="true"><span>Watch</span><small>Not available yet</small></span>
         <p class="episode-format-nav__status" id="formatStatus" role="status">You’re listening to Episode 01. Visual edition not admitted yet.</p>
           </nav>
+          <div class="screening-arrival-player" id="arrivalPlayer">
+            <button class="screening-arrival-play" id="arrivalPlay" type="button" aria-describedby="arrivalPlayHelp" disabled>Play Episode 01</button>
+            <p id="arrivalPlayHelp">Narration + read-along captions</p>
+          </div>
           <a class="screening-return" href="/chick-flicks.html">← Return this tape to The Chick Flicks</a>
         </div>
       </div>
@@ -280,6 +284,7 @@
         </div>
 
         <div class="theatre" id="theatre">
+          <img class="player-fallback-cover" id="playerFallbackCover" src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png" alt="" hidden>
           <button class="big-play" id="bigPlay" type="button" aria-label="Start episode">▶</button>
           <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
           <div class="vhs-scan"></div>
@@ -308,6 +313,21 @@
         </div>
         <div class="chapters" id="chapters"></div>
       </div>
+    </section>
+
+    <section class="screening-extras" aria-labelledby="screeningExtrasTitle">
+      <div class="screening-extras__heading">
+        <p>More from this tape</p>
+        <h2 id="screeningExtrasTitle">Everything in this episode</h2>
+      </div>
+      <nav class="screening-extras__links" aria-label="Episode links">
+        <a id="extraRead" href="/issues/issue-01.html"><span>Read</span><b>Full written episode</b></a>
+        <a href="/blend-snap.html#the-study-pack"><span>Study Pack</span><b>Availability checked at the café</b></a>
+        <a href="/radio.html"><span>The Song</span><b id="extraSong">This week’s track</b></a>
+        <a id="extraCocktail" href="/bronze-aige.html#answers"><span>Cocktail</span><b id="extraCocktailLabel">The episode question</b></a>
+        <a href="/sorority-house.html"><span>Rooms</span><b>Delta LAi Nu discussions</b></a>
+        <a href="/learn/quiz.html"><span>Quiz</span><b>Check what you learned</b></a>
+      </nav>
     </section>
 
     <section class="screening-departures" aria-label="After the screening">
@@ -366,12 +386,26 @@
     var screeningCoverSticker = document.getElementById('screeningCoverSticker');
     var screeningHouseStatus = document.getElementById('screeningHouseStatus');
     var screeningKicker = document.getElementById('screeningKicker');
+    var arrivalPlayer = document.getElementById('arrivalPlayer');
+    var arrivalPlay = document.getElementById('arrivalPlay');
+    var arrivalPlayHelp = document.getElementById('arrivalPlayHelp');
+    var playerFallbackCover = document.getElementById('playerFallbackCover');
+    var extraRead = document.getElementById('extraRead');
+    var extraSong = document.getElementById('extraSong');
+    var extraCocktail = document.getElementById('extraCocktail');
+    var extraCocktailLabel = document.getElementById('extraCocktailLabel');
     var EPISODE_COVERS = {
       'trailer': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/trailer.png',
       '01': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png',
       '02': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-02.png',
       '03': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-03.png',
       '04': '/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-04.png'
+    };
+    var EPISODE_EXTRA_COPY = {
+      '01': { song: 'This week’s track', cocktail: 'So… what IS AI?', cocktailUrl: '/bronze-aige.html#answers' },
+      '02': { song: 'This week’s track', cocktail: 'What’s a prompt, really?', cocktailUrl: '/bronze-aige.html#answers' },
+      '03': { song: 'This week’s track', cocktail: 'Why does it make things up?', cocktailUrl: '/bronze-aige.html#answers' },
+      '04': { song: 'It Was Women All Along', cocktail: 'What IS it, actually?', cocktailUrl: '/bronze-aige.html#cocktail-ep04' }
     };
 
     function setFormatNavigation(playbackState) {
@@ -381,12 +415,20 @@
         ? '/issues/issue-trailer.html'
         : '/issues/issue-' + key + '.html';
       if (screeningCover) screeningCover.src = EPISODE_COVERS[key] || EPISODE_COVERS['01'];
+      if (playerFallbackCover) playerFallbackCover.src = EPISODE_COVERS[key] || EPISODE_COVERS['01'];
       if (screeningCoverSticker) screeningCoverSticker.textContent = requestedFormat === 'watch' ? 'Now screening' : 'Now playing';
       if (screeningHouseStatus) screeningHouseStatus.textContent = requestedFormat === 'watch' ? 'Watch edition' : 'Listen edition';
       if (screeningKicker) screeningKicker.textContent = ep === 'trailer' ? 'Your introduction to SUNNYVAiLE' : 'From the New Releases shelf';
+      if (arrivalPlayer) arrivalPlayer.hidden = requestedFormat === 'watch';
+      if (arrivalPlay) arrivalPlay.textContent = 'Play ' + label;
       document.body.dataset.format = requestedFormat;
       episodeFormatNav.setAttribute('aria-label', 'Choose ' + label + ' format');
       formatRead.href = readUrl;
+      if (extraRead) extraRead.href = readUrl;
+      var extraCopy = EPISODE_EXTRA_COPY[key] || EPISODE_EXTRA_COPY['01'];
+      if (extraSong) extraSong.textContent = extraCopy.song;
+      if (extraCocktail) extraCocktail.href = extraCopy.cocktailUrl;
+      if (extraCocktailLabel) extraCocktailLabel.textContent = extraCopy.cocktail;
       formatRead.removeAttribute('aria-current');
       formatListen.href = '/watch.html?ep=' + encodeURIComponent(key) + '&mode=listen';
       formatListen.setAttribute('aria-current', 'page');
@@ -601,12 +643,17 @@
       playerFailed = true;
       try { tape.pause(); } catch (error) {}
       btnPlay.disabled = true;
+      if (arrivalPlay) arrivalPlay.disabled = true;
       if (bigPlay) bigPlay.disabled = true;
       track.setAttribute('aria-disabled', 'true');
       track.tabIndex = -1;
       playerStatus.hidden = false;
       playerStatus.setAttribute('data-failure', kind);
       playerStatusText.textContent = message + ' Playback has stopped; no simulated narration or scene advance is running.';
+      resumePanel.hidden = true;
+      theatre.classList.add('has-failure');
+      theatre.querySelectorAll('.scene, .film-player, .listen-only-cover, .listen-only-label').forEach(function (node) { node.hidden = true; });
+      if (playerFallbackCover) playerFallbackCover.hidden = false;
       theatre.classList.remove('is-playing');
       osd.textContent = 'PLAYBACK UNAVAILABLE';
     }
@@ -744,7 +791,7 @@
       var deck = document.querySelector('.deck');
       var listenCover = document.createElement('img');
       listenCover.className = 'listen-only-cover';
-      listenCover.src = admission.posterPublicUrl;
+      listenCover.src = EPISODE_COVERS[episodeKey(ep)] || admission.posterPublicUrl;
       listenCover.alt = '';
       listenCover.hidden = true;
       var listenLabel = document.createElement('p');
@@ -773,6 +820,7 @@
         listenLabel.hidden = false;
         theatre.classList.remove('is-film');
         playerMode = 'listen-only';
+        if (arrivalPlayer) arrivalPlayer.hidden = false;
         if (deck) deck.style.display = 'flex';
         if (chaptersEl) chaptersEl.style.display = 'flex';
         if (!audioStarted || segKind !== 'main') {
@@ -813,6 +861,7 @@
         if (chaptersEl) chaptersEl.style.display = 'none';
         theatre.classList.add('is-film');
         playerMode = 'watch';
+        if (arrivalPlayer) arrivalPlayer.hidden = true;
         configureMediaSession(video, ep);
         var inProgress = admission.admissionStatus !== 'admitted'
           && admission.publicPlaybackStatus === 'available-in-progress';
@@ -1039,6 +1088,14 @@
       } else { tape.pause(); }
     }
 
+    function syncArrivalPlay() {
+      if (!arrivalPlay) return;
+      var label = ep === 'trailer' ? 'the Trailer' : 'Episode ' + episodeKey(ep);
+      if (!tape.paused) arrivalPlay.textContent = 'Pause ' + label;
+      else if (tape.currentTime > 0) arrivalPlay.textContent = 'Resume ' + label;
+      else arrivalPlay.textContent = 'Play ' + label;
+    }
+
     resumePlayback.addEventListener('click', function () {
       if (!savedProgress || mainSegIdx < 0 || playerFailed) return;
       var resumeAt = savedProgress.time;
@@ -1062,6 +1119,7 @@
     window.addEventListener('pagehide', function () { storeProgress(true); });
 
     btnPlay.addEventListener('click', togglePlay);
+    if (arrivalPlay) arrivalPlay.addEventListener('click', togglePlay);
     if (bigPlay) bigPlay.addEventListener('click', togglePlay);
     theatre.addEventListener('click', function (e) {
       if (playerMode === 'watch' || e.target.closest('a, .cta-btn, .big-play')) return;
@@ -1194,6 +1252,7 @@
         if (data.end && data.end.audio) segments.push({ kind: 'end', audio: data.end.audio, dur: data.end.dur || 22, cues: (data.end.cues || []).slice() });
         mainSegIdx = segments.findIndex(function (s) { return s.kind === 'main'; });
         resumePlayback.disabled = !savedProgress;
+        if (arrivalPlay) arrivalPlay.disabled = false;
 
         // chapters + seek marks (from the MAIN narration only)
         var d0 = mainCues[mainCues.length - 1].t + 26;
@@ -1216,13 +1275,22 @@
           track.appendChild(m);
         });
 
-        tape.addEventListener('loadedmetadata', function () { if (segKind === 'main') duration = tape.duration; if (seekPending > 0) { try { tape.currentTime = seekPending; } catch (e) {} } seekPending = 0; tick(); });
+        tape.addEventListener('loadedmetadata', function () {
+          if (segKind === 'main') duration = tape.duration;
+          if (seekPending > 0) { try { tape.currentTime = seekPending; } catch (e) {} }
+          seekPending = 0;
+          if (arrivalPlayHelp && Number.isFinite(tape.duration)) {
+            arrivalPlayHelp.textContent = fmt(tape.duration) + ' · Narration + read-along captions';
+          }
+          syncArrivalPlay();
+          tick();
+        });
         tape.addEventListener('error', function () {
           failPlayer('audio', 'The narration audio failed to load.');
         });
         tape.addEventListener('timeupdate', tick);
-        tape.addEventListener('play', tick);
-        tape.addEventListener('pause', tick);
+        tape.addEventListener('play', function () { syncArrivalPlay(); tick(); });
+        tape.addEventListener('pause', function () { syncArrivalPlay(); tick(); });
         tape.addEventListener('ended', function () {
           if (segKind === 'main') clearProgress();
           advanceSegment();
