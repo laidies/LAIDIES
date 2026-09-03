@@ -1,37 +1,37 @@
 # LAiDIES release state
 
-**Updated:** 2026-08-30 UTC
-**Release owner:** NEWSSTAND-DAILY-PROVING-RUN-20260830 foreground release lane (NewsStand delta only)
+**Updated:** 2026-09-03 UTC
+**Release owner:** MAiKEOVER-RESIDENT-CARD-REDESIGN-20260902 foreground release lane
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
 is recorded here.
 
 ## Current truth
 
-Current production is `7d6d4805-7ae1-4813-b533-7f2fb8a72d47`, deployment source
-`44fa491c141c0626b9854c4dcac58747b8b30971`, pushed branch
-`release/newsstand-daily-20260830`. Exact artifact:
-`/private/tmp/laidies-newsstand-continuity-20260830.gFuhDt`; manifest
-`/private/tmp/laidies-newsstand-continuity-20260830.manifest.json`; 672 files;
-identity `a71b8560e98850e812191da3586dd76d068c65aef48becc5721e8ec9c6f74e9e`.
-It overlays exactly four NewsStand paths onto provider-confirmed predecessor
-`dbc39599-5e48-493c-8513-2eac99d8244f` and preserves all 668 other files.
-No Big Picture/story text changes. August 30 has two exactly admitted service
-instances and no newly published ordinary news story. Held content stays held.
-The scoped artifact passes 54 browser checks and independent desktop/mobile
-review. All 26 changed/protected path comparisons match the immutable origin
-`https://7d6d4805.laidies-sunnyvaile.pages.dev` and `https://laidies.ai`.
-Real desktop/mobile NewsStand reading, dated service issue, Catch Me Up, archive
-filters and unchanged Big Picture pass on both origins. Native200% zoom also
-passes nine checks per public origin; tomorrow quiet/service and Weekly continuity
-pass calibrated isolated tests. The existing Codex
-heartbeat is ACTIVE daily07:00 Vancouver, separately updated by Ali; no new
-backend cron or duplicate automation was created. Its implementation entry is
-`operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` in stable checkout
-`/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
-The real new-story editorial branch remains HOLD until exact admission; date,
-Weekly and zoom defects are repaired. Full outcome and checker limits:
-`operations/product-stewards/newsstand/evidence/continuity-repair-2026-08-30.md`.
+Current production is `41cf460f-5ae9-4550-8303-6527e81a37b4`, deployment source
+`bac9c73e65056744d36411e768ba41389ef274ce`, pushed branch
+`release/maikeover-20260902`. Exact artifact:
+`/tmp/laidies-maikeover-successor-r4.C9EgIW`; manifest
+`/tmp/laidies-maikeover-successor-r4.C9EgIW.manifest.json`; 741 files;
+782,024,248 bytes; identity
+`c991c2c25a004b328f09eb5a81982619f38c5feafd27e06256761cf184457af0`.
+The manifest file SHA-256 is
+`d82513efc09b820e746d6ec3b80716b39dba98c7865c43227cc5a793dd45a7f3`.
+It overlays exactly five MAiKEOVER paths onto provider-confirmed predecessor
+`4ebb0947-6347-4541-b2d9-102b862ca687`: three modified visitor files and two
+added admitted image assets. All 736 unrelated files are byte-preserved; the
+six NewsStand paths introduced by `4ebb0947` remain unchanged.
+
+The complete six-step Card journey passed on the immutable origin: every choice
+updated the Card, save/reload restored all selected fields, the Closet rendered
+the saved Card, and the Resident Card desk loaded its email sign-in field. The
+live custom domain and immutable origin return exact artifact bytes for all five
+MAiKEOVER paths. Homepage, LIBRAiRY, NewsStand, its six current data paths,
+Resident Card and Closet match the predecessor and each other. Post-deploy
+testing found and repaired two visible regressions before closure: the Closet
+handoff now remains visible after reload, and long names/favourites ellipsize
+inside the physical Card rather than overlap. No email was submitted and no
+two-account/two-device lifecycle was rerun in this release.
 
 ## Superseded recovery record
 

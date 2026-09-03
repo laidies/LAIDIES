@@ -92,3 +92,31 @@ temporary QA selection was removed with the page's own reset action.
 The vanity is the same installed structural candidate used by MAiKEOVER and
 Try-On. It supports the mechanic but remains lighter and peachier than the
 approved Episode 04 Heroine style lock.
+
+## MAiKEOVER Resident Card page authority — 2026-09-02
+
+- MAiKEOVER begins with its own full-width building masthead beneath the shared
+  town header. The selected masthead uses the current LIBRAiRY pink-purple-blue
+  dimensional title treatment and the admitted Paulette salon scene. It carries
+  no explanatory copy beyond the building title.
+- A distinct full-width `Get your Resident Card.` section follows. It explains
+  that the Card is how LAiDIES knows the resident, the private account keeps the
+  supported Card/continuation state available across devices, the Closet is the
+  home for saved things and progress, and MAiKEOVER can update the Card later.
+- The working vanity has six real steps in Card reading order: Backdrop, Era
+  faves, Soundtrack, Saint, Carrying and Finish. Decorative or dead drawers are
+  not controls. The held portrait generator does not appear as a false step.
+- The live Card is a small physical wallet-shaped credential centred inside a
+  straight-on mirror. Its material shell belongs to the admitted image asset,
+  not a CSS rectangle. Names, handles and favourite rows remain single-line and
+  ellipsize inside their zones so one long value cannot overlap the next field.
+- A valid restored device-local Card keeps `See it in my Closet` visible after
+  reload; the visitor does not need to save the same Card twice to regain the
+  continuation doorway.
+- Every changed cacheable MAiKEOVER stylesheet or script ships with a changed
+  consumer URL in `maikeover.html`. Deploying changed bytes under the previous
+  cache identity is a release failure.
+
+Source: Ali's 2026-09-02 direct page corrections and deployment authorization;
+production verification at deployment
+`41cf460f-5ae9-4550-8303-6527e81a37b4`.

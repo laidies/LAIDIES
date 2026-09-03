@@ -2,8 +2,7 @@
 
 ## Status
 
-`LOCAL CANDIDATE / INDEPENDENT VISUAL PASS / OWNER REVIEW /
-NOT PUSHED / NOT DEPLOYED / NOT PUBLICLY VERIFIED`
+`PUSHED / DEPLOYED / PUBLICLY VERIFIED`
 
 ## Invalidated predecessor
 
@@ -142,9 +141,13 @@ smaller wallet-card silhouette with no screws, wall mount or baked portrait.
 
 ## Scope boundary
 
-This is local visual and interaction QA, not owner approval or release evidence.
-The existing account/cross-device contract remains held: the broader Resident
-Card check passes 26 of 31 assertions and the older MAiKEOVER account check
-still reports three hold-related failures. This redesign explains the intended
-Card-to-Closet journey but does not verify that cross-device account persistence
-is live. No push, deployment or public verification occurred.
+Ali authorized deployment after the visual candidate and local functionality
+journey. Final production is `41cf460f-5ae9-4550-8303-6527e81a37b4` from pushed
+source `bac9c73e65056744d36411e768ba41389ef274ce`. Exact artifact, manifest,
+delta and public-origin evidence are recorded in `release-receipt.md` beside
+this file.
+
+The redesign and its same-origin Card/Closet/account-desk journey are publicly
+verified. No email was submitted, no disposable account was created and the
+separate two-account/two-device continuation lifecycle was not rerun. This
+release also does not reopen the held portrait generator.

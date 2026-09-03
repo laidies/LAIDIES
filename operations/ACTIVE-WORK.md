@@ -1,5 +1,16 @@
 # Active work
 
+## 2026-09-02 MAiKEOVER Resident Card redesign
+
+- **Status:** PUBLICLY VERIFIED.
+- **Task:** Replace the confusing MAiKEOVER page with the approved Paulette masthead, Resident Card explanation, physical Card vanity and six-step maker without changing the rest of production.
+- **Source:** pushed commit `bac9c73e65056744d36411e768ba41389ef274ce` on `release/maikeover-20260902`.
+- **Production:** deployment `41cf460f-5ae9-4550-8303-6527e81a37b4`; immutable origin `https://41cf460f.laidies-sunnyvaile.pages.dev`; custom origin `https://laidies.ai`.
+- **Artifact:** `/tmp/laidies-maikeover-successor-r4.C9EgIW`; manifest `/tmp/laidies-maikeover-successor-r4.C9EgIW.manifest.json`; 741 files; 782,024,248 bytes; identity `c991c2c25a004b328f09eb5a81982619f38c5feafd27e06256761cf184457af0`.
+- **Boundary:** Changed only `maikeover.html`, `content/maikeover-v2.css`, `content/site/maikeover-v2.js` and added the exact Paulette masthead and physical vanity/Card assets. All 736 unrelated predecessor files remain byte-identical.
+- **Verification:** Exact custom/immutable bytes pass for all five MAiKEOVER paths; Homepage, LIBRAiRY, NewsStand plus its six current data paths, Resident Card and Closet remain identical to the provider-confirmed base. The immutable-origin six-step save/reload/Closet/account-desk journey passes. Live custom-domain visual inspection confirms the final long-name and favourites containment repair.
+- **Not tested:** No sign-in email was submitted and the previously verified two-account/two-device continuation lifecycle was not rerun. The deployment does not reopen or add portrait generation.
+
 ## 2026-09-02 NewsStand dated-issue correction
 
 - **Status:** PUBLICLY VERIFIED.

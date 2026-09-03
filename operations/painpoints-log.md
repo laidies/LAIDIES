@@ -14876,3 +14876,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The ads successor remains HOLD with its exact independent issue verdict and private image preserved. The released issue contains only the two separately admitted successors. The returning-state fixture now waits for repaired state and both required reader elements; it failed repeatedly on the immutable origin before the bounded timing repair and then passed both origins. Every current issue story now receives its own live image, full-article, reader-consequence and source-link journey.
 - **Possible Behind the Build angle:** Why “we said it was a follow-up” was not enough—and why a flaky test can be telling the truth about the test rather than the page.
 - **Publication status:** TWO STORIES PUBLICLY VERIFIED / ADS SUCCESSOR HELD.
+
+## BTB-494 — A redesign can reintroduce a bug production already fixed
+
+- **Date:** 2026-09-02
+- **Area:** MAiKEOVER release assembly, Resident Card continuation and CSS cache identity.
+- **Failure:** The redesigned Card restored correctly after reload but hid its `See it in my Closet` doorway until the visitor saved again, repeating an earlier production defect already recorded in this ledger. The first text-fit repair also reached the public CSS bytes while a returning browser kept the old stylesheet because the page's cache key did not change.
+- **Root cause:** The release preserved the current production artifact outside the MAiKEOVER delta, but the replacement MAiKEOVER source came from an older divergent branch and was checked against its own design tests rather than every still-applicable MAiKEOVER production prevention rule. The CSS repair changed bytes without changing the consumer URL.
+- **Prevention rule:** Before replacing a product surface from a divergent branch, search its durable defect ledger and forward-test every still-applicable visitor outcome against the candidate. Every changed cacheable CSS or JavaScript file must ship with a changed consumer URL in the same exact artifact.
+- **Durable correction:** Hydration now keeps the Closet handoff visible for a valid stored Card, long identity/favourite values use single-row ellipsis, and `maikeover.html` carries the new `20260902-card-text-fit-1` stylesheet identity. Calibrated MAiKEOVER checks reject removal of the hydration handoff, long-text containment and cache key. The final 741-file artifact `c991c2c25a004b328f09eb5a81982619f38c5feafd27e06256761cf184457af0` is live at deployment `41cf460f-5ae9-4550-8303-6527e81a37b4`; all five MAiKEOVER paths match at both public origins and all 736 unrelated base files remain unchanged.
+- **Possible Behind the Build angle:** We fixed the bug, rebuilt the page, accidentally brought the bug back—and then learned why a changed stylesheet can still look unchanged in a real browser.
+- **Publication status:** PUBLICLY VERIFIED.
