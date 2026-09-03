@@ -49,6 +49,8 @@ function inspectCss(candidate) {
   if (!candidate.includes('.mo-card-explainer__intro .mo-section-kicker { grid-area:kicker; color:#07102b; }')) failures.push('explainer kicker can inherit retired global plum');
   if (!candidate.includes('.mo-card-explainer__intro h2 { grid-area:title; color:#fffdfb;')) failures.push('explainer headline can inherit retired global plum');
   if (!candidate.includes('.mo-card-explainer__intro>p:last-child { grid-area:lead; color:#07102b; }')) failures.push('explainer lead can inherit retired global plum');
+  if (!candidate.includes('.mo-mirror-mount #moName') || !candidate.includes('text-overflow:ellipsis; white-space:nowrap;')) failures.push('long Card identity text can overlap adjacent fields');
+  if (!candidate.includes('.mo-mirror-mount #moHandle+div>div { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }')) failures.push('long Card favourites can overlap adjacent rows');
   if (candidate.includes('background:#cfeaff')) failures.push('washed-out explainer blue returned');
   return failures;
 }
@@ -86,6 +88,12 @@ if (!inspectCss(deliberatelyBadCss).some(item => item.includes('full-width stack
 const deliberatelyBadCardCss = css.replace('background:transparent!important; box-shadow:none!important;', 'background:linear-gradient(#ffc0d4,#ff8fb3)!important; box-shadow:8px 8px cyan!important;');
 if (!inspectCss(deliberatelyBadCardCss).some(item => item.includes('CSS panel'))) {
   failures.push('calibration failed: validator accepted a CSS-drawn Card shell');
+}
+const deliberatelyBadTextFitCss = css.replaceAll('text-overflow:ellipsis; white-space:nowrap;', 'white-space:normal;');
+const textFitFailures = inspectCss(deliberatelyBadTextFitCss);
+if (!textFitFailures.some(item => item.includes('identity text')) ||
+    !textFitFailures.some(item => item.includes('favourites'))) {
+  failures.push('calibration failed: validator accepted overlapping long Card text');
 }
 const deliberatelyBadExplainerCss = css
   .replace('.mo-card-explainer { padding:clamp(38px,4.5vw,66px) max(6%,calc((100% - 1320px)/2)); color:#07102b; background:linear-gradient(145deg,#ef4d9c 0%,#b75cc4 58%,#6c7cd1 100%);', '.mo-card-explainer { padding:clamp(38px,4.5vw,66px) max(6%,calc((100% - 1320px)/2)); color:#07102b; background:#cfeaff;')
