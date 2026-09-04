@@ -4,13 +4,13 @@
 // but they may not support a Miss Jeeves answer directly.
 export const MISS_JEEVES_SOURCE_POLICY = Object.freeze({
   version: "2026-09-04.1",
-  sourceRosterAsOf: "2026-08-07",
+  sourceRosterAsOf: "2026-09-04",
   sources: Object.freeze([
     { id: "SRC-ETHAN-MOLLICK", domain: "oneusefulthing.org", authority: "attributed_practitioner", reviewedAt: "2026-08-07", expiresAt: "2026-11-07" },
-    { id: "SRC-OPENAI-DEVELOPERS", domain: "developers.openai.com", authority: "official", reviewedAt: "2026-08-07", expiresAt: "2026-09-07" },
-    { id: "SRC-ANTHROPIC-ENGINEERING", domain: "anthropic.com", authority: "official", reviewedAt: "2026-08-07", expiresAt: "2026-09-07" },
-    { id: "SRC-ANTHROPIC-DOCS", domain: "docs.anthropic.com", authority: "official", reviewedAt: "2026-08-07", expiresAt: "2026-09-07" },
-    { id: "SRC-GOOGLE-AI-DEVELOPERS", domain: "ai.google.dev", authority: "official", reviewedAt: "2026-08-07", expiresAt: "2026-09-07" },
+    { id: "SRC-OPENAI-DEVELOPERS", domain: "developers.openai.com", authority: "official", reviewedAt: "2026-09-04", expiresAt: "2026-10-04" },
+    { id: "SRC-ANTHROPIC-ENGINEERING", domain: "anthropic.com", authority: "official", reviewedAt: "2026-09-04", expiresAt: "2026-10-04" },
+    { id: "SRC-ANTHROPIC-DOCS", domain: "platform.claude.com", authority: "official", reviewedAt: "2026-09-04", expiresAt: "2026-10-04" },
+    { id: "SRC-GOOGLE-AI-DEVELOPERS", domain: "ai.google.dev", authority: "official", reviewedAt: "2026-09-04", expiresAt: "2026-10-04" },
     { id: "SRC-STANFORD-HAI-INDEX", domain: "hai.stanford.edu", authority: "official", reviewedAt: "2026-08-07", expiresAt: "2027-04-01" },
     { id: "SRC-STANFORD-SAIL", domain: "ai.stanford.edu", authority: "official", reviewedAt: "2026-08-07", expiresAt: "2026-11-07" },
     { id: "SRC-SIMON-WILLISON", domain: "simonwillison.net", authority: "attributed_practitioner", reviewedAt: "2026-08-07", expiresAt: "2026-11-07" },

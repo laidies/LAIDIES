@@ -1,4 +1,4 @@
-name: AI model freshness check
+name: AI model and trusted-source freshness check
 
 # Weekly nudge to re-verify content/site/current-models.js against each maker's own
 # page, so the SLAiYER Handbook never teaches out-of-date AI (the LOCKED rule).
@@ -57,3 +57,50 @@ jobs:
                 owner: context.repo.owner, repo: context.repo.repo, title: title, body: body
               });
             }
+
+  miss-jeeves-source-bank:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: bank
+        name: Check trusted-resource bank
+        continue-on-error: true
+        run: |
+          node scripts/check-miss-jeeves-source-bank.mjs --network --strict --json /tmp/miss-jeeves-source-bank.json > /tmp/miss-jeeves-source-bank.md
+      - id: projection
+        name: Check runtime projection matches the bank
+        continue-on-error: true
+        run: node --test worker-fairy-godmother/test/miss-jeeves-guidance.test.mjs
+      - name: Open, update or close the review issue
+        uses: actions/github-script@v7
+        env:
+          BANK_OUTCOME: ${{ steps.bank.outcome }}
+          PROJECTION_OUTCOME: ${{ steps.projection.outcome }}
+        with:
+          script: |
+            const fs = require('fs');
+            const title = 'Weekly: review Miss Jeeves trusted-resource bank';
+            const report = fs.readFileSync('/tmp/miss-jeeves-source-bank.md', 'utf8');
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open', per_page: 100
+            });
+            const found = open.data.find(issue => issue.title === title);
+            if (process.env.BANK_OUTCOME !== 'success' || process.env.PROJECTION_OUTCOME !== 'success') {
+              if (found) {
+                await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: found.number, body: report });
+              } else {
+                await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, body: report });
+              }
+            } else if (found) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo, issue_number: found.number,
+                body: 'The automated bank check now passes. Closing this review issue; no source dates were renewed automatically.'
+              });
+              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: found.number, state: 'closed' });
+            }
+      - name: Enforce the hold after reporting it
+        if: steps.bank.outcome != 'success' || steps.projection.outcome != 'success'
+        run: exit 1

@@ -93,6 +93,26 @@ System & Concepts accepts or rejects changes to durable concept truth. Each
 surface owner accepts and verifies its own edit. No signal silently rewrites
 canon or public content.
 
+## Miss Jeeves trusted-resource bank
+
+Miss Jeeves consumes the governed practitioner source roster through a bounded
+runtime projection. The weekly hosted workflow runs
+`scripts/check-miss-jeeves-source-bank.mjs` and verifies:
+
+1. required identity, role, URL, review and expiry fields;
+2. review deadlines, with a visible issue opened seven days before expiry;
+3. current network accessibility and redirects;
+4. exact coverage of every roster entry by the runtime include/exclude policy;
+5. exclusion of scout-only sources from direct answer authority; and
+6. rejection of returned citation hosts outside the approved policy.
+
+The automated check may mark `REVIEW_DUE` or `HOLD`; it may not renew a source.
+A review must inspect the exact current source, confirm its role and subject fit,
+record any changed canonical URL, and then update `verifiedAt` and `expiresAt`.
+An expired entry disappears from Miss Jeeves automatically. If the complete
+eligible bank expires, current external guidance fails closed while admitted
+LAiDIES routes remain available.
+
 ## Weekly episode production gate
 
 The existing weekly episode-production command runs the episode-scoped check,

@@ -59,6 +59,7 @@ test("runtime source policy accounts for every governed bank record", async () =
     const runtime = MISS_JEEVES_SOURCE_POLICY.sources.find(candidate => candidate.id === source.id);
     assert.equal(runtime.reviewedAt, source.verifiedAt);
     assert.equal(runtime.expiresAt, source.expiresAt);
+    assert.equal(runtime.domain, new URL(source.channelUrl).hostname.replace(/^www\./, ""));
     assert.notEqual(source.tier, "SECONDARY_SCOUT");
   }
 });
