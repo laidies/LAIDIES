@@ -428,6 +428,16 @@ current Homepage ink `#3a1838`; white is exceptional and requires a background
 that cannot support accessible dark ink.
 `ALI DIRECT PALETTE CORRECTION — 2026-09-03`
 
+The Listen edition is not a dark Screening Room. Its complete visible journey —
+arrival, format switcher, programme shelf, cover stage, captions, transport,
+resume/failure states and continuations — uses the current Homepage's bright
+colour relationships with dark ink. A black or near-black full-width field,
+black theatre, dark navy player module, routine white type, or inherited Watch
+chrome is prohibited in Listen mode. The primary audio action remains the
+dominant play control and the stage label says `Now listening`. Only Watch may
+retain a dark film stage where the moving image genuinely requires it.
+`ALI DIRECT FULL LISTEN-PAGE CORRECTION — 2026-09-04`
+
 Chick Flicks must use colour relationships inspected on the current Homepage,
 not a page-specific approximation or an old standalone token list. For the
 `Special features` continuation, the bound relationship is coral-to-pink

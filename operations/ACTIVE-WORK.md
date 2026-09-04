@@ -76,6 +76,22 @@ surface and no white type in the component. At 390px the band becomes a
 two-column, three-row layout; all six destinations remain visible, browser logs
 are clear and the page has zero horizontal overflow.
 
+The 2026-09-04 full-page correction removes the remaining dark Watch-room
+inheritance from Listen. The Listen body, format navigation, programme shelf,
+stage, captions, transport, resume/failure states and continuations now use the
+Homepage's bright cream, coral-pink, cyan, sky, periwinkle, mint and gold
+relationships with dark ink. The stage says `Now listening`; both the arrival
+and player expose an explicit `Play audio` action. A 390 × 844 browser check
+keeps the primary Start control in the first viewport with zero horizontal
+overflow, and real playback changed the transport to `Pause audio`, then
+`Continue audio` after pausing. Watch alone retains its dark film stage. This is
+local evidence only; no release was authorized or performed.
+The repository commit hook still stops on 45 pre-existing missing Episode 03
+comic assets, four cue-duration warnings and the unrelated extensionless
+`/radio` target in `laidies-card.html`; none of those paths changed here. The
+scoped Chick Flicks format and store contracts pass, so the bounded commit
+bypasses that unrelated repository-wide hold without waiving it.
+
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-qa/chick-flicks-20260902-v3/`,
 `operations/design-qa/chick-flicks-20260902-v4/` and
@@ -83,7 +99,8 @@ Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-audit/chick-flicks-formats-20260902/` and
 `operations/design-audit/chick-flicks-listen-control-20260902/` and
 `operations/design-audit/chick-flicks-listen-colour-20260902/` and
-`operations/design-audit/chick-flicks-listen-homepage-colours-20260903/`.
+`operations/design-audit/chick-flicks-listen-homepage-colours-20260903/` and
+`operations/design-audit/chick-flicks-listen-full-page-homepage-20260904/`.
 Nothing has been deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

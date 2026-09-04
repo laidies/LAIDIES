@@ -331,14 +331,14 @@ body.screening-room-page {
 }
 
 body[data-format="listen"] .screening-auditorium {
-  background:
-    radial-gradient(circle at 14% 12%, rgba(125, 226, 194, .18), transparent 24rem),
-    radial-gradient(circle at 88% 28%, rgba(242, 84, 169, .18), transparent 30rem),
-    linear-gradient(145deg, #101b48 0%, #171040 54%, #0b1335 100%);
+  border-color: #3a1838;
+  color: #3a1838;
+  background: linear-gradient(135deg, #57b6c0 0%, #8bbde9 50%, #b3abe7 100%);
+  box-shadow: inset 0 8px 0 #e982ab, inset 0 -8px 0 #f4a636;
 }
 
 body[data-format="listen"] .screening-marquee span:first-child {
-  color: var(--screen-cyan);
+  color: #3a1838;
 }
 
 .screening-room-page .screening-mode {
@@ -370,9 +370,12 @@ body[data-format="listen"] .listen-only-cover {
   filter: drop-shadow(12px 16px 0 rgba(37, 216, 242, .72)) drop-shadow(11px 11px 0 rgba(123, 60, 255, .72));
 }
 
-body[data-format="listen"] .screening-room-page .theatre,
+body.screening-room-page[data-format="listen"] .theatre,
 body[data-format="listen"] .theatre {
-  background: var(--screen-ink);
+  border: 4px solid #3a1838;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #c96652 0%, #db7581 55%, #e982ab 112%);
+  box-shadow: 10px 10px 0 #f4a636, 18px 18px 0 #3a1838;
 }
 
 body[data-format="watch"] .screening-cover-sticker {
@@ -582,6 +585,237 @@ body[data-format="watch"] .screening-cover-sticker {
 .screening-room-page .chap.is-now {
   color: var(--screen-ink);
   background: var(--screen-cyan);
+}
+
+/* Listen is an audio page in the current Homepage system, not a dark Watch room. */
+body[data-format="listen"] {
+  --screen-ink: #3a1838;
+  --screen-midnight: #d3ebe7;
+  --screen-blue: #2457e6;
+  --screen-cobalt: #2457e6;
+  --screen-purple: #b3abe7;
+  --screen-pink: #e982ab;
+  --screen-cyan: #57b6c0;
+  --screen-coral: #ec7a78;
+  --screen-mint: #dcefe9;
+  --screen-yellow: #f4a636;
+  --screen-paper: #f8ecdd;
+  --screen-lilac: #e4d9f1;
+  color: #3a1838;
+  background: linear-gradient(150deg, #f8ecdd 0%, #f6dfe4 32%, #e9ede2 58%, #c9e5df 100%);
+}
+
+body[data-format="listen"] .episode-format-nav[data-theme="dark"] {
+  --format-bg: #d3ebe7;
+  --format-ink: #3a1838;
+  --format-border: #3a1838;
+  --format-active: #e982ab;
+  --format-focus: #2457e6;
+  box-shadow: 7px 7px 0 #57b6c0;
+}
+
+body[data-format="listen"] .screening-program {
+  border-color: #3a1838;
+  background: #d3ebe7;
+  box-shadow: 9px 9px 0 #e982ab;
+}
+
+body[data-format="listen"] .screening-program-label,
+body[data-format="listen"] .screening-program a {
+  border-color: rgba(58, 24, 56, .34);
+  color: #3a1838;
+}
+
+body[data-format="listen"] .screening-program-label {
+  background: #57b6c0;
+}
+
+body[data-format="listen"] .screening-program a:nth-of-type(1) { background: #b3abe7; }
+body[data-format="listen"] .screening-program a:nth-of-type(2) { background: #f4a636; }
+body[data-format="listen"] .screening-program a:nth-of-type(3) { background: #8bbde9; }
+body[data-format="listen"] .screening-program a:nth-of-type(4) { background: #ec7a78; }
+body[data-format="listen"] .screening-program a:nth-of-type(5) { background: #e982ab; }
+
+body[data-format="listen"] .screening-program a b,
+body[data-format="listen"] .screening-program a:hover b,
+body[data-format="listen"] .screening-program a:focus-visible b {
+  color: #3a1838;
+}
+
+body[data-format="listen"] .screening-program a:hover,
+body[data-format="listen"] .screening-program a:focus-visible {
+  color: #3a1838;
+  background: #dcefe9;
+  box-shadow: inset 0 0 0 4px #3a1838;
+}
+
+body[data-format="listen"] .screening-marquee {
+  border-color: #3a1838;
+  color: #3a1838;
+}
+
+body[data-format="listen"] .screening-marquee span:last-child {
+  color: rgba(58, 24, 56, .76);
+}
+
+body[data-format="listen"] .screening-mode {
+  display: none !important;
+}
+
+body.screening-room-page[data-format="listen"] .screening-mode button {
+  color: #3a1838;
+}
+
+body.screening-room-page[data-format="listen"] .screening-mode button[aria-pressed="true"] {
+  color: #3a1838;
+  background: #e982ab;
+}
+
+body[data-format="listen"] .listen-only-cover,
+body[data-format="listen"] .player-fallback-cover {
+  filter: drop-shadow(12px 16px 0 #57b6c0) drop-shadow(11px 11px 0 #3a1838);
+}
+
+body[data-format="listen"] .vhs-scan,
+body[data-format="listen"] .vhs-vignette {
+  display: none;
+}
+
+body[data-format="listen"] .vhs-osd {
+  color: #3a1838;
+  text-shadow: none;
+}
+
+body[data-format="listen"] .listen-only-label {
+  inset: 1rem 1rem auto auto;
+  border: 2px solid #3a1838;
+  color: #3a1838;
+  background: #d3ebe7;
+}
+
+body[data-format="listen"] .big-play {
+  display: flex !important;
+  inset: auto auto 1.25rem 1.25rem;
+  width: auto;
+  height: 4.2rem;
+  margin: 0;
+  gap: .7rem;
+  padding: 0 1.15rem;
+  border: 4px solid #3a1838;
+  border-radius: 8px;
+  color: #3a1838;
+  background: #f4a636;
+  box-shadow: 7px 7px 0 #57b6c0;
+  font: 900 1.15rem/1 "Jost", sans-serif;
+}
+
+body[data-format="listen"] .big-play::after { content: "Play audio"; }
+body[data-format="listen"] .theatre.has-failure .big-play { display: none !important; }
+
+body[data-format="listen"] .big-play:hover,
+body[data-format="listen"] .big-play:focus-visible {
+  color: #3a1838;
+  border-color: #3a1838;
+  background: #dcefe9;
+  outline: 3px solid #3a1838;
+  outline-offset: 4px;
+}
+
+body.screening-room-page[data-format="listen"] .cap-bar {
+  border-top: 3px solid #3a1838;
+  color: #3a1838;
+}
+
+body.screening-room-page[data-format="listen"] .cap-who,
+body.screening-room-page[data-format="listen"] .cap-txt,
+body.screening-room-page[data-format="listen"] .cap-bar.is-maven .cap-txt {
+  color: #3a1838;
+}
+
+body.screening-room-page[data-format="listen"] .deck-play {
+  width: auto;
+  border: 3px solid #3a1838;
+  border-radius: 7px;
+  gap: .55rem;
+  padding: 0 1rem;
+  color: #3a1838;
+  background: #f4a636;
+  box-shadow: 4px 4px 0 #e982ab;
+}
+
+body[data-format="listen"] .deck-play__label {
+  font: 900 .78rem/1 "Jost", sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+body.screening-room-page[data-format="listen"] .deck-play:hover,
+body.screening-room-page[data-format="listen"] .deck-play:focus-visible {
+  color: #3a1838;
+  background: #dcefe9;
+}
+
+body[data-format="listen"] .deck-rail { background: rgba(58, 24, 56, .3); }
+body.screening-room-page[data-format="listen"] .deck-fill,
+body.screening-room-page[data-format="listen"] .deck-knob { background: #e982ab; }
+body[data-format="listen"] .deck-knob { box-shadow: 0 0 0 4px rgba(58, 24, 56, .2); }
+body[data-format="listen"] .deck-time { color: #3a1838; }
+
+body.screening-room-page[data-format="listen"] .resume-panel {
+  border: 3px solid #3a1838;
+  background: #d3ebe7;
+  color: #3a1838;
+  box-shadow: 6px 6px 0 #e982ab;
+}
+
+body.screening-room-page[data-format="listen"] .resume-panel p { color: #3a1838; }
+body.screening-room-page[data-format="listen"] .resume-panel button {
+  border-color: #3a1838;
+  color: #3a1838;
+  background: #f4a636;
+}
+body.screening-room-page[data-format="listen"] .resume-panel button + button {
+  border-color: #3a1838;
+  color: #3a1838;
+  background: #b3abe7;
+}
+
+body.screening-room-page[data-format="listen"] .player-status {
+  border-color: #3a1838;
+  color: #3a1838;
+  background: #f8ecdd;
+  box-shadow: 6px 6px 0 #ec7a78;
+}
+
+body.screening-room-page[data-format="listen"] .player-status p,
+body.screening-room-page[data-format="listen"] .player-status button {
+  color: #3a1838;
+}
+
+body.screening-room-page[data-format="listen"] .player-status button {
+  border-color: #3a1838;
+  background: #57b6c0;
+}
+
+body.screening-room-page[data-format="listen"] .chapters {
+  border-color: rgba(58, 24, 56, .45);
+}
+
+body.screening-room-page[data-format="listen"] .chap {
+  border-color: rgba(58, 24, 56, .45);
+  color: #3a1838;
+}
+
+body.screening-room-page[data-format="listen"] .chap:hover,
+body.screening-room-page[data-format="listen"] .chap:focus-visible,
+body.screening-room-page[data-format="listen"] .chap.is-now {
+  color: #3a1838;
+  background: #f4a636;
+}
+
+body.screening-room-page[data-format="listen"] footer,
+body.screening-room-page[data-format="listen"] footer a {
+  color: #3a1838;
 }
 
 .screening-extras {

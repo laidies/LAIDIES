@@ -12,10 +12,10 @@
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
-  <!-- Deliberately no ksvl-player / quick-rail on this page: the Screening
-       Room plays its own narration track and wants a dark, focused stage. -->
+  <!-- Deliberately no ksvl-player / quick-rail on this page: the episode
+       experience owns its narration track; only Watch keeps a dark film stage. -->
   <style>
-    body { background: #17091b; }
+    body { background: #f8ecdd; }
     main { max-width: 1160px; margin: 0 auto; padding: 26px clamp(14px, 3vw, 34px) 60px; }
     .scr-eyebrow { font: 800 10.5px/1 'Jost', sans-serif; letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--gold, #c9a227); margin: 14px 0 8px; }
@@ -207,8 +207,8 @@
     .chap:hover, .chap.is-now { opacity: 1; }
     main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260903-2">
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -284,7 +284,7 @@
     <section class="screening-auditorium" aria-label="Current screening">
       <div class="screening-stage">
         <div class="screening-marquee">
-          <span>Now screening</span>
+          <span id="screeningStageLabel">Now listening</span>
           <span id="screeningMeta">Illustrated listen-along · captions available</span>
         </div>
 
@@ -302,7 +302,10 @@
         </div>
 
         <div class="deck">
-          <button type="button" class="deck-play" id="btnPlay" aria-label="Start or pause">▶</button>
+          <button type="button" class="deck-play" id="btnPlay" aria-label="Start or pause">
+            <span id="deckPlayIcon" aria-hidden="true">▶</span>
+            <span class="deck-play__label" id="deckPlayLabel">Play audio</span>
+          </button>
           <div class="deck-track" id="track" role="slider" tabindex="0" aria-label="Seek within the current narration" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
             <div class="deck-rail"></div>
             <div class="deck-fill" id="fill"></div>
@@ -364,6 +367,8 @@
     var osd = document.getElementById('osd');
     var tape = document.getElementById('tape');
     var btnPlay = document.getElementById('btnPlay');
+    var deckPlayIcon = document.getElementById('deckPlayIcon');
+    var deckPlayLabel = document.getElementById('deckPlayLabel');
     var fill = document.getElementById('fill');
     var track = document.getElementById('track');
     var timeEl = document.getElementById('time');
@@ -390,6 +395,7 @@
     var screeningCover = document.getElementById('screeningCover');
     var screeningCoverSticker = document.getElementById('screeningCoverSticker');
     var screeningHouseStatus = document.getElementById('screeningHouseStatus');
+    var screeningStageLabel = document.getElementById('screeningStageLabel');
     var screeningKicker = document.getElementById('screeningKicker');
     var arrivalPlayer = document.getElementById('arrivalPlayer');
     var arrivalPlay = document.getElementById('arrivalPlay');
@@ -424,6 +430,7 @@
       if (playerFallbackCover) playerFallbackCover.src = EPISODE_COVERS[key] || EPISODE_COVERS['01'];
       if (screeningCoverSticker) screeningCoverSticker.textContent = requestedFormat === 'watch' ? 'Now screening' : 'Now playing';
       if (screeningHouseStatus) screeningHouseStatus.textContent = requestedFormat === 'watch' ? 'Watch edition' : 'Listen edition';
+      if (screeningStageLabel) screeningStageLabel.textContent = requestedFormat === 'watch' ? 'Now screening' : 'Now listening';
       if (screeningKicker) screeningKicker.textContent = ep === 'trailer' ? 'Your introduction to SUNNYVAiLE' : 'From the New Releases shelf';
       if (arrivalPlayer) arrivalPlayer.hidden = requestedFormat === 'watch';
       if (arrivalPlayLabel) arrivalPlayLabel.textContent = 'Start ' + label;
@@ -1054,7 +1061,8 @@
       var lbl = segKind === 'title' ? 'TITLES' : segKind === 'end' ? 'CREDITS' : playerMode === 'listen-only' ? 'LISTENING' : 'WATCHING';
       timeEl.textContent = fmt(el) + ' / ' + fmt(d);
       osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el);
-      btnPlay.textContent = playing() ? '❚❚' : '▶';
+      if (deckPlayIcon) deckPlayIcon.textContent = playing() ? '❚❚' : '▶';
+      if (deckPlayLabel) deckPlayLabel.textContent = playing() ? 'Pause audio' : (tape.currentTime > 0 ? 'Continue audio' : 'Play audio');
       track.setAttribute('aria-valuemax', String(Math.max(0, Math.round(d))));
       track.setAttribute('aria-valuenow', String(Math.max(0, Math.round(el))));
       track.setAttribute('aria-valuetext', fmt(el) + ' of ' + fmt(d));

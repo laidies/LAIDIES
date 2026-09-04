@@ -7,6 +7,22 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-09-04 Listen page inherited the Watch room
+
+Correcting only the lower continuation band left the actual Listen player in a
+black auditorium, and a second worktree later occupied the same preview port,
+making an even older black page appear current. The repair first bound the
+preview to the correct checkout, then separated format responsibilities: Watch
+may keep a dark film stage, while every Listen surface now uses the Homepage's
+bright field/type/accent relationships and dark ink. The audio page repeats a
+plain-language Play action at arrival and player, and a real click must change
+it to Pause before the control hierarchy can pass. Prevention rule: verify the
+server's source path before visual review, compare the complete rendered format
+journey rather than its last edited component, and scope visual tokens by the
+job of the format instead of inheriting a shared dark shell. Possible Behind
+the Build angle: one URL can look “updated” while serving the wrong checkout —
+and one corrected component cannot rescue the wrong page model.
+
 ## 2026-08-30 private Closet memory repair
 
 The provider was online, but three favourites, quiz progress and visits were
