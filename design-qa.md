@@ -1028,3 +1028,22 @@ passed. Detailed evidence is in
 passed for fidelity to the accepted working environment, responsive behaviour,
 accessibility structure and functional journeys. The inherited book-cover
 palette remains an explicit owner gate and is not approved by this result.
+
+## NewsStand Homepage/Learn masthead candidate — 2026-09-04
+
+The local NewsStand masthead candidate reuses the current Learn hero gradient
+exactly (`#5427bd` to `#2457e6` to `#15bce0`) with the shared LAiDIES warm
+white, deep ink, coral and lime relationships. Paige's existing masthead image,
+crop and editorial role are preserved. The masthead now meets the shared top
+header without an empty strip. Stories, service cards, copy and journeys are
+unchanged.
+
+Rendered checks passed at 1440 x 900, 390 x 844 and 320 x 844 with Paige,
+location label, title and tagline visible and zero document overflow. The
+existing NewsStand browser contract also passed all 55 desktop/mobile,
+archive, Daily, Big Picture, crossword and keyboard checks.
+
+### Final result
+
+passed for local implementation and responsive behaviour; not deployed or
+publicly verified
