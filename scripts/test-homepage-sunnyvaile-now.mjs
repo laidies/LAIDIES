@@ -55,27 +55,47 @@ try {
     await page.addInitScript(() => sessionStorage.setItem("laidies_home_ident_seen", "1"));
     await page.route("https://laidies.ai/content/newsstand-public-feed.json", route => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(feed) }));
     await page.goto(origin, { waitUntil: "networkidle" });
-    await page.evaluate(() => window.scrollTo(0, document.querySelector("[data-town-switchboard]").offsetTop + 80));
+    await page.evaluate(() => window.scrollTo(0, document.querySelector(".intent").offsetTop + 80));
     await page.waitForTimeout(150);
     assert.equal(errors.length, 0, `${width}px has page errors: ${errors.join(" | ")}`);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px horizontal overflow`);
-    assert.equal(await page.locator("[data-switchboard-news-kicker]").innerText(), "FRESH FROM THE NEWSSTAND");
-    assert.match(await page.locator("[data-switchboard-news-title]").innerText(), /GPT-6 Astra/);
-    assert.equal(await page.locator("[data-town-switchboard] .town-switchboard-card:visible").count(), 4);
-    assert.equal(await page.locator(".town-switchboard-radio").getAttribute("href"), "/radio.html");
+    assert.equal(await page.evaluate(() => document.querySelector(".intent").previousElementSibling.classList.contains("hero")), true, "intent chooser is not directly below masthead");
+    assert.equal(await page.evaluate(() => document.querySelector("[data-feature-directory]").previousElementSibling.classList.contains("intent")), true, "feature directory is not directly below chooser");
+    assert.equal(await page.locator(".intent-grid a:visible").count(), 6);
+    assert.equal(await page.locator("[data-feature-directory] a:visible").count(), 26);
+    assert.equal(await page.locator("[data-intent-news-title]").innerText(), "I want today’s headline explained");
+    assert.match(await page.locator("[data-intent-news-summary]").innerText(), /GPT-6 Astra/);
+    assert.match(await page.locator("[data-intent-news]").getAttribute("href"), /openai-gpt-6-astra-launch/);
+    assert.equal(await page.locator('.intent-grid a[href="/radio.html"]').count(), 1);
+    assert.equal(await page.locator('.intent-grid a[href="#reference"]').count(), 1);
     assert.equal(await page.locator(".did-you-know").isVisible(), false);
     assert.equal(await page.locator(".sunny-now").isVisible(), false);
-    await page.locator("[data-town-switchboard]").screenshot({ path: path.join(evidence, `sunnyvaile-now-${width}.png`) });
+    assert.equal(await page.locator(".town-switchboard-hero").isVisible(), false);
+    assert.equal(await page.locator(".sunny-switchboard").isVisible(), false);
+    if (width === 1440) {
+      const links = await page.locator(".intent-grid a, [data-feature-directory] a").evaluateAll(nodes => nodes.map(node => node.getAttribute("href")));
+      for (const href of links) {
+        if (href.startsWith("#")) {
+          assert.equal(await page.locator(href).count(), 1, `missing in-page destination ${href}`);
+          continue;
+        }
+        const pathname = new URL(href, origin).pathname.replace(/^\/+/, "");
+        assert.equal(fs.existsSync(path.join(root, pathname)), true, `missing linked route ${href}`);
+      }
+    }
+    await page.locator(".intent").screenshot({ path: path.join(evidence, `one-intent-chooser-${width}.png`) });
+    await page.locator("[data-feature-directory]").screenshot({ path: path.join(evidence, `complete-feature-directory-${width}.png`) });
     await page.evaluate(() => window.svShowResume("Episode 03 · The Burn Book Problem", "/watch.html?ep=03"));
     assert.equal(await page.locator(".fc-resume").isVisible(), true);
-    assert.equal(await page.locator("[data-switchboard-resume]").getAttribute("href"), "/watch.html?ep=03");
-    assert.equal(await page.locator("[data-switchboard-resume]").isVisible(), true);
+    assert.equal(await page.locator("[data-intent-episode]").getAttribute("href"), "/watch.html?ep=03");
+    assert.equal(await page.locator("[data-intent-episode-title]").innerText(), "Continue where you left off");
+    assert.match(await page.locator("[data-intent-episode-summary]").innerText(), /Episode 03/);
     await page.close();
   }
   const source = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");
   assert.match(source, /result\.state !== 'account-backed'/);
   assert.match(source, /LAIDIESResidentContinuationV1\.syncWith/);
-  console.log("HOMEPAGE TOWN SWITCHBOARD PASS desktop=1440 mobile=390,320 overflow=0 current_feed=1 account_resume_binding=1 destination_cards=4 duplicate_carousel=0");
+  console.log("HOMEPAGE COMPLETE DISCOVERY PASS desktop=1440 mobile=390,320 overflow=0 current_feed=1 account_resume_binding=1 intent_doors=6 feature_links=26 duplicate_modules=0");
 } finally {
   await browser.close();
   await new Promise(resolve => server.close(resolve));

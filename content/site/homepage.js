@@ -20,6 +20,16 @@
     src: '/content/music/dj-jaidy-week-04-it-was-women-all-along.mp3'
   };
 
+  /* ---------- one starting system, followed by the complete feature directory ---------- */
+  (function () {
+    var hero = document.querySelector('.hero');
+    var intent = document.querySelector('.intent');
+    var directory = document.querySelector('[data-feature-directory]');
+    if (!hero || !intent || !directory) return;
+    hero.insertAdjacentElement('afterend', intent);
+    intent.insertAdjacentElement('afterend', directory);
+  })();
+
   /* ---------- approved first-visit dial-up arrival ---------- */
   (function () {
     var arrival = document.querySelector('[data-home-arrival]');
@@ -323,6 +333,14 @@
       quickResume.hidden = false;
       if (!quickResume.classList.contains('town-switchboard-resume')) quickResume.textContent = 'Continue';
     }
+    var intentEpisode = document.querySelector('[data-intent-episode]');
+    if (intentEpisode) {
+      intentEpisode.href = href || '#this-week';
+      var intentTitle = intentEpisode.querySelector('[data-intent-episode-title]');
+      var intentSummary = intentEpisode.querySelector('[data-intent-episode-summary]');
+      if (intentTitle) intentTitle.textContent = 'Continue where you left off';
+      if (intentSummary) intentSummary.textContent = epTitle;
+    }
   };
 
   (function () {
@@ -368,12 +386,11 @@
   })();
 })();
 
-/* ---------- compact town switchboard and current NewsStand door ---------- */
+/* ---------- current NewsStand entry in the single intent chooser ---------- */
 (function () {
   'use strict';
-  var root = document.querySelector('[data-town-switchboard]');
-  var card = root && root.querySelector('[data-switchboard-news]');
-  if (!root || !card) return;
+  var card = document.querySelector('[data-intent-news]');
+  if (!card) return;
   function safeItem(item, requireCurrent) {
     return item && item.status === 'published' && (!requireCurrent || item.current === true) &&
       typeof item.headline === 'string' && item.headline.trim() &&
@@ -398,10 +415,10 @@
     if (!items.length) return;
     var item = items[0];
     card.href = item.url;
-    card.querySelector('[data-switchboard-news-kicker]').textContent = current ? 'Fresh from the NewsStand' : 'From the NewsStand archive';
-    card.querySelector('[data-switchboard-news-title]').textContent = item.headline;
-    card.querySelector('[data-switchboard-news-summary]').textContent = short(item.summary, 135);
-    card.querySelector('.town-switchboard-go').textContent = current ? 'Read the story →' : 'Read from the archive →';
+    card.querySelector('[data-intent-news-title]').textContent = current
+      ? 'I want today\u2019s headline explained'
+      : 'I want a headline explained';
+    card.querySelector('[data-intent-news-summary]').textContent = short(item.headline, 118);
   }).catch(function () {
     /* The generic NewsStand door remains truthful and useful. */
   });
