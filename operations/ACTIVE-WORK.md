@@ -1,5 +1,24 @@
 # Active work
 
+## 2026-09-04 MAiKEOVER current-site palette alignment
+
+- **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
+- **Task:** Replace the washed-out working-area and inherited old-site control
+  colours with the literal current Homepage/LIBRAiRY colour relationships.
+- **Boundary:** `maikeover.html`, its page stylesheet, the focused redesign
+  guard and this task's Resident Card/operations records only. Layout, vanity
+  art, Card art, portrait logic, save/restore logic and unrelated pages are
+  unchanged.
+- **Source:** local commit `3ce284a276c61e4fc044bc83ad1190f0cb420b59`
+  on `release/maikeover-20260902`.
+- **Verification:** Same-viewport browser inspection against the local current
+  Homepage and LIBRAiRY shows the working area now uses their raspberry-lilac-
+  blue gradient, deep ink and purposeful yellow selected states. The focused
+  redesign guard is calibrated to reject the former washed-out blue and passes;
+  MAiKEOVER contract and Card lifecycle checks pass.
+- **Not done:** Push, deployment, public-origin verification, paid portrait
+  generation and real account sign-in were not performed.
+
 ## 2026-09-04 MAiKEOVER portrait creator restoration
 
 - **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.

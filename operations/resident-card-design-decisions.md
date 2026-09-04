@@ -176,3 +176,22 @@ MAiKEOVER-save-Closet-return-update journey, 2026-09-04.
 
 Source: Ali's direct restoration request; recovered bounded portrait implementation
 and current local verification, 2026-09-04.
+
+## MAiKEOVER current-site palette alignment — 2026-09-04
+
+- The MAiKEOVER working area uses the literal current LIBRAiRY colour
+  relationship: raspberry `#ef4d9c`, lilac `#b75cc4` and blue-violet
+  `#6c7cd1`, with deep ink `#07142f`.
+- The control surface uses the current LIBRAiRY reading gradient from pink
+  `#f2c6e5` to periwinkle `#c7d7f5`. It is a readable surface inside the bold
+  building colour, not a white card or a flat washed-out blue field.
+- Yellow is reserved for selected states and primary actions; cyan is a small
+  state edge. Form labels and long text remain deep ink. The page may not fall
+  back to the retired mauve text, muted teal controls or white-on-pink action
+  treatment inherited from the old global variables.
+- This is a palette alignment only. The admitted vanity artwork, live Card,
+  seven-step order, portrait creator and Card/Closet state envelope are
+  unchanged.
+
+Source: Ali's direct colour correction and same-viewport comparison against the
+current Homepage and LIBRAiRY, 2026-09-04.

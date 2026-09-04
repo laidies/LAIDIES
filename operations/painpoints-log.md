@@ -14946,3 +14946,27 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The feature was not broken—it had fallen
   between branches, leaving only the sign on the door.
 - **Publication status:** LOCAL RESTORATION / PUBLIC RELEASE NOT PERFORMED.
+
+## BTB-498 — Matching the masthead palette did not align the page beneath it
+
+- **Date:** 2026-09-04
+- **Area:** MAiKEOVER working-area colour hierarchy.
+- **Failure:** The masthead and explainer used the current LIBRAiRY gradient,
+  while the working area fell back to a flat washed-out periwinkle field, a
+  near-white pink control panel, muted wine labels and teal selected chips.
+  The page therefore looked like two different design systems even though its
+  top section used the right colour values.
+- **Root cause:** The earlier palette check bound the masthead/explainer stops
+  but did not bind the interactive surface, selected states or inherited inline
+  controls to the same current reference.
+- **Prevention rule:** A building palette comparison must cover every major
+  visible region and the actual interaction states, not only the masthead.
+  Reuse literal approved stops and state roles from the named current reference;
+  fail when an old global token silently re-enters through inline CSS.
+- **Durable correction:** MAiKEOVER now uses the current LIBRAiRY raspberry-
+  lilac-blue gradient for the working field, its pink-to-periwinkle reading
+  surface for controls, deep ink for text and yellow only for selection and
+  primary-action state. The calibrated guard rejects the former flat blue.
+- **Possible Behind the Build angle:** How a page can use the right swatches
+  and still look off-brand when the colour roles are wrong.
+- **Publication status:** LOCAL CORRECTION / PUBLIC RELEASE NOT PERFORMED.
