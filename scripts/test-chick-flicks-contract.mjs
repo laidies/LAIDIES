@@ -11,6 +11,7 @@ const exists = (file) => fs.existsSync(path.join(root, file));
 const sha256 = (file) => crypto.createHash("sha256").update(bytes(file)).digest("hex");
 const page = read("chick-flicks.html");
 const styles = read("content/chick-flicks.css");
+const visualSystemStyles = read("content/site/laidies-visual-system.css");
 const behavior = read("content/chick-flicks.js");
 const index = JSON.parse(read("content/episode-index.json"));
 const checks = [];
@@ -155,11 +156,13 @@ check("responsive and keyboard-visible rules preserve the interaction", () => {
 });
 
 check("the page uses the current Homepage and LIBRAiRY colour system", () => {
-  for (const colour of ["#070f2b", "#11183b", "#f254a9", "#ff7366", "#7137d6", "#2457e6", "#15bce0", "#78c7ff", "#7de2c2", "#b7e42b", "#ffd34d", "#fffdfb"]) {
-    assert.ok(styles.includes(colour), `missing current site colour ${colour}`);
+  assert.match(page, /laidies-visual-system\.css\?v=/);
+  for (const colour of ["#11183b", "#f254a9", "#ff7366", "#7137d6", "#2457e6", "#15bce0", "#78c7ff", "#7de2c2", "#ffd34d", "#fffdfb"]) {
+    assert.ok(visualSystemStyles.includes(colour), `missing current site colour ${colour}`);
   }
-  assert.match(styles, /linear-gradient\(145deg,#ef4d9c 0%,#b75cc4 58%,#6c7cd1 100%\)/);
-  assert.match(styles, /linear-gradient\(125deg,rgba\(113,55,214,\.94\),rgba\(36,87,230,\.94\)\)/);
+  assert.match(styles, /background-image:var\(--laidies-bg-comic-masthead\)/);
+  assert.match(styles, /background-image:var\(--laidies-bg-comic-section\)/);
+  assert.match(styles, /background:var\(--laidies-bg-quiet-reading\)/);
   assert.doesNotMatch(styles, /#f6f2ff|#f14f9f|#c653bc|#774ed5/);
 });
 

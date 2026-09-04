@@ -62,16 +62,31 @@ The website and episodes must feel like the same world:
 
 ## Colour
 
-- **Ali correction — 2026-09-03:** deep plum is no longer an active LAiDIES
-  panel, card, button or background colour. Default interface copy to the
-  current Homepage dark ink `#3a1838`; use white or cream text only when the
-  actual image or dark/saturated field makes dark ink inaccessible. Do not use
-  white as the routine way to make a coloured component feel branded.
+- **Ali correction — 2026-09-04:** the active cross-site palette is locked in
+  `content/site/laidies-visual-system.css`: ink `#11183b`, hot pink `#f254a9`,
+  purple `#7137d6`, cobalt `#2457e6`, cyan `#15bce0`, coral `#ff7366`, mint
+  `#7de2c2`, yellow `#ffd34d`, orange `#ff9b3d`, sky `#78c7ff`, lilac
+  `#c7d7f5`, soft pink `#f2c6e5` and cream `#fffdfb`. New and corrected
+  visitor surfaces consume these named variables; page-local near matches are
+  not new palette authority.
+- Deep plum is no longer an active LAiDIES panel, card, button, ink or
+  background colour. Default interface copy and keylines to `#11183b`. Use
+  white or cream text only when an image, Watch film field or genuinely
+  dark/saturated field makes dark ink inaccessible. Do not use white as the
+  routine way to make a coloured component feel branded.
+- Backgrounds are locked relationships, not loose swatches. Use the shared
+  `comic masthead` recipe for high-energy arrivals, `comic section` for bounded
+  saturated areas, `quiet reading` only for low-noise reading/control zones,
+  and cream for plain reading surfaces. The shared comic texture is
+  `assets/library/episode-01-pop-comic-bg-v1.png`. Do not improvise muted
+  rose/gold/teal gradients, black application shells, or generic white-card
+  dashboards.
 - Do not preserve the Homepage's existing light pastel gradients as a visual
   base. Ali rejected the half-pastel/half-bold split on 2026-08-23. Use the
   vibrant production palette in bounded colour families, with saturated
   gradients and real pop-art construction rather than pale CSS surfaces.
-- Use a near-black blue for dark mastheads, gutters, hard shadows, and ink.
+- Use the locked near-black blue `#11183b` for dark mastheads, gutters, hard
+  shadows, and ink.
 - Use a full vibrant 1990s accent spectrum. Pink, purple, cyan and teal remain
   available, but must not become the only repeated quartet.
 - Add cobalt, sky blue, periwinkle, coral, orange, lime, mint, and small

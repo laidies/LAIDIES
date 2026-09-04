@@ -5,10 +5,11 @@
 <meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
 <link rel="canonical" href="https://laidies.ai/library" />
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/content/site/laidies-visual-system.css?v=20260904-1">
 <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
 <style>
-:root{--midnight:#070f2b;--ink:#11183b;--pink:#f254a9;--purple:#7137d6;--cyan:#15bce0;--cobalt:#2457e6;--sky:#78c7ff;--coral:#ff7366;--orange:#ff9b3d;--lime:#b7e42b;--mint:#7de2c2;--yellow:#ffd34d;--cream:#fffdfb}
+:root{--midnight:#070f2b;--ink:var(--laidies-ink);--pink:var(--laidies-pink);--purple:var(--laidies-purple);--cyan:var(--laidies-cyan);--cobalt:var(--laidies-cobalt);--sky:var(--laidies-sky);--coral:var(--laidies-coral);--orange:var(--laidies-orange);--lime:#b7e42b;--mint:var(--laidies-mint);--yellow:var(--laidies-yellow);--cream:var(--laidies-cream)}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:
   radial-gradient(circle at 8% 16%,rgba(240,86,166,.34),transparent 28%),
@@ -621,7 +622,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .library-intro .lede small{color:var(--ink)}
 .arrival-visual{height:clamp(480px,55vw,760px);min-height:0;border-top:8px solid var(--ink);background:var(--midnight)}
 .arrival-visual>img{object-position:center center}
-.library-world{background:linear-gradient(120deg,#f2c6e5 0%,#c7d7f5 100%);color:var(--ink)}
+.library-world{background:var(--laidies-bg-quiet-reading);color:var(--ink)}
 .jv{grid-template-columns:minmax(250px,.62fr) minmax(380px,1.38fr);align-items:center;
   background:linear-gradient(120deg,rgba(239,77,156,.96) 0%,rgba(113,55,214,.94) 54%,rgba(101,209,227,.96) 100%);padding:clamp(34px,4.4vw,60px) clamp(24px,6vw,92px);
   border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 #ef4d9c}
@@ -703,11 +704,11 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .library-intro{padding:28px clamp(24px,4vw,64px);gap:clamp(24px,4vw,56px)}
 .arrival-visual{height:auto;min-height:0;aspect-ratio:1746/901;background:var(--cyan)}
 .arrival-visual>img{object-fit:contain;object-position:center center}
-.jv{background-image:linear-gradient(120deg,rgba(239,77,156,.88) 0%,rgba(113,55,214,.86) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center;background-size:cover}
+.jv{background-image:var(--laidies-bg-comic-masthead);background-position:center;background-size:cover}
 .jv-kicker{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
 .jv-form button{box-shadow:6px 6px 0 var(--cyan)}
 .jv-chip:hover,.jv-chip:focus-visible{border-color:var(--pink)}
-.shelf-guide{background-image:linear-gradient(90deg,rgba(21,188,224,.84) 0%,rgba(21,188,224,.8) 42%,rgba(101,209,227,.8) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center 47%;background-size:cover}
+.shelf-guide{background-image:linear-gradient(90deg,rgba(21,188,224,.84) 0%,rgba(21,188,224,.8) 42%,rgba(120,199,255,.8) 100%),var(--laidies-comic-texture);background-position:center 47%;background-size:cover}
 .shelf-captions{display:none!important}
 .shelf-guide .eyebrow{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
 .shelf-guide-heading>p{background:var(--cream);box-shadow:7px 7px 0 var(--pink)}

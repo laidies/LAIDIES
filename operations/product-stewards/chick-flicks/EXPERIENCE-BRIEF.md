@@ -222,6 +222,19 @@ paths. `LOCKED LEDGER`
 
 ## Brand invariants and building freedoms
 
+### Shared colour and background contract — 2026-09-04
+
+Chick Flicks, Read, Listen and Watch load
+`content/site/laidies-visual-system.css`. New colour work consumes its active
+tokens and named background recipes rather than copying hex values into another
+page-local palette. Listen uses the shared comic masthead, quiet reading field,
+ink keylines and bright accent family. Watch may retain a dark film stage where
+the medium requires it, but its surrounding navigation and Special Features
+remain in the shared site system. Deep plum, black application shells, muted
+rose/gold/teal gradients, pale-on-pale type and generic white-card dashboards
+are rejected. Cream type is reserved for a genuinely dark or saturated field
+where dark ink cannot meet readable contrast.
+
 ### Locked arrival relationship — 2026-09-02
 
 Chick Flicks opens with the same spatial relationship as the live LIBRAiRY: a

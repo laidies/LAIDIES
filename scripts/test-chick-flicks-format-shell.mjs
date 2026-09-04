@@ -5,6 +5,7 @@ const bad = process.argv.includes('--calibration-bad');
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
 const watchCss = read('content/watch-v2.css');
+const visualSystemCss = read('content/site/laidies-visual-system.css');
 const formatCss = read('content/episode-format-navigation.css');
 const issueJs = read('content/issue-feature-v2.js');
 
@@ -44,13 +45,15 @@ assert.match(issueJs, /mode=watch/);
 assert.match(formatCss, /Episodes 01–04/);
 assert.match(watchCss, /body\[data-format="listen"\]/);
 assert.match(watchCss, /body\[data-format="watch"\]/);
-assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\]\s*\{[^}]*--screen-ink:\s*#11183b[^}]*--screen-pink:\s*#f254a9[^}]*--screen-cyan:\s*#15bce0[^}]*--screen-yellow:\s*#ffd34d/s);
-assert.match(watchCss, /body\[data-format="listen"\] \.screening-arrival\s*\{[^}]*episode-01-pop-comic-bg-v1\.png/s);
+assert.match(watch, /laidies-visual-system\.css\?v=/);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\]\s*\{[^}]*--screen-ink:\s*var\(--laidies-ink\)[^}]*--screen-pink:\s*var\(--laidies-pink\)[^}]*--screen-cyan:\s*var\(--laidies-cyan\)[^}]*--screen-yellow:\s*var\(--laidies-yellow\)/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.screening-arrival\s*\{[^}]*background-image:\s*var\(--laidies-bg-comic-masthead\)/s);
+assert.match(visualSystemCss, /--laidies-comic-texture:\s*url\('\/assets\/library\/episode-01-pop-comic-bg-v1\.png'\)/);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.episode-format-nav\[data-theme="dark"\]\s*\{[^}]*--format-bg:\s*var\(--screen-paper\)[^}]*--format-ink:\s*var\(--screen-ink\)/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-program\s*\{[^}]*background:\s*var\(--screen-cyan\)/s);
-assert.match(watchCss, /body\[data-format="listen"\] \.screening-mode\s*\{[^}]*display:\s*none !important/s);
+assert.match(watch, /\.screening-mode\[hidden\]\s*\{\s*display:\s*none/);
 assert.doesNotMatch(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*(?:#101b48|#171040|#0b1335|#000|var\(--screen-midnight\))/s);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*background-image:[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /\.screening-feature\s*\{/);
@@ -60,9 +63,9 @@ assert.match(watchCss, /grid-template-columns:\s*4\.8rem minmax\(0, 1fr\)/);
 assert.match(watchCss, /\.screening-extras\s*\{/);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-extras\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /\.screening-extras__inner\s*\{/);
-assert.match(watchCss, /\.screening-extras__links a\s*\{[^}]*color:\s*#3a1838[^}]*background:\s*#57b6c0/s);
+assert.match(watchCss, /\.screening-extras__links a\s*\{[^}]*color:\s*var\(--laidies-ink\)[^}]*background:\s*var\(--laidies-cyan\)/s);
 for (const currentSiteAccent of ['#f254a9', '#7137d6', '#15bce0', '#ff7366', '#7de2c2', '#ffd34d']) {
-  assert.match(watchCss, new RegExp(currentSiteAccent));
+  assert.match(visualSystemCss, new RegExp(currentSiteAccent));
 }
 assert.doesNotMatch(watchCss, /\.screening-extras\s*\{[^}]*background:\s*var\(--screen-midnight\)/s);
 assert.doesNotMatch(watchCss, /\.screening-extras__links a\s*\{[^}]*#4b2148/s);

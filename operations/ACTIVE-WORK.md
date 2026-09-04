@@ -1,6 +1,6 @@
 # Active work
 
-## 2026-09-02 Chick Flicks store-and-VHS redesign — VISUALLY VERIFIED LOCALLY; RELEASE NOT AUTHORIZED
+## 2026-09-02 Chick Flicks store-and-VHS redesign — BUILT LOCALLY; VISUAL-SYSTEM RECHECK BLOCKED BY LOCKED MAC; RELEASE NOT AUTHORIZED
 
 The isolated successor at
 `/Users/alisoneakin/Projects/laidies-chick-flicks-masthead-livebase-20260902`
@@ -89,8 +89,20 @@ oversized masthead title. The programme shelf, cover player, captions,
 transport, recovery states and Special features continue the same system
 without deep plum, a black Listen field or generic white-card dashboard. The
 stage says `Now listening`; both the arrival and player expose an explicit
-`Play audio` action. Watch alone retains its dark film stage. This is local
-evidence only; no release was authorized or performed.
+`Play audio` action. Watch alone retains its dark film stage. The follow-on
+visual-system lock moves those approved values and background relationships
+into `content/site/laidies-visual-system.css`, loaded by the Homepage,
+LIBRAiRY, Chick Flicks and Screening Room. LIBRAiRY and Chick Flicks consume
+the shared tokens/recipes, and the superseded muted Listen layer is deleted
+instead of remaining underneath another override. A calibrated guard rejects
+deep-plum substitution, missing shared consumers, missing recipes and the known
+rejected Listen gradients. This is local evidence only; no release was
+authorized or performed.
+The new shared-style consolidation has not yet received a fresh rendered
+desktop/mobile comparison because the Mac was locked and the approved browser
+surface could not be captured. Prior visual evidence applies to the predecessor
+layout, not these new stylesheet bytes. HTTP and scoped contract checks pass;
+visual status remains HOLD until the same 1280px and 390px journeys are rerun.
 The repository commit hook still stops on 45 pre-existing missing Episode 03
 comic assets, four cue-duration warnings and the unrelated extensionless
 `/radio` target in `laidies-card.html`; none of those paths changed here. The
