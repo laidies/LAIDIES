@@ -14,9 +14,9 @@ check and a bounded LAiDIES reproduction before it can be routed.
 
 This proposal does not yet alter the canonical practitioner roster because that
 file contains unrelated uncommitted work. The exact entry below is ready for a
-later owned-path merge. Ali's ongoing watch request is implemented separately as
-a thread heartbeat; it does not grant publication, subscription, purchase or
-social-engagement authority.
+later owned-path merge. Ali's ongoing watch request is implemented separately in
+the single `LAiDIES reader-tip source scout` thread heartbeat; it does not grant
+publication, subscription, purchase or further social-engagement authority.
 
 ## Verified public surfaces
 
@@ -25,6 +25,8 @@ social-engagement authority.
 - Instagram account: <https://www.instagram.com/godofprompt/>
 - Supplied item: <https://www.instagram.com/p/Dc1ltERCUbP/>
 - Accessed: 2026-09-04
+- Instagram relationship: `laidies.ai` followed `@godofprompt` on 2026-09-04
+  after Ali explicitly confirmed the action; the profile displayed `Following`.
 
 The site says its library is organised by model, job role, output type, variables,
 example output, date and attribution; it also says prompts are scored for clarity,
