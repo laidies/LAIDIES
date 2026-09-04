@@ -1,8 +1,11 @@
 # eluna.ai premortem item — 2026-09-04
 
-**State:** MERGE / PRIVATE RESEARCH LEAD / NO PUBLICATION AUTHORITY  
-**Exact item:** <https://www.instagram.com/p/DczX23FEjN-/>  
-**Publisher:** `eluna.ai`  
+**State:** MERGE / PRIVATE RESEARCH LEAD / NO PUBLICATION AUTHORITY
+
+**Exact item:** <https://www.instagram.com/p/DczX23FEjN-/>
+
+**Publisher:** `eluna.ai`
+
 **Accessed:** 2026-09-04; Instagram displayed the item as one day old but did
 not expose an exact publication timestamp in the inspected surface.
 
@@ -73,4 +76,3 @@ It is not yet a standing practitioner-roster source. Promotion requires repeated
 distinct value, reliable provenance and an owned merge into the currently dirty
 canonical roster. The monitor must stay quiet on duplicates and promotional
 items, follow the original source trail, and never publish directly.
-
