@@ -1,0 +1,78 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "fieldProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"choices\": [{\"path\": \"outcomes.communicationBenchmark\", \"field\": \"headline\"}, {\"path\": \"outcomes.factualIntegrity\", \"field\": \"the_story\"}, {\"path\": \"outcomes.freshnessReviewability\", \"field\": \"what_this_means\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788534730,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-0226ac36-7fb2-4521-80e4-dc39ef784788",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "choices": [
+        {
+          "field": "headline",
+          "path": "outcomes.communicationBenchmark"
+        },
+        {
+          "field": "the_story",
+          "path": "outcomes.factualIntegrity"
+        },
+        {
+          "field": "what_this_means",
+          "path": "outcomes.freshnessReviewability"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 1090,
+      "completion_tokens": 58,
+      "total_tokens": 1148,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 40.946468353271484
+    }
+  },
+  "promptSha256": "45a0bd0afca62155540ebba2c7d967407d86cd87bc894e8f775beb8927a76e11",
+  "correction": {
+    "choices": [
+      {
+        "field": "headline",
+        "path": "outcomes.communicationBenchmark"
+      },
+      {
+        "field": "the_story",
+        "path": "outcomes.factualIntegrity"
+      },
+      {
+        "field": "what_this_means",
+        "path": "outcomes.freshnessReviewability"
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "fieldProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"choices\": [{\"path\": \"outcomes.factualIntegrity\", \"field\": \"the_story\"}, {\"path\": \"outcomes.freshnessReviewability\", \"field\": \"the_story\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788535032,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-83e1d84d-78df-4614-9858-1cbc5c581787",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "choices": [
+        {
+          "field": "the_story",
+          "path": "outcomes.factualIntegrity"
+        },
+        {
+          "field": "the_story",
+          "path": "outcomes.freshnessReviewability"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 1071,
+      "completion_tokens": 42,
+      "total_tokens": 1113,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 37.16289520263672
+    }
+  },
+  "promptSha256": "4482caa0a2a4b39a650a9766de881827bd62ec59aca5647489a0a4dd8d82d39c",
+  "correction": {
+    "choices": [
+      {
+        "field": "the_story",
+        "path": "outcomes.factualIntegrity"
+      },
+      {
+        "field": "the_story",
+        "path": "outcomes.freshnessReviewability"
+      }
+    ]
+  }
+}

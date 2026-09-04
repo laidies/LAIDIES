@@ -1,0 +1,70 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "analogyProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"analogyIntegrity\": {\"verdict\": \"PASS\", \"observation\": \"The article distinguishes the model from the surrounding system and explains that the model is only one part of the system, with tools, data access, memory, permissions, and human approval determining what the complete system can do. The analogy of the model as a 'reasoning engine' is used, but it is clear that this is a figurative expression and not meant to imply a literal engine or person.\", \"artifactEvidence\": [{\"excerpt\": \"The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.\", \"locator\": \"laidies_read\"}]}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788535366,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-021f9307-c762-413c-a09d-78eabc54a404",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "analogyIntegrity": {
+        "artifactEvidence": [
+          {
+            "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+            "locator": "laidies_read"
+          }
+        ],
+        "observation": "The article distinguishes the model from the surrounding system and explains that the model is only one part of the system, with tools, data access, memory, permissions, and human approval determining what the complete system can do. The analogy of the model as a 'reasoning engine' is used, but it is clear that this is a figurative expression and not meant to imply a literal engine or person.",
+        "verdict": "PASS"
+      }
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 1923,
+      "completion_tokens": 153,
+      "total_tokens": 2076,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 82.61714172363281
+    }
+  },
+  "promptSha256": "21c0127eca5d16879aa7d2c8479638a87bca928f72d681739415dc83d7d5d581",
+  "correction": {
+    "analogyIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "The article distinguishes the model from the surrounding system and explains that the model is only one part of the system, with tools, data access, memory, permissions, and human approval determining what the complete system can do. The analogy of the model as a 'reasoning engine' is used, but it is clear that this is a figurative expression and not meant to imply a literal engine or person.",
+      "verdict": "PASS"
+    }
+  }
+}

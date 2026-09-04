@@ -1,0 +1,84 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "secondaryProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"corrections\": [{\"path\": \"outcomes.communicationBenchmark\", \"excerpt\": \"The article meets the communication benchmark\", \"locator\": \"outcomes.communicationBenchmark\"}, {\"path\": \"outcomes.factualIntegrity\", \"excerpt\": \"The article is factually accurate and supported by source receipts\", \"locator\": \"outcomes.factualIntegrity\"}, {\"path\": \"outcomes.freshnessReviewability\", \"excerpt\": \"The article is up-to-date and reviewable\", \"locator\": \"outcomes.freshnessReviewability\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788534727,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-ecc201c8-dd01-42c5-87a8-f5e0e837d013",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "corrections": [
+        {
+          "excerpt": "The article meets the communication benchmark",
+          "locator": "outcomes.communicationBenchmark",
+          "path": "outcomes.communicationBenchmark"
+        },
+        {
+          "excerpt": "The article is factually accurate and supported by source receipts",
+          "locator": "outcomes.factualIntegrity",
+          "path": "outcomes.factualIntegrity"
+        },
+        {
+          "excerpt": "The article is up-to-date and reviewable",
+          "locator": "outcomes.freshnessReviewability",
+          "path": "outcomes.freshnessReviewability"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 3144,
+      "completion_tokens": 111,
+      "total_tokens": 3255,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 106.57654571533203
+    }
+  },
+  "promptSha256": "3bc6b645c5f260a891f5eb43998c779761f3528cbf88cf10d03005439e6fc888",
+  "correction": {
+    "corrections": [
+      {
+        "excerpt": "The article meets the communication benchmark",
+        "locator": "outcomes.communicationBenchmark",
+        "path": "outcomes.communicationBenchmark"
+      },
+      {
+        "excerpt": "The article is factually accurate and supported by source receipts",
+        "locator": "outcomes.factualIntegrity",
+        "path": "outcomes.factualIntegrity"
+      },
+      {
+        "excerpt": "The article is up-to-date and reviewable",
+        "locator": "outcomes.freshnessReviewability",
+        "path": "outcomes.freshnessReviewability"
+      }
+    ]
+  }
+}

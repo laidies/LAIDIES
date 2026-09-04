@@ -1,0 +1,94 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "secondaryProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"corrections\": [{\"path\": \"checks.termsExplainedInContext\", \"excerpt\": \"The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.\", \"locator\": \"laidies_read\"}, {\"path\": \"outcomes.dailyLifeConnection\", \"excerpt\": \"If Astra appears in your account, start with one work task you already understand well: for example, turning a folder of approved notes into a briefing draft.\", \"locator\": \"what_this_means\"}, {\"path\": \"outcomes.factualIntegrity\", \"excerpt\": \"OpenAI announced the release of GPT-6 Astra on September 3. Access begins with a limited group and is planned over the following days for Plus, Pro, Business and Enterprise users, with Enterprise access off by default.\", \"locator\": \"source-openai-launch.md\"}, {\"path\": \"outcomes.freshnessReviewability\", \"excerpt\": \"Axios reports the Astra release and staged access. Its reporting cautions that benchmark and company claims do not yet establish how the model will perform or behave across real-world uses.\", \"locator\": \"source-axios-launch.md\"}]}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788535341,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-96ebb184-296c-4d05-b388-b847f8d880a7",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "corrections": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+          "locator": "laidies_read",
+          "path": "checks.termsExplainedInContext"
+        },
+        {
+          "excerpt": "If Astra appears in your account, start with one work task you already understand well: for example, turning a folder of approved notes into a briefing draft.",
+          "locator": "what_this_means",
+          "path": "outcomes.dailyLifeConnection"
+        },
+        {
+          "excerpt": "OpenAI announced the release of GPT-6 Astra on September 3. Access begins with a limited group and is planned over the following days for Plus, Pro, Business and Enterprise users, with Enterprise access off by default.",
+          "locator": "source-openai-launch.md",
+          "path": "outcomes.factualIntegrity"
+        },
+        {
+          "excerpt": "Axios reports the Astra release and staged access. Its reporting cautions that benchmark and company claims do not yet establish how the model will perform or behave across real-world uses.",
+          "locator": "source-axios-launch.md",
+          "path": "outcomes.freshnessReviewability"
+        }
+      ]
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 3504,
+      "completion_tokens": 254,
+      "total_tokens": 3758,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 145.4640655517578
+    }
+  },
+  "promptSha256": "8ba0581bf0c4c0f23a67f9f1d395693f99a1889c5c924e0dfefb114b575b31ae",
+  "correction": {
+    "corrections": [
+      {
+        "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+        "locator": "laidies_read",
+        "path": "checks.termsExplainedInContext"
+      },
+      {
+        "excerpt": "If Astra appears in your account, start with one work task you already understand well: for example, turning a folder of approved notes into a briefing draft.",
+        "locator": "what_this_means",
+        "path": "outcomes.dailyLifeConnection"
+      },
+      {
+        "excerpt": "OpenAI announced the release of GPT-6 Astra on September 3. Access begins with a limited group and is planned over the following days for Plus, Pro, Business and Enterprise users, with Enterprise access off by default.",
+        "locator": "source-openai-launch.md",
+        "path": "outcomes.factualIntegrity"
+      },
+      {
+        "excerpt": "Axios reports the Astra release and staged access. Its reporting cautions that benchmark and company claims do not yet establish how the model will perform or behave across real-world uses.",
+        "locator": "source-axios-launch.md",
+        "path": "outcomes.freshnessReviewability"
+      }
+    ]
+  }
+}

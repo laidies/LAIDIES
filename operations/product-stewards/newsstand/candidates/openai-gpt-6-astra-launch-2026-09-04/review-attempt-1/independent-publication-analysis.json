@@ -1,0 +1,64 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openai-gpt-6-astra-launch-2026-09-04",
+  "reviewerPrincipalId": "cloudflare-llama-independent-news-openai-gpt-6-astra-launch-2026-09-04",
+  "reviewTextSha256": "7982a5d3f403a59150fbb9f8bbdc377f94ad028d03c89227a270138d09a1aaa2",
+  "checks": {
+    "incidentExplained": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+          "locator": "the_story paragraph 1"
+        }
+      ],
+      "observation": "The article clearly explains the release of OpenAI's GPT-6 Astra model and its capabilities.",
+      "verdict": "PASS"
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "The article does not contain internal notes or invented advice.",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If Astra appears in your account, start with one work task you already understand well:",
+          "locator": "what_this_means paragraph 1"
+        }
+      ],
+      "observation": "The article explains the consequences of the model's capabilities and limitations for the reader.",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI has placed Astra in its Critical cyber-capability category.",
+          "locator": "laidies_read paragraph 2"
+        }
+      ],
+      "observation": "The article explains technical terms, such as 'Critical cyber-capability category', in context.",
+      "verdict": "PASS"
+    }
+  },
+  "outcomes": {
+    "explainBack": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article explains the release of OpenAI's GPT-6 Astra model and its implications.",
+      "prompt": "Explain the release of OpenAI's GPT-6 Astra model and its implications.",
+      "response": "The model can perform complex tasks, but its capabilities and limitations must be understood to use it effectively."
+    },
+    "unseenTransfer": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article explains how the model may impact the reader's daily life.",
+      "prompt": "Use a different situation to expose potential misunderstandings about the model's capabilities and limitations.",
+      "response": "The model may not be necessary for simple tasks, and its capabilities and limitations must be understood to use it effectively."
+    }
+  }
+}

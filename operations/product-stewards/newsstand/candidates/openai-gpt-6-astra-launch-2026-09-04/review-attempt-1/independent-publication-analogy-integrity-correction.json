@@ -1,0 +1,70 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "analogyProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"analogyIntegrity\": {\"verdict\": \"PASS\", \"observation\": \"The article accurately distinguishes the model from the surrounding system, explaining that the model is the reasoning engine and the system determines the model's access to tools, data, and permissions. The analogy of the model as a reasoning engine is used consistently and does not imply a literal engine or person.\", \"artifactEvidence\": [{\"excerpt\": \"The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.\", \"locator\": \"laidies_read\"}]}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788534764,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-00d60a06-8e50-40a4-b9af-38abd7fa1e48",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "analogyIntegrity": {
+        "artifactEvidence": [
+          {
+            "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+            "locator": "laidies_read"
+          }
+        ],
+        "observation": "The article accurately distinguishes the model from the surrounding system, explaining that the model is the reasoning engine and the system determines the model's access to tools, data, and permissions. The analogy of the model as a reasoning engine is used consistently and does not imply a literal engine or person.",
+        "verdict": "PASS"
+      }
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 1815,
+      "completion_tokens": 130,
+      "total_tokens": 1945,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 75.0265121459961
+    }
+  },
+  "promptSha256": "6752b971e1560661f632b73bd65ea2f62d7c515200c8bee5b9fb4612f0045eb5",
+  "correction": {
+    "analogyIntegrity": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "The article accurately distinguishes the model from the surrounding system, explaining that the model is the reasoning engine and the system determines the model's access to tools, data, and permissions. The analogy of the model as a reasoning engine is used consistently and does not imply a literal engine or person.",
+      "verdict": "PASS"
+    }
+  }
+}

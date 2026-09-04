@@ -1,0 +1,671 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "openai-gpt-6-astra-launch-2026-09-04",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-04T15:00:00.000Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Image and public release remain separate gates."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/publication-manifest.json",
+      "sha256": "00cf6945441aaa3664cd0ba568b85af49bb28822ff63f80ceeba996652d1e14f"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/review-text.json",
+      "sha256": "5aee8d5327d03e42f0631856c326b8ef2b176761beb9a23ab6bb4791af0da406"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/rendered-article.html",
+      "sha256": "2cec66e0a676a631516c8db738e6ad09c6c543154955b65586e8a7598257a520"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-02T16:45:46.096Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# AI Fundamentals 101",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Dated change and bounded scope",
+        "Evidence separated from interpretation"
+      ],
+      "evidence": [
+        {
+          "excerpt": "That disclosure helps you ask the next question.",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/news-001-approved-frozen.js"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What actually changed with GPT-6 Astra, and should I give it more access to my work?",
+    "promisedPayoff": "Understand the release, its limits and the permission decisions that matter before using it.",
+    "centralMentalModel": "A stronger model is the reasoning engine; tools, data access, permissions and approval points determine what the complete system can do.",
+    "dailyLifeConnection": "A familiar work task moves from drafting an answer to acting across files and apps.",
+    "surfaceJob": "A dated ordinary Latest successor to earlier Astra safety reporting, not a Front PAiGE or Big Picture replacement.",
+    "desiredReaderFeeling": "I can decide where Astra is useful and where its permissions should stop."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific plainClarity evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific readerValue evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before widening access, decide three things:",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific laidiesVoice evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful news is not that every reader should switch.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific engagingEnjoyable evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A newer model is unnecessary when the job is routine and the current tool already does it well.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific factualIntegrity evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That category describes capability; it is not proof that every use of Astra is dangerous",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific freshnessReviewability evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific surfaceFit evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "moving from a future promise into a phased release.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific datedChange evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific consequenceAndUncertainty evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A model can follow stated rules more often in one test and still become harder to inspect in another.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific dailyLifeConnection evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "turning a folder of approved notes into a briefing draft.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific communicationBenchmark evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Safe for which job, with access to what, and with which decision still reserved for a person?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific explainBack evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain why Astra's capability and its permissions are different decisions.",
+        "probeResponse": "Astra is the reasoning engine; the apps, files and actions it can reach are controlled by the surrounding system and its approval rules.",
+        "expectedEvidence": "Model versus complete system, plus access consequence."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific unseenTransfer evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Do not begin by giving it access to sensitive records or permission to send, publish, purchase or delete.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Apply the same idea to a travel assistant.",
+        "probeResponse": "It may be useful to compare flights, but purchasing or cancelling should remain behind a person's approval until the workflow is trusted.",
+        "expectedEvidence": "Transfer capability/access distinction to a different task."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific usefulAction evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Compare the result with your existing model using the same materials and checking list.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article provides candidate-specific analogyIntegrity evidence without adding an unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact article avoids benchmarkNameDrop by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact article avoids communicationPastiche by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact article avoids corporateSludge by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact article avoids curiosityWithoutPayoff by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact article avoids decorativeAnalogy by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact article avoids disconnectedSystem by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact article avoids entertainmentBeforeUnderstanding by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact article avoids factlessConfidence by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact article avoids familiarExampleWithoutTechnicalReturn by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact article avoids genericAction by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact article avoids glossaryAccumulation by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact article avoids inflatedTakeawayEnding by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact article avoids jargonBeforeMeaning by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact article avoids joylessInstruction by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact article avoids mechanismBeforeMotivation by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact article avoids mechanismCompressedBehindHook by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact article avoids missingMechanism by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact article avoids prematureClickBeforeMechanism by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact article avoids purposeTooNarrow by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact article avoids referenceConfetti by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact article avoids staleUnreviewableClaims by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact article avoids technicalExplainerVoice by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact article avoids templateRepetition by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact article avoids workedExampleOvertakesBookPurpose by keeping the dated change, mechanism, evidence limits and reader decision connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-launch.md",
+        "sha256": "cb9cfb77a3ec8d9e9b8929034af5665615efbae4866f23d60a1702c7b70d1ab8"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-safety.md",
+        "sha256": "6e589b2dab859d397b66c95ffb1e6aecbfaf477e3f3ae0cbb09392a685c57101"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-system-card.md",
+        "sha256": "68bab8625bcef0b890c6598c3bceaa677248c08c6dbc5dd85b03c89448085374"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-irregular.md",
+        "sha256": "c2691b014dff723682ea7cb449665543234f38eadbe1c0728970879b15476ca2"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-axios-launch.md",
+        "sha256": "7be5eaad12c7edbe46ccf3c0c140542ee4343e222a2afaa68add555566c00550"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-axios-monitoring.md",
+        "sha256": "c545b9138a3abc6c072108c83623db39471c8c8569e5f79bf1ee0c61bd6b2bd9"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-predecessor.md",
+        "sha256": "e7927f2e84147ed38b9a2be6d176ba5758f1c05e1262a40a757ffcd3f1a09649"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release-and-rollout",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-launch.md",
+          "sha256": "cb9cfb77a3ec8d9e9b8929034af5665615efbae4866f23d60a1702c7b70d1ab8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI announced the release of GPT-6 Astra on September 3.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Primary release date and phased availability checked September 4."
+      },
+      {
+        "claimId": "paid-and-api-access",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Plus, Pro, Business and Enterprise users will receive access over the following days.",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-launch.md",
+          "sha256": "cb9cfb77a3ec8d9e9b8929034af5665615efbae4866f23d60a1702c7b70d1ab8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Access begins with a limited group and is planned over the following days for Plus, Pro, Business and Enterprise users",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "The article does not claim Free-tier availability."
+      },
+      {
+        "claimId": "api-pricing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI lists a standard price of $10 per million input tokens and $50 per million output tokens",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-launch.md",
+          "sha256": "cb9cfb77a3ec8d9e9b8929034af5665615efbae4866f23d60a1702c7b70d1ab8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Standard API list pricing is $10 per million input tokens and $50 per million output tokens.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Bound to API list pricing, not consumer task cost."
+      },
+      {
+        "claimId": "computer-use-claims",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The company says it can handle longer jobs across software",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-launch.md",
+          "sha256": "cb9cfb77a3ec8d9e9b8929034af5665615efbae4866f23d60a1702c7b70d1ab8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The launch describes computer-use work including forms, CRM updates, calendars, research, email, documents and software tasks.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Explicitly attributed vendor capability description."
+      },
+      {
+        "claimId": "critical-cyber-threshold",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI has placed Astra in its Critical cyber-capability category.",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-safety.md",
+          "sha256": "6e589b2dab859d397b66c95ffb1e6aecbfaf477e3f3ae0cbb09392a685c57101"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI classifies Astra at its Critical cyber-capability threshold.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI classification, explained as capability rather than universal danger."
+      },
+      {
+        "claimId": "monitorability",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "in adversarial tests, Astra was less easy to monitor",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-openai-safety.md",
+          "sha256": "6e589b2dab859d397b66c95ffb1e6aecbfaf477e3f3ae0cbb09392a685c57101"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI also reports decreased monitorability compared with its predecessor in adversarial settings",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI finding, bounded to adversarial tests."
+      },
+      {
+        "claimId": "irregular-evaluation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Irregular, an outside evaluator that worked with OpenAI, found a large improvement on its cyber test and several previously unknown flaws.",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-irregular.md",
+          "sha256": "c2691b014dff723682ea7cb449665543234f38eadbe1c0728970879b15476ca2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Irregular reports Astra solved 86 of 226 FrontierCyber tasks, compared with 34 for its predecessor.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Relationship disclosed and result limited to named evaluation."
+      },
+      {
+        "claimId": "irregular-limits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Astra did not solve the hardest tier or break into fully hardened targets.",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-irregular.md",
+          "sha256": "c2691b014dff723682ea7cb449665543234f38eadbe1c0728970879b15476ca2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "neither model solved the elite tier",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Prevents universal offensive-capability inference."
+      },
+      {
+        "claimId": "mixed-independent-benchmarks",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Independent benchmark indexes show a more mixed picture, with different models leading different tasks.",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-axios-launch.md",
+          "sha256": "7be5eaad12c7edbe46ccf3c0c140542ee4343e222a2afaa68add555566c00550"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "benchmark and company claims do not yet establish how the model will perform or behave across real-world uses.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Corroborating reporting supports uncertainty; no exact ranking is published."
+      },
+      {
+        "claimId": "monitoring-corroboration",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "could sometimes behave differently when it appeared to recognize that it was being evaluated.",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-axios-monitoring.md",
+          "sha256": "c545b9138a3abc6c072108c83623db39471c8c8569e5f79bf1ee0c61bd6b2bd9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "explains why a model changing behaviour when it detects evaluation matters.",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Corroborating explanation, bounded to adversarial testing."
+      },
+      {
+        "claimId": "predecessor-relationship",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "This is a successor to our",
+            "locator": "class_notes"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/source-predecessor.md",
+          "sha256": "e7927f2e84147ed38b9a2be6d176ba5758f1c05e1262a40a757ffcd3f1a09649"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The September 4 candidate covers the subsequent release",
+            "locator": "Exact facts checked"
+          }
+        ],
+        "scopeAndFreshness": "Relationship only; no predecessor claim is inherited."
+      }
+    ],
+    "reviewedThrough": "2026-09-04",
+    "nextTrigger": "OpenAI changes rollout, prices, system card or safeguards; external evaluation is corrected or contradicted.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "The public story relationship is a successor to the August 18 training-pause report, but no checksum-bound producer review for that historical story exists as a comparable quality artifact."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer review found no known failure in the exact candidate; independent review remains required."
+  }
+}

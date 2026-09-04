@@ -1,0 +1,154 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "correctionProvider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"checks\": {\"incidentExplained\": {\"artifactEvidence\": [{\"excerpt\": \"OpenAI released GPT-6 Astra on September 3.\", \"locator\": \"the_story paragraph 1\"}], \"observation\": \"The article clearly explains the release of the GPT-6 Astra model and its capabilities\", \"verdict\": \"PASS\"}}, \"noInternalNotesOrInventedAdvice\": {\"artifactEvidence\": [{\"excerpt\": \"If Astra appears in your account, start with one work task you already understand well:\", \"locator\": \"what_this_means paragraph 1\"}], \"observation\": \"The article is well-structured and free of internal notes or invented advice\", \"verdict\": \"PASS\"}, \"readerConsequenceSpecific\": {\"artifactEvidence\": [{\"excerpt\": \"That makes the surrounding permissions more important, not less.\", \"locator\": \"laidies_read paragraph 1\"}], \"observation\": \"The article provides specific consequences of the model's release, such as the importance of permissions and monitoring\", \"verdict\": \"PASS\"}, \"termsExplainedInContext\": {\"artifactEvidence\": [{\"excerpt\": \"OpenAI has placed Astra in its Critical cyber-capability category.\", \"locator\": \"laidies_read paragraph 2\"}], \"observation\": \"The article explains technical terms, such as 'Critical cyber-capability category', in context\", \"verdict\": \"PASS\"}, \"calibrationExcerpts\": {\"artifactEvidence\": [{\"excerpt\": \"The model is the reasoning engine.\", \"locator\": \"CQX-BAD-001 Chapter 1 — Meet the parts of the system\"}], \"observation\": \"The article explains the model's role in the system\", \"verdict\": \"PASS\"}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788535009,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-f7c235b1-3791-451b-a418-79e77ca6ee0c",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "calibrationExcerpts": {
+        "artifactEvidence": [
+          {
+            "excerpt": "The model is the reasoning engine.",
+            "locator": "CQX-BAD-001 Chapter 1 — Meet the parts of the system"
+          }
+        ],
+        "observation": "The article explains the model's role in the system",
+        "verdict": "PASS"
+      },
+      "checks": {
+        "incidentExplained": {
+          "artifactEvidence": [
+            {
+              "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+              "locator": "the_story paragraph 1"
+            }
+          ],
+          "observation": "The article clearly explains the release of the GPT-6 Astra model and its capabilities",
+          "verdict": "PASS"
+        }
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "artifactEvidence": [
+          {
+            "excerpt": "If Astra appears in your account, start with one work task you already understand well:",
+            "locator": "what_this_means paragraph 1"
+          }
+        ],
+        "observation": "The article is well-structured and free of internal notes or invented advice",
+        "verdict": "PASS"
+      },
+      "readerConsequenceSpecific": {
+        "artifactEvidence": [
+          {
+            "excerpt": "That makes the surrounding permissions more important, not less.",
+            "locator": "laidies_read paragraph 1"
+          }
+        ],
+        "observation": "The article provides specific consequences of the model's release, such as the importance of permissions and monitoring",
+        "verdict": "PASS"
+      },
+      "termsExplainedInContext": {
+        "artifactEvidence": [
+          {
+            "excerpt": "OpenAI has placed Astra in its Critical cyber-capability category.",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "observation": "The article explains technical terms, such as 'Critical cyber-capability category', in context",
+        "verdict": "PASS"
+      }
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 13873,
+      "completion_tokens": 355,
+      "total_tokens": 14228,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 442.6664733886719
+    }
+  },
+  "promptSha256": "90c2ebfe11edb68e560883ceb68f9eeb52207dbe51e9250d45373a4fd67965cf",
+  "correctedJudgment": {
+    "calibrationExcerpts": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine.",
+          "locator": "CQX-BAD-001 Chapter 1 — Meet the parts of the system"
+        }
+      ],
+      "observation": "The article explains the model's role in the system",
+      "verdict": "PASS"
+    },
+    "checks": {
+      "incidentExplained": {
+        "artifactEvidence": [
+          {
+            "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "observation": "The article clearly explains the release of the GPT-6 Astra model and its capabilities",
+        "verdict": "PASS"
+      }
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "If Astra appears in your account, start with one work task you already understand well:",
+          "locator": "what_this_means paragraph 1"
+        }
+      ],
+      "observation": "The article is well-structured and free of internal notes or invented advice",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "That makes the surrounding permissions more important, not less.",
+          "locator": "laidies_read paragraph 1"
+        }
+      ],
+      "observation": "The article provides specific consequences of the model's release, such as the importance of permissions and monitoring",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI has placed Astra in its Critical cyber-capability category.",
+          "locator": "laidies_read paragraph 2"
+        }
+      ],
+      "observation": "The article explains technical terms, such as 'Critical cyber-capability category', in context",
+      "verdict": "PASS"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openai-gpt-6-astra-launch-2026-09-04",
+  "reviewerPrincipalId": "cloudflare-llama-independent-news-openai-gpt-6-astra-launch-2026-09-04",
+  "reviewTextSha256": "5aee8d5327d03e42f0631856c326b8ef2b176761beb9a23ab6bb4791af0da406",
+  "checks": {
+    "incidentExplained": {
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released GPT-6 Astra on September 3.",
+          "locator": "the_story paragraph 1"
+        }
+      ],
+      "observation": "The article clearly explains the release of Astra and its capabilities",
+      "verdict": "PASS"
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "The article is free of internal notes and invented advice",
+      "verdict": "PASS"
+    },
+    "readerConsequenceSpecific": {
+      "artifactEvidence": [
+        {
+          "excerpt": "That makes the surrounding permissions more important, not less.",
+          "locator": "laidies_read paragraph 1"
+        }
+      ],
+      "observation": "The article provides specific consequences of using Astra, such as the importance of permissions and monitoring",
+      "verdict": "PASS"
+    },
+    "termsExplainedInContext": {
+      "artifactEvidence": [
+        {
+          "excerpt": "The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step.",
+          "locator": "laidies_read"
+        }
+      ],
+      "observation": "Technical terms, such as 'Critical cyber-capability category', are explained in context",
+      "verdict": "PASS"
+    }
+  },
+  "outcomes": {
+    "explainBack": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article explains the capabilities and limitations of Astra",
+      "prompt": "Explain the release of Astra and its implications",
+      "response": "Astra is a powerful tool that requires careful consideration of permissions and monitoring"
+    },
+    "unseenTransfer": {
+      "assessment": "PASS",
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "expectedEvidence": "The article provides a clear explanation of when to use Astra",
+      "prompt": "Use a different situation to expose misunderstanding of Astra",
+      "response": "Astra can be used for various tasks, but it's not always the best choice"
+    }
+  }
+}
