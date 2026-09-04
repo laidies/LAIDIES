@@ -26,6 +26,19 @@
     "readerAction": "What can the reader use, ask, compare, avoid or watch next?",
     "betterQuestion": "What is the more useful question than the hype-shaped one?"
   },
+  "translationContract": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "requiredReaderMoves": ["newsVersionExact", "actualMeaningExact", "mechanismExact", "familiarExampleExact"],
+    "prompts": {
+      "newsVersionExact": "What short, recognizable version might the reader have seen in a headline, newsletter or social post?",
+      "actualMeaningExact": "What does that claim actually mean in ordinary language, without assuming AI knowledge?",
+      "mechanismExact": "What is the smallest accurate explanation of how the important part works?",
+      "familiarExampleExact": "What familiar work or life example lets the reader see the consequence without distorting the mechanism?"
+    },
+    "jargonRule": "Identify every term needed to understand the story, define it at first use in ordinary language and verify that the definition appears in the article.",
+    "learningRule": "Search the governed LAiDIES learning surfaces for every durable concept. Link an exact relevant destination in Class Notes when one exists. When none exists, explain the concept in the article and record an owned learning gap with a trigger; never fabricate or generalize a link.",
+    "reviewRule": "A reviewer must be able to explain the story accurately without repeating its jargon. Correct facts with failed beginner comprehension are a failed story."
+  },
   "types": {
     "model-tool-release": {
       "label": "New model, tool, product or major feature",

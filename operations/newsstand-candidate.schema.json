@@ -66,7 +66,7 @@
     "sensationalFramingNeutralized": { "type": "boolean" },
     "storyTypeCoverage": {
       "type": "object",
-      "required": ["schema", "primaryType", "overlays", "universalAnswers", "typeAnswers"],
+      "required": ["schema", "primaryType", "overlays", "universalAnswers", "typeAnswers", "translation"],
       "properties": {
         "schema": { "const": "laidies.newsstand-story-type-coverage.v1" },
         "primaryType": { "enum": ["model-tool-release", "research-benchmark", "safety-incident", "legal-policy", "health-science", "work-economy", "company-business"] },
@@ -76,7 +76,29 @@
           "items": { "enum": ["model-tool-release", "research-benchmark", "safety-incident", "legal-policy", "health-science", "work-economy", "company-business"] }
         },
         "universalAnswers": { "type": "object", "minProperties": 10, "additionalProperties": { "type": "string", "minLength": 18 } },
-        "typeAnswers": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "string", "minLength": 18 } } }
+        "typeAnswers": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "string", "minLength": 18 } } },
+        "translation": {
+          "type": "object",
+          "required": ["schema", "newsVersionExact", "actualMeaningExact", "mechanismExact", "familiarExampleExact", "jargon", "learningConnections"],
+          "properties": {
+            "schema": { "const": "laidies.newsstand-reader-translation.v1" },
+            "newsVersionExact": { "type": "string", "minLength": 18 },
+            "actualMeaningExact": { "type": "string", "minLength": 18 },
+            "mechanismExact": { "type": "string", "minLength": 18 },
+            "familiarExampleExact": { "type": "string", "minLength": 18 },
+            "jargon": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "object", "required": ["term", "plainMeaning"], "properties": { "term": { "type": "string", "minLength": 1 }, "plainMeaning": { "type": "string", "minLength": 18 } }, "additionalProperties": false }
+            },
+            "learningConnections": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "object", "required": ["concept", "disposition", "learningPayoff"], "properties": { "concept": { "type": "string", "minLength": 18 }, "disposition": { "enum": ["link", "gap"] }, "learningPayoff": { "type": "string", "minLength": 18 }, "destination": { "type": "string" }, "owner": { "type": "string" }, "trigger": { "type": "string" }, "recordPath": { "type": "string" } }, "additionalProperties": false }
+            }
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": false
     },

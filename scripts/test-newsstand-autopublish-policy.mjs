@@ -16,12 +16,22 @@ const policy = JSON.parse(fs.readFileSync(path.join(operations, "newsstand-autop
 const storyModules = JSON.parse(fs.readFileSync(path.join(operations, "product-stewards/newsstand/story-type-modules.json"), "utf8"));
 const read = (name) => JSON.parse(fs.readFileSync(path.join(fixtures, name), "utf8"));
 const reportingAnswer = key => `A concrete reader-facing answer for ${key} with evidence, limitations and practical consequence.`;
+const translation = () => ({
+  schema: "laidies.newsstand-reader-translation.v1",
+  newsVersionExact: "The version a reader may have seen says that an important AI change happened.",
+  actualMeaningExact: "What it actually means is explained without assuming that the reader knows the product or its terminology.",
+  mechanismExact: "The article explains the smallest accurate mechanism needed to understand the consequence.",
+  familiarExampleExact: "A familiar work or life example shows what changes while preserving the limits of the evidence.",
+  jargon: [{ term: "model", plainMeaning: "A model is the pattern-learning engine inside an AI product, not the whole product." }],
+  learningConnections: [{ concept: "The difference between an AI model and the product around it", disposition: "link", destination: "/library.html#ai-fundamentals-101", learningPayoff: "This lesson helps readers understand why products using similar models can behave differently." }]
+});
 const storyTypeCoverage = (primaryType = "company-business", overlays = []) => ({
   schema: "laidies.newsstand-story-type-coverage.v1",
   primaryType,
   overlays,
   universalAnswers: Object.fromEntries(storyModules.universalQuestions.map(key => [key, reportingAnswer(`universal ${key}`)])),
-  typeAnswers: Object.fromEntries([primaryType, ...overlays].map(type => [type, Object.fromEntries(storyModules.types[type].questions.map(key => [key, reportingAnswer(`${type} ${key}`)]))]))
+  typeAnswers: Object.fromEntries([primaryType, ...overlays].map(type => [type, Object.fromEntries(storyModules.types[type].questions.map(key => [key, reportingAnswer(`${type} ${key}`)]))])),
+  translation: translation()
 });
 const qualified = (edition) => ({
   ...read("routine-daily-brief.json"), id: `qualified-${edition}`, slug: `qualified-${edition}`, edition,
@@ -65,6 +75,10 @@ const mixedSafetyRelease = storyTypeCoverage("model-tool-release", ["safety-inci
 delete mixedSafetyRelease.typeAnswers["safety-incident"].responsibility;
 const incompleteMixed = route({ ...qualified("breaking"), topics: ["model-release", "safety"], storyTypeCoverage: mixedSafetyRelease, releaseDetailsComplete: true, releaseReaderFit: readerFit }, "REJECT", "mixed release must complete safety overlay");
 assert.ok(incompleteMixed.rejectReasons.some(reason => reason.includes("safety-incident question is unanswered: responsibility")));
+const untranslated = storyTypeCoverage();
+delete untranslated.translation;
+const missingTranslation = route({ ...qualified("daily"), storyTypeCoverage: untranslated }, "REJECT", "complete facts without reader translation cannot reach review");
+assert.ok(missingTranslation.rejectReasons.some(reason => reason.includes("reader translation coverage is missing")));
 const neutralizedRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"], sensationalFramingNeutralized: true }, "HOLD_FOR_INDEPENDENT_REVIEW", "neutralized sensational claim routes to review");
 const unsafeRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"] }, "REJECT", "sensational claim requires neutralized framing");
 assert.ok(unsafeRealityCheck.rejectReasons.includes("conditional_gate_failed:sensationalFramingNeutralized"));

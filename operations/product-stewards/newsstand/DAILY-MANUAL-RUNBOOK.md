@@ -220,6 +220,22 @@ pass both model/tool and safety requirements. These are internal reporting
 questions, not extra public headings: the published article keeps the existing
 NewsStand reading structure.
 
+Complete the translation layer in the same `storyTypeCoverage` object before
+review. Bind the exact reader-facing sentences that perform four moves: “what
+you may have seen,” “what it actually means,” the smallest accurate explanation
+of the mechanism, and one familiar work or life example. List every necessary
+AI term and its plain-language meaning. The validator confirms that these exact
+sentences and meanings appear in the article rather than living only in private
+metadata.
+
+For every durable concept, search the governed LAiDIES learning surfaces. If an
+exact relevant Library lesson exists, record its destination and learning
+payoff and put that exact link in `class_notes`. If none exists, explain the
+concept fully inside the story and record an owned learning gap with a durable
+record path and trigger. A generic Library link, a semantically unrelated
+chapter, or an invented fragment is not a pass. Link existence is checked
+mechanically; learning relevance remains an explicit independent-review duty.
+
 Before selecting a lower-priority new candidate or declaring a quiet research
 result, run the durable story-recovery queue through:
 

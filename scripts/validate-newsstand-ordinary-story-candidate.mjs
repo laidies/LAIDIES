@@ -61,7 +61,7 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
   if (!admittedHistoricalBase && candidate.editionDate >= "2026-09-05" && candidate.schemaVersion !== "newsstand-ordinary-story-candidate-v2") throw new Error("new ordinary candidates require the v2 story-type reporting frame");
   if (candidate.schemaVersion === "newsstand-ordinary-story-candidate-v2") {
-    const coverageErrors = validateStoryTypeCoverage(candidate.storyTypeCoverage, candidate.story?.themes || []);
+    const coverageErrors = validateStoryTypeCoverage(candidate.storyTypeCoverage, candidate.story?.themes || [], undefined, { story: candidate.story, root });
     if (coverageErrors.length) throw new Error(`ordinary candidate fails story-type reporting frame: ${coverageErrors.join(" | ")}`);
   }
   const story = candidate.story;

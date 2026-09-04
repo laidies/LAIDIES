@@ -54,6 +54,20 @@ template to evade safety, legal, medical or other relevant questions. The
 modules guide production; they do not turn public articles into questionnaires.
 `ALI CONFIRMED`
 
+Every story also performs a translation journey: first recognize the compressed
+version a reader may have encountered elsewhere, then explain what it actually
+means without assuming AI knowledge. Define necessary language at first use,
+explain the smallest mechanism that changes the reader's understanding, and
+connect it to a familiar work or life situation without using a misleading
+analogy. A reader should be able to explain the story accurately without
+repeating unfamiliar jargon. `ALI CONFIRMED`
+
+`Class Notes` continues that journey. Link to the exact relevant LIBRAiRY lesson
+when one exists and say what it helps the reader understand. Never use a generic
+Library link as decoration. If the learning system does not yet cover a
+necessary concept, the story explains it inline and creates an owned learning
+gap rather than hiding the omission or inventing a destination. `ALI CONFIRMED`
+
 Its one newspaper contains four editorial jobs: **The Breaking**, **The
 Daily**, **The Weekly** and **The Big Picture**. **The Tribune is retired.** The
 active internal keys are `breaking`, `daily`, `weekly` and `big-picture`.
