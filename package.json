@@ -4,6 +4,7 @@
   "scripts": {
     "preview:library": "node operations/tools/preview-server.js . 8765",
     "test:miss-jeeves-backend": "node scripts/test-miss-jeeves-worker.mjs && node scripts/test-miss-jeeves-topic-request-worker.mjs",
+    "test:miss-jeeves-current-guidance-browser": "node scripts/test-miss-jeeves-current-guidance-browser.mjs",
     "test:library-correction-backend": "node scripts/test-library-correction-worker.mjs",
     "test:library-book-content-admission": "node scripts/test-library-book-content-admission.mjs",
     "gate:episode": "bash operations/engine/gate.sh 2",

@@ -1,16 +1,40 @@
 # Miss Jeeves subproduct dossier
 
-**Status:** **OPERATIONAL BACKEND AND CONTROLLED AGGREGATES DEPLOYED /
-PUBLICLY VERIFIED**
-**As of:** 2026-08-24 UTC
+**Status:** **OPERATIONAL SITE-GROUNDED BACKEND DEPLOYED / CURRENT-GUIDANCE
+SUCCESSOR BUILT LOCALLY, NOT DEPLOYED**
+**As of:** 2026-09-04 UTC
 
 ## Product job
 
 Miss Jeeves is LAiDIES' proper reference and learning-direction tool. She helps
 a visitor express an ordinary-language question, understands the learning job,
-gives a short bounded answer from current admitted material and explains the
-best ways to continue. She is not a generic chatbot, a whole-web answer engine
-or the source of record.
+gives a short answer grounded in current admitted material and, when the
+question needs it, checks a maintained set of trusted sources beyond the site.
+She explains the best ways to continue. She is not a generic chatbot or the
+source of record.
+
+## Ali-ratified current-guidance change — 2026-09-04
+
+This ruling supersedes the earlier prohibition on live source checks in visitor
+behavior items 3, 4 and 7 and in the retrieval boundary below.
+
+1. Search current LAiDIES material and show those routes under a visible
+   **From LAiDIES** label.
+2. For ordinary AI questions that are not merely requests to find a place on
+   the site, check a maintained set of current sources. Prefer official and
+   primary sources, with trusted independent reporting for news context.
+3. Show the current answer with clickable inline citations, a checked date and
+   a visible list of the sources used. An answer without usable citations fails
+   closed and never impersonates verified guidance.
+4. Clearly separate LAiDIES material from the current external sources; neither
+   may silently borrow the other one's authority.
+5. Disable request logging and caching for the live-source model call. Continue
+   to block apparent private content before either model receives the question.
+6. If current-source search fails, keep useful admitted LAiDIES routes and say
+   that the current answer could not be verified. Do not fall back to unsourced
+   model memory.
+7. Before release, verify the provider billing/spend guard, runtime model and
+   search tool, privacy text, both public origins and representative answers.
 
 The ideal result distinguishes what each route provides:
 
@@ -127,10 +151,12 @@ trust rationale, owner, last reviewed date and removal/recheck trigger.
 
 Use hybrid retrieval: deterministic exact/alias/deep-link matching first, then
 semantic retrieval across admitted records, followed by metadata filtering for
-availability, content type, freshness and public release. The language model
+availability, content type, freshness and public release. The catalogue model
 may interpret the question and summarize only the retrieved current excerpts;
-it may not choose held/private records, invent roadmap promises, browse the web
-freely or add unsourced facts.
+it may not choose held/private records or invent roadmap promises. The separate
+current-guidance path may search only the maintained trusted-source domain set.
+It must return usable citations or fail closed; unsourced
+model-memory answers remain prohibited.
 
 Start with the current small governed index and prove answer quality before
 adding infrastructure. Evaluate Cloudflare Vectorize only when section-level

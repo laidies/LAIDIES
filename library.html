@@ -86,6 +86,13 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-answer h3{font-size:20px;line-height:1.18;color:var(--ink)}
 .jv-answer p{max-width:850px;margin:7px 0 12px;color:#5f4358;font-size:14px;line-height:1.55}
 .jv-answer p strong{color:var(--ink)}
+.jv-current-meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px 12px;margin:2px 0 9px;color:#52617f;font-size:12px;font-weight:700}
+.jv-current-meta b{color:#007d86;letter-spacing:.1em;text-transform:uppercase}
+.jv-current-sources{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 13px;padding:10px 12px;border-radius:9px;background:#e8fbf4;color:#284b55;font-size:13px;line-height:1.35}
+.jv-current-sources b{color:#007d86;letter-spacing:.08em;text-transform:uppercase}
+.jv-current-sources a,.jv-inline-citation{color:#7b2361;font-weight:750;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.jv-current-sources a:hover,.jv-inline-citation:hover{color:#c02d84}
+.jv-current-unavailable{margin:0 0 13px;padding:10px 12px;border:1.5px solid #ff9b3d;border-radius:9px;background:#fff2df;color:#6f3d12;font-size:13px;font-weight:700;line-height:1.4}
 .jv-answer-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border-top:1px solid #d8dff4;padding-top:11px}
 .jv-answer-links b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
 .jv-answer-links a,.jv-answer-links button{appearance:none;border:0;background:none;padding:0;color:#8f2e67;font:inherit;
@@ -971,13 +978,13 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   <section class="jv" id="miss-jeeves" aria-labelledby="miss-jeeves-title">
     <div class="jv-head">
       <span class="jv-kicker">Reference desk</span>
-      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
+      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer from LAiDIES and, when the question needs it, current trusted sources.</small></div>
     </div>
     <form class="jv-form">
       <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
     </form>
-    <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
+    <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording; current answers may require a live source check. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
     <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
       <b>Common questions:</b>
       <button class="jv-chip" type="button">Which AI should I use?</button>
@@ -1311,6 +1318,30 @@ function escapeJeevesText(value){
    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
  }[char]));
 }
+function safeJeevesExternalUrl(value){
+ try{
+  const url=new URL(String(value||''));
+  return url.protocol==='https:'&&!url.username&&!url.password?url.href:'';
+ }catch(error){return '';}
+}
+function renderJeevesCitedAnswer(target,answer,citations){
+ target.textContent='';
+ const safeAnswer=String(answer||'');
+ const safeCitations=(Array.isArray(citations)?citations:[]).map(citation=>({
+   start:Number(citation&&citation.start_index),end:Number(citation&&citation.end_index),
+   url:safeJeevesExternalUrl(citation&&citation.url),title:String(citation&&citation.title||'Current source')
+ })).filter(citation=>citation.url&&Number.isInteger(citation.start)&&Number.isInteger(citation.end)&&citation.start>=0&&citation.end>citation.start&&citation.end<=safeAnswer.length)
+   .sort((a,b)=>a.start-b.start||a.end-b.end);
+ let cursor=0;
+ for(const citation of safeCitations){
+  if(citation.start<cursor)continue;
+  target.append(document.createTextNode(safeAnswer.slice(cursor,citation.start)));
+  const link=document.createElement('a');
+  link.className='jv-inline-citation';link.href=citation.url;link.target='_blank';link.rel='noreferrer';link.title=citation.title;
+  link.textContent=safeAnswer.slice(citation.start,citation.end);target.append(link);cursor=citation.end;
+ }
+ target.append(document.createTextNode(safeAnswer.slice(cursor)));
+}
 function renderJeevesService(payload,query){
   const box=document.getElementById('jv-results');
   if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
@@ -1347,13 +1378,30 @@ function renderJeevesService(payload,query){
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
+  const current=payload.current_guidance&&typeof payload.current_guidance==='object'?payload.current_guidance:null;
+  const currentSources=current&&Array.isArray(current.sources)?current.sources.map(source=>{
+    const url=safeJeevesExternalUrl(source&&source.url);
+    return url?`<a href="${escapeJeevesText(url)}" target="_blank" rel="noreferrer">${escapeJeevesText(source.title||source.domain||'Current source')}</a>`:'';
+  }).filter(Boolean).join(''):'';
+  let checkedLabel='';
+  if(current&&typeof current.checked_at==='string'){
+    const checked=new Date(current.checked_at);
+    if(!Number.isNaN(checked.valueOf()))checkedLabel=`Checked ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`;
+  }
+  const currentUnavailable=payload.current_guidance_status==='unavailable';
   box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
-    <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
-    <p>${escapeJeevesText(payload.answer)}</p>
-    ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
+    <h3>${current?'Here is the clearest current answer.':payload.status==='related'?'Related material, not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
+    ${current?`<div class="jv-current-meta"><b>Current guidance</b><span>${escapeJeevesText(checkedLabel)}</span></div><p id="jv-current-answer"></p>`:`<p>${escapeJeevesText(payload.answer)}</p>`}
+    ${currentSources?`<div class="jv-current-sources"><b>Current sources checked</b>${currentSources}</div>`:''}
+    ${currentUnavailable?`<div class="jv-current-unavailable">I found LAiDIES material, but I could not check current external guidance right now. I have not filled the gap from memory.</div>`:''}
+    ${links?`<div class="jv-answer-links"><b>From LAiDIES</b>${links}</div>`:''}
   </article>`;
+  if(current){
+    const answerTarget=document.getElementById('jv-current-answer');
+    if(answerTarget)renderJeevesCitedAnswer(answerTarget,payload.answer,current.citations);
+  }
 }
 function newJeevesRequestKey(){
  return `mjr-browser-${Date.now()}-${crypto.getRandomValues(new Uint32Array(2)).join('-')}`;

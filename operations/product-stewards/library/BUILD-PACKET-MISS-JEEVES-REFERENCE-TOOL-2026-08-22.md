@@ -7,6 +7,19 @@
 LIBRAiRY world; final route choice is implementation judgment after responsive
 and accessibility proof.
 
+## 2026-09-04 successor ruling
+
+Ali directed that Miss Jeeves must give helpful answers reflecting current best
+practice or guidance in addition to what LAiDIES already publishes. The
+successor therefore keeps admitted LAiDIES routes visibly separate and adds a
+bounded live-source answer from a maintained trusted-source domain set that
+prioritizes official and primary sources.
+The current answer requires clickable citations and a checked date. Request
+logging and caching are disabled for that model call; an uncited response fails
+closed. This supersedes the older external-source and unrestricted-web non-goal
+only to this bounded extent. It does not authorize unsourced model memory,
+personalized professional advice or deployment without release authority.
+
 ## User outcome
 
 A visitor can ask an ordinary-language AI learning question without knowing the
