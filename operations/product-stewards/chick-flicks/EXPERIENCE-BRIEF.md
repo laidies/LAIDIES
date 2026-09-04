@@ -438,16 +438,20 @@ dominant play control and the stage label says `Now listening`. Only Watch may
 retain a dark film stage where the moving image genuinely requires it.
 `ALI DIRECT FULL LISTEN-PAGE CORRECTION — 2026-09-04`
 
-Chick Flicks must use colour relationships inspected on the current Homepage,
-not a page-specific approximation or an old standalone token list. For the
-`Special features` continuation, the bound relationship is coral-to-pink
-`#c96652 → #db7581 → #e982ab`, Homepage dark ink `#3a1838`, and the Homepage
-activity-button sequence `#57b6c0`, `#e982ab`, `#ec7a78`, `#b3abe7`, `#f4a636`
-and `#8bbde9`. Small copy over the darker end of the field uses deep ink
-`#11183b` so it does not need white. Dark midnight remains available only where
-the Watch player needs a focused film stage. A generic pale-card system, deep-plum surface,
-routine white type or unrelated pink-purple gradient is rejected.
-`ALI DIRECT SITE-COLOUR CORRECTION — 2026-09-02`
+Chick Flicks must use the complete current system jointly visible on the
+rendered Homepage, its Start learning section and the current LIBRAiRY—not a
+page-specific approximation or an old standalone token list. The active
+relationship is ink `#11183b`, hot pink `#f254a9`, purple `#7137d6`, cobalt
+`#2457e6`, cyan `#15bce0`, coral `#ff7366`, mint `#7de2c2`, yellow `#ffd34d`,
+cream `#fffdfb` and the lilac field `#c7d7f5`. The system includes the
+LIBRAiRY's pink-purple-cyan comic gradients and texture, heavy ink keylines,
+offset cyan/pink/yellow shadows, large image-led structures and dark body copy.
+White/cream type is exceptional and is permitted only for the oversized title
+on the saturated masthead, matching the current LIBRAiRY treatment. The muted
+cream/coral/pastel application shell, deep-plum panels, black Listen stage,
+routine white type and generic white-card dashboard are rejected. Dark midnight
+remains available only where the Watch player needs a focused film stage.
+`ALI DIRECT CURRENT-SITE COLOUR CORRECTION — 2026-09-04`
 
 Invariants are truthful state, operable rendered objects, live readable UI,
 approved character continuity, candy-accent family, accessible controls,

@@ -44,28 +44,29 @@ assert.match(issueJs, /mode=watch/);
 assert.match(formatCss, /Episodes 01–04/);
 assert.match(watchCss, /body\[data-format="listen"\]/);
 assert.match(watchCss, /body\[data-format="watch"\]/);
-assert.match(watchCss, /body\[data-format="listen"\]\s*\{[^}]*--screen-ink:\s*#3a1838[^}]*background:\s*linear-gradient\(150deg,\s*#f8ecdd 0%,\s*#f6dfe4 32%,\s*#e9ede2 58%,\s*#c9e5df 100%\)/s);
-assert.match(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*color:\s*#3a1838[^}]*linear-gradient\(135deg,\s*#57b6c0 0%,\s*#8bbde9 50%,\s*#b3abe7 100%\)/s);
-assert.match(watchCss, /body\[data-format="listen"\] \.theatre\s*\{[^}]*background:\s*linear-gradient\(135deg,\s*#c96652 0%,\s*#db7581 55%,\s*#e982ab 112%\)/s);
-assert.match(watchCss, /body\[data-format="listen"\] \.episode-format-nav\[data-theme="dark"\]\s*\{[^}]*--format-bg:\s*#d3ebe7[^}]*--format-ink:\s*#3a1838/s);
-assert.match(watchCss, /body\[data-format="listen"\] \.screening-program\s*\{[^}]*background:\s*#d3ebe7/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\]\s*\{[^}]*--screen-ink:\s*#11183b[^}]*--screen-pink:\s*#f254a9[^}]*--screen-cyan:\s*#15bce0[^}]*--screen-yellow:\s*#ffd34d/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.screening-arrival\s*\{[^}]*episode-01-pop-comic-bg-v1\.png/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.episode-format-nav\[data-theme="dark"\]\s*\{[^}]*--format-bg:\s*var\(--screen-paper\)[^}]*--format-ink:\s*var\(--screen-ink\)/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.screening-program\s*\{[^}]*background:\s*var\(--screen-cyan\)/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-mode\s*\{[^}]*display:\s*none !important/s);
 assert.doesNotMatch(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*(?:#101b48|#171040|#0b1335|#000|var\(--screen-midnight\))/s);
-assert.doesNotMatch(watchCss, /body\[data-format="listen"\] \.theatre\s*\{[^}]*(?:#000|var\(--screen-ink\)|#050817|#08122f)/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*background-image:[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /\.screening-feature\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play__icon\s*\{/);
 assert.match(watchCss, /grid-template-columns:\s*4\.8rem minmax\(0, 1fr\)/);
 assert.match(watchCss, /\.screening-extras\s*\{/);
-assert.match(watchCss, /\.screening-extras\s*\{[^}]*background:\s*linear-gradient\(135deg,\s*#c96652 0%,\s*#db7581 55%,\s*#e982ab 112%\)/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.screening-extras\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /\.screening-extras__inner\s*\{/);
 assert.match(watchCss, /\.screening-extras__links a\s*\{[^}]*color:\s*#3a1838[^}]*background:\s*#57b6c0/s);
-for (const homepageAccent of ['#e982ab', '#ec7a78', '#b3abe7', '#f4a636', '#8bbde9']) {
-  assert.match(watchCss, new RegExp(`background:\\s*${homepageAccent}`));
+for (const currentSiteAccent of ['#f254a9', '#7137d6', '#15bce0', '#ff7366', '#7de2c2', '#ffd34d']) {
+  assert.match(watchCss, new RegExp(currentSiteAccent));
 }
 assert.doesNotMatch(watchCss, /\.screening-extras\s*\{[^}]*background:\s*var\(--screen-midnight\)/s);
 assert.doesNotMatch(watchCss, /\.screening-extras__links a\s*\{[^}]*#4b2148/s);
-assert.doesNotMatch(watchCss, /\.screening-extras(?:__heading|__links|__note)[^{]*\{[^}]*color:\s*(?:var\(--screen-paper\)|#fff)/s);
+assert.doesNotMatch(watchCss, /\.screening-extras(?:__heading|__links|__note)[^{]*\{[^}]*\n\s*color:\s*(?:var\(--screen-paper\)|#fff)/s);
 assert.match(watchCss, /\.screening-room-page \.player-status p\s*\{/);
 assert.doesNotMatch(watchCss, /\.screening-departures\s*\{/);
 

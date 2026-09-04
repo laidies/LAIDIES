@@ -1093,3 +1093,367 @@ body.screening-room-page[data-format="listen"] footer a {
     inset-block-start: 9%;
   }
 }
+
+/* 2026-09-04 current-site colour correction.
+   Authority: rendered Homepage learning section + current LIBRAiRY, not the
+   retired muted/deep-plum Chick Flicks experiments. */
+body.screening-room-page[data-format="listen"] {
+  --screen-ink: #11183b;
+  --screen-midnight: #11183b;
+  --screen-blue: #2457e6;
+  --screen-cobalt: #2457e6;
+  --screen-purple: #7137d6;
+  --screen-pink: #f254a9;
+  --screen-cyan: #15bce0;
+  --screen-coral: #ff7366;
+  --screen-mint: #7de2c2;
+  --screen-yellow: #ffd34d;
+  --screen-paper: #fffdfb;
+  --screen-lilac: #c7d7f5;
+  color: var(--screen-ink);
+  background: linear-gradient(120deg, #f2c6e5 0%, #c7d7f5 100%);
+}
+
+body[data-format="listen"] .screening-arrival {
+  width: 100%;
+  padding: clamp(2.1rem, 4.5vw, 4rem) 0 clamp(2.2rem, 4vw, 3.4rem);
+  border-bottom: 8px solid var(--screen-ink);
+  background-image:
+    linear-gradient(118deg, rgba(242, 84, 169, .94) 0%, rgba(113, 55, 214, .9) 54%, rgba(21, 188, 224, .92) 100%),
+    url('/assets/library/episode-01-pop-comic-bg-v1.png');
+  background-position: center;
+  background-size: cover;
+}
+
+body[data-format="listen"] .screening-feature,
+body[data-format="listen"] .screening-program {
+  width: min(100% - 3rem, 82rem);
+  margin-inline: auto;
+}
+
+body[data-format="listen"] .screening-cover {
+  border-color: var(--screen-ink);
+  box-shadow: 13px 15px 0 var(--screen-cyan), 22px 25px 0 var(--screen-yellow);
+}
+
+body[data-format="listen"] .screening-cover-sticker {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+  border-color: var(--screen-ink);
+  box-shadow: 4px 4px 0 var(--screen-pink);
+}
+
+body[data-format="listen"] .screening-house-line {
+  border-color: var(--screen-ink);
+}
+
+body.screening-room-page[data-format="listen"] .scr-eyebrow,
+body[data-format="listen"] .screening-house-status {
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-kicker {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+  border: 3px solid var(--screen-ink);
+  box-shadow: 4px 4px 0 var(--screen-pink);
+}
+
+body.screening-room-page[data-format="listen"] .scr-title {
+  max-width: 18ch;
+  color: var(--screen-paper);
+  -webkit-text-stroke: 2px var(--screen-ink);
+  paint-order: stroke fill;
+  text-shadow: 7px 7px 0 var(--screen-cyan);
+}
+
+body.screening-room-page[data-format="listen"] .scr-sub {
+  max-width: 49rem;
+  padding: .9rem 1rem;
+  border: 3px solid var(--screen-ink);
+  border-radius: 12px;
+  color: var(--screen-ink);
+  background: var(--screen-yellow);
+  box-shadow: 6px 6px 0 var(--screen-pink);
+}
+
+body[data-format="listen"] .screening-arrival-play {
+  border-color: var(--screen-ink);
+  color: var(--screen-ink);
+  background: var(--screen-yellow);
+  box-shadow: 9px 9px 0 var(--screen-pink);
+}
+
+body[data-format="listen"] .screening-arrival-play__icon {
+  border-color: var(--screen-ink);
+  background: var(--screen-mint);
+}
+
+body[data-format="listen"] .screening-arrival-play:hover,
+body[data-format="listen"] .screening-arrival-play:focus-visible {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+  box-shadow: 5px 5px 0 var(--screen-cobalt);
+  outline-color: var(--screen-paper);
+}
+
+body[data-format="listen"] .episode-format-nav[data-theme="dark"] {
+  --format-bg: var(--screen-paper);
+  --format-ink: var(--screen-ink);
+  --format-border: var(--screen-ink);
+  --format-active: var(--screen-pink);
+  --format-focus: var(--screen-cyan);
+  box-shadow: 7px 7px 0 var(--screen-cyan);
+}
+
+body[data-format="listen"] .screening-return {
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-program {
+  margin-top: clamp(2.6rem, 5vw, 4.2rem);
+  border: 4px solid var(--screen-ink);
+  background: var(--screen-cyan);
+  box-shadow: 9px 9px 0 var(--screen-yellow);
+}
+
+body[data-format="listen"] .screening-program-label {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+}
+
+body[data-format="listen"] .screening-program-label,
+body[data-format="listen"] .screening-program a {
+  border-color: var(--screen-ink);
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-program a:nth-of-type(1) { background: var(--screen-purple); }
+body[data-format="listen"] .screening-program a:nth-of-type(2) { background: var(--screen-yellow); }
+body[data-format="listen"] .screening-program a:nth-of-type(3) { background: var(--screen-cyan); }
+body[data-format="listen"] .screening-program a:nth-of-type(4) { background: var(--screen-coral); }
+body[data-format="listen"] .screening-program a:nth-of-type(5) { background: var(--screen-pink); }
+
+body[data-format="listen"] .screening-program a:nth-of-type(1),
+body[data-format="listen"] .screening-program a:nth-of-type(1) b {
+  color: var(--screen-paper);
+}
+
+body[data-format="listen"] .screening-program a:not(:nth-of-type(1)) b {
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-program a:hover,
+body[data-format="listen"] .screening-program a:focus-visible {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+  box-shadow: inset 0 0 0 4px var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-program a:hover b,
+body[data-format="listen"] .screening-program a:focus-visible b {
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-auditorium {
+  border-top: 0;
+  border-bottom: 8px solid var(--screen-ink);
+  color: var(--screen-ink);
+  background-image:
+    linear-gradient(90deg, rgba(21, 188, 224, .84) 0%, rgba(21, 188, 224, .8) 42%, rgba(101, 209, 227, .82) 100%),
+    url('/assets/library/episode-01-pop-comic-bg-v1.png');
+  background-position: center 47%;
+  background-size: cover;
+  box-shadow: inset 0 -10px 0 var(--screen-purple);
+}
+
+body[data-format="listen"] .screening-marquee {
+  border-color: var(--screen-ink);
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-marquee span:first-child,
+body[data-format="listen"] .screening-marquee span:last-child {
+  color: var(--screen-ink);
+}
+
+body.screening-room-page[data-format="listen"] .theatre,
+body[data-format="listen"] .theatre {
+  border: 4px solid var(--screen-ink);
+  border-radius: 20px;
+  background-image:
+    linear-gradient(118deg, rgba(242, 84, 169, .92) 0%, rgba(113, 55, 214, .9) 55%, rgba(21, 188, 224, .88) 100%),
+    url('/assets/library/episode-01-pop-comic-bg-v1.png');
+  background-position: center;
+  background-size: cover;
+  box-shadow: 10px 10px 0 var(--screen-yellow), 18px 18px 0 var(--screen-ink);
+}
+
+body[data-format="listen"] .listen-only-cover,
+body[data-format="listen"] .player-fallback-cover {
+  filter: drop-shadow(12px 16px 0 var(--screen-cyan)) drop-shadow(11px 11px 0 var(--screen-ink));
+}
+
+body[data-format="listen"] .listen-only-label {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+  border-color: var(--screen-ink);
+}
+
+body[data-format="listen"] .big-play,
+body.screening-room-page[data-format="listen"] .deck-play {
+  border-color: var(--screen-ink);
+  color: var(--screen-ink);
+  background: var(--screen-yellow);
+  box-shadow: 6px 6px 0 var(--screen-pink);
+}
+
+body[data-format="listen"] .big-play:hover,
+body[data-format="listen"] .big-play:focus-visible,
+body.screening-room-page[data-format="listen"] .deck-play:hover,
+body.screening-room-page[data-format="listen"] .deck-play:focus-visible {
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+}
+
+body.screening-room-page[data-format="listen"] .cap-bar,
+body.screening-room-page[data-format="listen"] .resume-panel,
+body.screening-room-page[data-format="listen"] .player-status {
+  border-color: var(--screen-ink);
+  color: var(--screen-ink);
+  background: var(--screen-mint);
+  box-shadow: 6px 6px 0 var(--screen-pink);
+}
+
+body.screening-room-page[data-format="listen"] .resume-panel {
+  background: var(--screen-yellow);
+}
+
+body.screening-room-page[data-format="listen"] .player-status {
+  background: var(--screen-coral);
+}
+
+body.screening-room-page[data-format="listen"] .cap-who,
+body.screening-room-page[data-format="listen"] .cap-txt,
+body.screening-room-page[data-format="listen"] .cap-bar.is-maven .cap-txt,
+body.screening-room-page[data-format="listen"] .resume-panel p,
+body.screening-room-page[data-format="listen"] .player-status p {
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .deck-rail { background: rgba(17, 24, 59, .3); }
+body.screening-room-page[data-format="listen"] .deck-fill,
+body.screening-room-page[data-format="listen"] .deck-knob { background: var(--screen-pink); }
+body[data-format="listen"] .deck-knob { box-shadow: 0 0 0 4px rgba(17, 24, 59, .18); }
+body[data-format="listen"] .deck-time { color: var(--screen-ink); }
+
+body.screening-room-page[data-format="listen"] .chapters {
+  border-color: rgba(17, 24, 59, .45);
+}
+
+body.screening-room-page[data-format="listen"] .chap {
+  border-color: rgba(17, 24, 59, .45);
+  color: var(--screen-ink);
+}
+
+body.screening-room-page[data-format="listen"] .chap:hover,
+body.screening-room-page[data-format="listen"] .chap:focus-visible,
+body.screening-room-page[data-format="listen"] .chap.is-now {
+  color: var(--screen-ink);
+  background: var(--screen-yellow);
+}
+
+body[data-format="listen"] .screening-extras {
+  margin-top: 0;
+  border-top: 0;
+  border-bottom: 8px solid var(--screen-ink);
+  color: var(--screen-ink);
+  background-image:
+    linear-gradient(118deg, rgba(242, 84, 169, .93) 0%, rgba(113, 55, 214, .9) 54%, rgba(21, 188, 224, .9) 100%),
+    url('/assets/library/episode-01-pop-comic-bg-v1.png');
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 -10px 0 var(--screen-pink);
+}
+
+body[data-format="listen"] .screening-extras__heading p,
+body[data-format="listen"] .screening-extras__heading h2,
+body[data-format="listen"] .screening-extras__note {
+  color: var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-extras__heading h2 {
+  padding: .35rem .45rem;
+  border: 3px solid var(--screen-ink);
+  background: var(--screen-mint);
+  box-shadow: 6px 6px 0 var(--screen-pink);
+}
+
+body[data-format="listen"] .screening-extras__links a {
+  border-color: var(--screen-ink);
+  color: var(--screen-ink);
+  background: var(--screen-yellow);
+  box-shadow: 5px 5px 0 var(--screen-ink);
+}
+
+body[data-format="listen"] .screening-extras__links a:nth-child(2) { background: var(--screen-mint); }
+body[data-format="listen"] .screening-extras__links a:nth-child(3) { background: var(--screen-cyan); }
+body[data-format="listen"] .screening-extras__links a:nth-child(4) { background: var(--screen-coral); }
+body[data-format="listen"] .screening-extras__links a:nth-child(5) { background: var(--screen-pink); }
+body[data-format="listen"] .screening-extras__links a:nth-child(6) { background: var(--screen-lilac); }
+
+body[data-format="listen"] .screening-extras__links a:hover,
+body[data-format="listen"] .screening-extras__links a:focus-visible {
+  background: var(--screen-mint);
+  box-shadow: 8px 8px 0 var(--screen-cobalt);
+  outline-color: var(--screen-paper);
+}
+
+body[data-format="listen"] .screening-extras__note {
+  border-color: var(--screen-ink);
+  font-weight: 800;
+}
+
+body.screening-room-page[data-format="listen"] footer,
+body.screening-room-page[data-format="listen"] footer a {
+  color: var(--screen-ink);
+}
+
+@media (max-width: 720px) {
+  body[data-format="listen"] .screening-feature,
+  body[data-format="listen"] .screening-program {
+    width: min(100% - 2rem, 82rem);
+  }
+}
+
+@media (max-width: 460px) {
+  body[data-format="listen"] .screening-feature {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  body[data-format="listen"] .screening-cover-wrap {
+    width: 7.5rem;
+  }
+
+  body.screening-room-page[data-format="listen"] .scr-title {
+    font-size: clamp(1.8rem, 9.6vw, 2.65rem);
+    text-shadow: 4px 4px 0 var(--screen-cyan);
+  }
+
+  body.screening-room-page[data-format="listen"] .scr-sub {
+    padding: .65rem .72rem;
+    font-size: .83rem;
+  }
+
+  body[data-format="listen"] .screening-arrival-play {
+    grid-template-columns: 3.2rem minmax(0, 1fr);
+    min-height: 5.25rem;
+    padding: .6rem;
+  }
+
+  body[data-format="listen"] .screening-arrival-play__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
