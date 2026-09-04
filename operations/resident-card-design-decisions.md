@@ -154,3 +154,25 @@ Source: Ali's direct Card corrections, 2026-09-03.
 
 Source: Ali's direct functionality ruling and the locally exercised
 MAiKEOVER-save-Closet-return-update journey, 2026-09-04.
+
+## MAiKEOVER portrait creator restoration — 2026-09-04
+
+- The portrait creator is a real first step in the Resident Card journey. The
+  working vanity has seven steps: Portrait, Card style, Era faves, Soundtrack,
+  Saint, Carrying and Finish. This supersedes the September 2 held-generator
+  rule and its six-step count.
+- A signed-in resident may either describe herself or use a consented JPG, PNG
+  or WebP photo, choose the portrait styling, generate one set of three
+  candidates and select one for the live Card.
+- The source photo is resized before upload and is not stored by LAiDIES. Only
+  the chosen bounded JPEG/PNG portrait enters the versioned Card envelope.
+- The same chosen portrait renders in MAiKEOVER and the Closet, restores with
+  the Card, and can be replaced later. A different device-local Card is never
+  silently overwritten by the account copy; the Resident Card desk presents
+  explicit update or restore actions.
+- Portrait generation requires a verified account and is limited to two
+  three-image sets per account per UTC day and twenty sets globally. A failed,
+  timed-out or unauthenticated request cannot mutate the saved Card.
+
+Source: Ali's direct restoration request; recovered bounded portrait implementation
+and current local verification, 2026-09-04.

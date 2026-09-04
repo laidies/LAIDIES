@@ -14919,3 +14919,30 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The data was shared, but the meaning was
   not—how one Resident Card briefly became two different identities.
 - **Publication status:** LOCAL CORRECTION / PUBLIC RELEASE NOT PERFORMED.
+
+## BTB-497 — A redesign can erase a working feature while preserving its corpse
+
+- **Date:** 2026-09-04
+- **Area:** MAiKEOVER portrait creator and Resident Card release continuity.
+- **Failure:** The redesigned page carried the old portrait choices and a
+  “temporarily closed” notice, but omitted the browser portrait runtime and
+  retained a disabled Worker source. The page looked intentionally held even
+  though the bounded signed-in creator had already been built on a divergent
+  release line.
+- **Root cause:** The redesign forward-tested the visible Card and Closet
+  journey but did not inventory the complete predecessor feature surface before
+  replacing MAiKEOVER. Hidden controls were mistaken for a deliberate product
+  decision instead of evidence of omitted runtime.
+- **Prevention rule:** Before replacing a visitor-facing page from another
+  branch, inventory every interactive runtime, backing service and
+  cross-surface object in the latest proven predecessor. A successor must
+  explicitly preserve, supersede or reject each one; hidden remnants and
+  explanatory hold copy cannot substitute for that decision.
+- **Durable correction:** Portrait is restored as a real first step with
+  authenticated description/photo generation, consent, three-candidate
+  selection, bounded raster storage, explicit account update/restore and Closet
+  rendering. A calibrated contract rejects removal of the runtime; Worker
+  unit tests reject unauthenticated, replayed, oversized and over-quota input.
+- **Possible Behind the Build angle:** The feature was not broken—it had fallen
+  between branches, leaving only the sign on the door.
+- **Publication status:** LOCAL RESTORATION / PUBLIC RELEASE NOT PERFORMED.

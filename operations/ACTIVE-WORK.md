@@ -1,5 +1,29 @@
 # Active work
 
+## 2026-09-04 MAiKEOVER portrait creator restoration
+
+- **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
+- **Task:** Restore the signed-in description/photo portrait creator as the
+  first step of the current Resident Card maker without reverting the approved
+  MAiKEOVER page or Card/Closet lifecycle.
+- **Boundary:** MAiKEOVER portrait UI/runtime, the bounded Card portrait
+  contract, explicit account update/restore handling, the portrait Worker
+  source/config, focused tests and this task's operations records. The
+  unselected background-art options and unrelated pages remain untouched.
+- **Source:** local commit `518f1d512cb794889a36b5fe30b8651e231e27f7`
+  on `release/maikeover-20260902`.
+- **Verification:** The calibrated MAiKEOVER contract rejects a missing
+  portrait runtime and passes after restoration. Card contract tests pass
+  40/40 and 33/33; the Worker unit contract passes authentication, origin,
+  byte bounds, replay, quota, partial-result, timeout and fail-closed cases.
+  The live Worker health route reports generation enabled and an unauthenticated
+  request is rejected 401 before generation. In the user's browser, Portrait is
+  step 1, the signed-out action stops with no generation, and photo mode reveals
+  file and explicit-consent controls.
+- **Not done:** No paid portrait was generated, no real sign-in was submitted,
+  the authenticated Card-account-Closet journey was not rerun, and no push,
+  Worker deployment, Pages deployment or public-origin verification occurred.
+
 ## 2026-09-04 MAiKEOVER to Closet live Card contract
 
 - **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
