@@ -318,3 +318,76 @@
     d.hidden = true; r.hidden = false;
   };
 })();
+
+/* ---------- compact rotating discovery strip ---------- */
+(function () {
+  'use strict';
+  var root = document.querySelector('[data-dyk]');
+  if (!root) return;
+
+  var slides = Array.prototype.slice.call(root.querySelectorAll('[data-dyk-slide]'));
+  var dots = Array.prototype.slice.call(root.querySelectorAll('[data-dyk-dot]'));
+  var previous = root.querySelector('[data-dyk-prev]');
+  var next = root.querySelector('[data-dyk-next]');
+  var status = root.querySelector('[data-dyk-status]');
+  if (!slides.length || !previous || !next) return;
+
+  var index = 0;
+  var timer = 0;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function labelFor(slide) {
+    var heading = slide.querySelector('h3');
+    return heading ? heading.textContent.trim() : 'feature';
+  }
+
+  function show(target, announce) {
+    index = (target + slides.length) % slides.length;
+    slides.forEach(function (slide, slideIndex) {
+      slide.hidden = slideIndex !== index;
+      slide.classList.toggle('is-active', slideIndex === index);
+    });
+    dots.forEach(function (dot, dotIndex) {
+      dot.setAttribute('aria-pressed', dotIndex === index ? 'true' : 'false');
+    });
+    if (status && announce) {
+      status.textContent = 'Feature ' + (index + 1) + ' of ' + slides.length + ': ' + labelFor(slides[index]);
+    }
+  }
+
+  function stop() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = 0;
+    }
+  }
+
+  function start() {
+    stop();
+    if (!reduced && !document.hidden) {
+      timer = window.setInterval(function () { show(index + 1, false); }, 8000);
+    }
+  }
+
+  previous.addEventListener('click', function () { show(index - 1, true); start(); });
+  next.addEventListener('click', function () { show(index + 1, true); start(); });
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      show(Number(dot.dataset.dykDot) || 0, true);
+      start();
+    });
+  });
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', function (event) {
+    if (!root.contains(event.relatedTarget)) start();
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  show(0, false);
+  start();
+})();

@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://laidies.ai/" />
   <meta property="og:image" content="https://laidies.ai/assets/sunnyvaile-town-overview.jpg" />
   <meta name="theme-color" content="#b95d78" />
-  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -552,7 +552,8 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 .why-women{margin:clamp(22px,4vw,46px) clamp(20px,5vw,72px);border-radius:24px;overflow:hidden;box-shadow:0 18px 44px rgba(33,24,32,.16);background:linear-gradient(135deg,#ee5b78 0%,#dc527f 52%,#9a4b89 118%);color:#071430}
 .why-women-copy{padding:clamp(38px,5vw,68px) clamp(24px,5vw,76px)}
 .why-women .eyebrow{margin:0 0 10px;color:#071430}
-.why-women h2{max-width:17ch;margin:0;font-size:clamp(2.35rem,5vw,5rem);line-height:.96;letter-spacing:-.045em;color:#071430}
+.why-women h2{max-width:none;margin:0;font-size:clamp(2.35rem,5vw,5rem);line-height:.96;letter-spacing:-.045em;color:#071430}
+@media(min-width:760px){.why-women h2{white-space:nowrap}}
 .why-lede{max-width:76ch;margin:24px 0 30px;font-size:clamp(1.08rem,1.45vw,1.28rem);line-height:1.58;font-weight:600}
 .why-reasons-intro{max-width:76ch;margin:0 0 24px;font-size:clamp(1.08rem,1.45vw,1.28rem);line-height:1.58;font-weight:600;color:#123080}
 .why-reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -825,7 +826,8 @@ main :is(.weekly,.activities,.town)>.section-heading>p:not(.eyebrow),.intent>div
 .intent>div:first-child>.eyebrow{color:var(--hp-purple)}
 .intent>div:first-child>h2{color:#003b9e}
 .weekly>.section-heading .eyebrow{color:#451b78}
-.weekly>.section-heading h2{color:#003b9e}
+.weekly>.section-heading h2{color:var(--hp-sky)}
+.weekly .ritual li .ritual-stop>span{box-sizing:border-box;line-height:1;padding-top:2px}
 .activities>.section-heading .eyebrow{color:var(--hp-orange)}
 .activities>.section-heading h2{color:var(--hp-lime)}
 .reference-inline .eyebrow{color:var(--hp-cyan)}
@@ -915,7 +917,15 @@ main .explainer a.tune-in:not(.inline-link):focus-visible{outline-color:var(--hp
 #town-building-dialog .building-close,#town-building-dialog .building-go{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:10px 20px;border:2px solid var(--hp-cyan);border-radius:999px;background:var(--hp-cyan);color:var(--hp-ink);font:800 1.0625rem/1.3 Jost,sans-serif;text-decoration:none;cursor:pointer}
 #town-building-dialog .building-close{position:absolute;z-index:2;right:12px;top:12px;margin-left:auto;background:var(--hp-pink);border-color:var(--hp-ink);color:var(--hp-ink)}
 #town-building-dialog :focus-visible{outline:3px solid var(--hp-lime);outline-offset:4px}
-@media(min-width:1051px){.town{margin-inline:clamp(12px,2.2vw,32px);padding-inline:clamp(18px,3.5vw,52px)}}
+/* Town introduction: use the same outer width as the other primary sections,
+   and use the full inner width so the right side carries useful guidance. */
+.town>.town-heading{display:grid;grid-template-columns:minmax(320px,.82fr) minmax(460px,1.18fr);gap:clamp(32px,5vw,84px);align-items:start;max-width:none;margin:0 0 clamp(26px,3vw,40px)}
+.town-heading-title,.town-heading-copy{min-width:0}
+.town-heading-title .eyebrow{margin-top:0;color:#451b78;font-family:Jost,sans-serif;font-size:var(--hp-section-eyebrow);font-weight:800;line-height:1.25;letter-spacing:.16em;text-align:left}
+.town>.town-heading .town-heading-title h2{margin-bottom:0;color:var(--hp-pink);font-family:Jost,sans-serif;font-size:var(--hp-section-title);font-weight:700;line-height:1;letter-spacing:-.045em;text-align:left}
+.town-heading-copy>p{max-width:62ch;margin:0;color:#071f65;font-family:Jost,sans-serif;font-size:clamp(1.18rem,1.35vw,1.35rem);line-height:1.55;text-align:left}
+.town-heading-copy>.building-instructions{margin-top:18px;font-size:clamp(1.04rem,1.15vw,1.18rem);font-weight:700;line-height:1.48}
+@media(max-width:900px){.town>.town-heading{grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}.town-heading-copy>p{max-width:68ch}}
 @media(max-width:1050px){.town-explorer{grid-template-columns:minmax(0,1fr)}.town-explorer .town-map{position:static;top:auto}.town .building-directory{height:min(520px,70vh)}}
 @media(max-width:560px){.town .building-directory{height:min(440px,68vh)}.town-explorer{gap:18px}.town .building-map-caption{border-radius:12px}.building-directory li{grid-template-columns:70px 32px minmax(0,1fr);padding:7px}.directory-guide{padding-left:16px}.town .map-spot::before{content:"";width:10px;height:10px;border-width:2px;box-shadow:1px 1px 0 var(--hp-ink)}.town .map-spot:hover::before,.town .map-spot:focus-visible::before,.town .map-spot.is-highlighted::before{transform:translate(-50%,-50%) scale(1.5);box-shadow:0 0 0 4px rgba(241,58,154,.65),2px 2px 0 var(--hp-ink)}}
 /* One equal-sized pill grid for the four weekly entry actions. */
@@ -928,6 +938,9 @@ main .weekly .weekly-actions>a:focus-visible{outline:3px solid var(--hp-lime);ou
 .explainer .method-step-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px;columns:auto}
 .explainer .method-step-grid>li{display:flex;flex-direction:column;min-width:0;height:100%;margin:0;padding:0;overflow:hidden;border:2px solid var(--hp-ink);border-radius:24px;background:linear-gradient(125deg,var(--hp-pink),var(--hp-coral))}
 .method-step-grid .method-step-image{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;object-position:center;border-bottom:2px solid var(--hp-ink)}
+.method-step-grid .method-step-media{position:relative;width:100%;aspect-ratio:2/1;overflow:hidden;border-bottom:2px solid var(--hp-ink)}
+.method-step-grid .method-step-media .method-step-image{position:absolute;inset:50% auto auto 50%;width:100%;height:100%;max-width:none;aspect-ratio:auto;border:0;transform:translate(-50%,-50%)}
+.method-step-grid .method-step-media--edge-crop .method-step-image{width:104%;height:104%}
 .method-step-grid .method-step-body{display:grid;grid-template-columns:54px minmax(0,1fr);gap:18px;align-items:start;flex:1;padding:24px}
 .method-step-grid .step-n{width:54px;height:54px;border-radius:14px}
 .method-step-grid h3{font-size:clamp(1.35rem,2vw,1.7rem)}
@@ -946,7 +959,9 @@ main .weekly .weekly-actions>a:focus-visible{outline:3px solid var(--hp-lime);ou
 .explainer-copy>.method-intro-column{display:flex;flex-direction:column;min-width:0;height:100%}
 .explainer-copy>.method-intro-text{grid-column:1}.explainer-copy>.method-intro-visual{grid-column:2}
 @media(min-width:901px){.explainer .explainer-copy{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.method-intro-column>p{max-width:56ch;margin:0 0 1.15em;line-height:1.6;color:var(--hp-copy-on-purple)}
+.method-copy-body{display:flex;flex:1;flex-direction:column;justify-content:center;padding-block:clamp(18px,3vw,54px)}
+.method-copy-body>p{max-width:56ch;margin:0 0 1.05em;color:var(--hp-copy-on-purple);font-size:clamp(1.18rem,1.35vw,1.38rem);line-height:1.62}
+.method-copy-body>p:last-child{margin-bottom:0}
 .method-intro-column>.method-intro-action{flex-shrink:0;width:100%;margin-top:auto}
 .method-intro-visual>.explainer-card.method-media{margin:0 0 18px}
 .method-media>img{display:block;width:100%;height:auto;border-radius:inherit}
@@ -955,7 +970,35 @@ main .explainer .method-anthem-action:not(.inline-link){background:var(--hp-oran
 .method-play-icon{flex:0 0 auto;line-height:1}
 main .explainer .method-intro-action:not(.inline-link):hover{background:var(--hp-coral);color:var(--hp-ink)}
 main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px solid var(--hp-lime);outline-offset:3px}
-@media(max-width:900px){.explainer-copy>.method-intro-text,.explainer-copy>.method-intro-visual{grid-column:1}.explainer-copy>.method-intro-visual{margin-top:22px}.method-intro-visual>.explainer-card.method-media{margin-bottom:18px}}
+@media(max-width:900px){.explainer-copy>.method-intro-text,.explainer-copy>.method-intro-visual{grid-column:1}.method-copy-body{padding-block:4px 18px}.explainer-copy>.method-intro-visual{margin-top:22px}.method-intro-visual>.explainer-card.method-media{margin-bottom:18px}}
+/* Compact discovery carousel: real destinations, one clear feature at a time. */
+.did-you-know{position:relative;overflow:hidden;padding:clamp(30px,4vw,54px);background:linear-gradient(120deg,var(--hp-purple),var(--hp-cobalt));color:var(--hp-paper)}
+.did-you-know::before{content:"";position:absolute;inset:0;background:url('/assets/homepage/pattern-purple-computing.png') center/520px auto repeat;opacity:.14;pointer-events:none}
+.dyk-inner{position:relative;z-index:1;max-width:1320px;margin:0 auto}
+.dyk-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:20px}
+.dyk-heading .eyebrow{margin:0 0 5px;color:var(--hp-orange)}
+.dyk-heading h2{max-width:none;margin:0;color:var(--hp-mint);font-size:clamp(2rem,3.5vw,3.45rem);line-height:1.02}
+.dyk-stage{position:relative}
+.dyk-slide{--dyk-accent:var(--hp-cyan);display:grid;grid-template-columns:minmax(270px,40%) minmax(0,1fr);min-height:300px;overflow:hidden;border:3px solid var(--dyk-accent);border-radius:26px;background:var(--hp-midnight);color:var(--hp-paper);text-decoration:none;box-shadow:9px 9px 0 color-mix(in srgb,var(--dyk-accent) 72%,var(--hp-midnight))}
+.dyk-slide[hidden]{display:none}
+.dyk-media{min-height:300px;overflow:hidden;background:var(--hp-ink)}
+.dyk-media img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center}
+.dyk-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0;padding:clamp(24px,3.3vw,48px)}
+.dyk-kicker{margin:0 0 10px;color:var(--dyk-accent);font:800 clamp(.78rem,1vw,.95rem)/1.2 Jost,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.dyk-copy h3{max-width:21ch;margin:0 0 12px;color:var(--hp-paper);font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.05}
+.dyk-copy p{max-width:54ch;margin:0 0 20px;color:var(--hp-mint);font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.5}
+.dyk-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:9px 22px;border:2px solid var(--hp-paper);border-radius:999px;background:var(--dyk-accent);color:var(--hp-ink);font:800 1rem/1.2 Jost,sans-serif}
+.dyk-slide:hover .dyk-cta{background:var(--hp-paper)}
+.dyk-slide:focus-visible{outline:4px solid var(--hp-lime);outline-offset:4px}
+.dyk-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}
+.dyk-arrow{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:2px solid var(--hp-mint);border-radius:50%;background:var(--hp-midnight);color:var(--hp-mint);font:800 1.5rem/1 Jost,sans-serif;cursor:pointer}
+.dyk-arrow:hover{background:var(--hp-mint);color:var(--hp-ink)}
+.dyk-dots{display:flex;align-items:center;justify-content:center;gap:9px}
+.dyk-dot{width:16px;height:16px;padding:0;border:2px solid var(--hp-paper);border-radius:50%;background:transparent;cursor:pointer}
+.dyk-dot[aria-pressed="true"]{background:var(--hp-orange);transform:scale(1.2)}
+.dyk-arrow:focus-visible,.dyk-dot:focus-visible{outline:3px solid var(--hp-lime);outline-offset:3px}
+.dyk-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.did-you-know{padding:28px 18px 32px}.dyk-heading{align-items:start}.dyk-slide{grid-template-columns:1fr;min-height:0}.dyk-media{min-height:0;aspect-ratio:16/8}.dyk-media img{min-height:0}.dyk-copy{padding:22px}.dyk-copy h3{font-size:clamp(1.65rem,8vw,2.2rem)}.dyk-copy p{font-size:1.05rem}.dyk-cta{width:100%;box-sizing:border-box;text-align:center}}
   </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
@@ -1018,6 +1061,56 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       </div>
     </section>
 
+    <section class="did-you-know" aria-labelledby="dyk-title" data-dyk>
+      <div class="dyk-inner">
+        <div class="dyk-heading">
+          <div>
+            <p class="eyebrow">Did you know?</p>
+            <h2 id="dyk-title">There&rsquo;s more happening in SUNNYVAiLE.</h2>
+          </div>
+        </div>
+        <div class="dyk-stage">
+          <a class="dyk-slide is-active" data-dyk-slide href="/radio.html" style="--dyk-accent:var(--hp-cyan)">
+            <div class="dyk-media"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Now playing in town</p><h3>SUNNYVAiLE has its own radio station.</h3><p>KSVL 99.9 turns AI lessons into original songs, hooks and Rewind Era radio.</p><span class="dyk-cta">Listen to KSVL 99.9</span></div>
+          </a>
+          <a class="dyk-slide" data-dyk-slide href="/games/fairy-godmother.html" style="--dyk-accent:var(--hp-pink)" hidden>
+            <div class="dyk-media"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp" alt="The FAiRY Godmother's magical house in SUNNYVAiLE"></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Prompt rescue</p><h3>Bring her the prompt that isn&rsquo;t working.</h3><p>The FAiRY Godmother can sharpen a prompt, rescue a work draft and turn a vague request into something more useful.</p><span class="dyk-cta">Ask the FAiRY Godmother</span></div>
+          </a>
+          <a class="dyk-slide" data-dyk-slide href="/games/businesswomens-special.html" style="--dyk-accent:var(--hp-orange)" hidden>
+            <div class="dyk-media"><img loading="lazy" src="/assets/businesswomen-special-fortune-teller-v1.webp" alt="The Businesswomen's Special paper drink picker"></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Make a night of it</p><h3>Invite the girls. Let the drink picker choose.</h3><p>Use the paper fortune teller to pick the round&mdash;cocktail, spirit-free, bubbles or after dark&mdash;then open the conversation menu.</p><span class="dyk-cta">Plan a Businesswomen&rsquo;s Special</span></div>
+          </a>
+          <a class="dyk-slide" data-dyk-slide href="/fun-connect.html" style="--dyk-accent:var(--hp-coral)" hidden>
+            <div class="dyk-media"><img loading="lazy" src="/assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with computer, cassette, camera and music stickers"></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Games, tools and quick diversions</p><h3>We have lots of fun games and tools.</h3><p>Get help with a draft, investigate a claim, pull a card, start a conversation or take a very Rewind Era break. No lesson required.</p><span class="dyk-cta">Explore all games and tools</span></div>
+          </a>
+          <a class="dyk-slide" data-dyk-slide href="#reference" style="--dyk-accent:var(--hp-lime)" hidden>
+            <div class="dyk-media"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The LIBRAiRY in SUNNYVAiLE"></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Your AI reference desk</p><h3>You can ask Miss Jeeves your AI questions.</h3><p>Ask in plain language. She checks LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities, then points you to the most useful available place.</p><span class="dyk-cta">Ask Miss Jeeves</span></div>
+          </a>
+          <a class="dyk-slide" data-dyk-slide href="/maikeover.html" style="--dyk-accent:var(--hp-mint)" hidden>
+            <div class="dyk-media"><img loading="lazy" src="/assets/closet/closet-interior-hero-v2-90s-vibrant.png" alt="A SUNNYVAiLE Closet filled with colourful keepsakes"></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Move to SUNNYVAiLE</p><h3>Your Resident Card comes with a Closet.</h3><p>Make your town ID, then keep supported charms, puffies, stickers and saved finds together in this browser.</p><span class="dyk-cta">Make a Resident Card</span></div>
+          </a>
+        </div>
+        <div class="dyk-controls" aria-label="Did you know controls">
+          <button class="dyk-arrow" type="button" data-dyk-prev aria-label="Previous feature">&#8249;</button>
+          <div class="dyk-dots" role="group" aria-label="Choose a feature">
+            <button class="dyk-dot" type="button" data-dyk-dot="0" aria-label="Show KSVL 99.9" aria-pressed="true"></button>
+            <button class="dyk-dot" type="button" data-dyk-dot="1" aria-label="Show the FAiRY Godmother" aria-pressed="false"></button>
+            <button class="dyk-dot" type="button" data-dyk-dot="2" aria-label="Show the Businesswomen's Special" aria-pressed="false"></button>
+            <button class="dyk-dot" type="button" data-dyk-dot="3" aria-label="Show all games and tools" aria-pressed="false"></button>
+            <button class="dyk-dot" type="button" data-dyk-dot="4" aria-label="Show Miss Jeeves" aria-pressed="false"></button>
+            <button class="dyk-dot" type="button" data-dyk-dot="5" aria-label="Show the Resident Card" aria-pressed="false"></button>
+          </div>
+          <button class="dyk-arrow" type="button" data-dyk-next aria-label="Next feature">&#8250;</button>
+        </div>
+        <p class="dyk-status" data-dyk-status aria-live="polite">Feature 1 of 6: KSVL 99.9</p>
+      </div>
+    </section>
+
     <section class="why-women" id="why" aria-labelledby="why-title">
       <div class="why-women-copy">
         <div class="why-intro">
@@ -1059,8 +1152,10 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       </div>
       <div class="explainer-copy">
           <div class="method-intro-column method-intro-text">
-            <p>Your brain has been saving <em>Clueless</em>, Carrie Bradshaw, &ldquo;Wannabe,&rdquo; dial-up tones, butterfly clips and roll-on glitter for years. At LAiDIES, that is not useless trivia. It is a head start.</p>
-            <p>Every lesson unfolds in SUNNYVAiLE&mdash;a fictional town tuned to the Rewind Era (1990–2010), where sequential stories, accurate pop-culture analogies, practical activities and original songs work together to make AI easier to understand, use and remember.</p>
+            <div class="method-copy-body">
+              <p>Your brain has been saving <em>Clueless</em>, Carrie Bradshaw, &ldquo;Wannabe,&rdquo; dial-up tones, butterfly clips and roll-on glitter for years. At LAiDIES, that is not useless trivia. It is a head start.</p>
+              <p>Every lesson unfolds in SUNNYVAiLE&mdash;a fictional town tuned to the Rewind Era (1990–2010), where sequential stories, accurate pop-culture analogies, practical activities and original songs work together to make AI easier to understand, use and remember.</p>
+            </div>
             <a class="method-intro-action" href="/visitors-centre.html">Visit the Visitor’s Centre</a>
           </div>
           <div class="method-intro-column method-intro-visual">
@@ -1072,7 +1167,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       </div>
       <ol class="explainer-steps method-step-grid">
         <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store at dusk"><div class="method-step-body"><span class="step-n n-teal">1</span><div><h3>Follow the plot</h3><p>Start with <a class="inline-link" href="/visitors-centre.html">the Visitor’s Centre</a>, then read or hear the episodes in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p><details><summary>Read more</summary><p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story&mdash;and take your AI fluency further.</p></details></div></div></li>
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with computer, cassette, camera and music stickers"><div class="method-step-body"><span class="step-n n-pink">2</span><div><h3>Unlock the idea</h3><p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p><details><summary>Read more</summary><p>Because sometimes &ldquo;context window&rdquo; makes more sense when explained through <em>The Devil Wears Prada</em>&mdash;and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p></details></div></div></li>
+        <li><div class="method-step-media method-step-media--edge-crop"><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with computer, cassette, camera and music stickers"></div><div class="method-step-body"><span class="step-n n-pink">2</span><div><h3>Unlock the idea</h3><p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p><details><summary>Read more</summary><p>Because sometimes &ldquo;context window&rdquo; makes more sense when explained through <em>The Devil Wears Prada</em>&mdash;and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p></details></div></div></li>
         <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A laptop and a marked-up practical guide on a colourful desk"><div class="method-step-body"><span class="step-n n-coral">3</span><div><h3>Make it click</h3><p>Open the practice pieces that are actually ready for that episode. Blend &amp; Snap keeps each Try-On, one-page guide and teaching-card pack unavailable until its exact component passes review; the Pop Quiz remains a separate stop.</p><details><summary>Read more</summary><p>When a piece is available, it should leave you with something you can actually use&mdash;not just another tab you opened with excellent intentions and quietly abandoned three Tuesdays ago.</p></details></div></div></li>
         <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/building-interiors/ksvl-booth.jpg" alt="The KSVL 99.9 radio booth with microphones, mixing desk and record library"><div class="method-step-body"><span class="step-n n-yellow">4</span><div><h3>Make it stick</h3><p>KSVL turns central lessons into memorable LAiDIES original songs.</p><p>Twenty-nine tracks are ready to hear. Pick a song, start listening and let the hook do the revision.</p><a class="tune-in" href="/radio.html">Listen to KSVL</a></div></div></li>
       </ol>
@@ -1092,7 +1187,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
     </section>
 
     <section id="this-week" class="weekly">
-      <div class="section-heading"><p class="eyebrow">The weekly route &middot; Getting polished</p><h2>Your Wednesday in SUNNYV<span class="ai">Ai</span>LE</h2><p>On Wednesdays we do AI. The route below shows the intended eight-stop weekly experience, and each destination tells you what is actually available. Released episode pages and KSVL remain open; held Study Pack, video and NewsStand pieces stay unavailable until their exact reviews pass. Start at the Visitor&rsquo;s Centre, then Episode 1, or resume the latest released episode page.</p></div>
+      <div class="section-heading"><p class="eyebrow">The weekly route &middot; Getting polished</p><h2>Your Wednesday in SUNNYV<span class="ai">Ai</span>LE.</h2><p>On Wednesdays we do AI. The route below shows the intended eight-stop weekly experience, and each destination tells you what is actually available. Released episode pages and KSVL remain open; held Study Pack, video and NewsStand pieces stay unavailable until their exact reviews pass. Start at the Visitor&rsquo;s Centre, then Episode 1, or resume the latest released episode page.</p></div>
       <div class="weekly-layout">
         <div class="weekly-side">
         <article id="new-here" class="feature-card">
@@ -1150,13 +1245,15 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
         <article data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
       </div>
       <section id="reference" class="reference reference-inline" aria-labelledby="jeeves-title">
-        <div><p class="eyebrow">Need one answer—not a tour?</p><h2 id="jeeves-title">Ask Miss Jeeves.</h2><p>Search AI terms, models, companies, practical guides, sources, and previous episode lessons from one place.</p><form id="homepage-jeeves-form"><label for="lookup">What are you trying to understand?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Ask your question about AI…"><button type="submit">Search the LIBRAiRY</button></div></form><div class="popular"><span>Questions to explore:</span><a href="/newsstand.html#big-picture-data-centre-deal-2026-08-24">Are data centres bad?</a><a href="/library.html#working-with-ai-101::%40chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at">What can AI help me do at work?</a><a href="/library.html#ai-fundamentals-101::%40ch-8-8-1-the-model-remembers-nothing">Why does AI forget what I told it?</a></div><p class="question-routing-note">These questions open the relevant article or book section.</p><a class="library-entry" data-library-entry="reference" href="/library.html">Visit the LIBRAiRY &rarr;</a></div>
+        <div><p class="eyebrow">Need one answer—not a tour?</p><h2 id="jeeves-title">Ask Miss Jeeves.</h2><p>Ask in plain language. Miss Jeeves checks current LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities, then points you to the most useful available place.</p><form id="homepage-jeeves-form"><label for="lookup">What are you trying to understand?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Ask your question about AI…"><button type="submit">Search the LIBRAiRY</button></div></form><div class="popular"><span>Questions to explore:</span><a href="/newsstand.html#big-picture-data-centre-deal-2026-08-24">Are data centres bad?</a><a href="/library.html#working-with-ai-101::%40chapter-8-what-ai-is-great-at-and-what-isnt-8-2-what-ai-is-genuinely-good-at">What can AI help me do at work?</a><a href="/library.html#ai-fundamentals-101::%40ch-8-8-1-the-model-remembers-nothing">Why does AI forget what I told it?</a></div><p class="question-routing-note">These questions open the relevant article or book section.</p><a class="library-entry" data-library-entry="reference" href="/library.html">Visit the LIBRAiRY &rarr;</a></div>
       </section>
     </section>
 
     <section id="town" class="town">
-      <div class="section-heading"><p class="eyebrow">Guided first. Explorable always.</p><h2>See everything in SUNNYV<span class="ai">Ai</span>LE</h2><p>You never have to explore the town to use LAiDIES. But if you want to wander, every feature has an address — six streets of them, from MAiN to Willow Lane.</p></div>
-      <p class="building-instructions">Hover over a building or its name to highlight both. Click or tap either to learn more, then choose “Go to building”.</p>
+      <div class="section-heading town-heading">
+        <div class="town-heading-title"><p class="eyebrow">Guided first. Explorable always.</p><h2>See everything in SUNNYV<span class="ai">Ai</span>LE.</h2></div>
+        <div class="town-heading-copy"><p>You never have to explore the town to use LAiDIES. But if you want to wander, every feature has an address — six streets of them, from MAiN to Willow Lane.</p><p class="building-instructions">Hover over a building or its name to highlight both. Click or tap either to learn more, then choose “Go to building”.</p></div>
+      </div>
       <div class="town-explorer">
       <figure class="town-map"><div class="map-wrap"><img loading="lazy" decoding="async" src="assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="Map of SUNNYVAiLE showing its districts and destinations">
         <button class="map-spot" style="left:3%;top:26.4%;width:9.7%;height:27.5%" data-name="Post Office" data-desc="Newsletter requests and local postcards" data-href="/post-office.html" aria-label="Post Office"></button>
@@ -1243,7 +1340,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-  <script src="/content/site/homepage.js?v=20260831-linked-town-directory"></script>
+  <script src="/content/site/homepage.js?v=20260902-did-you-know"></script>
   <script>
   /* Size corresponding card slots to the largest current label, never clip text.
      Recalculate after fonts, resizing and filters; do not fix the card height. */
