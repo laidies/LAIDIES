@@ -1,0 +1,152 @@
+{
+  "schema": "laidies.newsstand-story-type-modules.v1",
+  "version": "2026-09-04.1",
+  "purpose": "Turn corrections from one article into reusable drafting and review obligations for every future ordinary NewsStand story.",
+  "universalQuestions": [
+    "whatHappened",
+    "plainLanguageIdentity",
+    "evidenceBasis",
+    "evidenceLimits",
+    "readerRelevance",
+    "affectedPeople",
+    "changesNow",
+    "uncertainty",
+    "readerAction",
+    "betterQuestion"
+  ],
+  "universalQuestionPrompts": {
+    "whatHappened": "What happened, in one plain and factual sentence?",
+    "plainLanguageIdentity": "What is the subject of this story, in language a newcomer can understand?",
+    "evidenceBasis": "What reliable evidence supports each important claim?",
+    "evidenceLimits": "What does that evidence not establish?",
+    "readerRelevance": "Why should a nontechnical reader care?",
+    "affectedPeople": "Who gains, who may be excluded or harmed, and whose perspective is missing?",
+    "changesNow": "What changes now, rather than in a hypothetical future?",
+    "uncertainty": "What remains uncertain, contested or unverified?",
+    "readerAction": "What can the reader use, ask, compare, avoid or watch next?",
+    "betterQuestion": "What is the more useful question than the hype-shaped one?"
+  },
+  "types": {
+    "model-tool-release": {
+      "label": "New model, tool, product or major feature",
+      "questions": ["productRange", "newCapabilities", "bestFitTasks", "notFor", "nearestAlternatives", "availability", "freePaidBoundary", "costBoundary", "limitations", "technicalExampleProportionality", "vendorEvidenceBoundary"],
+      "questionPrompts": {
+        "productRange": "Where does it sit in the maker's product range, and what do the names or tiers mean?",
+        "newCapabilities": "What can it do that was previously unavailable or materially worse?",
+        "bestFitTasks": "Which concrete human tasks is it best suited to help with?",
+        "notFor": "Who or what is it not designed for?",
+        "nearestAlternatives": "How does it differ from the nearest realistic alternatives?",
+        "availability": "Can readers actually use it now, in which products and regions?",
+        "freePaidBoundary": "Is it available on free plans, paid plans, an API or only a limited preview?",
+        "costBoundary": "What does the price mean in an ordinary example rather than vendor billing jargon?",
+        "limitations": "What important weaknesses, tradeoffs or safety limits remain?",
+        "technicalExampleProportionality": "Is any benchmark or spectacular example being used only to illuminate capability rather than dominate the story?",
+        "vendorEvidenceBoundary": "Which capability claims come from the vendor, and which have independent support?"
+      }
+    },
+    "research-benchmark": {
+      "label": "Research result or benchmark",
+      "questions": ["researchQuestion", "method", "result", "sponsorAndInterests", "independentReplication", "realWorldTransfer", "limitations"],
+      "questionPrompts": {
+        "researchQuestion": "What question did the research actually test?",
+        "method": "How was it tested, on whom or what, and at what scale?",
+        "result": "What result was measured without turning correlation into causation?",
+        "sponsorAndInterests": "Who funded, performed or benefits from the work?",
+        "independentReplication": "Has anyone independent reproduced or challenged it?",
+        "realWorldTransfer": "Does the measured result transfer to ordinary real-world use?",
+        "limitations": "What are the authors' and our most important limitations?"
+      }
+    },
+    "safety-incident": {
+      "label": "Safety incident, failure or AI harm",
+      "questions": ["incident", "harm", "affectedPeople", "failedControl", "responsibility", "confirmedUnknown", "remediation", "recurrenceRisk"],
+      "questionPrompts": {
+        "incident": "What exactly happened, and on what timeline?",
+        "harm": "What harm occurred or is credibly alleged?",
+        "affectedPeople": "Who was affected, and have their accounts been represented fairly?",
+        "failedControl": "Which technical, human or institutional safeguard failed?",
+        "responsibility": "What responsibility may belong to the maker, deployer, user, institution or regulator?",
+        "confirmedUnknown": "What is confirmed, alleged, disputed and still unknown?",
+        "remediation": "What has actually changed in response?",
+        "recurrenceRisk": "Could the same failure happen again, and what would reduce that risk?"
+      }
+    },
+    "legal-policy": {
+      "label": "Lawsuit, regulation or public policy",
+      "questions": ["legalStatus", "jurisdiction", "parties", "allegationVsFinding", "currentEffect", "unresolvedQuestions", "nextMilestone"],
+      "questionPrompts": {
+        "legalStatus": "Is this a proposal, filing, allegation, ruling, enacted rule or final judgment?",
+        "jurisdiction": "Where does it apply and where does it not apply?",
+        "parties": "Who are the parties, decision-makers and affected groups?",
+        "allegationVsFinding": "Which statements are allegations and which are established findings?",
+        "currentEffect": "What changes for readers or organizations right now?",
+        "unresolvedQuestions": "What legal, factual or enforcement questions remain unresolved?",
+        "nextMilestone": "What is the next date or decision that could materially change the story?"
+      }
+    },
+    "health-science": {
+      "label": "Health, medicine or scientific use",
+      "questions": ["aiRole", "professionalRole", "evidenceLevel", "benefitClaim", "risksAndFalseResults", "availability", "readerBoundary"],
+      "questionPrompts": {
+        "aiRole": "What did the AI actually do: suggest, detect, rank, plan, monitor or decide?",
+        "professionalRole": "What did qualified professionals still do and decide?",
+        "evidenceLevel": "Is the evidence a case report, study, trial, approval or routine clinical use?",
+        "benefitClaim": "What benefit was measured rather than merely hoped for?",
+        "risksAndFalseResults": "What are the risks of error, false reassurance or unnecessary intervention?",
+        "availability": "Is this available to patients now, and under what conditions?",
+        "readerBoundary": "What must readers not treat as personal medical advice?"
+      }
+    },
+    "work-economy": {
+      "label": "Work, jobs or the economy",
+      "questions": ["affectedWorkers", "evidenceScale", "currentVsForecast", "distribution", "gainsAndLosses", "readerOptions"],
+      "questionPrompts": {
+        "affectedWorkers": "Which workers, roles, industries or regions are actually affected?",
+        "evidenceScale": "How large and representative is the evidence?",
+        "currentVsForecast": "What is happening now and what is only a forecast?",
+        "distribution": "Are averages hiding different effects by gender, income, race, disability or seniority?",
+        "gainsAndLosses": "Who gains time, pay, access or power, and who may lose them?",
+        "readerOptions": "What practical options do workers, managers or policymakers have?"
+      }
+    },
+    "company-business": {
+      "label": "Company, funding or business strategy",
+      "questions": ["businessChange", "companyMotive", "payer", "beneficiary", "incentives", "customerEffectNow", "financialContext"],
+      "questionPrompts": {
+        "businessChange": "What business decision or material change occurred?",
+        "companyMotive": "What does the company say it is trying to achieve, and what other incentives matter?",
+        "payer": "Who pays, directly or indirectly?",
+        "beneficiary": "Who benefits financially or strategically?",
+        "incentives": "How might the business model shape product behavior or reporting claims?",
+        "customerEffectNow": "What changes for customers now?",
+        "financialContext": "Which numbers are verified, estimated or company-supplied, and what comparison makes them meaningful?"
+      }
+    }
+  },
+  "topicBindings": {
+    "model-release": "model-tool-release",
+    "feature-release": "model-tool-release",
+    "tool-release": "model-tool-release",
+    "research": "research-benchmark",
+    "benchmark": "research-benchmark",
+    "safety": "safety-incident",
+    "cybersecurity": "safety-incident",
+    "privacy": "safety-incident",
+    "children": "safety-incident",
+    "war": "safety-incident",
+    "legal": "legal-policy",
+    "lawsuit": "legal-policy",
+    "crime": "legal-policy",
+    "elections": "legal-policy",
+    "employment-allegations": "legal-policy",
+    "regulation": "legal-policy",
+    "regulatory-enforcement": "legal-policy",
+    "health": "health-science",
+    "medical": "health-science",
+    "employment": "work-economy",
+    "jobs": "work-economy",
+    "economy": "work-economy",
+    "funding": "company-business",
+    "business": "company-business"
+  }
+}

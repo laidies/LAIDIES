@@ -202,6 +202,24 @@ overwrite it with a freshly dated quiet envelope.
 
 ### Failed stories must repair, not disappear
 
+Before drafting a new ordinary story, classify it with
+`operations/product-stewards/newsstand/story-type-modules.json`. Select one
+primary type and every applicable overlay from: model/tool release,
+research/benchmark, safety incident, legal/policy, health/science, work/economy
+and company/business. Complete the universal reporting spine and every question
+in every selected module. From the September 5 issue onward, new ordinary
+candidate packages use `newsstand-ordinary-story-candidate-v2` and bind this
+exact `storyTypeCoverage` object.
+
+Run `scripts/validate-newsstand-story-type-coverage.mjs` before producer review.
+The independent reviewer then checks whether the actual prose answers those
+questions accurately and understandably; populated metadata is not proof. A
+story whose topics require an unselected module fails. Mixed stories must pass
+all selected modules—for example, a model release with a safety dispute must
+pass both model/tool and safety requirements. These are internal reporting
+questions, not extra public headings: the published article keeps the existing
+NewsStand reading structure.
+
 Before selecting a lower-priority new candidate or declaring a quiet research
 result, run the durable story-recovery queue through:
 

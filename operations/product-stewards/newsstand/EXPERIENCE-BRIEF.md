@@ -43,6 +43,17 @@ complete PASS advances to admission without optional reviewers being added.
 Evidence-blocked work remains visible but does not prevent a different eligible
 ordinary story from publishing while no new evidence exists. `ALI CONFIRMED`
 
+Corrections must generalize beyond the article that exposed them. Every new
+ordinary story declares one primary reporting type—model/tool release,
+research/benchmark, safety incident, legal/policy, health/science, work/economy
+or company/business—and every applicable overlay. A universal reporting spine
+and all selected type questions are completed before review. The reviewer first
+checks that the classification is honest, then judges whether the actual prose
+answers every obligation clearly. A mixed story cannot use an easier single
+template to evade safety, legal, medical or other relevant questions. The
+modules guide production; they do not turn public articles into questionnaires.
+`ALI CONFIRMED`
+
 Its one newspaper contains four editorial jobs: **The Breaking**, **The
 Daily**, **The Weekly** and **The Big Picture**. **The Tribune is retired.** The
 active internal keys are `breaking`, `daily`, `weekly` and `big-picture`.

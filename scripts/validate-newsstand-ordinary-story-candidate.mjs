@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { inspectProseReviewChain } from "./check-prose-quality-admission.mjs";
 import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
 import { inspectNewsstandLuminairyLinks } from "./lib/newsstand-luminairy-links.mjs";
+import { validateStoryTypeCoverage } from "./validate-newsstand-story-type-coverage.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readerContract = createRequire(import.meta.url)("../content/newsstand-reader-contract.js");
@@ -56,8 +57,13 @@ export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date, admitte
   return { ...result, candidate };
 }
 export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admittedHistoricalBase = false } = {}) {
-  if (!candidate || candidate.schemaVersion !== "newsstand-ordinary-story-candidate-v1" || candidate.candidateStatus !== "READY_FOR_ISSUE_ADMISSION") throw new Error("ordinary candidate schema/status invalid");
+  if (!candidate || !["newsstand-ordinary-story-candidate-v1", "newsstand-ordinary-story-candidate-v2"].includes(candidate.schemaVersion) || candidate.candidateStatus !== "READY_FOR_ISSUE_ADMISSION") throw new Error("ordinary candidate schema/status invalid");
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
+  if (!admittedHistoricalBase && candidate.editionDate >= "2026-09-05" && candidate.schemaVersion !== "newsstand-ordinary-story-candidate-v2") throw new Error("new ordinary candidates require the v2 story-type reporting frame");
+  if (candidate.schemaVersion === "newsstand-ordinary-story-candidate-v2") {
+    const coverageErrors = validateStoryTypeCoverage(candidate.storyTypeCoverage, candidate.story?.themes || []);
+    if (coverageErrors.length) throw new Error(`ordinary candidate fails story-type reporting frame: ${coverageErrors.join(" | ")}`);
+  }
   const story = candidate.story;
   if (["headline", "the_story", "laidies_read", "what_this_means"].some(key => typeof story?.[key] !== "string" || !story[key].trim())) throw new Error("ordinary candidate requires headline and complete reader copy");
   const modelReleaseErrors = validateModelReleaseUtility(story);

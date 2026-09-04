@@ -12,6 +12,15 @@
   "excluded": ["Big Picture", "Front PAiGE replacement", "Library", "episodes", "classes", "service-bank policy changes"],
   "humanEvidenceClaim": "NONE",
   "ongoingFeedback": "Use real reader or Ali feedback when received; never invent human observations. Human sampling is not a prerequisite for routine news publication.",
+  "storyTypeContract": {
+    "status": "REQUIRED_FOR_NEW_CANDIDATES_FROM_2026-09-05",
+    "modules": "operations/product-stewards/newsstand/story-type-modules.json",
+    "rule": "Every story declares one primary type and every applicable overlay. The universal reporting spine and every selected type module must be complete before independent review. Selecting an easier wrong type is a publication failure.",
+    "publicStructure": "The modules are private drafting and review questions. Public articles continue to use The Story, The LAiDIES Read, What This Means for You, The Cocktail Party Explanation, Class Notes and Sources rather than displaying a formulaic questionnaire.",
+    "primaryTypes": ["model-tool-release", "research-benchmark", "safety-incident", "legal-policy", "health-science", "work-economy", "company-business"],
+    "mixedStoryRule": "A mixed story must satisfy its primary module and all selected overlays. A model launch with a safety dispute, for example, must pass both model-tool-release and safety-incident questions.",
+    "reviewRule": "The maker completes and checks the applicable questions before review. The independent reviewer verifies that the actual prose answers them clearly and accurately; metadata alone cannot prove comprehension or usefulness."
+  },
   "modelReleaseReaderContract": {
     "status": "REQUIRED",
     "trigger": "Any story whose subject is a newly released or materially changed AI model, tool, product or major feature.",

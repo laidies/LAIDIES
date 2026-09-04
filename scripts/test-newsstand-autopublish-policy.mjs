@@ -13,9 +13,19 @@ const directory = path.dirname(fileURLToPath(import.meta.url));
 const operations = path.resolve(directory, "../operations");
 const fixtures = path.join(operations, "test-fixtures/newsstand-autopublish");
 const policy = JSON.parse(fs.readFileSync(path.join(operations, "newsstand-autopublish-policy.json"), "utf8"));
+const storyModules = JSON.parse(fs.readFileSync(path.join(operations, "product-stewards/newsstand/story-type-modules.json"), "utf8"));
 const read = (name) => JSON.parse(fs.readFileSync(path.join(fixtures, name), "utf8"));
+const reportingAnswer = key => `A concrete reader-facing answer for ${key} with evidence, limitations and practical consequence.`;
+const storyTypeCoverage = (primaryType = "company-business", overlays = []) => ({
+  schema: "laidies.newsstand-story-type-coverage.v1",
+  primaryType,
+  overlays,
+  universalAnswers: Object.fromEntries(storyModules.universalQuestions.map(key => [key, reportingAnswer(`universal ${key}`)])),
+  typeAnswers: Object.fromEntries([primaryType, ...overlays].map(type => [type, Object.fromEntries(storyModules.types[type].questions.map(key => [key, reportingAnswer(`${type} ${key}`)]))]))
+});
 const qualified = (edition) => ({
   ...read("routine-daily-brief.json"), id: `qualified-${edition}`, slug: `qualified-${edition}`, edition,
+  storyTypeCoverage: storyTypeCoverage(),
   editorialJob: edition === "breaking" ? "qualified-interrupt" : edition === "daily" ? "edited-briefing" : edition === "weekly" ? "durable-synthesis" : "sourced-argument",
   briefingItems: edition === "daily" ? ["change-a", "change-b"] : undefined,
   developments: edition === "weekly" ? ["development-a", "development-b"] : undefined,
@@ -42,12 +52,19 @@ assert.ok(unearnedBreaking.rejectReasons.includes("edition_contract_failed:break
 const hiddenOpinion = route({ ...qualified("tribune"), argumentStructure: { evidence: "e", inference: "i" } }, "REJECT", "Tribune must separately declare position");
 assert.ok(hiddenOpinion.rejectReasons.includes("edition_contract_failed:tribune_requires_evidence_inference_position"));
 const readerFit = { plainLanguageIdentity: "top-tier model", newCapabilities: "multi-app work", bestFor: "long workflows", notFor: "quick summaries", nearestAlternatives: [{ name: "Sol", taskTradeoff: "better for everyday work" }], availability: "paid phased rollout", costBoundary: "API pricing is not subscription cost", limitations: "not a universal winner" };
-const completeModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], releaseDetailsComplete: true, releaseReaderFit: readerFit }, "HOLD_FOR_INDEPENDENT_REVIEW", "complete model release routes to review");
+const completeModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], storyTypeCoverage: storyTypeCoverage("model-tool-release"), releaseDetailsComplete: true, releaseReaderFit: readerFit }, "HOLD_FOR_INDEPENDENT_REVIEW", "complete model release routes to review");
 const incompleteModelRelease = route({ ...qualified("breaking"), topics: ["model-release"] }, "REJECT", "model release requires complete release details");
 assert.ok(incompleteModelRelease.rejectReasons.includes("conditional_gate_failed:releaseDetailsComplete"));
 assert.ok(incompleteModelRelease.rejectReasons.includes("conditional_gate_failed:releaseReaderFit"));
 const checkboxOnlyModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], releaseDetailsComplete: true }, "REJECT", "model release checkbox cannot replace reader-fit evidence");
 assert.ok(checkboxOnlyModelRelease.rejectReasons.includes("conditional_gate_failed:releaseReaderFit"));
+assert.ok(checkboxOnlyModelRelease.rejectReasons.some(reason => reason.includes("topic model-release requires story type model-tool-release")));
+const wrongMedicalTemplate = route({ ...qualified("daily"), topics: ["medical"], storyTypeCoverage: storyTypeCoverage("company-business") }, "REJECT", "medical story cannot use an easier company template");
+assert.ok(wrongMedicalTemplate.rejectReasons.some(reason => reason.includes("topic medical requires story type health-science")));
+const mixedSafetyRelease = storyTypeCoverage("model-tool-release", ["safety-incident"]);
+delete mixedSafetyRelease.typeAnswers["safety-incident"].responsibility;
+const incompleteMixed = route({ ...qualified("breaking"), topics: ["model-release", "safety"], storyTypeCoverage: mixedSafetyRelease, releaseDetailsComplete: true, releaseReaderFit: readerFit }, "REJECT", "mixed release must complete safety overlay");
+assert.ok(incompleteMixed.rejectReasons.some(reason => reason.includes("safety-incident question is unanswered: responsibility")));
 const neutralizedRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"], sensationalFramingNeutralized: true }, "HOLD_FOR_INDEPENDENT_REVIEW", "neutralized sensational claim routes to review");
 const unsafeRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"] }, "REJECT", "sensational claim requires neutralized framing");
 assert.ok(unsafeRealityCheck.rejectReasons.includes("conditional_gate_failed:sensationalFramingNeutralized"));
