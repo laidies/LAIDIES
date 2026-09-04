@@ -1,52 +1,54 @@
 {
   "schemaVersion": "newsstand-official-release-high-water-v1",
   "editorialTimeZone": "America/Vancouver",
-  "updatedAt": "2026-09-03T14:10:33.572Z",
+  "updatedAt": "2026-09-04T14:23:38Z",
   "indexes": [
     {
       "sourceId": "SRC-OPENAI-NEWS",
       "indexUrl": "https://openai.com/news/",
-      "checkedOn": "2026-09-03",
-      "newestSeenPublicationDate": "2026-09-01",
+      "checkedOn": "2026-09-04",
+      "newestSeenPublicationDate": "2026-09-03",
       "newestSeenUrls": [
-        "https://openai.com/index/path-to-astra/",
-        "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/"
+        "https://openai.com/index/gpt-6-astra/",
+        "https://openai.com/index/safety-overview-gpt-6-astra/",
+        "https://deploymentsafety.openai.com/gpt-6-astra",
+        "https://openai.com/index/daybreak-for-frontline-defenders/"
       ],
-      "comparisonBasis": "INITIALIZED_FROM_EXACT_INDEX_CHECK",
-      "note": "No trustworthy prior per-index high-water record existed. Both items were opened and dispositioned; this record becomes the next-run comparison base."
+      "comparisonBasis": "ADVANCED_FROM_PRIOR_HIGH_WATER",
+      "note": "The September 3 Astra launch and related safety materials advance the prior September 1 forthcoming-release marker. Daybreak was separately dispositioned HOLD."
     },
     {
       "sourceId": "SRC-OPENAI-DEVELOPERS",
       "indexUrl": "https://developers.openai.com/",
-      "checkedOn": "2026-09-03",
+      "checkedOn": "2026-09-04",
       "newestSeenPublicationDate": "2026-08-28",
       "newestSeenUrls": [
         "https://developers.openai.com/blog/rosalind-workbench"
       ],
-      "comparisonBasis": "INITIALIZED_FROM_EXACT_INDEX_CHECK",
-      "note": "Undated product banners are not release evidence."
+      "comparisonBasis": "NO_CHANGE_FROM_PRIOR_HIGH_WATER",
+      "note": "The index links Astra model guidance, but exposes no separately dated developer-post release; it is supporting evidence for the News release."
     },
     {
       "sourceId": "SRC-ANTHROPIC-NEWS",
       "indexUrl": "https://www.anthropic.com/news",
-      "checkedOn": "2026-09-03",
+      "checkedOn": "2026-09-04",
       "newestSeenPublicationDate": "2026-09-01",
       "newestSeenUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-1",
         "https://www.anthropic.com/news/enterprise-frontier-safeguards"
       ],
-      "comparisonBasis": "INITIALIZED_FROM_EXACT_INDEX_CHECK",
+      "comparisonBasis": "NO_CHANGE_FROM_PRIOR_HIGH_WATER",
       "note": "Fable 5.1 is already covered; Enterprise Frontier Safeguards remains held."
     },
     {
       "sourceId": "SRC-ANTHROPIC-ENGINEERING",
       "indexUrl": "https://www.anthropic.com/engineering",
-      "checkedOn": "2026-09-03",
+      "checkedOn": "2026-09-04",
       "newestSeenPublicationDate": "2026-05-25",
       "newestSeenUrls": [
         "https://www.anthropic.com/engineering/how-we-contain-claude"
       ],
-      "comparisonBasis": "INITIALIZED_FROM_EXACT_INDEX_CHECK",
+      "comparisonBasis": "NO_CHANGE_FROM_PRIOR_HIGH_WATER",
       "note": "No new September engineering article was exposed by the index."
     }
   ]

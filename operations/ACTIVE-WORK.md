@@ -1,5 +1,17 @@
 # Active work
 
+## 2026-09-04 NewsStand Daily cycle
+
+- **Status:** HOLD — RESEARCH COMPLETE / MATERIAL NEWS FOUND / NO PUBLICATION.
+- **Task:** Run the September 4 Vancouver NewsStand source-to-publication cycle, beginning with official provider release indexes and preserving a disposition for every item in the newest complete AIDB edition.
+- **Research result:** OpenAI's September 3 GPT-6 Astra release is a mandatory ordinary Latest candidate and a material successor to `openai-frontier-training-pause-2026-08-18`. Official and corroborating evidence supports a real capability change, phased paid/API access, a Critical cyber classification and a mixed safety picture: OpenAI reports stronger compliance while also reporting reduced monitorability in adversarial tests. Daybreak remains HOLD. AIDB had no September 3 or 4 full edition; its September 2 edition and complete transcript were reconciled in a 25-of-25 ledger at `operations/agents/aidb-intelligence-desk/daily/2026-09-04.md`.
+- **Private issue:** `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-04.json`, envelope SHA-256 `b367442c887f35265ea3c36b1afbd595098557fe581f7faa41104e144dcef41a`, disposition `CANDIDATES_PENDING_REVIEW`. It contains no unreviewed story or freshly dated service row and was not admitted, promoted or published.
+- **Official-index continuity:** `operations/agents/aidb-intelligence-desk/sources/official-release-high-water.json` advances OpenAI News from the September 1 forthcoming-release marker to the September 3 launch and safety records. Anthropic indexes did not advance.
+- **Publication blockers:** The Astra candidate did not complete its checksum-bound producer, independent factual/comprehension/voice, image and issue-admission chain. The service-bank check still fails closed on stale `mme-jelly-sandal` calibration-registry bindings. The promoter fixture still omits `scripts/lib/newsstand-luminairy-links.mjs`, and the publisher fixture still uses a stale envelope admission checksum/date. Six other scoped suites pass.
+- **Production observation:** Provider head `41cf460f-5ae9-4550-8303-6527e81a37b4` was checked. No complete production artifact was recovered because no visitor-visible delta cleared admission; no release was attempted. Recheck provider head and release coordination before any successor.
+- **Public result:** No canonical data, public bytes, deployment or live NewsStand behavior changed. Front PAiGE, Weekly, Big Picture and service columns remain as published. Public-origin, device and native 200% journeys were not rerun because there was no releasable delta.
+- **Open intake defect:** Permanent governed legal/accountability, medical/public-benefit, security-reporting and industry-critical routes remain missing. Today's complete coverage ledger names that gap rather than treating those desks as quiet.
+
 ## 2026-09-03 NewsStand Daily cycle
 
 - **Status:** HOLD — RESEARCH COMPLETE / NO PUBLICATION.

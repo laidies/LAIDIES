@@ -14887,3 +14887,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** September 3 initializes the official-index high-water record and a complete daily coverage ledger. This is only the first bounded safeguard: permanent legal and medical source routes plus calibrated retrospective fixtures for the Gourley litigation and UCL surgery remain open and must be implemented before the intake defect can be called fixed.
 - **Possible Behind the Build angle:** The newspaper did not miss two stories because nobody searched; it missed them because its map of where news comes from had blank neighbourhoods.
 - **Publication status:** INTERNAL PROCESS REPAIR / NO PUBLICATION.
+
+## BTB-495 — “Coming soon” and “released” are different states of the same story
+
+- **Date:** 2026-09-04
+- **Area:** NewsStand official-release high-water and successor reporting.
+- **Failure:** September 3 research correctly recorded Astra as forthcoming from a September 1 announcement. One day later the product launched under new release and safety URLs. A URL-only or topic-only deduplication rule could have discarded the launch as an already known story and left the paper describing a released model as hypothetical.
+- **Root cause:** Discovery identity and publication state were being treated as the same thing. The high-water record tracked the newest URL and date, but did not explicitly preserve that an existing theme had moved from announcement to release.
+- **Prevention rule:** Official-index comparison treats material state changes — announced, limited preview, released, broadly available, corrected or withdrawn — as successor triggers even when they belong to an existing topic. The new story must retain the original event history and must not overwrite earlier coverage.
+- **Durable correction:** The September 4 high-water advances OpenAI News from the September 1 forthcoming-release marker to the September 3 launch and safety records. The radar routes Astra as a dated successor to the August 18 story and explicitly distinguishes phased access from universal availability.
+- **Possible Behind the Build angle:** Why a newspaper can report the same product twice without repeating itself: the first story explains the promise; the next explains what actually shipped and what changed.
+- **Publication status:** INTERNAL RESEARCH CONTINUITY / ASTRA CANDIDATE HOLD.
