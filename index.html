@@ -841,10 +841,10 @@ main :is(.weekly,.activities,.town)>.section-heading>p:not(.eyebrow),.intent>div
 .postcard-band h2{color:var(--hp-lime)}
 .reference.reference-inline{scroll-margin-top:88px;background:linear-gradient(125deg,var(--hp-midnight),var(--hp-ink))}
 .reference.reference-inline{position:relative;isolation:isolate;overflow:visible}
-.reference.reference-inline::after{content:"";position:absolute;z-index:0;right:0;bottom:0;width:clamp(300px,27vw,360px);aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--hp-pink),var(--hp-coral));pointer-events:none}
-.reference-inline>div{position:relative;z-index:2;padding-right:clamp(270px,25vw,360px)}
-.reference-inline>.jeeves-corner-cutout{position:absolute;z-index:1;display:block;right:clamp(8px,2vw,28px);bottom:-18px;width:clamp(190px,19vw,270px);height:auto;min-height:0;max-height:78%;object-fit:contain;object-position:right bottom;pointer-events:none;user-select:none}
-@media(max-width:760px){.reference-inline>div{padding-right:20px;padding-bottom:clamp(205px,66vw,280px)}.reference.reference-inline::after{right:0;bottom:0;width:clamp(250px,80vw,310px)}.reference-inline>.jeeves-corner-cutout{right:8px;bottom:-14px;width:clamp(165px,54vw,220px);height:auto;min-height:0;max-height:none}}
+.reference.reference-inline::after{content:none}
+.reference-inline>div{position:relative;z-index:2;padding-right:clamp(225px,22vw,300px)}
+.reference-inline>.jeeves-corner-cutout{position:absolute;z-index:1;display:block;right:clamp(4px,1.2vw,16px);bottom:-24px;width:clamp(175px,17vw,230px);height:auto;min-height:0;max-height:72%;object-fit:contain;object-position:right bottom;filter:drop-shadow(-2px 0 0 var(--hp-coral)) drop-shadow(0 -2px 0 var(--hp-coral)) drop-shadow(2px 0 0 var(--hp-coral)) drop-shadow(0 2px 0 var(--hp-coral)) drop-shadow(-6px 2px 8px rgba(7,16,55,.34));pointer-events:none;user-select:none}
+@media(max-width:760px){.reference-inline>div{padding-right:20px;padding-bottom:24px}.reference-inline .library-entry{box-sizing:border-box;width:calc(100% - 142px);min-height:82px;margin-right:auto;padding-inline:16px}.reference-inline>.jeeves-corner-cutout{right:4px;bottom:-20px;width:clamp(132px,38vw,150px);height:auto;min-height:0;max-height:none}}
 .why-laidies{background:transparent;border-top:0}
 .why-women,.explainer,.intent,.weekly,.activities,.town,.closet,.postcard-band{position:relative;isolation:isolate}
 .why-women::before,.explainer::before,.intent::before,.weekly::before,.activities::before,.town::before,.closet::before,.postcard-band::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:url('assets/homepage/pattern-purple-computing.png') top left/640px auto repeat;filter:grayscale(1) brightness(1.235) contrast(1.4);mix-blend-mode:multiply;opacity:.12}

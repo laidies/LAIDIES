@@ -99,8 +99,26 @@ try {
       await page.locator('.intent-grid a[href="#reference"]').click();
       await page.waitForTimeout(100);
       assert.equal(await page.locator('#jeeves-title').evaluate(node => node.getBoundingClientRect().top >= 54), true, 'Miss Jeeves heading is hidden under the header');
+      const jeevesLayout = await page.locator('.reference-inline').evaluate(section => {
+        const portrait = section.querySelector('.jeeves-corner-cutout');
+        const entry = section.querySelector('.library-entry');
+        const sectionBox = section.getBoundingClientRect();
+        const portraitBox = portrait.getBoundingClientRect();
+        const entryBox = entry.getBoundingClientRect();
+        return {
+          decorativeBackdrop: getComputedStyle(section, '::after').content,
+          bottomOverlap: portraitBox.bottom - sectionBox.bottom,
+          portraitFilter: getComputedStyle(portrait).filter,
+          entryRight: entryBox.right,
+          portraitLeft: portraitBox.left
+        };
+      });
+      assert.equal(jeevesLayout.decorativeBackdrop, 'none', 'Miss Jeeves regained the rejected circle backdrop');
+      assert.equal(jeevesLayout.bottomOverlap >= 14 && jeevesLayout.bottomOverlap <= 30, true, 'Miss Jeeves is not anchored across the card bottom');
+      assert.notEqual(jeevesLayout.portraitFilter, 'none', 'Miss Jeeves has no silhouette contrast against the navy card');
       if (width === 390) {
         assert.equal(await page.locator('#activities .filter').evaluate(node => node.classList.contains('sticky-pinned')), false, 'activity filters overlap Miss Jeeves on phone');
+        assert.equal(jeevesLayout.entryRight <= jeevesLayout.portraitLeft, true, 'Miss Jeeves is stacked under the LIBRAiRY button on phone');
       }
       await page.locator('.reference-inline').screenshot({ path: path.join(evidence, `miss-jeeves-any-question-${width}.png`) });
     }
