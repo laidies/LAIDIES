@@ -289,14 +289,12 @@ footer{background:linear-gradient(135deg,#2f8f8b 0%,#5b7a99 55%,#75639a 108%);co
 @media(max-width:900px){.postcard-band{grid-template-columns:1fr}.postcard-band>a.button{width:100%;min-width:0}.signup-form{flex-direction:column}}
 
 /* Masthead actions use real text and compact controls, not image-shaped labels. */
-.hero-jumps{position:absolute;left:clamp(24px,7vw,112px);bottom:38px;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:min(960px,calc(100% - clamp(48px,14vw,224px)))}
+.hero-jumps{position:absolute;left:clamp(24px,7vw,112px);bottom:38px;z-index:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:min(720px,calc(100% - clamp(48px,14vw,224px)))}
 .hero-jumps .button{display:flex;align-items:center;justify-content:center;text-align:center;min-width:0;min-height:44px;padding:8px 16px;border:2px solid #11183b;border-radius:999px;font:800 1.125rem/1.25 Jost,sans-serif;color:#11183b;text-decoration:none}
 .hero-jumps .button:hover{filter:brightness(1.1)}
 .hero-jumps .button:focus-visible{outline:3px solid #fffdfb;outline-offset:4px}
-.hero-jumps .mast-start{background:#f254a9}
-.hero-jumps .mast-episode{background:#15bce0}
-.hero-jumps .mast-news{background:#ff9b3d}
-.hero-jumps .mast-explore{background:#b7e42b}
+.hero-jumps .mast-why{background:#f254a9}
+.hero-jumps .mast-how{background:#7de2c2}
 @media(max-width:820px){.hero-dusk .hero-jumps{position:static;width:calc(100% - 44px);margin:8px 22px 30px;padding:0;background:transparent}}
 @media(max-width:1100px){.hero-dusk .hero-jumps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.hero-dusk .hero-jumps{gap:10px}.hero-jumps .button{padding:8px 12px;font-size:1.05rem}}
@@ -1083,11 +1081,9 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
         <p class="lede">LAiDIES helps women understand and use AI through stories, practical tools, games, music and community. Welcome to the <strong class="rewind-accent">Rewind Era</strong>—twenty years of pop culture, from dial-up to downloads (1990–2010)—and to <span class="town-accent">SUNNYVAiLE</span>, the learning town where <strong class="power-accent">Girl Power meets Machine Power</strong>.</p>
         <p class="namecheck"><strong>Be kind, rewind.</strong> Put the pop-culture encyclopedia in your head to work on what comes next.</p>
         </div>
-      <div class="actions hero-jumps" role="group" aria-label="Choose where to start">
-        <a class="button mast-start" href="#method">Start learning</a>
-        <a class="button mast-news" href="/newsstand.html">Read the headlines</a>
-        <a class="button mast-episode" data-latest-episode-link href="/issues/issue-04.html">Latest episode</a>
-        <a class="button mast-explore" href="#town">Explore the town</a>
+      <div class="actions hero-jumps" role="group" aria-label="Learn about LAiDIES">
+        <a class="button mast-why" href="#why">Why women must shape AI</a>
+        <a class="button mast-how" href="#method">How LAiDIES works</a>
       </div>
     </section>
 
