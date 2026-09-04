@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { handleMissJeevesGuidance } from "../src/miss-jeeves-guidance.js";
+import { MISS_JEEVES_EXCLUDED_ROSTER_SOURCES, MISS_JEEVES_SOURCE_POLICY, citationDomainIsAllowed, currentMissJeevesSourcePolicy } from "../src/miss-jeeves-trusted-sources.js";
 
 const rateKey = "a".repeat(64);
 const request = (body, headers = {}) => new Request("https://miss-jeeves.internal/guidance", {
@@ -35,7 +37,37 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   assert.equal(providerRequest.body.store, false);
   assert.equal(providerRequest.body.tools[0].type, "web_search");
   assert.ok(providerRequest.body.tools[0].filters.allowed_domains.includes("nvidia.com"));
+  assert.ok(providerRequest.body.tools[0].filters.allowed_domains.includes("oneusefulthing.org"));
+  assert.ok(!providerRequest.body.tools[0].filters.allowed_domains.includes("aidailybrief.ai"));
+  const suppliedBank = JSON.parse(providerRequest.body.input).trusted_resource_bank;
+  assert.ok(suppliedBank.some(source => source.id === "SRC-ETHAN-MOLLICK" && source.authority === "attributed_practitioner"));
+  assert.ok(!suppliedBank.some(source => source.id === "SRC-AIDB"));
   assert.ok(!JSON.stringify(await response.clone().json()).includes("test-secret"));
+});
+
+test("trusted resource bank fails closed when every governed record is stale", () => {
+  assert.throws(() => currentMissJeevesSourcePolicy("2028-01-01"), /trusted_source_bank_stale/);
+});
+
+test("runtime source policy accounts for every governed bank record", async () => {
+  const roster = JSON.parse(await readFile(new URL("../../operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json", import.meta.url), "utf8"));
+  const included = new Set(MISS_JEEVES_SOURCE_POLICY.sources.map(source => source.id));
+  const excluded = new Set(Object.keys(MISS_JEEVES_EXCLUDED_ROSTER_SOURCES));
+  assert.deepEqual([...new Set([...included, ...excluded])].sort(), roster.sources.map(source => source.id).sort());
+  assert.deepEqual([...included].filter(id => excluded.has(id)), []);
+  for (const source of roster.sources.filter(source => included.has(source.id))) {
+    const runtime = MISS_JEEVES_SOURCE_POLICY.sources.find(candidate => candidate.id === source.id);
+    assert.equal(runtime.reviewedAt, source.verifiedAt);
+    assert.equal(runtime.expiresAt, source.expiresAt);
+    assert.notEqual(source.tier, "SECONDARY_SCOUT");
+  }
+});
+
+test("citation allowlist accepts exact or child hosts but not lookalike domains", () => {
+  const domains = ["openai.com"];
+  assert.equal(citationDomainIsAllowed("https://openai.com/research", domains), true);
+  assert.equal(citationDomainIsAllowed("https://help.openai.com/article", domains), true);
+  assert.equal(citationDomainIsAllowed("https://openai.com.example.org/phish", domains), false);
 });
 
 test("rejects public-shaped calls without the internal binding rate key", async () => {
@@ -51,7 +83,19 @@ test("fails closed when OpenAI returns no usable citations", async () => {
     output: [{ type: "message", content: [{ type: "output_text", text: "Something changed.", annotations: [] }] }]
   }));
   assert.equal(response.status, 502);
-  assert.equal((await response.json()).error, "citations_required");
+  assert.equal((await response.json()).error, "trusted_citations_required");
+});
+
+test("fails closed when a citation is outside the approved bank and standing authorities", async () => {
+  const response = await handleMissJeevesGuidance(request({ query: "What changed today?" }), { OPENAI_API_KEY: "test-secret" }, async () => Response.json({
+    model: "gpt-5.6-sol",
+    output: [{ type: "message", content: [{
+      type: "output_text", text: "A claim.",
+      annotations: [{ type: "url_citation", start_index: 0, end_index: 8, url: "https://random-ai-blog.example/claim", title: "Claim" }]
+    }] }]
+  }));
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).error, "trusted_citations_required");
 });
 
 test("rejects private content before any provider call", async () => {
@@ -59,4 +103,3 @@ test("rejects private content before any provider call", async () => {
   assert.equal(response.status, 400);
   assert.equal((await response.json()).error, "private_content_prohibited");
 });
-
