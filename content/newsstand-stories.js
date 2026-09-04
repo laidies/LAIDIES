@@ -10,8 +10,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-02T17:45:39Z",
-  "lastCheckedAt": "2026-09-02T17:45:39Z",
+  "generatedAt": "2026-09-02T23:59:29Z",
+  "lastCheckedAt": "2026-09-02T23:59:29Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -39,6 +39,7 @@ window.NEWSSTAND_DATA = {
         ],
         "serviceRecordIds": [
           "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP",
+          "DAILY-2026-09-02-CAREER-LIFE-CORNER-02-PRIORITIES",
           "DAILY-2026-08-30-CONCEPT-WEEK-CONCEPT-01-CONTEXT",
           "DAILY-2026-08-30-MME-MINI-BACKPACK",
           "DAILY-2026-08-30-DEAR-MISS-JEEVES-JEEVES-01-TIME",
@@ -48,9 +49,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-02T17:45:39Z",
-      "updatedAt": "2026-09-02T17:45:39Z",
-      "lastCheckedAt": "2026-09-02T17:45:39Z",
+      "publishedAt": "2026-09-02T23:59:29Z",
+      "updatedAt": "2026-09-02T23:59:29Z",
+      "lastCheckedAt": "2026-09-02T23:59:29Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-02."
     },

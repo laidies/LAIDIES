@@ -24,10 +24,10 @@ const matchingEnvelopes = fs.readdirSync(envelopeRoot)
 assert.equal(matchingEnvelopes.length, 1, "current Daily issue must resolve to one exact private envelope");
 const envelopeRaw = matchingEnvelopes[0];
 const evidenceRoot = path.join(ROOT, "operations/product-stewards/newsstand/evidence");
-const matchingDecisions = fs.readdirSync(evidenceRoot)
-  .filter((name) => name.endsWith(".json"))
+const matchingDecisions = fs.readdirSync(evidenceRoot, { recursive: true })
+  .filter((name) => String(name).endsWith(".json"))
   .flatMap((name) => {
-    try { return [JSON.parse(fs.readFileSync(path.join(evidenceRoot, name), "utf8"))]; }
+    try { return [JSON.parse(fs.readFileSync(path.join(evidenceRoot, String(name)), "utf8"))]; }
     catch { return []; }
   })
   .filter((candidate) => candidate.envelopeSha256 === issue.envelopeSha256 &&

@@ -65,6 +65,15 @@ for (const field of ['frontPaigeStoryId', 'weeklyStoryId', 'desks']) original[fi
 original.serviceRecordIds = composed.envelope.desks.filter(desk => desk.state === 'ready').map(desk => desk.recordId);
 original.storyIds = composed.envelope.storyIds.filter(id => id !== story.id);
 original.stories = composed.envelope.storySnapshots.filter(item => item.id !== story.id);
+// This synthetic same-date append must start from the exact column authority
+// used by the envelope. Historical fixture issues can legitimately carry an
+// older column-store hash after later desks are admitted; that is not a valid
+// predecessor for exercising the protected same-date append invariant.
+original.sourceIdentity = {
+  ...original.sourceIdentity,
+  columnsPath: composed.envelope.sourceIdentity.columnsPath,
+  columnsSha256: composed.envelope.sourceIdentity.columnsSha256
+};
 assert.deepEqual(original.serviceRecordIds, composed.envelope.desks.filter(desk => desk.state === 'ready').map(desk => desk.recordId), 'synthetic predecessor service membership matches composed revision');
 assert.equal(composed.envelope.storySnapshots.at(-1).status, 'hold');
 assert.equal(fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'utf8'), base, 'composition must never publish');

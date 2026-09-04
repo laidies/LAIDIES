@@ -85,8 +85,17 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   }) : null;
   if (predecessor && !issue.sourceIdentity?.storyCorrection && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
   if (predecessor && stable(issue.serviceRecordIds) !== stable(issue.desks.filter(d => d.state === 'ready').map(d => d.recordId))) reject('service IDs differ from admitted desks');
-  const sameDateNewsAppend = Boolean(ordinary && dataset.publications?.daily?.editionDate === issue.editionDate &&
-    stable(dataset.publications.daily.issue?.serviceRecordIds || []) === stable(issue.serviceRecordIds || []));
+  const currentIssue = dataset.publications?.daily?.issue;
+  const exactCurrentIssue = Boolean(dataset.publications?.daily?.editionDate === issue.editionDate &&
+    stable(currentIssue?.storyIds || []) === stable(issue.storyIds || []) &&
+    stable(currentIssue?.serviceRecordIds || []) === stable(issue.serviceRecordIds || []) &&
+    (currentIssue?.frontPaigeStoryId || null) === (issue.frontPaigeStoryId || null) &&
+    (currentIssue?.weeklyStoryId || null) === (issue.weeklyStoryId || null));
+  // An exact already-published issue must remain projectable after the carry
+  // rule is strengthened. This is idempotent reproduction of the canonical
+  // issue, not permission to select an older service for a new date.
+  const sameDateNewsAppend = Boolean((ordinary || exactCurrentIssue) && dataset.publications?.daily?.editionDate === issue.editionDate &&
+    stable(currentIssue?.serviceRecordIds || []) === stable(issue.serviceRecordIds || []));
   if (issue.desks) validateServiceSelection({ desks: issue.desks, columns, date: issue.editionDate, predecessor, canonicalIssue: dataset.publications.daily.issue, sameDateNewsAppend });
   for (const id of issue.serviceRecordIds) {
     const record = columns.records.find((item) => item.id === id);
