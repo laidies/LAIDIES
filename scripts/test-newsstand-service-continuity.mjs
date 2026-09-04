@@ -20,6 +20,10 @@ const encode = data => `window.NEWSSTAND_DATA = ${JSON.stringify(data,null,2)};\
 const base = parse(read('content/newsstand-stories.js'));
 const prior = JSON.parse(read('content/newsstand-daily-issues.json')).issues.find(i=>i.editionDate==='2026-08-30');
 assert.equal(prior.serviceRecordIds.length,7,'representative seven-desk published predecessor');
+// Keep this historical fixture isolated from later real Daily stories. A newly
+// published story on the synthetic cycle date must not turn its quiet radar
+// into a contradictory mixed fixture.
+base.stories = base.stories.filter(story => !story.publishedAt || story.publishedAt.slice(0,10) <= prior.editionDate);
 const bank = JSON.parse(read('content/daily-edition-columns.json'));
 bank.records=bank.records.filter(r=>r.editionDate<='2026-08-30');
 const history={schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[prior]};

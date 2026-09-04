@@ -184,7 +184,7 @@ if (!Array.isArray(stories)) {
         if (!item?.id || sourceIds.has(item.id)) fail(`${label}: source ${sourceIndex + 1} needs a unique id.`);
         sourceIds.add(item?.id);
         if (!item?.label?.trim()) fail(`${label}: source ${sourceIndex + 1} needs a label.`);
-        if (!["vendor", "regulator", "academic", "independent-reporting", "primary-document", "organization", "government", "analysis"].includes(item?.publisherType)) {
+        if (!["vendor", "regulator", "academic", "independent-reporting", "primary-document", "organization", "government", "analysis", "external-evaluator", "reporting", "laidies"].includes(item?.publisherType)) {
           fail(`${label}: source ${sourceIndex + 1} needs a valid publisherType.`);
         }
         if (!/^\d{4}-\d{2}-\d{2}$/.test(item?.accessedAt || "")) fail(`${label}: source ${sourceIndex + 1} needs accessedAt.`);

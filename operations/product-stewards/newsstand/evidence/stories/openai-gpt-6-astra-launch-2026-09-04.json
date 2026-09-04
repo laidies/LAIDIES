@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "openai-gpt-6-astra-launch-2026-09-04",
+  "edition": "daily",
+  "candidateStatus": "approved-for-publication",
+  "candidatePath": "content/newsstand-stories.js",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "lastRecheckedAt": "2026-09-04T15:00:00Z",
+  "nextRecheckAt": "2026-09-11",
+  "recheckDisposition": "PRIMARY_RELEASE_SAFETY_SYSTEM_CARD_EXTERNAL_EVALUATION_AND_REPORTING_CHECKED",
+  "independentReview": "operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/independent-publication-review.json",
+  "sources": [
+    {"id":"openai-astra-launch","url":"https://openai.com/index/gpt-6-astra/","type":"vendor","accessedAt":"2026-09-04"},
+    {"id":"openai-astra-safety","url":"https://openai.com/index/safety-overview-gpt-6-astra/","type":"vendor","accessedAt":"2026-09-04"},
+    {"id":"openai-astra-system-card","url":"https://deploymentsafety.openai.com/gpt-6-astra","type":"vendor","accessedAt":"2026-09-04"},
+    {"id":"irregular-astra-evaluation","url":"https://www.irregular.cv/research/assessing-gpt-6-astra","type":"external-evaluator","accessedAt":"2026-09-04"},
+    {"id":"axios-astra-launch","url":"https://www.axios.com/2026/09/03/openai-astra-gpt-6-agi-brockman","type":"reporting","accessedAt":"2026-09-04"},
+    {"id":"axios-astra-monitoring","url":"https://www.axios.com/2026/09/04/astra-openai-how-ai-models-think","type":"reporting","accessedAt":"2026-09-04"},
+    {"id":"laidies-astra-predecessor","url":"https://laidies.ai/newsstand#openai-frontier-training-pause-2026-08-18","type":"laidies","accessedAt":"2026-09-04"}
+  ],
+  "claims": [
+    {"id":"ASTRA-C01","claim":"OpenAI released GPT-6 Astra on September 3 with phased access for named paid ChatGPT plans and API customers.","sourceIds":["openai-astra-launch"],"risk":"medium"},
+    {"id":"ASTRA-C02","claim":"The stated API prices are API list prices and do not establish an ordinary subscriber's cost per task.","sourceIds":["openai-astra-launch"],"risk":"medium"},
+    {"id":"ASTRA-C03","claim":"OpenAI describes Astra as able to complete longer jobs across software; this is an attributed vendor claim.","sourceIds":["openai-astra-launch"],"risk":"medium"},
+    {"id":"ASTRA-C04","claim":"OpenAI classifies Astra at its Critical cyber-capability threshold.","sourceIds":["openai-astra-safety","openai-astra-system-card"],"risk":"high"},
+    {"id":"ASTRA-C05","claim":"OpenAI reports stronger refusal results and decreased monitorability in named adversarial evaluations.","sourceIds":["openai-astra-safety","openai-astra-system-card","axios-astra-monitoring"],"risk":"high"},
+    {"id":"ASTRA-C06","claim":"Irregular reports a large improvement on its cyber evaluation and several previously unknown flaws, while also reporting that Astra did not solve its hardest tier or hardened targets.","sourceIds":["irregular-astra-evaluation"],"risk":"high"},
+    {"id":"ASTRA-C07","claim":"Independent reporting does not establish that Astra leads every task or will behave the same way in real-world use.","sourceIds":["axios-astra-launch","axios-astra-monitoring"],"risk":"medium"},
+    {"id":"ASTRA-C08","claim":"The September 4 story is a successor to LAiDIES' earlier report about Astra's training pause, not a rewrite of it.","sourceIds":["laidies-astra-predecessor"],"risk":"low"}
+  ]
+}

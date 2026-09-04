@@ -38,7 +38,20 @@
 - **Verification:** Custom and immutable origins return the candidate hash `adafc8e14b6ad47e422133d07e72ef7a831f2d40025168b1593eee195384523e`. Live desktop and 390px archive journeys show the approved reader-fit headline and explanation, no rejected `pay-by-token`, `25%` or broad ordinary-work copy, no horizontal overflow and zero immutable-origin browser errors.
 - **Known unrelated limitation:** The repository-wide precommit hook remains red on 45 missing Episode 3 images. The bounded NewsStand tests and calibrated correction rejection cases pass; no Episode files were changed.
 
-## Current task
+## Current task — September 4 Astra Daily
+
+- **Status:** RELEASE READY — independently admitted issue and exact-artifact checks pass; public deployment and origin verification remain.
+- **Task ID:** NEWSSTAND-ASTRA-DAILY-20260904
+- **Owner:** NewsStand foreground; Ali retains exact-version approval for Big Picture.
+- **Updated:** 2026-09-04 America/Vancouver
+- **Goal:** Publish the independently reviewed GPT-6 Astra story as the September 4 Daily while preserving the current Homepage, Front PAiGE, Weekly, Big Picture and unrelated production bytes.
+- **Candidate:** One new Latest story, `openai-gpt-6-astra-launch-2026-09-04`; six exact eligible service records carried with their original dates. The expired Mme CLAi-O reading is omitted rather than redated.
+- **Admission:** Private issue `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-04-astra-1.json`, SHA-256 `e79e0272c423bb5276ebfb71d952851880560f0373f73470864253274fe1b586`, independently accepted for local canonical write.
+- **Release base:** Provider-confirmed production `52067cc4-f80a-49b5-883b-61a2b293be93`; exact 744-file artifact `/tmp/laidies-homepage-dyk-successor.RxjPvi`, identity `134bbce983e6a7f9ca42051c7504c27344fcc5987c5c6a7fb9ca18f32a56c925`.
+- **Prepared successor:** `/tmp/laidies-newsstand-astra-successor.uiET5n`; manifest suffix `.manifest.json`; 745 files; identity `0376da28babbe911a9a3b1706839dcebe8f6bc9eb7986118777267f4a3fe52d2`. Exactly six NewsStand paths differ; 739 predecessor files are byte-preserved.
+- **Verification:** Scoped transaction, derivatives, continuity, reader, mobile 390/320 and native Chrome 200% reader/return-focus checks pass. The broad story validator still reports 92 pre-existing incumbent Big Picture/data-centre errors; zero errors concern Astra.
+
+## Previous task
 
 - **Status:** PUBLICLY VERIFIED
 - **Task:** September 2 NewsStand Latest expansion plus signed Hannah Fry LUMINAiRY destinations.

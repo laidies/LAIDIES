@@ -14900,3 +14900,14 @@ while remaining falsely unfinished in the launch record.
 - **Release follow-up:** The Astra prose and image later passed their exact independent candidate gates, but issue composition stopped because the producing lane's named 741-file production artifact and manifest had disappeared from `/tmp`. A 392-file source rebuild was correctly rejected: a Git source label and a partial build cannot prove preservation of the whole deployed site.
 - **Additional prevention rule:** A public release handoff is not durable when its only exact artifact lives in temporary storage. Before releasing the deployment slot, retain the complete artifact and manifest at a durable recovery path, verify every file against the manifest, and record the existing path in the active-work handoff. A later product overlay must refuse a missing or partial predecessor even when the provider deployment ID and source label are known.
 - **Publication status:** INTERNAL RESEARCH CONTINUITY / ASTRA READY FOR ISSUE ADMISSION / RELEASE PREDECESSOR HOLD.
+
+## BTB-496 — A future real issue can leak into a historical continuity fixture
+
+- **Date:** 2026-09-04
+- **Area:** NewsStand Daily continuity regression.
+- **Failure:** The historical September 3 quiet-day fixture inherited the newly published September 4 story and failed even though the real September 4 issue was correct.
+- **Root cause:** The fixture selected the prior issue date but copied the entire current story registry without applying the same date boundary.
+- **Prevention rule:** Historical issue fixtures must freeze both the issue and every eligible story to the selected predecessor date. A future story may not participate in an earlier-date continuity test.
+- **Durable correction:** `scripts/test-newsstand-service-continuity.mjs` now filters fixture stories to `publishedAt <= prior.editionDate`; the test first failed with Astra present and then passed with the bounded historical registry.
+- **Possible Behind the Build angle:** Why a correct new story made yesterday's newspaper test fail—and what that taught us about testing time-dependent systems.
+- **Publication status:** INTERNAL TEST REPAIR; no visitor-facing copy changed by this fix.
