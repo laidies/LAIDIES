@@ -1011,6 +1011,15 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 .sunny-switchboard[hidden]{display:none}.sunny-switchboard{position:fixed;left:50%;bottom:18px;z-index:19;display:flex;gap:5px;transform:translateX(-50%);padding:6px;border:2px solid var(--hp-mint);border-radius:999px;background:var(--hp-midnight);box-shadow:0 8px 24px rgba(7,15,43,.3)}.sunny-switchboard a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border-radius:999px;color:var(--hp-mint);font:800 .88rem/1.1 Jost,sans-serif;text-decoration:none;white-space:nowrap}.sunny-switchboard a:hover,.sunny-switchboard a:focus-visible{background:var(--hp-cyan);color:var(--hp-ink);outline:none}.sunny-switchboard .switchboard-resume{background:var(--hp-orange);color:var(--hp-ink)}
 @media(max-width:900px){.sunny-now-heading{grid-template-columns:1fr}.sunny-now-heading .eyebrow{grid-column:auto}.sunny-now-grid{grid-template-columns:1fr}.sunny-now-side{grid-template-columns:repeat(2,minmax(0,1fr))}.sunny-now-radio{grid-column:1/-1}}
 @media(max-width:650px){.sunny-now{padding:38px 20px 46px}.sunny-now-lead{grid-template-columns:1fr;min-height:0}.sunny-now-lead img{height:auto;min-height:0;aspect-ratio:16/9}.sunny-now-side{grid-template-columns:1fr}.sunny-now-radio{grid-column:auto}.sunny-now-footer{align-items:flex-start;flex-direction:column}.sunny-now-all{width:100%}.sunny-switchboard{left:10px;right:10px;bottom:10px;transform:none;display:grid;grid-template-columns:repeat(3,1fr);border-radius:20px}.sunny-switchboard a{padding:7px 5px;white-space:normal;text-align:center}.sunny-switchboard .switchboard-play{display:none}}
+/* One stable discovery surface replaces the competing carousel and oversized
+   editorial block. Each image represents its destination, not a specific story. */
+.town-switchboard-hero{position:relative;overflow:hidden;padding:clamp(38px,5vw,68px) clamp(24px,7vw,112px);background:linear-gradient(120deg,var(--hp-purple),var(--hp-cobalt));color:var(--hp-paper)}
+.town-switchboard-hero::before{content:"";position:absolute;inset:0;background:url('/assets/homepage/pattern-purple-computing.png') center/520px auto repeat;opacity:.14;pointer-events:none}
+.town-switchboard-inner{position:relative;z-index:1;max-width:1520px;margin:0 auto}.town-switchboard-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:22px}.town-switchboard-head .eyebrow{margin:0 0 6px;color:var(--hp-orange)}.town-switchboard-head h2{margin:0;color:var(--hp-mint);font-size:clamp(2.2rem,4vw,4.1rem)}.town-switchboard-head>p{max-width:42ch;margin:0;color:var(--hp-sky);font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.5}
+.town-switchboard-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.town-switchboard-card{--switch-accent:var(--hp-pink);display:flex;min-width:0;flex-direction:column;overflow:hidden;border:3px solid var(--switch-accent);border-radius:22px;background:var(--hp-midnight);color:var(--hp-mint);text-decoration:none;box-shadow:7px 7px 0 color-mix(in srgb,var(--switch-accent) 70%,var(--hp-midnight));transition:transform .16s ease}.town-switchboard-card:hover{transform:translateY(-3px)}.town-switchboard-card:focus-visible{outline:4px solid var(--hp-lime);outline-offset:4px}.town-switchboard-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center}.town-switchboard-copy{display:flex;flex:1;flex-direction:column;padding:20px}.town-switchboard-kicker{color:var(--switch-accent);font:800 .73rem/1.2 Jost,sans-serif;letter-spacing:.13em;text-transform:uppercase}.town-switchboard-card h3{margin:10px 0;color:var(--hp-sky);font-size:clamp(1.3rem,1.7vw,1.65rem);line-height:1.08}.town-switchboard-card p{margin:0;color:var(--hp-mint);font-size:.98rem;line-height:1.45}.town-switchboard-go{margin-top:auto;padding-top:18px;color:var(--switch-accent);font-weight:900}.town-switchboard-news{--switch-accent:var(--hp-pink)}.town-switchboard-radio{--switch-accent:var(--hp-cyan)}.town-switchboard-jeeves{--switch-accent:var(--hp-lime)}.town-switchboard-games{--switch-accent:var(--hp-orange)}.town-switchboard-radio h3{color:var(--hp-cyan)}.town-switchboard-jeeves h3{color:var(--hp-lime)}.town-switchboard-games h3{color:var(--hp-orange)}
+.town-switchboard-resume[hidden]{display:none}.town-switchboard-resume{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:58px;margin-top:20px;padding:12px 20px;border:2px solid var(--hp-orange);border-radius:18px;background:var(--hp-orange);color:var(--hp-ink);font-weight:900;text-decoration:none}.town-switchboard-resume span{font-weight:600}
+@media(max-width:1050px){.town-switchboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.town-switchboard-hero{padding:34px 20px 42px}.town-switchboard-head{align-items:start;flex-direction:column;gap:10px}.town-switchboard-grid{grid-template-columns:1fr}.town-switchboard-card{display:grid;grid-template-columns:116px minmax(0,1fr)}.town-switchboard-card img{width:116px;height:100%;min-height:190px;aspect-ratio:auto}.town-switchboard-copy{padding:18px}.town-switchboard-card h3{font-size:1.35rem}.town-switchboard-resume{align-items:flex-start;flex-direction:column;gap:4px}}
   </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
@@ -1073,7 +1082,20 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       </div>
     </section>
 
-    <section class="did-you-know" aria-labelledby="dyk-title" data-dyk>
+    <section class="town-switchboard-hero" aria-labelledby="town-switchboard-title" data-town-switchboard>
+      <div class="town-switchboard-inner">
+        <header class="town-switchboard-head"><div><p class="eyebrow">Around SUNNYVAiLE</p><h2 id="town-switchboard-title">Pick your next stop.</h2></div><p>See what is new, ask a question, put on the radio or find something useful to try.</p></header>
+        <div class="town-switchboard-grid">
+          <a class="town-switchboard-card town-switchboard-news" data-switchboard-news href="/newsstand.html"><img src="/assets/homepage/original-restoration-20260829/newsstand-building.jpg" alt="The SUNNYVAiLE NewsStand"><div class="town-switchboard-copy"><span class="town-switchboard-kicker" data-switchboard-news-kicker>At the NewsStand</span><h3 data-switchboard-news-title>See the latest headlines.</h3><p data-switchboard-news-summary>PAiGE gathers released reporting and explains what it means in real life.</p><span class="town-switchboard-go">Read the NewsStand &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-radio" href="/radio.html"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Now playing</span><h3>KSVL 99.9 is on the air.</h3><p>Hear LAiDIES original songs, lesson hooks and Rewind Era radio.</p><span class="town-switchboard-go">Listen to KSVL &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-jeeves" href="#reference"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Your AI reference desk</span><h3>Ask Miss Jeeves.</h3><p>She searches LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities.</p><span class="town-switchboard-go">Ask a question &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-games" href="/fun-connect.html"><img loading="lazy" src="/assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with LAiDIES keepsakes"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Games, tools and quick diversions</span><h3>Find something useful&mdash;or fun.</h3><p>Get help with a draft, investigate a claim, pull a card or start a conversation.</p><span class="town-switchboard-go">Explore games and tools &rarr;</span></div></a>
+        </div>
+        <a class="town-switchboard-resume" data-switchboard-resume href="#this-week" hidden><strong>Continue where you left off.</strong><span>Return to your released episode &rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="did-you-know" aria-labelledby="dyk-title" hidden>
       <div class="dyk-inner">
         <div class="dyk-heading">
           <div>
@@ -1186,7 +1208,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 
     </section>
 
-    <section class="sunny-now" id="sunny-now" aria-labelledby="sunny-now-title" data-sunny-now>
+    <section class="sunny-now" id="sunny-now" aria-labelledby="sunny-now-title" hidden>
       <div class="sunny-now-inner">
         <header class="sunny-now-heading"><p class="eyebrow" data-now-kicker>From the NewsStand</p><h2 id="sunny-now-title" data-now-heading>What&rsquo;s happening in SUNNYVAiLE?</h2><p>Start with one useful story, catch the wider picture or take one practical idea with you.</p></header>
         <div class="sunny-now-grid">
@@ -1363,13 +1385,13 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
     </aside>
 
   </main>
-  <nav class="sunny-switchboard" data-sunny-switchboard aria-label="Quick ways around SUNNYVAiLE" hidden><a href="#sunny-now">Headlines</a><a href="#reference">Ask Miss Jeeves</a><a href="/radio.html">Listen</a><a class="switchboard-play" href="/fun-connect.html">Play</a><a class="switchboard-resume" data-switchboard-resume href="#this-week" hidden>Continue</a></nav>
+  <nav class="sunny-switchboard" aria-label="Quick ways around SUNNYVAiLE" hidden><a href="#sunny-now">Headlines</a><a href="#reference">Ask Miss Jeeves</a><a href="/radio.html">Listen</a><a class="switchboard-play" href="/fun-connect.html">Play</a></nav>
   <footer><a class="logo" href="#top" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a><p>Girl power meets machine power.</p><p>The Rewind Era shaped us. AI is shaping now. SUNNYVAiLE is where they meet.</p></footer>
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-  <script src="/content/site/homepage.js?v=20260904-sunnyvaile-now"></script>
+  <script src="/content/site/homepage.js?v=20260904-town-switchboard"></script>
   <script>
   /* Size corresponding card slots to the largest current label, never clip text.
      Recalculate after fonts, resizing and filters; do not fix the card height. */

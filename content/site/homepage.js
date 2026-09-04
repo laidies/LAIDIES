@@ -321,7 +321,7 @@
     if (quickResume) {
       quickResume.href = href || '#this-week';
       quickResume.hidden = false;
-      quickResume.textContent = 'Continue';
+      if (!quickResume.classList.contains('town-switchboard-resume')) quickResume.textContent = 'Continue';
     }
   };
 
@@ -366,6 +366,45 @@
     window.addEventListener('laidies:continuation-ready', restore, { once: true });
     if (window.LAIDIESResidentContinuationV1) restore();
   })();
+})();
+
+/* ---------- compact town switchboard and current NewsStand door ---------- */
+(function () {
+  'use strict';
+  var root = document.querySelector('[data-town-switchboard]');
+  var card = root && root.querySelector('[data-switchboard-news]');
+  if (!root || !card) return;
+  function safeItem(item, requireCurrent) {
+    return item && item.status === 'published' && (!requireCurrent || item.current === true) &&
+      typeof item.headline === 'string' && item.headline.trim() &&
+      typeof item.summary === 'string' && /^\/newsstand(?:\.html)?#[-a-z0-9]+$/i.test(item.url || '') &&
+      Number.isFinite(Date.parse(item.publishedAt || ''));
+  }
+  function short(text, limit) {
+    var value = String(text || '').replace(/\s+/g, ' ').trim();
+    if (value.length <= limit) return value;
+    return value.slice(0, limit).replace(/\s+\S*$/, '') + '…';
+  }
+  var feedUrl = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)
+    ? 'https://laidies.ai/content/newsstand-public-feed.json'
+    : '/content/newsstand-public-feed.json';
+  fetch(feedUrl, { cache: 'no-store' }).then(function (response) {
+    if (!response.ok) throw new Error('feed-unavailable');
+    return response.json();
+  }).then(function (feed) {
+    if (!feed || feed.schemaVersion !== 'newsstand-public-feed-v1') throw new Error('feed-invalid');
+    var current = feed.state === 'current' && Number.isFinite(Date.parse(feed.expiresAt || '')) && Date.parse(feed.expiresAt) >= Date.now();
+    var items = (current ? feed.current : feed.archive || []).filter(function (item) { return safeItem(item, current); });
+    if (!items.length) return;
+    var item = items[0];
+    card.href = item.url;
+    card.querySelector('[data-switchboard-news-kicker]').textContent = current ? 'Fresh from the NewsStand' : 'From the NewsStand archive';
+    card.querySelector('[data-switchboard-news-title]').textContent = item.headline;
+    card.querySelector('[data-switchboard-news-summary]').textContent = short(item.summary, 135);
+    card.querySelector('.town-switchboard-go').textContent = current ? 'Read the story →' : 'Read from the archive →';
+  }).catch(function () {
+    /* The generic NewsStand door remains truthful and useful. */
+  });
 })();
 
 /* ---------- current NewsStand preview ---------- */
