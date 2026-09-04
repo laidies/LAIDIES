@@ -97,6 +97,12 @@ destination supports it.
   deterministic retrieval on any model/provider/format failure. It rejects
   held/retired or unbound Library routes and returns a controlled unavailable
   state.
+- Current external guidance is routed over a private Cloudflare service binding
+  to the existing FAiRY Worker, which already holds the LAiDIES OpenAI API
+  secret. A dedicated internal `/guidance` handler uses OpenAI Responses with
+  bounded web search, `store:false`, the maintained trusted-domain set and a
+  citation-required response gate. Miss Jeeves and FAiRY keep separate prompts,
+  behavior and rate-limit keys; the secret never enters Pages or the browser.
 - `scripts/test-miss-jeeves-worker.mjs` passes the static-forward,
   rendered-book, arbitrary-retrieval, retired-route, grounded-AI, unavailable,
   privacy-safe aggregate signal, controlled-gap-topic and raw-query-leak
