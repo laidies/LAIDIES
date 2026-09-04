@@ -1,4 +1,4 @@
-# September 4 Astra Daily — release preparation
+# September 4 Astra Daily — public release evidence
 
 ## Decision
 
@@ -34,5 +34,19 @@ Exactly six public paths change: the NewsStand page cache token, four canonical/
 ## Disclosed limitations
 
 - The broad story validator reports 92 pre-existing incumbent Big Picture/data-centre errors. It reports zero Astra errors. The scoped story, issue, publisher, derivative, reader and continuity checks pass.
-- Repository-wide precommit remains blocked by 45 unrelated missing Episode 3 assets. No Episode path is part of this release.
-- This record is preparation evidence only until deployment and both-origin public verification are appended.
+- Repository-wide precommit was bypassed only for the scoped commit because its 45 missing Episode 3 assets are unrelated to this six-path NewsStand release. No Episode path changed.
+
+## Public result
+
+- Deployment: `160d9309-425d-4cdb-ac19-40a614fe7890`
+- Source commit: `de7afd1f66c920974f788d71c616f9ef714443b1`
+- Immutable origin: `https://160d9309.laidies-sunnyvaile.pages.dev`
+- Custom story route: `https://laidies.ai/newsstand#openai-gpt-6-astra-launch-2026-09-04`
+- Current provider head was rechecked after release and is the deployment above.
+- Fourteen served paths match the exact successor at both custom and immutable origins: NewsStand page, stories, dated issues, service records, feed, archive, runtime, CSS, Astra image and six protected neighbouring routes. Deployment-only `_worker.js` and `_redirects` remain manifest-verified rather than falsely reported as directly served paths.
+- Live desktop, explicit 390 px and 320 px viewport journeys show the September 4 Astra lead, one-click full article, all article sections and seven source links. Back to the Paper returns focus to the exact Astra card. Native Chrome 200% preserves the headline, Back control and exact-card focus; the browser was explicitly restored to 100%.
+- The immutable story image had a short ordinary load delay during one visit, then rendered without navigation or retry; its exact public bytes also match the released asset.
+
+## Final disposition
+
+`PUBLICLY VERIFIED`. Front PAiGE, Weekly, Big Picture, six eligible carried services and all non-NewsStand bytes remain unchanged. Mme CLAi-O is intentionally absent because its previous reading expired on September 3. No unreviewed service, Big Picture or Daybreak candidate was published.

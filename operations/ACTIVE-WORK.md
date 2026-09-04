@@ -2,17 +2,17 @@
 
 ## 2026-09-04 NewsStand Daily cycle
 
-- **Status:** HOLD — STORY ADMITTED / ISSUE AND RELEASE BLOCKED BY MISSING EXACT PRODUCTION ARTIFACT.
+- **Status:** PUBLICLY VERIFIED — STORY, ISSUE AND EXACT-ARTIFACT RELEASE COMPLETE.
 - **Task:** Run the September 4 Vancouver NewsStand source-to-publication cycle, beginning with official provider release indexes and preserving a disposition for every item in the newest complete AIDB edition.
 - **Research result:** OpenAI's September 3 GPT-6 Astra release is a mandatory ordinary Latest candidate and a material successor to `openai-frontier-training-pause-2026-08-18`. Official and corroborating evidence supports a real capability change, phased paid/API access, a Critical cyber classification and a mixed safety picture: OpenAI reports stronger compliance while also reporting reduced monitorability in adversarial tests. Daybreak remains HOLD. AIDB had no September 3 or 4 full edition; its September 2 edition and complete transcript were reconciled in a 25-of-25 ledger at `operations/agents/aidb-intelligence-desk/daily/2026-09-04.md`.
 - **Private story candidate:** `operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/candidate-package.json`, SHA-256 `f04964d2e655bdfde734f03f269b55c45994fbd9aca83a1cc553e83966f23ed5`, status `READY_FOR_ISSUE_ADMISSION`. The exact producer contract/self-review and a maker-independent Meta Llama factual, comprehension, voice and anti-slop review pass. The exact final story file SHA-256 is `426406548c51d125b4a7164df3aa4c4beaed739e4ff0001d10a7b771aaba7b40`; its canonical story identity is `1c4a337c672246790736f2bb86be446aa01bdf3cc2bc5d583748b2fc7df7e8a7`.
-- **Private image candidate:** `operations/product-stewards/newsstand/candidates/openai-gpt-6-astra-launch-2026-09-04/candidate-hero.png`, SHA-256 `dc7a756ace6781257f700eae68e684f6c4a28b45c6e199079a4dd700058ef241`. Independent pixel-first review passed against the final story. It remains private; rendered page/mobile checks have not occurred.
+- **Published image:** The independently pixel-reviewed candidate is released at `assets/newsstand/design-20260830/latest-openai-gpt-6-astra-20260904.png`, SHA-256 `dc7a756ace6781257f700eae68e684f6c4a28b45c6e199079a4dd700058ef241`. It renders in the live desktop and mobile article journeys at both origins.
 - **Prior private issue:** `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-04.json`, envelope SHA-256 `b367442c887f35265ea3c36b1afbd595098557fe581f7faa41104e144dcef41a`, remains the earlier unadmitted research HOLD. It was not overwritten.
 - **Official-index continuity:** `operations/agents/aidb-intelligence-desk/sources/official-release-high-water.json` advances OpenAI News from the September 1 forthcoming-release marker to the September 3 launch and safety records. Anthropic indexes did not advance.
-- **Publication blocker:** Issue composition cannot truthfully preserve the seven currently published service desks until the exact 741-file production artifact and manifest are recovered. Provider head is `41cf460f-5ae9-4550-8303-6527e81a37b4`; the producing lane named `/tmp/laidies-maikeover-successor-r4.C9EgIW`, but both the directory and its manifest are absent. A partial 392-file rebuild was rejected. Without the full manifest there is no valid current-deployment service-predecessor proof, so no September 4 envelope was composed or independently admitted. The separately isolated service-bank check still reports stale `mme-jelly-sandal` calibration hashes and made no proposal or public write.
+- **Resolved release blocker:** A newer provider-confirmed 744-file production artifact and complete manifest were recovered from deployment `52067cc4-f80a-49b5-883b-61a2b293be93`. The independently admitted September 4 issue carries only six still-eligible predecessor services with their original dates; the expired Mme CLAi-O record is omitted rather than redated.
 - **Recurring repair:** Daily execution is now story-first with one primary candidate carried across later cycles until publish, merge, explicit rejection or irrelevance. Optional service maintenance cannot consume the primary-story slot or abort an ordinary-news candidate; currently published service cards keep their original dates and exact predecessor bytes during an ordinary-story release.
-- **Production observation:** Provider head `41cf460f-5ae9-4550-8303-6527e81a37b4` (source label `bac9c73`) was checked. The exact full deployment artifact is unavailable, and a Homepage release is separately preparing a successor while holding Pages. No NewsStand deployment was attempted. Recheck provider head and use the Homepage lane's verified successor only after its exact artifact handoff.
-- **Public result:** No canonical data, public bytes, deployment or live NewsStand behavior changed. Front PAiGE, Weekly, Big Picture and service columns remain as published. Public-origin, device and native 200% journeys were not rerun because there was no releasable delta.
+- **Production result:** Deployment `160d9309-425d-4cdb-ac19-40a614fe7890`, source `de7afd1f66c920974f788d71c616f9ef714443b1`, immutable origin `https://160d9309.laidies-sunnyvaile.pages.dev`. Exact input `/tmp/laidies-newsstand-astra-successor.uiET5n`, manifest suffix `.manifest.json`, 745 files, identity `0376da28babbe911a9a3b1706839dcebe8f6bc9eb7986118777267f4a3fe52d2`.
+- **Public result:** Astra is the September 4 lead in The Latest at the custom and immutable origins. Exactly six visitor paths changed and 739 predecessor files were byte-preserved. Both origins match the exact candidate hashes for 14 served page/data/runtime/image and protected-neighbour paths. Live desktop, 390 px, 320 px, one-click article, complete source list, exact-card return focus and native Chrome 200% journeys pass; the browser was restored to 100%.
 - **Open intake defect:** Permanent governed legal/accountability, medical/public-benefit, security-reporting and industry-critical routes remain missing. Today's complete coverage ledger names that gap rather than treating those desks as quiet.
 
 ## 2026-09-03 NewsStand Daily cycle
@@ -40,7 +40,7 @@
 
 ## Current task — September 4 Astra Daily
 
-- **Status:** RELEASE READY — independently admitted issue and exact-artifact checks pass; public deployment and origin verification remain.
+- **Status:** PUBLICLY VERIFIED.
 - **Task ID:** NEWSSTAND-ASTRA-DAILY-20260904
 - **Owner:** NewsStand foreground; Ali retains exact-version approval for Big Picture.
 - **Updated:** 2026-09-04 America/Vancouver
@@ -50,6 +50,7 @@
 - **Release base:** Provider-confirmed production `52067cc4-f80a-49b5-883b-61a2b293be93`; exact 744-file artifact `/tmp/laidies-homepage-dyk-successor.RxjPvi`, identity `134bbce983e6a7f9ca42051c7504c27344fcc5987c5c6a7fb9ca18f32a56c925`.
 - **Prepared successor:** `/tmp/laidies-newsstand-astra-successor.uiET5n`; manifest suffix `.manifest.json`; 745 files; identity `0376da28babbe911a9a3b1706839dcebe8f6bc9eb7986118777267f4a3fe52d2`. Exactly six NewsStand paths differ; 739 predecessor files are byte-preserved.
 - **Verification:** Scoped transaction, derivatives, continuity, reader, mobile 390/320 and native Chrome 200% reader/return-focus checks pass. The broad story validator still reports 92 pre-existing incumbent Big Picture/data-centre errors; zero errors concern Astra.
+- **Production:** `160d9309-425d-4cdb-ac19-40a614fe7890`, source `de7afd1f66c920974f788d71c616f9ef714443b1`, immutable origin `https://160d9309.laidies-sunnyvaile.pages.dev`. Custom and immutable origins match the exact candidate hashes for 14 served NewsStand and protected-neighbour paths. The Astra image rendered at both origins after ordinary image loading; no browser error or horizontal clipping was observed.
 
 ## Previous task
 

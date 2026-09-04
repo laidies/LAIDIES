@@ -14910,4 +14910,4 @@ while remaining falsely unfinished in the launch record.
 - **Prevention rule:** Historical issue fixtures must freeze both the issue and every eligible story to the selected predecessor date. A future story may not participate in an earlier-date continuity test.
 - **Durable correction:** `scripts/test-newsstand-service-continuity.mjs` now filters fixture stories to `publishedAt <= prior.editionDate`; the test first failed with Astra present and then passed with the bounded historical registry.
 - **Possible Behind the Build angle:** Why a correct new story made yesterday's newspaper test fail—and what that taught us about testing time-dependent systems.
-- **Publication status:** INTERNAL TEST REPAIR; no visitor-facing copy changed by this fix.
+- **Publication status:** TEST REPAIR INCLUDED WITH PUBLICLY VERIFIED NEWSSTAND RELEASE `160d9309-425d-4cdb-ac19-40a614fe7890`; the test change itself does not alter visitor output.
