@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -14,8 +15,27 @@ const columns = JSON.parse(fs.readFileSync(path.join(ROOT, "content/daily-editio
 const date = dataset.publications.daily.editionDate;
 const issue = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8")).issues.find((item) => item.editionDate === date);
 const projected = projectDailyIssue({ dataset, issue, columns });
-const envelopeRaw = fs.readFileSync(path.join(ROOT, `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}.json`), "utf8");
-const decision = JSON.parse(fs.readFileSync(path.join(ROOT, `operations/product-stewards/newsstand/evidence/daily-issue-admission-${date}.json`), "utf8"));
+const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const envelopeRoot = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
+const matchingEnvelopes = fs.readdirSync(envelopeRoot)
+  .filter((name) => name.startsWith(date) && name.endsWith(".json"))
+  .map((name) => fs.readFileSync(path.join(envelopeRoot, name), "utf8"))
+  .filter((raw) => sha256(raw) === issue.envelopeSha256);
+assert.equal(matchingEnvelopes.length, 1, "current Daily issue must resolve to one exact private envelope");
+const envelopeRaw = matchingEnvelopes[0];
+const evidenceRoot = path.join(ROOT, "operations/product-stewards/newsstand/evidence");
+const matchingDecisions = fs.readdirSync(evidenceRoot)
+  .filter((name) => name.endsWith(".json"))
+  .flatMap((name) => {
+    try { return [JSON.parse(fs.readFileSync(path.join(evidenceRoot, name), "utf8"))]; }
+    catch { return []; }
+  })
+  .filter((candidate) => candidate.envelopeSha256 === issue.envelopeSha256 &&
+    candidate.editionDate === issue.editionDate && candidate.decision === issue.admission.decision &&
+    candidate.reviewedAt === issue.admission.reviewedAt && candidate.reviewedBy === issue.admission.reviewedBy &&
+    candidate.reviewerRole === issue.admission.reviewerRole && /admission-v1$/.test(candidate.schemaVersion || ""));
+assert.equal(matchingDecisions.length, 1, "current Daily issue must resolve to one exact independent admission");
+const decision = matchingDecisions[0];
 verifyProjectionAdmission({ issue, envelopeRaw, decision });
 assert.throws(() => verifyProjectionAdmission({ issue, envelopeRaw: envelopeRaw + " ", decision }), /checksum/, "changed envelope bytes must fail");
 const forged = structuredClone(issue);
@@ -27,10 +47,10 @@ assert.deepEqual(projected.stories, dataset.stories, "publication cannot rewrite
 assert.deepEqual(projected.publications["big-picture"], dataset.publications["big-picture"], "publication cannot rewrite Big Picture");
 const missingService = structuredClone(issue);
 missingService.serviceRecordIds = ["missing"];
-assert.throws(() => projectDailyIssue({ dataset, issue: missingService, columns }), /service IDs differ|not exactly admitted/, "unknown service must fail");
+assert.throws(() => projectDailyIssue({ dataset, issue: missingService, columns }), /service IDs differ|not exactly admitted|older service lacks exact published predecessor binding/, "unknown service must fail");
 const oldService = structuredClone(issue);
 oldService.serviceRecordIds = ["DAILY-2026-08-03-CAREER-DELEGATION"];
-assert.throws(() => projectDailyIssue({ dataset, issue: oldService, columns }), /service IDs differ|not exactly admitted/, "old dated record cannot be silently republished");
+assert.throws(() => projectDailyIssue({ dataset, issue: oldService, columns }), /service IDs differ|not exactly admitted|older service lacks exact published predecessor binding/, "old dated record cannot be silently republished");
 const heldWeekly = structuredClone(issue);
 heldWeekly.weeklyStoryId = "openai-frontier-training-pause-2026-08-18";
 assert.throws(() => projectDailyIssue({ dataset, issue: heldWeekly, columns }), /Weekly continuity is not admitted|Weekly continuity must preserve/, "a non-Weekly story cannot populate continuity");

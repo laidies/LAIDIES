@@ -80,8 +80,32 @@ It is candidate input to the existing column/issue path, not a second publisher.
 Check coverage with:
 
 ```sh
-node scripts/prepare-newsstand-service-bank.mjs --date YYYY-MM-DD --reuse-admitted --check
+node scripts/prepare-newsstand-service-bank.mjs --date YYYY-MM-DD --reuse-admitted --check --isolate-service-hold
 ```
+
+`--isolate-service-hold` is permitted only for the read-only check above. It
+turns an invalid or stale service-bank chain into an explicit `SERVICE BANK
+CHECK HOLD` with no proposal and no public write, so an unrelated advice-card
+problem cannot abort ordinary-news research, production or review. It does not
+approve, select, renew or carry a service item. A service proposal or dated
+service change still uses the strict command without this flag and must pass.
+
+### Story-first ordering and carryover
+
+After the official-index sweep, take the highest-consequence unreported story
+that has enough recoverable evidence through its complete private candidate,
+claim map, producer review and maker-independent editorial review before doing
+optional service rotation or exhaustive secondary-source commentary. A
+mandatory new provider release takes this slot unless a harder public-interest
+story outranks it. Limit work in progress to one primary story until it passes
+or reaches a specific evidence hold; then take the next candidate.
+
+A held story remains in the next cycle's carryover queue until it is published,
+merged into a named existing story, rejected with a durable reason, or becomes
+irrelevant. “No new newsletter edition” never clears this queue. Service-card
+maintenance is a separate lane: preserve the currently published cards, their
+original dates and their exact production-predecessor bytes while publishing
+an admitted ordinary story. Never relabel an old service as newly issued.
 
 Use `--output operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/YYYY-MM-DD.json`
 instead of `--check` to prepare a private proposal. This never changes canonical

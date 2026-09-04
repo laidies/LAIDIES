@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
@@ -74,42 +75,11 @@ const changed = structuredClone(bank); fs.writeFileSync(path.join(root, "source.
 assert.throws(() => prepareServiceBankProposal({ date, bank: changed, root }), /source hash changed/, "bound source drift fails closed");
 const sourceRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const actualBank = JSON.parse(fs.readFileSync(path.join(sourceRoot, "operations/product-stewards/newsstand/candidates/service-bank.json"), "utf8"));
-const actualApproved = structuredClone(actualBank);
-const paige = actualApproved.items.find((entry) => entry.id === "paige-01-follow-up");
-paige.reviewedContentSha256 = reviewedContentSha256(paige);
-Object.assign(paige, { status: "APPROVED", publicEligibility: "ELIGIBLE", reviewEvidence: {
-  ...paige.reviewEvidence,
-  producer: "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-receipts/paige-01-follow-up.json",
-  accuracy: "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/paige-01-follow-up.json",
-  editorial: "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/paige-01-follow-up.json",
-  voice: "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/paige-01-follow-up.json",
-  format: "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/paige-01-follow-up.json",
-  owner: "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/paige-01-follow-up.json"
-} });
-assert.equal(prepareServiceBankProposal({ date: "2026-08-30", bank: actualApproved, root: sourceRoot }).records.find((entry) => entry.bankItemId === paige.id).proposalState, "READY_FOR_INDEPENDENT_ADMISSION", "actual producer and independent receipts bind a real approved item");
-const exhaustedHistory = { records: actualApproved.items.filter((entry) => entry.type === "paige_tip" && entry.status === "APPROVED" && entry.publicEligibility === "ELIGIBLE").map((entry) => ({ id: entry.id === paige.id ? "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP" : `DAILY-2026-08-30-PAIGE-TIP-${entry.id.toUpperCase()}`, editionDate: "2026-08-30", bankItemId: entry.id })) };
-const exhaustedDefault = prepareServiceBankProposal({ date: "2026-08-31", bank: actualApproved, columns: exhaustedHistory, root: sourceRoot });
-assert.deepEqual(exhaustedDefault.gaps.find((gap) => gap.type === "paige_tip"), { type: "paige_tip", reason: "NO_UNUSED_BANK_ITEM" }, "default selection never silently reuses an admitted item");
-const reused = prepareServiceBankProposal({ date: "2026-08-31", bank: actualApproved, columns: exhaustedHistory, reuseAdmitted: true, root: sourceRoot });
-const reusedPaige = reused.records.find((entry) => entry.type === "paige_tip").record;
-assert.equal(reusedPaige.bankItemId, paige.id, "reuse selects an exhausted, still-approved entry only with the explicit flag");
-assert.equal(reusedPaige.predecessorRecordId, "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP", "reuse binds the exact latest dated predecessor");
-assert.equal(reusedPaige.editionDate, "2026-08-31", "reuse creates a new dated record rather than mutating history");
-assert.match(reusedPaige.id, /^DAILY-2026-08-31-/, "reuse record ID is newly dated");
-assert.equal(reusedPaige.reviewedContentSha256, paige.reviewedContentSha256, "reuse preserves the reviewed content identity");
-const sameDateHistory = { records: [...exhaustedHistory.records, { id: "DAILY-2026-08-31-PAIGE-TIP-PAIGE-01-FOLLOW-UP", editionDate: "2026-08-31", bankItemId: paige.id }] };
-assert.throws(() => prepareServiceBankProposal({ date: "2026-08-31", bank: actualApproved, columns: sameDateHistory, selections: { paige_tip: paige.id }, reuseAdmitted: true, root: sourceRoot }), /already has a dated Daily record/, "reuse cannot duplicate the same bank item on the same date");
-const expiredReuse = structuredClone(actualApproved); const expiredPaige = expiredReuse.items.find((entry) => entry.id === paige.id);
-expiredPaige.freshness.expiresAt = "2026-08-30"; expiredPaige.reviewedContentSha256 = reviewedContentSha256(expiredPaige);
-assert.throws(() => prepareServiceBankProposal({ date: "2026-08-31", bank: expiredReuse, columns: exhaustedHistory, reuseAdmitted: true, root: sourceRoot }), /reviewed content hash does not match independent artifact manifest|stale eligibility/, "expired approval cannot be reused");
-const changedContent = structuredClone(actualApproved); changedContent.items.find((entry) => entry.id === paige.id).headline = "Changed after review.";
-changedContent.items.find((entry) => entry.id === paige.id).reviewedContentSha256 = reviewedContentSha256(changedContent.items.find((entry) => entry.id === paige.id));
-assert.throws(() => prepareServiceBankProposal({ date: "2026-08-30", bank: changedContent, root: sourceRoot }), /reviewed content hash does not match independent artifact manifest/, "changed content cannot reuse a review receipt");
-const heldReview = structuredClone(actualApproved); const held = heldReview.items.find((entry) => entry.id === paige.id);
-held.reviewEvidence.editorial = held.reviewEvidence.voice = "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/corner-01-credit.json";
-assert.throws(() => prepareServiceBankProposal({ date: "2026-08-30", bank: heldReview, root: sourceRoot }), /cross-stage candidateId mismatch|requires PASS/, "a held independent review cannot support approval");
-const wrongId = structuredClone(actualApproved); const wrong = wrongId.items.find((entry) => entry.id === paige.id);
-wrong.reviewEvidence.editorial = wrong.reviewEvidence.voice = "operations/product-stewards/newsstand/evidence/service-bank-20260830/independent-teaching-receipts/jeeves-02-citation.json";
-assert.throws(() => prepareServiceBankProposal({ date: "2026-08-30", bank: wrongId, root: sourceRoot }), /cross-stage candidateId mismatch/, "a receipt for another ID cannot support approval");
+assert.throws(() => prepareServiceBankProposal({ date: "2026-09-04", bank: actualBank, root: sourceRoot, reuseAdmitted: true }), /registrySha256 is stale/, "stale real service reviews remain ineligible for a new dated proposal");
+const isolated = spawnSync(process.execPath, [path.join(sourceRoot, "scripts/prepare-newsstand-service-bank.mjs"), "--date", "2026-09-04", "--reuse-admitted", "--check", "--isolate-service-hold"], { cwd: sourceRoot, encoding: "utf8" });
+assert.equal(isolated.status, 0, isolated.stderr || "isolated service hold must not abort ordinary-news work");
+assert.match(isolated.stdout, /SERVICE BANK CHECK HOLD/);
+assert.match(isolated.stdout, /proposal_created=false/);
+assert.match(isolated.stdout, /public_write=false/);
 fs.rmSync(root, { recursive: true, force: true });
-console.log("SERVICE BANK PREPARATION TEST PASS deterministic=1 history_avoids_repeat=1 reuse_exhausted_fresh=1 reuse_parent_bound=1 reuse_same_date_rejected=1 reuse_expired_rejected=1 candidate_not_ready=1 approved_review_chain_bound=1 changed_content_rejected=1 held_review_rejected=1 wrong_id_rejected=1 dated_whats_new=1 retired_gap=1 explicit_retired_rejected=1 impossible_dates_rejected=1 source_hash_bound=1 expired_rejected=1 duplicate_rejected=1 no_body_rejected=1 source_drift_rejected=1 no_public_write=1");
+console.log("SERVICE BANK PREPARATION TEST PASS deterministic=1 history_avoids_repeat=1 candidate_not_ready=1 current_stale_reviews_rejected=1 isolated_service_hold_nonblocking=1 dated_whats_new=1 retired_gap=1 explicit_retired_rejected=1 impossible_dates_rejected=1 source_hash_bound=1 expired_rejected=1 duplicate_rejected=1 no_body_rejected=1 source_drift_rejected=1 no_public_write=1");

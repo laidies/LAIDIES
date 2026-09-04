@@ -14,7 +14,7 @@ fs.copyFileSync(path.join(SOURCE_ROOT, 'scripts/check-content-producer-contract.
 fs.copyFileSync(path.join(SOURCE_ROOT, 'scripts/newsstand-service-continuity.mjs'), path.join(ROOT, 'scripts/newsstand-service-continuity.mjs'));
 fs.mkdirSync(path.join(ROOT, 'content'), { recursive: true });
 fs.copyFileSync(path.join(SOURCE_ROOT, 'content/newsstand-reader-contract.js'), path.join(ROOT, 'content/newsstand-reader-contract.js'));
-for (const relative of ['scripts/validate-newsstand-ordinary-story-candidate.mjs','scripts/check-prose-quality-admission.mjs','scripts/newsstand-career-lane.mjs','scripts/compose-daily-edition.mjs','scripts/promote-daily-edition.mjs','scripts/publish-daily-edition.mjs','content/newsstand-stories.js','content/daily-edition-columns.json','operations/agents/aidb-intelligence-desk/daily/2026-08-04.md','operations/agents/aidb-intelligence-desk/daily/2026-08-30.md']) {
+for (const relative of ['scripts/validate-newsstand-ordinary-story-candidate.mjs','scripts/check-prose-quality-admission.mjs','scripts/newsstand-career-lane.mjs','scripts/lib/newsstand-luminairy-links.mjs','scripts/compose-daily-edition.mjs','scripts/promote-daily-edition.mjs','scripts/publish-daily-edition.mjs','content/luminairy-profiles.json','content/newsstand-stories.js','content/daily-edition-columns.json','operations/agents/aidb-intelligence-desk/daily/2026-08-04.md','operations/agents/aidb-intelligence-desk/daily/2026-08-30.md']) {
   fs.mkdirSync(path.dirname(path.join(ROOT,relative)),{recursive:true});
   let bytes=fs.readFileSync(path.join(SOURCE_ROOT,relative),'utf8');
   if(relative==='content/newsstand-stories.js') bytes+='\nwindow.NEWSSTAND_DATA.publications.weekly.status="quiet";\n';

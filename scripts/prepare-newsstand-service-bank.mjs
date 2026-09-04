@@ -223,13 +223,21 @@ function parseSelections(args) {
 
 function main() {
   const args = process.argv.slice(2); const date = valueAfter("--date", args); const check = args.includes("--check"); const reuseAdmitted = args.includes("--reuse-admitted");
+  const isolateServiceHold = args.includes("--isolate-service-hold");
   const bankPath = path.resolve(valueAfter("--bank", args) || DEFAULT_BANK); const outputArg = valueAfter("--output", args);
   if (!date) reject("--date is required");
   if (!fs.existsSync(bankPath)) reject("bank file does not exist");
   if (!check && !outputArg) reject("--output is required unless --check is used");
   const bank = JSON.parse(fs.readFileSync(bankPath, "utf8"));
   const columns = JSON.parse(fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8"));
-  const proposal = prepareServiceBankProposal({ date, bank, columns, selections: parseSelections(args), reuseAdmitted });
+  let proposal;
+  try {
+    proposal = prepareServiceBankProposal({ date, bank, columns, selections: parseSelections(args), reuseAdmitted });
+  } catch (error) {
+    if (!isolateServiceHold || !check || !String(error?.message || "").startsWith("SERVICE_BANK_REJECT:")) throw error;
+    console.log(`SERVICE BANK CHECK HOLD date=${date} isolated_from_ordinary_news=true proposal_created=false public_write=false reason=${JSON.stringify(String(error.message).replace(/^SERVICE_BANK_REJECT:\s*/, ""))}`);
+    return;
+  }
   const canonical = `${canonicalJson(proposal)}\n`;
   if (!check) { const output = path.resolve(outputArg); if (!output.startsWith(`${DEFAULT_OUTPUT_ROOT}${path.sep}`)) reject("--output must remain under the private service-bank proposal directory"); fs.mkdirSync(path.dirname(output), { recursive: true }); fs.writeFileSync(output, canonical); }
   console.log(`SERVICE BANK ${check ? "CHECK" : "PREPARE"} PASS date=${date} required=${proposal.counts.required} proposed=${proposal.counts.proposed} ready=${proposal.counts.ready} candidates=${proposal.counts.candidate} gaps=${proposal.counts.gaps} public_write=false sha256=${sha256(canonical)}`);
