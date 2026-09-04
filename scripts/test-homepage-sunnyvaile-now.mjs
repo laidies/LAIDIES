@@ -68,6 +68,11 @@ try {
     assert.match(await page.locator("[data-intent-news]").getAttribute("href"), /openai-gpt-6-astra-launch/);
     assert.equal(await page.locator('.intent-grid a[href="/radio.html"]').count(), 1);
     assert.equal(await page.locator('.intent-grid a[href="#reference"]').count(), 1);
+    assert.match(await page.locator('.intent-grid a[href="#reference"] span').innerText(), /anything about AI/i);
+    assert.equal(await page.locator('#jeeves-title').innerText(), 'Ask Miss Jeeves anything about AI.');
+    assert.match(await page.locator('.reference-inline').innerText(), /which AI tool or model/i);
+    assert.equal(await page.locator('.reference-inline .popular a').count(), 3);
+    assert.equal(await page.locator('.reference-inline .popular a').nth(1).getAttribute('href'), '/library.html#miss-jeeves?q=Why%20is%20everyone%20talking%20about%20Nvidia%3F&from=homepage');
     assert.equal(await page.locator(".did-you-know").isVisible(), false);
     assert.equal(await page.locator(".sunny-now").isVisible(), false);
     assert.equal(await page.locator(".town-switchboard-hero").isVisible(), false);
@@ -90,6 +95,24 @@ try {
     assert.equal(await page.locator("[data-intent-episode]").getAttribute("href"), "/watch.html?ep=03");
     assert.equal(await page.locator("[data-intent-episode-title]").innerText(), "Continue where you left off");
     assert.match(await page.locator("[data-intent-episode-summary]").innerText(), /Episode 03/);
+    if (width === 1440 || width === 390) {
+      await page.locator('.intent-grid a[href="#reference"]').click();
+      await page.waitForTimeout(100);
+      assert.equal(await page.locator('#jeeves-title').evaluate(node => node.getBoundingClientRect().top >= 54), true, 'Miss Jeeves heading is hidden under the header');
+      if (width === 390) {
+        assert.equal(await page.locator('#activities .filter').evaluate(node => node.classList.contains('sticky-pinned')), false, 'activity filters overlap Miss Jeeves on phone');
+      }
+      await page.locator('.reference-inline').screenshot({ path: path.join(evidence, `miss-jeeves-any-question-${width}.png`) });
+    }
+    if (width === 1440) {
+      await page.locator('#lookup').fill('Which model should I use for a long report?');
+      await Promise.all([
+        page.waitForURL(/\/library\.html#miss-jeeves/),
+        page.locator('#homepage-jeeves-form button').click()
+      ]);
+      assert.equal(await page.locator('#jv-q').getAttribute('value'), null);
+      assert.equal(await page.locator('#jv-q').inputValue(), 'Which model should I use for a long report?');
+    }
     await page.close();
   }
   const source = fs.readFileSync(path.join(root, "content/site/homepage.js"), "utf8");

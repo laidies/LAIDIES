@@ -838,7 +838,7 @@ main :is(.weekly,.activities,.town)>.section-heading>p:not(.eyebrow),.intent>div
 .closet h2{color:#451b78}
 .postcard-band .eyebrow{color:var(--hp-orange)}
 .postcard-band h2{color:var(--hp-lime)}
-.reference.reference-inline{background:linear-gradient(125deg,var(--hp-midnight),var(--hp-ink))}
+.reference.reference-inline{scroll-margin-top:88px;background:linear-gradient(125deg,var(--hp-midnight),var(--hp-ink))}
 .why-laidies{background:transparent;border-top:0}
 .why-women,.explainer,.intent,.weekly,.activities,.town,.closet,.postcard-band{position:relative;isolation:isolate}
 .why-women::before,.explainer::before,.intent::before,.weekly::before,.activities::before,.town::before,.closet::before,.postcard-band::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:url('assets/homepage/pattern-purple-computing.png') top left/640px auto repeat;filter:grayscale(1) brightness(1.235) contrast(1.4);mix-blend-mode:multiply;opacity:.12}
@@ -1237,7 +1237,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       <div><p class="eyebrow">Come for the whole story—or one useful thing</p><h2 id="intent-title">What brought you to town today?</h2><p>You do not need to learn the town before you can use it.</p></div>
       <div class="intent-grid intent-grid-5">
         <a href="/learn.html"><img decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY entrance"><div><strong>I want to learn</strong><span>Find learning resources, including books, tips, explanations, and guides.</span></div></a>
-        <a href="#reference"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A colourful desk ready for an AI question"><div><strong>I have an AI question</strong><span>Ask Miss Jeeves. She searches across LAiDIES and points you to the most useful answer.</span></div></a>
+        <a href="#reference"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A colourful desk ready for an AI question"><div><strong>I have an AI question</strong><span>Ask Miss Jeeves anything about AI: why something is happening, what a headline means, which tool or model fits, or how to do a task.</span></div></a>
         <a href="/newsstand.html" data-intent-news><img decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="PAiGE at the SUNNYVAiLE NewsStand"><div><strong data-intent-news-title>I want today&rsquo;s headline explained</strong><span data-intent-news-summary>See current released reporting and what it means in real life.</span></div></a>
         <a href="#this-week" data-intent-episode data-latest-episode-link><img decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store"><div><strong data-intent-episode-title>Continue or catch the latest episode</strong><span data-intent-episode-summary>Episode 04: The Founding Mothers.</span></div></a>
         <a href="/radio.html"><img decoding="async" src="assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div><strong>I want something to listen to</strong><span>Tune into KSVL 99.9 for LAiDIES original songs and Rewind Era radio.</span></div></a>
@@ -1322,7 +1322,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
         <article data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
       </div>
       <section id="reference" class="reference reference-inline" aria-labelledby="jeeves-title">
-        <div><p class="eyebrow">Need one answer—not a tour?</p><h2 id="jeeves-title">Ask Miss Jeeves.</h2><p>Ask in plain language. Miss Jeeves checks current LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities, then points you to the most useful available place.</p><form id="homepage-jeeves-form"><label for="lookup">What are you trying to understand?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Ask your question about AI…"><button type="submit">Search the LIBRAiRY</button></div></form><div class="popular"><span>Questions to explore:</span><a href="/newsstand.html#big-picture-data-centre-deal-2026-08-24">Are data centres bad?</a><a href="/library.html#working-with-ai-101::%40chapter-8-what-ai-is-great-at-and-what-isnt-8-2-what-ai-is-genuinely-good-at">What can AI help me do at work?</a><a href="/library.html#ai-fundamentals-101::%40ch-8-8-1-the-model-remembers-nothing">Why does AI forget what I told it?</a></div><p class="question-routing-note">These questions open the relevant article or book section.</p><a class="library-entry" data-library-entry="reference" href="/library.html">Visit the LIBRAiRY &rarr;</a></div>
+        <div><p class="eyebrow">Your AI question desk</p><h2 id="jeeves-title">Ask Miss Jeeves anything about AI.</h2><p>Tell her what is happening, what everyone is talking about, or what you want to do. Miss Jeeves checks current LAiDIES books, episodes, NewsStand reporting, Study Packs, tools and activities. If LAiDIES covers it, she gives you a direct answer and the best place to continue. If it does not, she tells you honestly and can pass the question to the editorial team only with your consent.</p><form id="homepage-jeeves-form"><label for="lookup">What do you want to know or do?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Why is everyone talking about Nvidia?"><button type="submit">Ask Miss Jeeves</button></div></form><div class="popular"><span>For example:</span><a href="/library.html#miss-jeeves?q=Why%20does%20the%20AI%20ignore%20part%20of%20my%20prompt%3F&amp;from=homepage">Why does the AI ignore part of my prompt?</a><a href="/library.html#miss-jeeves?q=Why%20is%20everyone%20talking%20about%20Nvidia%3F&amp;from=homepage">Why is everyone talking about Nvidia?</a><a href="/library.html#miss-jeeves?q=Which%20AI%20tool%20or%20model%20should%20I%20use%20for%20this%20task%3F&amp;from=homepage">Which AI tool or model should I use?</a></div><p class="question-routing-note">Ask in plain language. Do not include private, confidential or account information.</p><a class="library-entry" data-library-entry="reference" href="/library.html#miss-jeeves">Visit Miss Jeeves in the LIBRAiRY &rarr;</a></div>
       </section>
     </section>
 
@@ -1487,12 +1487,12 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
   (function(){
     var OFFSET=54, reg=[], mq=window.matchMedia('(max-width:560px)');
     function outerH(el){var cs=getComputedStyle(el);return el.offsetHeight+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0);}
-    function add(el,c){ if(!el||!c)return; var ph=document.createElement('div'); ph.setAttribute('aria-hidden','true'); ph.style.display='none'; el.parentNode.insertBefore(ph,el); if(getComputedStyle(c).position==='static')c.style.position='relative'; reg.push({el:el,c:c,ph:ph,state:''}); }
+    function add(el,c,end,release){ if(!el||!c)return; var ph=document.createElement('div'); ph.setAttribute('aria-hidden','true'); ph.style.display='none'; el.parentNode.insertBefore(ph,el); if(getComputedStyle(c).position==='static')c.style.position='relative'; reg.push({el:el,c:c,end:end||c,release:release!==false,ph:ph,state:''}); }
     function clear(it){var s=it.el.style; s.position=s.top=s.left=s.right=s.width=s.margin=s.zIndex=''; it.el.classList.remove('sticky-pinned'); it.ph.style.display='none'; it.state='';}
     function update(it){
       if(!mq.matches){ if(it.state) clear(it); return; }
       var el=it.el,c=it.c,ph=it.ph,oh=outerH(el),h=el.offsetHeight;
-      var naturalTop=(it.state?ph:el).getBoundingClientRect().top, cr=c.getBoundingClientRect();
+      var naturalTop=(it.state?ph:el).getBoundingClientRect().top, cr=it.end.getBoundingClientRect();
       if(naturalTop>OFFSET || cr.bottom<=OFFSET){ if(it.state) clear(it); return; }
       if(cr.bottom>=OFFSET+h){
         if(it.state!=='pinned'){
@@ -1501,17 +1501,19 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
           el.style.position='fixed'; el.style.top=OFFSET+'px'; el.style.left=Math.round(b.left)+'px'; el.style.width=Math.round(b.width)+'px'; el.style.margin='0'; el.style.zIndex='15';
           el.classList.add('sticky-pinned'); it.state='pinned';
         }
-      } else {
+      } else if(it.release) {
         ph.style.height=oh+'px'; ph.style.display='block';
         el.style.position='absolute'; el.style.top=Math.max(0,c.clientHeight-h)+'px'; el.style.left='0'; el.style.right='0'; el.style.width='auto'; el.style.margin='0'; el.style.zIndex='15';
         el.classList.add('sticky-pinned'); it.state='released';
+      } else {
+        clear(it);
       }
     }
     var tick=false;
     function onScroll(){ if(tick)return; tick=true; requestAnimationFrame(function(){ reg.forEach(update); tick=false; }); }
     try{
       add(document.querySelector('.route-cell .route-head'), document.querySelector('.route-cell'));
-      add(document.querySelector('#activities .filter'), document.querySelector('#activities'));
+      add(document.querySelector('#activities .filter'), document.querySelector('#activities'), document.querySelector('#activities .activity-grid'), false);
     }catch(e){}
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',function(){ reg.forEach(clear); requestAnimationFrame(function(){ reg.forEach(update); }); },{passive:true});

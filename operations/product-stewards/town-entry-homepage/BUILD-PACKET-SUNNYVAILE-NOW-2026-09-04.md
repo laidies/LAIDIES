@@ -8,6 +8,7 @@
 - Complete route/subpage/subproduct scope: One goal-led Homepage starting surface, a complete scannable feature directory and signed-in episode continuation presentation.
 - User problem: The rotating banner hides most benefits. The first editorial block duplicated discovery and misplaced KSVL inside NewsStand; the second four-card switchboard reduced the number of visible choices and still did not reveal the breadth of LAiDIES.
 - Intended user outcome: Immediately after the masthead, a visitor can choose one of six useful starting goals, then scan twenty-six named destinations covering learning, news, episodes, radio, tools, games, community, membership and the town.
+- Miss Jeeves clarity requirement: Visitors must understand that they can ask a plain-language AI question about unexpected behaviour, a current topic, choosing a tool or model, or how to begin a task. Copy must also state the grounded boundary: she answers from current LAiDIES coverage and says honestly when an exact answer is not available.
 - Evidence and research: Current public Homepage and NewsStand inspected on 2026-09-04; live `newsstand-public-feed-v1` used as the editorial source; existing Resident continuation runtime retained.
 - Scope: `index.html`, `content/site/homepage.js`, one focused responsive test and its local screenshots.
 - Explicit non-goals: No fixed or floating duplicate navigation, no rotating carousel, no giant story treatment, no new backend, no new NewsStand publishing behaviour, no autoplay audio, no deployment. Community chat rooms are not promoted until their live journey is separately verified.
@@ -25,6 +26,7 @@
 |---|---|---|---|---|---|
 | Six-door goal chooser | Homepage lane | Live Homepage, public NewsStand feed, current palette | `index.html`, `content/site/homepage.js` | NewsStand feed | LOCAL PASS |
 | Twenty-six-link feature directory | Homepage lane | Current public routes and Homepage journeys | `index.html` | Existing destinations | LOCAL PASS |
+| Miss Jeeves capability explanation | Homepage lane | Released Miss Jeeves service contract and Homepage question handoff | `index.html`, `content/site/homepage.js` | `/api/miss-jeeves` and LIBRAiRY | LOCAL PASS |
 | Account-backed episode resume | Homepage lane | Resident continuation v1 runtime | `content/site/homepage.js` | Supabase Resident session | LOCAL CONTRACT PASS |
 | Responsive verification | Homepage lane | Exact local candidate | `scripts/test-homepage-sunnyvaile-now.mjs` and evidence folder | Chrome / Playwright | PASS at 1440, 390, 320 |
 
