@@ -1,8 +1,13 @@
 import worker from "./index.js";
 import { missingMaterialQuestion } from "./clarification.js";
+import { handleMissJeevesGuidance } from "./miss-jeeves-guidance.js";
 
 export default {
   async fetch(request, env, context) {
+    const url = new URL(request.url);
+    if (url.hostname === "miss-jeeves.internal" && url.pathname === "/guidance") {
+      return handleMissJeevesGuidance(request, env);
+    }
     let prompt = "";
     if (env?.FAIRY_BETA_ENABLED === "true" && request.method === "POST") {
       try { prompt = String((await request.clone().json())?.prompt || ""); } catch {}
