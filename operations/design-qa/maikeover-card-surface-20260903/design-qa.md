@@ -52,3 +52,22 @@
 ## Final result
 
 final result: passed
+
+## Functional continuation check — 2026-09-04
+
+- In an isolated real browser session, changed the Card background, Era movie,
+  Era TV, soundtrack, Patron Saint, carrying and name. Every choice appeared on
+  the MAiKEOVER Card before saving.
+- Saved once and opened the Closet. The Closet Card rendered the same selected
+  background and all six saved values.
+- Returned to MAiKEOVER. The saved controls and live Card restored without a
+  second save.
+- Changed `Carrying` from `Caboodles case` to `Mall receipt`, saved again and
+  reopened the Closet. The existing Card rendered `Mall receipt`, proving a
+  later save replaces the same object.
+- The journey exposed one mismatch: the device-local Closet rendered
+  `No. 0000` while MAiKEOVER correctly rendered `No. NEW`. The Closet now uses
+  the same positive-server-number-or-NEW rule and a focused lifecycle guard
+  rejects any return of the fake zero number.
+- Account-backed cross-device restoration was not rerun because this local
+  browser session did not use a real authenticated backend account.

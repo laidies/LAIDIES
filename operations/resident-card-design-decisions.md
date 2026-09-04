@@ -135,3 +135,22 @@ production verification at deployment
   official number.
 
 Source: Ali's direct Card corrections, 2026-09-03.
+
+## MAiKEOVER to Closet live Card contract — 2026-09-04
+
+- The Resident Card is one stateful town identity, not separate MAiKEOVER and
+  Closet mockups.
+- Every MAiKEOVER choice updates the live Card immediately: background, Era
+  movie, Era TV, soundtrack, Patron Saint, carrying and name.
+- Save writes one versioned Resident Card envelope. The Closet reads that same
+  envelope and renders the same saved fields and selected background.
+- Returning to MAiKEOVER hydrates the current saved choices. Saving later edits
+  replaces the same Card; it does not create an unrelated second Card.
+- A device-only Card remains `No. NEW` in both MAiKEOVER and the Closet. Only a
+  positive server-issued `resident_number` renders as a padded official number.
+- The Card's physical shell never contains baked visitor data. Names,
+  favourites, number and portrait remain deterministic live content so the
+  object can update wherever it appears.
+
+Source: Ali's direct functionality ruling and the locally exercised
+MAiKEOVER-save-Closet-return-update journey, 2026-09-04.

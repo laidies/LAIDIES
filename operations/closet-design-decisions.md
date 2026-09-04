@@ -77,3 +77,15 @@ shape.
   Resident Card flip, dashboard jump, editor open/close/focus return, and
   direct building/tour links passed.
 
+## Resident Card continuation contract — 2026-09-04
+
+- The Closet displays the same saved Resident Card made in MAiKEOVER; it is not
+  an independent decorative copy.
+- Its visible background, name, Era movie, Era TV, soundtrack, Patron Saint,
+  carrying and portrait come from the shared versioned Card envelope.
+- A later MAiKEOVER save replaces those values and the Closet renders the
+  successor on its next load.
+- Device-only Cards display `No. NEW`. A padded number appears only when a
+  positive account-backed `resident_number` is available.
+
+Source: Ali's direct cross-surface functionality ruling, 2026-09-04.

@@ -14898,3 +14898,24 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Active vanity/Card asset v6 removes the rules and uses one bold periwinkle/raspberry physical Card treatment. The page renders all Card text in deep ink, binds `Ai` size to the header, and synchronizes the number from the existing account runtime when available. The focused browser test proves device-local `NEW`, synthetic server number `4821`, equal-sized `Ai`, deep-ink header text and desktop/mobile containment.
 - **Possible Behind the Build angle:** Why the Card still looked fake after several CSS fixes—and why an ID should never pretend to be official before the account system issues it.
 - **Publication status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
+
+## BTB-496 — One Card cannot have two identity states across the town
+
+- **Date:** 2026-09-04
+- **Area:** MAiKEOVER to Closet Resident Card continuation.
+- **Failure:** A device-local Card correctly displayed `No. NEW` while it was
+  made in MAiKEOVER, then became the fake official-looking `No. 0000` when the
+  same saved Card appeared in the Closet.
+- **Root cause:** MAiKEOVER and the Closet shared the Card data envelope but not
+  the rule that turns account state into visible Card-number text.
+- **Prevention rule:** Cross-surface objects share both their data and their
+  state semantics. Every Resident Card surface renders a positive server-issued
+  number as a padded identifier and otherwise renders `No. NEW`; no browser
+  surface may invent a zero or local official number.
+- **Durable correction:** The Closet now uses the same number-state rule as
+  MAiKEOVER. A focused lifecycle guard binds all maker-owned fields to the one
+  shared envelope and rejects `No. 0000`; an isolated browser journey proved
+  immediate update, save, Closet display, restore and replacement save.
+- **Possible Behind the Build angle:** The data was shared, but the meaning was
+  not—how one Resident Card briefly became two different identities.
+- **Publication status:** LOCAL CORRECTION / PUBLIC RELEASE NOT PERFORMED.

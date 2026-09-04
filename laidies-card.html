@@ -997,7 +997,7 @@
           <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.add('is-flipped')">Flip →</button>
           <div class="card-corner-header">
             <span>★ SUNNYVAiLE Resident Card</span>
-            <span class="resident-no" id="residentNo">No. 0000</span>
+            <span class="resident-no" id="residentNo">No. NEW</span>
           </div>
           <div class="card-front-body">
             <div class="card-avatar" id="cardAvatar"></div>
@@ -1029,7 +1029,7 @@
           <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.remove('is-flipped')">← Flip</button>
           <div class="card-corner-header">
             <span>★ Card Back</span>
-            <span class="resident-no" id="residentNoBack">No. 0000</span>
+            <span class="resident-no" id="residentNoBack">No. NEW</span>
           </div>
           <div class="card-back-body">
             <div>
@@ -1799,6 +1799,13 @@
     document.getElementById('charmVessel').hidden = true;
   }
 
+  function residentNumberText(value) {
+    var number = Number(value);
+    return Number.isInteger(number) && number > 0
+      ? 'No. ' + String(number).padStart(4, '0')
+      : 'No. NEW';
+  }
+
   function updateCardFromProfile(profile) {
     if (!profile) return;
     window.__laidiesLastProfile = profile;
@@ -1844,9 +1851,9 @@
     if (profile.favorite_quote) {
       document.getElementById('cardQuote').firstChild.textContent = '"' + profile.favorite_quote + '"';
     }
-    var num = String(profile.resident_number || 0).padStart(4, '0');
-    document.getElementById('residentNo').textContent = 'No. ' + num;
-    document.getElementById('residentNoBack').textContent = 'No. ' + num;
+    var residentNumber = residentNumberText(profile.resident_number);
+    document.getElementById('residentNo').textContent = residentNumber;
+    document.getElementById('residentNoBack').textContent = residentNumber;
   }
 
   var editBtn = document.getElementById('editCardBtn');

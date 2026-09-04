@@ -1,5 +1,21 @@
 # Active work
 
+## 2026-09-04 MAiKEOVER to Closet live Card contract
+
+- **Status:** BUILT / LOCALLY TESTED / COMMIT PENDING / NOT DEPLOYED.
+- **Task:** Bind the configurable MAiKEOVER Card to its Closet continuation so
+  it behaves as one updateable object rather than two static designs.
+- **Boundary:** Resident Card and Closet design decisions, the Closet number
+  state, a focused lifecycle guard, the existing MAiKEOVER Card QA record and
+  this task's operations records only.
+- **Verification:** A real isolated browser journey proved immediate preview,
+  save, Closet render, MAiKEOVER restoration and later replacement save for
+  background, Era movie, Era TV, soundtrack, Patron Saint, carrying and name.
+  The focused lifecycle checker additionally binds those fields to the shared
+  `laidies_resident_card_v1` envelope and rejects fake `No. 0000` state.
+- **Not done:** Real authenticated cross-device restoration, push, deployment
+  and public-origin verification were not performed.
+
 ## 2026-09-03 MAiKEOVER Resident Card surface correction
 
 - **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
