@@ -200,6 +200,58 @@ A blocked review must be reported as a blocked review, not converted to QUIET.
 An existing same-day issue with no admitted delta stays unchanged; do not
 overwrite it with a freshly dated quiet envelope.
 
+### Failed stories must repair, not disappear
+
+Before selecting a lower-priority new candidate or declaring a quiet research
+result, run the durable story-recovery queue through:
+
+```sh
+node scripts/advance-newsstand-story-recovery.mjs select path/to/story-recovery-queue.json
+```
+
+`ACTIVE_RECOVERY_MUST_CONTINUE` means the selected item owns the primary-story
+slot. Preserve its exact source identity, artifact hash, independent review,
+stable defect IDs and next action. A repairable failure becomes
+`REPAIR_REQUIRED`; create a new exact artifact that addresses the named defects
+without weakening any gate, then obtain maker-independent review of that new
+hash. If the same stable defect survives two reviews, the state becomes
+`SYSTEM_REPAIR_REQUIRED`: update the responsible producer instruction,
+validator or reviewer calibration, forward-test it against the known-bad
+artifact, and only then redraft.
+
+One exact artifact receives one independent editorial decision. Do not send an
+unchanged artifact through another review in the hope of a different answer.
+The first complete independent PASS advances directly to issue admission; do
+not invent optional review rounds after the mandatory gates pass. Review only
+the repaired exact artifact, with the prior defects retained as regression
+checks.
+
+An evidence gap becomes `EVIDENCE_BLOCKED`, remains active and is rechecked on
+later cycles. It is not a quiet result, but without new evidence it does not
+monopolize the primary-story slot or stop another eligible story publishing.
+There is no attempt limit that silently drops a repairable story. A story
+leaves active recovery only after exact
+public verification or an independently supported durable terminal disposition:
+named duplicate, false premise, no distinct reader value or no longer relevant.
+
+Advance a completed independent review with:
+
+```sh
+node scripts/advance-newsstand-story-recovery.mjs review story-state.json independent-review.json
+```
+
+After admission, deployment and live verification, bind the exact public
+receipt with:
+
+```sh
+node scripts/advance-newsstand-story-recovery.mjs publish story-state.json publication-verification.json
+```
+
+The publication objective is not merely a passing story. It is an explanation
+a non-technical reader can rely on as her primary AI news briefing: what the
+thing is, what changed, the mechanism that matters, familiar consequences,
+what remains uncertain, realistic choices and a useful next action or question.
+
 For `YYYY-MM-DD`, the authoritative radar input must exist at:
 
 `operations/agents/aidb-intelligence-desk/daily/YYYY-MM-DD.md`

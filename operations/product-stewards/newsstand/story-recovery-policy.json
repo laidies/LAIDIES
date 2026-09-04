@@ -1,0 +1,24 @@
+{
+  "schema": "laidies.newsstand-story-recovery-policy.v1",
+  "version": "2026-09-04.1",
+  "goal": "Publish source-checked stories so clearly and usefully explained that a non-technical reader can understand what changed, why it matters, what remains uncertain, and what she can do or choose next.",
+  "activeStatuses": ["AWAITING_INDEPENDENT_REVIEW", "REPAIR_REQUIRED", "SYSTEM_REPAIR_REQUIRED", "EVIDENCE_BLOCKED", "READY_FOR_ADMISSION"],
+  "selectionOrder": ["READY_FOR_ADMISSION", "SYSTEM_REPAIR_REQUIRED", "REPAIR_REQUIRED", "AWAITING_INDEPENDENT_REVIEW", "EVIDENCE_BLOCKED"],
+  "identicalDefectSystemRepairThreshold": 2,
+  "terminalDispositions": ["DUPLICATE_OF_NAMED_STORY", "FALSE_PREMISE", "NO_DISTINCT_READER_VALUE", "NO_LONGER_RELEVANT"],
+  "publicationRequirements": ["exact_artifact_independently_passed", "all_claims_bound_to_current_sources", "beginner_explanation_passed", "reader_consequence_and_next_action_passed", "limitations_and_uncertainty_visible", "issue_admission_passed", "exact_production_artifact_preserved", "custom_and_immutable_origins_match", "reader_journey_passed"],
+  "rules": {
+    "noSilentDrop": true,
+    "noAttemptLimitForRepairableStories": true,
+    "noQuietDispositionWhileActiveStoryExists": true,
+    "newLowerPriorityStoryCannotDisplaceActiveRepair": true,
+    "newArtifactInvalidatesPriorReview": true,
+    "unchangedArtifactCannotBeReviewedTwice": true,
+    "makerCannotApproveOwnRepair": true,
+    "firstCompleteIndependentPassAdvancesToAdmission": true,
+    "optionalReviewsCannotDelayPublication": true,
+    "evidenceBlockedStoryDoesNotMonopolizeWorkSlotWithoutNewEvidence": true,
+    "qualityGateCannotBeLoweredToAchievePublication": true,
+    "bigPictureStillRequiresAliExactVersionApproval": true
+  }
+}

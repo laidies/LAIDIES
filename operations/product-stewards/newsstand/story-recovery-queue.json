@@ -1,0 +1,41 @@
+{
+  "schema": "laidies.newsstand-story-recovery-queue.v1",
+  "policyVersion": "2026-09-04.1",
+  "updatedAt": "2026-09-04T21:00:00Z",
+  "items": [
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "openai-gpt-6-astra-launch-2026-09-04",
+      "producerPrincipal": "newsstand-astra-producer-20260904",
+      "sourceIdentitySha256": "fb17b62a49ceb91fc45d728d94722c8b1967d31cd317fae0361552edc335f06b",
+      "artifactSha256": "46e9981c63cb7c1235be362179a10685ce9ba5ab17485a4b48d49ad75021d9b2",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 3,
+      "firstSeenAt": "2026-09-04T07:00:00-07:00",
+      "lastReviewedAt": "2026-09-04T20:20:00Z",
+      "attempts": [
+        {
+          "artifactSha256": "46e9981c63cb7c1235be362179a10685ce9ba5ab17485a4b48d49ad75021d9b2",
+          "reviewerPrincipal": "cloudflare-meta-llama-3.3-70b",
+          "reviewedAt": "2026-09-04T20:20:00Z",
+          "verdict": "PASS",
+          "defects": []
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "ac5e1937-e178-46fa-a8c5-bb3f6602bde5",
+        "immutableUrl": "https://ac5e1937.laidies-sunnyvaile.pages.dev/newsstand#openai-gpt-6-astra-launch-2026-09-04",
+        "customUrl": "https://laidies.ai/newsstand#openai-gpt-6-astra-launch-2026-09-04",
+        "artifactIdentitySha256": "647df03c3c59256c915861d58e7de7aff6f4096cab114349516cafe49f73f026",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-04T21:00:00Z"
+      }
+    }
+  ]
+}

@@ -19,6 +19,30 @@ The NewsStand helps a visitor answer **what changed, what evidence supports it,
 what it means and what—if anything—she should do differently** without treating
 volume, virality or a publishing calendar as importance. `LOCKED LEDGER`
 
+Its editorial ambition is to become the reader's primary AI news source by
+doing the explanatory work that headline-led coverage often omits. Every
+ordinary story must identify the thing in plain language, explain the relevant
+mechanism, translate the consequence into familiar work or life, distinguish
+evidence from interested-party claims, show meaningful limitations or
+disagreement, compare realistic choices where applicable and leave the reader
+with a better next question or action. Passing factual checks without achieving
+that understanding is not publication quality. `ALI CONFIRMED`
+
+An ordinary story that fails review does not disappear. Its exact artifact,
+sources, defects and next action remain in the durable recovery queue. A
+repairable defect triggers a bounded redraft and independent review of the new
+artifact; the same defect twice triggers repair of the producer or checker
+before another draft. Missing evidence is rechecked on later cycles. The story
+leaves the queue only after verified publication or a named durable terminal
+disposition. Quality gates may not be weakened to force publication. Big
+Picture retains Ali's exact-version approval. `ALI CONFIRMED`
+
+Recovery is not permission for endless review. One artifact receives one
+independent decision; an unchanged artifact is never resubmitted. The first
+complete PASS advances to admission without optional reviewers being added.
+Evidence-blocked work remains visible but does not prevent a different eligible
+ordinary story from publishing while no new evidence exists. `ALI CONFIRMED`
+
 Its one newspaper contains four editorial jobs: **The Breaking**, **The
 Daily**, **The Weekly** and **The Big Picture**. **The Tribune is retired.** The
 active internal keys are `breaking`, `daily`, `weekly` and `big-picture`.
