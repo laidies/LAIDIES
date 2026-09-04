@@ -13,6 +13,8 @@ const authority = read("operations/product-stewards/resident-card/CURRENT-IDENTI
 const accountPage = read("content/site/resident-account-page-v1.js");
 const accountRuntime = read("content/site/resident-account-runtime-v1.js");
 const closetBridge = read("content/site/closet-account-bridge-v1.js");
+const portraitRuntime = read("content/site/maikeover-portraits-v1.js");
+const avatarWorker = read("worker-avatar/avatar.js");
 const publicCardContract = JSON.parse(read(
   "operations/product-stewards/maikeover/public-card-field-contract-v1.json"
 ));
@@ -30,6 +32,28 @@ requireText(maikeover, 'data-state="held"',
   "MAiKEOVER lacks fail-closed public-handle state");
 requireText(maikeover, 'href="/resident-card.html#rcAccountTitle"',
   "MAiKEOVER does not hand the Card to the account owner");
+requireText(maikeover, 'id="moMake"',
+  "MAiKEOVER lacks the portrait creation action");
+requireText(maikeover, 'id="moCands"',
+  "MAiKEOVER lacks the three-portrait chooser");
+requireText(maikeover, 'name="moPortraitMode"',
+  "MAiKEOVER lacks description/photo portrait modes");
+requireText(maikeover, "maikeover-portraits-v1.js",
+  "MAiKEOVER does not load the portrait runtime");
+forbidText(maikeover, "portrait booth is temporarily closed",
+  "MAiKEOVER still tells residents the working portrait maker is closed");
+requireText(maikeover, "isSafeAvatarSource(state.avatar)",
+  "MAiKEOVER cannot save a selected bounded portrait");
+requireText(portraitRuntime, "laidies:portrait-selected",
+  "portrait runtime does not hand the chosen image to the live Card");
+requireText(maikeover, "two sets of three",
+  "MAiKEOVER does not explain the account quota");
+requireText(portraitRuntime, 'canvas.toDataURL("image/jpeg"',
+  "portrait runtime does not bound and re-encode saved image bytes");
+requireText(avatarWorker, "PORTRAIT_USAGE",
+  "portrait Worker lacks durable quota enforcement");
+requireText(avatarWorker, "const uid = await user(request,env)",
+  "portrait Worker lacks account authentication");
 requireText(maikeover, "laidies_resident_card_v1",
   "local save lacks one versioned authoritative envelope");
 requireText(maikeover, "localStorage.getItem(CARD_STORAGE_KEY) !== serialized",
@@ -122,4 +146,4 @@ if (failures.length) {
 }
 
 console.log("MAiKEOVER CONTRACT PASS");
-console.log("scope=local-save,state-label,account-handoff,privacy,restricted-public-view");
+console.log("scope=portrait-create,portrait-select,local-save,account-update,closet-restore,privacy,quota");

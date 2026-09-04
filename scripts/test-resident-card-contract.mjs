@@ -47,9 +47,9 @@ check(page.includes("identity-client-v1.js") &&
 check(!/member_profiles|\.from\(/.test(accountPage),
   "Resident Card account UI does not write profile tables directly");
 check(!/card (?:can|will) save quiz scores|card (?:can|will) save stickers|card (?:can|will) sign posts|card (?:can|will) unlock rooms/i.test(page), "route does not grant progression or community authority");
-check(page.includes("free-form activity content stay browser-only"), "separate activity persistence is explicit");
+check(page.includes("free-form activity content stay out of continuation sync"), "separate activity persistence is explicit");
 check(page.includes("not reserved") &&
-  page.includes("Public Cards and public reward ownership remain separate features"),
+  page.includes("Public member Cards and public reward ownership remain separate features"),
   "identity and cross-product limits are explicit");
 check(page.includes('role="status"') && page.includes('aria-live="polite"') && page.includes('aria-atomic="true"'), "status has accessible live semantics");
 check(runtime.includes("contract.read(window.localStorage)"), "status reads only through the shared projection");
@@ -61,7 +61,10 @@ check(contract.includes("hasExactKeys") && contract.includes("FIELD_NAMES.indexO
 check(contract.includes("isPlainObject") && contract.includes("Object.getPrototypeOf"), "shared contract requires plain objects");
 check(contract.includes("\\u202a-\\u202e") && contract.includes("\\u2066-\\u2069"), "shared contract rejects bidi controls");
 check(contract.includes("decodeURIComponent(value) !== value"), "asset path must be canonically decoded");
-check(contract.includes('return /^\\/assets\\/') && !contract.includes("data:image"), "stored avatars are packaged asset paths only");
+check(contract.includes('return /^\\/assets\\/') &&
+  contract.includes("isSafeRasterPortrait") &&
+  contract.includes("98304"),
+  "stored avatars admit only packaged paths or bounded JPEG/PNG portraits");
 check(contract.includes('document.createElement("img")') && contract.includes("replaceChildren(image)"), "shared avatar renderer uses DOM APIs");
 check(maikeover.includes("One versioned envelope is the only authoritative local card write."), "MAiKEOVER keeps an atomic authoritative local write");
 check(maikeover.includes("LAIDIESResidentCard.buildEnvelope"), "MAiKEOVER writes only shared-contract envelopes");

@@ -7,7 +7,7 @@
     activity: 160,
     archetype: 80,
     avatarSlug: 64,
-    cardAvatarUrl: 240,
+    cardAvatarUrl: 131095,
     cardBg: 24,
     carry: 160,
     character: 160,
@@ -70,7 +70,7 @@
   }
 
   function isSafeAssetPath(value) {
-    if (typeof value !== "string" || value.length > FIELD_LIMITS.cardAvatarUrl ||
+    if (typeof value !== "string" || value.length > 240 ||
         value.indexOf("%") !== -1 || value.indexOf("\\") !== -1 ||
         value.indexOf("?") !== -1 || value.indexOf("#") !== -1 ||
         value.indexOf("//") !== -1 || value.indexOf("/./") !== -1 ||
@@ -91,7 +91,7 @@
       return false;
     }
     if (name === "cardAvatarUrl") {
-      return value === "" || isSafeAssetPath(value);
+      return value === "" || isSafeAvatarSource(value);
     }
     if (name === "cardBg") {
       return value === "" || CARD_BACKGROUNDS.indexOf(value) !== -1;
@@ -194,7 +194,7 @@
   }
 
   function replaceWithSafeImage(container, source, alt) {
-    if (!container || !isSafeAssetPath(source)) return false;
+    if (!container || !isSafeAvatarSource(source)) return false;
     var image = global.document.createElement("img");
     image.src = source;
     image.alt = String(alt || "");
@@ -208,11 +208,34 @@
     return true;
   }
 
+  // Only bounded, self-contained raster bytes; never SVG, HTML, remote URLs,
+  // signed URLs or arbitrary data URLs. The maker decodes/re-encodes new images.
+  function isSafeRasterPortrait(value) {
+    if (typeof value !== "string" || value.length > 131095) return false;
+    var match = /^data:image\/(jpeg|png);base64,([A-Za-z0-9+/]+={0,2})$/.exec(value);
+    if (!match || match[2].length % 4 !== 0) return false;
+    try {
+      var bytes = global.atob(match[2]);
+      if (bytes.length < 64 || bytes.length > 98304 || global.btoa(bytes) !== match[2]) return false;
+      if (match[1] === "jpeg") {
+        return bytes.slice(0, 3) === "\xff\xd8\xff" && bytes.slice(-2) === "\xff\xd9";
+      }
+      return bytes.slice(0, 8) === "\x89PNG\r\n\x1a\n" &&
+        bytes.slice(-12) === "\x00\x00\x00\x00IEND\xae\x42\x60\x82";
+    } catch (_) { return false; }
+  }
+
+  function isSafeAvatarSource(value) {
+    return isSafeAssetPath(value) || isSafeRasterPortrait(value);
+  }
+
   global.LAIDIESResidentCard = Object.freeze({
     CARD_KEY: CARD_KEY,
     FIELD_NAMES: FIELD_NAMES,
     buildEnvelope: buildEnvelope,
     isSafeAssetPath: isSafeAssetPath,
+    isSafeAvatarSource: isSafeAvatarSource,
+    isSafeRasterPortrait: isSafeRasterPortrait,
     parse: parse,
     read: read,
     readHandle: readHandle,

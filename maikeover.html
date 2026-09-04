@@ -7,8 +7,8 @@
   <meta name="description" content="Make your SUNNYVAiLE Resident Card, save your town profile, and sign in to restore your Card and supported progress across devices.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260903-card-surface-1">
-  <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260904-portrait-restore-1">
+  <script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
@@ -63,7 +63,7 @@
         <p>Your Resident Card is how LAiDIES knows you around town. Once it is connected to your account, your Closet is where your saved things and progress live.</p>
       </div>
       <div class="mo-card-explainer__steps" aria-label="How your Resident Card works">
-        <div><strong>1 · Make it yours</strong><span>Choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
+        <div><strong>1 · Make it yours</strong><span>Create your portrait, then choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
         <div><strong>2 · Open your Closet</strong><span>Sign in to connect the Card to your private account. Your Closet keeps your saved things and progress available across devices.</span></div>
         <div><strong>3 · Update it any time</strong><span>Come back to MAiKEOVER whenever you want a new Card design or want to change your favourites.</span></div>
       </div>
@@ -80,24 +80,25 @@
       <div class="mo-maker-intro">
         <p class="mo-section-kicker">The working vanity</p>
         <h2 id="moMakerTitle">Make your <span>Resident Card.</span></h2>
-        <p>Six steps. Your choices appear on the Card as you go.</p>
+        <p>Seven steps. Your portrait and choices appear on the Card as you go.</p>
       </div>
       <div class="mo-mirror-mount" id="moMirrorMount" aria-label="Your live Resident Card mirror"></div>
     </div>
   </section>
     <nav class="mo-tool-tray" aria-label="Resident Card steps">
-      <button type="button" data-mo-tool="backdrop" aria-pressed="true"><span>1</span> Backdrop</button>
-      <button type="button" data-mo-tool="era" aria-pressed="false"><span>2</span> Era faves</button>
-      <button type="button" data-mo-tool="soundtrack" aria-pressed="false"><span>3</span> Soundtrack</button>
-      <button type="button" data-mo-tool="saint" aria-pressed="false"><span>4</span> Saint</button>
-      <button type="button" data-mo-tool="carrying" aria-pressed="false"><span>5</span> Carrying</button>
-      <button type="button" data-mo-tool="finish" aria-pressed="false"><span>6</span> Finish</button>
+      <button type="button" data-mo-tool="portrait" aria-pressed="true"><span>1</span> Portrait</button>
+      <button type="button" data-mo-tool="backdrop" aria-pressed="false"><span>2</span> Card style</button>
+      <button type="button" data-mo-tool="era" aria-pressed="false"><span>3</span> Era faves</button>
+      <button type="button" data-mo-tool="soundtrack" aria-pressed="false"><span>4</span> Soundtrack</button>
+      <button type="button" data-mo-tool="saint" aria-pressed="false"><span>5</span> Saint</button>
+      <button type="button" data-mo-tool="carrying" aria-pressed="false"><span>6</span> Carrying</button>
+      <button type="button" data-mo-tool="finish" aria-pressed="false"><span>7</span> Finish</button>
     </nav>
     <!-- ===== THE CHAIR: Resident Card customizer ===== -->
     <section id="mo-chair" style="--gold:#f6c04a; margin:8px 0 40px;">
-      <h2 class="mo-drawer-heading">Choose your backdrop</h2>
+      <h2 class="mo-drawer-heading">Create your portrait</h2>
       <p class="mo-drawer-help">Move through each numbered step. Your choices update the Card in the mirror as you go.</p>
-      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Pick the finish for your Card.</p>
+      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Describe yourself or use a photo, then choose your favourite portrait.</p>
 
       <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
 
@@ -128,9 +129,29 @@
           <!-- Avatar -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
-            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The portrait booth is temporarily closed while we finish its safety check.</strong> You can still make and save the rest of your Resident Card.</p>
+            <p>Describe yourself or use a photo, then choose an era, outfit and up to four accessories. We’ll make three portraits for you to choose from.</p>
+            <p id="moPortraitAuth" role="status">Checking portrait sign-in…</p>
+            <a href="/resident-card.html#rcAccountTitle" target="_blank" rel="noopener" id="moPortraitSignIn">Sign in for portraits (opens a new tab)</a>
+            <p class="mo-portrait-note">Portraits need sign-in: two sets of three per account each day. You can style and save the rest of your Card without signing in.</p>
+            <fieldset class="mo-portrait-modes"><legend>Start your portrait</legend>
+              <label><input type="radio" name="moPortraitMode" value="scratch" checked> Describe me</label>
+              <label><input type="radio" name="moPortraitMode" value="photo"> Use my photo</label>
+            </fieldset>
+            <div id="moDescriptionPanel">
+              <label for="moDescribe">What should you look like?</label>
+              <textarea id="moDescribe" maxlength="600" rows="3" placeholder="Your hair, skin tone, glasses and anything else that makes you look like you"></textarea>
+            </div>
+            <div id="moPhotoPanel" hidden>
+              <label for="moPhoto">Your photo (JPG, PNG or WebP; up to 8 MB)</label>
+              <input id="moPhoto" type="file" accept="image/jpeg,image/png,image/webp">
+              <label class="mo-portrait-consent"><input type="checkbox" id="moPhotoConsent">This is my photo, or I have permission to use it. I agree to send it to OpenAI to make these portraits.</label>
+            </div>
+            <details class="mo-portrait-note"><summary>Where your image goes</summary>
+              <p>Your description, choices and optional resized photo go to OpenAI. OpenAI may retain API inputs and outputs in abuse-monitoring logs for up to 30 days, with limited exceptions. <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">OpenAI data controls</a>.</p>
+              <p>LAiDIES does not store your source photo. The three results stay on this page until you leave. Only the portrait you choose is added to your Card; if you connect the Card to your account, that chosen portrait is stored privately with it.</p>
+            </details>
 
-            <div id="moPortraitOptionsHeld" hidden aria-hidden="true">
+            <div id="moPortraitOptions">
             <div class="mo-sub">The Era's Tour — pick one</div>
             <div class="mo-chips" id="moEra"></div>
             <p id="moEraDesc" style="margin:0 0 6px; font-size:12px; color:var(--plum-soft);"></p>
@@ -146,7 +167,10 @@
             <div class="mo-chips" id="moBackdrop"></div>
             </div>
 
-            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Continue to Backdrop when you are ready.</div>
+            <button type="button" id="moMake" class="mo-portrait-action">Make 3 portraits</button>
+            <button type="button" id="moClearPortrait" class="mo-portrait-action secondary">Remove portrait</button>
+            <div id="moCands" class="mo-portrait-candidates" role="group" aria-label="Choose your portrait"></div>
+            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Choose your look, then make your portraits.</div>
           </div>
 
           <!-- Background -->
@@ -610,8 +634,23 @@
     $('moCarrySel').addEventListener('change', renderPreview);
     $('moNameInput').addEventListener('input', renderPreview);
 
-    // The portrait provider, photo intake and candidate renderer are excluded
-    // while the booth is held. Styling and device-local Card save remain.
+    window.LAIDIESPortraitChoices = Object.freeze({
+      extras: function () {
+        var extras = [A_ERA[eraIdx2].p, A_FIT[fitIdx2].p, A_BG[bgIdx2].p];
+        A_ACC.forEach(function (item, index) {
+          if (!accOn2[index]) return;
+          var name = $('moNameNeck').value.trim().replace(/[^a-zA-Z '-]/g, '').slice(0, 30);
+          extras.push(item.name && name ? item.p + ' reading ' + name : item.p);
+        });
+        return extras.filter(Boolean).join(', ');
+      }
+    });
+    window.addEventListener('laidies:portrait-selected', function (event) {
+      var portrait = event.detail && event.detail.image;
+      if (portrait !== '' && !window.LAIDIESResidentCard.isSafeRasterPortrait(portrait)) return;
+      state.avatar = portrait;
+      renderPreview();
+    });
 
     // ---- save ----
     function announceCardSave(message, color) {
@@ -637,7 +676,7 @@
         displayName: $('moNameInput').value.trim(),
         carry: $('moCarrySel').value,
         cardAvatarUrl: window.LAIDIESResidentCard &&
-          window.LAIDIESResidentCard.isSafeAssetPath(state.avatar)
+          window.LAIDIESResidentCard.isSafeAvatarSource(state.avatar)
           ? state.avatar
           : ''
       });
@@ -697,7 +736,7 @@
       else { var defaultIdx=BG_ORDER.indexOf(state.bg), defaultChip=$('moBgChips').children[defaultIdx]; if(defaultChip) { defaultChip.classList.add('on'); defaultChip.setAttribute('aria-pressed','true'); } }
       var av = fields.cardAvatarUrl;
       if (av && window.LAIDIESResidentCard &&
-          window.LAIDIESResidentCard.isSafeAssetPath(av)) {
+          window.LAIDIESResidentCard.isSafeAvatarSource(av)) {
         state.avatar = av;
       }
       if(fields.song) $('moSongSel').value=fields.song;
@@ -1006,8 +1045,11 @@
 
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-    <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
-<script defer src="/content/site/maikeover-v2.js?v=20260903-resident-number-1"></script>
+<script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+<script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
+<script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260904-portrait-restore-1"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260904-portrait-restore-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>

@@ -1740,7 +1740,7 @@
 <footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
 
 <script src="content/site/supabase-config.js"></script>
-<script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
 <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
 <script>
@@ -2582,7 +2582,7 @@
     var persistenceState = document.getElementById('closetPersistenceState');
     // Fast first paint from local cache (feels alive immediately)
     var cached = readCache();
-    if (cached.display_name || cached.favorite_saint || cached.avatar_slug) {
+    if (readCardEnvelope()) {
       renderProfile(cached);
     } else {
       // Coven band hydrates independently — always run so empty slots show correct state
@@ -2666,7 +2666,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/closet-account-bridge-v1.js?v=20260829-continuation-restore-1"></script>
+  <script src="/content/site/closet-account-bridge-v1.js?v=20260904-portrait-restore-1"></script>
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>

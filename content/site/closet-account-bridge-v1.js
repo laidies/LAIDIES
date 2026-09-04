@@ -61,8 +61,21 @@
       }
       var local = runtime.localCard();
       var remoteDocument = state.remote.card.document;
-      if (local.state !== "saved" ||
-          !sameDocument(local.envelope, remoteDocument)) {
+      if (local.state === "saved" && !sameDocument(local.envelope, remoteDocument)) {
+        setPersistence(
+          "This browser has a different saved Card. Your local changes have been kept; the private account copy has not been replaced. ",
+          "local"
+        );
+        var node = document.getElementById("closetPersistenceState");
+        if (node) {
+          var link = document.createElement("a");
+          link.href = "/resident-card.html#rcAccountTitle";
+          link.textContent = "Keep these changes with my account, or restore the account copy →";
+          node.appendChild(link);
+        }
+        return;
+      }
+      if (local.state !== "saved") {
         runtime.writeLocalEnvelope(remoteDocument);
         window.location.reload();
         return;

@@ -24,7 +24,7 @@ const document = {
     };
   }
 };
-const sandbox = { window: { document } };
+const sandbox = { window: { document, atob, btoa } };
 vm.createContext(sandbox);
 vm.runInContext(source, sandbox, {
   filename: "resident-card-contract-v1.js"
@@ -43,7 +43,17 @@ function parse(value) {
 }
 
 const validAsset = "/assets/brand/laidies-logo-square-pearl-512-v1.png";
+const raster = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a6X8AAAAASUVORK5CYII=";
 check(Boolean(contract), "shared contract installs");
+check(contract.isSafeRasterPortrait(raster), "real bounded PNG portrait passes");
+check(Boolean(parse({ version: 1, fields: { cardAvatarUrl: raster } })),
+  "bounded PNG portrait survives the full Card envelope");
+check(!contract.isSafeRasterPortrait(raster.slice(0, -4)), "truncated PNG portrait fails closed");
+check(!contract.isSafeRasterPortrait(raster.replace("image/png", "image/svg+xml")),
+  "raster relabelled as SVG fails closed");
+check(!contract.isSafeRasterPortrait("data:image/png;base64," + "A".repeat(131076)),
+  "oversized portrait fails closed");
+check(!contract.isSafeRasterPortrait(raster + "\n"), "noncanonical portrait base64 fails closed");
 check(Boolean(parse({ version: 1, fields: { displayName: "Ali" } })), "minimal valid envelope passes");
 check(Boolean(parse({
   version: 1,
@@ -67,7 +77,7 @@ const invalidFixtures = [
   ["unknown background", { version: 1, fields: { cardBg: "javascript" } }],
   ["attribute avatar", { version: 1, fields: { cardAvatarUrl: '/assets/x.png" onerror="alert(1)' } }],
   ["javascript avatar", { version: 1, fields: { cardAvatarUrl: "javascript:alert(1)" } }],
-  ["data avatar", { version: 1, fields: { cardAvatarUrl: "data:image/png;base64,AAAA" } }],
+  ["malformed data avatar", { version: 1, fields: { cardAvatarUrl: "data:image/png;base64,AAAA" } }],
   ["external avatar", { version: 1, fields: { cardAvatarUrl: "https://example.com/x.png" } }],
   ["protocol-relative avatar", { version: 1, fields: { cardAvatarUrl: "//example.com/x.png" } }],
   ["traversal avatar", { version: 1, fields: { cardAvatarUrl: "/assets/../x.png" } }],

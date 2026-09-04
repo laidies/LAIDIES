@@ -27,9 +27,9 @@ function inspect(candidate) {
   ];
   for (const phrase of required) if (!candidate.includes(phrase)) failures.push(`missing: ${phrase}`);
   const tools = [...candidate.matchAll(/data-mo-tool="([^"]+)"/g)].map(match => match[1]);
-  if (tools.join(',') !== 'backdrop,era,soundtrack,saint,carrying,finish') failures.push(`step order: ${tools.join(',')}`);
-  if (candidate.includes('data-mo-tool="look"')) failures.push('dead portrait step returned to the visible flow');
-  if (!candidate.includes('Six steps. Your choices appear on the Card as you go.')) failures.push('six-step maker explanation missing');
+  if (tools.join(',') !== 'portrait,backdrop,era,soundtrack,saint,carrying,finish') failures.push(`step order: ${tools.join(',')}`);
+  if (!candidate.includes('Seven steps. Your portrait and choices appear on the Card as you go.')) failures.push('seven-step maker explanation missing');
+  if (!candidate.includes('id="moMake"') || !candidate.includes('maikeover-portraits-v1.js')) failures.push('working portrait creator missing');
   if (candidate.includes('mo-card-placeholder')) failures.push('CSS-era Card placeholder returned');
   if (/type="email"/i.test(candidate)) failures.push('email collection returned');
   if (/lil(?:y|ies)|flower vase|bouquet/i.test(candidate)) failures.push('retired flower motif returned');
@@ -58,11 +58,11 @@ function inspectCss(candidate) {
 
 const failures = inspect(html);
 failures.push(...inspectCss(css));
-if (!html.includes('content/maikeover-v2.css?v=20260903-card-surface-1')) failures.push('Card surface stylesheet cache key missing');
-if (!html.includes('content/site/maikeover-v2.js?v=20260903-resident-number-1')) failures.push('resident-number script cache key missing');
+if (!html.includes('content/maikeover-v2.css?v=20260904-portrait-restore-1')) failures.push('portrait-restoration stylesheet cache key missing');
+if (!html.includes('content/site/maikeover-v2.js?v=20260904-portrait-restore-1')) failures.push('portrait-restoration script cache key missing');
 if (!html.includes('Card saved on this device. Sign in at the Resident Card desk')) failures.push('save handoff copy missing');
 if (!js.includes('Connect your account before you leave if you want your Card and Closet available on another device.')) failures.push('signed-out Card/Closet handoff copy missing');
-if (!js.includes('var toolOrder = ["backdrop", "era", "soundtrack", "saint", "carrying", "finish"]')) failures.push('step behavior order missing');
+if (!js.includes('var toolOrder = ["portrait", "backdrop", "era", "soundtrack", "saint", "carrying", "finish"]')) failures.push('step behavior order missing');
 if (!css.includes('--mo-hot: #f254a9') || !css.includes('--mo-purple: #7137d6') || !css.includes('--mo-teal: #15bce0')) failures.push('current LIBRAiRY masthead palette tokens missing');
 if (html.includes('MAiN Street · SUNNYVAiLE') || html.includes('Come in as a visitor.')) failures.push('masthead still contains supporting copy beyond the building title');
 if (!css.includes('max-height:none; overflow:visible')) failures.push('open drawer is still trapped in a small internal scroller');
@@ -110,9 +110,9 @@ if (!explainerPaletteFailures.some(item => item.includes('current LIBRAiRY expla
     !explainerPaletteFailures.some(item => item.includes('headline can inherit retired global plum'))) {
   failures.push('calibration failed: validator accepted the washed-out inherited explainer palette');
 }
-const deliberatelyBadFlow = html.replace('data-mo-tool="backdrop"', 'data-mo-tool="look"');
-if (!inspect(deliberatelyBadFlow).some(item => item.includes('dead portrait step'))) {
-  failures.push('calibration failed: validator accepted the dead portrait step');
+const deliberatelyBadFlow = html.replace('data-mo-tool="portrait"', 'data-mo-tool="look"');
+if (!inspect(deliberatelyBadFlow).some(item => item.includes('step order'))) {
+  failures.push('calibration failed: validator accepted a missing portrait step');
 }
 
 if (failures.length) {
@@ -122,5 +122,5 @@ if (failures.length) {
 }
 
 console.log('MAiKEOVER redesign contract: PASS');
-console.log('- calibrated against a missing account promise, a split-screen masthead, a CSS-drawn Card shell, a washed-out inherited explainer palette and a dead portrait step');
-console.log('- comic Paulette masthead, physical Resident Card vanity, clear Card/Closet handoff and six visible working steps in normal flow');
+console.log('- calibrated against a missing account promise, a split-screen masthead, a CSS-drawn Card shell, a washed-out inherited explainer palette and a missing portrait step');
+console.log('- comic Paulette masthead, physical Resident Card vanity, clear Card/Closet handoff and seven visible working steps in normal flow');

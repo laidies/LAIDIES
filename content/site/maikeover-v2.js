@@ -2,6 +2,7 @@
   "use strict";
 
   var toolCopy = {
+    portrait: "Describe yourself or use a photo, then choose your favourite portrait.",
     backdrop: "Pick the finish for your Card.",
     soundtrack: "Pick your song.",
     saint: "Pick your Patron Saint.",
@@ -11,19 +12,21 @@
   };
 
   var toolLabels = {
-    backdrop: "Backdrop", soundtrack: "Soundtrack",
+    portrait: "Portrait", backdrop: "Card style", soundtrack: "Soundtrack",
     saint: "Saint", era: "Era faves", carrying: "Carrying", finish: "Finish"
   };
   var toolHeadings = {
-    backdrop: "Choose your backdrop",
+    portrait: "Create your portrait",
+    backdrop: "Choose your Card style",
     soundtrack: "Choose your soundtrack", saint: "Choose your Patron Saint",
     era: "Choose your era faves", carrying: "Choose what you're carrying",
     finish: "Finish your Resident Card"
   };
-  var toolOrder = ["backdrop", "era", "soundtrack", "saint", "carrying", "finish"];
-  var currentTool = "backdrop";
+  var toolOrder = ["portrait", "backdrop", "era", "soundtrack", "saint", "carrying", "finish"];
+  var currentTool = "portrait";
 
   var toolGroups = {
+    portrait: [0],
     backdrop: [1],
     soundtrack: [2],
     saint: [3],
@@ -104,7 +107,7 @@
     var heading = document.querySelector(".mo-drawer-heading");
     var previous = document.getElementById("moPreviousTool");
     var next = document.getElementById("moNextTool");
-    var visible = toolGroups[tool] || toolGroups.backdrop;
+    var visible = toolGroups[tool] || toolGroups.portrait;
     var children;
     var i;
 
@@ -125,8 +128,8 @@
 
     currentTool = tool;
     controls.setAttribute("data-active-tool", tool);
-    if (heading) heading.textContent = toolHeadings[tool] || toolHeadings.backdrop;
-    if (status) status.textContent = toolCopy[tool] || toolCopy.backdrop;
+    if (heading) heading.textContent = toolHeadings[tool] || toolHeadings.portrait;
+    if (status) status.textContent = toolCopy[tool] || toolCopy.portrait;
     var index = toolOrder.indexOf(tool);
     if (previous) {
       previous.disabled = index <= 0;
@@ -169,7 +172,7 @@
         if (save) save.focus();
       }
     });
-    setTool(window.location.hash === "#mo-claim-card" ? "finish" : "backdrop", false);
+    setTool(window.location.hash === "#mo-claim-card" ? "finish" : "portrait", false);
   }
 
   function updateMirrorState() {
