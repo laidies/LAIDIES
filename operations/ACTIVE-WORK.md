@@ -2,12 +2,14 @@
 
 ## 2026-09-04 MAiKEOVER to Closet live Card contract
 
-- **Status:** BUILT / LOCALLY TESTED / COMMIT PENDING / NOT DEPLOYED.
+- **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
 - **Task:** Bind the configurable MAiKEOVER Card to its Closet continuation so
   it behaves as one updateable object rather than two static designs.
 - **Boundary:** Resident Card and Closet design decisions, the Closet number
   state, a focused lifecycle guard, the existing MAiKEOVER Card QA record and
   this task's operations records only.
+- **Source:** local commit `4aaf6f1882009a2c7d5b75e0b4ccc0ca0ffc73fe`
+  on `release/maikeover-20260902`.
 - **Verification:** A real isolated browser journey proved immediate preview,
   save, Closet render, MAiKEOVER restoration and later replacement save for
   background, Era movie, Era TV, soundtrack, Patron Saint, carrying and name.
