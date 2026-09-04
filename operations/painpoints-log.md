@@ -14921,4 +14921,4 @@ while remaining falsely unfinished in the launch record.
 - **Prevention rule:** Every shared article-reader release measures the real paper, headline, hero image and first useful copy at desktop plus the headline/image bounds at 390 and 320 px. The known-bad production dimensions must fail before the guard is trusted.
 - **Durable correction:** The article-only reader is capped at a 900 px paper, 48 px desktop headline and 560 px hero, with a 36 px phone headline. The newspaper front page and article content remain unchanged. The calibrated predecessor fails and the candidate passes desktop, phone, keyboard, archive, service-reader and 200% reflow checks.
 - **Possible Behind the Build angle:** Why “it fits on mobile” did not mean the article was designed for reading—and the simple measurements that now stop giant story pages before release.
-- **Publication status:** LOCAL VERIFIED / PUBLIC RELEASE PENDING.
+- **Publication status:** PUBLICLY VERIFIED at deployment `02773bcb-794b-4fb5-ac60-f986f606eccc`; custom and immutable origins match the exact two-path candidate.

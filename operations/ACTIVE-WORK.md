@@ -2,11 +2,13 @@
 
 ## 2026-09-04 NewsStand article-reader scale correction
 
-- **Status:** BUILDING — LOCAL FIX AND CALIBRATED READER CHECKS PASS; PUBLIC RELEASE PENDING.
+- **Status:** PUBLICLY VERIFIED — EXACT TWO-PATH RELEASE COMPLETE.
 - **Task:** Correct the shared full-article reader after the live Astra story opened with an oversized paper, headline and image.
 - **Bounded change:** `content/newsstand-design.css` caps the opened-story paper, headline and hero image on desktop and phone without changing the newspaper front page, article copy, images or canonical data. `newsstand.html` changes only the stylesheet cache token.
 - **Regression:** `scripts/test-newsstand-reader-browser.mjs` now measures the real rendered story. The released predecessor fails with paper 1120 px, title 64 px, hero 936 x 626 px and first useful copy at 1277 px in a 1000 px viewport. The bounded successor passes the desktop, 390 px, 320 px and 200% reflow checks.
-- **Release boundary:** Overlay only the two public reader files on the freshly confirmed complete production artifact; preserve all story, issue, image, Homepage, Library, FAiRY, Resident, Closet and KSVL bytes.
+- **Production result:** Deployment `02773bcb-794b-4fb5-ac60-f986f606eccc`, source `d29ab9a`, immutable origin `https://02773bcb.laidies-sunnyvaile.pages.dev`. Exact input `/private/tmp/laidies-newsstand-reader-scale-successor.PxBqqc`, manifest suffix `.manifest.json`, 745 files / 786,544,092 bytes, identity `fafd8675eabb38a1c6bba97738b0147a0130d314aed6f6a8c36665dcb06f1257`.
+- **Release boundary:** Exactly `content/newsstand-design.css` and the `newsstand.html` stylesheet cache token changed. The other 743 production files, including all story, issue, image, Homepage, Library, FAiRY, Resident, Closet and KSVL bytes, were preserved.
+- **Public verification:** Fourteen changed/protected visitor paths match the exact candidate at both `laidies.ai` and the immutable origin. The live Astra reader measures 900 px paper, 46.08 px headline and 560 x 375 px hero at the observed 1280 x 720 desktop viewport, with no horizontal overflow. The exact released artifact also passes 390 px, 320 px and 200% reflow checks.
 
 ## 2026-09-04 NewsStand Daily cycle
 
