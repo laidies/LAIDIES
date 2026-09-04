@@ -270,6 +270,25 @@ try {
         article.textContent.includes('What This Means For You') &&
         article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2;
     })()`), true, "current daily story opens directly with reader consequence and source links");
+    const readerScale = await value(currentDaily, `(() => {
+      const paper = document.querySelector('.ns-unfolded-paper').getBoundingClientRect();
+      const title = document.querySelector('#ns-story-title').getBoundingClientRect();
+      const titleStyle = getComputedStyle(document.querySelector('#ns-story-title'));
+      const hero = document.querySelector('.ns-article__hero img').getBoundingClientRect();
+      const firstCopy = document.querySelector('.ns-article__section .ns-article__copy').getBoundingClientRect();
+      return {
+        paperWidth: Math.round(paper.width),
+        titleSize: Math.round(parseFloat(titleStyle.fontSize)),
+        titleHeight: Math.round(title.height),
+        heroWidth: Math.round(hero.width),
+        heroHeight: Math.round(hero.height),
+        firstCopyTop: Math.round(firstCopy.top),
+        viewportHeight: innerHeight,
+        passes: paper.width <= 900 && parseFloat(titleStyle.fontSize) <= 48 &&
+          hero.width <= 640 && hero.height <= 460 && firstCopy.top <= innerHeight - 72
+      };
+    })()`);
+    check(readerScale.passes, true, `daily article has newspaper proportions and useful story text in the opening viewport (${JSON.stringify(readerScale)})`);
     currentDaily.close();
 
     for (const story of ISSUE_DAILY) {
@@ -375,6 +394,20 @@ try {
         await sleep(50);
       }
       check(await value(mobile, "document.activeElement.id"), "ns-story-title", `${width}: focus moves to the actual story heading`);
+      const mobileReaderScale = await value(mobile, `(() => {
+        const paper = document.querySelector('.ns-unfolded-paper').getBoundingClientRect();
+        const title = document.querySelector('#ns-story-title');
+        const hero = document.querySelector('.ns-article__hero img').getBoundingClientRect();
+        return {
+          paperWidth: Math.round(paper.width),
+          titleSize: Math.round(parseFloat(getComputedStyle(title).fontSize)),
+          heroWidth: Math.round(hero.width),
+          viewportWidth: innerWidth,
+          passes: paper.width <= innerWidth && parseFloat(getComputedStyle(title).fontSize) <= 36 &&
+            hero.width <= innerWidth - 36
+        };
+      })()`);
+      check(mobileReaderScale.passes, true, `${width}: article keeps restrained reading proportions (${JSON.stringify(mobileReaderScale)})`);
       mobile.close();
     }
 

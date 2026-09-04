@@ -448,3 +448,57 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* A story is a reading surface, not a full-screen poster. Keep the newspaper
+   front page expansive, but give opened articles a restrained editorial page. */
+.ns-redesign .ns-reader.ns-reader--story {
+  width: 100%;
+}
+
+.ns-redesign .ns-reader--story .ns-unfolded-paper {
+  width: min(100%, 900px);
+  padding: clamp(30px, 3.5vw, 44px) clamp(24px, 5vw, 64px) clamp(64px, 7vw, 88px);
+}
+
+.ns-redesign .ns-reader--story .ns-article__head {
+  max-width: 760px;
+  padding-bottom: clamp(24px, 3vw, 34px);
+}
+
+.ns-redesign .ns-reader--story .ns-article__head h2 {
+  max-width: 21ch;
+  margin-bottom: 16px;
+  font-size: clamp(36px, 3.6vw, 48px);
+  line-height: 1.04;
+}
+
+.ns-redesign .ns-reader--story .ns-article__date {
+  margin-top: 16px;
+}
+
+.ns-redesign .ns-reader--story .ns-article__hero {
+  width: min(100%, 560px);
+  margin: 8px 0 28px;
+}
+
+@media (max-width: 720px) {
+  .ns-redesign .ns-reader--story .ns-unfolded-paper {
+    width: 100%;
+    padding: 26px 18px 64px;
+  }
+
+  .ns-redesign .ns-reader--story .ns-article__head {
+    padding-bottom: 22px;
+  }
+
+  .ns-redesign .ns-reader--story .ns-article__head h2 {
+    max-width: none;
+    margin-bottom: 14px;
+    font-size: clamp(30px, 9vw, 36px);
+    line-height: 1.05;
+  }
+
+  .ns-redesign .ns-reader--story .ns-article__hero {
+    margin-bottom: 26px;
+  }
+}

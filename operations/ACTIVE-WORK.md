@@ -1,5 +1,13 @@
 # Active work
 
+## 2026-09-04 NewsStand article-reader scale correction
+
+- **Status:** BUILDING — LOCAL FIX AND CALIBRATED READER CHECKS PASS; PUBLIC RELEASE PENDING.
+- **Task:** Correct the shared full-article reader after the live Astra story opened with an oversized paper, headline and image.
+- **Bounded change:** `content/newsstand-design.css` caps the opened-story paper, headline and hero image on desktop and phone without changing the newspaper front page, article copy, images or canonical data. `newsstand.html` changes only the stylesheet cache token.
+- **Regression:** `scripts/test-newsstand-reader-browser.mjs` now measures the real rendered story. The released predecessor fails with paper 1120 px, title 64 px, hero 936 x 626 px and first useful copy at 1277 px in a 1000 px viewport. The bounded successor passes the desktop, 390 px, 320 px and 200% reflow checks.
+- **Release boundary:** Overlay only the two public reader files on the freshly confirmed complete production artifact; preserve all story, issue, image, Homepage, Library, FAiRY, Resident, Closet and KSVL bytes.
+
 ## 2026-09-04 NewsStand Daily cycle
 
 - **Status:** PUBLICLY VERIFIED — STORY, ISSUE AND EXACT-ARTIFACT RELEASE COMPLETE.

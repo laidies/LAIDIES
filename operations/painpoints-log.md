@@ -14911,3 +14911,14 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** `scripts/test-newsstand-service-continuity.mjs` now filters fixture stories to `publishedAt <= prior.editionDate`; the test first failed with Astra present and then passed with the bounded historical registry.
 - **Possible Behind the Build angle:** Why a correct new story made yesterday's newspaper test fail—and what that taught us about testing time-dependent systems.
 - **Publication status:** TEST REPAIR INCLUDED WITH PUBLICLY VERIFIED NEWSSTAND RELEASE `160d9309-425d-4cdb-ac19-40a614fe7890`; the test change itself does not alter visitor output.
+
+## BTB-497 — An article reader can be technically responsive and still be absurdly oversized
+
+- **Date:** 2026-09-04
+- **Area:** NewsStand opened-story layout and visual regression testing.
+- **Failure:** The live Astra article used a 1120 px paper, 64 px headline and 936 x 626 px hero image. It did not overflow, so the existing responsive tests passed even though the opened story read like a full-screen poster and pushed useful copy below the first viewport. This was a repeat of a defect Ali had already identified.
+- **Root cause:** The reader checks tested route, focus and horizontal overflow but never measured the proportions of the actual rendered article. A responsive layout was incorrectly treated as a readable layout.
+- **Prevention rule:** Every shared article-reader release measures the real paper, headline, hero image and first useful copy at desktop plus the headline/image bounds at 390 and 320 px. The known-bad production dimensions must fail before the guard is trusted.
+- **Durable correction:** The article-only reader is capped at a 900 px paper, 48 px desktop headline and 560 px hero, with a 36 px phone headline. The newspaper front page and article content remain unchanged. The calibrated predecessor fails and the candidate passes desktop, phone, keyboard, archive, service-reader and 200% reflow checks.
+- **Possible Behind the Build angle:** Why “it fits on mobile” did not mean the article was designed for reading—and the simple measurements that now stop giant story pages before release.
+- **Publication status:** LOCAL VERIFIED / PUBLIC RELEASE PENDING.

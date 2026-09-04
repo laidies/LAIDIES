@@ -281,6 +281,14 @@ Back/Forward restoration, close-return focus, reduced motion, 200% reflow,
 long correction/retraction content and source-link context must pass.
 `APPROVED BRIEF/ARTIFACT`
 
+An opened story is a reading surface, not a second full-screen poster. On
+desktop its paper is capped at 900 px, its headline at 48 px and its lead image
+at 560 px wide; at 320/390 px the headline is capped at 36 px and the image
+stays inside the paper. The desktop opening viewport must reach useful story
+copy rather than being consumed by an oversized headline and hero image. These
+limits apply to the shared story template so new articles cannot silently
+reintroduce the September 4 scale defect. `ALI CORRECTION` `CALIBRATED GUARD`
+
 Headless Chrome evidence is bounded; Safari/VoiceOver or another native
 assistive-technology pass, real 200% zoom and 320 px evidence remain open.
 `CURRENT IMPLEMENTATION OBSERVED`
