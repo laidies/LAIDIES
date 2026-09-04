@@ -32,13 +32,16 @@ export function publishCandidateStory(story, timestamp) {
 }
 export function validateModelReleaseUtility(story) {
   const subject = `${story?.headline || ""} ${(story?.themes || []).join(" ")} ${(story?.tags || []).join(" ")}`;
-  if (!/(?:model capabilities|model release|\b(?:fable|mythos|claude|gpt|gemini|llama|mistral)\b)/i.test(subject)) return [];
+  if (!/(?:model capabilities|model release|tool release|feature release|AI tool|product launch|\b(?:fable|mythos|claude|gpt|gemini|llama|mistral)\b)/i.test(subject)) return [];
   const prose = [story.the_story, story.laidies_read, story.what_this_means].join(" ").replace(/<[^>]+>/g, " ");
   const errors = [];
+  if (!/(?:means|is|sits|model|tool|feature|product).*(?:for|that|which|built|designed)|(?:Astra|Fable|Sol|Terra|Luna|Claude|Gemini|Llama|Mistral).*(?:means|is|sits|model)/is.test(prose)) errors.push("model or tool release does not explain in plain language what the named product is");
   if (!/(?:free|paid|plan|tier|usage credit|additional cost|included)/i.test(prose)) errors.push("model release does not explain who can access it or what access costs");
   if (!/(?:best suited|aimed at|built for|designed.*(?:for|to handle)|use .* when)/i.test(prose)) errors.push("model release does not explain what work it is best suited to");
   if (!/(?:email|summary|brainstorm|spreadsheet|document|research|coding|codebase|contract|report|across several apps)/i.test(prose)) errors.push("model release does not give recognizable human tasks");
   if (!/(?:unnecessary|existing model|cheaper|faster|routine|simple|not .* every)/i.test(prose)) errors.push("model release does not explain when the new model is unnecessary");
+  if (!/(?:compared with|compared to|closest alternative|alternative|where .* differs|difference is|rather than).*(?:Sol|Fable|Claude|GPT|Gemini|Llama|Mistral)|(?:Sol|Fable|Claude|GPT|Gemini|Llama|Mistral).*(?:compared with|compared to|alternative|differs|difference)/is.test(prose)) errors.push("model release does not compare the nearest useful alternative and its task trade-off");
+  if (!/(?:limitation|does not|cannot|may not|not available|phased|rolling out|not a universal|not the sensible default)/i.test(prose)) errors.push("model release does not state a material limitation or rollout boundary");
   if (!/(?:Anthropic says|OpenAI says|Google says|Meta says|vendor|not a promise|LAiDIES)/i.test(prose)) errors.push("model release does not distinguish vendor claims from interpretation");
   return errors;
 }

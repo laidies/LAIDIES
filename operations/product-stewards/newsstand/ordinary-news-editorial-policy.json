@@ -14,17 +14,21 @@
   "ongoingFeedback": "Use real reader or Ali feedback when received; never invent human observations. Human sampling is not a prerequisite for routine news publication.",
   "modelReleaseReaderContract": {
     "status": "REQUIRED",
-    "trigger": "Any story whose subject is a newly released or materially changed AI model.",
+    "trigger": "Any story whose subject is a newly released or materially changed AI model, tool, product or major feature.",
     "requiredAnswers": [
       "Who can actually access it, including whether it is available on a free plan and whether use requires separate credits or additional payment.",
       "What kinds of work it is best suited to, expressed as recognizable human tasks rather than benchmark names.",
+      "What the product name means in plain language and where it sits in the vendor's model range.",
+      "How it differs from the nearest useful alternative, using the same real task rather than a benchmark leaderboard.",
       "When a cheaper, faster or existing model is likely sufficient.",
+      "At least one material limitation, rollout boundary or reason not to choose it.",
       "What the vendor claims versus what LAiDIES is inferring or recommending."
     ],
     "rejectIf": [
       "The article says a model is generally available without explaining plan or tier restrictions.",
       "The article reports token pricing or percentage savings without translating the consequence for a normal subscriber.",
       "The article describes capabilities without giving concrete tasks a reader could accomplish.",
+      "The article names a new model or tool without explaining what it is, where it sits, or how it differs from the nearest alternative.",
       "The article implies that a newly released model is the right choice for all users or all work."
     ]
   }

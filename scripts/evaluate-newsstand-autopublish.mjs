@@ -15,7 +15,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const defaultPolicyPath = path.resolve(scriptDirectory, "../operations/newsstand-autopublish-policy.json");
 const EDITIONS = ["daily", "breaking", "weekly", "tribune"];
 const SOURCE_TYPES = ["primary", "affected_party", "independent", "secondary_analysis"];
-const CANDIDATE_FIELDS = new Set(["id", "slug", "edition", "date", "headline", "scores", "topics", "riskSignals", "sources", "checks", "editorialJob", "briefingItems", "developments", "qualifiedInterrupt", "argumentStructure", "releaseDetailsComplete", "sensationalFramingNeutralized"]);
+const CANDIDATE_FIELDS = new Set(["id", "slug", "edition", "date", "headline", "scores", "topics", "riskSignals", "sources", "checks", "editorialJob", "briefingItems", "developments", "qualifiedInterrupt", "argumentStructure", "releaseDetailsComplete", "releaseReaderFit", "sensationalFramingNeutralized"]);
 const SCORE_FIELDS = ["consequence", "novelty", "readerRelevance", "evidence", "durability", "editorialValue"];
 
 function unique(values) { return [...new Set(values)]; }
@@ -33,6 +33,11 @@ function validIsoDate(value) {
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
 }
 function utcDay(value) { return Math.floor(Date.parse(`${value}T00:00:00Z`) / 86400000); }
+function validReleaseReaderFit(value) {
+  if (!keysClosed(value, new Set(["plainLanguageIdentity", "newCapabilities", "bestFor", "notFor", "nearestAlternatives", "availability", "costBoundary", "limitations"]))) return false;
+  if (!["plainLanguageIdentity", "newCapabilities", "bestFor", "notFor", "availability", "costBoundary", "limitations"].every(key => typeof value[key] === "string" && value[key].trim())) return false;
+  return Array.isArray(value.nearestAlternatives) && value.nearestAlternatives.length > 0 && value.nearestAlternatives.every(item => keysClosed(item, new Set(["name", "taskTradeoff"])) && typeof item.name === "string" && item.name.trim() && typeof item.taskTradeoff === "string" && item.taskTradeoff.trim());
+}
 
 function editionJobErrors(candidate) {
   const errors = [];
@@ -70,6 +75,7 @@ export function evaluateCandidate(candidate, policy) {
   else for (const field of SCORE_FIELDS) if (!Number.isInteger(candidate.scores[field]) || candidate.scores[field] < 0 || candidate.scores[field] > 3) rejectReasons.push(`missing_or_invalid:scores.${field}`);
   if (!Array.isArray(candidate?.topics) || !candidate.topics.every((topic) => typeof topic === "string") || new Set(candidate?.topics || []).size !== (candidate?.topics || []).length) rejectReasons.push("missing_or_invalid:topics");
   if (!Array.isArray(candidate?.riskSignals) || !candidate.riskSignals.every((signal) => typeof signal === "string") || new Set(candidate?.riskSignals || []).size !== (candidate?.riskSignals || []).length) rejectReasons.push("missing_or_invalid:riskSignals");
+  if ((candidate?.topics || []).some(topic => ["model-release", "feature-release", "tool-release"].includes(topic)) && !validReleaseReaderFit(candidate?.releaseReaderFit)) rejectReasons.push("conditional_gate_failed:releaseReaderFit");
 
   for (const [gate, trigger] of Object.entries(policy.conditionalGates || {})) {
     const topicTriggered = (trigger.topics || []).some((topic) => candidate?.topics?.includes(topic));

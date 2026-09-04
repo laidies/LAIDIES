@@ -1161,8 +1161,10 @@
         var currentIssue = value.issues.find(function (issue) { return issue.editionDate === canonicalDate; });
         var canonicalIssue = data.publications && data.publications.daily && data.publications.daily.issue;
         if (canonicalIssue && canonicalIssue.status === "complete" && !currentIssue) throw new Error("daily-current-snapshot-missing");
+        var admittedCorrectionOfCanonical = currentIssue && currentIssue.sourceIdentity && currentIssue.sourceIdentity.storyCorrection &&
+          currentIssue.admission && currentIssue.admission.predecessorEnvelopeSha256 === canonicalIssue.envelopeSha256;
         if (currentIssue && canonicalIssue &&
-            ((canonicalIssue.envelopeSha256 && canonicalIssue.envelopeSha256 !== currentIssue.envelopeSha256) ||
+            ((canonicalIssue.envelopeSha256 && canonicalIssue.envelopeSha256 !== currentIssue.envelopeSha256 && !admittedCorrectionOfCanonical) ||
              currentIssue.storyIds.join("\n") !== (canonicalIssue.storyIds || []).join("\n") ||
              currentIssue.serviceRecordIds.join("\n") !== (canonicalIssue.serviceRecordIds || []).join("\n") ||
              (currentIssue.frontPaigeStoryId || null) !== (canonicalIssue.frontPaigeStoryId || null) ||

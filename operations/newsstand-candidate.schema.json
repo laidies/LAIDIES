@@ -47,6 +47,21 @@
       "additionalProperties": false
     },
     "releaseDetailsComplete": { "type": "boolean" },
+    "releaseReaderFit": {
+      "type": "object",
+      "required": ["plainLanguageIdentity", "newCapabilities", "bestFor", "notFor", "nearestAlternatives", "availability", "costBoundary", "limitations"],
+      "properties": {
+        "plainLanguageIdentity": { "type": "string", "minLength": 1 },
+        "newCapabilities": { "type": "string", "minLength": 1 },
+        "bestFor": { "type": "string", "minLength": 1 },
+        "notFor": { "type": "string", "minLength": 1 },
+        "nearestAlternatives": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["name", "taskTradeoff"], "properties": { "name": { "type": "string", "minLength": 1 }, "taskTradeoff": { "type": "string", "minLength": 1 } }, "additionalProperties": false },
+        "availability": { "type": "string", "minLength": 1 },
+        "costBoundary": { "type": "string", "minLength": 1 },
+        "limitations": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
     "sensationalFramingNeutralized": { "type": "boolean" },
     "scores": {
       "type": "object",
@@ -110,7 +125,7 @@
     { "if": { "properties": { "edition": { "const": "daily" } } }, "then": { "properties": { "editorialJob": { "const": "edited-briefing" }, "briefingItems": { "minItems": 2 } }, "required": ["briefingItems"] } },
     { "if": { "properties": { "edition": { "const": "weekly" } } }, "then": { "properties": { "editorialJob": { "const": "durable-synthesis" }, "developments": { "minItems": 2 } }, "required": ["developments"] } },
     { "if": { "properties": { "edition": { "const": "tribune" } } }, "then": { "properties": { "editorialJob": { "const": "sourced-argument" } }, "required": ["argumentStructure"] } },
-    { "if": { "properties": { "topics": { "contains": { "enum": ["model-release", "feature-release"] } } } }, "then": { "properties": { "releaseDetailsComplete": { "const": true } }, "required": ["releaseDetailsComplete"] } },
+    { "if": { "properties": { "topics": { "contains": { "enum": ["model-release", "feature-release", "tool-release"] } } } }, "then": { "properties": { "releaseDetailsComplete": { "const": true } }, "required": ["releaseDetailsComplete", "releaseReaderFit"] } },
     { "if": { "properties": { "riskSignals": { "contains": { "const": "sensational_or_misleading_claim" } } } }, "then": { "properties": { "sensationalFramingNeutralized": { "const": true } }, "required": ["sensationalFramingNeutralized"] } }
   ],
   "additionalProperties": false

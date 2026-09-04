@@ -171,6 +171,21 @@ marked unapproved. Its synthetic eligibility must never enter a release.
 
 ### Source receipt
 
+### AIDB late-publication cursor
+
+The 07:00 Vancouver run must not ask only whether an AIDB edition has today's
+date. After the official-provider sweep, inventory AIDB's current complete
+editions and run `scripts/select-aidb-edition.mjs` against
+`operations/agents/aidb-intelligence-desk/edition-cursor.json`. Process the
+newest complete edition that has not been processed, even when it was published
+after yesterday's scan, over a weekend, or with an older edition date. Then
+process any older unprocessed edition. Do not mark a missing or incomplete
+edition as processed. Bind completion to edition date, canonical URL, transcript
+SHA-256 and exact item count; a changed transcript hash reopens the edition.
+Update the cursor only after every edition item has a recorded disposition and
+the complete ledger passes. `No edition dated today` is never a quiet-news
+finding by itself.
+
 Research the rolling seven-day window and unresolved candidates against the
 actual published story IDs, not only announcements posted on the issue date.
 "No new AIDB edition today" is not "nothing left worth reporting." Keep the

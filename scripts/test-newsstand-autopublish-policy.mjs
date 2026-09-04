@@ -6,6 +6,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateCandidate, parseCandidateJson } from "./evaluate-newsstand-autopublish.mjs";
 
+const actualDateNow = Date.now;
+Date.now = () => Date.parse("2026-07-29T12:00:00Z");
+
 const directory = path.dirname(fileURLToPath(import.meta.url));
 const operations = path.resolve(directory, "../operations");
 const fixtures = path.join(operations, "test-fixtures/newsstand-autopublish");
@@ -38,9 +41,13 @@ const unearnedBreaking = route({ ...qualified("breaking"), qualifiedInterrupt: u
 assert.ok(unearnedBreaking.rejectReasons.includes("edition_contract_failed:breaking_requires_qualified_interrupt"));
 const hiddenOpinion = route({ ...qualified("tribune"), argumentStructure: { evidence: "e", inference: "i" } }, "REJECT", "Tribune must separately declare position");
 assert.ok(hiddenOpinion.rejectReasons.includes("edition_contract_failed:tribune_requires_evidence_inference_position"));
-const completeModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], releaseDetailsComplete: true }, "HOLD_FOR_INDEPENDENT_REVIEW", "complete model release routes to review");
+const readerFit = { plainLanguageIdentity: "top-tier model", newCapabilities: "multi-app work", bestFor: "long workflows", notFor: "quick summaries", nearestAlternatives: [{ name: "Sol", taskTradeoff: "better for everyday work" }], availability: "paid phased rollout", costBoundary: "API pricing is not subscription cost", limitations: "not a universal winner" };
+const completeModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], releaseDetailsComplete: true, releaseReaderFit: readerFit }, "HOLD_FOR_INDEPENDENT_REVIEW", "complete model release routes to review");
 const incompleteModelRelease = route({ ...qualified("breaking"), topics: ["model-release"] }, "REJECT", "model release requires complete release details");
 assert.ok(incompleteModelRelease.rejectReasons.includes("conditional_gate_failed:releaseDetailsComplete"));
+assert.ok(incompleteModelRelease.rejectReasons.includes("conditional_gate_failed:releaseReaderFit"));
+const checkboxOnlyModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], releaseDetailsComplete: true }, "REJECT", "model release checkbox cannot replace reader-fit evidence");
+assert.ok(checkboxOnlyModelRelease.rejectReasons.includes("conditional_gate_failed:releaseReaderFit"));
 const neutralizedRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"], sensationalFramingNeutralized: true }, "HOLD_FOR_INDEPENDENT_REVIEW", "neutralized sensational claim routes to review");
 const unsafeRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"] }, "REJECT", "sensational claim requires neutralized framing");
 assert.ok(unsafeRealityCheck.rejectReasons.includes("conditional_gate_failed:sensationalFramingNeutralized"));
@@ -91,3 +98,4 @@ assert.equal(
   "policy identity binds the canonical policy object",
 );
 console.log("✓ NEWSSTAND REVIEW ROUTER: four publication jobs · reject/reroute fixtures · no candidate can authorize publication");
+Date.now = actualDateNow;

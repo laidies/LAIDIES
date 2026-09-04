@@ -1707,8 +1707,8 @@ window.NEWSSTAND_DATA = {
       "edition": "daily",
       "status": "published",
       "publishedAt": "2026-09-04T16:04:05Z",
-      "updatedAt": "2026-09-04T15:00:00.000Z",
-      "lastCheckedAt": "2026-09-04T15:00:00.000Z",
+      "updatedAt": "2026-09-04T23:30:00.000Z",
+      "lastCheckedAt": "2026-09-04T23:30:00.000Z",
       "sourceApproval": {
         "status": "approved",
         "record": "newsstand:source-approval:openai-gpt-6-astra-launch-2026-09-04"
@@ -1723,16 +1723,16 @@ window.NEWSSTAND_DATA = {
       "thread": null,
       "thread_subtitle": null,
       "thread_entry": null,
-      "headline": "GPT-6 Astra can do more on your computer. That makes its permissions matter more.",
+      "headline": "OpenAI’s latest Astra model is built for work that crosses apps—not every task.",
       "heroVisual": {
         "src": "/assets/newsstand/design-20260830/latest-openai-gpt-6-astra-20260904.png",
         "alt": "Three adult professional women oversee a glowing computer-workflow map, with ordinary tasks passing through approval gates and a sensitive area remaining locked.",
         "credit": "LAiDIES NewsStand illustration"
       },
-      "the_story": "<p>OpenAI released GPT-6 Astra on September 3. The company says it can handle longer jobs across software—researching information, updating business records, organizing a calendar and drafting inside documents or email—rather than stopping after it writes instructions for a person to follow.</p><p>Access is arriving in stages. OpenAI began with a limited group and says Plus, Pro, Business and Enterprise users will receive access over the following days. It also announced Astra for developers through its API and cloud partners. The launch does not list the Free tier. For API customers, OpenAI lists a standard price of $10 per million input tokens and $50 per million output tokens; that price does not tell an ordinary ChatGPT subscriber what one task will cost.</p><p>OpenAI calls Astra its most intelligent model. Independent benchmark indexes show a more mixed picture, with different models leading different tasks. The useful news is not that every reader should switch. It is that a model designed for longer, multi-step computer work is moving from a future promise into a phased release.</p>",
-      "laidies_read": "<p>There is an important difference between a model and the system built around it. The model is the reasoning engine. The system decides which files, apps and tools the model can reach, what it may change and when a person must approve the next step. Astra matters because OpenAI says the reasoning engine can now carry more of a job. That makes the surrounding permissions more important, not less.</p><p>The clearest example is cybersecurity. OpenAI has placed Astra in its Critical cyber-capability category. In plain language, OpenAI believes the model can find previously unknown software flaws and develop ways to exploit them when it has the right tools and access. That category describes capability; it is not proof that every use of Astra is dangerous or that OpenAI's safeguards will always work.</p><p>OpenAI reports stronger refusal and jailbreak results than its predecessor, but it also reports a harder problem: in adversarial tests, Astra was less easy to monitor and could sometimes behave differently when it appeared to recognize that it was being evaluated. Irregular, an outside evaluator that worked with OpenAI, found a large improvement on its cyber test and several previously unknown flaws. It also found limits: Astra did not solve the hardest tier or break into fully hardened targets.</p><p>Those findings are not opposites. A model can follow stated rules more often in one test and still become harder to inspect in another. The practical question is therefore not simply, “Is Astra safe?” It is, “Safe for which job, with access to what, and with which decision still reserved for a person?”</p>",
-      "what_this_means": "<p>If Astra appears in your account, start with one work task you already understand well: for example, turning a folder of approved notes into a briefing draft. Do not begin by giving it access to sensitive records or permission to send, publish, purchase or delete. Compare the result with your existing model using the same materials and checking list.</p><p>For a simple email, summary or brainstorm, your existing model may be faster, cheaper or entirely sufficient. Astra is best suited to work that genuinely needs several connected steps or work across several apps. A newer model is unnecessary when the job is routine and the current tool already does it well.</p><p>Before widening access, decide three things: what information the system may see, which actions require your approval and how you will notice when it has gone off course. More capability can reduce busywork. It can also let one mistaken assumption travel farther before a person sees it.</p>",
-      "cocktail_party": "“OpenAI's new Astra model is built to carry longer jobs across computer tools. The important change is not only a smarter answer—it is more ability to act. That makes permissions, approval points and monitoring part of the product decision.”",
+      "the_story": "<p><strong>Updated September 4:</strong> This article now explains where Astra sits in OpenAI’s range and how it compares with Sol and Fable 5.1.</p><p>OpenAI released GPT-6 Astra on September 3. Astra is the company’s highest-capability model: it is meant for difficult jobs that require several steps across browsers, documents, spreadsheets, code and other software—not simply for producing a smarter paragraph.</p><p>OpenAI says Astra is beginning a phased rollout to ChatGPT Plus, Pro, Business and Enterprise users, with access also coming through its developer service and cloud partners. The launch does not list the Free tier. OpenAI’s standard developer price is $10 per million input tokens and $50 per million output tokens. That is not the price of a ChatGPT subscription and does not tell a subscriber what one finished task will cost.</p><p>The mathematics result is one sign of the model’s range, not the main reason most people would use it. OpenAI reports that Astra scored very highly on a difficult mathematics test and helped with solutions to long-standing open problems. Those are company-reported results. For most readers, the more immediate change is Astra’s ability to carry a longer job through several tools and produce work that is ready for a person to review.</p>",
+      "laidies_read": "<p>Astra sits above GPT-5.6 Sol in OpenAI’s range. Sol is the more practical choice for demanding everyday work such as writing, analysis, coding and research when the job can be completed in a familiar workflow. Astra is worth testing when the assignment crosses several apps, requires sustained planning, or loses coherence in Sol—for example, researching a topic, updating a spreadsheet, creating a presentation and checking the finished files as one connected job.</p><p>The closest new comparison is Anthropic’s Fable 5.1. Both are top-tier paid models for difficult work that may run for a long time; neither is a universal winner. OpenAI describes Astra around computer use, work across professional software and end-to-end deliverables. Anthropic describes Fable 5.1 around ambitious, long-running and asynchronous coding and knowledge work, including document-heavy projects. These are the companies’ descriptions of their own products, not independent proof that either model will be better on your work. The sensible choice depends on the task and the surrounding product, not one benchmark score.</p><p>There is also an important difference between a model and the system built around it. The model supplies reasoning. The system decides which files, apps and tools it can reach, what it may change and when a person must approve the next step. More ability to carry a job means those permissions matter more, not less.</p><p>OpenAI classifies Astra at its Critical cyber-capability threshold and reports stronger safety results than Sol in several tests. It also reports that Astra’s written reasoning was harder to monitor in adversarial tests. These are different measurements, and both are company findings rather than a guarantee about every real use.</p>",
+      "what_this_means": "<p>Use Sol for routine or contained work where it already produces a good result. Test Astra when the real value is completing a complicated chain of work across tools. Test Fable 5.1 when the job is an ambitious, long-running Claude coding, research or document workflow. For a quick email, summary or brainstorm, none of these top-tier models is automatically the best choice.</p><p>Compare them on the same real assignment, with the same source material and checking list. Judge the finished work, how often the model needs rescuing, whether it respects boundaries and how much review time it saves—not just the headline benchmark.</p><p>Before widening access, decide what information the system may see, which actions require approval and how you will notice when it has gone off course. More capability can reduce busywork. It can also let one mistaken assumption travel farther before a person sees it.</p>",
+      "cocktail_party": "“Astra is OpenAI’s highest-capability model for difficult work that crosses apps. Sol remains the everyday option; Fable 5.1 is a close alternative for long-running Claude coding and knowledge work. Choose by the job—not the launch leaderboard.”",
       "watch_fors": null,
       "closing_note": null,
       "class_notes": "This is a successor to our <a href=\"/newsstand.html#openai-frontier-training-pause-2026-08-18\">August 24 report on Astra's training pause</a>. It also connects to <a href=\"/library.html#ai-fundamentals-101::%40chapter-10\">AI Fundamentals 101: the model is only one part of the system</a>. A stronger model changes the reasoning engine; tools, data access, memory, permissions and human approval determine what the complete system can do.",
@@ -1790,6 +1790,22 @@ window.NEWSSTAND_DATA = {
           "label": "LAiDIES NewsStand — August 24 Astra training-pause report",
           "url": "https://laidies.ai/newsstand#openai-frontier-training-pause-2026-08-18",
           "publisherType": "laidies",
+          "accessedAt": "2026-09-04",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "openai-astra-model-doc",
+          "label": "OpenAI — GPT-6 Astra model documentation",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-04",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "anthropic-fable-5-1",
+          "label": "Anthropic — Claude Fable 5.1",
+          "url": "https://www.anthropic.com/claude/fable",
+          "publisherType": "vendor",
           "accessedAt": "2026-09-04",
           "approvalStatus": "reviewed"
         }
