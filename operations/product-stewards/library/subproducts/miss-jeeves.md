@@ -100,9 +100,15 @@ destination supports it.
 - Current external guidance is routed over a private Cloudflare service binding
   to the existing FAiRY Worker, which already holds the LAiDIES OpenAI API
   secret. A dedicated internal `/guidance` handler uses OpenAI Responses with
-  bounded web search, `store:false`, the maintained trusted-domain set and a
-  citation-required response gate. Miss Jeeves and FAiRY keep separate prompts,
-  behavior and rate-limit keys; the secret never enters Pages or the browser.
+  bounded web search, `store:false`, the maintained trusted-resource bank plus
+  standing first-party/public-interest authorities, and a citation-required
+  response gate. The runtime bank is projected from the governed practitioner
+  source roster: official sources may support factual claims; practitioner
+  sources must be attributed; scout-only sources such as AIDB cannot directly
+  support an answer. Stale bank records disappear automatically, an entirely
+  stale bank fails closed, and returned citation hosts are checked again before
+  an answer is accepted. Miss Jeeves and FAiRY keep separate prompts, behavior
+  and rate-limit keys; the secret never enters Pages or the browser.
 - `scripts/test-miss-jeeves-worker.mjs` passes the static-forward,
   rendered-book, arbitrary-retrieval, retired-route, grounded-AI, unavailable,
   privacy-safe aggregate signal, controlled-gap-topic and raw-query-leak

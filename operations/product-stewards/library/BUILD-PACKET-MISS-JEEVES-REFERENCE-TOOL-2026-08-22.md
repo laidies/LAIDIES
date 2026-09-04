@@ -14,6 +14,14 @@ practice or guidance in addition to what LAiDIES already publishes. The
 successor therefore keeps admitted LAiDIES routes visibly separate and adds a
 bounded live-source answer from a maintained trusted-source domain set that
 prioritizes official and primary sources.
+The governed practitioner source roster is the source-bank input, not a blanket
+endorsement: official authorities are eligible for direct factual support;
+named practitioners are eligible only with attribution; secondary scouts are
+used to find originals and are not eligible citations. A bounded standing set
+of first-party provider, standards, regulator and independent-reporting domains
+supports questions that fall outside the curated bank. Every runtime bank item
+retains its review and expiry date, and the service fails closed if the bank is
+wholly stale or if the returned citations fall outside the approved domains.
 The current answer requires clickable citations and a checked date. Request
 storage is disabled for that OpenAI Responses call; an uncited response fails
 closed. Pages reaches the existing FAiRY Worker through a private Cloudflare
