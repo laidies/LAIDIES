@@ -35,6 +35,64 @@
 
 final result: passed
 
+## Chick Flicks Listen hidden-caption correction — 2026-09-04
+
+**Source visual truth**
+
+- Ali's rejected double-box screenshot:
+  `operations/design-qa/chick-flicks-caption-state-20260904/source-rejected-double-caption.png`
+  (2146 × 666 pixels).
+
+**Rendered implementation**
+
+- Local route:
+  `http://127.0.0.1:4174/watch.html?ep=04&mode=listen&v=20260904-caption-fix`.
+- Durable same-input comparison:
+  `operations/design-qa/chick-flicks-caption-state-20260904/comparison.html`.
+- Browser-rendered comparison capture: 1280 × 720 CSS viewport and output,
+  density 1, Episode 04 Listen mode, player scrolled to the caption/transport.
+  The in-app browser emitted the screenshot in the task; it did not expose a
+  separate local image path.
+
+**Findings and comparison history**
+
+1. **P1 fixed — the hidden Watch caption bar rendered as an empty second mint
+   panel in Listen.** The source has one populated caption panel and one empty
+   duplicate. The corrected browser render has one populated panel only.
+2. Cause: the later `.screening-room-page .cap-bar { display:grid; }` declaration
+   had equal specificity to the inline `.cap-bar[hidden]` rule and won the final
+   cascade.
+3. Fix: `.screening-room-page .cap-bar[hidden] { display:none; }` now follows the
+   authored display rule. Browser computation reports two authored bars, one
+   visible bar, and the hidden bar at `display:none` with zero height.
+
+**Fidelity surfaces**
+
+- **Typography:** unchanged; the populated announcer label and caption retain
+  the approved Jost hierarchy.
+- **Spacing/layout rhythm:** the unwanted 88px panel and its surrounding gap are
+  removed. The active caption, transport and resume panel retain their positions.
+- **Colours/tokens:** unchanged; the active mint panel, ink type and pink offset
+  edge still use the shared LAiDIES tokens.
+- **Image quality/assets:** unchanged; the exact approved Episode 04 VHS cover
+  remains in the player. No image substitution was made.
+- **Copy/content:** unchanged; the active caption remains populated and no public
+  copy was added or removed.
+
+**Functional evidence**
+
+- Play Audio advanced from 0:00 to 0:01, changed its label to Pause Audio and
+  kept exactly one live caption panel.
+- The 1280px browser viewport reported zero horizontal overflow.
+- The caption rule is outside responsive media queries, so it applies unchanged
+  to the previously verified 390px layout. A calibrated contract run deletes the
+  rule in memory and fails before the normal passing run.
+- Focused comparison was sufficient because the requested change affects only
+  the caption/player region; masthead, shelf, extras and footer were not changed.
+- Local verification only; no deployment or public-origin claim.
+
+final result: passed
+
 ## Chick Flicks Listen colour correction — 2026-09-02
 
 **Source visual truth**

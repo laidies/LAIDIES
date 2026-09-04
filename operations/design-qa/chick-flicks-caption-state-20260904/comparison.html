@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caption-state comparison</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #050817; color: #fff8ff; font: 700 16px/1.3 system-ui, sans-serif; }
+      main { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; }
+      figure { margin: 0; min-width: 0; }
+      figcaption { padding: 0 0 8px; }
+      img, iframe { display: block; width: 100%; border: 0; background: #fff; }
+      img { height: auto; }
+      iframe { height: 620px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <figure>
+        <figcaption>Reference — duplicate empty caption box</figcaption>
+        <img src="source-rejected-double-caption.png" alt="Rejected Listen player with two mint caption boxes">
+      </figure>
+      <figure>
+        <figcaption>Implementation — one active caption box</figcaption>
+        <iframe id="implementation" src="/watch.html?ep=04&amp;mode=listen&amp;v=20260904-caption-fix" title="Corrected Listen player"></iframe>
+      </figure>
+    </main>
+    <script>
+      document.querySelector('#implementation').addEventListener('load', (event) => {
+        const frame = event.currentTarget;
+        const caption = frame.contentDocument.querySelector('.cap-bar:not([hidden])');
+        caption?.scrollIntoView({ block: 'center' });
+      });
+    </script>
+  </body>
+</html>

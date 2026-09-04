@@ -2,9 +2,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const bad = process.argv.includes('--calibration-bad');
+const hiddenCaptionBad = process.argv.includes('--calibration-hidden-caption-bad');
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
-const watchCss = read('content/watch-v2.css');
+const watchCssSource = read('content/watch-v2.css');
+const watchCss = hiddenCaptionBad
+  ? watchCssSource.replace(/\.screening-room-page \.cap-bar\[hidden\]\s*\{\s*display:\s*none;\s*\}/, '')
+  : watchCssSource;
 const visualSystemCss = read('content/site/laidies-visual-system.css');
 const formatCss = read('content/episode-format-navigation.css');
 const issueJs = read('content/issue-feature-v2.js');
@@ -71,6 +75,7 @@ assert.doesNotMatch(watchCss, /\.screening-extras\s*\{[^}]*background:\s*var\(--
 assert.doesNotMatch(watchCss, /\.screening-extras__links a\s*\{[^}]*#4b2148/s);
 assert.doesNotMatch(watchCss, /\.screening-extras(?:__heading|__links|__note)[^{]*\{[^}]*\n\s*color:\s*(?:var\(--screen-paper\)|#fff)/s);
 assert.match(watchCss, /\.screening-room-page \.player-status p\s*\{/);
+assert.match(watchCss, /\.screening-room-page \.cap-bar\[hidden\]\s*\{\s*display:\s*none/);
 assert.doesNotMatch(watchCss, /\.screening-departures\s*\{/);
 
 console.log('CHICK FLICKS FORMAT SHELL PASS');

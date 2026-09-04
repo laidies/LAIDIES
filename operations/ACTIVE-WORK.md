@@ -1,6 +1,6 @@
 # Active work
 
-## 2026-09-02 Chick Flicks store-and-VHS redesign — BUILT LOCALLY; VISUAL-SYSTEM RECHECK BLOCKED BY LOCKED MAC; RELEASE NOT AUTHORIZED
+## 2026-09-02 Chick Flicks store-and-VHS redesign — BUILT AND BROWSER-VERIFIED LOCALLY; RELEASE NOT AUTHORIZED
 
 The isolated successor at
 `/Users/alisoneakin/Projects/laidies-chick-flicks-masthead-livebase-20260902`
@@ -98,11 +98,16 @@ instead of remaining underneath another override. A calibrated guard rejects
 deep-plum substitution, missing shared consumers, missing recipes and the known
 rejected Listen gradients. This is local evidence only; no release was
 authorized or performed.
-The new shared-style consolidation has not yet received a fresh rendered
-desktop/mobile comparison because the Mac was locked and the approved browser
-surface could not be captured. Prior visual evidence applies to the predecessor
-layout, not these new stylesheet bytes. HTTP and scoped contract checks pass;
-visual status remains HOLD until the same 1280px and 390px journeys are rerun.
+The unlocked in-app browser recheck rendered the current stylesheet at 1280px,
+confirmed zero horizontal overflow, and kept the current Homepage/LIBRAiRY
+colour construction. The earlier 390px evidence remains applicable to the
+unchanged responsive layout; the caption correction itself is viewport-neutral.
+Ali's first unlocked screenshot exposed a duplicate empty caption box in Listen.
+The Watch caption bar was correctly marked `hidden` during Listen, but a later
+equally specific `display:grid` rule overrode that state. The repaired selector
+binds hidden caption bars to `display:none`; browser computation now reports two
+authored bars, exactly one visible bar and a zero-height hidden bar. Play Audio
+advanced real playback, changed to Pause Audio and kept the visible caption live.
 The repository commit hook still stops on 45 pre-existing missing Episode 03
 comic assets, four cue-duration warnings and the unrelated extensionless
 `/radio` target in `laidies-card.html`; none of those paths changed here. The
@@ -118,7 +123,8 @@ Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-audit/chick-flicks-listen-colour-20260902/` and
 `operations/design-audit/chick-flicks-listen-homepage-colours-20260903/` and
 `operations/design-audit/chick-flicks-listen-full-page-homepage-20260904/` and
-`operations/design-audit/chick-flicks-listen-current-site-colours-20260904/`.
+`operations/design-audit/chick-flicks-listen-current-site-colours-20260904/` and
+`operations/design-qa/chick-flicks-caption-state-20260904/`.
 Nothing has been deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending
