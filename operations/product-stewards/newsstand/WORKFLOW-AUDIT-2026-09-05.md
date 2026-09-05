@@ -2,6 +2,8 @@
 
 Date: September 5, 2026, America/Vancouver. Tier 2 internal audit.
 
+Implementation update: the recovery scheduling repair described at the end is now VERIFIED LOCALLY. All other audit findings remain a baseline or proposed work unless explicitly updated there. The running automation and public newspaper have not adopted this local patch.
+
 **Verdict: ADAPT.** Keep the existing newspaper, seven story types, ordinary-news autonomy, exact-content review, source controls, original dates and scoped publication process. Repair the parts that mistake a complete record for a useful article, broaden discovery, and give Weekly and the service desks a dependable production cycle. More features will increase the maintenance burden unless those foundations work.
 
 Ali's reader promise and new feature directions are recorded in [NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md](NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md). Those are DECIDED purpose or explicitly CAPTURED directions. The implementation changes, names, cadences and experiments below are PROPOSED. This task changes internal records only; it does not implement, publish or deploy them.
@@ -208,10 +210,32 @@ Suggested evaluation window: two weekly cycles, including two Wednesdays, with p
 
 Ali retains mission, taste, editorial positions, meaningful authority changes and the existing exact-version Big Picture decision. Ordinary news continues under the authority already granted, with independent factual/editorial assessment. This audit does not seek a new daily sign-off requirement.
 
-## Delivery boundary
+## Original audit delivery boundary
 
 Internal files added or updated: this audit, the editorial promise, the decision router, ACTIVE-WORK and one consolidated painpoints entry. No production story, canonical newspaper data, service entry, game, media, website code, automation configuration or public deployment was changed. No memories were written. The iCloud checkout's existing dirty work was preserved.
 
 Implementation remains outstanding in the existing `DAILY-MANUAL-RUNBOOK.md`, `story-type-modules.json`, `ordinary-news-editorial-policy.json`, recovery policy/helpers, prose ratchet contract, source roster/cursor, service-bank preparation and reader/publication routes. Their current behavior is not silently superseded by this recommendations document. The new editorial-purpose route records Ali's ruling; translating it into those mechanisms is the work ordered above.
 
 The audit is a completed internal work product once these exact paths are committed. All workflow repairs and feature production remain PROPOSED; the live newspaper has not been certified against the complete new promise.
+
+## Implementation sequence and first repair — September 5
+
+**Visitor problem:** useful reporting and columns can stall behind a story with no new evidence. **Smallest first change:** separate due source checks and future evidence waits from the production candidate, retain held work visibly, and reject malformed scheduling rather than silently report quiet. This implements an existing recovery-policy requirement, not new publication authority.
+
+Foreground-owned implementation paths are `scripts/advance-newsstand-story-recovery.mjs`, `scripts/test-newsstand-story-recovery.mjs` and the current runbook. The existing audit/promise route, ACTIVE-WORK and consolidated BTB-500 entry carry scope and continuity. No public prose, website layout, canonical publication data or scheduler configuration is owned by this first repair.
+
+**Verification:** the new future-evidence fixture failed against the incumbent with actual `ACTIVE_RECOVERY_MUST_CONTINUE`, expected `EVIDENCE_WAIT`. The corrected suite passes due/equal-time/future/offset-time/new-evidence/legacy/malformed cases, keeps waits non-quiet, and preserves review/terminal transitions. The command against the actual preserved September 5 queue still returns `NO_ACTIVE_RECOVERY` because its only story is already terminal. A separate Terra reviewer inspected the actual patch and reran the suite, finding no blocking defect within this scope. This is local component evidence, not proof that the automation consumes the new outputs or that publication receipts are valid.
+
+The runbook now requires recurring service-desk assessment and follow-through instead of calling it optional. Executable due-service tracking and actual replenishment remain outstanding. A contradictory preliminary suggestion to create a new service-only envelope was rejected: `compose-daily-edition.mjs:139` and `promote-daily-edition.mjs:109,218–219` already implement `SERVICE_READY`; `test-prepare-newsstand-service-bank.mjs` already contains candidate/expiry/reuse/source checks. Reuse that path and prove the complete journey rather than introduce another publisher.
+
+**Order of delivery from here:**
+
+1. **Reliable orchestration:** integrate the reviewed local recovery change through the existing automation's versioned inputs; add accountable intake-to-desk dispositions and due-service scheduling; repair stale bank evidence through the real review path; report desk HOLD separately from process success. Exercise a held headline alongside a ready service update. Bind publication completion to the actual admitted issue and public artifact before trusting that tracker label.
+2. **Reliable reporting:** close the independent-source coverage gaps, normalize story-topic bindings, and bind material reporting answers to the exact article. Reconcile the zero-defect ratchet policy rather than silently weakening it. Review the headline and prose, source claims and understanding separately from form completeness.
+3. **Representative publication pilot:** source and review a useful Daily story, a standalone Weekly and a fresh eligible item for Corner Office, Paige and Concept. Test a separate quiet-news/service-only case. Inspect the complete card-to-reader, learning links, archive and catch-up paths on desktop/mobile, plus failure and retained-incumbent states. Keep original dates. Publication uses the existing admissions, current complete production artifact and verified custom/immutable origins.
+4. **Small feature pilot:** one Patron Saint, one MAiVEN and one TRAiLBLAZER treatment, followed by one accessible learning interaction. Bind the Saint's actual message/song/card and each real woman's contribution/current source/media availability. Qualitative voice and teaching review precede public use. Stage these sequentially in existing slots to avoid a speculative page rebuild.
+5. **Operational proving period:** observe two weekly cycles, including two Wednesdays, with a small consented reader sample. Monitor missed due work, independent headline coverage, correction time, stale tips, repeated defects and reader understanding. Fix recurrent causes; notify Ali only on a meaningful exception under existing preferences. This task has not started a new schedule or enrolled readers.
+
+**Prevention is a release condition:** before a stage is called working, demonstrate that it rejects or handles the realistic bad case: unprocessed intake, all-candidate bank, expired advice, missing clinical comparator, misleading title, unrelated learning link, stale Weekly, false 'published' receipt, unchanged evidence hold, dead media link or a candidate visible as public. Use mechanical tests for deterministic failures and artifact-first independent judgment for meaning, voice and fidelity. Genuine human learning observations must remain distinct from model simulations.
+
+Ali's role is limited to the existing consequential decisions: mission/taste choices, exact-version Big Picture approval and any substantive authority/policy change. Routine source checks, drafting, fixes, testing and ordinary-news publishing do not require a new daily approval burden. No dates for completion are promised before the representative pilot reveals actual throughput. Each stage ends with an exact scoped result, not a blanket 'NewsStand works' claim.

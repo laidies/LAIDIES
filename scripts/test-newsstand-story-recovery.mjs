@@ -20,11 +20,49 @@ const evidence = advanceStoryRecovery(base, review({ defects: [{ id: "missing-pr
 assert.equal(evidence.status, "EVIDENCE_BLOCKED");
 assert.equal(evidence.active, true);
 assert.equal(evidence.nextAction, "RECHECK_EXACT_SOURCES_NEXT_CYCLE");
+const heldAgain = advanceStoryRecovery({ ...base, newEvidenceAvailable: true, nextCheckAt: "2026-12-01T14:00:00Z" }, review({ defects: [{ id: "still-missing-source", description: "The new document still does not support the claim.", repairability: "EVIDENCE_REQUIRED" }] }));
+assert.equal(heldAgain.newEvidenceAvailable, false, "a fresh evidence hold clears the consumed signal");
+assert.equal(heldAgain.nextCheckAt, undefined, "a fresh evidence hold cannot inherit an obsolete defer date");
 
 const selected = selectNextRecovery({ schema: "laidies.newsstand-story-recovery-queue.v1", items: [{ ...evidence, consequencePriority: 3, firstSeenAt: "2026-09-03T07:00:00-07:00" }, { ...repeated, candidateId: "older-repair", consequencePriority: 2, firstSeenAt: "2026-09-02T07:00:00-07:00" }] });
 assert.equal(selected.status, "ACTIVE_RECOVERY_MUST_CONTINUE");
 assert.equal(selected.quietAllowed, false);
 assert.equal(selected.candidate.candidateId, "older-repair");
+
+const clock = "2026-09-05T14:00:00Z";
+const waiting = { ...evidence, candidateId: "waiting-for-paper", newEvidenceAvailable: false, nextCheckAt: "2026-09-06T14:00:00Z" };
+const queue = items => ({ schema: "laidies.newsstand-story-recovery-queue.v1", items });
+const futureOnly = selectNextRecovery(queue([waiting]), { now: clock });
+assert.equal(futureOnly.status, "EVIDENCE_WAIT", "not-yet-due evidence cannot claim the production slot");
+assert.equal(futureOnly.candidate, null);
+assert.equal(futureOnly.quietAllowed, false, "waiting is still HOLD, not quiet");
+assert.equal(futureOnly.activeCount, 1);
+assert.deepEqual(futureOnly.evidenceRechecks, []);
+assert.equal(futureOnly.nextEvidenceCheckAt, waiting.nextCheckAt);
+assert.equal(selectNextRecovery(queue([waiting, repair]), { now: clock }).candidate.candidateId, repair.candidateId, "waiting evidence must not displace an actionable repair");
+const due = selectNextRecovery(queue([waiting]), { now: waiting.nextCheckAt });
+assert.equal(due.status, "EVIDENCE_RECHECK_DUE");
+assert.equal(due.candidate, null, "a source recheck does not yet justify redrafting");
+assert.deepEqual(due.evidenceRechecks.map(item => item.candidateId), [waiting.candidateId]);
+assert.equal(due.quietAllowed, false);
+const newlyAvailable = selectNextRecovery(queue([{ ...waiting, newEvidenceAvailable: true }]), { now: clock });
+assert.equal(newlyAvailable.status, "ACTIVE_RECOVERY_MUST_CONTINUE");
+assert.equal(newlyAvailable.candidate.candidateId, waiting.candidateId, "new evidence makes the story actionable before its scheduled check");
+const legacy = { ...evidence }; delete legacy.nextCheckAt; delete legacy.newEvidenceAvailable;
+assert.equal(selectNextRecovery(queue([legacy]), { now: clock }).status, "EVIDENCE_RECHECK_DUE", "legacy holds require a source check, never silent deferral");
+const dueAlongsideRepair = selectNextRecovery(queue([legacy, repair]), { now: clock });
+assert.equal(dueAlongsideRepair.candidate.candidateId, repair.candidateId);
+assert.equal(dueAlongsideRepair.evidenceRechecks.length, 1, "due evidence checks stay visible while another story progresses");
+assert.throws(() => selectNextRecovery(queue([waiting]), { now: "not a date" }), /invalid recovery selection time/);
+assert.throws(() => selectNextRecovery(queue([{ ...waiting, nextCheckAt: "not a date" }]), { now: clock }), /invalid evidence nextCheckAt/);
+for (const nextCheckAt of ["2026-02-30T14:00:00Z", "2026-09-06T24:00:00Z", "2026-09-06T14:00:00", "2026-09-06", null]) {
+  assert.throws(() => selectNextRecovery(queue([{ ...waiting, nextCheckAt }]), { now: clock }), /invalid evidence nextCheckAt/);
+}
+assert.equal(selectNextRecovery(queue([waiting]), { now: "2026-09-06T07:00:00-07:00" }).status, "EVIDENCE_RECHECK_DUE", "offset timestamps compare as instants");
+assert.throws(() => selectNextRecovery(queue([{ ...waiting, newEvidenceAvailable: "false" }]), { now: clock }), /newEvidenceAvailable must be boolean/);
+assert.throws(() => selectNextRecovery(queue([{ ...waiting, active: "true" }]), { now: clock }), /active must be boolean/);
+assert.throws(() => selectNextRecovery(queue([{ ...waiting, status: "TYPO_STATUS" }]), { now: clock }), /unknown active recovery status/, "an unrecognized active state must not become quiet");
+assert.equal(waiting.nextCheckAt, "2026-09-06T14:00:00Z", "selection does not mutate the queue");
 
 const passed = advanceStoryRecovery({ ...base, artifactSha256: hash("d") }, review({ artifactSha256: hash("d"), verdict: "PASS", defects: [] }));
 assert.equal(passed.status, "READY_FOR_ADMISSION");
@@ -43,4 +81,4 @@ assert.throws(() => advanceStoryRecovery(repair, review({ reviewerPrincipal: "in
 assert.throws(() => completePublication(passed, { schema: "laidies.newsstand-publication-verification.v1" }), /deployment id/);
 assert.deepEqual(selectNextRecovery({ schema: "laidies.newsstand-story-recovery-queue.v1", items: [published, rejected] }), { status: "NO_ACTIVE_RECOVERY", quietAllowed: true, candidate: null, activeCount: 0 });
 
-console.log("NEWSSTAND STORY RECOVERY PASS repair=1 repeated_system_repair=1 evidence_persists=1 queue_preempts_quiet=1 exact_pass_to_publication=1 terminal_record=1 stale_or_self_review_rejected=1");
+console.log("NEWSSTAND STORY RECOVERY PASS repair=1 repeated_system_repair=1 evidence_persists=1 queue_preempts_quiet=1 due_evidence_separate_from_production=1 waiting_never_quiet=1 new_evidence_resumes=1 malformed_schedule_rejected=1 publication_state_transition=1 terminal_record=1 stale_or_self_review_rejected=1");

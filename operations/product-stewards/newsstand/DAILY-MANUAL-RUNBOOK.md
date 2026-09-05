@@ -95,10 +95,18 @@ service change still uses the strict command without this flag and must pass.
 After the official-index sweep, take the highest-consequence unreported story
 that has enough recoverable evidence through its complete private candidate,
 claim map, producer review and maker-independent editorial review before doing
-optional service rotation or exhaustive secondary-source commentary. A
+routine service replacement production or exhaustive secondary-source commentary. A
 mandatory new provider release takes this slot unless a harder public-interest
 story outranks it. Limit work in progress to one primary story until it passes
 or reaches a specific evidence hold; then take the next candidate.
+
+Service-desk assessment is mandatory each cycle: check Paige, Corner Office,
+Concept and the other governed desks for current eligibility, due work and
+unresolved intake. Reserve bounded time for due service work after the primary
+story reaches admission or a named hold; do not repeatedly leave it as an
+optional bank check. A quiet news day can still publish an admitted service
+update through `SERVICE_READY` below. A held service stays explicit and cannot
+become a successful freshness result merely because ordinary news continued.
 
 A held story remains in the next cycle's carryover queue until it is published,
 merged into a named existing story, rejected with a durable reason, or becomes
@@ -261,8 +269,28 @@ the repaired exact artifact, with the prior defects retained as regression
 checks.
 
 An evidence gap becomes `EVIDENCE_BLOCKED`, remains active and is rechecked on
-later cycles. It is not a quiet result, but without new evidence it does not
-monopolize the primary-story slot or stop another eligible story publishing.
+later cycles. Selection returns due source checks in `evidenceRechecks`,
+separately from the primary production `candidate`, even when another repair
+is actionable. `EVIDENCE_RECHECK_DUE` means check those exact sources; it does
+not yet authorize another drafting/review cycle. `EVIDENCE_WAIT` means all
+remaining evidence checks are scheduled for later. Both retain
+`quietAllowed:false` and `candidate:null` when no production repair is ready;
+continue other eligible stories and due columns rather than occupying the
+primary slot with an unchanged evidence gap.
+
+After a source check, preserve the actual result and set `nextCheckAt` to an
+ISO timestamp with timezone and a justified next check. Set
+`newEvidenceAvailable:true` only with a recorded material source change; it
+makes recovery actionable even before the scheduled recheck. This signal is
+not factual admission: update the exact source/artifact package and complete
+the existing reviews before publication. A fresh evidence-required review
+clears the consumed signal and obsolete schedule. Older holds with no schedule
+are due for a source check, not silently deferred. Invalid schedules, active
+flags or unknown active states fail instead of becoming quiet. The selector
+is read-only; the cycle must persist the actual source check separately.
+
+This is not a quiet result, and without new evidence it does not monopolize
+the primary-story slot or stop another eligible story publishing.
 There is no attempt limit that silently drops a repairable story. A story
 leaves active recovery only after exact
 public verification or an independently supported durable terminal disposition:

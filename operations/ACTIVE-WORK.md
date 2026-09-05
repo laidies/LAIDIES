@@ -1,5 +1,15 @@
 # Active work
 
+## 2026-09-05 NewsStand implementation: recovery scheduling
+
+- **Status:** VERIFIED LOCALLY — bounded scheduling repair; overall NewsStand implementation remains BUILDING.
+- **Trigger:** Ali asked how to implement the full editorial promise and prevent the most likely failures. The reproduced first failure was an evidence-held story claiming production before its next source check.
+- **Change:** Recovery selection reports due source checks separately, defers future checks without calling them quiet, resumes on new evidence and rejects malformed scheduling/state. A fresh evidence hold clears the consumed signal. The runbook requires recurring service assessment and describes the new outputs.
+- **Verification:** The new fixture failed on the incumbent; the corrected recovery suite passed, including offset/equality, legacy and malformed inputs. The real September 5 queue remained NO_ACTIVE_RECOVERY. Independent Terra code review found no blocking defect in the bounded patch. Publication receipt validation and caller behavior were not certified.
+- **Worktree:** `/Users/alisoneakin/Projects/laidies-newsstand-workflow-audit-20260905`, branch `fix/newsstand-recovery-scheduling-20260905`; the audit commits remain on their original branch.
+- **Next:** Integrate through the existing automation's current inputs; implement actionable service intake/due work and repair the held bank evidence; then prove existing SERVICE_READY publication through the full reader/discovery path. The staged implementation and prevention cases are appended to `operations/product-stewards/newsstand/WORKFLOW-AUDIT-2026-09-05.md`.
+- **Not done:** No public content, canonical issued data, automation settings or deployment changed. The complete new editorial promise and feature set are not yet implemented or publicly verified.
+
 ## 2026-09-05 NewsStand workflow audit and reader promise
 
 - **Status:** INTERNAL AUDIT RECORDED / IMPLEMENTATION PROPOSED. The September 5 source cycle below remains a separate completed research run.

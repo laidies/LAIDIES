@@ -28,7 +28,11 @@ and intake-to-reader follow-through (including Paige's Tip), and the
 requested Saint/MAiVEN/TRAiLBLAZER and playful newspaper feature directions:
 `operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md`
 (Ali's direct September 5 ruling). This is DECIDED purpose, not implemented or
-publicly verified performance. The linked workflow audit is PROPOSED work.
+publicly verified performance. The linked workflow audit distinguishes proposed
+work from individually verified local repairs. Recovery selection now separates
+due evidence checks and future waits from production in the local implementation;
+its runbook and focused test define the contract. Public/automation adoption
+requires its own verification.
 
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:

@@ -13,6 +13,15 @@ const TERMINAL = new Set(policy.terminalDispositions);
 function requireValue(condition, message) { if (!condition) throw new Error(message); }
 function copy(value) { return JSON.parse(JSON.stringify(value)); }
 
+function recoveryTimestamp(value, message) {
+  const format = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/;
+  requireValue(typeof value === "string" && format.test(value), message);
+  const time = Date.parse(value), day = Date.parse(`${value.slice(0, 10)}T00:00:00Z`);
+  requireValue(Number.isFinite(time) && Number.isFinite(day) &&
+    new Date(day).toISOString().slice(0, 10) === value.slice(0, 10) && Number(value.slice(11, 13)) < 24, message);
+  return time;
+}
+
 function validState(state) {
   requireValue(state?.schema === "laidies.newsstand-story-recovery.v1", "invalid recovery state schema");
   requireValue(typeof state.candidateId === "string" && state.candidateId.trim(), "missing candidateId");
@@ -83,6 +92,8 @@ export function advanceStoryRecovery(inputState, review) {
   if (review.defects.some(defect => defect.repairability === "EVIDENCE_REQUIRED")) {
     state.status = "EVIDENCE_BLOCKED";
     state.nextAction = "RECHECK_EXACT_SOURCES_NEXT_CYCLE";
+    state.newEvidenceAvailable = false;
+    delete state.nextCheckAt;
     return state;
   }
 
@@ -100,13 +111,34 @@ export function advanceStoryRecovery(inputState, review) {
   return state;
 }
 
-export function selectNextRecovery(queue) {
+export function selectNextRecovery(queue, { now = Date.now() } = {}) {
   requireValue(queue?.schema === "laidies.newsstand-story-recovery-queue.v1", "invalid recovery queue schema");
   requireValue(Array.isArray(queue.items), "recovery queue items must be an array");
+  const selectedAt = typeof now === "number" ? now : recoveryTimestamp(now, "invalid recovery selection time");
+  requireValue(Number.isFinite(new Date(selectedAt).getTime()), "invalid recovery selection time");
   const order = new Map(policy.selectionOrder.map((status, index) => [status, index]));
-  const active = queue.items.filter(item => item.active === true && ACTIVE.has(item.status));
-  active.sort((left, right) => (order.get(left.status) - order.get(right.status)) || ((right.consequencePriority || 0) - (left.consequencePriority || 0)) || String(left.firstSeenAt).localeCompare(String(right.firstSeenAt)) || left.candidateId.localeCompare(right.candidateId));
-  return { status: active.length ? "ACTIVE_RECOVERY_MUST_CONTINUE" : "NO_ACTIVE_RECOVERY", quietAllowed: active.length === 0, candidate: active[0] || null, activeCount: active.length };
+  for (const item of queue.items) requireValue(item && typeof item.active === "boolean", "recovery queue active must be boolean");
+  const active = queue.items.filter(item => item?.active === true);
+  for (const item of active) requireValue(ACTIVE.has(item.status), `unknown active recovery status: ${item.status}`);
+  if (!active.length) return { status: "NO_ACTIVE_RECOVERY", quietAllowed: true, candidate: null, activeCount: 0 };
+  const actionable = [], evidenceRechecks = [], deferred = [];
+  for (const item of active) {
+    if (item.status !== "EVIDENCE_BLOCKED") { actionable.push(item); continue; }
+    requireValue(item.newEvidenceAvailable === undefined || typeof item.newEvidenceAvailable === "boolean", "newEvidenceAvailable must be boolean");
+    const nextCheck = item.nextCheckAt === undefined ? null : recoveryTimestamp(item.nextCheckAt, "invalid evidence nextCheckAt");
+    if (item.newEvidenceAvailable === true) actionable.push(item);
+    else if (nextCheck === null || nextCheck <= selectedAt) evidenceRechecks.push(item);
+    else deferred.push(item);
+  }
+  const rank = (left, right) => (order.get(left.status) - order.get(right.status)) || ((right.consequencePriority || 0) - (left.consequencePriority || 0)) || String(left.firstSeenAt).localeCompare(String(right.firstSeenAt)) || left.candidateId.localeCompare(right.candidateId);
+  actionable.sort(rank);
+  evidenceRechecks.sort(rank);
+  deferred.sort((left, right) => Date.parse(left.nextCheckAt) - Date.parse(right.nextCheckAt) || rank(left, right));
+  return {
+    status: actionable.length ? "ACTIVE_RECOVERY_MUST_CONTINUE" : evidenceRechecks.length ? "EVIDENCE_RECHECK_DUE" : "EVIDENCE_WAIT",
+    quietAllowed: false, candidate: actionable[0] || null, activeCount: active.length,
+    evidenceRechecks, nextEvidenceCheckAt: deferred[0]?.nextCheckAt || null
+  };
 }
 
 export function completePublication(inputState, receipt) {
