@@ -32,7 +32,7 @@ Do not run more calibration or article calls until the Learning owner resolves
 `../../learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`. The next
 version should also enforce the actual output schema through Claude's existing
 native structured-output option. Do not strip unknown judgments or coach away
-the jargon finding. The third negative, article reviews and full receipt
+the jargon finding. The remaining negative, article reviews and full receipt
 assembler were not run/built because their prerequisite failed. The unchanged
 public admission checker remains authoritative; this prototype cannot publish.
 
@@ -49,6 +49,15 @@ is a narrow marker check, not a universal proof against answer leakage. The
 second replays actual saved output with all provider calls disabled and tests
 both incomplete-attempt and held-calibration rejection. The third is the
 existing admission suite. None proves prose quality or unattended reliability.
+
+Implementation commit: `294fdff7` in `ops/newsstand-recurring-20260905`.
+The normalizer, replay and existing prose-admission suites passed within their
+stated scope. The unrelated broad repository hook was not rerun; the existing
+sparse-checkout hook bypass was used for these exact owned paths. Three raw CLI
+responses retain their original saved trailing blank lines; the source diff
+check excludes only the blank-at-EOF warning rather than changing bound raw
+outputs. No public files or canonical iCloud bytes were written. The owned
+local Workers development process was stopped and Claude login completed.
 
 ## Preserved Workers AI fallback
 
