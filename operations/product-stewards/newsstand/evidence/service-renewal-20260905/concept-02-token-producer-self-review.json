@@ -1,0 +1,643 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "concept-02-token",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "EXPLANATION",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root/source_selector_review",
+  "reviewer": {
+    "id": "/root/source_selector_review",
+    "principalId": "/root/source_selector_review",
+    "role": "Producer exact-prose read-through for private renewal",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-05T20:18:35.317Z",
+  "encodedAt": "2026-09-05T20:18:35.317Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/producer-self-review.md",
+    "sha256": "d7e002a4bc48c7c585154002788b6f60f8945a9229637c16b8a4005a4eb3b57f"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.md",
+      "sha256": "5ccfb312d350e28c0a19705afba2a08d1a5e7e3e7f331d46ee5fb776db292b00"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.manifest.json",
+      "sha256": "39861933bfc920f6c5eb2ce46e91457e7a50d48aca266e858cfe97db4f374b70"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "/root/source_selector_review",
+    "reviewedAt": "2026-09-05T20:18:35.317Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisib",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every pa",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgment on the output.",
+          "locator": "content/episodes/episode-01.canon.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why is a token limit different from a word limit?",
+    "promisedPayoff": "Treat token capacity as a text-processing limit, then keep related material together when shortening a document.",
+    "centralMentalModel": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count.",
+    "dailyLifeConnection": "Why is a token limit different from a word limit?",
+    "surfaceJob": "A complete concept_week column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. The source supports the bounded mechanism; the scripts are original advice, not quotations or outcome guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Current bound source was checked at 2026-09-05T20:18:35.317Z; bank recheck triggers remain Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Original bank expiry 2026-09-29 is not altered.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: When splitting a contract for review, keep a payment rule beside its exception instead of sending each paragraph as isolated text.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Why is a token limit different from a word limit?",
+        "probeResponse": "When splitting a contract for review, keep a payment rule beside its exception instead of sending each paragraph as isolated text.",
+        "expectedEvidence": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: When splitting a contract for review, keep a payment rule beside its exception instead of sending each paragraph as isolated text.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: Why is a token limit different from a word limit?",
+        "probeResponse": "When splitting a contract for review, keep a payment rule beside its exception instead of sending each paragraph as isolated text.",
+        "expectedEvidence": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Treat token capacity as a text-processing limit, then keep related material together when shortening a document.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+          "locator": "concept-02-token: summary"
+        },
+        {
+          "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+          "locator": "concept-02-token: body paragraph 1"
+        },
+        {
+          "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+          "locator": "concept-02-token: body paragraph 2"
+        },
+        {
+          "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+          "locator": "concept-02-token: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for benchmarkNameDrop. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for communicationPastiche. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for corporateSludge. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for curiosityWithoutPayoff. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for decorativeAnalogy. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for disconnectedSystem. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for entertainmentBeforeUnderstanding. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for factlessConfidence. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for familiarExampleWithoutTechnicalReturn. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for genericAction. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for glossaryAccumulation. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for inflatedTakeawayEnding. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for jargonBeforeMeaning. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for joylessInstruction. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for mechanismBeforeMotivation. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for mechanismCompressedBehindHook. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for missingMechanism. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for prematureClickBeforeMechanism. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for purposeTooNarrow. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for referenceConfetti. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for staleUnreviewableClaims. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for technicalExplainerVoice. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for templateRepetition. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for workedExampleOvertakesBookPurpose. The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception.",
+      "artifactLocator": "concept-02-token: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+        "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "concept-02-token-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+            "locator": "concept-02-token: summary"
+          },
+          {
+            "excerpt": "Before a language model works with text, a tokeniser breaks it into reusable pieces and represents them as numbers. A piece might be a whole word, part of a word, punctuation or a single character. The exact split depends on the tokeniser.",
+            "locator": "concept-02-token: body paragraph 1"
+          },
+          {
+            "excerpt": "That is why a limit of 10,000 tokens does not mean 10,000 words. The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+            "locator": "concept-02-token: body paragraph 2"
+          },
+          {
+            "excerpt": "If a document is too large for a task, shorten irrelevant material or work on clearly labelled sections. Keep the passages needed to interpret each section together. Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+            "locator": "concept-02-token: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+          "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A tokeniser first divides the text into reusable pieces and maps those pieces to numbers.",
+            "locator": "content/library-books/sources/ai-fundamentals-101.source.json: current source excerpt 1"
+          },
+          {
+            "excerpt": "A token is a <strong>chunk</strong> — sometimes a whole word, sometimes part of a word, sometimes just a single character or a punctuation mark.",
+            "locator": "content/library-books/sources/ai-fundamentals-101.source.json: current source excerpt 2"
+          },
+          {
+            "excerpt": "<strong>Input tokens</strong></td><td>The tokens in what you send (your question, your document, the conversation history)</td></tr><tr><td><strong>Output tokens</strong></td><td>The tokens the system generates in response</td>",
+            "locator": "content/library-books/sources/ai-fundamentals-101.source.json: current source excerpt 3"
+          }
+        ],
+        "scopeAndFreshness": "Text is split into tokenizer-dependent pieces represented as numbers; a word count cannot substitute for that count. Current direct public rendered source fetch is recorded in operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-source-evidence.json; no product-specific performance guarantee is claimed."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily",
+    "currentSourceEvidence": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-source-evidence.json",
+      "sha256": "1c5300cc1e3de97068352709a400450a3981b8df42d2ac8b939d0c277907d7c9"
+    }
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "Private renewal reviews unchanged exact prose; it is not a successor content candidate and creates no new public lineage."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The entry distinguishes tokens from words, identifies the context/output constraint without a numerical conversion claim, and applies it to keeping a rule with its exception."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Private producer review only; not independent admission, public verification or human testing.",
+    "Original bank source/freshness dates, exact review-text binding and manifest binding are preserved.",
+    "Claude independent review is unavailable because the observed OAuth session cannot refresh; do not treat this PASS as bank eligibility renewal."
+  ]
+}

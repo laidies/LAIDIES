@@ -1,5 +1,13 @@
 # Active work
 
+## 2026-09-05 NewsStand source-to-reader continuation
+
+- **Status:** BUILDING; complete current wiki article is PRIVATE / HOLD for independent semantic admission. Root completed exact producer contract, source/claim records and self-review. Claude OAuth expired; Workers AI fallback hit limits/timeouts. No news issue was admitted or published.
+- **Service reserve:** 18 stale approvals now truthfully CANDIDATE / INELIGIBLE, with old copy/source/dates/reviews retained. Three useful items have current source checks and producer reviews; Meta's single-item PASS omitted required judgments and is not admission. Bank preparation is nonblocking: seven private candidates, zero ready, one required gap. Corner Office attribution repair remains outstanding.
+- **Reader repair:** old lesson link opened the book without reaching its promised section. Unique historical numeric-anchor resolution is locally verified at 1280/390, with exact/ambiguous/missing/partial cases and three service links checked. Independent Terra successor review accepts the exact candidate. Scoped one-file release is prepared; public verification pending in lesson-link evidence.
+- **Research reuse:** exact context/memory/new-chat exercise problems entered existing freshness inbox. The wider checker remains HOLD on 13 missing sparse-checkout consumer paths; no textbook correction or automatic receipt is claimed.
+- **Next:** complete bounded independent wiki/service review, recheck current evidence and source-to-reader links, then the existing issue admission/publisher/reader/release cycle. No weakening the review gate. Weekly, history, living Big Picture and requested features remain open.
+
 ## 2026-09-05 NewsStand masthead song
 
 - **Status:** VERIFIED PUBLICLY at custom and immutable 93364e9a; source `ab3e26c44740a2a41a049197efd4644971cd3f9e` pushed before deployment. Broader NewsStand implementation continues below.

@@ -1,0 +1,572 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "paige-02-fix-one-thing",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root/source_selector_review",
+  "reviewer": {
+    "id": "/root/source_selector_review",
+    "principalId": "/root/source_selector_review",
+    "role": "Producer exact-prose read-through for private renewal",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-05T20:18:35.317Z",
+  "encodedAt": "2026-09-05T20:18:35.317Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/producer-self-review.md",
+    "sha256": "d7e002a4bc48c7c585154002788b6f60f8945a9229637c16b8a4005a4eb3b57f"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-02-fix-one-thing.md",
+      "sha256": "5590948e0315e335fa07a3f769bb309c337675eb1f70a6f66a5c279fd32b7628"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-02-fix-one-thing.manifest.json",
+      "sha256": "cb3de9d724d25e9c92e5e8ecb25cd14c5c2c1cb7f4efb2cf0fa8b15c10077a01"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+    "reviewerPrincipalId": "/root/source_selector_review",
+    "reviewedAt": "2026-09-05T20:18:35.317Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisib",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every pa",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgment on the output.",
+          "locator": "content/episodes/episode-01.canon.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I fix one paragraph without losing the rest?",
+    "promisedPayoff": "Request one replacement paragraph, compare it with the saved draft, and insert it only after checking the unchanged commitments.",
+    "centralMentalModel": "A scoped edit narrows the request but does not guarantee preservation; keep and compare the original.",
+    "dailyLifeConnection": "How do I fix one paragraph without losing the rest?",
+    "surfaceJob": "A complete paige_tip column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "A scoped edit narrows the request but does not guarantee preservation; keep and compare the original. The source supports the bounded mechanism; the scripts are original advice, not quotations or outcome guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Current bound source was checked at 2026-09-05T20:18:35.317Z; bank recheck triggers remain Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.. Original bank expiry 2026-09-29 is not altered.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Request one replacement paragraph, compare it with the saved draft, and insert it only after checking the unchanged commitments.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Request one replacement paragraph, compare it with the saved draft, and insert it only after checking the unchanged commitments.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation only: For a client-update draft, request only a clearer opening sentence, then compare names, dates and commitments before replacing it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the distinction and use it in another situation: How do I fix one paragraph without losing the rest?",
+        "probeResponse": "For a client-update draft, request only a clearer opening sentence, then compare names, dates and commitments before replacing it.",
+        "expectedEvidence": "A scoped edit narrows the request but does not guarantee preservation; keep and compare the original."
+      }
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Request one replacement paragraph, compare it with the saved draft, and insert it only after checking the unchanged commitments.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02-fix-one-thing: summary"
+        },
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+          "locator": "paige-02-fix-one-thing: body paragraph 1"
+        },
+        {
+          "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+          "locator": "paige-02-fix-one-thing: body paragraph 2"
+        },
+        {
+          "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+          "locator": "paige-02-fix-one-thing: body paragraph 3"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for benchmarkNameDrop. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for communicationPastiche. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for corporateSludge. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for curiosityWithoutPayoff. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for decorativeAnalogy. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for disconnectedSystem. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for entertainmentBeforeUnderstanding. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for factlessConfidence. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for familiarExampleWithoutTechnicalReturn. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for genericAction. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for glossaryAccumulation. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for inflatedTakeawayEnding. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for jargonBeforeMeaning. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for joylessInstruction. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for mechanismBeforeMotivation. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for mechanismCompressedBehindHook. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for missingMechanism. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for prematureClickBeforeMechanism. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for purposeTooNarrow. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for referenceConfetti. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for staleUnreviewableClaims. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for technicalExplainerVoice. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for templateRepetition. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for workedExampleOvertakesBookPurpose. The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes.",
+      "artifactLocator": "paige-02-fix-one-thing: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/library-books/sources/working-with-ai-101.source.json",
+        "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "paige-02-fix-one-thing-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Tell the tool what to change—and what to leave alone.",
+            "locator": "paige-02-fix-one-thing: summary"
+          },
+          {
+            "excerpt": "You like the draft, apart from the opening paragraph. Asking for “a better version” gives the tool permission to change far more than you wanted.",
+            "locator": "paige-02-fix-one-thing: body paragraph 1"
+          },
+          {
+            "excerpt": "Try: “Revise only the first paragraph. Make the request clear in the first sentence and remove the apology. Keep the rest exactly as it is. Do not change names, dates, figures or commitments.”",
+            "locator": "paige-02-fix-one-thing: body paragraph 2"
+          },
+          {
+            "excerpt": "Keep a copy of the original and compare the two. The instruction narrows the job; it does not guarantee that every other word stays put. If the tool still changes unrelated text, ask for the replacement paragraph by itself and insert it into your saved draft.",
+            "locator": "paige-02-fix-one-thing: body paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/sources/working-with-ai-101.source.json",
+          "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The difference between feedback the AI can use and feedback that starts a correction spiral comes down to three things: specificity, proportion, and preservation.",
+            "locator": "content/library-books/sources/working-with-ai-101.source.json: current source excerpt 1"
+          },
+          {
+            "excerpt": "Keep the first two paragraphs. Rewrite the third to focus on cost rather than timeline.",
+            "locator": "content/library-books/sources/working-with-ai-101.source.json: current source excerpt 2"
+          },
+          {
+            "excerpt": "Light edit only.",
+            "locator": "content/library-books/sources/working-with-ai-101.source.json: current source excerpt 3"
+          }
+        ],
+        "scopeAndFreshness": "A scoped edit narrows the request but does not guarantee preservation; keep and compare the original. Current direct public rendered source fetch is recorded in operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-source-evidence.json; no product-specific performance guarantee is claimed."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily",
+    "currentSourceEvidence": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-source-evidence.json",
+      "sha256": "1c5300cc1e3de97068352709a400450a3981b8df42d2ac8b939d0c277907d7c9"
+    }
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "Private renewal reviews unchanged exact prose; it is not a successor content candidate and creates no new public lineage."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The opening-paragraph request is specific, names what must remain, and gives a replacement-only recovery path if unrelated text changes."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Private producer review only; not independent admission, public verification or human testing.",
+    "Original bank source/freshness dates, exact review-text binding and manifest binding are preserved.",
+    "Claude independent review is unavailable because the observed OAuth session cannot refresh; do not treat this PASS as bank eligibility renewal."
+  ]
+}

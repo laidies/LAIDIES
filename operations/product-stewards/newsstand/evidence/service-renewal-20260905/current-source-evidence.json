@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "newsstand-service-source-currency.v1",
+  "scope": "PRIVATE_RENEWAL_ONLY",
+  "observedAt": "2026-09-05T20:18:35.317Z",
+  "entries": [
+    {
+      "candidateId": "paige-02-fix-one-thing",
+      "sourceBinding": {
+        "path": "content/library-books/sources/working-with-ai-101.source.json",
+        "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+      },
+      "sourceVersion": "working-with-ai-101-2026-08-29.1",
+      "publicRenderedUrl": "https://laidies.ai/content/library-books/rendered/working-with-ai-101",
+      "observedAt": "2026-09-05T20:18:35.317Z",
+      "fetch": {
+        "status": 200,
+        "url": "https://laidies.ai/content/library-books/rendered/working-with-ai-101",
+        "bytes": 244287,
+        "sha256": "2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"
+      },
+      "fetchError": null,
+      "exactSupport": [
+        "The difference between feedback the AI can use and feedback that starts a correction spiral comes down to three things: specificity, proportion, and preservation.",
+        "Keep the first two paragraphs. Rewrite the third to focus on cost rather than timeline.",
+        "Light edit only."
+      ]
+    },
+    {
+      "candidateId": "concept-02-token",
+      "sourceBinding": {
+        "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+        "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+      },
+      "sourceVersion": "ai-fundamentals-101-2026-08-29.1",
+      "publicRenderedUrl": "https://laidies.ai/content/library-books/rendered/ai-fundamentals-101",
+      "observedAt": "2026-09-05T20:18:35.317Z",
+      "fetch": {
+        "status": 200,
+        "url": "https://laidies.ai/content/library-books/rendered/ai-fundamentals-101",
+        "bytes": 564651,
+        "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+      },
+      "fetchError": null,
+      "exactSupport": [
+        "A tokeniser first divides the text into reusable pieces and maps those pieces to numbers.",
+        "A token is a <strong>chunk</strong> — sometimes a whole word, sometimes part of a word, sometimes just a single character or a punctuation mark.",
+        "<strong>Input tokens</strong></td><td>The tokens in what you send (your question, your document, the conversation history)</td></tr><tr><td><strong>Output tokens</strong></td><td>The tokens the system generates in response</td>"
+      ]
+    },
+    {
+      "candidateId": "jeeves-02-citation",
+      "sourceBinding": {
+        "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+        "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+      },
+      "sourceVersion": "ai-fundamentals-101-2026-08-29.1",
+      "publicRenderedUrl": "https://laidies.ai/content/library-books/rendered/ai-fundamentals-101",
+      "observedAt": "2026-09-05T20:18:35.317Z",
+      "fetch": {
+        "status": 200,
+        "url": "https://laidies.ai/content/library-books/rendered/ai-fundamentals-101",
+        "bytes": 564651,
+        "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+      },
+      "fetchError": null,
+      "exactSupport": [
+        "<strong>Hallucination</strong> is when the model generates text that sounds confident and factual but isn't true — fake citations, invented statistics, wrong dates, fabricated quotes.",
+        "Requests for specific details (names, dates, citations, statistics)",
+        "Citation/source linking (models trained to cite their sources, so outputs can be verified)"
+      ]
+    }
+  ],
+  "limitations": [
+    "Public rendered source bytes were fetched directly; no browser interaction or public-column observation is claimed.",
+    "The bank's original freshness fields, source hash, review-text hash and manifests are not changed by this record.",
+    "This record is source currency evidence, not independent semantic admission or publication permission."
+  ]
+}

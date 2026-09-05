@@ -935,3 +935,34 @@ not create a scheduler. That historical app update retained the existing 07:00
 cadence, task and notification setting. The September 5 adoption section above
 is the current scheduling record. Local tests or a prior publicly verified
 issue do not prove a later unattended run or notification delivery.
+
+
+### September 5 afternoon: current reserve and review execution
+
+The private service bank's 18 old APPROVED entries were moved to CANDIDATE /
+INELIGIBLE because their frozen reviews bind a superseded calibration registry.
+Their text, source bindings, original freshness dates and old review records
+remain unchanged. Existing published columns are unaffected. This is an
+eligibility correction, not 18 new drafts or a successful replenishment cycle.
+The actual September 5 preparation now reports seven private candidates,
+zero ready entries and one required gap; content still needs renewed admission.
+
+Paige `paige-02-fix-one-thing`, Concept `concept-02-token` and Miss Jeeves
+`jeeves-02-citation` have source-currency checks and new producer self-reviews
+in `evidence/service-renewal-20260905/`. They have no valid independent receipt.
+The original Claude session expired. A bounded Meta fallback reached inference
+but its Paige result omitted required judgments; neither that PASS label nor
+provider connectivity earns eligibility. The complete wiki article likewise
+remains held after independent-review request timeouts. Preserve the raw
+failures, do not fabricate missing fields, and resume with a bounded complete
+review packet or the restored existing reviewer. Source research and private
+preparation continue during this hold. This does not require Ali to approve
+ordinary news or operate the reviewer tools.
+
+Do not reuse `corner-03-reconnect` until attribution is repaired: the source's
+current author metadata identifies Jon, not Dorie Clark. Do not redate an old
+What's New event or advance Concept's Wednesday cadence to fill a slot.
+Read the September 5 editorial intake for the new context/memory textbook
+signal and source lead dispositions. None of these records certifies complete
+headline coverage, a textbook correction, a new issued service or automatic
+receiving-lane delivery.

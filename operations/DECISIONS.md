@@ -90,6 +90,13 @@ stay private; meaningful changes need renewed surfacing consideration. Existing
 exact-version Ali approval remains. The audit separates the working public
 update log from absent prior-version retrieval and unproven ongoing refresh.
 
+NewsStand/LIBRAiRY section links must be verified at the actual focused reader
+heading. Exact anchors win; historical numeric section anchors may resolve to
+one uniquely matching chapter-prefixed heading, never an arbitrary suffix or
+ambiguous match. `scripts/test-library-section-links.mjs` binds that repair;
+the September 5 lesson-link evidence records the scoped release state. Index
+presence alone is not working navigation or current textbook-content evidence.
+
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and
 signal inbox: changes to exact claims must reach every affected consumer.

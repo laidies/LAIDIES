@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "newsstand-independent-review-attempt.v1",
+  "scope": "PRIVATE_RENEWAL_ONLY",
+  "provider": {
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "modelFamily": "meta-llama",
+    "endpoint": "http://127.0.0.1:8791"
+  },
+  "candidateIds": [
+    "paige-02-fix-one-thing",
+    "concept-02-token",
+    "jeeves-02-citation"
+  ],
+  "status": "HOLD",
+  "attempts": [
+    {
+      "kind": "complete-source-and-calibration batch",
+      "result": "HTTP 413: Review too large",
+      "errorPath": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/independent-meta-execution-error.txt"
+    },
+    {
+      "kind": "deduplicated complete-source batch",
+      "result": "HTTP 502: estimated input plus maximum output tokens 222020 exceeded the 24000-token context window",
+      "errorPath": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/independent-meta-reduced-prompt-execution-error.txt"
+    },
+    {
+      "kind": "bounded exact-prose, current-source-support and calibration batch",
+      "result": "HTTP 502: Request timeout",
+      "errorPath": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/independent-meta-bounded-support-execution-error.txt"
+    },
+    {
+      "kind": "Paige-only bounded request, max_tokens 4000",
+      "result": "Provider returned a PASS judgment but omitted required failure-family keys; raw output is preserved and the judgment cannot become an independent receipt",
+      "providerOutputPath": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/independent-meta-paige-provider-output.json",
+      "errorPath": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/independent-meta-paige-execution-error.txt"
+    }
+  ],
+  "actualProviderOutput": null,
+  "actionsNotTaken": [
+    "No authorization retry or interactive login.",
+    "No fabricated provider output, judgment.entries report, semantic receipt, PASS verdict or bank mapping."
+  ],
+  "sourceAndDestinationLimits": [
+    "Current public rendered source bytes and exact source sections were checked in current-source-evidence.json.",
+    "The three stored target IDs occur exactly in their bound rendered source text; live Library runtime focus was not observed. A separate Miss Jeeves destination-prefix defect means this static match cannot certify the reader route."
+  ],
+  "nextAction": "Repair the provider prompt/output contract before another independent attempt: require every registered failure-family key in the provider JSON and validate it before aggregation. Preserve each raw provider output, then mechanically aggregate unmodified provider judgment entries into one report before creating receipts. Do not map a bank editorial or voice path until each cross-family chain validates."
+}

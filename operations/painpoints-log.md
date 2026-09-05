@@ -1,5 +1,16 @@
 # LAiDIES build learning ledger
 
+
+## BTB-505 — A valid destination can still leave the reader at the book cover
+
+- **Date:** 2026-09-05
+- **Observed:** An indexed NewsStand lesson fragment used an old section ID while the admitted book had gained a chapter prefix. The URL opened the book but left the promised heading more than 84,000 pixels below view. Source/index existence checks missed the actual journey.
+- **Repair and prevention:** Resolve only complete historical numeric section anchors with one chapter-prefixed match; exact anchors take precedence and ambiguity/partial guesses fail. The first loose-suffix candidate was rejected and the successor adds a numeric-form guard. Run actual desktop/phone navigation and inspect focused heading and visibility; calibrate both the missing-alias and overly permissive resolver.
+- **Related operating finding:** Current review bindings matter: 18 private reserve approvals were stale. Provider availability is also separate from admission; one fallback PASS omitted required judgments. Keep sources, old public dates and held evidence intact while reporting zero ready stock honestly.
+- **Evidence:** `scripts/test-library-section-links.mjs`, service-bank tests, lesson-link release record and service-renewal raw failures. A test's same-page fragment navigation initially reused the old book; fresh navigations then verified all three real service routes.
+- **Possible public angle:** A general lesson about testing what a recipient actually sees after following a link, using an invented office document. Do not share LAiDIES source routes, review wiring or operating recipes.
+- **Status:** Reader repair prepared and independently reviewed; release state is in lesson-link evidence. News article/services remain private HOLD; no content-quality approval inferred from structural checks.
+
 ## BTB-504 — A shared player can accept a song before its controls exist
 
 - **Date:** 2026-09-05

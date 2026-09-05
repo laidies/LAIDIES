@@ -5,8 +5,8 @@
 <meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
 <link rel="canonical" href="https://laidies.ai/library" />
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
-<script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
 <style>
 :root{--midnight:#070f2b;--ink:#11183b;--pink:#f254a9;--purple:#7137d6;--cyan:#15bce0;--cobalt:#2457e6;--sky:#78c7ff;--coral:#ff7366;--orange:#ff9b3d;--lime:#b7e42b;--mint:#7de2c2;--yellow:#ffd34d;--cream:#fffdfb}
 *{box-sizing:border-box}
@@ -56,21 +56,23 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv::before{content:none}
 .jv::after{content:none}
 .jv>*{position:relative;z-index:1}
-.jv-head{grid-column:1;grid-row:1/4;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
+.jv-head{grid-column:1;grid-row:1/5;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
 .jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:2px solid #65e3ee;border-radius:999px;
   color:#07142f;background:#65e3ee;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .jv-head .h{font-family:'Jost',system-ui,sans-serif;font-size:clamp(42px,4vw,58px);font-weight:800;color:#fff;line-height:1.02}
 .jv-head .h small{display:block;font-family:'Jost';font-size:16px;font-weight:600;color:#dce7ff;letter-spacing:.01em;margin-top:9px;line-height:1.45}
-.jv-form{grid-column:2;grid-row:1;display:flex;gap:9px}
+.jv-beta{grid-column:2;grid-row:1;margin:0;padding:11px 14px;border:2px solid #65e3ee;border-radius:10px;background:rgba(7,20,47,.58);color:#fff;font-size:14px;line-height:1.48}
+.jv-beta strong{color:#65e3ee}
+.jv-form{grid-column:2;grid-row:2;display:flex;gap:9px}
 .jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #7792c8;border-radius:10px;
   font:inherit;font-size:17px;background:#fff;color:var(--midnight)}
 .jv-form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(24,198,216,.24)}
 .jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#260d2b;
   min-height:44px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .jv-form button:hover{filter:brightness(1.05)}
-.jv-privacy{grid-column:2;grid-row:2;margin:0;color:#dce7ff;font-size:12px;line-height:1.45}
+.jv-privacy{grid-column:2;grid-row:3;margin:0;color:#dce7ff;font-size:12px;line-height:1.45}
 .jv-privacy a{color:#fff;text-underline-offset:3px}
-.jv-chips{grid-column:2;grid-row:3;display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.jv-chips{grid-column:2;grid-row:4;display:flex;flex-wrap:wrap;gap:7px;margin:0}
 .jv-chips b{font-size:13px;letter-spacing:.04em;color:#fff;align-self:center;margin-right:2px;font-weight:800}
 .jv-chip{border:1.5px solid #9f94ff;background:rgba(7,20,47,.58);color:#fff;border-radius:20px;padding:7px 13px;font:inherit;font-size:14px;font-weight:650;cursor:pointer}
 .jv-chip{min-height:44px}
@@ -84,7 +86,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-answer-kicker{display:block;margin-bottom:5px;color:#2f8f8b;font-size:11px;font-weight:800;
   letter-spacing:.15em;text-transform:uppercase}
 .jv-answer h3{font-size:20px;line-height:1.18;color:var(--ink)}
-.jv-answer p{max-width:850px;margin:7px 0 12px;color:#5f4358;font-size:14px;line-height:1.55}
+.jv-answer p{max-width:850px;margin:7px 0 12px;color:#5f4358;font-size:14px;line-height:1.55;white-space:pre-line}
 .jv-answer p strong{color:var(--ink)}
 .jv-answer-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border-top:1px solid #d8dff4;padding-top:11px}
 .jv-answer-links b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
@@ -92,6 +94,23 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
   font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .jv-answer-links a:hover,.jv-answer-links button:hover{color:#c02d84}
 .jv-answer-links .jv-held{border:1px dashed #947893;background:#fff7fb;color:#70425f;border-radius:8px;padding:8px 11px;font:700 14px/1.35 Jost,sans-serif}
+.jv-sources{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;margin:12px 0 0;padding-top:11px;border-top:1px solid #d8dff4}
+.jv-sources b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
+.jv-sources a{color:#8f2e67;font-weight:750;text-underline-offset:3px}
+.jv-answer-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 4px;color:#31566f;font-size:12px;font-weight:800}
+.jv-answer-meta span{border:1px solid #9ed8d1;border-radius:999px;background:#eafff8;padding:6px 10px}
+.jv-answer-copy{max-width:900px}
+.jv-answer-copy p{font-size:16px;line-height:1.6;margin:9px 0;color:#3e3043;white-space:normal}
+.jv-allowance{margin:12px 0 0!important;color:#31566f!important;font-size:13px!important;font-weight:750}
+.jv-limit{background:#fff7fb;border:2px solid var(--pink);border-radius:11px;padding:18px 20px;color:var(--ink)}
+.jv-limit p{margin:0 0 12px;font-size:16px;line-height:1.55}
+.jv-limit a{display:inline-flex;min-height:44px;align-items:center;border-radius:999px;background:var(--pink);color:#260d2b;padding:10px 17px;font-weight:800;text-decoration:none}
+.jv-feedback{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:13px;padding-top:11px;border-top:1px solid #d8dff4}
+.jv-feedback b{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#52617f}
+.jv-feedback button{min-height:40px;border:1.5px solid #8aa7bf;border-radius:999px;background:#f4fbff;color:#132c4e;padding:7px 12px;font:750 13px/1 Jost,sans-serif;cursor:pointer}
+.jv-feedback button[aria-pressed="true"]{background:#7de2c2;border-color:#31566f}
+.jv-feedback-prompt{flex:1 0 100%;color:#52617f;font-size:13px;font-weight:700}
+.jv-feedback-submit{background:#f056a6!important;border-color:#8f2e67!important;color:#260d2b!important}
 .library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#07142f;font:750 14px/1.5 Jost,sans-serif}
 .library-status:empty{display:none}
 .shelf-guide .library-status{grid-column:1/-1;max-width:none;width:100%;margin:0;color:#dce7ff}
@@ -973,6 +992,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <span class="jv-kicker">Reference desk</span>
       <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
     </div>
+    <p class="jv-beta"><strong>Miss Jeeves is in beta.</strong> She works best with questions about LAiDIES, its lessons and its trusted resources. We&rsquo;re still testing and improving how she researches and explains broader questions about AI. Please check the sources she provides and tell us when an answer misses the mark.</p>
     <form class="jv-form">
       <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
@@ -1066,6 +1086,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   </div>
 </div>
 
+<script src="/content/site/supabase-config.js?v=20260904-jeeves-account-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260830-portrait-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260904-jeeves-account-1"></script>
+<script src="/content/site/resident-account-runtime-v1.js?v=20260904-jeeves-account-1"></script>
 <script>
 (()=>{
 'use strict';
@@ -1316,6 +1340,11 @@ function renderJeevesService(payload,query){
   if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
     renderJeevesServiceError(query);return;
   }
+  if(payload.status==='limit_reached'){
+    if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/maikeover.html">Make your free Resident Card</a>':''}</section>`;
+    return;
+  }
   if(payload.status==='unavailable'){
     renderJeevesServiceError(query);return;
   }
@@ -1347,13 +1376,40 @@ function renderJeevesService(payload,query){
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
+  const citations=(Array.isArray(payload.citations)?payload.citations:[]).map(source=>{
+    if(!source||typeof source.url!=='string'||typeof source.title!=='string')return '';
+    let url;try{url=new URL(source.url);}catch(error){return '';}
+    if(url.protocol!=='https:')return '';
+    return `<a href="${escapeJeevesText(url.href)}" target="_blank" rel="noopener noreferrer">${escapeJeevesText(source.title)}</a>`;
+  }).filter(Boolean).join('');
   box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+  if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+  const checked=payload.current_guidance?.checked_at?new Date(payload.current_guidance.checked_at):null;
+  const checkedLabel=checked&&!Number.isNaN(checked.valueOf())?`Checked live · ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`:'LAiDIES reference';
+  const allowance=payload.allowance&&Number.isInteger(payload.allowance.remaining)
+    ? `<p class="jv-allowance">${payload.allowance.kind==='guest'?`${payload.allowance.remaining} of 3 guest questions left.`:`${payload.allowance.remaining} of 5 answers left today.`}</p>`:'';
+  const paragraphs=escapeJeevesText(payload.answer).split(/\n\s*\n/).filter(Boolean).map(text=>`<p>${text}</p>`).join('');
+  const answerId=payload.answer_id&&/^[a-f0-9]{64}$/.test(payload.answer_id)?payload.answer_id:'';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
     <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
-    <p>${escapeJeevesText(payload.answer)}</p>
+    <div class="jv-answer-meta"><span>${checkedLabel}</span></div>
+    <div class="jv-answer-copy">${paragraphs}</div>
+    ${allowance}
+    ${citations?`<div class="jv-sources"><b>Sources checked</b>${citations}</div>`:''}
     ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
+    ${answerId?`<div class="jv-feedback" data-answer-id="${answerId}"><b>How was this answer?</b><button type="button" data-jeeves-helpful aria-pressed="false">Helpful</button><span class="jv-feedback-prompt">If something was wrong, choose all that apply:</span><button type="button" data-jeeves-issue="did_not_answer" aria-pressed="false">Didn&rsquo;t answer me</button><button type="button" data-jeeves-issue="confusing_or_too_technical" aria-pressed="false">Confusing or too technical</button><button type="button" data-jeeves-issue="inaccurate_or_outdated" aria-pressed="false">Inaccurate or outdated</button><button type="button" data-jeeves-issue="missed_context" aria-pressed="false">Missed something important</button><button type="button" data-jeeves-issue="weak_missing_or_broken_sources" aria-pressed="false">Weak or missing sources</button><button type="button" data-jeeves-issue="seemed_like_ai_slop" aria-pressed="false">Seemed like AI slop</button><button type="button" data-jeeves-issue="too_long" aria-pressed="false">Too long</button><button type="button" data-jeeves-issue="too_brief" aria-pressed="false">Too brief</button><button type="button" class="jv-feedback-submit" data-jeeves-submit>Send feedback</button><span role="status" aria-live="polite"></span></div>`:''}
   </article>`;
+}
+const JEEVES_GUEST_TOKEN_KEY='laidies_miss_jeeves_guest_token_v1';
+function jeevesGuestToken(){try{return localStorage.getItem(JEEVES_GUEST_TOKEN_KEY)||'';}catch{return '';}}
+function rememberJeevesGuestToken(token){try{if(typeof token==='string'&&token.length<1200)localStorage.setItem(JEEVES_GUEST_TOKEN_KEY,token);}catch{}}
+async function jeevesAccessToken(){
+ try{
+  const runtime=window.LAIDIESResidentAccountRuntime?await window.LAIDIESResidentAccountRuntime.get():null;
+  const session=runtime?.client?await runtime.client.auth.getSession():null;
+  return session?.data?.session?.access_token||'';
+ }catch{return '';}
 }
 function newJeevesRequestKey(){
  return `mjr-browser-${Date.now()}-${crypto.getRandomValues(new Uint32Array(2)).join('-')}`;
@@ -1392,10 +1448,15 @@ async function askMissJeeves(value){
   const requestId=++jeevesServiceRequest;
   box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
   try{
+    const accessToken=await jeevesAccessToken();
+    const guestToken=jeevesGuestToken();
+    const headers={'content-type':'application/json','accept':'application/json'};
+    if(accessToken)headers.authorization=`Bearer ${accessToken}`;
+    else if(guestToken)headers['x-laidies-guest-token']=guestToken;
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
-      headers:{'content-type':'application/json','accept':'application/json'},
-      body:JSON.stringify({query,placement:jeevesPlacement})
+      headers,
+      body:JSON.stringify({query,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
     });
     const payload=await response.json();
     if(requestId!==jeevesServiceRequest)return;
@@ -1413,6 +1474,38 @@ document.querySelector('.jv-form').addEventListener('submit',event=>{
  askMissJeeves(document.getElementById('jv-q').value);
 });
 document.getElementById('jv-results').addEventListener('click',event=>{
+ const helpful=event.target.closest('[data-jeeves-helpful]');
+ if(helpful){
+  const feedback=helpful.closest('.jv-feedback');
+  feedback.querySelectorAll('[data-jeeves-issue]').forEach(button=>button.setAttribute('aria-pressed','false'));
+  helpful.setAttribute('aria-pressed','true');
+  feedback.querySelector('[role="status"]').textContent='Thank you. That helps LAiDIES improve Miss Jeeves.';
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:'helpful',reasons:[],placement:jeevesPlacement})}).catch(()=>{});
+  return;
+ }
+ const issue=event.target.closest('[data-jeeves-issue]');
+ if(issue){
+  const feedback=issue.closest('.jv-feedback');
+  const selected=issue.getAttribute('aria-pressed')!=='true';
+  issue.setAttribute('aria-pressed',String(selected));
+  feedback.querySelector('[data-jeeves-helpful]').setAttribute('aria-pressed','false');
+  const count=feedback.querySelectorAll('[data-jeeves-issue][aria-pressed="true"]').length;
+  feedback.querySelector('[role="status"]').textContent=count?`${count} issue${count===1?'':'s'} selected. Choose more or send feedback.`:'';
+  return;
+ }
+ const submit=event.target.closest('[data-jeeves-submit]');
+ if(submit){
+  const feedback=submit.closest('.jv-feedback');
+  const reasons=Array.from(feedback.querySelectorAll('[data-jeeves-issue][aria-pressed="true"]'),button=>button.dataset.jeevesIssue);
+  const status=feedback.querySelector('[role="status"]');
+  if(!reasons.length){status.textContent='Choose at least one issue first.';return;}
+  submit.disabled=true;
+  status.textContent='Sending feedback…';
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:'not_helpful',reasons,placement:jeevesPlacement})})
+    .then(response=>{if(!response.ok)throw new Error('feedback_failed');status.textContent='Thank you. Your selected issues were sent together.';})
+    .catch(()=>{status.textContent='Feedback was not sent. Please try again.';submit.disabled=false;});
+  return;
+ }
  const result=event.target.closest('[data-result-id]');
  if(result)fetch('/api/miss-jeeves/result-open',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({result_id:result.dataset.resultId,topic_id:event.currentTarget.dataset.topicId||'other',placement:jeevesPlacement})}).catch(()=>{});
  const control=event.target.closest('[data-open-book]');
@@ -1634,7 +1727,14 @@ function findBookHeading(txt,headingReference){
   if(!headingReference)return null;
   if(headingReference.startsWith('@')){
     const sectionId=headingReference.slice(1);
-    return [...txt.querySelectorAll('h1,h2,h3,h4')].find(h=>h.id===sectionId)||null;
+    const headings=[...txt.querySelectorAll('h1,h2,h3,h4')];
+    const exact=headings.find(h=>h.id===sectionId);
+    if(exact)return exact;
+    // Older learning-index links predate chapter-prefixed rendered anchors.
+    // Preserve them only when the old anchor identifies one heading uniquely.
+    if(!/^\d+-\d+(?:-[a-z0-9]+)+$/.test(sectionId))return null;
+    const legacy=headings.filter(h=>/^(?:chapter-|ch-)/.test(h.id)&&h.id.endsWith('-'+sectionId));
+    return legacy.length===1?legacy[0]:null;
   }
   const needle=headingReference.toLowerCase();
   return [...txt.querySelectorAll('h1,h2,h3,h4')]
@@ -1954,7 +2054,6 @@ try{libraryHeading=libraryHash[1]?decodeURIComponent(libraryHash[1]):'';}catch(e
 if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHeading);
 })();
 </script>
-<script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260803-card-required"></script>
   <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
 </body>

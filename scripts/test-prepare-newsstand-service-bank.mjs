@@ -87,11 +87,21 @@ const changed = structuredClone(bank); fs.writeFileSync(path.join(root, "source.
 assert.throws(() => prepareServiceBankProposal({ date, bank: changed, root }), /source hash changed/, "bound source drift fails closed");
 const sourceRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const actualBank = JSON.parse(fs.readFileSync(path.join(sourceRoot, "operations/product-stewards/newsstand/candidates/service-bank.json"), "utf8"));
-assert.throws(() => prepareServiceBankProposal({ date: "2026-09-04", bank: actualBank, root: sourceRoot, reuseAdmitted: true }), /registrySha256 is stale/, "stale real service reviews remain ineligible for a new dated proposal");
+const staleApproval = structuredClone(actualBank);
+const staleItem = staleApproval.items.find(entry => entry.id === "mme-jelly-sandal");
+staleItem.status = "APPROVED"; staleItem.publicEligibility = "ELIGIBLE";
+assert.throws(() => prepareServiceBankProposal({ date: "2026-09-05", bank: staleApproval, root: sourceRoot, reuseAdmitted: true }), /registrySha256 is stale/, "restoring a stale real approval cannot bypass current review");
+const staleBankPath = path.join(root, "stale-real-bank.json");
+fs.writeFileSync(staleBankPath, JSON.stringify(staleApproval));
+const heldReserve = structuredClone(actualBank);
+for (const entry of heldReserve.items) { entry.status = "CANDIDATE"; entry.publicEligibility = "INELIGIBLE"; }
+const currentProposal = prepareServiceBankProposal({ date: "2026-09-05", bank: heldReserve, root: sourceRoot, reuseAdmitted: true });
+assert.equal(currentProposal.counts.ready, 0, "held reserve does not invent a ready column");
+assert.equal(currentProposal.canonicalWrite, false);
 const unknownCliSelection = spawnSync(process.execPath, [path.join(sourceRoot, "scripts/prepare-newsstand-service-bank.mjs"), "--date", "2026-09-04", "--check", "--item", "invented_desk=nope"], { cwd: sourceRoot, encoding: "utf8" });
 assert.notEqual(unknownCliSelection.status, 0, "unknown command-line desk selection rejects");
 assert.match(unknownCliSelection.stderr, /supported service type/);
-const isolated = spawnSync(process.execPath, [path.join(sourceRoot, "scripts/prepare-newsstand-service-bank.mjs"), "--date", "2026-09-04", "--reuse-admitted", "--check", "--isolate-service-hold"], { cwd: sourceRoot, encoding: "utf8" });
+const isolated = spawnSync(process.execPath, [path.join(sourceRoot, "scripts/prepare-newsstand-service-bank.mjs"), "--date", "2026-09-04", "--reuse-admitted", "--check", "--isolate-service-hold", "--bank", staleBankPath], { cwd: sourceRoot, encoding: "utf8" });
 assert.equal(isolated.status, 0, isolated.stderr || "isolated service hold must not abort ordinary-news work");
 assert.match(isolated.stdout, /SERVICE BANK CHECK HOLD/);
 assert.match(isolated.stdout, /proposal_created=false/);
