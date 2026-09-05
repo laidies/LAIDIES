@@ -56,6 +56,28 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   assert.ok(!JSON.stringify(await response.clone().json()).includes("test-secret"));
 });
 
+test("adds the official OpenAI, Hugging Face and NVIDIA checks to Hugging Face questions", async () => {
+  let providerRequest;
+  const provider = async (_url, options) => {
+    providerRequest = JSON.parse(options.body);
+    const answer = "OpenAI reported an incident involving Hugging Face, and NVIDIA announced an acquisition agreement.";
+    return Response.json({
+      model: "gpt-5.6-sol",
+      output: [{ type: "message", content: [{
+        type: "output_text", text: answer,
+        annotations: [{ type: "url_citation", start_index: 0, end_index: answer.length, url: "https://openai.com/index/hugging-face-incident-and-the-road-ahead/", title: "Hugging Face incident" }]
+      }] }]
+    });
+  };
+  const response = await handleMissJeevesGuidance(request({ query: "What is Hugging Face, and why is it all over the news?" }), { OPENAI_API_KEY: "test-secret" }, provider);
+  assert.equal(response.status, 200);
+  const checks = JSON.parse(providerRequest.input).required_current_checks;
+  assert.equal(checks.length, 2);
+  assert.ok(checks.flatMap(check => check.sources).some(url => url.includes("openai.com/index/hugging-face-incident")));
+  assert.ok(checks.flatMap(check => check.required_names).includes("OpenAI"));
+  assert.ok(checks.flatMap(check => check.required_names).includes("NVIDIA"));
+});
+
 test("trusted resource bank fails closed when every governed record is stale", () => {
   assert.throws(() => currentMissJeevesSourcePolicy("2028-01-01"), /trusted_source_bank_stale/);
 });
