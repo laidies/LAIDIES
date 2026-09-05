@@ -782,16 +782,20 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
+  <link rel="stylesheet" href="/content/try-on-social.css?v=20260905-social-1">
+  <script>
+    if (Number((new URLSearchParams(location.search).get('issue') || '').match(/\d+/)?.[0]) === 4) document.documentElement.classList.add('social-episode');
+  </script>
+  <script src="/content/site/try-on-social.js?v=20260905-social-1" defer></script>
 </head>
 <body>
   <header class="sv-header"></header>
 
   <a class="wednesday-return" data-wednesday-return href="/">&larr; Back to the Study Pack</a>
 
-  <main>
+  <main id="legacyTryOn">
     <section class="tryon-hero" aria-labelledby="tryonTitle">
       <div>
-        <p class="tryon-visual-held">Vanity visual held · the Try-On remains available.</p>
         <span class="eyebrow" id="episodeEyebrow">Episode Try-On</span>
         <h1 id="tryonTitle">The Try-On fitting room.</h1>
         <p class="lede" id="tryonLede">The five-minute move from this week&rsquo;s Study Pack. Try the lesson on one real work task, compare the fit, and save what changed.</p>
@@ -927,6 +931,49 @@
     </section>
   </main>
 
+  <main id="mavenSocial" aria-labelledby="socialTitle" hidden>
+    <section class="social-intro">
+      <a class="social-return" href="/blend-snap.html#the-study-pack">← Back to Blend &amp; Snap</a>
+      <p class="social-eyebrow">The Founding Mothers · Episode 04</p>
+      <h1 id="socialTitle">Share a MAiVEN.</h1>
+      <p class="social-lede">Karen Spärck Jones helped make document search more useful. Here’s her contribution, ready for your feed.</p>
+    </section>
+    <section class="social-workspace" aria-label="Social post preview and download">
+      <figure class="social-preview">
+        <img id="socialImage" alt="" hidden>
+        <div id="socialLoading" role="status">Preparing your post…</div>
+        <figcaption id="socialSize">Post · 1080 × 1350</figcaption>
+      </figure>
+      <div class="social-controls">
+        <h2>Make room for Karen.</h2>
+        <p>The post and caption are ready. Pick your format.</p>
+        <div class="social-formats" role="group" aria-label="Image format">
+          <button type="button" data-social-format="post" aria-pressed="true">Post <span>4:5</span></button>
+          <button type="button" data-social-format="story" aria-pressed="false">Story <span>9:16</span></button>
+        </div>
+        <button id="socialDownload" class="social-primary" type="button" disabled>Download image</button>
+        <button id="socialShare" class="social-secondary" type="button" hidden disabled>Share image…</button>
+        <p id="socialHelp" class="social-help">Download the image to add it to your social post.</p>
+        <p id="socialStatus" class="social-status" role="status" aria-live="polite"></p>
+        <button id="socialRetry" class="social-secondary" type="button" hidden>Try again</button>
+        <details class="social-caption" open>
+          <summary>Caption included</summary>
+          <p id="socialCaption"></p>
+          <button id="socialCopy" class="social-copy" type="button">Copy caption</button>
+          <textarea id="socialCaptionFallback" readonly aria-label="Caption to copy" hidden></textarea>
+        </details>
+        <div class="social-source">
+          <a href="https://www.cl.cam.ac.uk/archive/ksj21/ksjdigipapers/jdoc72.pdf" target="_blank" rel="noopener">Read Karen’s 1972 paper ↗</a>
+          <a href="/luminairy.html#mavens">Explore the MAiVENS →</a>
+        </div>
+      </div>
+    </section>
+    <details class="social-transcript">
+      <summary>Read the text in the image</summary>
+      <div id="socialTranscript"></div>
+    </details>
+  </main>
+
   <footer class="site-footer">
     <p><strong><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></strong> &copy; 2026 Ali Eakin. All rights reserved.</p>
   </footer>
@@ -1023,31 +1070,7 @@
           "Save the safer version and what changed before it borrows your name."
         ]
       },
-      4: {
-        pad: "04",
-        title: "The Founding Mothers",
-        heroTitle: "Your MAiVEN field trip.",
-        lede: "A field trip for The Founding Mothers. Meet one woman whose name is new to you, then pass her story to a friend.",
-        reminderTitle: "One name. One sentence. One friend.",
-        reminder: "You do not have to meet everyone today. Start with one woman you wish you had heard of sooner.",
-        portalNote: "The episode introduced the Founding Mothers. The MAiVENS wing is your next stop. Come back here to save the sentence you want to share.",
-        destination: { href: "/luminairy.html#mavens", label: "Meet the MAiVENS" },
-        saveKicker: "Bring back a name",
-        saveTitle: "Who did you meet?",
-        notesLabel: "Her name and the sentence you want to share",
-        notesPlaceholder: "Who did you discover, and what would you tell a friend about her?",
-        saveLabel: "Save my discovery",
-        emptyMessage: "Add her name and a sentence before saving. Nothing was saved yet.",
-        showRating: false,
-        exerciseTitle: "Go meet a MAiVEN.",
-        instruction: "No homework this week — a field trip. The episode only had time to introduce a handful of the women who built this field. The quiet wing holds the rest.",
-        steps: [
-          "Go up to the LUMINAiRY and walk into the quiet wing at the back — the MAiVENS. Past the movie stars, straight to the women who built the thing.",
-          "Pick one woman you'd genuinely never heard of before today. Not Ada, not Grace — someone whose name is new to you. Tap her portrait and read what she did and what it cost her.",
-          "Text one friend a single sentence about her. That's the whole assignment. One name, one sentence, one friend.",
-          "The point: it's very hard to feel behind on something the moment you find out it took almost two hundred years and a hundred brilliant women to hand it to you. Now you know one more of their names — and so does she."
-        ]
-      }
+      4: { pad: "04", title: "The Founding Mothers", social: true }
     };
 
     var params = new URLSearchParams(window.location.search || "");
@@ -1056,6 +1079,7 @@
     if (!issues[issue]) location.replace("/blend-snap.html#the-study-pack");
     var config = issues[issue] || issues[2];
     var issueKey = "issue-" + config.pad;
+    if (config.social) return; // Social export owns issue04; never load or rewrite private exercise notes.
 
     var episodeEyebrow = document.getElementById("episodeEyebrow");
     var tryonLede = document.getElementById("tryonLede");

@@ -1,5 +1,10 @@
 LAiDIES Writing Lock
 
+## Adult audience and rejected Try-On — Ali, 2026-09-05
+
+Ali rejected “One name. One sentence. One friend.”, the reassurance “You do not have to meet everyone today”, and the “Who did you meet?” / “Save my discovery” worksheet. She identified it as an activity for twelve-year-olds, not grown adult women. The defect is the low-value activity as well as the prose: changing its colours or wording is insufficient. Rewind Era playfulness must offer adult usefulness, taste and wit; do not ask visitors to perform a school assignment before receiving a result. For the replacement, provide a complete shareable social post with optional preview/download/share. Whole-experience review must judge whether an adult would want the result, separately from whether its controls work. “Vanity visual held” and similar production notes never belong in public copy.
+
+
 This is the writing standard for LAiDIES.
 
 Canonical guide name: the SLAiYER Handbook.

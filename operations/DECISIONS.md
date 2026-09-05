@@ -1,5 +1,19 @@
 # DECISIONS — where every settled decision lives
 
+> **2026-09-05 — Ali rejects Try-On preview; adult social result replaces it.**
+> fac9da31/e5943d18 is rejected for both the activity and the execution. “Who did
+> you meet?”, “Save my discovery”, “One name. One sentence. One friend.” and its
+> generic reassurance read as a school assignment for twelve-year-olds. A new
+> palette or rewording alone does not fix it. Supply a finished, useful social
+> post with optional preview/download/share; never require private reflection,
+> award completion for sharing, or post automatically. Current Homepage and
+> LIBRAiRY are the colour/type references. Internal art-status text belongs in
+> operations, never the visitor interface. Review the whole adult visitor value,
+> exact exports and current references before functional results; a working
+> button cannot admit the design. The known-pattern guard now rejects the old
+> artifact. New source f5ad5104 is local/pushed, not published or fully admitted.
+
+
 > **2026-09-05 — Try-On activity-specific wrapper guard (implementation).**
 > Derive each episode's introduction, reminder, destination, note label and feedback
 > from its actual governed activity. Episode04 is the existing MAiVEN field trip;

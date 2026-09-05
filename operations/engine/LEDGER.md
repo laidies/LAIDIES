@@ -123,3 +123,5 @@ or episode source.
 
 
 | T-20260905-TRYON |2026-09-05| Implementation checkpoint: preserve existing Episode04 MAiVEN field trip and align its wrapper | Source e5943d18; preview fac9da31 verified; production promotion pending Ali exact-candidate approval | product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/release.md |
+
+| T-20260905-TRYON-SOCIAL |2026-09-05| Supersedes T-20260905-TRYON: old worksheet REJECTED and preview deleted; adult social successor BUILT LOCALLY, presentation/release HOLD | f5ad5104; focused exports/browser checks and bounded Terra acceptance; Opus5 and full admission missing | product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-review.md |

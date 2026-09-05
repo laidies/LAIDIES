@@ -1,6 +1,6 @@
 # Episode 04 Try-On repair — exact preview
 
-Status: PREVIEW VERIFIED / PRODUCTION PROMOTION PENDING ALI APPROVAL.
+Status: REJECTED BY ALI. DO NOT PROMOTE fac9da31 OR SOURCE e5943d18.
 
 Code commit: `e5943d185af8450b8ee1f0f15592ae42bff089e6` (pushed on `fix/blend-snap-menu-20260905`).
 Preview: https://fac9da31.laidies-sunnyvaile.pages.dev/try-on.html?issue=4&from=blend-snap
@@ -87,3 +87,8 @@ assets/brand/laidies-logo-masthead-approved-v3.png. These remain outstanding.
 The hook explicitly allows a conscious --no-verify bypass. That bypass is used
 only to commit these exact reviewed paths and preservation notes; no content or
 preview gate is skipped, and no all-repository-green claim is made.
+
+## Direct rejection supersedes every preceding review and release note
+
+Ali rejected the palette, typography, internal Vanity visual held message and low-value notes activity, and requested something shareable on socials. Functional wrapper checks did not establish product value or current site design fit.
+The unchanged main site was not deployed from this candidate. Preserve saved visitor data while replacing the notes-first direction with a useful shareable social result. Bind current Homepage/Blend visual references before drafting and require explicit product-value, palette, typography and no-internal-status-text checks.

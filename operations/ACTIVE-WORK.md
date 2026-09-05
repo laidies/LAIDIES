@@ -1,14 +1,31 @@
 # Active work
 
-> **2026-09-05 — Try-On field-trip repair: PREVIEW VERIFIED, promotion pending.**
+> **2026-09-05 — Episode04 social successor BUILT LOCALLY / DESIGN ADMISSION HOLD.**
+> Ali rejected fac9da31/e5943d18: childish, low-value notes activity, generic
+> reassurance, wrong type/colours and exposed internal status. The preview was
+> deleted and its URL returned404. Do not promote that candidate.
+> f5ad5104 supplies one complete Karen Spärck Jones social post, Post/Story PNGs,
+> caption copy and optional native sharing. No private notes or provider calls;
+> episodes02/03 save/reload remain working. Actual downloads and 1440/390/320px
+> checks pass. Terra independently accepted the scoped new experience.
+> Presentation/release remains held: exact Claude Opus5 review timed out after
+> five minutes; full distinct-role admission and real-phone share-sheet proof
+> are missing. Blind old-artifact review rejected its status/value but did not
+> fully identify the palette/adult-audience failures; calibration is partial.
+> Resume from candidates/tryon-ep04-2026-09-05/social-review.md and social-build.json.
+> No successor deployment. Miss Jeeves/Sol/reuse and the other recommendations
+> remain active; funding is settled and must not be rechecked.
+
+
+> **2026-09-05 — HISTORICAL Try-On preview — REJECTED; DO NOT PROMOTE.**
 > Episode04 now describes its MAiVEN field trip, opens the correct wing and saves
 > a name/sentence without an invented rating. Legacy notes survive; episodes02/03
 > retain their exercises. Source e5943d18 is pushed. Preview fac9da31 passed real
 > 1440/390/320px link, return, blank/save/reload and legacy-data checks; independent
 > exact-copy review passed. Live Homepage→Blend→order04→Try-On works at1280/390.
 > Production remains cd6b20a4; its747-file artifact is preserved, with only
-> try-on.html changed in the preview. Release that exact candidate after Ali
-> approval and fresh predecessor/parity checks. Keep the freshness mismatch signal
+> try-on.html changed in the preview. Ali subsequently rejected this candidate.
+> Its deployment is deleted; the former approval is void. Keep the freshness mismatch signal
 > open until production proof. Details: product-stewards/blend-snap/candidates/
 > tryon-ep04-2026-09-05/release.md. Miss Jeeves real Sol/cost pilot and existing
 > Answer Bank runtime connections remain outstanding; user funding is settled.

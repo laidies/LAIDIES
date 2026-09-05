@@ -1,5 +1,14 @@
 # Blend & Snap operating specification
 
+## Active successor — social sharing (Ali, September 5)
+
+Ali rejected the Episode04 name/sentence worksheet as an activity for twelve-year-olds, not adult women, and rejected its reassurance, palette/type and visible internal hold note. Rewording or recolouring that exercise is insufficient. The replacement supplies a finished social post; personal writing and sharing remain optional.
+
+Source f5ad5104 implements one Karen Spärck Jones post/story export with prepared caption, source, download, capability-detected share and retry/fallback. The actual PNGs and desktop/mobile flows pass focused tests; private notes and episodes02/03 remain intact. The Study Pack job is aligned. Held-art labels are removed from Try-On, Blend & Snap and Resident Card in the candidate. This is not a deployed change.
+
+A distinct Terra reviewer accepted the internal product/visual result. Full presentation admission remains HOLD: the required exact Claude Opus5 run produced no result after five minutes; remaining role receipts and real-phone OS sharing proof are open. Blind calibration rejected the old artifact for status/value but did not fully detect the old palette/adult-audience faults. Do not call the evaluator fully learned. Resume from candidates/tryon-ep04-2026-09-05/social-review.md; preserve the current production artifact before any release.
+
+
 **Status:** BOUNDED LOCAL PASS — REPAIR 2 INDEPENDENT RE-JUDGE 90/100; RELEASE HOLDS REMAIN
 
 ## Identity and purpose
