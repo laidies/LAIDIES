@@ -14598,3 +14598,12 @@ environmental colour edits must explicitly preserve the object inventory and
 forbid new décor. The plant-free successor removes physical vegetation without
 replacing it, while retaining floral geometry that belongs to the stained glass
 and floor inlay.
+
+**Ali correction, 2026-09-05, text pass:** The shared `.ai` treatment silently
+overrode the current LUMINAiRY palette with an older burgundy and changed colour
+inside SUNNYVAiLE and SAiNTS. That made canonical spelling compete with the
+message. A hero phrase now keeps one text colour: embedded `Ai` spans inherit
+their surrounding eyebrow or quotation, while the full LUMINAiRY title remains
+the single raspberry display accent. Future page-specific palette work must
+test the computed colour of runtime-inserted brand spans, not only the authored
+HTML and local custom properties.

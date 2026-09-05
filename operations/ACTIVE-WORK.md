@@ -1146,3 +1146,10 @@ objective; every open lane keeps its own checkpoint.
 - **Independent result:** PASS with no P0, P1 or P2 visual regression; no physical plants, vines, flowers, planters or replacement clutter were found.
 - **Next action:** release this exact committed integration only when Ali separately authorizes a push/deployment, then verify the custom public origin at the same three viewports.
 - **Truth boundary:** commit `99f0ee853f1aa568df126a8728572951cceaa65b` is local. Nothing in this checkpoint proves a push, deployment or public verification, and no other Matron consumer is approved.
+
+### 2026-09-05 LUMINAiRY hero text-colour correction
+
+- **Current state:** `TEXT COLOUR CORRECTED LOCALLY / REVIEWED / NOT PUSHED OR DEPLOYED`.
+- **Correction:** embedded `Ai` letters in SUNNYVAiLE and SAiNTS inherit their surrounding phrase colour instead of switching to the older shared burgundy. The full LUMINAiRY title is the one raspberry accent and uses the current page token `#f357a0`.
+- **Verified result:** desktop, 390 × 844 and 320 × 760 preserve title visibility, Matron's approved crop and zero horizontal overflow.
+- **Truth boundary:** local integration only; no push, deployment or public verification.

@@ -24,6 +24,7 @@ body:has(.lum-nave) .sv-yah-chip {
 }
 
 .sv-hero.lum-nave {
+  --rose: var(--lum-pink);
   position: relative;
   display: block;
   width: 100%;
@@ -89,6 +90,11 @@ body:has(.lum-nave) .sv-yah-chip {
 .lum-nave__copy h1 .ai {
   color: var(--lum-pink);
   text-shadow: 5px 5px 0 var(--lum-purple);
+}
+
+.lum-nave__copy > p:first-child .ai,
+.lum-nave__copy blockquote .ai {
+  color: inherit !important;
 }
 
 .lum-nave__copy blockquote {

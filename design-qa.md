@@ -972,3 +972,15 @@ palette remains an explicit owner gate and is not approved by this result.
 ### Final result
 
 passed
+
+## LUMINAiRY hero text-colour correction — 2026-09-05
+
+- The previous rendered hero changed colour inside SUNNYVAiLE and SAiNTS because the shared `.ai` rule overrode each phrase with the older burgundy `--rose` token.
+- The corrected hero preserves canonical spelling while each embedded `Ai` inherits its phrase: mint in the location eyebrow and cyan in the quotation.
+- The full LUMINAiRY title remains the only large raspberry accent and now uses the current LUMINAiRY `#f357a0`, retaining its violet display shadow.
+- Desktop, 390 × 844 and 320 × 760 renders were inspected. The hierarchy remains readable, Matron's crop is unchanged, the complete title remains visible and horizontal overflow is zero.
+- P0: none. P1: none. P2: none.
+
+### Final result
+
+passed

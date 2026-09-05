@@ -57,3 +57,9 @@ Ali approved this exact v3 on 2026-09-05. `luminairy.html` now consumes the exac
 - Targeted source check: the page references the exact approved v3 pathname and natural 1500 × 844 pixels. The existing untracked held-asset validator was not changed because it belongs to another unfinished lane and still encodes the predecessor held state.
 
 Local integration verdict: PASS. This is not evidence of a push, deployment or public verification.
+
+## Hero text-colour correction
+
+Ali rejected the mixed in-word accent colours in SUNNYVAiLE and SAiNTS as distracting and found the inherited text accent off-brand. The scoped correction keeps canonical spelling but makes embedded `Ai` spans inherit the surrounding phrase colour. The full LUMINAiRY title remains the single raspberry display accent and now resolves to the current `--lum-pink` (`#f357a0`) instead of the older shared burgundy.
+
+Browser verification at desktop, 390 × 844 and 320 × 760 confirmed the intended computed colours, complete title visibility, retained `92% 50%` phone crop and zero horizontal overflow. No page errors were recorded; only the expected localhost Plausible warning remained.
