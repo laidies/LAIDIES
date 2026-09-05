@@ -1,5 +1,20 @@
 # Active work
 
+## 2026-09-05 Canva limited-animation pilot — STAGED; SAVE APPROVAL REQUIRED
+
+Ali approved a consistent, subtle motion-comic direction for weekly episodes:
+slow camera movement, restrained rain/light/screen motion and occasional small
+narrative action instead of full character animation. A 25.64-second Episode 04
+pilot is staged in Canva using the corrected desk source, the corrected hand
+close-up and the existing Higgsfield clip only as a brief stopped-contact beat.
+The exact narration was converted to a Canva-compatible 25.64-second M4A. Canva
+requires an explicit save approval for the staged edit transaction before the
+five layers can be committed and trimmed on the editor timeline. Next: after
+approval, commit transaction `2989779197901874839`, set the five beat timings,
+add the narration, mute the Higgsfield audio and inspect/export continuous 1x
+playback. This remains an internal timing/style proof; the desk source is not a
+released final visual and the episode/site remain unchanged.
+
 ## 2026-09-05 Higgsfield continuation — HOLD after second render
 
 Ali approved the provider switch with no credit/subscription purchase. Two

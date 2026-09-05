@@ -2,11 +2,18 @@
 
 <!-- context-authority: operations/context-authority.json -->
 
-Episode 04 animation pilot, September 5: Ali authorized testing the existing
-scene in Higgsfield instead of the blocked Canva generation, with no subscription
-or credit purchase. The bounded exception, exact job and renewal reminder are in
+Episode 04 animation pilot, September 5: Ali rejected full-episode character
+animation as unaffordable for a weekly, self-funded production. The approved
+direction is one consistent limited-animation comic language built in Canva:
+slow pushes/pulls or pans, rain, restrained light/screen changes and occasional
+small story beats. Motion must support the narration and remain subtle across
+the episode; one isolated highly animated passage inside otherwise static art
+is specifically rejected. The existing Higgsfield result may be used only as a
+brief stopped-contact beat, not as typing. No further provider credit or
+subscription purchase is authorized. The bounded pilot, exact assets and
+renewal reminder are in
 `operations/video-qa/episode-04-character-action-pilot-v2/SHOT-CARD.md`.
-This is not a blanket replacement of the episode pipeline or release approval.
+This is not release approval.
 
 This file routes a task to current authority. It is not a second decision
 register. The routed source wins for its domain.
