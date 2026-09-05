@@ -1,5 +1,17 @@
 # Active work
 
+## 2026-09-05 Episode 04 character-action pilot — BLOCKED, no video rendered
+
+The 20–30 second proof is not built. Canva Image to Video, Custom, was tested
+once against existing upload `2-DESK-52s.png`, visually matched to the existing
+Episode 04 corporate desk scene. Canva rejected the imagery under its policies;
+no motion clip was returned and no bypass retry was attempted. The narration
+excerpt is prepared. Exact source, prompt, response and resume point live in
+`operations/video-qa/episode-04-character-action-pilot-v2/SHOT-CARD.md`.
+Next: resolve provider choice or Canva moderation, render one genuine character
+action, inspect it before multi-shot assembly. No full-film or website changes.
+This checkpoint is in the bounded non-iCloud Chick Flicks worktree.
+
 ## 2026-09-02 Chick Flicks store-and-VHS redesign — BUILT AND BROWSER-VERIFIED LOCALLY; RELEASE NOT AUTHORIZED
 
 The isolated successor at
