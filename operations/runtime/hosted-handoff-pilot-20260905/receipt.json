@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "newsstand-cloud-intake-v1",
+  "mode": "PRIVATE_SIGNAL_INTAKE_ONLY",
+  "generatedAt": "2026-09-05T18:29:55.803Z",
+  "backfillSince": null,
+  "sourceRegistry": {
+    "path": "operations/product-stewards/learning-content-ecosystem/SOURCE-REGISTRY.json",
+    "sha256": "670fcbecc8b18d29434197cfc178d17eea44a9af34cad89f17b451c514d74691"
+  },
+  "counts": {
+    "due": 5,
+    "healthy": 4,
+    "unavailable": 1,
+    "sourceHealthAlerts": 0,
+    "newSignals": 1
+  },
+  "newSignals": [
+    {
+      "signalId": "NSCI-340050140eeaf792d7a8",
+      "sourceId": "SRC-AP-AI",
+      "sourceName": "AP Artificial Intelligence",
+      "title": "America In Focus: US hiring bounces back in August; mortgage rates climb",
+      "url": "https://apnews.com/article/economy-inflation-iran-trump-unemployment-mortgage-97f1222d0d4207d4d2cb9fbbc62bccb4",
+      "publishedAt": "2026-09-05T14:10:08.000Z",
+      "observedAt": "2026-09-05T18:29:55.803Z",
+      "sourceAuthorityTier": "INDEPENDENT_REPORTING",
+      "destinations": [
+        "news_breaking",
+        "news_daily",
+        "news_weekly",
+        "news_big_question",
+        "straight_answers",
+        "freshness"
+      ],
+      "disposition": "UNRECONCILED_PRIVATE_SIGNAL",
+      "evidenceBoundary": "Discovery lead only. Publication requires an independent LAiDIES read, primary evidence, AIDB comparison or dated absence, producer contract and applicable approval."
+    }
+  ],
+  "unavailableSources": [
+    {
+      "sourceId": "SRC-REUTERS-AI",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "checkedAt": "2026-09-05T18:29:55.803Z",
+      "error": "HTTP 401"
+    }
+  ],
+  "sourceHealthAlerts": [],
+  "publicationActionTaken": false,
+  "canonicalWrite": false,
+  "deploymentActionTaken": false
+}

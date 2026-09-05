@@ -1,0 +1,25 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "laidies-operating-handoff-pilot",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "invocation_logs": true, "persist": true },
+    "traces": { "enabled": true, "persist": true }
+  },
+  "vars": {
+    "FROZEN_RECEIPT_SHA256": "503a473018442c5a114586584dfd015c61503283b80784095e705b04b1a57b87"
+  },
+  "workflows": [
+    {
+      "binding": "OPERATING_HANDOFF",
+      "name": "laidies-operating-handoff-pilot",
+      "class_name": "OperatingHandoffPilot",
+      "limits": { "steps": 10 }
+    }
+  ]
+}

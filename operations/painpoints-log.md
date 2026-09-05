@@ -34,3 +34,41 @@ new events; regenerate the existing derived projection whenever its source log
 or projector changes. The Stop guard was retained unchanged.
 Behind the Build angle: why an AI can remember the assignment yet resume the
 wrong version, and how a small save point prevents repeating the whole briefing.
+
+## Phone connection versus reliable alerts — 2026-09-05
+
+The assistant repeatedly described QR setup before checking the user's existing
+connection. Screenshots then proved the iPhone was already paired and online;
+a reply reached the exact task. A subsequent locked-phone test produced a banner,
+but the user could not recall whether it was the question or completion alert.
+The user's intermittent missed-alert report remains unresolved. Prevention:
+inspect current connection evidence before repeating setup; distinguish connected,
+request posted, banner observed, request acknowledged and work resumed. Do not
+make the user remember notification text or call one delivery a reliability pass.
+Possible Behind the Build angle: why a connected app can still leave work waiting,
+and why a notification is different from an acknowledged decision request.
+
+## Hosted handoff and account-entitlement truth — 2026-09-05
+
+Existing cloud intake gathered leads but its issue consumer did not resume an
+editorial owner job. A receipt labelled PRIVATE lived in a public repository;
+labels cannot confer privacy. A fixed-receipt Workflow now proves persisted
+checkpoint/wait/exact response/HOLD and rejects the wrong version in the real
+Cloudflare runtime. The initial pure-function test did not execute the workflow
+entrypoint; added real local runtime calibration to CI. Hosted negative checks
+also confirmed no-response HOLD and wrong-hash rejection. GitHub's Linux runner
+printed runtime PASS but remained stuck after the test; canceled superseded runs
+and corrected cleanup to terminate the test-owned process group, including
+descendants after the npm parent exits. A hard deadline now bounds the test.
+The passing assertions alone did not prove successful process completion.
+An old local Wrangler runtime rejected the September compatibility date; pinning
+a current isolated runtime avoided disrupting other work. A later Cloudflare
+100328 CPU-limit error was overstated as an account-wide Free-plan claim. Ali
+pays for Cloudflare; the error establishes only the relevant Worker entitlement.
+Removing the optional custom CPU setting allowed deployment without a plan change.
+Prevention: inspect live execution and service-specific entitlements, distinguish
+operator acknowledgement from authenticated founder approval, and keep private
+decisions outside public issues. Update this lesson, not a duplicate failure log.
+Behind the Build angle: an online website, a working cloud job and an acknowledged
+decision are three different things; a paid account can also have different
+subscriptions for different services.
