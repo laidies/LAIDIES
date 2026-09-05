@@ -82,10 +82,11 @@ export function compileActiveAssetRegistry(registry) {
 export function assertActiveAsset({ relativePath, absolutePath, registry }) {
   const relative = normalizedPath(relativePath, 'public asset path');
   if (BLOCKED_PATH.test(relative)) throw new Error(`public asset path is candidate/retired/rejected: ${relative}`);
+  // Revocation wins over an older ACTIVE entry or dynamic-family membership.
+  if (registry.blocked.has(relative)) throw new Error(`public asset has non-ACTIVE status: ${relative}`);
   const authority = registry.exact.get(relative);
   if (!authority) {
-    const reason = registry.blocked.has(relative) ? 'has non-ACTIVE status' : 'is not registered ACTIVE';
-    throw new Error(`public asset ${reason}: ${relative}`);
+    throw new Error(`public asset is not registered ACTIVE: ${relative}`);
   }
   const actual = fileHash(absolutePath);
   if (actual !== authority.sha256) throw new Error(`public asset checksum mismatch: ${relative}`);

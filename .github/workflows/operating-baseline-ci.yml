@@ -21,6 +21,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Active asset revocation calibration
+        run: node scripts/test-active-asset-admission.mjs
       - name: GitHub Pages release-boundary calibration
         run: npm run test:pages-release-boundary
       - name: Block automatic main-to-production deployment
