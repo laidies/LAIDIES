@@ -950,3 +950,25 @@ passed. Detailed evidence is in
 passed for fidelity to the accepted working environment, responsive behaviour,
 accessibility structure and functional journeys. The inherited book-cover
 palette remains an explicit owner gate and is not approved by this result.
+
+## LUMINAiRY Matron Lumen approved hero integration — 2026-09-05
+
+### Reference and implementation
+
+- Approved source: `assets/building-interiors/delivery-20260905-luminairy-matron-lumen-plant-free-successor-v3/luminairy-nave-matron-lumen-site-palette-plant-free-v3.png` (1500 × 844; SHA-256 `0d7cc3a48e0baeadc0e16269f64df59b8e92b596030b6b7814298de630420964`).
+- Implemented surface: `luminairy.html` with deterministic HTML title and copy.
+- Browser states inspected at 1440 × 1000, 390 × 844 and 320 × 760. The earlier admitted preview captures are stored beside the source verification in `operations/product-stewards/luminairy/matron-lumen-page-integration-2026-09-05-v3/` and use the same exact image bytes and crop rule as the final page.
+
+### Comparison and findings
+
+- Desktop renders the exact approved full-width source with the established left copy-safe area and Matron on the right. Her face, asymmetric silver-streaked curls, raspberry glasses, velvet jacket, keys and practical candle-tending action remain intact.
+- Phone uses the admitted `object-position: 92% center` crop. At both tested phone widths, Matron remains recognizable above the complete title; the stained-glass nave supplies the approved ink-navy, raspberry, violet, cyan and teal environment.
+- No physical plants, vines, planters, flowers or replacement clutter are visible. Floral geometry remains confined to stained glass and floor ornament.
+- Typography and copy remain deterministic HTML, readable at every tested size. There is no horizontal overflow.
+- Image fidelity is clean at intended sizes; no new anatomy, object-orientation, text or compression defect was introduced by integration.
+- Browser console showed no page errors. The single Plausible warning is the expected localhost analytics suppression.
+- P0: none. P1: none. P2: none.
+
+### Final result
+
+passed

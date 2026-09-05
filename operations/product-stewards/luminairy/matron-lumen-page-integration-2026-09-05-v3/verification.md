@@ -1,6 +1,6 @@
 # Verification — Matron Lumen LUMINAiRY plant-free successor v3
 
-Status: INDEPENDENT VISUAL ADMISSION PASS — awaiting Ali
+Status: APPROVED BY ALI AND WIRED LOCALLY — not pushed or deployed
 Date: 2026-09-05
 
 ## Exact candidate
@@ -43,3 +43,17 @@ Verdict: PASS
 - The spare nave is intentional. Do not backfill it with decorative filler in later edits.
 
 Admission recommendation: show this exact v3 to Ali for bounded LUMINAiRY hero approval only.
+
+## Ali approval and local integration
+
+Ali approved this exact v3 on 2026-09-05. `luminairy.html` now consumes the exact approved asset with deterministic HTML copy, and `content/luminairy-v2.css` uses `object-position: 92% center` at widths up to 760px. Public release remains separate and has not occurred.
+
+## Final local browser verification
+
+- 1440 × 1000: exact 1500 × 844 source loaded; title and supporting copy visible; computed crop `50% 50%`; horizontal overflow `0`.
+- 390 × 844: Matron's face, hair and glasses remain recognizable above the title; computed crop `92% 50%`; horizontal overflow `0`.
+- 320 × 760: the same identity remains recognizable; the complete title and supporting copy remain readable; computed crop `92% 50%`; horizontal overflow `0`.
+- Browser console: no page errors. One expected localhost-only Plausible warning (`Ignoring Event: localhost`) does not affect the page.
+- Targeted source check: the page references the exact approved v3 pathname and natural 1500 × 844 pixels. The existing untracked held-asset validator was not changed because it belongs to another unfinished lane and still encodes the predecessor held state.
+
+Local integration verdict: PASS. This is not evidence of a push, deployment or public verification.

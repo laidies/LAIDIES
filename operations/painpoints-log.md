@@ -14558,3 +14558,43 @@ The replacement was rebuilt from the exact downloaded public masthead; its
 wall median matches the live source and all pixels outside the bounded seat
 region are identical. Future replacements compare against the public asset
 before generation, not only the local file named by the workspace page.
+
+## BTB-488 — A landscape keeper can disappear at the phone breakpoint
+
+- **Date:** 2026-09-02
+- **Area:** LUMINAiRY / Matron Lumen page integration.
+- **Failure:** The admitted desktop composition placed Matron correctly on the
+  right, but the page's default centred phone crop hid nearly all of her while
+  leaving the title readable.
+- **Root cause:** Character placement was designed against the landscape source
+  and desktop copy-safe area without first binding the page's tall 660px mobile
+  cover crop.
+- **Prevention rule:** Every right- or left-anchored building keeper must be
+  rendered with the real HTML copy at the smallest governed phone width before
+  review. A recognisable face is non-compensable; desktop success cannot admit
+  the candidate.
+- **Durable correction:** The exact Matron candidate was tested at 1440px,
+  390px and 320px. The centred phone crop failed internally and was replaced in
+  the preview by `object-position: 92% center`, which retains her face, hair,
+  glasses and working identity at both phone widths. The page remains unwired
+  until Ali approves the exact candidate.
+- **Possible Behind the Build angle:** The image was right, but the crop made
+  the keeper vanish—why responsive art direction is part of character design.
+- **Publication status:** ALI APPROVED / WIRED LOCALLY / NOT PUSHED / NOT DEPLOYED.
+
+**Ali correction, 2026-09-05:** The first responsive integration still failed
+because its amber/brown cathedral environment did not use the current
+LUMINAiRY page palette. Its internal visual PASS is invalidated. A page hero
+cannot pass by preserving copy and character alone: the reviewer must compare
+the dominant environmental colours against the destination's exact current
+tokens. The v2 candidate binds ink navy, raspberry, violet, cyan, teal and mint,
+with warm orange restricted to candles and small brass details; the exact
+approved Matron identity remains unchanged in authority.
+
+**Ali correction, 2026-09-05, second pass:** The colour successor introduced
+many potted plants, hanging vines and flower arrangements without a scene job.
+They made a working nave read like decorative conservatory filler. Future
+environmental colour edits must explicitly preserve the object inventory and
+forbid new décor. The plant-free successor removes physical vegetation without
+replacing it, while retaining floral geometry that belongs to the stained glass
+and floor inlay.
