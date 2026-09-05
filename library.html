@@ -1337,7 +1337,7 @@ function renderJeevesService(payload,query){
   }
   if(payload.status==='limit_reached'){
     if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
-    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/resident.html">Make your free Resident Card</a>':''}</section>`;
+    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/maikeover.html">Make your free Resident Card</a>':''}</section>`;
     return;
   }
   if(payload.status==='unavailable'){
