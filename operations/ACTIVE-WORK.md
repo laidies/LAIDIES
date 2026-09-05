@@ -1137,3 +1137,12 @@ objective; every open lane keeps its own checkpoint.
 - **Locked identity:** older South Asian woman with asymmetric silver-streaked curls, raspberry cat-eye glasses, wry warmth, raspberry velvet blazer, peacock geometric blouse, bangles, earrings, keys and practical candle-tending action. The fantasy-priestess predecessor remains rejected.
 - **Next action:** adapt this exact identity into one LUMINAiRY page placement, preserve the admitted room and responsive crops, and return that exact layout for Ali’s separate approval before rebinding any episode, card, prompt, manifest or shared-reference consumer.
 - **Truth boundary:** no consumer, page source, push, deployment or public byte changed with this identity approval.
+
+### 2026-09-05 Matron Lumen LUMINAiRY hero approval checkpoint
+
+- **Current state:** `EXACT HERO APPROVED / WIRED LOCALLY / NOT PUSHED OR DEPLOYED`.
+- **Approved artifact:** `assets/building-interiors/delivery-20260905-luminairy-matron-lumen-plant-free-successor-v3/luminairy-nave-matron-lumen-site-palette-plant-free-v3.png`, SHA-256 `0d7cc3a48e0baeadc0e16269f64df59b8e92b596030b6b7814298de630420964`.
+- **Verified result:** the exact plant-free v3 is now the `luminairy.html` hero. Desktop 1440 × 1000 and phone 390 × 844 / 320 × 760 renders retain Matron's face, approved identity, candle-tending action and complete HTML title with zero horizontal overflow. Phone uses `object-position: 92% center`.
+- **Independent result:** PASS with no P0, P1 or P2 visual regression; no physical plants, vines, flowers, planters or replacement clutter were found.
+- **Next action:** release this exact committed integration only when Ali separately authorizes a push/deployment, then verify the custom public origin at the same three viewports.
+- **Truth boundary:** commit `99f0ee853f1aa568df126a8728572951cceaa65b` is local. Nothing in this checkpoint proves a push, deployment or public verification, and no other Matron consumer is approved.
