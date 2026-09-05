@@ -1,5 +1,15 @@
 # Active work
 
+## 2026-09-05 NewsStand workflow audit and reader promise
+
+- **Status:** INTERNAL AUDIT RECORDED / IMPLEMENTATION PROPOSED. The September 5 source cycle below remains a separate completed research run.
+- **Task:** Audit the current source-to-publication workflow and actual reader output; incorporate Ali's news, explanation, trust, women-focused mission, Weekly/Front PAiGE/Big Picture, service-column and new feature requirements.
+- **Authority:** `operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md` records the direct ruling and clearly marks exploratory feature directions. The decision router points there.
+- **Deliverable:** `operations/product-stewards/newsstand/WORKFLOW-AUDIT-2026-09-05.md`: ranked findings, evidence, existing protections to keep, target workflow, reporting modules, distinct desk jobs, creative feature pilots, implementation order, measurements and authority boundaries.
+- **Verification:** Four focused existing suites passed with negative fixtures. Pure in-memory probes exposed topic/reader-coverage and recovery/publication-tracker gaps. The service check returned an isolated HOLD for stale calibration hashes. Live NewsStand, retained Weekly, corrected Astra and LUMINAiRY were inspected. This is not a full content re-verification, human comprehension study or an unattended-publication certification.
+- **Next work:** Follow the report's implementation order: truthful recovery/status and topic binding, broader discovery and durable handoffs, one complete article plus Weekly cycle, service replenishment, then a small feature pilot. Ordinary-news autonomy remains; this audit introduces no daily Ali copy approval.
+- **Boundary:** Only five internal task-owned records changed in `/Users/alisoneakin/Projects/laidies-newsstand-workflow-audit-20260905`, branch `audit/newsstand-reader-promise-20260905`. Production code, content, automation, deployment and iCloud dirty work were not changed. Commit identity belongs in the delivery message; repository implementation and public behavior remain unchanged.
+
 ## 2026-09-05 NewsStand Daily cycle
 
 - **Status:** RESEARCH COMPLETE / NO PUBLICATION.

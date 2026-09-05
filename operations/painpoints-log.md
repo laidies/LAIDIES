@@ -1,5 +1,16 @@
 # LAiDIES build learning ledger
 
+## BTB-500 — A complete newsroom record can still miss the reader's question
+
+- **Date:** 2026-09-05
+- **Area:** NewsStand workflow audit, reader comprehension, service continuity and recovery truth.
+- **Observed:** The live retained Weekly does not explain the selected week's stories sufficiently for a reader who missed the Daily. The first published Astra piece required a reader-fit correction. Current coverage checks accept a wrong module under unnormalized display topics and do not bind every reporting answer to prose. Recovery can select an evidence-held item before its stated next check and can mark publication from unbound booleans. The service check correctly isolates ordinary news but exits 0 while reporting a bank HOLD.
+- **Evidence:** `operations/product-stewards/newsstand/WORKFLOW-AUDIT-2026-09-05.md` identifies the current base, live observations, code locations, four calibrated suite results, in-memory counterexamples and exact service HOLD. The helper counterexamples were not saved as production state and do not establish a bypass of the full publication chain.
+- **Diagnosis:** Shape checks, state labels and issue persistence prove narrower properties than editorial usefulness, fresh coverage or public completion. A source-family label also cannot establish coverage without a real reporting route.
+- **Prevention proposed:** Normalize topic IDs; bind substantive answers to evidence and prose; review the article before maker claims; check due/actionable recovery; bind publication to exact admitted membership and public evidence; expose each desk's health; and measure Weekly comprehension separately from persistence. Allow sustained zero-defect performance instead of impossible strict decreases below zero.
+- **Status:** AUDIT FINDINGS RECORDED / PREVENTION NOT IMPLEMENTED. The defects are not claimed as learned or repaired merely because this entry exists. Exact failing fixtures and forward verification belong to the implementation task.
+- **Possible Behind the Build angle:** Why an automated newspaper can pass every checklist and still leave its reader asking, 'But what does that actually mean?'
+
 ## BTB-499 — A complete old AIDB ledger can still look unprocessed when the cursor forgets it
 
 - **Date:** 2026-09-05

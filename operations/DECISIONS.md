@@ -20,6 +20,15 @@ proper domain source before building from it.
 
 ## Core routes
 
+NewsStand editorial purpose, professional-women audience, memorable explanation,
+coverage breadth, misleading-headline translation, STEM/medical reporting,
+practical guidance, learning links, Front PAiGE's earned feature cadence,
+Weekly comprehension, Big Picture inquiry, useful service rotation, and the
+requested Saint/MAiVEN/TRAiLBLAZER and playful newspaper feature directions:
+`operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md`
+(Ali's direct September 5 ruling). This is DECIDED purpose, not implemented or
+publicly verified performance. The linked workflow audit is PROPOSED work.
+
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:
 `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` (August 30 proving run).
