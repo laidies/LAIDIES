@@ -20,6 +20,17 @@ proper domain source before building from it.
 
 ## Core routes
 
+NewsStand's bounded editorial-review pilot is implemented but HOLD_CALIBRATION.
+The actual positive-reference conflict and its Learning-owner admission boundary
+are recorded in
+`operations/product-stewards/learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`;
+execution and resume rules remain in the NewsStand runbook and `review-runtime/README.md`.
+A reference's old approval label cannot override a newly substantiated reader
+comprehension failure. Preserve the old artifact and findings, resolve the
+reference through the existing Learning-owner process, and then bind a fresh
+calibration. This does not silently change the shared registry or release any
+held content. The current whole-article approval path remains blocked.
+
 Related-song buttons across LAiDIES use the existing in-page KSVL player.
 Ali's September 5 ruling and the first NewsStand masthead implementation are
 recorded under “Related songs use the shared player” in

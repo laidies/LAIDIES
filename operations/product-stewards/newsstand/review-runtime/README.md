@@ -1,5 +1,57 @@
 # Local independent-review connection
 
+## Current pilot result — September 5
+
+The bounded prototype is implemented; **editorial qualification remains HOLD**.
+Claude's existing account was reconnected and real isolated `claude-fable-5`
+completions were observed. No additional subscription or deployed review service
+was created. `run-pilot.mjs` supports explicit `claude` and `gemma` routes.
+Each attempt is preserved, and `--resume` replays saved raw output rather than
+resending it. A saved request without raw output cannot be retried silently.
+The fixed attempt directories are intentional: a changed method needs a new
+version and must retain earlier evidence.
+
+The method sends the complete artifact first, uses separate facts/reader jobs,
+and asks for paragraph references instead of repeated copied passages. It
+derives the aggregate from every returned required judgment; it never supplies
+missing qualitative judgments. Absent failure families may refer to the whole
+read artifact, as the existing prose gate permits. Present/uncertain failures,
+claims and outcomes still require exact evidence. Facts must cite evidence for
+that same claim. AI explain-back/transfer remain explicitly AI assessments.
+
+Gemma's first blind response exhausted its budget on whitespace; its completed
+successor missed all four registered job-offer faults. Claude first found three;
+independent diagnosis showed the abbreviated rubric had dropped BTB-439's
+destination-level motivation distinction. After restoring that generic rule,
+Claude found all four. It then flagged unexplained biometric terminology in the
+registered positive and emitted an invalid extra NOTE field. The saved formal
+result is HOLD_CALIBRATION. Independent inspection corroborated the term defect;
+the response's format failure does not erase the source-example issue.
+
+Do not run more calibration or article calls until the Learning owner resolves
+`../../learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`. The next
+version should also enforce the actual output schema through Claude's existing
+native structured-output option. Do not strip unknown judgments or coach away
+the jargon finding. The third negative, article reviews and full receipt
+assembler were not run/built because their prerequisite failed. The unchanged
+public admission checker remains authoritative; this prototype cannot publish.
+
+Verified checks from the repository root:
+
+```sh
+node scripts/test-newsstand-review-protocol.mjs
+node scripts/test-newsstand-review-replay.mjs
+node scripts/test-prose-quality-admission.mjs
+```
+
+The first tests normalizer handling and exact candidate spans; its prompt check
+is a narrow marker check, not a universal proof against answer leakage. The
+second replays actual saved output with all provider calls disabled and tests
+both incomplete-attempt and held-calibration rejection. The third is the
+existing admission suite. None proves prose quality or unattended reliability.
+
+## Preserved Workers AI fallback
+
 This preserves the already exercised Cloudflare Workers AI fallback. It is
 an internal local development connection, not a deployed public service.
 No credentials belong in these files. Use the existing configured account.

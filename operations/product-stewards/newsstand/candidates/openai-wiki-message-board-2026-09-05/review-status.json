@@ -1,6 +1,6 @@
 {
-  "status": "HOLD_INDEPENDENT_REVIEW",
-  "asOf": "2026-09-05T21:09:28Z",
+  "status": "HOLD_CALIBRATION",
+  "asOf": "2026-09-05T22:02:00Z",
   "owner": "NewsStand editorial owner /root",
   "candidateId": "openai-wiki-message-board-2026-09-05",
   "reviewTextSha256": "732de028113252a415082b952f1667884c72503eebc192ffb6f8b50dfbaed018",
@@ -9,12 +9,17 @@
   "confirmedArticleDefects": [],
   "qualification": "No new prose defect is established by these failed review outputs. This is not a claim that the article has passed independent admission.",
   "currentFailure": {
-    "providerOutput": "independent-gemma-final-response.raw.json",
-    "overallVerdict": "PASS",
-    "requiredOutcome": "unseenTransfer",
-    "requiredOutcomeVerdict": "HOLD",
-    "learningDisposition": "CANDIDATE_REPAIR_ONLY",
-    "findings": "The returned defects describe prior review omissions, including an N/A quotation. Root cannot silently erase those findings or substitute a PASS for the required HOLD."
+    "route": "bounded-claude-v2",
+    "calibration": "bounded-claude-v2/calibration-result.json",
+    "finding": "All four registered failures in CQX-BAD-002 were detected after correcting an ambiguous destination-purpose rubric. The positive response has an undeclared NOTE field and flags unexplained biometric categorisation in the frozen NEWS positive. Independent Terra inspection agrees the jargon concern is grounded in the actual example.",
+    "notRun": [
+      "CQX-BAD-001",
+      "wiki factual review",
+      "wiki reader review",
+      "full receipt assembly",
+      "issue admission",
+      "public release"
+    ]
   },
   "attempts": [
     {
@@ -54,10 +59,31 @@
         "independent-gemma-final-response.raw.json",
         "independent-gemma-final-judgment.json"
       ]
+    },
+    {
+      "route": "Gemma blind v1",
+      "result": "Strict provider formatting ended at length limit with repeated whitespace, not a completed judgment.",
+      "files": "bounded-pilot-v1/"
+    },
+    {
+      "route": "Gemma blind v2",
+      "result": "Stopped completion missed all four registered CQX-BAD-002 failures. Saved raw replayed without another inference after correcting an unnecessary absent-family excerpt requirement. HOLD_CALIBRATION.",
+      "files": "bounded-pilot-v2/"
+    },
+    {
+      "route": "Claude blind v1",
+      "result": "Existing Claude account reconnected; real Fable inference rejected CQX-BAD-002 and detected three of four registered failures. Independent diagnosis found our motivation definition omitted the destination-level purpose required by BTB-439.",
+      "files": "bounded-claude-v1/"
+    },
+    {
+      "route": "Claude blind v2",
+      "result": "Detected all four CQX-BAD-002 failures. Positive-sample response failed strict format and raised an independently corroborated jargon concern. Pilot stopped before remaining sample and article calls.",
+      "files": "bounded-claude-v2/"
     }
   ],
-  "nextAction": "Restore the existing independent reviewer or repair the bounded assessment method so it returns a complete internally consistent assessment of unchanged exact prose. Do not repeat the same full packet, fabricate missing judgments, or add a company-approval requirement. Only then build and validate the ordinary-story candidate package, exercise issue/reader checks and perform the existing scoped release.",
+  "nextAction": "Learning System owner must disposition the full-positive NEWS exemplar conflict in CALIBRATION-REPAIR-2026-09-05.md, preserving the frozen article and all prior judgments. Admit an adequate successor/reference through the existing owner process before a fresh blind calibration. Fix the provider output-schema instruction using native structured output in that single successor pilot. Only a completed calibrated method may assess the unchanged wiki article and assemble the existing full admission chain.",
   "resumeFreshness": "Recheck source developments and actual publication date. If edition date changes, rebuild and bind the affected candidate metadata/review text honestly rather than backdate it. Reacquire public predecessor proof after its validity window or any new production head.",
   "reserve": "Six currently admitted public columns can carry forward with original dates under the valid predecessor proof; private service bank still has zero newly ready items.",
-  "boundary": "No new story, issue, service, textbook correction or review service was deployed. The separate library lesson-link fix is publicly verified. Local review development process stopped."
+  "boundary": "Internal review pilot implemented and exercised; reliable editorial admission is NOT achieved. No new article, service, issue, textbook, registry admission or public release. Full receipt assembly remains unimplemented because no calibrated article judgments exist. The separate lesson-link repair remains publicly verified.",
+  "sourceEvidence": "primary-evidence-pilot/evidence.json contains 11 independently collected claim records; claim-map.json and source-bindings.json mechanically bind 11 claims and 7 source files. This is prepared factual input, not the unperformed independent factual verdict."
 }

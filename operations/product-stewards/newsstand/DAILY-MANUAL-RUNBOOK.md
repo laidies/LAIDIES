@@ -1004,14 +1004,15 @@ date/time window expires or production advances. The ordinary-publication and
 service-continuity regression suites passed with synthetic fixtures; no actual
 September 5 issue or new public article was admitted by those tests.
 
-### Editorial-review repair sequence — specified September 5
+### Editorial-review repair sequence — pilot implemented, calibration held September 5
 
 Current diagnosis: the existing release checker already rejects inconsistent
 PASS/HOLD outcomes. `test-prose-quality-admission.mjs` passed its positive,
 held and deliberately invalid cases again. Adding another approval gate will
-not repair the missing review. A current local `claude auth status --json`
-reports signed out; restore access before using that route. A configuration
-check is not a successful inference. Do not repeat the old large request.
+not repair the missing review. Claude was signed out during diagnosis; the existing account was reconnected
+and actual isolated Fable completions were observed during the pilot. A
+configuration check alone is not a successful inference. Do not repeat the old
+large request.
 
 The smallest next implementation reuses the current review/admission path:
 
@@ -1044,7 +1045,28 @@ The smallest next implementation reuses the current review/admission path:
    August 31 policy. Service renewal retains its own sampling policy; success
    on one article does not renew the whole bank or prove the unattended cycle.
 
-This sequence is SPECIFIED, not implemented or a new content admission. The
-saved article and earlier attempts remain unchanged and held. Provider choice
-is conditional on actual access and this bounded result; no new subscription,
-provider purchase, reviewer tournament or Ali per-story approval is requested.
+The internal request/normalization/replay prototype is implemented under
+`review-runtime/`; its factual inputs bind 11 independently collected records.
+Five actual calls are retained across Gemma and Claude protocol versions.
+Gemma missed the registered purpose failures. Correcting the generic motivation
+rubric to include BTB-439's destination-level purpose enabled Claude to detect
+all four; the expected labels were never supplied. Claude then flagged an
+unexplained term in the registered positive and emitted an extra NOTE key.
+Strict normalization held the response, and independent artifact inspection
+corroborated the term defect. This is HOLD_CALIBRATION, not reviewer admission.
+
+Next dependency: `../learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`.
+The Learning owner must disposition the positive-reference conflict before a
+new blind pilot. Preserve previous bytes and findings; do not coach the reviewer
+to PASS. Use native output-schema enforcement in the versioned successor to
+remove the avoidable extra-field error, while keeping every semantic finding.
+The remaining negative, wiki factual/reader calls, full receipt assembly,
+issue admission and release were not run. No new registry authority was created.
+
+`node scripts/test-newsstand-review-protocol.mjs` checks normalizer handling and
+exact passage references. `node scripts/test-newsstand-review-replay.mjs`
+replays actual saved outputs with provider access disabled, rejects resending
+an incomplete attempt, and proves this held calibration blocks article review.
+These checks do not establish prose quality or a reliable unattended cycle.
+The saved article and previous attempts remain unchanged and held. No new
+subscription, provider purchase or Ali per-story approval is requested.

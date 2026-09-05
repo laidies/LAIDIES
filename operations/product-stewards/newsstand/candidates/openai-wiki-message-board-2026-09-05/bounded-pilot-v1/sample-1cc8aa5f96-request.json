@@ -1,0 +1,2261 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n[P001] # AI Fundamentals 101\n\n[P002] ## Introduction — What you are actually using\n\n[P003] You ask an AI product to compare two job offers. It gives you a neat recommendation in seconds. Before one polished paragraph influences the next two years of your life, you need to know what happened between your question and that answer.\n\n[P004] You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.\n\n[P005] The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.\n\n[P006] That distinction matters because an answer can fail in different places. The model may generate a false claim. The right document may never reach the model. A search may return an old policy. A tool may not have permission to open the file. The product may hide which source supported a sentence. Or the answer may be accurate while still being wrong for *your* priorities.\n\n[P007] This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.\n\n[P008] We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.\n\n[P009] ## Chapter 1 — One request, from question to decision\n\n[P010] ### The real question is bigger than the prompt\n\n[P011] Imagine that you have two job offers.\n\n[P012] Northstar pays $12,000 more per year and expects three days a week in the office. Juniper pays less, is remote-first and promises more flexibility. You also help your father get to physiotherapy on Tuesday evenings, you want enough income to stop worrying about every surprise bill, and you do not want your working week to swallow the rest of your life.\n\n[P013] You open an AI chat, attach both offer letters and write:\n\n[P014] > Compare these two offers and tell me which one is better.\n\n[P015] The product replies that Northstar is the stronger choice because it pays more and has a more senior title.\n\n[P016] That answer is tidy. It is also answering a smaller question than the one you actually have.\n\n[P017] Your real question is not “Which offer has the largest salary number?” It is “Which offer gives me the better life over the next two years, given my money needs, family responsibilities and appetite for risk?” The system cannot weigh those priorities unless you make them available for this task.\n\n[P018] This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.\n\n[P019] ### What the product actually received\n\n[P020] Start with the product—the app or service you opened.\n\n[P021] The product received your sentence and the two files you attached. It did not automatically receive every fact that matters to you. It did not know about Tuesday physiotherapy. It did not know how much commuting you can tolerate. It did not know that Juniper’s pension and health benefits are explained in a separate benefits guide that you forgot to attach.\n\n[P022] The information available to the system for this run is its **context**. Context can include your current message, parts of the conversation, attached material, instructions supplied by the product and information returned by a search or another tool. What enters context depends on the product and the task. “It was somewhere in my account” does not prove it reached this answer.\n\n[P023] In this case, the missing benefits guide is not a small technical detail. It contains five additional vacation days, an employer-paid health plan and the date pension contributions begin. Those facts could change the comparison. The system cannot read the benefits PDF by osmosis.\n\n[P024] So the first recommendation did not come from the complete decision. It came from the smaller package of information that actually reached the system.\n\n[P025] ### What the model did\n\n[P026] Inside the wider system, a trained model processed the available input and produced the comparison.\n\n[P027] The model had been trained before you arrived. Training shaped the patterns and parameters it uses to produce outputs. Your two offer letters did not retrain it. They supplied current material for this particular run.\n\n[P028] When you sent the request, the model used that current material during **inference**—the stage when a trained model produces an output from new input. For a language model, that output is generated text. Other kinds of models can classify, predict, rank, detect or recommend instead.\n\n[P029] The model could organise the salary, title and office requirements it received. It could infer a comparison that sounded reasonable. But it could not faithfully compare a benefits guide that was absent. It could not know a private priority you had not expressed. A confident sentence does not repair missing evidence.\n\n[P030] Notice what did *not* happen: the model did not independently wander through your computer looking for the rest of the paperwork. It worked with what the surrounding system made available.\n\n[P031] ### What changes when the system can fetch something\n\n[P032] Some AI systems can use capabilities beyond the model itself. Surrounding software may retrieve a document, search an approved source, calculate a figure or ask another service for current information. People often call these capabilities **tools**.\n\n[P033] Suppose the product can request a current commute estimate from a mapping service. The model can indicate that the estimate would help. The surrounding software makes the request, receives the result and adds it to the working material. Depending on the product and the operation, that step may run automatically or wait for your confirmation. The model can then produce a revised comparison using the result.\n\n[P034] This matters for two reasons.\n\n[P035] First, the model and the tool are different parts of the system. The model produces language and may request an operation; the surrounding software performs the operation under whatever permissions and limits the product allows.\n\n[P036] Second, a tool result is new input, not automatic truth. A commute estimate depends on the route, time of day and source. A retrieved policy may be current, old or unrelated. The reader still needs to inspect the consequential evidence.\n\n[P037] Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”\n\n[P038] ### Repair the missing part, not the confidence\n\n[P039] You now revise the task.\n\n[P040] You attach Juniper’s benefits guide. You state that Tuesday evenings are non-negotiable, that you can accept the lower salary if the total package is strong, and that time lost to commuting matters. You ask the product to show the evidence behind each comparison instead of giving you one unexplained winner.\n\n[P041] The system retrieves a current commute estimate for Northstar’s required office days. The revised answer now shows the trade-off:\n\n[P042] - Northstar pays more, but the commute takes roughly six hours from your week and its health coverage starts later.\n- Juniper pays less, but returns more time, includes the additional vacation days and better matches your Tuesday commitment.\n- The pension details still need confirmation because the benefits guide describes eligibility generally, not your individual start date.\n\n[P043] The answer changed because the working material changed. It is not proof that Juniper is objectively “the better job.” It is a better comparison of the decision *you* are making.\n\n[P044] This is the repair pattern to remember. When an AI answer is weak, do not begin by asking it to sound more certain. Find the weak part of the system.\n\n[P045] If the goal is vague, define the decision. If essential material is absent, add it. If a claim depends on a current fact, retrieve and inspect that fact. If the model’s output is unsupported, ask for evidence or use a more suitable method. If an action carries consequences, check the permission and keep the decision with the responsible person.\n\n[P046] Several parts can be weak at once. The method is a diagnostic, not a promise that every failure has one tidy cause.\n\n[P047] ### The output is not the decision\n\n[P048] The product has now returned a more useful output. It has organised the offers, exposed important differences and marked one unresolved point.\n\n[P049] It still cannot decide what six hours of weekly commuting are worth to you. It cannot know whether Juniper’s manager will honour the flexibility described in an interview. It cannot accept legal or financial responsibility for the choice. And it cannot verify your individual pension eligibility unless you obtain the relevant terms from an authoritative source.\n\n[P050] Those are not defects that a more eloquent paragraph can solve. They are evidence, authority and judgment boundaries.\n\n[P051] Before you rely on the result, ask four questions:\n\n[P052] 1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.\n\n[P053] That is the map we will use throughout this book:\n\n[P054] **your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**\n\n[P055] It is a practical map, not a claim that every AI system is built identically. Its purpose is to help you locate what changed, what failed and what to do next.\n\n[P056] Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.\n\n[P057] For now, hold on to the most important distinction: the model is one component, the product is what you use, and the result comes from the whole system plus the evidence and judgment you bring to it.\n\nTASK:\nAssess editorial craft against the supplied reader job. This is a blind sample: no expected verdict is supplied. Identify every actual failure, without inventing defects merely because a rubric names them. Review explanation and voice, not current external factual accuracy. Sources are not supplied for factual checking in this calibration. A relevant technical term explained in context is not itself jargon. A useful bounded worked example is not automatically too narrow: compare it with the stated purpose.\n\nREADER JOB AND RUBRIC / EVIDENCE:\n{\"readerJob\":\"The introduction and opening of a broad AI Fundamentals reference book for smart professional women without technical training. Orient readers to AI across work, everyday life and public debate; explain how concepts connect, with warm conversational curiosity. Examples serve that broad foundation rather than making one workflow the purpose of the whole book.\",\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery comes before a clear human reason for understanding it.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"Specialist taxonomy and workflow inspection dominate the intended warm, broad reader orientation.\"}}\n\nReturn only the requested judgments. For each judgment select the paragraph IDs that actually support your reason. IDs are references, not preassigned answers. Code will attach exact passages and metadata. No overall verdict, dates, file paths or hashes are requested. You are an independent Google Gemma reviewer; the artifact maker is OpenAI /root. Attest truthfully. Do not read prior reviews, imitate their verdicts, or diagnose review paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "news_calibration",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012",
+                        "P013",
+                        "P014",
+                        "P015",
+                        "P016",
+                        "P017",
+                        "P018",
+                        "P019",
+                        "P020",
+                        "P021",
+                        "P022",
+                        "P023",
+                        "P024",
+                        "P025",
+                        "P026",
+                        "P027",
+                        "P028",
+                        "P029",
+                        "P030",
+                        "P031",
+                        "P032",
+                        "P033",
+                        "P034",
+                        "P035",
+                        "P036",
+                        "P037",
+                        "P038",
+                        "P039",
+                        "P040",
+                        "P041",
+                        "P042",
+                        "P043",
+                        "P044",
+                        "P045",
+                        "P046",
+                        "P047",
+                        "P048",
+                        "P049",
+                        "P050",
+                        "P051",
+                        "P052",
+                        "P053",
+                        "P054",
+                        "P055",
+                        "P056",
+                        "P057"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 15
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "families",
+          "strengths",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

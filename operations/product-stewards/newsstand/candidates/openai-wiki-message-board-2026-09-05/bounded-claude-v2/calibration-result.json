@@ -1,0 +1,38 @@
+{
+  "status": "HOLD_CALIBRATION",
+  "scope": "Blind editorial calibration only; no publication, source accuracy or human comprehension claim.",
+  "providerRoute": "claude",
+  "protocolSha256": "5e0b962589872a2638c66ae89a1182f7049ec8c1c9bd1f692a6fbf0608d2ae25",
+  "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+  "notRun": [
+    "CQX-BAD-001"
+  ],
+  "evaluations": [
+    {
+      "exemplarId": "CQX-BAD-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+        "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+      },
+      "sample": "sample-1cc8aa5f96",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "missingRegisteredFailures": [],
+      "passed": true
+    },
+    {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/news-001-approved-frozen.js",
+        "sha256": "c4516f3207d3abd735d500341d99c531a7e3799c2c18b67519d7899c8a3b6767"
+      },
+      "sample": "sample-c4516f3207",
+      "expected": "PASS",
+      "actual": null,
+      "passed": false,
+      "failureKind": "EXECUTION_OR_PROTOCOL_FAILURE",
+      "failure": "AssertionError [ERR_ASSERTION]: Missing or extra assessment keys\n+ actual - expected\n\n  [\n+   'NOTE',\n    'benchmarkNameDrop',\n    'communicationPastiche',\n    'corporateSludge',\n    'curiosityWithoutPayoff',\n    'decorativeAnalogy',\n",
+      "rawOutput": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/bounded-claude-v2/sample-c4516f3207-provider.raw.json"
+    }
+  ]
+}

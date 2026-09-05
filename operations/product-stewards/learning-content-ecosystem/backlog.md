@@ -6,6 +6,8 @@ release is implied
 
 ## Smallest current gaps
 
+**Current NewsStand dependency (September 5):** LCE-018 must disposition the exact positive-example conflict in `CALIBRATION-REPAIR-2026-09-05.md`. The NEWS pilot remains HOLD_CALIBRATION; the existing positive is not a sound full-pass baseline while the unexplained-term finding is unresolved. Registry admission and cross-surface contract renewal are not completed.
+
 | ID | Status | Gap | Why it is the smallest useful next move | Owner | Acceptance evidence |
 |---|---|---|---|---|---|
 | LCE-001 | COMPLETE | Registry binding and targeted owner-entry | Control Room installed the row and the permanent task/dossier now recover through normal preflight | Control Room | `node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem` passes; reopen only on regression |

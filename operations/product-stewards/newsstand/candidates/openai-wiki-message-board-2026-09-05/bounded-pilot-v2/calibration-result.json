@@ -1,0 +1,28 @@
+{
+  "status": "HOLD_CALIBRATION",
+  "scope": "Blind editorial calibration only; no publication, source accuracy or human comprehension claim.",
+  "registrySha256": "e4f156b09cbe80f188ac05bf3a2bfa6097a2f3a12a8bf2dba79733de30d2061b",
+  "notRun": [
+    "CQX-GOOD-NEWS-001",
+    "CQX-BAD-001"
+  ],
+  "evaluations": [
+    {
+      "exemplarId": "CQX-BAD-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+        "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+      },
+      "sample": "sample-1cc8aa5f96",
+      "expected": "REJECT",
+      "actual": "PASS",
+      "missingRegisteredFailures": [
+        "purposeTooNarrow",
+        "mechanismBeforeMotivation",
+        "workedExampleOvertakesBookPurpose",
+        "technicalExplainerVoice"
+      ],
+      "passed": false
+    }
+  ]
+}

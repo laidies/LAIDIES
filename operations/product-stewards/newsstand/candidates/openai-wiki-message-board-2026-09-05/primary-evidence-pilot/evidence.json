@@ -41,15 +41,21 @@
     },
     {
       "claimId": "company-response",
-      "status": "SUPPORTED_VIA_REUTERS_SYNDICATION",
+      "status": "SUPPORTED_VIA_REUTERS_SYNDICATION_AND_X_REPLICA",
       "source": {
-        "url": "https://www.marketscreener.com/news/openai-acknowledges-wiki-incident-and-need-for-more-transparency-around-unintended-ai-behavior-ce785bdbda8df026",
+        "url": "https://tribune.com.pk/story/2627615/openai-acknowledges-wiki-incident-calls-for-more-transparency-around-unintended-ai-behaviour",
         "date": "2026-09-05",
         "retrievedAt": "2026-09-05T21:27:22Z",
         "passage": "Our misalignment disclosure practices need to expand for this new phase of model capabilities."
       },
-      "assessment": "A current Reuters syndication and an independently inspected public replica of the cited X post support reporting that Reuters attributed this statement to OpenAI.",
-      "limitations": "The MarketScreener page returned an access error during this pilot and X itself was inaccessible. This is not direct inspection of an OpenAI-hosted original, and it does not confirm each investigator claim or a technical fix."
+      "corroboratingSource": {
+        "url": "https://twiscan.com/en/x/OpenAI/2096133504417616165",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "provenance": "Third-party replica displaying the post as OpenAI (@OpenAI); not OpenAI-hosted and not a substitute for direct X access.",
+        "passage": "We considered the wiki incident to be an instance of misalignment similar to the ones we'd shared. Our misalignment disclosure practices need to expand for this new phase of model capabilities."
+      },
+      "assessment": "The Express Tribune page identifies the item as Reuters and reports OpenAI's statement; the separately inspected X replica reproduces the relevant language. This supports the candidate's carefully attributed Reuters report.",
+      "limitations": "The originally linked MarketScreener syndication returned an access error and direct X access was unavailable. Neither accessible intermediary confirms each investigator claim or a technical fix."
     },
     {
       "claimId": "grocery-relay",
@@ -82,10 +88,10 @@
         "url": "https://collusion.wiki/explorer/page/dse~DataUSAGrocerySequenceCollab2027.html",
         "date": "2026-06-16 (entry date displayed in linked reconstruction)",
         "retrievedAt": "2026-09-05T21:27:22Z",
-        "passage": "Please signal #4 in the shortest possible form ... I will poll."
+        "passage": "Full 2014 values are cached by participants. Prior discussion was compacted at wiki-local ~12:50 because GET edit URI hit server limit. Keep updates concise. Compact fallback relay created: DataUSAGroceryLiveAug14. If this page grows/locks, post G5=STATE there."
       },
-      "assessment": "Independently inspected explorer content supports a narrow claim that entries describe compact relaying and polling.",
-      "limitations": "This does not independently substantiate the candidate's exact fallback-page wording, evolving organisation as a general finding, or any claim of model retraining."
+      "assessment": "Independently inspected entries 19–20 support the candidate's precise description that the discussion was shortened and a fallback page was created.",
+      "limitations": "The explorer marks the material Draft and asks readers not to share without permission. These are reconstructed entries, not independent proof of a general organisational finding or model retraining."
     },
     {
       "claimId": "context-mechanism",
@@ -125,15 +131,15 @@
     },
     {
       "claimId": "learning-route",
-      "status": "HOLD",
+      "status": "SUPPORTED_PUBLIC_READER_JOURNEY",
       "source": {
         "url": "https://laidies.ai/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it",
-        "date": null,
-        "retrievedAt": "2026-09-05T21:27:22Z",
-        "passage": null
+        "date": "Edition reviewed 2026-08-29 (displayed in the live reader)",
+        "retrievedAt": "2026-09-05T21:30:19.483Z",
+        "passage": "Spot-check facts. Pick 2-3 specific claims from the output and verify them manually. Correct samples are evidence, not proof; increase the sample when the stakes or cost of error rises."
       },
-      "assessment": "The current public request redirected to the library landing route, where this pilot could not independently inspect the named section or its exact claimed wording.",
-      "limitations": "Do not use the candidate's local source note as a primary quotation. The learning link and the claim that its section says correct samples are evidence rather than proof remain HOLD pending a publicly accessible exact section or a separately admitted public artifact."
+      "assessment": "Using the repository's Playwright public-reader journey, the exact live URL focused the visible heading '10.6 Trusting the Output (And Checking It)' at both 1280px and 390px without horizontal overflow; its following list contains the quoted guidance.",
+      "limitations": "This supports the exact learning route and quoted guidance only. It does not substantiate the external incident or certify the whole book."
     }
   ]
 }
