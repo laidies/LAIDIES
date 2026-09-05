@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "updatedAt": "2026-07-30",
+  "updatedAt": "2026-09-05",
   "signals": [
     {
       "id": "SIG-ALI-2026-07-29-EP01-DEFINITION-DRIFT",
@@ -45,6 +45,22 @@
       "status": "ROUTED",
       "ownerDecision": "Register the exact prompting claims during Episode 02 backfill; do not infer a full re-record.",
       "notes": "Unmatched on purpose until the Episode 02 claim cluster is admitted. The weekly report must keep it visible."
+    },
+    {
+      "id": "SIG-PRIMARY-2026-09-05-BLEND-EP04-PROMISE-MISMATCH",
+      "sourceSystem": "PRIMARY_CHECK",
+      "sourcePath": "operations/product-stewards/learning-content-ecosystem/freshness-runs/2026-09-05-blend-snap-review.md",
+      "receivedAt": "2026-09-05",
+      "summary": "Live Episode 04 Try-On promises a real task and two prompts, while its displayed activity is Go meet a MAiVEN. The restored menu now reaches this existing mismatch.",
+      "affectedClaimIds": [],
+      "affectedEntities": [
+        "Blend & Snap",
+        "Episode 04 Try-On"
+      ],
+      "severity": "MATERIAL",
+      "status": "ROUTED",
+      "ownerDecision": "Blend & Snap and episode-experience: reconcile the promise with the intended activity in a separate bounded correction, verify the live result and then resolve this signal. Do not renew a date to clear it.",
+      "notes": "Actual custom-domain browser review; unchanged existing teaching was not newly admitted. Claim inventory remains partial."
     }
   ]
 }

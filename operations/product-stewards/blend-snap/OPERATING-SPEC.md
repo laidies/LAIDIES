@@ -1,58 +1,40 @@
 # Blend & Snap operating specification
 
-## Approved availability rule; implementation local — 2026-09-05
+## Approved repair publicly verified — 2026-09-05
 
-**Status: RULE APPROVED / BUILT LOCALLY / AUTOMATIC REVIEW SCHEDULE ACTIVE / NOT DEPLOYED.**
-Ali approved the repair and required automatic reviews in the existing freshness
-system (D-2026-09-05-142). The repair changes the consequence of an overdue operational
-menu review: published component status continues to govern availability,
-while the browser console and validation command report the overdue review.
-Missing, malformed, reversed/future-dated, mismatched or unsafe data still
-closes the menu; held/planned/unavailable components remain unlinked. Original
-review dates and every component status stay unchanged. No content admission
-or factual freshness is inferred. The published stale-date shutdown remains an implementation defect until release.
-The older stale-date clauses below are superseded for this operational menu
-deadline; they are retained as historical description of the incumbent.
-Automatic review must inspect sources and visitor paths, record findings
-and route corrections. A warning or automatic date extension is not review.
-The shared system now has an executing daily 08:00 America/Vancouver heartbeat,
-`laidies-automatic-freshness-review`, using the calibrated missing-hook repair
-and evolving shared canonical inputs. First detector run correctly flags the
-public shutdown and existing claim/consumer work; full registry coverage is
-still PARTIAL. Automatic execution is configured, not evidence of a future run.
+**Status: MENU REPAIR PUBLICLY VERIFIED / AUTOMATIC REVIEW SCHEDULE ACTIVE /
+SITEWIDE FRESHNESS PARTIAL.**
 
-Local verification for this candidate:
+Ali approved D-2026-09-05-142: an overdue operational review does not withdraw
+otherwise available activities. Missing, malformed, future/reversed, mismatched
+or unsafe data still closes the menu. Held/planned/unavailable items remain
+unlinked. Review dates, component statuses, public prose and artwork are
+unchanged. A warning or date extension is not a factual review.
 
-- Public failure reproduced on September 5: the unchanged manifest review
-  deadline is August 23; the date gate disables the entire menu.
-- Candidate page SHA-256: `d48de0cea26951b308358222f7e287db0f50b3a0b917f56966e7197a045bf98a`.
-- Real-clock browser suite: 159 rendered checks; cross-entry: 44 checks;
-  pack validator: succeeds with REVIEW DUE. Existing validator calibration
-  rejects a multi-page Cheat Sheet and a held card advertised by the index.
-- Calibration: the real-clock order check fails against the incumbent, the
-  320px receipt-title check fails before the scroll correction, and a future
-  review date is rejected. Invalid data and held-with-route cases still fail.
-- Maker browser journey: public homepage entry in the local overlay → café →
-  receipt → existing Episode 04 Try-On; synthetic device-local note survives
-  save/reload. Public Episode 02/03/04 Try-On routes were inspected directly.
-- Phone correction: align the receipt start below the fixed header, preserving
-  the existing scroll margin. No CSS, artwork, public prose or component data
-  changes. Three asset query strings only match the current public page.
-- Independent Terra/Medium review inspected exact diff and desktop/phone
-  pixels, repeated the checks, and found no material implementation defect
-  conditional on Ali accepting the availability policy. It did not admit
-  existing teaching content or approve publication.
-- Scope sweep: `_worker.js` already routes by component status; its behavior
-  does not depend on the expired review date. No additional runtime expiry
-  consumer was found. The unchanged validator calibration suite also passes.
-- Remaining: repair and execute automatic review in the existing freshness
-  system; exact current-release assembly and immutable/custom-origin verification. The local
-  preview proxies unchanged public pages anonymously and is not a standalone
-  release artifact. No push, deployment, account save or cross-device proof.
-- Next separate repair: Episode 04 Try-On promises a two-prompt task while
-  the displayed activity is “Go meet a MAiVEN”. Café style/art and incomplete
-  packs remain outside this functional candidate.
+Production `46172581-4f74-44fe-b3fa-869a1e78c69a` at
+https://laidies.ai/blend-snap uses pushed source `71c92cd3` and changes only
+`blend-snap.html` from the verified current 746-file artifact. It also keeps the
+receipt heading below the phone header. Exact-artifact checks passed 159 browser
+and 44 cross-entry checks, with deliberate failing calibrations. Public custom
+order/receipt/Try-On device-local save-and-return and Quiz handoff worked;
+custom 390px and immutable 320px/1200px receipts were inspected in the browser.
 
+Daily 08:00 America/Vancouver automation `laidies-automatic-freshness-review`
+is ACTIVE. The calibrated detector reads the evolving shared claim bank/inbox
+and public Blend family; the reviewer must inspect actual sources and visitor
+behavior, route corrections and preserve partial coverage. Configuration and
+manual review are verified; a future scheduled execution is not yet proven.
+Broader Control Room production dispatch remains paused.
+
+Exact source/artifact identities, custom-response beacon caveat, checks,
+observations and limitations are recorded in
+`../learning-content-ecosystem/freshness-runs/2026-09-05-blend-snap-review.md`.
+
+Remaining: Episode 04 Try-On promises a two-prompt task while displaying
+“Go meet a MAiVEN”; café design/art and incomplete packs remain open. No new
+teaching, visual admission, completed Quiz, account or cross-device proof.
+The older stale-date withdrawal and local-repair statuses below are historical
+and superseded only for this bounded menu repair.
 
 **Status:** BOUNDED LOCAL PASS — REPAIR 2 INDEPENDENT RE-JUDGE 90/100; RELEASE HOLDS REMAIN
 

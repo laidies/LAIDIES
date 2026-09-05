@@ -14831,18 +14831,25 @@ while remaining falsely unfinished in the launch record.
 
 ## 2026-09-05 — Blend & Snap menu expiry and phone receipt landing
 
-- **Observed failure:** a manifest review deadline of August 23 closed all
-  episode menus by September 5 although existing available Try-On routes still
-  opened. A test-only July clock hid the public failure. Centering a tall
-  receipt also put its title behind the fixed phone header.
-- **Bounded repair candidate:** real-clock regression coverage and start-aligned
-  receipt scrolling; proposed overdue-review warning instead of whole-menu
-  shutdown. Ali's rule decision remains pending. No dates, component statuses,
-  content or artwork changed; this is local and not publicly verified.
-- **Prevention:** exercise the current visitor clock and separate overdue dates
-  from malformed/future dates and explicit withdrawals. Test the actual receipt
-  heading against the fixed header at 320px. Both defects were reproduced by
-  failing checks before their candidate fixes; 159 browser and 44 cross-entry
-  checks now pass, with no material independent implementation finding.
-- **Behind the Build angle:** a working button can disappear because the test
-  calendar stopped moving; a page that fits can still hide the thing you opened.
+- **Observed failure:** an August 23 operational deadline closed all episode
+  menus by September 5 despite available activities. A frozen test clock hid
+  the expiry; centered scrolling hid the receipt title behind the phone header.
+  The claim checker did not cover Blend, its execution was not scheduled, and
+  the paused Control Room prompt referenced an absent optional freshness hook.
+- **Repair:** Ali approved persistent available-activity access and automatic
+  review. The bounded page repair is publicly verified in deployment
+  `46172581-4f74-44fe-b3fa-869a1e78c69a`; 159 browser and 44 cross-entry checks,
+  deliberate failures and live phone/desktop journeys support that scope.
+  A calibrated detector plus daily executing reviewer reuses the current bank
+  and inbox. It does not renew dates or claim full factual coverage.
+- **Prevention:** test with the current clock and the real title below the
+  fixed header. Distinguish overdue review from withdrawal/invalid data. Bind
+  automation to evolving canonical inputs; exercise actual source and browser
+  review after detection. A scheduled configuration is not proof of a run.
+  Calibrations caught an overbroad fatal-page regex, an invalid-input exit code,
+  missing blocked/signal work and redirect containment before final admission.
+- **Remaining:** the bank is representative (5 claims / 25 uses), noisy text
+  discovery is not a complete inventory, and obsolete consumer paths need
+  reconciliation. Episode 04 Try-On's promise and actual activity disagree.
+- **Behind the Build angle:** a freshness date can break a working journey;
+  a claim bank needs coverage, actual review and verified updates to be useful.

@@ -1,21 +1,21 @@
 # Active work
 
-> **2026-09-05 — Blend & Snap: LOCAL CANDIDATE / POLICY DECISION PENDING.**
-> The published August 23 review deadline closes the whole menu on September 5.
-> Candidate branch `fix/blend-snap-menu-20260905` in
-> `/Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905` keeps existing
-> available activities accessible and flags the overdue review internally;
-> held/planned/unavailable items remain unlinked and original dates stay intact.
-> A separate scroll correction keeps the receipt title below the phone header.
-> Verification: 159 browser checks, 44 cross-entry checks, calibrated failures,
-> maker desktop/phone journey and device-local Try-On save/reload. Independent
-> review found no material implementation defect conditional on Ali accepting
-> the policy. Details and exact page hash: Blend & Snap OPERATING-SPEC.md.
-> No policy adoption, new content admission, push, deployment or public repair
-> is claimed. Next: resolve the pending review-rule question, assemble a release
-> that preserves the current public site, obtain exact-candidate approval and
-> verify both public origins. Episode 04 Try-On task/copy mismatch and café
-> visual alignment remain subsequent improvements. This is one bounded repair.
+> **2026-09-05 — Blend & Snap menu repair PUBLICLY VERIFIED; freshness coverage PARTIAL.**
+> Ali approved persistent access to available activities and automatic review
+> under D-2026-09-05-142. Production `46172581-4f74-44fe-b3fa-869a1e78c69a`
+> uses pushed source `71c92cd3`; only `blend-snap.html` changes from the preserved
+> 746-file predecessor. Exact-artifact checks: 159 browser + 44 cross-entry;
+> public order/receipt/Try-On save-and-return and Quiz handoff verified, with
+> desktop/phone receipt checks at custom and immutable origins.
+> Daily 08:00 Vancouver automation `laidies-automatic-freshness-review` is ACTIVE;
+> configuration and manual review are verified, future execution is not.
+> Existing bank remains partial: 5 claims / 25 uses, with due and unresolved
+> work. Current local scan is HOLD and is not a live factual verification.
+> Release, exact hashes, response-transform caveat, review findings and scope:
+> `operations/product-stewards/learning-content-ecosystem/freshness-runs/2026-09-05-blend-snap-review.md`.
+> Next: Episode 04 Try-On promise/activity mismatch, current-claim backfill and
+> stale consumer mapping; then remaining site/design improvements. No whole-site
+> repair, new content admission or artwork approval is claimed.
 
 ## 2026-08-29 production successor
 

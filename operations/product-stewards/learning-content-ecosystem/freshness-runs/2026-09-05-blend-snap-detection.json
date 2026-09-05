@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "laidies.control-room-freshness.v1",
+  "evaluatedAt": "2026-09-05",
+  "coverage": {
+    "state": "PARTIAL",
+    "factualClaimCoverage": {
+      "state": "PARTIAL_BACKFILL",
+      "scope": "Representative Episode 01 definition/statistic cluster plus machine-discovered candidates across current content and production sources.",
+      "knownGaps": [
+        "Historical claims outside the Episode 01 cluster are not yet fully registered.",
+        "Product/model/access/price/plan/region claims require prioritized backfill.",
+        "Every generated or rendered consumer is not yet bound to a source hash.",
+        "Public release verification remains owned by each surface owner."
+      ]
+    },
+    "note": "HTTP/source checks do not prove browser behaviour, content admission, or public-currentness."
+  },
+  "outcome": "REVIEW_REQUIRED",
+  "canonicalInputs": {
+    "source": "repository",
+    "root": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage",
+    "files": [
+      {
+        "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/learning-content-ecosystem/claim-register.json",
+        "sha256": "8e13ea3962927dd321af8ae002b518c582eb978506da7a4561ebcb2c95130265"
+      },
+      {
+        "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/learning-content-ecosystem/freshness-signal-inbox.json",
+        "sha256": "f00aca6534c7ace1847e2cb6fbe16ea8ff911e8aff455c04751a64994107a422"
+      }
+    ]
+  },
+  "canonicalFreshness": {
+    "coverage": {
+      "state": "PARTIAL_BACKFILL",
+      "scope": "Representative Episode 01 definition/statistic cluster plus machine-discovered candidates across current content and production sources.",
+      "knownGaps": [
+        "Historical claims outside the Episode 01 cluster are not yet fully registered.",
+        "Product/model/access/price/plan/region claims require prioritized backfill.",
+        "Every generated or rendered consumer is not yet bound to a source hash.",
+        "Public release verification remains owned by each surface owner."
+      ]
+    },
+    "registeredClaims": 5,
+    "dueClaims": [
+      {
+        "id": "CLM-STAT-GENAI-PARTICIPATION-GAP",
+        "nextReviewAt": "2026-08-29",
+        "status": "CURRENT",
+        "owner": "learning-content-ecosystem"
+      }
+    ],
+    "invalidClaims": [],
+    "blockedClaims": [],
+    "openConsumerActions": [
+      {
+        "claimId": "CLM-DEF-GENERATIVE-AI",
+        "owner": "episode-experience",
+        "status": "SCRIPT_READY",
+        "path": "operations/audio/episode-01-narration-pickups-2026-07-29.txt"
+      },
+      {
+        "claimId": "CLM-DEF-GENERATIVE-AI",
+        "owner": "library",
+        "status": "OWNER_REVIEW",
+        "path": "content/library-books/rendered/concepts-101.html"
+      },
+      {
+        "claimId": "CLM-DEF-GENERATIVE-AI",
+        "owner": "sunnyvaile-high",
+        "status": "OWNER_REVIEW",
+        "path": "operations/classes/basics-how-it-works.CONTENT.md"
+      },
+      {
+        "claimId": "CLM-DEF-MODEL",
+        "owner": "episode-experience",
+        "status": "SCRIPT_READY",
+        "path": "operations/audio/episode-01-narration-pickups-2026-07-29.txt"
+      },
+      {
+        "claimId": "CLM-DEF-MODEL",
+        "owner": "sunnyvaile-high",
+        "status": "OWNER_REVIEW",
+        "path": "operations/classes/basics-what-these-tools-are.CONTENT.md"
+      },
+      {
+        "claimId": "CLM-DEF-MODEL",
+        "owner": "sunnyvaile-high",
+        "status": "SCRIPT_READY",
+        "path": "operations/audio/class-basics-01-definition-replacement-2026-07-29.txt"
+      },
+      {
+        "claimId": "CLM-DEF-HALLUCINATION",
+        "owner": "episode-experience",
+        "status": "OWNER_REVIEW",
+        "path": "content/episodes/episode-03.canon.md"
+      },
+      {
+        "claimId": "CLM-DEF-HALLUCINATION",
+        "owner": "library",
+        "status": "OWNER_REVIEW",
+        "path": "content/library-books/rendered/concepts-101.html"
+      },
+      {
+        "claimId": "CLM-STAT-GENAI-PARTICIPATION-GAP",
+        "owner": "episode-experience",
+        "status": "REBUILD_REQUIRED",
+        "path": "content/episodes/episode-01-cues.json"
+      },
+      {
+        "claimId": "CLM-STAT-GENAI-PARTICIPATION-GAP",
+        "owner": "episode-experience",
+        "status": "SCRIPT_READY",
+        "path": "operations/audio/episode-01-narration-pickups-2026-07-29.txt"
+      }
+    ],
+    "activeSignals": [
+      {
+        "id": "SIG-ALI-2026-07-29-EP01-DEFINITION-DRIFT",
+        "severity": "MATERIAL",
+        "status": "ACCEPTED",
+        "affectedClaimIds": [
+          "CLM-DEF-GENERATIVE-AI",
+          "CLM-DEF-MODEL",
+          "CLM-DEF-HALLUCINATION",
+          "CLM-STAT-GENAI-PARTICIPATION-GAP"
+        ]
+      },
+      {
+        "id": "SIG-AIDB-2026-07-27-EP02-PROMPTING",
+        "severity": "MATERIAL",
+        "status": "ROUTED",
+        "affectedClaimIds": []
+      }
+    ],
+    "inputFiles": [
+      {
+        "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/learning-content-ecosystem/claim-register.json",
+        "sha256": "8e13ea3962927dd321af8ae002b518c582eb978506da7a4561ebcb2c95130265"
+      },
+      {
+        "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/learning-content-ecosystem/freshness-signal-inbox.json",
+        "sha256": "f00aca6534c7ace1847e2cb6fbe16ea8ff911e8aff455c04751a64994107a422"
+      }
+    ]
+  },
+  "blendSnap": {
+    "manifest": {
+      "updatedAt": "2026-08-21",
+      "freshThrough": "2026-08-23",
+      "sha256": "fb31c7d3a07b221da3c97d059459fab06adbe543488d9cc2b55e8792fb5f62d7"
+    },
+    "indexSha256": "a9268c8516436ad53d2020ff20fd52fb1bd2310ba656d0ad1309062df069425a",
+    "pageSha256": "d27029d4e92d6973adab5d795d38b88a78389d4409fbf0cacb0eddf31dd027a9",
+    "overdue": true,
+    "pageReview": "BEHAVIORAL_REVIEW_REQUIRED",
+    "validationErrors": [],
+    "fetchedAvailableRoutes": [
+      {
+        "episodeNumber": 1,
+        "id": "quiz",
+        "route": "/learn/quiz.html?issue=1&from=blend-snap#quiz-start",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/learn/quiz?issue=1&from=blend-snap",
+        "sha256": "80e357c73e0af90e9fde58a4b587fc0f42e1bcd12380671d37594ef92381e537"
+      },
+      {
+        "episodeNumber": 2,
+        "id": "try_on",
+        "route": "/try-on.html?issue=2&from=blend-snap",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/try-on?issue=2&from=blend-snap",
+        "sha256": "d9862424f3de47035954e652fe831aa320939d6dc665d25601a9cfa2d4d2db76"
+      },
+      {
+        "episodeNumber": 2,
+        "id": "quiz",
+        "route": "/learn/quiz.html?issue=2&from=blend-snap#quiz-start",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/learn/quiz?issue=2&from=blend-snap",
+        "sha256": "80e357c73e0af90e9fde58a4b587fc0f42e1bcd12380671d37594ef92381e537"
+      },
+      {
+        "episodeNumber": 3,
+        "id": "try_on",
+        "route": "/try-on.html?issue=3&from=blend-snap",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/try-on?issue=3&from=blend-snap",
+        "sha256": "d9862424f3de47035954e652fe831aa320939d6dc665d25601a9cfa2d4d2db76"
+      },
+      {
+        "episodeNumber": 3,
+        "id": "quiz",
+        "route": "/learn/quiz.html?issue=3&from=blend-snap#quiz-start",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/learn/quiz?issue=3&from=blend-snap",
+        "sha256": "80e357c73e0af90e9fde58a4b587fc0f42e1bcd12380671d37594ef92381e537"
+      },
+      {
+        "episodeNumber": 4,
+        "id": "try_on",
+        "route": "/try-on.html?issue=4&from=blend-snap",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/try-on?issue=4&from=blend-snap",
+        "sha256": "d9862424f3de47035954e652fe831aa320939d6dc665d25601a9cfa2d4d2db76"
+      },
+      {
+        "episodeNumber": 4,
+        "id": "quiz",
+        "route": "/learn/quiz.html?issue=4&from=blend-snap#quiz-start",
+        "status": 200,
+        "finalUrl": "https://laidies.ai/learn/quiz?issue=4&from=blend-snap",
+        "sha256": "80e357c73e0af90e9fde58a4b587fc0f42e1bcd12380671d37594ef92381e537"
+      }
+    ]
+  },
+  "requiredReviewWork": [
+    {
+      "id": "blend-snap-operational-review",
+      "owner": "blend-snap-champion",
+      "status": "DUE",
+      "reason": "operational review overdue since 2026-08-23",
+      "required": [
+        "Review current episode identity, every component status and exact route source.",
+        "Run the real visitor browser journey for each still-available component and Quiz.",
+        "Record a renewal, correction, or hold through the existing owner workflow; do not renew dates automatically."
+      ]
+    },
+    {
+      "id": "claim-CLM-STAT-GENAI-PARTICIPATION-GAP",
+      "owner": "learning-content-ecosystem",
+      "status": "DUE",
+      "reason": "canonical claim review due 2026-08-29",
+      "required": [
+        "Use the existing owner workflow to review or disposition the registered factual claim."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-GENERATIVE-AI-65ed7ef9",
+      "owner": "episode-experience",
+      "status": "DUE",
+      "reason": "registered consumer action SCRIPT_READY",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-GENERATIVE-AI-041cce5c",
+      "owner": "library",
+      "status": "DUE",
+      "reason": "registered consumer action OWNER_REVIEW",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-GENERATIVE-AI-83f44e5b",
+      "owner": "sunnyvaile-high",
+      "status": "DUE",
+      "reason": "registered consumer action OWNER_REVIEW",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-MODEL-65ed7ef9",
+      "owner": "episode-experience",
+      "status": "DUE",
+      "reason": "registered consumer action SCRIPT_READY",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-MODEL-d052d2a7",
+      "owner": "sunnyvaile-high",
+      "status": "DUE",
+      "reason": "registered consumer action OWNER_REVIEW",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-MODEL-fcce7697",
+      "owner": "sunnyvaile-high",
+      "status": "DUE",
+      "reason": "registered consumer action SCRIPT_READY",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-HALLUCINATION-05fffdcf",
+      "owner": "episode-experience",
+      "status": "DUE",
+      "reason": "registered consumer action OWNER_REVIEW",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-DEF-HALLUCINATION-041cce5c",
+      "owner": "library",
+      "status": "DUE",
+      "reason": "registered consumer action OWNER_REVIEW",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-STAT-GENAI-PARTICIPATION-GAP-e7ab7a36",
+      "owner": "episode-experience",
+      "status": "DUE",
+      "reason": "registered consumer action REBUILD_REQUIRED",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "consumer-CLM-STAT-GENAI-PARTICIPATION-GAP-65ed7ef9",
+      "owner": "episode-experience",
+      "status": "DUE",
+      "reason": "registered consumer action SCRIPT_READY",
+      "required": [
+        "Complete or explicitly disposition the registered consumer action."
+      ]
+    },
+    {
+      "id": "signal-SIG-ALI-2026-07-29-EP01-DEFINITION-DRIFT",
+      "owner": "learning-content-ecosystem",
+      "status": "DUE",
+      "reason": "active source signal ACCEPTED (MATERIAL)",
+      "required": [
+        "Route and disposition the active source signal through the existing owner workflow."
+      ]
+    },
+    {
+      "id": "signal-SIG-AIDB-2026-07-27-EP02-PROMPTING",
+      "owner": "learning-content-ecosystem",
+      "status": "DUE",
+      "reason": "active source signal ROUTED (MATERIAL)",
+      "required": [
+        "Route and disposition the active source signal through the existing owner workflow."
+      ]
+    }
+  ]
+}
