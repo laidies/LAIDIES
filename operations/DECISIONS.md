@@ -1,5 +1,15 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Blend & Snap availability and automatic freshness review:**
+> Ali approved keeping published activities accessible when an operational
+> review date expires. Explicit held/planned/unavailable status and invalid
+> data still prevent access. Overdue reviews must execute automatically through
+> the existing freshness system: detect due work, inspect current sources and
+> live visitor paths, record findings, and route any required correction.
+> A reminder, warning, timestamp renewal or disabled menu is not a completed
+> review. Repair the existing loop rather than create a competing freshness
+> system. Source: Ali's direct approval and clarification; D-2026-09-05-142.
+
 <!-- context-authority: operations/context-authority.json -->
 
 This file routes a task to current authority. It is not a second decision

@@ -1,16 +1,20 @@
 # Blend & Snap operating specification
 
-## Local repair proposal — 2026-09-05
+## Approved availability rule; implementation local — 2026-09-05
 
-**Status: CANDIDATE / ALI DECISION PENDING / NOT DEPLOYED.**
-The proposed repair changes only the consequence of an overdue operational
+**Status: RULE APPROVED / BUILT LOCALLY / AUTOMATIC REVIEW REPAIR IN PROGRESS / NOT DEPLOYED.**
+Ali approved the repair and required automatic reviews in the existing freshness
+system (D-2026-09-05-142). The repair changes the consequence of an overdue operational
 menu review: published component status continues to govern availability,
 while the browser console and validation command report the overdue review.
 Missing, malformed, reversed/future-dated, mismatched or unsafe data still
 closes the menu; held/planned/unavailable components remain unlinked. Original
 review dates and every component status stay unchanged. No content admission
-or factual freshness is inferred. The published stale-date shutdown below
-remains the incumbent until Ali accepts this proposed rule and exact candidate.
+or factual freshness is inferred. The published stale-date shutdown remains an implementation defect until release.
+The older stale-date clauses below are superseded for this operational menu
+deadline; they are retained as historical description of the incumbent.
+Automatic review must inspect sources and visitor paths, record findings
+and route corrections. A warning or automatic date extension is not review.
 
 Local verification for this candidate:
 
@@ -36,8 +40,8 @@ Local verification for this candidate:
 - Scope sweep: `_worker.js` already routes by component status; its behavior
   does not depend on the expired review date. No additional runtime expiry
   consumer was found. The unchanged validator calibration suite also passes.
-- Remaining: Ali's review-rule decision; exact current-release assembly and
-  publication approval; then immutable/custom-origin verification. The local
+- Remaining: repair and execute automatic review in the existing freshness
+  system; exact current-release assembly and immutable/custom-origin verification. The local
   preview proxies unchanged public pages anonymously and is not a standalone
   release artifact. No push, deployment, account save or cross-device proof.
 - Next separate repair: Episode 04 Try-On promises a two-prompt task while
