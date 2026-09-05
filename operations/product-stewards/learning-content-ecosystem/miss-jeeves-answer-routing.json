@@ -41,6 +41,10 @@
     "privateSaveCreatesPublicationCandidate": false,
     "privateSaveMayEnterSharedCache": false,
     "privateSavePreservesOriginalVersion": true,
+    "internalReusableMayAnswerEquivalentQuestions": true,
+    "internalReusableMayBePubliclyIndexed": false,
+    "internalReusableRequiresDeidentification": true,
+    "internalReusableRequiresFreshnessMetadata": true,
     "freshAnswerMayBeReused": true,
     "staleAnswerRequiresSourcedRefresh": true,
     "materialChangeCreatesSuccessor": true,
@@ -58,6 +62,11 @@
       "publiclyIndexed": false
     },
     {
+      "id": "internal_reusable",
+      "audience": "miss_jeeves_and_authorised_editors",
+      "publiclyIndexed": false
+    },
+    {
       "id": "internal_candidate",
       "audience": "authorised_editorial_systems_and_reviewers",
       "publiclyIndexed": false
@@ -67,6 +76,29 @@
       "audience": "public",
       "publiclyIndexed": true
     }
+  ],
+  "internalAnswerBankRequiredFields": [
+    "answer_key",
+    "canonical_question",
+    "answer",
+    "sources",
+    "related_laidies_concepts",
+    "model_version",
+    "source_policy_version",
+    "checked_at",
+    "expires_at",
+    "recheck_triggers",
+    "answer_fingerprint",
+    "correction_history",
+    "visibility"
+  ],
+  "internalAnswerBankProhibitedFields": [
+    "raw_visitor_prompt",
+    "visitor_identity",
+    "attachments",
+    "personal_context",
+    "confidential_workplace_content",
+    "account_data"
   ],
   "promotionTriggers": [
     "repeated_governed_question",

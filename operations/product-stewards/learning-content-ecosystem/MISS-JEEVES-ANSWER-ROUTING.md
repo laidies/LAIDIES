@@ -97,6 +97,7 @@ Every retained answer has exactly one visibility state:
 | --- | --- | --- |
 | `transient` | The person in the current answer session | An answer that has not been saved. |
 | `private_saved` | Only the person who explicitly saved it | A useful personal reference in her own saved items. It is not public search material and creates no publication candidate by itself. |
+| `internal_reusable` | Miss Jeeves and authorised LAiDIES editors | A public-safe, de-identified answer in the private LAiDIES Answer Bank. Miss Jeeves may reuse it for equivalent questions while it remains fresh, but visitors cannot browse or search it. |
 | `internal_candidate` | Authorised LAiDIES editorial systems and reviewers | A public-safe, de-identified candidate being checked for possible publication. |
 | `public_admitted` | Everyone | A reviewed, sourced and admitted Straight Answer, Dear Miss Jeeves entry, NewsStand item, lesson or help page. |
 
@@ -111,6 +112,34 @@ opened outside its freshness window, the interface must label the saved version
 as potentially outdated until a sourced refresh completes. A materially changed
 refresh creates a new version while preserving the previous version's date; it
 must not silently rewrite what the visitor originally saved.
+
+## Private LAiDIES Answer Bank
+
+The Answer Bank lets LAiDIES retain a strong answer for future Miss Jeeves
+responses without publishing it. It stores the reusable knowledge, not the
+visitor's conversation.
+
+Each bank entry requires:
+
+- a stable governed answer key and public-safe canonical question;
+- a plain-language answer with its direct sources;
+- related admitted LAiDIES concepts and destinations;
+- model and source-policy versions;
+- checked date, freshness window and exact recheck triggers;
+- answer fingerprint and correction history; and
+- `internal_reusable` visibility, which is never publicly indexed.
+
+Equivalent future questions may use the bank entry while it is current. The
+visitor still receives an answer tailored to her wording, but the factual core,
+sources and LAiDIES learning links remain consistent. If the bank entry is due,
+Miss Jeeves refreshes the sources before using it. If the facts materially
+changed, the prior entry is superseded rather than silently overwritten.
+
+The Answer Bank receives only public-safe, de-identified material. It excludes
+raw prompts, identities, attached files, personal circumstances, confidential
+workplace information and account data. A separate editorial act is required
+to move an entry to `internal_candidate`, and the normal admission process is
+required to make it `public_admitted`.
 
 ## Promotion priority
 

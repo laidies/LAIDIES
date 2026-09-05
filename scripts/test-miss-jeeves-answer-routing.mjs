@@ -22,17 +22,30 @@ assert.equal(policy.reusePolicy.privateSaveRequiresExplicitVisitorAction, true);
 assert.equal(policy.reusePolicy.privateSaveCreatesPublicationCandidate, false);
 assert.equal(policy.reusePolicy.privateSaveMayEnterSharedCache, false);
 assert.equal(policy.reusePolicy.privateSavePreservesOriginalVersion, true);
+assert.equal(policy.reusePolicy.internalReusableMayAnswerEquivalentQuestions, true);
+assert.equal(policy.reusePolicy.internalReusableMayBePubliclyIndexed, false);
+assert.equal(policy.reusePolicy.internalReusableRequiresDeidentification, true);
+assert.equal(policy.reusePolicy.internalReusableRequiresFreshnessMetadata, true);
 assert.equal(policy.reusePolicy.staleAnswerRequiresSourcedRefresh, true);
 assert.equal(policy.reusePolicy.materialChangeCreatesSuccessor, true);
 assert.equal(policy.reusePolicy.cacheMayAutoPublish, false);
 assert.ok(policy.promotionTriggers.includes('ali_explicit_request'));
 
 const visibility = new Map(policy.visibilityStates.map(state => [state.id, state]));
-assert.deepEqual([...visibility.keys()], ['transient', 'private_saved', 'internal_candidate', 'public_admitted']);
+assert.deepEqual([...visibility.keys()], ['transient', 'private_saved', 'internal_reusable', 'internal_candidate', 'public_admitted']);
 assert.equal(visibility.get('private_saved').audience, 'saving_visitor_only');
 assert.equal(visibility.get('private_saved').publiclyIndexed, false);
+assert.equal(visibility.get('internal_reusable').audience, 'miss_jeeves_and_authorised_editors');
+assert.equal(visibility.get('internal_reusable').publiclyIndexed, false);
 assert.equal(visibility.get('internal_candidate').publiclyIndexed, false);
 assert.equal(visibility.get('public_admitted').publiclyIndexed, true);
+
+for (const field of ['answer_key', 'canonical_question', 'answer', 'sources', 'checked_at', 'expires_at', 'answer_fingerprint', 'visibility']) {
+  assert.ok(policy.internalAnswerBankRequiredFields.includes(field), `missing internal Answer Bank field: ${field}`);
+}
+for (const field of ['raw_visitor_prompt', 'visitor_identity', 'attachments', 'personal_context', 'confidential_workplace_content', 'account_data']) {
+  assert.ok(policy.internalAnswerBankProhibitedFields.includes(field), `missing prohibited Answer Bank field: ${field}`);
+}
 
 for (const example of policy.examples) {
   assert.ok(homes.has(example.primaryHome), `invalid example primary home: ${example.primaryHome}`);
