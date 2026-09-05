@@ -1,17 +1,24 @@
 # Active work
 
-> **2026-09-05 — Operating continuation; phone account prerequisite withdrawn.**
-> Owner: fresh LAiDIES operating-system continuation; predecessor task
-> `01a0725e-963e-73e1-9437-b85d7139c311` is reference only.
-> Next action: `OPERATING-RECOVERY-NEXT.md`. Existing ChatGPT iPhone Remote,
-> phone reply and completion notification are verified; no repeat setup.
-> No founder email or LAiDIES Resident account is required for current work.
-> Hosted checkpoint/ACK/HOLD is verified. PR95 is merged at `7ca1f070`; its
-> database/Workflow preparation is preserved but not live or required.
-> BUILDING: supported laptop-independent execution and complete phone decision
-> plus authorized resumption. That end-to-end result remains unverified.
-> No public release; Homepage, NewsStand and Animation retain their owners.
-> Older entries below require current evidence before resumption.
+> **2026-09-05 — Native Cloud maintenance pilot executed; roadmap step 3 BUILDING.**
+> Owner: LAiDIES — hosted operations execution,
+> `01a0739d-47b1-7330-93f2-c20f8d984ffe`. Continuation:
+> `OPERATING-RECOVERY-NEXT.md`. PR96 merged at `9e1b39bd` after both checks passed.
+> Native Cloud retrieved the exact GitHub correction, reviewed it, paused for a
+> decision and completed after an authorized relay through this Mac-hosted task.
+> Private decision content remains in the Cloud chat. Direct phone-to-Cloud,
+> Mac-off execution/notifications and Cloudflare resumption remain unverified.
+> Native Cloud maintenance is enabled daily at 09:00 America/Vancouver.
+> Manual cloud run: six qualifying PRs, no current actionable failure.
+> First scheduled trigger remains unobserved; one initial completion notice is
+> configured. Town Hall request/receipt helpers pass 30 negative cases; no
+> endpoint, persistence or public intake is implemented by those helpers.
+> Real-message retention/staff decisions remain unresolved; proposed retention
+> policy is pending in this task. Live form is verified closed.
+> Existing iPhone Remote stays working; no account/email prerequisite or repeat
+> setup. PR95 remains optional undeployed preparation. No public release.
+> Homepage, NewsStand and Animation retain their owners. Older entries below
+> require current evidence before resumption.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a

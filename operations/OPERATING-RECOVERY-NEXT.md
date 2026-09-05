@@ -7,7 +7,8 @@ and their exact artifacts outrank historical snapshots below.
 ## Owner and continuity
 
 Task: **LAiDIES operating system and launch readiness**
-Current owner: the fresh operating-system continuation explicitly requested by Ali.
+Current owner: LAiDIES — hosted operations execution,
+`01a0739d-47b1-7330-93f2-c20f8d984ffe`, explicitly requested by Ali.
 Previous task `01a0725e-963e-73e1-9437-b85d7139c311` is reference only.
 Rehydrate from this record and exact dependencies; do not replay completed work.
 
@@ -93,7 +94,8 @@ Workflow deployment has happened.
 Correction integration: https://github.com/laidies/LAIDIES/pull/96 .
 The first CI run exposed a stale generated standing-card source binding after
 DECISIONS changed. The real startup hook reproduced the failure; regenerating
-the existing card repaired startup. Check current-head CI before merging.
+the existing card repaired startup. Both exact-head checks then passed; PR96
+merged at `9e1b39bdeee85c03975e65787a117cb6f8a9b56f`.
 
 ### Supported cloud route — checked September 5
 
@@ -118,29 +120,103 @@ tools. SSH still depends on the connected desktop app host:
 https://learn.chatgpt.com/docs/remote-connections . No host purchase recommended
 until a concrete job requires local apps and cannot use native cloud tools.
 
-Availability check: the desktop tool lists existing ChatGPT projects and exposes
-a Cloud-task creation target. The checked Chrome ChatGPT page is signed out;
-that says nothing about the working desktop/phone session. Native app inspection
-is disallowed by the computer-use tool. No sign-in, settings change or purchase
-was attempted. An actual native cloud run is still needed to verify entitlement,
-tools and continuation. Creation requires Ali's explicit request for a new Cloud
-task under the app tool contract; do not silently create a user-owned task.
+### Native Cloud pilot — execution observed September 5
 
-Prepared first run (no recurring schedule yet):
-Read the current public LAIDIES operating-continuation PR and its exact-head
-checks, report whether the correction removes the obsolete account prerequisite
-while preserving the tested pilot and owner boundaries, and present one complete
-ACKNOWLEDGE/HOLD decision in the private cloud chat. Include the exact PR/head,
-findings, recommendation and consequences. ACKNOWLEDGE means mark the maintenance
-review accepted in that chat; HOLD means keep it unresolved with a specific
-reason. Neither response authorizes publication, spend or account/database
-changes. Stop for Ali's response, then bind the response to that exact head and
-produce the final disposition. If the head changes, refresh the review before
-accepting a response. Do not edit the repository or touch other owners' work.
+Ali authorized the separate Cloud pilot. Native task creation succeeded and the
+Cloud task titled **Maintenance review decision** retrieved PR96, reviewed its
+exact text and CI, presented a complete bounded decision, then rechecked the
+artifact and produced a final disposition after the authorized response relay.
+The private Cloud chat owns the response and detailed disposition; do not copy
+founder decision content into this public repository.
 
-This first native cloud run proves cloud review/decision/continuation only when
-actually observed. It does not complete Cloudflare decision/resumption, recurring
-production, or the laptop-off phone proof. Those remain roadmap step 3.
+This is account-specific evidence of native Cloud GitHub access, review,
+checkpoint and resumed completion. The parent independently reconciled the
+artifact identity, seven-file diff and Actions run 1192 against GitHub. The
+response was relayed through this still-running Mac-hosted parent. Direct phone
+to Cloud response, Mac-off execution, laptop-off notification delivery and the
+Cloudflare-to-phone decision/resumption bridge remain unverified. No schedule,
+account change, database migration, public release or PR95 activation occurred.
+
+The first status read temporarily showed idle with no assistant output. One
+explicit continuation was sent; later reads exposed both completed reviews.
+Do not infer failure from one incomplete cloud read or repeat a prompt merely
+to force visible output. A later app-tools pipe closure interrupted the parent
+status check; a subsequent supported read recovered the completed disposition.
+No duplicate cloud task or replacement account was needed.
+
+The same Cloud task then inspected its actual tools: automation create/update/read
+are callable, connected GitHub access works, and read-only webhook discovery
+exposed a supported GitHub PR trigger with repository/PR/author/title/label
+filters. Opening, ready-for-review, closing/merging and optional commit/review/
+comment changes are supported. Schedule creation acceptance remains untested;
+no schedule was created. Arbitrary Cloudflare webhook injection is not an
+exposed supported route. These are reported cloud-tool observations, not a
+local scheduling test or evidence of phone delivery.
+
+### Native recurring maintenance — configured September 5
+
+One existing-chat Cloud automation, **LAiDIES operating maintenance**, is enabled
+for daily 09:00 America/Vancouver, saved start September 6. Duplicate discovery,
+creation and later settings readback were performed inside the same Cloud task.
+Its interface does not expose the internal automation ID in chat; resolve the
+existing task by name rather than creating another one. Last-run and next-run
+fields remained null on readback. Configuration is observed; a scheduled trigger
+has not run yet and is not certified by a saved start time.
+
+The read-only job examines at most ten recently updated open/merged public PRs
+from seven days, selecting operating-continuation, operating-pilot or baseline-CI
+paths. It reports only new actionable current-head failures, boundary regressions
+or required decisions, respects other owners, and stays quiet for unchanged
+results and unanswered decisions. Pending checks are not failures. The first
+actually scheduled execution gets one completion notice with timestamp, checked
+PR/head identifiers and counts; manual runs cannot emit that trigger proof.
+Later quiet runs remain quiet. No notification settings or provider plans changed.
+
+No Run-now operation was callable. A manual Cloud execution found six qualifying
+PRs (#91–96), all with successful current-head baseline CI and no new actionable
+finding. This is manual Cloud execution evidence, not scheduled-trigger, Mac-off
+or iPhone-delivery proof. The protected founder decision package remains inactive.
+
+Next: let the native cloud task record its first actual scheduled execution;
+no duplicate local heartbeat and no repeated pairing/notification test. In
+parallel, progress the existing Town Hall feedback backend as the next roadmap
+lane. The live https://laidies.ai/town-hall Comments station was opened and
+showed its explicit closed-inbox notice and disabled form controls. No submission
+was attempted. Its source controller is also release-held. Live read-only Supabase catalog
+inspection confirms town_hall_feedback plus own-insert/own-read policies; table
+presence is not working intake. The current server source lives in the preserved
+Website-homepage branch, not fresh origin/main; do not import the whole historical
+branch or alter another owner's worker. Prepare reusable strict request/receipt
+validation and adversarial tests first, then integrate with the appropriate
+current server source. Real-message retention/deletion and staff ownership remain
+launch decisions under Town Hall's current operating specification. No real
+visitor records have been read or submitted by this lane.
+
+The initial reusable request/receipt helpers are now in
+`worker-operating-pilot/src/feedback-contract.mjs`, with
+`test-feedback-contract.mjs` in baseline CI. Pure helper tests pass 30 explicit
+negative cases: unknown/private fields, malformed text, size bounds, invalid
+keys, invalid calendar dates and unbound/mismatched/echoing receipts. Subject is
+limited to the existing form's 100 characters; body to 2,000 Unicode code points.
+A receipt must bind the expected normalized input digest. UUID validation checks
+format only, never proves randomness or persisted replay. HTTP wire-size limits
+before parsing, storage, authentication, rate limits, retention, staff ownership
+and actual idempotent persistence remain unbuilt by this package. No route,
+Worker deployment, schema/data mutation or frontend release toggle was added.
+
+Pending product choice: first-version private feedback text retention. Proposed
+30 days, no collected name/email, then delete message text and retain only
+anonymous issue/outcome counts; 7 days or keeping intake closed were alternatives.
+No answer is recorded. Existing Town Hall OPERATING-SPEC requires approved
+retention/deletion handling and named triage ownership before real intake launch.
+Do not infer permission for public submissions from helper tests or the native
+Cloud maintenance pilot. Continue isolated server preparation after the policy
+choice; preserve the current server owner's source and release authority.
+
+Checkpoint branch: `ops/cloud-maintenance-pilot-20260905` in the isolated
+integration worktree. Its current commit owns this update. Resolve current PR/head/check/merge state
+from GitHub; main integration is separate from the native automation and never
+means public website deployment.
 
 First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
 main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub
