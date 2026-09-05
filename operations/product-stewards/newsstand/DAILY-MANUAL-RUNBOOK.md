@@ -331,6 +331,42 @@ AIDB's framing adds questions and context; its omission cannot veto a story.
 Unavailable reporting routes remain explicit coverage gaps. Do not treat the
 six desk labels or a provider-only sweep as completed independent coverage.
 
+### New developments preserve the previous report
+
+Use the publication-history ruling in the September 5 editorial promise.
+For a material development, produce a new dated story that explains the change
+and identifies its earlier coverage. Preserve the earlier body's wording,
+sources, original ID/URL and publication date; add separately maintained
+forward navigation at its bottom, with a back-link from the new story. Further
+related reporting must remain discoverable through the same identified story.
+Do not substitute a source-list link for reciprocal reader navigation.
+
+**Known implementation blocker, verified September 5:** the ordinary candidate
+validator rejects all non-empty predecessor/successor arrays. Its projection
+appends a story without adding the reverse link. The older promoter also only
+appends and rejects identity collisions; it does not complete reciprocity. The
+reader contract checks reciprocity only when fields are populated, and the
+reader renders those links near the top. Empty arrays can pass without proving
+that the new story has no related prior reporting. The current live data has no
+populated story lineage. Do not call this design implemented or remove its
+checks merely to publish a linked story.
+
+Next implementation: extend the existing new-story transaction to bind exact
+predecessor bytes and update only navigation metadata on those records while
+adding the admitted new story. Validate the resulting complete dataset, keep
+original prose/source/date bytes, and prove original → later → original plus a
+second later development at the real reader's bottom navigation. Test rejection
+of predecessor text/date mutation, incomplete reciprocal links, self-links and
+unavailable targets. Treat this as repair of the existing path, not a second
+publisher or a new architecture.
+
+Same-ID snapshot correction is restricted to an explicitly admitted correction
+of the original report. It cannot substitute for a new-development article.
+Exact private hashes alone do not establish that a reader sees a correction
+notice or can retrieve the earlier version; both public properties require
+separate verification. Do not silently expose held old reporting to complete a
+link, or reuse an old issue date for a new development.
+
 ### Research reuse: site freshness and internal practice
 
 Every completed research cycle must disposition material findings in three

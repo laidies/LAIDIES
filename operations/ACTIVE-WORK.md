@@ -1,5 +1,13 @@
 # Active work
 
+## 2026-09-05 NewsStand history and future-coverage links
+
+- **Status:** PARTIAL IMPLEMENTATION CONFIRMED; missing production/reader connection remains BUILDING. Ali reaffirmed the existing design, and its exact rule is recorded in the editorial promise/runbook.
+- **Live finding:** At 1280px and 390px the Astra story opens with no lineage block; the earlier training-pause route is held and has no link forward. The live dataset contains zero populated predecessor/successor relationships. The old held body was not exposed or changed.
+- **Cause:** The ordinary candidate validator forbids non-empty lineage, its publication path cannot add reciprocal navigation, and the existing optional renderer places links near the top. Same-ID correction exists but must not be used for new developments. Passing existing tests does not establish the requested feature.
+- **Next repair:** Extend the existing admitted new-story transaction to add reciprocal relationships while preserving exact old body/source/date, then render bottom links and exercise both directions and subsequent developments. Keep visible correction notices and retained history distinct from new reporting; verify real reader output before calling it complete.
+- **Scope:** Tier 2 read-only code/live audit and durable ruling update. No public/code/automation changes or deployment. Background/source work remains active under preceding checkpoints. Details are in WORKFLOW-AUDIT-2026-09-05.md.
+
 ## 2026-09-05 Behind the Build operating-know-how boundary
 
 - **Status:** DECIDED AND RECORDED; bounded draft disclosure assessment complete; public candidate remains HOLD. The NewsStand implementation below continues.

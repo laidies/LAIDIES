@@ -1,5 +1,16 @@
 # LAiDIES build learning ledger
 
+## BTB-502 — A story-link schema is not a working follow-up feature
+
+- **Date:** 2026-09-05
+- **Trigger:** Ali asked whether the already-designed new-story/history/forward-link behaviour was actually present.
+- **Observed:** Reader code contains reciprocal-link validation and a lineage renderer, but all live story relationships are empty. Astra opens without newer/earlier navigation; its earlier report is held without a forward link. The ordinary candidate validator forbids non-empty lineage and both publishers lack the reciprocal predecessor write. Optional links would render near the top rather than the required bottom.
+- **Diagnosis:** VERIFIED cross-layer omission: data shape and consumer support existed without a complete producer transaction or representative live fixture. A one-way source link does not implement story history. Same-ID correction and new-development publication are separate reader jobs.
+- **Prevention specified:** Preserve the dated reported body/source/date; bind exact predecessor state in a new-story transaction, update only navigation metadata reciprocally, validate the whole resulting dataset, and test old → new → old plus multiple later developments. Require visible correction/version history for corrections; private hashes alone cannot prove it.
+- **Evidence:** Existing code and full current live dataset inspected; desktop/mobile route checks returned zero lineage blocks. Independent Terra/Low lane ran existing correction/promoter/ordinary-publication tests; these pass but contain no complete follow-up acceptance case. Exact findings and next repair are in the existing workflow audit/runbook.
+- **Public angle:** A follow-up should let readers see both what was known then and what changed now. Keep this as a general news-literacy lesson under the Behind the Build disclosure boundary; do not reveal our internal machinery.
+- **Status:** VERIFIED GAP / REPAIR SPECIFIED / NOT IMPLEMENTED IN THIS AUDIT. No old story was edited, republished or unheld.
+
 ## BTB-501 — A useful founder lesson must not become the operating manual
 
 - **Date:** 2026-09-05

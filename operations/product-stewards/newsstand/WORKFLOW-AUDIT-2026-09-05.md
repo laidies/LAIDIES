@@ -39,6 +39,44 @@ public derivative was changed, and no synthetic model benchmark was run.
 The earlier checkpoints below record the state when inspected; they are not
 claims that later adoption has already produced a successful unattended run.
 
+## September 5 follow-up — reported history and reciprocal story links
+
+**PARTIAL / NOT WORKING AS SPECIFIED.** Ali reaffirmed that later developments
+must be new dated stories, preserve the earlier report and link both ways, with
+forward links at the old article's bottom. This is existing product intent.
+
+Live `https://laidies.ai/newsstand` inspection at 1280px and 390px found zero
+populated predecessor/successor relationships. The September 4 Astra article
+opens but has zero `.ns-story-lineage` elements. Its earlier training-pause
+route opens a “Not published” hold notice with no forward link. Do not restore
+that held body merely to demonstrate history. The current source includes a
+one-way reference from Astra to the older story; it is not reciprocal navigation.
+
+Code findings:
+- `validate-newsstand-ordinary-story-candidate.mjs` rejects any non-empty lineage
+  arrays, so a new-development candidate cannot declare an earlier story.
+- `publish-daily-edition.mjs` rejects overwriting an incumbent but does not add
+  reverse relationships. The older `promote-newsstand-story.mjs` also appends
+  only the new record and cannot complete both sides.
+- `content/newsstand-reader-contract.js` correctly rejects self-links and
+  non-reciprocal IDs when present. It cannot infer missing editorial relationships
+  from empty arrays. `newsstand.html` renders the optional links near the top,
+  not in the requested bottom position.
+- `prepare-newsstand-daily-story-correction.mjs` can replace a same-ID dated
+  snapshot under exact correction evidence. This is not a new-development
+  publication path, and private predecessor hashes do not prove visible public
+  version history.
+
+A read-only Terra/Low lane reviewed the existing rule/code and ran the focused
+correction, promoter and ordinary-publication tests. Those tests pass but do not
+prove follow-up lineage. The foreground independently checked the code and live
+reader. No code, current story, publication date or deployment changed here.
+
+Repair priority: include reciprocal relationships in the existing admitted
+new-story transaction, protect the old report's content/date, render later
+coverage at the bottom and test both directions plus multiple developments.
+The current runbook owns this next step; the general NewsStand work continues.
+
 ## What was inspected and what that proves
 
 The audit followed current authority beyond the preservation-sensitive iCloud checkout. The current September 5 research worktree is `/private/tmp/laidies-newsstand-cycle-20260905.WBY0n4`, commit `8c426fac4b47ed7ffb9433939b0ddfac78f4e93b`. Its ancestry includes the recovery changes (`95eea207`), story modules (`943d7cc7`), reader translation changes (`308e7b17`) and September 4 public correction records. Unless otherwise stated, relative implementation references below belong to that base, which this audit branch preserves in Git.

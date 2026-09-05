@@ -103,6 +103,34 @@ An unresolved disclosure holds the piece before Ali's existing exact-copy
 voice/taste review. The original evidence remains private and intact. Topic
 approval does not authorize revealing the actual operating method.
 
+## Preserve reported history and link later coverage — September 5 reaffirmation
+
+DECIDED — Ali reaffirmed an existing design, not a request for a new feature:
+a later news development receives its own story, stable ID/URL and publication
+date. The new article explains what changed and refers readers to the earlier
+reporting. Do not silently update an old news story to make it describe facts
+that became known later, redate it, or lose what readers could see at the time.
+
+Keep the original reported body, sources and publication date. Separately
+maintained navigation must add links at the bottom of the old article to later
+published coverage of the same story. The new article links back. Follow the
+editorially identified story through further developments, rather than relying
+on a generic topic/tag match or an incidental source link. Held or withdrawn
+coverage must be labelled honestly and must not expose withheld prose.
+
+An error in the original reporting needs an explicit dated correction or
+retraction notice, with the previous version/history retained. That process is
+not permission to use same-ID correction machinery for later news developments
+or to overwrite history silently. Source rechecks alone do not create a new
+publication date. Existing book/guidance maintenance is a different content job;
+this ruling preserves the dated newspaper record.
+
+Current implementation is PARTIAL. The reader supports reciprocal story IDs,
+but the ordinary candidate path rejects non-empty lineage, the live dataset
+contains no populated lineage and the renderer places its optional links near
+the top. The runbook and workflow audit record the exact production/reader gap;
+no claim of working bottom-of-article navigation is made.
+
 ## Authority retained
 
 Ali retains the mission, audience, voice and taste direction, meaningful editorial positions, changes to publication authority and exact-version Big Picture approval. Existing ordinary-news autonomy remains: independent AI factual/editorial assessment is required, but routine news does not require Ali's daily copy approval. Existing specialist evidence, correction, artifact, accessibility and release controls still apply. This record changes no public content and grants no new release authority.

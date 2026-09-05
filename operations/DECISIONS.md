@@ -68,6 +68,15 @@ material stays HOLD; old draft/privacy approval cannot authorize its release.
 This uses the existing content and Ali voice/taste reviews, not a new review
 system or a claim that a validator detects commercial secrets.
 
+Ali reaffirmed the newspaper-history rule on September 5: a later development
+is a new dated article, the original report remains intact, and bottom-of-story
+links take the old reader to later related reporting with reciprocal back-links.
+Exact authority is the “Preserve reported history and link later coverage”
+section of the NewsStand editorial promise. Explicit correction/retraction
+notices preserve history; same-ID correction is not a later-development route.
+The workflow audit and runbook record the current missing publication connection
+and bottom-link placement. Existing schema fields alone are not implementation.
+
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and
 signal inbox: changes to exact claims must reach every affected consumer.
