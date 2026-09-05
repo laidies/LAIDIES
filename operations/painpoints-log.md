@@ -143,3 +143,8 @@ calendar-date parsing and receipt-ID coercion, then calibrated all three rejects
 The producer brief's proposed subject limit was reconciled to the existing form's
 100-character limit. Helper tests now reject 30 bad cases but do not establish
 a deployed endpoint, persisted idempotency, privacy or working visitor intake.
+
+
+### 2026-09-05 — Feedback server continuation and actual persistence proof
+
+Repeatedly ending at a helper or a pending launch-policy question stopped work that could safely continue. Prevention: separate policy-dependent activation from reversible backend preparation and finish the latter; do not invent a subagent deadline that permits partial delivery. Root review repaired SQL subject-limit drift, timestamp incompatibility, null/type checks, digest binding, missing staff read/lifecycle/expiry checks and pagination before handoff. A real HTTP-to-PostgreSQL lost-reply test now proves one persisted row and a stable retry receipt; pure validation alone cannot claim intake works. Private payload expiry is implemented but no live cleanup trigger or approved retention policy exists. Possible Behind the Build angle: a spinning submit button does not tell you whether the server already saved the message.
