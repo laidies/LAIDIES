@@ -10,8 +10,8 @@ const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), '
 let watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
 if (watchPosterBad) {
   watch = watch.replace(
-    'v.poster = EPISODE_COVERS[episodeKey(ep)] || poster;',
-    'if (poster) v.poster = poster;'
+    'v.poster = EPISODE_SCREEN_COVERS[episodeKey(ep)] || poster;',
+    'v.poster = EPISODE_COVERS[episodeKey(ep)] || poster;'
   );
 }
 const watchCssSource = read('content/watch-v2.css');
@@ -60,13 +60,22 @@ assert.match(watch, /function syncArrivalPlay\(\)/);
 assert.match(watch, /parts\.bar\.hidden = !caption/);
 assert.match(watch, /video\._captionBar\.hidden = !video\._captionBar\.querySelector\('\.cap-txt'\)\.textContent\.trim\(\)/);
 assert.match(watch, /EPISODE_COVERS\s*=\s*\{/);
-assert.match(watch, /v\.poster = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| poster/);
+assert.match(watch, /EPISODE_SCREEN_COVERS\s*=\s*\{/);
+assert.match(watch, /v\.poster = EPISODE_SCREEN_COVERS\[episodeKey\(ep\)\] \|\| poster/);
 assert.match(watch, /listenCover\.src = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| admission\.posterPublicUrl/);
 for (const episode of ['01', '02', '03', '04']) {
   assert.match(watch, new RegExp(`episode-vhs-boxes-v2/ep-${episode}\\.png`));
   const issue = read(`issues/issue-${episode}.html`);
   assert.match(issue, /episode-format-navigation\.css\?v=20260902-1/);
   assert.match(issue, /issue-feature-v2\.js\?v=20260902-1/);
+}
+for (const titleCard of [
+  'ep01-title-card-comic-v2.png',
+  'ep02-title-card-comic-v2.png',
+  'ep03-title-card-comic-v2.png',
+  'ep04-title-card-comic-v3-laidies-colour.png'
+]) {
+  assert.match(watch, new RegExp(titleCard.replaceAll('.', '\\.')));
 }
 assert.match(issueJs, /issue-feature--\(\\d\{2\}\)/);
 assert.match(issueJs, /mode=listen/);

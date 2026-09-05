@@ -9,17 +9,16 @@ not automatically publishable.
 
 ## 2026-09-04 The selected tape lost its identity at Play
 
-The Chick Flicks shelf, rental-counter modal and Listen player showed the exact
-approved episode VHS cover, but Watch reverted to a generic widescreen title
-card before playback. Nothing was technically broken; the experience still
-felt discontinuous because the object the visitor selected appeared to change.
-The native Watch poster now binds to the same per-episode cover map while the
-admitted poster remains media evidence and Media Session artwork. Prevention
-rule: treat packaging identity and media admission evidence as separate jobs,
-and verify one selected object across shelf, modal, Listen and Watch before
-calling the journey coherent. Possible Behind the Build angle: visitors notice
-when a digital object stops being the thing they picked, even when every link
-still works.
+The Chick Flicks shelf, rental-counter modal and Listen player showed each
+approved episode VHS, but Watch reverted to a generic Opening Day card. The
+first correction then put the entire portrait clamshell inside the widescreen
+player, preserving identity too literally and leaving large black side spaces.
+Watch now uses the exact 16:9 title-card art from which each sleeve was adapted;
+the shelf and Listen keep the physical case. Prevention rule: preserve one
+artwork identity across a journey while adapting the object to its job, and
+separate packaging art, visible pre-play art and media-admission evidence in the
+asset contract. Possible Behind the Build angle: consistency does not mean
+putting the same-shaped object into every-shaped space.
 
 ## 2026-09-04 Watch page became a black media app
 

@@ -1,49 +1,48 @@
 # Design QA — room-first building rebuilds
 
-## Screening Room episode VHS posters — 2026-09-04
+## Screening Room widescreen VHS artwork — 2026-09-04
 
 **Source visual truth**
 
-- Ali's rejected generic Episode 04 title-card poster:
-  `operations/design-audit/chick-flicks-watch-vhs-posters-20260904/source-wide-title-poster.png`
-  (2070 × 1170 pixels).
-- Approved exact cover family:
-  `assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png` through
-  `ep-04.png` (1024 × 1536 pixels each).
+- Rejected generic Episode 04 Opening Day poster:
+  `assets/media/opening-day-covers-v1/04/04-site.jpg`.
+- Approved exact widescreen title-card family recorded as the art source for
+  the VHS sleeves: Episode 01–03 `*-title-card-comic-v2.png`, plus Ali's
+  selected Episode 04 `ep04-title-card-comic-v3-laidies-colour.png`.
 - Same-state comparison:
-  `operations/design-audit/chick-flicks-watch-vhs-posters-20260904/before-after-vhs-poster.jpg`.
+  `operations/design-audit/chick-flicks-watch-wide-vhs-posters-20260904/comparison.png`.
 
 **Rendered implementation**
 
-- Episodes 01–04 desktop contact sheet:
-  `operations/design-audit/chick-flicks-watch-vhs-posters-20260904/all-four-vhs-posters.jpg`.
-- Individual desktop states:
-  `episode-01-desktop.jpg`, `episode-02-desktop.jpg`,
-  `episode-03-desktop.jpg` and `episode-04-desktop.jpg` in that directory.
-- Episode 04 phone state: `episode-04-phone.jpg` (390 × 844 pixels).
+- Episodes 01–04 desktop states are `episode-01-desktop.png` through
+  `episode-04-desktop.png` in
+  `operations/design-audit/chick-flicks-watch-wide-vhs-posters-20260904/`.
 
 **Findings and fidelity surfaces**
 
-1. **P1 fixed — the physical tape identity disappeared at the Watch player.**
-   The generic wide title card is replaced before playback by the exact selected
-   episode's approved VHS cover. Episodes 01–04 each bind their own cover.
+1. **P1 fixed — the first correction used the portrait clamshell itself.** That
+   produced unnecessary black side space and confused packaging with screen
+   artwork. Watch now uses the exact 16:9 art that each approved VHS sleeve was
+   adapted from; the physical shelf and Listen keep the portrait clamshell.
 2. **Typography and copy:** no interface wording or type treatment changed; the
    episode name is carried by the existing approved cover artwork.
-3. **Spacing/layout rhythm:** the portrait cover is centred with `object-fit:
-   contain` inside the existing 16:9 black film window. The player, native
-   controls and surrounding auditorium geometry are unchanged.
+3. **Spacing/layout rhythm:** the 16:9 artwork fills the existing 16:9 film
+   window. The player, native controls and surrounding auditorium geometry are
+   unchanged.
 4. **Colours and image quality:** no new colour relationship or image derivative
-   was introduced. The exact existing 1024 × 1536 PNG cover bytes are used.
+   was introduced. The exact existing title-card bytes are used without a new
+   crop or derivative.
 5. **Function and content:** only the native player's idle poster changed. Film
    source, captions, resume, Watch/Listen switcher, Media Session artwork and
    post-play behavior remain unchanged.
 
 **Functional evidence**
 
-- The calibrated format-shell check rejects restoration of the generic admitted
-  poster, then the normal format-shell and 12-point Chick Flicks contracts pass.
-- Ali's in-app browser rendered all four exact mappings at desktop width and
-  Episode 04 at 390 × 844 without changing the film player or its controls.
+- The calibrated format-shell check rejects restoration of the portrait
+  clamshell inside Watch, then the normal format-shell and 12-point Chick Flicks
+  contracts pass.
+- Ali's in-app browser rendered all four exact widescreen mappings at desktop
+  width without changing the film player or its controls.
 - The optional automated browser suite was not run because it would open a
   separate browser; the same assertion is updated for the next permitted run.
 - Local verification only; no deployment or public-origin claim.

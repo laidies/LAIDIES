@@ -197,8 +197,8 @@ try {
   );
   assert.equal(
     await admitted.page.locator(".film-player").getAttribute("poster"),
-    `${base}/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png`,
-    "the Episode 01 VHS cover did not bind to the visible film player"
+    `${base}/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png`,
+    "the Episode 01 widescreen VHS artwork did not bind to the visible film player"
   );
   assert.equal(await admitted.page.locator(".scene.is-live").count(), 0, "admitted film fell through to cue stills");
   assert.match(await admitted.page.locator("#scrNote").textContent(), /complete illustrated film/i);

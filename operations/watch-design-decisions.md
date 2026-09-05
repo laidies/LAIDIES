@@ -1,12 +1,14 @@
 # Screening Room construction — 2026-07-24
 
-## The selected VHS cover is the Watch pre-play poster — 2026-09-04
+## The VHS artwork, not the clamshell, is the Watch pre-play poster — 2026-09-04
 
-The selected tape keeps one visible identity from the Chick Flicks shelf through
-the rental-counter modal, Listen and the idle Watch player. For Episodes 01–04,
-the native Watch video poster is the exact approved image from
-`assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-NN.png`; it is not replaced
-by a generic widescreen episode title card.
+The selected tape keeps one artwork identity from the Chick Flicks shelf through
+the rental-counter modal, Listen and the idle Watch player, but the object adapts
+to its context. The physical shelf and Listen show the full portrait clamshell.
+Watch shows the exact widescreen title-card art from which that sleeve was made:
+Episodes 01–03 use their `*-title-card-comic-v2.png` sources and Episode 04 uses
+Ali's selected `ep04-title-card-comic-v3-laidies-colour.png`. Placing a portrait
+clamshell inside the 16:9 screen is rejected.
 
 This is a packaging-continuity decision, not a media-source change. The admitted
 poster remains source-integrity evidence, Media Session artwork and a fallback
