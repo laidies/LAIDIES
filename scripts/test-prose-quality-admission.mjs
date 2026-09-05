@@ -204,6 +204,32 @@ try {
   write(newsAnalysisPath, JSON.stringify(analysis));
   editorialNews.newsEditorialReview = { policy: bind(newsPolicyPath), analysis: bind(newsAnalysisPath) };
   assert.deepEqual(inspect(editorialNews), [], "authorized Daily NEWS may use bound AI editorial analysis without human observations");
+  const blindRejectionNews = structuredClone(editorialNews);
+  blindRejectionNews.calibration.mode = "ORDINARY_NEWS_BLIND_REJECTION_V1";
+  blindRejectionNews.calibration.negatives[0].identifiedFailureFamilies = ["glossaryAccumulation"];
+  blindRejectionNews.calibration.negatives[0].familyAssessments = Object.fromEntries(negativeFamilies.map(family => [family, {
+    state: family === "glossaryAccumulation" ? "present" : family === "decorativeAnalogy" ? "uncertain" : "clear",
+    observation: `${family} was assessed against the complete known-bad artifact.`, artifactLocator: "bad.txt:1"
+  }]));
+  assert.deepEqual(inspect(blindRejectionNews), [], "ordinary-news blind calibration accepts a relevant rejection while retaining clear and uncertain secondary assessments");
+  const allClearCalibration = structuredClone(blindRejectionNews);
+  for (const assessment of Object.values(allClearCalibration.calibration.negatives[0].familyAssessments)) assessment.state = "clear";
+  assert.match(inspect(allClearCalibration).join("\n"), /requires a relevant registered reason for rejection/);
+  const missingFamilyAssessment = structuredClone(blindRejectionNews);
+  delete missingFamilyAssessment.calibration.negatives[0].familyAssessments.decorativeAnalogy;
+  assert.match(inspect(missingFamilyAssessment).join("\n"), /must assess decorativeAnalogy/);
+  const falsePassCalibration = structuredClone(blindRejectionNews);
+  falsePassCalibration.calibration.negatives[0].verdict = "PASS";
+  assert.match(inspect(falsePassCalibration).join("\n"), /known-bad calibration BAD must be rejected/);
+  const blindArticleHold = structuredClone(blindRejectionNews);
+  blindArticleHold.outcomes.plainClarity.verdict = "HOLD";
+  assert.match(inspect(blindArticleHold).join("\n"), /PASS forbidden: plainClarity did not pass/);
+  const blindArticleFailure = structuredClone(blindRejectionNews);
+  blindArticleFailure.outcomes.readerValue.verdict = "FAIL";
+  assert.match(inspect(blindArticleFailure).join("\n"), /PASS forbidden: readerValue did not pass/);
+  const blindArticleDefect = structuredClone(blindRejectionNews);
+  blindArticleDefect.failureFamilies.decorativeAnalogy.present = true;
+  assert.match(inspect(blindArticleDefect).join("\n"), /PASS forbidden: decorativeAnalogy is present/);
   const missingAnalysis = structuredClone(editorialNews); delete missingAnalysis.newsEditorialReview.analysis;
   assert.match(inspect(missingAnalysis).join("\n"), /analysis.*required|analysis JSON|AI analysis requires/);
   const forgedHuman = structuredClone(editorialNews); forgedHuman.outcomes.explainBack.observedReaderEvidence = observedParticipants[0];
@@ -227,7 +253,12 @@ try {
   assert.match(inspect(producerMisuse).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/);
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=3 hold=1 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 sampled_service_profile=1");
+  const modeCannotBypassService = structuredClone(sampledService);
+  modeCannotBypassService.calibration.mode = "ORDINARY_NEWS_BLIND_REJECTION_V1";
+  modeCannotBypassService.calibration.negatives[0].identifiedFailureFamilies = ["glossaryAccumulation"];
+  modeCannotBypassService.calibration.negatives[0].familyAssessments = blindRejectionNews.calibration.negatives[0].familyAssessments;
+  assert.match(inspect(modeCannotBypassService).join("\n"), /known-bad calibration BAD missed/);
+  console.log("PROSE QUALITY CALIBRATION PASS valid=4 hold=1 rejected=31 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 blind_news_rejection=1 family_assessments=1 current_article_still_strict=1 service_mode_bypass_rejected=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 sampled_service_profile=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

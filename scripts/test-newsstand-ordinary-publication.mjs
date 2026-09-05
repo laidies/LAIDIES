@@ -126,6 +126,30 @@ badCandidate(c => { c.editionDate = '2026-08-31'; }, /date-bound/);
 badCandidate(c => { c.story.headline = ''; c.storySha256 = sha256(stable(c.story)); }, /complete reader copy/);
 badCandidate(c => { c.story.id = dataset.stories[0].id; c.candidateId = c.story.id; }, /held and date-bound/);
 badCandidate(c => { c.story.slug = dataset.stories[0].slug; }, /reader contract/);
+badCandidate(c => { c.editionDate = '2026-09-05'; c.schemaVersion = 'newsstand-ordinary-story-candidate-v2'; delete c.draftPreparation; }, /require bound drafting inputs and producer observations/);
+const preparedContract = structuredClone(contract);
+preparedContract.draftArchitecture.readerQuestions = [{ id: 'what-changed' }];
+preparedContract.draftArchitecture.requiredTerms = [];
+const preparedContractBinding = put(`${prefix}/prepared-contract.json`, preparedContract);
+const writerInput = put(`${prefix}/writer-input.json`, {
+  producerContract: preparedContractBinding,
+  packet: { candidateId: story.id, explanationPlan: preparedContract.draftArchitecture },
+  bindings: []
+});
+const producerObservations = put(`${prefix}/producer-observations.json`, {
+  completeTextRead: true,
+  storySha256: sha256(JSON.stringify(story)),
+  readerAnswers: { 'what-changed': story.the_story },
+  explainBack: 'Synthetic producer reasoning explains the bounded mechanism in ordinary language.',
+  unseenTransfer: 'Synthetic producer reasoning applies the same bounded mechanism to another case.',
+  unresolvedIssues: []
+});
+const preparedCandidate = structuredClone(candidate);
+preparedCandidate.producerContract = preparedContractBinding;
+preparedCandidate.draftPreparation = { writerInput, observations: producerObservations };
+assert.deepEqual(validateOrdinaryStoryCandidate(preparedCandidate, { root }).story, story, 'bound drafting inputs validate before observation mutation');
+const changedObservations = put(`${prefix}/changed-producer-observations.json`, { ...JSON.parse(fs.readFileSync(path.join(root, producerObservations.path), 'utf8')), storySha256: '0'.repeat(64) });
+badCandidate(c => { c.producerContract = preparedContractBinding; c.draftPreparation = { writerInput, observations: changedObservations }; }, /candidate drafting incomplete: Producer observations bind a different draft/);
 const mutateReceipt = (key, edit, pattern) => { const receipt = structuredClone(key === 'producer' ? producer : independent); edit(receipt); const binding = put(`${prefix}/mutated-${key}.json`, receipt); badCandidate(c => { c.reviewEvidence[key] = binding; }, pattern); };
 mutateReceipt('independent', r => { delete r.outcomes.explainBack.observedReaderEvidence; }, /OBSERVED_HUMAN/);
 mutateReceipt('independent', r => { r.reviewer.principalId = 'fixture-maker'; }, /self-review|principal/);
@@ -137,7 +161,7 @@ assert.throws(() => projectDailySourceRaw({ root, raw: output, issue: admitted.i
 put(sourceBinding.path, 'Synthetic authority: This fixture changes one setting, not every product.\n');
 // Invoke the actual CLI boundary, including the resume/check commands. The
 // fixture root is derived from copied script locations, not a release bypass.
-for (const name of ['newsstand-service-continuity', 'newsstand-career-lane', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'validate-newsstand-story-type-coverage', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
+for (const name of ['newsstand-service-continuity', 'newsstand-career-lane', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'newsstand-story-lineage', 'prepare-newsstand-draft', 'validate-newsstand-story-type-coverage', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
 put('operations/product-stewards/newsstand/story-type-modules.json', fs.readFileSync(path.join(SOURCE, 'operations/product-stewards/newsstand/story-type-modules.json'), 'utf8'));
 put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-luminairy-links.mjs'), 'utf8'));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-reader-contract.js'), 'utf8'));
@@ -208,4 +232,4 @@ assert.equal(combinedDerived.archive.items.filter(i=>i.kind==='service').length,
 assert.ok(combinedDerived.archive.items.filter(i=>i.kind==='service').every(i=>i.editionDate===oldDate));
 sandbox.window.test.set(carryColumns);
 assert.equal(await sandbox.window.test.validDailyIssueStore(combinedResult.store),true,sandbox.window.__newsstandDailyIssueValidationFailure);
-console.log(`ORDINARY NEWS PIPELINE PASS private_composition=1 first_issue=1 same_day_append=1 published_only_after_admission=1 incumbents_preserved=1 repeat_and_resume=1 base_drift_rejected=1 review_mutations_rejected=${rejected} human_gate_preserved=1 real_cli=1 feed_archive_reader=1 fixture=${root} REAL_PUBLIC_WRITES=0`);
+console.log(`ORDINARY NEWS PIPELINE PASS private_composition=1 first_issue=1 same_day_append=1 published_only_after_admission=1 incumbents_preserved=1 repeat_and_resume=1 base_drift_rejected=1 draft_preparation_required=1 changed_observations_rejected=1 review_mutations_rejected=${rejected} human_gate_preserved=1 real_cli=1 feed_archive_reader=1 fixture=${root} REAL_PUBLIC_WRITES=0`);

@@ -1,0 +1,11 @@
+# NewsStand drafting and history — September 5
+
+Status: PREPARED, NOT DEPLOYED. Source implementation is staged for commit.
+
+Provider-confirmed current production is cd6b20a4-8c7b-474a-a4aa-6d1170cc5bdd. Exact public newsstand.html, story data, Daily issue/column data and library.html match the preserved predecessor manifest. Candidate artifact: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-editorial-release-3ayza8e7/public`. It is copied from the exact 747-file predecessor; only newsstand.html is overlaid so far. The wiki story exists only as a clearly labelled in-memory private browser fixture, never in the release data.
+
+The repaired article has real independent reader/factual PASS judgments; full publication remains held on the current count rule pending an explicit Ali decision. Current facts required three rounds and two missing-excerpt repairs; the unchanged reader passed once. The corrected assembler rederives actual provider judgments and stops before emitting a ready candidate under the current rule. Earlier invalid metrics intermediate is explicitly invalidated.
+
+The full artifact reader suite passes 53 checks. Private article preview passes 1280/390/320: readable header/prose, no page overflow, seven source links, loaded admitted illustration and exact Library lesson. Focused lineage tests prove reciprocal bottom links, old bytes preserved and held bodies absent. Independent Terra/Low inspected exact code and upper viewport images plus the actual bottom-link DOM tests; it did not claim to see bottom links in those upper screenshots. Subsequent global-hold guard passed its negative test and independent successor review. Exact accepted HTML SHA-256: 57feeb01846588a41cefed69a6e899814c4a4120d8b871cc226b4b0a7d33fdd5. No actual new public story, populated public relationship, service renewal, Weekly update or unattended run is claimed.
+
+The partial worktree browser test failed desktop overflow; the complete released-asset-root suite passes. The normal broad hook is known to fail on unrelated sparse-excluded assets/control-room data; the documented scoped hook bypass applies only after targeted tests. This is not an all-repository green claim.

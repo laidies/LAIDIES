@@ -8,6 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { applyStoryLineageTransaction, validateStoryLineageReplay } from "./newsstand-story-lineage.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORY_PATH = path.join(ROOT, "content/newsstand-stories.js");
@@ -75,7 +76,7 @@ export function promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw, d
   const candidate = parse(candidateRaw, "candidate");
   const evidence = parse(evidenceRaw, "evidence manifest");
   const decision = parse(decisionRaw, "independent decision");
-  exactKeys(candidate, ["schemaVersion", "candidateStatus", "workOrderId", "sourceText", "claimMap", "story"], "candidate");
+  exactKeys(candidate, ["schemaVersion", "candidateStatus", "workOrderId", "sourceText", "claimMap", "story", ...(candidate.lineage ? ["lineage"] : [])], "candidate");
   if (candidate.schemaVersion !== "newsstand-story-candidate.v1" || candidate.candidateStatus !== "HELD_NOT_PUBLISHED" || !candidate.workOrderId) {
     reject("candidate is not a held NewsStand story candidate");
   }
@@ -142,16 +143,19 @@ export function promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw, d
       evidence.reviewArtifact.storySha256 !== publicStorySha256 || decision.publicStorySha256 !== publicStorySha256) {
     reject("public story checksum does not match the evidence and decision");
   }
-  const nextDatasetRaw = compileStoryDatasetWrite({ datasetRaw, publicStory, timestamp: decision.reviewedAt });
+  const nextDatasetRaw = compileStoryDatasetWrite({ datasetRaw, publicStory, timestamp: decision.reviewedAt, lineage: candidate.lineage ?? null });
   return { datasetRaw: nextDatasetRaw, publicStory, publicStorySha256, changed: nextDatasetRaw !== datasetRaw };
 }
 
-export function compileStoryDatasetWrite({ datasetRaw, publicStory, timestamp }) {
+export function compileStoryDatasetWrite({ datasetRaw, publicStory, timestamp, lineage = null }) {
   const data = parseNewsstandData(datasetRaw);
   const existing = data.stories.filter((story) => story.id === publicStory.id || story.slug === publicStory.slug);
   if (existing.length) {
     if (existing.length === 1 && existing[0].id === publicStory.id && existing[0].slug === publicStory.slug &&
-        canonicalJson(existing[0]) === canonicalJson(publicStory)) return datasetRaw;
+        canonicalJson(existing[0]) === canonicalJson(publicStory)) {
+      validateStoryLineageReplay({ dataset: data, story: publicStory, lineage });
+      return datasetRaw;
+    }
     reject(`conflicting story identity already exists: ${publicStory.id}`);
   }
   if (!validIso(timestamp)) reject("dataset timestamp is invalid");
@@ -164,8 +168,16 @@ export function compileStoryDatasetWrite({ datasetRaw, publicStory, timestamp })
   };
   let next = replaceOnce(datasetRaw, /^  generatedAt: ".+",$/gm, `  generatedAt: "${timestamp}",`, "generatedAt");
   next = replaceOnce(next, /^  lastCheckedAt: ".+",$/gm, `  lastCheckedAt: "${timestamp}",`, "lastCheckedAt");
-  const serialized = JSON.stringify(publicStory, null, 2).split("\n").map((line) => `    ${line}`).join("\n");
-  next = next.replace(marker, `,\n${serialized}\n  ]\n};\n\n/* Compatibility for old private inspection scripts only.`);
+  if (!lineage) {
+    const serialized = JSON.stringify(publicStory, null, 2).split("\n").map((line) => `    ${line}`).join("\n");
+    next = next.replace(marker, `,\n${serialized}\n  ]\n};\n\n/* Compatibility for old private inspection scripts only.`);
+  } else {
+    const transaction = applyStoryLineageTransaction({ dataset: data, story: publicStory, lineage });
+    const serializedStories = transaction.stories.map(item => JSON.stringify(item, null, 2).split("\n").map(line => `    ${line}`).join("\n")).join(",\n");
+    const storiesStart = next.indexOf("  stories: ["), storiesEnd = next.indexOf(marker, storiesStart);
+    if (storiesStart < 0 || storiesEnd < 0) reject("canonical story list boundary is missing");
+    next = next.slice(0, storiesStart) + `  stories: [\n${serializedStories}\n  ]` + next.slice(storiesEnd + 5);
+  }
   const reparsed = parseNewsstandData(next);
   const inserted = reparsed.stories.find((story) => story.id === publicStory.id);
   if (!inserted || canonicalJson(inserted) !== canonicalJson(publicStory)) reject("written story differs from the admitted story");

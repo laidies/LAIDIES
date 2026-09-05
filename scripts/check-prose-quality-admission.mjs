@@ -123,7 +123,7 @@ function newsEditorialAnalysisFor(receipt, root, errors) {
   require(analysis?.evidenceType === "AI_EDITORIAL_ANALYSIS", "analysis must declare AI_EDITORIAL_ANALYSIS");
   require(analysis?.candidateId === receipt.candidateId && analysis?.reviewerPrincipalId === receipt.reviewer?.principalId && analysis?.reviewTextSha256 === receipt.artifact?.reviewText?.sha256, "analysis must bind exact candidate, prose and independent reviewer");
   require(receipt.limitations?.includes("AI editorial assessment only; no observed human-comprehension evidence is claimed."), "must disclose absence of observed human evidence");
-  return analysis;
+  return { ...analysis, calibrationPolicy: policy.calibration };
 }
 
 export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
@@ -186,13 +186,26 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(receipt?.calibration?.reviewerPrincipalId === receipt?.reviewer?.principalId, "calibration reviewer does not match candidate reviewer");
   require(text(receipt?.calibration?.reviewedAt) && Date.parse(receipt.calibration.reviewedAt) <= Date.parse(receipt.reviewedAt), "calibration must be completed by this reviewer before candidate review");
   const suppliedNegatives = new Map((receipt?.calibration?.negatives || []).map(item => [item.exemplarId, item]));
+  const newsRejectionCalibration = receipt?.calibration?.mode === "ORDINARY_NEWS_BLIND_REJECTION_V1" && newsAnalysis?.calibrationPolicy?.mode === "ORDINARY_NEWS_BLIND_REJECTION_V1";
   require(suppliedNegatives.size === negativeRegistry.size, "every registered negative exemplar must be calibrated");
   for (const [id, negative] of negativeRegistry) {
     const calibration = suppliedNegatives.get(id);
     require(Boolean(calibration), `registered negative calibration ${id} is required`);
     const negativeBody = loadBinding(root, { path: negative.path, sha256: negative.sha256 }, `calibration.negatives.${id}`, errors);
     require(calibration?.verdict === "REJECT", `known-bad calibration ${id} must be rejected`);
-    for (const family of negative?.failureFamilies || []) require(calibration?.identifiedFailureFamilies?.includes(family), `known-bad calibration ${id} missed ${family}`);
+    if (newsRejectionCalibration) {
+      const known = negative.failureFamilies || [];
+      const assessed = calibration?.familyAssessments || {};
+      for (const family of known) {
+        const judgment = assessed[family];
+        require(["clear", "present", "uncertain"].includes(judgment?.state) && text(judgment?.observation) && text(judgment?.artifactLocator), `known-bad calibration ${id} must assess ${family}`);
+      }
+      const present = known.filter(family => assessed[family]?.state === "present");
+      require(present.length > 0, `known-bad calibration ${id} requires a relevant registered reason for rejection`);
+      require(present.every(family => calibration?.identifiedFailureFamilies?.includes(family)), `known-bad calibration ${id} identified families do not match its actual findings`);
+    } else {
+      for (const family of negative?.failureFamilies || []) require(calibration?.identifiedFailureFamilies?.includes(family), `known-bad calibration ${id} missed ${family}`);
+    }
     evidenceAppears(negativeBody, calibration?.evidence, `calibration.negatives.${id}.evidence`, errors);
   }
 

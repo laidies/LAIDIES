@@ -1,8 +1,17 @@
 # NewsStand positive-calibration conflict
 
-Status: PENDING LEARNING-OWNER DISPOSITION. NewsStand pilot is HOLD_CALIBRATION.
-Owner: Learning System & Concepts Director, with NewsStand owning follow-through.
-This is a receiving-owner request, not an admitted registry change or a new public story.
+Status: RESOLVED FOR PRIVATE NEWS CALIBRATION. Original published story and
+frozen NEWS001 prose/evidence are preserved. NEWS001 is superseded for full NEWS
+calibration; independently read NEWS002 is the private successor. This is an
+internal reference admission, not a legal-news publication or textbook update.
+
+The exact NEWS002 source/evidence bindings and owner disposition are in
+`quality-exemplars/news-002-approved-evidence.json` and the current exemplar
+registry. A fresh isolated Claude Fable review read the full successor and
+accepted its craft; current official sources were checked for its dated legal
+scope. All blind negatives were rejected and the new positive accepted. Ali's
+latest ordinary-news ruling keeps actual secondary disagreements without requiring
+historical label matching; other content admission is unchanged.
 
 ## Exact finding
 
@@ -27,37 +36,17 @@ No one has converted this invalid record into an admission. Exact raw response,
 request, packet and strict failure remain under
 `../newsstand/candidates/openai-wiki-message-board-2026-09-05/bounded-claude-v2/`.
 
-## Required owner disposition
+## Disposition applied
 
-Preserve the frozen text, registry history and prior independent approval.
-Recognize its useful dated scope, evidence boundary, caller-ID analogy and
-specific actions without certifying the whole piece as defect-free. Decide
-whether to admit a separately reviewed successor positive or a suitable existing
-approved example. Do not silently edit an old news story, remove a required
-failure family, relabel the reviewer PASS or keep retrying it for agreement.
-A possible successor explains the necessary term in ordinary language; its
-exact prose and sources must be reviewed before it can become a new reference.
-The suggested repair here is not produced or admitted successor copy.
+NEWS001 and its prior evidence remain byte-identical. NEWS002 explains the terms
+in context, distinguishes marking from disclosure, preserves the dated scope and
+links the relevant current lesson. Its use does not silently revise an old news
+story or certify current law for publication. Frozen-file tests reject tampered
+prose and evidence and confirm old bytes remain intact.
 
-Apply the existing owner-admission process to any registry change. Bind the
-updated registry and renew affected producer/reviewer contracts. NEWS and
-EXPLANATION are this example's registered consumers. The producer/admission
-checkers and `scripts/test-frozen-news-exemplar.mjs` must be checked against the
-owner ruling; a frozen-file integrity test cannot settle the comprehension
-conflict. Existing registry bytes and global approval logic are unchanged in this
-NewsStand task, so this cross-surface repair remains open.
-
-## What the pilot established
-
-Gemma missed all four registered faults in the job-offer negative. Claude first
-rejected it with three of four; independent diagnosis found our synthesized
-motivation definition had dropped BTB-439's destination-level reason for learning.
-The corrected generic rubric restored that existing distinction, with no sample
-answer key supplied. Claude then found all four. It subsequently flagged this
-positive. The remaining negative and wiki article were not sent, and there are
-no calibrated article judgments to assemble.
-
-Complete the owner disposition, make one versioned output-schema correction,
-then run all registered blind samples before the held article. The full existing
-prose, issue and public-release requirements still apply. No new public service,
-subscription, content publication or observed-human comprehension is claimed.
+All earlier raw failures and disagreements remain under the NewsStand candidate
+and `review-runtime/calibration/`. The qualified cache binds the current registry,
+actual unchanged calibration requests, reviewer configuration and adopted policy.
+The wiki article subsequently received real reader and factual PASS judgments;
+its first two factual packets had evidence omissions and are retained. Full
+article, issue and public-release admission are separate downstream requirements.

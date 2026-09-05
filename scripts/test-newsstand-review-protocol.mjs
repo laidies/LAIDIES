@@ -28,7 +28,7 @@ const factPacket={...packet,claims:[{claimId:'a'}],sources:[{id:'S001',claimId:'
 const facts={attestations,learningDisposition:{disposition:'NO_NEW_DEFECT',rationale:'Synthetic complete passing review only.'},claims:{a:{state:'qualified',reason:'This is an attributed fixture observation.',passages:['P001'],sourceIds:['S001']}},outcomes:matrix(FACT_OUTCOMES,'pass'),summary:'Synthetic factual review with exact source identifiers.'};
 assert.equal(normalize('facts',facts,factPacket).verdict,'PASS');
 facts.claims.a.sourceIds=['unknown'];assert.throws(()=>normalize('facts',facts,factPacket),/source ID/);rejected++;
-facts.claims.a.sourceIds=['S002'];assert.throws(()=>normalize('facts',facts,factPacket),/another claim/);rejected++;
+facts.claims.a.sourceIds=['S002'];assert.equal(normalize('facts',facts,factPacket).verdict,'PASS'); // An actual source can support more than its research intake label.
 const outside=storyParagraphs({the_story:'An important qualification. <p>A paragraph with a concrete mechanism.</p><ul><li>A relevant limit.</li></ul>'});
 assert.equal(outside.length,1);assert.ok(outside[0].text.includes('An important qualification.'));assert.ok(outside[0].text.includes('A relevant limit.'));
 const root='operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/';
@@ -40,4 +40,15 @@ for(const p of actual)assert.ok(reviewText.includes(p.exact),'Paragraph source s
 const prompt=JSON.stringify(requestFor('calibration',packet));
 for(const forbidden of ['CQX-BAD','CQX-GOOD','requiredVerdict','producer-publication-review','previous review','prior verdict'])assert.ok(!prompt.includes(forbidden));
 assert.equal(Object.keys(OUTCOMES).length,15);
+const combinedFacts=structuredClone(facts);combinedFacts.claims.a.sourceIds=['S001'];
+const combinedPacket={...factPacket,completeArtifact:'Synthetic complete article fixture. Never public prose.'};
+assert.equal(normalize('editorial',{reader,facts:combinedFacts},combinedPacket).verdict,'PASS');
+const combinedFailure=structuredClone(combinedFacts);combinedFailure.claims.a.state='contradicted';combinedFailure.learningDisposition={disposition:'CANDIDATE_REPAIR_ONLY',rationale:'A fixture fact is contradicted by the bound source.'};
+assert.equal(normalize('editorial',{reader,facts:combinedFailure},combinedPacket).verdict,'REJECT');
+assert.throws(()=>normalize('editorial',{reader},combinedPacket),/editorial sections/);rejected++;
+assert.throws(()=>normalize('editorial',{reader,facts:combinedFacts,verdict:'PASS'},combinedPacket),/editorial sections/);rejected++;
+const combinedRequest=requestFor('editorial',combinedPacket);
+assert.equal(combinedRequest.outputSchema.additionalProperties,false);
+assert.deepEqual(combinedRequest.outputSchema.required,['reader','facts']);
+assert.ok(combinedRequest.messages[1].content.startsWith('Read the COMPLETE ARTIFACT first:'));
 console.log(`Review protocol checks: 3 complete synthetic responses; HOLD and REJECT retained; ${rejected} invalid/repeated-evidence cases rejected; ${actual.length} exact live-candidate source spans; fixture prompt omits checked label markers. No semantic quality or publication claim.`);

@@ -20,16 +20,32 @@ proper domain source before building from it.
 
 ## Core routes
 
-NewsStand's bounded editorial-review pilot is implemented but HOLD_CALIBRATION.
-The actual positive-reference conflict and its Learning-owner admission boundary
-are recorded in
-`operations/product-stewards/learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`;
-execution and resume rules remain in the NewsStand runbook and `review-runtime/README.md`.
-A reference's old approval label cannot override a newly substantiated reader
-comprehension failure. Preserve the old artifact and findings, resolve the
-reference through the existing Learning-owner process, and then bind a fresh
-calibration. This does not silently change the shared registry or release any
-held content. The current whole-article approval path remains blocked.
+Ali's September 5 clarification rejects time spent reconciling historical defect
+labels. Ordinary NewsStand calibration tests whether every known-bad artifact is
+rejected for a relevant reason and the admitted good reference is accepted;
+it retains every actual assessment without requiring identical secondary labels.
+The bounded implementation is in
+`operations/product-stewards/newsstand/ordinary-news-editorial-policy.json`.
+This does not relax any current article's required factual or reader outcome,
+permit unresolved defects, or change Big Picture, service or Library admission.
+
+
+Ali's September 5 continuation explicitly prioritizes fixing drafting: review is
+the backstop. The NewsStand producer must consume verified research, the reader
+job, known failures and existing teaching/voice standards before writing, inspect
+its own complete prose and repair preventable defects before independent review.
+The current task must implement and exercise that producer path; reviewer
+calibration alone cannot close the NewsStand quality gap. Root retains ownership
+through implementation and verification rather than ending at a saved HOLD.
+
+NewsStand's ordinary-news review now uses one complete-artifact editorial call,
+with cached blind qualification and mechanical receipt assembly. An evidence-only
+repair retains an unchanged passing reader review. Actual source excerpts must
+cover every part of a compound claim; one real source may support several claims.
+The resolved private reference replacement and preserved prior attempts are in
+`operations/product-stewards/learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`.
+Execution, calibration reuse and publication boundaries remain in the NewsStand
+runbook and `review-runtime/README.md`; a reference or article review is not a release.
 
 Related-song buttons across LAiDIES use the existing in-page KSVL player.
 Ali's September 5 ruling and the first NewsStand masthead implementation are

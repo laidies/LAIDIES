@@ -766,10 +766,17 @@
           function links(ids) {
             return (ids || []).map(function (id) {
               var related = stories.find(function (candidate) { return candidate.id === id; });
-              return related
-                ? '<a href="#' + escapeAttribute(related.slug) + '">' + escapeHTML(related.headline) + "</a>"
-                : escapeHTML(id);
-            }).join(" · ");
+              if (!related) return "";
+              var relatedState = contract.storyState(related);
+              var formerlyPublished = Number.isFinite(Date.parse(related.publishedAt));
+              if (["published", "corrected"].includes(relatedState)) {
+                return '<a href="#' + escapeAttribute(related.slug) + '">' + escapeHTML(related.headline) + "</a>";
+              }
+              if (formerlyPublished && ["hold", "retracted"].includes(relatedState)) {
+                return '<a href="#' + escapeAttribute(related.slug) + '">' + (relatedState === "retracted" ? "Related report (retracted)" : "Related report (currently withheld)") + "</a>";
+              }
+              return "";
+            }).filter(Boolean).join(" · ");
           }
           var earlier = links(story.predecessorStoryIds);
           var later = links(story.successorStoryIds);
@@ -884,12 +891,13 @@
           var isBigPicture = edition === "big-picture";
           var state = contract.storyState(story);
           if (state === "hold") {
-            return '<div class="ns-story-notice ns-story-notice--hold"><strong>Not published yet</strong><p>Paige is still checking this story. It will stay off the rack until it is ready to read.</p></div>';
+            var previouslyPublished = Number.isFinite(Date.parse(story.publishedAt));
+            return '<div class="ns-story-notice ns-story-notice--hold"><strong>' + (previouslyPublished ? 'Currently withheld' : 'Not published yet') + '</strong><p>' + (previouslyPublished ? 'This report was previously published and is being checked. Related reporting appears below when available.' : 'Paige is still checking this story. It will stay off the rack until it is ready to read.') + '</p></div>' + renderStoryLineage(story);
           }
           if (state === "retracted") {
             return '<div class="ns-story-notice ns-story-notice--retracted"><strong>Retracted</strong><p>' +
               escapeHTML(story.retraction && story.retraction.reason || "This story has been withdrawn.") +
-              "</p></div>";
+              "</p></div>" + renderStoryLineage(story);
           }
           var watch = "";
           if (isBigPicture && story.watch_fors && story.watch_fors.length) {
@@ -923,7 +931,6 @@
                     " · Updated and checked ", escapeHTML(formatDate(story.updatedAt)), "</p>",
                 '</header>',
                 renderCorrectionHistory(story),
-                renderStoryLineage(story),
                 renderArticleHero(story),
                 renderQuickRead(story),
                 renderExamination(story),
@@ -934,6 +941,7 @@
                   story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
                 '</footer>',
                 renderBigPictureHistory(story),
+                renderStoryLineage(story),
               '</article>'
             ].join("");
           }
@@ -949,7 +957,6 @@
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
               "</header>",
               renderCorrectionHistory(story),
-              renderStoryLineage(story),
               renderBigPictureHistory(story),
               renderArticleHero(story),
               articleSection(isBigPicture ? "The Argument" : "The Story", story.the_story),
@@ -966,6 +973,7 @@
                 story.aidb_credit ? "<p><em>" + escapeHTML(story.aidb_credit) + "</em></p>" : "",
                 story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
               "</footer>",
+              renderStoryLineage(story),
             "</article>"
           ].join("");
         }
@@ -1230,6 +1238,7 @@
             return true;
           }
           var decision = contract.accessDecision(data, story, { edition: story.edition, scope: "hash" }, now);
+          var heldLineage = decision.edition === story.edition && ["hold", "retracted"].includes(contract.storyState(story)) ? renderStoryLineage(story) : "";
           var previousView = pendingStoryView ||
             (history.state && history.state.nsPreviousView) ||
             null;
@@ -1242,7 +1251,7 @@
           showReader({
             mode: story.edition,
             list: [story],
-            html: decision.canExpose ? renderArticle(story) : renderAccessNotice(decision),
+            html: decision.canExpose || heldLineage ? renderArticle(story) : renderAccessNotice(decision),
             scroll: scroll !== false,
             invoker: invoker,
             story: decision.canExpose

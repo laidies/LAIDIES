@@ -10,6 +10,7 @@ import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 import { loadServicePredecessor, validateServiceSelection } from "./newsstand-service-continuity.mjs";
+import { applyStoryLineageTransaction, validateStoryLineageReplay } from "./newsstand-story-lineage.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "content/newsstand-stories.js");
@@ -60,9 +61,11 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
     if (existing && stable(existing) !== stable(published)) reject("ordinary publication cannot overwrite an existing story");
     if (next.stories.some(story => story.slug === published.slug && story.id !== published.id)) reject("ordinary publication duplicates an existing slug");
     if (!existing) {
-      next.stories.push(published);
-      stories.set(published.id, published);
-    }
+      const lineageApplied = applyStoryLineageTransaction({ dataset: next, story: published, lineage: ordinary.candidate.lineage ?? null });
+      next.stories = lineageApplied.stories;
+      stories.clear();
+      next.stories.forEach(story => stories.set(story.id, story));
+    } else validateStoryLineageReplay({ dataset: next, story: published, lineage: ordinary.candidate.lineage ?? null });
   }
   for (const id of issue.storyIds) {
     const story = stories.get(id);

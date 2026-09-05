@@ -1,0 +1,56 @@
+{
+  "status": "HOLD_CALIBRATION",
+  "scope": "Blind editorial calibration only; no publication, source accuracy or human comprehension claim.",
+  "providerRoute": "claude",
+  "effort": "medium",
+  "protocolSha256": "f605c29bc07c6610b12e7df945888cd128395fd074f56895543889c31c5e12bb",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "notRun": [],
+  "evaluations": [
+    {
+      "exemplarId": "CQX-BAD-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+        "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+      },
+      "sample": "sample-1cc8aa5f96",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "missingRegisteredFailures": [],
+      "passed": true
+    },
+    {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/news-002-approved-frozen.json",
+        "sha256": "102a4299dcb922f6fcdad44bdf30257f42ebfe6a381efe378bf99fc1fb3c7f83"
+      },
+      "sample": "sample-102a4299dc",
+      "expected": "PASS",
+      "actual": "PASS",
+      "missingRegisteredFailures": [],
+      "passed": true
+    },
+    {
+      "exemplarId": "CQX-BAD-001",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt",
+        "sha256": "c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc"
+      },
+      "sample": "sample-c3af0bae62",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "missingRegisteredFailures": [
+        "glossaryAccumulation",
+        "decorativeAnalogy",
+        "referenceConfetti",
+        "missingMechanism",
+        "genericAction",
+        "jargonBeforeMeaning",
+        "disconnectedSystem",
+        "joylessInstruction"
+      ],
+      "passed": false
+    }
+  ]
+}

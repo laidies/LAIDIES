@@ -8,6 +8,8 @@ import { inspectProseReviewChain } from "./check-prose-quality-admission.mjs";
 import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
 import { inspectNewsstandLuminairyLinks } from "./lib/newsstand-luminairy-links.mjs";
 import { validateStoryTypeCoverage } from "./validate-newsstand-story-type-coverage.mjs";
+import { applyStoryLineageTransaction } from "./newsstand-story-lineage.mjs";
+import { inspectPreparedDraft } from "./prepare-newsstand-draft.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readerContract = createRequire(import.meta.url)("../content/newsstand-reader-contract.js");
@@ -60,6 +62,7 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   if (!candidate || !["newsstand-ordinary-story-candidate-v1", "newsstand-ordinary-story-candidate-v2"].includes(candidate.schemaVersion) || candidate.candidateStatus !== "READY_FOR_ISSUE_ADMISSION") throw new Error("ordinary candidate schema/status invalid");
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
   if (!admittedHistoricalBase && candidate.editionDate >= "2026-09-05" && candidate.schemaVersion !== "newsstand-ordinary-story-candidate-v2") throw new Error("new ordinary candidates require the v2 story-type reporting frame");
+  if (!admittedHistoricalBase && candidate.editionDate >= "2026-09-05" && !candidate.draftPreparation) throw new Error("new ordinary candidates require bound drafting inputs and producer observations");
   if (candidate.schemaVersion === "newsstand-ordinary-story-candidate-v2") {
     const coverageErrors = validateStoryTypeCoverage(candidate.storyTypeCoverage, candidate.story?.themes || [], undefined, { story: candidate.story, root });
     if (coverageErrors.length) throw new Error(`ordinary candidate fails story-type reporting frame: ${coverageErrors.join(" | ")}`);
@@ -73,7 +76,7 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   const publicationBaseRaw = read(root, candidate.publicationBase, "candidate publication base");
   if (!candidate.publicationBase.path.startsWith("operations/product-stewards/newsstand/")) throw new Error("candidate publication base must be frozen private input");
   if (!story || story.edition !== "daily" || story.status !== "hold" || story.publishedAt !== null || String(story.id || "") !== candidate.candidateId || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(story.slug || "") || /^front-paige-/.test(story.id) || vancouverDay(story.updatedAt) !== candidate.editionDate || !story.sourceApproval || story.sourceApproval.status !== "independent-review-required") throw new Error("ordinary candidate story must remain held and date-bound");
-  if (story.bigPicture !== null || story.correction !== null || story.retraction !== null || ["correctionHistory", "predecessorStoryIds", "successorStoryIds"].some(key => !Array.isArray(story[key]) || story[key].length)) throw new Error("ordinary candidate cannot replace, correct or retract an incumbent");
+  if (story.bigPicture !== null || story.correction !== null || story.retraction !== null || !Array.isArray(story.correctionHistory) || story.correctionHistory.length || !Array.isArray(story.predecessorStoryIds) || !Array.isArray(story.successorStoryIds) || story.successorStoryIds.length) throw new Error("ordinary candidate cannot replace, correct or retract an incumbent");
   // New candidates must satisfy the reader contract that exists today. An
   // already-admitted historical package is different: its frozen publication
   // base may predate a later presentation rule (for example, mandatory story
@@ -84,7 +87,13 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
     const baseContext = { window: {} };
     vm.runInNewContext(publicationBaseRaw, baseContext, { timeout: 1000 });
     const baseData = JSON.parse(JSON.stringify(baseContext.window.NEWSSTAND_DATA));
-    const readerErrors = readerContract.validate({ ...baseData, stories: [...baseData.stories, publishCandidateStory(story, story.updatedAt)] });
+    let nextData;
+    try {
+      nextData = applyStoryLineageTransaction({ dataset: baseData, story: publishCandidateStory(story, story.updatedAt), lineage: candidate.lineage ?? null });
+    } catch (error) {
+      throw new Error(`ordinary candidate fails reader contract: ${error.message}`);
+    }
+    const readerErrors = readerContract.validate(nextData);
     if (readerErrors.length) throw new Error(`ordinary candidate fails reader contract: ${readerErrors.join(" | ")}`);
   }
   if (candidate.storySha256 !== sha256(stable(story))) throw new Error("ordinary candidate story hash mismatch");
@@ -95,6 +104,14 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   const contract = JSON.parse(read(root, candidate.producerContract, "candidate producer contract"));
   const preflight = inspectContentProducerContract(contract, { root });
   if (preflight.errors.length || contract.status !== "READY_TO_DRAFT" || contract.candidateId !== candidate.candidateId || contract.contentClass !== "NEWS" || contract.surface !== "NEWSSTAND_DAILY" || contract.producer !== producer.maker) throw new Error(`candidate producer contract invalid: ${preflight.errors.join(" | ")}`);
+  if (candidate.draftPreparation) {
+    const input=JSON.parse(read(root,candidate.draftPreparation.writerInput,"candidate writer input"));
+    const observations=JSON.parse(read(root,candidate.draftPreparation.observations,"candidate producer observations"));
+    if(stable(input.producerContract)!==stable(candidate.producerContract)||stable(input.packet?.explanationPlan)!==stable(contract.draftArchitecture)) throw new Error("writer input differs from the admitted production contract");
+    for(const binding of input.bindings||[])read(root,binding,"writer research binding");
+    const prepared=inspectPreparedDraft(story,input,observations);
+    if(prepared.errors.length)throw new Error(`candidate drafting incomplete: ${prepared.errors.join(" | ")}`);
+  }
   const independent = JSON.parse(read(root, candidate.reviewEvidence?.independent, "candidate independent receipt"));
   const rawReport = JSON.parse(read(root, candidate.reviewEvidence?.independentRawReport, "candidate independent raw report"));
   const chain = inspectProseReviewChain(producer, independent, { root });

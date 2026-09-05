@@ -1,0 +1,477 @@
+{
+  "kind": "calibration",
+  "startedAt": "2026-09-05T22:57:48.909Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-05T22:58:25.645Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "077a42d5-7581-419b-81b1-a0f037ecf05e",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 9115,
+    "cache_read_input_tokens": 5780,
+    "output_tokens": 2826,
+    "output_tokens_details": {
+      "thinking_tokens": 499
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 9115,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2826,
+        "cache_read_input_tokens": 5780,
+        "cache_creation_input_tokens": 9115,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 9115
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "2dc397af4e9622458b6d9aa5d62d5ed4c289f22bf4b00145e23a68f3a52983d3",
+  "rawSha256": "5e8395eda11e63e9cb8bc01bb1dd503666a6019025855f21e429d1e55990d278",
+  "protocolSha256": "f605c29bc07c6610b12e7df945888cd128395fd074f56895543889c31c5e12bb",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "families": {
+    "glossaryAccumulation": {
+      "state": "clear",
+      "reason": "Terms like emotion recognition and biometric categorisation are defined in P003 and immediately tied to what the systems do and their limits, not stacked as a glossary.",
+      "passages": [
+        "P003"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "templateRepetition": {
+      "state": "clear",
+      "reason": "Paragraphs vary in structure; the P011 quotable recap restates the takeaway once rather than repeating a scaffold throughout.",
+      "passages": [
+        "P011"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ],
+      "artifactLocator": "P011"
+    },
+    "decorativeAnalogy": {
+      "state": "clear",
+      "reason": "The caller-ID analogy in P006 is explicitly cashed out in P007–P008 as origin-versus-truth, explaining the label's causal limit.",
+      "passages": [
+        "P006",
+        "P007"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of the disclosure as caller ID for particular AI encounters. Seeing who is calling gives you useful information before you pick up. It does not tell you whether the caller’s next sentence will be true.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct. Imagine a labelled AI-generated video saying your train line closes tomorrow. The label helps explain where the video came from. The transport operator’s service notice is what you need to check the closure.</p>",
+          "locator": "P007"
+        }
+      ],
+      "artifactLocator": "P006, P007"
+    },
+    "referenceConfetti": {
+      "state": "clear",
+      "reason": "No pop-culture or ornamental references; the only external pointer (P012) has a stated practice purpose.",
+      "passages": [
+        "P012"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Practise checking a consequential claim in <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>. The section shows why a few correct samples cannot guarantee a whole answer.",
+          "locator": "P012"
+        }
+      ],
+      "artifactLocator": "P012"
+    },
+    "missingMechanism": {
+      "state": "clear",
+      "reason": "The piece explains who must disclose, what is marked, why a label cannot verify truth, and what a missing label does not prove (P002, P007, P010).",
+      "passages": [
+        "P002",
+        "P007",
+        "P010"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct. Imagine a labelled AI-generated video saying your train line closes tomorrow. The label helps explain where the video came from. The transport operator’s service notice is what you need to check the closure.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>An absent label does not prove that something was made by a human or that it complies with the rules. If you supply or use AI professionally, consult the Commission’s guidance for your exact role and use; this short explanation is not a complete compliance checklist.</p>",
+          "locator": "P010"
+        }
+      ],
+      "artifactLocator": "P002, P007, P010"
+    },
+    "genericAction": {
+      "state": "clear",
+      "reason": "P009 gives a concrete next action—open the original source and check its date and exact scope, with line/stations/day specifics for the worked example.",
+      "passages": [
+        "P009"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you are in the EU, look for disclosure in the situations covered by these rules. A label is useful information, not a stamp saying “verified”. For a claim you might act on, open the original source and check its date and exact scope. In the train example, that means confirming which line, which stations and which day.</p>",
+          "locator": "P009"
+        }
+      ],
+      "artifactLocator": "P009"
+    },
+    "jargonBeforeMeaning": {
+      "state": "clear",
+      "reason": "Deepfakes, emotion recognition and biometric categorisation are each explained in plain terms at first meaningful use.",
+      "passages": [
+        "P003",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Disclosure also covers <strong>deepfakes</strong>: AI-generated or altered images, audio or video that falsely appear authentic. Some AI-generated public-interest text requires disclosure too; an exception applies when there is human review or editorial control and someone holds editorial responsibility for publication.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P003, P004"
+    },
+    "disconnectedSystem": {
+      "state": "clear",
+      "reason": "Suppliers, professional users, labels, transition dates and reader verification are linked into one flow from disclosure duty to reader action.",
+      "passages": [
+        "P002",
+        "P005",
+        "P009"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The details depend on who supplies or uses the system and what it does. Certain systems on the market before August 2 have until December 2, 2026 to meet the software-detectable marking requirement. That is a limited transition, not a delay to all the rules.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If you are in the EU, look for disclosure in the situations covered by these rules. A label is useful information, not a stamp saying “verified”. For a claim you might act on, open the original source and check its date and exact scope. In the train example, that means confirming which line, which stations and which day.</p>",
+          "locator": "P009"
+        }
+      ],
+      "artifactLocator": "P002, P005, P009"
+    },
+    "factlessConfidence": {
+      "state": "clear",
+      "reason": "Claims are hedged appropriately—labels 'do not guarantee' accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist.",
+      "passages": [
+        "P003",
+        "P010"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>An absent label does not prove that something was made by a human or that it complies with the rules. If you supply or use AI professionally, consult the Commission’s guidance for your exact role and use; this short explanation is not a complete compliance checklist.</p>",
+          "locator": "P010"
+        }
+      ],
+      "artifactLocator": "P003, P010"
+    },
+    "staleUnreviewableClaims": {
+      "state": "clear",
+      "reason": "Key claims are dated (August 2 and December 2, 2026) and anchored to Article 50 of the AI Act, so they are checkable for the stated date.",
+      "passages": [
+        "P002",
+        "P005"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The details depend on who supplies or uses the system and what it does. Certain systems on the market before August 2 have until December 2, 2026 to meet the software-detectable marking requirement. That is a limited transition, not a delay to all the rules.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P002, P005"
+    },
+    "corporateSludge": {
+      "state": "clear",
+      "reason": "Language is concrete and plain throughout; no motivational or corporate filler appears.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "state": "clear",
+      "reason": "The caller-ID and train-closure scenarios keep human interest while the rules are explained; it never becomes a bare checklist.",
+      "passages": [
+        "P006",
+        "P007"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of the disclosure as caller ID for particular AI encounters. Seeing who is calling gives you useful information before you pick up. It does not tell you whether the caller’s next sentence will be true.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct. Imagine a labelled AI-generated video saying your train line closes tomorrow. The label helps explain where the video came from. The transport operator’s service notice is what you need to check the closure.</p>",
+          "locator": "P007"
+        }
+      ],
+      "artifactLocator": "P006, P007"
+    },
+    "benchmarkNameDrop": {
+      "state": "clear",
+      "reason": "No communication benchmark or famous explainer is mentioned anywhere in the article.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "state": "clear",
+      "reason": "The headline promise—when to expect a label—is answered with covered situations, transition dates and the label's limits.",
+      "passages": [
+        "P001",
+        "P002",
+        "P005"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The details depend on who supplies or uses the system and what it does. Certain systems on the market before August 2 have until December 2, 2026 to meet the software-detectable marking requirement. That is a limited transition, not a delay to all the rules.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P001, P002, P005"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "state": "clear",
+      "reason": "Both the caller-ID and train examples return to the technical point: provenance signalling is separate from claim verification.",
+      "passages": [
+        "P007",
+        "P008",
+        "P009"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct. Imagine a labelled AI-generated video saying your train line closes tomorrow. The label helps explain where the video came from. The transport operator’s service notice is what you need to check the closure.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>There are two separate jobs here: signalling AI involvement and checking the underlying claim. The first helps you decide what you are looking at. It cannot do the second for you.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>If you are in the EU, look for disclosure in the situations covered by these rules. A label is useful information, not a stamp saying “verified”. For a claim you might act on, open the original source and check its date and exact scope. In the train example, that means confirming which line, which stations and which day.</p>",
+          "locator": "P009"
+        }
+      ],
+      "artifactLocator": "P007, P008, P009"
+    },
+    "communicationPastiche": {
+      "state": "clear",
+      "reason": "The voice is a plain original news-explainer register with no imitated persona or mannerisms.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "state": "clear",
+      "reason": "There is no humour or spectacle competing with the explanation; examples serve understanding.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "state": "clear",
+      "reason": "The hook is one headline line; the bulk of the piece (P002–P010) carries the substance.",
+      "passages": [
+        "P001",
+        "P002"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P001, P002"
+    },
+    "prematureClickBeforeMechanism": {
+      "state": "clear",
+      "reason": "The 'label ≠ truth' conclusion in P007–P008 arrives after the rules and label mechanics are laid out, and is then justified by the two-jobs distinction.",
+      "passages": [
+        "P007",
+        "P008"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct. Imagine a labelled AI-generated video saying your train line closes tomorrow. The label helps explain where the video came from. The transport operator’s service notice is what you need to check the closure.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>There are two separate jobs here: signalling AI involvement and checking the underlying claim. The first helps you decide what you are looking at. It cannot do the second for you.</p>",
+          "locator": "P008"
+        }
+      ],
+      "artifactLocator": "P007, P008"
+    },
+    "inflatedTakeawayEnding": {
+      "state": "clear",
+      "reason": "The ending stays bounded—a recap of the origin-not-truth point and a modest practice pointer, with no grand moral.",
+      "passages": [
+        "P011",
+        "P012"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        },
+        {
+          "excerpt": "Practise checking a consequential claim in <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>. The section shows why a few correct samples cannot guarantee a whole answer.",
+          "locator": "P012"
+        }
+      ],
+      "artifactLocator": "P011, P012"
+    },
+    "purposeTooNarrow": {
+      "state": "clear",
+      "reason": "The piece covers the change, its practical meaning, uncertainty, an analogy and a next action, matching the full reader job rather than one sub-task.",
+      "passages": [
+        "P002",
+        "P009",
+        "P010"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you are in the EU, look for disclosure in the situations covered by these rules. A label is useful information, not a stamp saying “verified”. For a claim you might act on, open the original source and check its date and exact scope. In the train example, that means confirming which line, which stations and which day.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>An absent label does not prove that something was made by a human or that it complies with the rules. If you supply or use AI professionally, consult the Commission’s guidance for your exact role and use; this short explanation is not a complete compliance checklist.</p>",
+          "locator": "P010"
+        }
+      ],
+      "artifactLocator": "P002, P009, P010"
+    },
+    "mechanismBeforeMotivation": {
+      "state": "clear",
+      "reason": "The reader's stake—knowing when to expect a label and what it means for her—is established in P001–P002 before any machinery.",
+      "passages": [
+        "P001",
+        "P002"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P001, P002"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "state": "clear",
+      "reason": "The train-closure example occupies two short paragraphs and serves the broader point rather than crowding out the report.",
+      "passages": [
+        "P007",
+        "P009"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct. Imagine a labelled AI-generated video saying your train line closes tomorrow. The label helps explain where the video came from. The transport operator’s service notice is what you need to check the closure.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If you are in the EU, look for disclosure in the situations covered by these rules. A label is useful information, not a stamp saying “verified”. For a claim you might act on, open the original source and check its date and exact scope. In the train example, that means confirming which line, which stations and which day.</p>",
+          "locator": "P009"
+        }
+      ],
+      "artifactLocator": "P007, P009"
+    },
+    "technicalExplainerVoice": {
+      "state": "clear",
+      "reason": "For a bounded news report, organising around what the rule means for the reader's encounters and decisions is the right perspective, not specialist taxonomy.",
+      "passages": [
+        "P002",
+        "P009"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Article 50 of the European Union’s AI Act began applying on August 2, 2026. In covered situations, companies supplying AI systems must tell people when they are interacting with AI. Certain AI-generated or altered outputs must also carry marks that software can detect, even when those marks are not visible to you.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you are in the EU, look for disclosure in the situations covered by these rules. A label is useful information, not a stamp saying “verified”. For a claim you might act on, open the original source and check its date and exact scope. In the train example, that means confirming which line, which stations and which day.</p>",
+          "locator": "P009"
+        }
+      ],
+      "artifactLocator": "P002, P009"
+    }
+  },
+  "verdict": "PASS",
+  "summary": "A well-executed dated news explainer for its stated audience: it states the change and its dates, explains what a disclosure label does and does not tell you via an analogy that returns to the mechanism, flags uncertainty and scope limits candidly, and closes with a concrete verification action; no rubric failure family is actually present, so NO_NEW_DEFECT applies.",
+  "strengths": [
+    "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+    "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+    "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+    "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+  ]
+}

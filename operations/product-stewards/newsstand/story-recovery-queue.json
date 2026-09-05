@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-04T21:00:00Z",
+  "updatedAt": "2026-09-05T23:34:18.421Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -36,6 +36,41 @@
         "readerJourneyPassed": true,
         "verifiedAt": "2026-09-04T21:00:00Z"
       }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "openai-wiki-message-board-2026-09-05",
+      "producerPrincipal": "/root",
+      "sourceIdentitySha256": "41dc0fc5b426b2166aff8cab13296fc5593d4811244901350a5107bdb90b886b",
+      "artifactSha256": "7fb3e264ef50bd166edd4b461cb4f88b0edd5b0a88f276e80dce47c1864bcad4",
+      "status": "SYSTEM_REPAIR_REQUIRED",
+      "active": true,
+      "consequencePriority": 3,
+      "firstSeenAt": "2026-09-05T20:07:54.752Z",
+      "lastReviewedAt": "2026-09-05T23:14:50.530Z",
+      "attempts": [
+        {
+          "artifactSha256": "7fb3e264ef50bd166edd4b461cb4f88b0edd5b0a88f276e80dce47c1864bcad4",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-05T23:14:50.530Z",
+          "verdict": "PASS",
+          "defects": [],
+          "evidence": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/producer-repair/factual-repair-2/article-editorial-checked.json"
+        }
+      ],
+      "unresolvedDefects": [
+        {
+          "id": "count-based-admission-rule",
+          "description": "Current AGENTS rule blocks PASS with objective defects first discovered in review and requires strictly lower total issue/cycle counts. Two source-excerpt gaps were repaired; actual three factual rounds retained. Owner ruling requested, not assumed.",
+          "repairability": "EVIDENCE_REQUIRED",
+          "scope": "Owner admission-policy decision; not an unresolved article factual or reader defect."
+        }
+      ],
+      "nextAction": "RESOLVE_PENDING_ALI_METRICS_RULING_THEN_REASSEMBLE_AND_ADMIT",
+      "terminalDisposition": null,
+      "reviewHistory": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/review-status.json",
+      "metrics": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/producer-repair/review-metrics.json",
+      "instruction": "Do not rerun unchanged reader/calibration to seek labels or cleaner counts. Original source packets and failed attempts remain preserved. Semantic PASS is not public admission."
     }
   ]
 }

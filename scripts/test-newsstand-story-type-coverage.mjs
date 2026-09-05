@@ -73,6 +73,14 @@ assert.deepEqual(validateStoryTypeCoverage(translated, ["model-release"], module
 const missingMeaning = structuredClone(translatedStory);
 missingMeaning.laidies_read = "The technical term appears without its explanation.";
 assert.ok(validateStoryTypeCoverage(translated, ["model-release"], modules, { story: missingMeaning }).some(error => error.includes("plain-language meaning for term: agent")), "jargon definition must appear in article prose");
+const inlineFormatted = structuredClone(translated);
+inlineFormatted.translation.jargon[0].plainMeaning = "Agent means a tool-using AI system.";
+const inlineFormattedStory = structuredClone(translatedStory);
+inlineFormattedStory.laidies_read = `<p>${translation.familiarExampleExact}</p><p><strong>Agent</strong> means a tool-using <em>AI system</em>.</p>`;
+assert.deepEqual(validateStoryTypeCoverage(inlineFormatted, ["model-release"], modules, { story: inlineFormattedStory }), [], "inline formatting keeps visible words joined to adjacent punctuation");
+const splitAcrossBlocks = structuredClone(inlineFormattedStory);
+splitAcrossBlocks.laidies_read = `<p>${translation.familiarExampleExact}</p><p>Agent means a tool-using AI</p><p>system.</p>`;
+assert.ok(validateStoryTypeCoverage(inlineFormatted, ["model-release"], modules, { story: splitAcrossBlocks }).some(error => error.includes("plain-language meaning for term: agent")), "block boundaries cannot manufacture a matching explanation");
 const missingActualMeaning = structuredClone(translatedStory);
 missingActualMeaning.the_story = `<p>${translation.newsVersionExact}</p><p>${translation.mechanismExact}</p>`;
 assert.ok(validateStoryTypeCoverage(translated, ["model-release"], modules, { story: missingActualMeaning }).some(error => error.includes("reader translation move: actualMeaningExact")), "what-it-actually-means sentence must appear in article prose");
@@ -85,4 +93,9 @@ const noTranslation = coverage("company-business");
 delete noTranslation.translation;
 assert.ok(validateStoryTypeCoverage(noTranslation, []).includes("reader translation coverage is missing or invalid"), "translation layer is mandatory");
 
-console.log("NEWSSTAND STORY TYPE COVERAGE PASS types=7 universal=1 mixed_overlays=1 wrong_template=1 astra_omissions=6 translation=1 jargon_in_prose=1 learning_link=1 placeholders=1 duplicate_filler=1");
+const producerRepair = "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/producer-repair";
+const actualCoverage = JSON.parse(fs.readFileSync(`${producerRepair}/story-type-coverage.json`, "utf8"));
+const actualStory = JSON.parse(fs.readFileSync(`${producerRepair}/story.json`, "utf8"));
+assert.deepEqual(validateStoryTypeCoverage(actualCoverage, actualStory.themes, modules, { story: actualStory }), [], "the actual producer-repair story contains every required reader translation and term explanation");
+
+console.log("NEWSSTAND STORY TYPE COVERAGE PASS types=7 universal=1 mixed_overlays=1 wrong_template=1 astra_omissions=6 translation=1 jargon_in_prose=1 inline_formatting=1 block_boundaries=1 actual_producer_repair=1 learning_link=1 placeholders=1 duplicate_filler=1");

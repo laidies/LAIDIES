@@ -1,63 +1,52 @@
 # Local independent-review connection
 
-## Current pilot result — September 5
+## Current ordinary-news path — September 5
 
-The bounded prototype is implemented; **editorial qualification remains HOLD**.
-Claude's existing account was reconnected and real isolated `claude-fable-5`
-completions were observed. No additional subscription or deployed review service
-was created. `run-pilot.mjs` supports explicit `claude` and `gemma` routes.
-Each attempt is preserved, and `--resume` replays saved raw output rather than
-resending it. A saved request without raw output cannot be retried silently.
-The fixed attempt directories are intentional: a changed method needs a new
-version and must retain earlier evidence.
+The writer receives one bound production packet; its complete self-reviewed draft
+must pass preparation checks before an editor is called. The existing signed-in
+Claude CLI runs isolated `claude-fable-5` at medium effort with native structured
+output. One request contains the complete article first, then the reader rubric
+and exact factual evidence. The saved good reference and every saved bad reference
+have actual blind PASS/REJECT judgments under ordinary-news policy; matching every
+historical secondary label is no longer required. Actual current article defects
+and unknowns still block admission. This policy does not change other surfaces.
 
-The method sends the complete artifact first, uses separate facts/reader jobs,
-and asks for paragraph references instead of repeated copied passages. It
-derives the aggregate from every returned required judgment; it never supplies
-missing qualitative judgments. Absent failure families may refer to the whole
-read artifact, as the existing prose gate permits. Present/uncertain failures,
-claims and outcomes still require exact evidence. Facts must cite evidence for
-that same claim. AI explain-back/transfer remain explicitly AI assessments.
-
-Gemma's first blind response exhausted its budget on whitespace; its completed
-successor missed all four registered job-offer faults. Claude first found three;
-independent diagnosis showed the abbreviated rubric had dropped BTB-439's
-destination-level motivation distinction. After restoring that generic rule,
-Claude found all four. It then flagged unexplained biometric terminology in the
-registered positive and emitted an invalid extra NOTE field. The saved formal
-result is HOLD_CALIBRATION. Independent inspection corroborated the term defect;
-the response's format failure does not erase the source-example issue.
-
-Do not run more calibration or article calls until the Learning owner resolves
-`../../learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`. The next
-version should also enforce the actual output schema through Claude's existing
-native structured-output option. Do not strip unknown judgments or coach away
-the jargon finding. The remaining negative, article reviews and full receipt
-assembler were not run/built because their prerequisite failed. The unchanged
-public admission checker remains authoritative; this prototype cannot publish.
-
-Verified checks from the repository root:
+Current reusable qualification:
+`calibration/qualified-news-source-normalization-20260905/calibration-result.json`.
+It reuses real judgments after verifying unchanged actual requests; no additional
+calibration model call was made for the source-ID normalizer correction.
 
 ```sh
-node scripts/test-newsstand-review-protocol.mjs
-node scripts/test-newsstand-review-replay.mjs
-node scripts/test-prose-quality-admission.mjs
+node scripts/prepare-newsstand-draft.mjs <producer-contract> <private-writer-input> <story-type-frame> <primary-evidence>
+node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir <private-candidate> --calibration <qualified-calibration-directory> --output <fresh-private-review-directory>
 ```
 
-The first tests normalizer handling and exact candidate spans; its prompt check
-is a narrow marker check, not a universal proof against answer leakage. The
-second replays actual saved output with all provider calls disabled and tests
-both incomplete-attempt and held-calibration rejection. The third is the
-existing admission suite. None proves prose quality or unattended reliability.
+The candidate directory supplies `story.json`, `review-text.json`,
+`producer-publication-review.json`, `writer-input-current.json`,
+`producer-observations.json` and `editorial-input.json`. Source passages must cover
+all clauses, including named examples, comparisons and supplementary evidence.
+Facts can cite any real supplied source, even when its research-intake label was
+associated with another claim. Source IDs are references, not answer keys.
 
-Implementation commit: `294fdff7` in `ops/newsstand-recurring-20260905`.
-The normalizer, replay and existing prose-admission suites passed within their
-stated scope. The unrelated broad repository hook was not rerun; the existing
-sparse-checkout hook bypass was used for these exact owned paths. Three raw CLI
-responses retain their original saved trailing blank lines; the source diff
-check excludes only the blank-at-EOF warning rather than changing bound raw
-outputs. No public files or canonical iCloud bytes were written. The owned
-local Workers development process was stopped and Claude login completed.
+`--reuse-reader-from <prior-output>` is for evidence-only repairs: it validates
+unchanged complete article, passage references, communication authority and actual
+request rubric, then retains the real passing reader judgment and calls only the
+fact checker. A changed article cannot reuse that result. Preserve all raw attempts
+and all evidence gaps. The September 5 pilot needed two source-packet repairs;
+its passing reader review was reused, not silently rerun or invented.
+
+`--resume` replays saved raw output. It cannot resend an attempt with missing raw
+output. `reconcile-calibration --from <old-directory> --output <new-directory>`
+only reconciles unchanged bound requests/judgments with the adopted policy. A new
+model, effort, rubric or registry needs fresh qualification. Earlier held attempts
+are historical evidence; they are not instructions to restart failed experiments.
+
+Actual editorial judgments are assembled into the existing full review chain.
+Neither valid JSON, a top-level provider label nor these private files publish.
+The assembler must preserve actual findings and identify any missing admission
+input instead of fabricating reviewer judgments or human observations.
+
+Focused regression commands are listed in `../DAILY-MANUAL-RUNBOOK.md`.
 
 ## Preserved Workers AI fallback
 

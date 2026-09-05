@@ -667,13 +667,16 @@ Weekly, a correction, or an existing article.
 
 Package contract (`scripts/validate-newsstand-ordinary-story-candidate.mjs`):
 
-- `schemaVersion: newsstand-ordinary-story-candidate-v1`;
+- `schemaVersion: newsstand-ordinary-story-candidate-v2` for new September 5+ candidates;
   `candidateStatus: READY_FOR_ISSUE_ADMISSION`; `candidateId`; `editionDate`.
   `editionDate` is the intended LAiDIES publication date, not the source's
   announcement date or the date the story was discovered.
 - Complete `story`: same ID as candidate, `edition: daily`, `status: hold`,
   `publishedAt: null`, dated `updatedAt`/`lastCheckedAt`, source approval
-  `independent-review-required`, and no correction/retraction/lineage mutation.
+  `independent-review-required`, and no correction/retraction mutation. New
+  follow-ups name predecessor IDs and bind their exact prior story hashes in
+  `lineage.predecessors`; publication adds reciprocal links while retaining old
+  prose, sources and dates. This does not overwrite the earlier story.
 - `storySha256`: SHA-256 of the stable, key-sorted complete story JSON.
 - `publicationBase: {path, sha256}`: frozen private copy of the exact canonical
   source from the confirmed current transaction base, including incumbent
@@ -684,6 +687,9 @@ Package contract (`scripts/validate-newsstand-ordinary-story-candidate.mjs`):
   reviewed factual claim map JSON.
 - `producerContract: {path, sha256}`: passing existing prevention-first NEWS
   contract for `NEWSSTAND_DAILY`, by the actual maker.
+- `draftPreparation`: exact `writerInput` and `observations` bindings from
+  `scripts/prepare-newsstand-draft.mjs`. New ordinary candidates cannot omit these;
+  changes to prose, promised answers or source bindings invalidate stale evidence.
 - `sources`: one `{id, url, evidence: {path, sha256}}` per public source, matching
   the independent factual review. Recheck sources on the editorial date.
 - `reviewEvidence`: exact `{path, sha256}` bindings for `producer`,
@@ -1004,69 +1010,50 @@ date/time window expires or production advances. The ordinary-publication and
 service-continuity regression suites passed with synthetic fixtures; no actual
 September 5 issue or new public article was admitted by those tests.
 
-### Editorial-review repair sequence — pilot implemented, calibration held September 5
+### Drafting and independent review — September 5 implemented path
 
-Current diagnosis: the existing release checker already rejects inconsistent
-PASS/HOLD outcomes. `test-prose-quality-admission.mjs` passed its positive,
-held and deliberately invalid cases again. Adding another approval gate will
-not repair the missing review. Claude was signed out during diagnosis; the existing account was reconnected
-and actual isolated Fable completions were observed during the pilot. A
-configuration check alone is not a successful inference. Do not repeat the old
-large request.
+1. Verify the story's sources and reader job before drafting. Compile the current
+   producer contract, reporting frame and full primary evidence with
+   `scripts/prepare-newsstand-draft.mjs`. The writer receives the current meaning,
+   voice, known-failure and communication guidance together. Read the full draft,
+   check every necessary term and promised answer, and repair it before review.
+   Split compound claims and retain every needed source excerpt, including
+   supplementary passages and uncertainty. A short quote about a date cannot
+   establish a named example or a separate incident.
+2. Reuse a qualified reviewer for unchanged model/effort, actual rubric, registry
+   and policy. Ordinary-news blind calibration requires rejection of every bad
+   reference for a relevant registered reason and acceptance of the admitted good
+   reference. Preserve secondary disagreements; do not spend calls reproducing
+   historical labels. `reconcile-calibration` can verify saved actual requests and
+   judgments offline after a mechanical normalizer repair. It cannot coach a
+   reviewer, change judgments or qualify a changed rubric.
+3. Run `review-runtime/run-pilot.mjs article claude` with `--candidate-dir`,
+   `--calibration` and a fresh private `--output`. Native structured output supplies
+   one complete-artifact reader/facts assessment. The reviewer supplies judgments;
+   code supplies field names and exact passage bindings. Missing sources, unclear
+   teaching and unresolved concerns still prevent publication.
+4. Preserve every attempt. `--resume` replays saved raw output without another
+   provider call; an unfinished uncertain call is never resent automatically.
+   When only source evidence changes, `--reuse-reader-from <prior-output>` verifies
+   the identical full article/rubric and retains its actual passing reader review,
+   while reassessing facts. A source may legitimately support multiple claims;
+   invented source IDs remain rejected. A prose change requires a new full review.
+5. Assemble the returned judgments into the existing prose and issue admission
+   records; run the actual article and reader checks, commit the owned changes,
+   publish only the scoped successor to the current live artifact, and verify
+   the live reader. A passing review is not publication. Old news remains dated;
+   later reporting is a new article with reciprocal links at the bottom.
 
-The smallest next implementation reuses the current review/admission path:
+The September 5 wiki article's repaired prose passed its first independent reader
+assessment. Factual review then passed after two evidence-packet repairs (missing
+separation and Nevada excerpts). Preserve all three factual rounds and the two
+source gaps; do not call that a first-pass factual result. No observed human
+comprehension, renewed service-bank freshness or unattended-cycle reliability is
+claimed. Exact implementation status belongs in ACTIVE-WORK, not a stale pilot
+HOLD in this procedure.
 
-1. Prepare one frozen article and an adequate primary/authoritative evidence
-   packet. Keep exact source excerpts distinct from maker paraphrases; recover
-   the original evidence needed for each claim. Preserve attributed preliminary
-   reporting and its limits. Source verification does not require company
-   confirmation or authentication of unavailable internal traces.
-2. Use bounded factual and reader-editorial assessments. Each receives the
-   complete article first, then only its relevant evidence and rubric. The
-   factual assessment checks exact claims, dates and qualifications. The
-   reader assessment checks explanation, audience relevance, voice, useful
-   action, analogy accuracy, links and a genuinely new transfer case.
-   Neither receives the maker's PASS, another reviewer’s verdict, or a request
-   to diagnose prior review paperwork while judging the article.
-3. Generate field names, bindings and repeated receipt metadata mechanically.
-   Require the reviewer to supply every substantive judgment and exact evidence.
-   Assemble only returned judgments into the existing receipt; do not invent
-   missing observations, modify HOLD to PASS, or weaken any required outcome.
-   Distinguish execution/schema failure, evidence gap and actual article defect.
-4. Run one bounded blind calibration using the registered positive and every
-   registered negative, followed by the unchanged held article. Withhold the
-   answer key/expected verdict from the evaluator; compare its output with the
-   registry afterward. Valid JSON is not calibration. The method must identify
-   the known defects, recognize the positive’s applicable strengths, and produce
-   an internally consistent article decision with complete evidence. One
-   repeated protocol failure stops the pilot for diagnosis, not more model trials.
-5. Only after that proof, use the existing full review-chain, issue, browser
-   and release checks. Keep ordinary-news human review optional under the
-   August 31 policy. Service renewal retains its own sampling policy; success
-   on one article does not renew the whole bank or prove the unattended cycle.
-
-The internal request/normalization/replay prototype is implemented under
-`review-runtime/`; its factual inputs bind 11 independently collected records.
-Five actual calls are retained across Gemma and Claude protocol versions.
-Gemma missed the registered purpose failures. Correcting the generic motivation
-rubric to include BTB-439's destination-level purpose enabled Claude to detect
-all four; the expected labels were never supplied. Claude then flagged an
-unexplained term in the registered positive and emitted an extra NOTE key.
-Strict normalization held the response, and independent artifact inspection
-corroborated the term defect. This is HOLD_CALIBRATION, not reviewer admission.
-
-Next dependency: `../learning-content-ecosystem/CALIBRATION-REPAIR-2026-09-05.md`.
-The Learning owner must disposition the positive-reference conflict before a
-new blind pilot. Preserve previous bytes and findings; do not coach the reviewer
-to PASS. Use native output-schema enforcement in the versioned successor to
-remove the avoidable extra-field error, while keeping every semantic finding.
-The remaining negative, wiki factual/reader calls, full receipt assembly,
-issue admission and release were not run. No new registry authority was created.
-
-`node scripts/test-newsstand-review-protocol.mjs` checks normalizer handling and
-exact passage references. `node scripts/test-newsstand-review-replay.mjs`
-replays actual saved outputs with provider access disabled, rejects resending
-an incomplete attempt, and proves this held calibration blocks article review.
-These checks do not establish prose quality or a reliable unattended cycle.
-The saved article and previous attempts remain unchanged and held. No new
-subscription, provider purchase or Ali per-story approval is requested.
+Focused checks: `test-prepare-newsstand-draft.mjs`,
+`test-newsstand-review-protocol.mjs`, `test-newsstand-review-replay.mjs`,
+`test-prose-quality-admission.mjs`, `test-newsstand-ordinary-publication.mjs`,
+`test-newsstand-story-lineage.mjs` and `test-newsstand-lineage-reader.mjs`.
+They include deliberate bad inputs; schema/identity checks are not prose reviews.

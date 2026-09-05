@@ -8,12 +8,24 @@ const directory = path.dirname(fileURLToPath(import.meta.url));
 const defaultRoot = path.resolve(directory, "..");
 const defaultModules = JSON.parse(fs.readFileSync(path.resolve(directory, "../operations/product-stewards/newsstand/story-type-modules.json"), "utf8"));
 const PLACEHOLDER = /^(?:tbd|todo|unknown|n\/?a|none|same as above|not applicable|placeholder)[.!]?$/i;
+const BLOCK_BOUNDARY = "\u0000";
 
 function object(value) { return value && typeof value === "object" && !Array.isArray(value); }
 function answerValid(value) { return typeof value === "string" && value.trim().length >= 18 && !PLACEHOLDER.test(value.trim()); }
 function extraKeys(value, expected) { return object(value) ? Object.keys(value).filter(key => !expected.includes(key)) : []; }
 function normalizedText(value) {
-  return String(value || "").replace(/<[^>]*>/g, " ").replace(/&nbsp;|&#160;/gi, " ").replace(/&amp;/gi, "&").replace(/&quot;/gi, '"').replace(/&#(?:39|x27);/gi, "'").replace(/\s+/g, " ").trim().toLowerCase();
+  return String(value || "")
+    .replace(/<\/?(?:address|article|aside|blockquote|br|div|footer|h[1-6]|header|li|main|ol|p|section|ul)\b[^>]*>/gi, BLOCK_BOUNDARY)
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#(?:39|x27);/gi, "'")
+    .replace(/\s+/g, " ")
+    .replace(new RegExp(`${BLOCK_BOUNDARY}+`, "g"), BLOCK_BOUNDARY)
+    .replace(new RegExp(`\\s*${BLOCK_BOUNDARY}\\s*`, "g"), BLOCK_BOUNDARY)
+    .trim()
+    .toLowerCase();
 }
 function learningDestinationExists(root, destination) {
   const [route, fragment] = destination.split("#");

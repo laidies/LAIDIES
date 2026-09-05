@@ -1,0 +1,1 @@
+Invalidated by root on September 5. This intermediate used prose-only counts while the actual factual-packet history had two repaired gaps across three rounds. It is not admitted and must not be used as publication input. Exact bytes preserved in ordinary-candidate.INVALIDATED.txt. The subsequent attempt-4 correctly holds under the current rule.

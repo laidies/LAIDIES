@@ -1,0 +1,481 @@
+{
+  "kind": "calibration",
+  "startedAt": "2026-09-05T22:57:02.926Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-05T22:57:48.907Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "bfa08eb5-033b-4dda-aa0f-0eb118d579da",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11945,
+    "cache_read_input_tokens": 10100,
+    "output_tokens": 3767,
+    "output_tokens_details": {
+      "thinking_tokens": 1267
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 11945,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 3767,
+        "cache_read_input_tokens": 10100,
+        "cache_creation_input_tokens": 11945,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 11945
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "e3ef7ef79cc1a96e9a901e5fae49776813c8778011a03494dd0f4ee07306203b",
+  "rawSha256": "d7b9345aabdf6622da9055c16bded8e2ff9a12f689f68d1be72230ae07911717",
+  "protocolSha256": "f605c29bc07c6610b12e7df945888cd128395fd074f56895543889c31c5e12bb",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "families": {
+    "glossaryAccumulation": {
+      "state": "clear",
+      "reason": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+      "passages": [
+        "P022",
+        "P028",
+        "P032"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "The information available to the system for this run is its **context**. Context can include your current message, parts of the conversation, attached material, instructions supplied by the product and information returned by a search or another tool. What enters context depends on the product and the task. “It was somewhere in my account” does not prove it reached this answer.",
+          "locator": "P022"
+        },
+        {
+          "excerpt": "When you sent the request, the model used that current material during **inference**—the stage when a trained model produces an output from new input. For a language model, that output is generated text. Other kinds of models can classify, predict, rank, detect or recommend instead.",
+          "locator": "P028"
+        },
+        {
+          "excerpt": "Some AI systems can use capabilities beyond the model itself. Surrounding software may retrieve a document, search an approved source, calculate a figure or ask another service for current information. People often call these capabilities **tools**.",
+          "locator": "P032"
+        }
+      ],
+      "artifactLocator": "P022, P028, P032"
+    },
+    "templateRepetition": {
+      "state": "clear",
+      "reason": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "state": "clear",
+      "reason": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+      "passages": [
+        "P023"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "In this case, the missing benefits guide is not a small technical detail. It contains five additional vacation days, an employer-paid health plan and the date pension contributions begin. Those facts could change the comparison. The system cannot read the benefits PDF by osmosis.",
+          "locator": "P023"
+        }
+      ],
+      "artifactLocator": "P023"
+    },
+    "referenceConfetti": {
+      "state": "clear",
+      "reason": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "state": "clear",
+      "reason": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+      "passages": [
+        "P024",
+        "P029",
+        "P033"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "So the first recommendation did not come from the complete decision. It came from the smaller package of information that actually reached the system.",
+          "locator": "P024"
+        },
+        {
+          "excerpt": "The model could organise the salary, title and office requirements it received. It could infer a comparison that sounded reasonable. But it could not faithfully compare a benefits guide that was absent. It could not know a private priority you had not expressed. A confident sentence does not repair missing evidence.",
+          "locator": "P029"
+        },
+        {
+          "excerpt": "Suppose the product can request a current commute estimate from a mapping service. The model can indicate that the estimate would help. The surrounding software makes the request, receives the result and adds it to the working material. Depending on the product and the operation, that step may run automatically or wait for your confirmation. The model can then produce a revised comparison using the result.",
+          "locator": "P033"
+        }
+      ],
+      "artifactLocator": "P024, P029, P033"
+    },
+    "genericAction": {
+      "state": "clear",
+      "reason": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+      "passages": [
+        "P040",
+        "P045",
+        "P052"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "You attach Juniper’s benefits guide. You state that Tuesday evenings are non-negotiable, that you can accept the lower salary if the total package is strong, and that time lost to commuting matters. You ask the product to show the evidence behind each comparison instead of giving you one unexplained winner.",
+          "locator": "P040"
+        },
+        {
+          "excerpt": "If the goal is vague, define the decision. If essential material is absent, add it. If a claim depends on a current fact, retrieve and inspect that fact. If the model’s output is unsupported, ask for evidence or use a more suitable method. If an action carries consequences, check the permission and keep the decision with the responsible person.",
+          "locator": "P045"
+        },
+        {
+          "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+          "locator": "P052"
+        }
+      ],
+      "artifactLocator": "P040, P045, P052"
+    },
+    "jargonBeforeMeaning": {
+      "state": "clear",
+      "reason": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+      "passages": [
+        "P004",
+        "P022",
+        "P028"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "The information available to the system for this run is its **context**. Context can include your current message, parts of the conversation, attached material, instructions supplied by the product and information returned by a search or another tool. What enters context depends on the product and the task. “It was somewhere in my account” does not prove it reached this answer.",
+          "locator": "P022"
+        },
+        {
+          "excerpt": "When you sent the request, the model used that current material during **inference**—the stage when a trained model produces an output from new input. For a language model, that output is generated text. Other kinds of models can classify, predict, rank, detect or recommend instead.",
+          "locator": "P028"
+        }
+      ],
+      "artifactLocator": "P004, P022, P028"
+    },
+    "disconnectedSystem": {
+      "state": "clear",
+      "reason": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+      "passages": [
+        "P033",
+        "P054"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Suppose the product can request a current commute estimate from a mapping service. The model can indicate that the estimate would help. The surrounding software makes the request, receives the result and adds it to the working material. Depending on the product and the operation, that step may run automatically or wait for your confirmation. The model can then produce a revised comparison using the result.",
+          "locator": "P033"
+        },
+        {
+          "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+          "locator": "P054"
+        }
+      ],
+      "artifactLocator": "P033, P054"
+    },
+    "factlessConfidence": {
+      "state": "clear",
+      "reason": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+      "passages": [
+        "P043",
+        "P046",
+        "P055"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "The answer changed because the working material changed. It is not proof that Juniper is objectively “the better job.” It is a better comparison of the decision *you* are making.",
+          "locator": "P043"
+        },
+        {
+          "excerpt": "Several parts can be weak at once. The method is a diagnostic, not a promise that every failure has one tidy cause.",
+          "locator": "P046"
+        },
+        {
+          "excerpt": "It is a practical map, not a claim that every AI system is built identically. Its purpose is to help you locate what changed, what failed and what to do next.",
+          "locator": "P055"
+        }
+      ],
+      "artifactLocator": "P043, P046, P055"
+    },
+    "staleUnreviewableClaims": {
+      "state": "clear",
+      "reason": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "state": "clear",
+      "reason": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "state": "clear",
+      "reason": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+      "passages": [
+        "P012",
+        "P030"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office. Juniper pays less, is remote-first and promises more flexibility. You also help your father get to physiotherapy on Tuesday evenings, you want enough income to stop worrying about every surprise bill, and you do not want your working week to swallow the rest of your life.",
+          "locator": "P012"
+        },
+        {
+          "excerpt": "Notice what did *not* happen: the model did not independently wander through your computer looking for the rest of the paperwork. It worked with what the surrounding system made available.",
+          "locator": "P030"
+        }
+      ],
+      "artifactLocator": "P012, P030"
+    },
+    "benchmarkNameDrop": {
+      "state": "clear",
+      "reason": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "state": "clear",
+      "reason": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+      "passages": [
+        "P003",
+        "P044"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "You ask an AI product to compare two job offers. It gives you a neat recommendation in seconds. Before one polished paragraph influences the next two years of your life, you need to know what happened between your question and that answer.",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "This is the repair pattern to remember. When an AI answer is weak, do not begin by asking it to sound more certain. Find the weak part of the system.",
+          "locator": "P044"
+        }
+      ],
+      "artifactLocator": "P003, P044"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "state": "clear",
+      "reason": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+      "passages": [
+        "P024",
+        "P029",
+        "P036"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "So the first recommendation did not come from the complete decision. It came from the smaller package of information that actually reached the system.",
+          "locator": "P024"
+        },
+        {
+          "excerpt": "The model could organise the salary, title and office requirements it received. It could infer a comparison that sounded reasonable. But it could not faithfully compare a benefits guide that was absent. It could not know a private priority you had not expressed. A confident sentence does not repair missing evidence.",
+          "locator": "P029"
+        },
+        {
+          "excerpt": "Second, a tool result is new input, not automatic truth. A commute estimate depends on the route, time of day and source. A retrieved policy may be current, old or unrelated. The reader still needs to inspect the consequential evidence.",
+          "locator": "P036"
+        }
+      ],
+      "artifactLocator": "P024, P029, P036"
+    },
+    "communicationPastiche": {
+      "state": "clear",
+      "reason": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "state": "clear",
+      "reason": "Humour is minimal and never displaces or delays the explanation.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "state": "clear",
+      "reason": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+      "passages": [
+        "P003",
+        "P026"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "You ask an AI product to compare two job offers. It gives you a neat recommendation in seconds. Before one polished paragraph influences the next two years of your life, you need to know what happened between your question and that answer.",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "Inside the wider system, a trained model processed the available input and produced the comparison.",
+          "locator": "P026"
+        }
+      ],
+      "artifactLocator": "P003, P026"
+    },
+    "prematureClickBeforeMechanism": {
+      "state": "clear",
+      "reason": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+      "passages": [
+        "P015",
+        "P041"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "The product replies that Northstar is the stronger choice because it pays more and has a more senior title.",
+          "locator": "P015"
+        },
+        {
+          "excerpt": "The system retrieves a current commute estimate for Northstar’s required office days. The revised answer now shows the trade-off:",
+          "locator": "P041"
+        }
+      ],
+      "artifactLocator": "P015, P041"
+    },
+    "inflatedTakeawayEnding": {
+      "state": "clear",
+      "reason": "The ending lands on a precise bounded distinction rather than a grand moral.",
+      "passages": [
+        "P055",
+        "P057"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "It is a practical map, not a claim that every AI system is built identically. Its purpose is to help you locate what changed, what failed and what to do next.",
+          "locator": "P055"
+        },
+        {
+          "excerpt": "For now, hold on to the most important distinction: the model is one component, the product is what you use, and the result comes from the whole system plus the evidence and judgment you bring to it.",
+          "locator": "P057"
+        }
+      ],
+      "artifactLocator": "P055, P057"
+    },
+    "purposeTooNarrow": {
+      "state": "present",
+      "reason": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+      "passages": [
+        "P007",
+        "P018",
+        "P056"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+          "locator": "P018"
+        },
+        {
+          "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+          "locator": "P056"
+        }
+      ],
+      "artifactLocator": "P007, P018, P056"
+    },
+    "mechanismBeforeMotivation": {
+      "state": "present",
+      "reason": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+      "passages": [
+        "P004",
+        "P005",
+        "P008"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+          "locator": "P008"
+        }
+      ],
+      "artifactLocator": "P004, P005, P008"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "state": "present",
+      "reason": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+      "passages": [
+        "P009",
+        "P053",
+        "P056"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "## Chapter 1 — One request, from question to decision",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "That is the map we will use throughout this book:",
+          "locator": "P053"
+        },
+        {
+          "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+          "locator": "P056"
+        }
+      ],
+      "artifactLocator": "P009, P053, P056"
+    },
+    "technicalExplainerVoice": {
+      "state": "present",
+      "reason": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+      "passages": [
+        "P037",
+        "P052",
+        "P054"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+          "locator": "P037"
+        },
+        {
+          "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+          "locator": "P052"
+        },
+        {
+          "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+          "locator": "P054"
+        }
+      ],
+      "artifactLocator": "P037, P052, P054"
+    }
+  },
+  "verdict": "REJECT",
+  "summary": "The prose craft is strong—warm, causally rigorous, well-bounded, jargon explained in action—but the opening delivers only one of the three required reader transformations. It orients the reader entirely around diagnosing her own AI request, with no establishment of judging hype or panic in public claims or of informed participation in workplace and public decisions, so the purpose is narrower than the destination promises, machinery precedes destination-level motivation, and the worked example's inspection perspective becomes the whole reason for learning.",
+  "strengths": [
+    "The single request is traced causally end to end—context, inference, tools, output—so every technical term earns its place by changing what happens next.",
+    "Lived, specific stakes (Tuesday physiotherapy, commute hours, benefits guide) keep the instruction warm and concrete rather than abstract.",
+    "Claims are consistently bounded: the revised answer is framed as better for this decision, uncertainty is flagged, and the diagnostic map is presented as practical rather than universal.",
+    "The ending resolves into a precise, modest distinction between model, product and system instead of an inflated moral."
+  ]
+}
