@@ -10,15 +10,18 @@ Ali's reader promise and new feature directions are recorded in [NEWSSTAND-EDITO
 
 ## September 5 recurring adoption — current follow-up
 
-**PREPARED:** a clean durable execution checkout at
+**ACTIVE CONFIGURATION VERIFIED:** a clean durable execution checkout at
 `/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`, branch
 `ops/newsstand-recurring-20260905`, includes the committed repairs and source
 state from `b6ca03d2`. The replacement prompt binds this current entry, evening
 private preparation, morning freshness/publication, both repaired helper outputs,
 research-consumer follow-through and meaningful impact reporting. Existing
 ordinary-news autonomy, exact-version Big Picture approval, independent reviews
-and exact-artifact public checks remain. The app update/read-back is still due;
-scheduled execution and notification delivery remain unobserved.
+and exact-artifact public checks remain. The app update and saved-field read-back
+at 2026-09-05 17:44 UTC confirm ACTIVE status, the same target task, both 20:00/07:00
+hours, the exact replacement prompt and removal of successful-result muting.
+The broader Control Room is still PAUSED. Paired scheduled execution and actual
+notification delivery remain unobserved; no public release was attempted.
 
 The selector's 13 cases and recovery suite pass in this execution checkout.
 The real audit inventory still returns `HOLD_AIDB_RELEASE_REVIEW` with an unread

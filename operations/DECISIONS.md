@@ -38,12 +38,14 @@ The same runbook now governs local AIDB website/podcast reconciliation,
 released-but-unreviewed episode holds, source coverage gaps and independent
 headline comparison. The September 5 audit records a verified channel omission
 and the bounded selector repair. Ali's end-of-day preparation suggestion is
-captured there. The September 5 adoption prepares 20:00 private research plus
-07:00 freshness/gated publication using the same existing heartbeat and task.
-The execution entry is `/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`;
-its current runbook records actual app activation separately from an observed
-scheduled run. Until the app update/read-back, the existing 07:00 setting remains
-authoritative. No competing dispatcher or whole-site release is introduced.
+captured there. The September 5 app update/read-back confirms 20:00 private
+research plus 07:00 freshness/gated publication, America/Vancouver, using the
+same existing heartbeat and task. Successful results are unmuted for meaningful
+impact reporting. The execution entry is
+`/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`; its current
+runbook records configuration verification separately from the still-unobserved
+paired scheduled run and automatic delivery. No competing dispatcher or whole-site
+release is introduced.
 
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and

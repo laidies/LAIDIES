@@ -2,9 +2,9 @@
 
 Use this bounded sequence inside the existing active Codex heartbeat,
 `daily-allie-k-miller-and-ethan-mollick-source-check`, named **Daily LAiDIES
-NewsStand research and publication cycle**. The September 5 adoption prepares
-20:00 research/private drafting and 07:00 freshness/publication in
-America/Vancouver; activation is recorded below only after the app confirms it.
+NewsStand research and publication cycle**. The September 5 app update and
+read-back confirmed 20:00 research/private drafting and 07:00 freshness/gated
+publication in America/Vancouver. See the activation boundary below.
 Its target is thread `01a02f95-3838-7af0-a4c7-2f51253a133d`. The heartbeat
 orchestrates research and independent reviews; no single shell command
 substitutes for editorial judgment. No duplicate automation or separate
@@ -313,10 +313,15 @@ runbook instruction nor an inbox entry alone changes app settings.
 ### Evening preparation and morning freshness check
 
 Ali proposed preparing the next day's paper at the end of the preceding day so
-AIDB's treatment can inform it. Proposed operating times are 20:00 Vancouver
-for research and private drafting, retaining the existing 07:00 run for the
-morning delta and gated publication. Activation status: PREPARED — app update
-and read-back still required. The app's saved schedule is execution authority.
+AIDB's treatment can inform it. Configured operating times are 20:00 Vancouver
+for research and private drafting, retaining 07:00 for the morning delta and
+gated publication. Activation status: ACTIVE CONFIGURATION VERIFIED at
+2026-09-05 17:44 UTC (10:44 Vancouver), through the app update and saved-field
+read-back. The same automation ID and target task are retained. The exact
+replacement prompt and both hours matched, successful results are unmuted,
+and the broader Control Room remains PAUSED. First paired scheduled execution
+and automatic impact-brief delivery are NOT YET OBSERVED. This is configuration
+verification, not unattended/public completion.
 
 The evening pass reconciles independent headlines, all AIDB release channels,
 open evidence holds and due columns. It preserves a resumable private queue for
