@@ -1,9 +1,11 @@
 # Active work
 
-> **2026-09-05 — Operating recovery integration, not a website release.**
+> **2026-09-05 — Operating recovery; isolated hosted handoff pilot deployed.**
 > Owner: LAiDIES operating system and launch readiness, task
 > `01a0725e-963e-73e1-9437-b85d7139c311`. Exact integrated package and next
-> action: `OPERATING-RECOVERY-NEXT.md`. Keep public Homepage/NewsStand work with
+> action: `OPERATING-RECOVERY-NEXT.md`. Hosted checkpoint/ACK/HOLD and wrong-version
+> rejection are verified; founder phone approval remains unfinished. No public site release.
+> Keep public Homepage/NewsStand work with
 > their existing owners. All older ACTIVE entries below require current evidence
 > before resumption; this entry does not declare every historical job active.
 

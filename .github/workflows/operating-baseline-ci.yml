@@ -48,6 +48,10 @@ jobs:
           node scripts/project-work-events.mjs >/dev/null
       - name: Bounded context retrieval calibration
         run: node scripts/test-query-laidies-context.mjs
+      - name: Hosted handoff contract calibration
+        run: node worker-operating-pilot/test-contract.mjs
+      - name: Hosted handoff real runtime calibration
+        run: node worker-operating-pilot/test-runtime.mjs
       - name: Artifact handoff and commit binding
         run: node scripts/test-artifact-handoff.mjs
       - name: Role-distinct review routing

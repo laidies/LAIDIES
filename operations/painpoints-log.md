@@ -47,3 +47,24 @@ request posted, banner observed, request acknowledged and work resumed. Do not
 make the user remember notification text or call one delivery a reliability pass.
 Possible Behind the Build angle: why a connected app can still leave work waiting,
 and why a notification is different from an acknowledged decision request.
+
+## Hosted handoff and account-entitlement truth — 2026-09-05
+
+Existing cloud intake gathered leads but its issue consumer did not resume an
+editorial owner job. A receipt labelled PRIVATE lived in a public repository;
+labels cannot confer privacy. A fixed-receipt Workflow now proves persisted
+checkpoint/wait/exact response/HOLD and rejects the wrong version in the real
+Cloudflare runtime. The initial pure-function test did not execute the workflow
+entrypoint; added real local runtime calibration to CI. Hosted negative checks
+also confirmed no-response HOLD and wrong-hash rejection.
+An old local Wrangler runtime rejected the September compatibility date; pinning
+a current isolated runtime avoided disrupting other work. A later Cloudflare
+100328 CPU-limit error was overstated as an account-wide Free-plan claim. Ali
+pays for Cloudflare; the error establishes only the relevant Worker entitlement.
+Removing the optional custom CPU setting allowed deployment without a plan change.
+Prevention: inspect live execution and service-specific entitlements, distinguish
+operator acknowledgement from authenticated founder approval, and keep private
+decisions outside public issues. Update this lesson, not a duplicate failure log.
+Behind the Build angle: an online website, a working cloud job and an acknowledged
+decision are three different things; a paid account can also have different
+subscriptions for different services.
