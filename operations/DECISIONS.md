@@ -1,5 +1,14 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Ali approves two independent reviewers for the Episode04 social replacement only.**
+> Ali answered “yes” to replacing the eleven-reviewer requirement for this feature
+> with two independent available reviewers of the complete experience against the
+> current Homepage/LIBRAiRY and her feedback, alongside source, export and privacy
+> checks. The exact-Claude requirement is waived for this feature. Keep exact
+> artifact bindings, rejection prevention and real independent judgment. Ali still
+> approves the finished working preview before production. This does not approve
+> the unseen design or change the review requirements for another feature.
+
 > **2026-09-05 — Reuse and Dear Miss Jeeves publishing: existing design recovered.**
 > Ali recalled the established Answer Bank and publication routing. Reuse the
 > recovered `operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`:

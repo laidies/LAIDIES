@@ -4,6 +4,15 @@
   if (!document.documentElement.classList.contains('social-episode')) return;
   const root = document.getElementById('mavenSocial');
   root.hidden = false;
+  document.getElementById('legacyTryOn').hidden = true;
+  root.tabIndex = -1;
+  // The shared header initially selects the first main; Episode04 uses the second.
+  const pointSkipAtSocial = () => {
+    const skip = document.querySelector('.svgh-skip');
+    if (skip) skip.setAttribute('href', '#mavenSocial');
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', pointSkipAtSocial, {once:true});
+  else pointSkipAtSocial();
   document.title = 'Share a MAiVEN · Episode 04 | LAiDIES';
   document.querySelector('meta[name="description"]').content = 'Preview and download a sourced social post about Karen Spärck Jones’s contribution to document search.';
   const $ = id => document.getElementById(id);

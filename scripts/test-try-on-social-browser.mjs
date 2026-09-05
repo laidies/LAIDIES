@@ -22,7 +22,7 @@ async function setup(width,{fontFailure=false,shareMode='abort',clipboardDenied=
   Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>{if(clipboardDenied)throw new DOMException('Denied','NotAllowedError');window.copiedCaption=text;}}});
   if(fontFailure)document.fonts.load=async()=>{throw new Error('font unavailable');};
  },{fontFailure,shareMode,clipboardDenied});
- if(process.env.TRYON_LIVE!=='1') await context.route(`${origin}/**`,route=>{const f=files[new URL(route.request().url()).pathname];return f?route.fulfill({status:200,contentType:f.endsWith('.css')?'text/css':f.endsWith('.js')?'text/javascript':'text/html',body:fs.readFileSync(f==='try-on.html'&&process.argv[2]?process.argv[2]:path.join(root,f))}):route.continue();});
+ if(process.env.TRYON_LIVE!=='1') await context.route(`${origin}/**`,route=>{const f=files[new URL(route.request().url()).pathname];return f?route.fulfill({status:200,contentType:f.endsWith('.css')?'text/css':f.endsWith('.js')?'text/javascript':'text/html',body:fs.readFileSync(f==='try-on.html'&&process.argv[2]?process.argv[2]:f==='content/site/try-on-social.js'&&process.env.TRYON_SOCIAL_JS_PATH?process.env.TRYON_SOCIAL_JS_PATH:path.join(root,f))}):route.continue();});
  return context;
 }
 try{
@@ -30,6 +30,10 @@ try{
   const ctx=await setup(width);const p=await ctx.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
   await p.goto(origin+'/try-on?issue=4&from=blend-snap',{waitUntil:'domcontentloaded'});
   await p.locator('#socialDownload:not([disabled])').waitFor({timeout:30000});
+  const skip=p.locator('.svgh-skip');
+  await skip.focus();await skip.press('Enter');
+  assert.equal(await skip.getAttribute('href'),'#mavenSocial');
+  assert.equal(await p.evaluate(()=>document.activeElement.id),'mavenSocial','Skip link must focus the visible Episode04 main');
   const visible=await p.locator('body').innerText();
   assert.doesNotMatch(visible,/Who did you meet|One name\. One sentence|Save my discovery|Vanity visual held|one woman you wish|Butterfly.clip rating/i);
   assert.equal(await p.locator('#legacyTryOn').isVisible(),false);
@@ -64,7 +68,7 @@ try{
    assert.equal(await p.locator('#tryonNotes').inputValue(),`Episode ${issue} regression`);
    assert.equal(await p.evaluate(i=>JSON.parse(localStorage.getItem('laidiesWednesdayTryOnNotes'))[`issue-0${i}`].notes,issue),`Episode ${issue} regression`);
   }
-  assert.deepEqual(errors,[]);results.push({width,postAndStory:'downloaded valid PNGs',shareCancellation:'preserved',caption:'copied',privateData:'untouched',otherEpisodes:'controls and saves retained'});await ctx.close();
+  assert.deepEqual(errors,[]);results.push({width,postAndStory:'downloaded valid PNGs',shareCancellation:'preserved',caption:'copied',privateData:'untouched',otherEpisodes:'controls and saves retained',skipLink:'focused visible social content'});await ctx.close();
  }
  const ctx=await setup(390,{fontFailure:true});const p=await ctx.newPage();await p.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await p.locator('#socialRetry:visible').waitFor();assert.equal(await p.locator('#socialDownload').isDisabled(),true);assert.match(await p.locator('#socialStatus').innerText(),/try again/);assert.equal(await p.locator('.social-source a').first().isVisible(),true);results.push({fontFailure:'honest retry, no wrong-font export'});await ctx.close();
  const noShare=await setup(390,{shareMode:'unsupported'});const noSharePage=await noShare.newPage();await noSharePage.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await noSharePage.locator('#socialDownload:not([disabled])').waitFor();assert.equal(await noSharePage.locator('#socialShare').isVisible(),false);assert.equal(await noSharePage.locator('#socialDownload').isDisabled(),false);results.push({noFileSharing:'download remains available; share control is hidden'});await noShare.close();

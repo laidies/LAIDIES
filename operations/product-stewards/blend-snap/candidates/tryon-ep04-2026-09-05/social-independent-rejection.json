@@ -1,0 +1,102 @@
+{
+  "schema": "laidies-independent-complete-review.v1",
+  "scope": "try-on-episode04-social-20260905",
+  "verdict": "REJECT",
+  "principal": "/root/social_complete_review",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "artifact_first": true,
+  "manifest_sha256": "b2dd516fbe26ccdff420b16812c6f71c50e2a0595746e19b451da1da57ca9bd1",
+  "artifact_sha256": {
+    "social-desktop-1440.png": "bdc97e622237f0bf09431a48063ede2636b102b8b4b32d7ff299c2215ff9a8c8",
+    "social-mobile-390.png": "144bd68065f3aed0cbf26b2fada5e00e9f6f5e44f05aca8f4a77ca0ced16c32e",
+    "social-mobile-320.png": "c0b5902697857e5dff7b857fbe9dfb7f5b4406c2311257b2db53b77907ac0db5",
+    "social-post.png": "2de86e1045adc66929eff8d5149db35a18f82c83d44a9caf43d56ee0ec1e74d0",
+    "social-story.png": "b72ba5f8648262766362c0722a6f09aeda07eb9b4d8f6950726f15158b399989"
+  },
+  "artifact_first_observation": "Before reading the maker brief, implementation, or browser results, I inspected all five exact candidate images and compared the supplied Homepage and LIBRAiRY references. The candidate is a finished, adult editorial social graphic rather than the rejected worksheet pattern: it uses the current Jost-led pink, lilac, periwinkle, ink, mint/cyan, and yellow system; gives Karen Sparck Jones a clear contribution; supplies a concrete search example and collection-dependent boundary; and remains readable in the exported post and story. Desktop, 390px, and 320px page renders preserve hierarchy without clipping or horizontal overflow.",
+  "findings": [
+    {
+      "rank": 1,
+      "severity": "material",
+      "status": "FAIL",
+      "area": "keyboard navigation",
+      "finding": "The page's visible Skip to content link targets #legacyTryOn, but Episode 04 hides #legacyTryOn and exposes #mavenSocial as the active main experience.",
+      "evidence": "In the isolated rendered route, the accessibility tree exposed Skip to content with href #legacyTryOn. The target computed to display:none. Activating the link did not move focus into the active experience; focus remained on BODY and the location hash did not change. Keyboard users therefore cannot use the site's primary bypass link to reach Share a MAiVEN.",
+      "required_repair": "When issue 04 is active, bind the skip link to #mavenSocial and ensure activation moves focus to that main region. Re-run the exact keyboard activation at desktop, 390px, and 320px before admission."
+    },
+    {
+      "rank": 2,
+      "severity": "pass",
+      "status": "PASS",
+      "area": "actual reader and social value",
+      "finding": "The experience supplies a complete, useful, sourced graphic and caption without requiring reflection, an exercise, a score, or a reward.",
+      "evidence": "The post and story explain the term-weighting idea through the conditional velvet blazer example, include a source credit in the pixels, expose a full caption and source route, and keep download/share optional. No generic reassurance, school-task language, operational status, or automatic-posting claim appears."
+    },
+    {
+      "rank": 3,
+      "severity": "pass",
+      "status": "PASS",
+      "area": "meaning and source limits",
+      "finding": "The public claim is bounded and supported by the cited 1972 paper.",
+      "evidence": "The paper identifies collection frequency as the weighting basis, values less frequent matches more highly, and reports substantial performance improvement on three test collections. The graphic retains the necessary boundary that the example depends on the searched collection and does not claim rarity means truth, sole invention, Google authorship, or universal modern-AI use."
+    },
+    {
+      "rank": 4,
+      "severity": "pass",
+      "status": "PASS",
+      "area": "responsive layout and controls",
+      "finding": "The rendered page and exports remain coherent at the supplied desktop, 390px, and 320px sizes.",
+      "evidence": "Independent browser measurements found no horizontal overflow at 390px or 320px. Visible in-feature links, buttons, and summaries were at least 44px high; Post/Story selection independently produced 1080x1350 and 1080x1920 images with correct aria-pressed state. The on-page transcript exposes the image text separately."
+    },
+    {
+      "rank": 5,
+      "severity": "pass",
+      "status": "PASS",
+      "area": "privacy and recovery",
+      "finding": "Episode 04 does not load, rewrite, submit, reward, or expose legacy private Try-On notes.",
+      "evidence": "The legacy controller returns immediately for config.social before reading localStorage or populating note fields. The social controller contains no storage, account, reward, analytics payload, or automatic-posting path. Format export failures retain source and return links, with retry; denied clipboard exposes a populated selectable fallback; unsupported file sharing hides Share while keeping Download."
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "SOCIAL-A11Y-001",
+      "blocks_admission": true,
+      "summary": "Skip to content targets the hidden legacy main instead of #mavenSocial on Episode 04."
+    }
+  ],
+  "verified": [
+    "Exact candidate pixels were inspected before maker evidence.",
+    "Post and Story format switching produced the correct intrinsic PNG dimensions.",
+    "390px and 320px layouts had no horizontal overflow and retained 44px minimum visible targets.",
+    "The cited Cambridge paper and CV were reachable and supported the author, title, year, pagination, method, and bounded claim.",
+    "Both https://laidies.ai/luminairy#mavens and the .html route returned HTTP 200, with the latter resolving to the extensionless route.",
+    "Private legacy note loading is bypassed before localStorage access for issue 04.",
+    "The broken skip-link destination was reproduced in the isolated browser."
+  ],
+  "limits": [
+    "I did not test a real-phone OS share sheet or real-phone file download. The in-app browser exposed the Share control, but native delivery and cancellation remain outside this environment.",
+    "The page reported Caption copied, but the isolated browser clipboard API did not expose the page clipboard bytes, so exact clipboard payload retrieval was not independently proven.",
+    "Screenshot and source review do not establish full WCAG conformance or screen-reader behavior.",
+    "No deployment, login, posting, publishing, repository edit, or canonical-file edit was performed."
+  ],
+  "requested_file_hashes": {
+    "Website-homepage/operations/voice/laidies-canon-index.md": "21abf9e79d80498bb01457d10e99405564c9ca3bf76978e182de88d17165318e",
+    "Website-homepage/operations/DECISIONS.md": "89bb1c3f3aad3f7f8656a7a2bb09ed6a894377e0a33f5c1e31839dfebf2e4837",
+    "try-on.html": "7c957ba804ab37a492b99bdb2f3e35e40e938c57b6d45e0b04e63beb00343bed",
+    "content/try-on-social.css": "3d50b594bf5f5c9e00e71dc9a3dcdabb26268bb1d140cc27f10e8c9c2d6f0f7f",
+    "content/site/try-on-social.js": "038868dc7eabd00c3e65764422589207e5332a9dfe788dc0445a519ceb77a5a3",
+    "content/blend-snap-weekly-packs.json": "45cc28e4f80d6361c2daee01c84e93c3750c7bedb08a61a24a88ac76d8c39fbd",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-source-and-brief.md": "c6baa19b3060093156999b64a67e1e084284afbd497245386b8c6bcd23268134",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-browser-results.json": "66c69a5c64355c9003d0e60b102888884fd9b9d4f2434621cef57218371b27fb",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-reviewed-manifest.json": "b2dd516fbe26ccdff420b16812c6f71c50e2a0595746e19b451da1da57ca9bd1",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-desktop-1440.png": "bdc97e622237f0bf09431a48063ede2636b102b8b4b32d7ff299c2215ff9a8c8",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-mobile-390.png": "144bd68065f3aed0cbf26b2fada5e00e9f6f5e44f05aca8f4a77ca0ced16c32e",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-mobile-320.png": "c0b5902697857e5dff7b857fbe9dfb7f5b4406c2311257b2db53b77907ac0db5",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-post.png": "2de86e1045adc66929eff8d5149db35a18f82c83d44a9caf43d56ee0ec1e74d0",
+    "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/social-story.png": "b72ba5f8648262766362c0722a6f09aeda07eb9b4d8f6950726f15158b399989",
+    "/tmp/laidies-social-reference-home.png": "0734a9a442a584843147e2b2c785da7bddac7c744bc2da3740eb15f9356f7ea5",
+    "/tmp/laidies-social-reference-library.png": "04bb7b723b2dce84795a5ef7f5a996b106ad67b95d9bc85d62e3f5724a0056d2"
+  },
+  "repository_mutation": "NO_REPOSITORY_MUTATION"
+}
