@@ -15,3 +15,22 @@ examples in committed history, and regenerate derived context against the exact
 source revision. Do not equate pushed, merged and publicly verified.
 Behind the Build angle: why a saved file, a checkpoint, a shared change and a
 public release are different, and how a short stale briefing can block startup.
+
+## Recoverable task and bounded lookup — 2026-09-05
+
+Observed: task evidence could be arbitrary metadata while a separate handoff
+checker knew the exact artifact; the two mechanisms were not connected. The
+lookup also ignored a requested byte limit and emitted a 128,181-byte result.
+Connected opted-in events to immutable handoffs; calibrated stale bytes, wrong
+owner/checkpoint, invalid transitions, outside paths and binary artifacts.
+A fresh agent recovered the saved task without chat history and passed its test.
+Prevention: bound retrieved previews in UTF-8 bytes, keep matches visible, bind
+continuation to exact committed inputs, and preserve their Git ancestry through
+integration. Keep legacy coverage and authenticated approval limitations explicit. The
+projection and resume packet expose `NONE_ACTOR_METADATA_ONLY` so a matched actor
+label cannot be presented as an authenticated approval capability.
+The full CI also caught the recorded work projection becoming stale after the
+new events; regenerate the existing derived projection whenever its source log
+or projector changes. The Stop guard was retained unchanged.
+Behind the Build angle: why an AI can remember the assignment yet resume the
+wrong version, and how a small save point prevents repeating the whole briefing.

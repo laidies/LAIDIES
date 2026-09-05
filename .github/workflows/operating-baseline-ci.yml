@@ -16,6 +16,9 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Recovery checkpoints verify immutable ancestor commits.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -43,6 +46,8 @@ jobs:
         run: |
           node scripts/test-project-work-events.mjs
           node scripts/project-work-events.mjs >/dev/null
+      - name: Bounded context retrieval calibration
+        run: node scripts/test-query-laidies-context.mjs
       - name: Artifact handoff and commit binding
         run: node scripts/test-artifact-handoff.mjs
       - name: Role-distinct review routing

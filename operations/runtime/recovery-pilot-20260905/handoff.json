@@ -1,0 +1,60 @@
+{
+  "task": "WRK-20260905-context-recovery-pilot",
+  "outcome": "Resume the accepted bounded context lookup without repeating the design",
+  "artifact": {
+    "path": "scripts/query-laidies-context.mjs",
+    "sha256": "229f3b8b4d08f7b2190736dc48ea870dabbee18ad9334f6cdae4a345b2abe804"
+  },
+  "brief": {
+    "path": "operations/runtime/recovery-pilot-20260905/brief.md",
+    "sha256": "f284c202c953f6a7743dd1f0c538dc70e837113ce433f4eb88abab1b1e12da04"
+  },
+  "inputs": [
+    {
+      "path": "scripts/test-query-laidies-context.mjs",
+      "sha256": "aa0eec9579c462e3bbf2214544e9702557ebc79f3bf3eca21ba1df2111a5c0a5"
+    }
+  ],
+  "forbidden": [
+    "shared product writes",
+    "public deployment",
+    "unrelated historical context"
+  ],
+  "accept": [
+    "The exact query regression passes and no material regression is found"
+  ],
+  "run": [
+    "node scripts/test-query-laidies-context.mjs"
+  ],
+  "return": {
+    "status": "PASS",
+    "meaning": "Foreground-reviewed internal query change; fresh-worker continuation still to be tested"
+  },
+  "budget": {
+    "in": 6000,
+    "out": 1200,
+    "wall": 180
+  },
+  "evidence_time": "2026-09-05T19:39:40.170322+00:00",
+  "locks": [
+    "scripts/query-laidies-context.mjs",
+    "scripts/test-query-laidies-context.mjs"
+  ],
+  "acceptance_owner": "operating-recovery-owner",
+  "next_trigger": "Validate this checkpoint and run node scripts/test-query-laidies-context.mjs; return the result without rewriting the tool.",
+  "authority_truth": {
+    "public": false,
+    "deploy": false,
+    "spend": false,
+    "ali_approval": false
+  },
+  "worktree_truth": {
+    "state": "COMMITTED",
+    "commit": "c9c341917f7bcefe14002dc29b893ae715ad7aab",
+    "paths": [
+      "scripts/query-laidies-context.mjs",
+      "scripts/test-query-laidies-context.mjs",
+      "operations/runtime/recovery-pilot-20260905/brief.md"
+    ]
+  }
+}

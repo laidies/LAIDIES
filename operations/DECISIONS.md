@@ -14,6 +14,13 @@
 > Rejecting an asset overrides an older ACTIVE record. Apply task-relevant
 > prevention rules without loading the historical rejection corpus into every job.
 
+> **2026-09-05 — Bounded continuation pilot.** Existing work events may opt into
+> `recovery_contract: artifact-handoff.v1`. Such tasks bind a committed handoff,
+> exact input bytes, acceptance owner and next action; waiting/resumption/completion
+> must reference that checkpoint. Historical events retain legacy behavior and
+> are not retroactively certified. Context lookup is a byte-bounded preview; read
+> the exact current authority before acting. See `OPERATING-RECOVERY-NEXT.md`.
+
 **Read this before any material task. Search it before asking Ali anything.**
 
 This is a **router, not a source of truth.** It tells you which file holds the

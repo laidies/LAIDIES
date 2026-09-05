@@ -1,7 +1,7 @@
 # LAiDIES standing card
 
 <!-- GENERATED FILE. Run: node scripts/build-standing-card.mjs -->
-decisions-sha256: 851b0d578a615d3ecdeb12f02b9b797c4ba96fcb65b6e2ccabdcbd5203427b54
+decisions-sha256: 0ea0b8a61c1cbfb8d9110136f4dc89ff276e1432bdc4ebf449ecabb77d8c5d57
 lessons-sha256: 769f2a243497a39d291ce1a0294cde96ffe03229150855c0b62f60736c1a827c
 canon-sha256: e093f3ecd7c221f8cee12c1620123632fdb8e4bd0d7016fe734fffb6c9da0fe4
 agreement-sha256: 21bf897f165a78597f6a3113de088a3a90e15008d10cfe7c2caf9f171933b336
