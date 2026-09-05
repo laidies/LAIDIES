@@ -14947,6 +14947,16 @@ while remaining falsely unfinished in the launch record.
   between branches, leaving only the sign on the door.
 - **Publication status:** LOCAL RESTORATION / PUBLIC RELEASE NOT PERFORMED.
 
+## BTB-499 — Account prerequisites must be part of the Card journey
+
+- **Date:** 2026-09-05
+- **Failure:** Asking a new visitor to sign in for portraits sent them to a separate desk without explaining that email verification also creates their account.
+- **Correction:** MAiKEOVER now hosts that entry, returns email verification to the maker, and saves to the account from Finish. Returning residents explicitly restore or replace their existing Card.
+- **Prevention:** Test both new and returning account paths, including the actual page handler before storage writes. An independent review found the account-switch guard ran after the local write; it now runs before that write as well as before the remote save, with a negative test proving the early rejection.
+- **Evidence boundary:** Mocked tests and a signed-out browser check do not prove email delivery, paid portrait generation or cross-device restoration. Those remain HOLD pending a controlled real account test.
+- **Behind the Build angle:** The difference between having a sign-in button and having a coherent account-creation journey.
+- **Publication status:** LOCAL IMPLEMENTATION / NOT DEPLOYED.
+
 ## BTB-498 — Matching the masthead palette did not align the page beneath it
 
 - **Date:** 2026-09-04

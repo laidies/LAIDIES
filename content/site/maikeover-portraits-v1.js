@@ -17,10 +17,10 @@
       var current = await session();
       byId("moPortraitAuth").textContent = current
         ? "Signed in for portraits as " + current.user.email
-        : "Sign in to make portraits. Your choices can stay here while you sign in.";
+        : "Start with email verification above, then make your portrait here.";
       byId("moPortraitSignIn").hidden = !!current;
     } catch (_) {
-      byId("moPortraitAuth").textContent = "Sign in at the Resident Card desk, then return to your portrait choices.";
+      byId("moPortraitAuth").textContent = "The account connection is unavailable. Check the account step above.";
       byId("moPortraitSignIn").hidden = false;
     }
   }
@@ -90,7 +90,7 @@
       candidate.setAttribute("aria-pressed", candidate === button ? "true" : "false");
     });
     window.dispatchEvent(new CustomEvent("laidies:portrait-selected", { detail: { image: data } }));
-    status("Portrait selected. Open Finish and save your Card; then keep or update the private account copy at the Resident Card desk.");
+    status("Portrait selected. Finish your choices, then save your Card to your account and open your Closet.");
   }
   async function generate() {
     if (busy) return;
@@ -99,7 +99,7 @@
     var timer;
     try {
       var current = await session();
-      if (!current) { await showAccount(); throw new Error("Sign in first using the link above, then return here. Your choices are unchanged."); }
+      if (!current) { await showAccount(); throw new Error("Verify your email in the account step above before making portraits."); }
       var extras = window.LAIDIESPortraitChoices.extras();
       var body = { requestId: crypto.randomUUID() };
       var photo = document.querySelector('input[name="moPortraitMode"]:checked').value === "photo";
@@ -170,6 +170,7 @@
   });
   document.querySelectorAll('input[name="moPortraitMode"]').forEach(function (input) { input.addEventListener("change", setMode); });
   window.addEventListener("focus", showAccount);
+  window.addEventListener("laidies:maikeover-account-ready", showAccount);
   window.addEventListener("laidies:continuation-ready", showAccount);
   setMode(); showAccount();
 })();

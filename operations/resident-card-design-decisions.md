@@ -1,5 +1,15 @@
 # Resident Card construction — 2026-07-24
 
+## MAiKEOVER account onboarding — 2026-09-05
+
+Ali authorizes one continuous account-to-Card journey in MAiKEOVER. New
+visitors request email verification here and return here to make their Card.
+Existing accounts use the same email link; authenticated residents continue
+directly. Finish saves the versioned Card to the verified account and provides
+the Closet doorway. Existing remote Cards require an explicit restore or
+replacement choice; no background overwrite is allowed. A failed account save
+must distinguish a preserved browser copy from a verified account copy.
+
 > **CURRENT ACCOUNT BOUNDARY — 2026-08-29.** The August 23 hold below was a
 > stale regression and is superseded. Account-backed Card claiming,
 > restoration and bounded cross-device continuation were deployed and

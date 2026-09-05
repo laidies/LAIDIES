@@ -16,6 +16,13 @@
 }
 
 html { scroll-behavior: smooth; }
+.mo-account { padding:32px max(5%,calc((100% - 1320px)/2)); background:var(--mo-control-surface); color:var(--mo-ink); border-bottom:4px solid var(--mo-ink); scroll-margin-top:90px; }
+.mo-account h2 { color:var(--mo-ink); }
+.mo-account form { max-width:600px; }
+.mo-account label { display:block; font-weight:800; }
+.mo-account input { box-sizing:border-box; width:100%; padding:12px; margin:8px 0; font:inherit; border:2px solid var(--mo-ink); border-radius:8px; }
+.mo-account button,.mo-account a { display:inline-block; padding:12px 16px; margin:6px 8px 6px 0; border:2px solid var(--mo-ink); border-radius:8px; background:var(--mo-yellow); color:var(--mo-ink); font:800 15px 'Jost',sans-serif; }
+.mo-account [hidden] { display:none!important; }
 body.mo-v3 { color: var(--mo-ink); background: #fff8f1; }
 body:has(.mo-room) .sv-yah-chip { display: none !important; }
 

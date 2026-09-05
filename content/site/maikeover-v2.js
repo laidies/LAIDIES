@@ -8,7 +8,7 @@
     saint: "Pick your Patron Saint.",
     era: "Pick your movie and television favourites.",
     carrying: "Pick what you’re carrying.",
-    finish: "Add your name, save, then connect your account."
+    finish: "Add your name, save your Card to your account, then open your Closet."
   };
 
   var toolLabels = {
@@ -47,11 +47,7 @@
     var persistence = document.getElementById("moPersistenceState");
     var handle = localValue("laidies_card_username");
     if (persistence) {
-      persistence.innerHTML = handle
-        ? "<strong>You have started a Card for @" +
-          handle +
-          ".</strong> Connect your account so your Card and Closet are available across devices."
-        : "<strong>You can start before signing in.</strong> Connect your account before you leave if you want your Card and Closet available on another device.";
+      persistence.textContent = "Your account keeps your Card with you. Your Closet is where your saved things live.";
     }
   }
 

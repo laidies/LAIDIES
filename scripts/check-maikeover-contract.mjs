@@ -81,8 +81,8 @@ forbidText(maikeover, "so it follows you everywhere",
   "local handle still claims cross-device persistence");
 forbidText(maikeover, "grab it. We'll confirm",
   "failed availability check still becomes optimistic success");
-requireText(helper, "You have started a Card for @",
-  "returning arrival does not distinguish device-local memory");
+requireText(helper, "Your account keeps your Card with you.",
+  "arrival lacks account-first explanation");
 requireText(closet, "Device-local view:",
   "Closet lacks an explicit device-local state");
 requireText(closet, "public_resident_cards",

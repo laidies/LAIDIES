@@ -31,7 +31,7 @@ function inspect(candidate) {
   if (!candidate.includes('Seven steps. Your portrait and choices appear on the Card as you go.')) failures.push('seven-step maker explanation missing');
   if (!candidate.includes('id="moMake"') || !candidate.includes('maikeover-portraits-v1.js')) failures.push('working portrait creator missing');
   if (candidate.includes('mo-card-placeholder')) failures.push('CSS-era Card placeholder returned');
-  if (/type="email"/i.test(candidate)) failures.push('email collection returned');
+  if (!candidate.includes('id="moAccountForm"') || !candidate.includes('maikeover-account-v1.js')) failures.push('integrated account onboarding missing');
   if (/lil(?:y|ies)|flower vase|bouquet/i.test(candidate)) failures.push('retired flower motif returned');
   return failures;
 }
@@ -62,10 +62,10 @@ function inspectCss(candidate) {
 
 const failures = inspect(html);
 failures.push(...inspectCss(css));
-if (!html.includes('content/maikeover-v2.css?v=20260904-palette-align-1')) failures.push('palette-alignment stylesheet cache key missing');
-if (!html.includes('content/site/maikeover-v2.js?v=20260904-portrait-restore-1')) failures.push('portrait-restoration script cache key missing');
-if (!html.includes('Card saved on this device. Sign in at the Resident Card desk')) failures.push('save handoff copy missing');
-if (!js.includes('Connect your account before you leave if you want your Card and Closet available on another device.')) failures.push('signed-out Card/Closet handoff copy missing');
+if (!html.includes('content/maikeover-v2.css?v=20260905-onboarding-1')) failures.push('onboarding stylesheet cache key missing');
+if (!html.includes('content/site/maikeover-v2.js?v=20260905-onboarding-1')) failures.push('onboarding script cache key missing');
+if (!html.includes('Your Resident Card is saved to your account.')) failures.push('verified account save message missing');
+if (!js.includes('Your account keeps your Card with you.')) failures.push('account-first Card/Closet explanation missing');
 if (!js.includes('var toolOrder = ["portrait", "backdrop", "era", "soundtrack", "saint", "carrying", "finish"]')) failures.push('step behavior order missing');
 if (!css.includes('--mo-hot: #ef4d9c') || !css.includes('--mo-purple: #7137d6') || !css.includes('--mo-teal: #18c6d8')) failures.push('current LIBRAiRY palette tokens missing');
 if (html.includes('MAiN Street · SUNNYVAiLE') || html.includes('Come in as a visitor.')) failures.push('masthead still contains supporting copy beyond the building title');

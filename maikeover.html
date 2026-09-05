@@ -7,7 +7,7 @@
   <meta name="description" content="Make your SUNNYVAiLE Resident Card, save your town profile, and sign in to restore your Card and supported progress across devices.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260904-palette-align-1">
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260905-onboarding-1">
   <script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
@@ -63,17 +63,33 @@
         <p>Your Resident Card is how LAiDIES knows you around town. Once it is connected to your account, your Closet is where your saved things and progress live.</p>
       </div>
       <div class="mo-card-explainer__steps" aria-label="How your Resident Card works">
-        <div><strong>1 · Make it yours</strong><span>Create your portrait, then choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
-        <div><strong>2 · Open your Closet</strong><span>Sign in to connect the Card to your private account. Your Closet keeps your saved things and progress available across devices.</span></div>
-        <div><strong>3 · Update it any time</strong><span>Come back to MAiKEOVER whenever you want a new Card design or want to change your favourites.</span></div>
+        <div><strong>1 · Start your account</strong><span>Verify your email here. Already a resident? The same link signs you in.</span></div>
+        <div><strong>2 · Make it yours</strong><span>Create your portrait, then choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
+        <div><strong>3 · Open your Closet</strong><span>Save your Card to your account. Your Closet keeps your saved things and progress available across devices. Come back here any time to update your Card.</span></div>
       </div>
       <div class="mo-card-explainer__actions">
-        <a class="mo-primary-link" href="#mo-maker">Get my Card</a>
-        <a class="mo-secondary-link" href="/resident-card.html#rcAccountTitle">Already have an account? Sign in</a>
+        <a class="mo-primary-link" href="#mo-account">Get my Card</a>
+        <a class="mo-secondary-link" href="#mo-account">Already a resident? Sign in</a>
       </div>
-      <p class="mo-persistence-state" id="moPersistenceState" role="status" aria-live="polite"><strong>You can start before signing in.</strong> Connect your account before you leave if you want your Card and Closet available on another device.</p>
+      <p class="mo-persistence-state" id="moPersistenceState">Your account keeps your Card with you. Your Closet is where your saved things live.</p>
     </section>
 
+    <section id="mo-account" class="mo-account" aria-labelledby="moAccountTitle" data-clarity-mask="true">
+      <h2 id="moAccountTitle">Start your Resident Card</h2>
+      <p>First, verify your email. Then create your portrait, make your Card yours and open your Closet. Already a resident? Use the same email to sign in.</p>
+      <form id="moAccountForm" hidden>
+        <label for="moAccountEmail">Your email</label>
+        <input id="moAccountEmail" type="email" autocomplete="email" required maxlength="254">
+        <button id="moAccountSend" type="submit">Email me a verification link</button>
+        <p>This creates or opens your account. It does not subscribe you to the Postcard.</p>
+      </form>
+      <p id="moAccountStatus" role="status" aria-live="polite">Checking your account…</p>
+      <div id="moAccountReady" hidden>
+        <a href="#mo-maker">Continue to your Card →</a>
+        <button id="moAccountRestore" type="button" hidden>Restore my saved Card in this browser</button>
+        <button id="moAccountSignOut" type="button">Sign out</button>
+      </div>
+    </section>
   <section class="mo-room" id="mo-maker" aria-labelledby="moMakerTitle">
     <div class="mo-room__canvas">
       <img class="mo-room__backdrop" src="/assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v6.png" alt="" width="1672" height="941">
@@ -131,8 +147,8 @@
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
             <p>Describe yourself or use a photo, then choose an era, outfit and up to four accessories. We’ll make three portraits for you to choose from.</p>
             <p id="moPortraitAuth" role="status">Checking portrait sign-in…</p>
-            <a href="/resident-card.html#rcAccountTitle" target="_blank" rel="noopener" id="moPortraitSignIn">Sign in for portraits (opens a new tab)</a>
-            <p class="mo-portrait-note">Portraits need sign-in: two sets of three per account each day. You can style and save the rest of your Card without signing in.</p>
+            <a href="#mo-account" id="moPortraitSignIn">Verify your email to begin</a>
+            <p class="mo-portrait-note">Your account includes two sets of three portraits each day.</p>
             <fieldset class="mo-portrait-modes"><legend>Start your portrait</legend>
               <label><input type="radio" name="moPortraitMode" value="scratch" checked> Describe me</label>
               <label><input type="radio" name="moPortraitMode" value="photo"> Use my photo</label>
@@ -358,7 +374,7 @@
           <!-- Handle -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your @handle</label>
-            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Your local Card can use a draft handle (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">no draft handle</span>). A draft handle is local only. It is not reserved, public or available on another device. Sign in at the Resident Card desk to connect your Card to your private account.</p>
+            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Your local Card can use a draft handle (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">no draft handle</span>). A draft handle is local only. It is not reserved, public or available on another device. Your account uses your verified email.</p>
           </div>
 
           <!-- Save -->
@@ -409,7 +425,7 @@
       <div class="mo-claim-state" data-state="held" tabindex="-1">
         <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Private account continuation</p>
         <h3 style="margin:0 0 10px; color:var(--plum);">Keep your Resident Card with you.</h3>
-        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">Make and save your Card here, then <a href="/resident-card.html#rcAccountTitle">sign in at the Resident Card desk</a> to restore your Card and supported progress across devices. Public handles and shareable Cards remain separate.</p>
+        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">Save my Card keeps this design with your verified account. Returning on another device? <a href="#mo-account">Sign in and restore your Card here</a>. Public handles and shareable Cards remain separate.</p>
       </div>
 
       <!-- Loading placeholder -->
@@ -460,8 +476,8 @@
     <section class="mo-exit" aria-labelledby="moExitTitle">
       <p class="mo-section-kicker">Your Closet is next</p>
       <h2 id="moExitTitle">Connect your Card. Open your Closet.</h2>
-      <p>Sign in to connect your Resident Card to your private account. Then your Closet keeps your saved things and supported progress available across devices.</p>
-      <a href="/resident-card.html#rcAccountTitle">Sign in and open my Closet <span aria-hidden="true">→</span></a>
+      <p>Once you have saved your Card, open your Closet to see it with your saved things. Return to MAiKEOVER whenever you want a new design or new favourites.</p>
+      <a href="/laidies-card.html">Open my Closet <span aria-hidden="true">→</span></a>
     </section>
 
   </main>
@@ -662,7 +678,20 @@
       result.focus();
     }
 
-    $('moSave').addEventListener('click', function(){
+    $('moSave').addEventListener('click', async function(){
+      if ($('moSave').disabled) return;
+      $('moSave').disabled = true;
+      try {
+      if (!window.LAIDIESMaikeoverAccount) {
+        announceCardSave('The account connection is still loading. Please try again shortly.', '#a83243');
+        return;
+      }
+      var accountContext;
+      try { accountContext = await window.LAIDIESMaikeoverAccount.beforeSave(); }
+      catch (error) { announceCardSave(error.message, '#a83243'); return; }
+      if (!accountContext) return;
+      try { await window.LAIDIESMaikeoverAccount.validateSession(accountContext); }
+      catch (error) { announceCardSave(error.message, '#a83243'); return; }
       var previousEnvelope = readCardEnvelope();
       var previousFields = previousEnvelope
         ? previousEnvelope.fields
@@ -703,7 +732,7 @@
           throw new Error('storage verification failed');
         }
         announceCardSave(
-          'Card saved on this device. Sign in at the Resident Card desk to restore your Card and supported progress across devices.',
+          'Browser copy saved. Saving your Card to your account…',
           '#2c7d3c'
         );
         $('moSeeCloset').style.display='inline';
@@ -723,7 +752,18 @@
           '#a83243'
         );
         $('moSeeCloset').style.display='none';
+        return;
       }
+      $('moSave').disabled = true;
+      $('moSeeCloset').style.display='none';
+      try {
+        await window.LAIDIESMaikeoverAccount.save(envelope, accountContext);
+        announceCardSave('Your Resident Card is saved to your account. Open your Closet below.', '#2c7d3c');
+        $('moSeeCloset').style.display='inline';
+      } catch (error) {
+        announceCardSave('Your Card is saved in this browser, but we could not confirm the account save. ' + error.message + ' Retry Save my Card to check and save again.', '#a83243');
+      }
+      } finally { $('moSave').disabled = false; }
     });
 
     // ---- hydrate from existing state ----
@@ -1048,8 +1088,9 @@
 <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
 <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
-<script defer src="/content/site/maikeover-portraits-v1.js?v=20260904-portrait-restore-1"></script>
-<script defer src="/content/site/maikeover-v2.js?v=20260904-portrait-restore-1"></script>
+<script defer src="/content/site/maikeover-account-v1.js?v=20260905-onboarding-1"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260905-onboarding-1"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260905-onboarding-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>

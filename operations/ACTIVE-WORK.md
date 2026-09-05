@@ -1,5 +1,15 @@
 # Active work
 
+## 2026-09-05 MAiKEOVER integrated account onboarding
+
+- **Status:** HOLD for real authenticated end-to-end proof; local implementation and scoped tests complete. Not pushed or deployed.
+- **Task:** Give new and returning residents one email-verification entry within MAiKEOVER, followed by Card creation, account save and Closet.
+- **Source:** `release/maikeover-20260902`; the commit containing this entry binds the implementation.
+- **Verification:** Browser Get my Card reaches the inline email form; signed-out Finish/Save returns focus to that form. MAiKEOVER redesign, contract, lifecycle, identity-account and 33/33 shared Card checks pass. New mocked onboarding tests cover new/returning contexts, replacement consent, restore, sign-out, save failure and changed-account rejection; the real page save handler is exercised to prove no local write after a detected account switch. Read-only independent review found that edge case before correction.
+- **Not verified:** Real email delivery/callback, authenticated portrait generation, account save and second-browser restoration. No email was submitted and no production mutation occurred.
+- **Commit check limitation:** Repository hook rejects 45 pre-existing missing Episode 3 image references outside this task. Town, local links, inline JavaScript parsing, output guards and rejection-prevention checks pass. Commit bypasses that unrelated hook failure after the focused tests; no whole-repository pass is claimed.
+- **Next:** Obtain the approved test email, run the real journey, fix any failures, then assess release readiness against the fresh production base. No claim that simulated tests establish cross-device functionality.
+
 ## 2026-09-04 MAiKEOVER current-site palette alignment
 
 - **Status:** COMMITTED / LOCALLY TESTED / NOT PUSHED / NOT DEPLOYED.
