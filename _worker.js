@@ -77,7 +77,9 @@ function currentGuidancePayload(data) {
       }
     }
   }
-  const answer = parts.filter(Boolean).join('\n\n');
+  const answer = parts.filter(Boolean).join('\n\n')
+    .replace(/\*\*/g, '')
+    .replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g, '$1');
   return answer && citations.length ? { answer, citations, model: String(data.model || ''), sourcePolicyVersion: String(data.source_policy_version || '') } : null;
 }
 
