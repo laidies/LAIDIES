@@ -113,3 +113,14 @@ This correction initially missed the generated standing-card binding. CI rejecte
 stale startup; the same failure was reproduced locally and the existing generator
 repaired the binding. Changing DECISIONS requires regenerating its standing card
 before committing and running the actual startup hook, even for a docs-only edit.
+
+## Cloud task readback and continuation — 2026-09-05
+
+Native Cloud task creation first returns a queued client ID; resolve the real
+chat ID before reading it. A temporarily idle/no-output read did not mean failure:
+later supported reads revealed completed output, including after an app-tools
+pipe interruption. Reuse the task and allow readback to settle before retrying.
+An authorized parent relay proves controlled cloud continuation, not direct
+phone delivery or Mac-off operation. Keep exact private decisions in the cloud
+chat and publish only bounded execution-status facts. Behind the Build angle:
+why a missing progress update is not the same as missing work.
