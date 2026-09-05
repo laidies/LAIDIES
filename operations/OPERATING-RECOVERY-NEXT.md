@@ -77,8 +77,12 @@ approved examples; a phrase checker or valid receipt is not a humour verdict.
 
 ## Next exact action
 
-Complete the bounded branch checks and review, then record its PR and integration
-state here. If CI blocks, reproduce and isolate the failure; do not disable gates
+PR: https://github.com/laidies/LAIDIES/pull/91 (draft, not merged).
+Initial reviewed package: `1aa4092c`, pushed to GitHub. Independent review found
+no material regression. Focused asset and declared-lane startup checks pass;
+full hook-guard suite is delegated to the existing GitHub CI in a full checkout.
+The asset regression is added to that workflow so the protection is repeatable.
+Inspect PR checks before merge and record the final result here. If CI blocks, reproduce and isolate the failure; do not disable gates
 or expand this package into the historical mixed branch. After integration,
 reconcile only the shared startup sources and their current owner before the
 interruption/resumption pilot. Keep public releases with the existing owners.
