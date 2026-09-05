@@ -18,6 +18,18 @@ service = "laidies-fairy-godmother"
 binding = "FAIRY_AI"
 service = "laidies-fairy-godmother"
 
+[[env.production.d1_databases]]
+binding = "MISS_JEEVES_DB"
+database_name = "laidies-library-corrections"
+database_id = "cd7fbb14-fdc6-4a86-893d-e60c4195400e"
+
+[[env.production.analytics_engine_datasets]]
+binding = "MISS_JEEVES_SIGNALS"
+dataset = "laidies_miss_jeeves_signals_v1"
+
+[env.production.ai]
+binding = "AI"
+
 [[analytics_engine_datasets]]
 binding = "MISS_JEEVES_SIGNALS"
 dataset = "laidies_miss_jeeves_signals_v1"
