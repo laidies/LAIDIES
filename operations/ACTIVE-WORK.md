@@ -3,6 +3,8 @@
 > **2026-09-05 — Site improvement sequence; copy elevation CAPTURED.**
 > Foreground objective remains the existing site improvement cycle. Ali added
 > stronger homepage/subpage language; no new public wording has been produced.
+> Ali's supplied Dream Phone paragraph is preserved as a positive voice
+> reference in `voice/laidies-writing-lock.md`; use it for the upcoming copy pass.
 > **Next bounded repair batch:** first recheck the saved Miss Jeeves condition-loss
 > and raw-markup cases against the current live implementation, then repair any
 > reproduced defect. Recheck the exact homepage Express Route through the now

@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Ali supplied a concrete Dream Phone voice example.**
+> Use the exact example and its application notes in
+> `voice/laidies-writing-lock.md#alis-dream-phone-invitation-example--2026-09-05`
+> to guide the homepage/subpage language pass: shared nostalgia, conversational
+> enthusiasm, useful purpose and specific character humour. This clarifies the
+> requested elevation; it does not authorize unverified product promises or
+> replace the active repair sequence.
+
 > **2026-09-05 — Homepage and subpage language elevation added to the improvement cycle.**
 > Ali asked for stronger language on the homepage and subpages while continuing
 > the existing repair work. This adds a copy-improvement scope; it does not

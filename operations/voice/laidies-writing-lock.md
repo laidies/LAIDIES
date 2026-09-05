@@ -1,5 +1,22 @@
 LAiDIES Writing Lock
 
+## Ali's Dream Phone invitation example — 2026-09-05
+
+Ali supplied the following example to clarify what she means by elevating
+homepage and subpage language. Preserve it as her verbatim voice reference;
+spelling slips are not stylistic requirements. This is a supplied example,
+not a newly verified product-capability statement or publication instruction.
+
+> Remember Dream Phone -- that incredible game from the 90s where you had to figure out your secret crush? We do to. And we brought it back, but this time with a LAiDIES twist!  Play the full game to improve your skills at spotting and correcting hallucinations from your AI tool; or use the Just Call version to get fun advice from one someone who slayed their 90s highs chool yearbook picture.
+
+Use the example for its shared memory, conversational enthusiasm, concrete
+invitation, useful learning purpose and specific character humour. Product
+copy can explain the practical benefit inside the invitation. Preserve the
+adult warmth and playfulness when editing for clarity. This is a positive
+reference, not a mandatory paragraph formula: each destination needs its own
+accurate promise, relevant memory and earned joke. Confirm advertised gameplay
+and learning outcomes against the current experience before publishing.
+
 This is the writing standard for LAiDIES.
 
 Canonical guide name: the SLAiYER Handbook.
