@@ -75,6 +75,56 @@ independent reporting routes, adopt the fixed inputs in that existing automation
 then prove a paired run. An evening schedule alone cannot fix a lagging website,
 missing source family, unheard episode or unresolved publication hold.
 
+### Research reuse and Ali-facing internal guidance — September 5 follow-up
+
+The existing Learning System freshness route is the right shared mechanism;
+do not create a competing research database. Its current claim register contains
+five claims and 25 consumer references, updated August 5; its signal inbox had
+only two entries, last updated July 30. Both files are byte-identical between
+the September 5 complete source worktree and the iCloud Website-homepage copy.
+This is not sufficient coverage of the newer books or September news research.
+
+The current `check-content-freshness.mjs --as-of 2026-09-05 --strict` run exited
+1 with `CONTENT FRESHNESS HOLD`: five registered claims, 25 consumers, one due
+claim, ten open consumer actions, one unmatched signal, 4,504 scanner candidates
+and three validation errors. All three errors are references to the absent
+legacy `content/library-books/rendered/concepts-101.html`. They establish stale
+registry references in that source tree, not three broken public URLs. Scanner
+candidates are text requiring review, not 4,504 proven false claims. This was a
+read-only baseline; no report was written into the source repository. The gate
+also uses matched material signals in its release-hold decision; unmatched
+signals are reported but do not themselves hold an otherwise clear evaluated
+set. Claim mapping remains necessary before claiming affected-content coverage.
+
+The September 3 loop material already has a relevant AI Fundamentals 101
+Chapter 15 treatment, including stopping conditions and budgets. Its smallest
+possible reuse is a better example or link, subject to exact comparison and
+current product guidance. New model releases instead trigger review of specific
+model/access/privacy/instruction claims; they do not automatically invalidate
+the foundations. Two OPEN review requests are now recorded in the existing
+freshness inbox for those distinct jobs. They retain unmatched status and
+receiving-owner actions. No canonical claim was accepted and no book or public
+derivative was edited or recertified. The full correction path must include
+rendered chapters, reference/search answers and affected lessons, practice and
+media, with one explicit disposition and verification per actual consumer.
+
+Internal research has three different statuses: bounded goals, caps and role
+separation already exist in LAiDIES' operating contract; complete source-item
+dispositions have been applied, with the new channel guard only local; and
+personal benchmarks for recurring LAiDIES tasks remain an untested proposal.
+The existing September 5 editorial intake now records those statuses and next
+actions explicitly. No comparative model test or new routing/framework change
+was performed in this follow-up.
+
+Automatic surfacing is not assured. The NewsStand heartbeat's actual
+notification policy is `failed_runs_only`; the Control Room twice-daily
+dispatcher is PAUSED. The inspected recent records contain internal hypotheses
+without a demonstrated receiving-owner delivery. The runbook now requires a
+compact impact brief covering site actions, internal changes, holds and any
+concrete Ali decision, while keeping unchanged cycles quiet. That is a specified
+delivery requirement, not a changed schedule, resumed dispatcher or verified
+notification. Do not reopen the whole Control Room merely to deliver this brief.
+
 ### 2. Reader understanding is partly checked as paperwork — certain
 
 The first published Astra piece passed review and subsequently needed a reader-fit correction for missing identity, range, task fit and comparison. The corrected live article includes those answers. That is evidence of a repaired article and an earlier evaluation miss, not evidence that all future stories now meet the reader promise.

@@ -42,6 +42,14 @@ captured there; 20:00 preparation plus 07:00 freshness/publication is proposed,
 not an active schedule change. The existing 07:00 heartbeat remains authoritative
 until explicitly updated and verified.
 
+Research reuse follows the existing shared
+`operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and
+signal inbox: changes to exact claims must reach every affected consumer.
+The NewsStand runbook now specifies the daily cross-site/internal disposition
+and Ali-facing impact brief. The September 5 audit records partial registration,
+open receiving-owner work and the unverified automatic notification boundary;
+it does not certify textbook currency or change the paused Control Room.
+
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:
 `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` (August 30 proving run).

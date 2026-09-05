@@ -241,6 +241,53 @@ AIDB's framing adds questions and context; its omission cannot veto a story.
 Unavailable reporting routes remain explicit coverage gaps. Do not treat the
 six desk labels or a provider-only sweep as completed independent coverage.
 
+### Research reuse: site freshness and internal practice
+
+Every completed research cycle must disposition material findings in three
+places: dated news, existing LAiDIES teaching/guidance, and internal practice.
+Use the same original-source evidence and claim boundaries; each destination
+has a different job and must inspect its exact existing treatment. Do not
+copy one article or tip into every surface or treat a new product release as
+proof that a durable concept needs rewriting.
+
+The existing cross-site route is
+`operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md`
+and its `freshness-signal-inbox.json`, not another research database. Register
+a material source change with the exact current claim IDs or an explicit
+unmatched review request, affected entities, source path, severity and receiving
+owner/next action. Learning System & Concepts maps and accepts the claim change;
+the affected owner decides `CORRECT`, `UPDATE`, `CURRENT_NOTE`, `LINK`,
+`NO_CHANGE` or `HOLD` at each actual location. A new example can be useful
+without changing the underlying explanation. Model names, access, prices,
+privacy and product instructions require their own dated review.
+
+Follow accepted changes through authored textbook chapters, rendered readers,
+reference/search answers and exact affected lessons, quizzes, activities or
+media. A chapter edit alone cannot close a correction while its old answer
+remains in Miss Jeeves or another derivative. Preserve historical publication
+dates and distinguish source checked, prose changed, rebuilt and publicly
+verified. Record the reason when a consumer needs no change. A signal or owner
+handoff is not delivery; incomplete claim registration is an explicit coverage
+gap. Do not infer whole-site currency from the registered subset.
+
+Internal guidance receives one of `ALREADY_APPLIED`, `TEST`, `ADOPT`, `WATCH`,
+`DECLINE` or `NEEDS_ALI_DECISION`, with evidence and a named next action in the
+existing editorial intake. Test changes to model/workflow choice on a real
+bounded task before adopting a claimed productivity benefit. Carry forward
+successful changes into the actual operating instructions/tools and verify the
+result; a saved recommendation does not change behavior.
+
+Surface a concise research-impact brief in the existing task: what was learned,
+what site guidance needs attention, what changed internally, what remains held,
+and any one concrete Ali decision. State the recommendation, likely benefit,
+cost/risk and exact choice in the message; do not ask Ali to discover it in a
+log. Routine authorized fixes need no new approval. Consequential changes keep
+their existing authority boundaries. Unchanged runs stay quiet. Automatic
+delivery must be verified separately: at the September 5 audit the NewsStand
+heartbeat's notifications are `failed_runs_only` and the Control Room dispatcher
+is PAUSED. Neither a runbook instruction nor a new inbox entry alters those
+settings. Do not silently resume the broader dispatcher to deliver this brief.
+
 ### Proposed evening preparation and morning freshness check
 
 Ali proposed preparing the next day's paper at the end of the preceding day so
