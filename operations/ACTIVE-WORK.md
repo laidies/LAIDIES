@@ -1169,3 +1169,11 @@ objective; every open lane keeps its own checkpoint.
 - **Persistence correction:** `laidies_luminaries_v1` stores timestamped SAiNT/MAiVEN/TRAiLBLAZER choices, preserves immediate signed-out local use and joins the admitted private Resident continuation for signed-in cross-device restoration. Public-card mode hides this private section.
 - **Verification:** the calibrated negative fixture rejects an invalid account-backed profile identity. The positive browser suite restores an existing account pick into the LUMINAiRY, writes a new pick with remote read-after-write verification, opens a clean second browser and restores both picks into My Closet. Existing 13/23/7, resource, audio, search, keyboard and 1440/900/390/320 checks remain green.
 - **Release boundary:** no real account was mutated, and no push or deployment occurred. Live account verification remains a release check after authorization.
+
+### 2026-09-05 LUMINAiRY card/profile ownership handoff
+
+- **Current state:** `DECIDED / HANDOFF COMMITTED / CARD REDESIGN NOT STARTED IN THIS TASK`.
+- **Single owner:** **Complete patron profiles** (`01a0308b-140d-7263-aebd-00aa52264775`) owns the archive-card and complete-profile implementation.
+- **Locked result:** card fronts show only approved image, canonical role line and name; clicking the card opens the complete profile, which owns all depth and the choose/save action.
+- **Integration base:** preserve commits `75e0f600e8ebb8dd1d6aa2bb48d616fce7abf8ef` and `a053c233ddfdc30357a2539948ea31330d330b57`; exact handoff is `operations/product-stewards/luminairy/card-profile-single-owner-handoff-2026-09-05.md`.
+- **Write/release boundary:** this task has stopped card/profile edits. The Codex task-message service was unavailable during handoff, so delivery into the owner chat remains unconfirmed. No push or deployment occurred.

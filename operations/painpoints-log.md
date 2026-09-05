@@ -14629,3 +14629,14 @@ HTML and local custom properties.
 - **Durable correction:** A private versioned Luminaries envelope with per-choice timestamps joins Resident continuation; invalid identities are rejected by the calibrated browser gate; a second clean browser restores the choices into both LUMINAiRY and My Closet. The panel now explains the working-habit, perspective and present-day-example payoff.
 - **Possible Behind the Build angle:** It showed up in the Closet—but it was not actually in the account. The difference between a screen that remembers and a product that restores.
 - **Publication status:** BUILT AND VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED.
+
+## BTB-491 — Two chats cannot co-own one visitor-facing card system
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY / task coordination.
+- **Failure:** The Matron/page lane and the complete-profile lane both reached the same archive-card files from different work histories. Ali had to stop a second card discussion to prevent the same work being redesigned twice.
+- **Root cause:** The earlier reconciliation protected released profile data but did not assign a single task owner for the next shared card/profile implementation.
+- **Prevention rule:** Before changing a visitor-facing component already named by another active task, assign one owner, commit every prerequisite lane, give the owner exact commits and paths, and make every other task read-only for those paths.
+- **Durable correction:** **Complete patron profiles** is the sole card/profile implementation owner. This task committed the exact card-front decision, visual reference, integration commits and write boundary in `operations/product-stewards/luminairy/card-profile-single-owner-handoff-2026-09-05.md`.
+- **Possible Behind the Build angle:** Parallel work is only faster when the seam is explicit: one card system, one writer, two preserved prerequisite commits.
+- **Publication status:** INTERNAL COORDINATION / NO VISITOR CHANGE.
