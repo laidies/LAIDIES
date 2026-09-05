@@ -14869,7 +14869,9 @@ while remaining falsely unfinished in the launch record.
 - **Evidence boundary:** original false-success behavior failed the new regression
   check before repair. Focused service/retrieval and 24 backend checks pass;
   mocked-service browser journeys pass at 390px and 1280px. Implementations are
-  committed at f3e064d7 and 8f56d4ba, but not deployed or verified with real Sol.
+  committed and pushed at f3e064d7 and 8f56d4ba, but not deployed or verified with
+  real Sol. The browser control test rejects the original worker for making one
+  research call during free search (expected zero); the candidate passes.
 - **Prevention:** verify the actual production binding and returned model; never
   infer service health from catalogue availability. Keep display summaries apart
   from complete evidence. Test omissions, oversized passages, clarification

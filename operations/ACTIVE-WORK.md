@@ -12,7 +12,10 @@
 > guidance/budget/ledger tests pass. The 390px/1280px browser journey now passes
 > free-search, explicit research consent, full source conditions, clarification
 > identity and editorial consent checks with a mocked Sol service. This does not
-> verify actual Sol answer quality, cost, subjective visuals or public behavior. Original false-success fallback was rejected
+> verify actual Sol answer quality, cost, subjective visuals or public behavior.
+> Browser calibration rejects the original worker: free search made 1 paid-service
+> call, expected 0. The repaired worker passes both viewports.
+> Original false-success fallback was rejected
 > by the new regression check before the fix. Independent review identified the
 > oversized-source and clarification-receipt gaps; both have local corrections.
 > Remaining: measured Sol research costs, verify the billing
@@ -24,11 +27,14 @@
 > Ali has identified the funding account. The previously open session showed a
 > separate Personal / Default project with zero credit; the correct account and
 > Miss Jeeves project are not yet verified. No provider cap is inferred from that
-> observation. Research remains disabled
+> observation. Sign-in is pending Ali: available browser controls did not advance
+> OpenAI Platform login, and one concise sign-in request was sent. No password or
+> verification code was requested in chat. Research remains disabled
 > in the backend candidate until provider-limit verification. A $3 reservation is
 > an estimate, not proof of a maximum provider bill. Do not label the cap enforced.
 > Pages implementation committed as f3e064d7; backend guard committed as 8f56d4ba.
-> Neither implementation has been pushed or deployed at this checkpoint.
+> Both implementation branches are now pushed. Browser/checkpoint commit ac755c60
+> is also pushed; no production deployment has been made.
 > Pages lane: /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905.
 > Backend lane: /Users/alisoneakin/Projects/laidies-jeeves-sol-backend-20260905.
 > Next: resolve billing identity/cost measurement while retaining the free-search
