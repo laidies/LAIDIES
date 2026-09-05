@@ -3,18 +3,27 @@
 ## The VHS artwork, not the clamshell, is the Watch pre-play poster — 2026-09-04
 
 The selected tape keeps one artwork identity from the Chick Flicks shelf through
-the rental-counter modal, Listen and the idle Watch player, but the object adapts
-to its context. The physical shelf and Listen show the full portrait clamshell.
-Watch shows the exact widescreen title-card art from which that sleeve was made:
-Episodes 01–03 use their `*-title-card-comic-v2.png` sources and Episode 04 uses
-Ali's selected `ep04-title-card-comic-v3-laidies-colour.png`. Placing a portrait
-clamshell inside the 16:9 screen is rejected.
+the rental-counter modal, Listen and Watch, but the object adapts to its context.
+The physical store shelf and arrival show the full portrait clamshell. Both
+Listen and Watch players show the exact widescreen title-card art from which that
+sleeve was made: Episodes 01–03 use their `*-title-card-comic-v2.png` sources and
+Episode 04 uses Ali's selected `ep04-title-card-comic-v3-laidies-colour.png`.
+Placing a portrait clamshell inside either 16:9 player is rejected.
 Ali approved this rendered widescreen Watch treatment on 2026-09-04.
 
 This is a packaging-continuity decision, not a media-source change. The admitted
 poster remains source-integrity evidence, Media Session artwork and a fallback
 input when no episode cover exists. Film URL, captions, playback, resume,
 post-play state and Watch/Listen navigation remain unchanged.
+
+## Listen transport and caption spacing remain readable — 2026-09-04
+
+The labelled `Play audio` transport may not inherit the old 52px circular icon
+button width. It uses content width, a 52px minimum height, a one-line label and
+the current yellow/pink/mint control treatment. The announcer/caption surface
+requires horizontal inner padding in both its desktop two-column and phone
+one-column arrangements; labels or narration may not sit against a panel edge.
+Ali directly rejected the collapsed button and edge-hugging caption treatment.
 
 ## Watch uses a bright LAiDIES shell around one dark film window — 2026-09-04
 

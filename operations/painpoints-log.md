@@ -9,16 +9,19 @@ not automatically publishable.
 
 ## 2026-09-04 The selected tape lost its identity at Play
 
-The Chick Flicks shelf, rental-counter modal and Listen player showed each
-approved episode VHS, but Watch reverted to a generic Opening Day card. The
-first correction then put the entire portrait clamshell inside the widescreen
-player, preserving identity too literally and leaving large black side spaces.
-Watch now uses the exact 16:9 title-card art from which each sleeve was adapted;
-the shelf and Listen keep the physical case. Prevention rule: preserve one
-artwork identity across a journey while adapting the object to its job, and
-separate packaging art, visible pre-play art and media-admission evidence in the
-asset contract. Possible Behind the Build angle: consistency does not mean
-putting the same-shaped object into every-shaped space.
+The Chick Flicks shelf and rental-counter modal showed each approved episode
+VHS, but the players either reverted to a generic Opening Day card or placed the
+entire portrait clamshell inside a widescreen frame, leaving large black side
+spaces. Listen also exposed a second responsive defect: its text-labelled audio
+action inherited an icon-only 52px circle, while the filled announcer surface
+inherited zero horizontal padding. Listen and Watch now use the exact 16:9
+title-card art from which each sleeve was adapted; the shelf and rental counter
+keep the physical case. Prevention rule: preserve one artwork identity across a
+journey while adapting the object to its job; when a component gains text or a
+filled background, revalidate its intrinsic width, target size, wrapping and
+inner spacing. Separate packaging art, visible pre-play art and media-admission
+evidence in the asset contract. Possible Behind the Build angle: consistency
+does not mean putting the same-shaped object into every-shaped space.
 
 ## 2026-09-04 Watch page became a black media app
 

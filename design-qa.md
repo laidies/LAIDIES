@@ -1,5 +1,55 @@
 # Design QA — room-first building rebuilds
 
+## Screening Room Listen player layout correction — 2026-09-04
+
+**Source visual truth**
+
+- Ali's rejected Listen-player screenshot:
+  `operations/design-audit/chick-flicks-listen-player-layout-20260904/before.png`
+  (2148 × 1612 pixels).
+- Same-state comparison:
+  `operations/design-audit/chick-flicks-listen-player-layout-20260904/comparison.png`.
+
+**Rendered implementation**
+
+- Corrected in-app-browser state:
+  `operations/design-audit/chick-flicks-listen-player-layout-20260904/after-desktop.png`
+  (1074 × 917 pixels).
+- State: Episode 04, default Listen mode, paused at 0:00 with saved local
+  playback history present.
+
+**Findings and fidelity surfaces**
+
+1. **P1 fixed — the portrait clamshell remained inside the player.** Listen now
+   uses the exact widescreen art from which the approved VHS sleeve was adapted.
+   Physical clamshells remain in the rental-store shelf and arrival context.
+2. **P1 fixed — `Play audio` collapsed into a 52px circle.** A legacy transport
+   dimension survived while the new text label was added. The current control
+   has content width, a 52px minimum height, one-line text and the existing
+   yellow/pink/mint interaction treatment.
+3. **P2 fixed — the announcer label and caption hugged the mint panel edges.**
+   The caption surface now has 1.4rem horizontal padding while retaining its
+   desktop two-column and narrow one-column reading order.
+4. **Typography, colours and assets:** no new font, colour or image was created.
+   The correction uses the existing dark-ink Jost control, shared LAiDIES
+   palette and exact Episode 04 widescreen title-card bytes.
+5. **Function and content:** Play audio changed to Pause audio on a real browser
+   click. Narration, seek rail, captions, resume controls, Watch mode, routes and
+   all written copy are unchanged.
+
+**Functional evidence**
+
+- The in-app browser shows the widescreen artwork filling the player, a readable
+  Play audio control and comfortable caption padding with no application errors.
+- The scoped format-shell guard rejects replacement of the screen-art mapping;
+  the normal format-shell and 12-point Chick Flicks contracts pass.
+- Phone-specific rules explicitly reset the old 62%-wide portrait treatment;
+  the optional separate-browser suite was not run because Ali's in-app browser
+  is the selected browser.
+- Local verification only; no deployment or public-origin claim.
+
+final result: passed
+
 ## Screening Room widescreen VHS artwork — 2026-09-04
 
 **Source visual truth**
@@ -23,7 +73,7 @@
 1. **P1 fixed — the first correction used the portrait clamshell itself.** That
    produced unnecessary black side space and confused packaging with screen
    artwork. Watch now uses the exact 16:9 art that each approved VHS sleeve was
-   adapted from; the physical shelf and Listen keep the portrait clamshell.
+   adapted from; the physical shelf keeps the portrait clamshell.
 2. **Typography and copy:** no interface wording or type treatment changed; the
    episode name is carried by the existing approved cover artwork.
 3. **Spacing/layout rhythm:** the 16:9 artwork fills the existing 16:9 film

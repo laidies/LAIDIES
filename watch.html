@@ -209,7 +209,7 @@
   </style>
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
   <link rel="stylesheet" href="/content/site/laidies-visual-system.css?v=20260904-1">
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-5">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-6">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -295,7 +295,7 @@
         </div>
 
         <div class="theatre" id="theatre">
-          <img class="player-fallback-cover" id="playerFallbackCover" src="/assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-01.png" alt="" hidden>
+          <img class="player-fallback-cover" id="playerFallbackCover" src="/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png" alt="" hidden>
           <button class="big-play" id="bigPlay" type="button" aria-label="Start episode">▶</button>
           <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
           <div class="vhs-scan"></div>
@@ -434,7 +434,7 @@
         ? '/issues/issue-trailer.html'
         : '/issues/issue-' + key + '.html';
       if (screeningCover) screeningCover.src = EPISODE_COVERS[key] || EPISODE_COVERS['01'];
-      if (playerFallbackCover) playerFallbackCover.src = EPISODE_COVERS[key] || EPISODE_COVERS['01'];
+      if (playerFallbackCover) playerFallbackCover.src = EPISODE_SCREEN_COVERS[key] || EPISODE_SCREEN_COVERS['01'];
       if (screeningCoverSticker) screeningCoverSticker.textContent = requestedFormat === 'watch' ? 'Now screening' : 'Now playing';
       if (screeningHouseStatus) screeningHouseStatus.textContent = requestedFormat === 'watch' ? 'Watch edition' : 'Listen edition';
       if (screeningStageLabel) screeningStageLabel.textContent = requestedFormat === 'watch' ? 'Now screening' : 'Now listening';
@@ -813,7 +813,7 @@
       var deck = document.querySelector('.deck');
       var listenCover = document.createElement('img');
       listenCover.className = 'listen-only-cover';
-      listenCover.src = EPISODE_COVERS[episodeKey(ep)] || admission.posterPublicUrl;
+      listenCover.src = EPISODE_SCREEN_COVERS[episodeKey(ep)] || admission.posterPublicUrl;
       listenCover.alt = '';
       listenCover.hidden = true;
       var listenLabel = document.createElement('p');

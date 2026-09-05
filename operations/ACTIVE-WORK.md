@@ -131,13 +131,21 @@ local-only and undeployed.
 The Watch player's idle image now preserves the same artwork identity as the
 store without putting a portrait clamshell inside a widescreen television.
 Episodes 01–04 each use the exact 16:9 title-card art from which their approved
-VHS sleeve was adapted; the shelf and Listen still use the physical portrait
-case. This changes only the native video poster. Film source, captions, resume
+VHS sleeve was adapted; the shelf and arrival still use the physical portrait
+case. Both Listen and Watch players use the widescreen art. This changes only
+the visible idle image. Film source, captions, resume
 state, Media Session artwork, Watch/Listen navigation and post-play behavior are
 unchanged. All four exact mappings were rendered in the in-app browser at
 desktop width; the scoped guard rejects both the generic Opening Day poster and
 the portrait-clamshell predecessor. Ali approved the rendered treatment on
 2026-09-04. This remains local-only and undeployed.
+Ali's next browser screenshot exposed two independent Listen layout defects: the
+new `Play audio` label was trapped inside the legacy 52px circular icon button,
+and the announcer/caption text sat against the mint panel edge. The button now
+uses content width, a 52px minimum height and a one-line label; the caption has
+1.4rem horizontal padding. A real in-app-browser click changed Play audio to
+Pause audio, and the repaired state shows no application errors. This remains
+local-only and undeployed.
 The repository commit hook still stops on 45 pre-existing missing Episode 03
 comic assets, four cue-duration warnings and the unrelated extensionless
 `/radio` target in `laidies-card.html`; none of those paths changed here. The
@@ -158,7 +166,8 @@ Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-audit/screening-return-contrast-20260904/` and
 `operations/design-audit/chick-flicks-watch-current-site-20260904/` and
 `operations/design-audit/chick-flicks-watch-vhs-posters-20260904/` and
-`operations/design-audit/chick-flicks-watch-wide-vhs-posters-20260904/`.
+`operations/design-audit/chick-flicks-watch-wide-vhs-posters-20260904/` and
+`operations/design-audit/chick-flicks-listen-player-layout-20260904/`.
 Nothing has been deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

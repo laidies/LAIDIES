@@ -1055,7 +1055,12 @@ body[data-format="listen"] .theatre {
 
 body[data-format="listen"] .listen-only-cover,
 body[data-format="listen"] .player-fallback-cover {
-  filter: drop-shadow(12px 16px 0 var(--screen-cyan)) drop-shadow(11px 11px 0 var(--screen-ink));
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
 }
 
 body[data-format="listen"] .listen-only-label {
@@ -1070,6 +1075,15 @@ body.screening-room-page[data-format="listen"] .deck-play {
   color: var(--screen-ink);
   background: var(--screen-yellow);
   box-shadow: 6px 6px 0 var(--screen-pink);
+}
+
+body.screening-room-page[data-format="listen"] .deck-play {
+  width: auto;
+  min-height: 52px;
+  padding: 0 1rem;
+  gap: .5rem;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 body[data-format="listen"] .big-play:hover,
@@ -1087,6 +1101,10 @@ body.screening-room-page[data-format="listen"] .player-status {
   color: var(--screen-ink);
   background: var(--screen-mint);
   box-shadow: 6px 6px 0 var(--screen-pink);
+}
+
+body.screening-room-page[data-format="listen"] .cap-bar {
+  padding: 1.1rem 1.4rem 1.3rem;
 }
 
 body.screening-room-page[data-format="listen"] .resume-panel {

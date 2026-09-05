@@ -62,7 +62,8 @@ assert.match(watch, /video\._captionBar\.hidden = !video\._captionBar\.querySele
 assert.match(watch, /EPISODE_COVERS\s*=\s*\{/);
 assert.match(watch, /EPISODE_SCREEN_COVERS\s*=\s*\{/);
 assert.match(watch, /v\.poster = EPISODE_SCREEN_COVERS\[episodeKey\(ep\)\] \|\| poster/);
-assert.match(watch, /listenCover\.src = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| admission\.posterPublicUrl/);
+assert.match(watch, /playerFallbackCover\.src = EPISODE_SCREEN_COVERS\[key\] \|\| EPISODE_SCREEN_COVERS\['01'\]/);
+assert.match(watch, /listenCover\.src = EPISODE_SCREEN_COVERS\[episodeKey\(ep\)\] \|\| admission\.posterPublicUrl/);
 for (const episode of ['01', '02', '03', '04']) {
   assert.match(watch, new RegExp(`episode-vhs-boxes-v2/ep-${episode}\\.png`));
   const issue = read(`issues/issue-${episode}.html`);
@@ -86,6 +87,9 @@ assert.match(watchCss, /body\[data-format="watch"\]/);
 assert.match(watch, /laidies-visual-system\.css\?v=/);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\]\s*\{[^}]*--screen-ink:\s*var\(--laidies-ink\)[^}]*--screen-pink:\s*var\(--laidies-pink\)[^}]*--screen-cyan:\s*var\(--laidies-cyan\)[^}]*--screen-yellow:\s*var\(--laidies-yellow\)/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-arrival\s*\{[^}]*background-image:\s*var\(--laidies-bg-comic-masthead\)/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.deck-play\s*\{[^}]*width:\s*auto[^}]*white-space:\s*nowrap/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.cap-bar\s*\{[^}]*padding:\s*1\.1rem 1\.4rem 1\.3rem/s);
+assert.match(watchCss, /body\[data-format="listen"\] \.listen-only-cover,[^{]*\{[^}]*max-width:\s*none[^}]*height:\s*100%/s);
 assert.match(visualSystemCss, /--laidies-comic-texture:\s*url\('\/assets\/library\/episode-01-pop-comic-bg-v1\.png'\)/);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
