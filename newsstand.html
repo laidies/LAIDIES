@@ -76,10 +76,44 @@
             </div>
           </header>
           <section class="ns-town-strip" aria-label="SUNNYVAiLE weather and traffic — town humour">
-            <p><b>Weather</b> Sunny with scattered pop-ups.</p>
-            <p><b>Traffic</b> Information Superhighway delays. Someone picked up the landline.</p>
+            <p><b>Weather</b> <span id="ns-town-weather">Sunny with scattered pop-ups.</span></p>
+            <p><b>Traffic</b> <span id="ns-town-traffic">Information Superhighway delays. Someone picked up the landline.</span></p>
             <time id="ns-town-date"></time>
           </section>
+          <script>
+            (function () {
+              var weather = [
+                "Sunny with scattered pop-ups.",
+                "Cloudy with a chance of cached answers.",
+                "Clear skies after the morning refresh.",
+                "High pressure in the group chat.",
+                "Patchy prompts clearing by lunch.",
+                "Bright with occasional loading clouds.",
+                "Breezy with tabs open everywhere."
+              ];
+              var traffic = [
+                "Information Superhighway delays. Someone picked up the landline.",
+                "Heavy tab traffic near the browser bookmarks.",
+                "Clear through the Cloud; expect one password reset.",
+                "Slow at the context-window merge.",
+                "A queue is forming behind one very large attachment.",
+                "Smooth sailing after the software update.",
+                "Minor delays where two meetings became one email."
+              ];
+              var today = new Date();
+              var dayKey = Math.floor(new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime() / 86400000);
+              document.getElementById("ns-town-weather").textContent = weather[dayKey % weather.length];
+              document.getElementById("ns-town-traffic").textContent = traffic[(dayKey * 3) % traffic.length];
+              var dateNode = document.getElementById("ns-town-date");
+              dateNode.dateTime = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
+              dateNode.textContent = today.toLocaleDateString("en-CA", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+              });
+            })();
+          </script>
           <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE NewsStand front page">
             <header class="ns-one-paper__masthead">
               <div class="ns-masthead-flag">
