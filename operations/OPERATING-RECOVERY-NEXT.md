@@ -77,6 +77,13 @@ approved examples; a phrase checker or valid receipt is not a humour verdict.
 
 ## Next exact action
 
+**Current, September 5:** finish the bounded founder decision package on
+`ops/founder-decision-pilot-20260905`. The older integrations below are complete;
+do not repeat them. Ali has been asked which email should identify the authorised
+founder account; no answer is recorded. This is separate from the successful
+Supabase administrator connection. Do not guess the account or provision access
+from a self-editable profile. See the implementation checkpoint at the end.
+
 First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
 main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub
 checks passed; this is internal integration, not public deployment.
@@ -263,3 +270,50 @@ CI follow-up: the first Linux run printed runtime PASS but hung after assertions
 until canceled. The test now tears down its owned process group, verifies it is
 gone and has a hard 90-second deadline. Superseded CI runs were canceled to stop
 wasted execution; only current-head full CI may establish integration readiness.
+
+### Private founder decision package — prepared September 5
+
+The isolated branch adds `supabase/migrations/20260905020000_operating_decisions_v1.sql`
+and `worker-operating-pilot/src/founder-contract.mjs` / `founder-workflow.js`.
+Four RLS-protected tables hold the explicit approver mapping, immutable request,
+immutable founder response and idempotent resumption. No founder is seeded.
+Authenticated founder RPCs use `auth.uid()` and the protected mapping. Review
+requests bind exact artifact and review hashes, question, recommendation and
+separate consequences for ACKNOWLEDGE/HOLD. Neither action publishes or spends.
+Revoked approvers and decisions made after expiry cannot resume a job.
+
+The separate `FounderDecisionPilot` uses the project's public key and one random
+256-bit per-request capability, stored only as a hash in the database. This is
+a bounded RPC grant for one job, not an administrator key or access to visitor
+data. The raw capability belongs only in private Workflow input; never put it
+in repository files, public issues, logs, step outputs or review-page content.
+Responses are limited to 16 KiB, request timeout to 10 seconds, and retry count
+to two. The workflow rechecks the canonical saved decision after a wake hint or
+30-minute fallback wait, at most 49 checks / 48 waits. A wake hint grants nothing.
+Transport failure remains an error; exhausted waiting is HOLD_WAIT_LIMIT.
+Decision and resumption records persist in Supabase; no-decision terminal
+workflow states still have Cloudflare's limited retention. This remains a pilot.
+
+Local verification: pure contract negatives; real PGlite SQL/RLS/functions with
+synthetic auth identities; PGlite-backed workflow ACK/HOLD and exact durable
+resumption; expiry/revocation denial; existing Wrangler runtime regressions and
+new Founder Workflow malformed-input rejection; deployment dry run. The SQL
+test initially exposed a missing-field NULL bypass, which was repaired and
+retested. An expiry regression proves transaction-start time cannot extend an
+expired request. PGlite does not prove real Supabase JWT issuance or REST access.
+
+Run `node worker-operating-pilot/test-founder.mjs` and
+`PGLITE_MODULE_PATH=/path/to/@electric-sql/pglite/dist/index.js node worker-operating-pilot/test-database.mjs`.
+CI installs isolated PGlite 0.3.16; existing runtime tests retain process cleanup.
+
+Activation remains open: confirm Ali's chosen existing site account, inspect
+its exact authenticated subject, apply only this reviewed additive migration
+(never the checkout's whole migration backlog), bind the explicit approver,
+configure only a public key, and deploy the private Workflow. Then connect the
+authenticated phone review surface and observe real decision/resumption. Reuse
+Resident sign-in; do not create a competing identity system. Existing migration
+history has version/statements/name/created_by/idempotency_key/rollback columns;
+record the exact applied version through the migration mechanism when applying.
+No live schema/data/auth configuration, founder grant, public route, website,
+dispatcher or hosted Founder Workflow changed during this preparation. Check the
+branch's current PR/head CI/merge state before calling this integrated.

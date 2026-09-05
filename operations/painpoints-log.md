@@ -83,3 +83,17 @@ live Supabase exposed 24 public tables, including continuation and feedback.
 Inspect live structure before designing a replacement; RLS enabled is not a
 tested privacy verdict. Behind the Build angle: why an old setup recipe can miss
 working features, and why website sign-in differs from a saved tool connection.
+
+## Founder decision validation — 2026-09-05
+
+An initial database review validator accepted a missing required field because
+SQL comparison with NULL is not true or false. A deliberately incomplete
+request reproduced the bypass before repair. Use explicit NULL-safe type/value
+checks, strict required review fields and action-specific consequences. Test
+under the real database roles, not only a JavaScript imitation of the SQL.
+Expiry must use wall-clock time after acquiring the request lock, not the
+transaction start timestamp. Tests now also run the workflow against actual
+local database functions, proving exact decision-to-resumption matching and
+denial for expired/revoked requests. Local auth claims are fixtures, not proof
+of Ali's live identity. Behind the Build angle: why an incomplete approval form
+can accidentally pass a check, and how a deliberately bad example finds it.
