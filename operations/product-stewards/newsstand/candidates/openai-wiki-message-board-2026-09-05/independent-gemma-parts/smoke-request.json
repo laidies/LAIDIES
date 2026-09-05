@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return only the requested final JSON object. Do not emit analysis, reasoning, markdown, or extra keys."
+    },
+    {
+      "role": "user",
+      "content": "Return exactly this JSON object: {\"status\":\"READY\",\"thinkingDisabled\":true}"
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 120,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

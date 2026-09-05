@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "laidies-newsstand-bounded-gemma-review-status.v1",
+  "candidateId": "openai-wiki-message-board-2026-09-05",
+  "articleChanged": false,
+  "articleReviewTextSha256": "732de028113252a415082b952f1667884c72503eebc192ffb6f8b50dfbaed018",
+  "provider": {
+    "endpoint": "http://127.0.0.1:8791/gemma",
+    "requestedModel": "@cf/google/gemma-4-26b-a4b-it",
+    "modelFamily": "google-gemma",
+    "thinkingControl": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "officialCloudflareDocumentation": "https://developers.cloudflare.com/workers-ai/get-started/workers-wrangler/",
+      "officialGoogleDocumentation": "https://ai.google.dev/gemma/docs/capabilities/thinking"
+    }
+  },
+  "smoke": {
+    "status": "PASS",
+    "providerId": "3ab9306a3ead4cf084931eac3b238475",
+    "providerModel": "@cf/google/gemma-4-26b-a4b-it-external",
+    "finishReason": "stop",
+    "reasoning": null,
+    "totalTokens": 66
+  },
+  "substantiveCalls": [
+    {
+      "name": "01-factual-policy",
+      "providerId": "chatcmpl-1e9cfac5-75de-489c-9fae-527a55ebe083",
+      "providerModel": "@cf/google/gemma-4-26b-a4b-it",
+      "finishReason": "stop",
+      "reasoning": null,
+      "totalTokens": 10046,
+      "modelVerdict": "PASS",
+      "concreteDefects": 0
+    },
+    {
+      "name": "02-outcomes",
+      "providerId": "8c05151e66044e6b9d4ac9a53c97826c",
+      "providerModel": "@cf/google/gemma-4-26b-a4b-it-external",
+      "finishReason": "stop",
+      "reasoning": null,
+      "totalTokens": 3939,
+      "modelVerdict": "PASS",
+      "concreteDefects": 0
+    },
+    {
+      "name": "03-failures-calibration",
+      "providerId": "996a9e10a8504b16899b62a1f02ca7b1",
+      "providerModel": "@cf/google/gemma-4-26b-a4b-it-external",
+      "finishReason": "stop",
+      "reasoning": null,
+      "totalTokens": 14535,
+      "modelVerdict": "PASS",
+      "concreteDefects": 0
+    }
+  ],
+  "substantiveProviderTokens": 28520,
+  "modelJudgment": {
+    "verdict": "PASS",
+    "factualClaims": "PASS; the model marked each attribution supported. Preserve the existing claim map's QUALIFIED statuses because this review does not independently authenticate the incident.",
+    "ordinaryNewsChecks": "PASS",
+    "requiredNewsOutcomes": "PASS",
+    "failureFamilies": "All 24 marked absent",
+    "calibration": "Both registered negatives rejected for every required family; registered NEWS positive recognized structurally",
+    "concreteDefects": []
+  },
+  "admissionStatus": "HOLD_REVIEW_OUTPUT_INCOMPLETE",
+  "remainingValidationRequirements": [
+    "Thirteen outcome objects omit candidateQuote and therefore lack the exact prose evidence required by the checker.",
+    "The unseenTransfer AI response describes the supplier example already present in the article instead of applying the mechanism to a genuinely unseen case.",
+    "The model did not explicitly attest independentFromMaker, artifactFirst, or reviewMode EXACT_PROSE_IN_FULL.",
+    "The model did not supply a learningDisposition and rationale.",
+    "Two factual-policy quotes and three failure-family quotes omit embedded strong HTML tags. Root may mechanically bind their unambiguous exact source spans while preserving the raw wording.",
+    "No complete independent receipt or prose review-chain check exists."
+  ],
+  "manualSemanticCompletion": false,
+  "callCap": {
+    "smokeCalls": 1,
+    "substantiveCalls": 3,
+    "additionalCallsMade": false
+  }
+}

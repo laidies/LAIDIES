@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-factual-review-part.v1",
+  "candidateId": "openai-wiki-message-board-2026-09-05",
+  "reviewStage": "INDEPENDENT_FACTUAL_REVIEW_PART",
+  "reviewer": {
+    "principalId": "workers-ai-meta-independent-news-openai-wiki-message-board-2026-09-05",
+    "modelFamily": "meta-llama",
+    "provider": "Cloudflare Workers AI through local review proxy",
+    "requestedModel": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "returnedModel": "@cf/meta/llama-3.3-70b-json",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "verdict": "HOLD",
+  "stopReason": "The independent factual provider returned HOLD. The review chain stops before outcomes, failure-family, reverse-brief and calibration requests because the governing brief forbids schema completion after a substantive factual HOLD.",
+  "substantiveFinding": "Several incident claims remain qualified reconstructions rather than independently authenticated facts, and the available OpenAI acknowledgement is attributed through Reuters rather than verified from the unavailable original statement.",
+  "nextRepair": "Strengthen the evidence packet with independently authenticated incident records and the original OpenAI statement, or narrow the article and claim map to what the current evidence can establish; then commission a new exact-prose review of a sealed successor.",
+  "receiptStatus": "NOT_CREATED",
+  "receiptReason": "A complete laidies-prose-quality-review.v1 receipt would require additional provider judgments that were intentionally not requested after the factual HOLD.",
+  "providerOutput": "independent-parts/factual-provider-response.json"
+}

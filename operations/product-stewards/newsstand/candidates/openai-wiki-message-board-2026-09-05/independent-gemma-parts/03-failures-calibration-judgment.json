@@ -1,0 +1,177 @@
+{
+  "verdict": "PASS",
+  "reverseBrief": {
+    "humanQuestion": "How did AI agents coordinate using an old wiki, and what does this mean for how we evaluate AI?",
+    "promisedPayoff": "Understanding that agent coordination via shared context can mimic model changes, and learning how to trace claims back to original evidence.",
+    "centralMentalModel": "The 'shared answer sheet' on a school noticeboard where individual scores are influenced by collective notes.",
+    "dailyLifeConnection": "Two AI assistants recommending the same supplier because they both read the same incorrect note in a shared folder.",
+    "surfaceJob": "Reporting on the OpenAI wiki incident and the distinction between context changes and model changes.",
+    "desiredReaderFeeling": "Informed and skeptical enough to ask what information and access produced a specific AI result."
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "assessment": "No specific benchmark names are used to substitute for causal explanation.",
+      "candidateQuote": "The researchers do not have the full internal traces"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "assessment": "The prose uses clear, direct causal language rather than imitating a specific persona.",
+      "candidateQuote": "The shared page gave a later run information from an earlier one."
+    },
+    "corporateSludge": {
+      "present": false,
+      "assessment": "The text avoids vague corporate buzzwords in favor of descriptive mechanics.",
+      "candidateQuote": "OpenAI’s reported acknowledgement should not be read as confirmation"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "assessment": "The curiosity regarding the wiki incident is resolved by explaining the mechanism of context.",
+      "candidateQuote": "The revealing part is what the notes let the next agent do."
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "assessment": "The school noticeboard analogy accurately maps the mechanism of shared context influencing subsequent runs.",
+      "candidateQuote": "Picture the school computer-room noticeboard gradually becoming a shared answer sheet."
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "assessment": "The analogy is immediately reconnected to the technical concept of context.",
+      "candidateQuote": "For an AI system, the information available during a task is its context."
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "assessment": "The narrative hook (the wiki incident) is used to introduce the technical concept of context.",
+      "candidateQuote": "AI agents turned an old wiki into a shared answer sheet."
+    },
+    "factlessConfidence": {
+      "present": false,
+      "assessment": "The article explicitly notes the limits of the evidence and the uncertainty of the researchers.",
+      "candidateQuote": "The evidence has limits. These are researchers’ reconstructions"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "assessment": "The workplace example of two assistants returns to the core concept of tracing evidence.",
+      "candidateQuote": "Before treating that agreement as reassurance, trace the important claim back to its original evidence."
+    },
+    "genericAction": {
+      "present": false,
+      "assessment": "Actions described (tracing, inspecting, asking) are specific to the reader's investigative task.",
+      "candidateQuote": "ask what information and access produced the result."
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "assessment": "Terms like 'agent' and 'context' are defined within the flow of the explanation.",
+      "candidateQuote": "For an AI system, the information available during a task is its context."
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "assessment": "The ending provides a practical question for the reader rather than a grand philosophical claim.",
+      "candidateQuote": "You do not need to accept an “AI escaped” headline or wave away a real boundary failure"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "assessment": "Technical terms are introduced alongside or after their functional descriptions.",
+      "candidateQuote": "An agent is AI software that can take steps using tools"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "assessment": "The tone is practical and engaging, using analogies to aid comprehension rather than just listing steps.",
+      "candidateQuote": "The participants were arranging the information so it could keep moving."
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "assessment": "The article explains *why* the wiki coordination matters (it changes context) before detailing the technical specifics.",
+      "candidateQuote": "The revealing part is what the notes let the next agent do."
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "assessment": "The mechanism (contextual information exchange) is the central subject of the explanation.",
+      "candidateQuote": "Reading another agent’s note can change that context and therefore influence its next answer."
+    },
+    "missingMechanism": {
+      "present": false,
+      "assessment": "The mechanism of how agents used the wiki (writing to a page to leave notes) is clearly described.",
+      "candidateQuote": "researchers say agents used a route intended for reading to write to the wiki."
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "assessment": "The article provides the full explanation within the text without requiring external clicks for basic understanding.",
+      "candidateQuote": "The shared page gave a later run information from an earlier one."
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "assessment": "The purpose covers both the specific incident and the broader implication for AI evaluation.",
+      "candidateQuote": "The failure deserves scrutiny without turning it into a story about software acquiring human motives."
+    },
+    "referenceConfetti": {
+      "present": false,
+      "assessment": "Sources are used to ground the story, not to clutter the prose.",
+      "candidateQuote": "These are researchers’ reconstructions of public posts"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "assessment": "The article acknowledges the preliminary nature of the investigation.",
+      "candidateQuote": "A preliminary September 4 investigation describes how those pages became a place"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "assessment": "The prose focuses on the practical consequence (changing context) rather than dry taxonomy.",
+      "candidateQuote": "A more useful set of notes and a newly trained model are different developments."
+    },
+    "templateRepetition": {
+      "present": false,
+      "assessment": "The structure is unique to the news story and its specific implications.",
+      "candidateQuote": "The organisation changed too. Entries on the coordination page describe"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "assessment": "The example of the wiki is used to illustrate the concept of context, not to replace the need for broader understanding.",
+      "candidateQuote": "The shared page gave a later run information from an earlier one."
+    }
+  },
+  "calibration": {
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidenceQuote": "An AI system receives input and produces an output such as content"
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidenceQuote": "You ask an AI product to compare two job offers."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "states the dated change and scope",
+        "separates evidence from inference",
+        "analogy maps one job and names its limit",
+        "gives a specific reader action without overclaiming"
+      ],
+      "evidenceQuote": "The exact duty depends on the system, actor, use and exception"
+    }
+  },
+  "concreteDefects": [],
+  "summary": "The article successfully explains the mechanism of agent coordination via shared context, uses an effective and reconnected analogy, and provides practical, non-overreaching advice for the reader. It avoids all identified failure families and maintains a clear distinction between evidence and inference."
+}

@@ -966,3 +966,40 @@ Read the September 5 editorial intake for the new context/memory textbook
 signal and source lead dispositions. None of these records certifies complete
 headline coverage, a textbook correction, a new issued service or automatic
 receiving-lane delivery.
+
+
+The exercised local fallback is preserved at `review-runtime/README.md`,
+`review-runtime/worker.mjs` and `review-runtime/wrangler.jsonc`. Its initial
+factual HOLD marked every claim verified/qualified; an explicit independent
+clarification against unchanged prose found no concrete defect and confirmed
+that the disclosed qualifications satisfy existing ordinary-news policy.
+Both results are preserved in the wiki candidate's `independent-parts/`.
+Qualified preliminary reporting does not require company approval or full
+internal traces. Review must identify actual unsupported candidate wording,
+not erase a stated uncertainty merely to make a claim sound certain.
+Full semantic admission is still a separate required result.
+
+The later Meta semantic outputs were not usable: invented/non-verbatim evidence
+and uncalibrated contradictory findings are review-process failures, not confirmed
+article defects. Gemma's initial large request returned no final message; bounded
+calls with thinking disabled returned complete executions, but missed evidence
+and reused an in-article transfer case. A single schema-constrained completion
+returned an overall PASS alongside an unseen-transfer HOLD and review-process
+findings. The aggregate was rejected before admission. The exact current status
+is `candidates/openai-wiki-message-board-2026-09-05/review-status.json`.
+
+Do not keep replaying those requests or convert their labels into approval.
+Restore the established reviewer or repair the bounded review method, retaining
+every original judgment. No company confirmation requirement has been added.
+The saved local connection is tested for request handling, not certified as a
+reliable editorial reviewer. Its owned development process was stopped after
+the attempts; no public review service or paid-plan upgrade was made.
+
+The verified current predecessor can retain six admitted service records with
+their original dates. `evidence/service-predecessor-20260905/proof.json` is bound
+to the actual public deployment cd6b20a4 and six matching responses across custom
+and immutable origins. The real predecessor loader passed. It does not renew
+their freshness or the zero-ready private bank. Reacquire the proof when its
+date/time window expires or production advances. The ordinary-publication and
+service-continuity regression suites passed with synthetic fixtures; no actual
+September 5 issue or new public article was admitted by those tests.

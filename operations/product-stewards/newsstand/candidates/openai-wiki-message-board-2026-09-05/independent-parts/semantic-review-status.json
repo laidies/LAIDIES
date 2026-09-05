@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-semantic-review-status.v1",
+  "candidateId": "openai-wiki-message-board-2026-09-05",
+  "artifactChanged": false,
+  "overallVerdict": "HOLD",
+  "provider": {
+    "provider": "Cloudflare Workers AI through local review proxy",
+    "requestedModel": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "returnedModel": "@cf/meta/llama-3.3-70b-json",
+    "modelFamily": "meta-llama"
+  },
+  "parts": [
+    {
+      "name": "initial-factual",
+      "verdict": "HOLD",
+      "providerId": "chatcmpl-bb49f44b-346b-452a-becb-4ac21bf3d727",
+      "totalTokens": 6411,
+      "status": "PRESERVED_AND_CLARIFIED"
+    },
+    {
+      "name": "factual-clarification",
+      "verdict": "PASS",
+      "providerId": "chatcmpl-bdf48d26-9cca-48b5-9664-fbea64de4740",
+      "totalTokens": 7985,
+      "status": "ZERO_CONCRETE_FACTUAL_DEFECTS_POLICY_COMPLIANT_QUALIFICATIONS"
+    },
+    {
+      "name": "editorial-outcomes",
+      "verdict": "PASS",
+      "providerId": "chatcmpl-fbaeed75-00e9-4ce0-8ea1-db612aafb8e4",
+      "totalTokens": 5510,
+      "status": "COMPLETE"
+    },
+    {
+      "name": "learning-outcomes",
+      "verdict": "PASS",
+      "providerId": "chatcmpl-728cfb9e-17de-4059-a735-f4063b4e16b7",
+      "totalTokens": 2740,
+      "status": "COMPLETE"
+    },
+    {
+      "name": "failure-families-reverse-brief",
+      "verdict": "HOLD",
+      "providerId": "chatcmpl-88fa0148-e378-4e65-b95c-04d858ed9eac",
+      "totalTokens": 3236,
+      "status": "SUBSTANTIVE_SEMANTIC_HOLD"
+    },
+    {
+      "name": "calibration",
+      "verdict": null,
+      "providerId": null,
+      "totalTokens": 0,
+      "status": "SKIPPED_AFTER_SUBSTANTIVE_HOLD"
+    }
+  ],
+  "totalProviderTokens": 25882,
+  "holdFailureFamilies": [
+    "communicationPastiche",
+    "decorativeAnalogy",
+    "familiarExampleWithoutTechnicalReturn",
+    "jargonBeforeMeaning",
+    "technicalExplainerVoice"
+  ],
+  "holdFindings": [
+    "The article uses a mix of technical and non-technical language, which may make it difficult for non-experts to understand",
+    "The article uses an analogy of a school computer-room noticeboard to explain the concept of shared information, which may be decorative rather than informative",
+    "The article uses technical terms such as 'agent' and 'context' before fully explaining their meaning",
+    "The article uses a familiar example of AI assistants comparing suppliers, but it may not provide sufficient technical return or explanation",
+    "The article uses a technical explainer voice, which may make it difficult for non-experts to understand"
+  ],
+  "findingPrecision": "The provider supplied section-level locators rather than exact candidate quotations for the five semantic defects. The result supports HOLD but is not precise enough to authorize sentence-level repair without another independently reviewed successor.",
+  "admissionReceipt": {
+    "created": false,
+    "reason": "Calibration was correctly skipped after a substantive semantic HOLD; a complete validator-supported independent admission receipt cannot be assembled."
+  },
+  "nextRepair": "The producer should inspect the five held families against the exact article, revise only where the prose itself supports the concern, seal a successor, and commission a fresh full independent review including calibration."
+}

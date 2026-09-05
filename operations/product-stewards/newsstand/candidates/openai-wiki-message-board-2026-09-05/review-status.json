@@ -1,0 +1,63 @@
+{
+  "status": "HOLD_INDEPENDENT_REVIEW",
+  "asOf": "2026-09-05T21:09:28Z",
+  "owner": "NewsStand editorial owner /root",
+  "candidateId": "openai-wiki-message-board-2026-09-05",
+  "reviewTextSha256": "732de028113252a415082b952f1667884c72503eebc192ffb6f8b50dfbaed018",
+  "publiclyPublished": false,
+  "independentAdmissionReceiptCreated": false,
+  "confirmedArticleDefects": [],
+  "qualification": "No new prose defect is established by these failed review outputs. This is not a claim that the article has passed independent admission.",
+  "currentFailure": {
+    "providerOutput": "independent-gemma-final-response.raw.json",
+    "overallVerdict": "PASS",
+    "requiredOutcome": "unseenTransfer",
+    "requiredOutcomeVerdict": "HOLD",
+    "learningDisposition": "CANDIDATE_REPAIR_ONLY",
+    "findings": "The returned defects describe prior review omissions, including an N/A quotation. Root cannot silently erase those findings or substitute a PASS for the required HOLD."
+  },
+  "attempts": [
+    {
+      "route": "Claude",
+      "result": "Expired OAuth session; no independent judgment"
+    },
+    {
+      "route": "Meta Workers AI",
+      "result": "Context/size/timeouts followed by bounded factual clarification; later semantic quotes and contradictory uncalibrated findings made the full review unusable",
+      "files": "independent-parts/"
+    },
+    {
+      "route": "Kimi Workers AI",
+      "result": "Local reload 503 then actual Free-plan access denial; no plan upgrade",
+      "files": [
+        "independent-kimi-local-reload-error.txt",
+        "independent-kimi-execution-error.txt"
+      ]
+    },
+    {
+      "route": "Gemma full packet",
+      "result": "length stop; null final content; no judgment reconstructed from reasoning",
+      "files": [
+        "independent-gemma-provider-output.json"
+      ]
+    },
+    {
+      "route": "Gemma bounded",
+      "result": "Three actual stopped completions; factual support and semantic PASS labels but missing evidence and in-article transfer case",
+      "files": "independent-gemma-parts/"
+    },
+    {
+      "route": "Gemma schema-constrained completion",
+      "result": "Actual completion; top-level PASS conflicts with required HOLD and unresolved review findings",
+      "files": [
+        "independent-gemma-final-request.json",
+        "independent-gemma-final-response.raw.json",
+        "independent-gemma-final-judgment.json"
+      ]
+    }
+  ],
+  "nextAction": "Restore the existing independent reviewer or repair the bounded assessment method so it returns a complete internally consistent assessment of unchanged exact prose. Do not repeat the same full packet, fabricate missing judgments, or add a company-approval requirement. Only then build and validate the ordinary-story candidate package, exercise issue/reader checks and perform the existing scoped release.",
+  "resumeFreshness": "Recheck source developments and actual publication date. If edition date changes, rebuild and bind the affected candidate metadata/review text honestly rather than backdate it. Reacquire public predecessor proof after its validity window or any new production head.",
+  "reserve": "Six currently admitted public columns can carry forward with original dates under the valid predecessor proof; private service bank still has zero newly ready items.",
+  "boundary": "No new story, issue, service, textbook correction or review service was deployed. The separate library lesson-link fix is publicly verified. Local review development process stopped."
+}
