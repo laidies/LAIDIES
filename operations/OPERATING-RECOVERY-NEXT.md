@@ -153,20 +153,70 @@ no schedule was created. Arbitrary Cloudflare webhook injection is not an
 exposed supported route. These are reported cloud-tool observations, not a
 local scheduling test or evidence of phone delivery.
 
-Next exact action: configure one bounded native Cloud maintenance task inside
-that same private chat when its recurring scope is authorized. Prefer existing
-GitHub access and native schedule/event tools. A time schedule and event trigger
-cannot be combined in one task. Keep it read-only, scoped to operating-maintenance
-PRs, silent on unchanged/non-actionable state, and suppress repeat decisions
-while one awaits Ali. Do not add a redundant local heartbeat. Preserve existing
-product owners and private decision content; no PR95 activation or new hosting.
-Roadmap step 3 still needs actual triggered maintenance and host-independent
-phone decision/resumption evidence before completion. Do not repeat the completed
-review/relay pilot or existing Remote pairing/notification tests.
+### Native recurring maintenance — configured September 5
+
+One existing-chat Cloud automation, **LAiDIES operating maintenance**, is enabled
+for daily 09:00 America/Vancouver, saved start September 6. Duplicate discovery,
+creation and later settings readback were performed inside the same Cloud task.
+Its interface does not expose the internal automation ID in chat; resolve the
+existing task by name rather than creating another one. Last-run and next-run
+fields remained null on readback. Configuration is observed; a scheduled trigger
+has not run yet and is not certified by a saved start time.
+
+The read-only job examines at most ten recently updated open/merged public PRs
+from seven days, selecting operating-continuation, operating-pilot or baseline-CI
+paths. It reports only new actionable current-head failures, boundary regressions
+or required decisions, respects other owners, and stays quiet for unchanged
+results and unanswered decisions. Pending checks are not failures. The first
+actually scheduled execution gets one completion notice with timestamp, checked
+PR/head identifiers and counts; manual runs cannot emit that trigger proof.
+Later quiet runs remain quiet. No notification settings or provider plans changed.
+
+No Run-now operation was callable. A manual Cloud execution found six qualifying
+PRs (#91–96), all with successful current-head baseline CI and no new actionable
+finding. This is manual Cloud execution evidence, not scheduled-trigger, Mac-off
+or iPhone-delivery proof. The protected founder decision package remains inactive.
+
+Next: let the native cloud task record its first actual scheduled execution;
+no duplicate local heartbeat and no repeated pairing/notification test. In
+parallel, progress the existing Town Hall feedback backend as the next roadmap
+lane. The live https://laidies.ai/town-hall Comments station was opened and
+showed its explicit closed-inbox notice and disabled form controls. No submission
+was attempted. Its source controller is also release-held. Live read-only Supabase catalog
+inspection confirms town_hall_feedback plus own-insert/own-read policies; table
+presence is not working intake. The current server source lives in the preserved
+Website-homepage branch, not fresh origin/main; do not import the whole historical
+branch or alter another owner's worker. Prepare reusable strict request/receipt
+validation and adversarial tests first, then integrate with the appropriate
+current server source. Real-message retention/deletion and staff ownership remain
+launch decisions under Town Hall's current operating specification. No real
+visitor records have been read or submitted by this lane.
+
+The initial reusable request/receipt helpers are now in
+`worker-operating-pilot/src/feedback-contract.mjs`, with
+`test-feedback-contract.mjs` in baseline CI. Pure helper tests pass 30 explicit
+negative cases: unknown/private fields, malformed text, size bounds, invalid
+keys, invalid calendar dates and unbound/mismatched/echoing receipts. Subject is
+limited to the existing form's 100 characters; body to 2,000 Unicode code points.
+A receipt must bind the expected normalized input digest. UUID validation checks
+format only, never proves randomness or persisted replay. HTTP wire-size limits
+before parsing, storage, authentication, rate limits, retention, staff ownership
+and actual idempotent persistence remain unbuilt by this package. No route,
+Worker deployment, schema/data mutation or frontend release toggle was added.
+
+Pending product choice: first-version private feedback text retention. Proposed
+30 days, no collected name/email, then delete message text and retain only
+anonymous issue/outcome counts; 7 days or keeping intake closed were alternatives.
+No answer is recorded. Existing Town Hall OPERATING-SPEC requires approved
+retention/deletion handling and named triage ownership before real intake launch.
+Do not infer permission for public submissions from helper tests or the native
+Cloud maintenance pilot. Continue isolated server preparation after the policy
+choice; preserve the current server owner's source and release authority.
 
 Checkpoint branch: `ops/cloud-maintenance-pilot-20260905` in the isolated
-integration worktree. Its current commit owns this update; it is a pushed
-continuation checkpoint, not a new main integration or public deployment.
+integration worktree. Its current commit owns this update. Resolve current PR/head/check/merge state
+from GitHub; main integration is separate from the native automation and never
+means public website deployment.
 
 First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
 main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub

@@ -124,3 +124,22 @@ An authorized parent relay proves controlled cloud continuation, not direct
 phone delivery or Mac-off operation. Keep exact private decisions in the cloud
 chat and publish only bounded execution-status facts. Behind the Build angle:
 why a missing progress update is not the same as missing work.
+
+## Native scheduling versus another approval gate — 2026-09-05
+
+The parent stopped after a successful cloud pilot instead of advancing the
+authorized roadmap. Routine read-only scheduling is an implementation choice;
+reserve founder decisions for real visitor policy, release or spend. The native
+Cloud account supports a same-chat schedule and GitHub PR events, so no new inbox
+or Cloudflare notification bridge was required. Readback returned null next/last
+run fields: an enabled schedule is configuration, not trigger proof. One first
+scheduled completion notice records that proof; subsequent quiet runs stay quiet.
+Town Hall's live table does not override its intentionally held frontend and
+required server/privacy work. Behind the Build angle: an automated job is not
+working merely because the calendar says it should start.
+
+Feedback-helper review corrected optional expected-digest validation, permissive
+calendar-date parsing and receipt-ID coercion, then calibrated all three rejects.
+The producer brief's proposed subject limit was reconciled to the existing form's
+100-character limit. Helper tests now reject 30 bad cases but do not establish
+a deployed endpoint, persisted idempotency, privacy or working visitor intake.

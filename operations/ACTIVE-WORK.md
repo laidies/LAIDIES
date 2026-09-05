@@ -8,8 +8,13 @@
 > decision and completed after an authorized relay through this Mac-hosted task.
 > Private decision content remains in the Cloud chat. Direct phone-to-Cloud,
 > Mac-off execution/notifications and Cloudflare resumption remain unverified.
-> Cloud scheduling tools and GitHub PR trigger discovery are available.
-> No schedule created; bounded native recurring maintenance is the next step.
+> Native Cloud maintenance is enabled daily at 09:00 America/Vancouver.
+> Manual cloud run: six qualifying PRs, no current actionable failure.
+> First scheduled trigger remains unobserved; one initial completion notice is
+> configured. Town Hall request/receipt helpers pass 30 negative cases; no
+> endpoint, persistence or public intake is implemented by those helpers.
+> Real-message retention/staff decisions remain unresolved; proposed retention
+> policy is pending in this task. Live form is verified closed.
 > Existing iPhone Remote stays working; no account/email prerequisite or repeat
 > setup. PR95 remains optional undeployed preparation. No public release.
 > Homepage, NewsStand and Animation retain their owners. Older entries below

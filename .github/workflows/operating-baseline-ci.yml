@@ -50,6 +50,8 @@ jobs:
         run: node scripts/test-query-laidies-context.mjs
       - name: Hosted handoff contract calibration
         run: node worker-operating-pilot/test-contract.mjs
+      - name: Feedback input and private receipt calibration
+        run: node worker-operating-pilot/test-feedback-contract.mjs
       - name: Founder decision and bounded resumption calibration
         run: node worker-operating-pilot/test-founder.mjs
       - name: Private decision database and workflow integration
