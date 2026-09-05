@@ -1,5 +1,16 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Reuse and Dear Miss Jeeves publishing: existing design recovered.**
+> Ali recalled the established Answer Bank and publication routing. Reuse the
+> recovered `operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`:
+> durable same-answer explanations go to Straight Answers; transferable
+> situations go to Dear Miss Jeeves. Private saving, internal reuse and public
+> admission are separate. Equivalent questions require matching conditions and
+> current reviewed evidence. Existing intake/static column are not an automatic
+> promotion pipeline. This is an existing accepted policy with implementation
+> gaps, not a newly invented bank. Current Sol/free-search/$100 rules supersede
+> the original fixed counts and cheaper-model route.
+
 > **2026-09-05 — Extra Miss Jeeves questions as rewards: CAPTURED.**
 > Ali asked to consider behaviour-earned research questions, following FAiRY.
 > Evaluate within the existing Butterfly Clip/reward system and current research

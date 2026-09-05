@@ -1,5 +1,42 @@
 # The LIBRAiRY — active instruction packet
 
+> **2026-09-05 — Reuse and Dear Miss Jeeves publishing: existing design recovered.**
+> Ali recalled the established Answer Bank and publication routing. Reuse the
+> recovered `operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`:
+> durable same-answer explanations go to Straight Answers; transferable
+> situations go to Dear Miss Jeeves. Private saving, internal reuse and public
+> admission are separate. Equivalent questions require matching conditions and
+> current reviewed evidence. Existing intake/static column are not an automatic
+> promotion pipeline. This is an existing accepted policy with implementation
+> gaps, not a newly invented bank. Current Sol/free-search/$100 rules supersede
+> the original fixed counts and cheaper-model route.
+
+## Miss Jeeves reuse and publication — recovered 2026-09-05
+
+The current authority is the recovered
+`operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`
+and companion JSON. Both originated in committed source `701adc30`; current
+funding/model decisions are reconciled there. A policy validator checks the
+specified boundaries; it does not establish runtime implementation.
+
+Bounded inspection found the consented topic-request intake and status/receipt
+code, plus a directly authored Dear Miss Jeeves letter in `newsstand.html` and
+a renderer for separately admitted daily column records. It did not find the
+connection from a researched answer to a reviewed private Answer Bank entry,
+equivalent-question reuse, a governed editorial candidate, public admission,
+or shared freshness/correction propagation. No production behavior is inferred
+from these source files. The attempted public read returned 403; live column
+visibility was not established in this inspection.
+
+Preserve the existing private/public split. A reviewed, de-identified internal
+entry may answer equivalent questions while current without being publicly
+browsable. A direct hit consumes no API allowance; fresh model-generated
+tailoring still does. Similar wording alone is not equivalence: compare the
+question's decision-changing tool, plan, version, region and workplace
+conditions. Corrections or expired evidence hold reuse. Candidate promotion
+remains a separate governed action; private saved responses and raw visitor
+text never become public merely through repetition or positive ratings.
+
 > **2026-09-05 — Miss Jeeves service value — Ali ruling.**
 > Miss Jeeves should explain that her research draws from AI voices,
 > organizations and institutions LAiDIES has assessed for relevant expertise and

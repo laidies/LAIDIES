@@ -1388,7 +1388,7 @@ function renderJeevesService(payload,query){
   }
   if(payload.status==='limit_reached'){
     if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
-    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/maikeover.html">Make your free Resident Card</a>':''}</section>`;
+    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p></section>`;
     return;
   }
   if(payload.status==='unavailable'){
@@ -1415,8 +1415,7 @@ function renderJeevesService(payload,query){
   if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
   const checked=payload.current_guidance?.checked_at?new Date(payload.current_guidance.checked_at):null;
   const checkedLabel=checked&&!Number.isNaN(checked.valueOf())?`Checked live · ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`:'LAiDIES reference';
-  const allowance=payload.allowance&&Number.isInteger(payload.allowance.remaining)
-    ? `<p class="jv-allowance">${payload.allowance.kind==='guest'?`${payload.allowance.remaining} of 3 guest questions left.`:`${payload.allowance.remaining} of 5 answers left today.`}</p>`:'';
+  const allowance=''; // Adaptive capacity is checked per request; a fixed answer count would mislead.
   const paragraphs=escapeJeevesText(payload.answer).split(/\n\s*\n/).filter(Boolean).map(text=>`<p>${text}</p>`).join('');
   const answerId=payload.answer_id&&/^[a-f0-9]{64}$/.test(payload.answer_id)?payload.answer_id:'';
   box.innerHTML=`<article class="jv-answer">
@@ -1469,12 +1468,15 @@ function renderJeevesServiceError(query,payload=null){
 }
 let jeevesServiceRequest=0;
 let jeevesPlacement='library';
+let jeevesPendingResearch=null;
 async function askMissJeeves(value,intent='search'){
   const query=String(value||'').trim().slice(0,240);
   const normalized=normalizeJeevesQuery(query);
   const box=document.getElementById('jv-results');
   if(!normalized){box.innerHTML='';document.getElementById('jv-q').focus();return;}
   const requestId=++jeevesServiceRequest;
+  if(intent==='research'&&jeevesPendingResearch?.query!==query)jeevesPendingResearch={query,id:crypto.randomUUID()};
+  const researchAttemptId=intent==='research'?jeevesPendingResearch.id:undefined;
   box.innerHTML=`<p class="jv-none" role="status">${intent==='research'?'Miss Jeeves is checking sources beyond LAiDIES…':'Miss Jeeves is searching LAiDIES…'}</p>`;
   try{
     const accessToken=intent==='research'?await jeevesAccessToken():'';
@@ -1485,9 +1487,10 @@ async function askMissJeeves(value,intent='search'){
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
       headers,
-      body:JSON.stringify({query,intent,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
+      body:JSON.stringify({query,intent,researchAttemptId,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
     });
     const payload=await response.json();
+    if(researchAttemptId&&jeevesPendingResearch?.id===researchAttemptId)jeevesPendingResearch=null;
     if(requestId!==jeevesServiceRequest)return;
     if(response.status===400&&payload.error==='private_content_prohibited'){
       box.innerHTML=`<p class="jv-none" role="alert">${escapeJeevesText(payload.answer||'Please remove private or confidential information before asking.')}</p>`;return;

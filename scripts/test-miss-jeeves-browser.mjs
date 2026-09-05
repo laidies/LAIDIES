@@ -22,8 +22,9 @@ const asset=async request=>{
 };
 const env={ASSETS:{fetch:asset},AI:{run(){aiCalls++;throw Error('legacy AI invoked');}},FAIRY_AI:{async fetch(request){
  researchCalls++;forwarded=await request.json();
- if(fixture==='clarify')return Response.json({status:'clarification_required',model:'gpt-5.6-sol',question:'Which AI tool are you using?',guestToken:'clarification-fixture',allowance:{kind:'guest',remaining:2}});
- return Response.json({status:'ok',model:'gpt-5.6-sol',source_policy_version:'fixture',citation_policy:'all-approved-https.v1',guestToken:'research-fixture',allowance:{kind:'guest',remaining:2},output:[{content:[{type:'output_text',text:'Check whether your employer permits this account to receive the document before uploading. If you do not know, ask first.',annotations:[{type:'url_citation',url:'https://help.openai.com/',title:'Fixture source'}]}]}]});
+ if(fixture==='clarify')return Response.json({status:'clarification_required',model:'gpt-5.6-sol',question:'Which AI tool are you using?',guestToken:'clarification-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'available'}});
+ if(fixture==='capacity')return Response.json({status:'error',error:'research_capacity_reached',guestToken:'capacity-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'paused',retryAt:'2026-09-06T00:00:00.000Z'}},{status:429});
+ return Response.json({status:'ok',model:'gpt-5.6-sol',source_policy_version:'fixture',citation_policy:'all-approved-https.v1',guestToken:'research-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'available',remaining:7},output:[{content:[{type:'output_text',text:'Check whether your employer permits this account to receive the document before uploading. If you do not know, ask first.',annotations:[{type:'url_citation',url:'https://help.openai.com/',title:'Fixture source'}]}]}]});
 }}};
 const server=http.createServer(async(req,res)=>{
  try{
@@ -57,13 +58,48 @@ try{
  await page.locator('.jv-answer-copy').waitFor();
  assert.equal(researchCalls,before+1,'one deliberate click starts one research request');
  assert.equal(requests.at(-1).intent,'research');
+ assert.match(forwarded.researchAttemptId,/^[a-f0-9-]{36}$/);
+ const completedAttempt=forwarded.researchAttemptId;
+ assert.doesNotMatch(await page.locator('#jv-results').innerText(),/\bof (?:3|5)\b/,'Pages must not infer fixed 3/5 allowances from an adaptive backend response');
  assert.match(forwarded.related_laidies_material.find(e=>/Upload, Paste/.test(e.title)).sourceText,/If you cannot answer the first three/);
+ await page.locator('.jv-form button[type=submit]').click();await page.locator('#jv-research').waitFor();await page.locator('#jv-research').click();
+ await page.locator('.jv-answer-copy').waitFor();
+ assert.equal(researchCalls,before+2,'a successful adaptive allowance permits another deliberate research request');
+ assert.notEqual(forwarded.researchAttemptId,completedAttempt,'a new deliberate request after a completed response gets a new identity');
+ assert.equal(forwarded.guestToken,'research-fixture','repeat research reuses the opaque guest token');
  fixture='clarify';
  await page.locator('.jv-form button[type=submit]').click();await page.locator('#jv-research').waitFor();await page.locator('#jv-research').click();
  await page.getByRole('heading',{name:'One detail first'}).waitFor();
  assert.equal(await page.evaluate(()=>localStorage.getItem('laidies_miss_jeeves_guest_token_v1')),'clarification-fixture');
  assert.equal(await page.locator('#jv-q').inputValue(),'Can I upload a work document?');
+ fixture='capacity';
+ await page.locator('.jv-form button[type=submit]').click();await page.locator('#jv-research').waitFor();
+ const beforeCapacity=researchCalls;await page.locator('#jv-research').click();
+ await page.locator('.jv-limit').waitFor();
+ assert.equal(researchCalls,beforeCapacity+1,'capacity state reaches the backend only after an explicit research click');
+ assert.equal(await page.locator('.jv-limit a').count(),0,'adaptive capacity must not show the retired guest-upgrade path');
+ assert.doesNotMatch(await page.locator('.jv-limit').innerText(),/three guest|five .*today/i,'adaptive capacity must not show fixed quota copy');
+ assert.equal(await page.evaluate(()=>localStorage.getItem('laidies_miss_jeeves_guest_token_v1')),'capacity-fixture');
+ await page.locator('.jv-form button[type=submit]').click();await page.locator('#jv-research').waitFor();
+ assert.equal(researchCalls,beforeCapacity+1,'free search after capacity pause must not call the paid research backend');
+ assert.equal(requests.at(-1).intent,'search');
  fixture='answer';
+ // Lose a research response at the browser boundary. Retrying that same query
+ // must preserve the attempt identity rather than commissioning it twice.
+ let lostAttempt;
+ await page.route('**/api/miss-jeeves',async route=>{
+  const body=route.request().postDataJSON();
+  if(body.intent==='research'&&!lostAttempt){lostAttempt=body.researchAttemptId;await route.abort();}
+  else await route.continue();
+ });
+ await page.locator('#jv-q').fill('A transport retry question');
+ await page.locator('.jv-form button[type=submit]').click();await page.locator('#jv-research').waitFor();await page.locator('#jv-research').click();
+ await page.locator('#jv-service-retry').waitFor();
+ assert.ok(lostAttempt);
+ await page.locator('#jv-service-retry').click();await page.locator('#jv-research').waitFor();await page.locator('#jv-research').click();
+ await page.locator('.jv-answer-copy').waitFor();
+ assert.equal(forwarded.researchAttemptId,lostAttempt,'transport retry must retain the paid attempt identity');
+ await page.unroute('**/api/miss-jeeves');
  await page.locator('#jv-q').fill('zzxxyyqqww');await page.locator('.jv-form button[type=submit]').click();
  await page.locator('#jv-topic-request').waitFor();assert.equal(await page.locator('#jv-request-consent').isChecked(),false);
  assert.deepEqual(errors,[],'page must not throw runtime errors');

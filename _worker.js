@@ -122,7 +122,7 @@ function currentGuidancePayload(data) {
   } : null;
 }
 
-async function askCurrentMissJeeves(request, env, query, matches) {
+async function askCurrentMissJeeves(request, env, query, matches, researchAttemptId) {
   if (!env.FAIRY_AI || typeof env.FAIRY_AI.fetch !== 'function') return { error: 'answer_service_unconfigured', status: 503 };
   const networkKey = await sha256Text([
     request.headers.get('cf-connecting-ip') || 'unknown',
@@ -147,7 +147,7 @@ async function askCurrentMissJeeves(request, env, query, matches) {
   const response = await env.FAIRY_AI.fetch(new Request('https://miss-jeeves.internal/guidance', {
     method: 'POST',
     headers,
-    body: JSON.stringify({ query, intent: 'research', related_laidies_material: related, guestToken })
+    body: JSON.stringify({ query, intent: 'research', researchAttemptId, related_laidies_material: related, guestToken })
   }));
   const data = await response.json().catch(() => null);
   if (!response.ok) return { error: data?.error || 'service_unavailable', status: response.status, guestToken: data?.guestToken || '', allowance: data?.allowance || null };
@@ -354,12 +354,14 @@ async function missJeeves(request, env) {
   let query = '';
   let placement = 'library';
   let intent = 'search';
+  let researchAttemptId = '';
   try {
     const body = await request.json();
     query = String(body?.query || '').trim();
     placement = body?.placement === 'homepage' ? 'homepage' : 'library';
     if (body.intent !== undefined && !['search', 'research'].includes(body.intent)) return json({ status: 'error', error: 'invalid_intent' }, 400);
     intent = body.intent || 'search';
+    researchAttemptId = typeof body.researchAttemptId === 'string' ? body.researchAttemptId : '';
   } catch {
     return json({ status: 'error', error: 'invalid_json' }, 400);
   }
@@ -382,23 +384,21 @@ async function missJeeves(request, env) {
   }
   let currentGuidance = null;
   try {
-    currentGuidance = await askCurrentMissJeeves(request, env, query, retrieved);
+    currentGuidance = await askCurrentMissJeeves(request, env, query, retrieved, researchAttemptId);
   } catch {
     currentGuidance = { error: 'answer_service_unavailable', status: 503 };
   }
   if (currentGuidance?.error) {
     writeQuestionSignal(env, { placement, outcome: 'unavailable', topicId: classifyTopic(query) });
-    const gated = currentGuidance.error === 'guest_limit_reached' || currentGuidance.error === 'resident_daily_limit_reached';
+    const gated = ['research_capacity_reached', 'guest_limit_reached', 'resident_daily_limit_reached', 'service_budget_reached'].includes(currentGuidance.error);
     return json({
       status: gated ? 'limit_reached' : 'unavailable',
       error: currentGuidance.error,
-      answer: currentGuidance.error === 'guest_limit_reached'
-        ? 'Keep asking Miss Jeeves. You have used your three guest questions. Make your free Resident Card to continue and keep your answers in your Closet.'
-        : currentGuidance.error === 'resident_daily_limit_reached'
-          ? 'You have used today’s five Miss Jeeves answers. Come back tomorrow; the current shelves are still open.'
-          : currentGuidance.error === 'service_budget_reached'
-            ? 'Miss Jeeves has reached this month’s research limit. You can still search LAiDIES as often as you like.'
-            : 'Miss Jeeves cannot check current sources right now. Your question is still here.',
+      answer: gated
+        ? (currentGuidance.allowance?.state === 'busy'
+          ? 'Your research is already in progress. You can still search LAiDIES as often as you like.'
+          : 'Research is paused to keep the shared allowance available fairly. You can still search LAiDIES as often as you like.')
+        : 'Miss Jeeves cannot check current sources right now. Your question is still here.',
       guestToken: currentGuidance.guestToken,
       allowance: currentGuidance.allowance,
       results: retrieved.map(publicResult)

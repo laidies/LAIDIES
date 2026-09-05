@@ -53,6 +53,8 @@ not unrelated outputs.
 
 | 3 | 2026-09-05 | Tier 2 Miss Jeeves reward consideration captured; existing FAiRY producer/consumer gap identified | GPT-6 foreground, effort unavailable; Terra/Medium bounded code inventory. Foreground reconciled source and prior reward decisions. | <15m / UNAVAILABLE | NO; overbroad lane conclusion corrected | Narrow consumer inspection initially missed legacy Tour bonus producer; no runtime or payout change | LIKELY: bounded reading/capture suits Terra; no comparative run | docs/product/butterfly-clip-economy.md, Miss Jeeves research rewards; operations/painpoints-log.md BTB-491 |
 
+| 4 | 2026-09-05 | Tier 2 Miss Jeeves adaptive fair use and recovered reuse/publication policy; local verified, release held | Foreground model/effort unavailable in receipts; Terra/Medium route tests, calibrated review and bounded publishing inventory | >4h across interrupted login work / task usage UNAVAILABLE | NO | Reviewer found retry/settlement gaps; foreground fixed collapsed guest identity; browser test changed to real UI; recovered prior Answer Bank design after Ali correction; repeated login/billing work stopped on Ali instruction | LIKELY for bounded tests/inventory; cross-system code and prior-decision recovery still needed foreground reconciliation | backend d0ec6d17; BTB-491; recovered MISS-JEEVES-ANSWER-ROUTING.md |
+
 ## Review outcome
 
 Not due. At the trigger, record: task classes reviewed, observed failure and

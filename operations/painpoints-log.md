@@ -14901,6 +14901,23 @@ while remaining falsely unfinished in the launch record.
   provider-limit verification, measured usage and replacement of rigid guest/
   resident quotas. US$100/month is approved; US$20/person is not. Explain usage
   costs before asking an owner to evaluate a personal dollar allowance.
+- **Fair-use/continuity continuation:** route tests found random retry IDs and
+  ignored cost-settlement failures; the stable client/actor attempt and confirmed
+  settlement/hold repair now reject both calibrated regressions. A missing
+  forwarded network fingerprint collapsed guests; trusted Pages fingerprints
+  now separate them. A browser-test attempt called an IIFE-private function and
+  failed (`askMissJeeves is not defined`); the corrected test drives real controls
+  and proves failed-transport retry identity at 390/1280px. Backend 43 tests,
+  Pages service/browser checks and Worker dry-run pass; no cloud deployment.
+  Ali confirmed the completed US$50 top-up and said to stop verifying it.
+  Repeated authentication/browser inspection did not advance the core task;
+  preserve that user-confirmed completion and work on remaining dependencies.
+- **Recovered prior decision:** before proposing reuse, the foreground inspected
+  only the answering runtime and missed the existing Answer Bank/Dear Miss
+  Jeeves routing held in another committed branch. Recover canonical routing
+  before proposing infrastructure. The policy and structural check are not a
+  working reuse/publication pipeline; intake and the static column are separate
+  pieces. Keep one bank and preserve private/internal/public admission states.
 - **Behind the Build angle:** the website was answering, but it was not using
   the model we thought it was. A working response is not the same as a verified
   service, a complete answer or an affordable operating model.

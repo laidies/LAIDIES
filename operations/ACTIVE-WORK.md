@@ -1,5 +1,28 @@
 # Active work
 
+> **2026-09-05 — Fair-use repair VERIFIED LOCALLY; Dear Miss Jeeves routing recovered.**
+> Backend implementation is committed/pushed as `d0ec6d17`. Shared/actor money
+> is reserved atomically; quiet-day repeat use exceeds the old 3/5 count;
+> duplicate transport attempts cannot call Sol twice; failed cost recording
+> holds research. Distinct Pages fingerprints no longer collapse new guests
+> into one identity. Pre-provider failures refund reservations; unknown costs
+> remain reserved. Focused backend tests pass 43/43; Pages service checks and
+> 390/1280px journeys pass, including a lost-response retry. Deliberate random-ID
+> and missing-settlement-hold mutations fail. Worker dry-run passes; no deploy.
+> US$100/month is approved; per-person dollars remain unset pending measured
+> costs. The application reservation alone does not prove a provider maximum.
+> Ali completed sign-in and confirmed adding US$50; she explicitly instructed
+> Codex not to spend time verifying that again. Funding is no longer pending her.
+> The existing Answer Bank / Straight Answers / Dear Miss Jeeves routing policy
+> was stranded in backend commit `701adc30`; it is recovered into the working
+> decision path, with current Sol/free-search/$100 rules replacing old numbers.
+> Existing consented topic intake and a static NewsStand column do not implement
+> automatic answer reuse or publication. Connect those existing components;
+> do not create a second bank. Shared-answer matching/admission/refresh and
+> publication remain unbuilt; actual Sol quality/cost and live release remain
+> unverified. Next: provider connection/pilot and the existing reuse-to-editorial
+> workflow. Other site improvements remain in the original launch-readiness task.
+
 > **2026-09-05 — Citation-policy correction VERIFIED LOCALLY / RELEASE HOLD.**
 > Research rejects mixed approved/unapproved, HTTP, non-web, malformed,
 > credential-bearing or unsupported citation annotations across the whole answer.
