@@ -71,6 +71,7 @@ assert.equal(policy.answerQuality.runOnRecurringFreshnessCycle, true);
 assert.equal(policy.answerQuality.feedbackMayAutoTrainOrPublish, false);
 
 assert.deepEqual(policy.responseFeedback.ratingOptions, ['helpful', 'not_helpful']);
+assert.equal(policy.responseFeedback.reasonSelection, 'multi_select');
 assert.ok(policy.responseFeedback.helpfulReasons.includes('easy_to_understand'));
 assert.ok(policy.responseFeedback.notHelpfulReasons.includes('inaccurate_or_outdated'));
 assert.ok(policy.responseFeedback.notHelpfulReasons.includes('weak_missing_or_broken_sources'));

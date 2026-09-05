@@ -56,21 +56,23 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv::before{content:none}
 .jv::after{content:none}
 .jv>*{position:relative;z-index:1}
-.jv-head{grid-column:1;grid-row:1/4;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
+.jv-head{grid-column:1;grid-row:1/5;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
 .jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:2px solid #65e3ee;border-radius:999px;
   color:#07142f;background:#65e3ee;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .jv-head .h{font-family:'Jost',system-ui,sans-serif;font-size:clamp(42px,4vw,58px);font-weight:800;color:#fff;line-height:1.02}
 .jv-head .h small{display:block;font-family:'Jost';font-size:16px;font-weight:600;color:#dce7ff;letter-spacing:.01em;margin-top:9px;line-height:1.45}
-.jv-form{grid-column:2;grid-row:1;display:flex;gap:9px}
+.jv-beta{grid-column:2;grid-row:1;margin:0;padding:11px 14px;border:2px solid #65e3ee;border-radius:10px;background:rgba(7,20,47,.58);color:#fff;font-size:14px;line-height:1.48}
+.jv-beta strong{color:#65e3ee}
+.jv-form{grid-column:2;grid-row:2;display:flex;gap:9px}
 .jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #7792c8;border-radius:10px;
   font:inherit;font-size:17px;background:#fff;color:var(--midnight)}
 .jv-form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(24,198,216,.24)}
 .jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#260d2b;
   min-height:44px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .jv-form button:hover{filter:brightness(1.05)}
-.jv-privacy{grid-column:2;grid-row:2;margin:0;color:#dce7ff;font-size:12px;line-height:1.45}
+.jv-privacy{grid-column:2;grid-row:3;margin:0;color:#dce7ff;font-size:12px;line-height:1.45}
 .jv-privacy a{color:#fff;text-underline-offset:3px}
-.jv-chips{grid-column:2;grid-row:3;display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.jv-chips{grid-column:2;grid-row:4;display:flex;flex-wrap:wrap;gap:7px;margin:0}
 .jv-chips b{font-size:13px;letter-spacing:.04em;color:#fff;align-self:center;margin-right:2px;font-weight:800}
 .jv-chip{border:1.5px solid #9f94ff;background:rgba(7,20,47,.58);color:#fff;border-radius:20px;padding:7px 13px;font:inherit;font-size:14px;font-weight:650;cursor:pointer}
 .jv-chip{min-height:44px}
@@ -107,6 +109,8 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-feedback b{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#52617f}
 .jv-feedback button{min-height:40px;border:1.5px solid #8aa7bf;border-radius:999px;background:#f4fbff;color:#132c4e;padding:7px 12px;font:750 13px/1 Jost,sans-serif;cursor:pointer}
 .jv-feedback button[aria-pressed="true"]{background:#7de2c2;border-color:#31566f}
+.jv-feedback-prompt{flex:1 0 100%;color:#52617f;font-size:13px;font-weight:700}
+.jv-feedback-submit{background:#f056a6!important;border-color:#8f2e67!important;color:#260d2b!important}
 .library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#07142f;font:750 14px/1.5 Jost,sans-serif}
 .library-status:empty{display:none}
 .shelf-guide .library-status{grid-column:1/-1;max-width:none;width:100%;margin:0;color:#dce7ff}
@@ -988,6 +992,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <span class="jv-kicker">Reference desk</span>
       <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
     </div>
+    <p class="jv-beta"><strong>Miss Jeeves is in beta.</strong> She works best with questions about LAiDIES, its lessons and its trusted resources. We&rsquo;re still testing and improving how she researches and explains broader questions about AI. Please check the sources she provides and tell us when an answer misses the mark.</p>
     <form class="jv-form">
       <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
@@ -1393,7 +1398,7 @@ function renderJeevesService(payload,query){
     ${allowance}
     ${citations?`<div class="jv-sources"><b>Sources checked</b>${citations}</div>`:''}
     ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
-    ${answerId?`<div class="jv-feedback" data-answer-id="${answerId}"><b>Was this useful?</b><button type="button" data-jeeves-rating="helpful">Helpful</button><button type="button" data-jeeves-rating="not-helpful">Not helpful</button><button type="button" data-jeeves-rating="too-technical">Too technical</button><button type="button" data-jeeves-rating="ai-slop">Seemed like AI slop</button><span role="status"></span></div>`:''}
+    ${answerId?`<div class="jv-feedback" data-answer-id="${answerId}"><b>How was this answer?</b><button type="button" data-jeeves-helpful aria-pressed="false">Helpful</button><span class="jv-feedback-prompt">If something was wrong, choose all that apply:</span><button type="button" data-jeeves-issue="did_not_answer" aria-pressed="false">Didn&rsquo;t answer me</button><button type="button" data-jeeves-issue="confusing_or_too_technical" aria-pressed="false">Confusing or too technical</button><button type="button" data-jeeves-issue="inaccurate_or_outdated" aria-pressed="false">Inaccurate or outdated</button><button type="button" data-jeeves-issue="missed_context" aria-pressed="false">Missed something important</button><button type="button" data-jeeves-issue="weak_missing_or_broken_sources" aria-pressed="false">Weak or missing sources</button><button type="button" data-jeeves-issue="seemed_like_ai_slop" aria-pressed="false">Seemed like AI slop</button><button type="button" data-jeeves-issue="too_long" aria-pressed="false">Too long</button><button type="button" data-jeeves-issue="too_brief" aria-pressed="false">Too brief</button><button type="button" class="jv-feedback-submit" data-jeeves-submit>Send feedback</button><span role="status" aria-live="polite"></span></div>`:''}
   </article>`;
 }
 const JEEVES_GUEST_TOKEN_KEY='laidies_miss_jeeves_guest_token_v1';
@@ -1469,12 +1474,36 @@ document.querySelector('.jv-form').addEventListener('submit',event=>{
  askMissJeeves(document.getElementById('jv-q').value);
 });
 document.getElementById('jv-results').addEventListener('click',event=>{
- const rating=event.target.closest('[data-jeeves-rating]');
- if(rating){
-  const feedback=rating.closest('.jv-feedback');
-  feedback.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===rating)));
+ const helpful=event.target.closest('[data-jeeves-helpful]');
+ if(helpful){
+  const feedback=helpful.closest('.jv-feedback');
+  feedback.querySelectorAll('[data-jeeves-issue]').forEach(button=>button.setAttribute('aria-pressed','false'));
+  helpful.setAttribute('aria-pressed','true');
   feedback.querySelector('[role="status"]').textContent='Thank you. That helps LAiDIES improve Miss Jeeves.';
-  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:rating.dataset.jeevesRating,placement:jeevesPlacement})}).catch(()=>{});
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:'helpful',reasons:[],placement:jeevesPlacement})}).catch(()=>{});
+  return;
+ }
+ const issue=event.target.closest('[data-jeeves-issue]');
+ if(issue){
+  const feedback=issue.closest('.jv-feedback');
+  const selected=issue.getAttribute('aria-pressed')!=='true';
+  issue.setAttribute('aria-pressed',String(selected));
+  feedback.querySelector('[data-jeeves-helpful]').setAttribute('aria-pressed','false');
+  const count=feedback.querySelectorAll('[data-jeeves-issue][aria-pressed="true"]').length;
+  feedback.querySelector('[role="status"]').textContent=count?`${count} issue${count===1?'':'s'} selected. Choose more or send feedback.`:'';
+  return;
+ }
+ const submit=event.target.closest('[data-jeeves-submit]');
+ if(submit){
+  const feedback=submit.closest('.jv-feedback');
+  const reasons=Array.from(feedback.querySelectorAll('[data-jeeves-issue][aria-pressed="true"]'),button=>button.dataset.jeevesIssue);
+  const status=feedback.querySelector('[role="status"]');
+  if(!reasons.length){status.textContent='Choose at least one issue first.';return;}
+  submit.disabled=true;
+  status.textContent='Sending feedback…';
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:'not_helpful',reasons,placement:jeevesPlacement})})
+    .then(response=>{if(!response.ok)throw new Error('feedback_failed');status.textContent='Thank you. Your selected issues were sent together.';})
+    .catch(()=>{status.textContent='Feedback was not sent. Please try again.';submit.disabled=false;});
   return;
  }
  const result=event.target.closest('[data-result-id]');

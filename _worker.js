@@ -513,13 +513,16 @@ async function missJeevesFeedback(request, env) {
   try { body = await request.json(); } catch { return json({ status: 'error', error: 'invalid_json' }, 400); }
   const answerId = String(body?.answer_id || '');
   const rating = String(body?.rating || '');
+  const allowedReasons = ['did_not_answer','confusing_or_too_technical','inaccurate_or_outdated','missed_context','weak_missing_or_broken_sources','seemed_like_ai_slop','too_long','too_brief'];
+  const reasons = Array.isArray(body?.reasons) ? [...new Set(body.reasons.map(reason => String(reason)))].filter(reason => allowedReasons.includes(reason)) : [];
   const placement = body?.placement === 'homepage' ? 'homepage' : 'library';
-  if (!/^[a-f0-9]{64}$/.test(answerId) || !['helpful','not-helpful','too-technical','ai-slop'].includes(rating)) {
+  const validFeedback = rating === 'helpful' ? reasons.length === 0 : rating === 'not_helpful' && reasons.length > 0 && reasons.length <= allowedReasons.length;
+  if (!/^[a-f0-9]{64}$/.test(answerId) || !validFeedback) {
     return json({ status: 'error', error: 'invalid_feedback' }, 400);
   }
   try {
     env.MISS_JEEVES_SIGNALS?.writeDataPoint({
-      blobs: ['miss_jeeves_answer_feedback', 'v1', placement, rating, answerId, 'one_tap'], doubles: [1]
+      blobs: ['miss_jeeves_answer_feedback', 'v2', placement, rating, answerId, ...reasons], doubles: [1]
     });
   } catch {}
   return json({ status: 'accepted' }, 202);

@@ -47,6 +47,27 @@ assert.match(renderedBookResponse.headers.get('cache-control') || '', /(?:^|,\s*
 const wrongMethod = await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves'), envWith());
 assert.equal(wrongMethod.status, 405, 'API must reject non-POST requests');
 
+const feedbackSignals = [];
+const feedbackEnv = envWith(index.entries, null, { writeDataPoint(point) { feedbackSignals.push(point); } });
+const feedbackResponse = await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/feedback', {
+  method: 'POST',
+  headers: { 'content-type': 'application/json' },
+  body: JSON.stringify({
+    answer_id: 'a'.repeat(64),
+    rating: 'not_helpful',
+    reasons: ['confusing_or_too_technical', 'missed_context', 'seemed_like_ai_slop'],
+    placement: 'homepage'
+  })
+}), feedbackEnv);
+assert.equal(feedbackResponse.status, 202, 'multiple feedback issues must be accepted together');
+assert.deepEqual(feedbackSignals[0].blobs, ['miss_jeeves_answer_feedback', 'v2', 'homepage', 'not_helpful', 'a'.repeat(64), 'confusing_or_too_technical', 'missed_context', 'seemed_like_ai_slop']);
+const invalidFeedback = await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/feedback', {
+  method: 'POST',
+  headers: { 'content-type': 'application/json' },
+  body: JSON.stringify({ answer_id: 'b'.repeat(64), rating: 'not_helpful', reasons: [] })
+}), feedbackEnv);
+assert.equal(invalidFeedback.status, 400, 'not-helpful feedback must include at least one selected issue');
+
 const privateSearch = await ask('My password: secret-1234');
 assert.equal(privateSearch.status, 400, 'private-content calibration fixture must be rejected before retrieval or AI');
 
