@@ -122,14 +122,41 @@ An error in the original reporting needs an explicit dated correction or
 retraction notice, with the previous version/history retained. That process is
 not permission to use same-ID correction machinery for later news developments
 or to overwrite history silently. Source rechecks alone do not create a new
-publication date. Existing book/guidance maintenance is a different content job;
-this ruling preserves the dated newspaper record.
+publication date. This rule governs dated news reporting. Big Picture living
+analysis, described below, and book/guidance maintenance have different jobs.
 
 Current implementation is PARTIAL. The reader supports reciprocal story IDs,
 but the ordinary candidate path rejects non-empty lineage, the live dataset
 contains no populated lineage and the renderer places its optional links near
 the top. The runbook and workflow audit record the exact production/reader gap;
 no claim of working bottom-of-article navigation is made.
+
+## Big Picture is living analysis — September 5 reaffirmation
+
+DECIDED — Ali distinguishes Big Picture from dated news: its themes, issues and
+arguments develop over time, so the existing article should be updated when
+material evidence changes the explanation, balance of arguments or conclusions.
+Keep its stable article URL and original publication date; show the meaningful
+update date and source-check date separately. A routine recheck is not a new
+publication or a substantive update.
+
+Retain earlier admitted versions and make them traceable from the article.
+Explain what changed and why in a dated, reader-focused update history; keep
+drafting, tools, approval exchanges and other internal production notes private.
+Material updates also need consideration for newspaper/Weekly surfacing so a
+returning reader can discover them. Dated reporting about the underlying events
+can link to this evolving analysis without losing its own historical record.
+
+Research must compare new supporting and contradicting evidence with the exact
+existing article, recording update needed, no change, or evidence hold with a
+next action. A list of themes does not prove that this comparison occurred.
+Existing exact-version Big Picture approval and source/content review remain.
+
+Verified September 5: the public data-centre article has functioning update
+history, but no retrievable previous-version links. Its theme list is static;
+recurring research records show consideration, not a proven complete refresh
+cycle. The public log includes internal production notes requiring repair.
+These gaps remain open; no article was changed by this reaffirmation.
 
 ## Authority retained
 

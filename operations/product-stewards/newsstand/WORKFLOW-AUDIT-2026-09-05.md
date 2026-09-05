@@ -39,9 +39,38 @@ public derivative was changed, and no synthetic model benchmark was run.
 The earlier checkpoints below record the state when inspected; they are not
 claims that later adoption has already produced a successful unattended run.
 
+## September 5 follow-up — Big Picture living analysis
+
+**PARTLY IMPLEMENTED; UPDATE HISTORY PUBLICLY VERIFIED.** Big Picture develops
+an ongoing question, so Ali reaffirmed that its existing article should evolve.
+This is distinct from the dated-news follow-up rule below.
+
+The live data-centre article at
+`https://laidies.ai/newsstand#big-picture-data-centre-deal-2026-08-24` opens its
+“Update history” at 1280px and 390px. It shows original publication August 24,
+last meaningful update August 29, sources last checked August 29 and 15 dated
+entries. Those dates do not establish source currency on September 5.
+
+Current `previousVersions` is empty. `renderBigPictureHistory` renders dates and
+summaries but no version links; the reader contract accepts an empty version
+list. Thus the log works, but readers cannot retrieve prior editions through it.
+The seven-question tracking file was last updated August 24 and is shown only
+when no Big Picture article is available. September 5 source/intake records do
+consider existing Big Picture work, including a data-centre lead held for source
+comparison; this does not prove continuous monitoring or an admitted refresh.
+
+The public log contains internal draft, editing-tool and approval details.
+Replace these with reader-relevant explanations of changed evidence/arguments
+through the existing exact-copy review, keeping original production records
+private. No public text was edited in this audit. Prior-version retrieval,
+research-to-update follow-through and meaningful update surfacing remain open.
+Independent Terra/Low code review agrees with the browser findings; its reader
+contract test could not run because the existing state-cases fixture is absent
+from this checkout. No passing suite or full freshness audit is claimed.
+
 ## September 5 follow-up — reported history and reciprocal story links
 
-**PARTIAL / NOT WORKING AS SPECIFIED.** Ali reaffirmed that later developments
+**PARTIAL / NOT WORKING AS SPECIFIED.** Ali reaffirmed that later dated-news developments
 must be new dated stories, preserve the earlier report and link both ways, with
 forward links at the old article's bottom. This is existing product intent.
 

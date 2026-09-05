@@ -1,5 +1,14 @@
 # LAiDIES build learning ledger
 
+## BTB-503 — A public change log is neither a version archive nor an internal diary
+
+- **Date:** 2026-09-05
+- **Observed:** Big Picture's live update log works, but its version list is empty and the reader offers no old-version retrieval. Public summaries also expose drafting-tool, rejection and approval details instead of consistently explaining changed evidence or arguments. The static theme list does not establish active monitoring.
+- **Prevention specified:** Distinguish living analysis from dated news. Verify retrieval separately from history labels; record source-driven update/no-change/hold decisions against the current article. Write public changes for the reader's understanding, keep production history private, and consider material updates for renewed surfacing.
+- **Evidence:** Current code and live 1280/390px article inspected; independent Terra/Low review agreed. The reader-contract suite was unavailable due to an absent existing fixture, not reported as passing.
+- **Possible public angle:** How to tell whether an explainer has meaningfully changed, using a separate generic example under the disclosure boundary.
+- **Status:** VERIFIED GAP / RULE RECORDED / PUBLIC REPAIRS OUTSTANDING. No public log or article changed in this audit.
+
 ## BTB-502 — A story-link schema is not a working follow-up feature
 
 - **Date:** 2026-09-05

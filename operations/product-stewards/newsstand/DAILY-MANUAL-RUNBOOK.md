@@ -333,8 +333,8 @@ six desk labels or a provider-only sweep as completed independent coverage.
 
 ### New developments preserve the previous report
 
-Use the publication-history ruling in the September 5 editorial promise.
-For a material development, produce a new dated story that explains the change
+Use the dated-news history ruling in the September 5 editorial promise.
+For a material news development, produce a new dated story that explains the change
 and identifies its earlier coverage. Preserve the earlier body's wording,
 sources, original ID/URL and publication date; add separately maintained
 forward navigation at its bottom, with a back-link from the new story. Further
@@ -366,6 +366,24 @@ Exact private hashes alone do not establish that a reader sees a correction
 notice or can retrieve the earlier version; both public properties require
 separate verification. Do not silently expose held old reporting to complete a
 link, or reuse an old issue date for a new development.
+
+### Big Picture updates the continuing analysis
+
+Apply the separate “Big Picture is living analysis” ruling in the editorial
+promise. Compare new evidence with the existing article and retain a sourced
+update/no-change/hold disposition and next action in the existing intake. Update
+the admitted analysis when warranted, with its original date retained, distinct
+meaningful-update/source-check dates, retrievable prior versions and a public
+summary of the changed evidence or argument. Keep internal editing notes private.
+Consider each material update for newspaper/Weekly surfacing. Exact-version Ali
+approval still applies; ordinary-news autonomy does not authorize this update.
+
+September 5 live/code check: the data-centre article's 15-entry update log opens
+on desktop/mobile, but `previousVersions` is empty and its renderer never links
+versions. The seven-question tracking file is an August 24 static fallback,
+not evidence of current monitoring. The log also exposes internal drafting notes.
+Repair these existing paths before claiming complete version retention or an
+operating research-to-update cycle; the workflow audit records the boundaries.
 
 ### Research reuse: site freshness and internal practice
 

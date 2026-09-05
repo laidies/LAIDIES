@@ -68,7 +68,7 @@ material stays HOLD; old draft/privacy approval cannot authorize its release.
 This uses the existing content and Ali voice/taste reviews, not a new review
 system or a claim that a validator detects commercial secrets.
 
-Ali reaffirmed the newspaper-history rule on September 5: a later development
+Ali reaffirmed the dated-news history rule on September 5: a later development
 is a new dated article, the original report remains intact, and bottom-of-story
 links take the old reader to later related reporting with reciprocal back-links.
 Exact authority is the “Preserve reported history and link later coverage”
@@ -76,6 +76,13 @@ section of the NewsStand editorial promise. Explicit correction/retraction
 notices preserve history; same-ID correction is not a later-development route.
 The workflow audit and runbook record the current missing publication connection
 and bottom-link placement. Existing schema fields alone are not implementation.
+Big Picture is explicitly different: update the existing living analysis as
+evidence and arguments develop, preserve its original date and earlier versions,
+and disclose reader-relevant changes. The adjacent “Big Picture is living
+analysis” section in the same editorial promise governs. Internal drafting notes
+stay private; meaningful changes need renewed surfacing consideration. Existing
+exact-version Ali approval remains. The audit separates the working public
+update log from absent prior-version retrieval and unproven ongoing refresh.
 
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and

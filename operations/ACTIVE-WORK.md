@@ -1,5 +1,12 @@
 # Active work
 
+## 2026-09-05 Big Picture living-analysis distinction
+
+- **Status:** Existing live update history VERIFIED; complete version retention and ongoing refresh remain PARTIAL. The dated-news preservation rule does not prohibit updating Big Picture analysis.
+- **Verified:** The live data-centre article opens its 15-entry history at 1280/390px: original August 24, meaningful update/source check August 29. No prior-version links exist; the renderer ignores the empty version list. The seven-question August 24 fallback is not a monitoring engine. Current research intake shows consideration, not a proven refresh cycle.
+- **Next repair:** Keep the stable article and original date, retain retrievable admitted versions, connect sourced update/no-change/hold decisions to the existing article, and consider material updates for renewed surfacing. Rewrite the public history's internal drafting details into reader-relevant change summaries under existing review and exact-version Ali authority; preserve internal records privately.
+- **Boundary:** Internal ruling/runbook/audit update only; no public copy, code, automation, deployment or iCloud change. Live browser and independent code inspection agree. Reader-contract test unavailable because this checkout lacks its existing fixture. No new source-freshness claim. The documented sparse-checkout hook bypass applies only to this internal commit; overall NewsStand remains BUILDING.
+
 ## 2026-09-05 NewsStand history and future-coverage links
 
 - **Status:** PARTIAL IMPLEMENTATION CONFIRMED; missing production/reader connection remains BUILDING. Ali reaffirmed the existing design, and its exact rule is recorded in the editorial promise/runbook.
