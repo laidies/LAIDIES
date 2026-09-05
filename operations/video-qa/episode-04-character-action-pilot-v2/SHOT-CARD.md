@@ -214,3 +214,63 @@ above fully raised keys; end with the same two fingers depressing the same two
 keys—then prove their pixel registration before estimating another render. The
 25.64-second pilot remains unassembled; the preserved full film remains a held
 baseline and was not changed.
+
+## Opening motion-comic grammar proof v3 — September 5
+
+Ali rejected the broader opening experience as a slideshow: repairing one rain
+shot or one later machine-light loop does not solve several motionless opening
+minutes. This supersedes further work on the failed character-action assembly
+as the immediate production priority. The Higgsfield hand clips and the Canva
+rain attempt remain rejected internal evidence and are not reused.
+
+The smallest representative successor proof is the exact 00:00–00:40.20
+announcer opening from Episode 04 v10. It preserves the existing narration and
+exact source artwork while adding narration-timed movement through the existing
+comic panels and pulsing only cyan, green and gold light pixels that already
+exist inside bounded source regions. No faces, hands, bodies, text, machines or
+room geometry are regenerated. The move into the episode title is a one-shot,
+not a loop.
+
+Candidate:
+`ep04-opening-00-40-motion-comic-v3-review.mp4`
+
+- duration: 40.20 seconds;
+- video: 1920×1080, 30 fps, H.264;
+- audio: exact Episode 04 v10 opening audio, mono, 48 kHz;
+- SHA-256: `5789c4d6695690b1a094635785d6e6d18c6c5d53dc916437637495d86be9d388`;
+- full decode: completed with 1,206/1,206 frames and an audio stream;
+- continuous 1x playback: completed in QuickTime from 00:00 to 00:40.20;
+- contact sheet: `ep04-opening-00-40-motion-comic-v3-contact.jpg`;
+- builder: `build-opening-motion-comic-v3.py`.
+
+Ali reviewed this v3 proof and rejected every roving panel crop. The crops cut
+headings, changed scale too aggressively and made the sequence visually messy.
+Only the slow push into the final *The Founding Mothers* title was accepted.
+The v3 status is therefore `REJECTED / INTERNAL EVIDENCE ONLY`.
+
+### Locked-composition successor v4
+
+The v4 proof keeps both opening comic pages fully visible and pixel-locked.
+Instead of moving the camera among panels, it activates the narration-relevant
+panel using bounded source-pixel lighting: the existing chat-screen cyan,
+document/evidence marks, checklist ticks, machine lamps and gold circuit paths.
+The title alone retains the accepted slow push. Crossfades replace hard scene
+changes; no generated character or object motion is introduced.
+
+Candidate:
+`ep04-opening-00-40-motion-comic-v4-review.mp4`
+
+- duration: 40.20 seconds;
+- video: 1920×1080, 30 fps, H.264;
+- audio: exact Episode 04 v10 opening audio, mono, 48 kHz;
+- SHA-256: `93541ef263b98ecbe5e2669b5191b6637f035e44278a6dd690c7318ac7360b7d`;
+- full decode: completed with 1,206/1,206 frames and an audio stream;
+- continuous 1x playback: completed in QuickTime from 00:00 to 00:40.20;
+- contact sheet: `ep04-opening-00-40-motion-comic-v4-contact.jpg`;
+- builder: `build-opening-motion-comic-v4.py`.
+
+Status: `INTERNAL REPRESENTATIVE PROOF / OWNER DIRECTION REQUIRED`.
+The clip has not been reproduced in Canva, assembled in CapCut, inserted into
+the full film, independently judged, uploaded or released. Approval of its
+motion grammar would authorize applying the same controlled approach to the
+complete 00:00–03:08 opening before any full-film replacement is considered.
