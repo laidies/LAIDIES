@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "reader-tip-monitor-state-v1",
+  "owner": "aidb-intelligence-desk",
+  "publicationAuthority": false,
+  "spendAuthority": false,
+  "cadence": {
+    "frequency": "WEEKLY",
+    "day": "MONDAY",
+    "localTime": "09:00",
+    "timezone": "America/Vancouver",
+    "lookbackDays": 10,
+    "overlapDays": 3
+  },
+  "sources": [
+    {
+      "sourceKey": "GOD_OF_PROMPT",
+      "rosterSourceId": null,
+      "identity": "God of Prompt",
+      "channelUrl": "https://www.instagram.com/godofprompt/",
+      "sourceRecord": "operations/agents/aidb-intelligence-desk/sources/2026-09-04-god-of-prompt-candidate.md",
+      "lastSuccessfulScanAt": null,
+      "cursor": null,
+      "lastAttempt": {
+        "attemptedAt": "2026-09-04T21:20:00-07:00",
+        "accessState": "SEEDED",
+        "cursorAdvanced": false,
+        "failureReason": null,
+        "nextTrigger": "First complete ten-day public-source scan."
+      }
+    },
+    {
+      "sourceKey": "ELUNA_AI",
+      "rosterSourceId": null,
+      "identity": "eluna.ai",
+      "channelUrl": "https://www.instagram.com/eluna.ai/",
+      "sourceRecord": "operations/agents/aidb-intelligence-desk/sources/2026-09-04-eluna-premortem-item.md",
+      "lastSuccessfulScanAt": null,
+      "cursor": null,
+      "lastAttempt": {
+        "attemptedAt": "2026-09-04T21:20:00-07:00",
+        "accessState": "SEEDED",
+        "cursorAdvanced": false,
+        "failureReason": null,
+        "nextTrigger": "First complete ten-day public-source scan."
+      }
+    }
+  ],
+  "items": [
+    {
+      "itemKey": "instagram:Dc1ltERCUbP",
+      "sourceKey": "GOD_OF_PROMPT",
+      "canonicalUrl": "https://www.instagram.com/p/Dc1ltERCUbP/",
+      "firstSeenAt": "2026-09-04T21:20:00-07:00",
+      "publishedAt": null,
+      "observedPublishedLabel": "September 3, 2026",
+      "disposition": "HOLD",
+      "reason": "The advertised 100-output performance claim lacks a complete reproducible receipt.",
+      "evidenceGap": "No evidence for all outputs, uniqueness criteria or failure definition.",
+      "nextTrigger": "Run one bounded representative test if the method proves a distinct reader job.",
+      "target": null,
+      "receivingOwner": null,
+      "receiptPath": "operations/agents/aidb-intelligence-desk/sources/2026-09-04-god-of-prompt-candidate.md"
+    },
+    {
+      "itemKey": "instagram:DczX23FEjN-",
+      "sourceKey": "ELUNA_AI",
+      "canonicalUrl": "https://www.instagram.com/p/DczX23FEjN-/",
+      "firstSeenAt": "2026-09-04T21:20:00-07:00",
+      "publishedAt": null,
+      "observedPublishedLabel": "Instagram displayed one day old on September 4, 2026",
+      "disposition": "MERGE",
+      "reason": "The premortem sequence strengthens existing disconfirming-question and approach-brief treatments.",
+      "evidenceGap": null,
+      "nextTrigger": "Receiving owner review before any production use.",
+      "target": "Work-Life mirror seeds 17 and 28",
+      "receivingOwner": "learning-content-ecosystem",
+      "receiptPath": "operations/agents/aidb-intelligence-desk/sources/2026-09-04-eluna-premortem-item.md"
+    }
+  ],
+  "attempts": [
+    {
+      "runId": "reader-tip-seed-2026-09-04",
+      "attemptedAt": "2026-09-04T21:20:00-07:00",
+      "mode": "SEED",
+      "result": "SEEDED",
+      "sourceKeys": ["GOD_OF_PROMPT", "ELUNA_AI"],
+      "observedItemKeys": ["instagram:Dc1ltERCUbP", "instagram:DczX23FEjN-"],
+      "note": "Seeded only from the two inspected supplied items; no full ten-day scan or cursor advance was claimed."
+    }
+  ]
+}
