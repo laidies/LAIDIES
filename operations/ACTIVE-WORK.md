@@ -1,5 +1,20 @@
 # Active work
 
+> **2026-09-05 — BUILDING: Miss Jeeves intended Sol path and answer integrity.**
+> Live browser reproduced the work-document answer dropping permission rules.
+> Exact Pages deployment 46172581 still matches the verified release artifact;
+> it silently falls from a missing/invalid current-guidance connection to a
+> Llama catalogue answer. Production config lacks the intended FAIRY_AI service
+> binding although preview has it. The catalogue reports healthy regardless.
+> Ali explicitly requires Sol. Next: bind exact intended service/model, remove
+> silent model substitution, verify deployed identity and complete behavior.
+> Also review stale index-to-book mapping, clipped source conditions, raw HTML,
+> ambiguity handling and tests that currently check routes without answer truth.
+> Restore the intended service before designing a replacement answer system.
+> Whole-site scope remains: intended functions, automatic maintenance and all
+> pages brought to current LAiDIES design/writing/accuracy/usability standards.
+> The aim is to free Ali to focus on new episodes, ideas, features and books.
+
 > **2026-09-05 — Site improvement sequence; copy elevation CAPTURED.**
 > Foreground objective remains the existing site improvement cycle. Ali added
 > stronger homepage/subpage language; no new public wording has been produced.

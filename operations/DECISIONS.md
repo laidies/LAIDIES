@@ -1,5 +1,15 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Miss Jeeves must use Sol; silent model fallback rejected.**
+> Ali explicitly requires Sol for Miss Jeeves. Restore the intended OpenAI
+> service connection and verify the model in the actual public response. A
+> missing/unavailable/invalid intended service must not silently switch answers
+> to the legacy Llama catalogue model. Keep useful honest source navigation and
+> failure states. Review the full source-to-answer construction: preserve
+> decision-changing conditions, ask a useful follow-up when necessary, and
+> state evidence gaps instead of inventing an answer. A model choice alone is
+> not factual assurance. This is part of restoring the intended site behavior.
+
 > **2026-09-05 — Humour, Rewind Era references and voice development confirmed.**
 > Ali endorsed the Dream Phone yearbook-message example for its intended effect:
 > laughter, memorability and desire to try the experience. Shared Rewind Era
