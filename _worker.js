@@ -89,6 +89,9 @@ function intendedAnswerModel(value) {
 function currentGuidancePayload(data) {
   if (data?.status === 'clarification_required' && intendedAnswerModel(data.model) && typeof data.question === 'string' && data.question.length <= 320) return {question:data.question,model:data.model,guestToken:typeof data.guestToken === 'string' ? data.guestToken : '',allowance:data.allowance && typeof data.allowance === 'object' ? data.allowance : null};
   if (!data || data.status !== 'ok' || !Array.isArray(data.output) || !intendedAnswerModel(data.model)) return null;
+  // The private research service owns the domain roster. Require its complete
+  // URL-policy check; this is not a claim-support or freshness verdict.
+  if (data.citation_policy !== 'all-approved-https.v1' || typeof data.source_policy_version !== 'string' || !data.source_policy_version.trim()) return null;
   const parts = [];
   const citations = [];
   const seen = new Set();
@@ -96,11 +99,13 @@ function currentGuidancePayload(data) {
     for (const content of Array.isArray(item?.content) ? item.content : []) {
       if (content?.type !== 'output_text' || typeof content.text !== 'string') continue;
       parts.push(content.text.trim());
-      for (const annotation of Array.isArray(content.annotations) ? content.annotations : []) {
-        if (annotation?.type !== 'url_citation' || typeof annotation.url !== 'string') continue;
+      if (!Array.isArray(content.annotations)) return null;
+      for (const annotation of content.annotations) {
+        if (annotation?.type !== 'url_citation' || typeof annotation.url !== 'string') return null;
         let url;
-        try { url = new URL(annotation.url); } catch { continue; }
-        if (url.protocol !== 'https:' || seen.has(url.href)) continue;
+        try { url = new URL(annotation.url); } catch { return null; }
+        if (url.protocol !== 'https:' || url.username || url.password) return null;
+        if (seen.has(url.href)) continue;
         seen.add(url.href);
         citations.push({ url: url.href, title: String(annotation.title || url.hostname).trim().slice(0, 180) });
       }

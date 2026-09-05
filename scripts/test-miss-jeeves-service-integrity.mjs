@@ -6,7 +6,7 @@ const { default: worker } = await import(pathToFileURL(workerPath));
 let legacyCalls = 0;
 const entry = {id:'test-prompts',title:'Prompts',summary:'<p>Use <strong>clear instructions</strong> &amp; context.</p>',url:'/newsstand.html#prompts',type:'daily',learnerJob:'current',status:'live',topics:['prompting'],aliases:['Why are prompts ignored?']};
 const source = {type:'url_citation',url:'https://platform.openai.com/docs/guides/prompt-engineering',title:'Prompting'};
-const valid = {status:'ok',model:'gpt-5.6-sol',source_policy_version:'test.v1',guestToken:'fixture-token',allowance:{kind:'guest',remaining:2},output:[{type:'message',content:[{type:'output_text',text:'A prompt can contain conflicting instructions. I need the harmless instruction and tool name to check what happened in your case.',annotations:[source]}]}]};
+const valid = {status:'ok',model:'gpt-5.6-sol',source_policy_version:'test.v1',citation_policy:'all-approved-https.v1',guestToken:'fixture-token',allowance:{kind:'guest',remaining:2},output:[{type:'message',content:[{type:'output_text',text:'A prompt can contain conflicting instructions. I need the harmless instruction and tool name to check what happened in your case.',annotations:[source]}]}]};
 const envFor = (service) => ({
   ASSETS:{fetch:async request=>new URL(request.url).pathname==='/content/site/miss-jeeves-index.json'?Response.json({_meta:{schema:'laidies-miss-jeeves-index.v1'},entries:[entry]}):new Response('',{status:404})},
   AI:{run:async()=>{legacyCalls++;return {response:JSON.stringify({coverage:'exact',answer:'Just upload it.',source_ids:[entry.id]})};}},
@@ -32,6 +32,10 @@ const cases = [
   ['missing service',undefined],
   ['throwing service',async()=>{throw Error('offline');}],
   ['invalid JSON',async()=>new Response('bad')],
+  ['missing citation policy',async()=>Response.json({...valid,citation_policy:undefined})],
+  ['missing source policy version',async()=>Response.json({...valid,source_policy_version:undefined})],
+  ['mixed non-HTTPS citation',async()=>Response.json({...valid,output:[{content:[{type:'output_text',text:'Mixed evidence.',annotations:[source,{...source,url:'http://openai.com/advice'}]}]}]})],
+  ['mixed malformed citation',async()=>Response.json({...valid,output:[{content:[{type:'output_text',text:'Mixed evidence.',annotations:[source,{...source,url:'not a URL'}]}]}]})],
   ['no citations',async()=>Response.json({...valid,output:[{content:[{type:'output_text',text:'Just upload it.',annotations:[]}]}]})],
   ['wrong model',async()=>Response.json({...valid,model:'llama-3.1'})],
   ['missing model',async()=>Response.json({...valid,model:undefined})],
@@ -70,7 +74,7 @@ for (const [env,status] of [[envFor(),503],[goodEnv,200]]) {
   assert.equal(healthData.answer_model_required,'gpt-5.6-sol');
   assert.equal(healthData.answer_probe,'not_run','configuration health must not imply a provider answer was tested');
 }
-console.log('PASS Miss Jeeves service integrity: 7 failure cases, Sol receipt, identity and allowance, plain text, health.');
+console.log(`PASS Miss Jeeves service integrity: ${cases.length} failure cases, Sol and citation policy, identity and allowance, plain text, health.`);
 
 const clarifier=await (await ask(envFor(async()=>Response.json({status:'clarification_required',question:'Which tool were you using?',model:'gpt-5.6-sol',guestToken:'clarification-guest',allowance:{kind:'guest',remaining:2}})))).json();
 assert.equal(clarifier.status,'clarification_required');

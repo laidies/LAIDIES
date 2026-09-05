@@ -23,7 +23,7 @@ const asset=async request=>{
 const env={ASSETS:{fetch:asset},AI:{run(){aiCalls++;throw Error('legacy AI invoked');}},FAIRY_AI:{async fetch(request){
  researchCalls++;forwarded=await request.json();
  if(fixture==='clarify')return Response.json({status:'clarification_required',model:'gpt-5.6-sol',question:'Which AI tool are you using?',guestToken:'clarification-fixture',allowance:{kind:'guest',remaining:2}});
- return Response.json({status:'ok',model:'gpt-5.6-sol',source_policy_version:'fixture',guestToken:'research-fixture',allowance:{kind:'guest',remaining:2},output:[{content:[{type:'output_text',text:'Check whether your employer permits this account to receive the document before uploading. If you do not know, ask first.',annotations:[{type:'url_citation',url:'https://help.openai.com/',title:'Fixture source'}]}]}]});
+ return Response.json({status:'ok',model:'gpt-5.6-sol',source_policy_version:'fixture',citation_policy:'all-approved-https.v1',guestToken:'research-fixture',allowance:{kind:'guest',remaining:2},output:[{content:[{type:'output_text',text:'Check whether your employer permits this account to receive the document before uploading. If you do not know, ask first.',annotations:[{type:'url_citation',url:'https://help.openai.com/',title:'Fixture source'}]}]}]});
 }}};
 const server=http.createServer(async(req,res)=>{
  try{
