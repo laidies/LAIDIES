@@ -167,6 +167,13 @@ assert.deepEqual(aiPayload.payload.response_format, { type: 'json_object' }, 'ca
 assert.deepEqual(grounded.results.map(result => result.id), ['ep-04']);
 assert.ok(!JSON.stringify(aiPayload).includes('BUTTONDOWN'));
 
+const huggingFace = await (await ask('What is Hugging Face, and why is it all over the news?', serviceEnv, 'homepage')).json();
+const huggingFaceContext = JSON.parse(serviceRequest ? await serviceRequest.clone().text() : '{}').related_laidies_material || [];
+assert.ok(huggingFaceContext.some(item => /Agentic AI/i.test(item.title)), 'Hugging Face guidance must receive the Agentic AI teaching anchor');
+assert.ok(huggingFaceContext.some(item => /Sandbox/i.test(item.title)), 'Hugging Face guidance must receive the sandbox teaching anchor');
+assert.ok(huggingFace.results.some(result => result.id === 'book-section-ai-fundamentals-101-ch-2-2-5-variations-within-the-family-size-openness-and-thinking'), 'Hugging Face results must include the openness lesson');
+assert.ok(huggingFace.results.some(result => result.id === 'book-section-ai-fundamentals-101-ch-13-13-2-what-a-sandbox-actually-is'), 'Hugging Face results must include the sandbox lesson');
+
 const noCoverageAi = {
   async run() {
     return { response: JSON.stringify({

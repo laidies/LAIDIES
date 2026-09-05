@@ -25,6 +25,22 @@ const COMMON_QUESTION_TARGETS = new Map([
   ['how do i check an ai answer', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
   ['what can ai help me do at work', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
 ]);
+const TEACHING_ANCHOR_RULES = [
+  {
+    pattern: /\b(hugging\s*face|breach|hack|hacked|cyber|sandbox|agentic)\b/i,
+    ids: [
+      'book-section-ai-fundamentals-101-ch-2-2-4-agentic-ai-the-layer-that-acts',
+      'book-section-ai-fundamentals-101-ch-13-13-1-why-sandboxing-matters-now',
+      'book-section-ai-fundamentals-101-ch-13-13-2-what-a-sandbox-actually-is'
+    ]
+  },
+  {
+    pattern: /\b(hugging\s*face|open[ -]source|open[ -]weight|open model|open models)\b/i,
+    ids: [
+      'book-section-ai-fundamentals-101-ch-2-2-5-variations-within-the-family-size-openness-and-thinking'
+    ]
+  }
+];
 const SAFE_EVENT_ID = /^[a-z0-9][a-z0-9._:-]{0,159}$/i;
 const PRIVATE_CONTENT_PATTERNS = [
   /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
@@ -160,6 +176,18 @@ function retrieve(query, entries) {
     if (selected.length >= 12) break;
   }
   return selected;
+}
+
+function addTeachingAnchors(query, entries, matches) {
+  const anchors = TEACHING_ANCHOR_RULES
+    .filter(rule => rule.pattern.test(query))
+    .flatMap(rule => rule.ids)
+    .map(id => entries.find(entry => entry.id === id && safeEntry(entry)))
+    .filter(Boolean);
+  const seen = new Set();
+  return [...anchors.map(entry => ({ entry, score: 50 })), ...matches]
+    .filter(({ entry }) => entry && !seen.has(entry.id) && seen.add(entry.id))
+    .slice(0, 12);
 }
 
 function hasExactCatalogueMatch(query, matches) {
@@ -390,7 +418,7 @@ async function missJeeves(request, env) {
     return json({ status: 'unavailable', answer: 'Miss Jeeves cannot check the catalogue right now. Your question is still here.', results: [] }, 503);
   }
   let reasoned = null;
-  const retrieved = retrieve(query, entries);
+  const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
   let currentGuidance = null;
   try {
     currentGuidance = await askCurrentMissJeeves(request, env, query, retrieved);

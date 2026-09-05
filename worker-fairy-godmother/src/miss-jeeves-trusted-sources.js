@@ -3,7 +3,7 @@
 // Scout-only sources are intentionally absent: they may discover an original,
 // but they may not support a Miss Jeeves answer directly.
 export const MISS_JEEVES_SOURCE_POLICY = Object.freeze({
-  version: "2026-09-04.1",
+  version: "2026-09-04.2",
   sourceRosterAsOf: "2026-09-04",
   sources: Object.freeze([
     { id: "SRC-ETHAN-MOLLICK", domain: "oneusefulthing.org", authority: "attributed_practitioner", reviewedAt: "2026-08-07", expiresAt: "2026-11-07" },
@@ -24,7 +24,7 @@ export const MISS_JEEVES_SOURCE_POLICY = Object.freeze({
     "support.anthropic.com", "platform.claude.com",
     "cloud.google.com", "support.google.com", "blog.google",
     "microsoft.com", "learn.microsoft.com", "support.microsoft.com",
-    "nvidia.com", "docs.github.com", "apple.com",
+    "nvidia.com", "huggingface.co", "docs.github.com", "apple.com",
     "aws.amazon.com", "docs.aws.amazon.com", "cloudflare.com", "developers.cloudflare.com",
     "nist.gov", "oecd.org", "europa.eu", "canada.ca", "gov.uk",
     "ftc.gov", "cisa.gov", "sec.gov", "iso.org", "owasp.org", "w3.org",
