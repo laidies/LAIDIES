@@ -23,7 +23,8 @@ proper domain source before building from it.
 NewsStand editorial purpose, professional-women audience, memorable explanation,
 coverage breadth, misleading-headline translation, STEM/medical reporting,
 practical guidance, learning links, Front PAiGE's earned feature cadence,
-Weekly comprehension, Big Picture inquiry, useful service rotation, and the
+Weekly comprehension, Big Picture inquiry, mandatory service-desk assessment
+and intake-to-reader follow-through (including Paige's Tip), and the
 requested Saint/MAiVEN/TRAiLBLAZER and playful newspaper feature directions:
 `operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md`
 (Ali's direct September 5 ruling). This is DECIDED purpose, not implemented or
