@@ -40,6 +40,8 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   assert.equal(providerRequest.body.max_tool_calls, 2);
   assert.equal(providerRequest.body.tools[0].type, "web_search");
   assert.match(providerRequest.body.instructions, /reader who may know nothing about AI, software or the technology industry/);
+  assert.match(providerRequest.body.instructions, /smartest woman in the group chat explaining AI over drinks after a long workday/);
+  assert.match(providerRequest.body.instructions, /must not sound like a chatbot/);
   assert.match(providerRequest.body.instructions, /does not know GitHub/);
   assert.match(providerRequest.body.instructions, /no more than three unavoidable technical terms/);
   assert.match(providerRequest.body.instructions, /technical term \(plain-language definition\)/);
