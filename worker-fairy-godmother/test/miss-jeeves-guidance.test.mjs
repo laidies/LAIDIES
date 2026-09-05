@@ -41,6 +41,8 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   assert.match(providerRequest.body.instructions, /reader who may know nothing about AI or technology/);
   assert.match(providerRequest.body.instructions, /recent 60-day timeline/);
   assert.match(providerRequest.body.instructions, /do not omit a verified breach/);
+  assert.match(providerRequest.body.instructions, /identify the organization responsible/);
+  assert.match(providerRequest.body.instructions, /what was not affected/);
   assert.match(providerRequest.body.instructions, /what its unusual name means or where it came from/);
   assert.match(providerRequest.body.instructions, /why it is valuable/);
   assert.match(providerRequest.body.instructions, /one or two genuinely relevant ideas in the supplied LAiDIES material/);
