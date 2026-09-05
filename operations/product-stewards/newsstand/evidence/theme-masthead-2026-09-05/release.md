@@ -1,6 +1,7 @@
 # NewsStand masthead theme — September 5
 
-Status: VERIFIED LOCALLY; public deployment and verification pending.
+Status: VERIFIED PUBLICLY — production `93364e9a`, source
+`ab3e26c44740a2a41a049197efd4644971cd3f9e`, pushed before release.
 
 Ali requested “Play the NewsStand theme” in the masthead, opening the existing
 player in the page, and the same experience for related songs across LAiDIES.
@@ -71,3 +72,26 @@ hook bypass is limited to the owned commit after the above functional checks.
 
 No whole-site rebuild, public prose rewrite, new recording, catalogue admission,
 new player engine, public operational disclosure, or iCloud write is included.
+
+## Public result
+
+- Cloudflare production deployment: `93364e9a-54c3-4b6c-8bc6-b18de9fef2d6`.
+- Immutable: https://93364e9a.laidies-sunnyvaile.pages.dev/newsstand
+- Custom: https://laidies.ai/newsstand
+- Actual native-audio/browser suite passes at both origins at 1280/390/320:
+  correct song, advancing playback, pause/resume, one player, no new window,
+  keyboard entry/Stop return and no overflow. Failure injection stayed local.
+- All 18 changed/protected byte checks match the exact artifact across both
+  origins. `public-parity.json`, `artifact-manifest.json` and `scope-receipt.json`
+  preserve the exact result, complete artifact identity and public boundary.
+- Provider head was rechecked after release. Its downloaded configuration
+  matches the preceding release apart from its generated timestamp. Wrangler's
+  warning about top-level services not being inherited by `env.production`
+  is unchanged configuration; this update did not remove a provider binding.
+- The existing 53-reader/9-native-zoom suites passed on the exact local artifact;
+  public verification reran the complete focused song journey, not those broad
+  suites. No all-site functional or musical-quality certification is implied.
+
+The NewsStand entry is complete. Migration of other pages to the same related-song
+control remains separate work under the shared rule. The broader sourcing,
+Weekly, service replenishment and story-history gaps remain open in ACTIVE-WORK.

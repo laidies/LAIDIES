@@ -2,10 +2,11 @@
 
 ## 2026-09-05 NewsStand masthead song
 
-- **Status:** VERIFIED LOCALLY; scoped deployment/public checks pending. Broader NewsStand implementation continues below.
+- **Status:** VERIFIED PUBLICLY at custom and immutable 93364e9a; source `ab3e26c44740a2a41a049197efd4644971cd3f9e` pushed before deployment. Broader NewsStand implementation continues below.
 - **Change:** “Play the NewsStand theme” opens the existing KSVL deck using admitted `the-newsstand`. Reusable related-song adapter handles readiness, focus into the asynchronous deck and Stop return. The old unused standalone Audio handler is removed.
 - **Verified:** Real audio on 1280/390/320; no autoplay or duplicate playback; keyboard/pause/resume/stop; held/missing-player/broken-media failures. Existing 53 reader and 9 native-zoom checks pass. Independent Terra/Low ACCEPT. Exact hashes, calibrated negative cases and broad sparse-checkout limitations are in `operations/product-stewards/newsstand/evidence/theme-masthead-2026-09-05/release.md`.
-- **Release boundary:** Exact current 46172581 artifact retained: two existing files change and one adapter is added. Player engine, recording, 744 other paths and current news stay unchanged. Other pages' migration remains future work under the recorded shared-player rule.
+- **Public checks:** Native song/keyboard journey passes at both origins on 1280/390/320. All 18 changed/protected response hashes match. Provider configuration matches the predecessor, excluding generation time; complete manifest and parity are preserved with the release record.
+- **Release boundary:** Exact predecessor 46172581 artifact retained: two existing files change and one adapter is added. Player engine, recording, 744 other paths and current news stay unchanged. Other pages' migration remains future work under the recorded shared-player rule.
 
 ## 2026-09-05 Big Picture living-analysis distinction
 
