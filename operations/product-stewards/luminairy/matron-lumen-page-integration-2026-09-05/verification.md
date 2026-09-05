@@ -1,6 +1,6 @@
 # Verification — Matron Lumen LUMINAiRY colour successor v2
 
-Status: INDEPENDENT VISUAL ADMISSION PASS — awaiting Ali
+Status: SUPERSEDED BY v3 — colour direction approved; unexplained plant clutter rejected by Ali 2026-09-05
 Date: 2026-09-05
 
 ## Exact candidate
@@ -42,3 +42,7 @@ Verdict: PASS
 - Residual observations: the hero is deliberately much darker than the wider page, and mint is less prominent than the other bound accents. Neither was judged a blocking mismatch.
 
 Admission recommendation: show this exact v2 to Ali for bounded LUMINAiRY hero approval only.
+
+## Ali correction — 2026-09-05
+
+Ali approved the colour improvement but rejected the unexplained quantity of potted plants, vines and floral filler. The PASS above is invalidated because it did not question whether that décor had a job. Preserve v2 as palette authority only; do not wire its exact pixels.
