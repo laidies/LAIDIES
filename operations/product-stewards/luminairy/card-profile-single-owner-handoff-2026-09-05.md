@@ -4,6 +4,8 @@
 
 **Single owner:** Codex task **Complete patron profiles** (`01a0308b-140d-7263-aebd-00aa52264775`).
 
+**Owner branch:** `feature/luminairy-card-profile-20260905`. This is the reconciled successor branch; continue directly from it rather than merging the older `feature/luminairy-all-profile-resources-20260902` branch back into the page.
+
 ## Ali's direct card-front decision
 
 The archive cards are covers, not compressed profile pages. Each front contains only:
@@ -22,7 +24,7 @@ Do not show the full description, lesson, evidence, resources or other profile-b
 
 ## Work to preserve and integrate
 
-The owner task must compare its branch/worktree with these exact local commits before editing shared LUMINAiRY paths:
+The owner branch already contains these exact prerequisite commits:
 
 - `75e0f600e8ebb8dd1d6aa2bb48d616fce7abf8ef` — reconciles the approved Matron Lumen hero with the complete 13/23/7 profile archive.
 - `a053c233ddfdc30357a2539948ea31330d330b57` — explains the three-pick purpose and makes **Your Luminaries** account-backed for signed-in residents while preserving signed-out local use.

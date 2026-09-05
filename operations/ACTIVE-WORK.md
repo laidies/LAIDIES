@@ -1173,7 +1173,7 @@ objective; every open lane keeps its own checkpoint.
 ### 2026-09-05 LUMINAiRY card/profile ownership handoff
 
 - **Current state:** `DECIDED / HANDOFF COMMITTED / CARD REDESIGN NOT STARTED IN THIS TASK`.
-- **Single owner:** **Complete patron profiles** (`01a0308b-140d-7263-aebd-00aa52264775`) owns the archive-card and complete-profile implementation.
+- **Single owner:** **Complete patron profiles** (`01a0308b-140d-7263-aebd-00aa52264775`) owns the archive-card and complete-profile implementation on `feature/luminairy-card-profile-20260905`.
 - **Locked result:** card fronts show only approved image, canonical role line and name; clicking the card opens the complete profile, which owns all depth and the choose/save action.
 - **Integration base:** preserve commits `75e0f600e8ebb8dd1d6aa2bb48d616fce7abf8ef` and `a053c233ddfdc30357a2539948ea31330d330b57`; exact handoff is `operations/product-stewards/luminairy/card-profile-single-owner-handoff-2026-09-05.md`.
-- **Write/release boundary:** this task has stopped card/profile edits. The Codex task-message service was unavailable during handoff, so delivery into the owner chat remains unconfirmed. No push or deployment occurred.
+- **Write/release boundary:** this task has stopped card/profile edits. The Codex task-message service was unavailable, so the committed owner branch plus this mandatory active-work checkpoint carry the handoff. No push or deployment occurred.
