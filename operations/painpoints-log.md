@@ -56,7 +56,11 @@ labels cannot confer privacy. A fixed-receipt Workflow now proves persisted
 checkpoint/wait/exact response/HOLD and rejects the wrong version in the real
 Cloudflare runtime. The initial pure-function test did not execute the workflow
 entrypoint; added real local runtime calibration to CI. Hosted negative checks
-also confirmed no-response HOLD and wrong-hash rejection.
+also confirmed no-response HOLD and wrong-hash rejection. GitHub's Linux runner
+printed runtime PASS but remained stuck after the test; canceled superseded runs
+and corrected cleanup to terminate the test-owned process group, including
+descendants after the npm parent exits. A hard deadline now bounds the test.
+The passing assertions alone did not prove successful process completion.
 An old local Wrangler runtime rejected the September compatibility date; pinning
 a current isolated runtime avoided disrupting other work. A later Cloudflare
 100328 CPU-limit error was overstated as an account-wide Free-plan claim. Ali

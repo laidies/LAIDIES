@@ -235,3 +235,8 @@ given the provider verification link. Do not save access tokens or verification
 codes in repository records. No database schema/role/account changes have been
 made. After sign-in, inspect the live schema and existing founder account before
 preparing a migration; the checked-in schema may be stale.
+
+CI follow-up: the first Linux run printed runtime PASS but hung after assertions
+until canceled. The test now tears down its owned process group, verifies it is
+gone and has a hard 90-second deadline. Superseded CI runs were canceled to stop
+wasted execution; only current-head full CI may establish integration readiness.

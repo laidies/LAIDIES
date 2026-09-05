@@ -10,22 +10,67 @@ const workflow = "laidies-operating-handoff-pilot";
 const receiptJson = await readFile(join(root, "operations/runtime/hosted-handoff-pilot-20260905/receipt.json"), "utf8");
 const receiptSha256 = "503a473018442c5a114586584dfd015c61503283b80784095e705b04b1a57b87";
 const persistTo = await mkdtemp(join(tmpdir(), "laidies-handoff-runtime-"));
+let dev;
+const activeChildren = new Set();
+
+function killProcessGroup(child, signal) {
+  if (!child?.pid) return;
+  try {
+    process.kill(-child.pid, signal);
+  } catch (error) {
+    if (error?.code !== "ESRCH") child.kill(signal);
+  }
+}
+
+async function stopProcessGroup(child) {
+  if (!child?.pid || !processGroupExists(child)) return;
+  killProcessGroup(child, "SIGTERM");
+  let deadline = Date.now() + 5_000;
+  while (processGroupExists(child) && Date.now() < deadline) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  if (!processGroupExists(child)) return;
+  killProcessGroup(child, "SIGKILL");
+  deadline = Date.now() + 2_000;
+  while (processGroupExists(child) && Date.now() < deadline) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+}
+
+function processGroupExists(child) {
+  if (!child?.pid) return false;
+  try {
+    process.kill(-child.pid, 0);
+    return true;
+  } catch (error) {
+    if (error?.code === "ESRCH") return false;
+    throw error;
+  }
+}
 
 function run(command, args, { timeoutMs = 30_000 } = {}) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, { cwd: root, stdio: ["ignore", "pipe", "pipe"] });
+    const child = spawn(command, args, { cwd: root, detached: true, stdio: ["ignore", "pipe", "pipe"] });
+    activeChildren.add(child);
     let stdout = "";
     let stderr = "";
-    const timeout = setTimeout(() => {
-      child.kill("SIGTERM");
-      reject(new Error(`${command} timed out after ${timeoutMs}ms\n${stdout}\n${stderr}`));
+    let settled = false;
+    const finish = (callback, value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeout);
+      callback(value);
+    };
+    const timeout = setTimeout(async () => {
+      await stopProcessGroup(child);
+      finish(reject, new Error(`${command} timed out after ${timeoutMs}ms\n${stdout}\n${stderr}`));
     }, timeoutMs);
     child.stdout.on("data", (chunk) => { stdout += chunk; });
     child.stderr.on("data", (chunk) => { stderr += chunk; });
-    child.on("error", (error) => { clearTimeout(timeout); reject(error); });
+    child.on("error", (error) => { activeChildren.delete(child); finish(reject, error); });
     child.on("close", (code, signal) => {
-      clearTimeout(timeout);
-      resolve({ code, signal, stdout, stderr });
+      activeChildren.delete(child);
+      finish(resolve, { code, signal, stdout, stderr });
     });
   });
 }
@@ -98,14 +143,18 @@ async function sendEvent(port, id, payload) {
   return jsonOutput(await run("npm", wranglerArgs(port, ["workflows", "instances", "send-event", workflow, id, "--type", "operator-ack", "--payload", JSON.stringify(payload), "--json"])), `send event ${id}`);
 }
 
-let dev;
+const hardDeadline = setTimeout(() => {
+  console.error("OPERATING HANDOFF PILOT RUNTIME FAIL: hard 90s deadline exceeded");
+  Promise.all([...activeChildren, dev].map(stopProcessGroup)).finally(() => process.exit(1));
+}, 90_000);
+
 try {
   const port = await freePort();
   dev = spawn("npm", [
     "exec", "--yes", "--package=wrangler@4.129.0", "--", "wrangler", "dev",
     "--config", "worker-operating-pilot/wrangler.jsonc", "--local", "--port", String(port),
     "--persist-to", persistTo, "--log-level", "error", "--show-interactive-dev-session", "false"
-  ], { cwd: root, stdio: ["ignore", "pipe", "pipe"] });
+  ], { cwd: root, detached: true, stdio: ["ignore", "pipe", "pipe"] });
   let devOutput = "";
   dev.stdout.on("data", (chunk) => { devOutput += chunk; });
   dev.stderr.on("data", (chunk) => { devOutput += chunk; });
@@ -189,19 +238,10 @@ try {
   console.log("OPERATING HANDOFF PILOT RUNTIME PASS");
   console.log("calibration=mismatched-instance-workId rejected,timeout HOLD,exact-event ACKNOWLEDGED_FOR_REVIEW,wrong-event-hash rejected,local-fetch-404");
 } finally {
-  if (dev && !dev.killed) {
-    dev.kill("SIGTERM");
-    await Promise.race([
-      new Promise((resolve) => dev.once("close", resolve)),
-      new Promise((resolve) => setTimeout(resolve, 5_000))
-    ]);
-    if (dev.exitCode === null) {
-      dev.kill("SIGKILL");
-      await Promise.race([
-        new Promise((resolve) => dev.once("close", resolve)),
-        new Promise((resolve) => setTimeout(resolve, 2_000))
-      ]);
-    }
-  }
+  clearTimeout(hardDeadline);
+  await Promise.all([...activeChildren].map(stopProcessGroup));
+  await stopProcessGroup(dev);
+  assert.equal(processGroupExists(dev), false, "the owned Wrangler dev process group must be gone after cleanup");
+  console.log("cleanup=owned-wrangler-process-group-gone");
   await rm(persistTo, { recursive: true, force: true });
 }
