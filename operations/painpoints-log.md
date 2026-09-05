@@ -1,5 +1,18 @@
 # LAiDIES build learning ledger
 
+- **2026-09-05 Episode 04 contact-state animation test:** A source frame with
+  visibly depressed keys passed still-image review, but a five-second animation
+  preserved that state as a near-still instead of inventing a release/press
+  cycle. Prompt wording cannot substitute for explicit motion states when exact
+  object mechanics matter. Prevention: bind and register a pixel-matched
+  released start frame and depressed end frame before spending video credits;
+  continuous 1x playback must show both states and the transition between them.
+  The provider also returned audible AAC despite a no-audio prompt, so silence
+  must be a supported generation parameter and a verified stream property, not
+  prompt prose.
+  Behind the Build angle: why a perfect-looking keyframe can still be the wrong
+  input for animation.
+
 - **2026-09-05 Higgsfield Episode 04 motion test:** A five-second source-anchored
   generation completed, but decoded samples showed a reach-and-hover rather than
   convincing typing. The independent review also found that preserving the old

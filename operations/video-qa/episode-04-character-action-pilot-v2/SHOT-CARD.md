@@ -132,3 +132,85 @@ Balance rechecked after this one generation: 77.5 credits. Exact consumption:
 32.5 credits. The cancellation/plan-review reminder was updated to include the
 confirmed trial expiry. It remains September 7 at 09:00 Vancouver, about 22 hours
 before expiry, and does not cancel or change the subscription automatically.
+
+## Source-style correction v2 — September 5
+
+Before any further animation credit spend, one source-frame correction was
+generated with the built-in image editor from the exact held desk scene plus the
+exact Heroine master. The request preserved the office, monitor, keyboard,
+wardrobe, left-hand position and locked camera while changing only the people
+rendering treatment and right-hand pose. It required hard faceted shadows,
+variable-width ink contours and two visible fingertip/key contacts, with no new
+people, objects, text or camera change.
+
+Candidate: `ep04-desk-contact-source-v2.png`. This is an INTERNAL CANDIDATE, not
+an approved episode source. It must pass intended-size face/style and hand/contact
+inspection before any animation render. The generation itself is not admission,
+animation review or permission to spend remaining Higgsfield credits.
+
+Role-distinct artifact-first review kept that full desk candidate on HOLD. It
+preserves the corporate office and is closer to the master, but at normal
+full-frame size the fingertips still read as poised above the keys. A repeated
+Higgsfield render would therefore risk reproducing the existing reach-and-hover
+failure.
+
+The next cheapest proof is a separate close-up source candidate,
+`ep04-key-contact-close-source-v1.png`, derived from the same corrected desk
+scene and the exact master. It frames the existing keyboard, navy sleeve and
+right hand tightly enough to require two separated fingertips on distinct keys.
+It is also an INTERNAL CANDIDATE pending artifact-first anatomy, style, key
+geometry and visible-contact review. No additional Higgsfield credits were spent
+to create either still.
+
+Artifact-first review held v1: only four digits were traceable, the thumb sat on
+an implausible regular key, the two contact keys were not adjacent or visibly
+depressed, and the grid distorted locally. One targeted zero-credit repair was
+therefore produced as `ep04-key-contact-close-source-v2.png`, changing only hand
+anatomy and the local key-contact region. It remains an INTERNAL CANDIDATE until
+review; generation success does not authorize an animation render.
+
+Role-distinct source review passed v2 for one bounded motion test. Five digits
+were traceable; two adjacent keys showed dark depressed wells; keyboard pitch,
+navy cuff, lighting and hard-ink treatment remained coherent. Balance was
+refreshed at 77.5 credits with no unlimited allowance. Cost preflight returned
+32.5 credits. A first submission failed validation before generation because the
+provider defaulted to text-only mode; no credits were spent on that response.
+The same brief then submitted once with the required `omni_reference` mode.
+
+Job: `9125cf0e-24a4-4955-a3a3-5425f288c2e6`, Seedance 2.5, five seconds,
+720p, 16:9. The prompt requested no audio, but the provider returned a 32 kHz
+stereo AAC track with mean volume -40.3 dB and peak -14.6 dB. It is not the
+authorized narration and would have to be stripped from any usable derivative.
+Future submissions must set a model parameter such as `audio_generation:false`
+when supported and verify the resulting streams; prompt prose did not enforce
+silence. Saved as `ep04-key-contact-higgsfield-v2.mp4`: 5.042
+seconds, 1280x720, SHA-256
+`c7ea235312522726898b1da3e62c559ce5071e0bd95131164c82b218fd2c1915`.
+Full decode completed without errors. The 5-fps occurrence sheet is
+`key-contact-timeline-v2.jpg`, SHA-256
+`739e422a57f2a89c537f0ea3ec2123fe096a2b2c619026d8cef50ebd1a4a9de1`.
+These are integrity observations, not quality approval.
+
+Maker played the exact clip at normal speed in QuickTime from 0:00 through its
+5.042-second end and inspected the 25 decoded occurrences. A role-distinct
+reviewer independently repeated continuous 1x playback and occurrence review.
+Both verdicts are HOLD: camera, room, sleeve, hand count and inked look remain
+broadly stable, but the fingertips stay planted in the same depressed pose.
+There is no readable release/up state or returning keycap. Minor whole-hand
+jitter replaces independent finger articulation, so the clip reads as a near
+still rather than typing and is not eligible for the 25.64-second assembly.
+
+The test spent exactly 32.5 credits. Balance afterward: 45 credits. No batch,
+purchase, plan change, public upload, full-film replacement or assembly occurred.
+One zero-credit matched-start attempt,
+`ep04-key-contact-release-source-v1.png`, also remains HOLD: it did not create
+clean fingers-up/keys-up geometry and cannot safely anchor a start/end render.
+Do not spend the remaining credits on another prompt-only retry. No silent
+derivative was made because the motion itself failed.
+
+Next viable method: author a genuinely matched pair of controlled frames with
+identical hand, wrist and keyboard geometry—start with both fingertips clearly
+above fully raised keys; end with the same two fingers depressing the same two
+keys—then prove their pixel registration before estimating another render. The
+25.64-second pilot remains unassembled; the preserved full film remains a held
+baseline and was not changed.

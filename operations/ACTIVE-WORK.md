@@ -1,13 +1,19 @@
 # Active work
 
-## 2026-09-05 Higgsfield continuation — HOLD after first render
+## 2026-09-05 Higgsfield continuation — HOLD after second render
 
-Ali approved the provider switch with no credit/subscription purchase. One
-source-anchored five-second Seedance 2.5 job completed:
-`d715acc9-91a0-4619-bc8e-2db489566cf0`. The sampled decoded review found a
-reach-and-hover rather than believable typing, plus inherited source-style
-drift. No second render or 25.64-second assembly was made. 77.5 credits remain.
-Resolve source-style admission and finger/key interaction before a successor.
+Ali approved the provider switch with no credit/subscription purchase. Two
+source-anchored five-second Seedance 2.5 jobs now exist. The first,
+`d715acc9-91a0-4619-bc8e-2db489566cf0`, reached and hovered instead of typing.
+After a zero-credit style/contact-source correction passed independent review,
+the second, `9125cf0e-24a4-4955-a3a3-5425f288c2e6`, preserved the depressed
+contact frame but showed no readable release/press cycle at continuous 1x
+playback. It is a near-still HOLD, not an assembly source. A generated matched
+start frame also failed to produce clean fingers-up/keys-up geometry. The
+provider also returned an unauthorized AAC track despite the no-audio prompt;
+future jobs require an explicit audio-disable parameter and stream verification. No third
+render or 25.64-second assembly was made. 45 credits remain. Author and register
+a truly matched released/depressed frame pair before any further credit spend.
 Trial ends September 8 at 07:05 Vancouver; the requested cancellation/plan-review
 reminder is set for September 7 at 09:00. Full details remain in the pilot shot
 card below. Original episode and website are unchanged.
