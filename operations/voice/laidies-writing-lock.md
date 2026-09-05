@@ -14,6 +14,29 @@ retain both options until the exact copy is selected):
 
 > or  from someone who would have written something way better than "Have a great summer!" (brutal) in your high school year book.
 
+### Confirmed voice goal and collaborative development — Ali, 2026-09-05
+
+Ali explicitly endorsed the yearbook-message joke as the voice/tone goal:
+make the reader laugh, remember the line and want to try the game. These are
+intended reader effects, not measured conversion or universal-laughter claims.
+Rewind Era references should create shared recognition and carry the humour,
+invitation and memory. For product invitations, that is a useful job in its own
+right; every joke need not explain a technical AI mechanism. Teaching claims
+and advertised experiences still need accurate, understandable substance.
+Do not turn this into a compulsory nostalgic opening or identical joke pattern
+on every page. Use the reference that belongs to the particular experience.
+
+Ali offered to partner in developing the voice through iterative feedback.
+Bring small, coherent excerpts from real pages, in context, with a recommended
+version and a concise explanation of the editorial choice. Codex handles its
+own spelling, clarity, factual and functional checks before inviting Ali's
+creative judgment. Capture her specific reactions and accepted examples here;
+update applicable existing producer/review references when a reusable lesson
+is admitted. Apply each lesson to the next piece rather than asking her to
+repeat it. Preserve experimentation and disagreement; an example is evidence
+of taste, not a substitute for judgment. This collaboration adds to the active
+copy pass and does not abandon the current functional repair sequence.
+
 Use the example for its shared memory, conversational enthusiasm, concrete
 invitation, useful learning purpose and specific character humour. Product
 copy can explain the practical benefit inside the invitation. Preserve the

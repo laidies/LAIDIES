@@ -1,5 +1,14 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Humour, Rewind Era references and voice development confirmed.**
+> Ali endorsed the Dream Phone yearbook-message example for its intended effect:
+> laughter, memorability and desire to try the experience. Shared Rewind Era
+> recognition is part of how the writing achieves that. She offered to develop
+> the voice collaboratively through real copy and feedback. Preserve these
+> learnings and apply them to successors; see the confirmed-goal section in
+> `voice/laidies-writing-lock.md`. Product invitations can earn references
+> through humour and engagement without every joke being a technical analogy.
+
 > **2026-09-05 — Ali supplied a concrete Dream Phone voice example.**
 > Use the exact example and its application notes in
 > `voice/laidies-writing-lock.md#alis-dream-phone-invitation-example--2026-09-05`

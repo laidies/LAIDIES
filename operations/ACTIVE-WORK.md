@@ -5,6 +5,9 @@
 > stronger homepage/subpage language; no new public wording has been produced.
 > Ali's supplied Dream Phone paragraph is preserved as a positive voice
 > reference in `voice/laidies-writing-lock.md`; use it for the upcoming copy pass.
+> Ali confirmed laughter, memorability and desire to try as the voice goal,
+> with shared Rewind Era references. Develop small in-context excerpts together,
+> record specific feedback and apply it to each successor after maker checks.
 > **Next bounded repair batch:** first recheck the saved Miss Jeeves condition-loss
 > and raw-markup cases against the current live implementation, then repair any
 > reproduced defect. Recheck the exact homepage Express Route through the now
