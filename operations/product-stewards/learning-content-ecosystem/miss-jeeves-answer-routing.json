@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "miss-jeeves-answer-routing-v1",
+  "asOf": "2026-09-04",
+  "status": "accepted_product_rule_implementation_required",
+  "primaryHomes": [
+    {
+      "id": "straight_answers",
+      "label": "Straight Answers About AI",
+      "requiredTests": ["same_answer", "durable", "lookup", "evidence", "distinct"]
+    },
+    {
+      "id": "dear_miss_jeeves",
+      "label": "Dear Miss Jeeves",
+      "requiredTests": ["situational", "transferable", "privacy_safe", "judgment", "sourced"]
+    },
+    {
+      "id": "newsstand",
+      "label": "NewsStand",
+      "requiredTests": ["time_sensitive", "why_now", "dated_sources"]
+    },
+    {
+      "id": "library_learning",
+      "label": "LIBRAiRY lesson or book section",
+      "requiredTests": ["requires_sequence_or_depth", "prerequisites_mapped", "misconceptions_addressed"]
+    },
+    {
+      "id": "site_help",
+      "label": "Tool or site help",
+      "requiredTests": ["laidies_product_specific", "current_product_contract"]
+    },
+    {
+      "id": "do_not_publish",
+      "label": "Do not publish",
+      "requiredTests": ["personal_or_confidential_or_unsupported_or_duplicate_or_too_narrow"]
+    }
+  ],
+  "reusePolicy": {
+    "publicSafeGovernedKeyRequired": true,
+    "rawPersonalQuestionCacheProhibited": true,
+    "freshAnswerMayBeReused": true,
+    "staleAnswerRequiresSourcedRefresh": true,
+    "materialChangeCreatesSuccessor": true,
+    "cacheMayAutoPublish": false
+  },
+  "promotionTriggers": [
+    "repeated_governed_question",
+    "common_misconception",
+    "consequential_safety_issue",
+    "concept_graph_gap",
+    "high_reuse_value",
+    "ali_explicit_request"
+  ],
+  "examples": [
+    {
+      "question": "What is Hugging Face?",
+      "primaryHome": "straight_answers",
+      "secondaryHomes": ["library_learning"]
+    },
+    {
+      "question": "Do I need Hugging Face to build this for work?",
+      "primaryHome": "dear_miss_jeeves",
+      "secondaryHomes": ["straight_answers", "library_learning"]
+    },
+    {
+      "question": "Why is Hugging Face in the news today?",
+      "primaryHome": "newsstand",
+      "secondaryHomes": ["straight_answers", "library_learning"]
+    }
+  ]
+}
