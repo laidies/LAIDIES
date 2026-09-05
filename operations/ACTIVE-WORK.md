@@ -1,5 +1,14 @@
 # Active work
 
+> **2026-09-05 — Miss Jeeves source and explanation promise DECIDED.**
+> Ali confirmed assessed trusted AI sources, guidance checked for currentness,
+> understandable practical tailoring, and necessary follow-up questions as the
+> service's value. See library-decisions.md. Continue the existing repair;
+> bounded source-policy inspection is recorded in library-decisions.md.
+> Remaining source/answer checks include claim support, applicable currentness,
+> practical tailoring and necessary clarification before the public promise.
+> This is a product requirement, not a new assertion of verified live behavior.
+
 > **2026-09-05 — Miss Jeeves implementation checkpoint: LOCAL / RELEASE HOLD.**
 > Free default site search and explicit optional research are implemented locally.
 > No AI/actor/allowance call occurs in free search; research requires intent and

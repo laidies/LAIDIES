@@ -1,5 +1,20 @@
 # The LIBRAiRY — active instruction packet
 
+> **2026-09-05 — Miss Jeeves service value — Ali ruling.**
+> Miss Jeeves should explain that her research draws from AI voices,
+> organizations and institutions LAiDIES has assessed for relevant expertise and
+> trustworthy guidance, with the particular guidance checked for currentness.
+> She turns that evidence into understandable, practical help tailored to the
+> visitor, asking necessary follow-up questions rather than inventing details.
+> The value is an established source-selection and explanation process that the
+> visitor need not design in a prompt. Do not claim generic chat tools cannot do
+> these things, that trusted identity proves every page current, or that source
+> citations eliminate error. Explain the method when the implementation supports
+> it; show useful citations and relevant uncertainty with answers.
+> Unlimited LAiDIES search stays free and makes no AI call. Tailored synthesis
+> and outside research remain the explicitly chosen Sol research experience.
+> This strengthens the active repair; billing/fair-use and release holds remain.
+
 > **2026-09-05 — Miss Jeeves free site search and optional paid research — Ali ruling.**
 > Anyone may search only LAiDIES, without a usage limit and without an AI API
 > call. Alongside any related LAiDIES material, offer optional research beyond the
@@ -12,6 +27,46 @@
 > when research is exhausted. Use a UTC calendar month for the shared counter. This supersedes automatic
 > Sol answering for every initial question, while retaining the prohibition on
 > silent model substitution. Existing work remains the site-improvement task.
+
+## Miss Jeeves source and explanation requirements — 2026-09-05
+
+Ali's service promise above is DECIDED. Implementation remains RELEASE HOLD.
+The existing governed source roster is the starting point; do not create a
+parallel bank. This bounded inspection used backend commit `8f56d4ba` in
+`/Users/alisoneakin/Projects/laidies-jeeves-sol-backend-20260905`.
+
+- **What exists:** `miss-jeeves-trusted-sources.js` projects named source records
+  with review/expiry dates, excludes scouts as direct authority, and constrains
+  research domains. Guidance instructions distinguish official facts from
+  attributed practitioner advice. This is evidence of configured source
+  selection, not a fresh independent assessment of every source or claim.
+- **What remains:** standing-authority domains lack individual review-expiry
+  records. The answer gate accepts a positive allowed-citation count; one good
+  citation can accompany unsupported claims or other disallowed citations.
+  Currentness, useful tailoring and when to clarify largely depend on model
+  instructions. Parsing a cooperative mock's follow-up does not establish
+  that real answers reliably ask the necessary question.
+- **Required source check:** record why a source is qualified for the relevant
+  subject, its evidence/primary-source relationship and material interests or
+  limitations. Check the particular guidance's applicable date, product/version,
+  plan/region and prerequisites where these affect the answer. An old document
+  is not automatically wrong; a trusted publisher is not automatically current.
+- **Required answer check:** important factual claims must be supported by the
+  cited material, conditions preserved, practitioner judgments attributed and
+  material disagreement/uncertainty visible. Explain unfamiliar terms in context,
+  connect the evidence to the visitor's stated goal and give a feasible next
+  step. Ask only for missing details that materially change the answer; do not
+  invent the person's tool, access, employer permission or circumstances.
+- **Proof before the public promise:** test representative actual Sol answers,
+  including an allowed source with obsolete guidance, mixed/insufficient citations,
+  conflicting evidence and the original ambiguous work-document case. Review
+  the exact answers and source passages. Citation position or a sentence regex
+  cannot prove factual support, currentness or teaching quality. Reuse the
+  existing freshness/claims workflow for retained guidance and corrections.
+
+No public copy, new runtime enforcement or live source-quality verification is
+claimed by this record. Billing verification and measured adaptive fair-use work
+continue within the existing Miss Jeeves repair.
 
 **Status:** CURRENT PAGE ROUTER
 **Owner:** Library product steward

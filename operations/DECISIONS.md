@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Miss Jeeves service value — Ali ruling.**
+> Assessed trusted AI sources, guidance checked for currentness, understandable
+> practical tailoring and necessary follow-up questions define her value.
+> The source and explanation requirements in `operations/library-decisions.md`
+> bind the active repair. This is a confirmed product promise to implement and
+> verify, not an assertion of new live behavior. Existing free search, explicit
+> Sol research consent, budget and release boundaries remain.
+
 > **2026-09-05 — Research fairness must be made meaningful before numeric tuning.**
 > Ali cannot assess a per-person dollar share without knowing what research costs.
 > US$100/month remains approved; US$20/person remains unapproved. Measure a bounded

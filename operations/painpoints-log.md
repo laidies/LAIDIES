@@ -14876,6 +14876,12 @@ while remaining falsely unfinished in the launch record.
   infer service health from catalogue availability. Keep display summaries apart
   from complete evidence. Test omissions, oversized passages, clarification
   identity and no-paid-call search behavior, not only successful routing.
+- **Source-promise clarification:** Ali confirmed assessed trusted sources,
+  current guidance, practical tailoring and necessary follow-ups as Miss Jeeves'
+  value. Source identity/expiry and one allowed citation do not establish each
+  claim's support or currentness. Do not substitute sentence/citation overlap for
+  a review of what the source actually supports. The detailed release requirements
+  are recorded in `operations/library-decisions.md`; no new live assurance follows.
 - **Cost gap:** an estimated reservation is not a proven maximum provider bill.
   Candidate research remains disabled pending the correct billing project,
   provider-limit verification, measured usage and replacement of rigid guest/
