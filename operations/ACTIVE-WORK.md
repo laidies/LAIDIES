@@ -1,15 +1,17 @@
 # Active work
 
-> **2026-09-05 — Operating recovery; isolated hosted handoff pilot deployed.**
-> Owner: LAiDIES operating system and launch readiness, task
-> `01a0725e-963e-73e1-9437-b85d7139c311`. Exact integrated package and next
-> action: `OPERATING-RECOVERY-NEXT.md`. Hosted checkpoint/ACK/HOLD and wrong-version
-> rejection are verified. The new private database/workflow package is locally
-> tested; founder identity and the actual phone-to-resumption proof remain open.
-> No public site release.
-> Keep public Homepage/NewsStand work with
-> their existing owners. All older ACTIVE entries below require current evidence
-> before resumption; this entry does not declare every historical job active.
+> **2026-09-05 — Operating continuation; phone account prerequisite withdrawn.**
+> Owner: fresh LAiDIES operating-system continuation; predecessor task
+> `01a0725e-963e-73e1-9437-b85d7139c311` is reference only.
+> Next action: `OPERATING-RECOVERY-NEXT.md`. Existing ChatGPT iPhone Remote,
+> phone reply and completion notification are verified; no repeat setup.
+> No founder email or LAiDIES Resident account is required for current work.
+> Hosted checkpoint/ACK/HOLD is verified. PR95 is merged at `7ca1f070`; its
+> database/Workflow preparation is preserved but not live or required.
+> BUILDING: supported laptop-independent execution and complete phone decision
+> plus authorized resumption. That end-to-end result remains unverified.
+> No public release; Homepage, NewsStand and Animation retain their owners.
+> Older entries below require current evidence before resumption.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a

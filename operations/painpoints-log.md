@@ -97,3 +97,14 @@ local database functions, proving exact decision-to-resumption matching and
 denial for expired/revoked requests. Local auth claims are fixtures, not proof
 of Ali's live identity. Behind the Build angle: why an incomplete approval form
 can accidentally pass a check, and how a deliberately bad example finds it.
+
+## Existing phone interface and cloud execution — 2026-09-05
+
+The founder-account proposal turned a prepared database mechanism into an
+unnecessary user prerequisite, despite an already working ChatGPT phone route.
+Correction: distinguish where work runs from where Ali reviews it; verify native
+Cloud capability before provisioning an inbox or host. Prepared implementation
+is optional until the selected journey needs it. Official cloud capability is
+not account-specific or end-to-end proof. Preserve completed pairing and do not
+repeat it to compensate for an execution-location gap. Behind the Build angle:
+your phone can be the same remote control while the work runs somewhere else.

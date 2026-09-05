@@ -1,5 +1,13 @@
 # DECISIONS — where every settled decision lives
 
+> **2026-09-05 — Existing phone interface, no new account prerequisite.**
+> Ali's ChatGPT iPhone Remote pairing, reply and completion notification are
+> already verified. Use it for Mac-hosted work; do not repeat setup or ask for
+> an email/Resident account. That request is withdrawn. PR95 remains reusable
+> preparation, not a reason to force a new inbox. Laptop-independent execution
+> and external-job notification/resumption still require supported evidence.
+> Current continuation: `OPERATING-RECOVERY-NEXT.md`.
+
 > **2026-09-05 — Operating recovery, voice and learning continuity.**
 > Ali authorized execution after the cross-operation review. This task is now
 > LAiDIES operating system and launch readiness. Sequence and exact continuation:
