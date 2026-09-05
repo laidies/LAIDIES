@@ -100,8 +100,9 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
   }
   const rateKey = String(request.headers.get("x-laidies-rate-key") || "");
   if (!/^[a-f0-9]{64}$/.test(rateKey)) return json({ status: "error", error: "internal_binding_required" }, 403);
-  if (env.RATE_LIMITER) {
-    const { success } = await env.RATE_LIMITER.limit({ key: `miss-jeeves:${rateKey}` });
+  const limiter = env.MISS_JEEVES_RATE_LIMITER || env.RATE_LIMITER;
+  if (limiter) {
+    const { success } = await limiter.limit({ key: `miss-jeeves:${rateKey}` });
     if (!success) return json({ status: "error", error: "rate_limited" }, 429);
   }
   if (typeof env?.OPENAI_API_KEY !== "string" || !env.OPENAI_API_KEY) {
@@ -158,8 +159,9 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
         }),
         tools: [{ type: "web_search", filters: { allowed_domains: sourcePolicy.allowedDomains } }],
         tool_choice: "auto",
+        max_tool_calls: 2,
         reasoning: { effort: "low" },
-        max_output_tokens: 2200,
+        max_output_tokens: 1400,
         store: false
       })
     });

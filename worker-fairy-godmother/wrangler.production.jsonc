@@ -22,6 +22,8 @@
     "FAIRY_BETA_ENABLED": "true",
     "FAIRY_DAILY_CAP_MICRO_USD": "10000000",
     "FAIRY_ATTEMPT_RESERVATION_MICRO_USD": "500000",
+    "MISS_JEEVES_DAILY_CAP_MICRO_USD": "5000000",
+    "MISS_JEEVES_ATTEMPT_RESERVATION_MICRO_USD": "250000",
     "CAREER_GUIDANCE_PILOT": "1",
     "CLASSIFIER_MODEL": "gpt-5.6-sol",
     "SUPABASE_URL": "https://swqnkxzebxdbgyrzpdne.supabase.co",
@@ -32,6 +34,11 @@
       "name": "RATE_LIMITER",
       "namespace_id": "26090101",
       "simple": { "limit": 12, "period": 60 }
+    },
+    {
+      "name": "MISS_JEEVES_RATE_LIMITER",
+      "namespace_id": "26090402",
+      "simple": { "limit": 3, "period": 60 }
     }
   ],
   "durable_objects": {

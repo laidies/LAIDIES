@@ -97,7 +97,11 @@ function currentGuidancePayload(data) {
     .replace(/\*\*/g, '')
     .replace(/\s*\(\[[^\]]+\]\(https:\/\/[^)]+\)\)/g, '')
     .replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g, '$1');
-  return answer && citations.length ? { answer, citations, model: String(data.model || ''), sourcePolicyVersion: String(data.source_policy_version || '') } : null;
+  return answer && citations.length ? {
+    answer, citations, model: String(data.model || ''), sourcePolicyVersion: String(data.source_policy_version || ''),
+    guestToken: typeof data.guestToken === 'string' ? data.guestToken : '',
+    allowance: data.allowance && typeof data.allowance === 'object' ? data.allowance : null
+  } : null;
 }
 
 async function askCurrentMissJeeves(request, env, query, matches) {
@@ -111,16 +115,22 @@ async function askCurrentMissJeeves(request, env, query, matches) {
     summary: entry.summary,
     section: entry.section || ''
   }));
+  const headers = {
+    'content-type': 'application/json',
+    'x-laidies-rate-key': networkKey
+  };
+  const authorization = request.headers.get('authorization');
+  const guestToken = request.headers.get('x-laidies-guest-token');
+  if (authorization) headers.authorization = authorization;
+  if (guestToken) headers['x-laidies-guest-token'] = guestToken;
   const response = await env.FAIRY_AI.fetch(new Request('https://miss-jeeves.internal/guidance', {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-laidies-rate-key': networkKey
-    },
-    body: JSON.stringify({ query, related_laidies_material: related })
+    headers,
+    body: JSON.stringify({ query, related_laidies_material: related, guestToken })
   }));
-  if (!response.ok) return null;
-  return currentGuidancePayload(await response.json());
+  const data = await response.json().catch(() => null);
+  if (!response.ok) return { error: data?.error || 'service_unavailable', status: response.status, guestToken: data?.guestToken || '', allowance: data?.allowance || null };
+  return currentGuidancePayload(data);
 }
 
 function classifyTopic(query, matches = []) {
@@ -425,8 +435,26 @@ async function missJeeves(request, env) {
   } catch {
     currentGuidance = null;
   }
+  if (currentGuidance?.error) {
+    const gated = currentGuidance.error === 'guest_limit_reached' || currentGuidance.error === 'resident_daily_limit_reached';
+    return json({
+      status: gated ? 'limit_reached' : 'unavailable',
+      error: currentGuidance.error,
+      answer: currentGuidance.error === 'guest_limit_reached'
+        ? 'Keep asking Miss Jeeves. You have used your three guest questions. Make your free Resident Card to continue and keep your answers in your Closet.'
+        : currentGuidance.error === 'resident_daily_limit_reached'
+          ? 'You have used today’s five Miss Jeeves answers. Come back tomorrow; the current shelves are still open.'
+          : currentGuidance.error === 'service_budget_reached'
+            ? 'Miss Jeeves has reached today’s service limit. The current Library shelves are still open.'
+            : 'Miss Jeeves cannot check current sources right now. Your question is still here.',
+      guestToken: currentGuidance.guestToken,
+      allowance: currentGuidance.allowance,
+      results: retrieved.map(publicResult)
+    }, currentGuidance.status || (gated ? 429 : 503));
+  }
   if (currentGuidance) {
     const topicId = classifyTopic(query, retrieved);
+    const answerId = await sha256Text(`miss-jeeves-answer:v1:${currentGuidance.answer}`);
     writeQuestionSignal(env, { placement, outcome: 'answered', topicId, matches: retrieved });
     return json({
       status: 'ok',
@@ -434,12 +462,16 @@ async function missJeeves(request, env) {
       topic_id: topicId,
       mode: 'current-guidance',
       answer: currentGuidance.answer,
+      answer_id: answerId,
       citations: currentGuidance.citations,
       current_guidance_status: 'checked',
       current_guidance: {
         model: currentGuidance.model,
-        source_policy_version: currentGuidance.sourcePolicyVersion
+        source_policy_version: currentGuidance.sourcePolicyVersion,
+        checked_at: new Date().toISOString()
       },
+      guestToken: currentGuidance.guestToken,
+      allowance: currentGuidance.allowance,
       results: retrieved.map(publicResult)
     });
   }
@@ -473,6 +505,24 @@ async function missJeeves(request, env) {
     matches
   });
   return json({ status: coverage === 'exact' ? 'ok' : 'related', coverage, topic_id: reasoned?.topicId || classifyTopic(query, matches), ...generated, results: matches.map(publicResult) });
+}
+
+async function missJeevesFeedback(request, env) {
+  if (request.method !== 'POST') return json({ status: 'error', error: 'method_not_allowed' }, 405);
+  let body;
+  try { body = await request.json(); } catch { return json({ status: 'error', error: 'invalid_json' }, 400); }
+  const answerId = String(body?.answer_id || '');
+  const rating = String(body?.rating || '');
+  const placement = body?.placement === 'homepage' ? 'homepage' : 'library';
+  if (!/^[a-f0-9]{64}$/.test(answerId) || !['helpful','not-helpful','too-technical','ai-slop'].includes(rating)) {
+    return json({ status: 'error', error: 'invalid_feedback' }, 400);
+  }
+  try {
+    env.MISS_JEEVES_SIGNALS?.writeDataPoint({
+      blobs: ['miss_jeeves_answer_feedback', 'v1', placement, rating, answerId, 'one_tap'], doubles: [1]
+    });
+  } catch {}
+  return json({ status: 'accepted' }, 202);
 }
 
 function missJeevesDb(env) {
@@ -700,6 +750,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/miss-jeeves') return missJeeves(request, env);
+    if (url.pathname === '/api/miss-jeeves/feedback') return missJeevesFeedback(request, env);
     if (url.pathname === '/api/miss-jeeves/topic-request' || url.pathname === '/api/miss-jeeves/topic-request/status') return missJeevesTopicRequest(request, env);
     if (url.pathname === '/api/miss-jeeves/result-open') return missJeevesResultOpen(request, env);
     if (url.pathname === '/api/miss-jeeves/health') return missJeevesHealth(request, env);

@@ -95,6 +95,18 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-sources{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;margin:12px 0 0;padding-top:11px;border-top:1px solid #d8dff4}
 .jv-sources b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
 .jv-sources a{color:#8f2e67;font-weight:750;text-underline-offset:3px}
+.jv-answer-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 4px;color:#31566f;font-size:12px;font-weight:800}
+.jv-answer-meta span{border:1px solid #9ed8d1;border-radius:999px;background:#eafff8;padding:6px 10px}
+.jv-answer-copy{max-width:900px}
+.jv-answer-copy p{font-size:16px;line-height:1.6;margin:9px 0;color:#3e3043;white-space:normal}
+.jv-allowance{margin:12px 0 0!important;color:#31566f!important;font-size:13px!important;font-weight:750}
+.jv-limit{background:#fff7fb;border:2px solid var(--pink);border-radius:11px;padding:18px 20px;color:var(--ink)}
+.jv-limit p{margin:0 0 12px;font-size:16px;line-height:1.55}
+.jv-limit a{display:inline-flex;min-height:44px;align-items:center;border-radius:999px;background:var(--pink);color:#260d2b;padding:10px 17px;font-weight:800;text-decoration:none}
+.jv-feedback{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:13px;padding-top:11px;border-top:1px solid #d8dff4}
+.jv-feedback b{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#52617f}
+.jv-feedback button{min-height:40px;border:1.5px solid #8aa7bf;border-radius:999px;background:#f4fbff;color:#132c4e;padding:7px 12px;font:750 13px/1 Jost,sans-serif;cursor:pointer}
+.jv-feedback button[aria-pressed="true"]{background:#7de2c2;border-color:#31566f}
 .library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#07142f;font:750 14px/1.5 Jost,sans-serif}
 .library-status:empty{display:none}
 .shelf-guide .library-status{grid-column:1/-1;max-width:none;width:100%;margin:0;color:#dce7ff}
@@ -1069,6 +1081,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   </div>
 </div>
 
+<script src="/content/site/supabase-config.js?v=20260904-jeeves-account-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260830-portrait-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260904-jeeves-account-1"></script>
+<script src="/content/site/resident-account-runtime-v1.js?v=20260904-jeeves-account-1"></script>
 <script>
 (()=>{
 'use strict';
@@ -1319,6 +1335,11 @@ function renderJeevesService(payload,query){
   if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
     renderJeevesServiceError(query);return;
   }
+  if(payload.status==='limit_reached'){
+    if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/resident.html">Make your free Resident Card</a>':''}</section>`;
+    return;
+  }
   if(payload.status==='unavailable'){
     renderJeevesServiceError(query);return;
   }
@@ -1357,13 +1378,33 @@ function renderJeevesService(payload,query){
     return `<a href="${escapeJeevesText(url.href)}" target="_blank" rel="noopener noreferrer">${escapeJeevesText(source.title)}</a>`;
   }).filter(Boolean).join('');
   box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+  if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+  const checked=payload.current_guidance?.checked_at?new Date(payload.current_guidance.checked_at):null;
+  const checkedLabel=checked&&!Number.isNaN(checked.valueOf())?`Checked live · ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`:'LAiDIES reference';
+  const allowance=payload.allowance&&Number.isInteger(payload.allowance.remaining)
+    ? `<p class="jv-allowance">${payload.allowance.kind==='guest'?`${payload.allowance.remaining} of 3 guest questions left.`:`${payload.allowance.remaining} of 5 answers left today.`}</p>`:'';
+  const paragraphs=escapeJeevesText(payload.answer).split(/\n\s*\n/).filter(Boolean).map(text=>`<p>${text}</p>`).join('');
+  const answerId=payload.answer_id&&/^[a-f0-9]{64}$/.test(payload.answer_id)?payload.answer_id:'';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
     <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
-    <p>${escapeJeevesText(payload.answer)}</p>
+    <div class="jv-answer-meta"><span>${checkedLabel}</span></div>
+    <div class="jv-answer-copy">${paragraphs}</div>
+    ${allowance}
     ${citations?`<div class="jv-sources"><b>Sources checked</b>${citations}</div>`:''}
     ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
+    ${answerId?`<div class="jv-feedback" data-answer-id="${answerId}"><b>Was this useful?</b><button type="button" data-jeeves-rating="helpful">Helpful</button><button type="button" data-jeeves-rating="not-helpful">Not helpful</button><button type="button" data-jeeves-rating="too-technical">Too technical</button><button type="button" data-jeeves-rating="ai-slop">Seemed like AI slop</button><span role="status"></span></div>`:''}
   </article>`;
+}
+const JEEVES_GUEST_TOKEN_KEY='laidies_miss_jeeves_guest_token_v1';
+function jeevesGuestToken(){try{return localStorage.getItem(JEEVES_GUEST_TOKEN_KEY)||'';}catch{return '';}}
+function rememberJeevesGuestToken(token){try{if(typeof token==='string'&&token.length<1200)localStorage.setItem(JEEVES_GUEST_TOKEN_KEY,token);}catch{}}
+async function jeevesAccessToken(){
+ try{
+  const runtime=window.LAIDIESResidentAccountRuntime?await window.LAIDIESResidentAccountRuntime.get():null;
+  const session=runtime?.client?await runtime.client.auth.getSession():null;
+  return session?.data?.session?.access_token||'';
+ }catch{return '';}
 }
 function newJeevesRequestKey(){
  return `mjr-browser-${Date.now()}-${crypto.getRandomValues(new Uint32Array(2)).join('-')}`;
@@ -1402,10 +1443,15 @@ async function askMissJeeves(value){
   const requestId=++jeevesServiceRequest;
   box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
   try{
+    const accessToken=await jeevesAccessToken();
+    const guestToken=jeevesGuestToken();
+    const headers={'content-type':'application/json','accept':'application/json'};
+    if(accessToken)headers.authorization=`Bearer ${accessToken}`;
+    else if(guestToken)headers['x-laidies-guest-token']=guestToken;
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
-      headers:{'content-type':'application/json','accept':'application/json'},
-      body:JSON.stringify({query,placement:jeevesPlacement})
+      headers,
+      body:JSON.stringify({query,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
     });
     const payload=await response.json();
     if(requestId!==jeevesServiceRequest)return;
@@ -1423,6 +1469,14 @@ document.querySelector('.jv-form').addEventListener('submit',event=>{
  askMissJeeves(document.getElementById('jv-q').value);
 });
 document.getElementById('jv-results').addEventListener('click',event=>{
+ const rating=event.target.closest('[data-jeeves-rating]');
+ if(rating){
+  const feedback=rating.closest('.jv-feedback');
+  feedback.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button===rating)));
+  feedback.querySelector('[role="status"]').textContent='Thank you. That helps LAiDIES improve Miss Jeeves.';
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:rating.dataset.jeevesRating,placement:jeevesPlacement})}).catch(()=>{});
+  return;
+ }
  const result=event.target.closest('[data-result-id]');
  if(result)fetch('/api/miss-jeeves/result-open',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({result_id:result.dataset.resultId,topic_id:event.currentTarget.dataset.topicId||'other',placement:jeevesPlacement})}).catch(()=>{});
  const control=event.target.closest('[data-open-book]');
@@ -1964,7 +2018,6 @@ try{libraryHeading=libraryHash[1]?decodeURIComponent(libraryHash[1]):'';}catch(e
 if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHeading);
 })();
 </script>
-<script src="/content/site/resident-card-contract-v1.js?v=20260830-portrait-1"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260803-card-required"></script>
   <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
 </body>

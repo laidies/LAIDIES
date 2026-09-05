@@ -90,3 +90,29 @@ test("calibration: an invalid four-case policy is rejected instead of silently w
   assert.equal(deliberatelyBad.status, 400);
   assert.equal(deliberatelyBad.body.ok, false);
 });
+
+test("Miss Jeeves has a separate five-answer Resident allowance without widening FAiRY", () => {
+  let state = null;
+  for (let index = 1; index <= 5; index += 1) {
+    const requestId = `jeeves-request-0${index}`;
+    const begun = run(state, { action: "beginAnswer", requestId, limit: 5 });
+    assert.equal(begun.status, 200);
+    const committed = run(begun.state, { action: "commitCase", requestId,
+      caseId: `jeeves-case-000${index}`, answerHash: HASH_A });
+    assert.equal(committed.body.remaining, 5 - index);
+    state = committed.state;
+  }
+  const blocked = run(state, { action: "beginAnswer", requestId: "jeeves-request-06", limit: 5 });
+  assert.equal(blocked.status, 429);
+  const fairyStillBlocked = run(null, { action: "beginCase", requestId: "fairy-request-04", limit: 4 });
+  assert.equal(fairyStillBlocked.status, 400);
+});
+
+test("an answer rejected before provider use releases its conservative budget reservation", () => {
+  const reserved = run(null, { action: "reserveBudget", requestId: "jeeves-budget-01",
+    amountMicroUsd: 250_000, capMicroUsd: 5_000_000 });
+  assert.equal(reserved.state.reservedMicroUsd, 250_000);
+  const released = run(reserved.state, { action: "releaseBudget", requestId: "jeeves-budget-01" });
+  assert.equal(released.state.reservedMicroUsd, 0);
+  assert.equal(released.body.status, "released");
+});

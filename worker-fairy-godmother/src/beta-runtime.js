@@ -105,7 +105,55 @@ async function ledger(env, name, payload) {
 function day() { return new Date().toISOString().slice(0, 10); }
 function actorObject(actor) { return `actor:${day()}:${actor.kind}:${actor.id}`; }
 
+function missJeevesActorObject(actor) {
+  return actor.kind === "guest"
+    ? `miss-jeeves:actor:guest:${actor.id}`
+    : `miss-jeeves:actor:${day()}:${actor.kind}:${actor.id}`;
+}
+
 export function betaEnabled(env) { return env.FAIRY_BETA_ENABLED === "true"; }
+
+export async function resolveMissJeevesActor(request, env, body) {
+  if (!env.GUEST_TOKEN_SIGNING_KEY || !env.IDENTITY_HASH_SALT) throw new Error("identity_secrets_unavailable");
+  const suppliedAuthorization = request.headers.get("authorization") || "";
+  const resident = await verifyResident(request, env);
+  if (resident) return { kind: "resident", id: await opaque(env.IDENTITY_HASH_SALT, `resident:${resident}`), guestToken: null, limit: 5 };
+  if (suppliedAuthorization) throw new Error("resident_session_invalid");
+  const supplied = body?.guestToken || request.headers.get("X-LAiDIES-Guest-Token") || "";
+  const verified = supplied ? await verifyGuest(supplied, env) : null;
+  if (supplied && !verified) throw new Error("guest_token_invalid");
+  const guest = verified ? { actor: verified.actor, token: supplied } : await mintGuest(request, env);
+  return { kind: "guest", id: guest.actor, guestToken: guest.token, limit: 3 };
+}
+
+export async function beginMissJeevesAnswer(env, actor, requestId) {
+  const actorResult = await ledger(env, missJeevesActorObject(actor), { action: "beginAnswer", requestId, limit: actor.limit });
+  if (!actorResult.ok) return { ok: false, kind: actorResult.data?.status || "unavailable", actorResult };
+  const amountMicroUsd = Number.parseInt(env.MISS_JEEVES_ATTEMPT_RESERVATION_MICRO_USD || "250000", 10);
+  const capMicroUsd = Number.parseInt(env.MISS_JEEVES_DAILY_CAP_MICRO_USD || "5000000", 10);
+  if (!Number.isInteger(amountMicroUsd) || amountMicroUsd !== 250000 || !Number.isInteger(capMicroUsd) || capMicroUsd !== 5000000) {
+    await ledger(env, missJeevesActorObject(actor), { action: "abortCase", requestId });
+    return { ok: false, kind: "configuration" };
+  }
+  const budget = await ledger(env, `miss-jeeves:budget:${day()}`, { action: "reserveBudget", requestId, amountMicroUsd, capMicroUsd });
+  if (!budget.ok) {
+    await ledger(env, missJeevesActorObject(actor), { action: "abortCase", requestId });
+    return { ok: false, kind: budget.data?.status || "unavailable", budget };
+  }
+  return { ok: true, actorResult: actorResult.data, budget: budget.data };
+}
+
+export async function abortMissJeevesAnswer(env, actor, requestId, releaseBudget = true) {
+  const actorResult = await ledger(env, missJeevesActorObject(actor), { action: "abortCase", requestId });
+  if (releaseBudget) await ledger(env, `miss-jeeves:budget:${day()}`, { action: "releaseBudget", requestId });
+  return actorResult;
+}
+
+export async function commitMissJeevesAnswer(env, actor, requestId, answerHash) {
+  return ledger(env, missJeevesActorObject(actor), {
+    action: "commitCase", requestId, caseId: `jeeves-${crypto.randomUUID()}`, answerHash
+  });
+}
 
 export async function beginBetaCase(env, actor, requestId) {
   const actorResult = await ledger(env, actorObject(actor), { action: "beginCase", requestId, limit: actor.limit });

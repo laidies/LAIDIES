@@ -39,11 +39,21 @@ export function applyLedgerAction(previousState, command, now = Date.now()) {
     state.reservedMicroUsd += command.amountMicroUsd;
     return result(state, { ok: true, status: "reserved", reservedMicroUsd: state.reservedMicroUsd });
   }
+  if (action === "releaseBudget") {
+    if (!validId(command.requestId)) return result(previousState, { ok: false, error: "invalid" }, 400);
+    const state = previousState || { reservedMicroUsd: 0, attempts: {} };
+    const attempt = state.attempts[command.requestId];
+    if (!attempt) return result(state, { ok: true, status: "already_released", reservedMicroUsd: state.reservedMicroUsd });
+    state.reservedMicroUsd = Math.max(0, state.reservedMicroUsd - attempt.amountMicroUsd);
+    delete state.attempts[command.requestId];
+    return result(state, { ok: true, status: "released", reservedMicroUsd: state.reservedMicroUsd });
+  }
 
   const state = actorState(previousState);
   pruneActor(state, now);
-  if (action === "beginCase") {
-    if (!validId(command.requestId) || !Number.isInteger(command.limit) || command.limit < 1 || command.limit > 3) {
+  if (action === "beginCase" || action === "beginAnswer") {
+    const maximum = action === "beginAnswer" ? 5 : 3;
+    if (!validId(command.requestId) || !Number.isInteger(command.limit) || command.limit < 1 || command.limit > maximum) {
       return result(state, { ok: false, error: "invalid" }, 400);
     }
     if (state.completedRequests[command.requestId]) {
