@@ -42,6 +42,8 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   assert.match(providerRequest.body.instructions, /reader who may know nothing about AI, software or the technology industry/);
   assert.match(providerRequest.body.instructions, /smartest woman in the group chat explaining AI over drinks after a long workday/);
   assert.match(providerRequest.body.instructions, /must not sound like a chatbot/);
+  assert.match(providerRequest.body.instructions, /Make the conversation audible on the page/);
+  assert.match(providerRequest.body.instructions, /So why is everyone talking about it/);
   assert.match(providerRequest.body.instructions, /does not know GitHub/);
   assert.match(providerRequest.body.instructions, /no more than three unavoidable technical terms/);
   assert.match(providerRequest.body.instructions, /technical term \(plain-language definition\)/);
