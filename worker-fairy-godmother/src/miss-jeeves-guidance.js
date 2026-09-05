@@ -136,7 +136,8 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
         }),
         tools: [{ type: "web_search", filters: { allowed_domains: sourcePolicy.allowedDomains } }],
         tool_choice: "auto",
-        max_output_tokens: 850,
+        reasoning: { effort: "low" },
+        max_output_tokens: 2200,
         store: false
       })
     });

@@ -35,6 +35,8 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   assert.equal(providerRequest.options.headers.authorization, "Bearer test-secret");
   assert.equal(providerRequest.body.model, "gpt-5.6-sol");
   assert.equal(providerRequest.body.store, false);
+  assert.deepEqual(providerRequest.body.reasoning, { effort: "low" });
+  assert.equal(providerRequest.body.max_output_tokens, 2200);
   assert.equal(providerRequest.body.tools[0].type, "web_search");
   assert.match(providerRequest.body.instructions, /reader who may know nothing about AI or technology/);
   assert.match(providerRequest.body.instructions, /recent 60-day timeline/);
