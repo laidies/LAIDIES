@@ -77,15 +77,51 @@ approved examples; a phrase checker or valid receipt is not a humour verdict.
 
 ## Next exact action
 
-PR: https://github.com/laidies/LAIDIES/pull/91 (draft, not merged).
-Initial reviewed package: `1aa4092c`, pushed to GitHub. Independent review found
-no material regression. Focused asset and declared-lane startup checks pass;
-full hook-guard suite is delegated to the existing GitHub CI in a full checkout.
-The asset regression is added to that workflow so the protection is repeatable.
-Inspect PR checks before merge and record the final result here. If CI blocks, reproduce and isolate the failure; do not disable gates
-or expand this package into the historical mixed branch. After integration,
-reconcile only the shared startup sources and their current owner before the
-interruption/resumption pilot. Keep public releases with the existing owners.
+First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
+main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub
+checks passed; this is internal integration, not public deployment.
+
+The second package is on `ops/task-resumption-20260905` in the same integration
+folder. Its real work item is `WRK-20260905-context-recovery-pilot`; derive its
+status from `operations/runtime/work-events.jsonl`, not a copied dashboard label.
+The bounded query artifact was committed at `c9c341917f7bcefe14002dc29b893ae715ad7aab`;
+its handoff at `92299478d76e32a9472cec4df7ad37b233545b1f`. A fresh Terra worker,
+without the original conversation, recovered the exact checkpoint and then ran
+the prescribed regression successfully. The acceptance owner recorded resolution.
+This is a controlled handoff proof, not universal crash recovery or authentication.
+
+The query previously returned 128,181 bytes for a requested 1,024-byte bound;
+the corrected probe returned 402 bytes and retained the matching phrase. Default
+output is at most 8 KiB, maximum selectable 32 KiB. It identifies clipped excerpts
+and omitted matches; it is lexical retrieval, not semantic or freshness review.
+Strict recovery is opt-in, requires committed inputs and bounds the next-action
+packet to 16 KiB. Actor matching is metadata, not authenticated human approval.
+
+Integrate the second package after independent review and required CI. Preserve
+checkpoint ancestry: use a merge commit, not squash/rebase, and fetch history in
+CI. No whole-site deployment. Then continue the single hosted maintenance-to-
+decision pilot, reusing the existing NewsStand cloud intake where appropriate.
+
+### Phone and hosted preparation
+
+Ali confirmed iPhone with ChatGPT installed and signed in. Pairing, notification
+permission, and a complete decision round-trip still need actual device proof.
+Official setup: desktop app Settings → Connections → Control this Mac or PC →
+Set up/Add; scan its QR with iPhone, complete same-account/workspace verification.
+Availability varies by rollout. Remote supports requests, approvals and results,
+but the host must stay awake and online. It is an interim route, not laptop
+independence. Source checked September 5:
+https://learn.chatgpt.com/docs/remote-connections . Never infer approval from silence.
+
+Existing Cloudflare OAuth access was verified; `wrangler workflows list` returned
+no deployed Workflows in the authenticated account. Existing GitHub NewsStand
+cloud intake is scheduled and publishes intake receipts/reconciliation issues,
+not automatically accepted editorial output. The inspected owner/review HTML
+loads static snapshots; a live private decision API and founder authentication
+have not been demonstrated. No new workflow, API spend, notification or provider
+purchase has been initiated. Keep the existing Cloudflare/Supabase/GitHub choices
+under consideration; do not create a second job database or another framework
+without showing why existing components are insufficient.
 
 On resumption: read Canon Index and DECISIONS as required, this file, and only
 the exact task/source dependencies needed next. Use the original on-demand
