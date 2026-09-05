@@ -29,5 +29,8 @@ continuation to exact committed inputs, and preserve their Git ancestry through
 integration. Keep legacy coverage and authenticated approval limitations explicit. The
 projection and resume packet expose `NONE_ACTOR_METADATA_ONLY` so a matched actor
 label cannot be presented as an authenticated approval capability.
+The full CI also caught the recorded work projection becoming stale after the
+new events; regenerate the existing derived projection whenever its source log
+or projector changes. The Stop guard was retained unchanged.
 Behind the Build angle: why an AI can remember the assignment yet resume the
 wrong version, and how a small save point prevents repeating the whole briefing.
