@@ -107,7 +107,15 @@ assert.equal(gapSignals[0].blobs[4], 'compute-chips-gpus', 'a missing topic must
 assert.ok(!JSON.stringify(gapSignals).includes('Why are chips so important to AI?'), 'gap signals must not retain the raw question');
 
 const onlyUnsafe = index.entries.filter(entry => entry.url.startsWith('/grimoire/'));
-const unsafe = await (await ask('will ai take my job', envWith(onlyUnsafe))).json();
+const unsafeEnv = envWith(onlyUnsafe);
+unsafeEnv.ASSETS.fetch = async request => {
+  const url = new URL(request.url);
+  if (url.pathname === '/content/site/miss-jeeves-index.json') return Response.json({ _meta: index._meta, entries: onlyUnsafe });
+  if (url.pathname === '/content/newsstand-daily-issues.json') return Response.json({ issues: [] });
+  if (url.pathname === '/content/blend-snap-weekly-packs.json') return Response.json({ manifestId: 'blend-snap-weekly-packs', packs: [] });
+  return new Response('STATIC');
+};
+const unsafe = await (await ask('will ai take my job', unsafeEnv)).json();
 assert.equal(unsafe.status, 'not_covered', 'unsafe historical index results must fail closed');
 assert.equal(unsafe.results.length, 0);
 
@@ -128,6 +136,32 @@ const grounded = await (await ask('women in AI', envWith(index.entries, ai))).js
 assert.equal(grounded.mode, 'grounded-ai');
 assert.equal(aiPayload.model, '@cf/meta/llama-3.1-8b-instruct-fp8-fast');
 assert.ok(aiPayload.payload.messages[0].content.includes('use only the supplied'));
+
+let serviceRequest = null;
+const serviceEnv = envWith(index.entries);
+serviceEnv.FAIRY_AI = {
+  async fetch(request) {
+    serviceRequest = request;
+    const answer = 'Nvidia is widely discussed because its chips and software are central to many current AI systems.';
+    return Response.json({
+      status: 'ok',
+      model: 'gpt-5.6-sol',
+      source_policy_version: '2026-09-04',
+      output: [{ type: 'message', content: [{
+        type: 'output_text', text: answer,
+        annotations: [{ type: 'url_citation', url: 'https://www.nvidia.com/en-us/data-center/', title: 'Nvidia data center' }]
+      }] }]
+    });
+  }
+};
+const current = await (await ask('Why is everyone talking about Nvidia?', serviceEnv, 'homepage')).json();
+assert.equal(current.mode, 'current-guidance');
+assert.equal(current.current_guidance_status, 'checked');
+assert.equal(current.current_guidance.model, 'gpt-5.6-sol');
+assert.deepEqual(current.citations, [{ url: 'https://www.nvidia.com/en-us/data-center/', title: 'Nvidia data center' }]);
+assert.ok(current.results.some(result => /nvidia/i.test(`${result.title} ${result.summary}`)));
+assert.match(serviceRequest.headers.get('x-laidies-rate-key') || '', /^[a-f0-9]{64}$/);
+assert.equal(new URL(serviceRequest.url).hostname, 'miss-jeeves.internal');
 assert.equal(aiPayload.payload.max_tokens, 300, 'catalogue reasoning must have a bounded output budget');
 assert.deepEqual(aiPayload.payload.response_format, { type: 'json_object' }, 'catalogue reasoning must request structured JSON');
 assert.deepEqual(grounded.results.map(result => result.id), ['ep-04']);

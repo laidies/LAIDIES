@@ -58,6 +58,52 @@ function containsPrivateContent(value) {
   return PRIVATE_CONTENT_PATTERNS.some(pattern => pattern.test(String(value || '')));
 }
 
+function currentGuidancePayload(data) {
+  if (!data || data.status !== 'ok' || !Array.isArray(data.output)) return null;
+  const parts = [];
+  const citations = [];
+  const seen = new Set();
+  for (const item of data.output) {
+    for (const content of Array.isArray(item?.content) ? item.content : []) {
+      if (content?.type !== 'output_text' || typeof content.text !== 'string') continue;
+      parts.push(content.text.trim());
+      for (const annotation of Array.isArray(content.annotations) ? content.annotations : []) {
+        if (annotation?.type !== 'url_citation' || typeof annotation.url !== 'string') continue;
+        let url;
+        try { url = new URL(annotation.url); } catch { continue; }
+        if (url.protocol !== 'https:' || seen.has(url.href)) continue;
+        seen.add(url.href);
+        citations.push({ url: url.href, title: String(annotation.title || url.hostname).trim().slice(0, 180) });
+      }
+    }
+  }
+  const answer = parts.filter(Boolean).join('\n\n');
+  return answer && citations.length ? { answer, citations, model: String(data.model || ''), sourcePolicyVersion: String(data.source_policy_version || '') } : null;
+}
+
+async function askCurrentMissJeeves(request, env, query, matches) {
+  if (!env.FAIRY_AI || typeof env.FAIRY_AI.fetch !== 'function') return null;
+  const networkKey = await sha256Text([
+    request.headers.get('cf-connecting-ip') || 'unknown',
+    request.headers.get('user-agent') || 'unknown'
+  ].join('|'));
+  const related = matches.slice(0, 4).map(({ entry }) => ({
+    title: entry.title,
+    summary: entry.summary,
+    section: entry.section || ''
+  }));
+  const response = await env.FAIRY_AI.fetch(new Request('https://miss-jeeves.internal/guidance', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'x-laidies-rate-key': networkKey
+    },
+    body: JSON.stringify({ query, related_laidies_material: related })
+  }));
+  if (!response.ok) return null;
+  return currentGuidancePayload(await response.json());
+}
+
 function classifyTopic(query, matches = []) {
   const direct = TOPIC_RULES.find(([, pattern]) => pattern.test(query));
   if (direct) return direct[0];
@@ -341,12 +387,37 @@ async function missJeeves(request, env) {
     return json({ status: 'unavailable', answer: 'Miss Jeeves cannot check the catalogue right now. Your question is still here.', results: [] }, 503);
   }
   let reasoned = null;
+  const retrieved = retrieve(query, entries);
+  let currentGuidance = null;
+  try {
+    currentGuidance = await askCurrentMissJeeves(request, env, query, retrieved);
+  } catch {
+    currentGuidance = null;
+  }
+  if (currentGuidance) {
+    const topicId = classifyTopic(query, retrieved);
+    writeQuestionSignal(env, { placement, outcome: 'answered', topicId, matches: retrieved });
+    return json({
+      status: 'ok',
+      coverage: retrieved.length ? 'exact' : 'current',
+      topic_id: topicId,
+      mode: 'current-guidance',
+      answer: currentGuidance.answer,
+      citations: currentGuidance.citations,
+      current_guidance_status: 'checked',
+      current_guidance: {
+        model: currentGuidance.model,
+        source_policy_version: currentGuidance.sourcePolicyVersion
+      },
+      results: retrieved.map(publicResult)
+    });
+  }
   try {
     reasoned = await reasonAcrossCatalogue(query, entries, env);
   } catch {
     reasoned = null;
   }
-  const matches = reasoned ? reasoned.matches : retrieve(query, entries);
+  const matches = reasoned ? reasoned.matches : retrieved;
   if (!matches.length) {
     writeQuestionSignal(env, { placement, outcome: 'not_covered', topicId: reasoned?.topicId || classifyTopic(query) });
     return json({

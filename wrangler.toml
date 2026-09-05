@@ -10,6 +10,14 @@ database_id = "cd7fbb14-fdc6-4a86-893d-e60c4195400e"
 [ai]
 binding = "AI"
 
+[[services]]
+binding = "FAIRY_AI"
+service = "laidies-fairy-godmother"
+
+[[env.production.services]]
+binding = "FAIRY_AI"
+service = "laidies-fairy-godmother"
+
 [[analytics_engine_datasets]]
 binding = "MISS_JEEVES_SIGNALS"
 dataset = "laidies_miss_jeeves_signals_v1"

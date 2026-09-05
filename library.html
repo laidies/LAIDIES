@@ -92,6 +92,9 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
   font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .jv-answer-links a:hover,.jv-answer-links button:hover{color:#c02d84}
 .jv-answer-links .jv-held{border:1px dashed #947893;background:#fff7fb;color:#70425f;border-radius:8px;padding:8px 11px;font:700 14px/1.35 Jost,sans-serif}
+.jv-sources{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;margin:12px 0 0;padding-top:11px;border-top:1px solid #d8dff4}
+.jv-sources b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
+.jv-sources a{color:#8f2e67;font-weight:750;text-underline-offset:3px}
 .library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#07142f;font:750 14px/1.5 Jost,sans-serif}
 .library-status:empty{display:none}
 .shelf-guide .library-status{grid-column:1/-1;max-width:none;width:100%;margin:0;color:#dce7ff}
@@ -1347,11 +1350,18 @@ function renderJeevesService(payload,query){
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
+  const citations=(Array.isArray(payload.citations)?payload.citations:[]).map(source=>{
+    if(!source||typeof source.url!=='string'||typeof source.title!=='string')return '';
+    let url;try{url=new URL(source.url);}catch(error){return '';}
+    if(url.protocol!=='https:')return '';
+    return `<a href="${escapeJeevesText(url.href)}" target="_blank" rel="noopener noreferrer">${escapeJeevesText(source.title)}</a>`;
+  }).filter(Boolean).join('');
   box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
     <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
     <p>${escapeJeevesText(payload.answer)}</p>
+    ${citations?`<div class="jv-sources"><b>Sources checked</b>${citations}</div>`:''}
     ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
   </article>`;
 }
