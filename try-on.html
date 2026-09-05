@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Try-On | LAiDIES</title>
   <meta name="description" content="Do the weekly LAiDIES Try-On exercise and save your notes on this device.">
-  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
@@ -302,6 +302,7 @@
         rgba(255, 253, 251, 0.82);
     }
 
+    #tryonDestination[hidden],
     .tryon-prompt-block[hidden] {
       display: none;
     }
@@ -764,7 +765,7 @@
       </style>
   <link rel="stylesheet" href="/content/try-on-v2.css?v=20260724-1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -820,6 +821,7 @@
           <li>Ask again with audience, context, tone, length, and what good looks like.</li>
           <li>Compare the outputs and save what changed.</li>
         </ol>
+        <a class="button" id="tryonDestination" hidden></a>
         <div class="tryon-prompt-block" id="tryonPromptBlock" hidden>
           <span class="step-kicker">The Try-On</span>
           <h3 id="promptIntroTitle">Prompt Like Elle.</h3>
@@ -904,7 +906,7 @@
             </div>
           </div>
 
-          <div>
+          <div id="tryonRatingField">
             <label for="tryonRating">Butterfly-clip rating</label>
             <input id="tryonRating" type="range" min="0" max="10" step="1" value="5">
             <div class="rating-output" aria-live="polite">
@@ -953,6 +955,7 @@
       2: {
         pad: "02",
         title: "Tell Me What You Want",
+        lede: "A five-minute fitting-room Try-On for Tell Me What You Want. One real task, two prompts, useful evidence.",
         exerciseTitle: "Give AI a clearer brief.",
         instruction: "Give AI the same real task twice: once vaguely, then once with audience, context, tone, length, and what not to include. Compare the outputs.",
         steps: [
@@ -965,6 +968,9 @@
       3: {
         pad: "03",
         title: "The Burn Book Problem",
+        reminderTitle: "Before it borrows your name.",
+        reminder: "One task. Check the receipts. Save a safer version.",
+        saveKicker: "Save the receipts pass",
         lede: "A five-minute fitting-room Try-On for The Burn Book Problem. One low-risk work task, one Prompt Like Elle pass, one safer version.",
         exerciseTitle: "Prompt Like Elle.",
         instruction: "Use this before AI drafts. Bring a low-risk, non-confidential work task or notes, open your approved AI tool, paste Prompt Like Elle, then paste the task underneath it. Check the receipts yourself before anything borrows your name.",
@@ -1020,6 +1026,19 @@
       4: {
         pad: "04",
         title: "The Founding Mothers",
+        heroTitle: "Your MAiVEN field trip.",
+        lede: "A field trip for The Founding Mothers. Meet one woman whose name is new to you, then pass her story to a friend.",
+        reminderTitle: "One name. One sentence. One friend.",
+        reminder: "You do not have to meet everyone today. Start with one woman you wish you had heard of sooner.",
+        portalNote: "The episode introduced the Founding Mothers. The MAiVENS wing is your next stop. Come back here to save the sentence you want to share.",
+        destination: { href: "/luminairy.html#mavens", label: "Meet the MAiVENS" },
+        saveKicker: "Bring back a name",
+        saveTitle: "Who did you meet?",
+        notesLabel: "Her name and the sentence you want to share",
+        notesPlaceholder: "Who did you discover, and what would you tell a friend about her?",
+        saveLabel: "Save my discovery",
+        emptyMessage: "Add her name and a sentence before saving. Nothing was saved yet.",
+        showRating: false,
         exerciseTitle: "Go meet a MAiVEN.",
         instruction: "No homework this week — a field trip. The episode only had time to introduce a handful of the women who built this field. The quiet wing holds the rest.",
         steps: [
@@ -1183,7 +1202,20 @@
     function setIssueContent() {
       document.title = "Episode " + config.pad + " Try-On | LAiDIES";
       if (episodeEyebrow) episodeEyebrow.textContent = "Episode " + config.pad + " Try-On";
-      if (tryonLede) tryonLede.textContent = config.lede || ("A five-minute fitting-room Try-On for " + config.title + ". One real task, two prompts, useful evidence.");
+      if (tryonLede) tryonLede.textContent = config.lede || ("Your Try-On for " + config.title + ".");
+      if (config.heroTitle) document.getElementById("tryonTitle").textContent = config.heroTitle;
+      if (config.reminderTitle) document.querySelector(".desk-note strong").textContent = config.reminderTitle;
+      if (config.reminder) document.querySelector(".desk-note p").textContent = config.reminder;
+      if (config.portalNote) document.querySelector(".tryon-portal-note p").textContent = config.portalNote;
+      if (config.saveKicker) document.querySelector(".save-card > .step-kicker").textContent = config.saveKicker;
+      if (config.saveLabel) document.getElementById("saveButton").textContent = config.saveLabel;
+      document.getElementById("tryonRatingField").hidden = config.showRating === false;
+      var destination = document.getElementById("tryonDestination");
+      if (config.destination) {
+        destination.href = config.destination.href;
+        destination.textContent = config.destination.label;
+        destination.hidden = false;
+      }
       if (exerciseTitle) exerciseTitle.textContent = config.exerciseTitle || "The weekly Try-On.";
       if (episodeInstruction) episodeInstruction.textContent = config.instruction;
       if (saveTitle) saveTitle.textContent = config.saveTitle || "How much better did it get?";
@@ -1265,7 +1297,10 @@
     function saveTryOn() {
       var rating = tryonRating ? Math.max(0, Math.min(10, Number(tryonRating.value) || 0)) : 0;
       var map = readJson(tryOnStorageKey, {});
-      var record = {
+      var record = config.showRating === false ? Object.assign({}, map[issueKey] || {}, {
+        notes: tryonNotes ? tryonNotes.value.trim() : "",
+        savedAt: new Date().toISOString()
+      }) : {
         rating: rating,
         notes: tryonNotes ? tryonNotes.value.trim() : "",
         answerToCheck: answerToCheck ? answerToCheck.value.trim() : "",
@@ -1274,11 +1309,13 @@
         ratingDescription: ratingDescriptions[rating] || "",
         savedAt: new Date().toISOString()
       };
-      var hasContent = Boolean(record.notes || record.answerToCheck || record.receiptsChecked || record.saferVersion);
+      var hasContent = config.showRating === false
+        ? Boolean(record.notes)
+        : Boolean(record.notes || record.answerToCheck || record.receiptsChecked || record.saferVersion);
       if (!hasContent) {
         if (saveStatus) {
           saveStatus.hidden = false;
-          saveStatus.textContent = "Add a note or work sample before saving. Nothing was saved and this Try-On was not marked complete.";
+          saveStatus.textContent = config.emptyMessage || "Add a note or work sample before saving. Nothing was saved and this Try-On was not marked complete.";
         }
         return;
       }
@@ -1327,9 +1364,9 @@
     });
   })();
   </script>
-    <script src="content/site/brand-polish.js?v=wm2" defer></script>
-    <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+    <script src="content/site/brand-polish.js?v=20260830-native-controls-1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
 </body>
