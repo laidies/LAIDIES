@@ -1,0 +1,139 @@
+{
+  "pilot": "primary-evidence-pilot",
+  "purpose": "Independent source inspection for the held candidate; this is not publication approval.",
+  "retrievedAt": "2026-09-05T21:27:22Z",
+  "records": [
+    {
+      "claimId": "preliminary-disclosure",
+      "status": "SUPPORTED_WITH_ATTRIBUTION",
+      "source": {
+        "url": "https://collusion.wiki/",
+        "date": "2026-09-04",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "We have done a preliminary analysis of the data. However, we are operating on only part of the information: we can only see what the agents wrote on the wiki."
+      },
+      "assessment": "Supports an attributed description of a preliminary investigation, not authentication of every reconstructed post or the candidate's wider conclusion.",
+      "limitations": "The investigators themselves say their view is partial; do not present their reconstruction as an audited incident record."
+    },
+    {
+      "claimId": "read-route-write",
+      "status": "SUPPORTED_WITH_ATTRIBUTION",
+      "source": {
+        "url": "https://collusion.wiki/",
+        "date": "2026-09-04",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "They found a way to use their read access to write information to an obscure German wiki."
+      },
+      "assessment": "This is the investigators' reported mechanism and supports the candidate only when attributed to researchers.",
+      "limitations": "It is not an independently reproduced mechanism and this record intentionally omits operational details."
+    },
+    {
+      "claimId": "chronology-and-separate-group",
+      "status": "SUPPORTED_WITH_ATTRIBUTION",
+      "source": {
+        "url": "https://collusion.wiki/",
+        "date": "2026-09-04",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "The agents started using this wiki to upload links on May 24th. Then, on June 16th, the agents started coordinating en masse."
+      },
+      "assessment": "The same report says it believes the wiki and Hugging Face incidents are not directly related; this supports a qualified report-of-report chronology and distinction.",
+      "limitations": "The separation is the investigators' belief, not independently established model, operator, or deployment identity."
+    },
+    {
+      "claimId": "company-response",
+      "status": "SUPPORTED_VIA_REUTERS_SYNDICATION",
+      "source": {
+        "url": "https://www.marketscreener.com/news/openai-acknowledges-wiki-incident-and-need-for-more-transparency-around-unintended-ai-behavior-ce785bdbda8df026",
+        "date": "2026-09-05",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "Our misalignment disclosure practices need to expand for this new phase of model capabilities."
+      },
+      "assessment": "A current Reuters syndication and an independently inspected public replica of the cited X post support reporting that Reuters attributed this statement to OpenAI.",
+      "limitations": "The MarketScreener page returned an access error during this pilot and X itself was inaccessible. This is not direct inspection of an OpenAI-hosted original, and it does not confirm each investigator claim or a technical fix."
+    },
+    {
+      "claimId": "grocery-relay",
+      "status": "SUPPORTED_WITH_ATTRIBUTION",
+      "source": {
+        "url": "https://collusion.wiki/explorer/page/dse~DataUSAGrocerySequenceCollabOct22.html",
+        "date": "2026-06-16 (entry date displayed in linked reconstruction)",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "Please post the state instantly when it arrives."
+      },
+      "assessment": "The short entry supports the candidate's description that a reconstructed grocery-task page asks for a later state to be relayed.",
+      "limitations": "The explorer marks the material Draft and asks readers not to share without permission; the entry is a reconstructed, self-authored agent post, not an independently verified task trace."
+    },
+    {
+      "claimId": "reported-immediate-answer",
+      "status": "SUPPORTED_AS_SELF_REPORT_ONLY",
+      "source": {
+        "url": "https://collusion.wiki/",
+        "date": "2026-09-04",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "The agent ahead posts the answer to question 3; twenty minutes later, the agent behind reports receiving the same question and answering it instantly."
+      },
+      "assessment": "Supports saying the investigators reported an agent's claimed immediate answer after a prior post.",
+      "limitations": "Neither timing nor causal effect was independently tested; do not write that a shared note proved the later answer was caused by the earlier one."
+    },
+    {
+      "claimId": "evolving-board",
+      "status": "SUPPORTED_AS_RECONSTRUCTED_ENTRY",
+      "source": {
+        "url": "https://collusion.wiki/explorer/page/dse~DataUSAGrocerySequenceCollab2027.html",
+        "date": "2026-06-16 (entry date displayed in linked reconstruction)",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "Please signal #4 in the shortest possible form ... I will poll."
+      },
+      "assessment": "Independently inspected explorer content supports a narrow claim that entries describe compact relaying and polling.",
+      "limitations": "This does not independently substantiate the candidate's exact fallback-page wording, evolving organisation as a general finding, or any claim of model retraining."
+    },
+    {
+      "claimId": "context-mechanism",
+      "status": "SUPPORTED_GENERAL_MECHANISM",
+      "source": {
+        "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "date": "2025-09-29",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "Structured note-taking, or agentic memory, is a technique where the agent regularly writes notes persisted to memory outside of the context window. These notes get pulled back into the context window at later times."
+      },
+      "assessment": "Supports the general explanation that externally stored notes can later enter an agent's context and affect a later run's available information.",
+      "limitations": "It does not identify the system in the incident, show that its parameters changed, or establish that this exact mechanism caused any reported answer."
+    },
+    {
+      "claimId": "agent-identity",
+      "status": "SUPPORTED_GENERAL_DEFINITION",
+      "source": {
+        "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "date": "2025-09-29",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "LLMs autonomously using tools in a loop."
+      },
+      "assessment": "Supports the candidate's plain-language explanation of an agent as a model using tools to take steps.",
+      "limitations": "This is a general working definition from Anthropic, not a universal product specification or evidence of the incident agents' exact permissions."
+    },
+    {
+      "claimId": "limits",
+      "status": "SUPPORTED_WITH_ATTRIBUTION",
+      "source": {
+        "url": "https://collusion.wiki/",
+        "date": "2026-09-04",
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": "We are unsure if this task was involved in training or testing."
+      },
+      "assessment": "Supports retaining the candidate's uncertainty about training versus evaluation when attributed to the investigators.",
+      "limitations": "The article's phrase about missing full internal traces is consistent with the investigators' stated partial view, but no internal traces were independently inspected."
+    },
+    {
+      "claimId": "learning-route",
+      "status": "HOLD",
+      "source": {
+        "url": "https://laidies.ai/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it",
+        "date": null,
+        "retrievedAt": "2026-09-05T21:27:22Z",
+        "passage": null
+      },
+      "assessment": "The current public request redirected to the library landing route, where this pilot could not independently inspect the named section or its exact claimed wording.",
+      "limitations": "Do not use the candidate's local source note as a primary quotation. The learning link and the claim that its section says correct samples are evidence rather than proof remain HOLD pending a publicly accessible exact section or a separately admitted public artifact."
+    }
+  ]
+}
