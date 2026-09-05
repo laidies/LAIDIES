@@ -1154,6 +1154,14 @@ objective; every open lane keeps its own checkpoint.
 - **Verified result:** desktop, 390 × 844 and 320 × 760 preserve title visibility, Matron's approved crop and zero horizontal overflow.
 - **Truth boundary:** local integration only; no push, deployment or public verification.
 
+### 2026-09-05 LUMINAiRY retired-artwork boundary
+
+- **State:** `ARCHIVE SPLIT COMMITTED / 43 TEMPORARY RUNTIME DEPENDENCIES REMAIN / REDESIGN CONTINUES`.
+- **Completed:** moved 49 rejected, superseded or unapproved image files out of active asset folders into `operations/_archive/luminairy-retired-images-20260905/`; preserved the exact approved Cher + Dionne V12 and every current profile image path.
+- **Prevention:** `operations/product-stewards/luminairy/artwork-authority-2026-09-05.json` is deny-by-default. `scripts/check-luminairy-artwork-boundary.mjs` rejects a retired family restored under `assets/`, verifies the approved V12 checksum and requires all remaining legacy profile images to be labelled runtime-only with reference use forbidden.
+- **Truth boundary:** the current signed profile archive still maps 43 legacy images. They are not approved redesign references and cannot be moved without an atomic image remap, preserved downstream consumers and renewed signed receipts. No deployment or public image change occurred.
+- **Next action:** recover and identify the earlier approved MAiVEN and TRAiLBLAZER source set, map it person by person, then move the remaining temporary dependencies in the same signed replacement.
+
 ### 2026-09-05 LUMINAiRY profile/hero reconciliation
 
 - **Current state:** `LOCAL CANDIDATE / NOT PUSHED / NOT DEPLOYED / NOT PUBLICLY VERIFIED`.

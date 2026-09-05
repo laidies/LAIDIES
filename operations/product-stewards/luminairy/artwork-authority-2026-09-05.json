@@ -1,0 +1,62 @@
+{
+  "schema": "laidies.luminairy-artwork-authority.v1",
+  "updated": "2026-09-05",
+  "policy": "DENY_UNLESS_EXPLICITLY_APPROVED",
+  "approved": [
+    {
+      "id": "cher-dionne",
+      "path": "assets/saints/y2k-stained-glass-v12-clean-composite/cher-dionne-clean-people-fashion-window-candidate-v12.png",
+      "sha256": "c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e",
+      "scope": "Patron Saints card image only"
+    }
+  ],
+  "temporaryRuntimeDependencies": [
+    {
+      "path": "assets/saints/y2k-stained-glass-v2",
+      "reason": "Current signed profile mappings and shared legacy consumers still depend on selected files",
+      "referenceUse": "FORBIDDEN"
+    },
+    {
+      "path": "assets/saints/y2k-stained-glass-v3-finished",
+      "reason": "Current signed profile mappings still depend on three files",
+      "referenceUse": "FORBIDDEN"
+    },
+    {
+      "path": "assets/mavens/y2k-stained-glass-v2",
+      "reason": "Current signed profile mappings and Episode 04 consumers still depend on selected files",
+      "referenceUse": "FORBIDDEN"
+    },
+    {
+      "path": "assets/mavens/y2k-stained-glass-v3-finished",
+      "reason": "Episode production consumers still depend on selected files",
+      "referenceUse": "FORBIDDEN"
+    },
+    {
+      "path": "assets/mavens/y2k-stained-glass-v4-dark-sapphire",
+      "reason": "Current signed profile mappings still depend on twenty files",
+      "referenceUse": "FORBIDDEN"
+    },
+    {
+      "path": "assets/builders/y2k-stained-glass-v4-golden",
+      "reason": "Current signed profile mappings still depend on six files",
+      "referenceUse": "FORBIDDEN"
+    },
+    {
+      "path": "assets/builders/y2k-stained-glass-v5-golden",
+      "reason": "Current signed profile mapping still depends on Amanda Askell",
+      "referenceUse": "FORBIDDEN"
+    }
+  ],
+  "archivedFamilies": [
+    "assets/builders/y2k-stained-glass-v2",
+    "assets/mavens/teal-icon",
+    "assets/mavens/y2k-stained-glass-v3-illustrated-accessories",
+    "assets/saints/y2k-stained-glass-v7-bright-graphic",
+    "assets/saints/y2k-stained-glass-v8-editorial",
+    "assets/saints/y2k-stained-glass-v9-identity-proof",
+    "assets/saints/y2k-stained-glass-v10-background-rework",
+    "assets/saints/y2k-stained-glass-v11-palette-correction"
+  ],
+  "archiveRoot": "operations/_archive/luminairy-retired-images-20260905",
+  "replacementRule": "A temporary runtime dependency may move only in the same signed change that maps every affected profile and preserves every active consumer. It may never be used as style, palette, background, crop, wardrobe or likeness authority."
+}
