@@ -69,6 +69,15 @@ export function validateState(state, { checkFiles = true } = {}) {
     }
   }
   if (!Array.isArray(state?.attempts)) fail(errors, 'attempts must be an array');
+  else {
+    let priorAttempt = -Infinity;
+    for (const attempt of state.attempts) {
+      const currentAttempt = Date.parse(attempt.attemptedAt);
+      if (!Number.isFinite(currentAttempt)) fail(errors, `invalid attempt date: ${attempt.runId}`);
+      if (currentAttempt < priorAttempt) fail(errors, `attempts are not chronological: ${attempt.runId}`);
+      priorAttempt = currentAttempt;
+    }
+  }
   return errors;
 }
 
