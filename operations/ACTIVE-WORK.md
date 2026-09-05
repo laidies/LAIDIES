@@ -1208,4 +1208,5 @@ objective; every open lane keeps its own checkpoint.
 - **Admission:** all 43 exact profiles received renewed P-256 receipts under key `luminairy-editorial-offline-r6-20260905`; producer and independent exact-prose reviews pass separately from the integrity receipt.
 - **Verification:** the full HTTP browser suite passes every cover/profile route, all 43 images, all 108 destinations, playlist/deferred audio, search, keyboard focus, signed admission with and without Web Crypto, storage/fetch/audio failures, account restoration into My Closet, and desktop/390/320 layout.
 - **Handoff:** `operations/product-stewards/luminairy/complete-profile-release-candidate-2026-09-05.md` is the authoritative coverage and release-boundary record.
+- **Implementation commit:** `49c2277d166922302935b83f96802fcb6d01a1f0` on `feature/luminairy-card-profile-20260905`.
 - **Release boundary:** no push or deployment. Recover and verify the exact current production artifact and coordinated Pages slot before any public release, then verify custom and immutable origins.

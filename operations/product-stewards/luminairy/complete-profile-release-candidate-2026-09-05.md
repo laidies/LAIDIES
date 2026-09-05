@@ -6,6 +6,8 @@
 
 This candidate completes the visitor-facing LUMINAiRY page in the assigned owner branch. It does not claim a public release.
 
+Implementation commit: `49c2277d166922302935b83f96802fcb6d01a1f0` on `feature/luminairy-card-profile-20260905`.
+
 ## Coverage ledger
 
 | Wing | Required | Complete | Image | Deep profile | Song or destination state | Holds |
