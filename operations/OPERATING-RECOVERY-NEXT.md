@@ -225,3 +225,13 @@ use the localStorage nav label or a self-editable member profile as founder
 authority. Reuse the current provider and verify actual access before migration.
 Do not mark roadmap step 3 complete until authenticated phone decision and
 authorized end-to-end resumption work.
+
+Integration PR: https://github.com/laidies/LAIDIES/pull/93 . Read current checks
+and merge state rather than assuming this snapshot proves integration.
+Supabase access prerequisite: a real `supabase projects list` using isolated CLI
+2.116.0 returned `Access token not provided`. No existing CLI credential was
+usable. Browser sign-in was initiated for `laidies-operating-recovery`; Ali was
+given the provider verification link. Do not save access tokens or verification
+codes in repository records. No database schema/role/account changes have been
+made. After sign-in, inspect the live schema and existing founder account before
+preparing a migration; the checked-in schema may be stale.
