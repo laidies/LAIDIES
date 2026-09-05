@@ -47,6 +47,29 @@ for (const field of ['raw_visitor_prompt', 'visitor_identity', 'attachments', 'p
   assert.ok(policy.internalAnswerBankProhibitedFields.includes(field), `missing prohibited Answer Bank field: ${field}`);
 }
 
+assert.equal(policy.answerQuality.labels.live_checked, 'automatic_runtime_checks_passed_not_independently_reviewed');
+assert.equal(policy.answerQuality.labels.laidies_reviewed, 'exact_answer_passed_hard_gates_scoring_and_role_distinct_review');
+assert.equal(policy.answerQuality.labels.public_admitted, 'exact_reviewed_artifact_passed_destination_admission_and_release');
+for (const gate of ['direct_complete_answer', 'claim_source_fidelity', 'freshness_and_unknowns', 'beginner_comprehension', 'useful_mechanism_or_decision_logic', 'laidies_relationship_integrity', 'privacy_and_safety', 'no_known_slop']) {
+  assert.ok(policy.answerQuality.hardGates.includes(gate), `missing answer-quality hard gate: ${gate}`);
+}
+assert.equal(policy.answerQuality.scoredDimensions.length, 5);
+assert.equal(policy.answerQuality.pointsPerDimension, 4);
+assert.equal(policy.answerQuality.minimumTotal, 17);
+assert.equal(policy.answerQuality.minimumPerDimension, 3);
+assert.equal(policy.answerQuality.hardGateFailureMayBeAveragedAway, false);
+assert.equal(policy.answerQuality.makerMayReviewOwnAnswer, false);
+assert.equal(policy.answerQuality.modelGraderMayAdmitAnswer, false);
+assert.equal(policy.answerQuality.liveCheckedImpliesIndependentReview, false);
+for (const field of ['answer_fingerprint', 'answer_key', 'sources', 'checked_at', 'model_version', 'source_policy_version', 'related_laidies_records', 'reviewer', 'findings', 'recheck_trigger']) {
+  assert.ok(policy.answerQuality.requiredReceiptBindings.includes(field), `missing answer-quality receipt binding: ${field}`);
+}
+for (const testCase of ['beginner_definition', 'multi_part_current_event', 'tool_choice', 'troubleshooting', 'ambiguous_question', 'prior_rejected_output']) {
+  assert.ok(policy.answerQuality.evaluationSetRequiredCases.includes(testCase), `missing evaluation-set case: ${testCase}`);
+}
+assert.equal(policy.answerQuality.runOnRecurringFreshnessCycle, true);
+assert.equal(policy.answerQuality.feedbackMayAutoTrainOrPublish, false);
+
 assert.deepEqual(policy.responseFeedback.ratingOptions, ['helpful', 'not_helpful']);
 assert.ok(policy.responseFeedback.helpfulReasons.includes('easy_to_understand'));
 assert.ok(policy.responseFeedback.notHelpfulReasons.includes('inaccurate_or_outdated'));
@@ -72,6 +95,23 @@ assert.equal(policy.responseFeedback.mayAutoPublish, false);
 assert.equal(policy.responseFeedback.accuracyComplaintCreatesReviewHold, true);
 
 assert.equal(policy.abuseProtection.providerCredentialServerSideOnly, true);
+assert.equal(policy.abuseProtection.launchBudget.currency, 'USD');
+assert.equal(policy.abuseProtection.launchBudget.monthlyTargetMinimum, 50);
+assert.equal(policy.abuseProtection.launchBudget.monthlyTargetMaximum, 150);
+assert.equal(policy.abuseProtection.launchBudget.dailyHardCircuitBreaker, 5);
+assert.deepEqual(policy.abuseProtection.launchBudget.dailyWarningThresholds, [2, 4]);
+assert.equal(policy.abuseProtection.launchBudget.budgetWindow, 'utc_day');
+assert.ok(policy.abuseProtection.launchBudget.onCircuitOpen.includes('block_new_paid_generation_and_web_search'));
+assert.equal(policy.abuseProtection.allowances.anonymousSuccessfulAnswersTotal, 3);
+assert.equal(policy.abuseProtection.allowances.residentSuccessfulGeneratedAnswersPerDay, 5);
+assert.equal(policy.abuseProtection.allowances.answerRequestsPerMinutePerClient, 3);
+assert.equal(policy.abuseProtection.allowances.reopeningExistingAnswerConsumesAllowance, false);
+assert.equal(policy.abuseProtection.allowances.currentAnswerBankHitConsumesAllowance, false);
+assert.equal(policy.abuseProtection.allowances.failedOrUndeliveredAnswerConsumesAllowance, false);
+assert.equal(policy.abuseProtection.allowances.guestAnswersPreservedOnAccountConnection, true);
+assert.equal(policy.abuseProtection.costAwareRoutingOrder.at(0), 'current_answer_bank_or_admitted_laidies');
+assert.equal(policy.abuseProtection.budgetMaySilentlyLowerQuality, false);
+assert.equal(policy.abuseProtection.budgetMayPresentStaleInformationAsCurrent, false);
 assert.equal(policy.abuseProtection.internalServiceBindingRequired, true);
 assert.ok(policy.abuseProtection.preSpendValidation.includes('moderation'));
 assert.ok(policy.abuseProtection.requestLimits.includes('global_daily_cost_circuit_breaker'));

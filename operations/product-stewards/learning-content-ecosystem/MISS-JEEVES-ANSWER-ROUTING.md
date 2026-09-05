@@ -141,6 +141,76 @@ workplace information and account data. A separate editorial act is required
 to move an entry to `internal_candidate`, and the normal admission process is
 required to make it `public_admitted`.
 
+## LAiDIES answer-quality gate
+
+A successful API response is not proof that an answer meets LAiDIES standards.
+Prompt instructions, citations, model confidence and a visitor's positive
+rating are useful signals, but none is editorial admission.
+
+Miss Jeeves therefore uses three truthful answer labels:
+
+| Label | Meaning |
+| --- | --- |
+| **Checked live** | A newly generated answer passed the automatic runtime checks below. It has not been independently reviewed by LAiDIES. |
+| **LAiDIES reviewed** | The exact answer fingerprint passed the hard gates, scored at least 17/20 with no scored dimension below 3/4, and passed a role-distinct review. It may enter the private Answer Bank while current. |
+| **Published reference** | The exact reviewed artifact also passed the admission and release gates for its named public surface. |
+
+Every answer must pass these non-compensable hard gates before it may be shown
+as **Checked live** or retained for reuse:
+
+1. **Direct answer:** it answers every material part of the question and does
+   not hide the answer behind background, scene-setting or a generic summary.
+2. **Claim and source fidelity:** every material factual claim is supported by
+   a displayed allowed source or a current admitted LAiDIES source; names,
+   dates, figures and causal claims match that evidence.
+3. **Freshness:** time-sensitive questions carry a checked date, current source
+   coverage, material unknowns and an explicit recheck trigger.
+4. **Beginner comprehension:** technical terms are defined on first use; an AI
+   newcomer can explain what the subject is, why it matters, what is known or
+   uncertain and what she can do next.
+5. **Useful explanation:** the answer gives the concrete mechanism or decision
+   logic needed for the question, plus limitations and consequences. An
+   analogy is used only when it makes the mechanism clearer and states its
+   limit.
+6. **LAiDIES relationship integrity:** related LAiDIES material is included
+   only when it genuinely extends the learner's job, and the link, status and
+   description match the current admitted destination.
+7. **Privacy and safety:** the answer does not expose private material, provide
+   unsafe personalised professional advice or repeat harmful instructions.
+8. **No known slop:** it contains no generic filler, padded repetition,
+   manufactured certainty, decorative pop-culture reference, canned
+   conclusion or previously rejected LAiDIES pattern.
+
+The scored review uses five dimensions, each scored from 0 to 4:
+
+- clear to a non-technical reader;
+- directly useful for the question asked;
+- builds a correct mental model rather than merely naming things;
+- sounds and teaches like LAiDIES without imitating a person or forcing the
+  town language; and
+- concise, specific and free of AI-slop patterns.
+
+An average cannot rescue a weak dimension. **LAiDIES reviewed** requires at
+least 17/20 and no dimension below 3/4, after every hard gate passes. The maker
+and reviewer must be different roles. The receipt binds the exact answer
+fingerprint, question key, sources, checked date, model version, source-policy
+version, related LAiDIES records, reviewer identity, findings and recheck
+trigger.
+
+Automated checks reject malformed, stale, unsupported, unsafe or mechanically
+poor responses before display. A role-distinct model grader may help find
+omissions, but it cannot admit its own answer or overrule a hard-gate failure.
+The calibrated evaluation set includes representative beginner questions,
+multi-part current-event questions, tool-choice questions, troubleshooting
+questions, ambiguous questions and exact prior failures. It runs before any
+prompt, model, retrieval or source-policy change and on the recurring freshness
+cycle. Feedback adds reviewed failure cases to that set; it never becomes an
+automatic training or publication instruction.
+
+Only the second and third labels prove the exact output has met the full
+LAiDIES bar. A novel **Checked live** answer is useful current guidance with
+minimum controls, not a claim of independent LAiDIES approval.
+
 ## Response-quality feedback
 
 Every completed Miss Jeeves answer offers **Helpful** and **Not helpful**. After
@@ -200,6 +270,38 @@ content. Material accuracy complaints create a review hold until checked.
 Miss Jeeves uses layered protection. No browser-only check, IP limit or model
 refusal is treated as sufficient by itself.
 
+### Accepted launch allowance and budget
+
+The initial operating envelope is **US$50–150 per month**, with a **US$5 hard
+daily provider-cost circuit breaker**. The service warns internally at US$2 and
+US$4 of provider spend in a UTC day. The ceiling is a stop, not an alert: once
+reached, Miss Jeeves serves current Answer Bank entries and admitted LAiDIES
+results but does not start another paid generation or web search until the next
+budget window.
+
+- An anonymous visitor receives **three successful guest answers in total**.
+  The interface shows the remaining count before the third answer, then asks
+  her to create or connect a free Resident account.
+- A Resident receives **five successful generated answers per day** at launch.
+  Reopening an answer or receiving a current Answer Bank result does not spend
+  this allowance.
+- A request does not spend allowance when validation, moderation, provider,
+  citation, quality or timeout handling fails before a usable answer is
+  delivered.
+- Account connection preserves the visitor's three guest answers. The gate is
+  a continuation and saving benefit, not a loss of work.
+- Burst protection remains separate from product allowance: no client may
+  submit more than three answer requests per minute, and signed-in identity is
+  not treated as proof that traffic is legitimate.
+
+Cost-aware routing is mandatory. Use a current exact Answer Bank entry or
+admitted LAiDIES result first; use the cheapest model that has passed the
+calibrated Miss Jeeves evaluation for the learner job; run web search only when
+fresh external evidence is required; and reserve GPT-5.6 Sol for questions that
+the approved lower-cost route cannot answer to the required standard. A budget
+failure must never silently lower answer quality or present stale information
+as current.
+
 1. **Keep the provider private.** The OpenAI credential remains server-side and
    the answer Worker accepts calls only from the internal service path. The
    public browser calls the bounded LAiDIES endpoint, never OpenAI directly.
@@ -208,11 +310,10 @@ refusal is treated as sufficient by itself.
    retrieval or model invocation. Run the provider's current moderation check
    before the expensive answer call while preserving legitimate educational
    questions about safety, bias and cybersecurity.
-3. **Layer request limits.** Enforce a short burst limit per privacy-safe client
-   key, a longer rolling allowance, endpoint-specific limits for answering,
-   saving and feedback, and a global daily cost circuit breaker. Signed-in and
-   anonymous visitors may have different allowances, but neither receives an
-   unlimited route.
+3. **Layer request limits.** Enforce the accepted three-per-minute burst limit,
+   guest and Resident allowances, endpoint-specific limits for answering,
+   saving and feedback, and the US$5 global daily cost circuit breaker. Neither
+   signed-in nor anonymous visitors receive an unlimited route.
 4. **Challenge suspicious traffic, not everyone.** Ask for a Cloudflare
    Turnstile check only after suspicious volume, automation signals or repeated
    rejected requests. Validate every challenge token on the server and never

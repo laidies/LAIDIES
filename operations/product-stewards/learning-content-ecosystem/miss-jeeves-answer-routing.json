@@ -100,6 +100,65 @@
     "confidential_workplace_content",
     "account_data"
   ],
+  "answerQuality": {
+    "labels": {
+      "live_checked": "automatic_runtime_checks_passed_not_independently_reviewed",
+      "laidies_reviewed": "exact_answer_passed_hard_gates_scoring_and_role_distinct_review",
+      "public_admitted": "exact_reviewed_artifact_passed_destination_admission_and_release"
+    },
+    "hardGates": [
+      "direct_complete_answer",
+      "claim_source_fidelity",
+      "freshness_and_unknowns",
+      "beginner_comprehension",
+      "useful_mechanism_or_decision_logic",
+      "laidies_relationship_integrity",
+      "privacy_and_safety",
+      "no_known_slop"
+    ],
+    "scoredDimensions": [
+      "nontechnical_clarity",
+      "direct_usefulness",
+      "correct_mental_model",
+      "laidies_voice_and_teaching_fit",
+      "specific_concise_anti_slop"
+    ],
+    "pointsPerDimension": 4,
+    "minimumTotal": 17,
+    "minimumPerDimension": 3,
+    "hardGateFailureMayBeAveragedAway": false,
+    "makerMayReviewOwnAnswer": false,
+    "modelGraderMayAdmitAnswer": false,
+    "liveCheckedImpliesIndependentReview": false,
+    "requiredReceiptBindings": [
+      "answer_fingerprint",
+      "answer_key",
+      "sources",
+      "checked_at",
+      "model_version",
+      "source_policy_version",
+      "related_laidies_records",
+      "reviewer",
+      "findings",
+      "recheck_trigger"
+    ],
+    "evaluationSetRequiredCases": [
+      "beginner_definition",
+      "multi_part_current_event",
+      "tool_choice",
+      "troubleshooting",
+      "ambiguous_question",
+      "prior_rejected_output"
+    ],
+    "runBeforeChanges": [
+      "prompt",
+      "model",
+      "retrieval",
+      "source_policy"
+    ],
+    "runOnRecurringFreshnessCycle": true,
+    "feedbackMayAutoTrainOrPublish": false
+  },
   "responseFeedback": {
     "ratingOptions": ["helpful", "not_helpful"],
     "helpfulReasons": [
@@ -152,6 +211,36 @@
     "accuracyComplaintCreatesReviewHold": true
   },
   "abuseProtection": {
+    "launchBudget": {
+      "currency": "USD",
+      "monthlyTargetMinimum": 50,
+      "monthlyTargetMaximum": 150,
+      "dailyHardCircuitBreaker": 5,
+      "dailyWarningThresholds": [2, 4],
+      "budgetWindow": "utc_day",
+      "onCircuitOpen": [
+        "serve_current_answer_bank_entries",
+        "serve_admitted_laidies_results",
+        "block_new_paid_generation_and_web_search"
+      ]
+    },
+    "allowances": {
+      "anonymousSuccessfulAnswersTotal": 3,
+      "residentSuccessfulGeneratedAnswersPerDay": 5,
+      "answerRequestsPerMinutePerClient": 3,
+      "reopeningExistingAnswerConsumesAllowance": false,
+      "currentAnswerBankHitConsumesAllowance": false,
+      "failedOrUndeliveredAnswerConsumesAllowance": false,
+      "guestAnswersPreservedOnAccountConnection": true
+    },
+    "costAwareRoutingOrder": [
+      "current_answer_bank_or_admitted_laidies",
+      "cheapest_evaluation_passed_model",
+      "web_search_only_when_fresh_external_evidence_required",
+      "gpt_5_6_sol_only_when_lower_cost_route_cannot_meet_standard"
+    ],
+    "budgetMaySilentlyLowerQuality": false,
+    "budgetMayPresentStaleInformationAsCurrent": false,
     "providerCredentialServerSideOnly": true,
     "internalServiceBindingRequired": true,
     "preSpendValidation": [
