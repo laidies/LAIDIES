@@ -1,6 +1,6 @@
 # NewsStand lesson links — September 5
 
-Status: PREPARED / PUBLIC VERIFICATION PENDING.
+Status: VERIFIED PUBLICLY — immutable cd6b20a4 and https://laidies.ai; source 93a8d878a3736e99f1e04fdfaa4bbadc57e45ad6 was committed and pushed before release.
 
 The missed-story draft's valid indexed lesson link opened Working with AI 101
 but left section 10.6 at about 84,580px. The exact current book ID has a chapter
@@ -44,3 +44,12 @@ parsing passed (126 scripts / 53 pages). The hook explicitly permits a
 conscious --no-verify commit; that bypass is limited to these exact owned paths
 after the focused resolver/service tests and artifact scope calibration. No
 public content-admission gate is bypassed and the repository is not all-green.
+
+
+Public verification: 14 changed/protected response hashes match the exact
+artifact across immutable and custom origins. Sixteen actual reader journeys
+(four lesson destinations at desktop and phone on each origin) reach and focus
+the intended visible heading without overflow. `public-parity.json` binds the
+observations. Provider settings downloaded after release match the predecessor
+apart from the generated timestamp. The pre-existing services/environment
+warning is unchanged; no provider binding or teaching content was changed.
