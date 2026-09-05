@@ -9,6 +9,11 @@ not a newly verified product-capability statement or publication instruction.
 
 > Remember Dream Phone -- that incredible game from the 90s where you had to figure out your secret crush? We do to. And we brought it back, but this time with a LAiDIES twist!  Play the full game to improve your skills at spotting and correcting hallucinations from your AI tool; or use the Just Call version to get fun advice from one someone who slayed their 90s highs chool yearbook picture.
 
+Alternative closing supplied by Ali in the same conversation (verbatim;
+retain both options until the exact copy is selected):
+
+> or  from someone who would have written something way better than "Have a great summer!" (brutal) in your high school year book.
+
 Use the example for its shared memory, conversational enthusiasm, concrete
 invitation, useful learning purpose and specific character humour. Product
 copy can explain the practical benefit inside the invitation. Preserve the
