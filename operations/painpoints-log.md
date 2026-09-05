@@ -14918,6 +14918,12 @@ while remaining falsely unfinished in the launch record.
   before proposing infrastructure. The policy and structural check are not a
   working reuse/publication pipeline; intake and the static column are separate
   pieces. Keep one bank and preserve private/internal/public admission states.
+- **Commit boundary:** the shared checkout's full commit hook reported five
+  missing logo targets in `issues/issue-01-magazine.html` and
+  `issues/issue-03-magazine.html`. The targeted Miss Jeeves checks pass. Shared
+  documentation uses a bounded alternate index containing only these owned
+  additions; bypassing that unrelated hook does not claim a globally clean
+  repository. Existing staged changes and working bytes are preserved.
 - **Behind the Build angle:** the website was answering, but it was not using
   the model we thought it was. A working response is not the same as a verified
   service, a complete answer or an affordable operating model.
