@@ -80,7 +80,22 @@ const server = http.createServer((request, response) => {
       path.join(ROOT, "content/blend-snap-weekly-packs.json"),
       "utf8"
     ));
-    if (fixture === "stale") manifest.freshThrough = "2026-07-24";
+    if (fixture === "overdue-review") {
+      manifest.updatedAt = "2000-01-01";
+      manifest.freshThrough = "2000-01-02";
+    }
+    if (fixture === "reversed-review-dates") manifest.freshThrough = "2000-01-01";
+    if (fixture === "invalid-review-date") manifest.freshThrough = "2026-02-30";
+    if (fixture === "future-review") {
+      const future = new Date();
+      future.setUTCFullYear(future.getUTCFullYear() + 10);
+      manifest.updatedAt = manifest.freshThrough = future.toISOString().slice(0, 10);
+    }
+    if (fixture === "withdrawn-component" || fixture === "held-with-route") {
+      const component = manifest.packs.at(-1).components.find((item) => item.id === "try_on");
+      component.status = "held";
+      if (fixture === "withdrawn-component") component.route = null;
+    }
     if (fixture === "missing-component") manifest.packs.at(-1).components.pop();
     if (fixture === "private-metadata") {
       manifest.evidenceOwner = "must-not-ship";
@@ -234,9 +249,8 @@ async function openPage(pathname, options = {}) {
       features: [{ name: "prefers-reduced-motion", value: "reduce" }]
     });
   }
-  const scripts = [
-    "window.__BLEND_SNAP_TODAY='2026-07-25';"
-  ];
+  // Use the real clock: a frozen July date concealed the live menu shutdown.
+  const scripts = [];
   if (options.storageBlocked) {
     scripts.push(
       "Storage.prototype.setItem=function(){throw new DOMException('blocked','SecurityError')};"
@@ -251,11 +265,18 @@ async function openPage(pathname, options = {}) {
     source: scripts.join("\n")
   });
   await client.call("Page.navigate", { url: origin + pathname });
+  let loaded = false;
   for (let attempt = 0; attempt < 120; attempt += 1) {
-    const ready = await value(client, "document.readyState === 'complete'");
-    if (ready) break;
+    try {
+      loaded = await value(client, `location.origin === ${JSON.stringify(origin)} && document.readyState === 'complete'`);
+      if (loaded) break;
+    } catch (error) {
+      // Navigation may replace the execution context while readiness is polled.
+      if (!/Inspected target navigated or closed|Cannot find context with specified id/.test(error.message)) throw error;
+    }
     await sleep(50);
   }
+  assert.ok(loaded, `Timed out loading ${pathname}`);
   await sleep(180);
   return client;
 }
@@ -405,6 +426,19 @@ try {
     ), "Availability checked at the café", `Episode ${episode} rail fails closed`);
   }
 
+  const overdue = await openPage("/blend-snap.html?fixture=overdue-review");
+  check(await value(overdue, "!document.querySelector('#bsOrderMenu').disabled"),
+    true, "an overdue review does not withdraw published activities");
+  check(await value(overdue, "document.querySelectorAll('#bsComponents a').length"),
+    1, "overdue review preserves only the already available component");
+  check(await value(overdue, "document.querySelector('[data-status=\"held\"]').textContent"),
+    "Cheat Sheet is being corrected", "overdue review does not promote held content");
+  const withdrawn = await openPage("/blend-snap.html?fixture=withdrawn-component");
+  check(await value(withdrawn, "!document.querySelector('#bsOrderMenu').disabled"),
+    true, "a valid withdrawal leaves the rest of the menu usable");
+  check(await value(withdrawn, "document.querySelectorAll('#bsComponents a').length"),
+    0, "a withdrawn activity cannot be opened from the menu");
+
   const blocked = await openPage("/blend-snap.html", { storageBlocked: true });
   check(await value(blocked, "!document.querySelector('#bsOrderMenu').disabled"),
     true, "storage denial does not block ordering");
@@ -420,7 +454,8 @@ try {
     true, "blocked pickup memory is disclosed");
 
   for (const fixture of [
-    "manifest-failure", "index-failure", "stale",
+    "manifest-failure", "index-failure", "reversed-review-dates",
+    "invalid-review-date", "future-review", "held-with-route",
     "missing-component", "index-mismatch", "private-metadata", "timeout",
     "malformed-manifest", "malformed-index"
   ]) {
@@ -491,6 +526,16 @@ try {
   check(await value(mobile, "getComputedStyle(document.querySelector('#bsOrderMobile')).display !== 'none'"),
     true, "mobile order control visible");
 
+  const narrow = await openPage("/blend-snap.html", { width: 320, height: 812, reducedMotion: true });
+  await act(narrow, "document.querySelector('#bsOrderMobile').click()");
+  check(await value(narrow, `(() => {
+    const title=document.querySelector('#bsReceiptTitle').getBoundingClientRect();
+    const header=document.querySelector('header').getBoundingClientRect();
+    return title.top >= header.bottom && title.bottom <= innerHeight;
+  })()`), true, "320 px order lands with the complete receipt title below the sticky header");
+  check(await value(narrow, "document.documentElement.scrollWidth <= 320"),
+    true, "320 px receipt has no page overflow");
+
   const reduced = await openPage("/blend-snap.html", { reducedMotion: true });
   check(await value(reduced, "matchMedia('(prefers-reduced-motion: reduce)').matches"),
     true, "reduced motion recognized");
@@ -545,7 +590,7 @@ try {
 
   console.log(
     `✓ BLEND & SNAP BROWSER: ${checks} rendered checks · ` +
-    "new/return/storage/index/stale/missing/mobile/keyboard/focus/motion/cross-entry"
+    "new/return/storage/index/review-dates/withdrawal/missing/mobile/keyboard/focus/motion/cross-entry"
   );
 } finally {
   clearTimeout(startupTimeout);

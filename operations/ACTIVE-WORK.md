@@ -1,5 +1,22 @@
 # Active work
 
+> **2026-09-05 — Blend & Snap: LOCAL CANDIDATE / POLICY DECISION PENDING.**
+> The published August 23 review deadline closes the whole menu on September 5.
+> Candidate branch `fix/blend-snap-menu-20260905` in
+> `/Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905` keeps existing
+> available activities accessible and flags the overdue review internally;
+> held/planned/unavailable items remain unlinked and original dates stay intact.
+> A separate scroll correction keeps the receipt title below the phone header.
+> Verification: 159 browser checks, 44 cross-entry checks, calibrated failures,
+> maker desktop/phone journey and device-local Try-On save/reload. Independent
+> review found no material implementation defect conditional on Ali accepting
+> the policy. Details and exact page hash: Blend & Snap OPERATING-SPEC.md.
+> No policy adoption, new content admission, push, deployment or public repair
+> is claimed. Next: resolve the pending review-rule question, assemble a release
+> that preserves the current public site, obtain exact-candidate approval and
+> verify both public origins. Episode 04 Try-On task/copy mismatch and café
+> visual alignment remain subsequent improvements. This is one bounded repair.
+
 ## 2026-08-29 production successor
 
 - **Status:** BUILDING — public page recovery advanced; Resident provider recovery remains open.

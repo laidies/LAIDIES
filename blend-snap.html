@@ -566,12 +566,12 @@
       *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
-  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-  <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
     window.plausible = window.plausible || function() {
@@ -916,7 +916,7 @@
         }
         receipt.scrollIntoView({
           behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-          block: "center"
+          block: "start"
         });
         window.setTimeout(function() {
           var heading = document.getElementById("bsReceiptTitle");
@@ -973,17 +973,16 @@
         var packKeys = ["episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components", "quizHandoff"];
         var componentKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
         var quizHandoffKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
-        var today = window.__BLEND_SNAP_TODAY ||
-          new Date().toISOString().slice(0, 10);
+        var today = new Date().toISOString().slice(0, 10);
         if (!manifest || manifest.schemaVersion !== "1.0.0" ||
             manifest.manifestId !== "blend-snap-weekly-packs" ||
             !hasOnlyKeys(manifest, manifestKeys) ||
             !isRealDate(manifest.updatedAt) ||
             !isRealDate(manifest.freshThrough) ||
             manifest.updatedAt > manifest.freshThrough ||
-            manifest.freshThrough < today ||
+            manifest.updatedAt > today ||
             !Array.isArray(manifest.packs)) {
-          throw new Error("pack manifest invalid or stale");
+          throw new Error("pack manifest invalid");
         }
         var published = episodes.filter(function(episode) {
           return episode.status === "published";
@@ -1044,6 +1043,12 @@
             throw new Error("duplicate or missing component");
           }
         });
+        // Review dates schedule maintenance; explicit component status owns availability.
+        // Do not silently relabel the evidence as current or reopen held items.
+        if (manifest.freshThrough < today) {
+          console.warn("Blend & Snap menu review overdue: " + manifest.freshThrough +
+            ". Check existing component routes and statuses; no availability changed.");
+        }
         return published.sort(function(a, b) {
           return Number(b.number) - Number(a.number);
         });

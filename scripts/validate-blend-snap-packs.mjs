@@ -84,7 +84,11 @@ check(realDate(manifest.updatedAt), "Manifest updatedAt is invalid.");
 check(realDate(manifest.freshThrough), "Manifest freshThrough is invalid.");
 check(realDate(asOf), "Validator as-of date is invalid.");
 check(manifest.updatedAt <= manifest.freshThrough, "Manifest dates are reversed.");
-check(manifest.freshThrough >= asOf, `Manifest is stale as of ${asOf}.`);
+check(manifest.updatedAt <= asOf, "Manifest review date is in the future.");
+if (manifest.freshThrough < asOf) {
+  console.warn(`REVIEW DUE: Blend & Snap menu review was due ${manifest.freshThrough}. ` +
+    "Recheck the existing component routes and statuses; do not renew dates or availability automatically.");
+}
 check(Array.isArray(manifest.packs), "Manifest packs are missing.");
 check(Object.keys(manifest).every((key) => publicManifestKeys.has(key)),
   "Public manifest contains private or unknown top-level metadata.");
@@ -266,5 +270,5 @@ console.log(
   `✓ BLEND & SNAP PACKS: schema ${manifest.schemaVersion} · ` +
   `${manifest.packs.length} published episode menus · ` +
   `${available} available · ${held} held · ${planned} planned · ` +
-  `${unavailable} unavailable · fresh through ${manifest.freshThrough}`
+  `${unavailable} unavailable · review due ${manifest.freshThrough}`
 );
