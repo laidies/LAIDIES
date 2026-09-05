@@ -179,11 +179,14 @@ marked unapproved. Its synthetic eligibility must never enter a release.
 
 ### Source receipt
 
-### AIDB late-publication cursor
+### AIDB release discovery and late-publication cursor
 
 The 07:00 Vancouver run must not ask only whether an AIDB edition has today's
-date. After the official-provider sweep, inventory AIDB's current complete
-editions and run `scripts/select-aidb-edition.mjs` against
+date. After the official-provider sweep, compare the website/edition index with
+the publisher-linked podcast release listing or RSS feed. A website masthead
+is not an episode timestamp. Inventory every observed release in the rolling
+seven-day window plus unresolved older releases, including episodes whose full
+contents have not yet been reviewed. Then run `scripts/select-aidb-edition.mjs` against
 `operations/agents/aidb-intelligence-desk/edition-cursor.json`. Process the
 newest complete edition that has not been processed, even when it was published
 after yesterday's scan, over a weekend, or with an older edition date. Then
@@ -193,6 +196,70 @@ SHA-256 and exact item count; a changed transcript hash reopens the edition.
 Update the cursor only after every edition item has a recorded disposition and
 the complete ledger passes. `No edition dated today` is never a quiet-news
 finding by itself.
+
+New inventories use `schema: "aidb-edition-inventory.v2"`, `editions: [...]`
+and `channelChecks: [...]`. Record one check for each `channel: "website"` and
+`channel: "podcast"`, its exact `url`, actual timezone-bearing `checkedAt`,
+`status: "CHECKED"` only after enumeration, and `releaseUrls` containing every
+observed release URL. Use `PARTIAL` or `UNAVAILABLE` honestly when applicable.
+The checks must fall on the research date in Vancouver. The helper rejects a
+quiet result when a required channel was not checked or an observed URL has no
+inventory entry. This is validation of the recorded work, not proof that the
+source was fetched or its contents understood; the researcher must inspect it.
+
+An episode has one stable inventory/cursor `url`. Keep `editionDate`, actual
+`publishedAt`, discovery channel and discovery/check time distinct from the
+intended newspaper issue date. If the publisher explicitly connects two URLs
+to the same episode, keep one record with `alsoPublishedAt: [...]` and an
+`identityEvidenceUrl` documenting that connection. Do not merge on date or a
+similar title alone. Retain the existing cursor identity after a URL match.
+
+Set `complete: false` for a release whose full contents have not been inspected;
+record `pendingReason` and the next source to check. A title, show description,
+search snippet or AI summary is not a full-episode review. Never invent its
+transcript hash or item count. Resolve an unavailable transcript by inspecting
+another legitimate full-content source, or retain the pending item. Only a
+complete review with the existing exact identity and item dispositions can
+advance the cursor.
+
+`HOLD_AIDB_RELEASE_REVIEW` exposes released incomplete episodes in
+`pendingEditions`. `HOLD_AIDB_SOURCE_COVERAGE` exposes missing reconciliation in
+`coverageGaps`. An actionable complete edition still selects ahead of these
+holds, with both fields retained: a delayed podcast transcript must not stop
+other verified news. Inspect these fields even on `PROCESS_*` or `RECHECK_*`.
+Legacy array inventories remain readable for recovery, but cannot certify quiet.
+`QUIET_NO_NEW_COMPLETE_AIDB_EDITION` with `quietAllowed:true` means only that the
+recorded AIDB checks have no outstanding work; it never means the news is quiet.
+
+Before choosing stories, create an independent headline list from reported news,
+official releases/authorities and relevant research. Cover the due source
+families, including investigations, medicine/STEM, work/access and material
+criticism. Compare that list with AIDB, then with published LAiDIES story IDs and
+unresolved intake. For each consequential story, record new candidate, update,
+already covered/duplicate, evidence hold with next check, or justified decline.
+AIDB's framing adds questions and context; its omission cannot veto a story.
+Unavailable reporting routes remain explicit coverage gaps. Do not treat the
+six desk labels or a provider-only sweep as completed independent coverage.
+
+### Proposed evening preparation and morning freshness check
+
+Ali proposed preparing the next day's paper at the end of the preceding day so
+AIDB's treatment can inform it. Proposed operating times are 20:00 Vancouver
+for research and private drafting, retaining the existing 07:00 run for the
+morning delta and gated publication. These times are NOT configured by this
+runbook change; the existing 07:00 heartbeat remains the current schedule.
+
+The evening pass reconciles independent headlines, all AIDB release channels,
+open evidence holds and due columns. It preserves a resumable private queue for
+the next issue. The morning pass checks both source groups again, resolves
+pending releases where possible, checks material claim changes and performs
+the existing publication checks. Unchanged admitted prose can be reused within
+its existing validity rules; changed material must be reviewed again. A missed
+evening run triggers recovery of that research in the morning, not publication
+from an empty or stale queue. Neither phase may backdate an article, label an
+unchecked source current, duplicate an issue, or delay urgent verified reporting
+just to wait for AIDB. Scheduler adoption and an actual paired run remain required
+before claiming this cadence works unattended.
 
 Research the rolling seven-day window and unresolved candidates against the
 actual published story IDs, not only announcements posted on the issue date.

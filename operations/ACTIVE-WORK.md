@@ -1,13 +1,15 @@
 # Active work
 
-## 2026-09-05 NewsStand implementation: recovery scheduling
+## 2026-09-05 NewsStand implementation: recovery scheduling and source discovery
 
-- **Status:** VERIFIED LOCALLY — bounded scheduling repair; overall NewsStand implementation remains BUILDING.
+- **Status:** VERIFIED LOCALLY — bounded recovery scheduling and AIDB discovery repairs; overall NewsStand implementation remains BUILDING.
 - **Trigger:** Ali asked how to implement the full editorial promise and prevent the most likely failures. The reproduced first failure was an evidence-held story claiming production before its next source check.
 - **Change:** Recovery selection reports due source checks separately, defers future checks without calling them quiet, resumes on new evidence and rejects malformed scheduling/state. A fresh evidence hold clears the consumed signal. The runbook requires recurring service assessment and describes the new outputs.
 - **Verification:** The new fixture failed on the incumbent; the corrected recovery suite passed, including offset/equality, legacy and malformed inputs. The real September 5 queue remained NO_ACTIVE_RECOVERY. Independent Terra code review found no blocking defect in the bounded patch. Publication receipt validation and caller behavior were not certified.
+- **Sourcing follow-up:** A newer September 4 AIDB podcast release was absent from the September 5 website-led inventory. The old selector also classified released incomplete episodes as quiet. The local successor exposes pending releases and missing website/podcast reconciliation, retains older actionable work and rejects incomplete coverage claims. All 13 focused selector cases and bounded independent code review pass. The original cursor/inventory are preserved; a separate audit supplement honestly returns one pending episode and two PARTIAL channel checks. The full new episode and complete rolling-week reconciliation remain due.
+- **Headline calibration:** The existing September 5 intake now contains the agent-board report and Nature research lead with explicit evidence limits. Fable/Mythos was already published; the acquisition claim was already held. These are different dispositions, not four discovery misses.
 - **Worktree:** `/Users/alisoneakin/Projects/laidies-newsstand-workflow-audit-20260905`, branch `fix/newsstand-recovery-scheduling-20260905`; the audit commits remain on their original branch.
-- **Next:** Integrate through the existing automation's current inputs; implement actionable service intake/due work and repair the held bank evidence; then prove existing SERVICE_READY publication through the full reader/discovery path. The staged implementation and prevention cases are appended to `operations/product-stewards/newsstand/WORKFLOW-AUDIT-2026-09-05.md`.
+- **Next:** Sourcing is Ali's first priority: finish rolling-week channel reconciliation and independent reporting routes, then integrate the repaired inputs through the existing automation. Her evening-preparation direction is captured; 20:00 preparation plus existing 07:00 freshness/publication is proposed, not configured. Then restore service replenishment and prove the existing SERVICE_READY reader/discovery path. The workflow audit and runbook hold the exact continuation.
 - **Not done:** No public content, canonical issued data, automation settings or deployment changed. The complete new editorial promise and feature set are not yet implemented or publicly verified.
 
 ## 2026-09-05 NewsStand workflow audit and reader promise

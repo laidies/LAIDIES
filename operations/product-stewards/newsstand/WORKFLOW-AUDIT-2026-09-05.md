@@ -2,11 +2,11 @@
 
 Date: September 5, 2026, America/Vancouver. Tier 2 internal audit.
 
-Implementation update: the recovery scheduling repair described at the end is now VERIFIED LOCALLY. All other audit findings remain a baseline or proposed work unless explicitly updated there. The running automation and public newspaper have not adopted this local patch.
+Implementation update: the recovery scheduling repair and the AIDB discovery guard described below are VERIFIED LOCALLY. Other audit findings remain a baseline or proposed work unless explicitly updated. The running automation and public newspaper have not adopted these local patches.
 
 **Verdict: ADAPT.** Keep the existing newspaper, seven story types, ordinary-news autonomy, exact-content review, source controls, original dates and scoped publication process. Repair the parts that mistake a complete record for a useful article, broaden discovery, and give Weekly and the service desks a dependable production cycle. More features will increase the maintenance burden unless those foundations work.
 
-Ali's reader promise and new feature directions are recorded in [NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md](NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md). Those are DECIDED purpose or explicitly CAPTURED directions. The implementation changes, names, cadences and experiments below are PROPOSED. This task changes internal records only; it does not implement, publish or deploy them.
+Ali's reader promise and new feature directions are recorded in [NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md](NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md). Those are DECIDED purpose or explicitly CAPTURED directions. Changes, names, cadences and experiments below are PROPOSED unless individually marked implemented. The original audit changed internal records only; subsequent local helper repairs do not establish scheduler adoption or public results.
 
 ## What was inspected and what that proves
 
@@ -29,6 +29,51 @@ Evidence: `operations/agents/aidb-intelligence-desk/daily/2026-09-04.md:84–104
 **Change:** create a NewsStand-owned coverage ledger that reconciles all due source families before selection. Include provider releases; independent reported news and investigations; public authorities/courts/regulators; research and reproducibility; medicine/STEM and public benefit; work, access and inequality; practical tools; and criticism. Match primary evidence to the claim: a vendor document can establish what was announced, but cannot independently establish superiority, clinical benefit or a disputed incident account. Record unavailable sources as coverage gaps. Maintain an explicit disposition for every consequential headline considered, including relevant stories the newspaper did not commission.
 
 This does not mean reproducing every mainstream headline or filling every desk daily. Cluster duplicates, assess consequence, and make the omission reviewable. Quiet days remain valid; unchecked coverage and unresolved held material must not be labelled quiet.
+
+**September 5 live follow-up — confirmed channel lag, locally repaired status.**
+The [AIDB website](https://www.aidailybrief.ai/) still leads with September 3,
+but its publisher-linked [Apple Podcasts listing](https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614)
+has a newer episode, “How AI Changed This Summer,” released September 4 at
+20:03 UTC / 13:03 Vancouver. The September 5 morning inventory omitted it.
+This is a discovery omission, not evidence that its full contents were
+available on the website. The podcast description was inspected; the full
+episode remains unreviewed. The daily ledger now carries a correction and a
+separate supplement preserves the new pending item without rewriting the
+original inventory or advancing the cursor.
+
+The old selector also returned QUIET for an explicitly incomplete released
+episode. A new regression test reproduced that wrong result. The local repair
+exposes pending episodes and missing website/podcast reconciliation, checks that
+observed release URLs reach inventory, and permits useful complete work to
+proceed alongside a gap. Legacy arrays cannot certify quiet. Thirteen focused
+cases pass, including the real release metadata and rejection calibrations;
+independent Terra code review found no blocking defect within this scope. The
+supplement returns `HOLD_AIDB_RELEASE_REVIEW`, one pending episode, two honest
+PARTIAL channel checks and `quietAllowed:false`. It is a focused audit supplement,
+not a completed rolling-week source run. Validation checks the recorded inputs;
+it cannot establish that a feed was actually read or an article understood.
+
+The external spot check also found a [September 4 agent-board research
+report](https://collusion.wiki/) with independent Reuters coverage and a
+[September 1 Nature research lead](https://www.nature.com/articles/d41586-026-02609-y)
+without exact matches in the inspected September 1–5 intake/canonical coverage.
+They are now explicit research leads in the existing September 5 intake. The
+agent report is preliminary and requires careful attribution; the underlying
+genome study was not read. Conversely, Fable/Mythos was already covered, and the
+Nvidia/Hugging Face acquisition claim was already an evidence hold. Discovery,
+verification and duplicate suppression must be measured separately. This small
+sample establishes specific gaps, not a headline coverage percentage.
+
+**Timing direction captured, not activated.** Ali proposed end-of-day preparation
+for next-day publication to incorporate AIDB's treatment. Recommend 20:00
+Vancouver main research/private drafting and the existing 07:00 morning delta,
+with independent headlines checked in both phases. The runbook specifies late
+releases, missed-evening recovery, unchanged-prose reuse and honest publication
+dates. The active automation remains 07:00 only and still needs to adopt the
+local fixes. Next: complete the real rolling-week reconciliation and missing
+independent reporting routes, adopt the fixed inputs in that existing automation,
+then prove a paired run. An evening schedule alone cannot fix a lagging website,
+missing source family, unheard episode or unresolved publication hold.
 
 ### 2. Reader understanding is partly checked as paperwork — certain
 

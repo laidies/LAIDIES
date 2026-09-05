@@ -7,7 +7,7 @@
 **Item:** [title](canonical URL)
 **Item date:** YYYY-MM-DD
 **Processed:** timestamp with timezone
-**Result:** ACTIONABLE | WATCH | QUIET | SOURCE UNAVAILABLE
+**Result:** ACTIONABLE | WATCH | QUIET | SOURCE UNAVAILABLE | HOLD — SOURCE REVIEW INCOMPLETE
 
 ## Source read
 
@@ -190,6 +190,12 @@ A model announcement alone does not earn a treatment.
 ## Quiet result
 
 State why no change or no content is the correct result. Do not fill a quota.
+For AIDB, include the website/podcast reconciliation inventory and selector
+result defined in the NewsStand daily runbook. An observed release with missing
+full-content review, an unenumerated channel or an observed URL missing from
+intake is HOLD, not QUIET. Preserve `pendingEditions` and `coverageGaps` even
+when other complete editions or independent stories are actionable. Neither a
+complete old ledger nor a source's current masthead proves there is no new work.
 
 ## Learning scan
 

@@ -34,6 +34,14 @@ due evidence checks and future waits from production in the local implementation
 its runbook and focused test define the contract. Public/automation adoption
 requires its own verification.
 
+The same runbook now governs local AIDB website/podcast reconciliation,
+released-but-unreviewed episode holds, source coverage gaps and independent
+headline comparison. The September 5 audit records a verified channel omission
+and the bounded selector repair. Ali's end-of-day preparation suggestion is
+captured there; 20:00 preparation plus 07:00 freshness/publication is proposed,
+not an active schedule change. The existing 07:00 heartbeat remains authoritative
+until explicitly updated and verified.
+
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:
 `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md` (August 30 proving run).
