@@ -66,7 +66,7 @@ These old names are **retired. Do not use them in public or internal copy.** Map
 ## 3. Overloaded words — one meaning each
 
 - **Coven** = the Grimoire section for real women in AI. (The elaborate "Receipts Coven" build with freshness dates = backlog.)
-- **Receipts** = shorthand for the **Chamber of Receipts** (sources/proof). The internal claim-tracking tool is the **Claims Ledger** (backlog). Elle Woods is the **Patron Saint of Receipts** (an archetype, not a section).
+- **Receipts** = shorthand for the **Chamber of Receipts** (sources/proof). The internal claim-tracking tool is the **Claims Ledger** (backlog). Elle Woods is the **Patron Saint of Critical Thinking**; receipts are one tool she uses, not her lane name.
 - **Closet** = **Lore Closet** only. ("Reference Closet" retired.)
 
 ---
@@ -88,11 +88,11 @@ The Grimoire is the durable library. These are the weekly and interactive surfac
 
 - **Cher Horowitz + Dionne Davenport** — Trendsetting
 - **David Rose** — Specificity
-- **Elle Woods** — Receipts
+- **Elle Woods** — Critical Thinking
 - **Miranda Priestly** — Standards
-- **Buffy** — Slaying (actually using the tools)
+- **Buffy** — Execution (finish one bounded, useful job)
 - **Regina George** — Dangerous Confidence
-- **Deb (corporate cryptid)** — "Loop Me Out"
+- **Deb (corporate cryptid)** — Boundaries
 - **Dolly Parton** — Common Sense
 
 ---

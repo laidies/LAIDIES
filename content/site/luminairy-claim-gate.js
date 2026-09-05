@@ -21,6 +21,12 @@
       crv: "P-256",
       x: "PbQCO9tuJRrhE83ZuXq2UU0WLbz979M3zqmDpIc58zA",
       y: "BT6SvRIfLRzXD9l_zAQyckGdAfvkcBvvOJAZtL0fwXA"
+    },
+    "luminairy-editorial-offline-r6-20260905": {
+      kty: "EC",
+      crv: "P-256",
+      x: "YxGcDGUnJwNUobB6CIWT7zAXcfgQAu68y6S1qpAWMX0",
+      y: "Tjevgp53_Zne0vkSYAguWALUvm39pcEP6WmBTD3hByw"
     }
   };
 

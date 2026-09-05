@@ -783,7 +783,7 @@ body[data-lum-wing="trailblazers"] .lum-profile__role { color: var(--lum-amber-d
   line-height: 1.62;
 }
 
-.lum-profile__lesson,
+.lum-profile__section,
 .lum-profile__resources {
   margin-top: 28px;
   padding: 22px;
@@ -791,14 +791,34 @@ body[data-lum-wing="trailblazers"] .lum-profile__role { color: var(--lum-amber-d
   border-left: 6px solid var(--lum-pink);
 }
 
-body[data-lum-wing="mavens"] .lum-profile__lesson,
+body[data-lum-wing="mavens"] .lum-profile__section,
 body[data-lum-wing="mavens"] .lum-profile__resources { border-left-color: var(--lum-sapphire); }
-body[data-lum-wing="trailblazers"] .lum-profile__lesson,
+body[data-lum-wing="trailblazers"] .lum-profile__section,
 body[data-lum-wing="trailblazers"] .lum-profile__resources { border-left-color: var(--lum-amber); }
 
-.lum-profile__lesson h3,
+.lum-profile__section h3,
 .lum-profile__resources h3 { margin: 0 0 10px; font-family: var(--lum-display); font-size: 1.18rem; letter-spacing: 0.04em; text-transform: uppercase; }
-.lum-profile__lesson p { margin: 0; line-height: 1.55; }
+.lum-profile__section p { margin: 0; line-height: 1.62; }
+.lum-profile__section p + p { margin-top: 14px; }
+.lum-profile__why { background: #fff7fb; }
+.lum-profile__try { background: #eefafa; }
+.lum-profile__boundary {
+  padding-block: 17px;
+  color: rgba(16, 22, 49, 0.76);
+  background: transparent;
+  border-top: 1px solid rgba(16, 22, 49, 0.18);
+  border-right: 0;
+  border-bottom: 0;
+}
+.lum-profile__resource-groups { display: grid; gap: 18px; }
+.lum-profile__resource-group h4 {
+  margin: 0 0 8px;
+  color: rgba(16, 22, 49, 0.62);
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
 .lum-profile__resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .lum-profile__resource,

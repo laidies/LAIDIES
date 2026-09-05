@@ -21,7 +21,7 @@ const comparableLinks = (links = []) => links.map(({ type, label, url }) => ({ t
 
 for (const file of files) {
   const evidence = JSON.parse(fs.readFileSync(path.join(folder, file), "utf8"));
-  if (evidence.schemaVersion !== "luminairy-profile-resource-evidence.v1" || evidence.checkedOn !== "2026-09-02") errors.push(`${file}: schema/date mismatch`);
+  if (evidence.schemaVersion !== "luminairy-profile-resource-evidence.v1" || evidence.checkedOn !== "2026-09-05") errors.push(`${file}: schema/date mismatch`);
   if (!Array.isArray(evidence.profiles) || evidence.profiles.length !== 5) errors.push(`${file}: batch must contain five profiles`);
   for (const item of evidence.profiles || []) {
     const entry = roster.get(item.profileId);
@@ -32,7 +32,7 @@ for (const file of files) {
     seen.add(item.profileId);
     const imagePath = path.join(root, entry.profile.image.replace(/^\//, ""));
     const imageHash = fs.existsSync(imagePath) ? sha256(fs.readFileSync(imagePath)) : "missing";
-    if (item.image?.sha256 !== imageHash || item.image?.verdict !== "pass-to-retain" || !item.image?.reference || !item.image?.finding) errors.push(`${item.profileId}: image evidence mismatch`);
+    if (item.image?.sha256 !== imageHash || item.image?.verdict !== "pass-current-release" || item.image?.reviewedOn !== evidence.checkedOn || !item.image?.reference || !item.image?.finding) errors.push(`${item.profileId}: image evidence mismatch`);
     if (item.roleAbout?.text !== entry.profile.about || !Array.isArray(item.roleAbout?.sources) || item.roleAbout.sources.length < 1) errors.push(`${item.profileId}: role/about evidence mismatch`);
     if (item.lesson?.text !== entry.profile.lesson) errors.push(`${item.profileId}: lesson evidence mismatch`);
     if (JSON.stringify(comparableLinks(item.links)) !== JSON.stringify(comparableLinks(entry.profile.links))) errors.push(`${item.profileId}: destination evidence mismatch`);

@@ -18,7 +18,8 @@ const css = read("content/luminairy-v2.css");
 const gate = read("content/site/luminairy-claim-gate.js");
 const sourcePacket = read("operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md");
 const hannahResources = JSON.parse(read("operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
-const evidenceFiles = fs.readdirSync(path.join(root, "operations/product-stewards/luminairy"))
+const evidenceDir = path.resolve(process.env.LUMINAIRY_EVIDENCE_DIR || path.join(root, "operations/product-stewards/luminairy"));
+const evidenceFiles = fs.readdirSync(evidenceDir)
   .filter((name) => /^profile-resource-evidence-batch-\d\d-2026-09-02\.json$/.test(name))
   .sort();
 const errors = [];
@@ -38,10 +39,16 @@ const publicJwks = {
     kty: "EC", crv: "P-256",
     x: "PbQCO9tuJRrhE83ZuXq2UU0WLbz979M3zqmDpIc58zA",
     y: "BT6SvRIfLRzXD9l_zAQyckGdAfvkcBvvOJAZtL0fwXA"
+  },
+  "luminairy-editorial-offline-r6-20260905": {
+    kty: "EC", crv: "P-256",
+    x: "YxGcDGUnJwNUobB6CIWT7zAXcfgQAu68y6S1qpAWMX0",
+    y: "Tjevgp53_Zne0vkSYAguWALUvm39pcEP6WmBTD3hByw"
   }
 };
 
 const sha256 = (value) => crypto.createHash("sha256").update(String(value)).digest("hex");
+const sha256File = (filePath) => crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
 const profilePayload = (wing, profile) => JSON.stringify({ wing, profile });
 function receiptPayload(receipt) {
   const payload = {
@@ -84,11 +91,15 @@ if (!css.includes("--lum-sapphire") || !css.includes("--lum-amber") || !css.incl
 const expected = { saints: 13, mavens: 23, trailblazers: 7 };
 const profileEntries = new Map();
 const resourceEvidence = new Map();
+const resourceEvidenceProfiles = new Map();
 for (const file of evidenceFiles) {
-  const batch = JSON.parse(read(`operations/product-stewards/luminairy/${file}`));
+  const batch = JSON.parse(fs.readFileSync(path.join(evidenceDir, file), "utf8"));
   for (const item of batch.profiles || []) {
     if (!item.profileId || resourceEvidence.has(item.profileId)) errors.push(`duplicate resource evidence ${item.profileId}`);
-    else resourceEvidence.set(item.profileId, sha256(JSON.stringify(item)));
+    else {
+      resourceEvidence.set(item.profileId, sha256(JSON.stringify(item)));
+      resourceEvidenceProfiles.set(item.profileId, item);
+    }
   }
 }
 for (const wing of Object.keys(expected)) {
@@ -109,6 +120,9 @@ for (const wing of Object.keys(expected)) {
     } else {
       if (!Array.isArray(profile.links) || profile.links.length < 1) errors.push(`work/source link missing ${key}`);
       for (const link of profile.links || []) if (!/^https:\/\//.test(link.url || "")) errors.push(`non-HTTPS external link ${key}`);
+      const evidence = resourceEvidenceProfiles.get(profile.id);
+      if (!evidence?.image?.sha256) errors.push(`release image evidence missing ${key}`);
+      else if (fs.existsSync(localPath(profile.image)) && evidence.image.sha256 !== sha256File(localPath(profile.image))) errors.push(`release image evidence hash mismatch ${key}`);
     }
   }
 }

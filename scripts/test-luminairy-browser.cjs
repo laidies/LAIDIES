@@ -96,9 +96,9 @@ async function run() {
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /card-profile-v1$/, "the card/profile successor must load its matching cache-busted stylesheet");
-    assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260902-r5$/, "the complete profile-resource release must load the matching admission gate");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /card-profile-v1$/, "the card/profile runtime must load its matching cache-busted script");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /20260905-complete-profiles-v2$/, "the complete-profile successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260905-r6$/, "the complete profile-resource release must load the matching admission gate");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /20260905-complete-profiles-v2$/, "the complete-profile runtime must load its matching cache-busted script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -195,7 +195,7 @@ async function run() {
     assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search MAiVEN profiles", "the filter scope must update with the active wing");
     assert.deepEqual(await imageFailures(page), [], "all Maven images must decode");
     await assertExactResources(page, "mavens");
-    assert.match(await page.locator("#lumWingKicker").textContent(), /dark sapphire/i);
+    assert.match(await page.locator("#lumWingKicker").textContent(), /luminous sapphire/i);
     const hannahCard = page.locator(".lum-card", { hasText: "Hannah Fry" });
     await hannahCard.locator(".lum-card__cover").click();
     await page.locator("#lumProfileTitle", { hasText: "Hannah Fry" }).waitFor();
@@ -240,7 +240,7 @@ async function run() {
     await page.locator("#lumPanel").waitFor();
     await page.locator(".lum-card", { hasText: "Fidji Simo" }).locator(".lum-card__cover").click();
     await page.locator("#lumProfileTitle", { hasText: "Fidji Simo" }).waitFor();
-    await assert.doesNotReject(() => page.locator("#lumProfile").getByText(/CEO of Applications at OpenAI/i).waitFor());
+    await assert.doesNotReject(() => page.locator("#lumProfile .lum-profile__about").getByText(/CEO of Applications at OpenAI/i).waitFor());
 
     const badRel = await page.locator('.lum-profile__resource[target="_blank"]').evaluateAll((links) => links
       .filter((link) => !(link.rel.includes("noopener") && link.rel.includes("noreferrer"))).length);

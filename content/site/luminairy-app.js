@@ -9,7 +9,7 @@
       searchLabel: "Search PATRON SAiNT cards"
     },
     mavens: {
-      label: "MAiVENS · dark sapphire wing",
+      label: "MAiVENS · luminous sapphire wing",
       title: "Meet the women in the machine's lineage.",
       description: "Each card pairs one bounded, sourced contribution with a clearly labelled LAiDIES lesson. The archive is a route into the work, not a greatest-women ranking.",
       searchLabel: "Search MAiVEN profiles"
@@ -309,7 +309,7 @@
     figure.className = "lum-card__portrait";
     const image = document.createElement("img");
     image.src = profile.image;
-    image.alt = "Painterly waist-up portrait of " + profile.name;
+    image.alt = "Stained-glass style waist-up portrait of " + profile.name;
     image.loading = "lazy";
     image.decoding = "async";
     figure.appendChild(image);
@@ -337,6 +337,43 @@
       : "Choose " + profile.name + " as my " + pickLabels[wing]);
     pick.addEventListener("click", () => writePick(wing, profile.id));
     return pick;
+  }
+
+  function appendProfileSection(parent, className, title, paragraphs) {
+    const values = (Array.isArray(paragraphs) ? paragraphs : [paragraphs]).filter(Boolean);
+    if (!values.length) return;
+    const section = document.createElement("section");
+    section.className = "lum-profile__section " + className;
+    section.appendChild(textElement("h3", "", title));
+    values.forEach((paragraph) => section.appendChild(textElement("p", "", paragraph)));
+    parent.appendChild(section);
+  }
+
+  function appendResourceGroups(parent, profile) {
+    const resourceOrder = ["read", "watch", "listen", "follow"];
+    const grouped = new Map(resourceOrder.map((type) => [type, []]));
+    (profile.links || []).forEach((link) => {
+      const type = resourceOrder.includes(link.type) ? link.type : "read";
+      grouped.get(type).push(link);
+    });
+
+    resourceOrder.forEach((type) => {
+      const items = grouped.get(type);
+      if (!items.length) return;
+      const group = document.createElement("div");
+      group.className = "lum-profile__resource-group";
+      group.appendChild(textElement("h4", "", type));
+      const links = document.createElement("div");
+      links.className = "lum-profile__resources-list";
+      items.forEach((link) => {
+        const anchor = makeLink(link);
+        if (!anchor) return;
+        anchor.dataset.resourceType = type;
+        links.appendChild(anchor);
+      });
+      group.appendChild(links);
+      parent.appendChild(group);
+    });
   }
 
   function renderProfile(profile, wing, options) {
@@ -371,23 +408,27 @@
     if (profile.archetype) copy.appendChild(textElement("p", "lum-profile__archetype", profile.archetype));
     copy.appendChild(textElement("p", "lum-profile__about", profile.about));
 
-    const lesson = textElement("section", "lum-profile__lesson", "");
-    lesson.appendChild(textElement("h3", "", "The LAiDIES lesson"));
-    lesson.appendChild(textElement("p", "", profile.lesson));
-    copy.appendChild(lesson);
+    if (profile.whyHere) {
+      appendProfileSection(copy, "lum-profile__why", "Why this profile is here", profile.whyHere);
+      appendProfileSection(
+        copy,
+        "lum-profile__contribution",
+        wing === "saints" ? "Why the lesson works" : wing === "mavens" ? "What she changed" : "What she is building",
+        profile.contribution
+      );
+      appendProfileSection(copy, "lum-profile__lesson", "The move to borrow", profile.move);
+      appendProfileSection(copy, "lum-profile__try", "Try it at work", profile.tryIt);
+      appendProfileSection(copy, "lum-profile__boundary", "Where this lesson stops", profile.boundary);
+    } else {
+      appendProfileSection(copy, "lum-profile__lesson", "The LAiDIES lesson", profile.lesson);
+    }
 
     const resources = document.createElement("section");
     resources.className = "lum-profile__resources";
     resources.appendChild(textElement("h3", "", wing === "saints" ? "Saint song" : "Explore her work"));
     const links = document.createElement("div");
-    links.className = "lum-profile__resources-list";
-    (profile.links || []).forEach((link) => {
-      const anchor = makeLink(link);
-      if (anchor) {
-        anchor.dataset.resourceType = link.type || "read";
-        links.appendChild(anchor);
-      }
-    });
+    links.className = "lum-profile__resource-groups";
+    appendResourceGroups(links, profile);
     if (hasPlayableSong(profile)) {
       const song = document.createElement("button");
       song.type = "button";
@@ -442,7 +483,7 @@
     const query = state.query.trim().toLocaleLowerCase();
     const profiles = state.data[state.wing].filter((profile) => {
       if (!query) return true;
-      return [profile.name, profile.role, profile.archetype, profile.about, profile.lesson]
+      return [profile.name, profile.role, profile.archetype, profile.about, profile.lesson, profile.whyHere, profile.move, profile.tryIt, ...(profile.contribution || [])]
         .filter(Boolean).join(" ").toLocaleLowerCase().includes(query);
     });
 

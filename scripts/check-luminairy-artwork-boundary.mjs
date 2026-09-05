@@ -36,11 +36,24 @@ const temporaryRoots = authority.temporaryRuntimeDependencies.map((entry) => {
 
 const allProfiles = Object.values(profiles).flatMap((value) => Array.isArray(value) ? value : []);
 const currentTemporary = allProfiles.filter((profile) => temporaryRoots.some((prefix) => String(profile.image || '').startsWith(prefix)));
-assert.equal(currentTemporary.length, 43, `expected all 43 signed profiles to remain intact during the archive split; found ${currentTemporary.length}`);
+assert.equal(currentTemporary.length, 0, `LUMINAiRY profiles fell back to temporary retired artwork: ${currentTemporary.map(profile => profile.id).join(', ')}`);
+
+let activeCount = 0;
+for (const [wing, family] of Object.entries(authority.activeProfileFamilies || {})) {
+  const wingProfiles = profiles[wing] || [];
+  assert.equal(wingProfiles.length, family.count, `${wing} active artwork count mismatch`);
+  const prefix = `/${family.path}/`;
+  for (const profile of wingProfiles) {
+    assert.ok(String(profile.image || '').startsWith(prefix), `${wing}:${profile.id} is outside the approved active family`);
+    assert.ok(fs.existsSync(path.join(root, profile.image.replace(/^\//, ''))), `${wing}:${profile.id} active artwork is missing`);
+    activeCount += 1;
+  }
+}
+assert.equal(activeCount, 43, `expected 43 profiles in approved active families; found ${activeCount}`);
 
 const approvedProfile = allProfiles.find((profile) => profile.id === 'cher-dionne');
 assert.ok(approvedProfile, 'Cher + Dionne profile is missing');
-assert.notEqual(approvedProfile.image, `/${authority.approved[0].path}`, 'approved V12 was mapped without a renewed signed profile receipt');
+assert.equal(approvedProfile.image, `/${authority.approved[0].path}`, 'approved Cher + Dionne artwork is not mapped to the current profile');
 
 console.log('LUMINAiRY ARTWORK BOUNDARY PASS');
-console.log(`approved=${authority.approved.length} temporary-runtime-only=${currentTemporary.length} archived-families=${authority.archivedFamilies.length}`);
+console.log(`approved-profile-images=${activeCount} temporary-profile-images=${currentTemporary.length} archived-families=${authority.archivedFamilies.length}`);

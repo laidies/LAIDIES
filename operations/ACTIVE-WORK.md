@@ -1199,3 +1199,13 @@ objective; every open lane keeps its own checkpoint.
 - **Approval:** Ali approved exact V12 SHA-256 `c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e` on 5 September 2026. This approval applies to Cher + Dionne only; remaining portraits retain their own review state.
 - **Signing handoff:** exact request `operations/product-stewards/luminairy/cher-dionne-v12-offline-signing-request-2026-09-05.json`, SHA-256 `2c791315864bc24ea9adff62189c245763cd41b3cf5d6a5cabd0ecdf9515a65a`, binds the one-field image change, new profile SHA-256 `eb7207e16f4a9215218b62e65dcddd2e7d405a76f674632539d6a26f63fe3e40` and complete unsigned r5 receipt payload.
 - **Release boundary:** the approval is committed, but no signed public profile record, editorial receipt or active image mapping has changed yet. This worktree has verification keys only and no authorized private signer. The incumbent mapping remains intact until the exact signing request returns a valid receipt. No deployment occurred.
+
+### 2026-09-05 LUMINAiRY complete-profile and artwork integration
+
+- **Current state:** `43 OF 43 COMPLETE / 0 CONTENT OR IMAGE HOLDS / SIGNED AND BROWSER-VERIFIED LOCALLY / NOT DEPLOYED`.
+- **Coverage:** 13 Patron Saints, 23 MAiVENs and 7 Trailblazers all have current images and deep profiles. The 30 real-person profiles expose 108 verified typed destinations. Twelve Saint songs are available; Carrie remains explicitly deferred.
+- **Artwork:** all profiles now map to the active electric-pink, luminous-sapphire or golden-amber stained-glass family; Regina retains the red-orange anti-saint exception. Zero profiles map to a temporary retired family. Cher + Dionne preserve exact approved V12 pixels.
+- **Admission:** all 43 exact profiles received renewed P-256 receipts under key `luminairy-editorial-offline-r6-20260905`; producer and independent exact-prose reviews pass separately from the integrity receipt.
+- **Verification:** the full HTTP browser suite passes every cover/profile route, all 43 images, all 108 destinations, playlist/deferred audio, search, keyboard focus, signed admission with and without Web Crypto, storage/fetch/audio failures, account restoration into My Closet, and desktop/390/320 layout.
+- **Handoff:** `operations/product-stewards/luminairy/complete-profile-release-candidate-2026-09-05.md` is the authoritative coverage and release-boundary record.
+- **Release boundary:** no push or deployment. Recover and verify the exact current production artifact and coordinated Pages slot before any public release, then verify custom and immutable origins.

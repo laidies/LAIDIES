@@ -1,69 +1,240 @@
 {
   "schemaVersion": "luminairy-profile-resource-evidence.v1",
   "batch": 1,
-  "checkedOn": "2026-09-02",
+  "checkedOn": "2026-09-05",
   "status": "signed-local-candidate",
   "profiles": [
     {
       "profileId": "ada-lovelace",
-      "image": {"sha256": "fc9bc5a5a1e4caeb2a1bd775327ae9e4abe068a77dbc16746c222c7abf9eab19", "verdict": "pass-to-retain", "reference": "https://www.npg.org.uk/schools-hub/ada-lovelace-by-margaret-sarah-carpenter", "finding": "The stylized portrait's dark centre-parted hair and 19th-century formal dress align with the National Portrait Gallery reference without a material identity contradiction."},
-      "roleAbout": {"verdict": "supported", "text": "Her 1843 Notes on the Analytical Engine include a worked method for calculating Bernoulli numbers.", "sources": ["https://blogs.bodleian.ox.ac.uk/adalovelace/2015/02/", "https://www.cs.ox.ac.uk/RIMC-Y9-2021/LovelaceProgramme/TheAnalyticalEngine.pdf"]},
-      "lesson": {"verdict": "retain", "text": "A useful program is a precise sequence, not a magic answer."},
+      "image": {
+        "sha256": "95a8cd0948f992cff159a7c8545d94024d81ff37efa99606df6d5e86a69ac388",
+        "verdict": "pass-current-release",
+        "reference": "https://collection.sciencemuseumgroup.org.uk/objects/co67823/portrait-of-ada-countess-of-lovelace",
+        "finding": "Independent comparison with the bound Chalon references found the long oval face, centre part, paired side ringlets, floral headpiece and veil/period silhouette recognisable. The waist-up editorial-comic figure is clean and bright in the exact luminous sapphire family, with no green fringe, mottling, text or anatomy defect. Release image rechecked 5 Sep 2026 against the exact bytes recorded here.",
+        "reviewedOn": "2026-09-05"
+      },
+      "roleAbout": {
+        "verdict": "supported",
+        "text": "Her 1843 Notes on the Analytical Engine include a worked method for calculating Bernoulli numbers.",
+        "sources": [
+          "https://blogs.bodleian.ox.ac.uk/adalovelace/2015/02/",
+          "https://www.cs.ox.ac.uk/RIMC-Y9-2021/LovelaceProgramme/TheAnalyticalEngine.pdf"
+        ]
+      },
+      "lesson": {
+        "verdict": "retain",
+        "text": "A useful program is a precise sequence, not a magic answer."
+      },
       "links": [
-        {"type": "read", "label": "Read Ada Lovelace’s 1843 Notes", "url": "https://www.cs.ox.ac.uk/RIMC-Y9-2021/LovelaceProgramme/TheAnalyticalEngine.pdf", "evidence": "University of Oxford-hosted primary work; Note G contains the Bernoulli-number method."},
-        {"type": "read", "label": "Read Bodleian’s Ada Lovelace article", "url": "https://blogs.bodleian.ox.ac.uk/adalovelace/2015/02/", "evidence": "Official Bodleian article identifies the 1843 work and documented program."}
+        {
+          "type": "read",
+          "label": "Read Ada Lovelace’s 1843 Notes",
+          "url": "https://www.cs.ox.ac.uk/RIMC-Y9-2021/LovelaceProgramme/TheAnalyticalEngine.pdf",
+          "evidence": "University of Oxford-hosted primary work; Note G contains the Bernoulli-number method."
+        },
+        {
+          "type": "read",
+          "label": "Read Bodleian’s Ada Lovelace article",
+          "url": "https://blogs.bodleian.ox.ac.uk/adalovelace/2015/02/",
+          "evidence": "Official Bodleian article identifies the 1843 work and documented program."
+        }
       ],
-      "rejectedCandidates": [{"url": "https://www.bodleian.ox.ac.uk/libraries/weston/collections/ada-lovelace", "reason": "Returns 404."}]
+      "rejectedCandidates": [
+        {
+          "url": "https://www.bodleian.ox.ac.uk/libraries/weston/collections/ada-lovelace",
+          "reason": "Returns 404."
+        }
+      ]
     },
     {
       "profileId": "grace-hopper",
-      "image": {"sha256": "633dee61099631227abcae63a320633b6d39ec787f2c8215d94ddcbd8339301c", "verdict": "pass-to-retain", "reference": "https://www.history.navy.mil/our-collections/photography/numerical-list-of-images/nara-series/80-g-k/80-G-K-110000/k-115614-captain-grace-hopper.html", "finding": "Age, glasses, short grey hair and U.S. Navy uniform/cap align with the identified 1976 Navy photograph; ribbons remain stylized, not documentary."},
-      "roleAbout": {"verdict": "supported", "text": "She worked on the Mark I, developed early compiler work, and later helped develop and promote COBOL.", "sources": ["https://computerhistory.org/profile/grace-murray-hopper/", "https://www.history.navy.mil/research/histories/biographies-list/bios-h/hopper-grace.html"]},
-      "lesson": {"verdict": "retain", "text": "Clearer instructions make powerful systems more usable."},
+      "image": {
+        "sha256": "a446d48ecdcf1e8887ee2f1e4e3339cfa1211cfe4e3052f8e1978c2e5366baf3",
+        "verdict": "pass-current-release",
+        "reference": "https://www.history.navy.mil/our-collections/photography/numerical-list-of-images/nara-series/80-g-k/80-G-K-110000/k-115614-captain-grace-hopper.html",
+        "finding": "Age, glasses, short grey hair and U.S. Navy uniform/cap align with the identified 1976 Navy photograph; ribbons remain stylized, not documentary. Release image rechecked 5 Sep 2026 against the active wing family and the exact bytes recorded here.",
+        "reviewedOn": "2026-09-05"
+      },
+      "roleAbout": {
+        "verdict": "supported",
+        "text": "She worked on the Mark I, developed early compiler work, and later helped develop and promote COBOL.",
+        "sources": [
+          "https://computerhistory.org/profile/grace-murray-hopper/",
+          "https://www.history.navy.mil/research/histories/biographies-list/bios-h/hopper-grace.html"
+        ]
+      },
+      "lesson": {
+        "verdict": "retain",
+        "text": "Clearer instructions make powerful systems more usable."
+      },
       "links": [
-        {"type": "read", "label": "Read Grace Hopper’s CHM profile", "url": "https://computerhistory.org/profile/grace-murray-hopper/", "evidence": "Computer History Museum profile supports Mark I, compiler and COBOL work."},
-        {"type": "watch", "label": "Watch Grace Hopper discuss the Mark I", "url": "https://computerhistory.org/grace-hopper-howard-aiken-the-harvard-mark-i-the-first-bug-playlist/", "evidence": "Computer History Museum identifies the recorded Hopper lecture and subject."},
-        {"type": "read", "label": "Read Grace Hopper’s oral history", "url": "https://archive.computerhistory.org/resources/text/Oral_History/Hopper_Grace/102702026.05.01.pdf", "evidence": "Computer History Museum oral-history transcript, reference X5142.2009."}
+        {
+          "type": "read",
+          "label": "Read Grace Hopper’s CHM profile",
+          "url": "https://computerhistory.org/profile/grace-murray-hopper/",
+          "evidence": "Computer History Museum profile supports Mark I, compiler and COBOL work."
+        },
+        {
+          "type": "watch",
+          "label": "Watch Grace Hopper discuss the Mark I",
+          "url": "https://computerhistory.org/grace-hopper-howard-aiken-the-harvard-mark-i-the-first-bug-playlist/",
+          "evidence": "Computer History Museum identifies the recorded Hopper lecture and subject."
+        },
+        {
+          "type": "read",
+          "label": "Read Grace Hopper’s oral history",
+          "url": "https://archive.computerhistory.org/resources/text/Oral_History/Hopper_Grace/102702026.05.01.pdf",
+          "evidence": "Computer History Museum oral-history transcript, reference X5142.2009."
+        }
       ],
-      "rejectedCandidates": [{"url": "https://www.history.navy.mil/browse-by-topic/people/namesakes/grace-hopper.html", "reason": "Superseded route did not open reliably; use current Navy evidence and CHM reader destinations."}]
+      "rejectedCandidates": [
+        {
+          "url": "https://www.history.navy.mil/browse-by-topic/people/namesakes/grace-hopper.html",
+          "reason": "Superseded route did not open reliably; use current Navy evidence and CHM reader destinations."
+        }
+      ]
     },
     {
       "profileId": "hedy-lamarr",
-      "image": {"sha256": "ede76e87a58332915deb618e8ac3549c7e2925a1809fd8f810dbf9da47e860ee", "verdict": "pass-to-retain", "reference": "https://www.hedylamarr.com/photos/", "finding": "Dark 1940s waves, facial proportions and period styling align with the identified historical gallery; no misleading technology prop appears."},
-      "roleAbout": {"verdict": "supported", "text": "Lamarr and George Antheil patented a frequency-hopping communication system in 1942; that is narrower and more accurate than saying she invented Wi-Fi.", "sources": ["https://patents.google.com/patent/US2292387A/en", "https://www.invent.org/inductees/hedy-lamarr"]},
-      "lesson": {"verdict": "retain", "text": "An idea can take a long, indirect route into later technology."},
+      "image": {
+        "sha256": "4e3be9b49a9bfb6d30f660fe599799d7df4ac82b4a0e1e82052d1990c996c56f",
+        "verdict": "pass-current-release",
+        "reference": "https://www.hedylamarr.com/photos/",
+        "finding": "Dark 1940s waves, facial proportions and period styling align with the identified historical gallery; no misleading technology prop appears. Release image rechecked 5 Sep 2026 against the active wing family and the exact bytes recorded here.",
+        "reviewedOn": "2026-09-05"
+      },
+      "roleAbout": {
+        "verdict": "supported",
+        "text": "Lamarr and George Antheil patented a frequency-hopping communication system in 1942; that is narrower and more accurate than saying she invented Wi-Fi.",
+        "sources": [
+          "https://patents.google.com/patent/US2292387A/en",
+          "https://www.invent.org/inductees/hedy-lamarr"
+        ]
+      },
+      "lesson": {
+        "verdict": "retain",
+        "text": "An idea can take a long, indirect route into later technology."
+      },
       "links": [
-        {"type": "read", "label": "Read Hedy Lamarr’s patent", "url": "https://patents.google.com/patent/US2292387A/en", "evidence": "Patent record identifies Hedy Kiesler Markey and George Antheil and the secret communication system."},
-        {"type": "read", "label": "Read the Inventors Hall of Fame profile", "url": "https://www.invent.org/inductees/hedy-lamarr", "evidence": "National Inventors Hall of Fame profile explains the frequency-hopping anti-jamming work."}
+        {
+          "type": "read",
+          "label": "Read Hedy Lamarr’s patent",
+          "url": "https://patents.google.com/patent/US2292387A/en",
+          "evidence": "Patent record identifies Hedy Kiesler Markey and George Antheil and the secret communication system."
+        },
+        {
+          "type": "read",
+          "label": "Read the Inventors Hall of Fame profile",
+          "url": "https://www.invent.org/inductees/hedy-lamarr",
+          "evidence": "National Inventors Hall of Fame profile explains the frequency-hopping anti-jamming work."
+        }
       ],
-      "rejectedCandidates": [{"url": "https://www.hedylamarr.com/about/biography/", "reason": "The page presents overbroad Wi-Fi, GPS and Bluetooth claims; retain it only as visual comparison evidence, not a factual reader destination."}]
+      "rejectedCandidates": [
+        {
+          "url": "https://www.hedylamarr.com/about/biography/",
+          "reason": "The page presents overbroad Wi-Fi, GPS and Bluetooth claims; retain it only as visual comparison evidence, not a factual reader destination."
+        }
+      ]
     },
     {
       "profileId": "karen-sparck-jones",
-      "image": {"sha256": "ad0bd1baf37da8efa91fa18f819c32845fdc24a454fe1808021b343b9ec957bb", "verdict": "pass-to-retain", "reference": "https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/photos/", "finding": "White hair, large round glasses and later-life presentation align with Cambridge's identified photographs."},
-      "roleAbout": {"verdict": "supported", "text": "A pioneer in information retrieval and natural-language processing, she introduced inverse-document-frequency term weighting.", "sources": ["https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/"]},
-      "lesson": {"verdict": "retain", "text": "Search improves when a system weighs what distinguishes a term, not merely whether it appears."},
+      "image": {
+        "sha256": "2fee4b1f0c563ed2c3a0bfa6d8b68ec7ac2b6993e6e445aa2d5932080d2c296d",
+        "verdict": "pass-current-release",
+        "reference": "https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/photos/",
+        "finding": "White hair, large round glasses and later-life presentation align with Cambridge's identified photographs. Release image rechecked 5 Sep 2026 against the active wing family and the exact bytes recorded here.",
+        "reviewedOn": "2026-09-05"
+      },
+      "roleAbout": {
+        "verdict": "supported",
+        "text": "A pioneer in information retrieval and natural-language processing, she introduced inverse-document-frequency term weighting.",
+        "sources": [
+          "https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/"
+        ]
+      },
+      "lesson": {
+        "verdict": "retain",
+        "text": "Search improves when a system weighs what distinguishes a term, not merely whether it appears."
+      },
       "links": [
-        {"type": "read", "label": "Read Cambridge’s Karen Spärck Jones archive", "url": "https://www.cl.cam.ac.uk/archive/ksj21/", "evidence": "University of Cambridge archive contains publications and research material."},
-        {"type": "watch", "label": "Watch Karen Spärck Jones’s award lecture", "url": "https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/video/", "evidence": "Cambridge identifies the recorded 2007 ACM/BCS award lecture."}
+        {
+          "type": "read",
+          "label": "Read Cambridge’s Karen Spärck Jones archive",
+          "url": "https://www.cl.cam.ac.uk/archive/ksj21/",
+          "evidence": "University of Cambridge archive contains publications and research material."
+        },
+        {
+          "type": "watch",
+          "label": "Watch Karen Spärck Jones’s award lecture",
+          "url": "https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/video/",
+          "evidence": "Cambridge identifies the recorded 2007 ACM/BCS award lecture."
+        }
       ],
       "rejectedCandidates": []
     },
     {
       "profileId": "hannah-fry",
-      "image": {"sha256": "9b1b3954261ce26e3d938b5869682ba937197a8c77b9fc99c63e52cb8f2c244f", "verdict": "pass-to-retain", "reference": "https://www.maths.cam.ac.uk/friends/files/mathematics_alumni_newsletter_202412_final%20(5).html", "finding": "Long auburn curls, complexion and smile align with Cambridge's identified image; the current dark-sapphire portrait remains suitable."},
-      "roleAbout": {"verdict": "retain-independent-pass", "text": "Cambridge lists Fry as Professor of the Public Understanding of Mathematics.", "sources": ["https://www.damtp.cam.ac.uk/person/hf418"]},
-      "lesson": {"verdict": "retain-independent-pass", "text": "Make an invisible technical system understandable by showing where it touches ordinary decisions."},
+      "image": {
+        "sha256": "fef3c0d22e9d2ef01616bc5004433a9d34f20daf15526566dee305acf6415b3d",
+        "verdict": "pass-current-release",
+        "reference": "https://www.maths.cam.ac.uk/friends/files/mathematics_alumni_newsletter_202412_final%20(5).html",
+        "finding": "Long auburn curls, complexion and smile align with Cambridge's identified image; the current luminous sapphire portrait remains suitable. Release image rechecked 5 Sep 2026 against the active wing family and the exact bytes recorded here.",
+        "reviewedOn": "2026-09-05"
+      },
+      "roleAbout": {
+        "verdict": "retain-independent-pass",
+        "text": "Cambridge lists Fry as Professor of the Public Understanding of Mathematics.",
+        "sources": [
+          "https://www.damtp.cam.ac.uk/person/hf418"
+        ]
+      },
+      "lesson": {
+        "verdict": "retain-independent-pass",
+        "text": "Make an invisible technical system understandable by showing where it touches ordinary decisions."
+      },
       "links": [
-        {"type": "read", "label": "Read Cambridge profile", "url": "https://www.damtp.cam.ac.uk/person/hf418"},
-        {"type": "watch", "label": "Watch AI Confidential", "url": "https://www.bbc.co.uk/iplayer/episode/m002q76d/ai-confidential-with-hannah-fry-series-1-1-the-boy-who-tried-to-kill-the-queen"},
-        {"type": "listen", "label": "Listen to The Rest Is Science", "url": "https://therestis.com/science"},
-        {"type": "listen", "label": "Listen to Google DeepMind: The Podcast", "url": "https://deepmind.google/the-podcast/"},
-        {"type": "watch", "label": "Watch Hannah Fry on YouTube", "url": "https://www.youtube.com/@fryrsquared"},
-        {"type": "follow", "label": "Follow Hannah Fry on Instagram", "url": "https://www.instagram.com/fryrsquared/"},
-        {"type": "follow", "label": "Follow Hannah Fry on X", "url": "https://x.com/FryRsquared"}
+        {
+          "type": "read",
+          "label": "Read Cambridge profile",
+          "url": "https://www.damtp.cam.ac.uk/person/hf418"
+        },
+        {
+          "type": "watch",
+          "label": "Watch AI Confidential",
+          "url": "https://www.bbc.co.uk/iplayer/episode/m002q76d/ai-confidential-with-hannah-fry-series-1-1-the-boy-who-tried-to-kill-the-queen"
+        },
+        {
+          "type": "listen",
+          "label": "Listen to The Rest Is Science",
+          "url": "https://therestis.com/science"
+        },
+        {
+          "type": "listen",
+          "label": "Listen to Google DeepMind: The Podcast",
+          "url": "https://deepmind.google/the-podcast/"
+        },
+        {
+          "type": "watch",
+          "label": "Watch Hannah Fry on YouTube",
+          "url": "https://www.youtube.com/@fryrsquared"
+        },
+        {
+          "type": "follow",
+          "label": "Follow Hannah Fry on Instagram",
+          "url": "https://www.instagram.com/fryrsquared/"
+        },
+        {
+          "type": "follow",
+          "label": "Follow Hannah Fry on X",
+          "url": "https://x.com/FryRsquared"
+        }
       ],
-      "rejectedCandidates": [{"url": "https://hannahfry.co.uk/", "reason": "Content-free lander."}]
+      "rejectedCandidates": [
+        {
+          "url": "https://hannahfry.co.uk/",
+          "reason": "Content-free lander."
+        }
+      ]
     }
   ]
 }
