@@ -14651,3 +14651,14 @@ HTML and local custom properties.
 - **Durable correction:** All 43 cards are now one native link containing only image, canonical role and name. The existing canonical hash opens the complete admitted profile; back navigation restores keyboard focus to the exact cover. The browser gate checks the cover contract across 13/23/7 and all typed destinations on profiles.
 - **Possible Behind the Build angle:** More information made the cards less useful. How separating “recognize her” from “learn from her” clarified the entire archive.
 - **Publication status:** BUILT, BROWSER-VERIFIED AND INDEPENDENTLY REVIEWED LOCALLY / NOT DEPLOYED.
+
+## BTB-493 — A complete-profile route can still contain compact-card thinking
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY / profile content and portraits.
+- **Failure:** The archive correctly separated cover cards from profile destinations, but every destination still contained the obsolete one-sentence description plus one-sentence lesson. The visual pass also swung from dark painterly portraits to an overcorrected comic/cartoon register.
+- **Root cause:** The interaction architecture changed while the old compact-card content contract and broad visual labels survived. Structural tests proved that a profile opened, not that it taught enough; visual prompts treated “not painterly” as permission for heavy comic styling.
+- **Prevention rule:** A complete LUMINAiRY profile must pass a calibrated depth gate for mechanism, worked case, transfer, distinction, limitation, action and sources. Portrait production binds the editorial-stained-glass middle register explicitly: neither painterly realism nor cartoon halftone.
+- **Durable correction:** The Cher + Dionne proof now passes the new depth gate and independent prose review. The old compact copy is a known-bad calibration fixture. Portraits v7 and v8 are retained as rejected; no person rendering from that lineage may be multiplied. The earlier jewel-blue correction governs background saturation only until an approved people-rendering reference resets the visual brief.
+- **Possible Behind the Build angle:** We fixed the card layout and still shipped miniature thinking into the full profile. “More room” only helps when the content contract changes with it.
+- **Publication status:** INTERNAL REPRESENTATIVE PROOF / NOT INTEGRATED / NOT DEPLOYED.

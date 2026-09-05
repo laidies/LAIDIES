@@ -86,7 +86,7 @@ The Grimoire is the durable library. These are the weekly and interactive surfac
 
 ## 5. Patron Saint lanes (locked — do not blur)
 
-- **Cher Horowitz** — Early Adoption
+- **Cher Horowitz + Dionne Davenport** — Trendsetting
 - **David Rose** — Specificity
 - **Elle Woods** — Receipts
 - **Miranda Priestly** — Standards
