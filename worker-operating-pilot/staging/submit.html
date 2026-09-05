@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Synthetic feedback staging</title>
+<style>body{font:18px system-ui;max-width:42rem;margin:2rem auto;padding:1rem}label,input,textarea,button{display:block;margin:1rem 0}input,textarea{width:95%;font:inherit}button{font:inherit;padding:.7rem}output{display:block;white-space:pre-wrap}</style>
+<h1>Synthetic feedback staging</h1><p>Local test only. Use invented text. Nothing is sent to the live Town Hall.</p>
+<form><fieldset id="fields"><legend>Test card</legend><label>Type<select id="type"><option value="suggestion">Suggestion</option><option value="complaint">Complaint</option><option value="compliment">Compliment</option></select></label>
+<label>Subject (optional)<input id="subject" maxlength="100"></label><label>Message<textarea id="body" required minlength="3" maxlength="2000"></textarea></label></fieldset>
+<button id="send">Send test card</button></form><output id="status" role="status">Ready for synthetic data.</output><a href="/staff" target="_blank">Open synthetic staff view</a>
+<script type="module">
+import {createFeedbackClient} from '/src/feedback-client.mjs';
+const client=createFeedbackClient({endpoint:'/api/feedback',getChallengeToken:async()=> 'synthetic-only'});
+const form=document.querySelector('form'),fields=document.querySelector('#fields'),button=document.querySelector('#send'),status=document.querySelector('#status');
+form.addEventListener('submit',async event=>{event.preventDefault();button.disabled=true;fields.disabled=true;status.textContent='Sending synthetic card…';try{
+ const receipt=await client.submit({submission_type:document.querySelector('#type').value,subject:document.querySelector('#subject').value,body:document.querySelector('#body').value});
+ status.textContent='Accepted. Receipt: '+receipt.receipt_id;form.reset();button.textContent='Accepted';
+}catch(error){status.textContent=error.message==='pending_different_message'?'The pending card must be reconciled before sending different text.':'Acceptance not confirmed. Your draft is preserved. Retry safely with the same card.';button.disabled=false;button.textContent='Retry same test card';}});
+</script></html>

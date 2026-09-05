@@ -54,6 +54,7 @@ jobs:
         run: |
           node worker-operating-pilot/test-feedback-contract.mjs
           node worker-operating-pilot/test-feedback-http.mjs
+          node worker-operating-pilot/test-feedback-client.mjs
       - name: Founder decision and bounded resumption calibration
         run: node worker-operating-pilot/test-founder.mjs
       - name: Private decision database and workflow integration
@@ -62,6 +63,7 @@ jobs:
           PGLITE_MODULE_PATH="$RUNNER_TEMP/laidies-decision-db/node_modules/@electric-sql/pglite/dist/index.js" node worker-operating-pilot/test-database.mjs
           PGLITE_MODULE_PATH="$RUNNER_TEMP/laidies-decision-db/node_modules/@electric-sql/pglite/dist/index.js" node worker-operating-pilot/test-feedback-database.mjs
           PGLITE_MODULE_PATH="$RUNNER_TEMP/laidies-decision-db/node_modules/@electric-sql/pglite/dist/index.js" node worker-operating-pilot/test-feedback-integration.mjs
+          PGLITE_MODULE_PATH="$RUNNER_TEMP/laidies-decision-db/node_modules/@electric-sql/pglite/dist/index.js" node worker-operating-pilot/test-feedback-staging.mjs
       - name: Hosted handoff real runtime calibration
         run: node worker-operating-pilot/test-runtime.mjs
       - name: Artifact handoff and commit binding

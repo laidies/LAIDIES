@@ -263,6 +263,53 @@ launch dependencies, not reasons to stop independent code work. The native Cloud
 maintenance schedule still awaits its first actual scheduled trigger; do not
 replace that observation with manual execution or a duplicate schedule.
 
+### 2026-09-05 — Complete local browser staging and real hosting boundary
+
+PR98 is merged at `8650ba1ca06b061a14030e05a481ca419900d495`; both exact-head
+baseline checks succeeded. Its prepared backend passed Wrangler packaging with
+no upload or binding creation.
+
+The follow-on branch `ops/feedback-staging-flow-20260905` adds the reusable browser
+client and a loopback-only synthetic staging fixture under
+`worker-operating-pilot/staging/`. The client preserves only a random retry key
+and input digest in session storage, not draft text. An uncertain submission
+uses the same key after retry/reload; changing a pending card is refused until
+reconciled. A deadline covers challenge acquisition, fetch and receipt reading.
+
+Browser-observed sequence: arm synthetic post-commit response loss; enter an
+invented card; submit; draft remains visible and fixed for safe retry; retry;
+accepted receipt; staff inbox shows exactly one record; filed to triaged to
+addressed. The fixture is functional testing, not a public Town Hall redesign or
+staff authentication system. Automated staging checks also prove unauthorized
+staff access fails and expiry removes private rows. All state is isolated PGlite
+memory and disappears when the fixture process stops. No real provider request,
+visitor record, production client edit, account, schema or public route changed.
+The fixture and client tests are in baseline CI.
+
+**Verified hosting boundary:** saved Supabase CLI access lists only active
+`laidies-member-pass`; branches list returns `[]`. There is no existing preview
+branch to reuse. The global executable being absent is not missing access:
+use the already saved `npm exec --yes --package=supabase@2.116.0 -- supabase`.
+
+**Concrete next decision:** a temporary data-less Micro preview branch named
+`town-hall-feedback-staging-20260905`, created under the existing project, with
+no git association, production data copy, merge-to-main, persistent flag or plan
+upgrade. Apply only the feedback migration to that branch and exercise the real
+Supabase RPC using synthetic inputs/server-only branch credentials. Delete the
+exact temporary branch after the bounded test, without merging its schema into
+production. Do not apply the optional founder-decision migration. No recurring
+schedule is required for this one-session test.
+
+Supabase documents default Micro branching at US$0.01344/hour plus usage; branch
+charges are outside its spend cap and compute credits. A two-hour compute example
+is US$0.02688 before other usage. The actual account plan has not been verified;
+stop if an upgrade is required. Proposed task budget: at most US$1, test within
+two hours, then delete the branch. No spend authorization is recorded yet. Source:
+https://supabase.com/docs/guides/platform/manage-your-usage/branching and
+https://supabase.com/docs/guides/deployment/branching (checked 2026-09-05).
+This new spending boundary is real; do not substitute another local-only proof
+for the hosted test or stop unrelated authorized work because of it.
+
 First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
 main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub
 checks passed; this is internal integration, not public deployment.
