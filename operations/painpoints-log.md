@@ -34,3 +34,16 @@ new events; regenerate the existing derived projection whenever its source log
 or projector changes. The Stop guard was retained unchanged.
 Behind the Build angle: why an AI can remember the assignment yet resume the
 wrong version, and how a small save point prevents repeating the whole briefing.
+
+## Phone connection versus reliable alerts — 2026-09-05
+
+The assistant repeatedly described QR setup before checking the user's existing
+connection. Screenshots then proved the iPhone was already paired and online;
+a reply reached the exact task. A subsequent locked-phone test produced a banner,
+but the user could not recall whether it was the question or completion alert.
+The user's intermittent missed-alert report remains unresolved. Prevention:
+inspect current connection evidence before repeating setup; distinguish connected,
+request posted, banner observed, request acknowledged and work resumed. Do not
+make the user remember notification text or call one delivery a reliability pass.
+Possible Behind the Build angle: why a connected app can still leave work waiting,
+and why a notification is different from an acknowledged decision request.

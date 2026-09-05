@@ -107,21 +107,40 @@ deployment is part of this package.
 
 ### Phone and hosted preparation
 
-Ali confirmed iPhone with ChatGPT installed and signed in. Pairing, notification
-permission, and a complete decision round-trip still need actual device proof.
-Official setup: desktop app Settings → Connections → Control this Mac or PC →
-Set up/Add; scan its QR with iPhone, complete same-account/workspace verification.
-Availability varies by rollout. Remote supports requests, approvals and results,
-but the host must stay awake and online. It is an interim route, not laptop
-independence. Source checked September 5:
-https://learn.chatgpt.com/docs/remote-connections . Never infer approval from silence.
+September 5 device proof: Ali supplied Mac Connections showing an already
+paired iPhone and enabled remote connections, then an iPhone Remote screen
+showing the Mac online and this exact task in its task list. Ali sent “Replying
+from phone” into this task. Pairing and the conversation round-trip are verified;
+DO NOT ask her to repeat QR setup without new evidence of a connection failure.
+
+Ali reports that phone alerts are often missed. After she confirmed the phone
+was locked, a labelled PHONE ALERT TEST question was posted, followed by a final
+reply. Ali reported a banner with text, but did not remember its wording. Record
+ONE observed banner; its triggering event is unknown (question vs completion).
+This does not establish consistent delivery, read acknowledgement or a full
+approval-and-resumption loop. Do not repeat tests solely to recover that wording.
+
+Next useful diagnostic: inspect the actual iPhone ChatGPT notification delivery
+settings before changing anything; Mac settings alone do not prove iPhone policy.
+No supported delivery receipt or phone-settings access is exposed to this task.
+The checked Mac app plist/global preferences did not expose a notification mode;
+no settings were changed. Silence is neither receipt nor approval. Required
+requests must retain their exact task, context and pending state even if an alert
+is missed. A future hosted loop still needs acknowledgement, bounded follow-up
+and a selected fallback channel; none is implemented or authorized for spend by
+this test.
+
+Remote still requires an awake, online host. This is the interim phone route,
+not laptop independence. Official guidance checked September 5:
+https://learn.chatgpt.com/docs/remote-connections and
+https://learn.chatgpt.com/docs/reference/settings .
 
 Existing Cloudflare OAuth access was verified; `wrangler workflows list` returned
 no deployed Workflows in the authenticated account. Existing GitHub NewsStand
 cloud intake is scheduled and publishes intake receipts/reconciliation issues,
 not automatically accepted editorial output. The inspected owner/review HTML
 loads static snapshots; a live private decision API and founder authentication
-have not been demonstrated. No new workflow, API spend, notification or provider
+have not been demonstrated. No hosted workflow, API spend, fallback notification service or provider
 purchase has been initiated. Keep the existing Cloudflare/Supabase/GitHub choices
 under consideration; do not create a second job database or another framework
 without showing why existing components are insufficient.
