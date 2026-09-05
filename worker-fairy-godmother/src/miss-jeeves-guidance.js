@@ -62,12 +62,21 @@ function requiredCurrentChecks(query) {
   ];
 }
 
-function usableCitationCount(data, allowedDomains) {
-  if (!Array.isArray(data?.output)) return 0;
-  return data.output.reduce((count, item) => count + (Array.isArray(item?.content)
-    ? item.content.reduce((inner, content) => inner + (Array.isArray(content?.annotations)
-      ? content.annotations.filter(annotation => annotation?.type === "url_citation" && citationDomainIsAllowed(annotation.url, allowedDomains)).length : 0), 0)
-    : 0), 0);
+function allCitationsAdmitted(data, allowedDomains) {
+  if (!Array.isArray(data?.output)) return false;
+  let count = 0;
+  for (const item of data.output) {
+    for (const content of Array.isArray(item?.content) ? item.content : []) {
+      if (content?.type !== "output_text") continue;
+      if (!Array.isArray(content.annotations)) return false;
+      for (const annotation of content.annotations) {
+        if (annotation?.type !== "url_citation" || !citationDomainIsAllowed(annotation.url, allowedDomains)) return false;
+        count++;
+      }
+    }
+  }
+  // This proves URL provenance only, not that a source supports a claim.
+  return count > 0;
 }
 
 async function boundedJson(response, signal) {
@@ -196,11 +205,11 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
       if (question.length > 0 && question.length <= 320 && question.endsWith("?") && (question.match(/\?/g)||[]).length === 1) return json({status:"clarification_required",question,model:data.model,research_charge_micro_usd:researchCharge});
       return json({status:"unavailable",error:"invalid_clarification",research_charge_micro_usd:researchCharge},502);
     }
-    if (!usableCitationCount(data, sourcePolicy.allowedDomains)) {
+    if (!allCitationsAdmitted(data, sourcePolicy.allowedDomains)) {
       console.warn("miss_jeeves_trusted_citations_required", { providerStatus: data?.status || "unknown" });
       return json({ status: "unavailable", error: "trusted_citations_required", research_charge_micro_usd:researchCharge }, 502);
     }
-    return json({ status: "ok", model: data.model || model, source_policy_version: sourcePolicy.version, output: data.output, research_charge_micro_usd:researchCharge });
+    return json({ status: "ok", model: data.model || model, source_policy_version: sourcePolicy.version, citation_policy: "all-approved-https.v1", output: data.output, research_charge_micro_usd:researchCharge });
   } catch (error) {
     console.warn("miss_jeeves_provider_failure", { name: error?.name || "Error", message: String(error?.message || "provider_failure").slice(0, 160) });
     return json({ status: "unavailable", error: error?.name === "AbortError" ? "provider_timeout" : "provider_failure" }, error?.name === "AbortError" ? 504 : 502);

@@ -54,7 +54,10 @@ export function currentMissJeevesSourcePolicy(today = new Date().toISOString().s
 }
 
 export function citationDomainIsAllowed(rawUrl, allowedDomains) {
-  let hostname;
-  try { hostname = new URL(rawUrl).hostname.toLowerCase(); } catch { return false; }
+  if (typeof rawUrl !== "string") return false;
+  let url;
+  try { url = new URL(rawUrl); } catch { return false; }
+  if (url.protocol !== "https:" || url.username || url.password) return false;
+  const hostname = url.hostname.toLowerCase();
   return allowedDomains.some(domain => hostname === domain || hostname.endsWith(`.${domain}`));
 }

@@ -31,6 +31,7 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
     related_laidies_material: [{ title: "AI chips", summary: "A LAiDIES primer.", section: "LIBRAiRY" }]
   }), { OPENAI_API_KEY: "test-secret", RATE_LIMITER: { async limit() { return { success: true }; } } }, provider);
   assert.equal(response.status, 200);
+  assert.equal((await response.clone().json()).citation_policy, "all-approved-https.v1");
   assert.equal(providerRequest.url, "https://api.openai.com/v1/responses");
   assert.equal(providerRequest.options.headers.authorization, "Bearer test-secret");
   assert.equal(providerRequest.body.model, "gpt-5.6-sol");
@@ -165,4 +166,24 @@ test("rejects configured model substitution before provider use",async()=>{
   let calls=0;
   const response=await handleMissJeevesGuidance(request({query:'What is AI?'}),{OPENAI_API_KEY:'test',MISS_JEEVES_MODEL:'gpt-4o'},async()=>{calls++;});
   assert.equal(response.status,503);assert.equal(calls,0);
+});
+
+test('rejects mixed citation provenance across the whole answer', async t => {
+  const approved={type:'url_citation',url:'https://help.openai.com/article',title:'Approved'};
+  for (const [label, bad] of [
+    ['unapproved host',{...approved,url:'https://unreviewed-ai.example/advice'}],
+    ['HTTP',{...approved,url:'http://openai.com/advice'}],
+    ['non-web scheme',{...approved,url:'javascript://openai.com/advice'}],
+    ['credentials in URL',{...approved,url:'https://someone@openai.com/advice'}],
+    ['malformed URL',{...approved,url:'not a URL'}],
+    ['unsupported annotation',{type:'file_citation',file_id:'invented'}]
+  ]) await t.test(label,async()=>{
+    const content=annotations=>({type:'output_text',text:'An answer with source references.',annotations});
+    const response=await handleMissJeevesGuidance(request({query:'What changed today?'}),{OPENAI_API_KEY:'test'},async()=>Response.json({model:'gpt-5.6-sol',usage:{input_tokens:100,output_tokens:25},output:[{type:'message',content:[content([approved])]},{type:'message',content:[content([bad])]}]}));
+    const data=await response.json();
+    assert.equal(response.status,502,`${label} must reject the entire answer`);
+    assert.equal(data.error,'trusted_citations_required');
+    assert.ok(data.research_charge_micro_usd>0,'rejected answers still retain incurred usage');
+    assert.equal(data.output,undefined);
+  });
 });
