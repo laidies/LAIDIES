@@ -97,10 +97,13 @@ and omitted matches; it is lexical retrieval, not semantic or freshness review.
 Strict recovery is opt-in, requires committed inputs and bounds the next-action
 packet to 16 KiB. Actor matching is metadata, not authenticated human approval.
 
-Integrate the second package after independent review and required CI. Preserve
-checkpoint ancestry: use a merge commit, not squash/rebase, and fetch history in
-CI. No whole-site deployment. Then continue the single hosted maintenance-to-
-decision pilot, reusing the existing NewsStand cloud intake where appropriate.
+Integration record for the second package:
+https://github.com/laidies/LAIDIES/pull/92 . Read its current merge/check state;
+do not infer it from a copied status in a document. The package must preserve
+checkpoint ancestry with a merge commit, not squash/rebase, and fetched history
+in CI. Once merged, continue the single hosted maintenance-to-decision pilot,
+reusing the existing NewsStand cloud intake where appropriate. No whole-site
+deployment is part of this package.
 
 ### Phone and hosted preparation
 

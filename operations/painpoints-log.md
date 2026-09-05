@@ -26,6 +26,8 @@ owner/checkpoint, invalid transitions, outside paths and binary artifacts.
 A fresh agent recovered the saved task without chat history and passed its test.
 Prevention: bound retrieved previews in UTF-8 bytes, keep matches visible, bind
 continuation to exact committed inputs, and preserve their Git ancestry through
-integration. Keep legacy coverage and authenticated approval limitations explicit.
+integration. Keep legacy coverage and authenticated approval limitations explicit. The
+projection and resume packet expose `NONE_ACTOR_METADATA_ONLY` so a matched actor
+label cannot be presented as an authenticated approval capability.
 Behind the Build angle: why an AI can remember the assignment yet resume the
 wrong version, and how a small save point prevents repeating the whole briefing.
