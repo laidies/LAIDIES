@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Synthetic staff staging</title>
+<style>body{font:18px system-ui;max-width:50rem;margin:2rem auto}button{font:inherit;margin:.5rem;padding:.5rem}article{border:1px solid;padding:1rem;margin:1rem}p{white-space:pre-wrap}</style>
+<h1>Synthetic staff staging</h1><p>Local fixture identity only. No real staff account or visitor data.</p>
+<button id="refresh">Refresh inbox</button><button id="lose">Simulate lost reply on next submission</button><button id="expire">Expire synthetic messages</button><output id="status" role="status"></output><section id="cards"></section>
+<script type="module">
+const status=document.querySelector('#status'),cards=document.querySelector('#cards');
+async function post(path,body){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body||{})});if(!r.ok)throw Error('Request rejected');return r.json()}
+async function refresh(){const r=await fetch('/api/staff/list');if(!r.ok)throw Error('Staff access rejected');const rows=await r.json();cards.replaceChildren();for(const row of rows){const article=document.createElement('article');const text=document.createElement('p');text.textContent=row.submission_type+' / '+row.status+'\n'+(row.subject||'')+'\n'+row.body;article.append(text);for(const state of row.status==='filed'?['triaged']:row.status==='triaged'?['addressed','no_action','referred']:[]){const button=document.createElement('button');button.textContent=state;button.onclick=async()=>{await post('/api/staff/review',{id:row.id,status:state});await refresh()};article.append(button)}cards.append(article)}status.textContent=rows.length+' synthetic message(s).'}
+document.querySelector('#refresh').onclick=refresh;document.querySelector('#lose').onclick=async()=>{await post('/api/test/lose-next-reply');status.textContent='Next synthetic response will be lost after storage.'};document.querySelector('#expire').onclick=async()=>{await post('/api/test/expire');await refresh()};await refresh();
+</script></html>

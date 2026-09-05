@@ -15,6 +15,10 @@
 > PostgreSQL integration tests, including lost-reply retry with exactly one row,
 > access/rate controls, private staff review and payload expiry. Candidate endpoint
 > and migration remain disabled and undeployed; no public intake is claimed.
+> Local browser staging also proves draft-preserving retry, one inbox record and
+> staff triage/addressed handling. Provider inventory confirms zero staging
+> branches; a temporary hosted database test introduces a small usage charge,
+> with a concrete bounded proposal in the continuation record.
 > Real-message retention/staff decisions remain unresolved; proposed retention
 > policy is pending in this task. Live form is verified closed.
 > Existing iPhone Remote stays working; no account/email prerequisite or repeat
