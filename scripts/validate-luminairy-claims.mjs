@@ -6,482 +6,158 @@ import path from "node:path";
 import process from "node:process";
 
 const root = path.resolve(process.env.LUMINAIRY_ROOT || process.cwd());
+const profilePath = path.resolve(process.env.LUMINAIRY_PROFILES_PATH || path.join(root, "content/luminairy-profiles.json"));
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
+const profiles = JSON.parse(fs.readFileSync(profilePath, "utf8"));
+const claimsPath = path.resolve(process.env.LUMINAIRY_CLAIMS_PATH || path.join(root, "content/luminairy-claims.json"));
+const receiptsPath = path.resolve(process.env.LUMINAIRY_RECEIPTS_PATH || path.join(root, "content/luminairy-editorial-receipts.json"));
+const claims = JSON.parse(fs.readFileSync(claimsPath, "utf8"));
+const receiptManifest = JSON.parse(fs.readFileSync(receiptsPath, "utf8"));
 const html = read("luminairy.html");
-const directory = read("content/site/sunnyvaile-directory.js");
-const welcomeTour = read("content/site/sv-welcome-tour.js");
-const gate = read("content/site/luminairy-claim-gate.js");
 const css = read("content/luminairy-v2.css");
-const registry = JSON.parse(read("content/luminairy-claims.json"));
-const receipts = JSON.parse(read("content/luminairy-editorial-receipts.json"));
+const gate = read("content/site/luminairy-claim-gate.js");
+const sourcePacket = read("operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md");
+const hannahResources = JSON.parse(read("operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
+const evidenceFiles = fs.readdirSync(path.join(root, "operations/product-stewards/luminairy"))
+  .filter((name) => /^profile-resource-evidence-batch-\d\d-2026-09-02\.json$/.test(name))
+  .sort();
 const errors = [];
-const today = "2026-07-26";
-const keyId = "luminairy-editorial-offline-r2-20260726";
-const publicJwk = {
-  kty: "EC",
-  crv: "P-256",
-  x: "aQwXrFw77FawK8rM5eAavmf21XtdjmkmNUWe3b457rI",
-  y: "VNTv9rNlAfMw8Oc4fDz9ulkZopZUZj8t_027RHs4AwA"
+const today = new Date().toISOString().slice(0, 10);
+const publicJwks = {
+  "luminairy-editorial-offline-r3-20260823": {
+    kty: "EC", crv: "P-256",
+    x: "Sx-f3-ZiCYm-OOzoxfbsZjLgx6GW1AEff0gWB-C8r6Q",
+    y: "X_qk0_B9K2GKckhIM8WS6_NJB-6HXRlO0T1YappGRv4"
+  },
+  "luminairy-editorial-offline-r4-20260902": {
+    kty: "EC", crv: "P-256",
+    x: "0SG_saUrurdGJZ4e8wFG23hvpV8vQUNm3YPad28WKWs",
+    y: "Gss04vUhNOgxvRkVn6M_QwK9Js42hogAD6JGsfMZhG8"
+  },
+  "luminairy-editorial-offline-r5-20260902": {
+    kty: "EC", crv: "P-256",
+    x: "PbQCO9tuJRrhE83ZuXq2UU0WLbz979M3zqmDpIc58zA",
+    y: "BT6SvRIfLRzXD9l_zAQyckGdAfvkcBvvOJAZtL0fwXA"
+  }
 };
 
-function strictDate(value) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))) return false;
-  const [year, month, day] = value.split("-").map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  return (
-    date.getUTCFullYear() === year &&
-    date.getUTCMonth() === month - 1 &&
-    date.getUTCDate() === day
-  );
-}
-
-function normalizeText(value) {
-  return String(value || "").normalize("NFKC").replace(/\s+/g, " ").trim();
-}
-
-function sha256(value) {
-  return crypto.createHash("sha256").update(String(value)).digest("hex");
-}
-
-function admissionPayload(record) {
-  const evidence = record.evidence || {};
-  return JSON.stringify({
-    product: record.product,
-    claimId: record.claimId,
-    personId: record.personId,
-    wing: record.wing,
-    claimKind: record.claimKind,
-    status: record.status,
-    scope: normalizeText(record.scope),
-    selector: record.selector,
-    contentSelector: record.contentSelector,
-    claimText: normalizeText(record.claimText),
-    claimTextSha256: record.claimTextSha256,
-    sourceUrl: evidence.sourceUrl,
-    sourceType: evidence.sourceType,
-    sourceTitle: normalizeText(evidence.sourceTitle),
-    sourcePublisher: normalizeText(evidence.sourcePublisher),
-    evidenceExcerpt: normalizeText(evidence.evidenceExcerpt),
-    evidenceExcerptSha256: evidence.evidenceExcerptSha256,
-    supportsClaimId: evidence.supportsClaimId,
-    supportsClaimTextSha256: evidence.supportsClaimTextSha256,
-    verifiedOn: record.verifiedOn,
-    recheckOn: record.recheckOn,
-    correctionOwner: record.correctionOwner
-  });
-}
-
+const sha256 = (value) => crypto.createHash("sha256").update(String(value)).digest("hex");
+const profilePayload = (wing, profile) => JSON.stringify({ wing, profile });
 function receiptPayload(receipt) {
-  return JSON.stringify({
+  const payload = {
     schemaVersion: receipt.schemaVersion,
     receiptId: receipt.receiptId,
     keyId: receipt.keyId,
     product: receipt.product,
     claimId: receipt.claimId,
-    personId: receipt.personId,
     wing: receipt.wing,
-    claimKind: receipt.claimKind,
-    status: receipt.status,
-    scope: normalizeText(receipt.scope),
-    selector: receipt.selector,
-    contentSelector: receipt.contentSelector,
-    claimTextSha256: receipt.claimTextSha256,
-    sourceUrl: receipt.sourceUrl,
-    sourceType: receipt.sourceType,
-    sourceTitle: normalizeText(receipt.sourceTitle),
-    sourcePublisher: normalizeText(receipt.sourcePublisher),
-    evidenceExcerptSha256: receipt.evidenceExcerptSha256,
-    supportsClaimId: receipt.supportsClaimId,
-    supportsClaimTextSha256: receipt.supportsClaimTextSha256,
+    profileId: receipt.profileId,
+    profileSha256: receipt.profileSha256,
+    sourcePacketSha256: receipt.sourcePacketSha256,
+    ...(receipt.resourceEvidenceSha256 ? { resourceEvidenceSha256: receipt.resourceEvidenceSha256 } : {}),
     verifiedOn: receipt.verifiedOn,
     recheckOn: receipt.recheckOn,
-    correctionOwner: receipt.correctionOwner,
-    admissionBindingSha256: receipt.admissionBindingSha256,
-    supportDecision: receipt.supportDecision,
+    reviewedOn: receipt.reviewedOn,
     reviewerRole: receipt.reviewerRole,
-    reviewedOn: receipt.reviewedOn
-  });
-}
-
-function receiptMatchesRecord(receipt, record) {
-  const evidence = record.evidence || {};
-  return (
-    receipt.product === record.product &&
-    receipt.claimId === record.claimId &&
-    receipt.personId === record.personId &&
-    receipt.wing === record.wing &&
-    receipt.claimKind === record.claimKind &&
-    receipt.status === record.status &&
-    normalizeText(receipt.scope) === normalizeText(record.scope) &&
-    receipt.selector === record.selector &&
-    receipt.contentSelector === record.contentSelector &&
-    receipt.claimTextSha256 === record.claimTextSha256 &&
-    receipt.sourceUrl === evidence.sourceUrl &&
-    receipt.sourceType === evidence.sourceType &&
-    normalizeText(receipt.sourceTitle) === normalizeText(evidence.sourceTitle) &&
-    normalizeText(receipt.sourcePublisher) ===
-      normalizeText(evidence.sourcePublisher) &&
-    receipt.evidenceExcerptSha256 === evidence.evidenceExcerptSha256 &&
-    receipt.supportsClaimId === evidence.supportsClaimId &&
-    receipt.supportsClaimTextSha256 === evidence.supportsClaimTextSha256 &&
-    receipt.verifiedOn === record.verifiedOn &&
-    receipt.recheckOn === record.recheckOn &&
-    receipt.correctionOwner === record.correctionOwner &&
-    receipt.admissionBindingSha256 === record.admissionBindingSha256
-  );
-}
-
-function signatureValid(receipt) {
-  try {
-    return crypto.verify(
-      "sha256",
-      Buffer.from(receiptPayload(receipt)),
-      {
-        key: crypto.createPublicKey({ key: publicJwk, format: "jwk" }),
-        dsaEncoding: "ieee-p1363"
-      },
-      Buffer.from(receipt.signature, "base64")
-    );
-  } catch {
-    return false;
-  }
-}
-
-function admittedRecordValid(record, receipt) {
-  const evidence = record.evidence || {};
-  return (
-    record.product === "luminairy" &&
-    Boolean(record.personId) &&
-    ["saints", "mavens", "trailblazers"].includes(record.wing) &&
-    Boolean(record.claimKind) &&
-    record.status === "admitted" &&
-    Boolean(normalizeText(record.scope)) &&
-    Boolean(record.contentSelector) &&
-    Boolean(normalizeText(record.claimText)) &&
-    sha256(normalizeText(record.claimText)) === record.claimTextSha256 &&
-    strictDate(record.verifiedOn) &&
-    record.verifiedOn <= today &&
-    strictDate(record.recheckOn) &&
-    record.recheckOn >= today &&
-    /^https:\/\//.test(evidence.sourceUrl || "") &&
-    ["official", "primary", "institutional", "peer-reviewed"].includes(
-      evidence.sourceType
-    ) &&
-    sha256(normalizeText(evidence.evidenceExcerpt)) ===
-      evidence.evidenceExcerptSha256 &&
-    evidence.supportsClaimId === record.claimId &&
-    evidence.supportsClaimTextSha256 === record.claimTextSha256 &&
-    sha256(admissionPayload(record)) === record.admissionBindingSha256 &&
-    receiptMatchesRecord(receipt, record) &&
-    signatureValid(receipt)
-  );
-}
-
-if (registry.schemaVersion !== 3) errors.push("schemaVersion must be 3");
-if (registry.product !== "luminairy") errors.push("registry product mismatch");
-if (registry.admissionPolicy !== "fail-closed") {
-  errors.push("admissionPolicy must be fail-closed");
-}
-if (
-  registry.claimBinding !==
-    "exact-identity-context-selector-text-source-evidence-envelope-plus-offline-signed-receipt"
-) {
-  errors.push("signed exact admission policy is missing");
-}
-if (
-  registry.receiptManifest !== "/content/luminairy-editorial-receipts.json"
-) {
-  errors.push("separate receipt manifest is not bound");
-}
-if (!strictDate(registry.generatedOn) || registry.generatedOn > today) {
-  errors.push("generatedOn must be a valid non-future strict date");
-}
-if (!registry.correctionRoute || !html.includes(registry.correctionRoute)) {
-  errors.push("visible correction route does not match registry");
-}
-if (
-  receipts.schemaVersion !== 1 ||
-  receipts.product !== "luminairy" ||
-  receipts.authorityModel !== "offline-p256-signed-editorial-receipts" ||
-  !strictDate(receipts.generatedOn) ||
-  !Array.isArray(receipts.receipts)
-) {
-  errors.push("production editorial receipt manifest is invalid");
-}
-if (receipts.receipts.length !== 0) {
-  errors.push("production receipt manifest must remain empty");
-}
-
-const ids = new Set();
-const people = new Set();
-for (const record of registry.records || []) {
-  if (
-    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.claimId || "") ||
-    ids.has(record.claimId)
-  ) {
-    errors.push(`duplicate/unstable claimId: ${record.claimId || "(missing)"}`);
-  }
-  ids.add(record.claimId);
-  if (record.personId) {
-    if (people.has(record.personId)) {
-      errors.push(`duplicate person record: ${record.personId}`);
-    }
-    people.add(record.personId);
-  } else if (record.claimKind !== "context-block") {
-    errors.push(`missing personId outside context: ${record.claimId}`);
-  }
-  if (record.status !== "held") {
-    errors.push(`production legacy record must remain held: ${record.claimId}`);
-  }
-  const selectorBinding = record.selector ? record.selector.slice(1, -1) : "";
-  if (
-    !record.selector ||
-    (!record.selector.includes("data-saint-id") &&
-      !html.includes(selectorBinding))
-  ) {
-    errors.push(`selector not bound in HTML: ${record.claimId} -> ${record.selector}`);
-  }
-}
-
-const publicIds = new Set();
-for (const match of html.matchAll(
-  /data-(?:maven|foundress|builder)-slug="([^"]+)"/g
-)) {
-  if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(match[1])) publicIds.add(match[1]);
-}
-for (const match of html.matchAll(
-  /<div class="stop stop--saint"[^>]*>[\s\S]*?<h3 class="stop-name">([^<]+)<\/h3>/g
-)) {
-  publicIds.add(
-    match[1]
-      .normalize("NFKD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "")
-  );
-}
-const registeredPeople = new Set(
-  registry.records.map((record) => record.personId).filter(Boolean)
-);
-for (const personId of publicIds) {
-  if (!registeredPeople.has(personId)) {
-    errors.push(`public person block missing registry record: ${personId}`);
-  }
-}
-for (const personId of registeredPeople) {
-  if (!publicIds.has(personId)) errors.push(`orphan registry person: ${personId}`);
-}
-
-for (const required of [
-  "/content/site/luminairy-claim-gate.js",
-  "choices stay in this browser on this device",
-  "no submission or reply is promised",
-  "not completion, mastery or a reward",
-  "id=\"lumStorageStatus\"",
-  "<noscript>",
-  "Profile research is held",
-  "separately signed editorial receipt"
-]) {
-  if (!html.toLowerCase().includes(required.toLowerCase())) {
-    errors.push(`missing public truth contract: ${required}`);
-  }
-}
-for (const forbidden of [
-  "women leading in AI",
-  "pioneers who got here first",
-  "real women leading in AI right now",
-  "women shipping frontier Ai"
-]) {
-  if (html.toLowerCase().includes(forbidden.toLowerCase())) {
-    errors.push(`unsupported public claim remains: ${forbidden}`);
-  }
-}
-if (
-  !directory.includes(
-    "mechanics: ['14 SAiNT portraits', 'MAiVEN profiles held', 'TRAiLBLAZER profiles held']"
-  )
-) {
-  errors.push("shared LUMINAiRY directory entry is not held");
-}
-if (
-  /real women leading AI|each with a .*song to play/i.test(welcomeTour) ||
-  !welcomeTour.includes(
-    "Profile research and audio stay visibly held until each exact claim, source and rights record clears review."
-  )
-) {
-  errors.push("Welcome Tour LUMINAiRY promise is not reconciled");
-}
-
-const contextOpenTags = [
-  ...html.matchAll(/<[^>]+data-lum-claim-block="[^"]+"[^>]*>/g)
-].map((match) => match[0]);
-if (
-  contextOpenTags.length !== 3 ||
-  contextOpenTags.some((tag) => !/\shidden(?:\s|>)/.test(tag))
-) {
-  errors.push("all three static context blocks must be natively hidden");
-}
-if (
-  !css.includes("[data-lum-claim-block],") ||
-  !css.includes('html:not([data-luminairy-claims="loaded"]) [data-lum-claim-block]')
-) {
-  errors.push("no-script/missing-gate context CSS is missing");
-}
-if (
-  !html.includes('data-focus-state="closed"') ||
-  !html.includes("mvModal.setAttribute('data-focus-state', 'opening')") ||
-  !html.includes("document.activeElement === close ? 'ready' : 'failed'") ||
-  !html.includes("mvModal.setAttribute('data-focus-state', 'closed')") ||
-  /requestAnimationFrame\s*\(\s*function\s*\(\)\s*\{\s*close\.focus/.test(html)
-) {
-  errors.push("modal focus readiness is not deterministic and explicitly observable");
-}
-for (const requiredGate of [
-  "trustedKeys",
-  "receiptManifestUrl",
-  "verifyReceiptSignature",
-  "receiptMatchesRecord",
-  "record.personId",
-  "record.wing",
-  "record.claimKind",
-  "record.status",
-  "record.scope",
-  "cardIdentity(card)",
-  "cardWing(card)",
-  "Promise.all([fetchJson(registryUrl), fetchJson(receiptManifestUrl)])"
-]) {
-  if (!gate.includes(requiredGate)) {
-    errors.push(`runtime signed admission control missing: ${requiredGate}`);
-  }
-}
-
-const claimText =
-  "Hannah Fry joined Cambridge as Professor of the Public Understanding of Mathematics.";
-if (!html.includes(`<p class="stop-desc">${claimText}</p>`)) {
-  errors.push("supported hypothetical atomic DOM node is missing");
-}
-const sourceUrl =
-  "https://www.cam.ac.uk/research/news/hannah-fry-joins-cambridge-as-professor-of-the-public-understanding-of-mathematics";
-const fixtureRecord = {
-  ...registry.records.find((record) => record.personId === "hannah-fry"),
-  product: "luminairy",
-  claimKind: "historical-appointment",
-  status: "admitted",
-  scope: "past-tense-appointment-announcement-only",
-  contentSelector: ".stop-desc",
-  claimText,
-  claimTextSha256: sha256(claimText),
-  verifiedOn: "2026-07-25",
-  recheckOn: "2027-07-25",
-  evidence: {
-    sourceUrl,
-    sourceType: "official",
-    sourceTitle:
-      "Hannah Fry joins Cambridge as Professor of the Public Understanding of Mathematics",
-    sourcePublisher: "University of Cambridge",
-    evidenceExcerpt: claimText,
-    evidenceExcerptSha256: sha256(claimText),
-    supportsClaimId: "maven-hannah-fry-profile",
-    supportsClaimTextSha256: sha256(claimText)
-  }
-};
-fixtureRecord.admissionBindingSha256 = sha256(
-  admissionPayload(fixtureRecord)
-);
-const fixtureReceipt = {
-  schemaVersion: 1,
-  receiptId: "synthetic-hannah-appointment-r2",
-  keyId,
-  product: fixtureRecord.product,
-  claimId: fixtureRecord.claimId,
-  personId: fixtureRecord.personId,
-  wing: fixtureRecord.wing,
-  claimKind: fixtureRecord.claimKind,
-  status: fixtureRecord.status,
-  scope: fixtureRecord.scope,
-  selector: fixtureRecord.selector,
-  contentSelector: fixtureRecord.contentSelector,
-  claimTextSha256: fixtureRecord.claimTextSha256,
-  sourceUrl: fixtureRecord.evidence.sourceUrl,
-  sourceType: fixtureRecord.evidence.sourceType,
-  sourceTitle: fixtureRecord.evidence.sourceTitle,
-  sourcePublisher: fixtureRecord.evidence.sourcePublisher,
-  evidenceExcerptSha256: fixtureRecord.evidence.evidenceExcerptSha256,
-  supportsClaimId: fixtureRecord.evidence.supportsClaimId,
-  supportsClaimTextSha256:
-    fixtureRecord.evidence.supportsClaimTextSha256,
-  verifiedOn: fixtureRecord.verifiedOn,
-  recheckOn: fixtureRecord.recheckOn,
-  correctionOwner: fixtureRecord.correctionOwner,
-  admissionBindingSha256: fixtureRecord.admissionBindingSha256,
-  supportDecision: "exact-atomic-claim-supported-for-test-only",
-  reviewerRole: "synthetic-independent-accuracy-review-fixture",
-  reviewedOn: "2026-07-26",
-  signature:
-    "bgUqXZSR6qTQBxbobVko75999wOKUcVwpPatb483jHhumBM11BAtGxjLzHOt6RXuj0xX2ircyOa/OgpoR/ustQ=="
-};
-if (!admittedRecordValid(fixtureRecord, fixtureReceipt)) {
-  errors.push("trusted signed hypothetical admission does not validate");
-}
-
-const unrelatedRecord = structuredClone(fixtureRecord);
-unrelatedRecord.evidence.sourceUrl = "https://example.invalid/unrelated";
-unrelatedRecord.evidence.sourceTitle = "Garden soil";
-unrelatedRecord.evidence.sourcePublisher = "Example Authority";
-unrelatedRecord.evidence.evidenceExcerpt =
-  "This source describes an unrelated fact about garden soil.";
-unrelatedRecord.evidence.evidenceExcerptSha256 = sha256(
-  unrelatedRecord.evidence.evidenceExcerpt
-);
-unrelatedRecord.admissionBindingSha256 = sha256(
-  admissionPayload(unrelatedRecord)
-);
-const unrelatedReceipt = {
-  ...fixtureReceipt,
-  sourceUrl: unrelatedRecord.evidence.sourceUrl,
-  sourceTitle: unrelatedRecord.evidence.sourceTitle,
-  sourcePublisher: unrelatedRecord.evidence.sourcePublisher,
-  evidenceExcerptSha256:
-    unrelatedRecord.evidence.evidenceExcerptSha256,
-  admissionBindingSha256: unrelatedRecord.admissionBindingSha256
-};
-if (admittedRecordValid(unrelatedRecord, unrelatedReceipt)) {
-  errors.push("fully rehashed unrelated evidence self-authorized");
-}
-
-for (const field of ["personId", "wing", "claimKind", "status", "scope"]) {
-  const hostileRecord = structuredClone(fixtureRecord);
-  hostileRecord[field] =
-    field === "personId"
-      ? "ada-lovelace"
-      : field === "wing"
-        ? "trailblazers"
-        : field === "claimKind"
-          ? "quotation"
-          : field === "status"
-            ? "corrected"
-            : "unrelated-scope";
-  hostileRecord.admissionBindingSha256 = sha256(
-    admissionPayload(hostileRecord)
-  );
-  const hostileReceipt = {
-    ...fixtureReceipt,
-    [field]: hostileRecord[field],
-    admissionBindingSha256: hostileRecord.admissionBindingSha256
+    supportDecision: receipt.supportDecision
   };
-  if (admittedRecordValid(hostileRecord, hostileReceipt)) {
-    errors.push(`identity/context mutation self-authorized: ${field}`);
+  return JSON.stringify(payload);
+}
+function strictDate(value) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(String(value || "")) && new Date(value + "T00:00:00Z").toISOString().slice(0, 10) === value;
+}
+function localPath(url) {
+  return path.join(root, String(url).replace(/^\//, ""));
+}
+
+if (claims.schemaVersion !== 4 || claims.product !== "luminairy" || claims.admissionPolicy !== "fail-closed") errors.push("claim manifest schema/policy mismatch");
+if (claims.receiptManifest !== "/content/luminairy-editorial-receipts.json") errors.push("receipt manifest is not bound");
+if (receiptManifest.schemaVersion !== 2 || receiptManifest.authorityModel !== "offline-p256-signed-profile-receipts") errors.push("receipt authority mismatch");
+if (claims.sourcePacketSha256 !== sha256(sourcePacket)) errors.push("source packet hash mismatch");
+if (!html.includes("luminairy-claim-gate.js") || html.indexOf("luminairy-claim-gate.js") > html.indexOf("luminairy-app.js")) errors.push("runtime gate must load before app");
+for (const [keyId, publicJwk] of Object.entries(publicJwks)) {
+  if (!gate.includes(keyId) || !gate.includes(publicJwk.x) || !gate.includes(publicJwk.y)) errors.push(`runtime trusted key mismatch ${keyId}`);
+}
+if (!html.includes(claims.correctionRoute)) errors.push("visible correction route mismatch");
+if (!css.includes("--lum-sapphire") || !css.includes("--lum-amber") || !css.includes("--lum-pink") || !css.includes("--lum-red")) errors.push("four wing/anti palettes are not present");
+
+const expected = { saints: 13, mavens: 23, trailblazers: 7 };
+const profileEntries = new Map();
+const resourceEvidence = new Map();
+for (const file of evidenceFiles) {
+  const batch = JSON.parse(read(`operations/product-stewards/luminairy/${file}`));
+  for (const item of batch.profiles || []) {
+    if (!item.profileId || resourceEvidence.has(item.profileId)) errors.push(`duplicate resource evidence ${item.profileId}`);
+    else resourceEvidence.set(item.profileId, sha256(JSON.stringify(item)));
   }
+}
+for (const wing of Object.keys(expected)) {
+  if (!Array.isArray(profiles[wing]) || profiles[wing].length !== expected[wing]) {
+    errors.push(`${wing} count must be ${expected[wing]}`);
+    continue;
+  }
+  for (const profile of profiles[wing]) {
+    const key = `${wing}:${profile.id}`;
+    if (!profile.id || profileEntries.has(key)) errors.push(`duplicate/missing profile identity ${key}`);
+    profileEntries.set(key, { wing, profile });
+    if (!profile.name || !profile.role || !profile.about || !profile.lesson || !profile.image) errors.push(`incomplete public profile ${key}`);
+    if (!fs.existsSync(localPath(profile.image))) errors.push(`missing image ${profile.image}`);
+    if (wing === "saints") {
+      if (!profile.song || !profile.songLabel) errors.push(`Saint song assignment missing ${profile.id}`);
+      else if (profile.songStatus !== "deferred" && !fs.existsSync(localPath(profile.song))) errors.push(`missing Saint song bytes ${profile.song}`);
+      if (profile.songStatus === "deferred" && fs.existsSync(localPath(profile.song))) errors.push(`deferred Saint song unexpectedly has bytes ${profile.song}`);
+    } else {
+      if (!Array.isArray(profile.links) || profile.links.length < 1) errors.push(`work/source link missing ${key}`);
+      for (const link of profile.links || []) if (!/^https:\/\//.test(link.url || "")) errors.push(`non-HTTPS external link ${key}`);
+    }
+  }
+}
+for (const retired of ["Oprah Winfrey", "Jessica Fletcher", "Jennifer Lopez"]) {
+  if (JSON.stringify(profiles).includes(retired) || html.includes(retired)) errors.push(`retired profile remains: ${retired}`);
+}
+const hannah = profiles.mavens.find((profile) => profile.id === "hannah-fry");
+const expectedHannahLinks = [
+  ["read", "Read Cambridge profile", "https://www.damtp.cam.ac.uk/person/hf418"],
+  ["watch", "Watch AI Confidential", "https://www.bbc.co.uk/iplayer/episode/m002q76d/ai-confidential-with-hannah-fry-series-1-1-the-boy-who-tried-to-kill-the-queen"],
+  ["listen", "Listen to The Rest Is Science", "https://therestis.com/science"],
+  ["listen", "Listen to Google DeepMind: The Podcast", "https://deepmind.google/the-podcast/"],
+  ["watch", "Watch Hannah Fry on YouTube", "https://www.youtube.com/@fryrsquared"],
+  ["follow", "Follow Hannah Fry on Instagram", "https://www.instagram.com/fryrsquared/"],
+  ["follow", "Follow Hannah Fry on X", "https://x.com/FryRsquared"]
+];
+if (JSON.stringify((hannah?.links || []).map((link) => [link.type, link.label, link.url])) !== JSON.stringify(expectedHannahLinks)) errors.push("Hannah Fry watch/read/listen/follow destinations mismatch");
+if (hannah?.freshness !== "Role and destinations checked 2 Sep 2026") errors.push("Hannah Fry destination freshness label mismatch");
+if (hannahResources.status !== "independently-reviewed-signed-profile-successor" || hannahResources.admission?.profileSha256 !== sha256(profilePayload("mavens", hannah))) errors.push("Hannah Fry resource review/admission binding mismatch");
+if (!hannahResources.excluded?.some((entry) => entry.url === "https://hannahfry.co.uk/" && /content-free lander/.test(entry.reason) && !/redirect/.test(entry.reason))) errors.push("Hannah Fry content-free lander exclusion mismatch");
+
+if (!Array.isArray(claims.records) || claims.records.length !== profileEntries.size) errors.push("claim coverage mismatch");
+if (!Array.isArray(receiptManifest.receipts) || receiptManifest.receipts.length !== profileEntries.size) errors.push("receipt coverage mismatch");
+const recordMap = new Map();
+for (const record of claims.records || []) {
+  const entry = profileEntries.get(`${record.wing}:${record.profileId}`);
+  if (!entry || record.claimId !== `${record.wing}-${record.profileId}` || record.status !== "admitted" || recordMap.has(record.claimId)) errors.push(`invalid claim identity ${record.claimId}`);
+  else if (record.profileSha256 !== sha256(profilePayload(entry.wing, entry.profile))) errors.push(`profile hash mismatch ${record.claimId}`);
+  if (record.wing === "saints") {
+    if (record.resourceEvidenceSha256) errors.push(`Saint claim unexpectedly binds resource evidence ${record.claimId}`);
+  } else if (record.resourceEvidenceSha256 !== resourceEvidence.get(record.profileId)) errors.push(`resource evidence hash mismatch ${record.claimId}`);
+  if (!strictDate(record.verifiedOn) || record.verifiedOn > today || !strictDate(record.recheckOn) || record.recheckOn < today) errors.push(`invalid/expired claim dates ${record.claimId}`);
+  recordMap.set(record.claimId, record);
+}
+const receiptClaims = new Set();
+for (const receipt of receiptManifest.receipts || []) {
+  const record = recordMap.get(receipt.claimId);
+  const publicJwk = publicJwks[receipt.keyId];
+  if (!record || receiptClaims.has(receipt.claimId) || !publicJwk || !receiptManifest.trustedKeyIds?.includes(receipt.keyId) || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.resourceEvidenceSha256 !== record.resourceEvidenceSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
+  try {
+    const valid = crypto.verify("sha256", Buffer.from(receiptPayload(receipt)), { key: crypto.createPublicKey({ key: publicJwk, format: "jwk" }), dsaEncoding: "ieee-p1363" }, Buffer.from(receipt.signature || "", "base64"));
+    if (!valid) errors.push(`signature invalid ${receipt.claimId}`);
+  } catch { errors.push(`signature invalid ${receipt.claimId}`); }
+  receiptClaims.add(receipt.claimId);
 }
 
 if (errors.length) {
-  console.error(`LUMINAiRY claim registry FAIL (${errors.length})`);
+  console.error("LUMINAiRY CLAIM VALIDATION FAIL");
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-
-console.log(
-  `LUMINAiRY claim registry PASS (${registry.records.length} held records; ` +
-    `${publicIds.size} people; offline-signed exact authority; no-script/public-promise guards)`
-);
+console.log(`LUMINAiRY CLAIM VALIDATION PASS: ${profileEntries.size} complete profiles, exact assets, sources, songs, and offline-signed receipts`);

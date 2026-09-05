@@ -14607,3 +14607,14 @@ their surrounding eyebrow or quotation, while the full LUMINAiRY title remains
 the single raspberry display accent. Future page-specific palette work must
 test the computed colour of runtime-inserted brand spans, not only the authored
 HTML and local custom properties.
+
+## BTB-489 — A newer hero silently displaced a complete public archive
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY / cross-task reconciliation.
+- **Failure:** The approved Matron hero lane was built on an older page snapshot. Meanwhile the complete profile task had publicly released 43 profiles. The stale local page then presented a personal empty state before discovery, making it appear that the LUMINAiRY had no luminaries.
+- **Root cause:** Two valid work lanes changed the same page from different source ancestry, and the later visual lane did not reconcile against the current public visitor result before release preparation.
+- **Prevention rule:** Before a visitor-facing page successor is committed or deployed, compare its source ancestry and rendered inventory with the current public origin and any active task that owns the same route. Preserve newer content/functionality explicitly. Personal empty-state copy must name the absent personal action, never negate the underlying collection.
+- **Durable correction:** The approved hero is layered onto the publicly verified profile release, the 13/23/7 archive precedes personalization, and unset slots say **No personal pick yet**. The browser gate now asserts both the order and prohibited misleading phrases.
+- **Possible Behind the Build angle:** The hero and the archive were both right—until stale ancestry made them compete. How release reconciliation protects work built in parallel.
+- **Publication status:** LOCAL CANDIDATE / NOT PUSHED / NOT DEPLOYED.

@@ -1153,3 +1153,11 @@ objective; every open lane keeps its own checkpoint.
 - **Correction:** embedded `Ai` letters in SUNNYVAiLE and SAiNTS inherit their surrounding phrase colour instead of switching to the older shared burgundy. The full LUMINAiRY title is the one raspberry accent and uses the current page token `#f357a0`.
 - **Verified result:** desktop, 390 × 844 and 320 × 760 preserve title visibility, Matron's approved crop and zero horizontal overflow.
 - **Truth boundary:** local integration only; no push, deployment or public verification.
+
+### 2026-09-05 LUMINAiRY profile/hero reconciliation
+
+- **Current state:** `LOCAL CANDIDATE / NOT PUSHED / NOT DEPLOYED / NOT PUBLICLY VERIFIED`.
+- **Correction:** the approved plant-free Matron Lumen hero is reconciled with the complete public 43-profile archive: 13 PATRON SAiNT cards, 23 MAiVEN profiles and 7 TRAiLBLAZER profiles. The archive now follows the arrival; optional device-local picks follow the archive under **Save your three picks.** Every unset slot says **No personal pick yet**.
+- **Preserved release work:** the exact 30 renewed MAiVEN/TRAiLBLAZER profile records, signed editorial admission, 108 typed destinations, 13 existing Saint cards, songs, search, keyboard navigation and storage behavior from public release `bea68ed9` are retained.
+- **Verification:** calibrated resource admission rejects mutated prose/evidence; the browser suite passes desktop, compact desktop, 390px and 320px, including 13/23/7 counts, all images, every typed destination, search, keyboard tabs, song behavior, persistence/failure handling and horizontal overflow.
+- **Release boundary:** no push or Cloudflare deployment. Next action is Ali review of the local reconciled page, then a separately authorized release.

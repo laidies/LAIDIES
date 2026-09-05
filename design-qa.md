@@ -12,6 +12,26 @@ nine `community/*.html` Sorority House rooms, plus `try-on.html`,
 `bookfair.html`, `learn/quiz.html`, and `learn/class.html`  
 Scope: first implementation pass of the room-as-page building model.
 
+## LUMINAiRY Matron/profile reconciliation — 2026-09-05
+
+### Source and intended correction
+
+- Approved hero: `assets/building-interiors/delivery-20260905-luminairy-matron-lumen-plant-free-successor-v3/luminairy-nave-matron-lumen-site-palette-plant-free-v3.png`, SHA-256 `0d7cc3a48e0baeadc0e16269f64df59b8e92b596030b6b7814298de630420964`.
+- Profile authority: publicly verified release commit `bea68ed9f15e112e62cdfcbffb5e109d1b669641` with 13 PATRON SAiNT cards, 23 MAiVEN profiles and 7 TRAiLBLAZER profiles.
+- User-rejected placement: a personal-selection panel before the archive made its empty state read as though the LUMINAiRY contained no profiles.
+- Required outcome: arrival, complete archive, then optional personal picks; unset slots say **No personal pick yet**.
+
+### Verified implementation
+
+- The exact approved Matron asset remains full-bleed with the locked 92% phone crop and deterministic HTML title/copy.
+- The restored Saints, MAiVENS and Trailblazers doors all decode; the 13/23/7 profile collections render with their admitted images and destinations.
+- Personal selection now follows the archive under **Save your three picks.** Selecting, reloading and clearing a pick updates the summary truthfully.
+- Embedded `Ai` letters in SUNNYVAiLE and SAiNTS inherit their phrase colour; only the full LUMINAiRY title uses the raspberry display accent.
+- Browser coverage passes at 1440px, 900px, 390px and 320px with no horizontal overflow; mobile wing doors stack and all seven Trailblazers render at both phone widths.
+- The calibrated resource-admission test admits the exact candidate and rejects both mutated public prose and a mutated evidence binding.
+
+Final result: passed.
+
 ## LIBRAiRY scene-logic correction — 2026-08-06
 
 ### Exact correction
