@@ -108,3 +108,8 @@ is optional until the selected journey needs it. Official cloud capability is
 not account-specific or end-to-end proof. Preserve completed pairing and do not
 repeat it to compensate for an execution-location gap. Behind the Build angle:
 your phone can be the same remote control while the work runs somewhere else.
+
+This correction initially missed the generated standing-card binding. CI rejected
+stale startup; the same failure was reproduced locally and the existing generator
+repaired the binding. Changing DECISIONS requires regenerating its standing card
+before committing and running the actual startup hook, even for a docs-only edit.

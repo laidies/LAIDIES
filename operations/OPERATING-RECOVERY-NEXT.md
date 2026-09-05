@@ -90,6 +90,11 @@ Preserve its database and Workflow preparation without activating it merely
 because it exists. No live migration, approver grant, review page or new Founder
 Workflow deployment has happened.
 
+Correction integration: https://github.com/laidies/LAIDIES/pull/96 .
+The first CI run exposed a stale generated standing-card source binding after
+DECISIONS changed. The real startup hook reproduced the failure; regenerating
+the existing card repaired startup. Check current-head CI before merging.
+
 ### Supported cloud route — checked September 5
 
 Recommendation: use one native ChatGPT Work Cloud task for a bounded business
