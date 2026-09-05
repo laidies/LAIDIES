@@ -14853,3 +14853,33 @@ while remaining falsely unfinished in the launch record.
   reconciliation. Episode 04 Try-On's promise and actual activity disagree.
 - **Behind the Build angle:** a freshness date can break a working journey;
   a claim bank needs coverage, actual review and verified updates to be useful.
+
+## BTB-491 — A configured AI model does not prove the visitor used it
+
+- **Date:** 2026-09-05
+- **Area:** Miss Jeeves service identity, source integrity and research spending
+- **Observed failures:** production had no intended guidance-service binding and
+  silently returned a different model's answer. Catalogue-only health still
+  reported success. The work-document answer lost decision-changing conditions;
+  an old index and clipped excerpts were unsafe context for the current books.
+- **Local repair:** default site search makes zero AI or allowance calls; paid
+  research requires explicit intent and verified Sol identity. Only complete,
+  bounded, anchor/hash-bound passages enter research context. Missing context or
+  service produces an honest state. Clarification retains guest identity.
+- **Evidence boundary:** original false-success behavior failed the new regression
+  check before repair. Focused service/retrieval and 24 backend checks pass;
+  mocked-service browser journeys pass at 390px and 1280px. Implementations are
+  committed at f3e064d7 and 8f56d4ba, but not deployed or verified with real Sol.
+- **Prevention:** verify the actual production binding and returned model; never
+  infer service health from catalogue availability. Keep display summaries apart
+  from complete evidence. Test omissions, oversized passages, clarification
+  identity and no-paid-call search behavior, not only successful routing.
+- **Cost gap:** an estimated reservation is not a proven maximum provider bill.
+  Candidate research remains disabled pending the correct billing project,
+  provider-limit verification, measured usage and replacement of rigid guest/
+  resident quotas. US$100/month is approved; US$20/person is not. Explain usage
+  costs before asking an owner to evaluate a personal dollar allowance.
+- **Behind the Build angle:** the website was answering, but it was not using
+  the model we thought it was. A working response is not the same as a verified
+  service, a complete answer or an affordable operating model.
+- **Status:** LOCAL IMPLEMENTATION / RELEASE HOLD; no Miss Jeeves cloud changes.

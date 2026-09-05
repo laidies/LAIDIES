@@ -9,22 +9,26 @@
 > Clarification now preserves guest identity; missing sources/service remain
 > honest. No Miss Jeeves cloud configuration, paid test, or deployment was changed.
 > Focused Pages service/retrieval/topic-request/correction checks pass; 24 backend
-> guidance/budget/ledger tests pass. These are functional checks, not browser or
-> live answer-quality verification. Original false-success fallback was rejected
+> guidance/budget/ledger tests pass. The 390px/1280px browser journey now passes
+> free-search, explicit research consent, full source conditions, clarification
+> identity and editorial consent checks with a mocked Sol service. This does not
+> verify actual Sol answer quality, cost, subjective visuals or public behavior. Original false-success fallback was rejected
 > by the new regression check before the fix. Independent review identified the
 > oversized-source and clarification-receipt gaps; both have local corrections.
-> Remaining: full browser journey, measured Sol research costs, verify the billing
+> Remaining: measured Sol research costs, verify the billing
 > account/provider project limit, adaptive fair-use implementation, independent
 > final review, exact-artifact release and custom/immutable public verification.
 > US$100/month is approved. US$20/person is not approved: Ali cannot assess dollars
 > per person without actual answer-cost measurements; Codex must recommend a useful
 > fair-access policy after measuring, not ask Ali to tune implementation numbers.
-> The available OpenAI browser session was wednesday.laidies@gmail.com / Personal /
-> Default project proj_I4gdGMfjKffyUWTRUaojWvxu, showing free tier and $0 monthly spend.
-> It is not yet matched to the deployed service key. Do not infer wrong account,
-> funded status, or provider cap from that observation. Research remains disabled
+> Ali has identified the funding account. The previously open session showed a
+> separate Personal / Default project with zero credit; the correct account and
+> Miss Jeeves project are not yet verified. No provider cap is inferred from that
+> observation. Research remains disabled
 > in the backend candidate until provider-limit verification. A $3 reservation is
 > an estimate, not proof of a maximum provider bill. Do not label the cap enforced.
+> Pages implementation committed as f3e064d7; backend guard committed as 8f56d4ba.
+> Neither implementation has been pushed or deployed at this checkpoint.
 > Pages lane: /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905.
 > Backend lane: /Users/alisoneakin/Projects/laidies-jeeves-sol-backend-20260905.
 > Next: resolve billing identity/cost measurement while retaining the free-search
