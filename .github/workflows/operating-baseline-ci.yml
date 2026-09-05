@@ -50,6 +50,12 @@ jobs:
         run: node scripts/test-query-laidies-context.mjs
       - name: Hosted handoff contract calibration
         run: node worker-operating-pilot/test-contract.mjs
+      - name: Founder decision and bounded resumption calibration
+        run: node worker-operating-pilot/test-founder.mjs
+      - name: Private decision database and workflow integration
+        run: |
+          npm install --prefix "$RUNNER_TEMP/laidies-decision-db" --no-audit --no-fund --ignore-scripts @electric-sql/pglite@0.3.16
+          PGLITE_MODULE_PATH="$RUNNER_TEMP/laidies-decision-db/node_modules/@electric-sql/pglite/dist/index.js" node worker-operating-pilot/test-database.mjs
       - name: Hosted handoff real runtime calibration
         run: node worker-operating-pilot/test-runtime.mjs
       - name: Artifact handoff and commit binding

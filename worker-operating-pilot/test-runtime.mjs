@@ -114,11 +114,11 @@ function hasNonRetryableStepError(instance, stepName, message) {
     step.attempts?.[0]?.error?.message === `Step threw a NonRetryableError with message "NonRetryableError: ${message}"`;
 }
 
-async function waitForInstance(port, id, predicate, label, timeoutMs = 20_000) {
+async function waitForInstance(port, id, predicate, label, timeoutMs = 20_000, workflowName = workflow) {
   const deadline = Date.now() + timeoutMs;
   let last = "";
   while (Date.now() < deadline) {
-    const described = await run("npm", wranglerArgs(port, ["workflows", "instances", "describe", workflow, id, "--json"]));
+    const described = await run("npm", wranglerArgs(port, ["workflows", "instances", "describe", workflowName, id, "--json"]));
     if (described.code === 0) {
       const instance = jsonOutput(described, `${label} describe`);
       last = JSON.stringify(instance);
@@ -193,6 +193,14 @@ try {
   const boundary = await fetch(`http://127.0.0.1:${port}/`);
   assert.equal(boundary.status, 404, "local fetch boundary must return 404");
 
+  const founderWorkflow = "laidies-founder-decision-pilot";
+  const founderId = "runtime-founder-invalid-001";
+  jsonOutput(await run("npm", wranglerArgs(port, ["workflows", "trigger", founderWorkflow,
+    JSON.stringify({ workId: founderId, action: "APPROVE" }), "--id", founderId, "--json"])), "trigger malformed founder request");
+  await waitForInstance(port, founderId, instance => instance.status === "errored" &&
+    hasNonRetryableStepError(instance, "bind private decision request", "invalid decision input fields"),
+    "founder request rejection before any network request", 20_000, founderWorkflow);
+
   const mismatchId = "runtime-mismatch-001";
   await trigger(port, mismatchId, params("runtime-other-001"));
   await waitForInstance(port, mismatchId, (instance) =>
@@ -237,6 +245,7 @@ try {
 
   console.log("OPERATING HANDOFF PILOT RUNTIME PASS");
   console.log("calibration=mismatched-instance-workId rejected,timeout HOLD,exact-event ACKNOWLEDGED_FOR_REVIEW,wrong-event-hash rejected,local-fetch-404");
+  console.log("founder-runtime=malformed-request-nonretryable-before-network");
 } finally {
   clearTimeout(hardDeadline);
   await Promise.all([...activeChildren].map(stopProcessGroup));

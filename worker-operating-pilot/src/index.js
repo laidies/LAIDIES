@@ -1,6 +1,7 @@
 import { WorkflowEntrypoint } from "cloudflare:workers";
 import { NonRetryableError } from "cloudflare:workflows";
 import { checkpointHandoff, unacknowledgedResult, validateAcknowledgement } from "./contract.mjs";
+export { FounderDecisionPilot } from "./founder-workflow.js";
 
 export class OperatingHandoffPilot extends WorkflowEntrypoint {
   async run(event, step) {
