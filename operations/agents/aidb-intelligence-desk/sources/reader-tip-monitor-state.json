@@ -21,11 +21,11 @@
       "lastSuccessfulScanAt": null,
       "cursor": null,
       "lastAttempt": {
-        "attemptedAt": "2026-09-04T21:20:00-07:00",
-        "accessState": "SEEDED",
+        "attemptedAt": "2026-09-04T18:43:50-07:00",
+        "accessState": "PARTIAL",
         "cursorAdvanced": false,
-        "failureReason": null,
-        "nextTrigger": "First complete ten-day public-source scan."
+        "failureReason": "The public grid exposed dated posts only through August 31; Show more did not expose August 25 through August 30.",
+        "nextTrigger": "Retry from August 25 on the next run; do not treat the visible recent grid as a complete scan."
       }
     },
     {
@@ -37,11 +37,11 @@
       "lastSuccessfulScanAt": null,
       "cursor": null,
       "lastAttempt": {
-        "attemptedAt": "2026-09-04T21:20:00-07:00",
-        "accessState": "SEEDED",
+        "attemptedAt": "2026-09-04T18:43:50-07:00",
+        "accessState": "PARTIAL",
         "cursorAdvanced": false,
-        "failureReason": null,
-        "nextTrigger": "First complete ten-day public-source scan."
+        "failureReason": "The public grid exposed dated posts only through September 2; Show more did not expose August 25 through September 1.",
+        "nextTrigger": "Retry from August 25 on the next run; do not treat the visible recent grid as a complete scan."
       }
     }
   ],
@@ -83,9 +83,27 @@
       "attemptedAt": "2026-09-04T21:20:00-07:00",
       "mode": "SEED",
       "result": "SEEDED",
-      "sourceKeys": ["GOD_OF_PROMPT", "ELUNA_AI"],
-      "observedItemKeys": ["instagram:Dc1ltERCUbP", "instagram:DczX23FEjN-"],
+      "sourceKeys": [
+        "GOD_OF_PROMPT",
+        "ELUNA_AI"
+      ],
+      "observedItemKeys": [
+        "instagram:Dc1ltERCUbP",
+        "instagram:DczX23FEjN-"
+      ],
       "note": "Seeded only from the two inspected supplied items; no full ten-day scan or cursor advance was claimed."
+    },
+    {
+      "runId": "reader-tip-initial-partial-2026-09-04",
+      "attemptedAt": "2026-09-04T18:43:50-07:00",
+      "mode": "SCAN",
+      "result": "ACCESS_FAILURE",
+      "sourceKeys": [
+        "GOD_OF_PROMPT",
+        "ELUNA_AI"
+      ],
+      "observedItemKeys": [],
+      "note": "The logged-out public Instagram grids exposed only recent posts and would not load the remainder of the required August 25 through September 4 window. No cursor advanced."
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "reader-tip-scan-transaction-v1",
+  "runId": "reader-tip-initial-partial-2026-09-04",
+  "attemptedAt": "2026-09-04T18:43:50-07:00",
+  "mode": "SCAN",
+  "result": "ACCESS_FAILURE",
+  "note": "The logged-out public Instagram grids exposed only recent posts and would not load the remainder of the required August 25 through September 4 window. No cursor advanced.",
+  "sourceResults": [
+    {
+      "sourceKey": "GOD_OF_PROMPT",
+      "accessState": "PARTIAL",
+      "queryFromAt": "2026-08-25T18:43:50-07:00",
+      "cursorAfter": null,
+      "items": [],
+      "failureReason": "The public grid exposed dated posts only through August 31; Show more did not expose August 25 through August 30.",
+      "nextTrigger": "Retry from August 25 on the next run; do not treat the visible recent grid as a complete scan."
+    },
+    {
+      "sourceKey": "ELUNA_AI",
+      "accessState": "PARTIAL",
+      "queryFromAt": "2026-08-25T18:43:50-07:00",
+      "cursorAfter": null,
+      "items": [],
+      "failureReason": "The public grid exposed dated posts only through September 2; Show more did not expose August 25 through September 1.",
+      "nextTrigger": "Retry from August 25 on the next run; do not treat the visible recent grid as a complete scan."
+    }
+  ]
+}
