@@ -32,18 +32,32 @@ export function applyLedgerAction(previousState, command, now = Date.now()) {
     if (state.attempts[command.requestId]) {
       return result(state, { ok: true, status: "replay", reservedMicroUsd: state.reservedMicroUsd });
     }
-    if (state.reservedMicroUsd + command.amountMicroUsd > command.capMicroUsd) {
+    if (state.overrun || state.reservedMicroUsd + command.amountMicroUsd > command.capMicroUsd) {
       return result(state, { ok: false, status: "cap", reservedMicroUsd: state.reservedMicroUsd }, 429);
     }
     state.attempts[command.requestId] = { amountMicroUsd: command.amountMicroUsd, at: now };
     state.reservedMicroUsd += command.amountMicroUsd;
     return result(state, { ok: true, status: "reserved", reservedMicroUsd: state.reservedMicroUsd });
   }
+  if (action === "settleBudget") {
+    if (!validId(command.requestId) || !Number.isSafeInteger(command.amountMicroUsd) || command.amountMicroUsd < 0) return result(previousState, {ok:false,error:"invalid"},400);
+    const state = previousState || {reservedMicroUsd:0,attempts:{}};
+    const attempt = state.attempts[command.requestId];
+    if (!attempt) return result(state,{ok:false,error:"missing_reservation"},409);
+    if (attempt.settled) return result(state,{ok:true,status:"already_settled",reservedMicroUsd:state.reservedMicroUsd});
+    state.reservedMicroUsd += command.amountMicroUsd - attempt.amountMicroUsd;
+    // An observed charge above our reservation stops further research this month.
+    if (command.amountMicroUsd > attempt.amountMicroUsd) state.overrun = true;
+    attempt.amountMicroUsd = command.amountMicroUsd;
+    attempt.settled = true;
+    return result(state,{ok:true,status:state.overrun?"overrun":"settled",reservedMicroUsd:state.reservedMicroUsd});
+  }
   if (action === "releaseBudget") {
     if (!validId(command.requestId)) return result(previousState, { ok: false, error: "invalid" }, 400);
     const state = previousState || { reservedMicroUsd: 0, attempts: {} };
     const attempt = state.attempts[command.requestId];
     if (!attempt) return result(state, { ok: true, status: "already_released", reservedMicroUsd: state.reservedMicroUsd });
+    if (attempt.settled) return result(state, {ok:false,error:"settled_attempt_cannot_release"},409);
     state.reservedMicroUsd = Math.max(0, state.reservedMicroUsd - attempt.amountMicroUsd);
     delete state.attempts[command.requestId];
     return result(state, { ok: true, status: "released", reservedMicroUsd: state.reservedMicroUsd });

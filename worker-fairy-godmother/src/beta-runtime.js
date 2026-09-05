@@ -1,3 +1,4 @@
+import { researchBudgetConfigured, researchMonth, MISS_JEEVES_MONTHLY_CAP_MICRO_USD, MISS_JEEVES_RESERVATION_MICRO_USD } from "./miss-jeeves-budget.js";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const enc = new TextEncoder();
@@ -127,32 +128,36 @@ export async function resolveMissJeevesActor(request, env, body) {
 }
 
 export async function beginMissJeevesAnswer(env, actor, requestId) {
-  const actorResult = await ledger(env, missJeevesActorObject(actor), { action: "beginAnswer", requestId, limit: actor.limit });
+  if (!researchBudgetConfigured(env)) return {ok:false,kind:"configuration"};
+  const actorKey = missJeevesActorObject(actor);
+  const budgetKey = `miss-jeeves:budget:${researchMonth()}`;
+  const actorResult = await ledger(env, actorKey, { action: "beginAnswer", requestId, limit: actor.limit });
   if (!actorResult.ok) return { ok: false, kind: actorResult.data?.status || "unavailable", actorResult };
-  const amountMicroUsd = Number.parseInt(env.MISS_JEEVES_ATTEMPT_RESERVATION_MICRO_USD || "250000", 10);
-  const capMicroUsd = Number.parseInt(env.MISS_JEEVES_DAILY_CAP_MICRO_USD || "5000000", 10);
-  if (!Number.isInteger(amountMicroUsd) || amountMicroUsd !== 250000 || !Number.isInteger(capMicroUsd) || capMicroUsd !== 5000000) {
-    await ledger(env, missJeevesActorObject(actor), { action: "abortCase", requestId });
-    return { ok: false, kind: "configuration" };
-  }
-  const budget = await ledger(env, `miss-jeeves:budget:${day()}`, { action: "reserveBudget", requestId, amountMicroUsd, capMicroUsd });
+  const amountMicroUsd = MISS_JEEVES_RESERVATION_MICRO_USD;
+  const capMicroUsd = MISS_JEEVES_MONTHLY_CAP_MICRO_USD;
+  const budget = await ledger(env, budgetKey, { action: "reserveBudget", requestId, amountMicroUsd, capMicroUsd });
   if (!budget.ok) {
-    await ledger(env, missJeevesActorObject(actor), { action: "abortCase", requestId });
+    await ledger(env, actorKey, { action: "abortCase", requestId });
     return { ok: false, kind: budget.data?.status || "unavailable", budget };
   }
-  return { ok: true, actorResult: actorResult.data, budget: budget.data };
+  return { ok: true, actorKey, budgetKey, actorResult: actorResult.data, budget: budget.data };
 }
 
-export async function abortMissJeevesAnswer(env, actor, requestId, releaseBudget = true) {
-  const actorResult = await ledger(env, missJeevesActorObject(actor), { action: "abortCase", requestId });
-  if (releaseBudget) await ledger(env, `miss-jeeves:budget:${day()}`, { action: "releaseBudget", requestId });
+export async function abortMissJeevesAnswer(env, actor, requestId, releaseBudget = true, reservation = {}) {
+  const actorResult = await ledger(env, (reservation.actorKey || missJeevesActorObject(actor)), { action: "abortCase", requestId });
+  if (releaseBudget) await ledger(env, (reservation.budgetKey || `miss-jeeves:budget:${researchMonth()}`), { action: "releaseBudget", requestId });
   return actorResult;
 }
 
-export async function commitMissJeevesAnswer(env, actor, requestId, answerHash) {
-  return ledger(env, missJeevesActorObject(actor), {
+export async function commitMissJeevesAnswer(env, actor, requestId, answerHash, reservation = {}) {
+  return ledger(env, (reservation.actorKey || missJeevesActorObject(actor)), {
     action: "commitCase", requestId, caseId: `jeeves-${crypto.randomUUID()}`, answerHash
   });
+}
+
+export async function settleMissJeevesResearch(env, reservation, requestId, amountMicroUsd) {
+  if (!reservation.budgetKey || !Number.isSafeInteger(amountMicroUsd) || amountMicroUsd < 0) return;
+  return ledger(env, reservation.budgetKey, {action:"settleBudget", requestId, amountMicroUsd});
 }
 
 export async function beginBetaCase(env, actor, requestId) {

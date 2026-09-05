@@ -1,3 +1,4 @@
+import { researchChargeMicroUsd } from "./miss-jeeves-budget.js";
 const MAX_QUERY_LENGTH = 240;
 const MAX_CONTEXT_ITEMS = 6;
 const MAX_CONTEXT_FIELD_LENGTH = 1200;
@@ -34,7 +35,11 @@ function normalizeContext(value) {
     const title = String(item.title || "").trim().slice(0, 180);
     const summary = String(item.summary || "").trim().slice(0, MAX_CONTEXT_FIELD_LENGTH);
     const section = String(item.section || "").trim().slice(0, 180);
-    return title && summary ? [{ title, summary, section }] : [];
+    const full = typeof item.sourceText === "string" ? item.sourceText.trim() : "";
+    const sourceText = full.length <= 12000 ? full : "";
+    const sourceAnchor = typeof item.sourceAnchor === "string" ? item.sourceAnchor.slice(0,240) : "";
+    const artifactSha256 = /^[a-f0-9]{64}$/.test(item.artifactSha256 || "") ? item.artifactSha256 : "";
+    return title && sourceText && sourceAnchor && artifactSha256 ? [{title,summary,section,sourceText,sourceAnchor,artifactSha256}] : [];
   });
 }
 
@@ -118,6 +123,7 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
   const context = normalizeContext(body?.related_laidies_material);
   const model = typeof env.MISS_JEEVES_MODEL === "string" && env.MISS_JEEVES_MODEL.trim()
     ? env.MISS_JEEVES_MODEL.trim() : DEFAULT_MODEL;
+  if (!/^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(model)) return json({status:"unavailable",error:"research_model_mismatch"},503);
   const today = new Date().toISOString().slice(0, 10);
   let sourcePolicy;
   try { sourcePolicy = currentMissJeevesSourcePolicy(today); }
@@ -137,8 +143,10 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
         model,
         instructions: [
           `You are Miss Jeeves, the plain-spoken AI reference guide for LAiDIES. Today is ${today}.`,
-          "Search the web before answering. Write for an intelligent reader who may know nothing about AI, software or the technology industry. Give a direct, useful answer in 160 to 220 words, complete the final sentence, and use plain text rather than Markdown formatting. Keep sentences short and readable.",
-          "Write in the LAiDIES voice: the smartest woman in the group chat explaining AI over drinks after a long workday. She is direct, warm, culturally fluent, lightly irreverent and useful before clever. She assumes the reader is competent and busy. Use Canadian English. The answer must not sound like a chatbot, news report, encyclopedia entry, technical manual, corporate briefing, LinkedIn post, training module or girlboss pep talk. Hide the scaffolding; write natural short paragraphs rather than an itemized briefing.",
+          "Search the web before answering factual questions. Write for an intelligent reader who may know nothing about AI, software or the technology industry. Give a direct, useful answer in up to 220 words, complete the final sentence, and use plain text rather than Markdown formatting. Keep sentences short and readable.",
+          "First decide whether the question has enough information for a useful answer. Never invent the visitor's tool, account, permission, document, employer policy, goal or error cause. When one missing detail changes the answer materially, return only CLARIFY: followed by one short question asking for that detail. Ask for a harmless description or example, never private information. A clarification needs no search or citation. General questions can receive a conditional answer: distinguish possible explanations from an actual diagnosis.",
+        "When supplied, sourceText is the complete admitted section; summary is only a display excerpt and is not sufficient evidence by itself. Read the complete section before recommending an action. Preserve every prerequisite that would change whether the visitor should act, including permission, privacy and verification checks. Do not detach an upload/paste/send recommendation from its governing conditions. When sources or user context do not establish that an action is permitted, do not say it is permitted.",
+        "Write in the LAiDIES voice: the smartest woman in the group chat explaining AI over drinks after a long workday. She is direct, warm, culturally fluent, lightly irreverent and useful before clever. She assumes the reader is competent and busy. Use Canadian English. The answer must not sound like a chatbot, news report, encyclopedia entry, technical manual, corporate briefing, LinkedIn post, training module or girlboss pep talk. Hide the scaffolding; write natural short paragraphs rather than an itemized briefing.",
           "Make the conversation audible on the page. Address the reader as 'you' when useful. After the plain opening, a natural turn such as 'So why is everyone talking about it?' is better than 'It is in the news for two reasons.' Explain developments as one connected story, not labelled fragments such as 'First, security' or 'Second, money.' Do not write 'This connects directly to LAiDIES'. Instead, weave in the relevant LAiDIES lesson as the useful way to understand what happened.",
           "A single precise 1990s or Y2K reference may appear only when it genuinely makes the idea clearer and the sentence still works for someone who only half-remembers it. Never sprinkle references on top of beige copy. Do not force a joke. Practical clarity leads.",
           "Begin by explaining the subject itself in ordinary language: what it is, what an everyday person can do with it and why that matters. Never explain one unfamiliar technology by comparing it with another unfamiliar technology. Assume the reader does not know GitHub, open source, models, datasets, platforms, servers, clusters, credentials, infrastructure, sandboxes or deployment. Do not mention GitHub unless the visitor asked about GitHub. Use no more than three unavoidable technical terms in the whole answer. Format each definition exactly as: technical term (plain-language definition). Never use the harder-to-follow pattern 'term, meaning definition'.",
@@ -180,11 +188,19 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
       return json({ status: "unavailable", error: "provider_rejected" }, 502);
     }
     const data = await boundedJson(response, controller.signal);
+    const researchCharge = researchChargeMicroUsd(data);
+    if (!/^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(data?.model || "")) return json({status:"unavailable",error:"research_model_mismatch",research_charge_micro_usd:researchCharge},502);
+    const answerText = (data.output || []).flatMap(item => item.content || []).filter(item=>item.type === "output_text").map(item=>item.text || "").join("\n").trim();
+    if (/^CLARIFY:/.test(answerText)) {
+      const question = answerText.slice(8).trim();
+      if (question.length > 0 && question.length <= 320 && question.endsWith("?") && (question.match(/\?/g)||[]).length === 1) return json({status:"clarification_required",question,model:data.model,research_charge_micro_usd:researchCharge});
+      return json({status:"unavailable",error:"invalid_clarification",research_charge_micro_usd:researchCharge},502);
+    }
     if (!usableCitationCount(data, sourcePolicy.allowedDomains)) {
       console.warn("miss_jeeves_trusted_citations_required", { providerStatus: data?.status || "unknown" });
-      return json({ status: "unavailable", error: "trusted_citations_required" }, 502);
+      return json({ status: "unavailable", error: "trusted_citations_required", research_charge_micro_usd:researchCharge }, 502);
     }
-    return json({ status: "ok", model: data.model || model, source_policy_version: sourcePolicy.version, output: data.output });
+    return json({ status: "ok", model: data.model || model, source_policy_version: sourcePolicy.version, output: data.output, research_charge_micro_usd:researchCharge });
   } catch (error) {
     console.warn("miss_jeeves_provider_failure", { name: error?.name || "Error", message: String(error?.message || "provider_failure").slice(0, 160) });
     return json({ status: "unavailable", error: error?.name === "AbortError" ? "provider_timeout" : "provider_failure" }, error?.name === "AbortError" ? 504 : 502);

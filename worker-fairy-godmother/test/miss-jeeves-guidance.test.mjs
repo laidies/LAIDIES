@@ -145,3 +145,24 @@ test("rejects private content before any provider call", async () => {
   assert.equal(response.status, 400);
   assert.equal((await response.json()).error, "private_content_prohibited");
 });
+
+
+test("preserves complete admitted source conditions beyond the display excerpt",async()=>{
+  let input;
+  const sourceText='Before uploading, confirm your employer permits this account. '+ 'Source context. '.repeat(100)+'If permission is unknown, stop. Do not upload.';
+  await handleMissJeevesGuidance(request({query:'Can I upload a work document?',related_laidies_material:[{title:'Upload, paste or describe',summary:'Brief excerpt.',section:'Working with AI',sourceText,sourceAnchor:'upload',artifactSha256:'a'.repeat(64)}]}),{OPENAI_API_KEY:'test'},async(_url,options)=>{input=JSON.parse(JSON.parse(options.body).input);return Response.json({model:'gpt-5.6-sol',output:[]});});
+  assert.equal(input.related_laidies_material[0].sourceText,sourceText);
+  assert.match(input.related_laidies_material[0].sourceText,/If permission is unknown, stop/);
+});
+test("asks a bounded clarification without treating it as a sourced answer",async()=>{
+  const response=await handleMissJeevesGuidance(request({query:'Why did it ignore me?'}),{OPENAI_API_KEY:'test'},async()=>Response.json({model:'gpt-5.6-sol',usage:{input_tokens:1000,output_tokens:50},output:[{content:[{type:'output_text',text:'CLARIFY: Which AI tool were you using, and what harmless instruction did it miss?',annotations:[]}]}]}));
+  const body=await response.json();
+  assert.equal(body.status,'clarification_required');
+  assert.ok(body.research_charge_micro_usd>0,'a clarification still incurred a provider call');
+  assert.equal(body.output,undefined);
+});
+test("rejects configured model substitution before provider use",async()=>{
+  let calls=0;
+  const response=await handleMissJeevesGuidance(request({query:'What is AI?'}),{OPENAI_API_KEY:'test',MISS_JEEVES_MODEL:'gpt-4o'},async()=>{calls++;});
+  assert.equal(response.status,503);assert.equal(calls,0);
+});
