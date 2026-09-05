@@ -210,13 +210,58 @@ anonymous issue/outcome counts; 7 days or keeping intake closed were alternative
 No answer is recorded. Existing Town Hall OPERATING-SPEC requires approved
 retention/deletion handling and named triage ownership before real intake launch.
 Do not infer permission for public submissions from helper tests or the native
-Cloud maintenance pilot. Continue isolated server preparation after the policy
+Cloud maintenance pilot. Continue isolated server preparation independently of the policy
 choice; preserve the current server owner's source and release authority.
 
-Checkpoint branch: `ops/cloud-maintenance-pilot-20260905` in the isolated
-integration worktree. Its current commit owns this update. Resolve current PR/head/check/merge state
-from GitHub; main integration is separate from the native automation and never
-means public website deployment.
+Checkpoint branch: `ops/feedback-intake-server-20260905` in the isolated
+integration worktree. Resolve exact PR/head/check/merge state from GitHub;
+repository integration is separate from deployment.
+
+### 2026-09-05 — Protected feedback server prepared and locally exercised
+
+The server preparation now goes beyond pure helpers. Owned implementation:
+`worker-operating-pilot/src/feedback-http.mjs`, `feedback-worker.mjs`,
+`supabase/migrations/20260905030000_town_hall_feedback_intake.sql`, and three
+feedback HTTP/database/integration tests in baseline CI. The candidate entrypoint
+is deliberately not wired into the deployed pilot's Wrangler configuration.
+
+A real loopback HTTP request reaches isolated PostgreSQL (PGlite) with the current
+feedback table's constraints. A simulated connection failure after commit returns
+uncertain; retrying the same key returns the identical validated receipt and
+leaves one payload row. The SQL independently checks canonical SHA-256, field
+allowlists, types and limits. Existing permissive RLS insert policy cannot bypass
+revoked browser table privileges. Service-only intake adds transactional replay,
+conflict detection and five-per-hour actor limits. Actor identity is an HMAC of
+the trusted edge address; raw IP, account ID, name and email are not stored.
+
+HTTP tests reject 32 adverse cases. Integration additionally exercises SQL null,
+forged-field, length/control/digest failures, Unicode/escaped canonical text,
+private paginated staff reads, expired-record read/review denial before cleanup,
+and actual payload deletion. Staff mapping starts empty. Existing status codes
+are preserved: filed to triaged, then addressed, no_action (ignored), or referred
+(deb-flected). No account is created or requested by this preparation.
+
+Both HTTP and database intake start disabled. Retention remains NULL; synthetic
+tests use seven days only as fixtures. The configurable candidate supports seven
+or thirty days, deletes payload via an explicit maintenance RPC, and retains
+pseudonymous replay metadata for thirty additional days before pruning. This
+metadata horizon is an implementation proposal, not an approved privacy policy;
+its hash/key/actor records are not anonymous aggregate counts. Replay is protected
+while the tombstone exists; after pruning an old UUID can be accepted again.
+No cleanup scheduler, anonymous outcome aggregate, analytics, staff UI, provider
+integration, live migration or public release was performed. The single config
+row serializes writes; acceptable for the bounded first-stage proof, throughput
+is not measured.
+
+Next executable boundary: staging integration with real provider verification and
+server-only credentials, followed by the existing frontend owner's route. The
+candidate Supabase adapter requires a privileged server credential; the saved
+Mac administration token is not deployed or copied. Real intake launch also needs
+approved retention (including replay metadata), named staff/incident ownership,
+a verified deletion trigger and its public-form release admission. These are
+launch dependencies, not reasons to stop independent code work. The native Cloud
+maintenance schedule still awaits its first actual scheduled trigger; do not
+replace that observation with manual execution or a duplicate schedule.
 
 First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
 main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub

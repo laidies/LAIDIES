@@ -11,8 +11,10 @@
 > Native Cloud maintenance is enabled daily at 09:00 America/Vancouver.
 > Manual cloud run: six qualifying PRs, no current actionable failure.
 > First scheduled trigger remains unobserved; one initial completion notice is
-> configured. Town Hall request/receipt helpers pass 30 negative cases; no
-> endpoint, persistence or public intake is implemented by those helpers.
+> configured. Town Hall server preparation now passes HTTP and real local
+> PostgreSQL integration tests, including lost-reply retry with exactly one row,
+> access/rate controls, private staff review and payload expiry. Candidate endpoint
+> and migration remain disabled and undeployed; no public intake is claimed.
 > Real-message retention/staff decisions remain unresolved; proposed retention
 > policy is pending in this task. Live form is verified closed.
 > Existing iPhone Remote stays working; no account/email prerequisite or repeat
