@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "luminairy-offline-signing-request.v1",
+  "status": "AWAITING_AUTHORIZED_OFFLINE_SIGNATURE",
+  "product": "luminairy",
+  "claimId": "saints-cher-dionne",
+  "wing": "saints",
+  "profileId": "cher-dionne",
+  "approvedImage": {
+    "path": "/assets/saints/y2k-stained-glass-v12-clean-composite/cher-dionne-clean-people-fashion-window-candidate-v12.png",
+    "sha256": "c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e",
+    "approvedOn": "2026-09-05",
+    "authority": "Ali direct approval"
+  },
+  "changeBoundary": {
+    "changedProfileFields": [
+      "image"
+    ],
+    "oldProfileSha256": "dc09c3ee30f42507ecae62f844eddccddd95d770531185d94f81cd1970778f74",
+    "newProfileSha256": "eb7207e16f4a9215218b62e65dcddd2e7d405a76f674632539d6a26f63fe3e40",
+    "unchangedProfileCount": 42,
+    "requiredPublicPathChanges": [
+      "content/luminairy-profiles.json",
+      "content/luminairy-claims.json",
+      "content/luminairy-editorial-receipts.json"
+    ]
+  },
+  "profilePayload": "{\"wing\":\"saints\",\"profile\":{\"id\":\"cher-dionne\",\"name\":\"Cher Horowitz + Dionne Davenport\",\"role\":\"PATRON SAiNTS of Trendsetting\",\"archetype\":\"The Trendsetters\",\"about\":\"A LAiDIES teaching duo inspired by two fictional friends who make taste practical, social, and unmistakably their own.\",\"lesson\":\"Build a useful, personal way of working that other people want to copy. Trendsetting creates the pattern; staying current notices what changed.\",\"image\":\"/assets/saints/y2k-stained-glass-v12-clean-composite/cher-dionne-clean-people-fashion-window-candidate-v12.png\",\"song\":\"/content/music/saint-cher-horowitz.mp3\",\"songLabel\":\"Cher's song · duo version to come\"}}",
+  "unsignedReceipt": {
+    "schemaVersion": 2,
+    "receiptId": "receipt-saints-cher-dionne-20260905-r5",
+    "keyId": "luminairy-editorial-offline-r5-20260902",
+    "product": "luminairy",
+    "claimId": "saints-cher-dionne",
+    "wing": "saints",
+    "profileId": "cher-dionne",
+    "profileSha256": "eb7207e16f4a9215218b62e65dcddd2e7d405a76f674632539d6a26f63fe3e40",
+    "sourcePacketSha256": "99bb954d9ebdbbbf2e8ecf95df4a96f0ab17f46689e3d8ce3d624d5410749c59",
+    "verifiedOn": "2026-09-05",
+    "recheckOn": "2027-09-05",
+    "reviewedOn": "2026-09-05",
+    "reviewerRole": "independent-luminairy-profile-reviewer",
+    "supportDecision": "exact-profile-reviewed-and-supported"
+  },
+  "receiptPayload": "{\"schemaVersion\":2,\"receiptId\":\"receipt-saints-cher-dionne-20260905-r5\",\"keyId\":\"luminairy-editorial-offline-r5-20260902\",\"product\":\"luminairy\",\"claimId\":\"saints-cher-dionne\",\"wing\":\"saints\",\"profileId\":\"cher-dionne\",\"profileSha256\":\"eb7207e16f4a9215218b62e65dcddd2e7d405a76f674632539d6a26f63fe3e40\",\"sourcePacketSha256\":\"99bb954d9ebdbbbf2e8ecf95df4a96f0ab17f46689e3d8ce3d624d5410749c59\",\"verifiedOn\":\"2026-09-05\",\"recheckOn\":\"2027-09-05\",\"reviewedOn\":\"2026-09-05\",\"reviewerRole\":\"independent-luminairy-profile-reviewer\",\"supportDecision\":\"exact-profile-reviewed-and-supported\"}",
+  "signature": null,
+  "signingInstruction": "The authorized offline editorial signer must independently verify this exact payload, sign receiptPayload with the private P-256 key matching keyId, return a base64 signature, and make no other profile or receipt change. If another trusted key is used, rebuild receiptId, keyId and receiptPayload before signing."
+}
