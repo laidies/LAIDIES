@@ -23,6 +23,19 @@ inner spacing. Separate packaging art, visible pre-play art and media-admission
 evidence in the asset contract. Possible Behind the Build angle: consistency
 does not mean putting the same-shaped object into every-shaped space.
 
+## 2026-09-04 A polished audio page still lacked audio controls
+
+The Listen page had a clear Play button, captions, progress and lock-screen
+support, but a commuter could not visibly jump back to rehear a line, jump ahead
+or choose a listening speed. The first local test also appeared to show broken
+seeking because the ad-hoc Python server returned the entire M4A with HTTP 200
+instead of supporting byte-range requests; the same buttons then passed on the
+repository's range-capable preview. Prevention rule: audit a media experience as
+a real listening task, expose the few standard controls users need without
+turning the page into a dashboard, and verify scrubbing against a server that
+supports media ranges. Possible Behind the Build angle: sometimes the player is
+right and the test environment is what cannot move the tape.
+
 ## 2026-09-04 Watch page became a black media app
 
 Preserving a dark film stage had accidentally preserved darkness across the

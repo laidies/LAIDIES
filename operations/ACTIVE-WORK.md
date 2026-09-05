@@ -152,6 +152,17 @@ comic assets, four cue-duration warnings and the unrelated extensionless
 scoped Chick Flicks format and store contracts pass, so the bounded commit
 bypasses that unrelated repository-wide hold without waiving it.
 
+The follow-on Listen UX pass adds only the missing commute controls: visible
+15-second Back and Ahead buttons, a 1×–2× playback-speed selector, a stateful
+accessible Play/Pause label and automatic dismissal of the resume prompt after
+playback begins. The player keeps the existing artwork, captions, progress,
+Media Session, local resume and six Special features routes. A range-capable
+local preview verified exact 0→15→0 seeking, 1.5× playback, live captions and
+resume dismissal in the in-app browser. The ordinary Python preview on port
+4174 cannot seek because it returns media as HTTP 200 without byte ranges; that
+server limitation is not treated as a player failure. This remains local-only
+and undeployed.
+
 Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-qa/chick-flicks-20260902-v3/`,
 `operations/design-qa/chick-flicks-20260902-v4/` and

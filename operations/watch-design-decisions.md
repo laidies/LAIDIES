@@ -25,6 +25,19 @@ requires horizontal inner padding in both its desktop two-column and phone
 one-column arrangements; labels or narration may not sit against a panel edge.
 Ali directly rejected the collapsed button and edge-hugging caption treatment.
 
+## Listen exposes the controls a commuter actually needs — 2026-09-04
+
+The on-page Listen transport keeps one dominant, stateful Play/Pause control and
+adds visible 15-second Back and Ahead controls plus 1×, 1.25×, 1.5× and 2×
+playback speeds. These match the existing background Media Session behavior and
+operate the admitted narration rather than simulating progress. The selected
+speed is maintained across the episode's audio segments for the current visit.
+Once playback starts, the old resume prompt closes so it cannot compete with the
+active transport. All controls remain native, keyboard operable, clearly
+labelled and at least 52px high. A persistent cross-page mini-player is rejected
+for now because navigation unloads the audio; showing one would falsely imply
+that playback survives a route change.
+
 ## Watch uses a bright LAiDIES shell around one dark film window — 2026-09-04
 
 This decision supersedes the older visual-language bullets below that made the

@@ -6,6 +6,7 @@ const hiddenCaptionBad = process.argv.includes('--calibration-hidden-caption-bad
 const returnContrastBad = process.argv.includes('--calibration-return-contrast-bad');
 const watchShellBad = process.argv.includes('--calibration-watch-shell-bad');
 const watchPosterBad = process.argv.includes('--calibration-watch-poster-bad');
+const listenTransportBad = process.argv.includes('--calibration-listen-transport-bad');
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 let watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
 if (watchPosterBad) {
@@ -13,6 +14,9 @@ if (watchPosterBad) {
     'v.poster = EPISODE_SCREEN_COVERS[episodeKey(ep)] || poster;',
     'v.poster = EPISODE_COVERS[episodeKey(ep)] || poster;'
   );
+}
+if (listenTransportBad) {
+  watch = watch.replace('id="skipBack"', 'id="missingSkipBack"');
 }
 const watchCssSource = read('content/watch-v2.css');
 let watchCss = watchCssSource;
@@ -41,7 +45,16 @@ assert.match(watch, /<small>Listen now<\/small>/);
 assert.match(watch, /id="screeningStageLabel">Now listening<\/span>/);
 assert.match(watch, /screeningStageLabel\.textContent = requestedFormat === 'watch' \? 'Now screening' : 'Now listening'/);
 assert.match(watch, /id="deckPlayLabel">Play audio<\/span>/);
+assert.match(watch, /id="skipBack" aria-label="Go back 15 seconds"/);
+assert.match(watch, /id="skipForward" aria-label="Go forward 15 seconds"/);
+assert.match(watch, /id="playbackSpeed" aria-label="Playback speed"/);
+assert.match(watch, /function seekNarrationBy\(seconds\)/);
+assert.match(watch, /skipBack\.addEventListener\('click', function \(\) \{ seekNarrationBy\(-15\); \}\)/);
+assert.match(watch, /skipForward\.addEventListener\('click', function \(\) \{ seekNarrationBy\(15\); \}\)/);
+assert.match(watch, /tape\.playbackRate = selectedPlaybackRate/);
+assert.match(watch, /tape\.addEventListener\('play', function \(\) \{ resumePanel\.hidden = true;/);
 assert.match(watch, /deckPlayLabel\.textContent = playing\(\) \? 'Pause audio' : \(tape\.currentTime > 0 \? 'Continue audio' : 'Play audio'\)/);
+assert.match(watch, /btnPlay\.setAttribute\('aria-label', deckPlayLabel\.textContent\)/);
 assert.match(watch, /id="playerFallbackCover"/);
 assert.match(watch, /resumePanel\.hidden = true/);
 assert.match(watch, /Retry this episode/);
@@ -88,6 +101,9 @@ assert.match(watch, /laidies-visual-system\.css\?v=/);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\]\s*\{[^}]*--screen-ink:\s*var\(--laidies-ink\)[^}]*--screen-pink:\s*var\(--laidies-pink\)[^}]*--screen-cyan:\s*var\(--laidies-cyan\)[^}]*--screen-yellow:\s*var\(--laidies-yellow\)/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-arrival\s*\{[^}]*background-image:\s*var\(--laidies-bg-comic-masthead\)/s);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.deck-play\s*\{[^}]*width:\s*auto[^}]*white-space:\s*nowrap/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.deck-actions\s*\{[^}]*display:\s*flex/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.deck-skip,[\s\S]*?min-height:\s*52px/s);
+assert.match(watchCss, /@media \(max-width:\s*420px\)[\s\S]*?grid-template-columns:\s*1fr 1fr/s);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.cap-bar\s*\{[^}]*padding:\s*1\.1rem 1\.4rem 1\.3rem/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.listen-only-cover,[^{]*\{[^}]*max-width:\s*none[^}]*height:\s*100%/s);
 assert.match(visualSystemCss, /--laidies-comic-texture:\s*url\('\/assets\/library\/episode-01-pop-comic-bg-v1\.png'\)/);

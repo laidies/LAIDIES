@@ -209,7 +209,7 @@
   </style>
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
   <link rel="stylesheet" href="/content/site/laidies-visual-system.css?v=20260904-1">
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-6">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-7">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -302,11 +302,24 @@
           <div class="vhs-vignette"></div>
         </div>
 
-        <div class="deck">
-          <button type="button" class="deck-play" id="btnPlay" aria-label="Start or pause">
-            <span id="deckPlayIcon" aria-hidden="true">▶</span>
-            <span class="deck-play__label" id="deckPlayLabel">Play audio</span>
-          </button>
+        <div class="deck" role="group" aria-label="Episode playback controls">
+          <div class="deck-actions">
+            <button type="button" class="deck-skip" id="skipBack" aria-label="Go back 15 seconds" disabled>Back 15</button>
+            <button type="button" class="deck-play" id="btnPlay" aria-label="Play audio">
+              <span id="deckPlayIcon" aria-hidden="true">▶</span>
+              <span class="deck-play__label" id="deckPlayLabel">Play audio</span>
+            </button>
+            <button type="button" class="deck-skip" id="skipForward" aria-label="Go forward 15 seconds" disabled>Ahead 15</button>
+            <label class="deck-speed" for="playbackSpeed">
+              <span>Speed</span>
+              <select id="playbackSpeed" aria-label="Playback speed">
+                <option value="1">1×</option>
+                <option value="1.25">1.25×</option>
+                <option value="1.5">1.5×</option>
+                <option value="2">2×</option>
+              </select>
+            </label>
+          </div>
           <div class="deck-track" id="track" role="slider" tabindex="0" aria-label="Seek within the current narration" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
             <div class="deck-rail"></div>
             <div class="deck-fill" id="fill"></div>
@@ -368,6 +381,9 @@
     var osd = document.getElementById('osd');
     var tape = document.getElementById('tape');
     var btnPlay = document.getElementById('btnPlay');
+    var skipBack = document.getElementById('skipBack');
+    var skipForward = document.getElementById('skipForward');
+    var playbackSpeed = document.getElementById('playbackSpeed');
     var deckPlayIcon = document.getElementById('deckPlayIcon');
     var deckPlayLabel = document.getElementById('deckPlayLabel');
     var fill = document.getElementById('fill');
@@ -665,6 +681,9 @@
       playerFailed = true;
       try { tape.pause(); } catch (error) {}
       btnPlay.disabled = true;
+      skipBack.disabled = true;
+      skipForward.disabled = true;
+      playbackSpeed.disabled = true;
       if (arrivalPlay) arrivalPlay.disabled = true;
       if (bigPlay) bigPlay.disabled = true;
       track.setAttribute('aria-disabled', 'true');
@@ -909,6 +928,7 @@
     var cues = [], duration = 0, coverOnlyEdition = false;
     var currentIdx = -1;
     var segments = [], segIdx = 0, mainSegIdx = -1, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
+    var selectedPlaybackRate = 1;
 
     function fmt(s) {
       s = Math.max(0, Math.floor(s));
@@ -930,6 +950,15 @@
 
     function now() { return tape.currentTime; }
     function playing() { return !playerFailed && !tape.paused; }
+    function seekNarrationBy(seconds) {
+      if (playerFailed || !Number.isFinite(tape.currentTime)) return;
+      var limit = segDur || duration || (Number.isFinite(tape.duration) ? tape.duration : 0);
+      if (!limit) return;
+      var target = Math.max(0, Math.min(limit, tape.currentTime + seconds));
+      tape.currentTime = target;
+      currentIdx = -1;
+      tick();
+    }
 
     // ---- scene builders --------------------------------------------------
     function buildScene(c, i) {
@@ -1072,6 +1101,7 @@
       osd.textContent = (playing() ? '▶ ' + lbl : '⏸ PAUSE') + ' · SP ' + fmtOsd(el);
       if (deckPlayIcon) deckPlayIcon.textContent = playing() ? '❚❚' : '▶';
       if (deckPlayLabel) deckPlayLabel.textContent = playing() ? 'Pause audio' : (tape.currentTime > 0 ? 'Continue audio' : 'Play audio');
+      btnPlay.setAttribute('aria-label', deckPlayLabel.textContent);
       track.setAttribute('aria-valuemax', String(Math.max(0, Math.round(d))));
       track.setAttribute('aria-valuenow', String(Math.max(0, Math.round(el))));
       track.setAttribute('aria-valuetext', fmt(el) + ' of ' + fmt(d));
@@ -1088,6 +1118,8 @@
       document.querySelector('main').classList.toggle('seg-bumper', seg.kind !== 'main');
       seekPending = segStart;
       tape.src = seg.audio;
+      tape.defaultPlaybackRate = selectedPlaybackRate;
+      tape.playbackRate = selectedPlaybackRate;
       if (playerMode !== 'listen-only') showScene(0);
       tick();
     }
@@ -1146,6 +1178,15 @@
     btnPlay.addEventListener('click', togglePlay);
     if (arrivalPlay) arrivalPlay.addEventListener('click', togglePlay);
     if (bigPlay) bigPlay.addEventListener('click', togglePlay);
+    skipBack.addEventListener('click', function () { seekNarrationBy(-15); });
+    skipForward.addEventListener('click', function () { seekNarrationBy(15); });
+    playbackSpeed.addEventListener('change', function () {
+      var next = Number(playbackSpeed.value);
+      if ([1, 1.25, 1.5, 2].indexOf(next) === -1) return;
+      selectedPlaybackRate = next;
+      tape.defaultPlaybackRate = next;
+      tape.playbackRate = next;
+    });
     theatre.addEventListener('click', function (e) {
       if (playerMode === 'watch' || e.target.closest('a, .cta-btn, .big-play')) return;
       togglePlay();
@@ -1278,6 +1319,9 @@
         mainSegIdx = segments.findIndex(function (s) { return s.kind === 'main'; });
         resumePlayback.disabled = !savedProgress;
         if (arrivalPlay) arrivalPlay.disabled = false;
+        skipBack.disabled = false;
+        skipForward.disabled = false;
+        playbackSpeed.disabled = false;
 
         // chapters + seek marks (from the MAIN narration only)
         var d0 = mainCues[mainCues.length - 1].t + 26;
@@ -1314,7 +1358,7 @@
           failPlayer('audio', 'The narration audio failed to load.');
         });
         tape.addEventListener('timeupdate', tick);
-        tape.addEventListener('play', function () { syncArrivalPlay(); tick(); });
+        tape.addEventListener('play', function () { resumePanel.hidden = true; syncArrivalPlay(); tick(); });
         tape.addEventListener('pause', function () { syncArrivalPlay(); tick(); });
         tape.addEventListener('ended', function () {
           if (segKind === 'main') clearProgress();
