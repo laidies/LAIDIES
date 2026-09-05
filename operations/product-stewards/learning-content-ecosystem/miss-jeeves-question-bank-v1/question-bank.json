@@ -1,0 +1,636 @@
+{
+  "schema": "miss-jeeves-evaluation-question-bank-v1",
+  "status": "researched_benchmark_candidate",
+  "asOf": "2026-09-04",
+  "audience": "English-speaking adult women, especially non-technical professional women in the United States and Canada",
+  "rankingClaim": "Evidence-weighted product priority; not a literal search-volume ranking or a claim that all women ask the same questions.",
+  "method": {
+    "priorityFactors": [
+      "observed frequency of the underlying use or concern",
+      "strength of women-specific evidence",
+      "consequence of a weak or unsafe answer",
+      "ability to test a distinct Miss Jeeves capability"
+    ],
+    "requiredRun": "Run all entries before changes to the model, prompt, retrieval, source policy or answer format.",
+    "passingRule": "Every hard gate in MISS-JEEVES-ANSWER-ROUTING.md passes; score at least 17/20 with no dimension below 3/4.",
+    "publicationBoundary": "Passing the bank does not publish an answer. Publication requires separate editorial admission."
+  },
+  "sourceRegistry": {
+    "OPENAI_USAGE": {
+      "title": "How People Use ChatGPT",
+      "url": "https://www.nber.org/papers/w34255",
+      "population": "Privacy-preserving analysis of consumer ChatGPT use; separate first-name association sample",
+      "signal": "Practical guidance, seeking information and writing dominate; users with typically feminine names are relatively more likely to use writing and practical guidance.",
+      "limitation": "Publishes categories, not raw questions; name association is not self-reported gender."
+    },
+    "WOMEN_SURVEY": {
+      "title": "AI and Online Communities Survey",
+      "url": "https://www.galvanizeaction.org/ai-online-communities-survey/",
+      "population": "Primarily ideologically moderate white women, with additional community samples",
+      "signal": "Information, entertainment, news, images, health and work uses; strong privacy, accuracy and misinformation concerns; low confidence detecting AI content.",
+      "limitation": "Not representative of all women."
+    },
+    "PEW_RISKS": {
+      "title": "Views of risks, opportunities and regulation of AI",
+      "url": "https://www.pewresearch.org/internet/2025/04/03/views-of-risks-opportunities-and-regulation-of-ai/",
+      "population": "US adults and AI experts, with gender comparisons",
+      "signal": "Inaccuracy, data misuse, impersonation, bias, job loss and loss of human connection are material concerns."
+    },
+    "DELOITTE_WOMEN": {
+      "title": "Women and generative AI",
+      "url": "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2025/women-and-generative-ai.html",
+      "population": "US and European consumer survey analysis",
+      "signal": "Women report lower adoption, daily engagement, perceived productivity and trust in provider data security."
+    },
+    "WORKPLACE_GAP": {
+      "title": "The unequal adoption of ChatGPT exacerbates existing inequalities among workers",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11725873/",
+      "population": "Workers in Denmark across exposed occupations",
+      "signal": "Women are less likely to adopt ChatGPT at work and more likely to report a need for training."
+    },
+    "WOMEN_WORKPLACE": {
+      "title": "Women in the Workplace 2025",
+      "url": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/women-in-the-workplace/",
+      "population": "Corporate employees in the United States and Canada",
+      "signal": "Entry-level women report more AI job concern and less manager encouragement to use AI."
+    },
+    "UNESCO_GENDER": {
+      "title": "Generative AI gender bias and technology-facilitated gender-based violence",
+      "url": "https://www.unesco.org/en/articles/generative-ai-unesco-study-reveals-alarming-evidence-regressive-gender-stereotypes",
+      "population": "Model evaluations and policy research",
+      "signal": "Gender stereotypes, representation failures, impersonation and harmful generative-AI misuse require explicit coverage."
+    },
+    "PUBLIC_USE": {
+      "title": "How US adults are using AI",
+      "url": "https://apnews.com/article/229b665d10d057441a69f56648b973e1",
+      "population": "US adults surveyed by AP-NORC",
+      "signal": "Information search, work, ideas, email, images, entertainment and shopping are common broader-population uses.",
+      "limitation": "Broader-population proxy, not women-specific."
+    },
+    "SEARCH_PROXY": {
+      "title": "Artificial Intelligence People Also Ask snapshot",
+      "url": "https://pplask.com/trends/us/technology/artificial-intelligence",
+      "population": "Google People Also Ask results",
+      "signal": "Basic capability, job impact and investment questions recur in search.",
+      "limitation": "Small snapshot with no gender segmentation."
+    },
+    "LAIDIES_FAILURE": {
+      "title": "Direct product-owner and answer-quality feedback",
+      "url": null,
+      "population": "LAiDIES product review",
+      "signal": "Hugging Face, Nvidia, tool choice and troubleshooting exposed failures in plain explanation, completeness, currency and connection to LAiDIES concepts."
+    }
+  },
+  "questions": [
+    {
+      "rank": 1,
+      "id": "MJQ-001",
+      "question": "What can AI actually help me do in everyday life?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "WOMEN_SURVEY", "PUBLIC_USE"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable_with_current_examples",
+      "primaryHome": "straight_answers",
+      "mustCover": ["realistic task families", "what AI cannot safely decide", "one low-risk first use"]
+    },
+    {
+      "rank": 2,
+      "id": "MJQ-002",
+      "question": "What is AI, in plain English?",
+      "category": "understanding_ai",
+      "evidence": ["SEARCH_PROXY", "OPENAI_USAGE"],
+      "womenEvidence": "broader_population_proxy",
+      "freshness": "durable",
+      "primaryHome": "straight_answers",
+      "mustCover": ["AI as a broad category", "examples already in ordinary life", "difference from a single chatbot"]
+    },
+    {
+      "rank": 3,
+      "id": "MJQ-003",
+      "question": "How is ChatGPT different from AI?",
+      "category": "understanding_ai",
+      "evidence": ["OPENAI_USAGE", "LAIDIES_FAILURE"],
+      "womenEvidence": "demographic_and_product",
+      "freshness": "durable_with_product_refresh",
+      "primaryHome": "straight_answers",
+      "mustCover": ["category versus product", "company, app and model distinction", "other AI examples"]
+    },
+    {
+      "rank": 4,
+      "id": "MJQ-004",
+      "question": "Which AI tool should I use for what I want to do?",
+      "category": "choosing_tools",
+      "evidence": ["OPENAI_USAGE", "WORKPLACE_GAP", "LAIDIES_FAILURE"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "volatile",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["ask about the job and constraints", "compare only current capabilities", "privacy, cost and required output"]
+    },
+    {
+      "rank": 5,
+      "id": "MJQ-005",
+      "question": "How do I ask AI a question so it gives me a useful answer?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "WORKPLACE_GAP"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable",
+      "primaryHome": "library_lesson",
+      "mustCover": ["goal", "context", "constraints", "desired output", "follow-up and verification"]
+    },
+    {
+      "rank": 6,
+      "id": "MJQ-006",
+      "question": "Why does AI sometimes give me a confident answer that is wrong?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "PEW_RISKS", "LAIDIES_FAILURE"],
+      "womenEvidence": "direct",
+      "freshness": "durable",
+      "primaryHome": "library_lesson",
+      "mustCover": ["pattern prediction rather than guaranteed retrieval", "why fluency is not proof", "verification steps"]
+    },
+    {
+      "rank": 7,
+      "id": "MJQ-007",
+      "question": "How can I check whether an AI answer is true?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "PEW_RISKS", "OPENAI_USAGE"],
+      "womenEvidence": "direct",
+      "freshness": "durable",
+      "primaryHome": "library_lesson",
+      "mustCover": ["identify material claims", "check direct current sources", "separate fact from inference", "know when expert review is needed"]
+    },
+    {
+      "rank": 8,
+      "id": "MJQ-008",
+      "question": "What information is safe to put into ChatGPT or another AI tool?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "DELOITTE_WOMEN", "PEW_RISKS"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["personal and confidential information", "employer rules", "provider settings and plan differences", "safe redaction"]
+    },
+    {
+      "rank": 9,
+      "id": "MJQ-009",
+      "question": "Can I upload a work document to AI, or is that confidential?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["DELOITTE_WOMEN", "WORKPLACE_GAP", "WOMEN_WORKPLACE"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["document classification", "employer authorization", "provider data handling", "safer alternatives"]
+    },
+    {
+      "rank": 10,
+      "id": "MJQ-010",
+      "question": "How can AI help me write without making me sound fake?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE"],
+      "womenEvidence": "demographic",
+      "freshness": "durable",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["use the writer's own meaning and examples", "revise rather than outsource judgment", "voice check"]
+    },
+    {
+      "rank": 11,
+      "id": "MJQ-011",
+      "question": "Can AI help me write a difficult email without making it too soft or too harsh?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "WOMEN_WORKPLACE"],
+      "womenEvidence": "demographic_and_contextual",
+      "freshness": "durable",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["goal and relationship", "directness without apology padding", "human review for consequences"]
+    },
+    {
+      "rank": 12,
+      "id": "MJQ-012",
+      "question": "How can I use AI to summarize notes, meetings or a long document?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "PUBLIC_USE"],
+      "womenEvidence": "demographic",
+      "freshness": "durable_with_tool_refresh",
+      "primaryHome": "tool_help",
+      "mustCover": ["privacy check", "desired summary structure", "compare against source", "decisions and action ownership"]
+    },
+    {
+      "rank": 13,
+      "id": "MJQ-013",
+      "question": "How can I research something with AI without getting made-up facts?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "WOMEN_SURVEY", "PEW_RISKS"],
+      "womenEvidence": "direct",
+      "freshness": "durable_with_current_tools",
+      "primaryHome": "library_lesson",
+      "mustCover": ["research plan", "source requirements", "citation checking", "coverage gaps and uncertainty"]
+    },
+    {
+      "rank": 14,
+      "id": "MJQ-014",
+      "question": "Why does AI ignore part of my prompt?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "LAIDIES_FAILURE"],
+      "womenEvidence": "demographic_and_product",
+      "freshness": "durable",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["competing instructions", "unclear priority", "context limits", "smallest useful repair"]
+    },
+    {
+      "rank": 15,
+      "id": "MJQ-015",
+      "question": "Do I really have to learn prompt engineering to use AI well?",
+      "category": "getting_useful_results",
+      "evidence": ["WORKPLACE_GAP", "OPENAI_USAGE"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable",
+      "primaryHome": "straight_answers",
+      "mustCover": ["ordinary communication versus specialist prompting", "repeatable brief", "practice and judgment"]
+    },
+    {
+      "rank": 16,
+      "id": "MJQ-016",
+      "question": "What should I tell AI at the beginning to get a better result?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "WORKPLACE_GAP"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable",
+      "primaryHome": "tool_help",
+      "mustCover": ["purpose", "audience", "source material", "boundaries", "success criteria"]
+    },
+    {
+      "rank": 17,
+      "id": "MJQ-017",
+      "question": "What should I do when the first AI answer is bad?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "LAIDIES_FAILURE"],
+      "womenEvidence": "demographic_and_product",
+      "freshness": "durable",
+      "primaryHome": "tool_help",
+      "mustCover": ["diagnose the failure", "ask for one targeted correction", "restart when context is contaminated", "verify"]
+    },
+    {
+      "rank": 18,
+      "id": "MJQ-018",
+      "question": "Why does AI give me a different answer when I ask the same question again?",
+      "category": "understanding_ai",
+      "evidence": ["OPENAI_USAGE", "WOMEN_SURVEY"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable",
+      "primaryHome": "straight_answers",
+      "mustCover": ["probabilistic generation", "model and context changes", "how to make important work reproducible"]
+    },
+    {
+      "rank": 19,
+      "id": "MJQ-019",
+      "question": "Does AI remember what I told it in another chat?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "DELOITTE_WOMEN"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["current-chat context", "product memory features", "account and setting differences", "privacy implications"]
+    },
+    {
+      "rank": 20,
+      "id": "MJQ-020",
+      "question": "Is the AI company training its models on my questions and files?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "DELOITTE_WOMEN", "PEW_RISKS"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["provider-specific answer", "consumer versus business plans", "settings and retention", "no universal claim"]
+    },
+    {
+      "rank": 21,
+      "id": "MJQ-021",
+      "question": "Can AI read a PDF, spreadsheet, photo or screenshot?",
+      "category": "choosing_tools",
+      "evidence": ["WOMEN_SURVEY", "PUBLIC_USE"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["file and vision capabilities", "plan and size limits", "recognition versus reliable interpretation", "privacy"]
+    },
+    {
+      "rank": 22,
+      "id": "MJQ-022",
+      "question": "Is free AI good enough, or do I need to pay?",
+      "category": "choosing_tools",
+      "evidence": ["OPENAI_USAGE", "PUBLIC_USE"],
+      "womenEvidence": "broader_population_proxy",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["task and frequency", "limits and privacy", "trial before subscription", "current pricing source"]
+    },
+    {
+      "rank": 23,
+      "id": "MJQ-023",
+      "question": "What is the difference between ChatGPT, Claude, Gemini and Copilot?",
+      "category": "choosing_tools",
+      "evidence": ["OPENAI_USAGE", "LAIDIES_FAILURE"],
+      "womenEvidence": "demographic_and_product",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["company and product", "current strengths by task", "ecosystem and data access", "no single universal winner"]
+    },
+    {
+      "rank": 24,
+      "id": "MJQ-024",
+      "question": "What does model mean, and how do I choose one?",
+      "category": "choosing_tools",
+      "evidence": ["OPENAI_USAGE", "LAIDIES_FAILURE"],
+      "womenEvidence": "demographic_and_product",
+      "freshness": "volatile",
+      "primaryHome": "library_lesson",
+      "mustCover": ["model versus app", "capability, speed and cost", "tool access", "current availability"]
+    },
+    {
+      "rank": 25,
+      "id": "MJQ-025",
+      "question": "What does generative AI mean?",
+      "category": "understanding_ai",
+      "evidence": ["SEARCH_PROXY", "OPENAI_USAGE"],
+      "womenEvidence": "broader_population_proxy",
+      "freshness": "durable",
+      "primaryHome": "straight_answers",
+      "mustCover": ["creates new outputs from learned patterns", "examples", "difference from retrieval and ordinary automation"]
+    },
+    {
+      "rank": 26,
+      "id": "MJQ-026",
+      "question": "Where did AI learn all this, and where does its information come from?",
+      "category": "understanding_ai",
+      "evidence": ["OPENAI_USAGE", "PEW_RISKS"],
+      "womenEvidence": "broader_and_demographic",
+      "freshness": "durable_with_provider_refresh",
+      "primaryHome": "library_lesson",
+      "mustCover": ["training data", "post-training", "retrieval and tools", "provider disclosure limits"]
+    },
+    {
+      "rank": 27,
+      "id": "MJQ-027",
+      "question": "Does AI search the internet every time I ask something?",
+      "category": "understanding_ai",
+      "evidence": ["OPENAI_USAGE", "LAIDIES_FAILURE"],
+      "womenEvidence": "demographic_and_product",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["model knowledge versus live search", "tool and plan differences", "how to tell when sources were checked"]
+    },
+    {
+      "rank": 28,
+      "id": "MJQ-028",
+      "question": "Is AI actually thinking or understanding what I say?",
+      "category": "understanding_ai",
+      "evidence": ["OPENAI_USAGE", "PEW_RISKS"],
+      "womenEvidence": "broader_population_proxy",
+      "freshness": "durable_with_uncertainty",
+      "primaryHome": "library_lesson",
+      "mustCover": ["observable capabilities", "mechanism without anthropomorphism", "unresolved scientific and philosophical claims"]
+    },
+    {
+      "rank": 29,
+      "id": "MJQ-029",
+      "question": "What is the difference between an algorithm, machine learning and an AI model?",
+      "category": "understanding_ai",
+      "evidence": ["SEARCH_PROXY", "OPENAI_USAGE"],
+      "womenEvidence": "broader_population_proxy",
+      "freshness": "durable",
+      "primaryHome": "library_lesson",
+      "mustCover": ["clear nested distinctions", "one concrete example", "why the terms are often blurred"]
+    },
+    {
+      "rank": 30,
+      "id": "MJQ-030",
+      "question": "What is an AI agent, and what can it actually do on its own?",
+      "category": "understanding_ai",
+      "evidence": ["OPENAI_USAGE", "PEW_RISKS"],
+      "womenEvidence": "broader_and_demographic",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["model plus instructions, tools and loop", "permission boundaries", "autonomy is designed and limited", "oversight"]
+    },
+    {
+      "rank": 31,
+      "id": "MJQ-031",
+      "question": "How can I use AI for a recurring task without letting it make a mess?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "WOMEN_WORKPLACE", "WORKPLACE_GAP"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable_with_tool_refresh",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["start read-only", "bounded inputs and permissions", "approval step", "logging, monitoring and rollback"]
+    },
+    {
+      "rank": 32,
+      "id": "MJQ-032",
+      "question": "How can AI help me plan a project or think through a decision?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "PUBLIC_USE"],
+      "womenEvidence": "demographic",
+      "freshness": "durable",
+      "primaryHome": "tool_help",
+      "mustCover": ["decision criteria", "options and missing information", "assumptions", "human ownership of the decision"]
+    },
+    {
+      "rank": 33,
+      "id": "MJQ-033",
+      "question": "Can AI help me understand a spreadsheet or data without knowing how to code?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "WORKPLACE_GAP"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "volatile",
+      "primaryHome": "tool_help",
+      "mustCover": ["tool capability and file safety", "questions AI can help explore", "formula and calculation verification", "limits"]
+    },
+    {
+      "rank": 34,
+      "id": "MJQ-034",
+      "question": "How can AI help me make a presentation without producing generic slides?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "PUBLIC_USE"],
+      "womenEvidence": "demographic",
+      "freshness": "durable_with_tool_refresh",
+      "primaryHome": "tool_help",
+      "mustCover": ["argument before slides", "audience and evidence", "visual job", "human edit and delivery"]
+    },
+    {
+      "rank": 35,
+      "id": "MJQ-035",
+      "question": "How can I use AI on my resume or job application without lying or sounding like everyone else?",
+      "category": "work_and_writing",
+      "evidence": ["OPENAI_USAGE", "WOMEN_WORKPLACE"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable_with_market_refresh",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["truthful source material", "specific evidence", "bias and screening limits", "final human ownership"]
+    },
+    {
+      "rank": 36,
+      "id": "MJQ-036",
+      "question": "Can AI help me prepare for a promotion or salary conversation without reinforcing bias?",
+      "category": "work_and_writing",
+      "evidence": ["WOMEN_WORKPLACE", "UNESCO_GENDER", "OPENAI_USAGE"],
+      "womenEvidence": "direct",
+      "freshness": "durable_with_current_evidence",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["documented accomplishments and criteria", "bias risk", "comparison and challenge prompts", "human or expert check"]
+    },
+    {
+      "rank": 37,
+      "id": "MJQ-037",
+      "question": "Am I allowed to use AI for this at work, and can my employer tell?",
+      "category": "work_and_writing",
+      "evidence": ["WORKPLACE_GAP", "WOMEN_WORKPLACE", "DELOITTE_WOMEN"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "dear_miss_jeeves",
+      "mustCover": ["ask for the employer policy", "approved tools and data classes", "logs and disclosure", "do not promise invisibility"]
+    },
+    {
+      "rank": 38,
+      "id": "MJQ-038",
+      "question": "Will AI replace my job, and what should I learn now?",
+      "category": "power_news_consequences",
+      "evidence": ["PEW_RISKS", "WOMEN_WORKPLACE", "SEARCH_PROXY"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "library_lesson",
+      "mustCover": ["tasks versus whole jobs", "sector and role uncertainty", "skills and agency", "current labor evidence without false prediction"]
+    },
+    {
+      "rank": 39,
+      "id": "MJQ-039",
+      "question": "How do I use AI without losing my own judgment, skills or voice?",
+      "category": "getting_useful_results",
+      "evidence": ["OPENAI_USAGE", "PEW_RISKS", "WOMEN_SURVEY"],
+      "womenEvidence": "direct_and_demographic",
+      "freshness": "durable",
+      "primaryHome": "library_lesson",
+      "mustCover": ["decide what thinking stays human", "use AI for contrast and feedback", "retain practice", "verify and explain back"]
+    },
+    {
+      "rank": 40,
+      "id": "MJQ-040",
+      "question": "Who owns something I make with AI, and can I use it publicly?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["PUBLIC_USE", "PEW_RISKS"],
+      "womenEvidence": "broader_population_proxy",
+      "freshness": "volatile_by_jurisdiction",
+      "primaryHome": "straight_answers",
+      "mustCover": ["jurisdiction and platform terms", "copyrightability versus permission", "training and input rights", "professional advice boundary"]
+    },
+    {
+      "rank": 41,
+      "id": "MJQ-041",
+      "question": "Can AI be biased against women, and how would I notice?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["UNESCO_GENDER", "PEW_RISKS", "DELOITTE_WOMEN"],
+      "womenEvidence": "direct",
+      "freshness": "durable_with_current_examples",
+      "primaryHome": "library_lesson",
+      "mustCover": ["where bias enters", "observable comparison", "intersectional limits", "challenge and escalation"]
+    },
+    {
+      "rank": 42,
+      "id": "MJQ-042",
+      "question": "How can I tell whether a photo, video, voice or article was made by AI?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "PEW_RISKS", "UNESCO_GENDER"],
+      "womenEvidence": "direct",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["no single reliable visual tell", "source and provenance checks", "reverse search and corroboration", "detector limitations"]
+    },
+    {
+      "rank": 43,
+      "id": "MJQ-043",
+      "question": "What can I do if someone uses AI to fake my face, voice or an intimate image?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["UNESCO_GENDER", "PEW_RISKS"],
+      "womenEvidence": "direct",
+      "freshness": "volatile_by_jurisdiction",
+      "primaryHome": "straight_answers",
+      "mustCover": ["immediate evidence preservation", "platform reporting", "trusted-person and specialist support", "jurisdiction-specific options without unsafe promises"]
+    },
+    {
+      "rank": 44,
+      "id": "MJQ-044",
+      "question": "How much energy and water does AI use, and should I feel guilty using it?",
+      "category": "power_news_consequences",
+      "evidence": ["PEW_RISKS", "WOMEN_SURVEY", "LAIDIES_FAILURE"],
+      "womenEvidence": "direct_and_product",
+      "freshness": "volatile",
+      "primaryHome": "library_lesson",
+      "mustCover": ["training versus use", "uncertain per-query estimates", "data-centre location and power mix", "individual versus company and policy responsibility"]
+    },
+    {
+      "rank": 45,
+      "id": "MJQ-045",
+      "question": "Is it safe for children or teenagers to use AI chatbots?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "PEW_RISKS"],
+      "womenEvidence": "direct_and_broader",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers",
+      "mustCover": ["age and product rules", "privacy and emotional reliance", "school policy", "adult guidance and current authoritative sources"]
+    },
+    {
+      "rank": 46,
+      "id": "MJQ-046",
+      "question": "Can I trust AI with medical, legal or financial advice?",
+      "category": "accuracy_privacy_safety",
+      "evidence": ["WOMEN_SURVEY", "PEW_RISKS"],
+      "womenEvidence": "direct",
+      "freshness": "volatile_high_stakes",
+      "primaryHome": "straight_answers",
+      "mustCover": ["information versus personalized advice", "error and bias risk", "direct authoritative sources", "qualified professional and urgent-help boundaries"]
+    },
+    {
+      "rank": 47,
+      "id": "MJQ-047",
+      "question": "Why is everyone talking about Nvidia, and what does it actually do?",
+      "category": "power_news_consequences",
+      "evidence": ["WOMEN_SURVEY", "SEARCH_PROXY", "LAIDIES_FAILURE"],
+      "womenEvidence": "direct_and_product",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers_plus_newsstand",
+      "mustCover": ["company in plain language", "chips, software and AI infrastructure", "current reason for attention", "what is confirmed versus market speculation"]
+    },
+    {
+      "rank": 48,
+      "id": "MJQ-048",
+      "question": "What is Hugging Face, why is it called that, and why is it in the news?",
+      "category": "power_news_consequences",
+      "evidence": ["WOMEN_SURVEY", "LAIDIES_FAILURE"],
+      "womenEvidence": "direct_and_product",
+      "freshness": "volatile",
+      "primaryHome": "straight_answers_plus_newsstand",
+      "mustCover": ["company and model hub in ordinary language", "how people use it", "name origin with confidence", "current event", "relevant Nvidia and OpenAI context when current and supported"]
+    },
+    {
+      "rank": 49,
+      "id": "MJQ-049",
+      "question": "What does open source or open weights mean for an AI model?",
+      "category": "understanding_ai",
+      "evidence": ["LAIDIES_FAILURE", "OPENAI_USAGE"],
+      "womenEvidence": "product_and_demographic",
+      "freshness": "durable_with_policy_refresh",
+      "primaryHome": "library_lesson",
+      "mustCover": ["code versus weights versus data", "download and hosting", "license conditions", "transparency and safety trade-offs"]
+    },
+    {
+      "rank": 50,
+      "id": "MJQ-050",
+      "question": "Why does every company say it uses AI now, and how can I tell what is real versus hype?",
+      "category": "power_news_consequences",
+      "evidence": ["SEARCH_PROXY", "PEW_RISKS", "WOMEN_SURVEY"],
+      "womenEvidence": "direct_and_broader",
+      "freshness": "durable_with_current_examples",
+      "primaryHome": "straight_answers",
+      "mustCover": ["AI as a broad marketing label", "specific capability and evidence questions", "benchmark and demo limits", "cost, failure and human oversight"]
+    }
+  ]
+}

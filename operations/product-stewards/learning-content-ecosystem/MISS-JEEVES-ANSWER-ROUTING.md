@@ -207,6 +207,14 @@ prompt, model, retrieval or source-policy change and on the recurring freshness
 cycle. Feedback adds reviewed failure cases to that set; it never becomes an
 automatic training or publication instruction.
 
+The current researched baseline is
+`miss-jeeves-question-bank-v1/question-bank.json`. Its fifty questions are an
+evidence-weighted product priority, not a literal gendered search-volume rank.
+The companion `report-source.md` records the women-specific and broader usage
+evidence, limitations and claim-to-source ledger. The complete bank runs as one
+suite; a passing average cannot hide a failed safety, privacy, freshness or
+beginner-comprehension question.
+
 Only the second and third labels prove the exact output has met the full
 LAiDIES bar. A novel **Checked live** answer is useful current guidance with
 minimum controls, not a claim of independent LAiDIES approval.
