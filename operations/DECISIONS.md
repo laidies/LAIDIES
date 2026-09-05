@@ -47,6 +47,16 @@ runbook records configuration verification separately from the still-unobserved
 paired scheduled run and automatic delivery. No competing dispatcher or whole-site
 release is introduced.
 
+The September 5 runbook also requires a dated standing-route check and actual
+independent desk research; a route PASS cannot certify source coverage. The
+existing roster and `check-practitioner-signal-pilot.mjs --newsstand-only`
+bind those local inputs. Behind the Build reuses
+`docs/product/behind-the-build-learning-system.md`, the existing painpoints log
+and publication queue; the service preparer supports it as optional, not a new
+required daily desk. Ali's real lessons/mistakes/corrections purpose is DECIDED;
+current public admission remains required. The old-idea recovery shortlist lives
+in `docs/growth/ali-idea-backlog.md`, not new automatically active projects.
+
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and
 signal inbox: changes to exact claims must reach every affected consumer.
@@ -57,7 +67,10 @@ The loop signal now has an actual receiving-lane disposition in the September 5
 editorial intake: narrow AI Fundamentals 101 extension after source checks,
 NO_CHANGE to Working with AI 101 for this topic, product-specific guidance HOLD.
 That is accepted reuse, not edited or current public content. The NewsStand task
-owns follow-through while the broader Control Room remains paused.
+owns follow-through while the broader Control Room remains paused. The existing
+08:00 freshness reviewer now explicitly reads the committed NewsStand producer
+inbox as well as canonical inputs; saved prompt/name/schedule/target were
+verified. Canonical receiving/import and actual corrections remain unobserved.
 
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:

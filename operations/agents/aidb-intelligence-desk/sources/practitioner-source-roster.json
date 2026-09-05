@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "asOf": "2026-09-02",
+  "asOf": "2026-09-05",
   "status": "BOUNDED_RECURRENCE_ADMITTED",
   "recurringAuthority": true,
   "recurringBoundary": "Only PROMOTED and PILOT sources run on their recorded cadence inside the existing Intelligence Desk automation. CANDIDATE sources remain on-trigger or due-roster-review only.",
@@ -14,14 +14,22 @@
       "relevanceEvidence": "Existing LAiDIES source with a verified official machine-readable edition endpoint and dated analysis used to discover original sources.",
       "tier": "SECONDARY_SCOUT",
       "channelUrl": "https://aidailybrief.ai/agent.json",
-      "monitoringMethod": "Official agent.json discovery followed by dated JSON or Markdown editions; transcript only for material omission.",
+      "monitoringMethod": "Check official agent.json and the publisher-linked podcast release listing in the rolling seven-day window. Read the complete source and reconcile every item before advancing the exact edition cursor; retain released incomplete editions and channel gaps explicitly.",
       "termsBoundary": "Read public official endpoints only; store paraphrase and source trail, not full transcripts. AIDB is a scout, not authority.",
       "distinctContribution": "Fast daily headline discovery plus analysis and named-source leads.",
       "duplicationNote": "Reconcile overlap with Mollick and original sources into one treatment; never cite AIDB as authority for provider or research claims.",
       "cadence": "DAILY",
-      "destinations": ["NewsStand", "freshness inbox", "books", "classes", "episodes", "AI tip", "Promptoscope"],
-      "verifiedAt": "2026-08-07",
-      "expiresAt": "2026-09-07",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox",
+        "books",
+        "classes",
+        "episodes",
+        "AI tip",
+        "Promptoscope"
+      ],
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
       "retirementTrigger": "Official endpoint disappears, provenance becomes unreliable, or repeated editions add no distinct signal.",
       "cost": "NONE",
       "promotionStatus": "PROMOTED"
@@ -39,7 +47,14 @@
       "distinctContribution": "Research-informed practical translation of model capabilities into work and learning use.",
       "duplicationNote": "When AIDB covers the same post, preserve the canonical Mollick URL and create one reconciled signal.",
       "cadence": "WEEKLY",
-      "destinations": ["books", "classes", "episodes", "NewsStand", "AI tip", "Promptoscope"],
+      "destinations": [
+        "books",
+        "classes",
+        "episodes",
+        "NewsStand",
+        "AI tip",
+        "Promptoscope"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-11-07",
       "retirementTrigger": "Official feed disappears, affiliation cannot be verified, or repeated material becomes duplicative.",
@@ -59,7 +74,14 @@
       "distinctContribution": "Current product truth and first-party implementation guidance for OpenAI developer surfaces.",
       "duplicationNote": "Use as verification authority for OpenAI claims found by scouts, not as a quota source for content.",
       "cadence": "DAILY_RELEASE_CHECK",
-      "destinations": ["operating system", "freshness inbox", "books", "classes", "AI tip", "Promptoscope"],
+      "destinations": [
+        "operating system",
+        "freshness inbox",
+        "books",
+        "classes",
+        "AI tip",
+        "Promptoscope"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-09-07",
       "retirementTrigger": "Official route changes or content is superseded by a newer official source.",
@@ -79,7 +101,12 @@
       "distinctContribution": "Executable first-party examples rather than announcement copy.",
       "duplicationNote": "Use only when it adds an implementation detail not already established by OpenAI Developers documentation.",
       "cadence": "WEEKLY",
-      "destinations": ["operating system", "classes", "books", "AI tip"],
+      "destinations": [
+        "operating system",
+        "classes",
+        "books",
+        "AI tip"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-11-07",
       "retirementTrigger": "Repository becomes archived, unofficial, or consistently duplicates current docs.",
@@ -99,12 +126,20 @@
       "distinctContribution": "Same-day primary evidence for Anthropic model, product, access and policy releases.",
       "duplicationNote": "Check before secondary scouts. Reconcile overlaps with AIDB and Anthropic Engineering into one story, while retaining the official announcement as the authority for what Anthropic released.",
       "cadence": "DAILY_RELEASE_CHECK",
-      "destinations": ["NewsStand", "freshness inbox", "books", "classes", "episodes", "AI tip"],
+      "destinations": [
+        "NewsStand",
+        "freshness inbox",
+        "books",
+        "classes",
+        "episodes",
+        "AI tip"
+      ],
       "verifiedAt": "2026-09-02",
       "expiresAt": "2026-12-02",
       "retirementTrigger": "Official route changes or Anthropic replaces the index with a different canonical release channel.",
       "cost": "NONE",
-      "promotionStatus": "PILOT"
+      "promotionStatus": "PILOT",
+      "newsroomRole": "PROVIDER"
     },
     {
       "id": "SRC-ANTHROPIC-ENGINEERING",
@@ -119,7 +154,13 @@
       "distinctContribution": "Detailed first-party postmortems and engineering mechanisms behind agent systems.",
       "duplicationNote": "Do not generalize Claude-specific findings to other products without a separate test.",
       "cadence": "TWICE_WEEKLY",
-      "destinations": ["operating system", "books", "classes", "episodes", "Behind the Build"],
+      "destinations": [
+        "operating system",
+        "books",
+        "classes",
+        "episodes",
+        "Behind the Build"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-09-07",
       "retirementTrigger": "Official route changes or articles cease providing reproducible detail.",
@@ -139,7 +180,13 @@
       "distinctContribution": "Current authoritative product truth behind practitioner or AIDB leads.",
       "duplicationNote": "Verification source, not a standing content quota.",
       "cadence": "ON_TRIGGER",
-      "destinations": ["operating system", "freshness inbox", "books", "classes", "AI tip"],
+      "destinations": [
+        "operating system",
+        "freshness inbox",
+        "books",
+        "classes",
+        "AI tip"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-09-07",
       "retirementTrigger": "Official documentation route or product taxonomy changes.",
@@ -153,18 +200,25 @@
       "role": "Official Gemini and Google AI developer documentation and updates",
       "relevanceEvidence": "Primary authority for current Gemini developer-product claims and implementation guidance.",
       "tier": "OFFICIAL_AUTHORITY",
-      "channelUrl": "https://ai.google.dev/",
-      "monitoringMethod": "Official documentation and release notes on trigger; no account use.",
+      "channelUrl": "https://ai.google.dev/gemini-api/docs/changelog",
+      "monitoringMethod": "Check dated Gemini API release notes every day; consumer Gemini, Workspace and DeepMind research need their own exact official source when discovered. An API changelog does not certify all Google announcements.",
       "termsBoundary": "Public official pages only; preserve model, product, plan and region boundaries.",
       "distinctContribution": "Current Google/Gemini truth needed for fair cross-product teaching.",
       "duplicationNote": "Use when the question involves Google/Gemini; never infer parity from OpenAI or Anthropic guidance.",
-      "cadence": "WEEKLY_RELEASE_CHECK",
-      "destinations": ["freshness inbox", "books", "classes", "AI tip", "Promptoscope"],
-      "verifiedAt": "2026-08-07",
-      "expiresAt": "2026-09-07",
+      "cadence": "DAILY_RELEASE_CHECK",
+      "destinations": [
+        "freshness inbox",
+        "books",
+        "classes",
+        "AI tip",
+        "Promptoscope"
+      ],
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
       "retirementTrigger": "Official route changes or source is superseded.",
       "cost": "NONE",
-      "promotionStatus": "CANDIDATE"
+      "promotionStatus": "PILOT",
+      "newsroomRole": "PROVIDER"
     },
     {
       "id": "SRC-STANFORD-HAI-INDEX",
@@ -179,7 +233,13 @@
       "distinctContribution": "Evidence bridge from chips, compute and data centres to markets, policy and public debate.",
       "duplicationNote": "Use as a synthesis and data source; NewsStand still needs dated independent reporting and original evidence for breaking claims.",
       "cadence": "MONTHLY_AND_ANNUAL_RELEASE",
-      "destinations": ["AI Fundamentals", "NewsStand Tribune", "episodes", "classes", "freshness inbox"],
+      "destinations": [
+        "AI Fundamentals",
+        "NewsStand Tribune",
+        "episodes",
+        "classes",
+        "freshness inbox"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2027-04-01",
       "retirementTrigger": "A successor report publishes or the institution issues a correction.",
@@ -199,7 +259,12 @@
       "distinctContribution": "Research-grounded mechanisms and emerging methods beyond vendor documentation.",
       "duplicationNote": "Route only when it answers a current curriculum or editorial question; avoid duplicating HAI synthesis.",
       "cadence": "MONTHLY",
-      "destinations": ["books", "classes", "episodes", "NewsStand Tribune"],
+      "destinations": [
+        "books",
+        "classes",
+        "episodes",
+        "NewsStand Tribune"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-11-07",
       "retirementTrigger": "Institutional source becomes inactive or a newer primary paper supersedes the treatment.",
@@ -219,7 +284,13 @@
       "distinctContribution": "Fast, technically inspectable experiments across several model and tool ecosystems.",
       "duplicationNote": "Prefer a post only when it adds first-hand evidence beyond official docs and existing AIDB/Mollick coverage.",
       "cadence": "TWICE_WEEKLY",
-      "destinations": ["operating system", "books", "classes", "AI tip", "Behind the Build"],
+      "destinations": [
+        "operating system",
+        "books",
+        "classes",
+        "AI tip",
+        "Behind the Build"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-11-07",
       "retirementTrigger": "Feed disappears, disclosure boundary changes, or experiments become persistently non-reproducible.",
@@ -239,7 +310,12 @@
       "distinctContribution": "Connected systems explanation from model internals through production use.",
       "duplicationNote": "Use for mechanism and systems context when the exact treatment is not already stronger in a primary paper or official source.",
       "cadence": "MONTHLY",
-      "destinations": ["AI Fundamentals", "classes", "episodes", "NewsStand Tribune"],
+      "destinations": [
+        "AI Fundamentals",
+        "classes",
+        "episodes",
+        "NewsStand Tribune"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-11-07",
       "retirementTrigger": "Source becomes inactive or no longer adds distinct evidence.",
@@ -259,7 +335,13 @@
       "distinctContribution": "Beginner-friendly business and home-workflow inspiration from a woman with substantial prior enterprise AI experience.",
       "duplicationNote": "Scout for practical jobs and formats only; verify every current product claim independently and merge with the home-life or career bank rather than creating duplicate tips.",
       "cadence": "MONTHLY",
-      "destinations": ["AI tip", "home-life AI", "career tip", "classes", "books"],
+      "destinations": [
+        "AI tip",
+        "home-life AI",
+        "career tip",
+        "classes",
+        "books"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-10-07",
       "retirementTrigger": "Current role or disclosures cannot be verified, useful material becomes paywalled, or repeated material is promotional/duplicative.",
@@ -279,12 +361,215 @@
       "distinctContribution": "Video and masterclass discovery plus compact curriculum benchmarking.",
       "duplicationNote": "Not a factual authority; follow instructor, paper and provider references and route only distinct learning jobs.",
       "cadence": "QUARTERLY",
-      "destinations": ["course benchmarks", "classes", "books", "video resources"],
+      "destinations": [
+        "course benchmarks",
+        "classes",
+        "books",
+        "video resources"
+      ],
       "verifiedAt": "2026-08-07",
       "expiresAt": "2026-11-07",
       "retirementTrigger": "Catalogue becomes account-only, paid-only, low quality or persistently duplicative.",
       "cost": "NONE",
       "promotionStatus": "CANDIDATE"
+    },
+    {
+      "cadence": "DAILY",
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
+      "cost": "NONE",
+      "promotionStatus": "PILOT",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox"
+      ],
+      "retirementTrigger": "Canonical index changes, retrieval fails repeatedly, independence/provenance changes or the route adds no distinct signal. Record gaps; do not silently treat it as quiet.",
+      "id": "SRC-AP-AI",
+      "identity": "Associated Press — artificial intelligence",
+      "company": "Associated Press",
+      "role": "Independent reporting on AI, work, public policy and public-interest developments",
+      "channelUrl": "https://apnews.com/hub/artificial-intelligence",
+      "tier": "SECONDARY_SCOUT",
+      "newsroomRole": "INDEPENDENT_REPORTING",
+      "relevanceEvidence": "Public index verified September 5 with current AI reporting and canonical article links.",
+      "monitoringMethod": "Inspect dated AI articles across the rolling seven days and unresolved older leads; open exact articles because the hub also contains unrelated navigation and older content.",
+      "termsBoundary": "Public original reporting only; do not bypass restricted access. Discovery is not authority for technical, legal or clinical conclusions: recover exact primary evidence and distinguish allegations, proposals and rulings.",
+      "distinctContribution": "Independent mainstream agenda and reporting beyond vendor announcements.",
+      "duplicationNote": "Reconcile by exact event, source identity and existing story IDs. Update or link existing coverage before commissioning another story."
+    },
+    {
+      "cadence": "DAILY",
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
+      "cost": "NONE",
+      "promotionStatus": "PILOT",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox"
+      ],
+      "retirementTrigger": "Canonical index changes, retrieval fails repeatedly, independence/provenance changes or the route adds no distinct signal. Record gaps; do not silently treat it as quiet.",
+      "id": "SRC-NATURE-ML",
+      "identity": "Nature Portfolio — machine learning",
+      "company": "Springer Nature",
+      "role": "Research, medical/scientific developments and research criticism",
+      "channelUrl": "https://www.nature.com/subjects/machine-learning",
+      "tier": "SECONDARY_SCOUT",
+      "newsroomRole": "RESEARCH_INDEX",
+      "relevanceEvidence": "Public subject index verified September 5; dated research, news, reviews and opinion have distinct labels.",
+      "monitoringMethod": "Check dated research and news/comment sections daily. Follow the underlying paper and methods; use openly available abstracts only as leads when full evidence cannot be recovered.",
+      "termsBoundary": "Public discovery index, not authority for clinical benefit. Distinguish primary research, review, editorial and commentary; state sample, comparator, validation, limitations and actual AI contribution. No patient outcome or impossibility-without-AI claim from a headline.",
+      "distinctContribution": "Scientific and medical evidence plus contrary findings beyond product launches.",
+      "duplicationNote": "Reconcile by exact event, source identity and existing story IDs. Update or link existing coverage before commissioning another story."
+    },
+    {
+      "cadence": "DAILY",
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
+      "cost": "NONE",
+      "promotionStatus": "PILOT",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox"
+      ],
+      "retirementTrigger": "Canonical index changes, retrieval fails repeatedly, independence/provenance changes or the route adds no distinct signal. Record gaps; do not silently treat it as quiet.",
+      "id": "SRC-FTC-AI",
+      "identity": "Federal Trade Commission — artificial intelligence",
+      "company": "US Federal Trade Commission",
+      "role": "Official consumer-protection cases, orders and policy notices",
+      "channelUrl": "https://www.ftc.gov/industry/technology/artificial-intelligence",
+      "tier": "OFFICIAL_AUTHORITY",
+      "newsroomRole": "PUBLIC_RECORD",
+      "relevanceEvidence": "Public dated case/policy index verified September 5, with links to operative documents.",
+      "monitoringMethod": "Compare latest dated items daily; open the exact order, complaint or notice and independently recheck active litigation identities, including outside FTC jurisdiction.",
+      "termsBoundary": "Public official record. A complaint is an allegation, a proposal is not an enacted rule, and agency interpretation is not a court finding. Record jurisdiction and stage; this index does not cover all global law.",
+      "distinctContribution": "Primary legal/accountability route independent of AI providers.",
+      "duplicationNote": "Reconcile by exact event, source identity and existing story IDs. Update or link existing coverage before commissioning another story."
+    },
+    {
+      "cadence": "DAILY",
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
+      "cost": "NONE",
+      "promotionStatus": "PILOT",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox"
+      ],
+      "retirementTrigger": "Canonical index changes, retrieval fails repeatedly, independence/provenance changes or the route adds no distinct signal. Record gaps; do not silently treat it as quiet.",
+      "id": "SRC-EFF-AI",
+      "identity": "Electronic Frontier Foundation — artificial intelligence",
+      "company": "Electronic Frontier Foundation",
+      "role": "Civil-liberties analysis, litigation and criticism",
+      "channelUrl": "https://www.eff.org/issues/ai",
+      "tier": "SECONDARY_SCOUT",
+      "newsroomRole": "CIVIL_SOCIETY",
+      "relevanceEvidence": "Public AI updates verified September 5, including dated litigation and copyright analyses.",
+      "monitoringMethod": "Inspect dated updates daily; follow cited filings, orders, laws and original studies, and compare the strongest counterevidence.",
+      "termsBoundary": "Public advocacy and discovery, not neutral authority or a proxy for all affected people. Attribute its position, disclose its role and verify consequential factual claims at primary sources.",
+      "distinctContribution": "Rights, power, surveillance and contrary arguments that a provider-led sweep can miss.",
+      "duplicationNote": "Reconcile by exact event, source identity and existing story IDs. Update or link existing coverage before commissioning another story."
+    },
+    {
+      "cadence": "DAILY",
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
+      "cost": "NONE",
+      "promotionStatus": "PILOT",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox"
+      ],
+      "retirementTrigger": "Canonical index changes, retrieval fails repeatedly, independence/provenance changes or the route adds no distinct signal. Record gaps; do not silently treat it as quiet.",
+      "id": "SRC-BLEEPINGCOMPUTER-AI",
+      "identity": "BleepingComputer — artificial intelligence",
+      "company": "BleepingComputer",
+      "role": "Independent security and technology reporting",
+      "channelUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "tier": "SECONDARY_SCOUT",
+      "newsroomRole": "INDEPENDENT_REPORTING",
+      "relevanceEvidence": "Public category index verified September 5 with dated articles and primary-source trails.",
+      "monitoringMethod": "Inspect current dated reporting daily and search exact actors/mechanisms for active security holds. Follow provider advisories, incident reports and independent technical evidence.",
+      "termsBoundary": "Public discovery and reporting, not authority for untested technical claims. Separate demonstrations, exploitation reports and independently verified incidents; do not reproduce harmful operational details.",
+      "distinctContribution": "Independent security reporting beyond a provider safety index.",
+      "duplicationNote": "Reconcile by exact event, source identity and existing story IDs. Update or link existing coverage before commissioning another story."
+    },
+    {
+      "cadence": "DAILY",
+      "verifiedAt": "2026-09-05",
+      "expiresAt": "2026-12-05",
+      "cost": "NONE",
+      "promotionStatus": "PILOT",
+      "destinations": [
+        "NewsStand",
+        "freshness inbox"
+      ],
+      "retirementTrigger": "Canonical index changes, retrieval fails repeatedly, independence/provenance changes or the route adds no distinct signal. Record gaps; do not silently treat it as quiet.",
+      "id": "SRC-OPENAI-NEWS",
+      "identity": "OpenAI News",
+      "company": "OpenAI",
+      "role": "Official model, product and safety announcements",
+      "channelUrl": "https://openai.com/news/",
+      "tier": "OFFICIAL_AUTHORITY",
+      "newsroomRole": "PROVIDER",
+      "relevanceEvidence": "September 5 inspection confirms separate dated research, product, safety and security entries; this is distinct from the developer blog.",
+      "monitoringMethod": "Check every day before scouts; compare the separate official high-water record and open every new major model/product/safety item.",
+      "termsBoundary": "Public official pages; attribute vendor capability and safety claims. Verify current access, surface, region and costs separately. A company announcement does not establish independent performance.",
+      "distinctContribution": "Mandatory official releases that a developer-only feed can miss.",
+      "duplicationNote": "Reconcile by exact event, source identity and existing story IDs. Update or link existing coverage before commissioning another story."
     }
-  ]
+  ],
+  "newsstandCoverage": {
+    "status": "BOUNDED_RECURRING_ROUTES",
+    "researchCompletionCertified": false,
+    "deskRoutes": [
+      {
+        "id": "accountability",
+        "sourceIds": [
+          "SRC-FTC-AI",
+          "SRC-AP-AI"
+        ],
+        "evidenceBoundary": "Exact primary case/order/law plus independent reporting; explicit jurisdiction and procedural stage."
+      },
+      {
+        "id": "medical_science",
+        "sourceIds": [
+          "SRC-NATURE-ML"
+        ],
+        "evidenceBoundary": "Primary paper and methods, actual AI contribution and validation; no clinical guidance from discovery material."
+      },
+      {
+        "id": "product_releases",
+        "sourceIds": [
+          "SRC-OPENAI-NEWS",
+          "SRC-ANTHROPIC-NEWS",
+          "SRC-GOOGLE-AI-DEVELOPERS",
+          "SRC-AP-AI"
+        ],
+        "evidenceBoundary": "Official release plus current access/plan/region limits; independent context and other providers discovered through mainstream reporting."
+      },
+      {
+        "id": "work_economy",
+        "sourceIds": [
+          "SRC-AP-AI"
+        ],
+        "evidenceBoundary": "Original data/report, measurement and affected readers; company claims are attributed."
+      },
+      {
+        "id": "security",
+        "sourceIds": [
+          "SRC-BLEEPINGCOMPUTER-AI"
+        ],
+        "evidenceBoundary": "Independent reporting plus original advisory/report; disclosure and verification status retained."
+      },
+      {
+        "id": "contrary_evidence",
+        "sourceIds": [
+          "SRC-EFF-AI",
+          "SRC-NATURE-ML",
+          "SRC-AP-AI"
+        ],
+        "evidenceBoundary": "Strongest material criticism and counterevidence; advocacy labelled, no positive/negative quota."
+      }
+    ]
+  }
 }

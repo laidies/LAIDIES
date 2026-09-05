@@ -15,6 +15,8 @@ const DEFAULT_OUTPUT_ROOT = path.join(ROOT, "operations/product-stewards/newssta
 const PUBLIC = new Set(["APPROVED", "PUBLISHED", "CORRECTED"]);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const REQUIRED_TYPES = ["paige_tip", "career_life", "concept_week", "mme_claio", "dear_miss_jeeves", "whats_new_sunnyvaile", "crossword", "did_you_know"];
+const OPTIONAL_TYPES = ["behind_build"];
+const SUPPORTED_TYPES = new Set([...REQUIRED_TYPES, ...OPTIONAL_TYPES]);
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = (value) => {
   if (value === null || typeof value !== "object") return JSON.stringify(value);
@@ -101,7 +103,7 @@ function validateBank(bank, { root = ROOT, asOf }) {
   for (const item of bank.items) {
     if (!item || !item.id || ids.has(item.id)) reject(`duplicate or missing bank item id ${item && item.id || "(missing)"}`);
     ids.add(item.id);
-    if (!REQUIRED_TYPES.includes(item.type)) reject(`${item.id} has unsupported type`);
+    if (!SUPPORTED_TYPES.has(item.type)) reject(`${item.id} has unsupported type`);
     if (!item.headline || !item.summary || !Array.isArray(item.body) || !item.body.length || item.body.some((part) => typeof part !== "string" || !part.trim())) reject(`${item.id} lacks a complete body`);
     if (!item.sourcePath || !item.sourceId || !item.owner) reject(`${item.id} lacks source identity or owner`);
     if (!fs.existsSync(resolved(root, item.sourcePath))) reject(`${item.id} sourcePath does not resolve`);
@@ -154,10 +156,14 @@ function eventAvailability(item, date) {
 export function prepareServiceBankProposal({ date, bank, columns = { records: [] }, selections = {}, reuseAdmitted = false, root = ROOT }) {
   if (!validDate(date)) reject("--date must be a real YYYY-MM-DD date");
   validateBank(bank, { root, asOf: date });
+  for (const [type, id] of Object.entries(selections)) {
+    if (!SUPPORTED_TYPES.has(type) || typeof id !== "string" || !id) reject("selection must be unique type=bankItemId for a supported service type");
+  }
   const used = existingBankIds(columns);
   const selected = {};
   const gaps = [];
-  for (const type of REQUIRED_TYPES) {
+  const assessedTypes = [...REQUIRED_TYPES, ...OPTIONAL_TYPES.filter((type) => selections[type] || bank.items.some((item) => item.type === type))];
+  for (const type of assessedTypes) {
     const options = bank.items.filter((item) => item.type === type).sort((a, b) => a.id.localeCompare(b.id));
     const requested = selections[type];
     if (requested && !options.some((item) => item.id === requested)) reject(`requested item ${requested} does not belong to ${type}`);
@@ -200,7 +206,7 @@ export function prepareServiceBankProposal({ date, bank, columns = { records: []
       }
     };
   }
-  const records = REQUIRED_TYPES.flatMap((type) => selected[type] ? [selected[type]] : []);
+  const records = assessedTypes.flatMap((type) => selected[type] ? [selected[type]] : []);
   const readyCount = records.filter((entry) => entry.proposalState === "READY_FOR_INDEPENDENT_ADMISSION").length;
   return {
     schemaVersion: "newsstand-service-bank-proposal-v1", mode: "PRIVATE_PROPOSAL_ONLY", editionDate: date,
@@ -215,7 +221,7 @@ function parseSelections(args) {
   const selections = {};
   for (let i = 0; i < args.length; i += 1) if (args[i] === "--item") {
     const [type, id] = String(args[i + 1] || "").split("=", 2);
-    if (!REQUIRED_TYPES.includes(type) || !id || selections[type]) reject("--item must be unique type=bankItemId for a governed type");
+    if (!SUPPORTED_TYPES.has(type) || !id || selections[type]) reject("--item must be unique type=bankItemId for a supported service type");
     selections[type] = id;
   }
   return selections;

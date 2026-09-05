@@ -63,6 +63,27 @@ CAPTURED — requested feature direction, not an approved design or published fe
 
 CAPTURED — exploration requested: enjoyable learning games, including the existing crossword opportunity; funny fictional newspaper advertisements; useful promotion of real LAiDIES features; and other SUNNYVAiLE world-building. These must help understanding, recall, informed use, community or discovery and work for the actual reader. Proposed names, layouts, game mechanics and examples in the audit are recommendations, not Ali-approved copy or a commitment to launch every idea. Clearly distinguish fictional town material from reported news and real offers. Do not simulate a working destination, service or community to make an advertisement possible.
 
+## Behind the Build — September 5 clarification
+
+DECIDED: restore and use the existing **Field Notes from LAiDIES HQ: Behind the
+Build** direction for Ali's behind-the-scenes lessons learned. She is learning
+while building and wants to share what she tried, mistakes she made, how she
+corrected them, and what another woman can use. Reuse
+`docs/product/behind-the-build-learning-system.md`, `operations/painpoints-log.md`
+and `operations/behind-the-build-publication-queue.md`; do not create a second
+lessons log or assume these existing files establish a functioning publication
+pipeline.
+
+Each piece needs the real task, first approach, observed result, cause with its
+confidence, the correction and evidence of what improved, remaining limits,
+and a portable reader action linked to the relevant LAiDIES concept. A useful
+success or unresolved experiment may also teach, but its state must be honest.
+Preserve Ali's perspective without inventing first-person experience, feelings,
+quotes or a universal AI rule from one incident. This supplements the existing
+founder voice/taste and public content checks; raw operational logs are private
+production inputs, not publishable copy. Recurring NewsStand assessment must
+include this desk and retain an owned next action from lesson to actual reader.
+
 ## Authority retained
 
 Ali retains the mission, audience, voice and taste direction, meaningful editorial positions, changes to publication authority and exact-version Big Picture approval. Existing ordinary-news autonomy remains: independent AI factual/editorial assessment is required, but routine news does not require Ali's daily copy approval. Existing specialist evidence, correction, artifact, accessibility and release controls still apply. This record changes no public content and grants no new release authority.

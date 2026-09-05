@@ -1,12 +1,47 @@
 # Field Notes from LAiDIES HQ: Behind the Build
 
-**Status:** canonical product and operating direction; raw learning log exists;
-cross-chat capture/publication pipeline is not yet automated  
+**Status:** canonical product direction; logging active in inspected tasks;
+recurring editorial assessment wired locally; no public publication proven
+
 **Internal source:** `operations/painpoints-log.md`  
 **Preserved source snapshots:** `operations/archive/painpoints-log-*-premerge-2026-07-24.md`  
 **Editorial queue:** `operations/behind-the-build-publication-queue.md`  
 **Public working series:** **Field Notes from LAiDIES HQ: Behind the Build**  
 **Principle:** LAiDIES should visibly practise what it teaches
+
+## Current implementation truth — 2026-09-05
+
+Ali reconfirmed the purpose: share what she is learning while building LAiDIES,
+including mistakes, corrections and useful actions other women can take. Keep
+her actual perspective; do not invent first-person experiences or quotes.
+
+Verified in the NewsStand execution checkout
+`/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`:
+
+- The raw ledger still receives meaningful task lessons. It is not empty or
+  abandoned. Thirty-two historical IDs absent here were recovered verbatim from
+  the preserved iCloud source; that source was not modified. Shared entries
+  still differ and legacy duplicate IDs exist, so cross-chat completeness is
+  not certified. Do not interpret the highest BTB number as an entry count.
+- The editorial queue retained four older candidates and one full July draft;
+  this dated assessment adds a bounded verified September 5 incident. Old
+  `PUBLISHABLE` labels are historical editorial assessments, not current
+  producer/independent admission or Ali approval.
+- The service bank had no `behind_build` entry, and its preparer rejected that
+  type although the composer/reader already supported it. The repaired
+  preparer accepts it as optional under unchanged source/review checks. Tests
+  reject unknown and forged entries, keep drafts private, and preserve the
+  eight required service types when the optional feature is absent.
+- The recurring NewsStand runbook now requires recent-log-to-queue assessment.
+  This is configured work, not an observed unattended editorial cycle.
+- Live NewsStand inspection on September 5 found no visible Behind the Build
+  card; its archive search returned zero matching back issues. This does not
+  prove the absence of every possible site URL. No public copy was changed.
+
+Next: the NewsStand editorial lane should take Draft 001 through current
+source/privacy/producer/independent review before requesting Ali's exact
+founder-voice/taste decision. Keep later verified incidents queued rather than
+creating a new index before an admitted first piece exists.
 
 ## The credibility contract
 
@@ -252,7 +287,7 @@ Before similar work, Codex searches the canonical ledger by category/tool and
 carries relevant prevention rules into the brief. Logging without reuse is not
 a learning system.
 
-## Current implementation truth — 2026-07-24
+## Historical implementation snapshot — 2026-07-24 (superseded by the dated status above)
 
 Present:
 

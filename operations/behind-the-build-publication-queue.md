@@ -1,6 +1,7 @@
 # Behind the Build publication queue
 
-**Status:** active editorial queue; nothing here is published automatically  
+**Status:** editorial queue reassessed September 5; no current public admission established; nothing here publishes automatically
+
 **Series:** Field Notes from LAiDIES HQ: Behind the Build  
 **Source system:** `docs/product/behind-the-build-learning-system.md`  
 **Raw/verified records:** `operations/painpoints-log.md`
@@ -14,10 +15,18 @@ repurposed.
 
 | Candidate | Ledger source | State | Best first format | Internal improvement already made | Next editorial action |
 |---|---|---|---|---|---|
-| A draft file is not a launch party | BTB-039 | PUBLISHABLE DRAFT; NOT APPROVED | Short Field Note + carousel | Release state now separates authored, approved, deployed and publicly verified | Ali voice/taste review; decide whether to name Episode 5 |
+| A draft file is not a launch party | BTB-039 | COMPLETE HISTORICAL DRAFT; CURRENT ADMISSION DUE | Short Field Note + carousel | Release state now separates authored, approved, deployed and publicly verified | NewsStand editorial lane: verify the incident and current producer/independent checks; then present exact copy for Ali voice/taste judgment, including whether to name Episode 5 |
 | A green check without a version is a souvenir | BTB-038 | VERIFIED | Field Note + simple visual explainer | Episode engine binds stage status to current content and rejects superseded sources | Build a reader-friendly “content fingerprint” example without exposing unreleased copy |
 | Your conversation was doing four jobs at once | BTB-037 | VERIFIED | Carousel + class workflow card | Active-work record, capture-and-continue rule and checkpoint protocol | Draft without framing Ali’s ADHD as a flaw or exposing private project detail |
 | Accurate. Polished. Wrong assignment. | BTB-051 | VERIFIED | Field Note + reverse-brief prompt card + carousel | Locked intent/delta trace, blind reverse brief, four-veto fidelity packet and engine hard stop installed | Recreate the example generically; draft around the reverse-brief technique without exposing unreleased Episode 5 substance |
+| A source can look current while its newest episode is somewhere else | BTB-500, September 5 sourcing follow-up only | VERIFIED INCIDENT / PUBLIC DRAFT NOT WRITTEN | Short Behind the Build field note | Missing podcast release reproduced; selector rejects false quiet; broader recurring routes and explicit source holds added | NewsStand editorial lane: build one portable example of checking the right source channel; retain the distinction between a repaired selector, an incomplete source review and an unobserved scheduled run |
+
+September 5 boundary: the new candidate covers only the verified source-channel
+incident and tested local repair. BTB-500's other open findings do not inherit
+that status. The raw log contains newer and recovered material not yet fully
+triaged; this table is not an exhaustive view of the learning ledger. There is
+still no Behind the Build item in the current service bank. Its optional type
+now works in preparation tests; that does not publish any queue entry.
 
 ## Research backlog — not yet eligible for the publication queue
 
@@ -25,7 +34,7 @@ repurposed.
 |---|---|---|---|---|
 | How to Get Good AI Images | BTB-015–BTB-025, BTB-027, BTB-041 | RAW / mixed observations | When chained edits degrade quality; whether reference conflict matters more than count; how instruction load changes fidelity; when fresh generation beats editing | `operations/research/image-generation-learning-validation-plan.md`; run during the next qualifying production batch or before publishing the claim |
 | Working With AI Audio: One Script, Four Outfits | BTB-042–BTB-043 | NARRATION MECHANISM VERIFIED; SONG TOOL FIX UNVERIFIED | Which pronunciation/performance syntax works for each specific narration/music tool without harming delivery, rhythm or wording | Narration and song reconciliation protocols; capture canonical/performance/as-recorded/public before-and-after evidence during the next narration and episode song |
-| We Upgraded the Model. We Forgot to Upgrade the Instructions. | BTB-216; AIDB 2026-07-20 | DIAGNOSED; ROUTING FIXED; CAUSAL CONTRIBUTION UNVERIFIED | How much inherited prompt repetition, blanket high effort, incomplete success criteria and other setup choices each contributed to the outputs Ali rejected | Run the three-task controlled replay in `operations/agents/aidb-intelligence-desk/handoffs/2026-07-27-btb-gpt-5p6-setup.md`; compare one prompt-diet change at a time, same effort and one lower, against one frozen acceptance gate |
+| We Upgraded the Model. We Forgot to Upgrade the Instructions. | BTB-216; AIDB 2026-07-20 | DIAGNOSED; ROUTING FIXED; CAUSAL CONTRIBUTION UNVERIFIED | How much inherited prompt repetition, blanket high effort, incomplete success criteria and other setup choices each contributed to the outputs Ali rejected | Use the next real qualifying task and September 5 model-routing calibration; the older three-task synthetic replay proposal is superseded. Keep exact before/after inputs and limitations; do not create extra work solely to fill a benchmark or infer a single cause from a model change |
 
 Research-series claims must include real before/after outputs, exact inputs and
 tool/model/version/date. “Every regeneration makes an image worse,” “more
@@ -34,7 +43,8 @@ universal are not approved claims.
 
 ## Draft 001 — A draft file is not a launch party
 
-**Editorial state:** PUBLISHABLE DRAFT — NOT APPROVED — NOT PUBLISHED  
+**Editorial state:** COMPLETE HISTORICAL DRAFT — CURRENT ADMISSION DUE — NOT APPROVED — NOT PUBLISHED
+
 **Source:** painpoints ledger `BTB-039`  
 **Verified:** 2026-07-24 against the local status script and source file  
 **Public claim boundary:** This describes a verified LAiDIES workflow failure

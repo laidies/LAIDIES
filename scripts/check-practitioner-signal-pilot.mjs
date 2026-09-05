@@ -11,6 +11,42 @@ const nonEmpty = (value) => typeof value === "string" && value.trim().length > 0
 const date = (value) => Number.isFinite(Date.parse(value));
 const oneOf = (value, allowed, label) => { if (!allowed.includes(value)) fail(`${label}: invalid ${value}`); };
 
+// Checks the standing discovery routes, not whether today's research was done.
+export function validateNewsstandSourceRoutes(roster, asOf) {
+  const expected = {
+    accountability: "PUBLIC_RECORD",
+    medical_science: "RESEARCH_INDEX",
+    product_releases: "PROVIDER",
+    work_economy: "INDEPENDENT_REPORTING",
+    security: "INDEPENDENT_REPORTING",
+    contrary_evidence: "CIVIL_SOCIETY"
+  };
+  const validDay = value => typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && date(value) && new Date(value).toISOString().slice(0, 10) === value;
+  if (!validDay(asOf)) fail("newsroom as-of date must be a real YYYY-MM-DD");
+  const routes = roster.newsstandCoverage?.deskRoutes;
+  if (!roster.recurringAuthority || !Array.isArray(routes)) fail("newsroom recurring desk routes are missing");
+  if (roster.newsstandCoverage.status !== "BOUNDED_RECURRING_ROUTES" || roster.newsstandCoverage.researchCompletionCertified !== false) fail("newsroom standing routes cannot certify research completion");
+  if (routes.length !== Object.keys(expected).length || new Set(routes.map(r => r.id)).size !== routes.length) fail("newsroom requires six distinct desk routes");
+  if (!Array.isArray(roster.sources)) fail("newsroom sources must be an array");
+  const sources = new Map(roster.sources.map(s => [s.id, s]));
+  if (sources.size !== roster.sources.length) fail("newsroom source identities must be unique");
+  for (const route of routes) {
+    if (!expected[route.id] || !Array.isArray(route.sourceIds) || !route.sourceIds.length || !nonEmpty(route.evidenceBoundary)) fail(`newsroom invalid desk ${route.id}`);
+    const active = route.sourceIds.map(id => {
+      const source = sources.get(id);
+      if (!source) fail(`newsroom ${route.id}: missing source ${id}`);
+      if (!["PROMOTED", "PILOT"].includes(source.promotionStatus) || !["DAILY", "DAILY_RELEASE_CHECK"].includes(source.cadence)) fail(`newsroom ${id}: daily recurring route required`);
+      if (!validDay(source.verifiedAt) || !validDay(source.expiresAt)) fail(`newsroom ${id}: source dates must be real YYYY-MM-DD`);
+      if (source.verifiedAt > asOf || source.expiresAt < asOf) fail(`newsroom ${id}: source review expired or not yet effective`);
+      let url; try { url = new URL(source.channelUrl); } catch { fail(`newsroom ${id}: invalid URL`); }
+      if (url.protocol !== "https:" || source.cost !== "NONE") fail(`newsroom ${id}: public free HTTPS route required`);
+      return source;
+    });
+    if (!active.some(source => source.newsroomRole === expected[route.id])) fail(`newsroom ${route.id}: requires ${expected[route.id]} beyond the scout/provider sweep`);
+  }
+  return { desks: routes.length, sources: new Set(routes.flatMap(r => r.sourceIds)).size, researchCompletionCertified: false };
+}
+
 export function validatePractitionerPilot(roster, results) {
   if (roster?.schemaVersion !== "1.0.0") fail("roster schemaVersion must be 1.0.0");
   if (!Array.isArray(roster.sources) || roster.sources.length < 10 || roster.sources.length > 20) fail("roster must contain 10-20 sources");
@@ -75,6 +111,12 @@ export function validatePractitionerPilot(roster, results) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   try {
+    if (process.argv.includes("--newsstand-only")) {
+      const at = process.argv.indexOf("--as-of");
+      const newsroom = validateNewsstandSourceRoutes(JSON.parse(fs.readFileSync(path.join(root, "operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json"), "utf8")), process.argv[at + 1]);
+      console.log(`NEWSSTAND SOURCE ROUTES PASS desks=${newsroom.desks} sources=${newsroom.sources} research_completion_certified=false`);
+      process.exit(0);
+    }
     const result = validatePractitionerPilot(JSON.parse(fs.readFileSync(rosterPath, "utf8")), JSON.parse(fs.readFileSync(resultsPath, "utf8")));
     const recurring = JSON.parse(fs.readFileSync(rosterPath, "utf8")).recurringAuthority ? "admitted_bounded" : "parked";
     console.log(`PRACTITIONER SIGNAL PILOT PASS sources=${result.sources} signals=${result.signals} useful_owner_rulings=${result.usefulOwnerRulings} recurring=${recurring}`);

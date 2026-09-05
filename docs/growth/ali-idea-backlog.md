@@ -20,6 +20,47 @@ When Ali shares an idea during active work:
 
 See `operations/CODEX-WORKING-AGREEMENT.md`.
 
+## September 5 recovery review — what is worth reviving
+
+Ali asked which earlier ideas still have value and whether they are actually
+being worked on. This is a reconciled shortlist, not authorization to activate
+every idea or a claim that old specifications are public. The current active
+NewsStand repair continues; no unrelated project is silently restarted.
+
+| Priority | Existing idea and reader value | Verified state / limit | Smallest useful next step |
+|---|---|---|---|
+| 1 | Behind the Build: real mistakes, why they happened and how to correct them | Logging is active; old queue and draft exist; 32 omitted historical log IDs recovered locally. Optional service-bank support repaired. No current public admission or visible NewsStand item | Finish one existing draft through current evidence/prose review, then give Ali exact founder-voice copy to judge |
+| 2 | Masterclass Lesson 4, From Chatting to Working: make everyday AI use more effective | A full local script candidate exists at `operations/classes/masterclass-lesson-04-from-chatting-to-working.script.md`; the older “no lesson is scripted” status was false. Current interface, instructional and learner acceptance remain due; no filmed/public result verified | Recheck dated product details and prove one fictional sandbox lesson with its existing brief; keep it within SUNNYVAiLE High/classes |
+| 3 | Overheard in SUNNYVAiLE: memorable lines lead back to the concept, scene or original song | `docs/product/quotables-and-memory-hooks-system.md` already specifies source/anchor, memory job and destinations; a functioning public showcase was not established | Prepare one small set of existing approved, rights-cleared hooks with their actual concept links; test whether the explanation helps recall before a sitewide registry rollout |
+| 4 | Tour Guide companion: help readers find the useful thing already on site | Existing spec at `docs/product/tour-guide-companion.md`; current Visitor's Centre implementation was not fully audited here | Reconcile with the current Welcome Tour/Visitor/navigation owner first; if a gap remains, pilot one helpful destination rather than add another chat assistant |
+| 5 | Building loyalty and shared rituals: reward useful participation and learning | Specifications exist for stamps, Butterfly Clips, postcards and bringing friends; complete cross-building earning/fulfilment was not verified | Reconcile with current Resident Card/Closet/community work before proposing a small learning-action pilot; no new currency or rewards system now |
+
+### Background work observed on September 5
+
+App configuration and current task status outrank old backlog labels:
+
+- NewsStand research/publication: ACTIVE at 20:00 and 07:00 Vancouver; first
+  paired scheduled run/report after the change remains unobserved.
+- Existing automatic freshness review: ACTIVE daily 08:00. Its September 5
+  prompt was extended to read committed NewsStand findings that were absent
+  from its canonical inbox. Configuration is verified; receiving execution and
+  actual textbook corrections are not yet proven.
+- Reader-tip source scout: ACTIVE Monday 09:00. Its recent task record says
+  some Instagram access was incomplete, preserves those source cursors and
+  holds output privately. This is not proof of a complete scheduled scan.
+- Miss Jeeves source-bank review: ACTIVE Monday 07:30. Current configuration
+  was read; the attempt to retrieve its latest task result timed out, so this
+  review's execution result is UNKNOWN.
+- The broader Control Room production dispatcher remains PAUSED. Automatic
+  development of the old idea backlog is therefore not established.
+- Separate Homepage and Episode tasks were active when the app task list was
+  inspected. Their presence is not evidence that they are implementing the
+  specific dormant ideas above; do not duplicate or redirect their work.
+
+This audit did not exhaust every historic idea or inspect every public route.
+The priority order reflects direct learning value, existing usable material and
+low duplication risk. It is a recommendation, not five new BUILDING projects.
+
 ## July 24 idea clusters moved into specifications
 
 These are not lost and should not be recopied into new plans:
@@ -39,9 +80,11 @@ These are not lost and should not be recopied into new plans:
 
 ## Masterclass — Get the Best Out of Your AI Tool
 
-**Status:** DECIDED — one narrated visual masterclass pathway made of seven short
-lessons; research complete; no lesson is scripted, filmed, admitted or
-public.
+**Status:** DECIDED pathway — seven short narrated visual lessons. Lesson 4
+has a BUILT LOCALLY script candidate dated July 27; current product/interface,
+instructional and learner acceptance remain pending. Filming, admission and
+public delivery were not verified in the September 5 review. The old statement
+that no lesson was scripted is superseded.
 **Triage:** MERGE with SUNNYVAiLE High/classes and Behind the Build material
 after the current public-experience readiness objective. Do not develop this as
 a primary LIBRAiRY book. Reconcile the second class with the existing proposed

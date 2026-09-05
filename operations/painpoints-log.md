@@ -14,6 +14,12 @@
 - **Sourcing follow-up:** AIDB's September 4 podcast release was absent from the September 5 website-led inventory. The old selector also returned QUIET for a released incomplete episode; the regression first failed on that exact classification. The local v2 inventory contract exposes website/podcast gaps and observed releases absent from intake, while retaining useful complete work. Thirteen focused cases and independent code review pass; the real audit supplement remains HOLD with incomplete channel reconciliation and an unread episode. Prevention is VERIFIED LOCALLY only. Timing cannot repair a missing source channel; use evening preparation plus a morning delta only after the source inputs are reconciled. Independent headline sampling also separated actual missing leads from already covered releases and evidence-held rumours.
 - **Research-reuse follow-up:** The shared freshness register covers five claims/25 consumer references; the inbox originally stopped at July 30. The September 5 checker reports HOLD with ten open consumer actions and three absent legacy-reader references. Unmatched material signals appear in reporting but do not themselves hold an otherwise clear evaluated set. Two new OPEN review requests now enter the real inbox; receiving-owner mapping/correction and automatic delivery remain outstanding. The NewsStand notification policy is failed-runs-only and the Control Room dispatcher is paused, so saved internal advice is not proof Ali received it. Prevention specified: exact claim/consumer mapping, per-destination dispositions, distinct internal ADOPT/TEST/already-applied states, and a concise impact brief with actual delivery verification. No public currency or internal benchmark success is claimed.
 - **Adoption follow-up:** The old heartbeat pointed to a preserved but old/dirty bootstrap and suppressed successful findings. A clean current execution entry now carries both tested repairs and the actual receiving-owner loop assessment; the replacement heartbeat is ACTIVE for 20:00/07:00 with meaningful impact reporting. App update and saved-field read-back confirmed the exact prompt, schedule, task and successful-result unmute at 17:44 UTC; actual paired execution/delivery remain unobserved. Activation/read-back and observed delivery are distinct steps. Continue current ledger/cursor/queue state durably instead of restarting from a pinned old snapshot. The new worktree needed index materialization before its scripts existed; this was initialization, not a product regression. A receiving assessment accepted a narrow extension and a no-change disposition without claiming a textbook correction.
+- **Source breadth and backlog follow-up:** The recurring roster lacked independent reporting/public-record/research/civil-society routes; six desks now bind eight distinct daily routes and a guard rejects missing, expired, parked and provider-only coverage claims. It reports research completion as false. August 31's omitted full edition now has all 20 dispositions and its exact cursor in the same change; September 4 original-source fidelity and podcast URL mappings remain held. Broad discovery is improved, not certified comprehensive.
+- **Route-review correction:** Independent review found two additional objective failures: a forged research-completion field and impossible source-validity dates were accepted. The added regressions first failed; the corrected guard now rejects both while retaining its narrow routing-only result. Prevention: validate the input authority boundary and real calendar dates, not just the output label or a parseable date. This is a local mechanical repair, not a source-quality review.
+- **Learning delivery follow-up:** The raw log is active, but this checkout omitted 32 historical IDs and its old editorial queue did not contain recent learning. Those 32 IDs were recovered verbatim without changing the source; shared divergent IDs and old duplicate headings remain explicit. The existing service-bank preparer also rejected `behind_build` even though the reader accepted it. A failing legitimate-candidate test exposed the defect; the optional-type repair passes while forged entries stay rejected and no ninth daily gap is invented. Logging, editorial selection and public admission are distinct states.
+- **Cross-site handoff follow-up:** The freshness automation read the evolving iCloud inbox while the two September 5 NewsStand signals lived only in the committed execution checkout. Its existing prompt now reads the producer inbox/source paths and requires ID-keyed owner reconciliation, with saved fields verified and schedule/target preserved. This repairs the configured input path; receiving execution/import remains unobserved. Never equate a local “shared inbox” filename with actual delivery.
+- **Old-idea follow-up:** The backlog said no masterclass lesson was scripted although Lesson 4 had a full tracked local script. Current status was reconciled from the artifact; no film/admission/public result is inferred. Recommendation is one existing Behind the Build draft, then the lesson and a small approved memory-hook pilot, with other product ideas checked for duplication first. A paused broad dispatcher does not mean all background reviews or separate user tasks are idle.
+- **Crash checkpoint:** The interruption occurred after focused tests but before commit. All 19 owned changed paths and both saved automation configurations survived. Focused route/service/selector suites passed again; the actual source selection retained one pending edition and five podcast coverage gaps. The normal whole-site commit hook failed on sparse-excluded unrelated assets/check dependencies; its explicit bypass was used for the internal-only commit, with no public gate or test claim waived. Prevention: preserve and commit bounded completed work before expanding into another lane; distinguish recoverable working files from a committed checkpoint.
 - **Possible Behind the Build angle:** Why an automated newspaper can pass every checklist and still leave its reader asking, 'But what does that actually mean?' Companion angles: a source can look up to date while its newest episode is somewhere else; and research is not reused until its evidence changes the right decision or reaches the right reader.
 
 ## BTB-499 — A complete old AIDB ledger can still look unprocessed when the cursor forgets it
@@ -14938,3 +14944,854 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** `scripts/test-newsstand-service-continuity.mjs` now filters fixture stories to `publishedAt <= prior.editionDate`; the test first failed with Astra present and then passed with the bounded historical registry.
 - **Possible Behind the Build angle:** Why a correct new story made yesterday's newspaper test fail—and what that taught us about testing time-dependent systems.
 - **Publication status:** TEST REPAIR INCLUDED WITH PUBLICLY VERIFIED NEWSSTAND RELEASE `160d9309-425d-4cdb-ac19-40a614fe7890`; the test change itself does not alter visitor output.
+
+
+## September 5 recovery of omitted historical learning
+
+These 32 entries were absent from the recurring execution checkout and are
+recovered verbatim from the preserved Website-homepage log, SHA-256
+`167ff1d0dcfa866d8a8a218ae0f559eb47825e98c848733b46a247a3e9d79282`. Existing entries and the source were not
+overwritten. Historical observations do not override current decisions or
+establish fresh approval. Shared-entry differences and legacy duplicate IDs
+remain unreconciled; cross-chat completeness is not certified.
+
+## BTB-421 — A `CLEAR` summary contradicted the source page it cited
+
+- **Date:** 2026-08-06
+- **Area:** NewsStand radar / release discovery / quiet-result validation.
+- **Failure:** The general news lane reported Google's and DeepMind's official
+  indexes as quiet even though the current DeepMind index contained an August 6
+  WeatherNext Cyclones release. A separate foreground source read recovered the
+  qualifying story. This was not an omitted-index failure: the evidence and the
+  lane's conclusion contradicted each other.
+- **Prevention rule:** Before accepting `CLEAR`, enumerate every current-day or
+  post-cutoff entry on each official index actually retrieved, including
+  research/science publications, and reconcile the enumeration against the
+  written verdict. A cited page containing a qualifying-date item makes
+  `CLEAR` fail closed until that item is scored.
+- **Why the correction works:** The check tests the lane's conclusion against
+  the evidence already in hand, so a missed item cannot hide behind a broad
+  “nothing new” summary. It complements BTB-405's exact-source search rule.
+- **Machine/durable evidence:** `operations/newsstand-editorial-radar.md`;
+  `operations/newsstand-radar-log.md`; private WeatherNext packet at
+  `operations/drafts/news-radar/2026-08-06-weathernext-cyclones-open-source/`.
+- **Possible Behind the Build angle:** “No news” is a claim too: the source list
+  should be able to reject it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — private candidate held;
+  no public change.
+
+## BTB-422 — Localized visual fixes must not re-render protected subjects
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY masthead, compact shelf and catalogue grammar.
+- **Failure:** A whole-image masthead edit changed Miss Jeeves into a blotchy,
+  over-rendered successor while trying to replace one set of bookcases. A
+  stitched compact case then duplicated its centre upright, mismatched its
+  metal texture and still appeared to float. The catalogue also contradicted
+  the established rounded Miss Jeeves grammar. A later attempt repeated the
+  whole-image failure and invented “PLEASE REWIND YOUR FLOPPY” plus a checkout
+  card as wall décor; neither made sense in the room. The shelf-position guard
+  then preserved bounding-box contact while the foreground rail still covered
+  the bottom of the book art, making the books look as if they had fallen
+  behind it.
+- **Prevention rule:** Preserve named people and accepted scene areas during an
+  object edit; reject any successor that changes them. Build a capacity variant
+  from one intact shelf source, crop only transparent padding, and anchor its
+  visible base to the room floor. When Ali selects a component grammar, apply it
+  to the related working surface and encode that decision in the known-failure
+  validator. Shelf contact is judged on visible cover art, not only the image
+  element's bounding box: keep the complete cover above the front lip and allow
+  only its shadow to sit behind the rail.
+- **Why the correction works:** The rejected v7, hand-inked replacement and v8
+  generated edits are no longer used. The page is back on the earlier v5 room
+  while a genuinely clean character source is resolved; no false visual PASS
+  is claimed. The compact case is a
+  single clean two-bay source with one centre upright and two occupied rows,
+  seated at the floor line. Collection guides and controls use rounded panels,
+  the catalogue eyebrow is a coloured pill, and every guide links to its exact
+  shelf.
+- **Machine/durable evidence:** `library.html`;
+  `assets/building-interiors/library-interior-purple-sign-wall-v5.png`;
+  `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/library-decisions.md`.
+- **Possible Behind the Build angle:** A small image edit needs a preservation
+  boundary, or “fix the shelf” quietly becomes “replace the librarian.”
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-423 — Adjacent page sections need distinct colour jobs
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY reference desk, catalogue controls and Tools room.
+- **Failure:** The reference desk and catalogue repeated similar blue-led
+  surfaces, the Closet copy sat loosely inside an undersized pill, and alpha
+  padding under the three-bay case made Tools appear to float while the compact
+  cases looked grounded.
+- **Prevention rule:** Give adjacent major sections different lead-colour jobs,
+  use real approved comic assets at supporting opacity behind protected reading
+  zones, centre multi-line control copy as one internal group, and calculate
+  floor contact from visible alpha bounds rather than the source canvas edge.
+- **Why the correction works:** Miss Jeeves now uses a vivid pink → purple →
+  blue gradient with the approved Episode 01 comic field; working text stays on
+  high-contrast cream or uses cream lettering. My Closet has a centred 76px
+  internal text group. The non-compact three-bay case compensates for its 49px
+  transparent lower margin so its visible feet meet the carpet.
+- **Machine/durable evidence:** `library.html`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/library-decisions.md`; `operations/ACTIVE-WORK.md`.
+- **Possible Behind the Build angle:** CSS positions transparent rectangles;
+  people see the visible object. Grounding needs to measure the latter.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+### BTB-424 — Whole-room recovery assets preserved rejected defects and coupled unrelated visual systems
+
+- **Date:** 2026-08-06
+- **Surface:** LIBRAiRY masthead and physical collection rooms
+- **Issue:** Restoring an older whole-room masthead to escape one failed generated edit silently restored other defects Ali had already rejected, while one colour overlay recoloured both wall and carpet. Shelf rail geometry was also judged from element boxes rather than visible cover pixels.
+- **Root cause:** The implementation treated the room, character, furniture, signage, wall colour and carpet as one asset/system. A local repair therefore changed or revived unrelated visual decisions.
+- **Prevention rule:** Keep the masthead source rejection list fail-closed; never use a whole-room rerender for a localized object correction; compose collection wall and shared carpet as separate layers; and verify shelf contact from the rendered pixels at desktop and mobile rather than DOM bounds.
+- **Follow-up correction:** Localized props still have to obey scene logic. The printer sign now sits beside the printer, the floating scanner overlay is removed, the empty Closet control is suppressed, and mobile carpet height is mechanically capped to the floor zone so it cannot climb behind the lower books.
+- **Behind the Build angle:** Why seemingly small AI-image fixes keep changing faces, furniture and rooms—and how separating visual layers prevents regressions.
+
+## BTB-425 — A size-contract marker passed while the rendered books stayed tiny
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY physical shelves and design-review admission
+- **Failure:** The maker preflight treated `BOOK_VISIBLE_SIZE_CONTRACT` and a
+  `data-visible-scale` attribute as proof of large covers. The exact mobile
+  render still reduced the real cover art to unreadable thumbnails, while the
+  desktop cases remained visibly sparse. The marker described the rule but did
+  not prove the layout satisfied it.
+- **Prevention rule:** A visible-size contract must bind to enforceable layout
+  geometry or a rendered measurement. For the Library, mobile shelf rows must
+  preserve at least one 120px visible-book dimension before the candidate can
+  pass the known-failure preflight or enter independent review. A prose marker
+  or claimed scale is insufficient. A producer may not lower an acceptance
+  threshold or rewrite its calibrated negative fixture to admit its own
+  candidate; any threshold change requires independent Control Room approval
+  and forward-testing against the exact known-bad artifact.
+- **Why the correction works:** The calibrated known-failure checker now rejects
+  a mobile shelf without the 120px row floor, and the exact current candidate is
+  kept internal rather than consuming Ali's review time.
+- **Machine/durable evidence:** `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/design-qa/library-shelf-contact-20260806/independent-brand-visual-review.md`.
+- **Possible Behind the Build angle:** A label saying “large” cannot make a
+  thumbnail readable; verify the pixels a visitor actually sees.
+- **Publication status:** INTERNAL REPAIR REQUIRED — no deploy or public change.
+
+## BTB-426 — A preview is not a readable book
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY opening-book content and reader.
+- **Failure:** Four covers and previews existed, but the compiled admission map
+  contained zero full books. The UI therefore showed plausible catalogue copy
+  while the reader correctly refused to fetch anything. The rejected Concepts
+  draft also reduced a connected system to a few isolated definitions.
+- **Prevention rule:** Treat the visitor outcome as one bound chain: complete
+  canonical source → rendered book → claim/freshness record → independent
+  instructional and unfamiliar-reader verdicts → exact admission manifest →
+  compiled reader record → cover-to-preview-to-full-book browser test. A
+  catalogue card, preview or file on disk is not completion.
+- **Why the correction works:** The four opening books now have exact admitted
+  hashes and distinct teaching jobs. Concepts uses one recurring case and one
+  causal model; Accounts follows one real decision through every check. The
+  focused browser test opens all four full artifacts, while calibrated negative
+  fixtures still reject the old Concepts hash and incomplete evidence.
+- **Machine/durable evidence:**
+  `operations/product-stewards/library/OPENING-SET-LOCAL-ADMISSION-2026-08-06.md`;
+  `content/library-books/admission-manifest.json`;
+  `scripts/test-library-opening-books.cjs`.
+- **Possible Behind the Build angle:** Why a convincing book cover and preview
+  can hide an empty reading system—and how testing the reader's whole journey
+  prevents it.
+- **Publication status:** ADMITTED LOCALLY / NOT DEPLOYED / NOT PUBLICLY VERIFIED.
+
+## BTB-427 — The shelf-contact test preserved the buried-book defect
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY physical shelf composition.
+- **Failure:** The desktop contact assertion encoded the earlier low cover
+  position, so a cover could satisfy the test while its artwork still appeared
+  to have fallen behind the front rail. The mobile compact rows also shared a
+  geometry that forced large covers to overlap each other and the case frame.
+- **Prevention rule:** Calibrate shelf geometry against the visible case rail,
+  cover artwork and same-viewport source/candidate comparison—not a historical
+  percentage alone. The rail may overlap a shadow, never the cover artwork;
+  the carpet layer ends beneath the case instead of rising into the wall gap.
+- **Why the correction works:** The cover translation, compact-row geometry and
+  wall/floor crop are now bound to calibrated negative fixtures. A deliberately
+  floating first row is rejected, and desktop plus 390 px browser renders were
+  inspected with zero horizontal overflow or console errors.
+- **Machine/durable evidence:** `library.html`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `scripts/test-library-product.cjs`; `design-qa.md`.
+- **Possible Behind the Build angle:** A geometry test can faithfully protect
+  the wrong picture; compare the real pixels before ratcheting the number.
+- **Publication status:** INTERNAL REPAIR REQUIRED / NOT DEPLOYED / NOT PUBLICLY VERIFIED.
+- **Control Room correction:** Commit `e4476cb6` changed the compact row gate
+  from `120px` to `105px` and the actual compact cover width to `82px` while
+  preserving a failure message that still claimed `120px`. That maker verdict
+  is invalid. The locked threshold is restored and the exact candidate fails
+  closed before Ali review.
+
+## BTB-428 — Fixed phrases and self-authored PASS values admitted confusing books
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY substantial-book content admission.
+- **Failure:** Concepts 101 passed by preserving one six-section outline, one
+  causal sentence, one worked-case phrase and a fixed 17-term order even though
+  its canonical source was not the full rendered book and its contents used
+  internal drafting labels rather than a predictable concept route. The same
+  admission family passed Briefing 101 without a reader-job opening or contents,
+  Setup 101 without contents or exact continuations, and Accounts 101 without
+  contents or an actionable promised tool-card route.
+- **Root cause:** The compiler proved hashes and accepted literal criterion
+  `PASS` values; per-book validators protected phrases and counts. Neither
+  proved deterministic source-to-render derivation, source-block/section
+  parity, a labelled contents route, answer-predictive headings or an exact
+  continuation when promised.
+- **Prevention rule:** A substantial book may be admitted only from a complete
+  renderable canonical source through one deterministic renderer. The shared
+  gate must verify mandatory source/artifact metadata, section and contents
+  anchors, source-block/rendered-locator parity, claims/currentness/correction
+  binding and exact promised continuations. An independent unfamiliar-reader
+  judge decides whether the opening states the reader job and whether headings
+  predict the concepts/answers. Never encode one book's section, phrase,
+  analogy, case or vocabulary counts as the cross-book architecture.
+- **Required calibration:** The replacement gate must reject the four exact
+  observed-bad hashes plus synthetic outline-only, no-contents, internal-label,
+  hollow-section and vague-continuation fixtures before one proportional valid
+  fixture may pass. A temporary fixture removed Concepts' complete reader-route
+  list, replaced it with `Internal route placeholder`, updated the integrity
+  hash, and still received `CONCEPTS 101 CONTENT PASS` at SHA-256
+  `f03a2786…09e4`; this is the bound false-pass calibration case.
+- **Machine/durable evidence:**
+  `operations/product-stewards/learning-content-ecosystem/LIBRARY-BOOK-CONTENT-ADMISSION-FALSE-PASS-2026-08-06.md`;
+  `scripts/check-concepts-101-claims.mjs`;
+  `scripts/compile-library-admission.mjs`;
+  `content/library-books/concepts-101.source.json`;
+  `content/library-books/rendered/{concepts-101,briefing-101,setup-101,accounts-101}.html`.
+- **Possible Behind the Build angle:** A validator can faithfully preserve the
+  sentences that made a confusing book look compliant. Test the reader route
+  and the source-to-book chain, not the words your last draft happened to use.
+- **Successor correction:** Concepts 101 was rebuilt at exact SHA-256
+  `0ddddca4…352` around eleven connected families, one recurring case, matched
+  repairs and a 33-term quick reference. The calibrated book gate, independent
+  accuracy judgment and independent unfamiliar-reader judgment all pass. Its
+  reader now decorates only the 13 top-level sections with a quiet **Save
+  place** action instead of injecting 74 prominent section controls.
+- **Remaining system defect:** The refreshed architecture audit still finds
+  structural work in Briefing 101, Setup 101 and Accounts 101. Their older
+  admission records must not be presented as refreshed learning-standard proof.
+- **Publication status:** CONCEPTS 101 ADMITTED LOCALLY / NOT DEPLOYED / NOT
+  PUBLICLY VERIFIED; remaining opening-book repairs and the separate Library
+  visual lane remain open.
+
+## BTB-429 — A source radar was mistaken for a curriculum review
+
+- **Date:** 2026-08-06
+- **Area:** Idea Inbox, AIDB source intelligence and Learning curriculum intake.
+- **Failure:** Ali asked LAiDIES both to monitor trusted voices and to review
+  Stanford AI Lab/free reputable courses against current LAiDIES teaching. The
+  first routing pass preserved the links but collapsed both jobs into the AIDB
+  practitioner radar, then reported the request as handled without creating a
+  route for reviewing actual lessons or making curriculum decisions.
+- **Root cause:** The routing check deduplicated by subject/source instead of
+  decomposing the requested outcomes. “Find trustworthy inputs” and “evaluate
+  how complete courses teach, then change the curriculum where warranted” use
+  overlapping sources but have different accountable owners, evidence and
+  completion conditions.
+- **Prevention rule:** For every multi-part idea, enumerate the requested verbs
+  and completion evidence before deduplication. Discovery/monitoring belongs to
+  the source-intelligence owner; lesson review, coverage mapping and
+  `link/correct/update/extend/create/decline` decisions belong to Learning.
+  Never claim a research request is routed when the surviving work item can
+  only inventory or monitor sources.
+- **Durable correction:** `IIR-20260803-013` now retains the AIDB roster route
+  and separately links `WRK-20260806-trusted-free-ai-course-benchmark` plus
+  `operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-curriculum-benchmark-2026-08-06.md`.
+- **Possible Behind the Build angle:** Why two requests can share the same URLs
+  but still need different owners—and how outcome verbs prevent ideas from
+  disappearing during deduplication.
+- **Publication status:** INTERNAL OPERATING CORRECTION / NO CONTENT BUILT OR
+  PUBLISHED.
+
+## BTB-430 — A working reader path is not the same as book admission
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY overnight book-content production.
+- **Failure:** Earlier status language collapsed three different truths: a book
+  could open locally, pass an exact textual review, or be admitted. That made a
+  working preview-to-reader path sound like completed book admission and made
+  historical availability sound like proof against the refreshed learning
+  standard.
+- **Root cause:** The catalogue runtime, content judgments and admission
+  compiler use different evidence and acceptance owners, but reporting grouped
+  them under one word: ready.
+- **Prevention rule:** Every Library book reports three states separately:
+  `opens locally`, `exact content review`, and `admitted locally`. Publication
+  adds separate deploy and public-origin proof. A held book may open for review
+  without being available; an independent textual verdict may not substitute
+  for an observed participant study when the contract requires one.
+- **Durable correction:** The five-book runtime test now names each opened
+  reader; the manifest truth remains two admitted and three held; Control Room
+  receives exact hashes, acceptance owners, remaining proof and public/deploy
+  truth in one handoff.
+- **Possible Behind the Build angle:** Why “the button works” and “the book is
+  ready” are different claims—and how separating runtime, editorial and release
+  evidence prevents false completion.
+- **Publication status:** FIVE LOCAL READER JOURNEYS / TWO LOCALLY ADMITTED /
+  THREE HELD / NOT DEPLOYED / NOT PUBLICLY VERIFIED.
+
+## BTB-431 — Required content ingredients became an AI-slop recipe
+
+- **Date:** 2026-08-07
+- **Area:** Cross-surface learning-content quality.
+- **Failure:** AI Fundamentals 101 contained a meaning, bounded analogy,
+  real-life example and system relationship for each concept, yet the result
+  was a repetitive glossary that did not build one causal explanation or give
+  a newcomer a useful decision. The exact candidate passed its book-specific
+  checker. Classes and NewsStand have stronger written standards and are held,
+  but their automated gates likewise inspect labels or declarations rather
+  than whether prose teaches.
+- **Root cause:** Producers treated required ingredients as a repeated template,
+  and validators treated their presence plus self-authored `PASS` values as
+  reader evidence. The system rewarded formal completeness while missing
+  coherence, usefulness, transfer and earned LAiDIES voice.
+- **Prevention rule:** Structural checks may prove identity and completeness
+  only. A substantial teaching or explanatory artifact needs an independent,
+  artifact-first outcome showing that an unfamiliar reader can reconstruct the
+  causal mechanism, diagnose a failure, make a useful decision and transfer it
+  to a different case. The reviewer must reject the exact Fundamentals `.5`
+  chapter unaided even though every micro-field is present; each destination
+  owner then binds a separate medium-specific verdict.
+- **Durable correction:** The exact Library hash is rejected and held; the
+  shared Library gate is calibrated; Learning routed the same known-bad failure
+  family to Classes and NewsStand without commissioning or rewriting their
+  content.
+- **Machine/durable evidence:**
+  `operations/product-stewards/learning-content-ecosystem/CROSS-SURFACE-ANTI-SLOP-INCIDENT-2026-08-07.md`;
+  `content/library-books/rejected-artifacts.json`;
+  `scripts/test-library-book-content-admission.mjs`.
+- **Possible Behind the Build angle:** How a perfectly complete AI-generated
+  lesson can still teach nothing—and why reader transfer matters more than a
+  checklist full of green ticks.
+- **Publication status:** EXACT LIBRARY ARTIFACT HELD / CLASSES AND NEWSSTAND
+  RELEASE-HELD / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-432 — Review was asked to manufacture prose quality after generation
+
+- **Date:** 2026-08-07
+- **Area:** Cross-surface visitor-facing prose production.
+- **Failure:** LAiDIES had voice, teaching, accuracy and anti-slop standards,
+  but a producer could draft from a topic and repeated content scaffold, then
+  send the result to reviewers whose receipts and validators did not read the
+  exact prose. Review became a costly discovery loop instead of a secondary
+  safety net.
+- **Root cause:** The system specified desired output and final gates without a
+  mandatory pre-draft reader/teaching contract, bound good and bad exemplars,
+  exact-prose producer self-review or a dispatch block. Learning from rejection
+  lived in records that later producers were not mechanically required to use.
+- **Prevention rule:** Public meaning-bearing prose requires a valid producer
+  contract before dispatch, exact-prose producer review before independent
+  semantic admission, and surface-specific proof before release. Every
+  rejection updates the defect/exemplar registry and producer guard before a
+  successor. Repeated known defects and reviewer-first objective defects target
+  zero; issue counts and review cycles must decline.
+- **Durable correction:** D-2026-08-07-099; shared schemas, exemplar registry,
+  dispatch and release integration; CI calibration; standing AGENTS contract.
+- **Machine/durable evidence:**
+  `operations/product-stewards/learning-content-ecosystem/BUILD-PACKET-shared-prose-quality-ratchet-2026-08-07.md`;
+  `scripts/check-content-producer-contract.mjs`;
+  `scripts/check-prose-quality-admission.mjs`;
+  `scripts/test-content-producer-contract.mjs`;
+  `scripts/test-prose-quality-admission.mjs`.
+- **Possible Behind the Build angle:** Why the best editor cannot rescue a
+  prose-blind production system—and how one bad chapter changed what happens
+  before LAiDIES writes a word.
+- **Publication status:** SHARED GATE BUILT LOCALLY / ALL CURRENT ORDERS HELD /
+  NO CONTENT REWRITE, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-433 — Exact-prose receipts could approve different release bytes
+
+- **Date:** 2026-08-07
+- **Area:** Cross-surface prose identity and quality learning loop.
+- **Failure:** A clean draft, arbitrary manifest and different work-order
+  release artifact could each be hash-valid without matching. Producers and
+  reviewers consumed only the first negative exemplar; later learning could be
+  silently ignored. Reviewer independence, learner observation and sources
+  were also self-authored strings, and equal review cycles passed the ratchet.
+- **Root cause:** Each record was validated in isolation. No end-to-end identity
+  chain joined prose, render, manifest, maker review, independent review and
+  release. The mutable registry was version-labelled but not checksum-bound or
+  fully enumerated.
+- **Prevention rule:** Bind every stage to one content artifact manifest and
+  exact release work order. Bind the complete current rejection registry and
+  require every negative calibration. Bind reviewer principal/calibration,
+  learner observations and claim/source excerpts. Comparable review issues and
+  cycles must strictly decrease.
+- **Durable correction:** Content artifact manifest schema; registry SHA/all-
+  negatives validation; exact release-identity comparison and `--require-id`;
+  twelve-plus-one adversarial semantic rejection fixtures; repository-state
+  checks added to CI.
+- **Machine/durable evidence:**
+  `operations/product-stewards/learning-content-ecosystem/content-artifact-manifest.schema.json`;
+  `scripts/check-content-producer-contract.mjs`;
+  `scripts/check-prose-quality-admission.mjs`;
+  `scripts/check-content-release-readiness.mjs`.
+- **Possible Behind the Build angle:** Why five valid hashes can still describe
+  five different things—and how LAiDIES makes the words reviewed equal the
+  words released.
+- **Publication status:** SHARED GATE BUILT LOCALLY / ALL 17 ORDERS HELD / NO
+  CONTENT REWRITE, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-434 — A universal prose gate had no valid exemplar for practice
+
+- **Date:** 2026-08-07
+- **Area:** Blend & Snap Study Pack adoption of the shared prose-quality gate.
+- **Failure:** D-2026-08-07-099 correctly requires a valid producer contract
+  before every meaning-bearing surface can dispatch, but Try-On and Quiz prose
+  classify as `PRACTICE` and the shared positive-exemplar registry contains
+  no exemplar approved for that class. The gate is therefore fail-closed for
+  those components even when their route and interaction already exist.
+- **Root cause:** The shared contract enumerated more content classes than its
+  positive calibration set covered. Cross-surface policy was complete in
+  principle but destination adoption exposed an uncovered class.
+- **Prevention rule:** Before calling a shared gate active for a destination,
+  enumerate every destination content class and prove one eligible positive
+  and one relevant negative calibration path for each. Missing coverage is an
+  explicit shared-owner blocker; never reclassify a component to fit an
+  available exemplar.
+- **Durable correction:** Blend & Snap now binds separate
+  `EXPLANATION`, `REFERENCE`, `PRACTICE`, `INTERACTIVE` and
+  `MICROCOPY` contracts. Learning System added bounded `PRACTICE` use to
+  the Episode 01 positive exemplar and the shared calibration suite passes;
+  Try-On/Quiz still require their own future work orders and exact records.
+- **Machine/durable evidence:**
+  `operations/product-stewards/blend-snap/STUDY-PACK-PROSE-QUALITY-RATCHET-2026-08-07.md`;
+  `operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json`;
+  `scripts/check-content-producer-contract.mjs`.
+- **Possible Behind the Build angle:** A universal quality gate is not
+  universal until every kind of content has a real good example—and why
+  changing the label to make the test pass would teach the wrong lesson.
+- **Publication status:** STUDY PACK OWNER CONTRACT ADOPTED / NO COMPONENT WORK
+  ORDER OR PROSE ADMISSION / NO CONTENT, ROUTE, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-435 — Validators contradicted truth and their own calibration fixtures
+
+- **Date:** 2026-08-07
+- **Area:** SUNNYVAiLE High opening-day Classes.
+- **Failure:** The opening-day class catalogue correctly reported all three
+  classes as `HOLD`, but `check-opening-day-classes.mjs` still required the
+  manifest-wide status `BUILDING`. The truth-preserving catalogue therefore
+  failed while a less accurate status would have passed. During the same task,
+  shared prose validators gained stronger identity, registry-freshness,
+  independence and observation-binding requirements without updating their
+  valid calibration fixtures, regressing the claimed PASS.
+- **Root cause:** Validators and fixtures encoded earlier lifecycle/schema
+  assumptions instead of the current admission invariants.
+- **Prevention rule:** Status validators enforce the current fail-closed truth,
+  not a historical progress word. A held catalogue must pass integrity checks
+  while strict release readiness remains nonzero/held; test output must say
+  records are bounded and held, never imply the classes are complete.
+- **Durable correction:** The catalogue checker now requires `HOLD`, reports
+  three bounded held records and passes without changing any class admission.
+  Narration-package checks separately preserve each class-specific hold and the
+  new D-099 prose evidence requirements. The three shared prose calibration
+  tests now construct the strengthened registry, manifest, reviewer identity,
+  observation and exact-binding evidence and pass again.
+  The verified shared successor additionally binds explain-back/transfer
+  observations and maps every material candidate claim excerpt to the exact
+  supporting source excerpt before semantic admission.
+- **Machine/durable evidence:** `scripts/check-opening-day-classes.mjs`;
+  `scripts/check-opening-day-class-narration-packages.mjs`;
+  `operations/classes/opening-day-class-catalogue-2026-07-31.json`;
+  `scripts/test-content-producer-contract.mjs`;
+  `scripts/test-prose-quality-admission.mjs`;
+  `scripts/test-content-release-readiness.mjs`.
+- **Possible Behind the Build angle:** How a green test can demand the wrong
+  status—and why honest HOLD states need their own passing integrity checks.
+- **Publication status:** INTERNAL VALIDATOR CORRECTION / ALL CLASSES HELD / NO
+  NARRATION, DEPLOY OR PUBLIC CHANGE.
+
+### 2026-08-07 Platform health recurrence — a standalone HOLD check missed stale evidence identity
+
+- **Observed:** `check-opening-day-classes.mjs` passed the three bounded held
+  records, while the stricter whole-town gate reported the Classes readiness
+  schema missing. The ODC-101 status receipt still declared teaching-brief SHA
+  `8d7b8929…6651`; the current brief hashes `cfe62a8f…e4ad`. The strict gate
+  correctly rejected that stale binding.
+- **Strengthened prevention rule:** A product status checker may validate the
+  honest lifecycle word, but it cannot call the readiness record structurally
+  complete unless it also recomputes every bound evidence hash using the same
+  receipt semantics as the whole-town consumer. Product and portfolio gates
+  may apply different release thresholds; they must not disagree about
+  evidence identity.
+- **Exact next correction:** SUNNYVAiLE High Classes reseals the ODC-101 HOLD
+  receipt against the accepted current brief, then calibrates the standalone
+  checker with a stale-hash fixture before Control Room reruns the strict
+  whole-town gate. No class admission changes.
+- **Possible Behind the Build angle:** The class was honestly on hold; the
+  receipt was for yesterday's class.
+
+## BTB-436 — Visual rules existed, but no shared chain joined intent to pixels
+
+- **Date:** 2026-08-07
+- **Area:** Cross-surface image, animation and narration/text production.
+- **Failure:** LAiDIES already documented style, character, town, physics,
+  anatomy, period, text and narration-fit rules, yet they were split among art
+  prompts, episode briefs, motion checks, media manifests and building reviews.
+  A hash-valid image or clip could therefore be produced or described as
+  reviewed without one exact chain proving what it was meant to show, which
+  words it accompanied and what the rendered pixels actually contained. One
+  live producer instruction also contradicted the current visual lock by
+  requiring text to be rendered inside generated art.
+- **Root cause:** The system guarded fragments—reference presence, cue labels,
+  file identity, declared PASS values and loop mechanics—but did not require one
+  prevention-first visual contract plus exact-artifact semantic/physical review
+  across stills and motion.
+- **Prevention rule:** Before generation, bind destination style/location,
+  companion text/narration, visual job, canon identity, era/wardrobe/props,
+  physical relationships, semantic object map, deterministic text plan, motion
+  class and the complete current visual rejection registry. Maker and then a
+  role-distinct judge inspect the same exact pixels; motion also binds decoded
+  final-occurrence timing and continuity. Prompts, filenames, hashes and
+  boolean receipts cannot prove what pixels depict.
+- **Durable correction:** D-2026-08-07-101; shared visual registry, producer
+  contract, exact-pixel review, sixteen-category media failure corpus, CI
+  calibration, corrected art requirements/batch builder and standing skill/
+  AGENTS rule.
+- **Machine/durable evidence:**
+  `operations/product-stewards/learning-content-ecosystem/BUILD-PACKET-shared-visual-media-quality-ratchet-2026-08-07.md`;
+  `scripts/check-visual-media-producer-contract.mjs`;
+  `scripts/check-visual-media-admission.mjs`;
+  `operations/evals/media-defect-fixtures.json`.
+- **Possible Behind the Build angle:** Why a perfect prompt and a valid video
+  file still cannot tell you whether a laptop opens backwards—or whether the
+  picture teaches the same thing as the sentence.
+- **Publication status:** SHARED GATE BUILT LOCALLY / SURFACE RELEASE ADOPTION
+  OPEN / NO IMAGE, ANIMATION, NARRATION, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-437 — Official-source sweeps missed material reporting on active NewsStand stories
+
+- **Date:** 2026-08-07
+- **Area:** NewsStand radar / active-story freshness / negative-result proof.
+- **Failure:** The August 4–6 radar correctly enumerated official company and
+  government sources but still missed two material reports already inside its
+  active identities: the reported exclusion of open-weight models from the
+  unpublished U.S. cyber-testing framework and Virginia's new dedicated-
+  transmission tariff order. Later `CLEAR` language therefore overstated what
+  the sweep had ruled out.
+- **Root cause:** The fail-closed discovery guard covered official index entries
+  and candidate-specific primary disclosures, but it did not require a dated
+  independent-reporting recheck for every active P0/P1 identity. Unpublished
+  frameworks and regulator orders can appear first in strong reporting and are
+  invisible to an official-index-only negative result.
+- **Prevention rule:** Before `CLEAR`, reopen the strongest independent route for
+  every active P0/P1 story and search by exact actors, mechanism and operative
+  policy/product term since the last check. If credible reporting materially
+  changes the story but the primary record is unavailable, record a source-held
+  material update; do not silently discard it or promote it as settled fact.
+- **Durable correction:** `operations/newsstand-editorial-radar.md` and
+  `operations/DECISIONS.md` now bind this independent freshness lane. The August
+  7 radar merged both recovered reports into their existing held identities and
+  commissioned no reviewer cycle while the decisive primary records remain
+  missing.
+- **Possible Behind the Build angle:** Why “we checked the official pages” is
+  not enough when the thing being reported is still behind closed doors.
+- **Publication status:** VERIFIED INTERNAL LEARNING — PRIVATE STORIES REMAIN
+  HELD / NO CANONICAL EDIT, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-438 — A clean prose review can be invalidated by one broad repository search
+
+- **Date:** 2026-08-07
+- **Area:** Library substantial-book production / independent semantic admission.
+- **Failure:** The first artifact-first reader correctly explained and transferred the AI Fundamentals v2 pilot, but a later broad repository search exposed producer-review metadata before the final verdict. The reviewer truthfully returned HOLD even though the prose outcomes passed.
+- **Root cause:** “Artifact first” was specified as an ordering rule but the reviewer lane still had broad repository discovery available. The independence contract did not make its read set narrow enough to prove that maker reasoning stayed out of the final judgment.
+- **Prevention rule:** Give independent semantic reviewers an exact read allowlist, forbid broad search and directory discovery, bind their isolation attestation, and use a fresh principal when contamination occurs. Do not repair a contaminated review by editing its verdict.
+- **Durable correction:** The replacement reviewer used only the exact prose, registered exemplars, claim evidence, manifest, contract and checker in the specified order. The exact successor review now passes with `quality_authority=INDEPENDENT_REVIEW`; the contaminated HOLD remains preserved as evidence.
+- **Additional prevention caught before drafting:** Recompute every canonical-source hash in the producer contract immediately before prose production. This task stopped on a stale Learning-standard binding, rebound it and revalidated `READY_TO_DRAFT` before writing.
+- **Possible Behind the Build angle:** Why a reviewer can understand the lesson perfectly and still be disqualified from approving it.
+- **Publication status:** REPRESENTATIVE PROSE VERIFIED LOCALLY / FULL BOOK AND LIBRARY ROUTE STILL HOLD / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-439 — A coherent worked example can still turn into the wrong book
+
+- **Date:** 2026-08-07
+- **Area:** Library substantial-book production / foundational teaching purpose.
+- **Failure:** An accurate, connected AI Fundamentals pilot passed local prose and unfamiliar-reader checks but made a job-offer analysis and system diagnosis the reason for the book. It answered a narrower question than the book exists to answer and reached Ali as an approved direction.
+- **Root cause:** The producer contract began with mechanism and a consequential worked case instead of the durable reader change: practical and civic AI literacy across work, home and public discussion. The reviewer tested whether the case taught its mechanism, but not whether that case had overtaken the product purpose.
+- **Prevention rule:** A foundational explanation must state why the knowledge matters before teaching mechanism. Its contract must bind the cross-context reader payoff, and no single worked example may become the product identity. Independent review must test purpose explain-back plus transfer across personal use and public or workplace claims.
+- **Durable correction:** The locked AI Fundamentals purpose row in `operations/DECISIONS.md` and `CQX-BAD-002` preserve the exact rejected SHA as calibration-only, invalidate stale producer/reviewer records and require successors to reject purpose-too-narrow, mechanism-before-motivation, worked-example-overtakes-purpose and technical-explainer-voice defects.
+- **Possible Behind the Build angle:** A technically sound chapter can still be the wrong book.
+- **Publication status:** PURPOSE-LED REPRESENTATIVE PROSE VERIFIED LOCALLY / COMPLETE BOOK AND LIBRARY ROUTE HOLD / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-440 — A mobile teaching diagram is a recomposition, not a shrunken desktop diagram
+
+- **Date:** 2026-08-07
+- **Area:** Library substantial-book visuals / responsive teaching graphics.
+- **Failure:** The first responsive pass scaled desktop diagrams into narrow viewports and reused one generic arrow treatment for lists, alternatives, optional information paths and a true loop. Labels became hard to read and some connectors falsely implied sequence. A headless screenshot command also changed the outer window without proving the browser's real CSS viewport.
+- **Root cause:** Responsive production was treated as geometry scaling, and the diagram generator treated every relationship as the same visual grammar. Evidence recorded a requested window size instead of the actual reader viewport and overflow state.
+- **Prevention rule:** Produce a dedicated mobile composition for every substantial teaching figure; choose connectors by meaning—sequence, alternative, optional supply, interaction or loop—and never introduce a relationship merely to fit the layout. Verify `innerWidth`, `scrollWidth`, selected responsive source and intended-size legibility in a real browser before maker review.
+- **Durable correction:** AI Fundamentals now has seven desktop and seven mobile SVGs, relationship-specific connectors, deterministic accessible text and exact browser evidence at 390, 500, 1000 and 1400 CSS pixels. The visual layer remains held for a role-distinct exact-pixel judgment.
+- **Possible Behind the Build angle:** Responsive diagrams are not smaller diagrams.
+- **Publication status:** MAKER-VERIFIED LOCALLY / INDEPENDENT VISUAL ADMISSION PENDING / NO LIBRARY PAGE, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-441 — A sampled concept-index check can hide broken lookup routes
+
+- **Date:** 2026-08-07
+- **Area:** Library substantial-book reader / direct concept lookup.
+- **Failure:** Token, MCP and AGI lookup worked, but four differently worded
+  Concept Index entries had no link even though the book's sampled cold-reader
+  lookup appeared sound.
+- **Root cause:** The renderer recognized the common `See Chapter N` wording but
+  not custom targets or multi-chapter syntax. The first lookup test sampled
+  representative terms instead of comparing every index entry with a real
+  destination.
+- **Prevention rule:** A substantial-book index must be checked exhaustively:
+  every displayed term must carry a destination and every destination must
+  resolve in the exact final reader. Any later render-byte change invalidates
+  the earlier reader verdict until the exact successor is reconfirmed.
+- **Durable correction:** The four missing routes were repaired. The exact final
+  reader now has 79 internal links, zero missing anchors and a renewed
+  unfamiliar-reader PASS on the final SHA.
+- **Possible Behind the Build angle:** Why three successful searches do not
+  prove an index works.
+- **Publication status:** EXACT LOCAL DRAFT VERIFIED / NOT ADMITTED TO LIBRARY /
+  NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-442 — Clear prose is not automatically LAiDIES prose
+
+- **Date:** 2026-08-07
+- **Area:** Library substantial-book editorial voice / owner review admission.
+- **Failure:** AI Fundamentals v2 passed architecture, factual, unfamiliar-
+  reader and visual review, then reached Ali with a generic learning-module
+  introduction and vague chapter labels. Sentences such as “That understanding
+  changes practical things” were grammatical but performed no teaching,
+  recognition, sharpening, movement, joke or next-step job.
+- **Root cause:** Reviewers treated clarity and successful explain-back as a
+  proxy for voice. The `laidiesVoice` judgment was not forced to compare the
+  exact prose with Episode 1, apply the Paragraph Test line by line or reject
+  headings that described a theme without naming what the reader would learn.
+- **Prevention rule:** Substantial LAiDIES prose needs a separate artifact-first
+  editorial verdict after factual and learning checks. The editor must compare
+  exact bytes with Episode 1, disposition every paragraph under the Paragraph
+  Test, and reject any heading that a reader must decode before opening the
+  section. Jokes and references cannot rescue generic scaffolding.
+- **Durable correction:** The earlier exact receipt is invalidated and its
+  stale prose review now fails on hash mismatch. The replacement introduction
+  was written in direct smartest-friend register; an independent editorial pass
+  held its generic first subtitle, which was repaired before the current local
+  build. The rest of the book remains held until it receives the same treatment.
+- **Possible Behind the Build angle:** A reader can understand every sentence
+  and still know it was written by a committee—or a chatbot.
+- **Publication status:** RETURNED TO REWRITE / INTRODUCTION REPLACED LOCALLY /
+  LATER CHAPTERS HELD / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-443 — Civic AI literacy fails when the book starts at the chat box
+
+- **Date:** 2026-08-07
+- **Area:** AI Fundamentals architecture / Library and Tribune relationship.
+- **Failure:** Successive drafts explained the visible product, prompt, context,
+  model and output while treating chips, data centres, energy, labour, markets
+  and policy as separate or later material. Readers could diagnose a chatbot
+  answer but could not connect an AI headline to the physical system, economic
+  incentives or public choice underneath it.
+- **Root cause:** The architecture began at the reader interface and mistook a
+  useful product-use map for the complete AI system. Consequences were treated
+  as applications of technical knowledge instead of causal effects produced by
+  the same chain.
+- **Prevention rule:** Foundational AI teaching must follow one connected loop:
+  physical resources and labour → training → model use → product and deployment
+  → institutional and market effects → public rules and investment → what gets
+  built next. Every layer teaches its mechanism, real-life interaction,
+  observable consequences, unsettled evidence and remaining public choices.
+  Product screenshots must be framed as dated examples, not universal
+  mechanisms; volatile debate belongs in a linked Tribune companion supported
+  by primary records, with AIDB used only for discovery.
+- **Durable correction:** `operations/DECISIONS.md` now binds the integrated book
+  and Tribune roles. The current local draft adds the physical-system chapter,
+  full-system introduction, tokenization walkthrough, official OpenAI example
+  screenshots and `tribune-companion-map.md`.
+- **Possible Behind the Build angle:** The chat box is the last stop, not the
+  whole AI story.
+- **Publication status:** BUILDING / HOLD / LOCAL DRAFT ONLY / NO DEPLOY OR
+  PUBLIC CHANGE.
+
+## BTB-444 — An external architecture review should not begin with a repository dump
+
+- **Date:** 2026-08-07
+- **Area:** Multi-agent operating model / context engineering and external review.
+- **Failure risk:** Sending every LAiDIES operations, evidence and historical file to another model would reproduce the system's current problem: duplicated authority, stale records, private operational detail and high input-token cost before the reviewer reaches the actual architecture question.
+- **Root cause:** “Complete context” was being treated as “all available context” instead of the smallest authoritative evidence set required to test authority, execution, enforcement, learning and release truth.
+- **Prevention rule:** External system reviews use a layered packet: current authority first, executable implementation second, one exact failure case third and optional history last. Dynamic/private state is summarized or redacted; every included file must change an architecture decision or verify a claim.
+- **Durable correction:** `operations/external-review/fable-5-laidies-operating-model-2026-08-07/` contains a 78-source snapshot, mission/product/voice brief, system map, current-capability snapshot, storage/archive/tooling question, version-bound AWS Agent Toolkit integration note, source index, research brief, scope boundary and SHA-256 manifest. The reviewer must prove it understands the reader, product promise, SUNNYVAiLE/Rewind Era purpose, voice and founder-authority boundary before redesigning the machinery. It explicitly optimizes website recovery and post-launch publishing, requires a KEEP/MERGE/MOVE/DELETE/BUILD verdict, and may recommend a third-party product only against an existing/no-purchase alternative, current cost, privacy, lock-in, exit plan and measurable trial. An external setup may not overwrite LAiDIES' root authority: AWS Toolkit adoption requires an isolated rules-collision test, least-privilege agent identity, spend controls and an explicit install/pilot/hold verdict.
+- **Possible Behind the Build angle:** More context is not better context: how to brief a model on a large operating system without drowning it.
+- **Publication status:** INTERNAL REVIEW PACKET BUILT LOCALLY / NOT EXTERNALLY REVIEWED / NO PUBLIC CHANGE.
+
+## BTB-445 — A career-tip bank cannot learn from one creator or from the algorithm
+
+- **Date:** 2026-08-07
+- **Area:** Learning Content Ecosystem / Career and Work-Life Tip sourcing.
+- **Failure risk:** A bank seeded from one named creator, or from whatever an
+  Instagram feed happens to surface, will repeat the same kinds of advice and
+  mistake social performance for usefulness, authority or fit for LAiDIES.
+- **Root cause:** Idea generation and evidence acquisition were not separated.
+  The existing thirty-item bank contained useful internal seeds, but no durable
+  multi-source acquisition roster or explicit social-discovery boundary.
+- **Prevention rule:** Maintain a varied expert roster whose sources cover
+  distinct reader jobs. Treat Instagram as read-only discovery: preserve the
+  exact creator, URL, date and claim; locate the creator's original or
+  institutional work; verify consequential claims; identify the reader job;
+  add an AI connection only when it earns its place; and write original LAiDIES
+  teaching rather than copying or imitating the source.
+- **Durable correction:**
+  `operations/product-stewards/learning-content-ecosystem/CAREER-TIP-SOURCE-ROSTER.md`
+  now binds twelve complementary expert sources, two scout accounts, coverage
+  requirements and rights/account boundaries. The existing work-life seed bank
+  links to that source-acquisition rule and remains explicitly unverified and
+  unpublished.
+- **Possible Behind the Build angle:** Why a viral career reel is a lead, not a
+  lesson—and how to turn inspiration into reliable original teaching.
+- **Publication status:** INTERNAL SCOUTING SYSTEM ONLY / NO PUBLIC CONTENT /
+  NO INSTAGRAM ACCOUNT ACTION / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-446 — Recoverable history must not compete with active authority in routine search
+
+- **Date:** 2026-08-07
+- **Area:** Repository context engineering / archive and supersession boundary.
+- **Failure risk:** Routine repository searches were loading the stranded legacy
+  `Website/` tree, rejected candidates, backups, superseded artifacts and
+  external-review source snapshots beside current authority. Preserving history
+  therefore increased token use and made stale instructions look current.
+- **Root cause:** Git and folder labels preserved lifecycle truth, but ordinary
+  discovery had no executable active-context boundary.
+- **Prevention rule:** Keep historical evidence recoverable, but exclude known
+  archive, rejected, backup, superseded and snapshot paths from routine search.
+  Historical recovery uses an explicit path or `rg -uuu`; current work uses the
+  canonical `Website-homepage/` tree and its routed authority.
+- **Durable correction:** Root `.ignore` excludes the legacy `Website/`, output
+  and temporary trees from parent-level discovery. `Website-homepage/.rgignore`
+  excludes known historical lifecycle paths inside the active repository.
+  Calibration finds zero such paths in routine `rg --files` while explicit
+  unrestricted search still finds 88 retained historical files in the tested
+  archive/rejection/snapshot set.
+- **Possible Behind the Build angle:** Archiving is not enough if every AI search
+  still reads the archive.
+- **Publication status:** INTERNAL SEARCH-BOUNDARY REPAIR ONLY / NO FILES
+  DELETED OR MOVED / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-447 — A global audit at every exit can stop the owner who needs to repair the failure
+
+- **Date:** 2026-08-07
+- **Area:** Operating-model enforcement / owner entry and truthful status.
+- **Failure:** Library owner entry and every routine turn completion were blocked by unrelated expired derivatives, overdue work in other products and historical portfolio records. The global check preserved real defects, but running it at every scoped entry/exit turned old debt into a universal stop and encouraged procedural work instead of repair.
+- **Root cause:** Whole-portfolio integrity, scoped owner readiness and current-turn status were treated as one question. A handwritten status mirror was also asked to carry authority that belonged in events.
+- **Prevention rule:** Keep the full audit fail-closed and explicit, but make targeted owner entry enforce the claimed lane while reporting unrelated debt separately. Stop validates only the append-only event log and generated current projection. A scoped PASS must never be presented as a whole-system PASS.
+- **Durable correction:** targeted Library entry now passes while naming five unrelated attention items; an unknown owner still fails. The Stop hook rejects stale or hand-edited projection bytes. Both runtime configuration layers now cap work at two concurrent lanes instead of multiplying reconciliation debt. The explicit operational audit still fails on the exact historical/overdue records and the locked 120px Library shelf defect.
+- **Possible Behind the Build angle:** The difference between a safety check that protects the work and one that prevents anyone from reaching it.
+- **Publication status:** INTERNAL OPERATING-MODEL REPAIR ONLY / NO LIBRARY PAGE OR CONTENT CHANGE / NO DEPLOY OR PUBLIC CHANGE.
+
+## BTB-448 — A recommendation summary cannot prove the recommendation was implemented
+
+- **Date:** 2026-08-08
+- **Area:** External operating-model review / implementation reconciliation.
+- **Failure:** Local status said the Fable recommendations were implemented before the actual 1,020-line report was present in the repository implementation lane. The packet summary hid concrete requirements for five Review Door classes, a checked handoff shape, task budgets, event metrics and an executable parity condition.
+- **Root cause:** Implementation was checked against a derivative summary rather than the exact authoritative report bytes. A future-dated cleanup condition—“two weeks of parity”—had no checker, so it could have become a calendar claim instead of evidence.
+- **Prevention rule:** Bind an external review by exact path and SHA before implementation. Build a recommendation crosswalk from the original artifact, and turn every timed retirement condition into an executable prerequisite before calling the local work complete. Missing event coverage is unavailable, never zero.
+- **Durable correction:** D-2026-08-08-102 binds the actual report SHA. Five missing controls and their negative calibrations now exist; the live parity checker names 14 unmigrated active work IDs and blocks cleanup. Review Door truth now distinguishes managed-entry enforcement from manual OS `file://` access.
+- **Possible Behind the Build angle:** Why “we implemented the review” is not evidence until the original review and every retirement condition are machine-checkable.
+- **Publication status:** INTERNAL OPERATING-MODEL CORRECTION ONLY / NO VISITOR-FACING OR PUBLIC CHANGE.
+
+## BTB-449 — Legacy migration snapshots are coverage evidence, not live WIP
+
+- **Date:** 2026-08-08
+- **Area:** Event-derived work projection / parity migration.
+- **Failure:** Migrating 14 active legacy IDs made the WIP checker report 15 active lanes against a limit of two and polluted WIP-age metrics, even though the 14 imported rows were historical coverage snapshots rather than newly dispatched execution.
+- **Root cause:** The first event consumers treated every non-terminal `WORK_ADMITTED` projection alike and did not distinguish a `legacy_migration_snapshot` from a live lane.
+- **Prevention rule:** Preserve legacy status in append-only snapshot evidence, but exclude the explicitly marked migration lane from live WIP and WIP-age calculations. Calibrate both sides: duplicate live building lanes must fail, while the same imported snapshot must not consume capacity.
+- **Durable correction:** `scripts/check-work-wip-limits.mjs` and `scripts/project-work-metrics.mjs` now exclude `lane_mode=legacy_migration_snapshot`; their tests prove the exclusion while preserving the duplicate-live-lane rejection. The 14-ID parity check passes and the two-week observation window begins without inventing execution.
+- **Possible Behind the Build angle:** Why migrating a backlog into a new tracker can make a team look overloaded even when no new work started.
+- **Publication status:** INTERNAL OPERATING-MODEL REPAIR ONLY / NO ARCHIVE, DELETE, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-452 — Direct cloud access must not quietly become permanent root access
+
+- **Date:** 2026-08-08
+- **Area:** AWS access, backup and Codex tooling.
+- **Failure risk:** A successful browser-backed `aws login` initially made the
+  active root session the default CLI identity. Leaving the Agent Toolkit on
+  that profile would have made routine automation dangerously overpowered.
+- **Root cause:** Authentication success was treated as the finish line before
+  principal authority was checked. The browser's AWS session also could not
+  reliably download a generated key, creating a second risk of unusable active
+  credentials.
+- **Prevention rule:** After any cloud login, verify the exact caller ARN before
+  installing automation. Routine tooling must resolve to a named bounded role;
+  bootstrap and backup principals get one job each, secrets live outside the
+  repository/iCloud in Keychain, and denial tests must prove their boundaries.
+- **Durable correction:** The root login cache was removed. Routine AWS/MCP
+  calls now assume `laidies-codex-operator`; the bootstrap principal can only
+  assume that role and the backup principal can only use the private restic
+  bucket. Both overreach checks returned `AccessDenied`. The orphaned first
+  backup key was deleted.
+- **Possible Behind the Build angle:** Why “connected” is not the same thing as
+  “safe to automate.”
+- **Publication status:** INTERNAL INFRASTRUCTURE / NO SITE DEPLOYMENT OR PUBLIC
+  CHANGE / ONLY THE TINY RESTORE-TEST SNAPSHOT WAS UPLOADED.
+
+## BTB-457 — A working artifact can silently outrun its accepted checkpoint
+
+- **Date:** 2026-08-08
+- **Area:** AI Fundamentals production lineage and prevention-first content.
+- **Failure risk:** A durable handoff may say only a representative section is
+  accepted while the working file has already expanded into a complete book.
+  A later producer contract could then be written around the existing result
+  and falsely presented as prevention-before-generation evidence.
+- **Root cause:** The working artifact and durable production checkpoint did
+  not share an executable scope/lineage stop. Untracked later chapters could
+  accumulate without changing the accepted-status record.
+- **Prevention rule:** Bind the exact predecessor bytes and accepted boundary
+  in every successor intake. A producer contract created after working prose
+  cannot approve that prose retroactively; it authorizes new exact successor
+  bytes in one bounded representative scope. Promotion requires the candidate
+  chronology and artifact identity to agree.
+- **Durable correction:** The AI Fundamentals V3 continuation intake records
+  the current full working SHA as unadmitted lineage only. The current producer
+  contract authorizes one new Chapter 3 representative successor and forbids
+  full-predecessor review as though D-104 had preceded its generation.
+- **Possible Behind the Build angle:** Why a good-looking draft can still have
+  an invalid chain of custody.
+- **Publication status:** INTERNAL CONTENT-PRODUCTION CORRECTION / NO PROSE,
+  PUBLICATION OR DEPLOYMENT.
+
+## BTB-458 — Styling a relationship does not make it a teaching visual
+
+- **Date:** 2026-08-17
+- **Area:** AI Fundamentals textbook diagrams and visual-media admission.
+- **Failure:** The first rebuilt visual layer produced squashed illustrations,
+  prose in coloured boxes, repeated comparisons and diagrams whose labels or
+  arrows did not make the concept easier to understand. Several survived
+  internal checks before Ali rejected the visible pixels.
+- **Root cause:** Production began from chapter labels and a reusable visual
+  template instead of extracting one exact causal teaching job from the vetted
+  manuscript and studying how authoritative educational diagrams expose that
+  relationship. Structural checks then counted a present visual while failing
+  to judge what the pixels taught.
+- **Prevention rule:** For every candidate: exact manuscript mechanism → two to
+  four authoritative communication references → one named reader question →
+  original LAiDIES causal schematic → calibrated structural checks → maker
+  desktop/mobile pixel inspection → role-distinct blind visual review. The
+  first chapter visual proves the method; it is not a cap on additional
+  section-level visual needs. A coloured table or prose card does not qualify.
+- **Durable correction:** The rejected visual layer is quarantined. The live
+  textbook plan and `DECISIONS.md` now bind the reference-led, section-level
+  method; nine representative mechanisms have separately passed desktop and
+  mobile maker plus independent review, while Ali and publication admission
+  remain open.
+- **Possible Behind the Build angle:** Why an attractive flowchart can still
+  fail as a textbook diagram—and the test that finally caught it.
+- **Publication status:** BUILT LOCALLY / NOT PUBLISHED / ALI REVIEW AND
+  FULL-BOOK ADMISSION PENDING.

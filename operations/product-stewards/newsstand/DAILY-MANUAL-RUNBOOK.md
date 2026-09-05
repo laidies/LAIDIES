@@ -94,6 +94,31 @@ Source/browser/provider access and the local Codex host must be available.
 
 ## 1. Confirm the dated source receipt
 
+### Standing discovery routes (check before research)
+
+Run the bounded route guard on the actual Vancouver research date:
+
+```sh
+node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of YYYY-MM-DD
+```
+
+The existing practitioner roster now binds six newsroom desks to eight distinct
+public routes: AP, Nature, FTC, EFF, BleepingComputer, OpenAI News, Anthropic
+News and Google Gemini API changelog. These complement AIDB and the existing
+practitioner/developer routes. Inspect the actual indexes, follow consequential
+leads to original evidence and record exact dispositions in the dated ledger.
+Do not use a provider's news index as the sole public-interest or criticism
+source. EFF is an advocacy source; provider posts describe their own work;
+research indexes lead to studies, not automatically to clinical proof.
+
+A route PASS proves only that standing inputs exist and their routing review
+has not expired. It explicitly reports `research_completion_certified=false`.
+It does not prove source access, today's enumeration, claim truth, coverage
+recall or a completed six-desk review. A failed route becomes a named source
+repair/coverage hold; accessible independent research can continue. Revalidate
+this pilot roster after observed useful/irrelevant results, rather than adding
+more feeds merely to increase a source count.
+
 ### Service-bank candidates (prepare before composing an issue)
 
 The private reserve is `operations/product-stewards/newsstand/candidates/service-bank.json`.
@@ -110,6 +135,35 @@ CHECK HOLD` with no proposal and no public write, so an unrelated advice-card
 problem cannot abort ordinary-news research, production or review. It does not
 approve, select, renew or carry a service item. A service proposal or dated
 service change still uses the strict command without this flag and must pass.
+
+### Behind the Build: recurring assessment, earned publication
+
+Read `docs/product/behind-the-build-learning-system.md`, recent changes to
+`operations/painpoints-log.md` and
+`operations/behind-the-build-publication-queue.md`. Reuse those records; do not
+create a new lessons log or assume the queue contains every newly logged item.
+During each service assessment, disposition newly changed meaningful learnings
+as a verified editorial candidate, internal-only, or a specific evidence hold,
+and give the chosen candidate an owner and next action. Record a truthful
+no-new-verified-candidate result when applicable. Reconcile checkout differences
+by source identity without overwriting later records or importing old rules as
+current authority; log completeness remains unverified after the September 5
+bounded recovery of 32 omitted historical IDs.
+
+`prepare-newsstand-service-bank.mjs` now supports optional `behind_build` with
+the same source, body, freshness and exact-review checks. Its absence does not
+create a ninth required daily desk. The bank still has no Behind the Build
+entry; the existing August 24 canonical candidate is ineligible. The reader
+supports the type, but September 5 live NewsStand/archive inspection found no
+visible Behind the Build card or matching back issue.
+
+The oldest complete draft is a starting artifact, not current publication
+admission. Prepare its current producer contract and exact prose reviews,
+verify the real experience, remove private detail, and only then bring Ali
+one complete founder-voice/taste decision. Do not invent her experiences,
+quotes or a first-person lesson from an operational log. A verified engineering
+fix does not by itself prove a finished public explanation. Publish only an
+admitted dated successor through the existing issue/card/reader/archive path.
 
 ### Story-first ordering and carryover
 
@@ -270,6 +324,15 @@ Use the same original-source evidence and claim boundaries; each destination
 has a different job and must inspect its exact existing treatment. Do not
 copy one article or tip into every surface or treat a new product release as
 proof that a durable concept needs rewriting.
+
+The active daily 08:00 freshness reviewer is separate from the paused broad
+Control Room. Its September 5 prompt now explicitly reads the committed
+NewsStand inbox in this execution checkout as well as its evolving canonical
+inbox. It must reconcile IDs, preserve later owner decisions and resolve each
+producer `sourcePath` against the producer checkout. This closes the configured
+input omission; an actual receiving run/import remains unobserved. Do not call
+the two local signals canonical or delivered until the receiving record is read.
+The NewsStand task retains follow-through responsibility in the meantime.
 
 The existing cross-site route is
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md`
