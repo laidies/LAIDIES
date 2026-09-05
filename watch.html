@@ -209,7 +209,7 @@
   </style>
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260902-1">
   <link rel="stylesheet" href="/content/site/laidies-visual-system.css?v=20260904-1">
-  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-4">
+  <link rel="stylesheet" href="/content/watch-v2.css?v=20260904-5">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -316,7 +316,7 @@
         </div>
         <div class="player-status" id="playerStatus" role="alert" hidden>
           <p id="playerStatusText"></p>
-          <button type="button" id="retryMedia">Retry this listen-along</button>
+          <button type="button" id="retryMedia">Retry this episode</button>
         </div>
         <div class="resume-panel" id="resumePanel" hidden>
           <p id="resumeText"></p>
@@ -592,7 +592,7 @@
     }
     savedProgress = readProgress();
     if (savedProgress) {
-      resumeText.textContent = 'This device remembers ' + fmt(savedProgress.time) + ' in this listen-along. This is local playback history, not an account.';
+      resumeText.textContent = 'This device remembers ' + fmt(savedProgress.time) + ' in this episode. This is local playback history, not an account.';
       resumePanel.hidden = false;
     }
 
@@ -647,8 +647,10 @@
       var text = cueText || '';
       var m = /^<v\s+([^>]+)>/.exec(text);
       var speaker = m ? m[1] : '';
+      var caption = text.replace(/^<v[^>]*>/, '').replace(/<[^>]+>/g, '').replace(/\n/g, ' ').trim();
       parts.who.textContent = speaker;
-      parts.txt.textContent = text.replace(/^<v[^>]*>/, '').replace(/<[^>]+>/g, '').replace(/\n/g, ' ');
+      parts.txt.textContent = caption;
+      parts.bar.hidden = !caption;
       parts.bar.classList.toggle('is-maven', MAVEN_VOICES.indexOf(speaker) !== -1);
     }
 
@@ -851,7 +853,7 @@
             audioCaptionBar.dataset.playerMode = 'listen';
           }
         }
-        if (audioCaptionBar) audioCaptionBar.hidden = false;
+        if (audioCaptionBar) audioCaptionBar.hidden = !audioCaptionBar.querySelector('.cap-txt').textContent.trim();
         configureMediaSession(tape, ep);
         screeningMeta.textContent = 'Listen only · background and lock-screen controls · captions available';
         screeningIntro.textContent = 'Press play for the narrated episode with read-along captions. It can keep playing in the background, subject to your device settings.';
@@ -869,7 +871,7 @@
         if (audioCaptionBar) audioCaptionBar.hidden = true;
         video.hidden = false;
         video.style.display = 'block';
-        if (video._captionBar) video._captionBar.hidden = false;
+        if (video._captionBar) video._captionBar.hidden = !video._captionBar.querySelector('.cap-txt').textContent.trim();
         try { video.currentTime = at; } catch (error) {}
         if (deck) deck.style.display = 'none';
         if (chaptersEl) chaptersEl.style.display = 'none';

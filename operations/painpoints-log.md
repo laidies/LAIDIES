@@ -7,6 +7,23 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-09-04 Watch page became a black media app
+
+Preserving a dark film stage had accidentally preserved darkness across the
+entire Watch destination: programme context, format switcher, captions and
+resume state all inherited the player treatment. The film was visible, but the
+page stopped looking like LAiDIES. The corrected boundary keeps black inside the
+actual 16:9 film window and applies the shared current colour/background system
+to every surrounding surface. The browser pass also exposed a blank caption
+reserve that looked like a second mystery box; caption space now appears only
+when real cue text is active. Prevention rule: scope dark media treatments to
+the media element, test the whole destination at rest before pressing Play, and
+make empty dynamic regions visually absent rather than merely content-free.
+Format-neutral recovery copy also prevents a Watch resume state from calling
+itself a listen-along.
+Possible Behind the Build angle: a movie needs a dark screen, but that does not
+mean the whole website should turn into a cinema basement.
+
 ## 2026-09-04 Listen page inherited the Watch room
 
 Correcting only the lower continuation band left the actual Listen player in a

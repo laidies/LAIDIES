@@ -1,5 +1,85 @@
 # Design QA — room-first building rebuilds
 
+## Screening Room Watch shell — 2026-09-04
+
+**Source visual truth**
+
+- Rejected incumbent desktop journey:
+  `operations/design-audit/chick-flicks-watch-current-site-20260904/01-before-desktop.png`
+  (1374 × 2810 pixels, 1374 × 900 CSS viewport, density 1).
+- Governing colour source:
+  `content/site/laidies-visual-system.css`, already consumed by the current
+  Homepage, LIBRAiRY, Chick Flicks and Listen surfaces.
+- Same-input comparison:
+  `operations/design-audit/chick-flicks-watch-current-site-20260904/07-before-after-comparison.jpg`.
+
+**Rendered implementation**
+
+- Desktop arrival:
+  `operations/design-audit/chick-flicks-watch-current-site-20260904/02-after-desktop-top.jpg`
+  (1374 × 900 pixels).
+- Desktop film and controls:
+  `operations/design-audit/chick-flicks-watch-current-site-20260904/03-after-desktop-stage.jpg`
+  (1374 × 900 pixels).
+- Desktop episode links:
+  `operations/design-audit/chick-flicks-watch-current-site-20260904/04-after-desktop-extras.jpg`
+  (1374 × 900 pixels).
+- Phone arrival and film journey:
+  `operations/design-audit/chick-flicks-watch-current-site-20260904/05-after-phone-top.jpg`
+  and `06-after-phone-stage.jpg` (390 × 844 pixels each).
+- State: Episode 04 Watch mode, current 20:22 illustrated video, same-device
+  resume state present, captions idle at 0:00.
+
+**Findings and comparison history**
+
+1. **P1 fixed — the whole Watch destination read as a black media app.** The
+   old auditorium, switcher, caption space and resume controls shared one dark
+   field. The successor uses the shared pink-purple-cyan arrival, physical
+   programme shelf and yellow-mint-cyan comic auditorium. Black is now confined
+   to the actual 16:9 film window.
+2. **P1 fixed — an empty caption panel looked like a second unexplained box.**
+   Caption bars now stay hidden while no cue text is active and appear only
+   when a real caption is available.
+3. **P2 fixed — supporting controls did not read as LAiDIES controls.** The
+   Watch/Listen switcher, resume state, caption state and episode links now use
+   dark ink, heavy keylines, bright fills and offset colour edges from the
+   shared current system.
+
+**Fidelity surfaces**
+
+- **Typography:** Anton remains the episode display face and Jost the interface
+  face. Cream is confined to the large masthead title and the dark-purple
+  Trailer shelf cell; normal controls and body copy use dark ink.
+- **Spacing/layout rhythm:** the existing arrival, format navigation, programme,
+  16:9 film and one Special features band remain in the same order. The mobile
+  programme remains intentionally horizontally scrollable inside its own rail.
+- **Colours/tokens:** Watch now consumes the same ink, hot pink, purple, cobalt,
+  cyan, coral, mint, yellow, cream and lilac contract as the approved surfaces.
+  The film itself remains black because that darkness performs a media job.
+- **Image quality/assets:** no image or video was generated, replaced or
+  recompressed. The approved Episode 04 VHS cover, poster and current film bytes
+  are unchanged.
+- **Copy/content:** episode title, current-video wording, return route and all
+  six Special features labels/destinations are unchanged. Resume and retry now
+  say `episode` in both formats instead of incorrectly calling Watch a
+  `listen-along`.
+
+**Functional evidence**
+
+- The existing native video controls, Watch/Listen switcher, same-device
+  Resume/Start over state and all six episode links remain visible in browser
+  checks.
+- Desktop and 390 × 844 renders show no visible page-level horizontal clipping;
+  the phone shelf alone retains its intentional internal overflow.
+- The calibrated shell check fails when the bright Watch auditorium is replaced
+  with black, then the normal format-shell and 12-point Chick Flicks contracts
+  pass.
+- Browser verification used the user's in-app browser. The optional automated
+  browser suite was not run because it would start a separate browser.
+- Local verification only; no deployment or public-origin claim.
+
+final result: passed
+
 ## Screening Room return-control contrast — 2026-09-04
 
 **Source visual truth**

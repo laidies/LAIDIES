@@ -115,6 +115,19 @@ mint/cobalt/cream hover and keyboard-focus states. The target measures 44px
 high, its foreground/background contrast is 12.05:1, and desktop plus 390px
 renders retain zero horizontal overflow. A calibrated format-shell check rejects
 removal of the solid surface. This remains local-only and undeployed.
+The Watch edition now follows the same rule. Its prior whole-room black field
+made the destination look like a separate media app even though the film itself
+was correct. The current local successor carries the shared LAiDIES
+pink-purple-cyan arrival, physical bright programme shelf and yellow-mint-cyan
+comic auditorium around one deliberately dark 16:9 film window. Format,
+resume/recovery, captions, chapters and all six Special features routes retain
+their behavior. Resume and retry use the format-neutral word `episode` instead
+of mislabelling Watch as a `listen-along`. An empty caption reserve that looked
+like a second box now stays hidden until an actual cue is active. Desktop 1374 × 900 and phone 390 × 844
+in-app-browser checks preserve the video, return route, Watch/Listen switcher,
+resume state and link grid without visible page-level clipping. A calibrated
+shell mutation fails before the normal scoped contracts pass. This remains
+local-only and undeployed.
 The repository commit hook still stops on 45 pre-existing missing Episode 03
 comic assets, four cue-duration warnings and the unrelated extensionless
 `/radio` target in `laidies-card.html`; none of those paths changed here. The
@@ -132,7 +145,8 @@ Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-audit/chick-flicks-listen-full-page-homepage-20260904/` and
 `operations/design-audit/chick-flicks-listen-current-site-colours-20260904/` and
 `operations/design-qa/chick-flicks-caption-state-20260904/` and
-`operations/design-audit/screening-return-contrast-20260904/`.
+`operations/design-audit/screening-return-contrast-20260904/` and
+`operations/design-audit/chick-flicks-watch-current-site-20260904/`.
 Nothing has been deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

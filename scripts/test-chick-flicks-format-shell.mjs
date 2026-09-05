@@ -4,6 +4,7 @@ import fs from 'node:fs';
 const bad = process.argv.includes('--calibration-bad');
 const hiddenCaptionBad = process.argv.includes('--calibration-hidden-caption-bad');
 const returnContrastBad = process.argv.includes('--calibration-return-contrast-bad');
+const watchShellBad = process.argv.includes('--calibration-watch-shell-bad');
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
 const watchCssSource = read('content/watch-v2.css');
@@ -13,6 +14,12 @@ if (hiddenCaptionBad) {
 }
 if (returnContrastBad) {
   watchCss = watchCss.replace(/background:\s*var\(--screen-yellow\);/, 'background: transparent;');
+}
+if (watchShellBad) {
+  watchCss = watchCss.replace(
+    /body\[data-format="watch"\] \.screening-auditorium\s*\{([^}]*)background-image:[^;]+;/s,
+    'body[data-format="watch"] .screening-auditorium {$1background: #000;'
+  );
 }
 const visualSystemCss = read('content/site/laidies-visual-system.css');
 const formatCss = read('content/episode-format-navigation.css');
@@ -30,6 +37,9 @@ assert.match(watch, /id="deckPlayLabel">Play audio<\/span>/);
 assert.match(watch, /deckPlayLabel\.textContent = playing\(\) \? 'Pause audio' : \(tape\.currentTime > 0 \? 'Continue audio' : 'Play audio'\)/);
 assert.match(watch, /id="playerFallbackCover"/);
 assert.match(watch, /resumePanel\.hidden = true/);
+assert.match(watch, /Retry this episode/);
+assert.match(watch, /remembers ' \+ fmt\(savedProgress\.time\) \+ ' in this episode/);
+assert.doesNotMatch(watch, /Retry this listen-along|remembers ' \+ fmt\(savedProgress\.time\) \+ ' in this listen-along/);
 assert.match(watch, /playerFallbackCover\.hidden = false/);
 assert.match(watch, /class="screening-extras"/);
 assert.match(watch, /Special features/);
@@ -40,6 +50,8 @@ for (const route of ['blend-snap.html#the-study-pack', 'radio.html', 'sorority-h
 }
 assert.match(watch, /arrivalPlay\.addEventListener\('click', togglePlay\)/);
 assert.match(watch, /function syncArrivalPlay\(\)/);
+assert.match(watch, /parts\.bar\.hidden = !caption/);
+assert.match(watch, /video\._captionBar\.hidden = !video\._captionBar\.querySelector\('\.cap-txt'\)\.textContent\.trim\(\)/);
 assert.match(watch, /EPISODE_COVERS\s*=\s*\{/);
 assert.match(watch, /listenCover\.src = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| admission\.posterPublicUrl/);
 for (const episode of ['01', '02', '03', '04']) {
@@ -62,6 +74,15 @@ assert.match(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.episode-format-nav\[data-theme="dark"\]\s*\{[^}]*--format-bg:\s*var\(--screen-paper\)[^}]*--format-ink:\s*var\(--screen-ink\)/s);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-program\s*\{[^}]*background:\s*var\(--screen-cyan\)/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="watch"\]\s*\{[^}]*--screen-ink:\s*var\(--laidies-ink\)[^}]*--screen-pink:\s*var\(--laidies-pink\)[^}]*--screen-cyan:\s*var\(--laidies-cyan\)[^}]*--screen-yellow:\s*var\(--laidies-yellow\)/s);
+assert.match(watchCss, /body\[data-format="watch"\] \.screening-arrival\s*\{[^}]*background-image:\s*var\(--laidies-bg-comic-masthead\)/s);
+assert.match(watchCss, /body\[data-format="watch"\] \.screening-auditorium\s*\{[^}]*rgba\(255, 211, 77[^}]*rgba\(125, 226, 194[^}]*rgba\(21, 188, 224[^}]*var\(--laidies-comic-texture\)/s);
+assert.doesNotMatch(watchCss, /body\[data-format="watch"\] \.screening-auditorium\s*\{[^}]*(?:#000|#04050f|#07102b|var\(--screen-midnight\))/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="watch"\] \.theatre\s*\{[^}]*background:\s*#000/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="watch"\] \.cap-bar\s*\{[^}]*color:\s*var\(--screen-ink\)[^}]*background:\s*var\(--screen-mint\)/s);
+assert.match(watchCss, /body\.screening-room-page\[data-format="watch"\] \.resume-panel,[\s\S]*?body\.screening-room-page\[data-format="watch"\] \.player-status\s*\{[^}]*color:\s*var\(--screen-ink\)[^}]*background:\s*var\(--screen-yellow\)/s);
+assert.match(watchCss, /body\[data-format="watch"\] \.episode-format-nav\[data-theme="dark"\]\s*\{[^}]*--format-bg:\s*var\(--screen-paper\)[^}]*--format-ink:\s*var\(--screen-ink\)/s);
+assert.match(watchCss, /body\[data-format="watch"\] \.screening-program\s*\{[^}]*background:\s*var\(--screen-cyan\)/s);
 assert.match(watch, /\.screening-mode\[hidden\]\s*\{\s*display:\s*none/);
 assert.doesNotMatch(watchCss, /body\[data-format="listen"\] \.screening-auditorium\s*\{[^}]*(?:#101b48|#171040|#0b1335|#000|var\(--screen-midnight\))/s);
 assert.match(watchCss, /body\.screening-room-page\[data-format="listen"\] \.theatre,[\s\S]*?body\[data-format="listen"\] \.theatre\s*\{[^}]*background-image:[^}]*episode-01-pop-comic-bg-v1\.png/s);

@@ -1,5 +1,22 @@
 # Screening Room construction — 2026-07-24
 
+## Watch uses a bright LAiDIES shell around one dark film window — 2026-09-04
+
+This decision supersedes the older visual-language bullets below that made the
+whole auditorium near-black and white the dominant reading colour. The Watch
+edition consumes the current shared LAiDIES visual system used by the Homepage,
+LIBRAiRY, Chick Flicks and Listen: comic-textured pink-purple-cyan fields, dark
+ink, bright yellow/mint/cyan/coral controls, heavy keylines and offset colour
+edges. White or cream type is exceptional, not routine.
+
+Only the real 16:9 film window may use a black interior. The page around it —
+arrival, format switcher, programme shelf, marquee, captions, resume/recovery,
+chapters and Special features — remains bright and uses dark ink. A caption bar
+must stay hidden when no real cue text is active; an empty reserved box is not a
+valid layout-stability treatment. This is a visual-shell decision only: the
+registry-bound film/poster/captions, Watch/Listen state, resume behavior,
+episode routes and in-progress truth remain unchanged.
+
 ## Return control remains distinct from illustrated fields — 2026-09-04
 
 Ali directly rejected the low-contrast return link in the Episode 04 Listen
