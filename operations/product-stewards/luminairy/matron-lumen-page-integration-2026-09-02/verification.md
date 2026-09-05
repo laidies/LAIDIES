@@ -1,6 +1,6 @@
 # Verification — Matron Lumen LUMINAiRY page-integration pilot
 
-Status: INDEPENDENT VISUAL ADMISSION PASS — awaiting Ali's page-wiring approval
+Status: REJECTED BY ALI 2026-09-05 — wrong environmental colour system; identity remains approved
 Date: 2026-09-02
 
 ## Exact candidate
@@ -49,3 +49,7 @@ Verdict: PASS
 - Both phone renders retain her recognisable face, hair, glasses and working identity. The 320px crop is tighter and dims her lower half, but has no blocking crop compromise.
 
 Admission recommendation: show this exact candidate to Ali for bounded LUMINAiRY page-wiring approval only.
+
+## Ali correction — 2026-09-05
+
+Ali rejected this exact page-integration candidate because its brown/amber cathedral environment does not match the current LUMINAiRY site's colours. The independent admission verdict above is invalidated: it failed to compare the dominant room palette against the actual page tokens. This image must not be wired or used as page-colour authority. Matron's separately approved identity SHA remains valid.
