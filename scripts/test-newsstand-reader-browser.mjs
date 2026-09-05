@@ -13,6 +13,7 @@ const ROOT = path.resolve(process.env.NEWSSTAND_ROOT || path.resolve(path.dirnam
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const CALIBRATE = process.argv.includes("--calibrate");
 const CALIBRATE_RETURNING = process.argv.includes("--calibrate-returning");
+const CALIBRATE_DAILY_CLOCK = process.argv.includes("--calibrate-daily-clock");
 const ZOOM = process.argv.includes('--zoom-200');
 const FIXTURE_ROOT = process.env.NEWSSTAND_TEST_FIXTURE_ROOT;
 const inputFile = relative => FIXTURE_ROOT && fs.existsSync(path.join(FIXTURE_ROOT,relative)) ? path.join(FIXTURE_ROOT,relative) : path.join(ROOT,relative);
@@ -20,8 +21,11 @@ const dataContext = { window: {} };
 vm.runInNewContext(fs.readFileSync(inputFile('content/newsstand-stories.js'), 'utf8'), dataContext);
 const DATA = dataContext.window.NEWSSTAND_DATA;
 const DATE = DATA.publications.daily.editionDate;
-const FIXED_NOW = new Date(Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000)).toISOString();
-const ISSUE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-daily-issues.json'), 'utf8')).issues.find(item => item.editionDate === DATE);
+const ISSUE_STORE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-daily-issues.json'), 'utf8'));
+const ISSUE = ISSUE_STORE.issues.find(item => item.editionDate === DATE);
+const PRE_ADMISSION_CLOCK = Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000);
+const LATEST_ADMISSION = Math.max(...ISSUE_STORE.issues.map(item => Date.parse(item.admission && item.admission.reviewedAt) || 0));
+const FIXED_NOW = new Date(CALIBRATE_DAILY_CLOCK ? PRE_ADMISSION_CLOCK : Math.max(PRE_ADMISSION_CLOCK, LATEST_ADMISSION + 60000)).toISOString();
 const ISSUE_DAILY = (ISSUE?.storyIds || []).map(id => DATA.stories.find(story => story.id === id)).filter(Boolean);
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
 const CURRENT_DAILY = DATA.stories.find(item => item.id === DATA.publications.daily.issue.storyIds[0]);
@@ -309,7 +313,16 @@ try {
 
     const returning = await openPage("/newsstand.html");
     await sleep(1900);
-    check(await value(returning, "window.__newsstandDailyIssueError || null"), null, "admitted Daily store loads before returning-reader range calculation");
+    if (CALIBRATE_DAILY_CLOCK) {
+      check(await value(returning, "({error:window.__newsstandDailyIssueError||null,reason:window.__newsstandDailyIssueValidationFailure||null})"), {
+        error: "daily-issues-invalid",
+        reason: "issue-shape:" + ISSUE.editionDate
+      }, "known-bad pre-admission test clock is rejected");
+      console.log("NEWSSTAND DAILY CLOCK CALIBRATION PASS known-bad pre-admission clock rejected");
+      returning.close();
+      process.exit(0);
+    }
+    check(await value(returning, "({error:window.__newsstandDailyIssueError||null,reason:window.__newsstandDailyIssueValidationFailure||null})"), { error: null, reason: null }, "admitted Daily store loads before returning-reader range calculation");
     check(await value(returning, "!document.querySelector('#ns-catchup-since') && !!document.querySelector('#ns-catchup-signin') && document.querySelector('#ns-catchup-signin').textContent.includes('Sign in')"), true, "Catch Me Up asks the reader to sign in instead of making her remember a date");
     returning.close();
 
