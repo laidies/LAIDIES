@@ -9,6 +9,7 @@ Watch shows the exact widescreen title-card art from which that sleeve was made:
 Episodes 01–03 use their `*-title-card-comic-v2.png` sources and Episode 04 uses
 Ali's selected `ep04-title-card-comic-v3-laidies-colour.png`. Placing a portrait
 clamshell inside the 16:9 screen is rejected.
+Ali approved this rendered widescreen Watch treatment on 2026-09-04.
 
 This is a packaging-continuity decision, not a media-source change. The admitted
 poster remains source-integrity evidence, Media Session artwork and a fallback

@@ -136,7 +136,8 @@ case. This changes only the native video poster. Film source, captions, resume
 state, Media Session artwork, Watch/Listen navigation and post-play behavior are
 unchanged. All four exact mappings were rendered in the in-app browser at
 desktop width; the scoped guard rejects both the generic Opening Day poster and
-the portrait-clamshell predecessor. This remains local-only and undeployed.
+the portrait-clamshell predecessor. Ali approved the rendered treatment on
+2026-09-04. This remains local-only and undeployed.
 The repository commit hook still stops on 45 pre-existing missing Episode 03
 comic assets, four cue-duration warnings and the unrelated extensionless
 `/radio` target in `laidies-card.html`; none of those paths changed here. The
