@@ -51,6 +51,7 @@ assert.deepEqual(policy.responseFeedback.ratingOptions, ['helpful', 'not_helpful
 assert.ok(policy.responseFeedback.helpfulReasons.includes('easy_to_understand'));
 assert.ok(policy.responseFeedback.notHelpfulReasons.includes('inaccurate_or_outdated'));
 assert.ok(policy.responseFeedback.notHelpfulReasons.includes('weak_missing_or_broken_sources'));
+assert.ok(policy.responseFeedback.notHelpfulReasons.includes('seemed_like_ai_slop'));
 assert.equal(policy.responseFeedback.optionalNote.trigger, 'something_else');
 assert.equal(policy.responseFeedback.optionalNote.hiddenByDefault, true);
 assert.equal(policy.responseFeedback.optionalNote.mayBeOnlyPrimaryMechanism, false);
@@ -69,6 +70,20 @@ assert.equal(policy.responseFeedback.mayAutoRewrite, false);
 assert.equal(policy.responseFeedback.mayAutoRetrain, false);
 assert.equal(policy.responseFeedback.mayAutoPublish, false);
 assert.equal(policy.responseFeedback.accuracyComplaintCreatesReviewHold, true);
+
+assert.equal(policy.abuseProtection.providerCredentialServerSideOnly, true);
+assert.equal(policy.abuseProtection.internalServiceBindingRequired, true);
+assert.ok(policy.abuseProtection.preSpendValidation.includes('moderation'));
+assert.ok(policy.abuseProtection.requestLimits.includes('global_daily_cost_circuit_breaker'));
+assert.equal(policy.abuseProtection.turnstileMode, 'step_up_on_suspicion');
+assert.equal(policy.abuseProtection.turnstileServerValidationRequired, true);
+assert.equal(policy.abuseProtection.openAiSafetyIdentifier, 'hmac_derived_non_pii');
+assert.ok(policy.abuseProtection.providerBounds.includes('no_automatic_retry_loop'));
+assert.equal(policy.abuseProtection.answerBankReuseReducesDuplicateSpend, true);
+assert.equal(policy.abuseProtection.privateSavedAnswerMayEnterSharedCache, false);
+assert.equal(policy.abuseProtection.feedbackRequiresAnswerReceiptAndFingerprint, true);
+assert.equal(policy.abuseProtection.rawQuestionLoggingByDefault, false);
+assert.equal(policy.abuseProtection.providerErrorDetailsPublic, false);
 
 for (const example of policy.examples) {
   assert.ok(homes.has(example.primaryHome), `invalid example primary home: ${example.primaryHome}`);

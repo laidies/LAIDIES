@@ -163,6 +163,7 @@ Not-helpful reasons:
 - inaccurate or outdated;
 - missed important context;
 - weak, missing or broken sources;
+- seemed like AI slop;
 - too long; and
 - too brief.
 
@@ -182,6 +183,8 @@ Feedback improves the service by:
 
 1. ranking internal Answer Bank entries for review;
 2. finding repeated comprehension, sourcing, currency and relevance failures;
+   this includes a distinct AI-slop signal for generic, padded, repetitive or
+   formulaic answers;
 3. adding exact failed examples to the Miss Jeeves evaluation set;
 4. identifying missing Straight Answers, Dear Miss Jeeves entries, NewsStand
    coverage or LIBRAiRY concepts; and
@@ -191,6 +194,55 @@ Feedback improves the service by:
 A rating is a signal, not factual authority. It never automatically changes a
 source, rewrites an answer, promotes a candidate, retrains a model or publishes
 content. Material accuracy complaints create a review hold until checked.
+
+## Abuse and cost protection
+
+Miss Jeeves uses layered protection. No browser-only check, IP limit or model
+refusal is treated as sufficient by itself.
+
+1. **Keep the provider private.** The OpenAI credential remains server-side and
+   the answer Worker accepts calls only from the internal service path. The
+   public browser calls the bounded LAiDIES endpoint, never OpenAI directly.
+2. **Validate before spending.** Reject wrong methods and content types,
+   oversized or malformed input, apparent credentials and personal data before
+   retrieval or model invocation. Run the provider's current moderation check
+   before the expensive answer call while preserving legitimate educational
+   questions about safety, bias and cybersecurity.
+3. **Layer request limits.** Enforce a short burst limit per privacy-safe client
+   key, a longer rolling allowance, endpoint-specific limits for answering,
+   saving and feedback, and a global daily cost circuit breaker. Signed-in and
+   anonymous visitors may have different allowances, but neither receives an
+   unlimited route.
+4. **Challenge suspicious traffic, not everyone.** Ask for a Cloudflare
+   Turnstile check only after suspicious volume, automation signals or repeated
+   rejected requests. Validate every challenge token on the server and never
+   treat a client-side widget alone as protection.
+5. **Send a privacy-safe safety identifier.** Bind OpenAI requests to a stable
+   HMAC-derived account or anonymous-client identifier. Never send an email,
+   Resident number, IP address or other raw identity as that identifier.
+6. **Bound provider work.** Preserve the execution timeout, output-token and
+   response-byte ceilings; allow no automatic retry loop; limit tools to the
+   required web search and governed domains; require allowed citations before
+   returning current guidance.
+7. **Reuse checked work.** Serve current governed Answer Bank entries for
+   equivalent public questions rather than paying for identical research every
+   time. Never share a private saved answer through this cache.
+8. **Protect feedback integrity.** Require a valid answer receipt and exact
+   answer fingerprint, allow one active rating per receipt/client, append
+   superseding changes, rate limit submissions and exclude obvious automated
+   floods from quality aggregates.
+9. **Monitor without collecting conversations.** Record controlled outcome,
+   refusal, limit, latency, cost band and abuse-reason categories. Alert on
+   spend spikes, distributed request spikes, repeated moderation failures and
+   sudden negative-feedback changes without logging raw questions by default.
+10. **Fail usefully.** A limit or circuit breaker returns a plain explanation
+    and still offers admitted LAiDIES search results when available. It does not
+    expose provider errors, keys, internal prompts or security thresholds.
+
+Thresholds begin as measured operational settings, not permanent editorial
+rules. Tighten or relax them using legitimate-use, false-positive, latency and
+cost evidence. A distributed attacker can rotate IP addresses; the global cost
+breaker is therefore mandatory even when per-client limiting works.
 
 ## Promotion priority
 

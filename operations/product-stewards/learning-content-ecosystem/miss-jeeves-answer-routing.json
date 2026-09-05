@@ -115,6 +115,7 @@
       "inaccurate_or_outdated",
       "missed_context",
       "weak_missing_or_broken_sources",
+      "seemed_like_ai_slop",
       "too_long",
       "too_brief"
     ],
@@ -149,6 +150,40 @@
     "mayAutoRetrain": false,
     "mayAutoPublish": false,
     "accuracyComplaintCreatesReviewHold": true
+  },
+  "abuseProtection": {
+    "providerCredentialServerSideOnly": true,
+    "internalServiceBindingRequired": true,
+    "preSpendValidation": [
+      "method_and_content_type",
+      "input_shape_and_length",
+      "credential_and_private_data_rejection",
+      "moderation"
+    ],
+    "requestLimits": [
+      "per_client_burst",
+      "per_client_rolling_allowance",
+      "endpoint_specific",
+      "global_daily_cost_circuit_breaker"
+    ],
+    "turnstileMode": "step_up_on_suspicion",
+    "turnstileServerValidationRequired": true,
+    "openAiSafetyIdentifier": "hmac_derived_non_pii",
+    "providerBounds": [
+      "timeout",
+      "max_output_tokens",
+      "max_response_bytes",
+      "no_automatic_retry_loop",
+      "governed_tool_and_domain_allowlist",
+      "trusted_citations_required"
+    ],
+    "answerBankReuseReducesDuplicateSpend": true,
+    "privateSavedAnswerMayEnterSharedCache": false,
+    "feedbackRequiresAnswerReceiptAndFingerprint": true,
+    "feedbackRateLimited": true,
+    "rawQuestionLoggingByDefault": false,
+    "controlledAbuseAndCostTelemetryRequired": true,
+    "providerErrorDetailsPublic": false
   },
   "promotionTriggers": [
     "repeated_governed_question",
