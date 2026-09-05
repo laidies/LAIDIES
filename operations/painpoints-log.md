@@ -14640,3 +14640,14 @@ HTML and local custom properties.
 - **Durable correction:** **Complete patron profiles** is the sole card/profile implementation owner. This task committed the exact card-front decision, visual reference, integration commits and write boundary in `operations/product-stewards/luminairy/card-profile-single-owner-handoff-2026-09-05.md`.
 - **Possible Behind the Build angle:** Parallel work is only faster when the seam is explicit: one card system, one writer, two preserved prerequisite commits.
 - **Publication status:** INTERNAL COORDINATION / NO VISITOR CHANGE.
+
+## BTB-492 — A card cover cannot also be the complete profile
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY / archive-card and profile architecture.
+- **Failure:** The archive cards displayed biographies, lessons, evidence links, songs and save controls beneath each portrait. The cards became long mini profiles, obscuring the simple recognition-and-entry job Ali had assigned them.
+- **Root cause:** New profile completeness was added to the existing card renderer because it was the nearest surface, without first separating the jobs of a collection cover and a complete profile.
+- **Prevention rule:** Define a collection item's front contract and destination contract separately before adding depth. A cover stays scannable; the complete destination owns explanation and actions. Tests must reject destination-only fields inside the cover.
+- **Durable correction:** All 43 cards are now one native link containing only image, canonical role and name. The existing canonical hash opens the complete admitted profile; back navigation restores keyboard focus to the exact cover. The browser gate checks the cover contract across 13/23/7 and all typed destinations on profiles.
+- **Possible Behind the Build angle:** More information made the cards less useful. How separating “recognize her” from “learn from her” clarified the entire archive.
+- **Publication status:** BUILT, BROWSER-VERIFIED AND INDEPENDENTLY REVIEWED LOCALLY / NOT DEPLOYED.

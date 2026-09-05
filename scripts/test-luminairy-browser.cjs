@@ -16,12 +16,28 @@ async function assertExactResources(page, wing) {
   for (const profile of expected) {
     const card = page.locator(".lum-card", { has: page.locator(".lum-card__name", { hasText: profile.name }) });
     assert.equal(await card.count(), 1, `${profile.id} must render exactly once`);
-    assert.equal(await card.locator(".lum-card__link").count(), profile.links.length, `${profile.id} must render every verified destination`);
+    await card.locator(".lum-card__cover").click();
+    await page.locator("#lumProfileTitle", { hasText: profile.name }).waitFor();
+    assert.equal(await page.locator("#lumProfile .lum-profile__resource").count(), profile.links.length, `${profile.id} must render every verified destination on its complete profile`);
     for (const link of profile.links) {
-      const anchor = card.getByRole("link", { name: new RegExp(`^${link.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*↗$`) });
+      const anchor = page.locator("#lumProfile").getByRole("link", { name: new RegExp(`^${link.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*↗$`) });
       assert.equal(await anchor.count(), 1, `${profile.id} destination missing: ${link.label}`);
       assert.equal(await anchor.getAttribute("href"), link.url, `${profile.id} destination URL mismatch: ${link.label}`);
     }
+    await page.locator(".lum-profile__back").click();
+    await page.locator("#lumPanel").waitFor();
+  }
+}
+
+async function assertCoverContract(page, expectedCount) {
+  assert.equal(await page.locator(".lum-card").count(), expectedCount);
+  for (const card of await page.locator(".lum-card").all()) {
+    assert.equal(await card.locator(".lum-card__cover").count(), 1, "every cover must be one native link");
+    assert.equal(await card.locator(".lum-card__portrait img").count(), 1, "every cover needs its approved image");
+    assert.equal(await card.locator(".lum-card__role").count(), 1, "every cover needs its canonical role");
+    assert.equal(await card.locator(".lum-card__name").count(), 1, "every cover needs its name");
+    assert.equal(await card.locator("a, button").count(), 1, "a cover must not contain nested actions");
+    assert.equal(await card.locator(".lum-card__about, .lum-card__lesson, .lum-card__freshness, .lum-card__archetype, .lum-card__song, .lum-card__pick, .lum-card__link").count(), 0, "profile material must not leak onto covers");
   }
 }
 
@@ -80,9 +96,9 @@ async function run() {
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /account-luminaries-v2$/, "the account-backed Luminaries successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /card-profile-v1$/, "the card/profile successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260902-r5$/, "the complete profile-resource release must load the matching admission gate");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /account-luminaries-v2$/, "the account-backed pick runtime must load its matching cache-busted script");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /card-profile-v1$/, "the card/profile runtime must load its matching cache-busted script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -106,6 +122,7 @@ async function run() {
     assert.equal(siteSystem.heroRadius, 0, "the approved hero copy remains a full-bleed overlay, not a floating panel");
     assert.ok(siteSystem.searchRadius >= 10, `search control needs the shared rounded grammar, got ${siteSystem.searchRadius}px`);
     assert.equal(await page.locator(".lum-card").count(), 13, "Saint wing must render 13 cards");
+    await assertCoverContract(page, 13);
     assert.match(await page.locator("#lumResultStatus").textContent(), /13 of 13 cards shown/i, "Saint result count must use the canonical card noun");
     const saintFinalRowOffset = await page.evaluate(() => {
       const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();
@@ -114,10 +131,12 @@ async function run() {
     });
     assert.ok(saintFinalRowOffset <= 1, `a single final card must be centered instead of leaving a right-side end-cap, got ${saintFinalRowOffset}px`);
     assert.equal(await page.getByRole("link", { name: "Corrections", exact: true }).getAttribute("href"), "/town-hall.html#town-hall-feedback", "the trust route belongs in one quiet footer link");
-    assert.equal(await page.locator(".lum-card__song").count(), 12, "all 12 available Saint songs must expose controls");
+    assert.equal(await page.locator(".lum-card__song").count(), 0, "Saint songs must not appear on archive covers");
     const carrieCard = page.locator(".lum-card", { hasText: "Carrie Bradshaw" });
-    assert.equal(await carrieCard.locator(".lum-card__song").count(), 0, "deferred Carrie audio must not render a broken play control");
-    assert.match(await carrieCard.locator(".lum-card__song-status").textContent(), /song coming later/i, "Carrie needs an honest visible deferred-song status");
+    await carrieCard.locator(".lum-card__cover").click();
+    assert.equal(await page.locator("#lumProfile .lum-profile__song").count(), 0, "deferred Carrie audio must not render a broken play control");
+    assert.match(await page.locator("#lumProfile .lum-profile__song-status").textContent(), /song coming later/i, "Carrie needs an honest visible deferred-song status on her profile");
+    await page.locator(".lum-profile__back").click();
     assert.match(await page.locator("#lumPlaylist").textContent(), /play all 12 available songs/i, "playlist count must exclude deferred audio");
     await page.locator("#lumAudio").evaluate((element) => {
       element.play = () => Promise.resolve();
@@ -138,38 +157,58 @@ async function run() {
     assert.equal(await page.locator("text=Oprah Winfrey").count(), 0);
     assert.equal(await page.locator("text=Jessica Fletcher").count(), 0);
     assert.equal(await page.locator("text=Jennifer Lopez").count(), 0);
-    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Bette Midler" }).getByText(/images, audio, files, data, code/i).waitFor());
+    await page.locator(".lum-card", { hasText: "Bette Midler" }).locator(".lum-card__cover").click();
+    await assert.doesNotReject(() => page.locator("#lumProfile").getByText(/images, audio, files, data, code/i).waitFor());
+    await page.locator(".lum-profile__back").click();
+    await page.waitForFunction(() => location.hash === "#saints" && !document.getElementById("lumPanel").hidden);
     await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Cher Horowitz" }).locator(".lum-card__role").getByText(/Trendsetting/i).waitFor());
     await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Regina George" }).locator(".lum-card__role").getByText(/ANTI-SAINT/i).waitFor());
 
     const firstSaint = page.locator(".lum-card").first();
     const firstSaintName = (await firstSaint.locator(".lum-card__name").textContent()).trim();
-    await firstSaint.locator(".lum-card__pick").click();
+    const firstSaintId = await firstSaint.getAttribute("data-profile-id");
+    await firstSaint.locator(".lum-card__cover").focus();
+    await firstSaint.locator(".lum-card__cover").press("Enter");
+    await page.waitForFunction((id) => location.hash === "#" + id, firstSaintId);
+    await page.locator("#lumProfileTitle", { hasText: firstSaintName }).waitFor();
+    assert.equal((await page.locator("#lumProfileTitle").textContent()).trim(), firstSaintName, "the whole card must open its complete profile");
+    assert.equal(await page.locator("#lumPanel").isVisible(), false, "archive grid must yield to the complete profile");
+    await page.waitForFunction(() => document.activeElement?.id === "lumProfileTitle");
+    assert.equal(await page.locator("#lumProfileTitle").evaluate((node) => document.activeElement === node), true, "profile heading must receive focus");
+    await page.locator(".lum-profile__pick").click();
+    await page.waitForFunction(() => document.activeElement?.classList.contains("lum-profile__pick"));
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), firstSaintName);
-    assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("laidies_luminaries_v1")).saints.id), (await firstSaint.getAttribute("data-profile-id")), "the pick must enter the versioned Luminaries continuation envelope");
+    assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("laidies_luminaries_v1")).saints.id), firstSaintId, "the pick must enter the versioned Luminaries continuation envelope");
     await page.reload({ waitUntil: "networkidle" });
-    await page.locator(".lum-card").first().waitFor();
+    await page.locator("#lumProfileTitle").waitFor();
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), firstSaintName, "local pick must survive reload");
-    await page.locator(".lum-card").first().locator(".lum-card__pick").click();
+    await page.locator(".lum-profile__pick").click();
+    await page.waitForFunction(() => document.activeElement?.classList.contains("lum-profile__pick"));
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), "No personal pick yet");
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("laidies_luminaries_v1")).saints.id), "", "clearing a pick must preserve a timestamped tombstone so an old account value cannot reappear");
 
+    await page.locator(".lum-profile__back").click();
+    await page.waitForFunction((id) => document.activeElement?.closest(".lum-card")?.dataset.profileId === id, firstSaintId);
     await page.getByRole("tab", { name: /MAiVENS/ }).click();
     assert.equal(await page.locator(".lum-card").count(), 23, "Maven wing must render 23 cards");
+    await assertCoverContract(page, 23);
     assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search MAiVEN profiles", "the filter scope must update with the active wing");
     assert.deepEqual(await imageFailures(page), [], "all Maven images must decode");
-    assert.ok(await page.locator(".lum-card__link").count() >= 23, "every Maven needs a source/work link");
     await assertExactResources(page, "mavens");
     assert.match(await page.locator("#lumWingKicker").textContent(), /dark sapphire/i);
     const hannahCard = page.locator(".lum-card", { hasText: "Hannah Fry" });
-    assert.equal(await hannahCard.locator(".lum-card__link").count(), 7, "Hannah Fry needs all seven verified read, watch, listen, and follow destinations");
+    await hannahCard.locator(".lum-card__cover").click();
+    await page.locator("#lumProfileTitle", { hasText: "Hannah Fry" }).waitFor();
+    assert.equal(await page.locator("#lumProfile .lum-profile__resource").count(), 7, "Hannah Fry needs all seven verified read, watch, listen, and follow destinations");
     for (const label of [
       "Read Cambridge profile", "Watch AI Confidential", "Listen to The Rest Is Science",
       "Listen to Google DeepMind: The Podcast", "Watch Hannah Fry on YouTube",
       "Follow Hannah Fry on Instagram", "Follow Hannah Fry on X"
     ]) {
-      assert.equal(await hannahCard.getByRole("link", { name: new RegExp(label, "i") }).count(), 1, `Hannah Fry resource missing: ${label}`);
+      assert.equal(await page.locator("#lumProfile").getByRole("link", { name: new RegExp(label, "i") }).count(), 1, `Hannah Fry resource missing: ${label}`);
     }
+    await page.locator(".lum-profile__back").click();
+    await page.locator("#lumPanel").waitFor();
 
     await page.locator("#lumSearch").fill("privacy");
     assert.ok(await page.locator(".lum-card").count() >= 2, "search should find more than one privacy-related Maven");
@@ -182,6 +221,7 @@ async function run() {
     assert.equal(await page.locator("#lumSearch").inputValue(), "", "changing wings must clear a wing-scoped query");
     assert.equal((await page.locator("#lumSearchLabel").textContent()).trim(), "Search TRAiLBLAZER profiles", "keyboard wing changes must update the filter scope");
     assert.equal(await page.locator(".lum-card").count(), 7, "Trailblazer wing must render 7 cards");
+    await assertCoverContract(page, 7);
     const trailFinalRowOffset = await page.evaluate(() => {
       const gridBox = document.querySelector(".lum-grid").getBoundingClientRect();
       const cardBox = document.querySelector(".lum-card:last-child").getBoundingClientRect();
@@ -191,26 +231,49 @@ async function run() {
     assert.equal(await page.locator("#lumPlaylist").isVisible(), false, "Saint playlist control must be absent outside the Saints wing");
     assert.equal(await page.locator("#lumAudioStatus").isVisible(), false, "Saint playback status must clear when leaving the Saints wing");
     assert.deepEqual(await imageFailures(page), [], "all Trailblazer images must decode");
-    assert.ok(await page.locator(".lum-card__link").count() >= 7, "every Trailblazer needs a work/source link");
     await assertExactResources(page, "trailblazers");
     assert.match(await page.locator("#lumWingKicker").textContent(), /golden amber/i);
-    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Allie K. Miller" }).getByRole("link", { name: /Read Allie K. Miller’s work/ }).waitFor());
-    await assert.doesNotReject(() => page.locator(".lum-card", { hasText: "Fidji Simo" }).getByText(/CEO of Applications at OpenAI/i).waitFor());
+    await page.locator(".lum-card", { hasText: "Allie K. Miller" }).locator(".lum-card__cover").click();
+    await page.locator("#lumProfileTitle", { hasText: "Allie K. Miller" }).waitFor();
+    await assert.doesNotReject(() => page.locator("#lumProfile").getByRole("link", { name: /Read Allie K. Miller’s work/ }).waitFor());
+    await page.locator(".lum-profile__back").click();
+    await page.locator("#lumPanel").waitFor();
+    await page.locator(".lum-card", { hasText: "Fidji Simo" }).locator(".lum-card__cover").click();
+    await page.locator("#lumProfileTitle", { hasText: "Fidji Simo" }).waitFor();
+    await assert.doesNotReject(() => page.locator("#lumProfile").getByText(/CEO of Applications at OpenAI/i).waitFor());
 
-    const badRel = await page.locator('.lum-card__link[target="_blank"]').evaluateAll((links) => links
+    const badRel = await page.locator('.lum-profile__resource[target="_blank"]').evaluateAll((links) => links
       .filter((link) => !(link.rel.includes("noopener") && link.rel.includes("noreferrer"))).length);
     assert.equal(badRel, 0, "external links need noopener noreferrer");
     assert.equal(await page.locator(".lum-card__portrait img[alt='']").count(), 0, "profile images need alt text");
 
     await page.goto(origin + "/luminairy.html#saints", { waitUntil: "networkidle" });
     await page.route("**/content/music/saint-cher-horowitz.mp3", (route) => route.fulfill({ status: 404, body: "missing" }));
-    await page.locator(".lum-card").first().locator(".lum-card__song").click();
+    await page.locator(".lum-card").first().locator(".lum-card__cover").click();
+    await page.locator(".lum-profile__song").click();
     await page.locator("#lumAudioStatus.is-error").waitFor();
     assert.match(await page.locator("#lumAudioStatus").textContent(), /could not/i, "audio failure must be visible");
     await page.setViewportSize({ width: 900, height: 800 });
     const compactDesktopOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     assert.ok(compactDesktopOverflow <= 1, `compact desktop horizontal overflow must be <=1px, got ${compactDesktopOverflow}px`);
     await context.close();
+
+    const missingContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    const missingPage = await missingContext.newPage();
+    await missingPage.goto(origin + "/luminairy.html#not-a-real-profile", { waitUntil: "networkidle" });
+    await missingPage.locator("#lumProfileTitle").waitFor();
+    assert.match(await missingPage.locator("#lumProfileTitle").textContent(), /not in the LUMINAiRY/i, "an invalid direct profile must fail calmly");
+    assert.equal(await missingPage.locator(".lum-card:visible").count(), 0, "an invalid profile route must not silently display an unrelated archive");
+    assert.equal(await missingPage.locator(".lum-profile__back").getAttribute("href"), "#saints", "an invalid profile needs a useful archive return");
+    await missingContext.close();
+
+    const directContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
+    const directPage = await directContext.newPage();
+    await directPage.goto(origin + "/luminairy.html#ada-lovelace", { waitUntil: "networkidle" });
+    await directPage.locator("#lumProfileTitle", { hasText: "Ada Lovelace" }).waitFor();
+    await directPage.waitForFunction(() => document.activeElement?.id === "lumProfileTitle");
+    assert.equal(await directPage.locator("#lumPanel").isVisible(), false, "a direct profile hash must open the complete profile rather than the archive card");
+    await directContext.close();
 
     const blockedContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
     await blockedContext.addInitScript(() => {
@@ -220,7 +283,9 @@ async function run() {
     await blockedPage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
     await blockedPage.locator(".lum-card").first().waitFor();
     assert.match(await blockedPage.locator("#lumLocalStatus").textContent(), /blocked local storage/i);
-    assert.equal(await blockedPage.locator(".lum-card__pick:disabled").count(), 13, "storage failure must disable dishonest save controls");
+    await blockedPage.locator(".lum-card__cover").first().click();
+    await blockedPage.locator(".lum-profile__pick").waitFor();
+    assert.equal(await blockedPage.locator(".lum-profile__pick:disabled").count(), 1, "storage failure must disable the profile save control");
     await blockedContext.close();
 
     const transientFailureContext = await browser.newContext({ viewport: { width: 900, height: 800 } });
@@ -334,7 +399,8 @@ async function run() {
     await accountPage.getByRole("tab", { name: /MAiVENS/ }).click();
     const accountMaven = accountPage.locator(".lum-card").first();
     const accountMavenName = (await accountMaven.locator(".lum-card__name").textContent()).trim();
-    await accountMaven.locator(".lum-card__pick").click();
+    await accountMaven.locator(".lum-card__cover").click();
+    await accountPage.locator(".lum-profile__pick").click();
     await accountPage.waitForFunction(() => window.__LUM_ACCOUNT_REMOTE__?.document?.collections?.luminaries?.value?.mavens?.id);
     const accountRemote = await accountPage.evaluate(() => window.__LUM_ACCOUNT_REMOTE__.document);
     assert.equal(accountRemote.collections.luminaries.value.mavens.id, "ada-lovelace", "a signed-in pick must complete a verified account-continuation write");
@@ -361,6 +427,9 @@ async function run() {
     assert.ok(overflow <= 1, `mobile horizontal overflow must be <=1px, got ${overflow}px`);
     assert.equal(await mobilePage.locator(".lum-card").count(), 7);
     assert.equal(await mobilePage.locator(".lum-tabs").evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length), 1, "mobile tabs must stack");
+    await mobilePage.locator(".lum-card__cover").first().click();
+    assert.ok(await mobilePage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth) <= 1, "390px complete profile must not overflow");
+    assert.equal(await mobilePage.locator("#lumProfile").isVisible(), true, "390px complete profile must render");
     await mobileContext.close();
 
     const narrowContext = await browser.newContext({ viewport: { width: 320, height: 720 }, isMobile: true });
@@ -371,11 +440,13 @@ async function run() {
     assert.ok(narrowOverflow <= 1, `320px horizontal overflow must be <=1px, got ${narrowOverflow}px`);
     assert.equal(await narrowPage.locator(".lum-card").count(), 7, "320px view must render all Trailblazers");
     assert.deepEqual(await imageFailures(narrowPage), [], "320px view must decode all Trailblazer images");
+    await narrowPage.locator(".lum-card__cover").first().click();
+    assert.ok(await narrowPage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth) <= 1, "320px complete profile must not overflow");
     await narrowContext.close();
 
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cards, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, and 390/320 mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cover-only cards, complete profile routes, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, external links, keyboard activation/focus return, invalid-route handling, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, and 390/320 mobile overflow");
   } finally {
     await browser.close();
   }

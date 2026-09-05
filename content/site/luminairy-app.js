@@ -42,11 +42,14 @@
     storageAvailable: true,
     playlist: false,
     playlistIndex: -1,
-    activeSongId: ""
+    activeSongId: "",
+    profileId: "",
+    profileOpenerId: ""
   };
 
   const grid = document.getElementById("lumGrid");
   const panel = document.getElementById("lumPanel");
+  const profileView = document.getElementById("lumProfile");
   const search = document.getElementById("lumSearch");
   const resultStatus = document.getElementById("lumResultStatus");
   const audio = document.getElementById("lumAudio");
@@ -197,7 +200,7 @@
   }
 
   function makeLink(link) {
-    const anchor = textElement("a", "lum-card__link", link.label + " ↗");
+    const anchor = textElement("a", "lum-profile__resource", link.label + " ↗");
     let url;
     try { url = new URL(link.url, window.location.origin); } catch (error) { return null; }
     if (url.protocol !== "https:" && url.origin !== window.location.origin) return null;
@@ -296,6 +299,12 @@
     article.dataset.profileId = profile.id;
     article.dataset.claimId = state.wing.slice(0, -1) + "-" + profile.id + "-card";
 
+    const cover = document.createElement("a");
+    cover.className = "lum-card__cover";
+    cover.href = "#" + profile.id;
+    cover.setAttribute("aria-label", "Open complete profile for " + profile.name);
+    cover.addEventListener("click", () => { state.profileOpenerId = article.id; });
+
     const figure = document.createElement("figure");
     figure.className = "lum-card__portrait";
     const image = document.createElement("img");
@@ -304,64 +313,123 @@
     image.loading = "lazy";
     image.decoding = "async";
     figure.appendChild(image);
-    if (profile.antiSaint) figure.appendChild(textElement("figcaption", "lum-card__warning", "ANTI-SAINT · confidence is not evidence"));
-    article.appendChild(figure);
+    cover.appendChild(figure);
 
     const body = document.createElement("div");
     body.className = "lum-card__body";
     body.appendChild(textElement("p", "lum-card__role", profile.role));
     body.appendChild(textElement("h3", "lum-card__name", profile.name));
-    if (profile.archetype) body.appendChild(textElement("p", "lum-card__archetype", profile.archetype));
-    body.appendChild(textElement("p", "lum-card__about", profile.about));
+    cover.appendChild(body);
+    article.appendChild(cover);
+    return article;
+  }
 
-    const lesson = textElement("p", "lum-card__lesson", profile.lesson);
-    lesson.prepend(textElement("strong", "", "LAiDIES lesson: "));
-    body.appendChild(lesson);
-    if (profile.freshness) body.appendChild(textElement("p", "lum-card__freshness", profile.freshness));
+  function makeProfileAction(profile, wing) {
+    const pick = document.createElement("button");
+    pick.type = "button";
+    pick.className = "lum-profile__pick";
+    const picked = state.picks[wing] === profile.id;
+    pick.setAttribute("aria-pressed", picked ? "true" : "false");
+    pick.disabled = !state.storageAvailable;
+    pick.textContent = picked ? "Chosen · remove from Your Luminaries" : "Choose this " + pickLabels[wing];
+    pick.setAttribute("aria-label", picked
+      ? "Remove " + profile.name + " from My Luminaries"
+      : "Choose " + profile.name + " as my " + pickLabels[wing]);
+    pick.addEventListener("click", () => writePick(wing, profile.id));
+    return pick;
+  }
 
-    const actions = document.createElement("div");
-    actions.className = "lum-card__actions";
-    (profile.links || []).forEach((link) => {
-      const anchor = makeLink(link);
-      if (anchor) actions.appendChild(anchor);
+  function renderProfile(profile, wing, options) {
+    state.profileId = profile.id;
+    state.wing = wing;
+    document.body.dataset.lumWing = wing;
+    panel.hidden = true;
+    profileView.hidden = false;
+    playlistButton.hidden = true;
+    document.querySelectorAll("[role=tab][data-wing]").forEach((tab) => {
+      const active = tab.dataset.wing === wing;
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.tabIndex = active ? 0 : -1;
     });
 
+    const back = textElement("a", "lum-profile__back", "← Back to " + wingMeta[wing].label.split(" · ")[0]);
+    back.href = "#" + wing;
+    back.addEventListener("click", () => { state.profileOpenerId = "profile-" + profile.id; });
+
+    const image = document.createElement("img");
+    image.className = "lum-profile__image";
+    image.src = profile.image;
+    image.alt = "Portrait of " + profile.name;
+
+    const copy = document.createElement("div");
+    copy.className = "lum-profile__copy";
+    copy.appendChild(textElement("p", "lum-profile__role", profile.role));
+    const heading = textElement("h2", "lum-profile__name", profile.name);
+    heading.id = "lumProfileTitle";
+    heading.tabIndex = -1;
+    copy.appendChild(heading);
+    if (profile.archetype) copy.appendChild(textElement("p", "lum-profile__archetype", profile.archetype));
+    copy.appendChild(textElement("p", "lum-profile__about", profile.about));
+
+    const lesson = textElement("section", "lum-profile__lesson", "");
+    lesson.appendChild(textElement("h3", "", "The LAiDIES lesson"));
+    lesson.appendChild(textElement("p", "", profile.lesson));
+    copy.appendChild(lesson);
+
+    const resources = document.createElement("section");
+    resources.className = "lum-profile__resources";
+    resources.appendChild(textElement("h3", "", wing === "saints" ? "Saint song" : "Explore her work"));
+    const links = document.createElement("div");
+    links.className = "lum-profile__resources-list";
+    (profile.links || []).forEach((link) => {
+      const anchor = makeLink(link);
+      if (anchor) {
+        anchor.dataset.resourceType = link.type || "read";
+        links.appendChild(anchor);
+      }
+    });
     if (hasPlayableSong(profile)) {
       const song = document.createElement("button");
       song.type = "button";
-      song.className = "lum-card__song";
+      song.className = "lum-profile__song";
       song.dataset.songId = profile.id;
       song.dataset.songLabel = "♪ " + profile.songLabel;
       song.setAttribute("aria-pressed", "false");
       song.append(textElement("span", "", "♪"), textElement("span", "", profile.songLabel));
       song.addEventListener("click", () => playProfileSong(profile, false));
-      actions.appendChild(song);
+      links.appendChild(song);
     } else if (profile.songStatus === "deferred") {
-      const songStatus = textElement("p", "lum-card__song-status", "♪ Song coming later");
+      const songStatus = textElement("p", "lum-profile__song-status", "♪ Song coming later");
       songStatus.id = "song-status-" + profile.id;
-      actions.appendChild(songStatus);
+      links.appendChild(songStatus);
     }
+    resources.appendChild(links);
+    if (profile.freshness) resources.appendChild(textElement("p", "lum-profile__freshness", profile.freshness));
+    copy.appendChild(resources);
+    copy.appendChild(makeProfileAction(profile, wing));
 
-    const pick = document.createElement("button");
-    pick.type = "button";
-    pick.className = "lum-card__pick";
-    const picked = state.picks[state.wing] === profile.id;
-    pick.setAttribute("aria-pressed", picked ? "true" : "false");
-    pick.disabled = !state.storageAvailable;
-    pick.textContent = picked ? "Chosen · remove" : "Choose this " + pickLabels[state.wing];
-    pick.setAttribute("aria-label", picked
-      ? "Remove " + profile.name + " from My Luminaries"
-      : "Choose " + profile.name + " as my " + pickLabels[state.wing]);
-    pick.addEventListener("click", () => writePick(state.wing, profile.id));
-    actions.appendChild(pick);
-
-    body.appendChild(actions);
-    article.appendChild(body);
-    return article;
+    const layout = document.createElement("div");
+    layout.className = "lum-profile__layout";
+    layout.append(image, copy);
+    profileView.replaceChildren(back, layout);
+    profileView.setAttribute("aria-labelledby", heading.id);
+    updateSongButtons();
+    if (options && options.focusSelector) {
+      requestAnimationFrame(() => profileView.querySelector(options.focusSelector)?.focus());
+    } else if (!options || options.focus !== false) {
+      requestAnimationFrame(() => heading.focus());
+    }
   }
 
   function render() {
     if (!state.data) return;
+    let profileFocusSelector = "";
+    if (state.profileId && profileView.contains(document.activeElement)) {
+      if (document.activeElement.id === "lumProfileTitle") profileFocusSelector = "#lumProfileTitle";
+      else if (document.activeElement.classList.contains("lum-profile__pick")) profileFocusSelector = ".lum-profile__pick";
+      else if (document.activeElement.classList.contains("lum-profile__song")) profileFocusSelector = ".lum-profile__song";
+      else if (document.activeElement.classList.contains("lum-profile__back")) profileFocusSelector = ".lum-profile__back";
+    }
     const meta = wingMeta[state.wing];
     document.getElementById("lumWingKicker").textContent = meta.label;
     document.getElementById("lumWingTitle").textContent = meta.title;
@@ -384,6 +452,11 @@
     const itemNoun = state.wing === "saints" ? "cards" : "profiles";
     resultStatus.textContent = profiles.length + " of " + state.data[state.wing].length + " " + itemNoun + " shown" + (query ? " for “" + state.query.trim() + "”." : ".");
     updateSongButtons();
+    if (state.profileId) {
+      const wing = wingForProfileId(state.profileId);
+      const profile = wing && profileById(wing, state.profileId);
+      if (profile) renderProfile(profile, wing, { focus: false, focusSelector: profileFocusSelector });
+    }
   }
 
   function setWing(wing, options) {
@@ -391,6 +464,9 @@
     const shouldFocus = options && options.focus;
     const leavingSaints = state.wing === "saints" && wing !== "saints";
     state.wing = wing;
+    state.profileId = "";
+    profileView.hidden = true;
+    panel.hidden = false;
     if (leavingSaints) stopAudio();
     state.query = "";
     search.value = "";
@@ -400,25 +476,48 @@
       tab.tabIndex = active ? 0 : -1;
       if (active && shouldFocus) tab.focus();
     });
-    if (window.location.hash !== "#" + wing) history.replaceState(null, "", "#" + wing);
+    if ((!options || options.updateHash !== false) && window.location.hash !== "#" + wing) history.replaceState(null, "", "#" + wing);
     render();
+    if (options && options.restoreCard) requestAnimationFrame(() => document.getElementById(options.restoreCard)?.querySelector(".lum-card__cover")?.focus());
   }
 
   function wingForProfileId(id) {
     return Object.keys(wingMeta).find((wing) => profileById(wing, id)) || "";
   }
 
+  function renderMissingProfile() {
+    state.profileId = "";
+    panel.hidden = true;
+    profileView.hidden = false;
+    playlistButton.hidden = true;
+    const back = textElement("a", "lum-profile__back", "← Back to the LUMINAiRY archive");
+    back.href = "#saints";
+    const heading = textElement("h2", "lum-profile__name", "That profile is not in the LUMINAiRY.");
+    heading.id = "lumProfileTitle";
+    heading.tabIndex = -1;
+    const message = textElement("p", "lum-profile__about", "Return to the archive to meet the complete collection.");
+    profileView.replaceChildren(back, heading, message);
+    profileView.setAttribute("aria-labelledby", heading.id);
+    requestAnimationFrame(() => heading.focus());
+  }
+
   function applyHash() {
     const hash = decodeURIComponent(window.location.hash.slice(1));
     if (validWing(hash)) {
-      setWing(hash);
+      const restoreCard = state.profileOpenerId;
+      setWing(hash, { updateHash: false, restoreCard: restoreCard });
+      state.profileOpenerId = "";
       return;
     }
     const wing = wingForProfileId(hash);
     if (wing) {
-      setWing(wing);
-      requestAnimationFrame(() => document.getElementById("profile-" + hash)?.scrollIntoView({ block: "center" }));
+      state.profileId = hash;
+      state.wing = wing;
+      renderProfile(profileById(wing, hash), wing);
+      return;
     }
+    if (hash) renderMissingProfile();
+    else setWing("saints", { updateHash: false });
   }
 
   function showLoadFailure() {
@@ -456,7 +555,6 @@
         state.data = data;
         readPicks();
         applyHash();
-        render();
         window.setTimeout(syncAccountPicks, 0);
       })
       .catch(() => {

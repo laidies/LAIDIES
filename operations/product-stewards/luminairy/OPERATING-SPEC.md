@@ -2,8 +2,8 @@
 
 **Owner:** LUMINAiRY building champion  
 **Research owner:** PATRON SAiNTS, MAiVENS & TRAiLBLAZERS research/editorial sub-champion  
-**Status:** BOUNDED LOCAL PASS — independent Repair 3 rejudge 90/100; all production claims held  
-**Last reviewed:** 2026-07-26
+**Status:** CARD/PROFILE SUCCESSOR BUILT, BROWSER-VERIFIED AND INDEPENDENTLY REVIEWED LOCALLY; release pending
+**Last reviewed:** 2026-09-05
 
 ## Product job
 
@@ -17,13 +17,14 @@ The room is not a leaderboard, canon of “the greatest”, completion course, c
 
 ## Journey contract
 
-1. The arrival states what each wing does and that research may be held while it is rechecked.
+1. The Matron Lumen arrival locates the building, then the complete three-wing archive appears before optional personalization.
 2. Each stained-glass door is a real button. It opens one wing in place, closes the others, updates the URL hash and announces the change.
-3. A person card may show only material admitted by the claim registry. Held or stale material is replaced with a plain editorial-review message; the artwork and name do not launder the held claims.
-4. A MAiVEN profile opens as a keyboard-operable modal, receives focus, traps focus, closes with Escape/backdrop/close control, and returns focus to the control that opened it.
+3. Every archive card is a cover, not a mini profile: approved image, canonical role line and name only. The whole cover is one native link.
+4. The card link opens a complete same-page profile route with its own URL hash. The profile receives heading focus and its back link restores focus to the exact cover that opened it.
 5. A source link names the exact supported claim and opens its authoritative evidence. A general biography link must not masquerade as support for an unrelated quote, “first”, current role or causal inference.
-6. A visitor may choose one guide per wing. The choice and “met” list are private browser storage on this device only. Opening a profile means “opened on this device”; it is not learning, completion, endorsement, membership, reward or account state.
-7. The page offers a correction route that does not imply a guaranteed response. While Town Hall intake is held, the route is a transparent status page, not a working submission promise.
+6. Description, LAiDIES lesson, dated evidence/resources, Saint song or honest deferred state, and choose/remove action belong on the complete profile—not on the archive cover.
+7. A visitor may choose one person per wing. Choices save immediately in the private versioned local envelope and, when signed in, join the admitted Resident continuation for cross-device restoration in My Closet.
+8. The page offers one quiet Town Hall correction route.
 
 ## Claim admission contract
 
@@ -68,11 +69,7 @@ Corrections are dated and visible in the registry and in the affected card/profi
 
 - Door and archive-index controls use native buttons, visible focus and complete keyboard operation.
 - Open-wing status is announced without moving focus unexpectedly.
-- The modal establishes focus synchronously, exposes an explicit
-  `closed`/`opening`/`ready`/`failed` focus state, traps and wraps focus in both
-  directions, prevents background scrolling, restores focus to the exact
-  opener and remains usable at 320 CSS px and 200% zoom. No deferred focus may
-  compete with the user's first keyboard action.
+- The complete profile gives its heading focus after navigation, exposes a native back link, restores focus to the exact opener and remains usable at 320 CSS px and 200% zoom.
 - The experience reflows to one column; no essential text depends on hover, animation, colour or imagery.
 - Reduced-motion preference removes smooth scrolling, card transforms and modal animation.
 - Registry/network/script/storage/audio failure preserves navigation and explains the limitation.
@@ -86,12 +83,17 @@ Release remains `BUILDING` until all are fresh:
    admitted claims bind to their exact independently signed receipts and
    sources, and rehashed evidence, identity mutations, missing authority,
    unknown and stale records fail closed;
-3. keyboard tests for doors, archive tabs and modal ready-state, initial
-   focus, forward/backward wrap and Escape/close/return at desktop and 320 px,
-   including five consecutive source and exact-artifact passes without retry;
+3. keyboard tests for doors, archive tabs, whole-card links, profile initial focus and exact-cover return at desktop and 320 px;
 4. mobile/reflow/reduced-motion/contrast inspection;
 5. local-selection truth and corrupt-storage tests;
 6. exact public artifact build with no missing referenced assets;
 7. research-owner approval for each admitted claim and owner visual approval.
 
-No deploy, publication, Git action or change to another product’s canon is authorized by this specification.
+Deployment remains a separate, provider-head-aware release step.
+
+### 2026-09-05 cover/profile successor
+
+- **Card contract:** all 43 archive covers contain only the admitted image, canonical role and name; there are no nested controls or hidden mini-profile details.
+- **Profile contract:** the canonical `#profile-id` route renders the full admitted record, typed external destinations, Saint song state and existing Your Luminaries action without duplicating signed data.
+- **Continuity:** the 13/23/7 roster, 108 typed MAiVEN/TRAiLBLAZER destinations, 12-song playlist, deferred Carrie state, local/account persistence and My Closet restoration are preserved.
+- **Current boundary:** implementation and browser suite pass locally; an independent read-only rejudge found no remaining material defect. No deployment or public verification has occurred.

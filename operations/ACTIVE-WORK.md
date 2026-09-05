@@ -1172,8 +1172,11 @@ objective; every open lane keeps its own checkpoint.
 
 ### 2026-09-05 LUMINAiRY card/profile ownership handoff
 
-- **Current state:** `DECIDED / HANDOFF COMMITTED / CARD REDESIGN NOT STARTED IN THIS TASK`.
+- **Current state:** `BUILT, BROWSER-VERIFIED AND INDEPENDENTLY REVIEWED LOCALLY / NOT DEPLOYED`.
 - **Single owner:** **Complete patron profiles** (`01a0308b-140d-7263-aebd-00aa52264775`) owns the archive-card and complete-profile implementation on `feature/luminairy-card-profile-20260905`.
 - **Locked result:** card fronts show only approved image, canonical role line and name; clicking the card opens the complete profile, which owns all depth and the choose/save action.
 - **Integration base:** preserve commits `75e0f600e8ebb8dd1d6aa2bb48d616fce7abf8ef` and `a053c233ddfdc30357a2539948ea31330d330b57`; exact handoff is `operations/product-stewards/luminairy/card-profile-single-owner-handoff-2026-09-05.md`.
-- **Write/release boundary:** this task has stopped card/profile edits. The Codex task-message service was unavailable, so the committed owner branch plus this mandatory active-work checkpoint carry the handoff. No push or deployment occurred.
+- **Implemented on the assigned owner branch:** all 43 archive cards are cover-only links with image, role and name; the existing canonical hash opens one complete profile holding description, LAiDIES lesson, verified destinations, Saint song state and the Your Luminaries action. Back navigation restores focus to the exact cover.
+- **Verification:** the browser suite passes 13/23/7 cover contracts, all 30 typed-destination profiles, 12 available songs and deferred Carrie, signed admission with and without Web Crypto, local/account restoration into My Closet, audio/storage/fetch failures, keyboard focus and desktop/390/320 overflow. Maker inspection confirmed the cover and complete-profile layouts in the rendered page.
+- **Independent rejudge:** the first judgment held the candidate for a gendered song label and focus loss after saving. Both were repaired; the rejudge found no remaining material defect in the owned surface.
+- **Write/release boundary:** no profile-data, signed-receipt, image, song or unrelated public bytes were changed. No deployment or public verification occurred; provider-head-aware release coordination remains.
