@@ -2,7 +2,7 @@
 
 ## Approved availability rule; implementation local — 2026-09-05
 
-**Status: RULE APPROVED / BUILT LOCALLY / AUTOMATIC REVIEW REPAIR IN PROGRESS / NOT DEPLOYED.**
+**Status: RULE APPROVED / BUILT LOCALLY / AUTOMATIC REVIEW SCHEDULE ACTIVE / NOT DEPLOYED.**
 Ali approved the repair and required automatic reviews in the existing freshness
 system (D-2026-09-05-142). The repair changes the consequence of an overdue operational
 menu review: published component status continues to govern availability,
@@ -15,6 +15,11 @@ The older stale-date clauses below are superseded for this operational menu
 deadline; they are retained as historical description of the incumbent.
 Automatic review must inspect sources and visitor paths, record findings
 and route corrections. A warning or automatic date extension is not review.
+The shared system now has an executing daily 08:00 America/Vancouver heartbeat,
+`laidies-automatic-freshness-review`, using the calibrated missing-hook repair
+and evolving shared canonical inputs. First detector run correctly flags the
+public shutdown and existing claim/consumer work; full registry coverage is
+still PARTIAL. Automatic execution is configured, not evidence of a future run.
 
 Local verification for this candidate:
 
