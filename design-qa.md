@@ -1,5 +1,68 @@
 # Design QA — room-first building rebuilds
 
+## Screening Room return-control contrast — 2026-09-04
+
+**Source visual truth**
+
+- Ali's rejected low-contrast screenshot:
+  `operations/design-audit/screening-return-contrast-20260904/source-low-contrast.png`
+  (1374 × 224 pixels).
+- Same-input comparison:
+  `operations/design-audit/screening-return-contrast-20260904/comparison.html` and
+  `comparison.png`.
+
+**Rendered implementation**
+
+- Focused desktop crop:
+  `operations/design-audit/screening-return-contrast-20260904/implementation-desktop.png`
+  (1374 × 224 pixels from a 1374 × 800 CSS viewport; browser density 1).
+- State: Episode 04 Listen mode, immediately below the format selector and above
+  the programme shelf.
+
+**Findings and comparison history**
+
+1. **P1 fixed — the return destination was dark text directly over a busy
+   purple-blue comic field.** It was technically present but did not read as a
+   navigation control. The successor uses a yellow LAiDIES action surface,
+   deep-ink type and border, and pink offset edge without adding a white card.
+2. **P2 fixed — the text link had no dependable touch target or visible focus
+   treatment.** The successor is an inline-flex 44px-high control. Hover and
+   keyboard focus switch to mint, add a cobalt offset edge and retain a visible
+   cream focus outline.
+
+**Fidelity surfaces**
+
+- **Typography:** Jost remains the interface face; weight increases from 800 to
+  900 while the wording and natural casing are unchanged.
+- **Spacing/layout rhythm:** the control stays in its original position and
+  remains compact; its 273.8 × 44px rendered box does not compete with the
+  primary Listen action.
+- **Colours/tokens:** foreground `#11183b` on `#ffd34d` measures 12.05:1. Pink,
+  mint, cobalt and cream are limited to edge and interaction states from the
+  shared current LAiDIES system.
+- **Image quality/assets:** no image was generated, replaced or altered. The
+  approved Episode 04 VHS cover and illustrated masthead remain unchanged.
+- **Copy/content:** exact destination and wording remain `Return this tape to
+  The Chick Flicks`.
+
+**Functional evidence**
+
+- The exact link remains `/chick-flicks.html` and is exposed as a named link in
+  the browser accessibility tree.
+- Desktop and 390 × 844 browser renders show the control clearly separated from
+  the background; the phone version wraps to two lines without clipping.
+- Both measured states report zero horizontal overflow.
+- Browser logs contain no application errors; Plausible reports only its
+  expected localhost ignore warning.
+- The calibrated format-shell check fails when the yellow return surface is
+  removed, then the normal format-shell and 12-point Chick Flicks contracts pass.
+- Focused comparison is sufficient because the defect and edit are confined to
+  this one return control; the surrounding masthead, player and shelf were not
+  changed.
+- Local verification only; no deployment or public-origin claim.
+
+final result: passed
+
 ## Chick Flicks future-release VHS shelf — 2026-09-02
 
 **Source visual truth**

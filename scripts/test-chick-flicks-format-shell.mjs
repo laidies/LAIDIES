@@ -3,12 +3,17 @@ import fs from 'node:fs';
 
 const bad = process.argv.includes('--calibration-bad');
 const hiddenCaptionBad = process.argv.includes('--calibration-hidden-caption-bad');
+const returnContrastBad = process.argv.includes('--calibration-return-contrast-bad');
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
 const watchCssSource = read('content/watch-v2.css');
-const watchCss = hiddenCaptionBad
-  ? watchCssSource.replace(/\.screening-room-page \.cap-bar\[hidden\]\s*\{\s*display:\s*none;\s*\}/, '')
-  : watchCssSource;
+let watchCss = watchCssSource;
+if (hiddenCaptionBad) {
+  watchCss = watchCss.replace(/\.screening-room-page \.cap-bar\[hidden\]\s*\{\s*display:\s*none;\s*\}/, '');
+}
+if (returnContrastBad) {
+  watchCss = watchCss.replace(/background:\s*var\(--screen-yellow\);/, 'background: transparent;');
+}
 const visualSystemCss = read('content/site/laidies-visual-system.css');
 const formatCss = read('content/episode-format-navigation.css');
 const issueJs = read('content/issue-feature-v2.js');
@@ -64,6 +69,9 @@ assert.match(watchCss, /\.screening-feature\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play\s*\{/);
 assert.match(watchCss, /\.screening-arrival-play__icon\s*\{/);
 assert.match(watchCss, /grid-template-columns:\s*4\.8rem minmax\(0, 1fr\)/);
+assert.match(watch, /class="screening-return" href="\/chick-flicks\.html">← Return this tape to The Chick Flicks<\/a>/);
+assert.match(watchCss, /\.screening-return\s*\{[^}]*min-height:\s*2\.75rem[^}]*border:\s*3px solid var\(--screen-ink\)[^}]*color:\s*var\(--screen-ink\)[^}]*background:\s*var\(--screen-yellow\)[^}]*box-shadow:\s*4px 4px 0 var\(--screen-pink\)/s);
+assert.match(watchCss, /\.screening-return:hover,[\s\S]*?\.screening-return:focus-visible\s*\{[^}]*background:\s*var\(--screen-mint\)[^}]*outline:\s*3px solid var\(--screen-paper\)/s);
 assert.match(watchCss, /\.screening-extras\s*\{/);
 assert.match(watchCss, /body\[data-format="listen"\] \.screening-extras\s*\{[^}]*rgba\(242, 84, 169[^}]*rgba\(113, 55, 214[^}]*rgba\(21, 188, 224[^}]*episode-01-pop-comic-bg-v1\.png/s);
 assert.match(watchCss, /\.screening-extras__inner\s*\{/);

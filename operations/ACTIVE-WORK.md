@@ -108,6 +108,13 @@ equally specific `display:grid` rule overrode that state. The repaired selector
 binds hidden caption bars to `display:none`; browser computation now reports two
 authored bars, exactly one visible bar and a zero-height hidden bar. Play Audio
 advanced real playback, changed to Pause Audio and kept the visible caption live.
+Ali's next screenshot exposed the return route dissolving into the illustrated
+masthead as dark text without a control surface. It is now a compact yellow
+current-palette action with deep-ink type and border, pink offset edge, and
+mint/cobalt/cream hover and keyboard-focus states. The target measures 44px
+high, its foreground/background contrast is 12.05:1, and desktop plus 390px
+renders retain zero horizontal overflow. A calibrated format-shell check rejects
+removal of the solid surface. This remains local-only and undeployed.
 The repository commit hook still stops on 45 pre-existing missing Episode 03
 comic assets, four cue-duration warnings and the unrelated extensionless
 `/radio` target in `laidies-card.html`; none of those paths changed here. The
@@ -124,7 +131,8 @@ Evidence is in `operations/design-qa/chick-flicks-20260902-v2/`,
 `operations/design-audit/chick-flicks-listen-homepage-colours-20260903/` and
 `operations/design-audit/chick-flicks-listen-full-page-homepage-20260904/` and
 `operations/design-audit/chick-flicks-listen-current-site-colours-20260904/` and
-`operations/design-qa/chick-flicks-caption-state-20260904/`.
+`operations/design-qa/chick-flicks-caption-state-20260904/` and
+`operations/design-audit/screening-return-contrast-20260904/`.
 Nothing has been deployed or publicly verified.
 
 ## 2026-08-30 KSVL private sticker delivery — VERIFIED LOCALLY; release pending

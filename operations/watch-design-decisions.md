@@ -1,5 +1,14 @@
 # Screening Room construction — 2026-07-24
 
+## Return control remains distinct from illustrated fields — 2026-09-04
+
+Ali directly rejected the low-contrast return link in the Episode 04 Listen
+masthead. A Screening Room return route may not rely on dark text alone over a
+busy comic background. It remains a compact secondary action, but requires a
+44px minimum target, a solid current-palette surface, deep-ink type and border,
+and visible hover and keyboard-focus states. It must not introduce a generic
+white card or compete with the primary Listen or Watch action.
+
 ## Current episode videos may be public while improvement continues — 2026-08-28
 
 Ali's direct ruling is that having the newest existing Episode 01–04 videos
