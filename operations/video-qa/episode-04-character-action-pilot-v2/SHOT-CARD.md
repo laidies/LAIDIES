@@ -1,6 +1,6 @@
 # Episode 04 character-action proof v2
 
-Status: BLOCKED — Canva moderation returned no video; not approved episode media.
+Status: HOLD — Higgsfield rendered a motion test; typing interaction is not convincing.
 
 ## Bound inputs and outcome
 
@@ -77,3 +77,58 @@ assets and the unrelated `/radio#hub-stickers` target in `laidies-card.html`.
 Those paths were not changed. The exact four task-owned paths passed staged
 whitespace checks; a scoped `--no-verify` checkpoint preserves this BLOCKED
 record and audio input without claiming the repository or video passed review.
+
+## Authorized Higgsfield continuation — September 5
+
+Ali approved testing the same scene in Higgsfield without buying a subscription
+or credits. This supersedes Canva-only generation for this bounded pilot, not
+for all episodes. The connected account then reported an active trial, Plus,
+110 credits, ending 2026-09-08T14:05:45Z (September 8, 07:05 Vancouver).
+Unlimited generation was unavailable. No plan change or purchase was made here.
+
+Ali requested a reminder to cancel if the results are poor, or choose a different
+plan if useful. Created one reminder, `review-higgsfield-before-trial-renewal`,
+for Monday September 7 at 09:00 local time, ahead of the reported expiry. It does
+not authorize automatic cancellation or plan changes. Ali reported $70/month
+renewal; the balance response did not independently confirm that price.
+
+The existing public scene URL was fetched and its SHA-256 matched the local file:
+`3ac51c96ddf06d1c08e456e09041a01b8213251dcd2e74dc154517fbccaf1ff2`.
+Source: https://laidies.ai/assets/episodes/ep-04/pixel/ep04-open-04-desk-comic-v1-face-lock-1920.png
+No new public image upload or site deployment was needed.
+
+One job submitted: `d715acc9-91a0-4619-bc8e-2db489566cf0`, Seedance 2.5,
+omni_reference, start_image, five seconds, 720p, 16:9, no generated audio.
+Credit preflight: 32.5 of the existing 110 credits. No top-up authorized.
+Action: lower the existing raised right hand to the keyboard, type with two
+fingers, settle with fingertips on the keys; left hand stays in lap, closed mouth,
+eyes on monitor, fixed framing and preserved ink/faceted shadow construction.
+Inspect this result before spending further credits. This is not yet the
+25.64-second assembled pilot or an approved replacement for any episode media.
+
+### Render result and bounded review
+
+Job completed. Saved `ep04-desk-action-higgsfield-v1.mp4`: 5.04 seconds,
+1280×720, 24 fps, no audio; full decode completed without errors. SHA-256:
+`9c8aa5116d7e222afc894154461a4f3b52dcfd3975623575da264bd0913f936e`.
+These are integrity observations, not a quality pass.
+
+Maker inspected a two-frames-per-second timeline and five-frames-per-second
+hand crops. They show the hand lowering and stable room framing, but do not
+establish clear finger/key contact. Role-distinct reviewer `episode_pilot_inventory`
+inspected the same decoded samples plus source and style master: HOLD, reach
+and hover rather than believable typing; inherited smoother source face is not
+the current faceted-ink master. The reviewer also mentioned absent butterfly
+clips; that point is not adopted as a new wardrobe ruling, because this is the
+corporate scene and the master is separately a style authority.
+
+Neither review was continuous normal-speed playback. No full-film assembly,
+second generation, public presentation as approved media, or website change
+was made. The original source's known HOLD is not cured by motion preservation.
+Before a successor: resolve the source's style admission and plan actual
+finger/key contact; do not spend another render merely on more hand movement.
+
+Balance rechecked after this one generation: 77.5 credits. Exact consumption:
+32.5 credits. The cancellation/plan-review reminder was updated to include the
+confirmed trial expiry. It remains September 7 at 09:00 Vancouver, about 22 hours
+before expiry, and does not cancel or change the subscription automatically.

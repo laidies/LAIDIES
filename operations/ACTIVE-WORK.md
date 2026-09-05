@@ -1,5 +1,17 @@
 # Active work
 
+## 2026-09-05 Higgsfield continuation — HOLD after first render
+
+Ali approved the provider switch with no credit/subscription purchase. One
+source-anchored five-second Seedance 2.5 job completed:
+`d715acc9-91a0-4619-bc8e-2db489566cf0`. The sampled decoded review found a
+reach-and-hover rather than believable typing, plus inherited source-style
+drift. No second render or 25.64-second assembly was made. 77.5 credits remain.
+Resolve source-style admission and finger/key interaction before a successor.
+Trial ends September 8 at 07:05 Vancouver; the requested cancellation/plan-review
+reminder is set for September 7 at 09:00. Full details remain in the pilot shot
+card below. Original episode and website are unchanged.
+
 ## 2026-09-05 Episode 04 character-action pilot — BLOCKED, no video rendered
 
 The 20–30 second proof is not built. Canva Image to Video, Custom, was tested

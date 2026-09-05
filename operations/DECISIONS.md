@@ -2,6 +2,12 @@
 
 <!-- context-authority: operations/context-authority.json -->
 
+Episode 04 animation pilot, September 5: Ali authorized testing the existing
+scene in Higgsfield instead of the blocked Canva generation, with no subscription
+or credit purchase. The bounded exception, exact job and renewal reminder are in
+`operations/video-qa/episode-04-character-action-pilot-v2/SHOT-CARD.md`.
+This is not a blanket replacement of the episode pipeline or release approval.
+
 This file routes a task to current authority. It is not a second decision
 register. The routed source wins for its domain.
 

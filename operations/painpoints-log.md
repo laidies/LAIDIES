@@ -1,5 +1,14 @@
 # LAiDIES build learning ledger
 
+- **2026-09-05 Higgsfield Episode 04 motion test:** A five-second source-anchored
+  generation completed, but decoded samples showed a reach-and-hover rather than
+  convincing typing. The independent review also found that preserving the old
+  source preserves its smoother face/style mismatch. Prevention: inspect actual
+  object contact and action progression, not just moving pixels; resolve a held
+  source's style before treating motion preservation as production readiness.
+  Only one render was used (32.5 existing credits); 77.5 remain. Behind the Build
+  angle: an animation can move and still fail to perform the action in the story.
+
 **Public destination:** future **Field Notes from LAiDIES HQ: Behind the Build**
 **System:** `docs/product/behind-the-build-learning-system.md`
 **Editorial queue:** `operations/behind-the-build-publication-queue.md`
