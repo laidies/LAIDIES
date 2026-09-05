@@ -5,8 +5,15 @@ const bad = process.argv.includes('--calibration-bad');
 const hiddenCaptionBad = process.argv.includes('--calibration-hidden-caption-bad');
 const returnContrastBad = process.argv.includes('--calibration-return-contrast-bad');
 const watchShellBad = process.argv.includes('--calibration-watch-shell-bad');
+const watchPosterBad = process.argv.includes('--calibration-watch-poster-bad');
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
-const watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
+let watch = bad ? read('watch.html').replace('screeningCover', 'missingCover') : read('watch.html');
+if (watchPosterBad) {
+  watch = watch.replace(
+    'v.poster = EPISODE_COVERS[episodeKey(ep)] || poster;',
+    'if (poster) v.poster = poster;'
+  );
+}
 const watchCssSource = read('content/watch-v2.css');
 let watchCss = watchCssSource;
 if (hiddenCaptionBad) {
@@ -53,6 +60,7 @@ assert.match(watch, /function syncArrivalPlay\(\)/);
 assert.match(watch, /parts\.bar\.hidden = !caption/);
 assert.match(watch, /video\._captionBar\.hidden = !video\._captionBar\.querySelector\('\.cap-txt'\)\.textContent\.trim\(\)/);
 assert.match(watch, /EPISODE_COVERS\s*=\s*\{/);
+assert.match(watch, /v\.poster = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| poster/);
 assert.match(watch, /listenCover\.src = EPISODE_COVERS\[episodeKey\(ep\)\] \|\| admission\.posterPublicUrl/);
 for (const episode of ['01', '02', '03', '04']) {
   assert.match(watch, new RegExp(`episode-vhs-boxes-v2/ep-${episode}\\.png`));

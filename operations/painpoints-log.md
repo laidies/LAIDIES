@@ -7,6 +7,20 @@
 lessons in the same task. Separate observation from diagnosis. A raw entry is
 not automatically publishable.
 
+## 2026-09-04 The selected tape lost its identity at Play
+
+The Chick Flicks shelf, rental-counter modal and Listen player showed the exact
+approved episode VHS cover, but Watch reverted to a generic widescreen title
+card before playback. Nothing was technically broken; the experience still
+felt discontinuous because the object the visitor selected appeared to change.
+The native Watch poster now binds to the same per-episode cover map while the
+admitted poster remains media evidence and Media Session artwork. Prevention
+rule: treat packaging identity and media admission evidence as separate jobs,
+and verify one selected object across shelf, modal, Listen and Watch before
+calling the journey coherent. Possible Behind the Build angle: visitors notice
+when a digital object stops being the thing they picked, even when every link
+still works.
+
 ## 2026-09-04 Watch page became a black media app
 
 Preserving a dark film stage had accidentally preserved darkness across the

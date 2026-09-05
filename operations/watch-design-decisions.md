@@ -1,5 +1,18 @@
 # Screening Room construction — 2026-07-24
 
+## The selected VHS cover is the Watch pre-play poster — 2026-09-04
+
+The selected tape keeps one visible identity from the Chick Flicks shelf through
+the rental-counter modal, Listen and the idle Watch player. For Episodes 01–04,
+the native Watch video poster is the exact approved image from
+`assets/sunnyvaile-interiors/episode-vhs-boxes-v2/ep-NN.png`; it is not replaced
+by a generic widescreen episode title card.
+
+This is a packaging-continuity decision, not a media-source change. The admitted
+poster remains source-integrity evidence, Media Session artwork and a fallback
+input when no episode cover exists. Film URL, captions, playback, resume,
+post-play state and Watch/Listen navigation remain unchanged.
+
 ## Watch uses a bright LAiDIES shell around one dark film window — 2026-09-04
 
 This decision supersedes the older visual-language bullets below that made the
