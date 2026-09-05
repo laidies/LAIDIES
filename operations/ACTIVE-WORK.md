@@ -1,5 +1,31 @@
 # Active work
 
+> **2026-09-05 — Site improvement sequence; copy elevation CAPTURED.**
+> Foreground objective remains the existing site improvement cycle. Ali added
+> stronger homepage/subpage language; no new public wording has been produced.
+> **Next bounded repair batch:** first recheck the saved Miss Jeeves condition-loss
+> and raw-markup cases against the current live implementation, then repair any
+> reproduced defect. Recheck the exact homepage Express Route through the now
+> available Blend path; resolve Episode 04 Try-On's promise/activity mismatch
+> against its intended exercise. Acceptance: the promoted path reaches a useful
+> activity and answers retain decision-changing conditions on phone and desktop.
+> These audit findings require fresh verification before editing; the prior
+> Blend menu/receipt repair remains publicly verified as recorded below.
+> **Following pass:** elevate homepage purpose, feature introductions, action
+> labels and visitor state messages using the existing writing lock. Preserve
+> Ali's mission, character roles and approved world-building. Review a focused
+> exact before/after candidate after maker and applicable independent checks;
+> do not ask Ali to manage a whole-site sentence-by-sentence review queue.
+> **Alongside these repairs:** register current claims and their actual uses,
+> beginning with changeable product guidance; reconcile obsolete consumer paths
+> and feed findings into the existing automatic review. This remains partial
+> coverage until actual source and public-consumer verification closes it.
+> **Then:** carry the accepted writing and vibrant 90s adult graphic-novel
+> direction through connected subpages, preserving working journeys. Evaluate
+> one shared Miss Jeeves/FAiRY workplace-question pilot before any fallback
+> handoff implementation. No strict understand/do split or automatic submission.
+> Sequencing is Codex's dependency-aware work plan, not a new Ali product ruling.
+
 > **2026-09-05 — Blend & Snap menu repair PUBLICLY VERIFIED; freshness coverage PARTIAL.**
 > Ali approved persistent access to available activities and automatic review
 > under D-2026-09-05-142. Production `46172581-4f74-44fe-b3fa-869a1e78c69a`

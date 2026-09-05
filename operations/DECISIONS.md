@@ -1,5 +1,15 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Homepage and subpage language elevation added to the improvement cycle.**
+> Ali asked for stronger language on the homepage and subpages while continuing
+> the existing repair work. This adds a copy-improvement scope; it does not
+> supersede the established LAiDIES voice, product roles or visual decisions.
+> Apply `voice/laidies-writing-lock.md`: specific, warm, witty, grown-up,
+> useful and clear for smart professional women. Codex's working interpretation
+> is stronger editorial choices, clearer value and more deliberate character
+> voice; no new tone candidate has been approved or published. Sequence and
+> review boundaries are in the current `ACTIVE-WORK.md` improvement checkpoint.
+
 > **2026-09-05 — Blend & Snap availability and automatic freshness review:**
 > Ali approved keeping published activities accessible when an operational
 > review date expires. Explicit held/planned/unavailable status and invalid
