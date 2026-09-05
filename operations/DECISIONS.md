@@ -1,5 +1,19 @@
 # DECISIONS — where every settled decision lives
 
+> **2026-09-05 — Operating recovery, voice and learning continuity.**
+> Ali authorized execution after the cross-operation review. This task is now
+> LAiDIES operating system and launch readiness. Sequence and exact continuation:
+> `OPERATING-RECOVERY-NEXT.md`. Preserve existing Homepage, NewsStand and media
+> owners; do not deploy the mixed historical branch. Ali's exact Dream Phone
+> examples and explanation belong in `voice/laidies-writing-lock.md`. Shared
+> recognition, humour and invitation are useful jobs for product copy; a joke
+> need not explain an AI mechanism. Episodes 1–3 written/narration are Ali's stated
+> voice references; Episode 1 remains the currently registered positive exemplar,
+> and exact source/admission mapping for 2–3 is a next production step. Her learning
+> preference is in CODEX-WORKING-AGREEMENT.md, Ali learns while we execute.
+> Rejecting an asset overrides an older ACTIVE record. Apply task-relevant
+> prevention rules without loading the historical rejection corpus into every job.
+
 **Read this before any material task. Search it before asking Ali anything.**
 
 This is a **router, not a source of truth.** It tells you which file holds the

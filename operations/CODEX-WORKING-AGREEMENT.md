@@ -468,3 +468,17 @@ the recorded result.
 Before similar work, Codex searches that ledger and carries forward the
 relevant prevention rules. See
 `docs/product/behind-the-build-learning-system.md`.
+
+## Ali learns while we execute — September 5, 2026
+
+Ali has no assumed AI, computer-science or website-development background and
+wants technical depth. Explain meaningful decisions and failures through their
+real purpose, mechanism, connected parts and trade-offs. Introduce an unfamiliar
+term after establishing the concept. Use a faithful analogy when useful, map it
+back to the actual system and explain its limits when they matter.
+
+Keep this within the work: short explanations at meaningful moments, deeper
+answers when Ali is curious, and a reusable lesson when one is worth retaining.
+Do not make every edit a lecture, require quizzes, add approval gates or hand
+Ali tool chores. Continue authorized work. Use existing Behind the Build records
+for reusable incidents; an internal lesson is not automatic public publication.
