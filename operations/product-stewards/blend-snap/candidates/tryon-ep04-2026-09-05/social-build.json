@@ -9,7 +9,7 @@
     "blend-snap.html": "67d18e56a4f9b6579c2a9a5fcc420ec192ae9854903f70263aae075a18c803bc",
     "resident-card.html": "7da5112406836a72149374cab665d839a95b9cd8cdf5e49a7b39ad2c7c975dfc",
     "scripts/test-try-on-browser.mjs": "c1f35bcf51ab2575fb2fcdd2429111e576626d14eba3c23e179d11906cdcef65",
-    "scripts/test-try-on-social-browser.mjs": "8ddf97eec3aad99006a23538be5622c9902d72a291edb183b4d5361c7056f50f",
+    "scripts/test-try-on-social-browser.mjs": "ee7e3966fe6f48f30af98137e65405082898a49d734ab5efdfbd7582f66dbc91",
     "scripts/check-try-on-social.mjs": "2cf34a575def2911ad53f82ccfa310c0ed397b31df03ec801b282d4fe9797e7f"
   },
   "rendered_evidence": {
@@ -27,7 +27,8 @@
       "Real mobile OS share sheet",
       "Owner-facing full design admission",
       "Production successor behavior"
-    ]
+    ],
+    "failure_recovery": "Eight result groups: prior desktop/mobile/export/private-data/episode checks plus no file-sharing support, non-cancel share failure, denied clipboard with full selected fallback, simultaneous Story/Post clicks where latest Post wins."
   },
   "independent_review": {
     "principal": "/root/blend_failure_trace",
@@ -40,7 +41,9 @@
     "required_check": "scripts/check-design-review-admission.mjs",
     "requirement": "Distinct role reviews including exact Claude Opus 5, plus owner queue bindings, before candidate presentation.",
     "attempt": "Claude CLI requested exact claude-opus-5 for artifact-first blind calibration; returned no result for more than five minutes; only that process was terminated with SIGTERM (exit143).",
-    "outcome": "No Claude review or formal design admission claimed. No automatic approval-review rejection occurred."
+    "outcome": "No Claude review or formal design admission claimed. No automatic approval-review rejection occurred.",
+    "second_attempt": "Safe-mode Claude CLI with medium effort and exact model made requests but returned no complete review before the bounded 90-second timeout. This does not establish model unavailability; no review verdict exists.",
+    "pending_owner_decision": "Requested permission to use two independent available full-experience reviewers plus source/export/privacy checks for this feature only, replacing the eleven-reviewer requirement. No answer or approval assumed; formal gate remains unchanged."
   },
   "blind_calibration": {
     "principal": "/root/tryon_blind_calibration",
@@ -48,5 +51,16 @@
     "verdict": "REJECT",
     "evidence": "Without prior verdicts, reviewer rejected old artifact for exposed production label, weak delivered value, and mismatch between stated action and save/completion.",
     "gap": "Reviewer still judged the old palette/type as broadly compatible and did not fully reproduce Ali\u2019s adult-audience objection. Do not claim the evaluator fully learned those failures."
-  }
+  },
+  "independent_factual_review": {
+    "principal": "/root/social_failure_checks",
+    "model": "GPT-5.6 Terra / Low",
+    "verdict": "ACCEPT",
+    "sources": [
+      "https://www.cl.cam.ac.uk/archive/ksj21/ksjdigipapers/jdoc72.pdf",
+      "https://www.cl.cam.ac.uk/misc/obituaries/sparck-jones/cv.html"
+    ],
+    "finding": "Primary paper and Cambridge CV support author/year, collection-frequency weighting and the conditional velvet/blazer example. Caption does not materially overstate. Frequent terms are not discarded; no all-modern-search claim is made."
+  },
+  "last_updated": "2026-09-05T23:00:50.358623+00:00"
 }

@@ -7,16 +7,21 @@ const output=process.env.TRYON_EVIDENCE_DIR||'/tmp/laidies-social-check';fs.mkdi
 const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 const files={'/try-on':'try-on.html','/try-on.html':'try-on.html','/content/try-on-social.css':'content/try-on-social.css','/content/site/try-on-social.js':'content/site/try-on-social.js'};
 const results=[];
-async function setup(width,{fontFailure=false,shareMode='abort'}={}){
+async function setup(width,{fontFailure=false,shareMode='abort',clipboardDenied=false}={}){
  const context=await browser.newContext({viewport:{width,height:1000},acceptDownloads:true});
- await context.addInitScript(({fontFailure,shareMode})=>{
+ await context.addInitScript(({fontFailure,shareMode,clipboardDenied})=>{
   if(!localStorage.getItem('laidiesWednesdayTryOnNotes')) localStorage.setItem('laidiesWednesdayTryOnNotes',JSON.stringify({'issue-04':{notes:'My private saved note',rating:8,customField:'Preserve me'}}));
   if(!localStorage.getItem('laidiesWednesdayRitualVisits')) localStorage.setItem('laidiesWednesdayRitualVisits','{"saved-before":true}');
-  Object.defineProperty(navigator,'canShare',{value:()=>true});
-  Object.defineProperty(navigator,'share',{value:async(data)=>{window.shareCall={file:data.files[0].name,type:data.files[0].type,size:data.files[0].size};if(shareMode==='abort')throw new DOMException('Cancelled','AbortError');if(shareMode==='fail')throw new Error('Share failed');}});
-  Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>{window.copiedCaption=text;}}});
+  if(shareMode==='unsupported'){
+   Object.defineProperty(navigator,'canShare',{value:()=>false});
+   Object.defineProperty(navigator,'share',{value:undefined});
+  }else{
+   Object.defineProperty(navigator,'canShare',{value:()=>true});
+   Object.defineProperty(navigator,'share',{value:async(data)=>{window.shareCall={file:data.files[0].name,type:data.files[0].type,size:data.files[0].size};if(shareMode==='abort')throw new DOMException('Cancelled','AbortError');if(shareMode==='fail')throw new Error('Share failed');}});
+  }
+  Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>{if(clipboardDenied)throw new DOMException('Denied','NotAllowedError');window.copiedCaption=text;}}});
   if(fontFailure)document.fonts.load=async()=>{throw new Error('font unavailable');};
- },{fontFailure,shareMode});
+ },{fontFailure,shareMode,clipboardDenied});
  if(process.env.TRYON_LIVE!=='1') await context.route(`${origin}/**`,route=>{const f=files[new URL(route.request().url()).pathname];return f?route.fulfill({status:200,contentType:f.endsWith('.css')?'text/css':f.endsWith('.js')?'text/javascript':'text/html',body:fs.readFileSync(f==='try-on.html'&&process.argv[2]?process.argv[2]:path.join(root,f))}):route.continue();});
  return context;
 }
@@ -62,5 +67,9 @@ try{
   assert.deepEqual(errors,[]);results.push({width,postAndStory:'downloaded valid PNGs',shareCancellation:'preserved',caption:'copied',privateData:'untouched',otherEpisodes:'controls and saves retained'});await ctx.close();
  }
  const ctx=await setup(390,{fontFailure:true});const p=await ctx.newPage();await p.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await p.locator('#socialRetry:visible').waitFor();assert.equal(await p.locator('#socialDownload').isDisabled(),true);assert.match(await p.locator('#socialStatus').innerText(),/try again/);assert.equal(await p.locator('.social-source a').first().isVisible(),true);results.push({fontFailure:'honest retry, no wrong-font export'});await ctx.close();
+ const noShare=await setup(390,{shareMode:'unsupported'});const noSharePage=await noShare.newPage();await noSharePage.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await noSharePage.locator('#socialDownload:not([disabled])').waitFor();assert.equal(await noSharePage.locator('#socialShare').isVisible(),false);assert.equal(await noSharePage.locator('#socialDownload').isDisabled(),false);results.push({noFileSharing:'download remains available; share control is hidden'});await noShare.close();
+ const shareFailure=await setup(390,{shareMode:'fail'});const shareFailurePage=await shareFailure.newPage();await shareFailurePage.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await shareFailurePage.locator('#socialDownload:not([disabled])').waitFor();await shareFailurePage.locator('#socialShare').click();assert.match(await shareFailurePage.locator('#socialStatus').innerText(),/isn.t available here.*Download image instead/i);assert.equal(await shareFailurePage.locator('#socialDownload').isDisabled(),false);results.push({shareRejection:'download fallback is offered'});await shareFailure.close();
+ const clipboardFailure=await setup(390,{clipboardDenied:true});const clipboardFailurePage=await clipboardFailure.newPage();await clipboardFailurePage.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await clipboardFailurePage.locator('#socialDownload:not([disabled])').waitFor();await clipboardFailurePage.locator('#socialCopy').click();assert.equal(await clipboardFailurePage.locator('#socialCaptionFallback').isVisible(),true);assert.match(await clipboardFailurePage.locator('#socialStatus').innerText(),/Automatic copy was blocked/);assert.equal(await clipboardFailurePage.locator('#socialCaptionFallback').inputValue(),await clipboardFailurePage.locator('#socialCaption').innerText());assert.equal(await clipboardFailurePage.locator('#socialCaptionFallback').evaluate(e=>e.selectionStart===0&&e.selectionEnd===e.value.length),true);results.push({clipboardDenied:'caption fallback is visible, populated and selected'});await clipboardFailure.close();
+ const rapidSwitch=await setup(390);const rapidSwitchPage=await rapidSwitch.newPage();await rapidSwitchPage.goto(origin+'/try-on?issue=4',{waitUntil:'domcontentloaded'});await rapidSwitchPage.locator('#socialDownload:not([disabled])').waitFor();await rapidSwitchPage.evaluate(()=>{document.querySelector('[data-social-format="story"]').click();document.querySelector('[data-social-format="post"]').click();});await rapidSwitchPage.locator('#socialDownload:not([disabled])').waitFor();assert.equal(await rapidSwitchPage.locator('#socialSize').innerText(),'Post · 1080 × 1350');assert.equal(await rapidSwitchPage.locator('[data-social-format="post"]').getAttribute('aria-pressed'),'true');assert.equal(await rapidSwitchPage.locator('[data-social-format="story"]').getAttribute('aria-pressed'),'false');const [latestDownload]=await Promise.all([rapidSwitchPage.waitForEvent('download'),rapidSwitchPage.locator('#socialDownload').click()]);assert.equal(latestDownload.suggestedFilename(),'laidies-karen-sparck-jones-post.png');results.push({rapidSwitch:'latest Post selection controls the export'});await rapidSwitch.close();
  fs.writeFileSync(`${output}/browser-results.json`,JSON.stringify(results,null,2));console.log(JSON.stringify(results));
 }finally{await browser.close();}

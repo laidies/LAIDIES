@@ -1,6 +1,9 @@
 # Active work
 
 > **2026-09-05 — Episode04 social successor BUILT LOCALLY / DESIGN ADMISSION HOLD.**
+> Resumed: 0fb7020f adds passing recovery/race checks and independent primary-
+> source verification. Ali has been asked about a task-specific two-reviewer
+> contract; the answer is pending. Do not assume approval or change the gate.
 > Ali rejected fac9da31/e5943d18: childish, low-value notes activity, generic
 > reassurance, wrong type/colours and exposed internal status. The preview was
 > deleted and its URL returned404. Do not promote that candidate.
