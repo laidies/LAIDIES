@@ -1,4 +1,5 @@
-import { researchBudgetConfigured, researchMonth, MISS_JEEVES_MONTHLY_CAP_MICRO_USD, MISS_JEEVES_RESERVATION_MICRO_USD } from "./miss-jeeves-budget.js";
+import { researchFairUseConfigured } from './miss-jeeves-fair-use.js';
+import { researchBudgetConfigured, researchMonth } from "./miss-jeeves-budget.js";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const enc = new TextEncoder();
@@ -47,10 +48,10 @@ async function verifyResident(request, env) {
   return UUID.test(String(data?.id || "")) ? data.id : null;
 }
 
-async function mintGuest(request, env) {
+async function mintGuest(request, env, trustedFingerprint = null) {
   const ip = request.headers.get("CF-Connecting-IP") || "local";
   const ua = (request.headers.get("User-Agent") || "unknown").slice(0, 256);
-  const actor = await opaque(env.GUEST_TOKEN_SIGNING_KEY, `guest:${ip}:${ua}`);
+  const actor = await opaque(env.GUEST_TOKEN_SIGNING_KEY, trustedFingerprint ? `guest:miss-jeeves:${trustedFingerprint}` : `guest:${ip}:${ua}`);
   const payload = { v: 1, actor, exp: Date.now() + 30 * DAY_MS };
   const encoded = b64url(enc.encode(JSON.stringify(payload)));
   const signature = b64url(await hmac(env.GUEST_TOKEN_SIGNING_KEY, encoded));
@@ -106,58 +107,50 @@ async function ledger(env, name, payload) {
 function day() { return new Date().toISOString().slice(0, 10); }
 function actorObject(actor) { return `actor:${day()}:${actor.kind}:${actor.id}`; }
 
-function missJeevesActorObject(actor) {
-  return actor.kind === "guest"
-    ? `miss-jeeves:actor:guest:${actor.id}`
-    : `miss-jeeves:actor:${day()}:${actor.kind}:${actor.id}`;
-}
-
 export function betaEnabled(env) { return env.FAIRY_BETA_ENABLED === "true"; }
 
 export async function resolveMissJeevesActor(request, env, body) {
   if (!env.GUEST_TOKEN_SIGNING_KEY || !env.IDENTITY_HASH_SALT) throw new Error("identity_secrets_unavailable");
   const suppliedAuthorization = request.headers.get("authorization") || "";
   const resident = await verifyResident(request, env);
-  if (resident) return { kind: "resident", id: await opaque(env.IDENTITY_HASH_SALT, `resident:${resident}`), guestToken: null, limit: 5 };
+  if (resident) return { kind: "resident", id: await opaque(env.IDENTITY_HASH_SALT, `resident:${resident}`), guestToken: null };
   if (suppliedAuthorization) throw new Error("resident_session_invalid");
   const supplied = body?.guestToken || request.headers.get("X-LAiDIES-Guest-Token") || "";
   const verified = supplied ? await verifyGuest(supplied, env) : null;
   if (supplied && !verified) throw new Error("guest_token_invalid");
-  const guest = verified ? { actor: verified.actor, token: supplied } : await mintGuest(request, env);
-  return { kind: "guest", id: guest.actor, guestToken: guest.token, limit: 3 };
+  const guest = verified ? { actor: verified.actor, token: supplied } : await mintGuest(request, env, /^[a-f0-9]{64}$/.test(request.headers.get('x-laidies-rate-key') || '') ? request.headers.get('x-laidies-rate-key') : null);
+  return { kind: "guest", id: guest.actor, guestToken: guest.token };
 }
 
-export async function beginMissJeevesAnswer(env, actor, requestId) {
-  if (!researchBudgetConfigured(env)) return {ok:false,kind:"configuration"};
-  const actorKey = missJeevesActorObject(actor);
-  const budgetKey = `miss-jeeves:budget:${researchMonth()}`;
-  const actorResult = await ledger(env, actorKey, { action: "beginAnswer", requestId, limit: actor.limit });
-  if (!actorResult.ok) return { ok: false, kind: actorResult.data?.status || "unavailable", actorResult };
-  const amountMicroUsd = MISS_JEEVES_RESERVATION_MICRO_USD;
-  const capMicroUsd = MISS_JEEVES_MONTHLY_CAP_MICRO_USD;
-  const budget = await ledger(env, budgetKey, { action: "reserveBudget", requestId, amountMicroUsd, capMicroUsd });
-  if (!budget.ok) {
-    await ledger(env, actorKey, { action: "abortCase", requestId });
-    return { ok: false, kind: budget.data?.status || "unavailable", budget };
-  }
-  return { ok: true, actorKey, budgetKey, actorResult: actorResult.data, budget: budget.data };
+export async function beginMissJeevesAnswer(env, actor, requestId, now = new Date()) {
+  if (!researchBudgetConfigured(env, now) || !researchFairUseConfigured(env)) return {ok:false,kind:"configuration"};
+  const budgetKey = `miss-jeeves:budget:${researchMonth(now)}`;
+  const budget = await ledger(env, budgetKey, {
+    action: "reserveResearch", requestId, actorId: `${actor.kind}:${actor.id}`,
+    month: researchMonth(now), actorCapMicroUsd: Number(env.MISS_JEEVES_ACTOR_MONTHLY_CAP_MICRO_USD)
+  });
+  if (!budget.ok) return {ok:false,kind:budget.data?.status || "unavailable",retryAt:budget.data?.retryAt,budget};
+  return {ok:true,budgetKey,budget:budget.data};
 }
 
 export async function abortMissJeevesAnswer(env, actor, requestId, releaseBudget = true, reservation = {}) {
-  const actorResult = await ledger(env, (reservation.actorKey || missJeevesActorObject(actor)), { action: "abortCase", requestId });
-  if (releaseBudget) await ledger(env, (reservation.budgetKey || `miss-jeeves:budget:${researchMonth()}`), { action: "releaseBudget", requestId });
-  return actorResult;
+  if (!reservation.budgetKey) return {ok:false};
+  return ledger(env, reservation.budgetKey, {action:"finishResearch",requestId,used:false,releaseBudget});
 }
 
 export async function commitMissJeevesAnswer(env, actor, requestId, answerHash, reservation = {}) {
-  return ledger(env, (reservation.actorKey || missJeevesActorObject(actor)), {
-    action: "commitCase", requestId, caseId: `jeeves-${crypto.randomUUID()}`, answerHash
-  });
+  if (!reservation.budgetKey) return {ok:false};
+  return ledger(env, reservation.budgetKey, {action:"finishResearch",requestId,used:true,answerHash});
 }
 
 export async function settleMissJeevesResearch(env, reservation, requestId, amountMicroUsd) {
   if (!reservation.budgetKey || !Number.isSafeInteger(amountMicroUsd) || amountMicroUsd < 0) return;
-  return ledger(env, reservation.budgetKey, {action:"settleBudget", requestId, amountMicroUsd});
+  return ledger(env, reservation.budgetKey, {action:"settleResearch", requestId, amountMicroUsd});
+}
+
+export async function holdMissJeevesResearch(env, reservation, requestId) {
+  if (!reservation.budgetKey) return {ok:false};
+  return ledger(env, reservation.budgetKey, {action:"holdResearch", requestId});
 }
 
 export async function beginBetaCase(env, actor, requestId) {

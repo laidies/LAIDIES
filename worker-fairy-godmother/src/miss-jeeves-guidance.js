@@ -108,35 +108,35 @@ async function boundedJson(response, signal) {
 }
 
 export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) {
-  if (request.method !== "POST") return json({ status: "error", error: "method_not_allowed" }, 405);
+  if (request.method !== "POST") return json({ providerAttempted: false, status: "error", error: "method_not_allowed" }, 405);
   if (!String(request.headers.get("content-type") || "").toLowerCase().includes("application/json")) {
-    return json({ status: "error", error: "content_type_required" }, 415);
+    return json({ providerAttempted: false, status: "error", error: "content_type_required" }, 415);
   }
   const rateKey = String(request.headers.get("x-laidies-rate-key") || "");
-  if (!/^[a-f0-9]{64}$/.test(rateKey)) return json({ status: "error", error: "internal_binding_required" }, 403);
+  if (!/^[a-f0-9]{64}$/.test(rateKey)) return json({ providerAttempted: false, status: "error", error: "internal_binding_required" }, 403);
   const limiter = env.MISS_JEEVES_RATE_LIMITER || env.RATE_LIMITER;
   if (limiter) {
     const { success } = await limiter.limit({ key: `miss-jeeves:${rateKey}` });
-    if (!success) return json({ status: "error", error: "rate_limited" }, 429);
+    if (!success) return json({ providerAttempted: false, status: "error", error: "rate_limited" }, 429);
   }
   if (typeof env?.OPENAI_API_KEY !== "string" || !env.OPENAI_API_KEY) {
-    return json({ status: "unavailable", error: "answer_provider_unavailable" }, 503);
+    return json({ providerAttempted: false, status: "unavailable", error: "answer_provider_unavailable" }, 503);
   }
 
   let body;
-  try { body = await request.json(); } catch { return json({ status: "error", error: "invalid_json" }, 400); }
+  try { body = await request.json(); } catch { return json({ providerAttempted: false, status: "error", error: "invalid_json" }, 400); }
   const query = String(body?.query || "").trim();
-  if (!query || query.length > MAX_QUERY_LENGTH) return json({ status: "error", error: "invalid_query" }, 400);
-  if (containsRestrictedSensitiveData(query)) return json({ status: "error", error: "private_content_prohibited" }, 400);
+  if (!query || query.length > MAX_QUERY_LENGTH) return json({ providerAttempted: false, status: "error", error: "invalid_query" }, 400);
+  if (containsRestrictedSensitiveData(query)) return json({ providerAttempted: false, status: "error", error: "private_content_prohibited" }, 400);
 
   const context = normalizeContext(body?.related_laidies_material);
   const model = typeof env.MISS_JEEVES_MODEL === "string" && env.MISS_JEEVES_MODEL.trim()
     ? env.MISS_JEEVES_MODEL.trim() : DEFAULT_MODEL;
-  if (!/^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(model)) return json({status:"unavailable",error:"research_model_mismatch"},503);
+  if (!/^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(model)) return json({ providerAttempted: false,status:"unavailable",error:"research_model_mismatch"},503);
   const today = new Date().toISOString().slice(0, 10);
   let sourcePolicy;
   try { sourcePolicy = currentMissJeevesSourcePolicy(today); }
-  catch { return json({ status: "unavailable", error: "trusted_source_bank_stale" }, 503); }
+  catch { return json({ providerAttempted: false, status: "unavailable", error: "trusted_source_bank_stale" }, 503); }
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
   try {

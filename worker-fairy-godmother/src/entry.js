@@ -1,46 +1,6 @@
 import worker from "./index.js";
 import { missingMaterialQuestion } from "./clarification.js";
-import { handleMissJeevesGuidance } from "./miss-jeeves-guidance.js";
-import { abortMissJeevesAnswer, beginMissJeevesAnswer, commitMissJeevesAnswer, settleMissJeevesResearch, resolveMissJeevesActor, sha256 } from "./beta-runtime.js";
-
-function serviceJson(payload, status = 200) {
-  return new Response(JSON.stringify(payload), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
-}
-
-async function missJeevesGuidance(request, env) {
-  let body;
-  try { body = await request.clone().json(); } catch { return serviceJson({ status: "error", error: "invalid_json" }, 400); }
-  if (body?.intent !== "research") return serviceJson({status:"error",error:"research_intent_required"},400);
-  let actor;
-  try { actor = await resolveMissJeevesActor(request, env, body); }
-  catch (error) { return serviceJson({ status: "error", error: String(error?.message || "identity_unavailable") }, 401); }
-  const requestId = `jeeves-${crypto.randomUUID()}`;
-  const reservation = await beginMissJeevesAnswer(env, actor, requestId);
-  if (!reservation.ok) {
-    const limit = reservation.kind === "limit";
-    return serviceJson({
-      status: "error",
-      error: limit ? (actor.kind === "guest" ? "guest_limit_reached" : "resident_daily_limit_reached") : reservation.kind === "cap" ? "service_budget_reached" : "service_unavailable",
-      guestToken: actor.guestToken,
-      allowance: { kind: actor.kind, limit: actor.limit, remaining: 0 }
-    }, limit || reservation.kind === "cap" ? 429 : 503);
-  }
-  const response = await handleMissJeevesGuidance(request, env);
-  let payload;
-  try { payload = await response.clone().json(); } catch { payload = null; }
-  if (Number.isSafeInteger(payload?.research_charge_micro_usd)) await settleMissJeevesResearch(env,reservation,requestId,payload.research_charge_micro_usd);
-  if (!response.ok || payload?.status !== "ok") {
-    await abortMissJeevesAnswer(env, actor, requestId, response.status < 500 && payload?.status !== "clarification_required" && !Number.isSafeInteger(payload?.research_charge_micro_usd), reservation);
-    if (!payload) return response;
-    delete payload.research_charge_micro_usd;
-    return serviceJson({...payload,guestToken:actor.guestToken,allowance:{kind:actor.kind,limit:actor.limit,research_answer_used:false}},response.status);
-  }
-  const answerHash = await sha256(JSON.stringify(payload.output || []));
-  const committed = await commitMissJeevesAnswer(env, actor, requestId, answerHash, reservation);
-  if (!committed.ok) return serviceJson({ status: "unavailable", error: "allowance_commit_failed" }, 503);
-  delete payload.research_charge_micro_usd;
-  return serviceJson({ ...payload, guestToken: actor.guestToken, allowance: { kind: actor.kind, limit: actor.limit, remaining: committed.data.remaining } });
-}
+import { missJeevesGuidance } from "./miss-jeeves-service.js";
 
 export default {
   async fetch(request, env, context) {

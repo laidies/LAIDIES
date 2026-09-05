@@ -1,3 +1,4 @@
+import { applyResearchAction } from './miss-jeeves-fair-use.js';
 const PENDING_MS = 2 * 60 * 1000;
 
 function validId(value, maximum = 160) {
@@ -24,6 +25,7 @@ function result(state, body, status = 200) {
 
 export function applyLedgerAction(previousState, command, now = Date.now()) {
   const action = command?.action;
+  if (["reserveResearch", "settleResearch", "finishResearch", "holdResearch"].includes(action)) return applyResearchAction(previousState, command, now);
   if (action === "reserveBudget") {
     if (!validId(command.requestId) || !Number.isInteger(command.amountMicroUsd) ||
         command.amountMicroUsd <= 0 || !Number.isInteger(command.capMicroUsd) ||
