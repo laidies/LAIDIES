@@ -1,0 +1,52 @@
+{
+  "status": "BUILT_LOCALLY / DESIGN_ADMISSION_HOLD / NOT_DEPLOYED",
+  "time": "2026-09-05T22:44:09.175318+00:00",
+  "owned_files": {
+    "try-on.html": "7c957ba804ab37a492b99bdb2f3e35e40e938c57b6d45e0b04e63beb00343bed",
+    "content/try-on-social.css": "3d50b594bf5f5c9e00e71dc9a3dcdabb26268bb1d140cc27f10e8c9c2d6f0f7f",
+    "content/site/try-on-social.js": "038868dc7eabd00c3e65764422589207e5332a9dfe788dc0445a519ceb77a5a3",
+    "content/blend-snap-weekly-packs.json": "45cc28e4f80d6361c2daee01c84e93c3750c7bedb08a61a24a88ac76d8c39fbd",
+    "blend-snap.html": "67d18e56a4f9b6579c2a9a5fcc420ec192ae9854903f70263aae075a18c803bc",
+    "resident-card.html": "7da5112406836a72149374cab665d839a95b9cd8cdf5e49a7b39ad2c7c975dfc",
+    "scripts/test-try-on-browser.mjs": "c1f35bcf51ab2575fb2fcdd2429111e576626d14eba3c23e179d11906cdcef65",
+    "scripts/test-try-on-social-browser.mjs": "8ddf97eec3aad99006a23538be5622c9902d72a291edb183b4d5361c7056f50f",
+    "scripts/check-try-on-social.mjs": "2cf34a575def2911ad53f82ccfa310c0ed397b31df03ec801b282d4fe9797e7f"
+  },
+  "rendered_evidence": {
+    "social-post.png": "2de86e1045adc66929eff8d5149db35a18f82c83d44a9caf43d56ee0ec1e74d0",
+    "social-desktop-1440.png": "bdc97e622237f0bf09431a48063ede2636b102b8b4b32d7ff299c2215ff9a8c8",
+    "social-mobile-320.png": "c0b5902697857e5dff7b857fbe9dfb7f5b4406c2311257b2db53b77907ac0db5",
+    "social-mobile-390.png": "144bd68065f3aed0cbf26b2fada5e00e9f6f5e44f05aca8f4a77ca0ced16c32e",
+    "social-story.png": "b72ba5f8648262766362c0722a6f09aeda07eb9b4d8f6950726f15158b399989"
+  },
+  "verification": {
+    "browser": "Actual PNG downloads at 1440/390/320; both image dimensions verified; caption copy and simulated native-share cancellation; private notes and completion unchanged; episodes02/03 save/reload; font failure retains retry and sources.",
+    "calibration": "Known-bad prior HTML exits 1 from check-try-on-social.mjs. The browser detected and then rejected the legacy background override; corrected candidate passes.",
+    "public_removal": "Deleted fac9da31 preview returns HTTP404, checked 2026-09-05T22:36:42Z. No replacement deployment.",
+    "not_verified": [
+      "Real mobile OS share sheet",
+      "Owner-facing full design admission",
+      "Production successor behavior"
+    ]
+  },
+  "independent_review": {
+    "principal": "/root/blend_failure_trace",
+    "model": "GPT-5.6 Terra / Medium",
+    "verdict": "ACCEPT \u2014 scoped internal candidate only",
+    "observations": "Reviewer inspected desktop/mobile page and 4:5/9:16 graphics before source brief. Found adult editorial pop-art, current Homepage/Library type/palette, understandable bounded search contribution, legible conditional example and source, no private-note use or automatic posting.",
+    "limits": "No actual phone OS share-sheet proof or separate primary-source re-verification; not full multi-role repository admission."
+  },
+  "review_blocker": {
+    "required_check": "scripts/check-design-review-admission.mjs",
+    "requirement": "Distinct role reviews including exact Claude Opus 5, plus owner queue bindings, before candidate presentation.",
+    "attempt": "Claude CLI requested exact claude-opus-5 for artifact-first blind calibration; returned no result for more than five minutes; only that process was terminated with SIGTERM (exit143).",
+    "outcome": "No Claude review or formal design admission claimed. No automatic approval-review rejection occurred."
+  },
+  "blind_calibration": {
+    "principal": "/root/tryon_blind_calibration",
+    "model": "GPT-5.6 Terra / Medium",
+    "verdict": "REJECT",
+    "evidence": "Without prior verdicts, reviewer rejected old artifact for exposed production label, weak delivered value, and mismatch between stated action and save/completion.",
+    "gap": "Reviewer still judged the old palette/type as broadly compatible and did not fully reproduce Ali\u2019s adult-audience objection. Do not claim the evaluator fully learned those failures."
+  }
+}
