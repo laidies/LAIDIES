@@ -14889,6 +14889,13 @@ while remaining falsely unfinished in the launch record.
   working; preserve old records, but require authoritative entitlement before
   provider spend. The shared economic contract is a design input, not proof that
   its full grant/spend/refund system is already implemented.
+- **Citation correction:** one approved annotation admitted a whole mixed-source
+  answer, and Pages silently discarded bad URLs. The local successor rejects
+  every invalid annotation and requires the service's explicit URL-policy marker.
+  Six deliberate mixed cases failed before repair; backend 31 tests, Pages 11
+  failure cases and mocked browser/integration journeys pass after repair.
+  Independent review found no bounded P0-P2 issue. This is provenance checking,
+  not semantic claim/freshness approval; actual Sol review remains pending.
 - **Cost gap:** an estimated reservation is not a proven maximum provider bill.
   Candidate research remains disabled pending the correct billing project,
   provider-limit verification, measured usage and replacement of rigid guest/

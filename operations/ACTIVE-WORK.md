@@ -1,5 +1,24 @@
 # Active work
 
+> **2026-09-05 — Citation-policy correction VERIFIED LOCALLY / RELEASE HOLD.**
+> Research rejects mixed approved/unapproved, HTTP, non-web, malformed,
+> credential-bearing or unsupported citation annotations across the whole answer.
+> Pages requires the private service's all-approved-https.v1 marker and nonempty
+> source-policy version; invalid citations are rejected rather than hidden.
+> The domain roster stays in the backend. This verifies URL provenance only,
+> not claim support, currentness, permitted action or practical answer quality.
+> Six bad fixtures were accepted before repair; all now fail as intended.
+> Backend 31/31 tests, Pages 11 failure cases, mocked phone/desktop journeys and
+> actual Pages-to-guidance integration pass. Independent source review found
+> no P0/P1/P2 defect in this bounded change. The first integration fixture lacked
+> required catalogue metadata; it was repaired before the integration passed.
+> Code commits: Pages bae237e5; backend efa5cd8f.
+> Billing tab remains at OpenAI Platform login. No paid call or deployment.
+> Next: sign-in/funding verification → guarded actual Sol/source/answer and cost
+> pilot → adaptive fair-use limits → exact release and public verification.
+> Reward fulfilment follows the core service; other site repairs and copy/design
+> alignment remain sequenced behind it. Continue automatic freshness coverage.
+
 > **2026-09-05 — Miss Jeeves reward extension CAPTURED.**
 > Consider extra research questions for meaningful learning behaviour through
 > the existing shared reward system. Include issuance, availability, deduplication

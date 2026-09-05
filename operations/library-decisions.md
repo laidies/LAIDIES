@@ -41,9 +41,11 @@ parallel bank. This bounded inspection used backend commit `8f56d4ba` in
   attributed practitioner advice. This is evidence of configured source
   selection, not a fresh independent assessment of every source or claim.
 - **What remains:** standing-authority domains lack individual review-expiry
-  records. The answer gate accepts a positive allowed-citation count; one good
-  citation can accompany unsupported claims or other disallowed citations.
-  Currentness, useful tailoring and when to clarify largely depend on model
+  records. The initial answer gate accepted one allowed citation alongside bad
+  citations; the local successor now rejects all mixed/invalid URL provenance and
+  requires its policy marker in Pages. Important claims can still be unsupported
+  by an otherwise allowed citation. Currentness, useful tailoring and when to
+  clarify largely depend on model
   instructions. Parsing a cooperative mock's follow-up does not establish
   that real answers reliably ask the necessary question.
 - **Required source check:** record why a source is qualified for the relevant
