@@ -1,5 +1,3 @@
-import practitionerSourceRoster from "../../operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json" with { type: "json" };
-
 // P0 phase 1 working mirror. The frozen v18 recovery artifact remains under
 // recovery/production-v18 and is intentionally not imported or modified here.
 const __name = (target) => target;
@@ -18,29 +16,6 @@ const MAX_FITTING_INSTRUCTION = 1_000;
 const MAX_JSON_BODY_BYTES = 32_000;
 const UPSTREAM_TIMEOUT_MS = 20_000;
 const DAILY_LIMIT = 10;
-const MISS_JEEVES_QUERY_LIMIT = 240;
-const MISS_JEEVES_CONTEXT_LIMIT = 4;
-const MISS_JEEVES_CONTEXT_FIELD_LIMIT = 500;
-const MISS_JEEVES_RATE_KEY_RE = /^[a-f0-9]{64}$/;
-const MISS_JEEVES_STANDING_DOMAINS = Object.freeze([
-  "openai.com", "developers.openai.com", "help.openai.com", "platform.openai.com",
-  "anthropic.com", "docs.anthropic.com", "support.anthropic.com",
-  "ai.google.dev", "cloud.google.com", "support.google.com", "blog.google",
-  "microsoft.com", "learn.microsoft.com", "support.microsoft.com",
-  "nvidia.com", "docs.github.com", "apple.com",
-  "aws.amazon.com", "docs.aws.amazon.com", "cloudflare.com", "developers.cloudflare.com",
-  "nist.gov", "oecd.org", "europa.eu", "canada.ca", "gov.uk",
-  "ftc.gov", "cisa.gov", "sec.gov", "iso.org", "owasp.org", "w3.org",
-  "reuters.com", "apnews.com", "nature.com", "acm.org", "ieee.org"
-]);
-const MISS_JEEVES_PRIVATE_PATTERNS = Object.freeze([
-  /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
-  /\b(?:\+?1[ .-]?)?(?:\(?\d{3}\)?[ .-]?)\d{3}[ .-]?\d{4}\b/,
-  /\b\d{3}[ -]?\d{2}[ -]?\d{4}\b/,
-  /\b(?:\d[ -]*?){13,19}\b/,
-  /\b(?:api[_ -]?key|access[_ -]?token|secret|password|passcode)\s*[:=]\s*\S+/i,
-  /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/
-]);
 const ANSWER_LIMITS = Object.freeze({
   read: 600,
   deliverable: 8_000,
@@ -194,180 +169,6 @@ async function fetchWithTimeout(url, options, timeoutMs = UPSTREAM_TIMEOUT_MS) {
     return await fetch(url, { ...options, signal: controller.signal });
   } finally {
     clearTimeout(timeout);
-  }
-}
-
-function missJeevesJson(status, payload) {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store",
-      "X-Content-Type-Options": "nosniff"
-    }
-  });
-}
-
-function normalizeGuidanceMaterial(value) {
-  if (!Array.isArray(value) || value.length > MISS_JEEVES_CONTEXT_LIMIT) return null;
-  const allowedKeys = new Set(["title", "summary", "section"]);
-  const normalized = [];
-  for (const item of value) {
-    if (!item || typeof item !== "object" || Array.isArray(item) ||
-        Object.keys(item).some((key) => !allowedKeys.has(key))) return null;
-    const record = {};
-    for (const key of allowedKeys) {
-      if (!Object.hasOwn(item, key)) continue;
-      if (typeof item[key] !== "string" || item[key].length > MISS_JEEVES_CONTEXT_FIELD_LIMIT) return null;
-      record[key] = item[key].trim();
-    }
-    if (!record.title || !record.summary) return null;
-    normalized.push(record);
-  }
-  return normalized;
-}
-
-function activeMissJeevesSourceBank(now = new Date()) {
-  const today = now.toISOString().slice(0, 10);
-  return (practitionerSourceRoster?.sources || []).filter((source) =>
-    ["PROMOTED", "PILOT"].includes(source?.promotionStatus) &&
-    ["OFFICIAL_AUTHORITY", "ORIGINAL_PRACTITIONER_EVIDENCE"].includes(source?.tier) &&
-    typeof source?.expiresAt === "string" && source.expiresAt >= today &&
-    typeof source?.channelUrl === "string"
-  );
-}
-
-function guidanceDomains(sourceBank) {
-  const domains = new Set(MISS_JEEVES_STANDING_DOMAINS);
-  for (const source of sourceBank) {
-    try { domains.add(new URL(source.channelUrl).hostname.toLowerCase().replace(/^www\./, "")); }
-    catch { /* Invalid governed records are ignored and cannot widen search. */ }
-  }
-  return [...domains];
-}
-
-function guidanceHostAllowed(value, domains) {
-  try {
-    const url = new URL(value);
-    if (url.protocol !== "https:" || url.username || url.password) return false;
-    const hostname = url.hostname.toLowerCase();
-    return domains.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
-  } catch {
-    return false;
-  }
-}
-
-function validatedGuidanceOutput(data, domains) {
-  if (!data || data.status !== "completed" || !Array.isArray(data.output)) return null;
-  const message = data.output.find((item) => item?.type === "message" && Array.isArray(item.content));
-  const content = message?.content?.find((item) => item?.type === "output_text" && typeof item.text === "string");
-  if (!content || !content.text.trim() || content.text.trim().length > 2400) return null;
-  const citations = (content.annotations || []).filter((annotation) => annotation?.type === "url_citation");
-  if (!citations.length) return null;
-  for (const annotation of citations) {
-    const citation = annotation.url_citation || annotation;
-    if (!guidanceHostAllowed(citation?.url, domains)) return null;
-  }
-  return data.output;
-}
-
-function buildMissJeevesInstructions(today, sourceBank) {
-  const bank = sourceBank.map((source) =>
-    `- ${source.identity} (${source.tier}): ${source.channelUrl}. ${source.termsBoundary}`
-  ).join("\n");
-  return `You are Miss Jeeves, the plain-language AI reference librarian for LAiDIES. Today is ${today}.
-
-Answer the visitor's actual question directly in 100 to 180 words. Use current web research, not model memory, for facts that may have changed. Prefer official provider documentation, standards, regulators and primary research. Reuters or AP may supply dated news context. A practitioner source may support an attributed observation, never an unattributed product fact. Resolve meaningful conflicts and say when evidence is limited.
-
-Every factual claim that depends on web research must have an inline citation supplied by the web-search tool. Do not print a separate source list; the interface creates it from citations. Define jargon. Give a concrete example or next step when useful. Do not reveal hidden reasoning. Do not provide personalized medical, legal or financial advice. Never treat the supplied LAiDIES material as independent evidence; it is context for recommending what to read next.
-
-Governed source bank active today:
-${bank}`;
-}
-
-async function missJeevesGuidance(request, env) {
-  if (request.method !== "POST") return missJeevesJson(405, { status: "error", error: "method_not_allowed" });
-  if (!/^application\/json(?:\s*;|$)/i.test(request.headers.get("Content-Type") || "")) {
-    return missJeevesJson(415, { status: "error", error: "content_type_required" });
-  }
-  const rateKey = request.headers.get("x-laidies-rate-key") || "";
-  if (!MISS_JEEVES_RATE_KEY_RE.test(rateKey)) {
-    return missJeevesJson(401, { status: "error", error: "internal_identity_required" });
-  }
-  if (!hasAnswerProvider(env)) {
-    return missJeevesJson(503, { status: "error", error: "answer_provider_unavailable" });
-  }
-  const parsed = await readBoundedJson(request);
-  if (!parsed.ok) {
-    return missJeevesJson(parsed.tooLarge ? 413 : 400, {
-      status: "error",
-      error: parsed.tooLarge ? "request_too_large" : "invalid_json"
-    });
-  }
-  const body = parsed.value;
-  if (!body || typeof body !== "object" || Array.isArray(body) ||
-      Object.keys(body).some((key) => !["query", "related_laidies_material"].includes(key))) {
-    return missJeevesJson(400, { status: "error", error: "invalid_request" });
-  }
-  const query = typeof body.query === "string" ? body.query.trim() : "";
-  const material = normalizeGuidanceMaterial(body.related_laidies_material || []);
-  if (query.length < 3 || query.length > MISS_JEEVES_QUERY_LIMIT || material === null) {
-    return missJeevesJson(400, { status: "error", error: "invalid_request" });
-  }
-  if (MISS_JEEVES_PRIVATE_PATTERNS.some((pattern) => pattern.test(query))) {
-    return missJeevesJson(400, { status: "error", error: "private_content_prohibited" });
-  }
-  if (env.MISS_JEEVES_RATE_LIMITER) {
-    try {
-      const { success } = await env.MISS_JEEVES_RATE_LIMITER.limit({ key: rateKey });
-      if (!success) return missJeevesJson(429, { status: "error", error: "rate_limited" });
-    } catch {
-      return missJeevesJson(503, { status: "error", error: "rate_limit_unavailable" });
-    }
-  }
-  const sourceBank = activeMissJeevesSourceBank();
-  if (!sourceBank.length) {
-    return missJeevesJson(503, { status: "error", error: "trusted_source_bank_stale" });
-  }
-  const domains = guidanceDomains(sourceBank);
-  const today = new Date().toISOString().slice(0, 10);
-  const payload = {
-    model: env.MISS_JEEVES_MODEL || "gpt-5-mini",
-    store: false,
-    instructions: buildMissJeevesInstructions(today, sourceBank),
-    input: JSON.stringify({ visitor_question: query, related_laidies_material: material }),
-    tools: [{ type: "web_search", filters: { allowed_domains: domains }, search_context_size: "medium" }],
-    tool_choice: "auto",
-    include: ["web_search_call.action.sources"],
-    max_tool_calls: 2,
-    max_output_tokens: 700,
-    reasoning: { effort: "low" },
-    text: { verbosity: "low" },
-    safety_identifier: rateKey
-  };
-  try {
-    const response = await fetchWithTimeout("https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify(payload)
-    });
-    if (!response.ok) {
-      console.error(JSON.stringify({ service: "miss_jeeves_guidance", outcome: "provider_http_error", status: response.status }));
-      return missJeevesJson(502, { status: "error", error: "answer_provider_failed" });
-    }
-    const provider = await response.json();
-    const output = validatedGuidanceOutput(provider, domains);
-    if (!output) return missJeevesJson(502, { status: "error", error: "answer_failed_citation_gate" });
-    return missJeevesJson(200, { status: "ok", model: provider.model || payload.model, output });
-  } catch (error) {
-    console.error(JSON.stringify({ service: "miss_jeeves_guidance", outcome: error?.name === "AbortError" ? "timeout" : "provider_error" }));
-    return missJeevesJson(error?.name === "AbortError" ? 504 : 502, {
-      status: "error",
-      error: error?.name === "AbortError" ? "answer_provider_timeout" : "answer_provider_failed"
-    });
   }
 }
 
@@ -1158,10 +959,6 @@ function modelUserContent(prompt, route) {
 
 const index_default = {
   async fetch(request, env, ctx) {
-    const requestUrl = new URL(request.url);
-    if (requestUrl.hostname === "miss-jeeves.internal" && requestUrl.pathname === "/guidance") {
-      return missJeevesGuidance(request, env);
-    }
     const acao = allowedOrigin(request);
     if (request.method === "OPTIONS") {
       return new Response(null, {
@@ -1915,12 +1712,9 @@ __name(buildEnergyDirective, "buildEnergyDirective");
 export {
   CLASSIFIER_CONTRACT_DESCRIPTOR,
   CLASSIFIER_SYSTEM_PROMPT,
-  activeMissJeevesSourceBank,
   buildClassificationEnvelope,
   buildProviderClassifierPayload,
   classifyRequest,
-  guidanceDomains,
-  validatedGuidanceOutput,
   validateClassifierResult,
   index_default as default
 };
