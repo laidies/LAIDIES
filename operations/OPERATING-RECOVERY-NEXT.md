@@ -226,15 +226,38 @@ authority. Reuse the current provider and verify actual access before migration.
 Do not mark roadmap step 3 complete until authenticated phone decision and
 authorized end-to-end resumption work.
 
-Integration PR: https://github.com/laidies/LAIDIES/pull/93 . Read current checks
-and merge state rather than assuming this snapshot proves integration.
-Supabase access prerequisite: a real `supabase projects list` using isolated CLI
-2.116.0 returned `Access token not provided`. No existing CLI credential was
-usable. Browser sign-in was initiated for `laidies-operating-recovery`; Ali was
-given the provider verification link. Do not save access tokens or verification
-codes in repository records. No database schema/role/account changes have been
-made. After sign-in, inspect the live schema and existing founder account before
-preparing a migration; the checked-in schema may be stale.
+Integration PR https://github.com/laidies/LAIDIES/pull/93 is MERGED at
+`1afe723a53356d09a46d3437e9ef5e934cb8677f`. Both current-head full GitHub
+checks passed for `fb0e5b0cb9a4d6c96eaf12fef3d11816aadd8482`.
+
+### Supabase direct access — verified September 5
+
+Ali explicitly authorized saved direct access and completed provider verification.
+Supabase confirmed login and creation of `laidies-operating-recovery`. Separate
+fresh CLI processes listed `laidies-member-pass` (`swqnkxzebxdbgyrzpdne`,
+`us-east-1`, `ACTIVE_HEALTHY`) and successfully queried the live catalog.
+Reuse this saved connection before asking Ali to authenticate again. No tokens
+or verification codes belong in repository records. This is access from this
+Mac, not a hosted Worker credential or authenticated founder phone approval.
+
+Read-only access: use `npm exec --yes --package=supabase@2.116.0 -- supabase projects list --output json`; query exact read-only SQL through the same CLI with
+`db query --linked --project-ref swqnkxzebxdbgyrzpdne`. No checkout linking is
+required. The project list can report an unlinked checkout while authentication
+and listing succeed; that warning alone is not an access failure.
+
+Live inspection found 24 public tables with RLS enabled, including resident
+identity, continuation, mail/conversations, referral, KSVL and Town Hall feedback
+absent from the old three-table setup file. Presence is not a functional or
+privacy verdict. Resident continuation has authenticated owner-only SELECT and
+stores a versioned document; Town Hall policies govern submissions and own-read,
+not founder approvals. No decision/founder/workflow/operating/approval-named
+application tables appeared in the bounded catalog search. Inspect actual
+functions and owner authority before adding a competing mechanism.
+
+No application data, schema, founder authority, billing plan, website or
+dispatcher configuration changed. Next: inspect the smallest authenticated
+decision-request/response binding using the real database. The hosted phone
+decision loop remains unfinished.
 
 CI follow-up: the first Linux run printed runtime PASS but hung after assertions
 until canceled. The test now tears down its owned process group, verifies it is

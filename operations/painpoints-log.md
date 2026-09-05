@@ -72,3 +72,14 @@ decisions outside public issues. Update this lesson, not a duplicate failure log
 Behind the Build angle: an online website, a working cloud job and an acknowledged
 decision are three different things; a paid account can also have different
 subscriptions for different services.
+
+## Supabase connection and live schema recovery — 2026-09-05
+
+The first sign-in request returned 404 after code submission; a replacement
+completed and fresh-process project/catalog queries proved saved access. Do not
+describe a received-but-rejected code as missing user input. Reuse saved access
+before requesting authentication. The old setup file contained three core tables;
+live Supabase exposed 24 public tables, including continuation and feedback.
+Inspect live structure before designing a replacement; RLS enabled is not a
+tested privacy verdict. Behind the Build angle: why an old setup recipe can miss
+working features, and why website sign-in differs from a saved tool connection.
