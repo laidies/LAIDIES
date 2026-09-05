@@ -1,6 +1,17 @@
 # Active work
 
-## 2026-09-05 NewsStand implementation: recovery scheduling and source discovery
+## 2026-09-05 NewsStand recurring adoption
+
+- **Status:** PREPARED — existing heartbeat update and read-back pending; source/recovery components verified locally. Overall NewsStand implementation remains BUILDING.
+- **Goal:** Make the recurring task consume the September 5 repairs and carry research into actual site/internal decisions.
+- **Execution entry:** `/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`, branch `ops/newsstand-recurring-20260905`, initially based on `b6ca03d2`; preserve subsequent current state. The older audit branch and dirty bootstrap are retained, not reset or copied over.
+- **Cadence:** Prepare 20:00 private research/drafting and 07:00 freshness/gated publication, America/Vancouver, in the same existing heartbeat and task. Meaningful research-impact reporting is included; actual automatic delivery is not yet observed. The broader Control Room remains paused.
+- **Verification:** In the clean execution checkout the 13 selector cases and recovery suite pass. The real reconciled inventory reports `HOLD_AIDB_RELEASE_REVIEW`, one unread release and two PARTIAL channel checks; recovery reports `NO_ACTIVE_RECOVERY`. The combined source outcome cannot be called quiet. No new public candidate was produced or released.
+- **Actual receiving-owner result:** A Terra/Low Learning System lane inspected both manuscripts. The loop signal now has an accepted reuse disposition: a narrow section 15.4 addition to AI Fundamentals 101 after source verification; NO_CHANGE to Working with AI 101 for this signal; HOLD for product-specific advice. Exact locations, checks and ownership are in the September 5 intake. This does not certify claims or public currency.
+- **Next:** Complete and verify the existing heartbeat update. Its next source cycle must finish rolling-week website/podcast reconciliation and independent desk coverage, retain the pending episode honestly, and continue the two freshness signals. Then prove service replenishment and a useful current Weekly through their existing publication paths. No new newspaper feature is represented as built.
+- **Boundary:** Internal configuration and records only. No textbook/public prose edit, canonical issue, deployment, public-origin verification or unattended paired run in this adoption task.
+
+## 2026-09-05 NewsStand implementation: recovery scheduling and source discovery (pre-adoption checkpoint)
 
 - **Status:** VERIFIED LOCALLY — bounded recovery scheduling and AIDB discovery repairs; overall NewsStand implementation remains BUILDING.
 - **Trigger:** Ali asked how to implement the full editorial promise and prevent the most likely failures. The reproduced first failure was an evidence-held story claiming production before its next source check.

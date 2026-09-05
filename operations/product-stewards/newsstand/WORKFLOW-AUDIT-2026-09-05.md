@@ -8,6 +8,34 @@ Implementation update: the recovery scheduling repair and the AIDB discovery gua
 
 Ali's reader promise and new feature directions are recorded in [NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md](NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md). Those are DECIDED purpose or explicitly CAPTURED directions. Changes, names, cadences and experiments below are PROPOSED unless individually marked implemented. The original audit changed internal records only; subsequent local helper repairs do not establish scheduler adoption or public results.
 
+## September 5 recurring adoption — current follow-up
+
+**PREPARED:** a clean durable execution checkout at
+`/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`, branch
+`ops/newsstand-recurring-20260905`, includes the committed repairs and source
+state from `b6ca03d2`. The replacement prompt binds this current entry, evening
+private preparation, morning freshness/publication, both repaired helper outputs,
+research-consumer follow-through and meaningful impact reporting. Existing
+ordinary-news autonomy, exact-version Big Picture approval, independent reviews
+and exact-artifact public checks remain. The app update/read-back is still due;
+scheduled execution and notification delivery remain unobserved.
+
+The selector's 13 cases and recovery suite pass in this execution checkout.
+The real audit inventory still returns `HOLD_AIDB_RELEASE_REVIEW` with an unread
+release and two PARTIAL channel checks; the real recovery queue has no active
+story. Neither result establishes complete source coverage or public readiness.
+
+A receiving-owner lane inspected actual AI Fundamentals 101 and Working with
+AI 101 manuscripts. Its accepted loop-reuse disposition, exact locations and
+source gaps are in the existing September 5 intake and shared signal inbox.
+The first needs only a narrow potential section 15.4 extension after primary
+source checks; the second needs no change for this signal. Product-specific
+claims remain held. The model-currency signal is still OPEN. No textbook or
+public derivative was changed, and no synthetic model benchmark was run.
+
+The earlier checkpoints below record the state when inspected; they are not
+claims that later adoption has already produced a successful unattended run.
+
 ## What was inspected and what that proves
 
 The audit followed current authority beyond the preservation-sensitive iCloud checkout. The current September 5 research worktree is `/private/tmp/laidies-newsstand-cycle-20260905.WBY0n4`, commit `8c426fac4b47ed7ffb9433939b0ddfac78f4e93b`. Its ancestry includes the recovery changes (`95eea207`), story modules (`943d7cc7`), reader translation changes (`308e7b17`) and September 4 public correction records. Unless otherwise stated, relative implementation references below belong to that base, which this audit branch preserves in Git.

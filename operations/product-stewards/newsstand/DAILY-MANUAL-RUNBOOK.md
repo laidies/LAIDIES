@@ -2,13 +2,34 @@
 
 Use this bounded sequence inside the existing active Codex heartbeat,
 `daily-allie-k-miller-and-ethan-mollick-source-check`, named **Daily LAiDIES
-NewsStand research and publication cycle**, daily at 07:00 America/Vancouver.
+NewsStand research and publication cycle**. The September 5 adoption prepares
+20:00 research/private drafting and 07:00 freshness/publication in
+America/Vancouver; activation is recorded below only after the app confirms it.
 Its target is thread `01a02f95-3838-7af0-a4c7-2f51253a133d`. The heartbeat
 orchestrates research and independent reviews; no single shell command
 substitutes for editorial judgment. No duplicate automation or separate
 backend cron is enabled. The older Control Room dispatcher stays paused.
 
 ## Recurring entry and current released seed
+
+Current execution checkout:
+`/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`, branch
+`ops/newsstand-recurring-20260905`, initially based on `b6ca03d2`. It includes
+the September 5 source records and recovery/cursor state plus the local
+recovery scheduling, AIDB channel discovery and research-reuse repairs.
+Run from its current committed state; do not reset it to the initial commit
+or overwrite newer state with a historical snapshot. If the task works in a
+separate transaction worktree, bring its exact owned ledger/cursor/recovery/
+intake changes back here before the next cycle, preserving newer records by
+identity and review time. Do not use a temporary worktree as the only copy.
+
+This is an execution source, not a whole-site production artifact. Recover and
+reconcile the actual current public base separately before every release.
+Materialize any sparse dependency required by a check before calling it a
+product failure; do not bypass a check because its input is absent. The
+preservation-sensitive iCloud checkout and older design work remain untouched.
+
+Historical August 30 bootstrap and released seed (recovery only):
 
 Stable implementation checkout:
 `/Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830`.
@@ -29,7 +50,7 @@ Vancouver date. Its full source/admission/release prompt remains authoritative.
 The command entry after source research and preflight is:
 
 ```sh
-cd /Users/alisoneakin/Projects/laidies-newsstand-daily-publication-20260830
+cd /Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905
 NEWSSTAND_DAY=$(TZ=America/Vancouver date +%F)
 node scripts/compose-daily-edition.mjs --date "$NEWSSTAND_DAY" \
   --radar "operations/agents/aidb-intelligence-desk/daily/$NEWSSTAND_DAY.md" \
@@ -283,18 +304,19 @@ and any one concrete Ali decision. State the recommendation, likely benefit,
 cost/risk and exact choice in the message; do not ask Ali to discover it in a
 log. Routine authorized fixes need no new approval. Consequential changes keep
 their existing authority boundaries. Unchanged runs stay quiet. Automatic
-delivery must be verified separately: at the September 5 audit the NewsStand
-heartbeat's notifications are `failed_runs_only` and the Control Room dispatcher
-is PAUSED. Neither a runbook instruction nor a new inbox entry alters those
-settings. Do not silently resume the broader dispatcher to deliver this brief.
+delivery must be verified separately. At the initial September 5 audit,
+NewsStand used `failed_runs_only`. The adoption below changes that app setting
+so meaningful successful findings can be surfaced; actual delivery still needs
+an observed scheduled result. The Control Room remains PAUSED. Neither a
+runbook instruction nor an inbox entry alone changes app settings.
 
-### Proposed evening preparation and morning freshness check
+### Evening preparation and morning freshness check
 
 Ali proposed preparing the next day's paper at the end of the preceding day so
 AIDB's treatment can inform it. Proposed operating times are 20:00 Vancouver
 for research and private drafting, retaining the existing 07:00 run for the
-morning delta and gated publication. These times are NOT configured by this
-runbook change; the existing 07:00 heartbeat remains the current schedule.
+morning delta and gated publication. Activation status: PREPARED — app update
+and read-back still required. The app's saved schedule is execution authority.
 
 The evening pass reconciles independent headlines, all AIDB release channels,
 open evidence holds and due columns. It preserves a resumable private queue for
@@ -307,6 +329,29 @@ from an empty or stale queue. Neither phase may backdate an article, label an
 unchecked source current, duplicate an issue, or delay urgent verified reporting
 just to wait for AIDB. Scheduler adoption and an actual paired run remain required
 before claiming this cadence works unattended.
+
+Both phases run in the same existing task and preserve one durable queue.
+Evening writes private research, candidate work and complete-review cursor
+updates only; it does not promote tomorrow's issue or alter public dates.
+Morning owns scheduled canonical promotion/publication. Keep a truthful source
+review completion when the evening has earned it; do not force a duplicate
+full-episode review in the morning. Recheck release indexes and changed claims.
+Before any state write, reread the current record and reconcile any later run
+or independent work; never replace the entire cursor or queue from an old copy.
+Carry incomplete work with its exact next action and retry trigger. A missed
+evening run requires a full research recovery before morning publication.
+
+Continue the two September 5 research-impact signals through the existing
+Learning System inbox. The loop-practice request now has a receiving-owner
+assessment in the September 5 editorial intake; its narrow extension and source
+checks remain pending. Do not leave accepted actions indefinitely labelled
+banked. Keep a named actual task/lane and checkpoint when work is dispatched.
+The broader Control Room remains paused; this NewsStand task owns follow-through
+for its research until the receiving work is completed or explicitly held.
+
+The September model-routing instruction supersedes any older suggestion of a
+synthetic model tournament: calibrate using completed real tasks and the shared
+September table. Task-specific cost stays UNKNOWN unless actually exposed.
 
 Research the rolling seven-day window and unresolved candidates against the
 actual published story IDs, not only announcements posted on the issue date.
@@ -749,7 +794,7 @@ confirmed production artifact, overlay only admitted NewsStand files and compare
 the complete manifests with `check-newsstand-release-scope.mjs`. Commit the exact
 source before deployment. Verify both immutable and custom origins on desktop
 and mobile; a local check is not a published issue. The August 30 proving run did
-not create a scheduler. The existing active heartbeat was updated through the
-app with Ali's authorization, retaining its daily 07:00 cadence, target task and
-notification policy. Its next wall-clock execution has not yet occurred; local
-next-day tests and this publicly verified cycle do not prove future execution.
+not create a scheduler. That historical app update retained the existing 07:00
+cadence, task and notification setting. The September 5 adoption section above
+is the current scheduling record. Local tests or a prior publicly verified
+issue do not prove a later unattended run or notification delivery.

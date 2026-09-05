@@ -38,17 +38,24 @@ The same runbook now governs local AIDB website/podcast reconciliation,
 released-but-unreviewed episode holds, source coverage gaps and independent
 headline comparison. The September 5 audit records a verified channel omission
 and the bounded selector repair. Ali's end-of-day preparation suggestion is
-captured there; 20:00 preparation plus 07:00 freshness/publication is proposed,
-not an active schedule change. The existing 07:00 heartbeat remains authoritative
-until explicitly updated and verified.
+captured there. The September 5 adoption prepares 20:00 private research plus
+07:00 freshness/gated publication using the same existing heartbeat and task.
+The execution entry is `/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`;
+its current runbook records actual app activation separately from an observed
+scheduled run. Until the app update/read-back, the existing 07:00 setting remains
+authoritative. No competing dispatcher or whole-site release is introduced.
 
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and
 signal inbox: changes to exact claims must reach every affected consumer.
 The NewsStand runbook now specifies the daily cross-site/internal disposition
 and Ali-facing impact brief. The September 5 audit records partial registration,
-open receiving-owner work and the unverified automatic notification boundary;
-it does not certify textbook currency or change the paused Control Room.
+open receiving-owner work and the unverified automatic notification boundary.
+The loop signal now has an actual receiving-lane disposition in the September 5
+editorial intake: narrow AI Fundamentals 101 extension after source checks,
+NO_CHANGE to Working with AI 101 for this topic, product-specific guidance HOLD.
+That is accepted reuse, not edited or current public content. The NewsStand task
+owns follow-through while the broader Control Room remains paused.
 
 NewsStand Daily schema-2 publication, persistent Front PAiGE/Weekly continuity,
 service-bank reuse, deterministic derivatives and the manual release boundary:
