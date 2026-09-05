@@ -1003,3 +1003,48 @@ their freshness or the zero-ready private bank. Reacquire the proof when its
 date/time window expires or production advances. The ordinary-publication and
 service-continuity regression suites passed with synthetic fixtures; no actual
 September 5 issue or new public article was admitted by those tests.
+
+### Editorial-review repair sequence — specified September 5
+
+Current diagnosis: the existing release checker already rejects inconsistent
+PASS/HOLD outcomes. `test-prose-quality-admission.mjs` passed its positive,
+held and deliberately invalid cases again. Adding another approval gate will
+not repair the missing review. A current local `claude auth status --json`
+reports signed out; restore access before using that route. A configuration
+check is not a successful inference. Do not repeat the old large request.
+
+The smallest next implementation reuses the current review/admission path:
+
+1. Prepare one frozen article and an adequate primary/authoritative evidence
+   packet. Keep exact source excerpts distinct from maker paraphrases; recover
+   the original evidence needed for each claim. Preserve attributed preliminary
+   reporting and its limits. Source verification does not require company
+   confirmation or authentication of unavailable internal traces.
+2. Use bounded factual and reader-editorial assessments. Each receives the
+   complete article first, then only its relevant evidence and rubric. The
+   factual assessment checks exact claims, dates and qualifications. The
+   reader assessment checks explanation, audience relevance, voice, useful
+   action, analogy accuracy, links and a genuinely new transfer case.
+   Neither receives the maker's PASS, another reviewer’s verdict, or a request
+   to diagnose prior review paperwork while judging the article.
+3. Generate field names, bindings and repeated receipt metadata mechanically.
+   Require the reviewer to supply every substantive judgment and exact evidence.
+   Assemble only returned judgments into the existing receipt; do not invent
+   missing observations, modify HOLD to PASS, or weaken any required outcome.
+   Distinguish execution/schema failure, evidence gap and actual article defect.
+4. Run one bounded blind calibration using the registered positive and every
+   registered negative, followed by the unchanged held article. Withhold the
+   answer key/expected verdict from the evaluator; compare its output with the
+   registry afterward. Valid JSON is not calibration. The method must identify
+   the known defects, recognize the positive’s applicable strengths, and produce
+   an internally consistent article decision with complete evidence. One
+   repeated protocol failure stops the pilot for diagnosis, not more model trials.
+5. Only after that proof, use the existing full review-chain, issue, browser
+   and release checks. Keep ordinary-news human review optional under the
+   August 31 policy. Service renewal retains its own sampling policy; success
+   on one article does not renew the whole bank or prove the unattended cycle.
+
+This sequence is SPECIFIED, not implemented or a new content admission. The
+saved article and earlier attempts remain unchanged and held. Provider choice
+is conditional on actual access and this bounded result; no new subscription,
+provider purchase, reviewer tournament or Ali per-story approval is requested.

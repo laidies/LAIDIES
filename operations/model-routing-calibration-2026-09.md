@@ -57,7 +57,11 @@ not unrelated outputs.
 
 | 7 | 2026-09-05 | NewsStand source-to-reader: lesson-link repair publicly verified; one full article and three service renewals remain private review HOLD | GPT-6 Astra / effort not exposed; Terra / Low source and link-review lanes; Sol / Medium after Terra stopped at review setup; actual Meta and Gemma independent-provider trials | 1–4h / foreground usage UNAVAILABLE; selected independent calls total 96,767 provider tokens, excluding smoke/earlier service attempts | NO | Initial link suffix was too broad, repaired after independent rejection. Stale bank approvals corrected. Multiple provider/schema/review failures consumed time without yielding valid admission; no labels were substituted for required judgments. Saved existing connection, no new public service or paid upgrade | LIKELY for bounded source/link work; cheap provider suitability for full editorial admission remains unproved. Reliability, not token price alone, controlled this task | lesson-link-20260905 release; candidate review-status.json and exact provider outputs; bank/ordinary-publication/service-continuity regression results |
 
+| 8 | 2026-09-05 | Bounded editorial-review failure diagnosis and concrete repair sequence specified; no new provider trial | GPT-6 Astra / effort not exposed; Terra / Low independent exact-attempt/checker analysis | <15m / UNAVAILABLE | YES for diagnosis; pilot not implemented | Reconciled agent overstatement: actual independent provider calls occurred, although no valid admission exists. Existing gate already rejects contradictions; no duplicate gate added. Current auth separately reports signed out | LIKELY: Terra handled the bounded analysis; foreground needed only authority and evidence reconciliation | DAILY-MANUAL-RUNBOOK.md repair sequence; actual prose-admission suite; local auth status |
+
 ## Review outcome
+
+<!-- Row 8 records the bounded diagnosis, not implementation of the specified pilot. -->
 
 Not due. At the trigger, record: task classes reviewed, observed failure and
 review-cycle patterns, any route moved up or down, confidence, unresolved gaps,
