@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260902-luminairy-links-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260905-theme-button-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -72,14 +72,33 @@
             <div class="ns-v11-brandcopy">
               <p class="ns-v11-location">The SUNNYVA<span class="ns-brand-i">i</span>LE</p>
               <h1>NewsStand</h1>
-              <p>AI news, explained for your work and life.</p>
+              <p class="ns-v11-tagline">AI news, explained for your work and life.</p>
+              <div class="ns-theme-control">
+                <button class="ns-theme-button" type="button" data-ksvl-track="the-newsstand" aria-describedby="ns-theme-status" disabled>
+                  <span aria-hidden="true">▶</span> Play the NewsStand theme
+                </button>
+                <span id="ns-theme-status" class="ns-theme-status" role="status">The theme player is unavailable.</span>
+              </div>
             </div>
           </header>
           <section class="ns-town-strip" aria-label="SUNNYVAiLE weather and traffic — town humour">
-            <p><b>Weather</b> Sunny with scattered pop-ups.</p>
-            <p><b>Traffic</b> Information Superhighway delays. Someone picked up the landline.</p>
+            <p><b>Weather</b> <span id="ns-town-weather">Sunny with scattered pop-ups.</span></p>
+            <p><b>Traffic</b> <span id="ns-town-traffic">Information Superhighway delays. Someone picked up the landline.</span></p>
             <time id="ns-town-date"></time>
           </section>
+          <script>
+            (function () {
+              var weather = ["Sunny with scattered pop-ups.", "Cloudy with a chance of cached answers.", "Clear skies after the morning refresh.", "High pressure in the group chat.", "Patchy prompts clearing by lunch.", "Bright with occasional loading clouds.", "Breezy with tabs open everywhere."];
+              var traffic = ["Information Superhighway delays. Someone picked up the landline.", "Heavy tab traffic near the browser bookmarks.", "Clear through the Cloud; expect one password reset.", "Slow at the context-window merge.", "A queue is forming behind one very large attachment.", "Smooth sailing after the software update.", "Minor delays where two meetings became one email."];
+              var today = new Date();
+              var dayKey = Math.floor(new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime() / 86400000);
+              document.getElementById("ns-town-weather").textContent = weather[dayKey % weather.length];
+              document.getElementById("ns-town-traffic").textContent = traffic[(dayKey * 3) % traffic.length];
+              var dateNode = document.getElementById("ns-town-date");
+              dateNode.dateTime = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
+              dateNode.textContent = today.toLocaleDateString("en-CA", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+            })();
+          </script>
           <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE NewsStand front page">
             <header class="ns-one-paper__masthead">
               <div class="ns-masthead-flag">
@@ -1638,34 +1657,6 @@
           }
         }
 
-        var activeButton = null;
-        var activeAudio = null;
-        function stopAudio() {
-          if (activeButton) activeButton.classList.remove("is-playing");
-          if (activeAudio) {
-            try { activeAudio.pause(); } catch (error) { /* no-op */ }
-          }
-          activeButton = null;
-          activeAudio = null;
-        }
-
-        var radioButton = document.querySelector(".ns-radio");
-        if (radioButton) radioButton.addEventListener("click", function () {
-          var button = this;
-          if (activeButton === button) {
-            stopAudio();
-            return;
-          }
-          stopAudio();
-          var audio = new Audio(button.getAttribute("data-src"));
-          audio.addEventListener("ended", stopAudio);
-          audio.addEventListener("error", stopAudio);
-          audio.play().catch(stopAudio);
-          button.classList.add("is-playing");
-          activeButton = button;
-          activeAudio = audio;
-        });
-
         Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
           button.addEventListener("click", function () {
             var leadSlug = button.getAttribute("data-lead-slug");
@@ -1820,6 +1811,7 @@
     <script src="./content/site/brand-polish.js?v=20260830-native-controls-1" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+    <script defer src="/content/site/ksvl-theme-buttons.js?v=20260905-1"></script>
     <script defer src="./content/site/newsstand-catchup-v1.js?v=20260902-daily-runtime-1"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>

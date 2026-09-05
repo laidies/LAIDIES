@@ -1,5 +1,13 @@
 # LAiDIES build learning ledger
 
+## BTB-504 — A shared player can accept a song before its controls exist
+
+- **Date:** 2026-09-05
+- **Observed:** NewsStand's existing song and player were public, but the masthead had no entry. The working copy also lagged newer live styling and player ownership fixes. The first focus check failed because the shared deck appears after asynchronous ownership acquisition.
+- **Prevention implemented:** Verify the actual published dependency bytes before changing a shared surface. Reuse the admitted track API, enable only after catalogue readiness, and wait for the real controls before handing keyboard focus over. Preserve Retry focus and return to the invoker after Stop.
+- **Evidence:** Native playback and keyboard/failure checks pass at desktop/390/320; the exact old no-button artifact is rejected. Independent reviewer accepted the exact successor and reran the cases. Public-state evidence belongs to the scoped release record, not this implementation label.
+- **Possible public angle:** Why “the button worked” and “I can use what opened” are different tests, using a generic music-player example without LAiDIES operating details.
+- **Status:** VERIFIED LOCALLY / PUBLIC VERIFICATION PENDING in the release record. Existing song quality and every other page's migration are outside this bounded change.
 ## BTB-503 — A public change log is neither a version archive nor an internal diary
 
 - **Date:** 2026-09-05

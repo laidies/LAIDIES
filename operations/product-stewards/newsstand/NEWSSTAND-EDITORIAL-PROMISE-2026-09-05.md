@@ -158,6 +158,16 @@ recurring research records show consideration, not a proven complete refresh
 cycle. The public log includes internal production notes requiring repair.
 These gaps remain open; no article was changed by this reaffirmation.
 
+## Related songs use the shared player — September 5 ruling
+
+DECIDED: the NewsStand masthead includes “Play the NewsStand theme”. An explicit
+click opens the existing KSVL player in the current page and starts the admitted
+`the-newsstand` recording. Across LAiDIES, related-song controls should use this
+same player experience, with accessible controls and truthful unavailable states.
+Do not create another audio player or start music merely because a page loads.
+This task implements the NewsStand entry and reusable control binding; it does
+not certify migration of every existing related-song button across the site.
+
 ## Authority retained
 
 Ali retains the mission, audience, voice and taste direction, meaningful editorial positions, changes to publication authority and exact-version Big Picture approval. Existing ordinary-news autonomy remains: independent AI factual/editorial assessment is required, but routine news does not require Ali's daily copy approval. Existing specialist evidence, correction, artifact, accessibility and release controls still apply. This record changes no public content and grants no new release authority.

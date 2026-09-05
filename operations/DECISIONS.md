@@ -20,6 +20,12 @@ proper domain source before building from it.
 
 ## Core routes
 
+Related-song buttons across LAiDIES use the existing in-page KSVL player.
+Ali's September 5 ruling and the first NewsStand masthead implementation are
+recorded under “Related songs use the shared player” in
+`operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md`.
+The standard does not mean every existing page has already been migrated.
+
 NewsStand editorial purpose, professional-women audience, memorable explanation,
 coverage breadth, misleading-headline translation, STEM/medical reporting,
 practical guidance, learning links, Front PAiGE's earned feature cadence,
