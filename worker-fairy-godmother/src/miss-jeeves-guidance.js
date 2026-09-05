@@ -142,16 +142,22 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
     });
     if (response.status >= 300 && response.status < 400) {
       await response.body?.cancel();
+      console.warn("miss_jeeves_provider_redirect", { status: response.status });
       return json({ status: "unavailable", error: "provider_redirect_rejected" }, 502);
     }
     if (!response.ok) {
       await response.body?.cancel();
+      console.warn("miss_jeeves_provider_rejected", { status: response.status });
       return json({ status: "unavailable", error: "provider_rejected" }, 502);
     }
     const data = await boundedJson(response, controller.signal);
-    if (!usableCitationCount(data, sourcePolicy.allowedDomains)) return json({ status: "unavailable", error: "trusted_citations_required" }, 502);
+    if (!usableCitationCount(data, sourcePolicy.allowedDomains)) {
+      console.warn("miss_jeeves_trusted_citations_required", { providerStatus: data?.status || "unknown" });
+      return json({ status: "unavailable", error: "trusted_citations_required" }, 502);
+    }
     return json({ status: "ok", model: data.model || model, source_policy_version: sourcePolicy.version, output: data.output });
   } catch (error) {
+    console.warn("miss_jeeves_provider_failure", { name: error?.name || "Error", message: String(error?.message || "provider_failure").slice(0, 160) });
     return json({ status: "unavailable", error: error?.name === "AbortError" ? "provider_timeout" : "provider_failure" }, error?.name === "AbortError" ? 504 : 502);
   } finally {
     clearTimeout(timer);
