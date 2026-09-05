@@ -3,26 +3,27 @@
   --ns-ink: #281333;
   --ns-purple: #6430b7;
   --ns-line: #d3cbdc;
+  --ns-newsprint: #fff0f6;
   --ns-body: "Jost", system-ui, sans-serif;
   --ns-display: "Jost", system-ui, sans-serif;
   --ns-news-serif: "Playfair Display", Georgia, serif;
-  background: #fff;
+  background: linear-gradient(180deg, #f5bfd6 0, #ffdce8 240px, var(--ns-newsprint) 640px);
   color: var(--ns-ink);
 }
-.ns-redesign .ns-page { --ns-body: "Jost", system-ui, sans-serif; --ns-display: "Jost", system-ui, sans-serif; --ns-news-serif: "Playfair Display", Georgia, serif; --ns-page-gutter: clamp(16px, 2.2vw, 38px); box-sizing: border-box; max-width: none; width: 100%; margin: 0; padding: 0 0 48px; }
-.ns-redesign .ns-room, .ns-redesign .ns-counter-surface, .ns-redesign .ns-one-paper { margin: 0; padding: 0; border: 0; box-shadow: none; background: #fff; overflow: visible; }
+.ns-redesign .ns-page { --ns-body: "Jost", system-ui, sans-serif; --ns-display: "Jost", system-ui, sans-serif; --ns-news-serif: "Playfair Display", Georgia, serif; --ns-page-gutter: clamp(16px, 2.2vw, 38px); box-sizing: border-box; max-width: none; width: 100%; margin: 0; padding: 0 0 48px; background: transparent; }
+.ns-redesign .ns-room, .ns-redesign .ns-counter-surface, .ns-redesign .ns-one-paper { margin: 0; padding: 0; border: 0; box-shadow: none; background: var(--ns-newsprint); overflow: visible; }
 .ns-redesign .ns-room::before, .ns-redesign .ns-room::after, .ns-redesign .ns-counter-surface::before, .ns-redesign .ns-counter-surface::after, .ns-redesign .ns-one-paper::before, .ns-redesign .ns-one-paper::after { display: none; }
-.ns-redesign .ns-v11-brandbar { position: relative; isolation: isolate; display: grid; grid-template-columns: 260px minmax(0,1fr); align-items: end; gap: 26px; min-height: 190px; margin: 0; padding: 0 36px 0 0; background: linear-gradient(125deg,#5427bd 0%,#2457e6 52%,#15bce0 100%); border: 0; border-bottom: 4px solid #281333; box-shadow: inset 0 -1px 0 rgba(255,255,255,.24); overflow: visible; }
-.ns-redesign .ns-v11-brandbar::before { content: ""; position: absolute; z-index: 0; inset: 0 0 0 43%; background: linear-gradient(90deg,rgba(84,39,189,0) 0%,rgba(36,87,230,.12) 32%,rgba(21,188,224,.04) 100%), url('../assets/newsstand/design-20260830/masthead-pop-art-20260831.png') right center / auto 118% no-repeat; mix-blend-mode: soft-light; opacity: .5; pointer-events: none; }
+.ns-redesign .ns-v11-brandbar { position: relative; isolation: isolate; display: grid; grid-template-columns: 260px minmax(0,1fr); align-items: end; gap: 26px; min-height: 190px; margin: 0; padding: 0 36px 0 0; background: radial-gradient(circle at 92% 22%,#b7e42b 0 38px,transparent 39px), radial-gradient(circle at 81% 78%,#7de2c2 0 22px,transparent 23px), linear-gradient(112deg,#f254a9 0%,#ff7366 55%,#ff9b3d 100%); border: 0; border-bottom: 4px solid #15bce0; box-shadow: inset 0 -1px 0 rgba(255,255,255,.28); overflow: visible; }
+.ns-redesign .ns-v11-brandbar::before { content: ""; position: absolute; z-index: 0; inset: 0 0 0 43%; background: linear-gradient(90deg,rgba(242,84,169,0) 0%,rgba(255,115,102,.08) 32%,rgba(255,155,61,.16) 100%), url('../assets/newsstand/design-20260830/masthead-pop-art-20260831.png') right center / auto 118% no-repeat; mix-blend-mode: multiply; opacity: .32; pointer-events: none; }
 .ns-redesign .ns-v11-paige { position: relative; z-index: 2; display: block; width: 260px; height: 190px; margin: 0; border: 0; background: transparent; }
-.ns-redesign .ns-v11-paige::after { content: ""; position: absolute; z-index: 3; left: 0; bottom: -4px; width: 100%; height: 4px; background: #ff7366; pointer-events: none; }
+.ns-redesign .ns-v11-paige::after { display: none; }
 .ns-redesign .ns-v11-paige .ns-paige__crop { position: relative; width: 260px; height: 190px; overflow: visible; clip-path: inset(0 0 -22px 0); border: 0; background: transparent; }
 .ns-redesign .ns-v11-paige .ns-paige__crop img { position: absolute; width: 330px; max-width: none; height: auto; left: -48px; top: 20px; }
 .ns-redesign .ns-v11-brandcopy { position: relative; z-index: 1; display: block; min-width: 0; align-self: center; max-width: 780px; text-align: left; padding: 18px 0 20px; }
-.ns-redesign .ns-v11-brandcopy .ns-v11-location { display: inline-block; margin: 0 0 9px; padding: 4px 9px 3px; background: #b7e42b; border: 2px solid #11183b; box-shadow: 3px 3px 0 #ff7366; color: #11183b; font: 800 clamp(12px,1.25vw,16px)/1.05 Jost,sans-serif; letter-spacing: .13em; text-transform: uppercase; transform: rotate(-.35deg); }
-.ns-redesign .ns-v11-brandcopy h1 { margin: 0; color: #fffdfb; font: 800 clamp(54px,5.7vw,78px)/.86 var(--ns-display); text-transform: none; letter-spacing: -.055em; -webkit-text-stroke: 1px #11183b; paint-order: stroke fill; text-shadow: 5px 5px 0 #ff7366; }
-.ns-redesign .ns-v11-brandcopy > p:last-child { margin: 13px 0 0; color: #fffdfb; font: 650 clamp(15px,1.35vw,19px)/1.3 Jost,sans-serif; text-align: left; max-width: 620px; }
-.ns-town-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) auto; gap: 24px; align-items: start; margin: 0 0 24px; padding: 28px 0 20px; background: #fff; border-bottom: 2px solid #7137d6; font: 500 17px/1.4 Jost, sans-serif; }
+.ns-redesign .ns-v11-brandcopy .ns-v11-location { display: inline-block; margin: 0 0 9px; padding: 4px 9px 3px; background: #b7e42b; border: 2px solid #11183b; box-shadow: 3px 3px 0 #15bce0; color: #11183b; font: 800 clamp(12px,1.25vw,16px)/1.05 Jost,sans-serif; letter-spacing: .13em; text-transform: uppercase; transform: rotate(-.35deg); }
+.ns-redesign .ns-v11-brandcopy h1 { margin: 0; color: #11183b; font: 800 clamp(54px,5.7vw,78px)/.86 var(--ns-display); text-transform: none; letter-spacing: -.055em; text-shadow: 4px 4px 0 #7de2c2,8px 8px 0 rgba(255,253,251,.72); }
+.ns-redesign .ns-v11-brandcopy > p:last-child { margin: 13px 0 0; color: #11183b; font: 700 clamp(15px,1.35vw,19px)/1.3 Jost,sans-serif; text-align: left; max-width: 620px; }
+.ns-town-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) auto; gap: 24px; align-items: start; margin: 0 0 24px; padding: 28px 0 20px; background: var(--ns-newsprint); border-bottom: 2px solid #7137d6; font: 500 17px/1.4 Jost, sans-serif; }
 .ns-town-strip p { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0; }
 .ns-town-strip b { display: inline-block; padding: 5px 13px 4px; border: 2px solid #281333; border-radius: 0; background: #ffd83d; box-shadow: 4px 4px 0 #7137d6; color: #281333; font: 800 15px/1.15 Jost, sans-serif; letter-spacing: .08em; text-transform: uppercase; transform: rotate(.45deg); }
 .ns-town-strip p:first-child b { background: #54d7e8; color: #281333; transform: rotate(-.6deg); }
@@ -380,12 +381,12 @@
   .ns-redesign .ns-v11-paige .ns-paige__crop { clip-path: inset(0 0 -8px 0); }
   .ns-redesign .ns-v11-paige .ns-paige__crop img { width: 190px; left: -43px; top: 31px; }
   .ns-redesign .ns-v11-brandcopy { padding: 12px 0 14px; }
-  .ns-redesign .ns-v11-brandcopy .ns-v11-location { margin-bottom: 7px; padding: 3px 6px 2px; box-shadow: 2px 2px 0 #ff7366; font-size: 10px; letter-spacing: .08em; }
-  .ns-redesign .ns-v11-brandcopy h1 { font-size: clamp(32px,9.6vw,42px); text-shadow: 3px 3px 0 #ff7366; }
+  .ns-redesign .ns-v11-brandcopy .ns-v11-location { margin-bottom: 7px; padding: 3px 6px 2px; box-shadow: 2px 2px 0 #15bce0; font-size: 10px; letter-spacing: .08em; }
+  .ns-redesign .ns-v11-brandcopy h1 { font-size: clamp(32px,9.6vw,42px); text-shadow: 2px 2px 0 #7de2c2,4px 4px 0 rgba(255,253,251,.72); }
   .ns-redesign .ns-v11-brandcopy > p:last-child { display: block; font-size: 13px; margin-top: 9px; }
   .ns-town-strip { margin: 0 0 16px; padding: 18px 0 16px; grid-template-columns: minmax(0, 1fr); gap: 16px; font-size: 16px; }
   .ns-town-strip p { gap: 6px; }
-  .ns-town-strip time { display: block; margin: 0; }
+  .ns-town-strip time { display: block; justify-self: start; margin: 0; white-space: normal; }
   .ns-redesign .ns-front-page-grid { display: flex; flex-direction: column; gap: 24px; }
   .ns-redesign .ns-front-desk--lead { order: 0; padding: 0 !important; border: 0; }
   .ns-redesign .ns-front-page-grid__right { order: 1; width: 100%; gap: 12px; }
@@ -433,6 +434,10 @@
     line-height: 1.04;
   }
 }
+@media(max-width: 360px) {
+  .ns-redesign .ns-v11-brandcopy h1 { font-size: 26px; letter-spacing: -.06em; }
+  .ns-redesign .ns-v11-brandcopy > p:last-child { font-size: 12px; }
+}
 
 /* The newspaper fills the browser. Sections share one deliberate inner gutter;
    the page itself is never presented as a clipped card inside a grey frame. */
@@ -447,4 +452,58 @@
   width: calc(100% - (2 * var(--ns-page-gutter)));
   margin-left: auto;
   margin-right: auto;
+}
+
+/* A story is a reading surface, not a full-screen poster. Keep the newspaper
+   front page expansive, but give opened articles a restrained editorial page. */
+.ns-redesign .ns-reader.ns-reader--story {
+  width: 100%;
+}
+
+.ns-redesign .ns-reader--story .ns-unfolded-paper {
+  width: min(100%, 900px);
+  padding: clamp(30px, 3.5vw, 44px) clamp(24px, 5vw, 64px) clamp(64px, 7vw, 88px);
+}
+
+.ns-redesign .ns-reader--story .ns-article__head {
+  max-width: 760px;
+  padding-bottom: clamp(24px, 3vw, 34px);
+}
+
+.ns-redesign .ns-reader--story .ns-article__head h2 {
+  max-width: 21ch;
+  margin-bottom: 16px;
+  font-size: clamp(36px, 3.6vw, 48px);
+  line-height: 1.04;
+}
+
+.ns-redesign .ns-reader--story .ns-article__date {
+  margin-top: 16px;
+}
+
+.ns-redesign .ns-reader--story .ns-article__hero {
+  width: min(100%, 560px);
+  margin: 8px 0 28px;
+}
+
+@media (max-width: 720px) {
+  .ns-redesign .ns-reader--story .ns-unfolded-paper {
+    width: 100%;
+    padding: 26px 18px 64px;
+  }
+
+  .ns-redesign .ns-reader--story .ns-article__head {
+    padding-bottom: 22px;
+  }
+
+  .ns-redesign .ns-reader--story .ns-article__head h2 {
+    max-width: none;
+    margin-bottom: 14px;
+    font-size: clamp(30px, 9vw, 36px);
+    line-height: 1.05;
+  }
+
+  .ns-redesign .ns-reader--story .ns-article__hero {
+    margin-bottom: 26px;
+  }
 }

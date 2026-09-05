@@ -9,7 +9,7 @@
     <meta property="og:description" content="One source-checked AI newspaper: current news, the week’s biggest stories, Big Picture analysis and useful recurring desks—without filler.">
     <meta property="og:type" content="website">
     <link rel="alternate" type="application/feed+json" title="LAiDIES NewsStand latest publications" href="./content/newsstand-public-feed.json">
-    <link rel="icon" type="image/svg+xml" href="./approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="./approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260904-homepage-masthead-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260904-warm-masthead-review-2">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -82,36 +82,15 @@
           </section>
           <script>
             (function () {
-              var weather = [
-                "Sunny with scattered pop-ups.",
-                "Cloudy with a chance of cached answers.",
-                "Clear skies after the morning refresh.",
-                "High pressure in the group chat.",
-                "Patchy prompts clearing by lunch.",
-                "Bright with occasional loading clouds.",
-                "Breezy with tabs open everywhere."
-              ];
-              var traffic = [
-                "Information Superhighway delays. Someone picked up the landline.",
-                "Heavy tab traffic near the browser bookmarks.",
-                "Clear through the Cloud; expect one password reset.",
-                "Slow at the context-window merge.",
-                "A queue is forming behind one very large attachment.",
-                "Smooth sailing after the software update.",
-                "Minor delays where two meetings became one email."
-              ];
+              var weather = ["Sunny with scattered pop-ups.", "Cloudy with a chance of cached answers.", "Clear skies after the morning refresh.", "High pressure in the group chat.", "Patchy prompts clearing by lunch.", "Bright with occasional loading clouds.", "Breezy with tabs open everywhere."];
+              var traffic = ["Information Superhighway delays. Someone picked up the landline.", "Heavy tab traffic near the browser bookmarks.", "Clear through the Cloud; expect one password reset.", "Slow at the context-window merge.", "A queue is forming behind one very large attachment.", "Smooth sailing after the software update.", "Minor delays where two meetings became one email."];
               var today = new Date();
               var dayKey = Math.floor(new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime() / 86400000);
               document.getElementById("ns-town-weather").textContent = weather[dayKey % weather.length];
               document.getElementById("ns-town-traffic").textContent = traffic[(dayKey * 3) % traffic.length];
               var dateNode = document.getElementById("ns-town-date");
               dateNode.dateTime = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
-              dateNode.textContent = today.toLocaleDateString("en-CA", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-              });
+              dateNode.textContent = today.toLocaleDateString("en-CA", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
             })();
           </script>
           <div class="ns-one-paper" id="newsstand-rack" aria-label="The SUNNYVAiLE NewsStand front page">
@@ -281,7 +260,7 @@
     </footer>
 
     <script src="./content/newsstand-reader-contract.js?v=20260831-latest-five-days-1"></script>
-    <script src="./content/newsstand-stories.js?v=20260902-useful-four"></script>
+    <script src="./content/newsstand-stories.js?v=20260904-astra-reader-fit-2"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       (function () {
