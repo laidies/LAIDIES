@@ -1,5 +1,12 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Extra Miss Jeeves questions as rewards: CAPTURED.**
+> Ali asked to consider behaviour-earned research questions, following FAiRY.
+> Evaluate within the existing Butterfly Clip/reward system and current research
+> allowance work; do not invent a new currency or bypass US$100/month/fair access.
+> Exact actions, amounts and implementation remain open. See
+> `docs/product/butterfly-clip-economy.md#miss-jeeves-research-rewards--consideration-captured-2026-09-05`.
+
 > **2026-09-05 — Miss Jeeves service value — Ali ruling.**
 > Assessed trusted AI sources, guidance checked for currentness, understandable
 > practical tailoring and necessary follow-up questions define her value.

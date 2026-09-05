@@ -1,5 +1,13 @@
 # Active work
 
+> **2026-09-05 — Miss Jeeves reward extension CAPTURED.**
+> Consider extra research questions for meaningful learning behaviour through
+> the existing shared reward system. Include issuance, availability, deduplication
+> and failed-use recovery in allowance balancing. No new reward amount or live
+> fulfilment is claimed; the billing/source/answer repair remains active.
+> Inspection found a legacy Tour bonus counter with no matching consumption in
+> the checked FAiRY backend. Trace fulfilment before claiming working rewards.
+
 > **2026-09-05 — Miss Jeeves source and explanation promise DECIDED.**
 > Ali confirmed assessed trusted AI sources, guidance checked for currentness,
 > understandable practical tailoring, and necessary follow-up questions as the

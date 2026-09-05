@@ -276,3 +276,43 @@ A resident can:
 5. redeem without duplication or negative balance;
 6. find/use/display the reward where promised; and
 7. see the complete transaction in her Closet.
+
+## Miss Jeeves research rewards — consideration captured 2026-09-05
+
+Ali asked to consider extra Miss Jeeves questions as a behavioural reward,
+following the existing FAiRY extra-question idea. This is CAPTURED for the
+active Miss Jeeves allowance design, not an admitted reward, payout or public
+fulfilment claim.
+
+Reuse the shared Butterfly Clip/entitlement ledger contract and typed,
+deduplicated learning-completion events; do not assume that contract is already
+fully implemented. Additional Miss Jeeves research is a service
+allowance, not another currency. Codex recommends evaluating it as another
+bounded reward offer alongside extra FAiRY Plays, preserving ordinary access
+and unlimited no-AI LAiDIES site search.
+
+Candidate eligibility includes completing meaningful practice or a discernment
+game; exact qualifying actions and rewards remain to be settled after existing
+FAiRY earning/fulfilment is traced. Do not reward empty clicks, repeated refreshes
+or an unverified claim of completion. Preserve the shared rules on retries,
+account continuity and authoritative grants; pages cannot invent balances.
+
+Bonus research still passes explicit consent, source/answer standards, fair-use
+and the approved US$100 monthly research ceiling. Do not grant an unconditional
+paid-service promise without a bounded funded fulfilment policy. An unavailable
+or failed redemption must not burn Clips or an unused research entitlement;
+show availability clearly and preserve or restore what the resident holds.
+
+Bounded implementation finding: `content/site/sv-tour-checkin.js` contains the
+legacy full-Tour bonus producer, incrementing browser `laidies_fairy_plays` once
+per week; `charm-hunt.js` also references that reward. The preserved production
+FAiRY page/script and backend inspected here enforce beta allowances but do not
+consume that browser balance. This is a producer/consumer gap in the inspected
+versions, not proof of a live completed earning/redemption journey. Preserve
+legacy records; do not treat an editable browser counter as authority to spend
+on AI research. Trace and repair FAiRY fulfilment alongside shared reward reuse.
+
+Next: include the reward option in measured allowance balancing, prove one
+verified completion → grant → visible allowance → research → spend/recovery
+journey, then admit exact earning/redemption values and public wording. No
+runtime change, real grant, billing increase or deployment follows from capture.

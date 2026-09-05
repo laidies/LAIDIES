@@ -14882,6 +14882,13 @@ while remaining falsely unfinished in the launch record.
   claim's support or currentness. Do not substitute sentence/citation overlap for
   a review of what the source actually supports. The detailed release requirements
   are recorded in `operations/library-decisions.md`; no new live assurance follows.
+- **Reward extension:** Ali asked to consider behaviour-earned Miss Jeeves
+  research. The Tour still produces a local `laidies_fairy_plays` increment, while
+  the inspected FAiRY service enforces independent beta allowances. Inspect both
+  the earning producer and service consumer before declaring rewards absent or
+  working; preserve old records, but require authoritative entitlement before
+  provider spend. The shared economic contract is a design input, not proof that
+  its full grant/spend/refund system is already implemented.
 - **Cost gap:** an estimated reservation is not a proven maximum provider bill.
   Candidate research remains disabled pending the correct billing project,
   provider-limit verification, measured usage and replacement of rigid guest/
