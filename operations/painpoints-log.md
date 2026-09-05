@@ -14607,3 +14607,14 @@ their surrounding eyebrow or quotation, while the full LUMINAiRY title remains
 the single raspberry display accent. Future page-specific palette work must
 test the computed colour of runtime-inserted brand spans, not only the authored
 HTML and local custom properties.
+
+
+## BTB-TRYON-20260905 — One shared template promised the wrong activity
+
+- The live Episode04 exercise was a MAiVEN field trip; its wrapper still promised two prompts and asked visitors to rate output improvement. The fix gives activities their own labels and hides irrelevant controls while preserving saved records.
+- Prevention: run scripts/test-try-on-browser.mjs against the actual current page first; it must reject the old promise. Then check the corrected fieldtrip and adjacent episode controls, destination, visible return link, blank-save, saved-note reload and legacy fields at desktop and phone widths. CSS display rules can override hidden on a button; the inactive-episode check caught that before independent review.
+- Release lesson: latest saved notes named an old deployment. Current production was two releases ahead. Recover the actual manifest from the deployed source commit, read its artifactDirectory, verify every747-file hash, and preserve all except the owned page. Cloudflare-injected analytics changes raw HTML; preserve raw hashes and remove only the observed insertion when comparing authored bytes.
+- Review receipt lesson: an independent review supplied future timestamps. Reaffirmed the same artifact with actual clock readings and rejected a future-time mutation before final acceptance. Never estimate review times or rely on chronology checks that only compare two invented future values.
+- Efficiency: wrapper repair is small; cross-release preservation was the consequential work. Avoid large process expansion or broad account checks. The shared MICROCOPY gate has no approved positive exemplar; this existing interactive used the proportional INTERACTIVE contract without inventing an exemplar approval.
+- Behind the Build angle: a working button can still deliver the wrong promise; test the whole small journey, including what it asks you to save.
+- Status: PREVIEW VERIFIED; main-site promotion pending. No Miss Jeeves runtime, billing, source-bank or biography release.

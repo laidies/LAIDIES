@@ -1,5 +1,19 @@
 # Active work
 
+> **2026-09-05 — Try-On field-trip repair: PREVIEW VERIFIED, promotion pending.**
+> Episode04 now describes its MAiVEN field trip, opens the correct wing and saves
+> a name/sentence without an invented rating. Legacy notes survive; episodes02/03
+> retain their exercises. Source e5943d18 is pushed. Preview fac9da31 passed real
+> 1440/390/320px link, return, blank/save/reload and legacy-data checks; independent
+> exact-copy review passed. Live Homepage→Blend→order04→Try-On works at1280/390.
+> Production remains cd6b20a4; its747-file artifact is preserved, with only
+> try-on.html changed in the preview. Release that exact candidate after Ali
+> approval and fresh predecessor/parity checks. Keep the freshness mismatch signal
+> open until production proof. Details: product-stewards/blend-snap/candidates/
+> tryon-ep04-2026-09-05/release.md. Miss Jeeves real Sol/cost pilot and existing
+> Answer Bank runtime connections remain outstanding; user funding is settled.
+
+
 > **2026-09-05 — Fair-use repair VERIFIED LOCALLY; Dear Miss Jeeves routing recovered.**
 > Backend implementation is committed/pushed as `d0ec6d17`. Shared/actor money
 > is reserved atomically; quiet-day repeat use exceeds the old 3/5 count;

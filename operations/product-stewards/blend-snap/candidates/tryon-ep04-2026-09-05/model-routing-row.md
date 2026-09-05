@@ -1,0 +1,3 @@
+| TRYON-20260905 |2026-09-05| Tier1 Try-On wrapper repair; preview verified, promotion pending | GPT6 foreground variant/effort unavailable; Terra/Medium independent review |15–60m / usage unavailable| NO, maker repair before judge| Older release notes/source cache keys reconciled; browser selectors corrected; hidden empty link fixed; review timestamps corrected| LIKELY for bounded edit; release reconciliation not compared| product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/release.md |
+
+The canonical calibration file was already untracked with unrelated work. This exact row is committed here and appended there; the wider file remains owned by the existing calibration task until its intentional baseline commit.

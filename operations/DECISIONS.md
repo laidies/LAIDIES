@@ -1,5 +1,15 @@
 # DECISIONS — where every settled decision lives
 
+> **2026-09-05 — Try-On activity-specific wrapper guard (implementation).**
+> Derive each episode's introduction, reminder, destination, note label and feedback
+> from its actual governed activity. Episode04 is the existing MAiVEN field trip;
+> it must not inherit a two-prompt comparison or an output-improvement rating.
+> Preserve legacy saved fields when the visible form changes. The browser guard
+> scripts/test-try-on-browser.mjs rejects the incumbent mismatch and checks
+> episodes02/03 as downstream consumers. This records the repair rule, not a new
+> episode premise or approval to publish the candidate.
+
+
 > **2026-09-05 — Reuse and Dear Miss Jeeves publishing: existing design recovered.**
 > Ali recalled the established Answer Bank and publication routing. Reuse the
 > recovered `operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`:
