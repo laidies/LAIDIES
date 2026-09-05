@@ -63,6 +63,12 @@ try {
   const positive = run([admitted, started, checkpoint, waiting, resumed, resolved]);
   assert.equal(positive.status, 0, positive.stderr); assert.match(positive.stdout, /"status": "RESOLVED"/);
 
+  // A matching actor can record internal completion; it cannot establish authenticated approval.
+  assert.equal(JSON.parse(positive.stdout).approval_authority, 'NONE_ACTOR_METADATA_ONLY');
+  const metadataOnlyResume = run([admitted, started, checkpoint, waiting], {}, ['--resume', 'WRK-RECOVERY']);
+  assert.equal(metadataOnlyResume.status, 0, metadataOnlyResume.stderr);
+  assert.equal(JSON.parse(metadataOnlyResume.stdout).approval_authority, 'NONE_ACTOR_METADATA_ONLY');
+
   const legacyBase = { event_id: 'L0', work_id: 'LEGACY', at: '2026-08-07T12:00:00Z', type: 'WORK_ADMITTED', actor: 'owner', payload: { title: 'Legacy', acceptance_owner: 'judge' } };
   fail([legacyBase, { ...legacyBase, event_id: 'L0', at: '2026-08-07T12:01:00Z', type: 'WORK_STARTED', payload: {} }], 'duplicate event_id');
   fail([{ ...legacyBase, type: 'WORK_STARTED' }], 'before WORK_ADMITTED');

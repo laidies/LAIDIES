@@ -98,7 +98,7 @@ export function projectWorkEvents(file = eventsPath) {
     else item.metric_events.push({ type: event.type, at: event.at, payload: event.payload });
     item.last_event_at = event.at; item.last_event_id = event.event_id; work.set(event.work_id, item);
   }
-  return { schema_version: 1, authority: 'PILOT_PROJECTION_ONLY', source: path.relative(root, file), rule: 'Status is derived from append-only events and must not be hand-edited.', items: [...work.values()] };
+  return { schema_version: 1, authority: 'PILOT_PROJECTION_ONLY', approval_authority: 'NONE_ACTOR_METADATA_ONLY', source: path.relative(root, file), rule: 'Status is derived from append-only events and must not be hand-edited.', items: [...work.values()] };
 }
 
 function resumePacket(workId) {
@@ -110,7 +110,7 @@ function resumePacket(workId) {
   const current = validateArtifactHandoff(handoff, { root });
   if (current.errors.length) throw new Error(`current recovery inputs changed: ${current.errors.join('; ')}`);
   if (handoff.task !== item.work_id || handoff.acceptance_owner !== item.acceptance_owner) throw new Error('current recovery owner/work does not match admitted checkpoint');
-  const packet = { work_id: item.work_id, resume_from: item.checkpoint.event_id, next_trigger: item.checkpoint.next_trigger, acceptance_owner: item.acceptance_owner, handoff: item.checkpoint.handoff, artifact: handoff.artifact, brief: handoff.brief, inputs: handoff.inputs, limitation: 'Verified identity and bytes only; this packet does not execute handoff.run or prove quality, approval or publication.' };
+  const packet = { approval_authority: 'NONE_ACTOR_METADATA_ONLY', work_id: item.work_id, resume_from: item.checkpoint.event_id, next_trigger: item.checkpoint.next_trigger, acceptance_owner: item.acceptance_owner, handoff: item.checkpoint.handoff, artifact: handoff.artifact, brief: handoff.brief, inputs: handoff.inputs, limitation: 'Verified identity and bytes only; this packet does not execute handoff.run or prove quality, approval or publication.' };
   if (Buffer.byteLength(JSON.stringify(packet), 'utf8') > 16 * 1024) throw new Error('resume packet exceeds 16384 UTF-8 bytes');
   return packet;
 }
