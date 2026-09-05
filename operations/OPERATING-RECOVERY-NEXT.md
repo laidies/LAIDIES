@@ -7,11 +7,9 @@ and their exact artifacts outrank historical snapshots below.
 ## Owner and continuity
 
 Task: **LAiDIES operating system and launch readiness**
-ID: `01a0725e-963e-73e1-9437-b85d7139c311`. Former title:
-Review Episodes Path to Personal Agents. Keep working here; compaction does not
-in itself require a new task. If a successor is needed, rehydrate from this
-record and exact referenced sources, then continue the next action. Do not
-replay the conversation or commission another full audit.
+Current owner: the fresh operating-system continuation explicitly requested by Ali.
+Previous task `01a0725e-963e-73e1-9437-b85d7139c311` is reference only.
+Rehydrate from this record and exact dependencies; do not replay completed work.
 
 Ali wants a useful, funny, current learning town; stable site services; weekly
 Wednesday episodes; ideas that reach an accountable owner and completion; phone
@@ -77,12 +75,72 @@ approved examples; a phrase checker or valid receipt is not a humour verdict.
 
 ## Next exact action
 
-**Current, September 5:** finish the bounded founder decision package on
-`ops/founder-decision-pilot-20260905`. The older integrations below are complete;
-do not repeat them. Ali has been asked which email should identify the authorised
-founder account; no answer is recorded. This is separate from the successful
-Supabase administrator connection. Do not guess the account or provision access
-from a self-editable profile. See the implementation checkpoint at the end.
+**Current, September 5 — corrected phone boundary:** Ali already uses ChatGPT
+on her iPhone through Remote. Pairing, phone reply and completion notification
+were verified in the predecessor task. No repeat setup or notification tests.
+The request for a founder email/site account is WITHDRAWN and is not a blocker.
+Use the existing interface for current Mac-hosted work. The remaining question
+is supported execution and actionable decisions while the Mac is unavailable.
+Verify native cloud Work before introducing a second inbox or buying a host;
+external Cloudflare-to-ChatGPT notification/resumption is not established.
+
+PR95 is MERGED at `7ca1f070bbe053f6aea932d7d49f7c38ba0e0931`; both exact-head
+checks passed in the predecessor task. Fresh origin/main contains that merge.
+Preserve its database and Workflow preparation without activating it merely
+because it exists. No live migration, approver grant, review page or new Founder
+Workflow deployment has happened.
+
+Correction integration: https://github.com/laidies/LAIDIES/pull/96 .
+The first CI run exposed a stale generated standing-card source binding after
+DECISIONS changed. The real startup hook reproduced the failure; regenerating
+the existing card repaired startup. Check current-head CI before merging.
+
+### Supported cloud route — checked September 5
+
+Recommendation: use one native ChatGPT Work Cloud task for a bounded business
+maintenance pilot before buying an always-on host or activating a site inbox.
+Official guidance explicitly supports continuing Cloud work with the computer
+off and returning through web/mobile:
+https://learn.chatgpt.com/docs/get-started-with-work . Cloud browser work uses
+its own computer: https://learn.chatgpt.com/docs/browser . This does not transfer
+Mac-local files, credentials or the existing local conversation into cloud.
+
+Native web scheduled tasks can use uploaded context and connected tools;
+supported app-event triggers include GitHub PR activity (plan/permission dependent):
+https://learn.chatgpt.com/docs/automations . This is a possible supported event
+entry, not evidence that the current Cloudflare pilot can inject a decision into
+ChatGPT. Arbitrary external-job chat injection remains unverified. Notification
+channels depend on account/category: https://learn.chatgpt.com/docs/notifications .
+No promise of laptop-off phone notification reliability is made from docs alone.
+
+A dedicated always-on Mac/Windows host supports Remote with its own configured
+tools. SSH still depends on the connected desktop app host:
+https://learn.chatgpt.com/docs/remote-connections . No host purchase recommended
+until a concrete job requires local apps and cannot use native cloud tools.
+
+Availability check: the desktop tool lists existing ChatGPT projects and exposes
+a Cloud-task creation target. The checked Chrome ChatGPT page is signed out;
+that says nothing about the working desktop/phone session. Native app inspection
+is disallowed by the computer-use tool. No sign-in, settings change or purchase
+was attempted. An actual native cloud run is still needed to verify entitlement,
+tools and continuation. Creation requires Ali's explicit request for a new Cloud
+task under the app tool contract; do not silently create a user-owned task.
+
+Prepared first run (no recurring schedule yet):
+Read the current public LAIDIES operating-continuation PR and its exact-head
+checks, report whether the correction removes the obsolete account prerequisite
+while preserving the tested pilot and owner boundaries, and present one complete
+ACKNOWLEDGE/HOLD decision in the private cloud chat. Include the exact PR/head,
+findings, recommendation and consequences. ACKNOWLEDGE means mark the maintenance
+review accepted in that chat; HOLD means keep it unresolved with a specific
+reason. Neither response authorizes publication, spend or account/database
+changes. Stop for Ali's response, then bind the response to that exact head and
+produce the final disposition. If the head changes, refresh the review before
+accepting a response. Do not edit the repository or touch other owners' work.
+
+This first native cloud run proves cloud review/decision/continuation only when
+actually observed. It does not complete Cloudflare decision/resumption, recurring
+production, or the laptop-off phone proof. Those remain roadmap step 3.
 
 First integration is merged: https://github.com/laidies/LAIDIES/pull/91,
 main commit `868003b81471a7a9f2ebd024ccb789408e3d5133`. Both full GitHub
@@ -224,8 +282,9 @@ CLOUDFLARE. The API error describes this Worker entitlement, not her entire
 Cloudflare subscription; subscription breakdown is unverified. No plan change
 or provider purchase occurred.
 
-Next: integrate the exact tested package; prepare the existing Supabase identity
-for authenticated founder decisions. Inspection found actual member magic-link
+Historical next step (superseded by the current phone correction): the package
+is integrated. The proposed Supabase founder-identity route is optional preparation.
+Inspection found actual member magic-link
 sessions in `script.js`, but existing Control Room HTML is static and
 `supabase-schema.sql` has no protected founder mapping or decision record. Never
 use the localStorage nav label or a self-editable member profile as founder
@@ -306,14 +365,12 @@ Run `node worker-operating-pilot/test-founder.mjs` and
 `PGLITE_MODULE_PATH=/path/to/@electric-sql/pglite/dist/index.js node worker-operating-pilot/test-database.mjs`.
 CI installs isolated PGlite 0.3.16; existing runtime tests retain process cleanup.
 
-Activation remains open: confirm Ali's chosen existing site account, inspect
-its exact authenticated subject, apply only this reviewed additive migration
-(never the checkout's whole migration backlog), bind the explicit approver,
-configure only a public key, and deploy the private Workflow. Then connect the
-authenticated phone review surface and observe real decision/resumption. Reuse
-Resident sign-in; do not create a competing identity system. Existing migration
-history has version/statements/name/created_by/idempotency_key/rollback columns;
-record the exact applied version through the migration mechanism when applying.
+Activation is deferred, not a current prerequisite. The earlier requirement to
+confirm a site account or request an email is withdrawn. Do not migrate, grant
+approver authority, expose a review page or deploy FounderDecisionPilot unless
+the chosen phone-to-hosted-job route actually needs this package. Its security
+requirements remain applicable if that route is later chosen. Existing migration
+history includes version/statements/name/created_by/idempotency_key/rollback;
+apply only the exact reviewed additive migration through that mechanism.
 No live schema/data/auth configuration, founder grant, public route, website,
-dispatcher or hosted Founder Workflow changed during this preparation. Check the
-branch's current PR/head CI/merge state before calling this integrated.
+dispatcher or hosted Founder Workflow changed during this preparation.
