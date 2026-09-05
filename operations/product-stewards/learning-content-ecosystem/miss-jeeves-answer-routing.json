@@ -37,11 +37,37 @@
   "reusePolicy": {
     "publicSafeGovernedKeyRequired": true,
     "rawPersonalQuestionCacheProhibited": true,
+    "privateSaveRequiresExplicitVisitorAction": true,
+    "privateSaveCreatesPublicationCandidate": false,
+    "privateSaveMayEnterSharedCache": false,
+    "privateSavePreservesOriginalVersion": true,
     "freshAnswerMayBeReused": true,
     "staleAnswerRequiresSourcedRefresh": true,
     "materialChangeCreatesSuccessor": true,
     "cacheMayAutoPublish": false
   },
+  "visibilityStates": [
+    {
+      "id": "transient",
+      "audience": "current_answer_session",
+      "publiclyIndexed": false
+    },
+    {
+      "id": "private_saved",
+      "audience": "saving_visitor_only",
+      "publiclyIndexed": false
+    },
+    {
+      "id": "internal_candidate",
+      "audience": "authorised_editorial_systems_and_reviewers",
+      "publiclyIndexed": false
+    },
+    {
+      "id": "public_admitted",
+      "audience": "public",
+      "publiclyIndexed": true
+    }
+  ],
   "promotionTriggers": [
     "repeated_governed_question",
     "common_misconception",

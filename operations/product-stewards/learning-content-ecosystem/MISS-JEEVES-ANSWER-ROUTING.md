@@ -11,6 +11,10 @@ Miss Jeeves may reuse a previously checked answer, but the runtime answer cache
 is not a publishing surface. A saved answer must pass freshness and publication
 review before it appears as an authored LAiDIES item.
 
+Saving and publishing are separate actions. A visitor may keep a useful answer
+privately without making it visible to another visitor, searchable on the public
+site or eligible for a publication surface.
+
 Each useful answer receives one primary home. Other surfaces link to that home
 and add only the job that is distinct to their format.
 
@@ -85,6 +89,29 @@ Route to Dear Miss Jeeves only when all are true:
 6. A cache miss may produce a live Miss Jeeves answer, but it enters an
    editorial candidate queue rather than publishing automatically.
 
+## Visibility states
+
+Every retained answer has exactly one visibility state:
+
+| State | Who can see it | What it is for |
+| --- | --- | --- |
+| `transient` | The person in the current answer session | An answer that has not been saved. |
+| `private_saved` | Only the person who explicitly saved it | A useful personal reference in her own saved items. It is not public search material and creates no publication candidate by itself. |
+| `internal_candidate` | Authorised LAiDIES editorial systems and reviewers | A public-safe, de-identified candidate being checked for possible publication. |
+| `public_admitted` | Everyone | A reviewed, sourced and admitted Straight Answer, Dear Miss Jeeves entry, NewsStand item, lesson or help page. |
+
+An answer never changes from `private_saved` to `internal_candidate` or
+`public_admitted` merely because it was saved or asked repeatedly. Promotion
+requires a separate public-safe governed question and editorial decision. Raw
+personal wording, attached material, account details and workplace context do
+not enter the shared cache or candidate queue.
+
+A private saved answer keeps its original checked date and sources. When it is
+opened outside its freshness window, the interface must label the saved version
+as potentially outdated until a sourced refresh completes. A materially changed
+refresh creates a new version while preserving the previous version's date; it
+must not silently rewrite what the visitor originally saved.
+
 ## Promotion priority
 
 An answer becomes a publication candidate when at least one is true:
@@ -110,4 +137,3 @@ Every promotion candidate records:
 - privacy decision;
 - draft/specified/reviewed/admitted/published state;
 - exact artifact identity and correction owner when admitted.
-

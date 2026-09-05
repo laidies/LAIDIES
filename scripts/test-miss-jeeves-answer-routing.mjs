@@ -18,10 +18,21 @@ for (const id of ['straight_answers', 'dear_miss_jeeves', 'newsstand', 'library_
 }
 
 assert.equal(policy.reusePolicy.rawPersonalQuestionCacheProhibited, true);
+assert.equal(policy.reusePolicy.privateSaveRequiresExplicitVisitorAction, true);
+assert.equal(policy.reusePolicy.privateSaveCreatesPublicationCandidate, false);
+assert.equal(policy.reusePolicy.privateSaveMayEnterSharedCache, false);
+assert.equal(policy.reusePolicy.privateSavePreservesOriginalVersion, true);
 assert.equal(policy.reusePolicy.staleAnswerRequiresSourcedRefresh, true);
 assert.equal(policy.reusePolicy.materialChangeCreatesSuccessor, true);
 assert.equal(policy.reusePolicy.cacheMayAutoPublish, false);
 assert.ok(policy.promotionTriggers.includes('ali_explicit_request'));
+
+const visibility = new Map(policy.visibilityStates.map(state => [state.id, state]));
+assert.deepEqual([...visibility.keys()], ['transient', 'private_saved', 'internal_candidate', 'public_admitted']);
+assert.equal(visibility.get('private_saved').audience, 'saving_visitor_only');
+assert.equal(visibility.get('private_saved').publiclyIndexed, false);
+assert.equal(visibility.get('internal_candidate').publiclyIndexed, false);
+assert.equal(visibility.get('public_admitted').publiclyIndexed, true);
 
 for (const example of policy.examples) {
   assert.ok(homes.has(example.primaryHome), `invalid example primary home: ${example.primaryHome}`);
