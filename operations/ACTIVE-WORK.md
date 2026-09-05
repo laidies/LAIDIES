@@ -1,5 +1,49 @@
 # Active work
 
+> **2026-09-05 — Miss Jeeves implementation checkpoint: LOCAL / RELEASE HOLD.**
+> Free default site search and explicit optional research are implemented locally.
+> No AI/actor/allowance call occurs in free search; research requires intent and
+> accepts only Sol. Current public book bindings compile 611 search records;
+> complete bounded sections travel separately from display summaries. Oversized
+> or incomplete sections remain navigable but are excluded from research context.
+> Clarification now preserves guest identity; missing sources/service remain
+> honest. No Miss Jeeves cloud configuration, paid test, or deployment was changed.
+> Focused Pages service/retrieval/topic-request/correction checks pass; 24 backend
+> guidance/budget/ledger tests pass. These are functional checks, not browser or
+> live answer-quality verification. Original false-success fallback was rejected
+> by the new regression check before the fix. Independent review identified the
+> oversized-source and clarification-receipt gaps; both have local corrections.
+> Remaining: full browser journey, measured Sol research costs, verify the billing
+> account/provider project limit, adaptive fair-use implementation, independent
+> final review, exact-artifact release and custom/immutable public verification.
+> US$100/month is approved. US$20/person is not approved: Ali cannot assess dollars
+> per person without actual answer-cost measurements; Codex must recommend a useful
+> fair-access policy after measuring, not ask Ali to tune implementation numbers.
+> The available OpenAI browser session was wednesday.laidies@gmail.com / Personal /
+> Default project proj_I4gdGMfjKffyUWTRUaojWvxu, showing free tier and $0 monthly spend.
+> It is not yet matched to the deployed service key. Do not infer wrong account,
+> funded status, or provider cap from that observation. Research remains disabled
+> in the backend candidate until provider-limit verification. A $3 reservation is
+> an estimate, not proof of a maximum provider bill. Do not label the cap enforced.
+> Pages lane: /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905.
+> Backend lane: /Users/alisoneakin/Projects/laidies-jeeves-sol-backend-20260905.
+> Next: resolve billing identity/cost measurement while retaining the free-search
+> work; replace rigid legacy 3/5 research quotas with the measured fair-use policy.
+> Whole-site launch-readiness objective and subsequent copy/design work remain.
+
+> **2026-09-05 — BUILDING checkpoint: free site search → optional Sol research.**
+> Ali clarified the intended Miss Jeeves product: unlimited LAiDIES-only search
+> for everyone, then an explicit offer of controlled paid research when needed.
+> Local-only repair currently rejects missing/invalid/wrong-model service calls
+> and removes Llama; calibrated test reproduces original false-success failure.
+> No Miss Jeeves production change has been made. Next: make initial search
+> deterministic and free, add explicit research intent and UI consent, preserve
+> full admitted source context/current anchors, then enforce monthly spend and
+> existing research allowances before release. Ali approved US$100 per calendar month (UTC); enforce this shared ceiling. Audit failed-attempt charges as well as successful-answer limits.
+> Source: Pages lane /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905;
+> backend lane /Users/alisoneakin/Projects/laidies-jeeves-sol-backend-20260905.
+> User's Sol requirement applies to research; free search uses no answer model.
+
 > **2026-09-05 — BUILDING: Miss Jeeves intended Sol path and answer integrity.**
 > Live browser reproduced the work-document answer dropping permission rules.
 > Exact Pages deployment 46172581 still matches the verified release artifact;

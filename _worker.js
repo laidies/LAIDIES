@@ -1,6 +1,6 @@
 const MAX_QUERY_LENGTH = 240;
 const MAX_TOPIC_REQUEST_LENGTH = 500;
-const AI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fp8-fast';
+const REQUIRED_ANSWER_MODEL = 'gpt-5.6-sol';
 const ADMITTED_LIBRARY_PARENTS = new Set(['ai-fundamentals-101','working-with-ai-101','straight-answers','ai-dictionary']);
 const LEARNER_JOBS = new Set(['understand','see-explained','current','practise','step-by-step','planned','trusted']);
 const STOPWORDS = new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','important','in','is','it','me','my','of','on','or','should','so','take','the','to','use','what','which','why','will','with','you']);
@@ -19,12 +19,6 @@ const TOPIC_RULES = [
   ['ai-concepts', /\b(ai|artificial intelligence|machine learning|llm|llms|model|models|training|prediction)\b/i]
 ];
 const TOPIC_IDS = new Set([...TOPIC_RULES.map(([id]) => id), 'other']);
-const COMMON_QUESTION_TARGETS = new Map([
-  ['which ai should i use', 'book-section-working-with-ai-101-chapter-7'],
-  ['can i upload a work document', 'book-section-working-with-ai-101-4-4-upload-paste-or-describe'],
-  ['how do i check an ai answer', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
-  ['what can ai help me do at work', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
-]);
 const TEACHING_ANCHOR_RULES = [
   {
     pattern: /\b(hugging\s*face|breach|hack|hacked|cyber|sandbox|agentic)\b/i,
@@ -74,8 +68,27 @@ function containsPrivateContent(value) {
   return PRIVATE_CONTENT_PATTERNS.some(pattern => pattern.test(String(value || '')));
 }
 
+// Display excerpts are plain text. Never pass HTML fragments to the answer service.
+function plainSourceText(value) {
+  return String(value || '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:amp|quot|apos|lt|gt|nbsp);|&#(?:x[0-9a-f]+|[0-9]+);/gi, entity => {
+      const named = {'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>','&nbsp;':' '};
+      if (named[entity.toLowerCase()]) return named[entity.toLowerCase()];
+      const point = entity[2].toLowerCase() === 'x' ? parseInt(entity.slice(3, -1), 16) : Number(entity.slice(2, -1));
+      return point > 0 && point <= 0x10ffff ? String.fromCodePoint(point) : '';
+    }).replace(/\s+/g, ' ').trim();
+}
+
+function intendedAnswerModel(value) {
+  return typeof value === 'string' && /^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(value);
+}
+
 function currentGuidancePayload(data) {
-  if (!data || data.status !== 'ok' || !Array.isArray(data.output)) return null;
+  if (data?.status === 'clarification_required' && intendedAnswerModel(data.model) && typeof data.question === 'string' && data.question.length <= 320) return {question:data.question,model:data.model,guestToken:typeof data.guestToken === 'string' ? data.guestToken : '',allowance:data.allowance && typeof data.allowance === 'object' ? data.allowance : null};
+  if (!data || data.status !== 'ok' || !Array.isArray(data.output) || !intendedAnswerModel(data.model)) return null;
   const parts = [];
   const citations = [];
   const seen = new Set();
@@ -105,14 +118,17 @@ function currentGuidancePayload(data) {
 }
 
 async function askCurrentMissJeeves(request, env, query, matches) {
-  if (!env.FAIRY_AI || typeof env.FAIRY_AI.fetch !== 'function') return null;
+  if (!env.FAIRY_AI || typeof env.FAIRY_AI.fetch !== 'function') return { error: 'answer_service_unconfigured', status: 503 };
   const networkKey = await sha256Text([
     request.headers.get('cf-connecting-ip') || 'unknown',
     request.headers.get('user-agent') || 'unknown'
   ].join('|'));
-  const related = matches.slice(0, 4).map(({ entry }) => ({
+  const related = matches.filter(({entry}) => typeof entry.sourceText === 'string' && entry.sourceText.length > 0 && entry.sourceText.length <= 12000 && typeof entry.sourceAnchor === 'string' && entry.sourceAnchor && /^[a-f0-9]{64}$/.test(entry.artifactSha256 || '')).slice(0, 4).map(({ entry }) => ({
     title: entry.title,
-    summary: entry.summary,
+    summary: plainSourceText(entry.summary),
+    sourceText: entry.sourceText || '',
+    sourceAnchor: entry.sourceAnchor || '',
+    artifactSha256: entry.artifactSha256 || '',
     section: entry.section || ''
   }));
   const headers = {
@@ -126,11 +142,11 @@ async function askCurrentMissJeeves(request, env, query, matches) {
   const response = await env.FAIRY_AI.fetch(new Request('https://miss-jeeves.internal/guidance', {
     method: 'POST',
     headers,
-    body: JSON.stringify({ query, related_laidies_material: related, guestToken })
+    body: JSON.stringify({ query, intent: 'research', related_laidies_material: related, guestToken })
   }));
   const data = await response.json().catch(() => null);
   if (!response.ok) return { error: data?.error || 'service_unavailable', status: response.status, guestToken: data?.guestToken || '', allowance: data?.allowance || null };
-  return currentGuidancePayload(data);
+  return currentGuidancePayload(data) || { error: 'answer_service_invalid', status: 503, guestToken: data?.guestToken || '', allowance: data?.allowance || null };
 }
 
 function classifyTopic(query, matches = []) {
@@ -147,7 +163,7 @@ function safeEntry(entry) {
   if (entry.url.startsWith('/library.html')) {
     let libraryUrl;
     try { libraryUrl = new URL(entry.url, 'https://laidies.invalid'); } catch { return false; }
-    if (!ADMITTED_LIBRARY_PARENTS.has(entry.parentId) || !/^[a-f0-9]{64}$/.test(entry.artifactSha256 || '') || typeof entry.reviewedAt !== 'string') return false;
+    if (!ADMITTED_LIBRARY_PARENTS.has(entry.parentId) || !/^[a-f0-9]{64}$/.test(entry.artifactSha256 || '') || typeof entry.admissionVersion !== 'string' && typeof entry.reviewedAt !== 'string') return false;
   }
   return typeof entry.id === 'string' && typeof entry.title === 'string' && typeof entry.summary === 'string' && Array.isArray(entry.topics) && Array.isArray(entry.aliases);
 }
@@ -200,18 +216,6 @@ function addTeachingAnchors(query, entries, matches) {
     .slice(0, 12);
 }
 
-function hasExactCatalogueMatch(query, matches) {
-  const normalized = normalize(query);
-  const canonical = tokens(normalized).join(' ');
-  if (/\b(where|find|show)\b/.test(normalized) && matches.length) return true;
-  return matches.some(({ entry }) =>
-    normalize(entry.title) === normalized ||
-    tokens(entry.title).join(' ') === canonical ||
-    entry.aliases.some(alias => normalize(alias) === normalized || tokens(alias).join(' ') === canonical) ||
-    entry.topics.some(topic => normalize(topic) === normalized || tokens(topic).join(' ') === canonical)
-  );
-}
-
 async function loadIndex(request, env) {
   const indexUrl = new URL('/content/site/miss-jeeves-index.json', request.url);
   const response = await env.ASSETS.fetch(new Request(indexUrl, { headers: { accept: 'application/json' } }));
@@ -254,7 +258,7 @@ function publishedDailyEntries(data) {
       learnerJob: 'current',
       section: 'NewsStand · The Daily',
       status: 'live',
-      summary: String(story.laidies_read || story.cocktail_party || story.the_story || '').slice(0, 1200),
+      summary: plainSourceText(story.laidies_read || story.cocktail_party || story.the_story).slice(0, 1200),
       topics: Array.isArray(story.tags) ? story.tags.map(tag => String(tag).toLowerCase()).slice(0, 12) : [],
       aliases: [story.headline, ...(Array.isArray(story.tags) ? story.tags : [])].map(String).slice(0, 16),
       publishedAt: story.publishedAt,
@@ -299,7 +303,7 @@ function publicResult(result) {
     url: entry.url,
     type: entry.type,
     section: entry.section,
-    summary: entry.summary,
+    summary: plainSourceText(entry.summary),
     learnerJob: entry.learnerJob,
     ...(entry.wholeUrl ? { wholeUrl: entry.wholeUrl } : {}),
     topics: entry.topics.slice(0, 8),
@@ -337,70 +341,6 @@ function writeResultOpenSignal(env, { placement, topicId = 'other', resultId }) 
   }
 }
 
-function parseAiJson(response) {
-  const structured = response?.response || response?.result?.response;
-  if (structured && typeof structured === 'object' && !Array.isArray(structured)) return structured;
-  const value = structured || response?.choices?.[0]?.message?.content || response?.result?.choices?.[0]?.message?.content;
-  if (typeof value !== 'string' || !value.trim()) throw new Error('AI returned no answer');
-  const candidate = value.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
-  return JSON.parse(candidate);
-}
-
-async function reasonAcrossCatalogue(query, entries, env) {
-  const safeEntries = entries.filter(safeEntry);
-  if (!env.AI || !safeEntries.length) return null;
-  const candidates = retrieve(query, safeEntries).slice(0, 12);
-  if (!candidates.length) return null;
-  const sources = candidates.map(({entry}) => ({
-    id: entry.id,
-    title: entry.title,
-    summary: entry.summary,
-    topics: entry.topics,
-    aliases: entry.aliases,
-    section: entry.section,
-    url: entry.url,
-    learner_job: entry.learnerJob
-  }));
-  const response = await env.AI.run(AI_MODEL, {
-    messages: [
-      {
-        role: 'system',
-        content: 'You are Miss Jeeves, SUNNYVAiLE town guide. Interpret the visitor question, then use only the supplied current LAiDIES catalogue. Return JSON only: {"coverage":"exact"|"related"|"none","answer":string,"topic_id":string,"topic_label":string,"source_ids":string[]}. topic_id must be exactly one of: ai-concepts, context-tokens-memory, compute-chips-gpus, prompting, tools-model-selection, verification-misinformation, privacy-security, work-career, women-ai-history, agents-automation, ai-news-policy, accounts-setup-access, other. EXACT means the supplied material directly answers the specific question. RELATED means it discusses the underlying concept but does not answer that specific question; do not answer from outside knowledge. NONE means no meaningful coverage. Choose zero to four exact supplied IDs, best first. Do not choose a merely word-overlapping source. For exact, answer in plain English in at most 90 words using only the catalogue. For related, briefly name the missing answer and the related topic. For none, use no source IDs. Do not add facts or current product claims absent from the catalogue.'
-      },
-      {
-        role: 'user',
-        content: JSON.stringify({ question: query, sources })
-      }
-    ],
-    max_tokens: 300,
-    response_format: { type: 'json_object' },
-    temperature: 0.1
-  });
-  const parsed = parseAiJson(response);
-  if (!['exact', 'related', 'none'].includes(parsed?.coverage) || typeof parsed?.answer !== 'string' || !Array.isArray(parsed?.source_ids)) {
-    throw new Error('AI returned invalid result');
-  }
-  const byId = new Map(candidates.map(({entry}) => [entry.id, entry]));
-  let selected = [...new Set(parsed.source_ids)].map(id => byId.get(id)).filter(Boolean).slice(0, 4);
-  const designedTarget = byId.get(COMMON_QUESTION_TARGETS.get(normalize(query)));
-  if (designedTarget) selected = [designedTarget, ...selected.filter(entry => entry.id !== designedTarget.id)].slice(0, 4);
-  const topicId = TOPIC_IDS.has(parsed.topic_id) ? parsed.topic_id : classifyTopic(query, selected.map(entry => ({ entry })));
-  if (parsed.coverage === 'none' || !selected.length) {
-    return { coverage: 'none', answer: parsed.answer.trim(), topicId, matches: [] };
-  }
-  const topicLabel = typeof parsed.topic_label === 'string' && parsed.topic_label.trim()
-    ? parsed.topic_label.trim().slice(0, 80)
-    : selected[0].topics[0] || selected[0].title;
-  return {
-    coverage: parsed.coverage,
-    topicId,
-    answer: parsed.coverage === 'related'
-      ? `LAiDIES does not have an exact answer to that question yet. Here is everything currently available on ${topicLabel}.`
-      : parsed.answer.trim(),
-    matches: selected.map((entry, index) => ({ entry, score: 100 - index }))
-  };
-}
-
 async function missJeeves(request, env) {
   if (request.method !== 'POST') return json({ status: 'error', error: 'method_not_allowed' }, 405);
   if (!String(request.headers.get('content-type') || '').toLowerCase().includes('application/json')) {
@@ -408,10 +348,13 @@ async function missJeeves(request, env) {
   }
   let query = '';
   let placement = 'library';
+  let intent = 'search';
   try {
     const body = await request.json();
     query = String(body?.query || '').trim();
     placement = body?.placement === 'homepage' ? 'homepage' : 'library';
+    if (body.intent !== undefined && !['search', 'research'].includes(body.intent)) return json({ status: 'error', error: 'invalid_intent' }, 400);
+    intent = body.intent || 'search';
   } catch {
     return json({ status: 'error', error: 'invalid_json' }, 400);
   }
@@ -427,15 +370,19 @@ async function missJeeves(request, env) {
     writeQuestionSignal(env, { placement, outcome: 'unavailable', topicId: classifyTopic(query) });
     return json({ status: 'unavailable', answer: 'Miss Jeeves cannot check the catalogue right now. Your question is still here.', results: [] }, 503);
   }
-  let reasoned = null;
   const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
+  if (intent === 'search') {
+    writeQuestionSignal(env, { placement, outcome: retrieved.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches: retrieved });
+    return json({ status: 'search_results', mode: 'site-search', coverage: retrieved.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: retrieved.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: retrieved.map(publicResult), research_available: true });
+  }
   let currentGuidance = null;
   try {
     currentGuidance = await askCurrentMissJeeves(request, env, query, retrieved);
   } catch {
-    currentGuidance = null;
+    currentGuidance = { error: 'answer_service_unavailable', status: 503 };
   }
   if (currentGuidance?.error) {
+    writeQuestionSignal(env, { placement, outcome: 'unavailable', topicId: classifyTopic(query) });
     const gated = currentGuidance.error === 'guest_limit_reached' || currentGuidance.error === 'resident_daily_limit_reached';
     return json({
       status: gated ? 'limit_reached' : 'unavailable',
@@ -445,20 +392,21 @@ async function missJeeves(request, env) {
         : currentGuidance.error === 'resident_daily_limit_reached'
           ? 'You have used today’s five Miss Jeeves answers. Come back tomorrow; the current shelves are still open.'
           : currentGuidance.error === 'service_budget_reached'
-            ? 'Miss Jeeves has reached today’s service limit. The current Library shelves are still open.'
+            ? 'Miss Jeeves has reached this month’s research limit. You can still search LAiDIES as often as you like.'
             : 'Miss Jeeves cannot check current sources right now. Your question is still here.',
       guestToken: currentGuidance.guestToken,
       allowance: currentGuidance.allowance,
       results: retrieved.map(publicResult)
-    }, currentGuidance.status || (gated ? 429 : 503));
+    }, gated ? 429 : 503);
   }
+  if (currentGuidance?.question) return json({status:'clarification_required',mode:'research',answer:currentGuidance.question,guestToken:currentGuidance.guestToken,allowance:currentGuidance.allowance,results:retrieved.map(publicResult)});
   if (currentGuidance) {
     const topicId = classifyTopic(query, retrieved);
     const answerId = await sha256Text(`miss-jeeves-answer:v1:${currentGuidance.answer}`);
     writeQuestionSignal(env, { placement, outcome: 'answered', topicId, matches: retrieved });
     return json({
       status: 'ok',
-      coverage: retrieved.length ? 'exact' : 'current',
+      coverage: 'current',
       topic_id: topicId,
       mode: 'current-guidance',
       answer: currentGuidance.answer,
@@ -475,36 +423,7 @@ async function missJeeves(request, env) {
       results: retrieved.map(publicResult)
     });
   }
-  try {
-    reasoned = await reasonAcrossCatalogue(query, entries, env);
-  } catch {
-    reasoned = null;
-  }
-  const matches = reasoned ? reasoned.matches : retrieved;
-  if (!matches.length) {
-    writeQuestionSignal(env, { placement, outcome: 'not_covered', topicId: reasoned?.topicId || classifyTopic(query) });
-    return json({
-      status: 'not_covered',
-      mode: reasoned ? 'grounded-ai' : 'retrieval',
-      topic_id: reasoned?.topicId || classifyTopic(query),
-      answer: reasoned?.answer || 'LAiDIES does not cover that clearly enough yet. Miss Jeeves will not invent an answer. Try another phrase or browse the current shelves.',
-      results: []
-    });
-  }
-  const coverage = reasoned?.coverage || (hasExactCatalogueMatch(query, matches) ? 'exact' : 'related');
-  const first = matches[0].entry;
-  const generated = reasoned
-    ? { mode: 'grounded-ai', answer: reasoned.answer }
-    : coverage === 'exact'
-      ? { mode: 'retrieval', answer: `${first.title}: ${first.summary}` }
-      : { mode: 'retrieval', answer: `LAiDIES does not have an exact answer to that question yet. Here is everything currently available on ${first.topics[0] || first.title}.` };
-  writeQuestionSignal(env, {
-    placement,
-    outcome: coverage === 'exact' ? 'answered' : 'related_coverage',
-    topicId: reasoned?.topicId || classifyTopic(query, matches),
-    matches
-  });
-  return json({ status: coverage === 'exact' ? 'ok' : 'related', coverage, topic_id: reasoned?.topicId || classifyTopic(query, matches), ...generated, results: matches.map(publicResult) });
+  return json({ status: 'unavailable', error: 'answer_service_invalid', answer: 'Miss Jeeves cannot check current sources right now. Your question is still here.', results: retrieved.map(publicResult) }, 503);
 }
 
 async function missJeevesFeedback(request, env) {
@@ -638,7 +557,9 @@ async function missJeevesHealth(request, env) {
   let catalogue = 'unavailable';
   try { await loadIndex(request, env); catalogue = 'healthy'; } catch { catalogue = 'unavailable'; }
   const requests = missJeevesDb(env) ? 'healthy' : 'unavailable';
-  return json({ status: catalogue === 'healthy' ? 'ok' : 'degraded', service: 'miss-jeeves', version: '2', catalogue, topic_requests: requests, grounded_ai: env.AI ? 'configured' : 'fallback', aggregate_measurement: env.MISS_JEEVES_SIGNALS ? 'available' : 'off' }, catalogue === 'healthy' ? 200 : 503);
+  const answerService = typeof env.FAIRY_AI?.fetch === 'function' ? 'configured' : 'unavailable';
+  const healthy = catalogue === 'healthy' && answerService === 'configured';
+  return json({ status: healthy ? 'ok' : 'degraded', service: 'miss-jeeves', version: '3', catalogue, topic_requests: requests, answer_service: answerService, answer_model_required: REQUIRED_ANSWER_MODEL, answer_probe: 'not_run', aggregate_measurement: env.MISS_JEEVES_SIGNALS ? 'available' : 'off' }, healthy ? 200 : 503);
 }
 
 const CORRECTION_ID = /^[a-z0-9][a-z0-9._:-]{0,95}$/i;

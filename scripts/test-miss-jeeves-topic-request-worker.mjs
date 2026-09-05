@@ -100,7 +100,8 @@ const measurementOff=await (await worker.fetch(new Request('https://laidies.ai/a
 assert.equal(measurementOff.status,'measurement_off','unbound measurement must report off rather than pretend an event was recorded');
 
 const health=await (await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves/health'),env)).json();
-assert.equal(health.status,'ok');
+assert.equal(health.status,'degraded','missing research connection is visible even when the catalogue is healthy');
+assert.equal(health.catalogue,'healthy');
 assert.equal(health.topic_requests,'healthy');
 
 const migration=fs.readFileSync(path.resolve(import.meta.dirname,'..','migrations/library-corrections/0002_miss_jeeves_topic_requests.sql'),'utf8');

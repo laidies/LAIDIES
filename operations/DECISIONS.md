@@ -1,5 +1,34 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Research fairness must be made meaningful before numeric tuning.**
+> Ali cannot assess a per-person dollar share without knowing what research costs.
+> US$100/month remains approved; US$20/person remains unapproved. Measure a bounded
+> representative Sol pilot and recommend useful generous/fair limits; do not put
+> ordinary cost-routing decisions back on Ali. Launch readiness remains the aim:
+> the audience will be promoted to after core site operation is dependable.
+
+> **2026-09-05 — Miss Jeeves fair access with flexible repeat research — Ali ruling.**
+> Prevent one person exhausting the shared research budget and excluding others.
+> Do not impose a rigid repeat-use block when capacity is otherwise unused.
+> Site searches remain unlimited. Adaptive research limits must protect future
+> visitors while allowing more use on quiet days. Codex proposes spending pace,
+> a normal allowance plus spare capacity and a 20% per-person monthly maximum;
+> those numeric fairness settings are a proposal, not an Ali-approved policy.
+> Review quiet/busy/early-month-abuse cases and guest identity limitations.
+
+> **2026-09-05 — Miss Jeeves free site search and optional paid research — Ali ruling.**
+> Anyone may search only LAiDIES, without a usage limit and without an AI API
+> call. Alongside any related LAiDIES material, offer optional research beyond the
+> site when the visitor needs more; some matches do not prove a complete answer.
+> Also offer research when there are no matches. Research starts only after the visitor deliberately accepts; it
+> uses Sol and is subject to per-person allowances and an enforced total spend
+> ceiling. Never spend on an initial site search or silently promote a search
+> into paid research. Ali approved a maximum research budget of US$100 per calendar month.
+> Count all provider attempts, including failures; free search remains available
+> when research is exhausted. Use a UTC calendar month for the shared counter. This supersedes automatic
+> Sol answering for every initial question, while retaining the prohibition on
+> silent model substitution. Existing work remains the site-improvement task.
+
 > **2026-09-05 — Miss Jeeves must use Sol; silent model fallback rejected.**
 > Ali explicitly requires Sol for Miss Jeeves. Restore the intended OpenAI
 > service connection and verify the model in the actual public response. A

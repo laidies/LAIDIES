@@ -10,8 +10,9 @@ const index = JSON.parse(fs.readFileSync(path.join(root, 'content/site/miss-jeev
 for (let chapter = 1; chapter <= 20; chapter += 1) {
   assert.ok(index.entries.some(entry => entry.id === `book-section-ai-fundamentals-101-chapter-${chapter}`), `AI Fundamentals chapter ${chapter} must remain directly retrievable after chapter-opening layout changes`);
 }
-const dailyIssues = JSON.parse(fs.readFileSync(path.join(root, 'content/newsstand-daily-issues.json'), 'utf8'));
-const studyPacks = JSON.parse(fs.readFileSync(path.join(root, 'content/blend-snap-weekly-packs.json'), 'utf8'));
+const publicRoot=process.env.LAIDIES_PUBLIC_ROOT || root;
+const dailyIssues = JSON.parse(fs.readFileSync(path.join(publicRoot, 'content/newsstand-daily-issues.json'), 'utf8'));
+const studyPacks = JSON.parse(fs.readFileSync(path.join(publicRoot, 'content/blend-snap-weekly-packs.json'), 'utf8'));
 const calls = [];
 function envWith(entries = index.entries, ai = null, signalSink = null) {
   return {
@@ -51,8 +52,8 @@ const privateSearch = await ask('My password: secret-1234');
 assert.equal(privateSearch.status, 400, 'private-content calibration fixture must be rejected before retrieval or AI');
 
 const women = await (await ask('Where can I learn about women in AI?')).json();
-assert.equal(women.status, 'ok');
-assert.equal(women.mode, 'retrieval');
+assert.equal(women.status, 'search_results');
+assert.equal(women.mode, 'site-search');
 assert.ok(women.results.some(result => result.id === 'ep-04'), 'ordinary question must retrieve Episode 04');
 assert.ok(!women.results.some(result => result.url.startsWith('/grimoire/')), 'retired Grimoire routes must never escape the backend');
 
@@ -108,99 +109,35 @@ assert.ok(!JSON.stringify(gapSignals).includes('Why are chips so important to AI
 
 const onlyUnsafe = index.entries.filter(entry => entry.url.startsWith('/grimoire/'));
 const unsafe = await (await ask('will ai take my job', envWith(onlyUnsafe))).json();
-assert.equal(unsafe.status, 'not_covered', 'unsafe historical index results must fail closed');
-assert.equal(unsafe.results.length, 0);
+assert.equal(unsafe.status, 'search_results', 'unsafe historical index results must fail closed');
+assert.ok(!unsafe.results.some(result=>result.url.startsWith('/grimoire/')));
 
-let aiPayload = null;
-const ai = {
-  async run(model, payload) {
-    aiPayload = { model, payload };
-    return { response: {
-      coverage: 'exact',
-      answer: 'Episode 4 is the strongest place to begin because it covers women across the history of AI.',
-      topic_id: 'women-ai-history',
-      topic_label: 'women in AI',
-      source_ids: ['ep-04']
-    } };
-  }
-};
-const grounded = await (await ask('women in AI', envWith(index.entries, ai))).json();
-assert.equal(grounded.mode, 'grounded-ai');
-assert.equal(aiPayload.model, '@cf/meta/llama-3.1-8b-instruct-fp8-fast');
-assert.ok(aiPayload.payload.messages[0].content.includes('use only the supplied'));
-assert.equal(aiPayload.payload.max_tokens, 300, 'catalogue reasoning must have a bounded output budget');
-assert.deepEqual(aiPayload.payload.response_format, { type: 'json_object' }, 'catalogue reasoning must request structured JSON');
-assert.deepEqual(grounded.results.map(result => result.id), ['ep-04']);
-assert.ok(!JSON.stringify(aiPayload).includes('BUTTONDOWN'));
-
-const noCoverageAi = {
-  async run() {
-    return { response: JSON.stringify({
-      coverage: 'none',
-      answer: 'LAiDIES does not cover spreadsheet-specific chatbot selection yet.',
-      topic_label: 'chatbots for spreadsheets',
-      source_ids: []
-    }) };
-  }
-};
-const noCoverage = await (await ask('Which chatbot is best for spreadsheets?', envWith(index.entries, noCoverageAi))).json();
-assert.equal(noCoverage.status, 'not_covered');
-assert.equal(noCoverage.results.length, 0, 'semantic catalogue reasoning must reject superficial word overlap');
-
-const relatedAi = {
-  async run() {
-    return { response: JSON.stringify({
-      coverage: 'related',
-      answer: 'The catalogue covers context windows but not their specific effect on legal work.',
-      topic_label: 'context windows',
-      source_ids: ['book-section-ai-fundamentals-101-ch-4-4-4-context-windows-the-systems-working-memory']
-    }) };
-  }
-};
-const related = await (await ask('How will context windows change legal work?', envWith(index.entries, relatedAi))).json();
-assert.equal(related.status, 'related', 'admitted Library books may provide clearly labelled related coverage');
+const forbiddenAi = { async run(){ throw new Error('Free search must never invoke an AI model'); } };
+const grounded = await (await ask('women in AI', envWith(index.entries, forbiddenAi))).json();
+assert.equal(grounded.mode, 'site-search');
+assert.ok(grounded.results.some(result=>result.id==='ep-04'));
+const related = await (await ask('How will context windows change legal work?', envWith(index.entries, forbiddenAi))).json();
+assert.equal(related.coverage, 'related', 'retrieval must not claim its references fully answer a question');
 assert.ok(related.results.some(result => result.parentId === 'ai-fundamentals-101'));
-
-const chipsWithoutAi = await (await ask('Why are chips so important to AI?')).json();
-assert.equal(chipsWithoutAi.status, 'ok', 'an exact admitted chip section must answer the direct chip question');
-assert.ok(chipsWithoutAi.results.some(result => result.parentId === 'ai-fundamentals-101' && /chip/i.test(result.title)));
-
-const tokenWithoutAi = await (await ask('What is a token?')).json();
-assert.equal(tokenWithoutAi.coverage, 'exact', 'the admitted Dictionary token entry must provide exact current coverage');
-assert.ok(!tokenWithoutAi.results.some(result => result.url.includes('concepts-101')));
-assert.ok(tokenWithoutAi.results.some(result => result.id === 'book-section-ai-dictionary-term-token' && result.url.startsWith('/library.html#ai-dictionary')));
-
-const commonQuestions = [
-  ['Which AI should I use?', 'book-section-working-with-ai-101-chapter-7'],
-  ['Can I upload a work document?', 'book-section-working-with-ai-101-4-4-upload-paste-or-describe'],
-  ['How do I check an AI answer?', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
-  ['What can AI help me do at work?', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
-];
-for (const [question, expectedFirstId] of commonQuestions) {
-  const result = await (await ask(question)).json();
-  assert.equal(result.coverage, 'exact', `${question} must have exact governed coverage`);
-  assert.match(result.topic_id, /^[a-z0-9-]+$/, `${question} must expose only a controlled topic ID`);
-  assert.equal(result.results[0]?.id, expectedFirstId, `${question} must lead with its intended book section`);
+assert.equal(related.research_available,true);
+const chips = await (await ask('Why are chips so important to AI?')).json();
+assert.ok(chips.results.some(result => result.parentId === 'ai-fundamentals-101' && /chip/i.test(result.title)));
+const token = await (await ask('What is a token?')).json();
+assert.ok(!token.results.some(result => result.url.includes('concepts-101')));
+assert.ok(token.results.some(result => result.id === 'book-section-ai-dictionary-term-token'));
+for(const question of ['Which AI should I use?','Can I upload a work document?','How do I check an AI answer?','What can AI help me do at work?']) {
+  const intended=index.entries.find(entry=>entry.aliases.includes(question));
+  assert.ok(intended,question);
+  const result=await (await ask(question)).json();
+  assert.equal(result.coverage,'related');
+  assert.equal(result.results[0]?.id,intended.id,question+' preserves intended first route');
+  assert.equal(result.research_available,true);
 }
-
-const alternateExactAi = {
-  async run() {
-    return { response: {
-      coverage: 'exact',
-      answer: 'The catalogue has practical guidance for checking an AI answer.',
-      topic_id: 'verification-misinformation',
-      topic_label: 'checking AI answers',
-      source_ids: ['book-section-ai-fundamentals-101-ch-11-11-8-the-trust-framework-when-to-trust-ai-output']
-    } };
-  }
-};
-const designedCommonRoute = await (await ask('How do I check an AI answer?', envWith(index.entries, alternateExactAi))).json();
-assert.equal(designedCommonRoute.mode, 'grounded-ai');
-assert.equal(
-  designedCommonRoute.results[0]?.id,
-  'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework',
-  'grounded reasoning must preserve the designed first route for a published common question'
-);
+const upload=index.entries.find(entry=>entry.aliases.includes('Can I upload a work document?'));
+assert.match(upload.sourceText,/If you cannot answer the first three/i,'complete source retains stopping condition');
+assert.match(upload.sourceText,/Once the information is allowed/i,'format choice retains prerequisite');
+assert.match(upload.url,/chapter-2-giving-it/,'source route binds current book anchor');
+assert.equal(upload.contentVersion,'working-with-ai-101-2026-08-29.1');
 
 const restoredRejectedConcepts = structuredClone(index.entries);
 restoredRejectedConcepts.push({
@@ -216,4 +153,4 @@ invalidIndexEnv.ASSETS.fetch = async () => Response.json({ _meta: {}, entries: {
 const unavailable = await (await ask('women in AI', invalidIndexEnv)).json();
 assert.equal(unavailable.status, 'unavailable');
 
-console.log('MISS JEEVES WORKER PASS static_forward=1 rendered_book_no_transform=1 arbitrary_retrieval=1 retired_routes_denied=1 grounded_ai=1 unavailable_state=1 privacy_safe_signal=1 controlled_gap_topic=1 raw_question_leak_calibration=1');
+console.log('MISS JEEVES WORKER PASS static_forward=1 rendered_book_no_transform=1 arbitrary_retrieval=1 retired_routes_denied=1 free_search_no_ai=1 unavailable_state=1 privacy_safe_signal=1 controlled_gap_topic=1 raw_question_leak_calibration=1');

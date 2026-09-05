@@ -1,5 +1,18 @@
 # The LIBRAiRY — active instruction packet
 
+> **2026-09-05 — Miss Jeeves free site search and optional paid research — Ali ruling.**
+> Anyone may search only LAiDIES, without a usage limit and without an AI API
+> call. Alongside any related LAiDIES material, offer optional research beyond the
+> site when the visitor needs more; some matches do not prove a complete answer.
+> Also offer research when there are no matches. Research starts only after the visitor deliberately accepts; it
+> uses Sol and is subject to per-person allowances and an enforced total spend
+> ceiling. Never spend on an initial site search or silently promote a search
+> into paid research. Ali approved a maximum research budget of US$100 per calendar month.
+> Count all provider attempts, including failures; free search remains available
+> when research is exhausted. Use a UTC calendar month for the shared counter. This supersedes automatic
+> Sol answering for every initial question, while retaining the prohibition on
+> silent model substitution. Existing work remains the site-improvement task.
+
 **Status:** CURRENT PAGE ROUTER
 **Owner:** Library product steward
 **Effective date:** 2026-08-22

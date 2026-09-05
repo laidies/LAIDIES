@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const root = path.resolve(import.meta.dirname, '..');
+const outputRoot = path.resolve(import.meta.dirname, '..');
+const publicRoot = process.argv[2] ? path.resolve(process.argv[2]) : null;
+const root = publicRoot || outputRoot;
 const readJson = relative => JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'));
 const readText = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -31,7 +33,17 @@ const titles = {
   'straight-answers': 'Straight Answers About AI',
   'ai-dictionary': 'The AI Dictionary'
 };
-const manifest = readJson('content/library-books/admission-manifest.json');
+// A release repair can compile the exact public admission bindings without
+// substituting a stale private checkout's manifest or changing book admission.
+let manifest;
+let publicAdmissionSha256 = null;
+if (publicRoot) {
+  const binding = readText('library.html').match(/\/\* LIBRARY_ADMISSION_COMPILED_START \*\/\s*([\s\S]*?)\s*\/\* LIBRARY_ADMISSION_COMPILED_END \*\//)?.[1];
+  if (!binding) throw new Error('Public Library admission bindings missing');
+  const records = JSON.parse(binding);
+  publicAdmissionSha256 = sha256(binding);
+  manifest = {manifest_version:'public-library-bindings:'+publicAdmissionSha256, frozen_at:null, books:Object.entries(records).map(([id, b])=>({book_id:id,status:b.correctionState==='clear'?'available':'hold',source_path:b.sourcePath,artifact_sha256:b.artifactSha256,content_version:b.contentVersion,admission_version:b.admissionVersion}))};
+} else manifest = readJson('content/library-books/admission-manifest.json');
 const siteIndex = readJson('content/site/site-index.json');
 const available = manifest.books.filter(book => book.status === 'available' && titles[book.book_id]);
 if (available.length !== 4) throw new Error(`Expected four admitted opening books; found ${available.length}`);
@@ -56,7 +68,8 @@ for (const book of available) {
     summary: lede,
     topics: topicWords(`${titles[book.book_id]} ${lede}`),
     aliases: [titles[book.book_id], `read ${titles[book.book_id]}`, `open ${titles[book.book_id]}`],
-    reviewedAt: book.reviewed_at,
+    reviewedAt: book.reviewed_at || null,
+    admissionVersion: book.admission_version,
     contentVersion: book.content_version,
     artifactSha256: book.artifact_sha256
   });
@@ -92,9 +105,12 @@ for (const book of available) {
       section: titles[book.book_id],
       status: 'live',
       summary: excerpt,
+      sourceText: text(html.slice(start, end)).length <= 12000 ? text(html.slice(start, end)) : '',
+      sourceAnchor: anchor,
       topics: topicWords(`${heading} ${excerpt}`),
       aliases: [heading, `what is ${heading}`, `how does ${heading} work`],
-      reviewedAt: book.reviewed_at,
+      reviewedAt: book.reviewed_at || null,
+    admissionVersion: book.admission_version,
       contentVersion: book.content_version,
       artifactSha256: book.artifact_sha256
     });
@@ -117,9 +133,12 @@ for (const book of available) {
         section: titles[book.book_id],
         status: 'live',
         summary: excerpt,
+        sourceText: text(match[3]).length <= 12000 ? text(match[3]) : '',
+        sourceAnchor: anchor,
         topics: topicWords(`${heading} ${excerpt}`),
         aliases: [heading, `what is ${heading}`, `what does ${heading} mean`, `define ${heading}`],
-        reviewedAt: book.reviewed_at,
+        reviewedAt: book.reviewed_at || null,
+    admissionVersion: book.admission_version,
         contentVersion: book.content_version,
         artifactSha256: book.artifact_sha256
       });
@@ -127,16 +146,16 @@ for (const book of available) {
   }
 }
 
-const commonQuestionRoutes = new Map([
-  ['book-section-working-with-ai-101-chapter-7', ['Which AI should I use?']],
-  ['book-section-working-with-ai-101-4-4-upload-paste-or-describe', ['Can I upload a work document?']],
-  ['book-section-working-with-ai-101-11-3-a-practical-evaluation-framework', ['How do I check an AI answer?']],
-  ['book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at', ['What can AI help me do at work?']]
-]);
-for (const [recordId, aliases] of commonQuestionRoutes) {
-  const record = bookEntries.find(entry => entry.id === recordId);
-  if (!record) throw new Error(`Common Miss Jeeves question route is missing: ${recordId}`);
-  record.aliases = [...new Set([...record.aliases, ...aliases])];
+const commonQuestions = [
+  [/choosing (?:your )?(?:ai|tool)|which ai|matching the tool|choosing the right|choosing tools/i, 'Which AI should I use?'],
+  [/upload,? paste,? or describe/i, 'Can I upload a work document?'],
+  [/practical evaluation framework|verification loop|check an ai answer|evaluation framework/i, 'How do I check an AI answer?'],
+  [/what ai is genuinely good at/i, 'What can AI help me do at work?']
+];
+for (const [pattern, question] of commonQuestions) {
+  const record = bookEntries.find(entry => entry.parentId === 'working-with-ai-101' && pattern.test(entry.title));
+  if (!record) throw new Error(`Common Miss Jeeves question route is missing: ${question}`);
+  record.aliases = [...new Set([...record.aliases, question])];
 }
 
 const publicTypeJobs = {
@@ -152,7 +171,7 @@ const publicTypeJobs = {
 };
 const siteEntries = siteIndex.entries.filter(entry => entry.status === 'live' && publicTypeJobs[entry.type])
   .filter(entry => !entry.url.startsWith('/library.html'))
-  .map(entry => ({...entry, learnerJob: publicTypeJobs[entry.type]}));
+  .map(entry => ({...entry, summary:text(entry.summary), learnerJob: publicTypeJobs[entry.type]}));
 const entries = [...bookEntries, ...siteEntries];
 const ids = new Set();
 for (const entry of entries) {
@@ -163,6 +182,7 @@ const output = {
   _meta: {
     schema: 'laidies-miss-jeeves-index.v1',
     generatedAt: manifest.frozen_at,
+    publicAdmissionSha256,
     sourceManifestVersion: manifest.manifest_version,
     sourceSiteIndexPath: 'content/site/site-index.json',
     sourceSiteIndexVersion: siteIndex._meta?.version || null,
@@ -172,5 +192,5 @@ const output = {
   },
   entries
 };
-fs.writeFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), `${JSON.stringify(output, null, 2)}\n`);
+fs.writeFileSync(path.join(outputRoot, 'content/site/miss-jeeves-index.json'), `${JSON.stringify(output, null, 2)}\n`);
 console.log(`MISS JEEVES INDEX BUILT books=${available.length} records=${entries.length}`);

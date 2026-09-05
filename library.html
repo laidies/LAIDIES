@@ -990,12 +990,12 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   <section class="jv" id="miss-jeeves" aria-labelledby="miss-jeeves-title">
     <div class="jv-head">
       <span class="jv-kicker">Reference desk</span>
-      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
+      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Search LAiDIES in plain words. Need more? Ask Miss Jeeves to research beyond the site.</small></div>
     </div>
     <p class="jv-beta"><strong>Miss Jeeves is in beta.</strong> She works best with questions about LAiDIES, its lessons and its trusted resources. We&rsquo;re still testing and improving how she researches and explains broader questions about AI. Please check the sources she provides and tell us when an answer misses the mark.</p>
     <form class="jv-form">
       <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
-      <button type="submit">Ask</button>
+      <button type="submit">Search LAiDIES</button>
     </form>
     <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
     <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
@@ -1335,39 +1335,13 @@ function escapeJeevesText(value){
    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
  }[char]));
 }
-function renderJeevesService(payload,query){
-  const box=document.getElementById('jv-results');
-  if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
-    renderJeevesServiceError(query);return;
-  }
-  if(payload.status==='limit_reached'){
-    if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
-    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/maikeover.html">Make your free Resident Card</a>':''}</section>`;
-    return;
-  }
-  if(payload.status==='unavailable'){
-    renderJeevesServiceError(query);return;
-  }
-  if(payload.status==='not_covered'){
-    const topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
-    box.innerHTML=`<div class="jv-none" role="status">${escapeJeevesText(payload.answer)}</div>
-      <form class="jv-request" id="jv-topic-request" data-topic-id="${escapeJeevesText(topicId)}">
-        <p><strong>Want LAiDIES to cover this?</strong> Send the question to the editorial queue. Ordinary Miss Jeeves searches are not saved; this request is saved only after you agree.</p>
-        <label class="jv-request-consent"><input type="checkbox" id="jv-request-consent" required> <span>I want to send this question for editorial review, and I confirm it contains no personal, confidential or account information.</span></label>
-        <div class="jv-request-controls"><button type="submit" id="jv-request-submit">Ask LAiDIES to cover this</button><span class="jv-request-status" id="jv-request-status" role="status" aria-live="polite"></span></div>
-      </form>`;
-    document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
-    return;
-  }
-  if(!['ok','related'].includes(payload.status)||!Array.isArray(payload.results)){
-    renderJeevesServiceError(query);return;
-  }
-  const results=payload.results.map(entry=>{
+function jeevesSourceLinks(entries){
+  const results=entries.map(entry=>{
     if(!entry||typeof entry!=='object')return null;
     const destination=safeIndexDestination(entry);
     return destination?{...entry,destination}:null;
   }).filter(Boolean);
-  const links=results.map(entry=>entry.destination.kind==='book'
+  return results.map(entry=>entry.destination.kind==='book'
     ? `<button type="button" class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" data-open-book="${escapeJeevesText(entry.destination.bookId)}" data-open-heading="${escapeJeevesText(entry.destination.heading||'')}">
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
@@ -1376,6 +1350,61 @@ function renderJeevesService(payload,query){
         <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
+}
+function jeevesTopicRequestForm(topicId){
+  return `      <form class="jv-request" id="jv-topic-request" data-topic-id="${escapeJeevesText(topicId)}">
+        <p><strong>Want LAiDIES to cover this?</strong> Send the question to the editorial queue. Ordinary Miss Jeeves searches are not saved; this request is saved only after you agree.</p>
+        <label class="jv-request-consent"><input type="checkbox" id="jv-request-consent" required> <span>I want to send this question for editorial review, and I confirm it contains no personal, confidential or account information.</span></label>
+        <div class="jv-request-controls"><button type="submit" id="jv-request-submit">Ask LAiDIES to cover this</button><span class="jv-request-status" id="jv-request-status" role="status" aria-live="polite"></span></div>
+      </form>`;
+}
+function renderJeevesService(payload,query){
+  const box=document.getElementById('jv-results');
+  if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
+    renderJeevesServiceError(query);return;
+  }
+  if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+  if(payload.status==='clarification_required'){
+    box.innerHTML=`<section class="jv-answer"><h3>One detail first</h3><p>${escapeJeevesText(payload.answer)}</p><p>Add that detail to your question above. Searching LAiDIES is always available.</p></section>`;
+    const input=document.getElementById('jv-q');input.value=query;input.focus();return;
+  }
+  if(payload.status==='search_results'){
+    const results=Array.isArray(payload.results)?payload.results:[];
+    const links=jeevesSourceLinks(results);
+    box.innerHTML=`<section class="jv-answer" aria-label="LAiDIES search results">
+      <h3>From LAiDIES</h3><p>${escapeJeevesText(payload.answer)}</p>
+      <p class="jv-allowance">Search LAiDIES as often as you like. Site searches do not use your research allowance.</p>
+      ${links?`<div class="jv-answer-links">${links}</div>`:''}
+      <div class="jv-research-offer"><p>Need more than what is here? Miss Jeeves can check trusted sources beyond LAiDIES.</p>
+      <button type="button" id="jv-research">Research beyond LAiDIES</button>
+      <p class="jv-allowance">Optional research has usage limits so more people can use it. Searching LAiDIES stays unlimited.</p></div>
+    </section>${!results.length?jeevesTopicRequestForm(payload.topic_id||'other'):''}`;
+    if(!results.length)document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
+    box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+    document.getElementById('jv-research').addEventListener('click',event=>{
+      event.currentTarget.disabled=true;askMissJeeves(query,'research');
+    },{once:true});
+    return;
+  }
+  if(payload.status==='limit_reached'){
+    if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/maikeover.html">Make your free Resident Card</a>':''}</section>`;
+    return;
+  }
+  if(payload.status==='unavailable'){
+    renderJeevesServiceError(query,payload);return;
+  }
+  if(payload.status==='not_covered'){
+    const topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+    box.innerHTML=`<div class="jv-none" role="status">${escapeJeevesText(payload.answer)}</div>
+      ${jeevesTopicRequestForm(topicId)}`;
+    document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
+    return;
+  }
+  if(!['ok','related'].includes(payload.status)||!Array.isArray(payload.results)){
+    renderJeevesServiceError(query);return;
+  }
+  const links=jeevesSourceLinks(payload.results);
   const citations=(Array.isArray(payload.citations)?payload.citations:[]).map(source=>{
     if(!source||typeof source.url!=='string'||typeof source.title!=='string')return '';
     let url;try{url=new URL(source.url);}catch(error){return '';}
@@ -1392,7 +1421,7 @@ function renderJeevesService(payload,query){
   const answerId=payload.answer_id&&/^[a-f0-9]{64}$/.test(payload.answer_id)?payload.answer_id:'';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
-    <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
+    <h3>${payload.status==='related'?'Related material—not an exact answer.':'Your researched answer'}</h3>
     <div class="jv-answer-meta"><span>${checkedLabel}</span></div>
     <div class="jv-answer-copy">${paragraphs}</div>
     ${allowance}
@@ -1431,39 +1460,39 @@ async function submitJeevesTopicRequest(event,query){
   status.dataset.state='error';status.textContent=error.message==='private_content_prohibited'?'Please remove private or confidential information before sending.':'Nothing was lost here; try again.';button.disabled=false;
  }
 }
-function renderJeevesServiceError(query){
+function renderJeevesServiceError(query,payload=null){
  const box=document.getElementById('jv-results');
- box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the Library right now. Your question is still here.</p><button type="button" id="jv-service-retry">Try the Library again</button></section>`;
+ box.innerHTML=`<section class="jv-error" role="alert"><p>${escapeJeevesText(payload?.answer||"Miss Jeeves cannot complete that request right now. Your question is still here.")}</p><button type="button" id="jv-service-retry">Search LAiDIES</button></section>${Array.isArray(payload?.results)?`<div class="jv-answer-links">${jeevesSourceLinks(payload.results)}</div>`:""}`;
  document.getElementById('jv-service-retry').addEventListener('click',event=>{
    event.currentTarget.disabled=true;askMissJeeves(query);
  },{once:true});
 }
 let jeevesServiceRequest=0;
 let jeevesPlacement='library';
-async function askMissJeeves(value){
+async function askMissJeeves(value,intent='search'){
   const query=String(value||'').trim().slice(0,240);
   const normalized=normalizeJeevesQuery(query);
   const box=document.getElementById('jv-results');
   if(!normalized){box.innerHTML='';document.getElementById('jv-q').focus();return;}
   const requestId=++jeevesServiceRequest;
-  box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
+  box.innerHTML=`<p class="jv-none" role="status">${intent==='research'?'Miss Jeeves is checking sources beyond LAiDIES…':'Miss Jeeves is searching LAiDIES…'}</p>`;
   try{
-    const accessToken=await jeevesAccessToken();
-    const guestToken=jeevesGuestToken();
+    const accessToken=intent==='research'?await jeevesAccessToken():'';
+    const guestToken=intent==='research'?jeevesGuestToken():'';
     const headers={'content-type':'application/json','accept':'application/json'};
     if(accessToken)headers.authorization=`Bearer ${accessToken}`;
     else if(guestToken)headers['x-laidies-guest-token']=guestToken;
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
       headers,
-      body:JSON.stringify({query,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
+      body:JSON.stringify({query,intent,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
     });
     const payload=await response.json();
     if(requestId!==jeevesServiceRequest)return;
     if(response.status===400&&payload.error==='private_content_prohibited'){
       box.innerHTML=`<p class="jv-none" role="alert">${escapeJeevesText(payload.answer||'Please remove private or confidential information before asking.')}</p>`;return;
     }
-    if(!response.ok&&response.status!==503)throw new Error('Miss Jeeves service failed');
+    if(!response.ok&&!['unavailable','limit_reached'].includes(payload?.status))throw new Error('Miss Jeeves service failed');
     renderJeevesService(payload,query);
   }catch(error){
     if(requestId===jeevesServiceRequest)renderJeevesServiceError(query);
