@@ -1,5 +1,15 @@
 # Active work
 
+## 2026-09-05 NewsStand Daily cycle
+
+- **Status:** RESEARCH COMPLETE / NO PUBLICATION.
+- **Task:** Run the September 5 Vancouver source-to-publication cycle, beginning with story recovery and official provider indexes, then process the newest complete unprocessed AIDB edition without losing item-level decisions.
+- **Recovery result:** `advance-newsstand-story-recovery.mjs select` returned `NO_ACTIVE_RECOVERY`. The registered Astra recovery is already `PUBLISHED_VERIFIED`; no held candidate was counted as quiet or replaced by a new topic.
+- **Research result:** OpenAI News and both Anthropic indexes did not advance. OpenAI Developers advanced to two September 4 Astra build narratives; both were banked as vendor examples rather than duplicate launch reporting. AIDB's complete September 3 webinar and 59,394-byte transcript were read and dispositioned 24 of 24 at `operations/agents/aidb-intelligence-desk/daily/2026-09-05.md`.
+- **Routing result:** The useful opportunity is a future loop-versus-schedule / verifiable-finish-line explanation for Concept of the Week, Paige or AI Fundamentals—not an ordinary breaking-news story. It is preserved at `operations/product-stewards/newsstand/editorial-intake/2026-09-05.md`; no public prose was drafted.
+- **Blocker:** The governed service-bank check still rejects stale calibration-registry hashes for `mme-jelly-sandal`. No service proposal was written and no existing entry was redated.
+- **Public result:** No visitor-visible candidate cleared admission. Canonical data, derivatives, public images and deployed bytes remain unchanged; no deployment or public-origin browser claim was made.
+
 ## 2026-09-04 NewsStand Daily cycle
 
 - **Status:** PUBLICLY VERIFIED — STORY, ISSUE AND EXACT-ARTIFACT RELEASE COMPLETE.
