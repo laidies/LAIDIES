@@ -32,6 +32,17 @@ Scope: first implementation pass of the room-as-page building model.
 
 Final result: passed.
 
+## LUMINAiRY purpose and account-continuity correction — 2026-09-05
+
+- The rejected panel only said **Choose one from each wing** and devoted its main explanation to limitations. It did not explain why the choices mattered, and its device-only claim contradicted the intended signed-in Closet journey.
+- The successor leads with **Choose who you want in your corner.** It explains one working habit, one perspective on how AI got here and one present-day example, then names **Your Luminaries** in My Closet as the destination.
+- Persistence is progressive and explicit: immediate local save for signed-out visitors; private account-backed restoration for signed-in Resident Card holders; honest fallback text when account sync cannot be confirmed.
+- Card controls now say **Choose this SAiNT/MAiVEN/TRAiLBLAZER** rather than **Light this local candle**, so the action matches the result.
+- The existing page order, approved Matron hero, complete 13/23/7 archive, 108 destinations and responsive layout remain intact.
+- Automated desktop/mobile and controlled-account checks pass. The account test restores picks in a clean second browser and then verifies the same identities inside My Closet.
+
+Final result: passed.
+
 ## LIBRAiRY scene-logic correction — 2026-08-06
 
 ### Exact correction

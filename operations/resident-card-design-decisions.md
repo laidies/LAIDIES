@@ -26,6 +26,15 @@ place.
 
 Source: Ali direct product clarification, 2026-09-02.
 
+## Your Luminaries continuation — locked 2026-09-05
+
+- One chosen SAiNT, MAiVEN and TRAiLBLAZER appear together as **Your Luminaries** inside My Closet.
+- Signed-out choices save immediately on the current device. Signed-in choices are admitted private continuation data in the versioned `laidies_luminaries_v1` envelope and restore with the Resident Card account across devices.
+- These choices are not public-card fields, rewards, endorsements or proof of completing a profile. Public-card mode must not reveal the viewer's private Luminaries.
+- The LUMINAiRY explains both the purpose of the three choices and the signed-out/signed-in persistence difference before linking to My Closet.
+
+Source: Ali direct product clarification, 2026-09-05; D-2026-09-05-139.
+
 ## MAiKEOVER palette correction — locked 2026-09-02
 
 - Mauve cabinetry and dusty mauve/plum room treatments are rejected for

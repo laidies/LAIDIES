@@ -20,7 +20,7 @@
       ready: function () { return !!global.LAIDIESResidentAccountRuntime; }
     },
     {
-      src: "/content/site/resident-continuation-v1.js?v=20260729-continuation-1",
+      src: "/content/site/resident-continuation-v1.js?v=20260905-account-luminaries-v2",
       ready: function () { return !!global.LAIDIESResidentContinuationV1; }
     }
   ];

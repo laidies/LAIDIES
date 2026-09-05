@@ -27,6 +27,12 @@
     mavens: "laidies_maven",
     trailblazers: "laidies_builder"
   };
+  const picksEnvelopeKey = "laidies_luminaries_v1";
+  const pickLabels = {
+    saints: "SAiNT",
+    mavens: "MAiVEN",
+    trailblazers: "TRAiLBLAZER"
+  };
 
   const state = {
     data: null,
@@ -69,23 +75,101 @@
     status.textContent = message || "This browser blocked local storage. Your picks cannot be saved, so the page will not pretend they persist.";
   }
 
+  function emptyPicksEnvelope() {
+    return { version: 1 };
+  }
+
+  function readPicksEnvelope() {
+    try {
+      const value = JSON.parse(localStorage.getItem(picksEnvelopeKey) || "null");
+      return value && value.version === 1 ? value : emptyPicksEnvelope();
+    } catch (error) {
+      return emptyPicksEnvelope();
+    }
+  }
+
+  function writePicksEnvelope(envelope) {
+    const serialized = JSON.stringify(envelope);
+    localStorage.setItem(picksEnvelopeKey, serialized);
+    if (localStorage.getItem(picksEnvelopeKey) !== serialized) {
+      throw new Error("Luminary picks did not round trip");
+    }
+  }
+
+  function setPersistenceStatus(message, tone) {
+    const status = document.getElementById("lumLocalStatus");
+    if (!status) return;
+    status.textContent = message;
+    status.classList.toggle("is-error", tone === "error");
+    status.classList.toggle("is-account", tone === "account");
+  }
+
   function readPicks() {
+    const envelope = readPicksEnvelope();
+    let migrated = false;
     Object.entries(storageKeys).forEach(([wing, key]) => {
       try {
-        const saved = localStorage.getItem(key) || "";
+        const entry = envelope[wing];
+        const hasEnvelopeEntry = entry && typeof entry.id === "string";
+        const saved = hasEnvelopeEntry
+          ? entry.id
+          : localStorage.getItem(key) || "";
         state.picks[wing] = profileById(wing, saved) ? saved : "";
-        if (saved && !state.picks[wing]) localStorage.removeItem(key);
+        if (state.picks[wing]) localStorage.setItem(key, state.picks[wing]);
+        else localStorage.removeItem(key);
+        if (!hasEnvelopeEntry && saved) {
+          envelope[wing] = {
+            id: state.picks[wing],
+            updated_at: new Date().toISOString()
+          };
+          migrated = true;
+        }
       } catch (error) {
         setStorageFailure();
       }
     });
+    if (migrated) {
+      try { writePicksEnvelope(envelope); } catch (error) { setStorageFailure(); }
+    }
     updatePickOutputs();
+  }
+
+  async function syncAccountPicks() {
+    if (!state.storageAvailable) return;
+    const continuation = window.LAIDIESResidentContinuationV1;
+    const runtimeProvider = window.LAIDIESResidentAccountRuntime;
+    if (!continuation || !runtimeProvider) return;
+    try {
+      const runtime = await runtimeProvider.get();
+      const result = await continuation.syncWith(runtime);
+      readPicks();
+      if (state.data) render();
+      const hasPicks = Object.values(state.picks).some(Boolean);
+      setPersistenceStatus(
+        result.state === "account-backed"
+          ? hasPicks
+            ? "Saved to My Closet and kept with your private Resident Card account, so these picks can return on your other devices."
+            : "You’re signed in. When you choose, your picks will appear in My Closet and stay with your private Resident Card account across devices."
+          : hasPicks
+            ? "Saved to My Closet on this device. Sign in with your Resident Card to keep these picks with your private account and restore them on other devices."
+            : "Your picks save in this browser right away. Sign in with your Resident Card to keep them with your private account and restore them on your other devices.",
+        result.state === "account-backed" ? "account" : "local"
+      );
+    } catch (error) {
+      setPersistenceStatus(
+        "Saved to My Closet on this device. Account sync could not be confirmed, so no cross-device claim has been made.",
+        "error"
+      );
+    }
   }
 
   function writePick(wing, id) {
     if (!state.storageAvailable) return;
     const next = state.picks[wing] === id ? "" : id;
     try {
+      const envelope = readPicksEnvelope();
+      envelope[wing] = { id: next, updated_at: new Date().toISOString() };
+      writePicksEnvelope(envelope);
       if (next) localStorage.setItem(storageKeys[wing], next);
       else localStorage.removeItem(storageKeys[wing]);
       const roundTrip = localStorage.getItem(storageKeys[wing]) || "";
@@ -93,6 +177,11 @@
       state.picks[wing] = next;
       updatePickOutputs();
       render();
+      setPersistenceStatus(
+        "Saved to My Closet on this device. Checking whether your Resident Card account can keep it across devices…",
+        "local"
+      );
+      syncAccountPicks();
     } catch (error) {
       setStorageFailure("This browser could not save that local pick. Nothing was claimed as saved; the profile cards remain available.");
       render();
@@ -259,7 +348,10 @@
     const picked = state.picks[state.wing] === profile.id;
     pick.setAttribute("aria-pressed", picked ? "true" : "false");
     pick.disabled = !state.storageAvailable;
-    pick.textContent = picked ? "Candle lit · clear" : "Light this local candle";
+    pick.textContent = picked ? "Chosen · remove" : "Choose this " + pickLabels[state.wing];
+    pick.setAttribute("aria-label", picked
+      ? "Remove " + profile.name + " from My Luminaries"
+      : "Choose " + profile.name + " as my " + pickLabels[state.wing]);
     pick.addEventListener("click", () => writePick(state.wing, profile.id));
     actions.appendChild(pick);
 
@@ -365,6 +457,7 @@
         readPicks();
         applyHash();
         render();
+        window.setTimeout(syncAccountPicks, 0);
       })
       .catch(() => {
         if (attempt === 0) {
@@ -424,6 +517,11 @@
   });
 
   window.addEventListener("storage", (event) => {
+    if (event.key === picksEnvelopeKey && state.data) {
+      readPicks();
+      render();
+      return;
+    }
     const wing = Object.keys(storageKeys).find((name) => storageKeys[name] === event.key);
     if (!wing || !state.data) return;
     state.picks[wing] = profileById(wing, event.newValue || "") ? (event.newValue || "") : "";
@@ -431,6 +529,11 @@
     render();
   });
   window.addEventListener("hashchange", applyHash);
+  window.addEventListener("laidies:continuation-ready", syncAccountPicks);
+  window.addEventListener("laidies:continuation-change", () => {
+    readPicks();
+    if (state.data) render();
+  });
 
   loadProfiles(0);
 })();

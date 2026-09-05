@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260905-account-luminaries-v2"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
@@ -1245,7 +1245,7 @@
   <section class="passport-section" id="covenSection">
     <p class="passport-section-eyebrow">★ Closet · Your Luminaries</p>
     <h2 class="passport-section-title">Your Luminaries</h2>
-    <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
+    <p class="passport-section-lede">The working habit, perspective and present-day example you chose to keep in your corner. Signed-in residents can restore these private picks with their Resident Card account.</p>
 
     <div class="coven-grid">
       <a class="coven-slot" href="/luminairy.html">
@@ -1260,7 +1260,7 @@
         <span class="coven-slot-cta">Change at the MAiVENS Wing &rarr;</span>
       </a>
 
-      <a class="coven-slot" href="/luminairy.html#builders">
+      <a class="coven-slot" href="/luminairy.html#trailblazers">
         <span class="coven-slot-kind">Your TRAiLBLAZER</span>
         <span class="coven-slot-pick" id="covenBuilderPick">&mdash; pick one &mdash;</span>
         <span class="coven-slot-cta">Change at the TRAiLBLAZERS Wing &rarr;</span>
@@ -1771,6 +1771,7 @@
     document.getElementById('butterflyJar').hidden = true;
     document.getElementById('tourSection').hidden = true;
     document.getElementById('charmVessel').hidden = true;
+    document.getElementById('covenSection').hidden = true;
   }
 
   function updateCardFromProfile(profile) {
@@ -1905,6 +1906,7 @@
     avatar: 'laidies_avatar',
     maven: 'laidies_maven',
     builder: 'laidies_builder',
+    luminaries: 'laidies_luminaries_v1',
     townRegular: 'laidies_town_regular',
     episode: 'laidies_favorite_episode',
     storefront: 'laidies_favorite_storefront',
@@ -2036,10 +2038,17 @@
 
   function hydrateCoven() {
     var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
-    var applyPick = function(elId, key, labels) {
+    var luminaries = {};
+    try {
+      var parsedLuminaries = JSON.parse(read(LS.luminaries) || 'null');
+      if (parsedLuminaries && parsedLuminaries.version === 1) luminaries = parsedLuminaries;
+    } catch (_) {}
+    var applyPick = function(elId, key, labels, wing) {
       var el = document.getElementById(elId);
       if (!el) return;
-      var val = read(key);
+      var val = luminaries[wing] && typeof luminaries[wing].id === 'string'
+        ? luminaries[wing].id
+        : read(key);
       if (val && labels[val]) {
         el.textContent = labels[val];
         el.classList.remove('is-empty');
@@ -2048,10 +2057,25 @@
         el.classList.add('is-empty');
       }
     };
-    applyPick('covenSaintPick',   LS.saint,       window.SAINT_LABEL || SAINT_LABEL);
-    applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL);
-    applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL);
-    applyPick('covenTownPick',    LS.townRegular, TOWN_LABEL);
+    applyPick('covenSaintPick',   LS.saint,       window.SAINT_LABEL || SAINT_LABEL, 'saints');
+    applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL, 'mavens');
+    applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL, 'trailblazers');
+    applyPick('covenTownPick',    LS.townRegular, TOWN_LABEL, 'townRegular');
+  }
+
+  function loadCompleteLuminaryLabels() {
+    return fetch('/content/luminairy-profiles.json', { credentials: 'same-origin', cache: 'no-store' })
+      .then(function(response) {
+        if (!response.ok) throw new Error('Luminary profile labels unavailable');
+        return response.json();
+      })
+      .then(function(data) {
+        (data.saints || []).forEach(function(profile) { SAINT_LABEL[profile.id] = profile.name; });
+        (data.mavens || []).forEach(function(profile) { MAVEN_LABEL[profile.id] = profile.name; });
+        (data.trailblazers || []).forEach(function(profile) { BUILDER_LABEL[profile.id] = profile.name; });
+        hydrateCoven();
+      })
+      .catch(function() {});
   }
 
   function readCardEnvelope() {
@@ -2062,10 +2086,12 @@
   }
 
   window.addEventListener('storage', function(event) {
-    if (event.key === LS.saint || event.key === LS.maven || event.key === LS.builder || event.key === LS.townRegular) {
+    if (event.key === LS.saint || event.key === LS.maven || event.key === LS.builder || event.key === LS.luminaries || event.key === LS.townRegular) {
       hydrateCoven();
     }
   });
+  window.addEventListener('laidies:continuation-change', hydrateCoven);
+  loadCompleteLuminaryLabels();
 
   function readCache() {
     var envelope = readCardEnvelope();

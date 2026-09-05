@@ -10,9 +10,15 @@
     tradingCardMeta: "laidies_cards_meta",
     puffies: "laidies_puffies_board",
     puffyPouch: "laidies_puffy_sticker_pouch",
+    luminaries: "laidies_luminaries_v1",
     ritual: "laidies_ritual_done",
     express: "laidies_express_done"
   });
+  var DEVICE_LOCAL_MIRRORS = Object.freeze([
+    "laidies_saint",
+    "laidies_maven",
+    "laidies_builder"
+  ]);
   var FIXED_ACTIVITIES = Object.freeze({
     welcomeTour: "laidies_welcome_tour_v1",
     tourCompletions: "laidies_tour_completions",
@@ -156,6 +162,9 @@
       });
       Object.keys(FIXED_COLLECTIONS).forEach(function (name) {
         global.localStorage.removeItem(FIXED_COLLECTIONS[name]);
+      });
+      DEVICE_LOCAL_MIRRORS.forEach(function (key) {
+        global.localStorage.removeItem(key);
       });
       for (var index = global.localStorage.length - 1;
            index >= 0;

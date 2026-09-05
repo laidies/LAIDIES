@@ -309,7 +309,7 @@
       return;
     }
     var script = document.createElement('script');
-    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1';
+    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260905-account-luminaries-v2';
     script.async = true;
     script.dataset.laidiesContinuationBootstrap = '1';
     document.head.appendChild(script);

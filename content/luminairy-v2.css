@@ -331,11 +331,29 @@ input:focus-visible,
 
 .lum-local h2 { font-size: clamp(2.1rem, 3.6vw, 3.8rem); }
 
+.lum-local #lumLocalBenefit {
+  max-width: 650px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.62;
+}
+
+.lum-local #lumLocalBenefit strong { color: var(--lum-mint); }
+
 .lum-local #lumLocalStatus {
   max-width: 600px;
-  margin: 16px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  margin: 14px 0 0;
+  padding-left: 13px;
+  color: rgba(255, 255, 255, 0.76);
+  border-left: 3px solid var(--lum-cyan);
+  font-size: 0.9rem;
   line-height: 1.55;
+}
+
+.lum-local #lumLocalStatus.is-account {
+  color: var(--lum-mint);
+  border-left-color: var(--lum-mint);
 }
 
 .lum-archive__head .lum-kicker,

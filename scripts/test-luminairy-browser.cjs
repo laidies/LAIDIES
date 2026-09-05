@@ -8,6 +8,7 @@ if (!playwrightPath) throw new Error("PLAYWRIGHT_CORE_PATH is required");
 const { chromium } = require(playwrightPath);
 
 const origin = process.env.LUMINAIRY_ORIGIN || "http://127.0.0.1:4173";
+const invalidAccountFixture = process.env.LUMINAIRY_ACCOUNT_FIXTURE_INVALID === "1";
 const profiles = JSON.parse(fs.readFileSync(path.join(__dirname, "../content/luminairy-profiles.json"), "utf8"));
 
 async function assertExactResources(page, wing) {
@@ -66,7 +67,9 @@ async function run() {
     assert.match(heroIntroduction, /Lantern Hill.+SUNNYVAiLE/i, "the approved Matron arrival must locate the building in SUNNYVAiLE");
     assert.match(heroIntroduction, /Cross the nave.+Push one door.+Meet the women and characters who lit the way/is, "the arrival must direct visitors into the three wings");
     assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
-    assert.equal((await page.locator("#localTitle").textContent()).trim(), "Save your three picks.", "personalization must be labelled as an optional save action");
+    assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose who you want in your corner.", "personalization must explain the human payoff rather than only issue an instruction");
+    assert.match(await page.locator("#lumLocalBenefit").textContent(), /working habit.+perspective.+person shaping what comes next.+My Closet/is, "the panel must explain why each of the three choices is useful and where it goes");
+    assert.match(await page.locator("#lumLocalStatus").textContent(), /(browser right away|My Closet on this device).+Sign in.+private account.+other devices/is, "the persistence copy must distinguish immediate local save from account-backed restoration");
     assert.ok(await page.locator(".lum-archive").evaluate((archive) => archive.compareDocumentPosition(document.querySelector(".lum-local")) & Node.DOCUMENT_POSITION_FOLLOWING), "visitors must meet the complete profile archive before personal-pick controls");
     assert.doesNotMatch(await page.locator("body").textContent(), /No Luminaries|No candle lit/i, "an empty personal selection must never imply that the LUMINAiRY has no profiles");
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), "No personal pick yet");
@@ -77,9 +80,9 @@ async function run() {
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /matron-complete-profiles-v1$/, "the reconciled Matron/profile successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /account-luminaries-v2$/, "the account-backed Luminaries successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260902-r5$/, "the complete profile-resource release must load the matching admission gate");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /search-scope-v1$/, "search-scope successor must load its matching cache-busted interaction script");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /account-luminaries-v2$/, "the account-backed pick runtime must load its matching cache-busted script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -143,11 +146,13 @@ async function run() {
     const firstSaintName = (await firstSaint.locator(".lum-card__name").textContent()).trim();
     await firstSaint.locator(".lum-card__pick").click();
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), firstSaintName);
+    assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("laidies_luminaries_v1")).saints.id), (await firstSaint.getAttribute("data-profile-id")), "the pick must enter the versioned Luminaries continuation envelope");
     await page.reload({ waitUntil: "networkidle" });
     await page.locator(".lum-card").first().waitFor();
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), firstSaintName, "local pick must survive reload");
     await page.locator(".lum-card").first().locator(".lum-card__pick").click();
     assert.equal((await page.locator('[data-pick-output="saints"]').textContent()).trim(), "No personal pick yet");
+    assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("laidies_luminaries_v1")).saints.id), "", "clearing a pick must preserve a timestamped tombstone so an old account value cannot reappear");
 
     await page.getByRole("tab", { name: /MAiVENS/ }).click();
     assert.equal(await page.locator(".lum-card").count(), 23, "Maven wing must render 23 cards");
@@ -268,6 +273,86 @@ async function run() {
     assert.equal(await noWebCryptoPage.locator("html").getAttribute("data-luminairy-claims"), "admitted");
     await noWebCryptoContext.close();
 
+    const installAccountFixture = async (context, remoteDocument) => {
+      await context.addInitScript((documentFixture) => {
+        window.__LAIDIES_MAIKEOVER_ACCOUNT_PREFLIGHT__ = true;
+        window.__LAIDIES_MAIKEOVER_PREFLIGHT_FIXTURE_ID__ = "synthetic-luminaries-account";
+        window.__LUM_ACCOUNT_REMOTE__ = {
+          revision: "revision-1",
+          document: documentFixture
+        };
+        window.__LAIDIES_MAIKEOVER_PREFLIGHT_CLIENT__ = {
+          auth: {
+            getSession: async () => ({
+              data: { session: { user: { id: "synthetic-luminaries-owner" } } },
+              error: null
+            })
+          },
+          rpc: async (name, args) => {
+            if (name === "get_my_resident_continuation_v1") {
+              return { data: { continuation: window.__LUM_ACCOUNT_REMOTE__ }, error: null };
+            }
+            if (name === "put_my_resident_continuation_v1") {
+              window.__LUM_ACCOUNT_REMOTE__ = {
+                revision: "revision-2",
+                document: args.p_document
+              };
+              return { data: { revision: "revision-2" }, error: null };
+            }
+            if (name === "get_my_resident_state_v1") {
+              return {
+                data: { state: "account-backed-resident", card: null },
+                error: null
+              };
+            }
+            return { data: null, error: null };
+          }
+        };
+      }, remoteDocument);
+    };
+    const initialAccountDocument = {
+      version: 1,
+      last: null,
+      episodes: {},
+      activities: {},
+      collections: {
+        luminaries: {
+          value: {
+            version: 1,
+            saints: { id: invalidAccountFixture ? "not-a-real-saint" : "elle-woods", updated_at: "2026-09-01T12:00:00.000Z" }
+          },
+          updated_at: "2026-09-01T12:00:00.000Z"
+        }
+      }
+    };
+    const accountContext = await browser.newContext({ viewport: { width: 1000, height: 800 } });
+    await installAccountFixture(accountContext, initialAccountDocument);
+    const accountPage = await accountContext.newPage();
+    await accountPage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await accountPage.locator("#lumLocalStatus.is-account").waitFor({ timeout: 7000 });
+    assert.equal((await accountPage.locator('[data-pick-output="saints"]').textContent()).trim(), "Elle Woods", "an account-backed Luminary pick must restore into the LUMINAiRY");
+    await accountPage.getByRole("tab", { name: /MAiVENS/ }).click();
+    const accountMaven = accountPage.locator(".lum-card").first();
+    const accountMavenName = (await accountMaven.locator(".lum-card__name").textContent()).trim();
+    await accountMaven.locator(".lum-card__pick").click();
+    await accountPage.waitForFunction(() => window.__LUM_ACCOUNT_REMOTE__?.document?.collections?.luminaries?.value?.mavens?.id);
+    const accountRemote = await accountPage.evaluate(() => window.__LUM_ACCOUNT_REMOTE__.document);
+    assert.equal(accountRemote.collections.luminaries.value.mavens.id, "ada-lovelace", "a signed-in pick must complete a verified account-continuation write");
+    await accountContext.close();
+
+    const restoredContext = await browser.newContext({ viewport: { width: 1000, height: 800 } });
+    await installAccountFixture(restoredContext, accountRemote);
+    const restoredPage = await restoredContext.newPage();
+    await restoredPage.goto(origin + "/luminairy.html", { waitUntil: "networkidle" });
+    await restoredPage.locator("#lumLocalStatus.is-account").waitFor({ timeout: 7000 });
+    assert.equal((await restoredPage.locator('[data-pick-output="saints"]').textContent()).trim(), "Elle Woods", "the Saint must restore in a clean signed-in browser");
+    assert.equal((await restoredPage.locator('[data-pick-output="mavens"]').textContent()).trim(), accountMavenName, "the MAiVEN must restore in a clean signed-in browser");
+    await restoredPage.goto(origin + "/laidies-card.html#covenSection", { waitUntil: "networkidle" });
+    await restoredPage.waitForFunction(() => document.querySelector("#covenMavenPick")?.textContent.trim() === "Ada Lovelace");
+    assert.equal((await restoredPage.locator("#covenSaintPick").textContent()).trim(), "Elle Woods", "the restored Saint must appear in Your Luminaries inside My Closet");
+    assert.equal((await restoredPage.locator("#covenMavenPick").textContent()).trim(), "Ada Lovelace", "the restored MAiVEN must appear in Your Luminaries inside My Closet");
+    await restoredContext.close();
+
     const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
     const mobilePage = await mobileContext.newPage();
     await mobilePage.goto(origin + "/luminairy.html#trailblazers", { waitUntil: "networkidle" });
@@ -290,7 +375,7 @@ async function run() {
 
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cards, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, audio failure, compact-desktop overflow, and 390/320 mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cards, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, links, keyboard tabs, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, and 390/320 mobile overflow");
   } finally {
     await browser.close();
   }

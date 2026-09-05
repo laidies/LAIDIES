@@ -1161,3 +1161,11 @@ objective; every open lane keeps its own checkpoint.
 - **Preserved release work:** the exact 30 renewed MAiVEN/TRAiLBLAZER profile records, signed editorial admission, 108 typed destinations, 13 existing Saint cards, songs, search, keyboard navigation and storage behavior from public release `bea68ed9` are retained.
 - **Verification:** calibrated resource admission rejects mutated prose/evidence; the browser suite passes desktop, compact desktop, 390px and 320px, including 13/23/7 counts, all images, every typed destination, search, keyboard tabs, song behavior, persistence/failure handling and horizontal overflow.
 - **Release boundary:** no push or Cloudflare deployment. Next action is Ali review of the local reconciled page, then a separately authorized release.
+
+### 2026-09-05 LUMINAiRY purpose and account-continuity correction
+
+- **Current state:** `BUILT AND VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED / NOT PUBLICLY VERIFIED`.
+- **Product correction:** **Choose who you want in your corner** now explains the three-part value: a working habit, a historical/critical perspective and a present-day example. The call to action opens **Your Luminaries** inside My Closet.
+- **Persistence correction:** `laidies_luminaries_v1` stores timestamped SAiNT/MAiVEN/TRAiLBLAZER choices, preserves immediate signed-out local use and joins the admitted private Resident continuation for signed-in cross-device restoration. Public-card mode hides this private section.
+- **Verification:** the calibrated negative fixture rejects an invalid account-backed profile identity. The positive browser suite restores an existing account pick into the LUMINAiRY, writes a new pick with remote read-after-write verification, opens a clean second browser and restores both picks into My Closet. Existing 13/23/7, resource, audio, search, keyboard and 1440/900/390/320 checks remain green.
+- **Release boundary:** no real account was mutated, and no push or deployment occurred. Live account verification remains a release check after authorization.

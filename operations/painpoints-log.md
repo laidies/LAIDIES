@@ -14618,3 +14618,14 @@ HTML and local custom properties.
 - **Durable correction:** The approved hero is layered onto the publicly verified profile release, the 13/23/7 archive precedes personalization, and unset slots say **No personal pick yet**. The browser gate now asserts both the order and prohibited misleading phrases.
 - **Possible Behind the Build angle:** The hero and the archive were both right—until stale ancestry made them compete. How release reconciliation protects work built in parallel.
 - **Publication status:** LOCAL CANDIDATE / NOT PUSHED / NOT DEPLOYED.
+
+## BTB-490 — Showing a saved choice is not the same as keeping it with an account
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY / My Closet / Resident continuation.
+- **Failure:** LUMINAiRY wrote three browser keys and My Closet read those same keys, so the picks appeared to be saved to the resident's Closet. The account continuation allowlist did not include them, meaning a signed-in resident would lose the set on another device. The panel emphasized limitations without explaining why anyone should choose the three people.
+- **Root cause:** Same-device display was mistaken for account ownership, and the interface described the mechanism before the benefit.
+- **Prevention rule:** Every **Save to My Closet** or equivalent journey must be tested in a clean second browser with a controlled signed-in account. Copy must name the useful result first, then distinguish immediate local persistence from verified account restoration.
+- **Durable correction:** A private versioned Luminaries envelope with per-choice timestamps joins Resident continuation; invalid identities are rejected by the calibrated browser gate; a second clean browser restores the choices into both LUMINAiRY and My Closet. The panel now explains the working-habit, perspective and present-day-example payoff.
+- **Possible Behind the Build angle:** It showed up in the Closet—but it was not actually in the account. The difference between a screen that remembers and a product that restores.
+- **Publication status:** BUILT AND VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED.
