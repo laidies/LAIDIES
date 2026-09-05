@@ -78,6 +78,23 @@ Do not make the tone feel like:
 - conference speaker intro
 - generic empowerment copy
 
+## Protecting LAiDIES operating know-how — September 5, 2026
+
+Ali's direct ruling: useful founder lessons must not give away how to build or
+operate LAiDIES. Apply the disclosure boundary in
+`docs/product/behind-the-build-learning-system.md` to founder posts, interviews,
+Behind the Build, classes, social derivatives, downloads and demonstrations.
+General AI working skills can be taught concretely through separate, clearly
+labelled examples. Actual internal instructions, workflows, automation wiring,
+editorial/source recipes, code, commercial information and distinctive
+combinations remain private. Removing a name or credential alone is not enough.
+
+Keep the complete real evidence internally. Review exact copy, screenshots,
+links and attachments, including cumulative disclosure across earlier pieces.
+Resolve disclosure before presenting finished copy for Ali's existing taste
+review. A verified incident or an approved topic is not permission to expose
+the operating method. Do not invent a founder experience to conceal details.
+
 ## Public / Private Line
 
 Okay to mention when relevant:

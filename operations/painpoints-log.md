@@ -1,5 +1,17 @@
 # LAiDIES build learning ledger
 
+## BTB-501 — A useful founder lesson must not become the operating manual
+
+- **Date:** 2026-09-05
+- **Source:** Ali's direct Behind the Build disclosure ruling in the NewsStand task.
+- **Observed:** The existing unpublished draft describes a LAiDIES episode/status tool and the change to its actual completion workflow. Its old confidentiality checkbox did not separately assess business know-how; derivative screenshots/downloads could disclose more than the prose alone.
+- **Diagnosis:** VERIFIED that the draft contains those operating references; likely disclosure risk depends on detail and combination with other public pieces. This is not evidence that a competitor copied LAiDIES or that anything sensitive was publicly released.
+- **Correction:** Keep the complete evidence and historical draft private; hold this candidate for a separate clearly labelled generic example. The existing learning source, founder brief, NewsStand promise/runbook and decision router require specific exact-prose and attachment disclosure review, including cumulative exposure.
+- **Prevention:** Identify the portable lesson and private details before drafting. Teach useful general skills without publishing the actual system instructions, orchestration, editorial/source recipes, configuration, commercial information or distinctive combinations. A verified incident, removed name or generic privacy checkbox does not establish disclosure clearance.
+- **Evidence/check:** Terra/Low read-only assessment inspected the full existing draft and actual service admission helper. The bank checker binds prose evidence but does not detect competitive know-how; the existing producer/independent/owner path must apply the ruling explicitly. No new generic secret-scanner or self-authored automated clearance was added.
+- **Possible public angle:** How to share something useful you learned without sharing private work. Any treatment of this lesson itself needs a separate everyday example and must not enumerate LAiDIES' private operation.
+- **Status:** INTERNAL PREVENTION RECORDED; DRAFT 001 DISCLOSURE HOLD; NO PUBLICATION. No original private learning was erased.
+
 ## BTB-500 — A complete newsroom record can still miss the reader's question
 
 - **Date:** 2026-09-05

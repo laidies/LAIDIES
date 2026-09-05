@@ -84,6 +84,25 @@ founder voice/taste and public content checks; raw operational logs are private
 production inputs, not publishable copy. Recurring NewsStand assessment must
 include this desk and retain an owned next action from lesson to actual reader.
 
+## Protect the operation — September 5 clarification
+
+DECIDED: Behind the Build should teach Ali's transferable lessons without
+revealing how someone could reconstruct LAiDIES' operating system. The exact
+boundary is in `docs/product/behind-the-build-learning-system.md`, Disclosure
+boundary. It governs every reuse of these lessons, including other site
+features, classes, social posts, downloads and public demonstrations.
+
+Keep actual internal instructions, orchestration, source/editorial recipes,
+code/configuration, commercial information and distinctive combinations
+private. Use separate reader-focused examples, with reconstructions labelled;
+do not reduce the teaching to vague encouragement. Exact internal prompts or
+screenshots are not made safe simply by removing the LAiDIES name. Review
+cumulative disclosure across pieces as well as each standalone article.
+
+An unresolved disclosure holds the piece before Ali's existing exact-copy
+voice/taste review. The original evidence remains private and intact. Topic
+approval does not authorize revealing the actual operating method.
+
 ## Authority retained
 
 Ali retains the mission, audience, voice and taste direction, meaningful editorial positions, changes to publication authority and exact-version Big Picture approval. Existing ordinary-news autonomy remains: independent AI factual/editorial assessment is required, but routine news does not require Ali's daily copy approval. Existing specialist evidence, correction, artifact, accessibility and release controls still apply. This record changes no public content and grants no new release authority.

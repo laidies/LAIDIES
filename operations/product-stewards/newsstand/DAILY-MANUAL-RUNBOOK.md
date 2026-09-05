@@ -157,6 +157,21 @@ entry; the existing August 24 canonical candidate is ineligible. The reader
 supports the type, but September 5 live NewsStand/archive inspection found no
 visible Behind the Build card or matching back issue.
 
+Apply the September 5 disclosure boundary from the learning-system source
+before drafting or reusing an older candidate. Name the transferable lesson
+and excluded LAiDIES operating details in the producer brief. The existing
+producer/independent review must inspect exact prose, visual inserts, downloads
+and links for competitive disclosure, including their combination with earlier
+public pieces. Keep full original evidence private; use separately constructed,
+clearly labelled teaching examples. Unresolved disclosure is HOLD and must be
+repaired before Ali receives a finished founder-voice decision.
+
+This is a qualitative requirement in the existing content-review path. The
+service-bank validator does not detect competitive know-how and a mechanical
+PASS is not disclosure clearance. Draft 001 is now specifically held for
+reframing its LAiDIES status-tool account; no prior privacy checkbox or verified
+incident overrides the new ruling. No Behind the Build entry is admitted.
+
 The oldest complete draft is a starting artifact, not current publication
 admission. Prepare its current producer contract and exact prose reviews,
 verify the real experience, remove private detail, and only then bring Ali

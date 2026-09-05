@@ -13,9 +13,31 @@ after its diagnosis is VERIFIED. A complete draft still needs Ali’s voice/tast
 approval and the production-integrity gate before it can be published or
 repurposed.
 
+### September 5 disclosure review
+
+All rows and operational-improvement details in this file are private editorial
+inputs. Do not publish the table, source paths or raw receipts as a reader
+resource. Follow the disclosure boundary in
+`docs/product/behind-the-build-learning-system.md` for every derivative.
+
+**Draft 001 — HOLD for disclosure reframing.** A read-only Terra/Low review read
+the complete draft. The paragraphs beginning “I learned this while checking
+the status of a LAiDIES episode” and “So we stopped using ‘done’…” describe the
+actual operation. Preserve the private historical draft below, but replace
+those details in a successor's producer brief with a clearly labelled generic
+project example. Keep the useful distinction between a clue and evidence of
+completion. General verification advice can remain; do not export our internal
+prompt, tool, roles, status records, release process or quality-control rules.
+
+Carousel/Reel/checklist/lesson-link ideas remain unapproved. Use fictional
+screens and separate reader templates; a lesson link must lead to an appropriate
+already-public learning page. Do not show an internal dashboard or make the
+real operating record downloadable. Independent review covers the exact
+successor and attachments; no new public prose was written by this assessment.
+
 | Candidate | Ledger source | State | Best first format | Internal improvement already made | Next editorial action |
 |---|---|---|---|---|---|
-| A draft file is not a launch party | BTB-039 | COMPLETE HISTORICAL DRAFT; CURRENT ADMISSION DUE | Short Field Note + carousel | Release state now separates authored, approved, deployed and publicly verified | NewsStand editorial lane: verify the incident and current producer/independent checks; then present exact copy for Ali voice/taste judgment, including whether to name Episode 5 |
+| A draft file is not a launch party | BTB-039 | HOLD — DISCLOSURE REFRAMING AND CURRENT ADMISSION DUE | Short Field Note + carousel | Release state now separates authored, approved, deployed and publicly verified | NewsStand editorial lane: use a safe generic example, verify its mechanism and complete exact producer/independent disclosure review; then present finished copy for Ali voice/taste judgment |
 | A green check without a version is a souvenir | BTB-038 | VERIFIED | Field Note + simple visual explainer | Episode engine binds stage status to current content and rejects superseded sources | Build a reader-friendly “content fingerprint” example without exposing unreleased copy |
 | Your conversation was doing four jobs at once | BTB-037 | VERIFIED | Carousel + class workflow card | Active-work record, capture-and-continue rule and checkpoint protocol | Draft without framing Ali’s ADHD as a flaw or exposing private project detail |
 | Accurate. Polished. Wrong assignment. | BTB-051 | VERIFIED | Field Note + reverse-brief prompt card + carousel | Locked intent/delta trace, blind reverse brief, four-veto fidelity packet and engine hard stop installed | Recreate the example generically; draft around the reverse-brief technique without exposing unreleased Episode 5 substance |
@@ -43,7 +65,7 @@ universal are not approved claims.
 
 ## Draft 001 — A draft file is not a launch party
 
-**Editorial state:** COMPLETE HISTORICAL DRAFT — CURRENT ADMISSION DUE — NOT APPROVED — NOT PUBLISHED
+**Editorial state:** HOLD — DISCLOSURE REFRAMING AND CURRENT ADMISSION DUE — NOT APPROVED — NOT PUBLISHED
 
 **Source:** painpoints ledger `BTB-039`  
 **Verified:** 2026-07-24 against the local status script and source file  
@@ -122,7 +144,7 @@ the next thing to verify.
 - Episode/lesson link: verification, confident answers and measuring the state
   you actually mean.
 
-### Integrity review
+### Historical integrity checklist — not current disclosure admission
 
 - [x] Verified local incident and diagnosis.
 - [x] Observation is separated from the transferable explanation.
@@ -132,6 +154,7 @@ the next thing to verify.
 - [x] No confidential workplace or personal information.
 - [x] Limitation included: not every task has a public-deployment stage.
 - [x] Practical reader action included.
+- [ ] Current competitive-disclosure review of the exact prose and all derivatives.
 - [ ] Ali voice/taste approval.
 - [ ] Final source/rights/copy edit.
 - [ ] Publication destination and URL.

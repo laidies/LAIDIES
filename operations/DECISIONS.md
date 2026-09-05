@@ -57,6 +57,17 @@ required daily desk. Ali's real lessons/mistakes/corrections purpose is DECIDED;
 current public admission remains required. The old-idea recovery shortlist lives
 in `docs/growth/ali-idea-backlog.md`, not new automatically active projects.
 
+Ali's later September 5 disclosure ruling: Behind the Build and all derivative
+founder/teaching material must share portable learning while protecting the
+actual LAiDIES operating know-how. Current authority:
+`docs/product/behind-the-build-learning-system.md`, Disclosure boundary, also
+routed from `docs/brand/founder-content-context.md` and the NewsStand promise.
+Exact prose, screenshots, templates and links receive specific producer and
+independent disclosure review, including cumulative exposure. Unresolved
+material stays HOLD; old draft/privacy approval cannot authorize its release.
+This uses the existing content and Ali voice/taste reviews, not a new review
+system or a claim that a validator detects commercial secrets.
+
 Research reuse follows the existing shared
 `operations/product-stewards/learning-content-ecosystem/FRESHNESS-SYSTEM.md` and
 signal inbox: changes to exact claims must reach every affected consumer.

@@ -1,5 +1,14 @@
 # Active work
 
+## 2026-09-05 Behind the Build operating-know-how boundary
+
+- **Status:** DECIDED AND RECORDED; bounded draft disclosure assessment complete; public candidate remains HOLD. The NewsStand implementation below continues.
+- **Ruling:** Share useful mistakes, mechanisms and reader actions without revealing the actual LAiDIES operation. General AI skills remain teachable; raw instructions, workflow wiring, source/editorial recipes, code, commercial information and distinctive combinations stay private.
+- **Applied:** The existing learning-system authority, founder brief, NewsStand promise/runbook, queue, idea-backlog next step and decision router now consume the same boundary. Reviews must cover exact prose/attachments/links and cumulative disclosure, not just personal-data removal.
+- **Draft result:** Independent Terra/Low assessment read Draft 001. Its actual episode/status-tool framing is held for a separate clearly labelled generic example. The general evidence-versus-completion lesson is useful. The private historical draft is preserved; no new public prose or asset was produced.
+- **Next:** When producing the first Behind the Build piece, resolve the named disclosure issues in its existing producer/independent review before Ali receives complete copy for her existing voice/taste judgment. Continue current sourcing and source-to-reader work; no new parallel product or approval loop.
+- **Verification/boundary:** Read and checked the exact draft and touched instructions; existing bank gate is not represented as an automatic know-how detector. No code, content bank, issued record, automation setting, public URL or iCloud file changed. This is not an audit of all previously published LAiDIES material. Normal broad hook was already proven inapplicable to this sparse Tier 2 checkout in the preceding checkpoint; internal-only commit uses its documented conscious bypass.
+
 ## 2026-09-05 NewsStand source routes, lessons recovery and old-idea reconciliation
 
 - **Status:** VERIFIED LOCALLY for bounded route/service repairs; configured freshness handoff verified. Overall NewsStand remains BUILDING; no new public publication.

@@ -9,6 +9,53 @@ recurring editorial assessment wired locally; no public publication proven
 **Public working series:** **Field Notes from LAiDIES HQ: Behind the Build**  
 **Principle:** LAiDIES should visibly practise what it teaches
 
+## Disclosure boundary — Ali's September 5 ruling
+
+**DECIDED:** Share the transferable learning without disclosing how to rebuild
+or operate LAiDIES. Behind the Build is a teaching feature, not an open-source
+business manual. This boundary applies to articles, tips, classes, social posts,
+interviews, downloads, screen recordings and every derivative of build learning.
+
+Public material can explain a real mistake or surprise, its general cause,
+the reader's better next action and meaningful limitations. Teach ordinary AI
+skills concretely using a fresh, clearly labelled fictional or recreated
+example when the real example exposes the operation. Generic briefing,
+verification and tool-use skills remain legitimate teaching; mentioning a
+publicly available tool is not automatically a disclosure of the business.
+
+Keep private the actual LAiDIES system instructions, agent roles and handoffs,
+source-selection and editorial recipes, automation wiring and schedules,
+internal schemas/code/configuration, production and quality-control machinery,
+prompt/asset libraries, unreleased plans, commercial terms, costs and operating
+metrics. Protect distinctive combinations as well as individual details. Do
+not publish an exact internal prompt or template merely after removing the
+LAiDIES name, or make raw logs and operational evidence downloadable as receipts.
+
+Before drafting, identify the portable lesson, the minimum disclosure it needs,
+and the private details to exclude. Keep the original evidence internally; make
+the public example separately, preserving the underlying mechanism and clearly
+labelling any reconstruction. Do not invent Ali's experience or present a
+fictional screen/result as a recording of what really happened.
+
+Producer and independent review inspect the exact reader-facing prose and all
+attachments, screenshots, captions, downloads, links and source excerpts. Check
+whether this piece, combined with earlier public pieces, meaningfully reveals
+how the LAiDIES operation fits together. Record the specific disclosure findings
+and their disposition with the existing review; a generic privacy checkbox or
+absence of credentials is insufficient. A screenshot must use safe example
+data; hiding a name alone does not hide internal prompts, paths or configuration.
+
+Unresolved disclosure is **HOLD**, even when the underlying lesson is verified.
+Rewrite with a general or fictional example, remove the revealing detail, or
+keep the item **INTERNAL ONLY**. Complete this work before the existing exact-copy
+Ali voice/taste review; do not ask her to inspect raw logs or solve routine
+redactions. Her approval of a teaching topic is not permission to publish the
+operating method. Any proposed exception must identify the exact material and
+why its disclosure is necessary; do not infer an exception from a prior draft.
+
+This reduces disclosure of know-how. It does not promise that the visible
+LAiDIES experience cannot be imitated or treat every general lesson as secret.
+
 ## Current implementation truth — 2026-09-05
 
 Ali reconfirmed the purpose: share what she is learning while building LAiDIES,
@@ -180,6 +227,8 @@ Transferable lesson
 Internal rule/check updated
 Public angle
 Privacy/IP/reputation notes
+Portable public lesson + private operating details to exclude
+Disclosure disposition + exact prose/attachments assessed + cumulative disclosure findings
 publication status: RAW | DIAGNOSED | VERIFIED | PUBLISHABLE | PUBLISHED
 published URLs/date
 ```
@@ -205,13 +254,16 @@ Never publish a RAW incident as a universal AI rule.
 Each piece should contain:
 
 1. **The job:** what I was trying to accomplish.
-2. **The first approach:** the instruction, assumption or workflow I used.
+2. **The first approach:** the relevant assumption or general approach, with
+   private operational details omitted and recreated examples labelled.
 3. **The result:** what actually happened.
 4. **The diagnosis:** the real reason, with uncertainty where needed.
-5. **The better approach:** exactly what changed.
+5. **The better approach:** what changed at a transferable reader-skill level;
+   keep the actual LAiDIES operating implementation private.
 6. **Why it works:** the underlying AI/product mechanism.
 7. **Try this:** a portable action the reader can use.
-8. **Receipts:** sources, screenshots, tests or version/date where relevant.
+8. **Evidence:** public-safe supporting sources and bounded results where
+   relevant. Keep raw operational receipts private; label recreated examples.
 
 The story can be funny. The mechanism cannot be fictional.
 
@@ -263,6 +315,9 @@ behind-the-build claim:
 - [ ] Private prompts, contacts, credentials, workplace information and
       unpublished personal material are removed or consented.
 - [ ] Copyright/attribution and source quotation boundaries are respected.
+- [ ] Producer and independent reviews record the specific competitive-disclosure
+      findings for the exact prose, attachments and links, including what earlier
+      public pieces would reveal in combination. No unresolved disclosure remains.
 - [ ] Public copy matches the actual implemented/deployed experience.
 - [ ] The reader receives a practical action, not only a founder anecdote.
 - [ ] A human has made the final editorial/taste judgment.
