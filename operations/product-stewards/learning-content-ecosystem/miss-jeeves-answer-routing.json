@@ -100,6 +100,56 @@
     "confidential_workplace_content",
     "account_data"
   ],
+  "responseFeedback": {
+    "ratingOptions": ["helpful", "not_helpful"],
+    "helpfulReasons": [
+      "answered_question",
+      "easy_to_understand",
+      "useful_next_step",
+      "good_sources",
+      "useful_laidies_connection"
+    ],
+    "notHelpfulReasons": [
+      "did_not_answer",
+      "confusing_or_too_technical",
+      "inaccurate_or_outdated",
+      "missed_context",
+      "weak_missing_or_broken_sources",
+      "too_long",
+      "too_brief"
+    ],
+    "optionalNote": {
+      "allowed": true,
+      "trigger": "something_else",
+      "hiddenByDefault": true,
+      "mayBeOnlyPrimaryMechanism": false,
+      "restrictedReviewOnly": true,
+      "shortRetentionRequired": true,
+      "privateInformationWarningRequired": true
+    },
+    "requiredBindings": [
+      "answer_fingerprint",
+      "answer_key",
+      "answer_mode",
+      "model_version",
+      "source_policy_version",
+      "checked_at",
+      "displayed_result_ids"
+    ],
+    "prohibitedBindings": [
+      "raw_question",
+      "visitor_identity",
+      "account_data",
+      "attachments"
+    ],
+    "appendOnly": true,
+    "idempotent": true,
+    "rateLimited": true,
+    "mayAutoRewrite": false,
+    "mayAutoRetrain": false,
+    "mayAutoPublish": false,
+    "accuracyComplaintCreatesReviewHold": true
+  },
   "promotionTriggers": [
     "repeated_governed_question",
     "common_misconception",

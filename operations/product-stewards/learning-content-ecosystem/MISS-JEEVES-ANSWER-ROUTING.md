@@ -141,6 +141,57 @@ workplace information and account data. A separate editorial act is required
 to move an entry to `internal_candidate`, and the normal admission process is
 required to make it `public_admitted`.
 
+## Response-quality feedback
+
+Every completed Miss Jeeves answer offers **Helpful** and **Not helpful**. After
+either choice, the visitor receives one-tap reason buttons. No text field appears
+unless she chooses **Something else**. Most feedback therefore takes two taps
+and requires no typing.
+
+Helpful reasons:
+
+- answered my question;
+- easy to understand;
+- useful next step;
+- good sources; and
+- useful LAiDIES connection.
+
+Not-helpful reasons:
+
+- did not answer my question;
+- confusing or too technical;
+- inaccurate or outdated;
+- missed important context;
+- weak, missing or broken sources;
+- too long; and
+- too brief.
+
+**Something else** reveals an optional short note field. It is an escape hatch,
+not the primary feedback mechanism. The interface warns the visitor not to
+include personal, confidential, workplace or account information. Notes are
+restricted review material with a short retention period; the durable
+measurement keeps only controlled reason categories and aggregate counts.
+
+Feedback binds to the exact answer fingerprint, governed answer key, answer
+mode, model version, source-policy version, checked date and displayed LAiDIES
+results. It does not need the raw question or visitor identity. Submissions are
+idempotent and rate limited, and a visitor can change her rating through a new
+superseding event rather than rewriting history.
+
+Feedback improves the service by:
+
+1. ranking internal Answer Bank entries for review;
+2. finding repeated comprehension, sourcing, currency and relevance failures;
+3. adding exact failed examples to the Miss Jeeves evaluation set;
+4. identifying missing Straight Answers, Dear Miss Jeeves entries, NewsStand
+   coverage or LIBRAiRY concepts; and
+5. comparing successor answer versions against the failure they were intended
+   to fix.
+
+A rating is a signal, not factual authority. It never automatically changes a
+source, rewrites an answer, promotes a candidate, retrains a model or publishes
+content. Material accuracy complaints create a review hold until checked.
+
 ## Promotion priority
 
 An answer becomes a publication candidate when at least one is true:

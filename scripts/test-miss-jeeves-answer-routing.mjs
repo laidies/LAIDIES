@@ -47,6 +47,29 @@ for (const field of ['raw_visitor_prompt', 'visitor_identity', 'attachments', 'p
   assert.ok(policy.internalAnswerBankProhibitedFields.includes(field), `missing prohibited Answer Bank field: ${field}`);
 }
 
+assert.deepEqual(policy.responseFeedback.ratingOptions, ['helpful', 'not_helpful']);
+assert.ok(policy.responseFeedback.helpfulReasons.includes('easy_to_understand'));
+assert.ok(policy.responseFeedback.notHelpfulReasons.includes('inaccurate_or_outdated'));
+assert.ok(policy.responseFeedback.notHelpfulReasons.includes('weak_missing_or_broken_sources'));
+assert.equal(policy.responseFeedback.optionalNote.trigger, 'something_else');
+assert.equal(policy.responseFeedback.optionalNote.hiddenByDefault, true);
+assert.equal(policy.responseFeedback.optionalNote.mayBeOnlyPrimaryMechanism, false);
+assert.equal(policy.responseFeedback.optionalNote.privateInformationWarningRequired, true);
+assert.equal(policy.responseFeedback.optionalNote.shortRetentionRequired, true);
+for (const field of ['answer_fingerprint', 'answer_key', 'answer_mode', 'model_version', 'source_policy_version', 'checked_at', 'displayed_result_ids']) {
+  assert.ok(policy.responseFeedback.requiredBindings.includes(field), `missing feedback binding: ${field}`);
+}
+for (const field of ['raw_question', 'visitor_identity', 'account_data', 'attachments']) {
+  assert.ok(policy.responseFeedback.prohibitedBindings.includes(field), `missing prohibited feedback binding: ${field}`);
+}
+assert.equal(policy.responseFeedback.appendOnly, true);
+assert.equal(policy.responseFeedback.idempotent, true);
+assert.equal(policy.responseFeedback.rateLimited, true);
+assert.equal(policy.responseFeedback.mayAutoRewrite, false);
+assert.equal(policy.responseFeedback.mayAutoRetrain, false);
+assert.equal(policy.responseFeedback.mayAutoPublish, false);
+assert.equal(policy.responseFeedback.accuracyComplaintCreatesReviewHold, true);
+
 for (const example of policy.examples) {
   assert.ok(homes.has(example.primaryHome), `invalid example primary home: ${example.primaryHome}`);
   assert.equal(new Set(example.secondaryHomes).size, example.secondaryHomes.length, 'duplicate secondary home');
