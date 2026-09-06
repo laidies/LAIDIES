@@ -1,3 +1,6 @@
 # Activity-card typography correction — 2026-09-06
 
 Ali flags the lone bold Ghostbuster in the Businesswomen’s Special description. Remove that strong wrapper, preserving every word and all other homepage bytes. This is a mechanical owner-directed typography correction, not a new visual direction or prose draft. All six activity descriptions were checked; this is their only strong/b element. Existing spacing review remains evidence for the unchanged layout only. Preview only; no production promotion.
+
+Ali flags isolated bold Ghostbuster in the Businesswomen’s Special description. Removed its strong wrapper; every word and all other homepage bytes retained. All six descriptions checked; this was their only strong/b element. Source a97d1e74; mechanical binding8ec1f32c; https://3c284745.laidies-sunnyvaile.pages.dev/#activities. Hosted bytes and actual in-app desktop pixels verified. Tier3 correction; existing layout review retained for unchanged layout only. Preview only; production unchanged.
+Hosted SHA256: df65cb7db17cfbc28697a8c43385069eb315b558c2dc1cd15faafba8edca40bf. Existing admission accepts the exact tag removal and rejects14bad cases. No new review commissioned for this mechanical change.
