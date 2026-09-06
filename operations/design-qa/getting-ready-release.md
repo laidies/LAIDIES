@@ -1,4 +1,30 @@
-# Getting Ready installation: release-ready, account UI roundtrip pending
+# Getting Ready installation: deployed and publicly verified within scope
+
+## Final release
+
+Production `90720fd2-d7ff-40dd-9ea4-202b16bc9c5b`, source `9bc4eac0`.
+Immutable origin: `https://90720fd2.laidies-sunnyvaile.pages.dev`.
+Public destination: `https://laidies.ai/maikeover`.
+The exact successor input and manifest below were deployed with Wrangler4.105.0.
+Immediately preceding provider check returned17c48db8; NewsStand owner confirmed
+no competing release. Upload:9 new/748 reused assets plus routing and Worker.
+Provider readback confirmed Production/homepage-redesign. All nine scoped files
+and both retained NewsStand files matched manifest bytes at BOTH public origins.
+
+Live Chrome had no existing local Card or resident session. Selected Getting Ready,
+entered Test Resident, saved locally, opened See it in my Closet. Both Closet
+faces had data-finish=gettingready and the exact approved image URL. Returned via
+MAiKEOVER: Getting Ready selected and Test Resident restored. A device-local test
+Card was created; no account data overwritten. Independent coordinator inspected
+the live maker: approved accessories/cyan art proportionate, distinct pink header,
+readable text and six original choices intact. Blank avatar is not portrait proof.
+
+NOT VERIFIED: requested email receipt, resident sign-in, account save or second-
+device restoration. Unfinished email-code onboarding was not deployed. Its broader
+account lifecycle remains held. This release completes the approved art and
+finish-acceptance integration, not the whole MAiKEOVER product.
+Implementation001ec549, admission9bc4eac0; the commit containing this record binds
+the subsequent release evidence.
 
 ## September 6 resumed verification
 
