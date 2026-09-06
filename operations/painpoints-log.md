@@ -293,3 +293,7 @@ Prevention: distribute a check with its exact consumed inputs and test an actual
 held queue plus the declared supporting evidence, not only temporary fixtures.
 Behind the Build: a quality checklist can be present in instructions while its
 working parts never reach the place where the work runs.
+PR108 merged after both remote checks passed. A fresh uncoached expert returned
+REPAIR on the actual rejected chapter and recognized missing synthesis/glossary
+structure, but did not identify every registered defect. Keep that partial
+observation distinct from fixture pass counts and full calibration.
