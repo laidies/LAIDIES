@@ -19,7 +19,7 @@ observed after the activation response. This proves that continuation, not
 unattended Mac-off operation or indefinite persistence. Keep the goal active
 through intermediate milestones; the Stop hook retains its recursion bound.
 
-Current branch `ops/operating-audit-reconciliation-20260906` continues after
+Current branch `ops/operating-ci-continuation-20260906` continues after
 the existing producer/review/release package was restored to main by PR108. Two registered writing
 examples are frozen at their exact historical bytes under internal operations;
 current product sources are untouched. The News exemplar's supporting evidence
@@ -44,6 +44,12 @@ admission but has no demonstrated admitted-learning-to-successor path. These
 are incomplete edges, not grounds to take over product owners or import the
 whole dirty shared branch. Acceptance requires source distribution and real
 consumer use, not another instruction or a fixture-only quality claim.
+
+PR110 reconciled the audit and adoption instructions, merged as `e8ed8953`
+after both exact-head checks passed. Current bounded follow-up preserves both
+branch-head and proposed-merge CI, while grouping superseded runs by workflow,
+event and ref. Manual runs remain independent; hosted cancellation is not yet
+observed for this change. Owner-message authorization remains pending.
 
 ### Verified receiving-checkout gap
 

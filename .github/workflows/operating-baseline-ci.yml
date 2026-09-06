@@ -6,6 +6,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Keep branch-head and proposed-merge checks separate. Superseded versions of
+# the same event/ref can stop; explicit manual runs retain independent groups.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   pages: read
