@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Mall discovery-banner image replacement
+
+Ali rejects the directory-card Mall thumbnail. Reuse the existing homepage Main Street dusk artwork: crop x925/y100/300×300 shows the Mall glass dome and neon frontage. Preserve bright banner text, question-mark graphic, dimensions, copy and all destinations. Source 2d421e8d; hosted evidence 3b1a2e17; https://22aa181e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 updated and paused on the Mall. Worktree: /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; owner review remains pending.
+
 ## 2026-09-06 — Bright banner copy and illustrated question mark
 
 Ali requests a colourful90s question mark behind Did you know, then rejects purple text in favour of bright text. White copy/lime links with navy keyline replace purple; one reference-bound dimensional question mark sits behind the live heading. This supersedes the purple choice. Sourceb8bd3442; hosted evidence4bf4412d; https://ac3cab66.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preserve compact dimensions, portraits,8copy/destinations and radio; preview only.

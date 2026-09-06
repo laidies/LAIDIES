@@ -126,3 +126,9 @@ Source1f07e68f; hosted evidence16ecd377; https://f26fd99e.laidies-sunnyvaile.pag
 ## Bright banner and question mark
 
 Sourceb8bd3442; hosted evidence4bf4412d; https://ac3cab66.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Single built-in image_gen graphic bound to comic-text-05-neon-pop-alphabet reference. SourcePNG assets/homepage/did-you-know-question-mark-20260906.png; lossless publicWebP sibling preserves exact RGBA pixels. White/lime text with fine navy keyline replaces rejected purple. Same banner geometry,8copy/images/destinations and controls. Hosted1440/390all16slides pass and actual existing tab inspected; current NewsStandf78755e7/9b651ac retained. Both focused reviewers admit and reject predecessor against updated brief; seven bad gate variants fail. No production promotion or new prose/radio runtime/extra variants. Packet: operations/product-stewards/town-entry-homepage/candidates/banner-graphic-20260906/.
+
+## Mall discovery-banner image
+
+Source 2d421e8d; hosted evidence 3b1a2e17; https://22aa181e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 updated and paused on the Mall. Worktree: /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905.
+
+Existing assets/sunnyvaile-streets/main-street-dusk.webp supplies the glass dome, pink THE MALL neon and entrance. Source crop925/100/300×300; CSS retains that crop at72px and56px. Only this slide source/class and scoped crop rules changed. Hosted1440/390 checks pass; twelve source/image/runtime and carried-forward NewsStand paths byte-match complete stage. Independent Sol/Medium and Claude Opus5/Medium admit; eight bad admission cases reject. No new image generation, receiving-page rewrite or production promotion. Packet: operations/product-stewards/town-entry-homepage/candidates/mall-thumbnail-20260906/.
