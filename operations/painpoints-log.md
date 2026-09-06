@@ -187,3 +187,13 @@ claim that filter buttons were checkboxes was checked against the real DOM and
 Playwright: they are native buttons with aria-pressed; the AX wrapper's platform
 label was not an authoring defect. Prevention: internal tools still need a maker
 visual inspection; a working endpoint is not permission to deliver bare UI.
+
+### 2026-09-05 — Private inbox repeated a retired palette
+
+Failure: root read only the opening part of DECISIONS, then used a general canon
+art palette for interface colours despite the explicit current UI retirement in
+§3b. Ali had to reject it. Prevention: search the decision router for the exact
+design dimension before selecting values; bind current page-design-bar tokens.
+The private palette check rejects the previous committed theme and checks the
+current tokens plus text contrast. Real renders remain necessary. Behind the
+Build angle: reading a reference is not enough when a later decision supersedes it.
