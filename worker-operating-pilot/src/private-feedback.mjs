@@ -42,6 +42,7 @@ export async function privateFeedbackFetch(request, env, fetcher = fetch) {
   if (request.method !== 'POST') return json(405, { error: 'feedback_method' });
   if (request.headers.get('Origin') !== url.origin) return json(403, { error: 'feedback_origin' });
   if (request.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json' || request.headers.has('Content-Encoding')) return json(415, { error: 'feedback_media_type' });
+  let stage = 'configuration';
   try {
     const bridge = createPrivateBridge(env, fetcher);
     if (action === 'intake') {
@@ -52,8 +53,11 @@ export async function privateFeedbackFetch(request, env, fetcher = fetch) {
       // principal, not a browser-selected header or a changing network address.
       return handler(request, { remoteAddress: 'authenticated-private-owner' });
     }
+    stage = 'deadline';
     const signal = AbortSignal.timeout(5000);
+    stage = 'request_read';
     const payload = await boundedJson(request, 1024, signal);
+    stage = 'provider_call';
     return json(200, await bridge(action, payload, signal));
-  } catch (error) { return json(codes[error?.message] || 503, { error: Object.hasOwn(codes, error?.message) ? error.message : 'feedback_unavailable', failure_kind: ['TypeError', 'TimeoutError', 'AbortError'].includes(error?.name) ? error.name : 'Error', ...(Number.isInteger(error?.providerStatus) ? { provider_status: error.providerStatus } : {}) }); }
+  } catch (error) { return json(codes[error?.message] || 503, { error: Object.hasOwn(codes, error?.message) ? error.message : 'feedback_unavailable', failure_stage: stage, failure_kind: ['TypeError', 'TimeoutError', 'AbortError'].includes(error?.name) ? error.name : 'Error', failure_detail: /Illegal invocation|Illegal receiver/.test(error?.message || '') ? 'receiver' : /not a function/.test(error?.message || '') ? 'function' : /URL/.test(error?.message || '') ? 'url' : 'other', ...(Number.isInteger(error?.providerStatus) ? { provider_status: error.providerStatus } : {}) }); }
 }
