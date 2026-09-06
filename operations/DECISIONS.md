@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Did you know colour contrasts with section below
+
+Ali requests a different banner colour from the next section. Reuse existing homepage mint-to-cyan gradient with navy text. Preserve artwork, spacing, all eight invitations and bottom-radio action. Source d0d980f0; hosted verification3100a51e; https://6520c72e.laidies-sunnyvaile.pages.dev/ . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905; existing tab8 visibly updated. Preview only, no production promotion.
+
 ## 2026-09-06 — Radio listening opens the shared bottom player
 
 Ali explicitly corrects the radio banner: activate the existing bottom-fixed KSVL deck so controls remain available while browsing town pages. This supersedes the separate-tab radio choice recorded for the eight highlights. Direct listening invitations use the existing button[data-ksvl-start-live] action. Ordinary station-directory links may navigate to the station. Reuse the current player and its same-device track/position restoration; full-document reloads are not gapless audio. Shared header loads missing deck; four full pages without it get direct includes. Source 28b64ed2; hosted evidence f06663b7; https://fd4bf243.laidies-sunnyvaile.pages.dev/ . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Existing in-app tab8 updated, player visible and paused. Preview only; no production promotion.
