@@ -22,6 +22,27 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'BANNER_COLOUR_ONLY') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/banner-colour-20260906/';
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name,binding] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
+      for (const binding of a.evidence || []) assert(digest(binding.path) === binding.sha256, 'stale evidence: ' + binding.path);
+      for (const file of ['scope.md','parent.html','checks.json','producer-self-review.md','source-diff.patch','independent-review.md','claude-review-result.json','visuals.json']) assert(a.evidence?.some(b => b.path === p + file), 'missing bound evidence: ' + (file.startsWith('claude') ? 'claude' : file));
+      const parent = bytes(p + 'parent.html').toString();
+      assert(digest(p + 'parent.html') === '587b91d36a458f4f5d493b32ad13e20a94da610f35e4147a96c82a5f29c69b72', 'wrong admitted radio parent');
+      const original = '.dyk-slim{margin:18px clamp(20px,5vw,72px);padding:14px 22px;border:3px solid var(--hp-ink);border-radius:24px;background:var(--hp-ground-warm);color:var(--hp-ink)}';
+      assert(bytes('index.html').toString() === parent.replace(original,original.replace('background:var(--hp-ground-warm)','background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan))')), 'unrelated homepage change');
+      assert(a.runtime.sha256 === '79b1180ad64c4256e4bc70fb1f2eb78e2e69731b1d33b0a7bf5d2fbedfa1b227' && a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated runtime changed');
+      const checks = JSON.parse(bytes(p+'checks.json'));
+      assert(checks.status === 'PASS' && checks.sourceSha256 === a.candidate.sha256 && checks.incumbentSameColourRejected && checks.minimumContrastWith14PercentBlackPattern >= 4.5, 'colour or contrast not proved');
+      for (const width of [1440,390]) assert(checks.rows.some(r => r.width === width && r.kind === 'candidate' && r.banner !== r.below && r.slides === 8 && r.radio), 'missing colour viewport');
+      const independent = bytes(p+'independent-review.md').toString(), claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW') && independent.includes(a.candidate.sha256), 'independent colour review differs');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW') && claude.result.includes(a.candidate.sha256.slice(0,8)), 'actual Claude colour review differs');
+      for (const v of JSON.parse(bytes(p+'visuals.json'))) assert(digest(v.path) === v.sha256, 'stale visual');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      return errors;
+    }
     if (a.owner_feedback_successor === 'EXISTING_BOTTOM_RADIO_PLAYER') {
       const p = 'operations/product-stewards/town-entry-homepage/candidates/radio-bottom-player-20260906/';
       const read = file => JSON.parse(bytes(p + file));

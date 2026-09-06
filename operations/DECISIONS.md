@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Did you know banner contrasts with the section below
+
+Ali requests a different banner colour because it repeats the section immediately below. Reuse the existing homepage mint-to-cyan gradient with dark text; preserve the current compact shape, artwork, all eight invitations, carousel and bottom-radio action. Colour-only preview correction; no production promotion.
+
 ## 2026-09-06 — Radio listening opens the shared bottom player
 
 Ali clarified that radio should open the existing fixed-bottom player so visitors retain controls across the pages they browse. This supersedes the separate-tab banner implementation. Wire direct homepage listening controls to the existing KSVL player and fill its shared loading gaps; retain ordinary building-navigation links. Preserve the current player design, one-audio ownership and existing saved playback/Resume behavior. Preview only.
