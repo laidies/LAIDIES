@@ -45,6 +45,12 @@ actual provider head and exact immutable artifact anew before every release.
 Use a clean isolated transaction worktree for each future candidate; never
 mutate the public artifact while an input, review or check is unresolved.
 
+Current ready-work checkpoint: the NVIDIA/Hugging Face and gastric-cancer
+prediction candidates each have a complete passing independent review. Their
+`publication-readiness.md` files and the existing recovery queue govern the actual
+morning continuation. Older intake research holds are historical where these
+later records explicitly supersede them; other unresolved leads remain held.
+
 The heartbeat reads this file, then invokes the commands below with the current
 Vancouver date. Its full source/admission/release prompt remains authoritative.
 The command entry after source research and preflight is:
@@ -595,7 +601,7 @@ perform a new check. This is evidence integrity/completeness, not an automatic
 judgment of the truth of the source or the checker’s conclusion.
 
 When an earlier story has changed the current publication base, freeze that
-verified current base and rerun the existing `review-runtime/assemble-review.mjs`
+verified current base and rerun the existing `review-runtime/assemble-review.mjs --assembly-only`
 with `--publication-base` and a new `--output-dir`, reusing the same exact
 passing review, calibration and metrics. Bind that mechanically reassembled
 candidate in the morning record. Do not overwrite the old base or rerun a
@@ -795,6 +801,14 @@ The result must say `public_write=false`. Record its SHA-256. Its
 admitted `storyId`; an ID-only envelope is invalid.
 
 ### New ordinary stories: private candidate input
+
+The successful assembler registers the exact validated candidate in the existing
+recovery queue before reporting `ASSEMBLY READY`. The queue binds prose, source
+evidence and the actual independent review; it cannot overwrite a newer or closed
+record or reactivate a canonical story. Exact reruns are no-ops. An intentional
+`--assembly-only` rebase is labelled `ASSEMBLED_NOT_QUEUED`; preserve the existing
+ready record and bind the reassembled candidate in the actual next-day handoff.
+No new queue or automatic publication authority is introduced.
 
 Use the existing composer with `--story-candidate` pointing to a private JSON
 package under `operations/product-stewards/newsstand/candidates/`. Do not insert

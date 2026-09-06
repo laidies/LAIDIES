@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "laidies-private-r3-audio-verification.v1",
+  "scope": "PRIVATE SYNTHETIC FIXTURE ONLY; no publication, admission, or human-listening claim.",
+  "verifiedAt": "2026-09-05",
+  "fixture": {
+    "path": "operations/product-stewards/newsstand/candidates/sister-mary-clarence-teach-together-20260905/newsstand-r3-synthetic-fixture.html",
+    "dataPath": "operations/product-stewards/newsstand/candidates/sister-mary-clarence-teach-together-20260905/fixture-r3-data.js",
+    "renderedHeadline": "Sister Mary Clarence: make the whole room stronger"
+  },
+  "interaction": {
+    "control": ".ns-reader--story button[data-ksvl-track=\"saint-sister-mary-clarence\"]",
+    "trackId": "saint-sister-mary-clarence",
+    "trackPath": "/content/music/saint-sister-mary-clarence.mp3",
+    "trackSha256": "aa637391e7d7705550254d1ede3f3063c85bbff18dc31b2df132e1f0a25c38cd",
+    "trackDurationSeconds": 248.360167
+  },
+  "server": {
+    "kind": "temporary local byte-range server",
+    "audioRequest": "GET Range: bytes=0-",
+    "audioResponse": "206 Partial Content with Accept-Ranges: bytes"
+  },
+  "chromeNativeAudio": {
+    "browser": "Google Chrome.app, headed",
+    "before": {
+      "readyState": 1,
+      "currentTime": 0,
+      "paused": false,
+      "muted": false,
+      "volume": 0.8,
+      "status": "KSVL is waiting for enough audio data to continue…"
+    },
+    "afterAbout1Point5Seconds": {
+      "readyState": 4,
+      "currentTime": 1.327083,
+      "paused": false,
+      "muted": false,
+      "volume": 0.8,
+      "status": "Now listening to Sister Mary Clarence · PATRON SAiNT of Teaching."
+    },
+    "afterAbout3Point5Seconds": {
+      "readyState": 4,
+      "currentTime": 3.333055,
+      "paused": false,
+      "muted": false,
+      "volume": 0.8,
+      "status": "Now listening to Sister Mary Clarence · PATRON SAiNT of Teaching."
+    },
+    "pageErrors": [],
+    "consoleErrors": [],
+    "notFoundPaths": [],
+    "verdict": "PASS: an explicit article-button click selected the named real track, decoded it, and advanced currentTime."
+  },
+  "limits": [
+    "This confirms local Chrome media progression, not a public deployment or a human auditory-quality judgment.",
+    "The fixture remains a transient in-memory publication clone solely to exercise the existing reader."
+  ]
+}

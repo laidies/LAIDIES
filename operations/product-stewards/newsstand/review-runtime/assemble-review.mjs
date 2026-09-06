@@ -3,12 +3,14 @@
 // never calls a provider or creates editorial judgments.
 import crypto from "node:crypto";
 import fs from "node:fs";
+import vm from "node:vm";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 import { normalize, requestFor } from "./protocol.mjs";
 import { inspectProseReviewChain } from "../../../../scripts/check-prose-quality-admission.mjs";
 import { validateOrdinaryStoryCandidate } from "../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs";
+import { registerAssembledOrdinaryCandidate, writeRecoveryQueueAtomically } from "../../../../scripts/advance-newsstand-story-recovery.mjs";
 import { resolveNewsstandEditorialPacket } from "../../../../scripts/compact-newsstand-editorial-input.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
@@ -153,7 +155,18 @@ function main() {
   const chain = inspectProseReviewChain(producer, receipt, { root: ROOT });
   if (chain.errors.length) throw Error(`ASSEMBLY HOLD: review chain invalid: ${chain.errors.join(" | ")}`);
   try { validateOrdinaryStoryCandidate(candidate, { root: ROOT }); } catch (error) { throw Error(`ASSEMBLY HOLD: ordinary candidate invalid: ${error.message}`); }
-  output(outputDir, "ordinary-candidate.json", candidate);
-  console.log(`ASSEMBLY READY candidate=${story.id} claims=${claimMap.length} output=${relative(outputDir)}`);
+  const candidateBinding = output(outputDir, "ordinary-candidate.json", candidate);
+  if (args.includes("--assembly-only")) {
+    console.log(`ASSEMBLED_NOT_QUEUED candidate=${story.id} claims=${claimMap.length} output=${relative(outputDir)}`);
+    return;
+  }
+  const queuePath = path.join(ROOT, "operations/product-stewards/newsstand/story-recovery-queue.json");
+  const queueRaw = readBytes(queuePath), canonicalRaw = readBytes(path.join(ROOT, "content/newsstand-stories.js"));
+  const context = { window: {} }; vm.runInNewContext(canonicalRaw.toString("utf8"), context, { timeout: 1000 });
+  const registration = registerAssembledOrdinaryCandidate(JSON.parse(queueRaw), candidate, receipt, context.window.NEWSSTAND_DATA, { candidateBinding });
+  if (registration.changed) {
+    writeRecoveryQueueAtomically(queuePath, queueRaw, JSON.stringify(registration.queue, null, 2) + "\n");
+  }
+  console.log(`ASSEMBLY READY candidate=${story.id} claims=${claimMap.length} queue=${registration.status} output=${relative(outputDir)}`);
 }
 try { main(); } catch (error) { hold(error); }

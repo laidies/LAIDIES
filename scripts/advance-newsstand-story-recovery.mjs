@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import crypto from "node:crypto";
+import { isDeepStrictEqual } from "node:util";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -139,6 +141,67 @@ export function selectNextRecovery(queue, { now = Date.now() } = {}) {
     quietAllowed: false, candidate: actionable[0] || null, activeCount: active.length,
     evidenceRechecks, nextEvidenceCheckAt: deferred[0]?.nextCheckAt || null
   };
+}
+
+export function writeRecoveryQueueAtomically(queuePath, expectedRaw, nextRaw) {
+  const lockPath = queuePath + ".assembly.lock";
+  const lock = fs.openSync(lockPath, "wx");
+  const temporary = queuePath + `.assembly-${crypto.randomUUID()}.tmp`;
+  let temporaryOwned = false;
+  try {
+    requireValue(fs.readFileSync(queuePath).equals(expectedRaw), "Recovery queue changed during registration; retry against current state");
+    const file = fs.openSync(temporary, "wx");
+    temporaryOwned = true;
+    try { fs.writeFileSync(file, nextRaw); } finally { fs.closeSync(file); }
+    requireValue(fs.readFileSync(queuePath).equals(expectedRaw), "Recovery queue changed before registration write");
+    fs.renameSync(temporary, queuePath);
+    temporaryOwned = false;
+  } finally {
+    if (temporaryOwned && fs.existsSync(temporary)) fs.unlinkSync(temporary);
+    fs.closeSync(lock); fs.unlinkSync(lockPath);
+  }
+}
+
+// Routing only: the assembler must validate the complete candidate/review chain
+// before calling this. Registration grants neither issue admission nor release.
+export function registerAssembledOrdinaryCandidate(queue, candidate, receipt, currentDataset, { candidateBinding, now = new Date().toISOString() } = {}) {
+  requireValue(queue?.schema === "laidies.newsstand-story-recovery-queue.v1" && Array.isArray(queue.items), "invalid recovery queue schema");
+  requireValue(candidate?.schemaVersion === "newsstand-ordinary-story-candidate-v2" && candidate.candidateStatus === "READY_FOR_ISSUE_ADMISSION", "candidate is not assembled ordinary news");
+  requireValue(receipt?.schemaVersion === "laidies-prose-quality-review.v1" && receipt.stage === "INDEPENDENT_SEMANTIC_ADMISSION" && receipt.verdict === "PASS", "assembled independent receipt must pass");
+  requireValue(candidate.candidateId === receipt.candidateId && candidate.story?.id === candidate.candidateId, "assembled candidate identity differs");
+  requireValue(receipt.reviewer?.independentFromMaker === true && receipt.reviewer?.artifactFirst === true && receipt.reviewer?.principalId && receipt.reviewer.principalId !== receipt.maker, "assembled reviewer must be independent");
+  const bound = value => value && typeof value.path === "string" && value.path.startsWith("operations/product-stewards/") && !value.path.split("/").includes("..") && HASH.test(value.sha256 || "");
+  for (const value of [candidateBinding, candidate.sourceText, candidate.claimMap, candidate.reviewEvidence?.independent, candidate.reviewEvidence?.independentRawReport]) requireValue(bound(value), "assembled registration requires exact private bindings");
+  requireValue(isDeepStrictEqual(candidate.sourceText, receipt.artifact?.reviewText), "assembled review text differs");
+  requireValue(isDeepStrictEqual(candidate.reviewEvidence.independentRawReport, receipt.reportBinding), "assembled raw report differs");
+  requireValue(Array.isArray(candidate.sources) && candidate.sources.length > 0 && candidate.sources.every(source => source.id && source.url && bound(source.evidence)), "assembled source evidence is missing");
+  requireValue(recoveryTimestamp(receipt.reviewedAt, "invalid assembled review time") <= recoveryTimestamp(now, "invalid registration time"), "assembled review is in the future");
+  requireValue(Array.isArray(currentDataset?.stories), "current canonical stories are required for registration");
+  requireValue(!currentDataset.stories.some(story => story.id === candidate.candidateId || story.slug === candidate.story.slug), "candidate already exists in canonical stories; reconcile publication instead");
+  requireValue(!(currentDataset.publications?.daily?.issue?.storyIds || []).includes(candidate.candidateId), "candidate already exists in current canonical issue; reconcile publication instead");
+  const sourceIdentitySha256 = crypto.createHash("sha256").update(JSON.stringify({ sources: candidate.sources, claimMap: candidate.claimMap })).digest("hex");
+  const identity = { sourceIdentitySha256, artifactSha256: candidate.sourceText.sha256, reviewerPrincipal: receipt.reviewer.principalId, independentReceipt: copy(candidate.reviewEvidence.independent), independentRawReport: copy(candidate.reviewEvidence.independentRawReport) };
+  const matches = queue.items.filter(item => item.candidateId === candidate.candidateId);
+  requireValue(matches.length <= 1, "duplicate existing recovery candidate identity");
+  const existing = matches[0];
+  if (existing) {
+    requireValue(existing.active === true && existing.status === "READY_FOR_ADMISSION", "preserve existing recovery decision; explicit reconciliation required");
+    requireValue(isDeepStrictEqual(existing.assembledReviewIdentity, identity), "preserve differing recovery evidence or review; explicit reconciliation required");
+    return { queue: copy(queue), changed: false, status: "ALREADY_REGISTERED", candidateId: candidate.candidateId };
+  }
+  const state = {
+    schema: "laidies.newsstand-story-recovery.v1", candidateId: candidate.candidateId,
+    producerPrincipal: receipt.maker, sourceIdentitySha256, artifactSha256: candidate.sourceText.sha256,
+    status: "READY_FOR_ADMISSION", active: true, consequencePriority: 0,
+    firstSeenAt: candidate.story.lastCheckedAt, lastReviewedAt: receipt.reviewedAt,
+    attempts: [{ artifactSha256: candidate.sourceText.sha256, reviewerPrincipal: receipt.reviewer.principalId, reviewedAt: receipt.reviewedAt, verdict: "PASS", defects: [], independentReceipt: copy(candidate.reviewEvidence.independent), independentRawReport: copy(candidate.reviewEvidence.independentRawReport) }],
+    unresolvedDefects: [], nextAction: "COMPOSE_AND_ADMIT_EXACT_ARTIFACT", terminalDisposition: null,
+    assembledCandidate: copy(candidateBinding), assembledReviewIdentity: identity,
+    registrationBoundary: "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+  };
+  validState(state);
+  const updated = copy(queue); updated.items.push(state); updated.updatedAt = now;
+  return { queue: updated, changed: true, status: "REGISTERED_READY", candidateId: candidate.candidateId };
 }
 
 export function completePublication(inputState, receipt) {

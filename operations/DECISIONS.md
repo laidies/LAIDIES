@@ -20,6 +20,14 @@ proper domain source before building from it.
 
 ## Core routes
 
+A successfully assembled ordinary NewsStand candidate must enter the existing
+recovery queue before reporting ready. Its exact prose/source/review bindings
+remain private, and registration confers no freshness, issue or release approval.
+Exact replay is unchanged; a newer/different/closed record or canonical story
+requires reconciliation, never silent replacement. Intentional historical or
+base-only assembly is explicitly `ASSEMBLED_NOT_QUEUED`. The existing assembler
+and calibrated recovery tests enforce this source-to-publication handoff.
+
 NewsStand editorial/factual requests automatically deduplicate repeated evidence
 before a new provider call. The complete article and every supplied source remain
 exact; claims use source-ID references. Saved full or compact requests replay

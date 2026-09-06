@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
-import { advanceStoryRecovery, completePublication, selectNextRecovery } from "./advance-newsstand-story-recovery.mjs";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import crypto from "node:crypto";
+import { advanceStoryRecovery, completePublication, selectNextRecovery, registerAssembledOrdinaryCandidate, writeRecoveryQueueAtomically } from "./advance-newsstand-story-recovery.mjs";
 
 const hash = character => character.repeat(64);
 const base = { schema: "laidies.newsstand-story-recovery.v1", candidateId: "model-release-reader-fit", producerPrincipal: "newsstand-producer-r1", sourceIdentitySha256: hash("a"), artifactSha256: hash("b"), status: "AWAITING_INDEPENDENT_REVIEW", active: true, consequencePriority: 3, firstSeenAt: "2026-09-04T07:00:00-07:00", attempts: [], unresolvedDefects: [], nextAction: "RUN_INDEPENDENT_REVIEW", terminalDisposition: null };
@@ -81,4 +85,72 @@ assert.throws(() => advanceStoryRecovery(repair, review({ reviewerPrincipal: "in
 assert.throws(() => completePublication(passed, { schema: "laidies.newsstand-publication-verification.v1" }), /deployment id/);
 assert.deepEqual(selectNextRecovery({ schema: "laidies.newsstand-story-recovery-queue.v1", items: [published, rejected] }), { status: "NO_ACTIVE_RECOVERY", quietAllowed: true, candidate: null, activeCount: 0 });
 
-console.log("NEWSSTAND STORY RECOVERY PASS repair=1 repeated_system_repair=1 evidence_persists=1 queue_preempts_quiet=1 due_evidence_separate_from_production=1 waiting_never_quiet=1 new_evidence_resumes=1 malformed_schedule_rejected=1 publication_state_transition=1 terminal_record=1 stale_or_self_review_rejected=1");
+// Assembled ordinary routing fixtures: no actual editor, queue or site writes.
+const bind = (name, c = "a") => ({path: `operations/product-stewards/newsstand/candidates/fixture/${name}.json`, sha256: hash(c)});
+const assembled = {schemaVersion: "newsstand-ordinary-story-candidate-v2", candidateStatus: "READY_FOR_ISSUE_ADMISSION", candidateId: "assembled-fixture", story: {id: "assembled-fixture", slug: "assembled-fixture", lastCheckedAt: clock}, sourceText: bind("text", "b"), claimMap: bind("claims", "c"), sources: [{id: "source-1", url: "https://fixture.invalid/source", evidence: bind("source", "d")}], reviewEvidence: {independent: bind("review", "e"), independentRawReport: bind("raw", "f")}};
+const assembledReceipt = {schemaVersion: "laidies-prose-quality-review.v1", stage: "INDEPENDENT_SEMANTIC_ADMISSION", verdict: "PASS", candidateId: assembled.candidateId, maker: "fixture-producer", reviewer: {principalId: "fixture-independent", independentFromMaker: true, artifactFirst: true}, reviewedAt: clock, artifact: {reviewText: assembled.sourceText}, reportBinding: assembled.reviewEvidence.independentRawReport};
+const routingOptions = {candidateBinding: bind("candidate"), now: clock};
+const canonical = {stories: []};
+const register = (q = queue([published, repair]), c = assembled, r = assembledReceipt, dataset = canonical, options = routingOptions) => registerAssembledOrdinaryCandidate(q, c, r, dataset, options);
+const registered = register();
+assert.equal(registered.changed, true);
+assert.equal(registered.queue.items.at(-1).status, "READY_FOR_ADMISSION");
+assert.equal(registered.queue.items.at(-1).attempts.length, 1);
+assert.deepEqual(registered.queue.items.slice(0, 2), [published, repair], "existing closed and active histories preserved");
+assert.equal(selectNextRecovery(registered.queue).quietAllowed, false, "a ready assembled story cannot disappear into quiet");
+const rerun = register(registered.queue);
+assert.equal(rerun.changed, false);
+assert.equal(JSON.stringify(rerun.queue), JSON.stringify(registered.queue), "exact repeated registration preserves queue bytes");
+for (const mutate of [
+ c => {c.sources[0].evidence.sha256=hash("1")},
+ c => {c.reviewEvidence.independent.sha256=hash("2")},
+ c => {c.claimMap.sha256=hash("3")}
+]) {
+ const changed=structuredClone(assembled);mutate(changed);
+ assert.throws(()=>register(registered.queue,changed),/preserve differing recovery/);
+}
+const newProse=structuredClone(assembled);newProse.sourceText=bind("new-prose","4");
+assert.throws(()=>register(registered.queue,newProse),/review text differs/);
+const newReviewer=structuredClone(assembledReceipt);newReviewer.reviewer.principalId="different-reviewer";
+assert.throws(()=>register(registered.queue,assembled,newReviewer),/preserve differing recovery/);
+for(const status of ["PUBLISHED_VERIFIED","TERMINAL_REJECTED","REPAIR_REQUIRED"]){
+ const other=structuredClone(registered.queue);other.items.at(-1).status=status;
+ assert.throws(()=>register(other),/preserve existing recovery decision/);
+}
+assert.throws(()=>register(queue([]),assembled,assembledReceipt,{stories:[{id:assembled.candidateId}]}),/already exists in canonical/);
+assert.throws(()=>register(queue([]),assembled,assembledReceipt,{}),/current canonical stories/);
+assert.throws(()=>register(queue([]),assembled,assembledReceipt,{stories:[],publications:{daily:{issue:{storyIds:[assembled.candidateId]}}}}),/current canonical issue/);
+assert.throws(()=>register(queue([]),{...assembled,candidateStatus:"HOLD"}),/not assembled ordinary/);
+assert.throws(()=>register(queue([]),assembled,{...assembledReceipt,verdict:"HOLD"}),/receipt must pass/);
+const selfReviewer=structuredClone(assembledReceipt);selfReviewer.reviewer.principalId=selfReviewer.maker;
+assert.throws(()=>register(queue([]),assembled,selfReviewer),/reviewer must be independent/);
+assert.throws(()=>register(queue([]),assembled,{...assembledReceipt,reviewedAt:"2026-09-06T14:00:00Z"}),/review is in the future/);
+assert.throws(()=>register(queue([]),assembled,assembledReceipt,canonical,{...routingOptions,candidateBinding:{path:"../outside.json",sha256:hash("a")}}),/exact private bindings/);
+assert.equal(queue([]).items.length,0,"registration does not mutate its input");
+
+const writeFixture = fs.mkdtempSync(path.join(os.tmpdir(), "newsstand-queue-write-"));
+const queuePath = path.join(writeFixture, "queue.json"), oldBytes = Buffer.from("old queue\n");
+const oldRandomUUID = crypto.randomUUID;
+try {
+  fs.writeFileSync(queuePath, oldBytes);
+  crypto.randomUUID = () => "collision-fixture";
+  const stalePath = queuePath + ".assembly-collision-fixture.tmp";
+  fs.writeFileSync(stalePath, "preserve this earlier file");
+  assert.throws(() => writeRecoveryQueueAtomically(queuePath, oldBytes, "new queue\n"), /EEXIST/);
+  assert.equal(fs.readFileSync(stalePath,"utf8"), "preserve this earlier file", "failed exclusive create must not delete somebody else's file");
+  assert.ok(fs.readFileSync(queuePath).equals(oldBytes));
+  assert.equal(fs.existsSync(queuePath+".assembly.lock"), false, "owned lock released after collision");
+  crypto.randomUUID = oldRandomUUID;
+  assert.throws(() => writeRecoveryQueueAtomically(queuePath, Buffer.from("outdated snapshot"), "new queue\n"), /changed during registration/);
+  assert.ok(fs.readFileSync(queuePath).equals(oldBytes));
+  writeRecoveryQueueAtomically(queuePath, oldBytes, "new queue\n");
+  assert.equal(fs.readFileSync(queuePath,"utf8"), "new queue\n");
+  fs.writeFileSync(queuePath+".assembly.lock", "another writer");
+  assert.throws(() => writeRecoveryQueueAtomically(queuePath, Buffer.from("new queue\n"), "third queue"), /EEXIST/);
+  assert.equal(fs.readFileSync(queuePath+".assembly.lock","utf8"), "another writer", "foreign lock preserved");
+} finally {
+  crypto.randomUUID = oldRandomUUID;
+  fs.rmSync(writeFixture, {recursive:true,force:true});
+}
+
+console.log("NEWSSTAND STORY RECOVERY PASS repair=1 repeated_system_repair=1 evidence_persists=1 queue_preempts_quiet=1 due_evidence_separate_from_production=1 waiting_never_quiet=1 new_evidence_resumes=1 malformed_schedule_rejected=1 publication_state_transition=1 terminal_record=1 stale_or_self_review_rejected=1 assembled_ready_registered=1 repeated_registration_byte_stable=1 newer_or_published_queue_preserved=1 invalid_assembly_rejected=1");

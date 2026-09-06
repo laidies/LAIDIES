@@ -101,11 +101,20 @@ product-specific commands remain held. No textbook prose or claim register was
 changed tonight. The 08:00 freshness owner remains the receiving checkpoint;
 NewsStand retains follow-through until that actual intake is observed.
 
+## Later September 5 ready-work checkpoint
+
+NVIDIA/Hugging Face and the bounded gastric-cancer prediction article have since
+passed their actual independent editorial reviews and complete assembly. They are
+ready for the actual morning source/development check and dated-issue admission,
+not further topic selection or another prose review. Their exact candidate folders
+contain `publication-readiness.md`; successful assembly now enters the existing
+recovery queue. The earlier research-only language remains preserved above.
+
 ## Morning resume order
 
 1. Recheck official release indexes and the NVIDIA/Hugging Face transaction.
 2. Resolve or truthfully retain the AIDB September 4 fidelity hold.
-3. Decide the NVIDIA candidate before selecting a lower-value new topic.
+3. Check actual freshness and admit the reviewed NVIDIA and gastric-cancer candidates before selecting a lower-value new topic. Handle each through the existing single-candidate transaction; rebase the second against the first canonical append, then release the complete combined artifact once.
 4. Recheck the three ready service entries and obtain exact dated-issue
    admission if used.
 5. Keep the September 9 Weekly packet private and continue thesis development.

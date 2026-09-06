@@ -54,6 +54,18 @@ Neither valid JSON, a top-level provider label nor these private files publish.
 The assembler must preserve actual findings and identify any missing admission
 input instead of fabricating reviewer judgments or human observations.
 
+Successful ordinary assembly now registers its validated ready candidate in the
+existing `story-recovery-queue.json`, so the next cycle cannot overlook it. It
+retains exact prose, source, independent receipt and raw-report bindings; exact
+reruns preserve queue bytes. A differing/newer/closed record or a story already in
+the canonical dataset/issue requires explicit reconciliation, never replacement.
+Registration is routing, not issue admission, next-day freshness or publication.
+Use `--assembly-only` only for an intentional historical/mechanical reassembly;
+its result is `ASSEMBLED_NOT_QUEUED`. When rebasing an already queued unchanged
+review, preserve the existing queue history and bind the new candidate in the
+actual morning freshness record. Do not spend another editor call to refresh a
+publication-base wrapper.
+
 Focused regression commands are listed in `../DAILY-MANUAL-RUNBOOK.md`.
 
 ## Preserved Workers AI fallback

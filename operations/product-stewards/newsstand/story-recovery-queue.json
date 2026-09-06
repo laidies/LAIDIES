@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-06T00:26:54.799Z",
+  "updatedAt": "2026-09-06T06:42:01.352Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -84,6 +84,106 @@
         "actualArticleJourneys": 4,
         "providerConfigurationUnchanged": true
       }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "nvidia-hugging-face-acquisition-2026-09-05",
+      "producerPrincipal": "/root",
+      "sourceIdentitySha256": "812db2ae3f249e6441fc595458957a0178b65bb772bc6d498ce3e81a780f7539",
+      "artifactSha256": "438dee3af18e16695b9cac0e9ac407b87f32d8c43192601338f6fbd513f0b82c",
+      "status": "READY_FOR_ADMISSION",
+      "active": true,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-05T20:57:59-07:00",
+      "lastReviewedAt": "2026-09-06T04:04:48.985Z",
+      "attempts": [
+        {
+          "artifactSha256": "438dee3af18e16695b9cac0e9ac407b87f32d8c43192601338f6fbd513f0b82c",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-06T04:04:48.985Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/independent-review.json",
+            "sha256": "1b8baf1298f82a4d2041677fae8bcff70be27427bb6db9b827557dfe203a3235"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/independent-raw-report.json",
+            "sha256": "fead9d8430da845174d5e5580d6fb044e818bf19c6bd8a968043c8e2c7fac0b1"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/ordinary-candidate.json",
+        "sha256": "edccfe3ed499a863bdb535bfb352b6b4f2ce062a78170a4fb4b3d15e10fbc6a6"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "812db2ae3f249e6441fc595458957a0178b65bb772bc6d498ce3e81a780f7539",
+        "artifactSha256": "438dee3af18e16695b9cac0e9ac407b87f32d8c43192601338f6fbd513f0b82c",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/independent-review.json",
+          "sha256": "1b8baf1298f82a4d2041677fae8bcff70be27427bb6db9b827557dfe203a3235"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/independent-raw-report.json",
+          "sha256": "fead9d8430da845174d5e5580d6fb044e818bf19c6bd8a968043c8e2c7fac0b1"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "gastric-cancer-prediction-2026-09-05",
+      "producerPrincipal": "/root",
+      "sourceIdentitySha256": "46d3da6ed43ce2bfb18c1596ae4a014f515f0970c3089ef222140312d6515bb4",
+      "artifactSha256": "94eb8f857baacf00cb55a900e3de9b0b868c9f30d8052225352ff930489f19ae",
+      "status": "READY_FOR_ADMISSION",
+      "active": true,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-05T22:58:40-07:00",
+      "lastReviewedAt": "2026-09-06T06:11:35.734Z",
+      "attempts": [
+        {
+          "artifactSha256": "94eb8f857baacf00cb55a900e3de9b0b868c9f30d8052225352ff930489f19ae",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-06T06:11:35.734Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/independent-review.json",
+            "sha256": "a2c66e7799c4b6de3132fa5fb1de0e6db2d3512e5def3228f1e8001e274de4a6"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/independent-raw-report.json",
+            "sha256": "8f728c87a8cab83771d22f1c4dbe8102a167d59a5ad9f70fdb9a897c68acd5c0"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/ordinary-candidate.json",
+        "sha256": "90854c55a7d6797cb517862bee3bcca247b705c3a22b8b0883c6586ca7b2c610"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "46d3da6ed43ce2bfb18c1596ae4a014f515f0970c3089ef222140312d6515bb4",
+        "artifactSha256": "94eb8f857baacf00cb55a900e3de9b0b868c9f30d8052225352ff930489f19ae",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/independent-review.json",
+          "sha256": "a2c66e7799c4b6de3132fa5fb1de0e6db2d3512e5def3228f1e8001e274de4a6"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/independent-raw-report.json",
+          "sha256": "8f728c87a8cab83771d22f1c4dbe8102a167d59a5ad9f70fdb9a897c68acd5c0"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
     }
   ]
 }
