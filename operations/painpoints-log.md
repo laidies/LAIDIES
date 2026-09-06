@@ -15986,3 +15986,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Inspect collapsed default reading path and actual background/text colours at desktop and narrow phone; keep optional controls optional. Case-normalise taxonomy labels and matching together.
 - Evidence: Native collapsed controls, desktop/390 independent review, root320 date-field repair and negative case-variant regression test.
 - Behind the Build: Make the first useful action obvious before presenting every option. Share the general design lesson only.
+
+## BTB-513 — Layout must follow the content shape
+- Date: 2026-09-06
+- Failure: Float wrapping orphaned a line beneath Mme art; a column spanning two neighbours created emptiness. Alternating catch-up colours implied false grouping.
+- Prevention: Give portrait readings a fixed image/text composition; keep town images prominent and group content through consistent spacing/rules. Research precedents before another style patch; private equal-column pilot remains unapproved.
+- Behind the Build: A design can contain all the right pieces but still tell readers the wrong reading order.

@@ -382,3 +382,6 @@ into another decision ledger.
 
 ## 2026-09-06 — NewsStand archive presentation correction
 Ali rejects the oversized form, flat yellow sidebar and cream/purple archive treatment. Use a compact newspaper index with masthead texture, navy text and coloured reading surface; search first, optional filters/topics collapsed. Merge casing variants without losing matching stories. This supersedes prior archive visual acceptance, not content or reader policy.
+
+## 2026-09-06 — Town and catch-up separation
+Ali rejects alternating catch-up colour blocks, butter-yellow town panels, reduced town images and Mme CLAi-O float wrapping/orphan line and empty column. Restore prominent images, explicit newspaper separators and fixed image/text flow; no butter-yellow panel.

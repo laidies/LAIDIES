@@ -1,3 +1,6 @@
+<!-- Town/catch-up layout: RESEARCHED, private pilot HOLD -->
+Ali requested research before another published revision. Recommendation: dedicated fixed-image/text Mme reading, two large illustrated town columns beneath, chronological catch-up list with consistent background. Private three-column pilot is preserved but not admitted/deployed. Exact resume: operations/product-stewards/newsstand/layout-research-20260906.md. Live remains65a7ff3e.
+
 <!-- Archive presentation: VERIFIED PUBLICLY -->
 Source f39614e5 deployed 65a7ff3e; four exact public responses match. Actual live IAB search returned the copyright story; compact view and unique topics verified. Compact search-first newspaper index; optional filters/topics and case-normalised matches. Root desktop390/320 and independent desktop390 reviewed. Existing anchor initial-scroll and filtered-context return remain navigation follow-ups. Evidence: operations/product-stewards/newsstand/evidence/archive-design-20260906/.
 
