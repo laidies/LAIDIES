@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import deck from "../../../../episode-editorial-review-2026-09-06/episode-01/flashcards.json";
 import { useCardBinder } from "./useCardBinder.js";
+import { PuffySleeve } from "./PuffySleeve.jsx";
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
@@ -49,6 +50,7 @@ function CollectionCard({
   isFlipped,
   isCurrent,
   onFlip,
+  placements,onPlacements,stickersDisabled,
 }) {
   const actionRef=useRef(null);
   useEffect(()=>{if(isFlipped)actionRef.current?.focus({preventScroll:true});},[isFlipped]);
@@ -84,6 +86,7 @@ function CollectionCard({
       <button ref={actionRef} className="card-action" type="button" onClick={onFlip}>
         {isFlipped ? "SHOW THE FRONT" : "FLIP THIS CARD"}
       </button>
+      <PuffySleeve card={card} placements={placements} onChange={onPlacements} disabled={stickersDisabled}/>
     </article>
   );
 }
@@ -161,7 +164,8 @@ function CardPack() {
       <section className="card-binder-actions" aria-label="Save trading cards">
         <p role="status">{binder.message}</p>
         <button type="button" onClick={binder.save} disabled={binder.busy}>{binder.retry ? 'RETRY CARD SAVE' : 'SAVE ALL FOUR TO MY BINDER'}</button>
-        <button type="button" onClick={binder.refresh} disabled={binder.busy}>CHECK SAVED CARDS</button>
+        <button type="button" onClick={binder.refresh} disabled={binder.busy||binder.dirty||binder.retry}>CHECK SAVED CARDS</button>
+        {binder.dirty&&!binder.retry&&<button type="button" onClick={binder.discard} disabled={binder.busy}>DISCARD UNSAVED STICKER CHANGES</button>}
         {binder.guest && <a href="/laidies-card.html" target="_blank" rel="noreferrer">SIGN IN AT MY CLOSET</a>}
         <a href="/laidies-card.html#episodeBinderVessel">OPEN MY EPISODE BINDER</a>
       </section>
@@ -188,6 +192,9 @@ function CardPack() {
                   isFlipped={flippedCard === index}
                   isCurrent={current === index}
                   onFlip={() => flipCard(index)}
+                  placements={binder.placementsByCard[card.id]||[]}
+                  onPlacements={value=>binder.setPlacements(card.id,value)}
+                  stickersDisabled={!binder.editable||binder.busy||binder.retry}
 
                 />
               );

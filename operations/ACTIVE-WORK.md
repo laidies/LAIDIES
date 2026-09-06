@@ -17,7 +17,8 @@
 > Try-On now accepts a checked unchanged draft with a judgment note; zero-rating completion and truthful Not rated receipt were browser-verified locally.
 > Private Episode Binder counts now clear on account changes and remain absent from public profiles; synthetic browser checks verified account-specific totals.
 > Live Supabase dashboard is signed out; normal login route question is pending with Ali. No live migration applied.
-> Puffy placement UI, complete design/content admission, live saving and new audio remain open.
+> Internal Puffy sleeve placement is built; local interrupted-save/return/reload and expiry checks passed with synthetic accounts.
+> Complete design/content admission, real account/pouch restoration, live saving and new audio remain open.
 > Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.
 > Trailer, other binders and later-season mapping are deferred. Shared iCloud working files are preserved.
 
