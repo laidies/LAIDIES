@@ -1,0 +1,1 @@
+Owner requests a little bright border around the small Did you know images. Add2px lime outline to all8 tiles, matching existing --hp-lime CTA/burst. Outline preserves actual72/56px dimensions and all image crop geometry. Keep existing backgrounds, question mark, burst, tangerine text, copy, links and controls. Preview only.

@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Bright border around discovery images
+
+Ali requests a small bright border around the banner thumbnails. Use a thin2px outline in existing --hp-lime #b7e42b, matching the burst/links. Apply to all8 small images; preserve their size/crop, existing backgrounds, text, layout and controls. Preview only.
+
 ## 2026-09-06 — Lime burst behind the question mark
 
 Ali requests a green burst behind the Did you know question mark matching the Take me to the Mall link. Bind the existing --hp-lime #b7e42b. Keep the existing question mark, tangerine text, coral/pink Miss Jeeves backdrop, compact geometry and all content/actions. Reuse suitable existing art where available; no flat generic substitute. Preview only.
