@@ -15873,3 +15873,6 @@ Accessible names alone did not tell sighted listeners which bare slider was volu
 
 ## 2026-09-06 — Player attribution clarity
 A separator dot did not communicate which text was the band. Label Song and Band explicitly, retain credits on phones, and never confuse the subject of a tribute with its performer. Actual browser text and narrow-screen visibility checked. Behind the Build: attractive metadata still needs clear meaning.
+
+## 2026-09-06 — Persistent player space budget
+Earlier visual review missed the governing cross-page cost: a large, readable player still obscures too much of the host page. Ali prioritized transport and volume over metadata. New compact preview checks actual narrow-phone height and another content page; title is bounded and smaller. Prevention: review persistent components against host-page reading space, not only in isolation. Behind the Build: controls earn space; metadata adapts.

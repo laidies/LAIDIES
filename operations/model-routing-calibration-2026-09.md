@@ -80,3 +80,5 @@ and the next review date only if continued measurement can change a decision.
 | 2026-09-06 | Player slider labels/time and suggestions | Foreground model/effort not exposed; Terra/Low background inventory | Bounded DOM/time formatting with local visual checks | 5–15 min | unavailable | Labels/time work; mobile heading alignment repaired | Reused actual wallpaper reference; suggestions not built | Terra likely adequate |
 
 | 2026-09-06 | KSVL wallpaper preview | Astra foreground; Terra Low independent source/pixel review | Existing asset reuse and responsive interaction verification | Short | Unavailable | First visual review: no blockers | No new generation or deployment | Cheaper foreground likely sufficient for bounded implementation |
+
+| 2026-09-06 | Compact shared KSVL controls | Astra foreground, Terra Low review | Responsive UI and iterative owner steering | Medium | Unavailable | Final independent review no blockers | Owner redirected metadata width and visible volume; incorporated | Terra likely sufficient for implementation |

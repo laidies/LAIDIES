@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Compact control-first player: LOCAL PREVIEW.** Revised after Ali rejected oversized title area. Unified strip, smaller bounded title, Back/Play/Next/Volume visible on phone; Expand reveals secondary controls and full metadata. Actual Radio/NewsStand preview checked at320/390/1280. Phone320 height98px, desktop1280 height81px; no overflow. Volume keyboard, expansion, Stop & close and NewsStand song restart checked. Not published; all-page deployment audit not performed.
+
 > **2026-09-06 — Attribution labels: VERIFIED LOCAL.** Dot replaced by explicit Song and Band labels, both visible on phones; DJ intro uses Now and Host. Browser reads Song: Welcome to SUNNYVAiLE / Band: THE LAiDIES. Dolly Parton is part of a saint-song title; catalogue band is Grand Ol' Query, not Dolly. No publishing. Slim default player remains outstanding; current wallpaper size is not accepted.
 
 > **2026-09-06 — Wallpaper player: LOCAL PREVIEW / OWNER REVIEW PENDING.** Ali requested a preview of the proposed illustrated casing and compact phone controls. Existing Rewind wallpaper reused with mint/lime panels, larger title, decorative CD removed. Mobile More controls reveals volume, shuffle, repeat, pop-out, station and stop; progress and transport stay visible. Actual 1280/390/320px checked with no horizontal overflow; native toggle, volume keyboard and pause work. No deployment. Evidence: `operations/ksvl-player-colours-20260906/WALLPAPER-PREVIEW.md`.

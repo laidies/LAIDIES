@@ -363,6 +363,39 @@
     + '.ksvl-np-controls { display:grid; grid-template-columns:1fr auto; padding:7px 10px; gap:3px 8px; } .ksvl-np-deck { justify-content:flex-start; gap:8px; } .ksvl-np-more { display:block; } .ksvl-np-progress-field { grid-column:1 / -1; width:100%!important; } .ksvl-np-field-heading { min-height:0; flex-wrap:nowrap; } .ksvl-np-progress-field input { min-height:32px; }'
     + '.ksvl-np-extras { display:none; grid-column:1 / -1; flex-wrap:wrap; justify-content:center; gap:6px 12px; padding-top:6px; border-top:1px solid #492878; } .ksvl-now-playing.is-expanded .ksvl-np-extras { display:flex; } .ksvl-np-extras .ksvl-np-slider-field { width:92px; } .ksvl-np-lbl { font-size:9px; } .ksvl-np-ico { width:30px; height:30px; } .ksvl-np-btn--play .ksvl-np-ico { width:38px; height:38px; } }';
 
+  // The sitewide default is a compact strip; full controls open on demand.
+  STYLE += '.ksvl-np-more { display:block; } .ksvl-np-extras { display:none; } .ksvl-now-playing.is-expanded .ksvl-np-extras { display:flex; }'
+    + '.ksvl-now-playing:not(.is-expanded) { padding:5px 10px; gap:8px; flex-wrap:nowrap; align-items:center; border-top-width:3px; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 0; min-width:0; padding:5px 10px; border:0; border-radius:6px; box-shadow:none; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-mix, .ksvl-now-playing:not(.is-expanded) .ksvl-np-up-next { display:none; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track { display:block; font-size:12px; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-position { display:block; font-size:10px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { display:flex; flex:0 0 auto; gap:8px; padding:2px 6px; border:0; border-radius:6px; box-shadow:none; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-deck { gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-ico { width:28px; height:28px; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-btn--play .ksvl-np-ico { width:32px; height:32px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-lbl { font-size:8px; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-more { padding:4px 7px; font-size:11px; }'
+    + '@media(max-width:900px) { .ksvl-now-playing:not(.is-expanded) .ksvl-np-progress-field { display:none; } }'
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { padding:4px; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { padding:6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { gap:3px; padding:2px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-deck > :first-child, .ksvl-now-playing:not(.is-expanded) .ksvl-np-deck > :last-child { display:flex; } }';
+
+  STYLE += '.ksvl-now-playing:not(.is-expanded) { justify-content:center; background:#7de2c2; border-top:5px solid #c195e9; box-shadow:0 -2px 8px rgba(40,20,65,.16); }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info, .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { background:transparent; border-radius:0; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 220px; margin-right:0; }'
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 150px; } }';
+
+  STYLE += '.ksvl-np-title-text { display:inline-block; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { overflow:hidden; text-overflow:clip; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track.has-overflow .ksvl-np-title-text { animation:ksvl-title-scroll 14s linear infinite alternate; }'
+    + '@keyframes ksvl-title-scroll { 0%,20% { transform:translateX(0); } 80%,100% { transform:translateX(var(--title-travel,0px)); } }'
+    + '@media(prefers-reduced-motion:reduce) { .ksvl-np-title-text { animation:none!important; } }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:80px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-volume { width:100%; }'
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { flex-wrap:wrap; gap:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 100%; display:flex; align-items:center; gap:10px; padding:2px 6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { flex:1; min-width:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-position { max-width:40%; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:1 1 100%; justify-content:center; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound > .ksvl-np-btn { display:none; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:65px; } .ksvl-now-playing.is-expanded .ksvl-np-sound { grid-column:1 / -1; justify-content:center; } }';
+
+  function updateTitleOverflow() {
+    if (!npTrack || !npTrack.firstElementChild) return;
+    var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;
+    npTrack.classList.toggle('has-overflow', overflow > 2);
+    npTrack.style.setProperty('--title-travel', -Math.max(0, overflow) + 'px');
+  }
+
   function injectStyle() {
     if (document.getElementById('ksvl-mix-cds-style')) return;
     var s = document.createElement('style');
@@ -510,6 +543,7 @@
     var info = el('div', {class: 'ksvl-np-info'});
     npMix = el('span', {class: 'ksvl-np-mix'});
     npTrack = el('span', {class: 'ksvl-np-track'});
+    if (typeof ResizeObserver === 'function') new ResizeObserver(updateTitleOverflow).observe(npTrack);
     npPosition = el('span', {class: 'ksvl-np-position'});
     npStatus = el('span', {
       class: 'ksvl-np-status',
@@ -548,11 +582,11 @@
     deck.appendChild(next);
     controls.appendChild(deck);
     var more = el('button', {type: 'button', class: 'ksvl-np-more',
-      'aria-expanded': 'false', 'aria-controls': 'ksvl-np-extras', text: 'More controls',
+      'aria-expanded': 'false', 'aria-controls': 'ksvl-np-extras', text: 'Expand',
       onclick: function() {
         var open = np.classList.toggle('is-expanded');
         more.setAttribute('aria-expanded', String(open));
-        more.textContent = open ? 'Fewer controls' : 'More controls';
+        more.textContent = open ? 'Collapse' : 'Expand';
       }
     });
     controls.appendChild(more);
@@ -595,14 +629,14 @@
     sound.appendChild(volumeField);
     progressField.classList.add('ksvl-np-progress-field');
     controls.appendChild(progressField);
-    extras.appendChild(sound);
+    controls.appendChild(sound);
     // Group 2 — station: pop out · KSVL · stop
     var station = el('div', {class: 'ksvl-np-group'});
     if (!IS_POPUP) {
       station.appendChild(npButton('ksvl-np-btn--link', '⧉', 'Pop out', {'aria-label': 'Pop out the player — music continues while you browse', title: 'Pop out — music continues while you browse', onclick: popOutPlayer}));
     }
     station.appendChild(npButton('ksvl-np-btn--link', '📻', 'KSVL', {href: '/radio.html', 'aria-label': 'Go to KSVL Radio', title: 'Open KSVL Radio'}));
-    station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop', {'aria-label': 'Stop the music', title: 'Stop', onclick: stopPlayer}));
+    station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop & close', {'aria-label': 'Stop music and close player', title: 'Stop music, close player and clear saved position', onclick: stopPlayer}));
     extras.appendChild(station);
     controls.appendChild(extras);
     np.appendChild(info);
@@ -647,7 +681,14 @@
     // Show the current part's label if this is a multi-part track (intro/spot pair).
     var displayTitle = (track.parts && part && part.title) ? part.title : track.title;
     var displayArtist = (track.parts && part && part.artist) ? part.artist : track.artist;
-    npTrack.textContent = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Now: ' : 'Song: ') + displayTitle;
+    npTrack.title = displayTitle;
+    npPosition.title = displayArtist;
+    var titleText = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Now: ' : 'Song: ') + displayTitle;
+    if (!npTrack.firstElementChild || npTrack.firstElementChild.textContent !== titleText) {
+      npTrack.textContent = '';
+      npTrack.appendChild(el('span', {class:'ksvl-np-title-text', text:titleText}));
+    }
+    requestAnimationFrame(updateTitleOverflow);
     npPosition.textContent = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: ') + displayArtist;
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
     setBtnLabel(npPlayBtn, state.paused ? 'Resume' : 'Pause');
