@@ -60,6 +60,7 @@ The objective gates were calibrated with known-bad mutations before being truste
 
 ## Release boundary and remaining item
 
+- Patron correction commits on the assigned owner branch: `eb96f40276db433830d384eea522c155e7960580` and `e443a814a0533fe554bd84f86ede5c545454b139`.
 - No push or Cloudflare deployment was performed.
 - Public custom and immutable origins were not verified because the exact current production artifact and coordinated Pages slot are still required before release.
 - Carrie Bradshaw's song remains the only intentionally deferred content item. The page is honest about that state and never requests a missing audio file.

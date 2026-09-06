@@ -1212,4 +1212,5 @@ objective; every open lane keeps its own checkpoint.
 - **Verification:** the full HTTP browser suite passes every cover/profile route, all 43 images, all 108 destinations, playlist/deferred audio, search, keyboard focus, signed admission with and without Web Crypto, storage/fetch/audio failures, account restoration into My Closet, and desktop/390/320 layout.
 - **Handoff:** `operations/product-stewards/luminairy/complete-profile-release-candidate-2026-09-05.md` is the authoritative coverage and release-boundary record.
 - **Implementation commit:** `49c2277d166922302935b83f96802fcb6d01a1f0` on `feature/luminairy-card-profile-20260905`.
+- **Patron correction commits:** Mayor Deb correction `eb96f40276db433830d384eea522c155e7960580`; complete 13-card likeness/edge pass `e443a814a0533fe554bd84f86ede5c545454b139`.
 - **Release boundary:** no push or deployment. Recover and verify the exact current production artifact and coordinated Pages slot before any public release, then verify custom and immutable origins.
