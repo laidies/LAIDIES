@@ -1,6 +1,6 @@
-# Six Resident Card background options — rebuilt from Ali’s references
+# Resident Card backgrounds — current review
 
-These six original background-art candidates replace the earlier thin-border experiments. They are unselected artwork, not Ali-approved assets or an installed page update. Memphis remains rejected. The old stretched zigzag and off-brand pastel colourways must not be reused.
+Open [CURRENT REVIEW — five designs and their status](REVIEW.md). Ali likes Roller Rink, Radio Night and Retro Desktop. Electric Diagonal and Neon Brushwork remain awaiting her verdict. Disco is rejected and excluded from the review; earlier stretched/pastel/Memphis versions are also excluded. Nothing is installed on the page.
 
 ## What changed
 
@@ -13,14 +13,6 @@ Current electric palette source: `operations/reference/current-colours.md`, with
 These are full background compositions, not prebuilt Card shells. The fixed current portrait/text mount has NOT been integrated or tested against these new images. Preserve the live Card/account/Closet identity and saved IDs; do not flatten resident data into any background. In particular, Disco and Neon Brushwork need light text or an independently tested readable overlay, while the object images need deliberate crop/layer decisions to avoid covering their visual subjects with the portrait. Do not copy these into production as automatic drop-ins. Check actual contrast, text fit and desktop/mobile layout after a selection. No deployment is included.
 
 ## Options
-
-### Disco after dark
-
-Disco ball, heel and vinyl; navy, purple, cyan and pink. Inspiration references: 04,10.
-
-![Disco after dark](01-disco.png)
-
-Original: [01-disco.png](01-disco.png) — 1681 × 936; SHA-256 `81792fea9ac1c18d3577972a4ffc92c3adcd5317a8345a608705bc75b8f0651f`.
 
 ### Roller rink
 
@@ -72,3 +64,5 @@ Maker inspected each original; independent Terra/Medium review applied the revis
 Ali: “the skate ones and the boom box are good.” Positive design feedback applies to exact `02-roller-rink-v2.png` and `04-radio-night-v3.png`. Preserve these images unchanged as the two liked directions. This is design preference, not integrated-page or deployment approval.
 
 Ali objected to the disco ball as the wrong era emphasis. `01-disco.png` is REJECTED for this set and must not be selected. A CD/Discman replacement was proposed but has not been made. Other candidates remain unselected.
+
+Ali additionally said “the computer one is good.” Positive design preference now includes exact `03-retro-desktop.png`, alongside02-roller-rink-v2 and04-radio-night-v3. This does not authorize deployment.
