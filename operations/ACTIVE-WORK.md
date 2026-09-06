@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Homepage retro wallpaper: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source deeee9ae; hosted evidence d4e96d7e; https://0081455c.laidies-sunnyvaile.pages.dev/#dyk-title . Existing preview tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Original lilac inked pattern with owner-requested lips/heel refinement. Desktop/mobile full page and real tab verified; ten bad admission cases rejected. Existing sections, banner refinements and interactions preserved. Continue consolidated homepage review; no production promotion.
+
 > **2026-09-06 — Discovery thumbnail borders: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source c71a299f; hosted evidence b5999d7b; https://5706ad0d.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. All 16 hosted desktop/mobile slide states pass; actual tab and phone pixels inspected. Continue consolidated homepage review. No production promotion.
 
 > **2026-09-06 — Lime burst: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source a6af03db; hosted evidence f27d5435; https://1abc4170.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Exact lime match and hosted desktop/mobile16rows verified; actual tab and phone pixels inspected. No new image generation. Current NewsStand234eebcf/0875d9b preserved. Continue consolidated homepage review; no production promotion.

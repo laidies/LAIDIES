@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Original Rewind Era outer wallpaper
+
+Ali requests replacing the homepage full-page navy ground using inspiration in operations/reference/reusable-backgrounds/90s-background-inspiration. She loves the original lilac illustrated direction, says the purple may be fine, and requests fewer cassettes with shoes/lips instead. Retain the palette and illustration style; two cassette motifs replaced by glossy lips and a high heel. New original asset assets/homepage/rewind-wallpaper-20260906.webp; reference originals preserved. Scope is homepage body only, preserving opaque section backgrounds, copy, cards and controls. Source deeee9ae; hosted evidence d4e96d7e; https://0081455c.laidies-sunnyvaile.pages.dev/#dyk-title . Existing preview tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Bright borders around discovery images
 
 Ali requests a small bright border around the banner thumbnails. Shared 2px outline uses --hp-lime #b7e42b, matching the burst and CTA. Apply to all eight; preserve image dimensions, crops, backgrounds, text and controls. Source c71a299f; hosted evidence b5999d7b; https://5706ad0d.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
