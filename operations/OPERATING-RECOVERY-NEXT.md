@@ -11,7 +11,7 @@ Original whole-operation audit (September 5) was re-read and compared with the
 current event projector, run queue, current app owners, config and GitHub checks.
 The parent handoff remains immutable as this task's bound brief.
 
-1. **Instruction distribution — repaired locally, integration pending.** Apply
+1. **Instruction distribution — committed/pushed; integrate PR103 after CI.** Apply
    the approved Astra/Medium default and safeguards from 532386f9/683db5ad,
    retaining D-141/D-143 and cheaper task-fit roles. Both tracked configs now
    match; generated instructions and config parity are CI requirements. The
@@ -46,6 +46,10 @@ The parent handoff remains immutable as this task's bound brief.
    site/CI/cloud intake do not prove unattended research-to-publication or media
    production. Existing product owners retain these remaining delivery steps.
 
+Repair commits: `297b0ea6` (distribution and current-task binding), `6195f638`
+(standing-card authority corrections). PR103 includes the prior handoff commits.
+Remote merge/check truth: https://github.com/laidies/LAIDIES/pull/103 .
+
 Loading evidence: installed Codex 0.153.4 `debug prompt-input` returned the
 Astra safeguards, adaptive routing and calibration in the isolated checkout.
 `doctor` loaded Astra config; its aggregate exit was failure because the tool
@@ -53,6 +57,10 @@ terminal is TERM=dumb, unrelated to config loading. No trust record or native
 hook registration was changed. Official config reference checked September 6:
 https://learn.chatgpt.com/docs/config-file/config-reference#configtoml . Project
 config requires trust; current composer/session overrides remain independent.
+
+Skipped check: the local town-wide pre-commit check failed with ENOENT for
+`content/episode-index.json` in this sparse operations checkout. Its documented
+bypass was used for these ops-only commits; no site consistency pass is claimed.
 
 Local verification: config-sync calibration; instruction-distribution
 calibration; exact generated/config comparisons; work-event and hook guard

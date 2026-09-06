@@ -8,7 +8,7 @@
 > Approved Astra distribution is reconciled, isolated-parent writes prevented,
 > and negative instruction/config tests pass. CLI prompt inspection loads Astra
 > safeguards; native hook invocation/trust remains unverified. Current next:
-> commit, run remote CI and integrate this bounded repair into main, then reconcile
+> finish remote CI and integrate PR103 (source297b0ea6/6195f638) into main, then reconcile
 > operating coverage and the existing Cloud maintenance trigger. Homepage and
 > NewsStand remain with their current active owners; media lanes are retained.
 > Details and ranked remaining work: `OPERATING-RECOVERY-NEXT.md`.
