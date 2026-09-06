@@ -15,6 +15,7 @@
 > Two fresh guided responses (ChatGPT/Gemini) are captured; Claude access and full set reconciliation remain open.
 > Episode01 now makes Dolly’s Common Sense teaching job explicit, corrects Cher’s RSVP reference and qualifies Lean In survey scope in both editions.
 > Try-On now accepts a checked unchanged draft with a judgment note; zero-rating completion and truthful Not rated receipt were browser-verified locally.
+> Private Episode Binder counts now clear on account changes and remain absent from public profiles; synthetic browser checks verified account-specific totals.
 > Live Supabase dashboard is signed out; normal login route question is pending with Ali. No live migration applied.
 > Puffy placement UI, complete design/content admission, live saving and new audio remain open.
 > Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.

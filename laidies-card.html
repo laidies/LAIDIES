@@ -1134,13 +1134,14 @@
     (function() {
       'use strict';
       var params = new URLSearchParams(window.location.search);
-      var isPublic = !!(params.get('u') || params.get('member'));
+      var isPublic = !!(params.get('u') || params.get('member') || window.location.pathname.startsWith('/@'));
 
       // src: count element the vessel renderers already write to (single source
       // of truth — the dashboard never re-derives). src:null = buildings tile,
       // counted from laidies_building_visits. pub: shown on someone else's
       // Closet (only tiles backed by their synced reward events qualify).
       var TILES = [
+        { icon: '📒', label: 'My Episode Binder', src: 'episodeBinderCount', target: 'episodeBinderVessel', total: null, pub: false, unknown: '—', hint: 'Private · saved learning items' },
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
         { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
         { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'This-device summary' },
@@ -1160,9 +1161,9 @@
           } catch (e) { return 0; }
         }
         var el = document.getElementById(t.src);
-        if (!el) return 0;
+        if (!el) return t.unknown || 0;
         var n = parseInt(el.textContent, 10);
-        return isNaN(n) ? 0 : n;
+        return isNaN(n) ? (t.unknown || 0) : n;
       }
 
       function mount() {
@@ -1507,7 +1508,8 @@
     <!-- Episode binder: private account material; never shown on public cards. -->
     <section class="episode-binder" id="episodeBinderVessel" aria-labelledby="episodeBinderTitle" data-clarity-mask="True" hidden>
       <h3 id="episodeBinderTitle">My Episode Binder</h3>
-      <p>Study Packs, exercises, trading cards and quiz results you chose to keep.</p>
+      <p>Private episode work saved to your account: Study Packs, exercises, lesson trading cards and quiz attempts.</p>
+      <p><strong id="episodeBinderCount" data-episode-binder-count>—</strong> saved items</p>
       <p data-episode-binder-status role="status">Opening your episode binder…</p>
       <div class="episode-binder-actions">
         <a href="/resident-card.html#rcAccountTitle" data-episode-binder-sign-in hidden>Sign in to open my binder</a>

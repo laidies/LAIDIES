@@ -23,6 +23,10 @@
     });
     prompt.append(warning,cancel,confirm);controls.append(open,prompt);card.append(controls);
   }
+  function itemCount(episode){
+    if(!episode)return 0;
+    return Object.keys(episode.packs).length+Object.keys(episode.exercises).length+Object.keys(episode.cards).length+Object.values(episode.quizzes).reduce((n,quiz)=>n+quiz.attempts.length,0);
+  }
   function render(documentValue,host,onRemove){
     host.replaceChildren();
     for(const number of ['01','02','03','04']){
@@ -30,7 +34,8 @@
       const page=element('details',undefined,'episode-binder-page');
       const summary=element('summary');summary.append(element('span',`EP ${number}`,'episode-binder-tab'),element('span',TITLES[number]));page.append(summary);
       const inside=element('div',undefined,'episode-binder-pocket');
-      const count=episode?Object.values(episode).reduce((n,items)=>n+Object.keys(items).length,0):0;
+      const count=itemCount(episode);
+      summary.lastChild.append(element('small',`${count} saved ${count===1?'item':'items'}`,'episode-binder-page-count'));
       if(!count)inside.append(element('p','Nothing saved for this episode yet.'));
       else {
         page.open=true;
@@ -71,14 +76,16 @@
     const params=new URLSearchParams(location.search);
     if(params.get('u')||params.get('member')||location.pathname.startsWith('/@')){root.hidden=true;return;}
     root.hidden=false;
-    const host=root.querySelector('[data-episode-binder-pages]'),status=root.querySelector('[data-episode-binder-status]'),refresh=root.querySelector('[data-episode-binder-refresh]'),signIn=root.querySelector('[data-episode-binder-sign-in]');
+    const host=root.querySelector('[data-episode-binder-pages]'),status=root.querySelector('[data-episode-binder-status]'),refresh=root.querySelector('[data-episode-binder-refresh]'),signIn=root.querySelector('[data-episode-binder-sign-in]'),countNode=root.querySelector('[data-episode-binder-count]');
+    function resetCount(){if(countNode)countNode.textContent='—';}
     let runtime,binder,subscription,epoch=0,owner='',disposed=false,removing=false;
-    function clear(){epoch++;owner='';binder?.invalidate();host.replaceChildren();}
+    function clear(){epoch++;owner='';binder?.invalidate();host.replaceChildren();resetCount();}
     function accountChanged(){clear();signIn.hidden=false;status.textContent='The account changed. Previous account material has been closed.';}
     function cleanup(){disposed=true;clear();refresh.removeEventListener('click',load);subscription?.unsubscribe();binder?.dispose();}
     global.addEventListener('pagehide',cleanup,{once:true});
     function show(documentValue){
       const token={epoch,owner};
+      if(countNode)countNode.textContent=Object.values(documentValue.episodes).reduce((n,episode)=>n+itemCount(episode),0);
       render(documentValue,host,(descriptor,key)=>removeSaved(descriptor,key,token));
     }
     async function removeSaved(descriptor,key,token){
@@ -98,7 +105,7 @@
     }
     async function load(){
       if(removing)return;
-      const request=++epoch;host.replaceChildren();refresh.disabled=true;status.textContent='Opening your episode binder…';
+      const request=++epoch;host.replaceChildren();resetCount();refresh.disabled=true;status.textContent='Opening your episode binder…';
       try{
         const session=await runtime.controller.getSession();if(disposed||request!==epoch)return;
         if(!session?.user?.id){clear();signIn.hidden=false;status.textContent='Sign in to open the episode material you saved to your account.';return;}
