@@ -42,6 +42,7 @@ function checkpointFor(event, item, lineNumber) {
   const tuple = event.payload?.handoff;
   let handoff;
   try { handoff = readCommittedHandoff(tuple, { root }); } catch (error) { throw new Error(`line ${lineNumber} invalid recovery handoff: ${error.message}`); }
+  if (item.recovery_scope && (handoff.brief?.path !== item.recovery_scope.brief.path || handoff.brief?.sha256 !== item.recovery_scope.brief.sha256 || JSON.stringify(handoff.accept) !== JSON.stringify(item.recovery_scope.accept))) throw new Error(`${event.work_id} checkpoint changes admitted brief or acceptance criteria; a subsidiary milestone cannot replace the objective`);
   if (handoff.task !== event.work_id) throw new Error(`line ${lineNumber} handoff task does not match work_id`);
   if (handoff.acceptance_owner !== item.acceptance_owner) throw new Error(`line ${lineNumber} handoff acceptance_owner does not match admitted owner`);
   if (!committedStates.has(handoff.worktree_truth?.state)) throw new Error(`line ${lineNumber} recovery handoff requires committed worktree_truth`);
@@ -68,6 +69,12 @@ export function projectWorkEvents(file = eventsPath) {
       if (item.status !== 'UNADMITTED') throw new Error(`${event.work_id} admitted more than once`);
       const contract = event.payload.recovery_contract;
       if (contract && contract !== recoveryContract) throw new Error(`line ${index + 1} unknown recovery_contract: ${contract}`);
+      if (event.payload.recovery_scope) {
+        const scope = event.payload.recovery_scope;
+        if (contract !== recoveryContract || !/^[a-zA-Z0-9-]{1,100}$/.test(scope.session_id || '') || !scope.brief?.path || !/^[a-f0-9]{64}$/.test(scope.brief?.sha256 || '') || !Array.isArray(scope.accept) || !scope.accept.length || !scope.accept.every(v => typeof v === 'string' && v.trim())) throw new Error('recovery_scope requires recovery contract, session_id, brief binding and acceptance criteria');
+        if ([...work.values()].some(other => other.recovery_scope?.session_id === scope.session_id && !['RESOLVED', 'STOPPED'].includes(other.status))) throw new Error('session already has an unfinished governing task');
+        item.recovery_scope = scope;
+      }
       item.status = 'ADMITTED'; item.title = event.payload.title; item.work_class = event.payload.work_class || null; item.lane_mode = event.payload.lane_mode || null; item.acceptance_owner = event.payload.acceptance_owner; item.admitted_at = event.at; item.recovery_contract = contract || null;
     } else if (event.type === 'WORK_STARTED') {
       if (!['ADMITTED', 'WAITING_EXTERNAL', 'IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY'].includes(item.status)) throw new Error(`${event.work_id} cannot start from ${item.status}`);
@@ -81,7 +88,9 @@ export function projectWorkEvents(file = eventsPath) {
       if (item.status === 'RESOLVED' || item.status === 'STOPPED') throw new Error(`${event.work_id} received dependency after terminal state`);
       item.dependencies.push(event.payload);
       if (event.payload.status === 'WAITING_EXTERNAL') {
+        if (item.recovery_scope && !['owner', 'reason', 'next_trigger'].every(key => typeof event.payload[key] === 'string' && event.payload[key].trim())) throw new Error('bound waiting requires owner, reason and next_trigger');
         if (item.recovery_contract === recoveryContract && !item.checkpoint) throw new Error(`${event.work_id} cannot wait without a recovery checkpoint`);
+        if (item.recovery_scope && (event.payload.checkpoint_event_id !== item.checkpoint.event_id || event.payload.next_trigger !== item.checkpoint.next_trigger)) throw new Error('bound waiting must cite latest checkpoint and its exact next_trigger');
         item.status = Array.isArray(event.payload.does_not_block) && event.payload.does_not_block.length ? 'IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY' : 'WAITING_EXTERNAL';
       }
     } else if (event.type === 'WORK_RESOLVED') {
@@ -94,7 +103,11 @@ export function projectWorkEvents(file = eventsPath) {
         if (!sameTruth(event.payload.worktree_truth, item.checkpoint.worktree_truth)) throw new Error(`${event.work_id} resolution worktree_truth must match checkpoint`);
       }
       item.status = 'RESOLVED'; item.resolved_at = event.at;
-    } else if (event.type === 'WORK_STOPPED') item.status = 'STOPPED';
+    } else if (event.type === 'WORK_STOPPED') {
+      if (item.recovery_scope && event.actor !== item.acceptance_owner) throw new Error('bound stop must be recorded by acceptance_owner; actor metadata is not authenticated approval');
+      if (item.recovery_scope && !['reason', 'next_trigger'].every(key => typeof event.payload[key] === 'string' && event.payload[key].trim())) throw new Error('bound stop requires reason and next_trigger; it is not completion');
+      item.status = 'STOPPED';
+    }
     else item.metric_events.push({ type: event.type, at: event.at, payload: event.payload });
     item.last_event_at = event.at; item.last_event_id = event.event_id; work.set(event.work_id, item);
   }
@@ -115,10 +128,28 @@ function resumePacket(workId) {
   return packet;
 }
 
+export function sessionWorkPacket(sessionId, projection = projectWorkEvents()) {
+  const matches = projection.items.filter(item => item.recovery_scope?.session_id === sessionId);
+  const active = matches.filter(item => !['RESOLVED', 'STOPPED'].includes(item.status));
+  if (active.length > 1) throw new Error('multiple unfinished governing tasks for session');
+  const item = active[0] || matches.at(-1);
+  if (!item) return { bound: false };
+  return { bound: true, work_id: item.work_id, objective: item.title, status: item.status,
+    scope: item.recovery_scope, checkpoint: item.checkpoint?.event_id || null,
+    next_trigger: item.checkpoint?.next_trigger || 'Continue the admitted objective; record a checkpoint before waiting.',
+    dependency: item.dependencies.at(-1) || null,
+    stop_allowed: ['RESOLVED', 'STOPPED', 'WAITING_EXTERNAL'].includes(item.status),
+    limitation: 'Recorded identity and state only; not semantic quality, human approval or automatic execution.' };
+}
+
 const direct = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (direct) try {
   const resumeIndex = process.argv.indexOf('--resume');
-  if (resumeIndex >= 0) { const workId = process.argv[resumeIndex + 1]; if (!workId) throw new Error('--resume requires work_id'); process.stdout.write(`${JSON.stringify(resumePacket(workId), null, 2)}\n`); }
+  const sessionIndex = process.argv.indexOf('--session');
+  if (sessionIndex >= 0) {
+    const id = process.argv[sessionIndex + 1]; if (!id) throw new Error('--session requires session_id');
+    process.stdout.write(JSON.stringify(sessionWorkPacket(id)) + '\n');
+  } else if (resumeIndex >= 0) { const workId = process.argv[resumeIndex + 1]; if (!workId) throw new Error('--resume requires work_id'); process.stdout.write(`${JSON.stringify(resumePacket(workId), null, 2)}\n`); }
   else {
     const projection = projectWorkEvents();
     const rendered = `${JSON.stringify(projection, null, 2)}\n`;

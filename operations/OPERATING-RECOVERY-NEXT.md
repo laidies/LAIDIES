@@ -4,6 +4,53 @@ Updated September 5, 2026. This is the compact entry for one workstream, not
 universal agent context or a second portfolio database. Current product owners
 and their exact artifacts outrank historical snapshots below.
 
+## Current priority — 2026-09-06: operating continuity repair
+
+This section supersedes all historical “next” instructions below. The inbox is
+PARKED; it is a synthetic pilot, not an accepted design or Ali's working tool.
+Do not reopen its design, propose Homepage work, repeat phone setup or activate
+PR95 as a substitute for operating-system continuity.
+
+Actual failure chain in the private task history: after the cloud review at
+22:31 UTC, the parent ended at intermediate milestones (22:49 and 23:09), then
+redefined the next finish line as a usable inbox at 23:37. The roadmap's governing
+step 3 remained unfinished. No current-session work record bound that objective.
+The existing Stop hook checked projection consistency only; the outer workspace
+has no hook registration. Current-process hook loading cannot be claimed.
+
+Repair: the existing work-event projector now accepts an opt-in recovery_scope
+with session ID, exact brief binding and immutable acceptance criteria. Changed
+brief/criteria, duplicate active governing tasks, and undocumented external waits
+fail. Startup retrieves that session's governing packet. Stop returns one bounded
+continuation reminder for unfinished bound work, and permits explicit external
+waits. Recursive continuation remains bounded to avoid a costly endless loop.
+This checks declared state, not semantic quality or authenticated approval.
+Legacy events remain legacy; they are not retroactively certified. No global
+portfolio task is allowed to block an unrelated session.
+
+Manual Cloud recovery on September 6 resumed from PR96 and checked PR97–101.
+Five exact heads had successful baseline checks; no new actionable finding or
+owner decision was reported. The parent independently matched all five heads and
+check results against GitHub. Prior review acceptance was retained without
+asking Ali again. Private chat is the detailed source; no founder response or
+capability belongs in this public repository.
+
+Remaining: the existing daily 09:00 America/Vancouver maintenance automation's
+first actual scheduled execution (saved September 6), direct phone response and
+Mac-off observation. Last-run and next-run fields still returned null. A manual
+run is not scheduled evidence. The cloud job owns that trigger; the parent owns
+reconciliation and broader operating repair. No duplicate schedule is needed.
+Native automatic hook loading for this task remains unverified; executable hook
+fixture tests alone do not establish it. Preserve the current session and test
+loading at a supported resume rather than claiming this conversation is fixed.
+
+Run: `node scripts/test-project-work-events.mjs` and
+`node scripts/test-codex-hook-guards.mjs`. The first now rejects changed objective,
+changed brief, duplicate lane, undocumented wait/stop and premature turn stopping;
+it permits exact resolution and a documented external wait. Initial full-hook
+local test lacked sparse library.html; materializing that tracked fixture fixed
+the environment, and the unchanged hook suite then passed.
+
 ## Owner and continuity
 
 Task: **LAiDIES operating system and launch readiness**
