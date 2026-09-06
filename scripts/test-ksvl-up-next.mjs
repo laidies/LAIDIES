@@ -31,7 +31,10 @@ function runtime(random = 0.6) {
   const context = { Audio: FakeAudio, Math: math, window: {}, console,
     playCurrentPart: () => played.push(context.state.index),
     realStopPlayer: () => events.push(['real-stop']),
-    stopPlayer: () => events.push(['stop']) };
+    updateNowPlaying: () => events.push(['render']),
+    syncSoundControls: () => events.push(['sync']),
+    announce: () => events.push(['announce']),
+    saveState: () => events.push(['save']) };
   vm.createContext(context);
   vm.runInContext(`${stateSource}\n${resolverSource}\n${preloadSource}\n${playIndexSource}\nthis.api = { state, nextInFlow, nextTitle, preloadNextInFlow, advanceOnEnded, playIndex };`, context);
   return { ...context.api, played, events };
@@ -46,7 +49,7 @@ function queue() {
 }
 
 function setup(api, extra = {}) {
-  Object.assign(api.state, { queue: queue(), index: 0, currentPart: 0, mixId: 'all',
+  Object.assign(api.state, { queue: queue(), index: 0, currentPart: 0, mixId: 'all', finished: false,
     signingOff: false, shuffle: false, repeatMode: 'all', nextChoice: null,
     preloadedAudio: null, preloadedSrc: null }, extra);
 }
@@ -69,21 +72,22 @@ function setup(api, extra = {}) {
   assert.equal(api.nextTitle(), 'Later');
 }
 
-{ // playlist endings follow repeat mode precisely
+{ // playlist endings follow repeat mode precisely; a terminal queue stays available
   const api = runtime(); setup(api, { index: 2, repeatMode: 'all' });
   assert.equal(api.nextTitle(), 'One'); api.advanceOnEnded(); assert.deepEqual(api.played, [0]);
   setup(api, { index: 2, repeatMode: 'off' });
   assert.equal(api.nextTitle(), ''); api.preloadNextInFlow(); assert.equal(api.state.preloadedSrc, null);
-  api.advanceOnEnded(); assert.deepEqual(api.events, [['stop']]);
+  api.advanceOnEnded();
+  assert.equal(api.state.finished, true);
+  assert.equal(api.state.index, 2, 'finish retains the selected-first queue position');
+  assert.equal(api.state.queue.length, 3, 'finish does not discard replayable queue');
   setup(api, { index: 1, repeatMode: 'one' });
   assert.equal(api.nextTitle(), 'Two'); api.advanceOnEnded(); assert.deepEqual(api.played, [0, 1]);
 }
 
-{ // no false promise after a single selection or sign-off
-  const api = runtime(); setup(api, { mixId: 'single' });
+{ // a deliberate sign-off still hard-stops instead of leaving a finished queue
+  const api = runtime(); setup(api, { signingOff: true });
   assert.equal(api.nextTitle(), ''); api.advanceOnEnded(); assert.deepEqual(api.events, [['real-stop']]);
-  setup(api, { signingOff: true });
-  assert.equal(api.nextTitle(), ''); api.advanceOnEnded(); assert.deepEqual(api.events, [['real-stop'], ['real-stop']]);
 }
 
 { // shuffle reserves one choice: preview, preload and auto-advance agree

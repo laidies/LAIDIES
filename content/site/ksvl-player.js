@@ -403,6 +403,10 @@
 
   STYLE += '.ksvl-now-playing, .ksvl-now-playing * { font-weight:400!important; } .ksvl-now-playing .ksvl-np-track, .ksvl-now-playing .ksvl-np-title-text { font-weight:700!important; }';
 
+  STYLE += '.ksvl-now-playing .ksvl-np-position strong, .ksvl-now-playing .ksvl-np-controls, .ksvl-now-playing .ksvl-np-controls * { font-weight:700!important; }';
+
+  STYLE += '.ksvl-now-playing.is-finished .ksvl-np-up-next { display:block!important; }';
+
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
     var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;
@@ -437,6 +441,8 @@
     queue: [],
     index: 0,
     currentPart: 0,       // for multi-part tracks (intro+spot)
+    finished: false,
+    startTrackId: null,
     nextChoice: null,     // reserve shuffle once for preview, preload and playback
     paused: false,
     shuffle: false,
@@ -460,7 +466,7 @@
   // One resolver owns the actual next item, including multipart intros/spots.
   function nextInFlow() {
     var track = state.queue[state.index];
-    if (!track) return null;
+    if (!track || state.finished) return null;
     if (track.parts && state.currentPart < track.parts.length - 1) {
       return {index: state.index, part: state.currentPart + 1, item: track.parts[state.currentPart + 1]};
     }
@@ -490,7 +496,7 @@
     var title = remoteOwner ? remoteOwner.upNextTitle : nextTitle();
     // Older remote players cannot promise a shuffled choice they have not made.
     npUpNext.hidden = typeof title !== 'string';
-    npUpNext.textContent = typeof title !== 'string' ? '' : title ? 'Up next: ' + title : 'Up next: End of playlist';
+    npUpNext.textContent = typeof title !== 'string' ? '' : state.finished ? 'Finished' : title ? 'Up next: “' + title + '”' : 'Last song';
   }
 
 
@@ -712,10 +718,13 @@
       npTrack.appendChild(el('span', {class:'ksvl-np-title-text', text:titleText}));
     }
     requestAnimationFrame(updateTitleOverflow);
-    npPosition.textContent = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: ') + displayArtist;
+    npPosition.textContent = '';
+    npPosition.appendChild(el('strong', {text: (track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: '}));
+    npPosition.appendChild(document.createTextNode(displayArtist));
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
-    setBtnLabel(npPlayBtn, state.paused ? 'Resume' : 'Pause');
-    npPlayBtn.setAttribute('aria-label', state.paused ? 'Resume' : 'Pause');
+    setBtnLabel(npPlayBtn, state.finished ? 'Play again' : state.paused ? 'Resume' : 'Pause');
+    npPlayBtn.setAttribute('aria-label', state.finished ? 'Play again' : state.paused ? 'Resume' : 'Pause');
+    np.classList.toggle('is-finished', !!state.finished);
     npShuffleBtn.classList.toggle('is-active', state.shuffle);
     npShuffleBtn.setAttribute('aria-label', state.shuffle ? 'Shuffle · on' : 'Shuffle · off');
     npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
@@ -1101,6 +1110,7 @@
   var playToken = 0;
   function playIndex(i) {
     state.restoring = false;
+    state.finished = false;
     state.nextChoice = null;
     state.index = ((i % state.queue.length) + state.queue.length) % state.queue.length;
     state.currentPart = 0;
@@ -1213,7 +1223,7 @@
       else audio.addEventListener('loadedmetadata', seekRestored, {once: true});
       if (!restoration.play) {
         state.paused = true;
-        announce('Pick up where you left off. Press Resume to keep listening.', 'status', true);
+        announce(state.finished ? 'Finished. Press Play again to restart this playlist.' : 'Pick up where you left off. Press Resume to keep listening.', 'status', true);
         updateNowPlaying();
         syncSoundControls();
         return;
@@ -1256,10 +1266,27 @@
 
   function advanceOnEnded() {
     if (state.signingOff) { realStopPlayer(); return; }
-    if (state.mixId === 'single') { realStopPlayer(); return; }
+    if (state.mixId === 'single') { finishPlaylist(); return; }
     var next = nextInFlow();
-    if (!next) { stopPlayer(); return; }
+    if (!next) { finishPlaylist(); return; }
     playIndex(next.index);
+  }
+
+  function finishPlaylist() {
+    state.finished = true;
+    state.paused = true;
+    state.nextChoice = null;
+    state.preloadedAudio = null; state.preloadedSrc = null;
+    if (state.audio) state.audio.pause();
+    announce('Finished. Press Play again to restart this playlist.', 'status', true);
+    updateNowPlaying();
+    syncSoundControls();
+    saveState();
+  }
+
+  function catalogueStartingWith(trackId) {
+    var index = TRACKS.findIndex(function(track) { return track.id === trackId; });
+    return index < 0 ? [] : TRACKS.slice(index).concat(TRACKS.slice(0, index));
   }
 
   function toggleShuffle() {
@@ -1324,9 +1351,8 @@
   window.KSVL_startAlbum = startAlbum;
   window.KSVL_tracksForArtist = tracksForArtist;
 
-  // Play a SINGLE track through the KSVL deck. A song plays as itself — NOT the
-  // station rotation — but still gets the persistent Now-Playing bar + pop-out,
-  // so a specific song and the radio share one player. Used by the ♪ song chips.
+  // Page song choices start the complete admitted catalogue at the chosen song.
+  // Keep the entry point name for existing page callers; playback defaults to one pass.
   function startSingle(track) {
     if (!track || !track.src || !isAdmittedSource(track.src)) {
       announce('That track cannot start right now. Please choose another one.', 'held');
@@ -1336,8 +1362,9 @@
     track = TRACKS.filter(function(item) { return item.src === track.src; })[0];
     if (!track) return false;
     if (sendRemote('track', track.id)) return true;
-    state.mixId = 'single';
-    state.queue = [{ id: track.id || '', title: track.title || 'LAiDIES', artist: track.artist || 'LAiDIES', src: track.src }];
+    state.mixId = 'catalogue';
+    state.startTrackId = track.id;
+    state.queue = catalogueStartingWith(track.id);
     state.index = 0;
     state.currentPart = 0;
     state.shuffle = false;
@@ -1411,6 +1438,7 @@
 
   function togglePlay() {
     if (sendRemote('toggle')) return;
+    if (state.finished && state.queue.length) { playIndex(0); return; }
     if (!state.audio) {
       if (state.queue.length) { state.restoring = false; playCurrentPart(); }
       return;
@@ -1441,6 +1469,7 @@
     stopExistingAudio();
     state.mixId = null; state.queue = []; state.index = 0; state.currentPart = 0; state.paused = false;
     state.signingOff = false;
+    state.finished = false; state.startTrackId = null;
     state.preloadedAudio = null; state.preloadedSrc = null;
     if (np) np.classList.remove('is-visible');
     document.querySelectorAll('.ksvl-cd').forEach(function(cd) { cd.classList.remove('is-playing'); });
@@ -1596,6 +1625,7 @@
       var ctx = null, extra = {};
       if (state.mixId.indexOf('album:') === 0) { ctx = 'album'; extra.artist = state.mixId.slice(6); }
       else if (MIXES.some(function(m){ return m.id === state.mixId; })) { ctx = 'mix'; extra.mixId = state.mixId; }
+      else if (state.mixId === 'catalogue') { ctx = 'catalogue'; extra.startTrackId = state.startTrackId; }
       else if (state.mixId === 'single' || state.mixId === 'live') { ctx = state.mixId; }
       else { return null; }
       var track = state.queue[state.index];
@@ -1607,6 +1637,7 @@
         ctx: ctx,
         trackId: trackIdFor(track),
         currentTime: currentTime,
+        finished: !!state.finished,
         paused: !!state.paused,
         shuffle: !!state.shuffle,
         repeatMode: state.repeatMode || 'all',
@@ -1646,16 +1677,19 @@
 
   function validateSavedState(s) {
       var baseKeys = ['v','registryId','ctx','trackId','currentTime','paused','shuffle','repeatMode','volume','muted','savedAt'];
-      var expectedKeys = s && s.ctx === 'mix' ? baseKeys.concat('mixId') :
+      if (s && Object.prototype.hasOwnProperty.call(s, 'finished')) baseKeys.push('finished');
+      var expectedKeys = s && s.ctx === 'catalogue' ? baseKeys.concat('startTrackId') : s && s.ctx === 'mix' ? baseKeys.concat('mixId') :
         (s && s.ctx === 'album' ? baseKeys.concat('artist') :
           (s && ['live','single'].includes(s.ctx) ? baseKeys : []));
       var now = Date.now();
       if (!s || !expectedKeys.length ||
           Object.keys(s).sort().join('|') !== expectedKeys.sort().join('|') ||
           s.v !== 1 || s.registryId !== activeRegistryId ||
-          !['mix','album','live','single'].includes(s.ctx) ||
+          !['mix','album','live','single','catalogue'].includes(s.ctx) ||
           typeof s.trackId !== 'string' || !s.trackId ||
           !Number.isFinite(s.currentTime) || s.currentTime < 0 || s.currentTime > 86400 ||
+          (s.finished !== undefined && (typeof s.finished !== 'boolean' || (s.finished && !s.paused))) ||
+          (s.ctx === 'catalogue' && (typeof s.startTrackId !== 'string' || !TRACKS.some(function(t) { return t.id === s.startTrackId; }))) ||
           typeof s.paused !== 'boolean' || typeof s.shuffle !== 'boolean' ||
           !['off','all','one'].includes(s.repeatMode) ||
           !Number.isFinite(s.volume) || s.volume < 0 || s.volume > 1 ||
@@ -1671,6 +1705,7 @@
   }
 
   function queueForSaved(s) {
+    if (s.ctx === 'catalogue') return catalogueStartingWith(s.startTrackId);
     if (s.ctx === 'mix') return tracksForMix(s.mixId);
     if (s.ctx === 'album') return tracksForArtist(s.artist);
     if (s.ctx === 'live') return TRACKS.slice();
@@ -1691,7 +1726,9 @@
     }
     // Rehydrate state — station opener is added at queue[0], real tracks start at 1.
     state.mixId = (s.ctx === 'album') ? ('album:' + s.artist) : (s.ctx === 'mix' ? s.mixId : s.ctx);
-    state.queue = queue.map(wrapWithIntro);
+    state.queue = s.ctx === 'catalogue' ? queue : queue.map(wrapWithIntro);
+    state.startTrackId = s.ctx === 'catalogue' ? s.startTrackId : null;
+    state.finished = !!s.finished;
     state.index = trackIdx;
     state.currentPart = 0;
     state.shuffle = !!s.shuffle;
@@ -1709,7 +1746,7 @@
     var s = readSavedState();
     if (!s) return;
     restoreQueue(s);
-    state.restoring = {time: s.currentTime, play: !!continuePlaying && !s.paused};
+    state.restoring = {time: s.currentTime, play: !!continuePlaying && !s.paused && !s.finished};
     playCurrentPart();
   }
 

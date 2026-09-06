@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Page-song full catalogue: VERIFIED LOCAL / NOT PUBLISHED.** Page-song API now rotates admitted catalogue to selected song, repeat/shuffle off, full one-pass queue. Natural end stays visible Finished/Play again; original anchor and finished state persist. Browser verified NewsStand -> Ep01, last-song finish, finished navigation to Radio, replay back to NewsStand, repeat-one replay, and320px no overflow. Typography clarification implemented and computed weights verified. Existing/new extracted-source tests pass. Pop-out transfer not re-exercised; state payload tests cover restoration.
+
 > **2026-09-06 — Player text weights: VERIFIED LOCAL.** Only Song/title bold. Browser computed title700; band, Up next, slider headings, control labels and Expand400. Preview refreshed; not published.
 
 > **2026-09-06 — Mute alignment: VERIFIED LOCAL.** Removed collapsed sound-group vertical offset and standardized circle dimensions. Actual320px Back/Resume/Next/Mute circles all y679.60 and labels all y714.60; no overflow. Preview only.

@@ -82,3 +82,5 @@ and the next review date only if continued measurement can change a decision.
 | 2026-09-06 | KSVL wallpaper preview | Astra foreground; Terra Low independent source/pixel review | Existing asset reuse and responsive interaction verification | Short | Unavailable | First visual review: no blockers | No new generation or deployment | Cheaper foreground likely sufficient for bounded implementation |
 
 | 2026-09-06 | Compact shared KSVL controls | Astra foreground, Terra Low review | Responsive UI and iterative owner steering | Medium | Unavailable | Final independent review no blockers | Owner redirected metadata width and visible volume; incorporated | Terra likely sufficient for implementation |
+
+| 2026-09-06 | Selected-song full catalogue and finish/replay | Astra foreground; Terra Low tests/review | Queue, persistence and browser integration | Medium | Unavailable | Both suites and representative browser journeys pass | Bolding omission corrected alongside playback | Terra implementation likely sufficient with same integration checks |

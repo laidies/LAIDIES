@@ -15878,3 +15878,6 @@ A separator dot did not communicate which text was the band. Label Song and Band
 Earlier visual review missed the governing cross-page cost: a large, readable player still obscures too much of the host page. Ali prioritized transport and volume over metadata. New compact preview checks actual narrow-phone height and another content page; title is bounded and smaller. Prevention: review persistent components against host-page reading space, not only in isolation. Behind the Build: controls earn space; metadata adapts.
 
 2026-09-06 player follow-up: compactness must preserve accepted decorative identity. Do not propagate phone disclosure onto desktop where controls fit; verify the actual breakpoint result.
+
+## 2026-09-06 — Natural playback finish versus explicit close
+Closing a player at the natural end discards context users need to replay. Treat natural finish as a retained state and reserve queue clearing for explicit Stop & close. A selected-first full catalogue needs a persisted origin anchor; restoring from the current track alone changes the queue. Tested actual end/navigation/replay plus invalid-anchor and unique-order cases. Behind the Build: a playlist is also a remembered listening intention. Typography clarification was discussed without implementation; confirmed later with actual computed text weights.
