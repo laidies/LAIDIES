@@ -33,6 +33,7 @@ for(const width of [1280,390,320]){
  await page.goto(origin+'/newsstand#'+prior.slug,{waitUntil:'domcontentloaded'});await page.locator('.ns-article--big-picture').waitFor();
  await page.locator('.ns-big-picture-history summary').click();
  assert.equal(await page.locator('.ns-big-picture-history').innerText().then(t=>/Ali’s|Claude-edited|rejected draft/.test(t)),false);
+ if(process.env.NEWSSTAND_BIG_PICTURE_URL){assert.equal(await page.locator('.ns-big-picture-history li').count(),2);await page.locator('.ns-big-picture-history').screenshot({path:path.join(output,'current-history-'+width+'.png')});}
  if(!process.env.NEWSSTAND_BIG_PICTURE_URL){
   await page.getByRole('link',{name:/^Read the version from/}).click();
   await page.locator('[data-retained-version]').waitFor();assert.equal(await page.locator('#ns-story-title').innerText(),prior.headline);

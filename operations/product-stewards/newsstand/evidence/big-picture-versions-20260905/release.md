@@ -1,6 +1,6 @@
 # Big Picture reader history and privacy repair
 
-Status: LOCAL VERIFICATION COMPLETE; source commit and public release pending.
+Status: VERIFIED PUBLICLY — source98bcb60d96d010d00e1f973bf934c6b2f9ed96aa; productione58b23d6-769d-4625-a4ff-f57b0d874a7f.
 
 The six public-path changes add retained-version reading and remove private
 production notes from the current Big Picture log and archive projection.
@@ -51,3 +51,29 @@ test omitted artifact directories; that test-only production bypass was removed
 and calibrated. No repository-wide green claim or new article freshness check.
 
 Public verification and exact source/deployment binding follow after release.
+
+## Public verification
+
+Source98bcb60d was committed/pushed before productione58b23d6. Both
+https://laidies.ai/newsstand and the immutablee58b23d6 origin pass the actual
+current-history and unavailable-version reader journeys at1280/390/320, with
+focus/current return and zero script errors. Current history has exactly two
+reader-facing entries. Thirty changed/protected response comparisons match the
+complete artifact; private candidates were not included. The live provider head
+matches the intended commit and the actual provider settings downloaded before
+and after deployment are identical ignoring comments/whitespace.
+
+The first configuration comparison used the previous release's locally adapted
+wrapper rather than its raw provider settings (relative output path and a
+top-level service declaration differed). The fresh actual provider download was
+retained without field edits for this deployment. A first HTML hash request did
+not follow the normal /newsstand.html redirect; final-route comparisons match.
+Future comparisons must use the provider read-back and final visitor response,
+not an adapted local wrapper or a redirect body.
+
+The narrow Library candidate was committed privately as HOLD, not released.
+Its four preserved context excerpts retain original trailing blank lines for
+exact source binding; the staged whitespace check reported those four EOF
+blanks. Authored public paths/code checks are clean. Repository-wide sparse
+hooks were not rerun or called green; scoped checks preceded the intentional
+hook bypass.
